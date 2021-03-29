@@ -1,0 +1,53 @@
+# -*- coding: UTF-8 -*-
+
+CONTENT_TYPE = "Content-Type"
+CONTENT_TYPE_JSON = "application/json"
+DEFAULT_CONTENT_TYPE = CONTENT_TYPE_JSON + "; charset=utf-8"
+
+HTTP_HEADER_KEY_REQUEST_ID = "X-Request-Id"
+HTTP_HEADER_KEY_LOG_ID = "X-Log-Id"
+HTTP_KEY_STATUS_CODE = "http_status_code"
+
+APP_TYPE_ISV = "isv"
+APP_TYPE_INTERNAL = "internal"
+
+DOMAIN_FEISHU = "https://open.feishu.cn"
+DOMAIN_LARK_SUITE = "https://open.larksuite.com"
+
+CALLBACK_TYPE_EVENT = "event_callback"
+CALLBACK_TYPE_CHALLENGE = "url_verification"
+
+SDK_VERSION = "1.0.0"
+
+OAPI_ROOT_PATH = "open-apis"
+
+APP_ACCESS_TOKEN_INTERNAL_URL_PATH = "auth/v3/app_access_token/internal"
+APP_ACCESS_TOKEN_ISV_URL_PATH = "auth/v3/app_access_token"
+
+TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH = "auth/v3/tenant_access_token/internal"
+TENANT_ACCESS_TOKEN_ISV_URL_PATH = "auth/v3/tenant_access_token"
+
+APPLY_APP_TICKET_PATH = "auth/v3/app_ticket/resend"
+
+ACCESS_TOKEN_TYPE_NONE = 'none_access_token'
+ACCESS_TOKEN_TYPE_APP = 'app_access_token'
+ACCESS_TOKEN_TYPE_TENANT = 'tenant_access_token'
+ACCESS_TOKEN_TYPE_USER = 'user_access_token'
+
+APP_TICKET_KEY_PREFIX = 'app_ticket'
+APP_ACCESS_TOKEN_KEY_PREFIX = 'app_access_token'
+TENANT_ACCESS_TOKEN_KEY_PREFIX = "tenant_access_token"
+EXPIRE_DELTA = 3 * 60
+
+
+ERR_CODE_NATIVE = -1
+ERR_CODE_OK = 0
+ERR_CODE_APP_TICKET_INVALID = 10012
+ERR_CODE_ACCESS_TOKEN_INVALID = 99991671
+ERR_CODE_APP_ACCESS_TOKEN_INVALID = 99991664
+ERR_CODE_TENANT_ACCESS_TOKEN_INVALID = 99991663
+ERR_CODE_USER_ACCESS_TOKEN_INVALID = 99991668
+ERR_CODE_USER_REFRESH_TOKEN_INVALID = 99991669
+
+RETRY_CODE = [ERR_CODE_ACCESS_TOKEN_INVALID,
+              ERR_CODE_APP_ACCESS_TOKEN_INVALID, ERR_CODE_TENANT_ACCESS_TOKEN_INVALID]
