@@ -1,0 +1,11 @@
+include README.md LICENSE slack/py.typed slack_sdk/py.typed
+
+include *.in
+include *.ini
+include *.rst
+include *.txt
+include LICENSE
+include README.md
+
+global-exclude __pycache__ *.py[cod]
+global-exclude *.so *.dylib

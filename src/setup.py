@@ -12,7 +12,7 @@ setup(
     url='https://github.com/larksuite/oapi-sdk-python',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=['crypto==1.4.1', 'pycryptodome>=3.0.0', 'attrs>=19.0.0,<20.0.0',
+    install_requires=['pycryptodome>=3.0.0', 'attrs>=19.0.0',
                       'requests>=2.20.0', 'typing;python_version<"3.5"'],
     classifiers=[
         "Programming Language :: Python",
