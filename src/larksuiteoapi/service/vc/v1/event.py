@@ -10,38 +10,6 @@ from ....event.event import set_event_callback
 from .model import *
 
 
-class MeetingInterviewMeetingCreatedEventHandler(object):
-    def __init__(self, callback):
-        # type: (Callable[[Context, Config, MeetingInterviewMeetingCreatedEvent], Any]) -> None
-        self.handler = callback
-
-    def handle(self, ctx, conf, event):  # type: (Context, Config, MeetingInterviewMeetingCreatedEvent) -> Any
-        return self.handler(ctx, conf, event)
-
-    @staticmethod
-    def set_callback(conf, callback):
-        # type: (Config, Callable[[Context, Config, MeetingInterviewMeetingCreatedEvent], Any]) -> None
-        handler = MeetingInterviewMeetingCreatedEventHandler(callback)
-        set_event_callback(conf, "",
-                          handler.handle, clazz=MeetingInterviewMeetingCreatedEvent)
-
-
-class MeetingJoinMeetingEventHandler(object):
-    def __init__(self, callback):
-        # type: (Callable[[Context, Config, MeetingJoinMeetingEvent], Any]) -> None
-        self.handler = callback
-
-    def handle(self, ctx, conf, event):  # type: (Context, Config, MeetingJoinMeetingEvent) -> Any
-        return self.handler(ctx, conf, event)
-
-    @staticmethod
-    def set_callback(conf, callback):
-        # type: (Config, Callable[[Context, Config, MeetingJoinMeetingEvent], Any]) -> None
-        handler = MeetingJoinMeetingEventHandler(callback)
-        set_event_callback(conf, "",
-                          handler.handle, clazz=MeetingJoinMeetingEvent)
-
-
 class MeetingLeaveMeetingEventHandler(object):
     def __init__(self, callback):
         # type: (Callable[[Context, Config, MeetingLeaveMeetingEvent], Any]) -> None
@@ -54,7 +22,7 @@ class MeetingLeaveMeetingEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, MeetingLeaveMeetingEvent], Any]) -> None
         handler = MeetingLeaveMeetingEventHandler(callback)
-        set_event_callback(conf, "",
+        set_event_callback(conf, "vc.meeting.leave_meeting_v1",
                           handler.handle, clazz=MeetingLeaveMeetingEvent)
 
 
@@ -70,7 +38,7 @@ class MeetingMeetingEndedEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, MeetingMeetingEndedEvent], Any]) -> None
         handler = MeetingMeetingEndedEventHandler(callback)
-        set_event_callback(conf, "",
+        set_event_callback(conf, "vc.meeting.meeting_ended_v1",
                           handler.handle, clazz=MeetingMeetingEndedEvent)
 
 
@@ -86,7 +54,7 @@ class MeetingMeetingStartedEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, MeetingMeetingStartedEvent], Any]) -> None
         handler = MeetingMeetingStartedEventHandler(callback)
-        set_event_callback(conf, "",
+        set_event_callback(conf, "vc.meeting.meeting_started_v1",
                           handler.handle, clazz=MeetingMeetingStartedEvent)
 
 
@@ -102,8 +70,40 @@ class MeetingRecordingEndedEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, MeetingRecordingEndedEvent], Any]) -> None
         handler = MeetingRecordingEndedEventHandler(callback)
-        set_event_callback(conf, "",
+        set_event_callback(conf, "vc.meeting.recording_ended_v1",
                           handler.handle, clazz=MeetingRecordingEndedEvent)
+
+
+class MeetingShareEndedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, MeetingShareEndedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, MeetingShareEndedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, MeetingShareEndedEvent], Any]) -> None
+        handler = MeetingShareEndedEventHandler(callback)
+        set_event_callback(conf, "vc.meeting.share_ended_v1",
+                          handler.handle, clazz=MeetingShareEndedEvent)
+
+
+class MeetingJoinMeetingEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, MeetingJoinMeetingEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, MeetingJoinMeetingEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, MeetingJoinMeetingEvent], Any]) -> None
+        handler = MeetingJoinMeetingEventHandler(callback)
+        set_event_callback(conf, "vc.meeting.join_meeting_v1",
+                          handler.handle, clazz=MeetingJoinMeetingEvent)
 
 
 class MeetingRecordingStartedEventHandler(object):
@@ -118,7 +118,7 @@ class MeetingRecordingStartedEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, MeetingRecordingStartedEvent], Any]) -> None
         handler = MeetingRecordingStartedEventHandler(callback)
-        set_event_callback(conf, "",
+        set_event_callback(conf, "vc.meeting.recording_started_v1",
                           handler.handle, clazz=MeetingRecordingStartedEvent)
 
 
@@ -134,24 +134,8 @@ class MeetingSendMeetingImEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, MeetingSendMeetingImEvent], Any]) -> None
         handler = MeetingSendMeetingImEventHandler(callback)
-        set_event_callback(conf, "",
+        set_event_callback(conf, "vc.meeting.send_meeting_im_v1",
                           handler.handle, clazz=MeetingSendMeetingImEvent)
-
-
-class MeetingShareEndedEventHandler(object):
-    def __init__(self, callback):
-        # type: (Callable[[Context, Config, MeetingShareEndedEvent], Any]) -> None
-        self.handler = callback
-
-    def handle(self, ctx, conf, event):  # type: (Context, Config, MeetingShareEndedEvent) -> Any
-        return self.handler(ctx, conf, event)
-
-    @staticmethod
-    def set_callback(conf, callback):
-        # type: (Config, Callable[[Context, Config, MeetingShareEndedEvent], Any]) -> None
-        handler = MeetingShareEndedEventHandler(callback)
-        set_event_callback(conf, "",
-                          handler.handle, clazz=MeetingShareEndedEvent)
 
 
 class MeetingShareStartedEventHandler(object):
@@ -166,5 +150,21 @@ class MeetingShareStartedEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, MeetingShareStartedEvent], Any]) -> None
         handler = MeetingShareStartedEventHandler(callback)
-        set_event_callback(conf, "",
+        set_event_callback(conf, "vc.meeting.share_started_v1",
                           handler.handle, clazz=MeetingShareStartedEvent)
+
+
+class MeetingRecordingReadyEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, MeetingRecordingReadyEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, MeetingRecordingReadyEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, MeetingRecordingReadyEvent], Any]) -> None
+        handler = MeetingRecordingReadyEventHandler(callback)
+        set_event_callback(conf, "vc.meeting.recording_ready_v1",
+                          handler.handle, clazz=MeetingRecordingReadyEvent)
