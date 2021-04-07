@@ -559,5 +559,9 @@ def resolve_path(path, path_variables):  # type: (str, Dict[str, str]) -> str
     splitted = path.split('/')
     for i in range(len(splitted)):
         if splitted[i].startswith(':'):
-            splitted[i] = path_variables.get(splitted[i][1:], '')
+            k = splitted[i][1:]
+            v = path_variables.get(splitted[i][1:], '')
+            if v == '':
+                raise RuntimeError("http path:%s, param name `%s` not found value" % (path, k))
+            splitted[i] = v
     return '/'.join(splitted)
