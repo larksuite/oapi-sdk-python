@@ -23,6 +23,8 @@
 
 ## Install
 
+**Latest version, see** [pypi.org](https://pypi.org/project/larksuite-oapi/) .
+
 ---
 
 ```shell
