@@ -26,6 +26,7 @@ conf = test_config_with_redis_store(DOMAIN_FEISHU, app_settings)
 
 def handle(ctx, conf, card):
     # type: (Context, Config, Card) -> Union[None, Dict]
+    print(ctx.get_header().items())
     print('card = %s' % card)
     return {
         "config": {

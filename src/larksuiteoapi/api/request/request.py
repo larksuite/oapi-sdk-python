@@ -4,6 +4,7 @@ from typing import IO, Any, Callable, Dict, List, Tuple, Union, TypeVar, Generic
 
 import requests
 
+from ...model import OapiHeader
 from ... import VERSION
 from ...config import Config
 from ...consts import *
@@ -232,9 +233,8 @@ class Handlers(object):
         self.sign()
         req.do_request(self.config)
         ctx, resp = self.ctx, req.response
-        ctx.set_request_id(resp.headers.get(HTTP_HEADER_KEY_LOG_ID),
-                           resp.headers.get(HTTP_HEADER_KEY_REQUEST_ID))
-        ctx.set_http_status_code(resp.status_code)
+        ctx.set(HTTP_HEADER_KEY, OapiHeader(resp.headers))
+        ctx.set(HTTP_KEY_STATUS_CODE, resp.status_code)
 
         self.validate_response()
         self.parse_response()

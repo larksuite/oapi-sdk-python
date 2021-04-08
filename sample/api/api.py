@@ -83,6 +83,7 @@ def test_send_message():
     req = Request('message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body,
                   output_class=Message, request_opts=[set_timeout(3)])
     resp = req.do(conf)
+    print('header = %s' % resp.get_header().items())
     print('request id = %s' % resp.get_request_id())
     print(resp.code)
     if resp.code == 0:

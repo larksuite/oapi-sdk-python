@@ -2,6 +2,7 @@
 
 from typing import Union, TypeVar, Generic, List
 
+from ...model import OapiHeader
 from ...context import Context
 from ...consts import ERR_CODE_OK
 import attr
@@ -52,6 +53,9 @@ class Response(Generic[T]):
         self.data = data
         self.error = error
         self.msg = msg
+
+    def get_header(self):  # type: () -> OapiHeader
+        return self.ctx.get_header()
 
     def get_request_id(self):  # type: () -> Union[None, str]
         return self.ctx.get_request_id()

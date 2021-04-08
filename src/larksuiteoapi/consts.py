@@ -4,6 +4,7 @@ CONTENT_TYPE = "Content-Type"
 CONTENT_TYPE_JSON = "application/json"
 DEFAULT_CONTENT_TYPE = CONTENT_TYPE_JSON + "; charset=utf-8"
 
+HTTP_HEADER_KEY = "HTTP-Request"
 HTTP_HEADER_KEY_REQUEST_ID = "X-Request-Id"
 HTTP_HEADER_KEY_LOG_ID = "X-Log-Id"
 HTTP_KEY_STATUS_CODE = "http_status_code"
@@ -38,7 +39,6 @@ APP_TICKET_KEY_PREFIX = 'app_ticket'
 APP_ACCESS_TOKEN_KEY_PREFIX = 'app_access_token'
 TENANT_ACCESS_TOKEN_KEY_PREFIX = "tenant_access_token"
 EXPIRE_DELTA = 3 * 60
-
 
 ERR_CODE_NATIVE = -1
 ERR_CODE_OK = 0

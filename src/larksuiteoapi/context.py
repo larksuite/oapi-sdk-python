@@ -1,9 +1,10 @@
 # -*- coding: UTF-8 -*-
 
 
-from typing import Union
+from typing import Union, Any
 
-from .consts import HTTP_HEADER_KEY_REQUEST_ID, HTTP_KEY_STATUS_CODE
+from .consts import HTTP_HEADER_KEY_REQUEST_ID, HTTP_KEY_STATUS_CODE, HTTP_HEADER_KEY, HTTP_HEADER_KEY_LOG_ID
+from .model import OapiHeader
 
 
 class Context(object):
@@ -11,10 +12,10 @@ class Context(object):
         # type: () -> None
         self.__data = {}
 
-    def get(self, key):  # type: (str) -> Union[None, str]
+    def get(self, key):  # type: (str) -> Union[None, Any]
         return self.__data.get(key)
 
-    def set(self, key, value):  # type: (str, str) -> bool
+    def set(self, key, value):  # type: (str, Any) -> bool
         self.__data[key] = value
         return True
 
@@ -25,11 +26,18 @@ class Context(object):
         else:
             self.__data[HTTP_HEADER_KEY_REQUEST_ID] = request_id
 
-    def set_http_status_code(self, code):  # type: (int) -> None
-        self.__data[HTTP_KEY_STATUS_CODE] = code
+    def get_header(self):  # type: () -> OapiHeader
+        header = self.__data[HTTP_HEADER_KEY]
+        if header:
+            return header
+        return OapiHeader()
 
     def get_request_id(self):  # type: () -> Union[None, str]
-        return self.__data.get(HTTP_HEADER_KEY_REQUEST_ID)
+        header = self.get_header()
+        log_id = header.first_value(HTTP_HEADER_KEY_LOG_ID)
+        if log_id:
+            return log_id
+        return header.first_value(HTTP_HEADER_KEY_REQUEST_ID)
 
     def get_http_status_code(self):  # type: () -> Union[None, int]
         return self.__data.get(HTTP_KEY_STATUS_CODE)

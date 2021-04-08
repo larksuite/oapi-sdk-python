@@ -46,6 +46,7 @@ def app_status_change_event_handler(ctx, conf, event):
 
 def user_change(ctx, conf, event):
     # type: (Context, Config, dict) -> None
+    print(ctx.get_header().items())
     print(ctx.get_request_id())
     print(conf.app_settings)
     print(event)

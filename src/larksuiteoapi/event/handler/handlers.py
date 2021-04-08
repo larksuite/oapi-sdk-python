@@ -34,9 +34,7 @@ class EventHandlers(object):
     def parse(self):  # type: () -> None
         httpEvent, conf, ctx = self.httpEvent, self.conf, self.ctx
         req = httpEvent.request
-
-        ctx.set_request_id(req.header.first_value(HTTP_HEADER_KEY_LOG_ID),
-                           req.header.first_value(HTTP_HEADER_KEY_REQUEST_ID))
+        ctx.set(HTTP_HEADER_KEY, req.header)
         encrypt_key = conf.app_settings.encrypt_key
         if encrypt_key is not None and encrypt_key != "":
             req.body = decrypt(req.body, conf.app_settings.encrypt_key.encode("utf-8"))

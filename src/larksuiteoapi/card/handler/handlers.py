@@ -36,18 +36,11 @@ class CardHandlers(object):
     def init(self):  # type: () -> None
         req, ctx = self.httpCard.request, self.ctx
         __headers = req.header
-        ctx.set_request_id(req.header.first_value(HTTP_HEADER_KEY_LOG_ID),
-                           req.header.first_value(HTTP_HEADER_KEY_REQUEST_ID))
+        ctx.set(HTTP_HEADER_KEY, __headers)
         time_stamp = __headers.first_value(LARK_REQUEST_TIMESTAMP)
         nonce = __headers.first_value(LARK_REQUEST_REQUEST_NONCE)
         signature = __headers.first_value(LARK_SIGNATURE)
         refresh_token = __headers.first_value(LARK_REFRESH_TOKEN)
-
-        ctx.set(LARK_REQUEST_TIMESTAMP, time_stamp)
-        ctx.set(LARK_REQUEST_REQUEST_NONCE, nonce)
-        ctx.set(LARK_SIGNATURE, signature)
-        ctx.set(LARK_REFRESH_TOKEN, refresh_token)
-
         self.header.time_stamp = time_stamp
         self.header.nonce = nonce
         self.header.signature = signature

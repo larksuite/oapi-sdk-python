@@ -7,4 +7,4 @@ from .context import *
 from .logger import *
 from .store import *
 
-VERSION = "1.0.7"
+VERSION = "1.0.8"
