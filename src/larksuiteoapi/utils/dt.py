@@ -13,8 +13,10 @@ int_to_string_fields = "__int_to_string_fields__"
 
 
 def to_json(data):
-    od = data.__dict__
+    if not hasattr(data, '__dict__'):
+        return data
     d = {}
+    od = data.__dict__
     attr_field = attr.fields(data.__class__)
     for att in getattr(data, '__attrs_attrs__', []):
         att_name = att.name
@@ -28,12 +30,9 @@ def to_json(data):
             d[json_name] = [to_json(i) for i in v]
         elif isinstance(v, dict):
             d[json_name] = {kk: to_json(vv) for kk, vv in v.items()}
-        elif att_name in od.get(int_to_string_fields, []):
-            if v is None:
-                d[json_name] = None
-            else:
-                d[json_name] = str(v)
-        else:
+        elif att_name in od.get(int_to_string_fields, []) and v is not None:
+            d[json_name] = str(v)
+        elif v is not None:
             d[json_name] = v
     return d
 
