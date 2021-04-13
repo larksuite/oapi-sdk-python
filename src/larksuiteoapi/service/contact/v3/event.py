@@ -200,3 +200,83 @@ class CustomAttrEventUpdatedEventHandler(object):
         handler = CustomAttrEventUpdatedEventHandler(callback)
         set_event_callback(conf, "contact.custom_attr_event.updated_v3",
                           handler.handle, clazz=CustomAttrEventUpdatedEvent)
+
+
+class EmployeeTypeEnumActivedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, EmployeeTypeEnumActivedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, EmployeeTypeEnumActivedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, EmployeeTypeEnumActivedEvent], Any]) -> None
+        handler = EmployeeTypeEnumActivedEventHandler(callback)
+        set_event_callback(conf, "contact.employee_type_enum.actived_v3",
+                          handler.handle, clazz=EmployeeTypeEnumActivedEvent)
+
+
+class EmployeeTypeEnumCreatedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, EmployeeTypeEnumCreatedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, EmployeeTypeEnumCreatedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, EmployeeTypeEnumCreatedEvent], Any]) -> None
+        handler = EmployeeTypeEnumCreatedEventHandler(callback)
+        set_event_callback(conf, "contact.employee_type_enum.created_v3",
+                          handler.handle, clazz=EmployeeTypeEnumCreatedEvent)
+
+
+class EmployeeTypeEnumDeactivatedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, EmployeeTypeEnumDeactivatedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, EmployeeTypeEnumDeactivatedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, EmployeeTypeEnumDeactivatedEvent], Any]) -> None
+        handler = EmployeeTypeEnumDeactivatedEventHandler(callback)
+        set_event_callback(conf, "contact.employee_type_enum.deactivated_v3",
+                          handler.handle, clazz=EmployeeTypeEnumDeactivatedEvent)
+
+
+class EmployeeTypeEnumDeletedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, EmployeeTypeEnumDeletedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, EmployeeTypeEnumDeletedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, EmployeeTypeEnumDeletedEvent], Any]) -> None
+        handler = EmployeeTypeEnumDeletedEventHandler(callback)
+        set_event_callback(conf, "contact.employee_type_enum.deleted_v3",
+                          handler.handle, clazz=EmployeeTypeEnumDeletedEvent)
+
+
+class EmployeeTypeEnumUpdatedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, EmployeeTypeEnumUpdatedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, EmployeeTypeEnumUpdatedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, EmployeeTypeEnumUpdatedEvent], Any]) -> None
+        handler = EmployeeTypeEnumUpdatedEventHandler(callback)
+        set_event_callback(conf, "contact.employee_type_enum.updated_v3",
+                          handler.handle, clazz=EmployeeTypeEnumUpdatedEvent)

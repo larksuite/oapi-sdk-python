@@ -21,6 +21,7 @@ class Service(object):
         self.departments = DepartmentService(self)
         self.scopes = ScopeService(self)
         self.custom_attr_events = CustomAttrEventService(self)
+        self.employee_type_enums = EmployeeTypeEnumService(self)
         
 
 
@@ -460,6 +461,25 @@ class CustomAttrEventService(object):
     def __init__(self, service):
         # type: (Service) -> None
         self.service = service
+
+
+class EmployeeTypeEnumService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def list(self, tenant_key=None, timeout=None):
+        # type: (str, int) -> EmployeeTypeEnumListReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return EmployeeTypeEnumListReqCall(self, request_opts=request_opts)
 
 
 
@@ -1566,6 +1586,41 @@ class DepartmentSearchReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/departments/search', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=DepartmentSearchResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class EmployeeTypeEnumListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (EmployeeTypeEnumService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_page_token(self, pageToken):
+        # type: (str) -> EmployeeTypeEnumListReqCall
+        self.query_params['page_token'] = pageToken
+        return self
+
+    def set_page_size(self, pageSize):
+        # type: (int) -> EmployeeTypeEnumListReqCall
+        self.query_params['page_size'] = pageSize
+        return self
+
+    def do(self):
+        # type: () -> Response[EmployeeTypeEnumListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('contact/v3/employee_type_enums', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
