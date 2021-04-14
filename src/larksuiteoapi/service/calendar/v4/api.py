@@ -731,6 +731,36 @@ class CalendarAclDeleteReqCall(object):
         return resp
 
 
+class CalendarEventCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (CalendarEventService, CalendarEvent, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_calendar_id(self, calendarId):
+        # type: (str) -> CalendarEventCreateReqCall
+        self.path_params['calendar_id'] = calendarId
+        return self
+
+    def do(self):
+        # type: () -> Response[CalendarEventCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('calendar/v4/calendars/:calendar_id/events', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+                      self.body, output_class=CalendarEventCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
 class CalendarAclCreateReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (CalendarAclService, CalendarAcl, List[Any]) -> None
@@ -764,76 +794,6 @@ class CalendarAclCreateReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/acls', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=CalendarAcl, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class CalendarEventCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (CalendarEventService, CalendarEvent, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_calendar_id(self, calendarId):
-        # type: (str) -> CalendarEventCreateReqCall
-        self.path_params['calendar_id'] = calendarId
-        return self
-
-    def do(self):
-        # type: () -> Response[CalendarEventCreateResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('calendar/v4/calendars/:calendar_id/events', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=CalendarEventCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class CalendarListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (CalendarService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> CalendarListReqCall
-        self.query_params['page_size'] = pageSize
-        return self
-
-    def set_page_token(self, pageToken):
-        # type: (str) -> CalendarListReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def set_sync_token(self, syncToken):
-        # type: (str) -> CalendarListReqCall
-        self.query_params['sync_token'] = syncToken
-        return self
-
-    def do(self):
-        # type: () -> Response[CalendarListResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('calendar/v4/calendars', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -885,6 +845,46 @@ class CalendarEventAttendeeListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events/:event_id/attendees', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class CalendarListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (CalendarService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_page_size(self, pageSize):
+        # type: (int) -> CalendarListReqCall
+        self.query_params['page_size'] = pageSize
+        return self
+
+    def set_page_token(self, pageToken):
+        # type: (str) -> CalendarListReqCall
+        self.query_params['page_token'] = pageToken
+        return self
+
+    def set_sync_token(self, syncToken):
+        # type: (str) -> CalendarListReqCall
+        self.query_params['sync_token'] = syncToken
+        return self
+
+    def do(self):
+        # type: () -> Response[CalendarListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('calendar/v4/calendars', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

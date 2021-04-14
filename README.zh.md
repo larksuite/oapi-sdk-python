@@ -395,7 +395,7 @@ app_settings = Config.new_isv_app_settings("AppID", "AppSecret", "VerificationTo
 - 存储（Store）的实现，用于保存访问凭证（app/tenant_access_token）、临时凭证(app_ticket）
     - 推荐使用Redis实现，请看示例代码：[sample/config/config.py](sample/config/config.py) 的 RedisStore
         - 减少获取 访问凭证 的次数，防止调用访问凭证 接口被限频。
-        - 应用商品应用，接受开放平台下发的 `app_ticket` ，会保存到存储中，所以存储（Store）的实现的实现需要支持分布式存储。
+        - 应用商店应用，接受开放平台下发的 `app_ticket` ，会保存到存储中，所以存储（Store）的实现需要支持分布式存储。
 
 ```python
 from larksuiteoapi import Config, AppSettings, \

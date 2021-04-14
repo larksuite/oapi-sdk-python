@@ -175,7 +175,7 @@ def test_download_file(timeout=False, isv=False):
                   [ACCESS_TOKEN_TYPE_TENANT], body, request_opts=operations)
     resp = req.do(conf)
     print('request id = %s' % resp.get_request_id())
-    print(resp.code)
+    print('http status code = %s' % resp.get_http_status_code())
     if resp.code != 0:
         print(resp.msg)
         print(resp.error)
