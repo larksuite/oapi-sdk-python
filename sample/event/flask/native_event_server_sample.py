@@ -6,16 +6,16 @@ from larksuiteoapi.model import OapiHeader, OapiRequest
 from flask import Flask, request
 from flask.helpers import make_response
 
-from larksuiteoapi import Config, DOMAIN_FEISHU
+from larksuiteoapi import Config, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
 
-# 应用商店应用的配置
+# 企业自建应用的配置
 # AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
 # VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_isv_app_settings_from_env("AppID", "AppSecret", "VerificationToken", "EncryptKey")
-app_settings = Config.new_isv_app_settings_from_env()
+# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+app_settings = Config.new_internal_app_settings_from_env()
 
-# 当前访问的是飞书，使用redis store，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config(DOMAIN_FEISHU, app_settings, app_settings, logger, log_level, store)
+# 当前访问的是飞书，使用默认存储、默认日志（Debug级别），更多可选配置，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
+conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
 app = Flask(__name__)
 

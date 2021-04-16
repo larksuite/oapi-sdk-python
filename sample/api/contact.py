@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-from larksuiteoapi.service.im.v1 import Service as ImService, model
+from larksuiteoapi.service.contact.v3 import Service as ContactV3Service, User, model
 from larksuiteoapi import DOMAIN_FEISHU, Store, Config, AppSettings, Logger, LEVEL_DEBUG, LEVEL_INFO, \
     LEVEL_WARN, LEVEL_ERROR, DefaultLogger
 
@@ -13,19 +13,31 @@ app_settings = Config.new_internal_app_settings_from_env()
 # 更多介绍请看：Github->README.zh.md->高级使用->如何构建整体配置（Config）
 conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
-service = ImService(conf)
+service = ContactV3Service(conf)
 
 if __name__ == '__main__':
     # body
-    body = model.MessageCreateReqBody()
-    body.content = '{"text":"<at user_id=\\"ou_a11d2bcc7d852afbcaf37e5b3ad01f7e\\">Tom</at> test content"}'
-    body.msg_type = 'text'
-    body.receive_id = 'ou_a11d2bcc7d852afbcaf37e5b3ad01f7e'
-    req_call = service.messages.create(body=body)
-    req_call.set_receive_id_type('open_id')
-    resp = req_call.do()
+    body = User()
+    body.name = 'rename'
+    body.mobile = '34567'
+    departmentIds1 = ['1', '2']
+    body.department_ids = departmentIds1
+    customAttrs1 = []
+    userCustomAttr1 = model.UserCustomAttr()
+    userCustomAttr1.type = '1'
+    customAttrs1.append(userCustomAttr1)
+    userCustomAttr2 = model.UserCustomAttr()
+    userCustomAttr2.type = '2'
+    customAttrs1.append(userCustomAttr2)
+    body.custom_attrs = customAttrs1
+    req = service.users.patch(body=body, user_access_token='u-rrrrr')
+
+    # path
+    req.set_user_id('open_id')
+
+    resp = req.do()
     print('request id = %s' % resp.get_request_id())
-    print('http status code = %s' % resp.get_http_status_code())
+    print(resp.code)
     if resp.code == 0:
         print(resp.data)
     else:
