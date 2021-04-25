@@ -58,22 +58,6 @@ class ChatDisbandedEventHandler(object):
                           handler.handle, clazz=ChatDisbandedEvent)
 
 
-class ChatMemberBotAddedEventHandler(object):
-    def __init__(self, callback):
-        # type: (Callable[[Context, Config, ChatMemberBotAddedEvent], Any]) -> None
-        self.handler = callback
-
-    def handle(self, ctx, conf, event):  # type: (Context, Config, ChatMemberBotAddedEvent) -> Any
-        return self.handler(ctx, conf, event)
-
-    @staticmethod
-    def set_callback(conf, callback):
-        # type: (Config, Callable[[Context, Config, ChatMemberBotAddedEvent], Any]) -> None
-        handler = ChatMemberBotAddedEventHandler(callback)
-        set_event_callback(conf, "im.chat.member.bot.added_v1",
-                          handler.handle, clazz=ChatMemberBotAddedEvent)
-
-
 class ChatMemberUserAddedEventHandler(object):
     def __init__(self, callback):
         # type: (Callable[[Context, Config, ChatMemberUserAddedEvent], Any]) -> None
@@ -88,6 +72,22 @@ class ChatMemberUserAddedEventHandler(object):
         handler = ChatMemberUserAddedEventHandler(callback)
         set_event_callback(conf, "im.chat.member.user.added_v1",
                           handler.handle, clazz=ChatMemberUserAddedEvent)
+
+
+class ChatMemberBotAddedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, ChatMemberBotAddedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, ChatMemberBotAddedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, ChatMemberBotAddedEvent], Any]) -> None
+        handler = ChatMemberBotAddedEventHandler(callback)
+        set_event_callback(conf, "im.chat.member.bot.added_v1",
+                          handler.handle, clazz=ChatMemberBotAddedEvent)
 
 
 class ChatMemberBotDeletedEventHandler(object):

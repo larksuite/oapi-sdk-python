@@ -135,12 +135,13 @@ class Request(Generic[T]):
         else:
             config.logger.debug("request http_path:%s, http_method:%s, access_token_type:%s, request body:%s" % (
                 self.http_path, self.http_method, self.access_token_type, self.request_body))
+            if self.content_type:
+                session.headers[CONTENT_TYPE] = self.content_type
+
             if self.response_stream_file:
-                session.headers[CONTENT_TYPE] = self.content_type
-                self.response = session.request(
-                    method, path, params=params, data=body, stream=True, timeout=self.timeout)
+                self.response = session.request(method, path, params=params, data=body, stream=True,
+                                                timeout=self.timeout)
             else:
-                session.headers[CONTENT_TYPE] = self.content_type
                 self.response = session.request(method, path, params=params, data=body, timeout=self.timeout)
 
         return self.response
@@ -152,8 +153,11 @@ class Request(Generic[T]):
             return
 
         body = self.request_body
+        if body:
+            self.content_type = DEFAULT_CONTENT_TYPE
+
         if body is None:
-            self.request_body = b''
+            self.request_body = None
         elif isinstance(body, str):
             self.request_body = body.encode('utf-8')
         elif isinstance(body, bytes):
@@ -164,7 +168,6 @@ class Request(Generic[T]):
             self.request_body = json.dumps(to_json(body))
         else:
             raise APIError(message='Unrecognized request_body type')
-        self.content_type = DEFAULT_CONTENT_TYPE
 
     def do(self, conf):
         # type: (Config) -> Response[T]
