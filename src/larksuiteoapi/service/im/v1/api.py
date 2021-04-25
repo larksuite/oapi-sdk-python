@@ -15,17 +15,14 @@ class Service(object):
         # type: (Config) -> None
         self.conf = conf
         self.messages = MessageService(self)
-        self.resources = ResourceService(self)
-        self.announcements = AnnouncementService(self)
         self.chats = ChatService(self)
-        self.images = ImageService(self)
-        self.files = FileService(self)
         self.chat_member_users = ChatMemberUserService(self)
         self.chat_member_bots = ChatMemberBotService(self)
-        self.memberss = MembersService(self)
         self.chat_announcements = ChatAnnouncementService(self)
         self.chat_memberss = ChatMembersService(self)
         self.chat_moderations = ChatModerationService(self)
+        self.files = FileService(self)
+        self.images = ImageService(self)
         self.message_resources = MessageResourceService(self)
         
 
@@ -48,45 +45,6 @@ class MessageService(object):
             request_opts += [set_tenant_key(tenant_key)]
 
         return MessageListReqCall(self, request_opts=request_opts)
-
-    def urgent_app(self, body, tenant_key=None, timeout=None):
-        # type: (UrgentReceivers, str, int) -> MessageUrgentAppReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return MessageUrgentAppReqCall(self, body, request_opts=request_opts)
-
-    def urgent_phone(self, body, tenant_key=None, timeout=None):
-        # type: (UrgentReceivers, str, int) -> MessageUrgentPhoneReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return MessageUrgentPhoneReqCall(self, body, request_opts=request_opts)
-
-    def urgent_sms(self, body, tenant_key=None, timeout=None):
-        # type: (UrgentReceivers, str, int) -> MessageUrgentSmsReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return MessageUrgentSmsReqCall(self, body, request_opts=request_opts)
 
     def patch(self, body, tenant_key=None, user_access_token=None, timeout=None):
         # type: (MessagePatchReqBody, str, str, int) -> MessagePatchReqCall
@@ -171,73 +129,6 @@ class MessageService(object):
             request_opts += [set_tenant_key(tenant_key)]
 
         return MessageGetReqCall(self, request_opts=request_opts)
-
-    def urgent_read_users(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> MessageUrgentReadUsersReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return MessageUrgentReadUsersReqCall(self, request_opts=request_opts)
-
-
-class ResourceService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def get(self, tenant_key=None, response_stream=None, timeout=None):
-        # type: (str, Union[None, IO], int) -> ResourceGetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if response_stream is not None:
-            request_opts += [set_response_stream(response_stream)]
-
-        return ResourceGetReqCall(self, request_opts=request_opts)
-
-
-class AnnouncementService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def get(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> AnnouncementGetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return AnnouncementGetReqCall(self, request_opts=request_opts)
-
-    def patch(self, body, user_access_token=None, timeout=None):
-        # type: (AnnouncementPatchReqBody, str, int) -> AnnouncementPatchReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return AnnouncementPatchReqCall(self, body, request_opts=request_opts)
 
 
 class ChatService(object):
@@ -339,76 +230,6 @@ class ChatService(object):
         return ChatSearchReqCall(self, request_opts=request_opts)
 
 
-class ImageService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def create(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> ImageCreateReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return ImageCreateReqCall(self, request_opts=request_opts)
-
-    def get(self, tenant_key=None, response_stream=None, timeout=None):
-        # type: (str, Union[None, IO], int) -> ImageGetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if response_stream is not None:
-            request_opts += [set_response_stream(response_stream)]
-
-        return ImageGetReqCall(self, request_opts=request_opts)
-
-
-class FileService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def create(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> FileCreateReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return FileCreateReqCall(self, request_opts=request_opts)
-
-    def get(self, tenant_key=None, response_stream=None, timeout=None):
-        # type: (str, Union[None, IO], int) -> FileGetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if response_stream is not None:
-            request_opts += [set_response_stream(response_stream)]
-
-        return FileGetReqCall(self, request_opts=request_opts)
-
-
 class ChatMemberUserService(object):
     def __init__(self, service):
         # type: (Service) -> None
@@ -419,92 +240,6 @@ class ChatMemberBotService(object):
     def __init__(self, service):
         # type: (Service) -> None
         self.service = service
-
-
-class MembersService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def get(self, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (str, str, int) -> MembersGetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MembersGetReqCall(self, request_opts=request_opts)
-
-    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (MembersCreateReqBody, str, str, int) -> MembersCreateReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MembersCreateReqCall(self, body, request_opts=request_opts)
-
-    def me_join(self, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (str, str, int) -> MembersMeJoinReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MembersMeJoinReqCall(self, request_opts=request_opts)
-
-    def delete(self, body, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (MembersDeleteReqBody, str, str, int) -> MembersDeleteReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MembersDeleteReqCall(self, body, request_opts=request_opts)
-
-    def is_in_chat(self, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (str, str, int) -> MembersIsInChatReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MembersIsInChatReqCall(self, request_opts=request_opts)
 
 
 class ChatAnnouncementService(object):
@@ -669,6 +404,76 @@ class ChatModerationService(object):
         return ChatModerationUpdateReqCall(self, body, request_opts=request_opts)
 
 
+class FileService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def create(self, tenant_key=None, timeout=None):
+        # type: (str, int) -> FileCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return FileCreateReqCall(self, request_opts=request_opts)
+
+    def get(self, tenant_key=None, response_stream=None, timeout=None):
+        # type: (str, Union[None, IO], int) -> FileGetReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if response_stream is not None:
+            request_opts += [set_response_stream(response_stream)]
+
+        return FileGetReqCall(self, request_opts=request_opts)
+
+
+class ImageService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def create(self, tenant_key=None, timeout=None):
+        # type: (str, int) -> ImageCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return ImageCreateReqCall(self, request_opts=request_opts)
+
+    def get(self, tenant_key=None, response_stream=None, timeout=None):
+        # type: (str, Union[None, IO], int) -> ImageGetReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if response_stream is not None:
+            request_opts += [set_response_stream(response_stream)]
+
+        return ImageGetReqCall(self, request_opts=request_opts)
+
+
 class MessageResourceService(object):
     def __init__(self, service):
         # type: (Service) -> None
@@ -743,160 +548,6 @@ class MessageListReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/messages', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class ResourceGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (ResourceService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_message_id(self, messageId):
-        # type: (str) -> ResourceGetReqCall
-        self.path_params['message_id'] = messageId
-        return self
-
-    def set_file_key(self, fileKey):
-        # type: (str) -> ResourceGetReqCall
-        self.path_params['file_key'] = fileKey
-        return self
-
-    def set_type(self, type):
-        # type: (str) -> ResourceGetReqCall
-        self.query_params['type'] = type
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        self.request_opts += [set_is_response_stream()]
-        req = Request('im/v1/messages/:message_id/resources/:file_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MessageUrgentAppReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (MessageService, UrgentReceivers, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_message_id(self, messageId):
-        # type: (str) -> MessageUrgentAppReqCall
-        self.path_params['message_id'] = messageId
-        return self
-
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> MessageUrgentAppReqCall
-        self.query_params['user_id_type'] = userIdType
-        return self
-
-    def do(self):
-        # type: () -> Response[MessageUrgentAppResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/messages/:message_id/urgent_app', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MessageUrgentAppResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MessageUrgentPhoneReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (MessageService, UrgentReceivers, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_message_id(self, messageId):
-        # type: (str) -> MessageUrgentPhoneReqCall
-        self.path_params['message_id'] = messageId
-        return self
-
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> MessageUrgentPhoneReqCall
-        self.query_params['user_id_type'] = userIdType
-        return self
-
-    def do(self):
-        # type: () -> Response[MessageUrgentPhoneResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/messages/:message_id/urgent_phone', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MessageUrgentPhoneResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MessageUrgentSmsReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (MessageService, UrgentReceivers, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_message_id(self, messageId):
-        # type: (str) -> MessageUrgentSmsReqCall
-        self.path_params['message_id'] = messageId
-        return self
-
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> MessageUrgentSmsReqCall
-        self.query_params['user_id_type'] = userIdType
-        return self
-
-    def do(self):
-        # type: () -> Response[MessageUrgentSmsResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/messages/:message_id/urgent_sms', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MessageUrgentSmsResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1147,43 +798,6 @@ class FileCreateReqCall(object):
         return resp
 
 
-class AnnouncementGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (AnnouncementService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> AnnouncementGetReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> AnnouncementGetReqCall
-        self.query_params['user_id_type'] = userIdType
-        return self
-
-    def do(self):
-        # type: () -> Response[AnnouncementGetResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/announcement', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class FileGetReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (FileService, List[Any]) -> None
@@ -1283,36 +897,6 @@ class ImageCreateReqCall(object):
 
         conf = root_service.conf
         req = Request('im/v1/images', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body,  output_class=ImageCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class AnnouncementPatchReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (AnnouncementService, AnnouncementPatchReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> AnnouncementPatchReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('im/v1/chats/:chat_id/announcement', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1490,187 +1074,6 @@ class ChatSearchReqCall(object):
         return resp
 
 
-class MembersGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MembersService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> MembersGetReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def set_member_id_type(self, memberIdType):
-        # type: (str) -> MembersGetReqCall
-        self.query_params['member_id_type'] = memberIdType
-        return self
-
-    def set_page_token(self, pageToken):
-        # type: (str) -> MembersGetReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> MembersGetReqCall
-        self.query_params['page_size'] = pageSize
-        return self
-
-    def do(self):
-        # type: () -> Response[MembersGetResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/members', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MembersCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (MembersService, MembersCreateReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> MembersCreateReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def set_member_id_type(self, memberIdType):
-        # type: (str) -> MembersCreateReqCall
-        self.query_params['member_id_type'] = memberIdType
-        return self
-
-    def do(self):
-        # type: () -> Response[MembersCreateResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/members', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MembersCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MembersMeJoinReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MembersService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> MembersMeJoinReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('im/v1/chats/:chat_id/members/me_join', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MembersDeleteReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (MembersService, MembersDeleteReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> MembersDeleteReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def set_member_id_type(self, memberIdType):
-        # type: (str) -> MembersDeleteReqCall
-        self.query_params['member_id_type'] = memberIdType
-        return self
-
-    def do(self):
-        # type: () -> Response[MembersDeleteResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/members', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MembersDeleteResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MembersIsInChatReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MembersService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> MembersIsInChatReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def do(self):
-        # type: () -> Response[MembersIsInChatResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('im/v1/chats/:chat_id/members/is_in_chat', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class MessageGetReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (MessageService, List[Any]) -> None
@@ -1775,9 +1178,9 @@ class ChatMembersDeleteReqCall(object):
         return resp
 
 
-class ChatModerationGetReqCall(object):
+class MessageResourceGetReqCall(object):
     def __init__(self, service, request_opts=None):
-        # type: (ChatModerationService, List[Any]) -> None
+        # type: (MessageResourceService, List[Any]) -> None
 
         self.service = service
         
@@ -1789,34 +1192,30 @@ class ChatModerationGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
-        # type: (str) -> ChatModerationGetReqCall
-        self.path_params['chat_id'] = chatId
+    def set_message_id(self, messageId):
+        # type: (str) -> MessageResourceGetReqCall
+        self.path_params['message_id'] = messageId
         return self
 
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> ChatModerationGetReqCall
-        self.query_params['user_id_type'] = userIdType
+    def set_file_key(self, fileKey):
+        # type: (str) -> MessageResourceGetReqCall
+        self.path_params['file_key'] = fileKey
         return self
 
-    def set_page_token(self, pageToken):
-        # type: (str) -> ChatModerationGetReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> ChatModerationGetReqCall
-        self.query_params['page_size'] = pageSize
+    def set_type(self, type):
+        # type: (str) -> MessageResourceGetReqCall
+        self.query_params['type'] = type
         return self
 
     def do(self):
-        # type: () -> Response[ChatModerationGetResult]
+        # type: () -> Response[None]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/moderation', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        self.request_opts += [set_is_response_stream()]
+        req = Request('im/v1/messages/:message_id/resources/:file_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1906,9 +1305,9 @@ class ChatAnnouncementGetReqCall(object):
         return resp
 
 
-class MessageResourceGetReqCall(object):
+class ChatModerationGetReqCall(object):
     def __init__(self, service, request_opts=None):
-        # type: (MessageResourceService, List[Any]) -> None
+        # type: (ChatModerationService, List[Any]) -> None
 
         self.service = service
         
@@ -1920,30 +1319,34 @@ class MessageResourceGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, messageId):
-        # type: (str) -> MessageResourceGetReqCall
-        self.path_params['message_id'] = messageId
+    def set_chat_id(self, chatId):
+        # type: (str) -> ChatModerationGetReqCall
+        self.path_params['chat_id'] = chatId
         return self
 
-    def set_file_key(self, fileKey):
-        # type: (str) -> MessageResourceGetReqCall
-        self.path_params['file_key'] = fileKey
+    def set_user_id_type(self, userIdType):
+        # type: (str) -> ChatModerationGetReqCall
+        self.query_params['user_id_type'] = userIdType
         return self
 
-    def set_type(self, type):
-        # type: (str) -> MessageResourceGetReqCall
-        self.query_params['type'] = type
+    def set_page_token(self, pageToken):
+        # type: (str) -> ChatModerationGetReqCall
+        self.query_params['page_token'] = pageToken
+        return self
+
+    def set_page_size(self, pageSize):
+        # type: (int) -> ChatModerationGetReqCall
+        self.query_params['page_size'] = pageSize
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> Response[ChatModerationGetResult]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        self.request_opts += [set_is_response_stream()]
-        req = Request('im/v1/messages/:message_id/resources/:file_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('im/v1/chats/:chat_id/moderation', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -2072,53 +1475,6 @@ class ChatModerationUpdateReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/chats/:chat_id/moderation', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MessageUrgentReadUsersReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MessageService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_message_id(self, messageId):
-        # type: (str) -> MessageUrgentReadUsersReqCall
-        self.path_params['message_id'] = messageId
-        return self
-
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> MessageUrgentReadUsersReqCall
-        self.query_params['user_id_type'] = userIdType
-        return self
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> MessageUrgentReadUsersReqCall
-        self.query_params['page_size'] = pageSize
-        return self
-
-    def set_page_token(self, pageToken):
-        # type: (str) -> MessageUrgentReadUsersReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def do(self):
-        # type: () -> Response[MessageUrgentReadUsersResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/messages/:message_id/urgent_read_users', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
