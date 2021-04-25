@@ -18,8 +18,7 @@ class FaceVerify(object):
 
 @attr.s
 class FaceVerifyCropFaceImageResult(object):
-    auth_state = attr.ib(type=int, default=None, metadata={'json': 'auth_state'})
-    auth_timpstamp = attr.ib(type=int, default=None, metadata={'json': 'auth_timpstamp'})
+    face_image = attr.ib(type=str, default=None, metadata={'json': 'face_image'})
 
 
 
@@ -32,5 +31,4 @@ class FaceVerifyQueryAuthResultResult(object):
 
 @attr.s
 class FaceVerifyUploadFaceImageResult(object):
-    auth_state = attr.ib(type=int, default=None, metadata={'json': 'auth_state'})
-    auth_timpstamp = attr.ib(type=int, default=None, metadata={'json': 'auth_timpstamp'})
+    face_uid = attr.ib(type=str, default=None, metadata={'json': 'face_uid'})

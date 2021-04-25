@@ -476,14 +476,12 @@ class ChatMembersDeleteResult(object):
 
 
 
-
-
 @attr.s
-class ChatMembersGetResult(object):
-    items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
+class ChatModerationGetResult(object):
+    moderation_setting = attr.ib(type=str, default=None, metadata={'json': 'moderation_setting'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    member_total = attr.ib(type=int, default=None, metadata={'json': 'member_total'})
+    items = attr.ib(type=List[ListModerator], default=None, metadata={'json': 'items'})
 
 
 
@@ -501,11 +499,13 @@ class ChatAnnouncementGetResult(object):
 
 
 @attr.s
-class ChatModerationGetResult(object):
-    moderation_setting = attr.ib(type=str, default=None, metadata={'json': 'moderation_setting'})
+class ChatMembersGetResult(object):
+    items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    items = attr.ib(type=List[ListModerator], default=None, metadata={'json': 'items'})
+    member_total = attr.ib(type=int, default=None, metadata={'json': 'member_total'})
+
+
 
 
 
