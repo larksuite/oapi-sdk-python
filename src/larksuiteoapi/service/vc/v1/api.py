@@ -344,7 +344,7 @@ class RoomConfigQueryReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('vc/v1/room_configs/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=RoomConfig, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -436,7 +436,7 @@ class MeetingListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('vc/v1/meetings', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MeetingListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -481,7 +481,7 @@ class ReportGetTopUserReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('vc/v1/reports/get_top_user', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ReportGetTopUserResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -548,7 +548,7 @@ class MeetingRecordingGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('vc/v1/meetings/:meeting_id/recording', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MeetingRecordingGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -643,7 +643,7 @@ class ReportGetDailyReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('vc/v1/reports/get_daily', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ReportGetDailyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -690,7 +690,7 @@ class MeetingGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('vc/v1/meetings/:meeting_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MeetingGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -877,7 +877,7 @@ class ReserveGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('vc/v1/reserves/:reserve_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ReserveGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -914,7 +914,7 @@ class ReserveGetActiveMeetingReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('vc/v1/reserves/:reserve_id/get_active_meeting', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ReserveGetActiveMeetingResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

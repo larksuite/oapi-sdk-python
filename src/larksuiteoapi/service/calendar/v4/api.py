@@ -584,7 +584,7 @@ class CalendarEventGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events/:event_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=CalendarEventGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -691,7 +691,7 @@ class CalendarAclListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/acls', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=CalendarAclListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -845,7 +845,7 @@ class CalendarEventAttendeeListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events/:event_id/attendees', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=CalendarEventAttendeeListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -885,7 +885,7 @@ class CalendarListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=CalendarListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -992,7 +992,7 @@ class CalendarGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('calendar/v4/calendars/:calendar_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=Calendar, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1039,7 +1039,7 @@ class CalendarEventListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=CalendarEventListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1306,7 +1306,7 @@ class CalendarSubscribeReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('calendar/v4/calendars/:calendar_id/subscribe', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=CalendarSubscribeResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1464,7 +1464,7 @@ class CalendarEventAttendeeChatMemberListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=CalendarEventAttendeeChatMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -87,7 +87,7 @@ class FaceVerifyCropFaceImageReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('face_verify/v1/crop_face_image', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body,  output_class=FaceVerifyCropFaceImageResult, request_opts=self.request_opts)
+        req = Request('face_verify/v1/crop_face_image', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=FaceVerifyCropFaceImageResult , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -127,7 +127,7 @@ class FaceVerifyQueryAuthResultReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('face_verify/v1/query_auth_result', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=FaceVerifyQueryAuthResultResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -166,7 +166,7 @@ class FaceVerifyUploadFaceImageReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('face_verify/v1/upload_face_image', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body,  output_class=FaceVerifyUploadFaceImageResult, request_opts=self.request_opts)
+        req = Request('face_verify/v1/upload_face_image', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=FaceVerifyUploadFaceImageResult , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -520,7 +520,7 @@ class DepartmentGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/departments/:department_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=DepartmentGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -612,7 +612,7 @@ class DepartmentListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/departments', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=DepartmentListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1100,7 +1100,7 @@ class UserGroupListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/user_groups', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=UserGroupListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1184,7 +1184,7 @@ class UserGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/users/:user_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=UserGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1236,7 +1236,7 @@ class UserGroupMemberListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/user_groups/:user_group_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=UserGroupMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1393,7 +1393,7 @@ class UserListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/users', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=UserListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1423,7 +1423,7 @@ class UserGroupGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('contact/v3/user_groups/:user_group_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=UserGroupGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1473,7 +1473,7 @@ class DepartmentParentReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/departments/parent', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=DepartmentParentResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1620,7 +1620,7 @@ class EmployeeTypeEnumListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/employee_type_enums', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=EmployeeTypeEnumListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

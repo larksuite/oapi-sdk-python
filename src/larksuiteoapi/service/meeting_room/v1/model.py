@@ -125,20 +125,6 @@ class MeetingRoom(object):
 
 
 
-
-@attr.s
-class RoomBatchGetResult(object):
-    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
-
-
-
-@attr.s
-class FreebusyBatchGetResult(object):
-    time_min = attr.ib(type=str, default=None, metadata={'json': 'time_min'})
-    time_max = attr.ib(type=str, default=None, metadata={'json': 'time_max'})
-    free_busy = attr.ib(type=Dict[str, RoomFreeBusy], default=None, metadata={'json': 'free_busy'})
-
-
 @to_json_decorator
 @attr.s
 class SummaryBatchGetReqBody(object):
@@ -153,8 +139,22 @@ class SummaryBatchGetResult(object):
 
 
 @attr.s
+class FreebusyBatchGetResult(object):
+    time_min = attr.ib(type=str, default=None, metadata={'json': 'time_min'})
+    time_max = attr.ib(type=str, default=None, metadata={'json': 'time_max'})
+    free_busy = attr.ib(type=Dict[str, RoomFreeBusy], default=None, metadata={'json': 'free_busy'})
+
+
+
+@attr.s
 class BuildingBatchGetResult(object):
     buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
+
+
+
+@attr.s
+class RoomBatchGetResult(object):
+    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
 
 
 
@@ -206,14 +206,14 @@ class BuildingCreateResult(object):
 
 
 @attr.s
-class CountryListResult(object):
-    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
+class DistrictListResult(object):
+    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
 
 
 
 @attr.s
-class DistrictListResult(object):
-    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
+class RoomListResult(object):
+    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
 
 
 
@@ -224,8 +224,8 @@ class BuildingListResult(object):
 
 
 @attr.s
-class RoomListResult(object):
-    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
+class CountryListResult(object):
+    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
 
 
 @to_json_decorator

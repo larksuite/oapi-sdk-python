@@ -477,11 +477,11 @@ class ChatMembersDeleteResult(object):
 
 
 @attr.s
-class ChatModerationGetResult(object):
-    moderation_setting = attr.ib(type=str, default=None, metadata={'json': 'moderation_setting'})
+class ChatMembersGetResult(object):
+    items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    items = attr.ib(type=List[ListModerator], default=None, metadata={'json': 'items'})
+    member_total = attr.ib(type=int, default=None, metadata={'json': 'member_total'})
 
 
 
@@ -498,14 +498,14 @@ class ChatAnnouncementGetResult(object):
 
 
 
+
+
 @attr.s
-class ChatMembersGetResult(object):
-    items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
+class ChatModerationGetResult(object):
+    moderation_setting = attr.ib(type=str, default=None, metadata={'json': 'moderation_setting'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    member_total = attr.ib(type=int, default=None, metadata={'json': 'member_total'})
-
-
+    items = attr.ib(type=List[ListModerator], default=None, metadata={'json': 'items'})
 
 
 
@@ -577,20 +577,6 @@ class ChatDisbandedEvent(BaseEventV2):
 
 
 @attr.s
-class ChatMemberBotAddedEventData(object):
-    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
-    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
-    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
-    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
-
-
-@attr.s
-class ChatMemberBotAddedEvent(BaseEventV2):
-    event = attr.ib(type=ChatMemberBotAddedEventData, default=None)
-
-
-
-@attr.s
 class ChatMemberUserAddedEventData(object):
     chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
@@ -602,6 +588,20 @@ class ChatMemberUserAddedEventData(object):
 @attr.s
 class ChatMemberUserAddedEvent(BaseEventV2):
     event = attr.ib(type=ChatMemberUserAddedEventData, default=None)
+
+
+
+@attr.s
+class ChatMemberBotAddedEventData(object):
+    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
+    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
+    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
+    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
+
+
+@attr.s
+class ChatMemberBotAddedEvent(BaseEventV2):
+    event = attr.ib(type=ChatMemberBotAddedEventData, default=None)
 
 
 

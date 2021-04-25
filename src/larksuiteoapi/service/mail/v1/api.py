@@ -438,7 +438,7 @@ class PublicMailboxMemberGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=PublicMailboxMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -525,7 +525,7 @@ class MailgroupMemberListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/mailgroups/:mailgroup_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MailgroupMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -572,7 +572,7 @@ class MailgroupPermissionMemberGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MailgroupPermissionMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -624,7 +624,7 @@ class MailgroupPermissionMemberListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/mailgroups/:mailgroup_id/permission_members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MailgroupPermissionMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -731,7 +731,7 @@ class PublicMailboxMemberListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/public_mailboxes/:public_mailbox_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=PublicMailboxMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -798,7 +798,7 @@ class MailgroupGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('mail/v1/mailgroups/:mailgroup_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=Mailgroup, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -863,7 +863,7 @@ class PublicMailboxListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/public_mailboxes', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=PublicMailboxListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1005,7 +1005,7 @@ class MailgroupMemberGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/mailgroups/:mailgroup_id/members/:member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MailgroupMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1035,7 +1035,7 @@ class PublicMailboxGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('mail/v1/public_mailboxes/:public_mailbox_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=PublicMailbox, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1123,7 +1123,7 @@ class MailgroupListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('mail/v1/mailgroups', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MailgroupListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

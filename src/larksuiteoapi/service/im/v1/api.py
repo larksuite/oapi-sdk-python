@@ -547,7 +547,7 @@ class MessageListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/messages', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MessageListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -714,7 +714,7 @@ class MessageReadUsersReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/messages/:message_id/read_users', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MessageReadUsersResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -793,7 +793,7 @@ class FileCreateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('im/v1/files', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body,  output_class=FileCreateResult, request_opts=self.request_opts)
+        req = Request('im/v1/files', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=FileCreateResult , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -864,7 +864,7 @@ class ChatListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/chats', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ChatListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -896,7 +896,7 @@ class ImageCreateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('im/v1/images', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body,  output_class=ImageCreateResult, request_opts=self.request_opts)
+        req = Request('im/v1/images', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=ImageCreateResult , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -994,7 +994,7 @@ class ChatGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/chats/:chat_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ChatGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1069,7 +1069,7 @@ class ChatSearchReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/chats/search', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ChatSearchResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1099,7 +1099,7 @@ class MessageGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('im/v1/messages/:message_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=MessageGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1178,90 +1178,6 @@ class ChatMembersDeleteReqCall(object):
         return resp
 
 
-class ChatModerationGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (ChatModerationService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> ChatModerationGetReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> ChatModerationGetReqCall
-        self.query_params['user_id_type'] = userIdType
-        return self
-
-    def set_page_token(self, pageToken):
-        # type: (str) -> ChatModerationGetReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> ChatModerationGetReqCall
-        self.query_params['page_size'] = pageSize
-        return self
-
-    def do(self):
-        # type: () -> Response[ChatModerationGetResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/moderation', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class ChatAnnouncementGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (ChatAnnouncementService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> ChatAnnouncementGetReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def set_user_id_type(self, userIdType):
-        # type: (str) -> ChatAnnouncementGetReqCall
-        self.query_params['user_id_type'] = userIdType
-        return self
-
-    def do(self):
-        # type: () -> Response[ChatAnnouncementGetResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/announcement', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class ChatMembersGetReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (ChatMembersService, List[Any]) -> None
@@ -1304,7 +1220,44 @@ class ChatMembersGetReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/chats/:chat_id/members', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ChatMembersGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ChatAnnouncementGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ChatAnnouncementService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_chat_id(self, chatId):
+        # type: (str) -> ChatAnnouncementGetReqCall
+        self.path_params['chat_id'] = chatId
+        return self
+
+    def set_user_id_type(self, userIdType):
+        # type: (str) -> ChatAnnouncementGetReqCall
+        self.query_params['user_id_type'] = userIdType
+        return self
+
+    def do(self):
+        # type: () -> Response[ChatAnnouncementGetResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('im/v1/chats/:chat_id/announcement', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=ChatAnnouncementGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1352,6 +1305,53 @@ class MessageResourceGetReqCall(object):
         return resp
 
 
+class ChatModerationGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ChatModerationService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_chat_id(self, chatId):
+        # type: (str) -> ChatModerationGetReqCall
+        self.path_params['chat_id'] = chatId
+        return self
+
+    def set_user_id_type(self, userIdType):
+        # type: (str) -> ChatModerationGetReqCall
+        self.query_params['user_id_type'] = userIdType
+        return self
+
+    def set_page_token(self, pageToken):
+        # type: (str) -> ChatModerationGetReqCall
+        self.query_params['page_token'] = pageToken
+        return self
+
+    def set_page_size(self, pageSize):
+        # type: (int) -> ChatModerationGetReqCall
+        self.query_params['page_size'] = pageSize
+        return self
+
+    def do(self):
+        # type: () -> Response[ChatModerationGetResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('im/v1/chats/:chat_id/moderation', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=ChatModerationGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
 class ChatMembersIsInChatReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (ChatMembersService, List[Any]) -> None
@@ -1377,7 +1377,7 @@ class ChatMembersIsInChatReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('im/v1/chats/:chat_id/members/is_in_chat', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+                      None, output_class=ChatMembersIsInChatResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

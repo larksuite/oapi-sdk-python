@@ -302,7 +302,7 @@ class AppTableRecordGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=AppTableRecordGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -389,7 +389,7 @@ class AppTableRecordDeleteReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=DeleteRecord, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -441,7 +441,7 @@ class AppTableRecordListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('bitable/v1/apps/:app_token/tables/:table_id/records', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=AppTableRecordListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -555,7 +555,7 @@ class AppGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('bitable/v1/apps/:app_token', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=AppGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -597,7 +597,7 @@ class AppTableListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('bitable/v1/apps/:app_token/tables', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=AppTableListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -649,7 +649,7 @@ class AppTableFieldListReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('bitable/v1/apps/:app_token/tables/:table_id/fields', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=AppTableFieldListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

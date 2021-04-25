@@ -123,7 +123,7 @@ class AuthenUserInfoReqCall(object):
 
         conf = root_service.conf
         req = Request('authen/v1/user_info', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+                      None, output_class=UserInfo, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
