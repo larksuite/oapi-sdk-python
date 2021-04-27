@@ -77,9 +77,9 @@ class FaceVerifyCropFaceImageReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_raw_image(self, rawImage):
+    def set_raw_image(self, raw_image):
         # type: (IO[Any]) -> FaceVerifyCropFaceImageReqCall
-        self.body.add_file('raw_image', FormDataFile(rawImage))
+        self.body.add_file('raw_image', FormDataFile(raw_image))
         return self
 
     def do(self):
@@ -105,19 +105,19 @@ class FaceVerifyQueryAuthResultReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_req_order_no(self, reqOrderNo):
+    def set_req_order_no(self, req_order_no):
         # type: (str) -> FaceVerifyQueryAuthResultReqCall
-        self.query_params['req_order_no'] = reqOrderNo
+        self.query_params['req_order_no'] = req_order_no
         return self
 
-    def set_open_id(self, openId):
+    def set_open_id(self, open_id):
         # type: (str) -> FaceVerifyQueryAuthResultReqCall
-        self.query_params['open_id'] = openId
+        self.query_params['open_id'] = open_id
         return self
 
-    def set_employee_id(self, employeeId):
+    def set_employee_id(self, employee_id):
         # type: (str) -> FaceVerifyQueryAuthResultReqCall
-        self.query_params['employee_id'] = employeeId
+        self.query_params['employee_id'] = employee_id
         return self
 
     def do(self):
@@ -150,14 +150,14 @@ class FaceVerifyUploadFaceImageReqCall(object):
         self.body.add_file('image', FormDataFile(image))
         return self
 
-    def set_open_id(self, openId):
+    def set_open_id(self, open_id):
         # type: (str) -> FaceVerifyUploadFaceImageReqCall
-        self.query_params['open_id'] = openId
+        self.query_params['open_id'] = open_id
         return self
 
-    def set_employee_id(self, employeeId):
+    def set_employee_id(self, employee_id):
         # type: (str) -> FaceVerifyUploadFaceImageReqCall
-        self.query_params['employee_id'] = employeeId
+        self.query_params['employee_id'] = employee_id
         return self
 
     def do(self):

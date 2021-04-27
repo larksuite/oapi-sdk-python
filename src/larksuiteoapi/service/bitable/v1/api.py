@@ -203,14 +203,14 @@ class AppTableRecordBatchDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordBatchDeleteReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordBatchDeleteReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
     def do(self):
@@ -239,19 +239,19 @@ class AppTableRecordBatchCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordBatchCreateReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordBatchCreateReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> AppTableRecordBatchCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -280,19 +280,19 @@ class AppTableRecordGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordGetReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordGetReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_record_id(self, recordId):
+    def set_record_id(self, record_id):
         # type: (str) -> AppTableRecordGetReqCall
-        self.path_params['record_id'] = recordId
+        self.path_params['record_id'] = record_id
         return self
 
     def do(self):
@@ -321,24 +321,24 @@ class AppTableRecordUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordUpdateReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordUpdateReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_record_id(self, recordId):
+    def set_record_id(self, record_id):
         # type: (str) -> AppTableRecordUpdateReqCall
-        self.path_params['record_id'] = recordId
+        self.path_params['record_id'] = record_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> AppTableRecordUpdateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -367,19 +367,19 @@ class AppTableRecordDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordDeleteReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordDeleteReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_record_id(self, recordId):
+    def set_record_id(self, record_id):
         # type: (str) -> AppTableRecordDeleteReqCall
-        self.path_params['record_id'] = recordId
+        self.path_params['record_id'] = record_id
         return self
 
     def do(self):
@@ -408,29 +408,29 @@ class AppTableRecordListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordListReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordListReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_view_id(self, viewId):
+    def set_view_id(self, view_id):
         # type: (str) -> AppTableRecordListReqCall
-        self.query_params['view_id'] = viewId
+        self.query_params['view_id'] = view_id
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> AppTableRecordListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> AppTableRecordListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -460,19 +460,19 @@ class AppTableRecordBatchUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordBatchUpdateReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordBatchUpdateReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> AppTableRecordBatchUpdateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -502,19 +502,19 @@ class AppTableRecordCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableRecordCreateReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableRecordCreateReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> AppTableRecordCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -543,9 +543,9 @@ class AppGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppGetReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
     def do(self):
@@ -574,19 +574,19 @@ class AppTableListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableListReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> AppTableListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> AppTableListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -616,29 +616,29 @@ class AppTableFieldListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_app_token(self, appToken):
+    def set_app_token(self, app_token):
         # type: (str) -> AppTableFieldListReqCall
-        self.path_params['app_token'] = appToken
+        self.path_params['app_token'] = app_token
         return self
 
-    def set_table_id(self, tableId):
+    def set_table_id(self, table_id):
         # type: (str) -> AppTableFieldListReqCall
-        self.path_params['table_id'] = tableId
+        self.path_params['table_id'] = table_id
         return self
 
-    def set_view_id(self, viewId):
+    def set_view_id(self, view_id):
         # type: (str) -> AppTableFieldListReqCall
-        self.query_params['view_id'] = viewId
+        self.query_params['view_id'] = view_id
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> AppTableFieldListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> AppTableFieldListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):

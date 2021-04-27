@@ -497,19 +497,19 @@ class DepartmentGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_department_id(self, departmentId):
+    def set_department_id(self, department_id):
         # type: (str) -> DepartmentGetReqCall
-        self.path_params['department_id'] = departmentId
+        self.path_params['department_id'] = department_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentGetReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -539,14 +539,14 @@ class UserDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id(self, userId):
+    def set_user_id(self, user_id):
         # type: (str) -> UserDeleteReqCall
-        self.path_params['user_id'] = userId
+        self.path_params['user_id'] = user_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserDeleteReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -575,34 +575,34 @@ class DepartmentListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentListReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_parent_department_id(self, parentDepartmentId):
+    def set_parent_department_id(self, parent_department_id):
         # type: (str) -> DepartmentListReqCall
-        self.query_params['parent_department_id'] = parentDepartmentId
+        self.query_params['parent_department_id'] = parent_department_id
         return self
 
-    def set_fetch_child(self, fetchChild):
+    def set_fetch_child(self, fetch_child):
         # type: (bool) -> DepartmentListReqCall
-        self.query_params['fetch_child'] = fetchChild
+        self.query_params['fetch_child'] = fetch_child
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> DepartmentListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> DepartmentListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -630,9 +630,9 @@ class UserGroupUpdateUserGroupIdReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_group_id(self, userGroupId):
+    def set_user_group_id(self, user_group_id):
         # type: (str) -> UserGroupUpdateUserGroupIdReqCall
-        self.path_params['user_group_id'] = userGroupId
+        self.path_params['user_group_id'] = user_group_id
         return self
 
     def do(self):
@@ -660,9 +660,9 @@ class DepartmentUnitDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_unit_id(self, unitId):
+    def set_unit_id(self, unit_id):
         # type: (str) -> DepartmentUnitDeleteReqCall
-        self.path_params['unit_id'] = unitId
+        self.path_params['unit_id'] = unit_id
         return self
 
     def do(self):
@@ -691,19 +691,19 @@ class DepartmentPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_department_id(self, departmentId):
+    def set_department_id(self, department_id):
         # type: (str) -> DepartmentPatchReqCall
-        self.path_params['department_id'] = departmentId
+        self.path_params['department_id'] = department_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentPatchReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentPatchReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -733,19 +733,19 @@ class UserUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id(self, userId):
+    def set_user_id(self, user_id):
         # type: (str) -> UserUpdateReqCall
-        self.path_params['user_id'] = userId
+        self.path_params['user_id'] = user_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserUpdateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> UserUpdateReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -774,19 +774,19 @@ class UserCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> UserCreateReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_client_token(self, clientToken):
+    def set_client_token(self, client_token):
         # type: (str) -> UserCreateReqCall
-        self.query_params['client_token'] = clientToken
+        self.query_params['client_token'] = client_token
         return self
 
     def do(self):
@@ -815,19 +815,19 @@ class UserPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id(self, userId):
+    def set_user_id(self, user_id):
         # type: (str) -> UserPatchReqCall
-        self.path_params['user_id'] = userId
+        self.path_params['user_id'] = user_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserPatchReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> UserPatchReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -857,14 +857,14 @@ class UserUpdateUserIdReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id(self, userId):
+    def set_user_id(self, user_id):
         # type: (str) -> UserUpdateUserIdReqCall
-        self.path_params['user_id'] = userId
+        self.path_params['user_id'] = user_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserUpdateUserIdReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -894,14 +894,14 @@ class UserGroupMemberCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_group_id(self, userGroupId):
+    def set_user_group_id(self, user_group_id):
         # type: (str) -> UserGroupMemberCreateReqCall
-        self.path_params['user_group_id'] = userGroupId
+        self.path_params['user_group_id'] = user_group_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserGroupMemberCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -930,9 +930,9 @@ class UserGroupDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_group_id(self, userGroupId):
+    def set_user_group_id(self, user_group_id):
         # type: (str) -> UserGroupDeleteReqCall
-        self.path_params['user_group_id'] = userGroupId
+        self.path_params['user_group_id'] = user_group_id
         return self
 
     def do(self):
@@ -960,19 +960,19 @@ class DepartmentCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentCreateReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_client_token(self, clientToken):
+    def set_client_token(self, client_token):
         # type: (str) -> DepartmentCreateReqCall
-        self.query_params['client_token'] = clientToken
+        self.query_params['client_token'] = client_token
         return self
 
     def do(self):
@@ -1000,9 +1000,9 @@ class UserGroupPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_group_id(self, userGroupId):
+    def set_user_group_id(self, user_group_id):
         # type: (str) -> UserGroupPatchReqCall
-        self.path_params['user_group_id'] = userGroupId
+        self.path_params['user_group_id'] = user_group_id
         return self
 
     def do(self):
@@ -1030,9 +1030,9 @@ class DepartmentUnitPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_unit_id(self, unitId):
+    def set_unit_id(self, unit_id):
         # type: (str) -> DepartmentUnitPatchReqCall
-        self.path_params['unit_id'] = unitId
+        self.path_params['unit_id'] = unit_id
         return self
 
     def do(self):
@@ -1083,14 +1083,14 @@ class UserGroupListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> UserGroupListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> UserGroupListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
     def do(self):
@@ -1119,19 +1119,19 @@ class DepartmentDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_department_id(self, departmentId):
+    def set_department_id(self, department_id):
         # type: (str) -> DepartmentDeleteReqCall
-        self.path_params['department_id'] = departmentId
+        self.path_params['department_id'] = department_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentDeleteReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentDeleteReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -1161,19 +1161,19 @@ class UserGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id(self, userId):
+    def set_user_id(self, user_id):
         # type: (str) -> UserGetReqCall
-        self.path_params['user_id'] = userId
+        self.path_params['user_id'] = user_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> UserGetReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -1203,29 +1203,29 @@ class UserGroupMemberListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_group_id(self, userGroupId):
+    def set_user_group_id(self, user_group_id):
         # type: (str) -> UserGroupMemberListReqCall
-        self.path_params['user_group_id'] = userGroupId
+        self.path_params['user_group_id'] = user_group_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserGroupMemberListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> UserGroupMemberListReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> UserGroupMemberListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> UserGroupMemberListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1255,19 +1255,19 @@ class UserGroupMemberDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_group_id(self, userGroupId):
+    def set_user_group_id(self, user_group_id):
         # type: (str) -> UserGroupMemberDeleteReqCall
-        self.path_params['user_group_id'] = userGroupId
+        self.path_params['user_group_id'] = user_group_id
         return self
 
-    def set_user_id(self, userId):
+    def set_user_id(self, user_id):
         # type: (str) -> UserGroupMemberDeleteReqCall
-        self.path_params['user_id'] = userId
+        self.path_params['user_id'] = user_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserGroupMemberDeleteReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -1297,19 +1297,19 @@ class DepartmentUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_department_id(self, departmentId):
+    def set_department_id(self, department_id):
         # type: (str) -> DepartmentUpdateReqCall
-        self.path_params['department_id'] = departmentId
+        self.path_params['department_id'] = department_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentUpdateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentUpdateReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -1361,29 +1361,29 @@ class UserListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> UserListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> UserListReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_department_id(self, departmentId):
+    def set_department_id(self, department_id):
         # type: (str) -> UserListReqCall
-        self.query_params['department_id'] = departmentId
+        self.query_params['department_id'] = department_id
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> UserListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> UserListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1411,9 +1411,9 @@ class UserGroupGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_group_id(self, userGroupId):
+    def set_user_group_id(self, user_group_id):
         # type: (str) -> UserGroupGetReqCall
-        self.path_params['user_group_id'] = userGroupId
+        self.path_params['user_group_id'] = user_group_id
         return self
 
     def do(self):
@@ -1441,29 +1441,29 @@ class DepartmentParentReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentParentReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentParentReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_department_id(self, departmentId):
+    def set_department_id(self, department_id):
         # type: (str) -> DepartmentParentReqCall
-        self.query_params['department_id'] = departmentId
+        self.query_params['department_id'] = department_id
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> DepartmentParentReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> DepartmentParentReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1492,14 +1492,14 @@ class DepartmentUpdateDepartmentIdReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_department_id(self, departmentId):
+    def set_department_id(self, department_id):
         # type: (str) -> DepartmentUpdateDepartmentIdReqCall
-        self.path_params['department_id'] = departmentId
+        self.path_params['department_id'] = department_id
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentUpdateDepartmentIdReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -1528,9 +1528,9 @@ class DepartmentUnbindDepartmentChatReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentUnbindDepartmentChatReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -1558,24 +1558,24 @@ class DepartmentSearchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> DepartmentSearchReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> DepartmentSearchReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> DepartmentSearchReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> DepartmentSearchReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1603,14 +1603,14 @@ class EmployeeTypeEnumListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> EmployeeTypeEnumListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> EmployeeTypeEnumListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):

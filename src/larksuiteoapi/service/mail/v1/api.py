@@ -379,14 +379,14 @@ class MailgroupPermissionMemberDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupPermissionMemberDeleteReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_permission_member_id(self, permissionMemberId):
+    def set_permission_member_id(self, permission_member_id):
         # type: (str) -> MailgroupPermissionMemberDeleteReqCall
-        self.path_params['permission_member_id'] = permissionMemberId
+        self.path_params['permission_member_id'] = permission_member_id
         return self
 
     def do(self):
@@ -415,19 +415,19 @@ class PublicMailboxMemberGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxMemberGetReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
-    def set_member_id(self, memberId):
+    def set_member_id(self, member_id):
         # type: (str) -> PublicMailboxMemberGetReqCall
-        self.path_params['member_id'] = memberId
+        self.path_params['member_id'] = member_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> PublicMailboxMemberGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -456,14 +456,14 @@ class PublicMailboxMemberDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxMemberDeleteReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
-    def set_member_id(self, memberId):
+    def set_member_id(self, member_id):
         # type: (str) -> PublicMailboxMemberDeleteReqCall
-        self.path_params['member_id'] = memberId
+        self.path_params['member_id'] = member_id
         return self
 
     def do(self):
@@ -492,29 +492,29 @@ class MailgroupMemberListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupMemberListReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MailgroupMemberListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> MailgroupMemberListReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> MailgroupMemberListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> MailgroupMemberListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -544,24 +544,24 @@ class MailgroupPermissionMemberGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupPermissionMemberGetReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_permission_member_id(self, permissionMemberId):
+    def set_permission_member_id(self, permission_member_id):
         # type: (str) -> MailgroupPermissionMemberGetReqCall
-        self.path_params['permission_member_id'] = permissionMemberId
+        self.path_params['permission_member_id'] = permission_member_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MailgroupPermissionMemberGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> MailgroupPermissionMemberGetReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -591,29 +591,29 @@ class MailgroupPermissionMemberListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupPermissionMemberListReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MailgroupPermissionMemberListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> MailgroupPermissionMemberListReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> MailgroupPermissionMemberListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> MailgroupPermissionMemberListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -642,9 +642,9 @@ class PublicMailboxUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxUpdateReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
     def do(self):
@@ -672,9 +672,9 @@ class PublicMailboxMemberClearReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxMemberClearReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
     def do(self):
@@ -703,24 +703,24 @@ class PublicMailboxMemberListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxMemberListReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> PublicMailboxMemberListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> PublicMailboxMemberListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> PublicMailboxMemberListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -750,14 +750,14 @@ class PublicMailboxMemberCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxMemberCreateReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> PublicMailboxMemberCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -786,9 +786,9 @@ class MailgroupGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupGetReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
     def do(self):
@@ -816,9 +816,9 @@ class MailgroupUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupUpdateReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
     def do(self):
@@ -846,14 +846,14 @@ class PublicMailboxListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> PublicMailboxListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> PublicMailboxListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -881,9 +881,9 @@ class MailgroupDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupDeleteReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
     def do(self):
@@ -912,19 +912,19 @@ class MailgroupPermissionMemberCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupPermissionMemberCreateReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MailgroupPermissionMemberCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> MailgroupPermissionMemberCreateReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -977,24 +977,24 @@ class MailgroupMemberGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupMemberGetReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_member_id(self, memberId):
+    def set_member_id(self, member_id):
         # type: (str) -> MailgroupMemberGetReqCall
-        self.path_params['member_id'] = memberId
+        self.path_params['member_id'] = member_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MailgroupMemberGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> MailgroupMemberGetReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -1023,9 +1023,9 @@ class PublicMailboxGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxGetReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
     def do(self):
@@ -1053,9 +1053,9 @@ class PublicMailboxPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_public_mailbox_id(self, publicMailboxId):
+    def set_public_mailbox_id(self, public_mailbox_id):
         # type: (str) -> PublicMailboxPatchReqCall
-        self.path_params['public_mailbox_id'] = publicMailboxId
+        self.path_params['public_mailbox_id'] = public_mailbox_id
         return self
 
     def do(self):
@@ -1106,14 +1106,14 @@ class MailgroupListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> MailgroupListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> MailgroupListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1141,9 +1141,9 @@ class MailgroupPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupPatchReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
     def do(self):
@@ -1172,19 +1172,19 @@ class MailgroupMemberCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupMemberCreateReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MailgroupMemberCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_department_id_type(self, departmentIdType):
+    def set_department_id_type(self, department_id_type):
         # type: (str) -> MailgroupMemberCreateReqCall
-        self.query_params['department_id_type'] = departmentIdType
+        self.query_params['department_id_type'] = department_id_type
         return self
 
     def do(self):
@@ -1213,14 +1213,14 @@ class MailgroupMemberDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_mailgroup_id(self, mailgroupId):
+    def set_mailgroup_id(self, mailgroup_id):
         # type: (str) -> MailgroupMemberDeleteReqCall
-        self.path_params['mailgroup_id'] = mailgroupId
+        self.path_params['mailgroup_id'] = mailgroup_id
         return self
 
-    def set_member_id(self, memberId):
+    def set_member_id(self, member_id):
         # type: (str) -> MailgroupMemberDeleteReqCall
-        self.path_params['member_id'] = memberId
+        self.path_params['member_id'] = member_id
         return self
 
     def do(self):

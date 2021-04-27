@@ -68,9 +68,9 @@ class ImageGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_image_key(self, imageKey):
+    def set_image_key(self, image_key):
         # type: (str) -> ImageGetReqCall
-        self.query_params['image_key'] = imageKey
+        self.query_params['image_key'] = image_key
         return self
 
     def do(self):
@@ -103,9 +103,9 @@ class ImagePutReqCall(object):
         self.body.add_file('image', FormDataFile(image))
         return self
 
-    def set_image_type(self, imageType):
+    def set_image_type(self, image_type):
         # type: (str) -> ImagePutReqCall
-        self.body.add_param('image_type', imageType)
+        self.body.add_param('image_type', image_type)
         return self
 
     def do(self):

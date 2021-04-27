@@ -11,7 +11,7 @@ import attr
 @to_json_decorator
 @attr.s
 class Term(object):
-    from = attr.ib(type=str, default=None, metadata={'json': 'from'})
+    from_ = attr.ib(type=str, default=None, metadata={'json': 'from'})
     to = attr.ib(type=str, default=None, metadata={'json': 'to'})
 
 

@@ -532,14 +532,14 @@ class CalendarEventDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventDeleteReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_event_id(self, eventId):
+    def set_event_id(self, event_id):
         # type: (str) -> CalendarEventDeleteReqCall
-        self.path_params['event_id'] = eventId
+        self.path_params['event_id'] = event_id
         return self
 
     def do(self):
@@ -567,14 +567,14 @@ class CalendarEventGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventGetReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_event_id(self, eventId):
+    def set_event_id(self, event_id):
         # type: (str) -> CalendarEventGetReqCall
-        self.path_params['event_id'] = eventId
+        self.path_params['event_id'] = event_id
         return self
 
     def do(self):
@@ -602,9 +602,9 @@ class CalendarPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarPatchReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -632,9 +632,9 @@ class CalendarDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarDeleteReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -663,24 +663,24 @@ class CalendarAclListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarAclListReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> CalendarAclListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> CalendarAclListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> CalendarAclListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -709,14 +709,14 @@ class CalendarAclDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarAclDeleteReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_acl_id(self, aclId):
+    def set_acl_id(self, acl_id):
         # type: (str) -> CalendarAclDeleteReqCall
-        self.path_params['acl_id'] = aclId
+        self.path_params['acl_id'] = acl_id
         return self
 
     def do(self):
@@ -744,9 +744,9 @@ class CalendarEventCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventCreateReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -775,14 +775,14 @@ class CalendarAclCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarAclCreateReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> CalendarAclCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -794,6 +794,46 @@ class CalendarAclCreateReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/acls', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=CalendarAcl, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class CalendarListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (CalendarService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_page_size(self, page_size):
+        # type: (int) -> CalendarListReqCall
+        self.query_params['page_size'] = page_size
+        return self
+
+    def set_page_token(self, page_token):
+        # type: (str) -> CalendarListReqCall
+        self.query_params['page_token'] = page_token
+        return self
+
+    def set_sync_token(self, sync_token):
+        # type: (str) -> CalendarListReqCall
+        self.query_params['sync_token'] = sync_token
+        return self
+
+    def do(self):
+        # type: () -> Response[CalendarListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('calendar/v4/calendars', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+                      None, output_class=CalendarListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -812,29 +852,29 @@ class CalendarEventAttendeeListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventAttendeeListReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_event_id(self, eventId):
+    def set_event_id(self, event_id):
         # type: (str) -> CalendarEventAttendeeListReqCall
-        self.path_params['event_id'] = eventId
+        self.path_params['event_id'] = event_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> CalendarEventAttendeeListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> CalendarEventAttendeeListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> CalendarEventAttendeeListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -846,46 +886,6 @@ class CalendarEventAttendeeListReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events/:event_id/attendees', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=CalendarEventAttendeeListResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class CalendarListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (CalendarService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> CalendarListReqCall
-        self.query_params['page_size'] = pageSize
-        return self
-
-    def set_page_token(self, pageToken):
-        # type: (str) -> CalendarListReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def set_sync_token(self, syncToken):
-        # type: (str) -> CalendarListReqCall
-        self.query_params['sync_token'] = syncToken
-        return self
-
-    def do(self):
-        # type: () -> Response[CalendarListResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('calendar/v4/calendars', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=CalendarListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -903,14 +903,14 @@ class CalendarEventAttendeeBatchDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventAttendeeBatchDeleteReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_event_id(self, eventId):
+    def set_event_id(self, event_id):
         # type: (str) -> CalendarEventAttendeeBatchDeleteReqCall
-        self.path_params['event_id'] = eventId
+        self.path_params['event_id'] = event_id
         return self
 
     def do(self):
@@ -939,19 +939,19 @@ class CalendarEventAttendeeCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventAttendeeCreateReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_event_id(self, eventId):
+    def set_event_id(self, event_id):
         # type: (str) -> CalendarEventAttendeeCreateReqCall
-        self.path_params['event_id'] = eventId
+        self.path_params['event_id'] = event_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> CalendarEventAttendeeCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -980,9 +980,9 @@ class CalendarGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarGetReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -1011,24 +1011,24 @@ class CalendarEventListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventListReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> CalendarEventListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> CalendarEventListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_sync_token(self, syncToken):
+    def set_sync_token(self, sync_token):
         # type: (str) -> CalendarEventListReqCall
-        self.query_params['sync_token'] = syncToken
+        self.query_params['sync_token'] = sync_token
         return self
 
     def do(self):
@@ -1057,14 +1057,14 @@ class CalendarSearchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> CalendarSearchReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> CalendarSearchReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1092,9 +1092,9 @@ class FreebusyListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> FreebusyListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -1122,14 +1122,14 @@ class CalendarEventPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventPatchReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_event_id(self, eventId):
+    def set_event_id(self, event_id):
         # type: (str) -> CalendarEventPatchReqCall
-        self.path_params['event_id'] = eventId
+        self.path_params['event_id'] = event_id
         return self
 
     def do(self):
@@ -1157,9 +1157,9 @@ class TimeoffEventDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_timeoff_event_id(self, timeoffEventId):
+    def set_timeoff_event_id(self, timeoff_event_id):
         # type: (str) -> TimeoffEventDeleteReqCall
-        self.path_params['timeoff_event_id'] = timeoffEventId
+        self.path_params['timeoff_event_id'] = timeoff_event_id
         return self
 
     def do(self):
@@ -1187,9 +1187,9 @@ class TimeoffEventCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> TimeoffEventCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -1217,9 +1217,9 @@ class CalendarUnsubscribeReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarUnsubscribeReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -1248,24 +1248,24 @@ class CalendarEventSearchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventSearchReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> CalendarEventSearchReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> CalendarEventSearchReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> CalendarEventSearchReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1294,9 +1294,9 @@ class CalendarSubscribeReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarSubscribeReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -1347,9 +1347,9 @@ class CalendarEventSubscriptionReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventSubscriptionReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -1400,9 +1400,9 @@ class CalendarAclSubscriptionReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarAclSubscriptionReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
     def do(self):
@@ -1431,29 +1431,29 @@ class CalendarEventAttendeeChatMemberListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_calendar_id(self, calendarId):
+    def set_calendar_id(self, calendar_id):
         # type: (str) -> CalendarEventAttendeeChatMemberListReqCall
-        self.path_params['calendar_id'] = calendarId
+        self.path_params['calendar_id'] = calendar_id
         return self
 
-    def set_event_id(self, eventId):
+    def set_event_id(self, event_id):
         # type: (str) -> CalendarEventAttendeeChatMemberListReqCall
-        self.path_params['event_id'] = eventId
+        self.path_params['event_id'] = event_id
         return self
 
-    def set_attendee_id(self, attendeeId):
+    def set_attendee_id(self, attendee_id):
         # type: (str) -> CalendarEventAttendeeChatMemberListReqCall
-        self.path_params['attendee_id'] = attendeeId
+        self.path_params['attendee_id'] = attendee_id
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> CalendarEventAttendeeChatMemberListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> CalendarEventAttendeeChatMemberListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):

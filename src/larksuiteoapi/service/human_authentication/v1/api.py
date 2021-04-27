@@ -52,14 +52,14 @@ class IdentityCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id(self, userId):
+    def set_user_id(self, user_id):
         # type: (str) -> IdentityCreateReqCall
-        self.query_params['user_id'] = userId
+        self.query_params['user_id'] = user_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> IdentityCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):

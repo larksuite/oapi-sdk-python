@@ -471,34 +471,34 @@ class MessageListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_container_id_type(self, containerIdType):
+    def set_container_id_type(self, container_id_type):
         # type: (str) -> MessageListReqCall
-        self.query_params['container_id_type'] = containerIdType
+        self.query_params['container_id_type'] = container_id_type
         return self
 
-    def set_container_id(self, containerId):
+    def set_container_id(self, container_id):
         # type: (str) -> MessageListReqCall
-        self.query_params['container_id'] = containerId
+        self.query_params['container_id'] = container_id
         return self
 
-    def set_start_time(self, startTime):
+    def set_start_time(self, start_time):
         # type: (str) -> MessageListReqCall
-        self.query_params['start_time'] = startTime
+        self.query_params['start_time'] = start_time
         return self
 
-    def set_end_time(self, endTime):
+    def set_end_time(self, end_time):
         # type: (str) -> MessageListReqCall
-        self.query_params['end_time'] = endTime
+        self.query_params['end_time'] = end_time
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> MessageListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> MessageListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -526,9 +526,9 @@ class MessagePatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, messageId):
+    def set_message_id(self, message_id):
         # type: (str) -> MessagePatchReqCall
-        self.path_params['message_id'] = messageId
+        self.path_params['message_id'] = message_id
         return self
 
     def do(self):
@@ -556,9 +556,9 @@ class MessageReplyReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, messageId):
+    def set_message_id(self, message_id):
         # type: (str) -> MessageReplyReqCall
-        self.path_params['message_id'] = messageId
+        self.path_params['message_id'] = message_id
         return self
 
     def do(self):
@@ -586,9 +586,9 @@ class MessageCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_receive_id_type(self, receiveIdType):
+    def set_receive_id_type(self, receive_id_type):
         # type: (str) -> MessageCreateReqCall
-        self.query_params['receive_id_type'] = receiveIdType
+        self.query_params['receive_id_type'] = receive_id_type
         return self
 
     def do(self):
@@ -616,9 +616,9 @@ class MessageDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, messageId):
+    def set_message_id(self, message_id):
         # type: (str) -> MessageDeleteReqCall
-        self.path_params['message_id'] = messageId
+        self.path_params['message_id'] = message_id
         return self
 
     def do(self):
@@ -647,24 +647,24 @@ class MessageReadUsersReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, messageId):
+    def set_message_id(self, message_id):
         # type: (str) -> MessageReadUsersReqCall
-        self.path_params['message_id'] = messageId
+        self.path_params['message_id'] = message_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MessageReadUsersReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> MessageReadUsersReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> MessageReadUsersReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
     def do(self):
@@ -694,14 +694,14 @@ class ChatUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatUpdateReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ChatUpdateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -729,14 +729,14 @@ class FileCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_file_type(self, fileType):
+    def set_file_type(self, file_type):
         # type: (str) -> FileCreateReqCall
-        self.body.add_param('file_type', fileType)
+        self.body.add_param('file_type', file_type)
         return self
 
-    def set_file_name(self, fileName):
+    def set_file_name(self, file_name):
         # type: (str) -> FileCreateReqCall
-        self.body.add_param('file_name', fileName)
+        self.body.add_param('file_name', file_name)
         return self
 
     def set_duration(self, duration):
@@ -772,9 +772,9 @@ class FileGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_file_key(self, fileKey):
+    def set_file_key(self, file_key):
         # type: (str) -> FileGetReqCall
-        self.path_params['file_key'] = fileKey
+        self.path_params['file_key'] = file_key
         return self
 
     def do(self):
@@ -803,19 +803,19 @@ class ChatListReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ChatListReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> ChatListReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> ChatListReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -842,9 +842,9 @@ class ImageCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_image_type(self, imageType):
+    def set_image_type(self, image_type):
         # type: (str) -> ImageCreateReqCall
-        self.body.add_param('image_type', imageType)
+        self.body.add_param('image_type', image_type)
         return self
 
     def set_image(self, image):
@@ -875,9 +875,9 @@ class ChatDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatDeleteReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
     def do(self):
@@ -905,9 +905,9 @@ class ImageGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_image_key(self, imageKey):
+    def set_image_key(self, image_key):
         # type: (str) -> ImageGetReqCall
-        self.path_params['image_key'] = imageKey
+        self.path_params['image_key'] = image_key
         return self
 
     def do(self):
@@ -937,14 +937,14 @@ class ChatGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatGetReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ChatGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -973,9 +973,9 @@ class ChatCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ChatCreateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -1003,9 +1003,9 @@ class ChatSearchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ChatSearchReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def set_query(self, query):
@@ -1013,14 +1013,14 @@ class ChatSearchReqCall(object):
         self.query_params['query'] = query
         return self
 
-    def set_page_token(self, pageToken):
+    def set_page_token(self, page_token):
         # type: (str) -> ChatSearchReqCall
-        self.query_params['page_token'] = pageToken
+        self.query_params['page_token'] = page_token
         return self
 
-    def set_page_size(self, pageSize):
+    def set_page_size(self, page_size):
         # type: (int) -> ChatSearchReqCall
-        self.query_params['page_size'] = pageSize
+        self.query_params['page_size'] = page_size
         return self
 
     def do(self):
@@ -1048,9 +1048,9 @@ class MessageGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, messageId):
+    def set_message_id(self, message_id):
         # type: (str) -> MessageGetReqCall
-        self.path_params['message_id'] = messageId
+        self.path_params['message_id'] = message_id
         return self
 
     def do(self):
@@ -1079,14 +1079,14 @@ class ChatMembersCreateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatMembersCreateReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
-    def set_member_id_type(self, memberIdType):
+    def set_member_id_type(self, member_id_type):
         # type: (str) -> ChatMembersCreateReqCall
-        self.query_params['member_id_type'] = memberIdType
+        self.query_params['member_id_type'] = member_id_type
         return self
 
     def do(self):
@@ -1116,14 +1116,14 @@ class ChatMembersDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatMembersDeleteReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
-    def set_member_id_type(self, memberIdType):
+    def set_member_id_type(self, member_id_type):
         # type: (str) -> ChatMembersDeleteReqCall
-        self.query_params['member_id_type'] = memberIdType
+        self.query_params['member_id_type'] = member_id_type
         return self
 
     def do(self):
@@ -1153,14 +1153,14 @@ class MessageResourceGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, messageId):
+    def set_message_id(self, message_id):
         # type: (str) -> MessageResourceGetReqCall
-        self.path_params['message_id'] = messageId
+        self.path_params['message_id'] = message_id
         return self
 
-    def set_file_key(self, fileKey):
+    def set_file_key(self, file_key):
         # type: (str) -> MessageResourceGetReqCall
-        self.path_params['file_key'] = fileKey
+        self.path_params['file_key'] = file_key
         return self
 
     def set_type(self, type):
@@ -1182,53 +1182,6 @@ class MessageResourceGetReqCall(object):
         return resp
 
 
-class ChatMembersGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (ChatMembersService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_chat_id(self, chatId):
-        # type: (str) -> ChatMembersGetReqCall
-        self.path_params['chat_id'] = chatId
-        return self
-
-    def set_member_id_type(self, memberIdType):
-        # type: (str) -> ChatMembersGetReqCall
-        self.query_params['member_id_type'] = memberIdType
-        return self
-
-    def set_page_token(self, pageToken):
-        # type: (str) -> ChatMembersGetReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> ChatMembersGetReqCall
-        self.query_params['page_size'] = pageSize
-        return self
-
-    def do(self):
-        # type: () -> Response[ChatMembersGetResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('im/v1/chats/:chat_id/members', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ChatMembersGetResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class ChatAnnouncementGetReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (ChatAnnouncementService, List[Any]) -> None
@@ -1243,14 +1196,14 @@ class ChatAnnouncementGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatAnnouncementGetReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ChatAnnouncementGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -1262,6 +1215,53 @@ class ChatAnnouncementGetReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('im/v1/chats/:chat_id/announcement', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=ChatAnnouncementGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ChatMembersGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ChatMembersService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_chat_id(self, chat_id):
+        # type: (str) -> ChatMembersGetReqCall
+        self.path_params['chat_id'] = chat_id
+        return self
+
+    def set_member_id_type(self, member_id_type):
+        # type: (str) -> ChatMembersGetReqCall
+        self.query_params['member_id_type'] = member_id_type
+        return self
+
+    def set_page_token(self, page_token):
+        # type: (str) -> ChatMembersGetReqCall
+        self.query_params['page_token'] = page_token
+        return self
+
+    def set_page_size(self, page_size):
+        # type: (int) -> ChatMembersGetReqCall
+        self.query_params['page_size'] = page_size
+        return self
+
+    def do(self):
+        # type: () -> Response[ChatMembersGetResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('im/v1/chats/:chat_id/members', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=ChatMembersGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1279,9 +1279,9 @@ class ChatMembersIsInChatReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatMembersIsInChatReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
     def do(self):
@@ -1309,9 +1309,9 @@ class ChatMembersMeJoinReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatMembersMeJoinReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
     def do(self):
@@ -1339,9 +1339,9 @@ class ChatAnnouncementPatchReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chatId):
+    def set_chat_id(self, chat_id):
         # type: (str) -> ChatAnnouncementPatchReqCall
-        self.path_params['chat_id'] = chatId
+        self.path_params['chat_id'] = chat_id
         return self
 
     def do(self):
