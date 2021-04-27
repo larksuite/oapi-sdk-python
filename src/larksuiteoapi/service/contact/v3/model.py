@@ -67,7 +67,7 @@ class DepartmentEvent(object):
     leader_user_id = attr.ib(type=str, default=None, metadata={'json': 'leader_user_id'})
     chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
     order = attr.ib(type=int, default=None, metadata={'json': 'order'})
-    unit_ids = attr.ib(type=List[str], default=None, metadata={'json': 'unit_ids'})
+    
     status = attr.ib(type=DepartmentStatus, default=None, metadata={'json': 'status'})
 
 
@@ -158,7 +158,7 @@ class UserEvent(object):
     en_name = attr.ib(type=str, default=None, metadata={'json': 'en_name'})
     email = attr.ib(type=str, default=None, metadata={'json': 'email'})
     mobile = attr.ib(type=str, default=None, metadata={'json': 'mobile'})
-    mobile_visible = attr.ib(type=bool, default=None, metadata={'json': 'mobile_visible'})
+    
     gender = attr.ib(type=int, default=None, metadata={'json': 'gender'})
     avatar = attr.ib(type=AvatarInfo, default=None, metadata={'json': 'avatar'})
     status = attr.ib(type=UserStatus, default=None, metadata={'json': 'status'})
@@ -168,12 +168,12 @@ class UserEvent(object):
     country = attr.ib(type=str, default=None, metadata={'json': 'country'})
     work_station = attr.ib(type=str, default=None, metadata={'json': 'work_station'})
     join_time = attr.ib(type=int, default=None, metadata={'json': 'join_time'})
-    is_tenant_manager = attr.ib(type=bool, default=None, metadata={'json': 'is_tenant_manager'})
+    
     employee_no = attr.ib(type=str, default=None, metadata={'json': 'employee_no'})
     employee_type = attr.ib(type=int, default=None, metadata={'json': 'employee_type'})
-    positions = attr.ib(type=List[UserPosition], default=None, metadata={'json': 'positions'})
+    
     orders = attr.ib(type=List[UserOrder], default=None, metadata={'json': 'orders'})
-    time_zone = attr.ib(type=str, default=None, metadata={'json': 'time_zone'})
+    
     custom_attrs = attr.ib(type=List[UserCustomAttr], default=None, metadata={'json': 'custom_attrs'})
 
 
@@ -201,13 +201,13 @@ class User(object):
     is_tenant_manager = attr.ib(type=bool, default=None, metadata={'json': 'is_tenant_manager'})
     employee_no = attr.ib(type=str, default=None, metadata={'json': 'employee_no'})
     employee_type = attr.ib(type=int, default=None, metadata={'json': 'employee_type'})
-    positions = attr.ib(type=List[UserPosition], default=None, metadata={'json': 'positions'})
+    
     orders = attr.ib(type=List[UserOrder], default=None, metadata={'json': 'orders'})
     custom_attrs = attr.ib(type=List[UserCustomAttr], default=None, metadata={'json': 'custom_attrs'})
     enterprise_email = attr.ib(type=str, default=None, metadata={'json': 'enterprise_email'})
-    idp_type = attr.ib(type=str, default=None, metadata={'json': 'idp_type'})
-    time_zone = attr.ib(type=str, default=None, metadata={'json': 'time_zone'})
-    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    
+    
+    
     need_send_notification = attr.ib(type=bool, default=None, metadata={'json': 'need_send_notification'})
     notification_option = attr.ib(type=NotificationOption, default=None, metadata={'json': 'notification_option'})
 

@@ -99,7 +99,7 @@ class Chat(object):
     only_owner_edit = attr.ib(type=bool, default=None, metadata={'json': 'only_owner_edit'})
     owner_user_id = attr.ib(type=str, default=None, metadata={'json': 'owner_user_id'})
     type = attr.ib(type=str, default=None, metadata={'json': 'type'})
-    labels = attr.ib(type=List[str], default=None, metadata={'json': 'labels'})
+    
 
 
 @to_json_decorator
@@ -179,7 +179,7 @@ class ChatChange(object):
     leave_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'leave_message_visibility'})
     moderation_permission = attr.ib(type=str, default=None, metadata={'json': 'moderation_permission'})
     owner_id = attr.ib(type=UserId, default=None, metadata={'json': 'owner_id'})
-    labels = attr.ib(type=List[str], default=None, metadata={'json': 'labels'})
+    
 
 
 @to_json_decorator
@@ -212,12 +212,6 @@ class ChatMemberBot(object):
 @attr.s
 class ChatMembers(object):
     user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
-
-
-@to_json_decorator
-@attr.s
-class ChatModeration(object):
-    pass
 
 
 @to_json_decorator
@@ -272,7 +266,7 @@ class ListChat(object):
     owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
     external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-    labels = attr.ib(type=List[str], default=None, metadata={'json': 'labels'})
+    
 
 
 @to_json_decorator
@@ -342,7 +336,7 @@ class ChatUpdateReqBody(object):
     join_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'join_message_visibility'})
     leave_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'leave_message_visibility'})
     membership_approval = attr.ib(type=str, default=None, metadata={'json': 'membership_approval'})
-    labels = attr.ib(type=List[str], default=None, metadata={'json': 'labels'})
+    
 
 
 
@@ -394,7 +388,7 @@ class ChatGetResult(object):
     moderation_permission = attr.ib(type=str, default=None, metadata={'json': 'moderation_permission'})
     external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-    labels = attr.ib(type=List[str], default=None, metadata={'json': 'labels'})
+    
 
 
 @to_json_decorator
@@ -411,7 +405,7 @@ class ChatCreateReqBody(object):
     join_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'join_message_visibility'})
     leave_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'leave_message_visibility'})
     membership_approval = attr.ib(type=str, default=None, metadata={'json': 'membership_approval'})
-    labels = attr.ib(type=List[str], default=None, metadata={'json': 'labels'})
+    
 
 
 @attr.s
@@ -436,7 +430,7 @@ class ChatCreateResult(object):
     leave_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'leave_message_visibility'})
     membership_approval = attr.ib(type=str, default=None, metadata={'json': 'membership_approval'})
     moderation_permission = attr.ib(type=str, default=None, metadata={'json': 'moderation_permission'})
-    labels = attr.ib(type=List[str], default=None, metadata={'json': 'labels'})
+    
 
 
 
@@ -476,6 +470,8 @@ class ChatMembersDeleteResult(object):
 
 
 
+
+
 @attr.s
 class ChatMembersGetResult(object):
     items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
@@ -498,17 +494,6 @@ class ChatAnnouncementGetResult(object):
 
 
 
-
-
-@attr.s
-class ChatModerationGetResult(object):
-    moderation_setting = attr.ib(type=str, default=None, metadata={'json': 'moderation_setting'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    items = attr.ib(type=List[ListModerator], default=None, metadata={'json': 'items'})
-
-
-
 @attr.s
 class ChatMembersIsInChatResult(object):
     is_in_chat = attr.ib(type=bool, default=None, metadata={'json': 'is_in_chat'})
@@ -521,15 +506,6 @@ class ChatMembersIsInChatResult(object):
 class ChatAnnouncementPatchReqBody(object):
     revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
     requests = attr.ib(type=List[str], default=None, metadata={'json': 'requests'})
-
-
-
-@to_json_decorator
-@attr.s
-class ChatModerationUpdateReqBody(object):
-    moderation_setting = attr.ib(type=str, default=None, metadata={'json': 'moderation_setting'})
-    moderator_added_list = attr.ib(type=List[str], default=None, metadata={'json': 'moderator_added_list'})
-    moderator_removed_list = attr.ib(type=List[str], default=None, metadata={'json': 'moderator_removed_list'})
 
 
 
@@ -577,6 +553,20 @@ class ChatDisbandedEvent(BaseEventV2):
 
 
 @attr.s
+class ChatMemberBotAddedEventData(object):
+    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
+    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
+    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
+    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
+
+
+@attr.s
+class ChatMemberBotAddedEvent(BaseEventV2):
+    event = attr.ib(type=ChatMemberBotAddedEventData, default=None)
+
+
+
+@attr.s
 class ChatMemberUserAddedEventData(object):
     chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
@@ -588,20 +578,6 @@ class ChatMemberUserAddedEventData(object):
 @attr.s
 class ChatMemberUserAddedEvent(BaseEventV2):
     event = attr.ib(type=ChatMemberUserAddedEventData, default=None)
-
-
-
-@attr.s
-class ChatMemberBotAddedEventData(object):
-    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
-    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
-    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
-    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
-
-
-@attr.s
-class ChatMemberBotAddedEvent(BaseEventV2):
-    event = attr.ib(type=ChatMemberBotAddedEventData, default=None)
 
 
 
