@@ -79,11 +79,9 @@ class EventHandlers(object):
         conf, event = self.conf, self.httpEvent
         if exception:
             if isinstance(exception, HandlerNotFoundError):
-                err_msg = '%s' % exception.__str__()
                 body = RESPONSE_FORMAT % exception.__str__()
                 self.write_response(
                     HTTP_STATUS_OK, DEFAULT_CONTENT_TYPE, body.encode('utf-8'))
-                conf.logger.info(err_msg)
             else:
                 err_msg = 'err occurred, %s' % exception.__str__()
                 body = RESPONSE_FORMAT % exception.__str__()
