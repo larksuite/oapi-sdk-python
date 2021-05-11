@@ -15,6 +15,8 @@ class Service(object):
         # type: (Config) -> None
         self.conf = conf
         self.files = FileService(self)
+        self.file_comments = FileCommentService(self)
+        self.file_comment_replys = FileCommentReplyService(self)
         self.medias = MediaService(self)
         
 
@@ -25,57 +27,212 @@ class FileService(object):
         # type: (Service) -> None
         self.service = service
 
-    def upload_all(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> FileUploadAllReqCall
+    def upload_finish(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (FileUploadFinishReqBody, str, str, int) -> FileUploadFinishReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
 
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return FileUploadAllReqCall(self, request_opts=request_opts)
-
-    def upload_finish(self, body, user_access_token=None, timeout=None):
-        # type: (FileUploadFinishReqBody, str, int) -> FileUploadFinishReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return FileUploadFinishReqCall(self, body, request_opts=request_opts)
 
-    def upload_part(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> FileUploadPartReqCall
+    def upload_prepare(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (UploadInfo, str, str, int) -> FileUploadPrepareReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileUploadPrepareReqCall(self, body, request_opts=request_opts)
+
+    def upload_all(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> FileUploadAllReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileUploadAllReqCall(self, request_opts=request_opts)
+
+    def upload_part(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> FileUploadPartReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return FileUploadPartReqCall(self, request_opts=request_opts)
 
-    def upload_prepare(self, body, user_access_token=None, timeout=None):
-        # type: (UploadInfo, str, int) -> FileUploadPrepareReqCall
+    def download(self, tenant_key=None, user_access_token=None, response_stream=None, timeout=None):
+        # type: (str, str, Union[None, IO], int) -> FileDownloadReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
 
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
-        return FileUploadPrepareReqCall(self, body, request_opts=request_opts)
+        if response_stream is not None:
+            request_opts += [set_response_stream(response_stream)]
+
+        return FileDownloadReqCall(self, request_opts=request_opts)
+
+    def subscribe(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> FileSubscribeReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileSubscribeReqCall(self, request_opts=request_opts)
+
+
+class FileCommentService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (FileComment, str, str, int) -> FileCommentCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileCommentCreateReqCall(self, body, request_opts=request_opts)
+
+    def get(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> FileCommentGetReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileCommentGetReqCall(self, request_opts=request_opts)
+
+    def list(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> FileCommentListReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileCommentListReqCall(self, request_opts=request_opts)
+
+    def patch(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (FileCommentPatchReqBody, str, str, int) -> FileCommentPatchReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileCommentPatchReqCall(self, body, request_opts=request_opts)
+
+
+class FileCommentReplyService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def update(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (FileCommentReplyUpdateReqBody, str, str, int) -> FileCommentReplyUpdateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileCommentReplyUpdateReqCall(self, body, request_opts=request_opts)
+
+    def delete(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> FileCommentReplyDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileCommentReplyDeleteReqCall(self, request_opts=request_opts)
 
 
 class MediaService(object):
@@ -83,298 +240,105 @@ class MediaService(object):
         # type: (Service) -> None
         self.service = service
 
-    def batch_get_tmp_download_url(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> MediaBatchGetTmpDownloadUrlReqCall
+    def upload_part(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> MediaUploadPartReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
 
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MediaBatchGetTmpDownloadUrlReqCall(self, request_opts=request_opts)
-
-    def upload_all(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> MediaUploadAllReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MediaUploadAllReqCall(self, request_opts=request_opts)
-
-    def upload_finish(self, body, user_access_token=None, timeout=None):
-        # type: (MediaUploadFinishReqBody, str, int) -> MediaUploadFinishReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MediaUploadFinishReqCall(self, body, request_opts=request_opts)
-
-    def upload_part(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> MediaUploadPartReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return MediaUploadPartReqCall(self, request_opts=request_opts)
 
-    def upload_prepare(self, body, user_access_token=None, timeout=None):
-        # type: (UploadInfo, str, int) -> MediaUploadPrepareReqCall
+    def upload_all(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> MediaUploadAllReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
 
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MediaUploadAllReqCall(self, request_opts=request_opts)
+
+    def upload_finish(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (MediaUploadFinishReqBody, str, str, int) -> MediaUploadFinishReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MediaUploadFinishReqCall(self, body, request_opts=request_opts)
+
+    def upload_prepare(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (UploadInfo, str, str, int) -> MediaUploadPrepareReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return MediaUploadPrepareReqCall(self, body, request_opts=request_opts)
 
+    def batch_get_tmp_download_url(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> MediaBatchGetTmpDownloadUrlReqCall
 
+        request_opts = []   # type: List[Callable[[Any], Any]]
 
-class MediaBatchGetTmpDownloadUrlReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MediaService, List[Any]) -> None
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
 
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
 
-    def set_file_tokens(self, fileTokens):
-        # type: (List[str]) -> MediaBatchGetTmpDownloadUrlReqCall
-        self.query_params['file_tokens'] = fileTokens
-        return self
+        return MediaBatchGetTmpDownloadUrlReqCall(self, request_opts=request_opts)
 
-    def do(self):
-        # type: () -> Response[MediaBatchGetTmpDownloadUrlResult]
-        root_service = self.service.service
+    def download(self, tenant_key=None, user_access_token=None, response_stream=None, timeout=None):
+        # type: (str, str, Union[None, IO], int) -> MediaDownloadReqCall
 
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('drive/v1/medias/batch_get_tmp_download_url', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
+        request_opts = []   # type: List[Callable[[Any], Any]]
 
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
 
-class MediaUploadAllReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MediaService, List[Any]) -> None
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
-        self.service = service
-        self.body = FormData()
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
 
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
+        if response_stream is not None:
+            request_opts += [set_response_stream(response_stream)]
 
-    def set_file_name(self, fileName):
-        # type: (str) -> MediaUploadAllReqCall
-        self.body.add_param('file_name', fileName)
-        return self
+        return MediaDownloadReqCall(self, request_opts=request_opts)
 
-    def set_parent_type(self, parentType):
-        # type: (str) -> MediaUploadAllReqCall
-        self.body.add_param('parent_type', parentType)
-        return self
-
-    def set_parent_node(self, parentNode):
-        # type: (str) -> MediaUploadAllReqCall
-        self.body.add_param('parent_node', parentNode)
-        return self
-
-    def set_size(self, size):
-        # type: (int) -> MediaUploadAllReqCall
-        self.body.add_param('size', size)
-        return self
-
-    def set_checksum(self, checksum):
-        # type: (str) -> MediaUploadAllReqCall
-        self.body.add_param('checksum', checksum)
-        return self
-
-    def set_file(self, file):
-        # type: (IO[Any]) -> MediaUploadAllReqCall
-        self.body.add_file('file', FormDataFile(file))
-        return self
-
-    def do(self):
-        # type: () -> Response[MediaUploadAllResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('drive/v1/medias/upload_all', 'POST', [ACCESS_TOKEN_TYPE_USER], self.body,  output_class=MediaUploadAllResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class FileUploadAllReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (FileService, List[Any]) -> None
-
-        self.service = service
-        self.body = FormData()
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_file_name(self, fileName):
-        # type: (str) -> FileUploadAllReqCall
-        self.body.add_param('file_name', fileName)
-        return self
-
-    def set_parent_type(self, parentType):
-        # type: (str) -> FileUploadAllReqCall
-        self.body.add_param('parent_type', parentType)
-        return self
-
-    def set_parent_node(self, parentNode):
-        # type: (str) -> FileUploadAllReqCall
-        self.body.add_param('parent_node', parentNode)
-        return self
-
-    def set_size(self, size):
-        # type: (int) -> FileUploadAllReqCall
-        self.body.add_param('size', size)
-        return self
-
-    def set_checksum(self, checksum):
-        # type: (str) -> FileUploadAllReqCall
-        self.body.add_param('checksum', checksum)
-        return self
-
-    def set_file(self, file):
-        # type: (IO[Any]) -> FileUploadAllReqCall
-        self.body.add_file('file', FormDataFile(file))
-        return self
-
-    def do(self):
-        # type: () -> Response[FileUploadAllResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('drive/v1/files/upload_all', 'POST', [ACCESS_TOKEN_TYPE_USER], self.body,  output_class=FileUploadAllResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class FileUploadFinishReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (FileService, FileUploadFinishReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> Response[FileUploadFinishResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('drive/v1/files/upload_finish', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=FileUploadFinishResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MediaUploadFinishReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (MediaService, MediaUploadFinishReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> Response[MediaUploadFinishResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('drive/v1/medias/upload_finish', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=MediaUploadFinishResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class FileUploadPartReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (FileService, List[Any]) -> None
-
-        self.service = service
-        self.body = FormData()
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_upload_id(self, uploadId):
-        # type: (str) -> FileUploadPartReqCall
-        self.body.add_param('upload_id', uploadId)
-        return self
-
-    def set_seq(self, seq):
-        # type: (int) -> FileUploadPartReqCall
-        self.body.add_param('seq', seq)
-        return self
-
-    def set_size(self, size):
-        # type: (int) -> FileUploadPartReqCall
-        self.body.add_param('size', size)
-        return self
-
-    def set_checksum(self, checksum):
-        # type: (str) -> FileUploadPartReqCall
-        self.body.add_param('checksum', checksum)
-        return self
-
-    def set_file(self, file):
-        # type: (IO[Any]) -> FileUploadPartReqCall
-        self.body.add_file('file', FormDataFile(file))
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('drive/v1/files/upload_part', 'POST', [ACCESS_TOKEN_TYPE_USER], self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
 
 
 class MediaUploadPartReqCall(object):
@@ -389,9 +353,9 @@ class MediaUploadPartReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_upload_id(self, uploadId):
+    def set_upload_id(self, upload_id):
         # type: (str) -> MediaUploadPartReqCall
-        self.body.add_param('upload_id', uploadId)
+        self.body.add_param('upload_id', upload_id)
         return self
 
     def set_seq(self, seq):
@@ -419,7 +383,30 @@ class MediaUploadPartReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/v1/medias/upload_part', 'POST', [ACCESS_TOKEN_TYPE_USER], self.body, request_opts=self.request_opts)
+        req = Request('drive/v1/medias/upload_part', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT], self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileUploadFinishReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (FileService, FileUploadFinishReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> Response[FileUploadFinishResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('drive/v1/files/upload_finish', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=FileUploadFinishResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -441,8 +428,135 @@ class FileUploadPrepareReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/v1/files/upload_prepare', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('drive/v1/files/upload_prepare', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=FileUploadPrepareResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MediaUploadAllReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MediaService, List[Any]) -> None
+
+        self.service = service
+        self.body = FormData()
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_name(self, file_name):
+        # type: (str) -> MediaUploadAllReqCall
+        self.body.add_param('file_name', file_name)
+        return self
+
+    def set_parent_type(self, parent_type):
+        # type: (str) -> MediaUploadAllReqCall
+        self.body.add_param('parent_type', parent_type)
+        return self
+
+    def set_parent_node(self, parent_node):
+        # type: (str) -> MediaUploadAllReqCall
+        self.body.add_param('parent_node', parent_node)
+        return self
+
+    def set_size(self, size):
+        # type: (int) -> MediaUploadAllReqCall
+        self.body.add_param('size', size)
+        return self
+
+    def set_checksum(self, checksum):
+        # type: (str) -> MediaUploadAllReqCall
+        self.body.add_param('checksum', checksum)
+        return self
+
+    def set_file(self, file):
+        # type: (IO[Any]) -> MediaUploadAllReqCall
+        self.body.add_file('file', FormDataFile(file))
+        return self
+
+    def do(self):
+        # type: () -> Response[MediaUploadAllResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('drive/v1/medias/upload_all', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=MediaUploadAllResult , request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MediaUploadFinishReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (MediaService, MediaUploadFinishReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> Response[MediaUploadFinishResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('drive/v1/medias/upload_finish', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=MediaUploadFinishResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileUploadAllReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FileService, List[Any]) -> None
+
+        self.service = service
+        self.body = FormData()
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_name(self, file_name):
+        # type: (str) -> FileUploadAllReqCall
+        self.body.add_param('file_name', file_name)
+        return self
+
+    def set_parent_type(self, parent_type):
+        # type: (str) -> FileUploadAllReqCall
+        self.body.add_param('parent_type', parent_type)
+        return self
+
+    def set_parent_node(self, parent_node):
+        # type: (str) -> FileUploadAllReqCall
+        self.body.add_param('parent_node', parent_node)
+        return self
+
+    def set_size(self, size):
+        # type: (int) -> FileUploadAllReqCall
+        self.body.add_param('size', size)
+        return self
+
+    def set_checksum(self, checksum):
+        # type: (str) -> FileUploadAllReqCall
+        self.body.add_param('checksum', checksum)
+        return self
+
+    def set_file(self, file):
+        # type: (IO[Any]) -> FileUploadAllReqCall
+        self.body.add_file('file', FormDataFile(file))
+        return self
+
+    def do(self):
+        # type: () -> Response[FileUploadAllResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('drive/v1/files/upload_all', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=FileUploadAllResult , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -464,8 +578,466 @@ class MediaUploadPrepareReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/v1/medias/upload_prepare', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('drive/v1/medias/upload_prepare', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MediaUploadPrepareResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileUploadPartReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FileService, List[Any]) -> None
+
+        self.service = service
+        self.body = FormData()
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_upload_id(self, upload_id):
+        # type: (str) -> FileUploadPartReqCall
+        self.body.add_param('upload_id', upload_id)
+        return self
+
+    def set_seq(self, seq):
+        # type: (int) -> FileUploadPartReqCall
+        self.body.add_param('seq', seq)
+        return self
+
+    def set_size(self, size):
+        # type: (int) -> FileUploadPartReqCall
+        self.body.add_param('size', size)
+        return self
+
+    def set_checksum(self, checksum):
+        # type: (str) -> FileUploadPartReqCall
+        self.body.add_param('checksum', checksum)
+        return self
+
+    def set_file(self, file):
+        # type: (IO[Any]) -> FileUploadPartReqCall
+        self.body.add_file('file', FormDataFile(file))
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('drive/v1/files/upload_part', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT], self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MediaBatchGetTmpDownloadUrlReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MediaService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_tokens(self, file_tokens):
+        # type: (List[str]) -> MediaBatchGetTmpDownloadUrlReqCall
+        self.query_params['file_tokens'] = file_tokens
+        return self
+
+    def do(self):
+        # type: () -> Response[MediaBatchGetTmpDownloadUrlResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/medias/batch_get_tmp_download_url', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=MediaBatchGetTmpDownloadUrlResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileDownloadReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FileService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileDownloadReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_is_response_stream()]
+        req = Request('drive/v1/files/:file_token/download', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MediaDownloadReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MediaService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> MediaDownloadReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_is_response_stream()]
+        req = Request('drive/v1/medias/:file_token/download', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileSubscribeReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FileService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileSubscribeReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileSubscribeReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/subscribe', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCommentCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (FileCommentService, FileComment, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileCommentCreateReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileCommentCreateReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> FileCommentCreateReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[FileComment]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/comments', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=FileComment, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCommentGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FileCommentService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileCommentGetReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_comment_id(self, comment_id):
+        # type: (int) -> FileCommentGetReqCall
+        self.path_params['comment_id'] = comment_id
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileCommentGetReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> FileCommentGetReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[FileComment]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/comments/:comment_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=FileComment, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCommentReplyUpdateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (FileCommentReplyService, FileCommentReplyUpdateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileCommentReplyUpdateReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_comment_id(self, comment_id):
+        # type: (int) -> FileCommentReplyUpdateReqCall
+        self.path_params['comment_id'] = comment_id
+        return self
+
+    def set_reply_id(self, reply_id):
+        # type: (int) -> FileCommentReplyUpdateReqCall
+        self.path_params['reply_id'] = reply_id
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileCommentReplyUpdateReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCommentListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FileCommentService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileCommentListReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileCommentListReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> FileCommentListReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def set_is_solved(self, is_solved):
+        # type: (bool) -> FileCommentListReqCall
+        self.query_params['is_solved'] = is_solved
+        return self
+
+    def set_page_token(self, page_token):
+        # type: (str) -> FileCommentListReqCall
+        self.query_params['page_token'] = page_token
+        return self
+
+    def set_page_size(self, page_size):
+        # type: (int) -> FileCommentListReqCall
+        self.query_params['page_size'] = page_size
+        return self
+
+    def do(self):
+        # type: () -> Response[FileCommentListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/comments', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=FileCommentListResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCommentPatchReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (FileCommentService, FileCommentPatchReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileCommentPatchReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_comment_id(self, comment_id):
+        # type: (int) -> FileCommentPatchReqCall
+        self.path_params['comment_id'] = comment_id
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileCommentPatchReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/comments/:comment_id', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCommentReplyDeleteReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FileCommentReplyService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileCommentReplyDeleteReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_comment_id(self, comment_id):
+        # type: (int) -> FileCommentReplyDeleteReqCall
+        self.path_params['comment_id'] = comment_id
+        return self
+
+    def set_reply_id(self, reply_id):
+        # type: (int) -> FileCommentReplyDeleteReqCall
+        self.path_params['reply_id'] = reply_id
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileCommentReplyDeleteReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

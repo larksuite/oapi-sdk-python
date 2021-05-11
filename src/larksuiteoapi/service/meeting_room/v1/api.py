@@ -325,7 +325,7 @@ class RoomBatchGetReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/room/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/room/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=RoomBatchGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -365,8 +365,31 @@ class FreebusyBatchGetReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/freebusy/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/freebusy/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=FreebusyBatchGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class SummaryBatchGetReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (SummaryService, SummaryBatchGetReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> Response[SummaryBatchGetResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('meeting_room/summary/batch_get', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=SummaryBatchGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -400,31 +423,8 @@ class BuildingBatchGetReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/building/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/building/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=BuildingBatchGetResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class SummaryBatchGetReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (SummaryService, SummaryBatchGetReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> Response[SummaryBatchGetResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('meeting_room/v1/summary/batch_get', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=SummaryBatchGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -453,7 +453,7 @@ class BuildingBatchGetIdReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/building/batch_get_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/building/batch_get_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=BuildingBatchGetIdResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -483,7 +483,7 @@ class RoomBatchGetIdReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/room/batch_get_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/room/batch_get_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=RoomBatchGetIdResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -506,7 +506,7 @@ class BuildingCreateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('meeting_room/v1/building/create', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/building/create', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=BuildingCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -529,31 +529,8 @@ class RoomCreateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('meeting_room/v1/room/create', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/room/create', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=RoomCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class RoomDeleteReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (RoomService, List[Any]) -> None
-
-        self.service = service
-        
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('meeting_room/v1/room/delete', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -575,83 +552,31 @@ class BuildingDeleteReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('meeting_room/v1/building/delete', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/building/delete', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
 
-class DistrictListReqCall(object):
+class RoomDeleteReqCall(object):
     def __init__(self, service, request_opts=None):
-        # type: (DistrictService, List[Any]) -> None
+        # type: (RoomService, List[Any]) -> None
 
         self.service = service
         
-        self.query_params = {}  # type: Dict[str, Any]
 
         if request_opts:
             self.request_opts = request_opts
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_country_id(self, country_id):
-        # type: (int) -> DistrictListReqCall
-        self.query_params['country_id'] = country_id
-        return self
-
     def do(self):
-        # type: () -> Response[DistrictListResult]
+        # type: () -> Response[None]
         root_service = self.service.service
 
         conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/district/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=DistrictListResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class BuildingListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (BuildingService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_order_by(self, order_by):
-        # type: (str) -> BuildingListReqCall
-        self.query_params['order_by'] = order_by
-        return self
-
-    def set_fields(self, fields):
-        # type: (str) -> BuildingListReqCall
-        self.query_params['fields'] = fields
-        return self
-
-    def set_page_token(self, page_token):
-        # type: (str) -> BuildingListReqCall
-        self.query_params['page_token'] = page_token
-        return self
-
-    def set_page_size(self, page_size):
-        # type: (int) -> BuildingListReqCall
-        self.query_params['page_size'] = page_size
-        return self
-
-    def do(self):
-        # type: () -> Response[BuildingListResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/building/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=BuildingListResult, request_opts=self.request_opts)
+        req = Request('meeting_room/room/delete', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -673,7 +598,7 @@ class CountryListReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('meeting_room/v1/country/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/country/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=CountryListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -723,8 +648,83 @@ class RoomListReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('meeting_room/v1/room/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/room/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=RoomListResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class DistrictListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (DistrictService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_country_id(self, country_id):
+        # type: (int) -> DistrictListReqCall
+        self.query_params['country_id'] = country_id
+        return self
+
+    def do(self):
+        # type: () -> Response[DistrictListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('meeting_room/district/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=DistrictListResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class BuildingListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (BuildingService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_order_by(self, order_by):
+        # type: (str) -> BuildingListReqCall
+        self.query_params['order_by'] = order_by
+        return self
+
+    def set_fields(self, fields):
+        # type: (str) -> BuildingListReqCall
+        self.query_params['fields'] = fields
+        return self
+
+    def set_page_token(self, page_token):
+        # type: (str) -> BuildingListReqCall
+        self.query_params['page_token'] = page_token
+        return self
+
+    def set_page_size(self, page_size):
+        # type: (int) -> BuildingListReqCall
+        self.query_params['page_size'] = page_size
+        return self
+
+    def do(self):
+        # type: () -> Response[BuildingListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('meeting_room/building/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=BuildingListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -746,30 +746,7 @@ class InstanceReplyReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('meeting_room/v1/instance/reply', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class BuildingUpdateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (BuildingService, BuildingUpdateReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('meeting_room/v1/building/update', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/instance/reply', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -792,7 +769,30 @@ class RoomUpdateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('meeting_room/v1/room/update', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('meeting_room/room/update', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class BuildingUpdateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (BuildingService, BuildingUpdateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('meeting_room/building/update', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

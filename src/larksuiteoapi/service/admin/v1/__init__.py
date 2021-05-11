@@ -3,4 +3,3 @@
 
 from .model import *
 from .api import *
-from .event import *

@@ -203,11 +203,11 @@ class CalendarAclListResult(object):
 
 
 
+
+
 @attr.s
 class CalendarEventCreateResult(object):
     event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
-
-
 
 
 

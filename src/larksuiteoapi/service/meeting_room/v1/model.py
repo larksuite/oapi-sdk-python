@@ -139,12 +139,6 @@ class FreebusyBatchGetResult(object):
     free_busy = attr.ib(type=Dict[str, RoomFreeBusy], default=None, metadata={'json': 'free_busy'})
 
 
-
-@attr.s
-class BuildingBatchGetResult(object):
-    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
-
-
 @to_json_decorator
 @attr.s
 class SummaryBatchGetReqBody(object):
@@ -155,6 +149,12 @@ class SummaryBatchGetReqBody(object):
 class SummaryBatchGetResult(object):
     event_infos = attr.ib(type=List[EventInfo], default=None, metadata={'json': 'EventInfos'})
     error_event_uids = attr.ib(type=List[ErrorEventUid], default=None, metadata={'json': 'ErrorEventUids'})
+
+
+
+@attr.s
+class BuildingBatchGetResult(object):
+    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
 
 
 
@@ -206,18 +206,6 @@ class RoomCreateResult(object):
 
 
 @attr.s
-class DistrictListResult(object):
-    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
-
-
-
-@attr.s
-class BuildingListResult(object):
-    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
-
-
-
-@attr.s
 class CountryListResult(object):
     countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
 
@@ -226,6 +214,18 @@ class CountryListResult(object):
 @attr.s
 class RoomListResult(object):
     rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
+
+
+
+@attr.s
+class DistrictListResult(object):
+    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
+
+
+
+@attr.s
+class BuildingListResult(object):
+    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
 
 
 @to_json_decorator
@@ -240,22 +240,22 @@ class InstanceReplyReqBody(object):
 
 @to_json_decorator
 @attr.s
+class RoomUpdateReqBody(object):
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    capacity = attr.ib(type=int, default=None, metadata={'json': 'capacity'})
+    is_disabled = attr.ib(type=bool, default=None, metadata={'json': 'is_disabled'})
+    custom_room_id = attr.ib(type=str, default=None, metadata={'json': 'custom_room_id'})
+
+
+
+@to_json_decorator
+@attr.s
 class BuildingUpdateReqBody(object):
     name = attr.ib(type=str, default=None, metadata={'json': 'name'})
     floors = attr.ib(type=List[str], default=None, metadata={'json': 'floors'})
     country_id = attr.ib(type=str, default=None, metadata={'json': 'country_id'})
     district_id = attr.ib(type=str, default=None, metadata={'json': 'district_id'})
     custom_building_id = attr.ib(type=str, default=None, metadata={'json': 'custom_building_id'})
-
-
-
-@to_json_decorator
-@attr.s
-class RoomUpdateReqBody(object):
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    capacity = attr.ib(type=int, default=None, metadata={'json': 'capacity'})
-    is_disabled = attr.ib(type=bool, default=None, metadata={'json': 'is_disabled'})
-    custom_room_id = attr.ib(type=str, default=None, metadata={'json': 'custom_room_id'})
 
 
 
