@@ -24,7 +24,7 @@
 **最新的版本，请看** [pypi.org](https://pypi.org/project/larksuite-oapi/) 。
 
 ```shell
-pip install larksuite-oapi
+pip install larksuite-oapi==1.0.19
 ```
 
 ## 术语解释

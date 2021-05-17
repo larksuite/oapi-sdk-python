@@ -28,7 +28,7 @@
 ---
 
 ```shell
-pip install larksuite-oapi
+pip install larksuite-oapi==1.0.19
 ```
 
 ## Explanation of terms
