@@ -1446,12 +1446,12 @@ class SpreadsheetsValuesGetReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def set_spreadsheetToken(self, spreadsheet_token):
-        # type: (SpreadsheetToken) -> SpreadsheetsValuesGetReqCall
+        # type: (str) -> SpreadsheetsValuesGetReqCall
         self.path_params['spreadsheetToken'] = spreadsheet_token
         return self
 
     def set_range(self, range):
-        # type: (SpreadsheetToken) -> SpreadsheetsValuesGetReqCall
+        # type: (str) -> SpreadsheetsValuesGetReqCall
         self.path_params['range'] = range
         return self
 

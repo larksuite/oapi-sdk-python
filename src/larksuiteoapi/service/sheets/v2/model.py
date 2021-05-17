@@ -310,6 +310,7 @@ class DimensionProperties(object):
 @to_json_decorator
 @attr.s
 class MetainfoProperties(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["owner_user"])
     title = attr.ib(type=str, default=None, metadata={'json': 'title'})
     owner_user = attr.ib(type=int, default=None, metadata={'json': 'ownerUser'})
     sheet_count = attr.ib(type=int, default=None, metadata={'json': 'sheetCount'})
