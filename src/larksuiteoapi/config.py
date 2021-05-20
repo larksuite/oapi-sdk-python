@@ -42,7 +42,7 @@ class Config(object):
 
         if app_id == '':
             raise RuntimeError('environment variables not exist `APP_ID`')
-        if encrypt_key == '':
+        if app_secret == '':
             raise RuntimeError('environment variables not exist `APP_SECRET`')
 
         return app_id, app_secret, verification_token, encrypt_key

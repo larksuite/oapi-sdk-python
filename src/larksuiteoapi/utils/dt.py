@@ -7,6 +7,10 @@ from typing import List, TypeVar
 
 import attr
 
+import sys
+
+PY3 = sys.version_info[0] == 3
+
 T = TypeVar('T')
 
 int_to_string_fields = "__int_to_string_fields__"
@@ -53,6 +57,21 @@ def make_datatype(t, kwargs):
         return
     kwargs = deepcopy(kwargs)
 
+    if PY3:
+        string_types = str,
+        integer_types = [int]
+    else:  # python2
+        string_types = basestring,
+        integer_types = [long, int]
+
+    long_type = integer_types[0]
+
+    if t in integer_types and isinstance(kwargs, string_types):
+        return long_type(kwargs)
+
+    if t == int and isinstance(kwargs, str):
+        return int(kwargs)
+
     if isinstance(kwargs, (int, str, bool)):
         return kwargs
 
@@ -77,13 +96,3 @@ def make_datatype(t, kwargs):
             d[att_name] = None
 
     return t(**d)
-
-
-def int_convert_bool(v):
-    return bool(v)
-
-
-def to_lower_converter(s):
-    if isinstance(s, str):
-        return s.lower()
-    return s
