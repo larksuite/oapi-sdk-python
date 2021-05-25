@@ -69,7 +69,7 @@ class DocsApiMetaReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('suite/docs_api/meta', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('suite/docs-api/meta', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=DocsApiMetaResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -92,7 +92,7 @@ class DocsApiSearchReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('suite/docs_api/search/object', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('suite/docs-api/search/object', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=DocsApiSearchResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

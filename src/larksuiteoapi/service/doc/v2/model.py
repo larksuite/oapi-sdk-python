@@ -18,7 +18,6 @@ class Doc(object):
 @to_json_decorator
 @attr.s
 class DocBatchUpdateReqBody(object):
-    doc_token = attr.ib(type=str, default=None, metadata={'json': 'docToken'})
     revision = attr.ib(type=int, default=None, metadata={'json': 'Revision'})
     requests = attr.ib(type=List[str], default=None, metadata={'json': 'Requests'})
 

@@ -21,10 +21,16 @@
 
 ---
 
-**最新的版本，请看** [pypi.org](https://pypi.org/project/larksuite-oapi/) 。
+- 最新的发布候选版本，提供更多[开放服务 API](/src/larksuiteoapi/service) 以及 Bug 修复
 
 ```shell
-pip install larksuite-oapi==1.0.19
+pip install larksuite-oapi==1.0.24rc1
+```
+
+- 稳定版本
+
+```shell
+pip install larksuite-oapi==1.0.8
 ```
 
 ## 术语解释

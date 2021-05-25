@@ -743,6 +743,16 @@ class SpreadsheetsDataValidationGetReqCall(object):
         self.path_params['spreadsheetToken'] = spreadsheet_token
         return self
 
+    def set_range(self, range):
+        # type: (str) -> SpreadsheetsDataValidationGetReqCall
+        self.path_params['range'] = range
+        return self
+
+    def set_dataValidationType(self, data_validation_type):
+        # type: (str) -> SpreadsheetsDataValidationGetReqCall
+        self.path_params['dataValidationType'] = data_validation_type
+        return self
+
     def do(self):
         # type: () -> Response[SpreadsheetsDataValidationGetResult]
         root_service = self.service.service
