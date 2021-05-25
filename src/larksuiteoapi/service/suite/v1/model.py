@@ -38,8 +38,8 @@ class DocsMeta(object):
 @to_json_decorator
 @attr.s
 class RequestDoc(object):
-    token = attr.ib(type=str, default=None, metadata={'json': 'token'})
-    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+    docs_token = attr.ib(type=str, default=None, metadata={'json': 'docs_token'})
+    docs_type = attr.ib(type=str, default=None, metadata={'json': 'docs_type'})
 
 
 
@@ -62,7 +62,7 @@ class DocsApiSearchReqBody(object):
     offset = attr.ib(type=int, default=None, metadata={'json': 'offset'})
     owner_ids = attr.ib(type=List[str], default=None, metadata={'json': 'owner_ids'})
     chat_ids = attr.ib(type=List[str], default=None, metadata={'json': 'chat_ids'})
-    docs_types = attr.ib(type=str, default=None, metadata={'json': 'docs_types'})
+    docs_types = attr.ib(type=List[str], default=None, metadata={'json': 'docs_types'})
 
 
 @attr.s

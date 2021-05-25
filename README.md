@@ -33,8 +33,16 @@ If you encounter any problems during usage, please let us know by submitting  [G
 
 ---
 
+- The latest release candidate provides more [open services API](/src/larksuiteoapi/service) and bug repair.
+
 ```shell
-pip install larksuite-oapi==1.0.19
+pip install larksuite-oapi==1.0.24rc1
+```
+
+- Stable version
+
+```shell
+pip install larksuite-oapi==1.0.8
 ```
 
 ## Explanation of terms

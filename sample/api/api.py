@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import json
 
 import attr
 
@@ -10,7 +11,7 @@ from larksuiteoapi.api import Request, FormData, FormDataFile, set_timeout, set_
 
 from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP, \
     APP_TICKET_KEY_PREFIX, DOMAIN_FEISHU
-from larksuiteoapi.utils.dt import to_json_decorator
+from larksuiteoapi.utils.dt import to_json_decorator, make_datatype
 
 from sample.config.config import test_config_with_memory_store, test_config_with_redis_store
 
@@ -122,8 +123,13 @@ def test_user_update():
     path_params = {"user_id": "77bbc392"}
     query_params = {"user_id_type": "user_id"}
     user = User()
-    user.id = 1000
+    user.id = 9223372036854775806
     user.name = "rename"
+
+    d = json.loads('{"id": "9223372036854775806", "name": "rename"}')
+    user = make_datatype(User, d)
+    print(user)
+
     req = Request('contact/v3/users/:user_id', 'Patch', ACCESS_TOKEN_TYPE_TENANT, user,
                   output_class=UserUpdateResult,
                   request_opts=[set_path_params(path_params), set_query_params(query_params)])
@@ -182,7 +188,7 @@ def test_download_file(timeout=False, isv=False):
 
 
 if __name__ == '__main__':
-    test_send_message()
+    # test_send_message()
     # test_download_file()
     # test_upload_file()
-    #test_user_update()
+    test_user_update()

@@ -168,20 +168,6 @@ class ProtectedRange(object):
 
 @to_json_decorator
 @attr.s
-class Sheet(object):
-    sheet_id = attr.ib(type=str, default=None, metadata={'json': 'sheetId'})
-    title = attr.ib(type=str, default=None, metadata={'json': 'title'})
-    index = attr.ib(type=int, default=None, metadata={'json': 'index'})
-    row_count = attr.ib(type=int, default=None, metadata={'json': 'rowCount'})
-    column_count = attr.ib(type=int, default=None, metadata={'json': 'columnCount'})
-    frozen_row_count = attr.ib(type=int, default=None, metadata={'json': 'frozenRowCount'})
-    frozen_col_count = attr.ib(type=int, default=None, metadata={'json': 'frozenColCount'})
-    merges = attr.ib(type=List[Merge], default=None, metadata={'json': 'merges'})
-    protected_range = attr.ib(type=ProtectedRange, default=None, metadata={'json': 'protectedRange'})
-
-
-@to_json_decorator
-@attr.s
 class AddProtectedDimension(object):
     dimension = attr.ib(type=Dimension, default=None, metadata={'json': 'dimension'})
     editors = attr.ib(type=List[int], default=None, metadata={'json': 'editors'})
@@ -277,6 +263,28 @@ class SheetConditionFormat(object):
 
 @to_json_decorator
 @attr.s
+class BlockInfo(object):
+    block_token = attr.ib(type=str, default=None, metadata={'json': 'blockToken'})
+    block_type = attr.ib(type=str, default=None, metadata={'json': 'blockType'})
+
+
+@to_json_decorator
+@attr.s
+class Sheet(object):
+    sheet_id = attr.ib(type=str, default=None, metadata={'json': 'sheetId'})
+    title = attr.ib(type=str, default=None, metadata={'json': 'title'})
+    index = attr.ib(type=int, default=None, metadata={'json': 'index'})
+    row_count = attr.ib(type=int, default=None, metadata={'json': 'rowCount'})
+    column_count = attr.ib(type=int, default=None, metadata={'json': 'columnCount'})
+    frozen_row_count = attr.ib(type=int, default=None, metadata={'json': 'frozenRowCount'})
+    frozen_col_count = attr.ib(type=int, default=None, metadata={'json': 'frozenColCount'})
+    merges = attr.ib(type=List[Merge], default=None, metadata={'json': 'merges'})
+    protected_range = attr.ib(type=ProtectedRange, default=None, metadata={'json': 'protectedRange'})
+    block_info = attr.ib(type=BlockInfo, default=None, metadata={'json': 'blockInfo'})
+
+
+@to_json_decorator
+@attr.s
 class ConditionFormatResponse(object):
     sheet_id = attr.ib(type=str, default=None, metadata={'json': 'sheet_id'})
     cf_id = attr.ib(type=str, default=None, metadata={'json': 'cf_id'})
@@ -310,7 +318,6 @@ class DimensionProperties(object):
 @to_json_decorator
 @attr.s
 class MetainfoProperties(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["owner_user"])
     title = attr.ib(type=str, default=None, metadata={'json': 'title'})
     owner_user = attr.ib(type=int, default=None, metadata={'json': 'ownerUser'})
     sheet_count = attr.ib(type=int, default=None, metadata={'json': 'sheetCount'})
@@ -431,7 +438,7 @@ class SpreadsheetsDataValidationDeleteResult(object):
 class SpreadsheetsDataValidationGetResult(object):
     spreadsheet_token = attr.ib(type=str, default=None, metadata={'json': 'spreadsheetToken'})
     sheet_id = attr.ib(type=str, default=None, metadata={'json': 'sheetId'})
-    data_validation = attr.ib(type=DataValidationResponse, default=None, metadata={'json': 'dataValidation'})
+    data_validations = attr.ib(type=List[DataValidationResponse], default=None, metadata={'json': 'dataValidations'})
     revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
 
 

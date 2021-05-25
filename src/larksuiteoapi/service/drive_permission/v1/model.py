@@ -60,6 +60,7 @@ class MemberDeleteReqBody(object):
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})
     type = attr.ib(type=str, default=None, metadata={'json': 'type'})
     member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
 
 
 @attr.s
@@ -116,6 +117,7 @@ class MemberUpdateReqBody(object):
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})
     type = attr.ib(type=str, default=None, metadata={'json': 'type'})
     member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
     perm = attr.ib(type=str, default=None, metadata={'json': 'perm'})
     notify_lark = attr.ib(type=bool, default=None, metadata={'json': 'notify_lark'})
 
