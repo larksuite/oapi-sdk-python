@@ -18,11 +18,13 @@ class Service(object):
         self.chats = ChatService(self)
         self.chat_member_users = ChatMemberUserService(self)
         self.chat_member_bots = ChatMemberBotService(self)
+        self.message_reactions = MessageReactionService(self)
         self.chat_announcements = ChatAnnouncementService(self)
         self.chat_memberss = ChatMembersService(self)
         self.files = FileService(self)
         self.images = ImageService(self)
         self.message_resources = MessageResourceService(self)
+        self.chat_custom_bots = ChatCustomBotService(self)
         
 
 
@@ -241,6 +243,60 @@ class ChatMemberBotService(object):
         self.service = service
 
 
+class MessageReactionService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (MessageReactionCreateReqBody, str, str, int) -> MessageReactionCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MessageReactionCreateReqCall(self, body, request_opts=request_opts)
+
+    def delete(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> MessageReactionDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MessageReactionDeleteReqCall(self, request_opts=request_opts)
+
+    def list(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> MessageReactionListReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MessageReactionListReqCall(self, request_opts=request_opts)
+
+
 class ChatAnnouncementService(object):
     def __init__(self, service):
         # type: (Service) -> None
@@ -455,6 +511,64 @@ class MessageResourceService(object):
             request_opts += [set_response_stream(response_stream)]
 
         return MessageResourceGetReqCall(self, request_opts=request_opts)
+
+
+class ChatCustomBotService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def create(self, body, tenant_key=None, timeout=None):
+        # type: (ChatCustomBotCreateReqBody, str, int) -> ChatCustomBotCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return ChatCustomBotCreateReqCall(self, body, request_opts=request_opts)
+
+    def delete(self, tenant_key=None, timeout=None):
+        # type: (str, int) -> ChatCustomBotDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return ChatCustomBotDeleteReqCall(self, request_opts=request_opts)
+
+    def get(self, tenant_key=None, timeout=None):
+        # type: (str, int) -> ChatCustomBotGetReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return ChatCustomBotGetReqCall(self, request_opts=request_opts)
+
+    def patch(self, body, tenant_key=None, timeout=None):
+        # type: (ChatCustomBotPatchReqBody, str, int) -> ChatCustomBotPatchReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return ChatCustomBotPatchReqCall(self, body, request_opts=request_opts)
 
 
 
@@ -1352,6 +1466,236 @@ class ChatAnnouncementPatchReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         req = Request('im/v1/chats/:chat_id/announcement', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ChatCustomBotCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (ChatCustomBotService, ChatCustomBotCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> Response[ChatCustomBotCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = Request('im/v1/chat_custom_bots', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=ChatCustomBotCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ChatCustomBotDeleteReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ChatCustomBotService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_bot_id(self, bot_id):
+        # type: (int) -> ChatCustomBotDeleteReqCall
+        self.path_params['bot_id'] = bot_id
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('im/v1/chat_custom_bots/:bot_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ChatCustomBotGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ChatCustomBotService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_bot_id(self, bot_id):
+        # type: (int) -> ChatCustomBotGetReqCall
+        self.path_params['bot_id'] = bot_id
+        return self
+
+    def do(self):
+        # type: () -> Response[ChatCustomBotGetResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('im/v1/chat_custom_bots/:bot_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=ChatCustomBotGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ChatCustomBotPatchReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (ChatCustomBotService, ChatCustomBotPatchReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_bot_id(self, bot_id):
+        # type: (int) -> ChatCustomBotPatchReqCall
+        self.path_params['bot_id'] = bot_id
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('im/v1/chat_custom_bots/:bot_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MessageReactionCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (MessageReactionService, MessageReactionCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_message_id(self, message_id):
+        # type: (str) -> MessageReactionCreateReqCall
+        self.path_params['message_id'] = message_id
+        return self
+
+    def do(self):
+        # type: () -> Response[MessageReaction]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('im/v1/messages/:message_id/reactions', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=MessageReaction, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MessageReactionDeleteReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MessageReactionService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_message_id(self, message_id):
+        # type: (str) -> MessageReactionDeleteReqCall
+        self.path_params['message_id'] = message_id
+        return self
+
+    def set_reaction_id(self, reaction_id):
+        # type: (str) -> MessageReactionDeleteReqCall
+        self.path_params['reaction_id'] = reaction_id
+        return self
+
+    def do(self):
+        # type: () -> Response[MessageReaction]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('im/v1/messages/:message_id/reactions/:reaction_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=MessageReaction, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MessageReactionListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MessageReactionService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_message_id(self, message_id):
+        # type: (str) -> MessageReactionListReqCall
+        self.path_params['message_id'] = message_id
+        return self
+
+    def set_reaction_type(self, reaction_type):
+        # type: (str) -> MessageReactionListReqCall
+        self.query_params['reaction_type'] = reaction_type
+        return self
+
+    def set_page_token(self, page_token):
+        # type: (str) -> MessageReactionListReqCall
+        self.query_params['page_token'] = page_token
+        return self
+
+    def set_page_size(self, page_size):
+        # type: (int) -> MessageReactionListReqCall
+        self.query_params['page_size'] = page_size
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> MessageReactionListReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[MessageReactionListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('im/v1/messages/:message_id/reactions', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=MessageReactionListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -14,61 +14,14 @@ class Service(object):
     def __init__(self, conf):
         # type: (Config) -> None
         self.conf = conf
-        self.department_units = DepartmentUnitService(self)
         self.users = UserService(self)
         self.user_groups = UserGroupService(self)
-        self.user_group_members = UserGroupMemberService(self)
         self.departments = DepartmentService(self)
         self.scopes = ScopeService(self)
         self.custom_attr_events = CustomAttrEventService(self)
         self.employee_type_enums = EmployeeTypeEnumService(self)
         
 
-
-
-class DepartmentUnitService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def delete(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> DepartmentUnitDeleteReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return DepartmentUnitDeleteReqCall(self, request_opts=request_opts)
-
-    def patch(self, body, tenant_key=None, timeout=None):
-        # type: (DepartmentUnitPatchReqBody, str, int) -> DepartmentUnitPatchReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return DepartmentUnitPatchReqCall(self, body, request_opts=request_opts)
-
-    def create(self, body, tenant_key=None, timeout=None):
-        # type: (DepartmentUnit, str, int) -> DepartmentUnitCreateReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return DepartmentUnitCreateReqCall(self, body, request_opts=request_opts)
 
 
 class UserService(object):
@@ -131,19 +84,6 @@ class UserService(object):
 
         return UserPatchReqCall(self, body, request_opts=request_opts)
 
-    def update_user_id(self, body, tenant_key=None, timeout=None):
-        # type: (UserUpdateUserIdReqBody, str, int) -> UserUpdateUserIdReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserUpdateUserIdReqCall(self, body, request_opts=request_opts)
-
     def get(self, tenant_key=None, user_access_token=None, timeout=None):
         # type: (str, str, int) -> UserGetReqCall
 
@@ -181,129 +121,6 @@ class UserGroupService(object):
     def __init__(self, service):
         # type: (Service) -> None
         self.service = service
-
-    def update_user_group_id(self, body, tenant_key=None, timeout=None):
-        # type: (UserGroupUpdateUserGroupIdReqBody, str, int) -> UserGroupUpdateUserGroupIdReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupUpdateUserGroupIdReqCall(self, body, request_opts=request_opts)
-
-    def delete(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> UserGroupDeleteReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupDeleteReqCall(self, request_opts=request_opts)
-
-    def patch(self, body, tenant_key=None, timeout=None):
-        # type: (UserGroup, str, int) -> UserGroupPatchReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupPatchReqCall(self, body, request_opts=request_opts)
-
-    def create(self, body, tenant_key=None, timeout=None):
-        # type: (UserGroup, str, int) -> UserGroupCreateReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupCreateReqCall(self, body, request_opts=request_opts)
-
-    def list(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> UserGroupListReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupListReqCall(self, request_opts=request_opts)
-
-    def get(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> UserGroupGetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupGetReqCall(self, request_opts=request_opts)
-
-
-class UserGroupMemberService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def create(self, body, tenant_key=None, timeout=None):
-        # type: (UserGroupMemberCreateReqBody, str, int) -> UserGroupMemberCreateReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupMemberCreateReqCall(self, body, request_opts=request_opts)
-
-    def list(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> UserGroupMemberListReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupMemberListReqCall(self, request_opts=request_opts)
-
-    def delete(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> UserGroupMemberDeleteReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return UserGroupMemberDeleteReqCall(self, request_opts=request_opts)
 
 
 class DepartmentService(object):
@@ -411,32 +228,6 @@ class DepartmentService(object):
 
         return DepartmentParentReqCall(self, request_opts=request_opts)
 
-    def update_department_id(self, body, tenant_key=None, timeout=None):
-        # type: (DepartmentUpdateDepartmentIdReqBody, str, int) -> DepartmentUpdateDepartmentIdReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return DepartmentUpdateDepartmentIdReqCall(self, body, request_opts=request_opts)
-
-    def unbind_department_chat(self, body, tenant_key=None, timeout=None):
-        # type: (DepartmentUnbindDepartmentChatReqBody, str, int) -> DepartmentUnbindDepartmentChatReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return DepartmentUnbindDepartmentChatReqCall(self, body, request_opts=request_opts)
-
     def search(self, body, user_access_token=None, timeout=None):
         # type: (DepartmentSearchReqBody, str, int) -> DepartmentSearchReqCall
 
@@ -467,19 +258,6 @@ class EmployeeTypeEnumService(object):
     def __init__(self, service):
         # type: (Service) -> None
         self.service = service
-
-    def list(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> EmployeeTypeEnumListReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return EmployeeTypeEnumListReqCall(self, request_opts=request_opts)
 
 
 
@@ -613,66 +391,6 @@ class DepartmentListReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/departments', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=DepartmentListResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class UserGroupUpdateUserGroupIdReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (UserGroupService, UserGroupUpdateUserGroupIdReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_group_id(self, user_group_id):
-        # type: (str) -> UserGroupUpdateUserGroupIdReqCall
-        self.path_params['user_group_id'] = user_group_id
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('contact/v3/user_groups/:user_group_id/update_user_group_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class DepartmentUnitDeleteReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (DepartmentUnitService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_unit_id(self, unit_id):
-        # type: (str) -> DepartmentUnitDeleteReqCall
-        self.path_params['unit_id'] = unit_id
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('contact/v3/department_units/:unit_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -843,110 +561,6 @@ class UserPatchReqCall(object):
         return resp
 
 
-class UserUpdateUserIdReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (UserService, UserUpdateUserIdReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_id(self, user_id):
-        # type: (str) -> UserUpdateUserIdReqCall
-        self.path_params['user_id'] = user_id
-        return self
-
-    def set_user_id_type(self, user_id_type):
-        # type: (str) -> UserUpdateUserIdReqCall
-        self.query_params['user_id_type'] = user_id_type
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/users/:user_id/update_user_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class UserGroupMemberCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (UserGroupMemberService, UserGroupMemberCreateReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_group_id(self, user_group_id):
-        # type: (str) -> UserGroupMemberCreateReqCall
-        self.path_params['user_group_id'] = user_group_id
-        return self
-
-    def set_user_id_type(self, user_id_type):
-        # type: (str) -> UserGroupMemberCreateReqCall
-        self.query_params['user_id_type'] = user_id_type
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/user_groups/:user_group_id/members', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class UserGroupDeleteReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (UserGroupService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_group_id(self, user_group_id):
-        # type: (str) -> UserGroupDeleteReqCall
-        self.path_params['user_group_id'] = user_group_id
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('contact/v3/user_groups/:user_group_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class DepartmentCreateReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (DepartmentService, Department, List[Any]) -> None
@@ -987,124 +601,6 @@ class DepartmentCreateReqCall(object):
         return resp
 
 
-class UserGroupPatchReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (UserGroupService, UserGroup, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_group_id(self, user_group_id):
-        # type: (str) -> UserGroupPatchReqCall
-        self.path_params['user_group_id'] = user_group_id
-        return self
-
-    def do(self):
-        # type: () -> Response[UserGroupPatchResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('contact/v3/user_groups/:user_group_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=UserGroupPatchResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class DepartmentUnitPatchReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (DepartmentUnitService, DepartmentUnitPatchReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_unit_id(self, unit_id):
-        # type: (str) -> DepartmentUnitPatchReqCall
-        self.path_params['unit_id'] = unit_id
-        return self
-
-    def do(self):
-        # type: () -> Response[DepartmentUnitPatchResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('contact/v3/department_units/:unit_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=DepartmentUnitPatchResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class UserGroupCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (UserGroupService, UserGroup, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> Response[UserGroupCreateResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('contact/v3/user_groups', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=UserGroupCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class UserGroupListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (UserGroupService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_page_size(self, page_size):
-        # type: (int) -> UserGroupListReqCall
-        self.query_params['page_size'] = page_size
-        return self
-
-    def set_page_token(self, page_token):
-        # type: (str) -> UserGroupListReqCall
-        self.query_params['page_token'] = page_token
-        return self
-
-    def do(self):
-        # type: () -> Response[UserGroupListResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/user_groups', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=UserGroupListResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class DepartmentDeleteReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (DepartmentService, List[Any]) -> None
@@ -1122,11 +618,6 @@ class DepartmentDeleteReqCall(object):
     def set_department_id(self, department_id):
         # type: (str) -> DepartmentDeleteReqCall
         self.path_params['department_id'] = department_id
-        return self
-
-    def set_user_id_type(self, user_id_type):
-        # type: (str) -> DepartmentDeleteReqCall
-        self.query_params['user_id_type'] = user_id_type
         return self
 
     def set_department_id_type(self, department_id_type):
@@ -1189,100 +680,6 @@ class UserGetReqCall(object):
         return resp
 
 
-class UserGroupMemberListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (UserGroupMemberService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_group_id(self, user_group_id):
-        # type: (str) -> UserGroupMemberListReqCall
-        self.path_params['user_group_id'] = user_group_id
-        return self
-
-    def set_user_id_type(self, user_id_type):
-        # type: (str) -> UserGroupMemberListReqCall
-        self.query_params['user_id_type'] = user_id_type
-        return self
-
-    def set_department_id_type(self, department_id_type):
-        # type: (str) -> UserGroupMemberListReqCall
-        self.query_params['department_id_type'] = department_id_type
-        return self
-
-    def set_page_token(self, page_token):
-        # type: (str) -> UserGroupMemberListReqCall
-        self.query_params['page_token'] = page_token
-        return self
-
-    def set_page_size(self, page_size):
-        # type: (int) -> UserGroupMemberListReqCall
-        self.query_params['page_size'] = page_size
-        return self
-
-    def do(self):
-        # type: () -> Response[UserGroupMemberListResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/user_groups/:user_group_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=UserGroupMemberListResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class UserGroupMemberDeleteReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (UserGroupMemberService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_group_id(self, user_group_id):
-        # type: (str) -> UserGroupMemberDeleteReqCall
-        self.path_params['user_group_id'] = user_group_id
-        return self
-
-    def set_user_id(self, user_id):
-        # type: (str) -> UserGroupMemberDeleteReqCall
-        self.path_params['user_id'] = user_id
-        return self
-
-    def set_user_id_type(self, user_id_type):
-        # type: (str) -> UserGroupMemberDeleteReqCall
-        self.query_params['user_id_type'] = user_id_type
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/user_groups/:user_group_id/members/:user_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class DepartmentUpdateReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (DepartmentService, Department, List[Any]) -> None
@@ -1321,29 +718,6 @@ class DepartmentUpdateReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/departments/:department_id', 'PUT', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=DepartmentUpdateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class DepartmentUnitCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (DepartmentUnitService, DepartmentUnit, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> Response[DepartmentUnitCreateResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = Request('contact/v3/department_units', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=DepartmentUnitCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1398,36 +772,6 @@ class UserListReqCall(object):
         return resp
 
 
-class UserGroupGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (UserGroupService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_user_group_id(self, user_group_id):
-        # type: (str) -> UserGroupGetReqCall
-        self.path_params['user_group_id'] = user_group_id
-        return self
-
-    def do(self):
-        # type: () -> Response[UserGroupGetResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('contact/v3/user_groups/:user_group_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=UserGroupGetResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class DepartmentParentReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (DepartmentService, List[Any]) -> None
@@ -1478,73 +822,6 @@ class DepartmentParentReqCall(object):
         return resp
 
 
-class DepartmentUpdateDepartmentIdReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (DepartmentService, DepartmentUpdateDepartmentIdReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_department_id(self, department_id):
-        # type: (str) -> DepartmentUpdateDepartmentIdReqCall
-        self.path_params['department_id'] = department_id
-        return self
-
-    def set_department_id_type(self, department_id_type):
-        # type: (str) -> DepartmentUpdateDepartmentIdReqCall
-        self.query_params['department_id_type'] = department_id_type
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/departments/:department_id/update_department_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class DepartmentUnbindDepartmentChatReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (DepartmentService, DepartmentUnbindDepartmentChatReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_department_id_type(self, department_id_type):
-        # type: (str) -> DepartmentUnbindDepartmentChatReqCall
-        self.query_params['department_id_type'] = department_id_type
-        return self
-
-    def do(self):
-        # type: () -> Response[None]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/departments/unbind_department_chat', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class DepartmentSearchReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (DepartmentService, DepartmentSearchReqBody, List[Any]) -> None
@@ -1586,41 +863,6 @@ class DepartmentSearchReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('contact/v3/departments/search', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=DepartmentSearchResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class EmployeeTypeEnumListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (EmployeeTypeEnumService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_page_token(self, page_token):
-        # type: (str) -> EmployeeTypeEnumListReqCall
-        self.query_params['page_token'] = page_token
-        return self
-
-    def set_page_size(self, page_size):
-        # type: (int) -> EmployeeTypeEnumListReqCall
-        self.query_params['page_size'] = page_size
-        return self
-
-    def do(self):
-        # type: () -> Response[EmployeeTypeEnumListResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('contact/v3/employee_type_enums', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=EmployeeTypeEnumListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

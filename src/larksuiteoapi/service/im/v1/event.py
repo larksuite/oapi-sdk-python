@@ -168,3 +168,51 @@ class MessageMessageReadEventHandler(object):
         handler = MessageMessageReadEventHandler(callback)
         set_event_callback(conf, "im.message.message_read_v1",
                           handler.handle, clazz=MessageMessageReadEvent)
+
+
+class MessageUrgentMessageReadEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, MessageUrgentMessageReadEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, MessageUrgentMessageReadEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, MessageUrgentMessageReadEvent], Any]) -> None
+        handler = MessageUrgentMessageReadEventHandler(callback)
+        set_event_callback(conf, "im.message.urgent_message_read_v1",
+                          handler.handle, clazz=MessageUrgentMessageReadEvent)
+
+
+class MessageReactionCreatedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, MessageReactionCreatedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, MessageReactionCreatedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, MessageReactionCreatedEvent], Any]) -> None
+        handler = MessageReactionCreatedEventHandler(callback)
+        set_event_callback(conf, "im.message.reaction.created_v1",
+                          handler.handle, clazz=MessageReactionCreatedEvent)
+
+
+class MessageReactionDeletedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, MessageReactionDeletedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, MessageReactionDeletedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, MessageReactionDeletedEvent], Any]) -> None
+        handler = MessageReactionDeletedEventHandler(callback)
+        set_event_callback(conf, "im.message.reaction.deleted_v1",
+                          handler.handle, clazz=MessageReactionDeletedEvent)

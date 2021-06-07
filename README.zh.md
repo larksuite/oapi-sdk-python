@@ -24,12 +24,14 @@
 - 最新的发布候选版本，提供更多[开放服务 API](/src/larksuiteoapi/service) 以及 Bug 修复
 
 ```shell
-pip install larksuite-oapi==1.0.24rc1
+pip install pip # python version < 3.5
+pip install larksuite-oapi==1.0.24rc2
 ```
 
 - 稳定版本
 
 ```shell
+pip install pip # python version < 3.5
 pip install larksuite-oapi==1.0.8
 ```
 

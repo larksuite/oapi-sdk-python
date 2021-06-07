@@ -81,6 +81,15 @@ class UserId(object):
 
 @to_json_decorator
 @attr.s
+class Collaborator(object):
+    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_open_id = attr.ib(type=str, default=None, metadata={'json': 'member_open_id'})
+    member_user_id = attr.ib(type=str, default=None, metadata={'json': 'member_user_id'})
+    perm = attr.ib(type=str, default=None, metadata={'json': 'perm'})
+
+
+@to_json_decorator
+@attr.s
 class File(object):
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
     file_name = attr.ib(type=str, default=None, metadata={'json': 'file_name'})
@@ -99,9 +108,31 @@ class Media(object):
 
 @to_json_decorator
 @attr.s
+class Member(object):
+    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+    perm = attr.ib(type=str, default=None, metadata={'json': 'perm'})
+
+
+@to_json_decorator
+@attr.s
+class Owner(object):
+    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+
+
+@to_json_decorator
+@attr.s
 class TmpDownloadUrl(object):
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
     tmp_download_url = attr.ib(type=str, default=None, metadata={'json': 'tmp_download_url'})
+
+
+@to_json_decorator
+@attr.s
+class TokenType(object):
+    token = attr.ib(type=str, default=None, metadata={'json': 'token'})
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
 
 
 @to_json_decorator
@@ -208,6 +239,17 @@ class FileCommentPatchReqBody(object):
 
 
 
+
+
+@to_json_decorator
+@attr.s
+class FileCommentReplyCreateReqBody(object):
+    content = attr.ib(type=ReplyContent, default=None, metadata={'json': 'content'})
+
+
+@attr.s
+class FileCommentReplyCreateResult(object):
+    file_comment_reply = attr.ib(type=FileCommentReply, default=None, metadata={'json': 'file.comment.reply'})
 
 
 @attr.s

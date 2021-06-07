@@ -234,6 +234,22 @@ class FileCommentReplyService(object):
 
         return FileCommentReplyDeleteReqCall(self, request_opts=request_opts)
 
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (FileCommentReplyCreateReqBody, str, str, int) -> FileCommentReplyCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return FileCommentReplyCreateReqCall(self, body, request_opts=request_opts)
+
 
 class MediaService(object):
     def __init__(self, service):
@@ -883,6 +899,11 @@ class FileCommentReplyUpdateReqCall(object):
         self.query_params['file_type'] = file_type
         return self
 
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> FileCommentReplyUpdateReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
     def do(self):
         # type: () -> Response[None]
         root_service = self.service.service
@@ -1038,6 +1059,53 @@ class FileCommentReplyDeleteReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCommentReplyCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (FileCommentReplyService, FileCommentReplyCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_file_token(self, file_token):
+        # type: (str) -> FileCommentReplyCreateReqCall
+        self.path_params['file_token'] = file_token
+        return self
+
+    def set_comment_id(self, comment_id):
+        # type: (int) -> FileCommentReplyCreateReqCall
+        self.path_params['comment_id'] = comment_id
+        return self
+
+    def set_file_type(self, file_type):
+        # type: (str) -> FileCommentReplyCreateReqCall
+        self.query_params['file_type'] = file_type
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> FileCommentReplyCreateReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[FileCommentReplyCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('drive/v1/files/:file_token/comments/:comment_id/replies', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=FileCommentReplyCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

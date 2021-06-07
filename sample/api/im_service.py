@@ -27,7 +27,7 @@ if __name__ == '__main__':
     print('request id = %s' % resp.get_request_id())
     print('http status code = %s' % resp.get_http_status_code())
     if resp.code == 0:
-        print(resp.data)
+        print(resp.data.message_id)
     else:
         print(resp.msg)
         print(resp.error)

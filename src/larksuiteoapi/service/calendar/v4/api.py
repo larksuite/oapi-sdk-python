@@ -18,10 +18,11 @@ class Service(object):
         self.calendar_acls = CalendarAclService(self)
         self.calendar_events = CalendarEventService(self)
         self.calendar_event_attendees = CalendarEventAttendeeService(self)
-        self.freebusys = FreebusyService(self)
-        self.timeoff_events = TimeoffEventService(self)
-        self.settings = SettingService(self)
         self.calendar_event_attendee_chat_members = CalendarEventAttendeeChatMemberService(self)
+        self.exchange_bindings = ExchangeBindingService(self)
+        self.freebusys = FreebusyService(self)
+        self.settings = SettingService(self)
+        self.timeoff_events = TimeoffEventService(self)
         
 
 
@@ -403,6 +404,73 @@ class CalendarEventAttendeeService(object):
         return CalendarEventAttendeeCreateReqCall(self, body, request_opts=request_opts)
 
 
+class CalendarEventAttendeeChatMemberService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def list(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> CalendarEventAttendeeChatMemberListReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return CalendarEventAttendeeChatMemberListReqCall(self, request_opts=request_opts)
+
+
+class ExchangeBindingService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def create(self, body, user_access_token=None, timeout=None):
+        # type: (ExchangeBinding, str, int) -> ExchangeBindingCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return ExchangeBindingCreateReqCall(self, body, request_opts=request_opts)
+
+    def delete(self, user_access_token=None, timeout=None):
+        # type: (str, int) -> ExchangeBindingDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return ExchangeBindingDeleteReqCall(self, request_opts=request_opts)
+
+    def get(self, user_access_token=None, timeout=None):
+        # type: (str, int) -> ExchangeBindingGetReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return ExchangeBindingGetReqCall(self, request_opts=request_opts)
+
+
 class FreebusyService(object):
     def __init__(self, service):
         # type: (Service) -> None
@@ -420,6 +488,25 @@ class FreebusyService(object):
             request_opts += [set_tenant_key(tenant_key)]
 
         return FreebusyListReqCall(self, body, request_opts=request_opts)
+
+
+class SettingService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def generate_caldav_conf(self, body, user_access_token=None, timeout=None):
+        # type: (SettingGenerateCaldavConfReqBody, str, int) -> SettingGenerateCaldavConfReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return SettingGenerateCaldavConfReqCall(self, body, request_opts=request_opts)
 
 
 class TimeoffEventService(object):
@@ -454,47 +541,6 @@ class TimeoffEventService(object):
         return TimeoffEventCreateReqCall(self, body, request_opts=request_opts)
 
 
-class SettingService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def generate_caldav_conf(self, body, user_access_token=None, timeout=None):
-        # type: (SettingGenerateCaldavConfReqBody, str, int) -> SettingGenerateCaldavConfReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return SettingGenerateCaldavConfReqCall(self, body, request_opts=request_opts)
-
-
-class CalendarEventAttendeeChatMemberService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def list(self, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (str, str, int) -> CalendarEventAttendeeChatMemberListReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return CalendarEventAttendeeChatMemberListReqCall(self, request_opts=request_opts)
-
-
 
 class CalendarCreateReqCall(object):
     def __init__(self, service, body, request_opts=None):
@@ -526,6 +572,7 @@ class CalendarEventDeleteReqCall(object):
         self.service = service
         
         self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
 
         if request_opts:
             self.request_opts = request_opts
@@ -542,12 +589,18 @@ class CalendarEventDeleteReqCall(object):
         self.path_params['event_id'] = event_id
         return self
 
+    def set_need_notification(self, need_notification):
+        # type: (bool) -> CalendarEventDeleteReqCall
+        self.query_params['need_notification'] = need_notification
+        return self
+
     def do(self):
         # type: () -> Response[None]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events/:event_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
@@ -1021,6 +1074,11 @@ class CalendarEventListReqCall(object):
         self.query_params['page_size'] = page_size
         return self
 
+    def set_anchor_time(self, anchor_time):
+        # type: (str) -> CalendarEventListReqCall
+        self.query_params['anchor_time'] = anchor_time
+        return self
+
     def set_page_token(self, page_token):
         # type: (str) -> CalendarEventListReqCall
         self.query_params['page_token'] = page_token
@@ -1465,6 +1523,103 @@ class CalendarEventAttendeeChatMemberListReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=CalendarEventAttendeeChatMemberListResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ExchangeBindingCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (ExchangeBindingService, ExchangeBinding, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> ExchangeBindingCreateReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[ExchangeBinding]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('calendar/v4/exchange_bindings', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                      self.body, output_class=ExchangeBinding, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ExchangeBindingDeleteReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ExchangeBindingService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_exchange_binding_id(self, exchange_binding_id):
+        # type: (str) -> ExchangeBindingDeleteReqCall
+        self.path_params['exchange_binding_id'] = exchange_binding_id
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('calendar/v4/exchange_bindings/:exchange_binding_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ExchangeBindingGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ExchangeBindingService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_exchange_binding_id(self, exchange_binding_id):
+        # type: (str) -> ExchangeBindingGetReqCall
+        self.path_params['exchange_binding_id'] = exchange_binding_id
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> ExchangeBindingGetReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[ExchangeBinding]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('calendar/v4/exchange_bindings/:exchange_binding_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                      None, output_class=ExchangeBinding, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
