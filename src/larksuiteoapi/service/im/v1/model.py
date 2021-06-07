@@ -11,35 +11,33 @@ import attr
 
 @to_json_decorator
 @attr.s
+class Operator(object):
+    operator_id = attr.ib(type=str, default=None, metadata={'json': 'operator_id'})
+    operator_type = attr.ib(type=str, default=None, metadata={'json': 'operator_type'})
+
+
+@to_json_decorator
+@attr.s
+class Emoji(object):
+    emoji_type = attr.ib(type=str, default=None, metadata={'json': 'emoji_type'})
+
+
+@to_json_decorator
+@attr.s
+class MessageReaction(object):
+    reaction_id = attr.ib(type=str, default=None, metadata={'json': 'reaction_id'})
+    operator = attr.ib(type=Operator, default=None, metadata={'json': 'operator'})
+    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
+    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
+
+
+@to_json_decorator
+@attr.s
 class Sender(object):
     id = attr.ib(type=str, default=None, metadata={'json': 'id'})
     id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
     sender_type = attr.ib(type=str, default=None, metadata={'json': 'sender_type'})
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-
-
-@to_json_decorator
-@attr.s
-class MentionEvent(object):
-    key = attr.ib(type=str, default=None, metadata={'json': 'key'})
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-
-
-@to_json_decorator
-@attr.s
-class EventMessage(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["create_time"])
-    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
-    root_id = attr.ib(type=str, default=None, metadata={'json': 'root_id'})
-    parent_id = attr.ib(type=str, default=None, metadata={'json': 'parent_id'})
-    create_time = attr.ib(type=int, default=None, metadata={'json': 'create_time'})
-    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
-    chat_type = attr.ib(type=str, default=None, metadata={'json': 'chat_type'})
-    message_type = attr.ib(type=str, default=None, metadata={'json': 'message_type'})
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-    mentions = attr.ib(type=List[MentionEvent], default=None, metadata={'json': 'mentions'})
 
 
 @to_json_decorator
@@ -104,33 +102,34 @@ class Chat(object):
 
 @to_json_decorator
 @attr.s
-class Emoji(object):
-    emoji_type = attr.ib(type=str, default=None, metadata={'json': 'emoji_type'})
-
-
-@to_json_decorator
-@attr.s
-class Reaction(object):
-    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
-    operator_id = attr.ib(type=str, default=None, metadata={'json': 'operator_id'})
-    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
-
-
-@to_json_decorator
-@attr.s
-class MessageReaction(object):
-    reaction_id = attr.ib(type=str, default=None, metadata={'json': 'reaction_id'})
-    operator_id = attr.ib(type=str, default=None, metadata={'json': 'operator_id'})
-    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
-    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
-
-
-@to_json_decorator
-@attr.s
 class UserId(object):
     user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
     open_id = attr.ib(type=str, default=None, metadata={'json': 'open_id'})
     union_id = attr.ib(type=str, default=None, metadata={'json': 'union_id'})
+
+
+@to_json_decorator
+@attr.s
+class MentionEvent(object):
+    key = attr.ib(type=str, default=None, metadata={'json': 'key'})
+    id = attr.ib(type=UserId, default=None, metadata={'json': 'id'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
+
+
+@to_json_decorator
+@attr.s
+class EventMessage(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["create_time"])
+    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
+    root_id = attr.ib(type=str, default=None, metadata={'json': 'root_id'})
+    parent_id = attr.ib(type=str, default=None, metadata={'json': 'parent_id'})
+    create_time = attr.ib(type=int, default=None, metadata={'json': 'create_time'})
+    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
+    chat_type = attr.ib(type=str, default=None, metadata={'json': 'chat_type'})
+    message_type = attr.ib(type=str, default=None, metadata={'json': 'message_type'})
+    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+    mentions = attr.ib(type=List[MentionEvent], default=None, metadata={'json': 'mentions'})
 
 
 @to_json_decorator
@@ -228,23 +227,6 @@ class Image(object):
 
 @to_json_decorator
 @attr.s
-class ListMember(object):
-    member_id_type = attr.ib(type=str, default=None, metadata={'json': 'member_id_type'})
-    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-
-
-@to_json_decorator
-@attr.s
-class ListModerator(object):
-    user_id_type = attr.ib(type=str, default=None, metadata={'json': 'user_id_type'})
-    user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-
-
-@to_json_decorator
-@attr.s
 class MessageResource(object):
     pass
 
@@ -271,11 +253,34 @@ class ListChat(object):
 
 @to_json_decorator
 @attr.s
+class ListMember(object):
+    member_id_type = attr.ib(type=str, default=None, metadata={'json': 'member_id_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
+
+
+@to_json_decorator
+@attr.s
+class ListModerator(object):
+    user_id_type = attr.ib(type=str, default=None, metadata={'json': 'user_id_type'})
+    user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
+
+
+@to_json_decorator
+@attr.s
 class ReadUser(object):
     user_id_type = attr.ib(type=str, default=None, metadata={'json': 'user_id_type'})
     user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
     timestamp = attr.ib(type=str, default=None, metadata={'json': 'timestamp'})
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
+
+
+@to_json_decorator
+@attr.s
+class ChatCustomBot(object):
+    pass
 
 
 
@@ -509,6 +514,94 @@ class ChatAnnouncementPatchReqBody(object):
 
 
 
+@to_json_decorator
+@attr.s
+class ChatCustomBotCreateReqBody(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["chat_id", "uuid"])
+    chat_id = attr.ib(type=int, default=None, metadata={'json': 'chat_id'})
+    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
+    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
+    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
+    uuid = attr.ib(type=int, default=None, metadata={'json': 'uuid'})
+
+
+@attr.s
+class ChatCustomBotCreateResult(object):
+    bot_id = attr.ib(type=int, default=None, metadata={'json': 'bot_id'})
+    chat_id = attr.ib(type=int, default=None, metadata={'json': 'chat_id'})
+    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    i18n_names = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_names'})
+    i18n_descriptions = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_descriptions'})
+    webhook = attr.ib(type=str, default=None, metadata={'json': 'webhook'})
+    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
+    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
+    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
+    signature = attr.ib(type=str, default=None, metadata={'json': 'signature'})
+    enable = attr.ib(type=bool, default=None, metadata={'json': 'enable'})
+    invitor_id = attr.ib(type=int, default=None, metadata={'json': 'invitor_id'})
+    invitor_id_type = attr.ib(type=str, default=None, metadata={'json': 'invitor_id_type'})
+    version = attr.ib(type=int, default=None, metadata={'json': 'version'})
+
+
+
+
+
+@attr.s
+class ChatCustomBotGetResult(object):
+    bot_id = attr.ib(type=int, default=None, metadata={'json': 'bot_id'})
+    chat_id = attr.ib(type=int, default=None, metadata={'json': 'chat_id'})
+    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    i18n_names = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_names'})
+    i18n_descriptions = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_descriptions'})
+    webhook = attr.ib(type=str, default=None, metadata={'json': 'webhook'})
+    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
+    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
+    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
+    signature = attr.ib(type=str, default=None, metadata={'json': 'signature'})
+    enable = attr.ib(type=bool, default=None, metadata={'json': 'enable'})
+    invitor_id = attr.ib(type=int, default=None, metadata={'json': 'invitor_id'})
+    invitor_id_type = attr.ib(type=str, default=None, metadata={'json': 'invitor_id_type'})
+    version = attr.ib(type=int, default=None, metadata={'json': 'version'})
+
+
+@to_json_decorator
+@attr.s
+class ChatCustomBotPatchReqBody(object):
+    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
+    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
+    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
+    change_signature = attr.ib(type=bool, default=None, metadata={'json': 'change_signature'})
+    enable = attr.ib(type=bool, default=None, metadata={'json': 'enable'})
+
+
+
+@to_json_decorator
+@attr.s
+class MessageReactionCreateReqBody(object):
+    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
+
+
+
+
+
+
+@attr.s
+class MessageReactionListResult(object):
+    items = attr.ib(type=List[MessageReaction], default=None, metadata={'json': 'items'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+
+
 @attr.s
 class MessageReceiveEventData(object):
     sender = attr.ib(type=EventSender, default=None, metadata={'json': 'sender'})
@@ -646,3 +739,47 @@ class MessageMessageReadEventData(object):
 @attr.s
 class MessageMessageReadEvent(BaseEventV2):
     event = attr.ib(type=MessageMessageReadEventData, default=None)
+
+
+
+@attr.s
+class MessageUrgentMessageReadEventData(object):
+    reader = attr.ib(type=EventMessageReader, default=None, metadata={'json': 'reader'})
+    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
+
+
+@attr.s
+class MessageUrgentMessageReadEvent(BaseEventV2):
+    event = attr.ib(type=MessageUrgentMessageReadEventData, default=None)
+
+
+
+@attr.s
+class MessageReactionCreatedEventData(object):
+    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
+    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
+    operator_type = attr.ib(type=str, default=None, metadata={'json': 'operator_type'})
+    user_id = attr.ib(type=UserId, default=None, metadata={'json': 'user_id'})
+    app_id = attr.ib(type=str, default=None, metadata={'json': 'app_id'})
+    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
+
+
+@attr.s
+class MessageReactionCreatedEvent(BaseEventV2):
+    event = attr.ib(type=MessageReactionCreatedEventData, default=None)
+
+
+
+@attr.s
+class MessageReactionDeletedEventData(object):
+    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
+    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
+    operator_type = attr.ib(type=str, default=None, metadata={'json': 'operator_type'})
+    user_id = attr.ib(type=UserId, default=None, metadata={'json': 'user_id'})
+    app_id = attr.ib(type=str, default=None, metadata={'json': 'app_id'})
+    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
+
+
+@attr.s
+class MessageReactionDeletedEvent(BaseEventV2):
+    event = attr.ib(type=MessageReactionDeletedEventData, default=None)

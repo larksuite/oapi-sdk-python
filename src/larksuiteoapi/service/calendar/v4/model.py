@@ -10,15 +10,6 @@ import attr
 
 @to_json_decorator
 @attr.s
-class EventLocation(object):
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    address = attr.ib(type=str, default=None, metadata={'json': 'address'})
-    latitude = attr.ib(type=float, default=None, metadata={'json': 'latitude'})
-    longitude = attr.ib(type=float, default=None, metadata={'json': 'longitude'})
-
-
-@to_json_decorator
-@attr.s
 class Vchat(object):
     meeting_url = attr.ib(type=str, default=None, metadata={'json': 'meeting_url'})
 
@@ -57,10 +48,20 @@ class Reminder(object):
 
 @to_json_decorator
 @attr.s
+class EventLocation(object):
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    address = attr.ib(type=str, default=None, metadata={'json': 'address'})
+    latitude = attr.ib(type=float, default=None, metadata={'json': 'latitude'})
+    longitude = attr.ib(type=float, default=None, metadata={'json': 'longitude'})
+
+
+@to_json_decorator
+@attr.s
 class CalendarEvent(object):
     event_id = attr.ib(type=str, default=None, metadata={'json': 'event_id'})
     summary = attr.ib(type=str, default=None, metadata={'json': 'summary'})
     description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    need_notification = attr.ib(type=bool, default=None, metadata={'json': 'need_notification'})
     start_time = attr.ib(type=TimeInfo, default=None, metadata={'json': 'start_time'})
     end_time = attr.ib(type=TimeInfo, default=None, metadata={'json': 'end_time'})
     vchat = attr.ib(type=Vchat, default=None, metadata={'json': 'vchat'})
@@ -121,6 +122,21 @@ class CalendarAcl(object):
 
 @to_json_decorator
 @attr.s
+class UserId(object):
+    user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
+    open_id = attr.ib(type=str, default=None, metadata={'json': 'open_id'})
+    union_id = attr.ib(type=str, default=None, metadata={'json': 'union_id'})
+
+
+@to_json_decorator
+@attr.s
+class AclScopeEvent(object):
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+    user_id = attr.ib(type=UserId, default=None, metadata={'json': 'user_id'})
+
+
+@to_json_decorator
+@attr.s
 class Calendar(object):
     calendar_id = attr.ib(type=str, default=None, metadata={'json': 'calendar_id'})
     summary = attr.ib(type=str, default=None, metadata={'json': 'summary'})
@@ -136,9 +152,25 @@ class Calendar(object):
 
 @to_json_decorator
 @attr.s
+class CalendarEventAttendeeChatMember(object):
+    rsvp_status = attr.ib(type=str, default=None, metadata={'json': 'rsvp_status'})
+    is_optional = attr.ib(type=bool, default=None, metadata={'json': 'is_optional'})
+    display_name = attr.ib(type=str, default=None, metadata={'json': 'display_name'})
+    is_organizer = attr.ib(type=bool, default=None, metadata={'json': 'is_organizer'})
+    is_external = attr.ib(type=bool, default=None, metadata={'json': 'is_external'})
+
+
+@to_json_decorator
+@attr.s
 class Freebusy(object):
     start_time = attr.ib(type=str, default=None, metadata={'json': 'start_time'})
     end_time = attr.ib(type=str, default=None, metadata={'json': 'end_time'})
+
+
+@to_json_decorator
+@attr.s
+class Setting(object):
+    pass
 
 
 @to_json_decorator
@@ -155,18 +187,12 @@ class TimeoffEvent(object):
 
 @to_json_decorator
 @attr.s
-class Setting(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
-class CalendarEventAttendeeChatMember(object):
-    rsvp_status = attr.ib(type=str, default=None, metadata={'json': 'rsvp_status'})
-    is_optional = attr.ib(type=bool, default=None, metadata={'json': 'is_optional'})
-    display_name = attr.ib(type=str, default=None, metadata={'json': 'display_name'})
-    is_organizer = attr.ib(type=bool, default=None, metadata={'json': 'is_organizer'})
-    is_external = attr.ib(type=bool, default=None, metadata={'json': 'is_external'})
+class ExchangeBinding(object):
+    admin_account = attr.ib(type=str, default=None, metadata={'json': 'admin_account'})
+    exchange_account = attr.ib(type=str, default=None, metadata={'json': 'exchange_account'})
+    user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
+    status = attr.ib(type=str, default=None, metadata={'json': 'status'})
+    exchange_binding_id = attr.ib(type=str, default=None, metadata={'json': 'exchange_binding_id'})
 
 
 
@@ -231,6 +257,7 @@ class CalendarEventAttendeeListResult(object):
 @attr.s
 class CalendarEventAttendeeBatchDeleteReqBody(object):
     attendee_ids = attr.ib(type=List[str], default=None, metadata={'json': 'attendee_ids'})
+    need_notification = attr.ib(type=bool, default=None, metadata={'json': 'need_notification'})
 
 
 
@@ -238,6 +265,7 @@ class CalendarEventAttendeeBatchDeleteReqBody(object):
 @attr.s
 class CalendarEventAttendeeCreateReqBody(object):
     attendees = attr.ib(type=List[CalendarEventAttendee], default=None, metadata={'json': 'attendees'})
+    need_notification = attr.ib(type=bool, default=None, metadata={'json': 'need_notification'})
 
 
 @attr.s
@@ -339,3 +367,8 @@ class CalendarEventAttendeeChatMemberListResult(object):
     items = attr.ib(type=List[CalendarEventAttendeeChatMember], default=None, metadata={'json': 'items'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+
+
+
+
+
