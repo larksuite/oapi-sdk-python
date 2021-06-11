@@ -30,14 +30,14 @@
 - The latest release candidate provides more [open services API](/src/larksuiteoapi/service) and bug repair.
 
 ```shell
-pip install pip # python version < 3.5
-pip install larksuite-oapi==1.0.24rc2
+pip install typing # python version < 3.5
+pip install larksuite-oapi==1.0.24rc3
 ```
 
 - Stable version
 
 ```shell
-pip install pip # python version < 3.5
+pip install typing # python version < 3.5
 pip install larksuite-oapi==1.0.8
 ```
 

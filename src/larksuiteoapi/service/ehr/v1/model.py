@@ -10,11 +10,9 @@ import attr
 
 @to_json_decorator
 @attr.s
-class Attachment(object):
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    mime_type = attr.ib(type=str, default=None, metadata={'json': 'mime_type'})
+class WorkLocation(object):
+    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
     name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    size = attr.ib(type=int, default=None, metadata={'json': 'size'})
 
 
 @to_json_decorator
@@ -26,13 +24,6 @@ class WorkExperience(object):
     start = attr.ib(type=str, default=None, metadata={'json': 'start'})
     end = attr.ib(type=str, default=None, metadata={'json': 'end'})
     description = attr.ib(type=str, default=None, metadata={'json': 'description'})
-
-
-@to_json_decorator
-@attr.s
-class WorkLocation(object):
-    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
 
 
 @to_json_decorator
@@ -97,6 +88,15 @@ class CustomFields(object):
 class ContractCompany(object):
     id = attr.ib(type=int, default=None, metadata={'json': 'id'})
     name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+
+
+@to_json_decorator
+@attr.s
+class Attachment(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    mime_type = attr.ib(type=str, default=None, metadata={'json': 'mime_type'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    size = attr.ib(type=int, default=None, metadata={'json': 'size'})
 
 
 @to_json_decorator
