@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from larksuiteoapi.event import handle_event
+from larksuiteoapi.event import handle_event, set_event_callback
 from larksuiteoapi.model import OapiHeader, OapiRequest
 
 from flask import Flask, request
@@ -18,6 +18,17 @@ app_settings = Config.new_internal_app_settings_from_env()
 conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
 app = Flask(__name__)
+
+
+def app_open_event_handle(ctx, conf, event):
+    # type: (Context, Config, dict) -> None
+    print(ctx.get_request_id())
+    print(conf.app_settings)
+    print(event)
+
+
+# set event type 'app_status_change' handle
+set_event_callback(conf, 'app_open', app_open_event_handle)
 
 
 @app.route('/webhook/event', methods=['POST'])

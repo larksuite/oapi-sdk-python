@@ -24,6 +24,7 @@ from django.views.decorators.csrf import csrf_exempt
 from larksuiteoapi.model import OapiHeader, OapiRequest
 from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
 from larksuiteoapi.event import BaseEvent, set_event_callback, handle_event
+from larksuiteoapi.service.contact.v3 import UserUpdatedEventHandler, UserUpdatedEvent
 
 # for Cutome APP（企业自建应用）
 app_settings = Config.new_internal_app_settings_from_env()
@@ -32,36 +33,16 @@ app_settings = Config.new_internal_app_settings_from_env()
 conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
 
-@attr.s
-class ApplicationAppStatusChangeEventData(object):
-    app_id = attr.ib(type=str, default='')
-    tenant_key = attr.ib(type=str, default='')
-    type = attr.ib(type=str, default='')
-    status = attr.ib(type=str, default='')
-
-
-@attr.s
-class ApplicationAppStatusChangeEvent(BaseEvent):
-    event = attr.ib(type=ApplicationAppStatusChangeEventData, default=None)
-
-
-def app_status_change_event_handler(ctx, conf, event):
-    # type: (Context, Config, ApplicationAppStatusChangeEvent) -> None
+def user_update_handle(ctx, conf, event):
+    # type: (Context, Config, UserUpdatedEvent) ->None
     print(ctx.get_request_id())
-    print(conf.app_settings)
-    print(event.event.type)
+    print(event.header)
+    print(event.event)
+    pass
 
 
-def user_change(ctx, conf, event):
-    # type: (Context, Config, Dict) -> None
-    print(ctx.get_request_id())
-    print(conf.app_settings)
-    print(event)
-
-
-set_event_callback(conf, 'app_status_change', app_status_change_event_handler, ApplicationAppStatusChangeEvent)
-
-set_event_callback(conf, 'user_update', user_change)
+# set event type 'contact.user.updated_v3' handle
+UserUpdatedEventHandler.set_callback(conf, user_update_handle)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
