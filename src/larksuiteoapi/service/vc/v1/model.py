@@ -11,58 +11,23 @@ import attr
 
 @to_json_decorator
 @attr.s
-class ReservePermissionChecker(object):
-    check_field = attr.ib(type=int, default=None, metadata={'json': 'check_field'})
-    check_mode = attr.ib(type=int, default=None, metadata={'json': 'check_mode'})
-    check_list = attr.ib(type=List[str], default=None, metadata={'json': 'check_list'})
+class PstnSipInfo(object):
+    nickname = attr.ib(type=str, default=None, metadata={'json': 'nickname'})
+    main_address = attr.ib(type=str, default=None, metadata={'json': 'main_address'})
 
 
 @to_json_decorator
 @attr.s
-class ReserveActionPermission(object):
-    permission = attr.ib(type=int, default=None, metadata={'json': 'permission'})
-    permission_checkers = attr.ib(type=List[ReservePermissionChecker], default=None, metadata={'json': 'permission_checkers'})
+class ReserveCallee(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    user_type = attr.ib(type=int, default=None, metadata={'json': 'user_type'})
+    pstn_sip_info = attr.ib(type=PstnSipInfo, default=None, metadata={'json': 'pstn_sip_info'})
 
 
 @to_json_decorator
 @attr.s
-class ReserveMeetingSetting(object):
-    topic = attr.ib(type=str, default=None, metadata={'json': 'topic'})
-    action_permissions = attr.ib(type=List[ReserveActionPermission], default=None, metadata={'json': 'action_permissions'})
-
-
-@to_json_decorator
-@attr.s
-class Reserve(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["id", "end_time"])
-    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
-    meeting_no = attr.ib(type=str, default=None, metadata={'json': 'meeting_no'})
-    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
-    app_link = attr.ib(type=str, default=None, metadata={'json': 'app_link'})
-    end_time = attr.ib(type=int, default=None, metadata={'json': 'end_time'})
-    expire_status = attr.ib(type=int, default=None, metadata={'json': 'expire_status'})
-    reserve_user_id = attr.ib(type=str, default=None, metadata={'json': 'reserve_user_id'})
-    meeting_settings = attr.ib(type=ReserveMeetingSetting, default=None, metadata={'json': 'meeting_settings'})
-
-
-@to_json_decorator
-@attr.s
-class ReportMeetingDaily(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["date", "meeting_count", "meeting_duration", "participant_count"])
-    date = attr.ib(type=int, default=None, metadata={'json': 'date'})
-    meeting_count = attr.ib(type=int, default=None, metadata={'json': 'meeting_count'})
-    meeting_duration = attr.ib(type=int, default=None, metadata={'json': 'meeting_duration'})
-    participant_count = attr.ib(type=int, default=None, metadata={'json': 'participant_count'})
-
-
-@to_json_decorator
-@attr.s
-class Report(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["total_meeting_count", "total_meeting_duration", "total_participant_count"])
-    total_meeting_count = attr.ib(type=int, default=None, metadata={'json': 'total_meeting_count'})
-    total_meeting_duration = attr.ib(type=int, default=None, metadata={'json': 'total_meeting_duration'})
-    total_participant_count = attr.ib(type=int, default=None, metadata={'json': 'total_participant_count'})
-    daily_report = attr.ib(type=List[ReportMeetingDaily], default=None, metadata={'json': 'daily_report'})
+class ReserveCallSetting(object):
+    callee = attr.ib(type=ReserveCallee, default=None, metadata={'json': 'callee'})
 
 
 @to_json_decorator
@@ -93,6 +58,65 @@ class RoomConfig(object):
     room_background = attr.ib(type=str, default=None, metadata={'json': 'room_background'})
     display_background = attr.ib(type=str, default=None, metadata={'json': 'display_background'})
     digital_signage = attr.ib(type=RoomDigitalSignage, default=None, metadata={'json': 'digital_signage'})
+
+
+@to_json_decorator
+@attr.s
+class ReservePermissionChecker(object):
+    check_field = attr.ib(type=int, default=None, metadata={'json': 'check_field'})
+    check_mode = attr.ib(type=int, default=None, metadata={'json': 'check_mode'})
+    check_list = attr.ib(type=List[str], default=None, metadata={'json': 'check_list'})
+
+
+@to_json_decorator
+@attr.s
+class ReserveActionPermission(object):
+    permission = attr.ib(type=int, default=None, metadata={'json': 'permission'})
+    permission_checkers = attr.ib(type=List[ReservePermissionChecker], default=None, metadata={'json': 'permission_checkers'})
+
+
+@to_json_decorator
+@attr.s
+class ReserveMeetingSetting(object):
+    topic = attr.ib(type=str, default=None, metadata={'json': 'topic'})
+    action_permissions = attr.ib(type=List[ReserveActionPermission], default=None, metadata={'json': 'action_permissions'})
+    meeting_initial_type = attr.ib(type=int, default=None, metadata={'json': 'meeting_initial_type'})
+    call_setting = attr.ib(type=ReserveCallSetting, default=None, metadata={'json': 'call_setting'})
+
+
+@to_json_decorator
+@attr.s
+class Reserve(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["id", "end_time"])
+    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
+    meeting_no = attr.ib(type=str, default=None, metadata={'json': 'meeting_no'})
+    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
+    app_link = attr.ib(type=str, default=None, metadata={'json': 'app_link'})
+    live_link = attr.ib(type=str, default=None, metadata={'json': 'live_link'})
+    end_time = attr.ib(type=int, default=None, metadata={'json': 'end_time'})
+    expire_status = attr.ib(type=int, default=None, metadata={'json': 'expire_status'})
+    reserve_user_id = attr.ib(type=str, default=None, metadata={'json': 'reserve_user_id'})
+    meeting_settings = attr.ib(type=ReserveMeetingSetting, default=None, metadata={'json': 'meeting_settings'})
+
+
+@to_json_decorator
+@attr.s
+class ReportMeetingDaily(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["date", "meeting_count", "meeting_duration", "participant_count"])
+    date = attr.ib(type=int, default=None, metadata={'json': 'date'})
+    meeting_count = attr.ib(type=int, default=None, metadata={'json': 'meeting_count'})
+    meeting_duration = attr.ib(type=int, default=None, metadata={'json': 'meeting_duration'})
+    participant_count = attr.ib(type=int, default=None, metadata={'json': 'participant_count'})
+
+
+@to_json_decorator
+@attr.s
+class Report(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["total_meeting_count", "total_meeting_duration", "total_participant_count"])
+    total_meeting_count = attr.ib(type=int, default=None, metadata={'json': 'total_meeting_count'})
+    total_meeting_duration = attr.ib(type=int, default=None, metadata={'json': 'total_meeting_duration'})
+    total_participant_count = attr.ib(type=int, default=None, metadata={'json': 'total_participant_count'})
+    daily_report = attr.ib(type=List[ReportMeetingDaily], default=None, metadata={'json': 'daily_report'})
 
 
 @to_json_decorator
@@ -172,10 +196,20 @@ class MeetingEventMeeting(object):
 
 @to_json_decorator
 @attr.s
-class MeetingParticipantResult(object):
+class MeetingRecording(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["id", "meeting_id", "duration"])
+    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
+    meeting_id = attr.ib(type=int, default=None, metadata={'json': 'meeting_id'})
+    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
+    duration = attr.ib(type=int, default=None, metadata={'json': 'duration'})
+
+
+@to_json_decorator
+@attr.s
+class MeetingInviteStatus(object):
     id = attr.ib(type=str, default=None, metadata={'json': 'id'})
     user_type = attr.ib(type=int, default=None, metadata={'json': 'user_type'})
-    result = attr.ib(type=int, default=None, metadata={'json': 'result'})
+    status = attr.ib(type=int, default=None, metadata={'json': 'status'})
 
 
 @to_json_decorator
@@ -199,20 +233,43 @@ class ReportTopUser(object):
 
 @to_json_decorator
 @attr.s
-class MeetingInviteStatus(object):
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    user_type = attr.ib(type=int, default=None, metadata={'json': 'user_type'})
-    status = attr.ib(type=int, default=None, metadata={'json': 'status'})
+class Material(object):
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    file_size = attr.ib(type=int, default=None, metadata={'json': 'file_size'})
+    device_type = attr.ib(type=int, default=None, metadata={'json': 'device_type'})
+    material_type = attr.ib(type=int, default=None, metadata={'json': 'material_type'})
+    review_result = attr.ib(type=int, default=None, metadata={'json': 'review_result'})
+    material_source = attr.ib(type=int, default=None, metadata={'json': 'material_source'})
 
 
 @to_json_decorator
 @attr.s
-class MeetingRecording(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["id", "meeting_id", "duration"])
-    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
-    meeting_id = attr.ib(type=int, default=None, metadata={'json': 'meeting_id'})
-    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
-    duration = attr.ib(type=int, default=None, metadata={'json': 'duration'})
+class MaterialDeleteResult(object):
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    result = attr.ib(type=int, default=None, metadata={'json': 'result'})
+
+
+@to_json_decorator
+@attr.s
+class MaterialReviewResult(object):
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    result = attr.ib(type=int, default=None, metadata={'json': 'result'})
+
+
+@to_json_decorator
+@attr.s
+class MaterialUploadResult(object):
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    result = attr.ib(type=int, default=None, metadata={'json': 'result'})
+
+
+@to_json_decorator
+@attr.s
+class MeetingParticipantResult(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    user_type = attr.ib(type=int, default=None, metadata={'json': 'user_type'})
+    result = attr.ib(type=int, default=None, metadata={'json': 'result'})
 
 
 
@@ -227,14 +284,6 @@ class MeetingInviteReqBody(object):
 @attr.s
 class MeetingInviteResult(object):
     invite_results = attr.ib(type=List[MeetingInviteStatus], default=None, metadata={'json': 'invite_results'})
-
-
-
-@attr.s
-class MeetingListResult(object):
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    meetings = attr.ib(type=List[Meeting], default=None, metadata={'json': 'meetings'})
 
 
 
@@ -427,19 +476,6 @@ class MeetingRecordingStartedEventData(object):
 @attr.s
 class MeetingRecordingStartedEvent(BaseEventV2):
     event = attr.ib(type=MeetingRecordingStartedEventData, default=None)
-
-
-
-@attr.s
-class MeetingSendMeetingImEventData(object):
-    meeting = attr.ib(type=MeetingEventMeeting, default=None, metadata={'json': 'meeting'})
-    operator = attr.ib(type=MeetingEventUser, default=None, metadata={'json': 'operator'})
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-
-
-@attr.s
-class MeetingSendMeetingImEvent(BaseEventV2):
-    event = attr.ib(type=MeetingSendMeetingImEventData, default=None)
 
 
 

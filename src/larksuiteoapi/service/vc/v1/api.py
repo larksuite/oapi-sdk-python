@@ -14,13 +14,77 @@ class Service(object):
     def __init__(self, conf):
         # type: (Config) -> None
         self.conf = conf
-        self.meeting_recordings = MeetingRecordingService(self)
         self.meetings = MeetingService(self)
+        self.meeting_recordings = MeetingRecordingService(self)
         self.reports = ReportService(self)
-        self.room_configs = RoomConfigService(self)
         self.reserves = ReserveService(self)
+        self.room_configs = RoomConfigService(self)
         
 
+
+
+class MeetingService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def invite(self, body, user_access_token=None, timeout=None):
+        # type: (MeetingInviteReqBody, str, int) -> MeetingInviteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MeetingInviteReqCall(self, body, request_opts=request_opts)
+
+    def set_host(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (MeetingSetHostReqBody, str, str, int) -> MeetingSetHostReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MeetingSetHostReqCall(self, body, request_opts=request_opts)
+
+    def end(self, user_access_token=None, timeout=None):
+        # type: (str, int) -> MeetingEndReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MeetingEndReqCall(self, request_opts=request_opts)
+
+    def get(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> MeetingGetReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MeetingGetReqCall(self, request_opts=request_opts)
 
 
 class MeetingRecordingService(object):
@@ -81,83 +145,6 @@ class MeetingRecordingService(object):
         return MeetingRecordingStartReqCall(self, body, request_opts=request_opts)
 
 
-class MeetingService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def invite(self, body, user_access_token=None, timeout=None):
-        # type: (MeetingInviteReqBody, str, int) -> MeetingInviteReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MeetingInviteReqCall(self, body, request_opts=request_opts)
-
-    def list(self, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (str, str, int) -> MeetingListReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MeetingListReqCall(self, request_opts=request_opts)
-
-    def set_host(self, body, user_access_token=None, timeout=None):
-        # type: (MeetingSetHostReqBody, str, int) -> MeetingSetHostReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MeetingSetHostReqCall(self, body, request_opts=request_opts)
-
-    def end(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> MeetingEndReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MeetingEndReqCall(self, request_opts=request_opts)
-
-    def get(self, tenant_key=None, user_access_token=None, timeout=None):
-        # type: (str, str, int) -> MeetingGetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        if user_access_token is not None:
-            request_opts += [set_user_access_token(user_access_token)]
-
-        return MeetingGetReqCall(self, request_opts=request_opts)
-
-
 class ReportService(object):
     def __init__(self, service):
         # type: (Service) -> None
@@ -188,38 +175,6 @@ class ReportService(object):
             request_opts += [set_tenant_key(tenant_key)]
 
         return ReportGetDailyReqCall(self, request_opts=request_opts)
-
-
-class RoomConfigService(object):
-    def __init__(self, service):
-        # type: (Service) -> None
-        self.service = service
-
-    def query(self, tenant_key=None, timeout=None):
-        # type: (str, int) -> RoomConfigQueryReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return RoomConfigQueryReqCall(self, request_opts=request_opts)
-
-    def set(self, body, tenant_key=None, timeout=None):
-        # type: (RoomConfigSetReqBody, str, int) -> RoomConfigSetReqCall
-
-        request_opts = []   # type: List[Callable[[Any], Any]]
-
-        if timeout is not None:
-            request_opts += [set_timeout(timeout)]
-
-        if tenant_key is not None:
-            request_opts += [set_tenant_key(tenant_key)]
-
-        return RoomConfigSetReqCall(self, body, request_opts=request_opts)
 
 
 class ReserveService(object):
@@ -293,6 +248,38 @@ class ReserveService(object):
         return ReserveDeleteReqCall(self, request_opts=request_opts)
 
 
+class RoomConfigService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def query(self, tenant_key=None, timeout=None):
+        # type: (str, int) -> RoomConfigQueryReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return RoomConfigQueryReqCall(self, request_opts=request_opts)
+
+    def set(self, body, tenant_key=None, timeout=None):
+        # type: (RoomConfigSetReqBody, str, int) -> RoomConfigSetReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return RoomConfigSetReqCall(self, body, request_opts=request_opts)
+
+
 
 class RoomConfigQueryReqCall(object):
     def __init__(self, service, request_opts=None):
@@ -312,29 +299,29 @@ class RoomConfigQueryReqCall(object):
         self.query_params['scope'] = scope
         return self
 
-    def set_country_id(self, countryId):
+    def set_country_id(self, country_id):
         # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['country_id'] = countryId
+        self.query_params['country_id'] = country_id
         return self
 
-    def set_district_id(self, districtId):
+    def set_district_id(self, district_id):
         # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['district_id'] = districtId
+        self.query_params['district_id'] = district_id
         return self
 
-    def set_building_id(self, buildingId):
+    def set_building_id(self, building_id):
         # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['building_id'] = buildingId
+        self.query_params['building_id'] = building_id
         return self
 
-    def set_floor_name(self, floorName):
+    def set_floor_name(self, floor_name):
         # type: (str) -> RoomConfigQueryReqCall
-        self.query_params['floor_name'] = floorName
+        self.query_params['floor_name'] = floor_name
         return self
 
-    def set_room_id(self, roomId):
+    def set_room_id(self, room_id):
         # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['room_id'] = roomId
+        self.query_params['room_id'] = room_id
         return self
 
     def do(self):
@@ -343,7 +330,7 @@ class RoomConfigQueryReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/room_configs/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/vc/v1/room_configs/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=RoomConfig, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -363,14 +350,14 @@ class MeetingInviteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingInviteReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MeetingInviteReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -380,63 +367,8 @@ class MeetingInviteReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/meetings/:meeting_id/invite', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id/invite', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=MeetingInviteResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MeetingListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MeetingService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_room_id(self, roomId):
-        # type: (int) -> MeetingListReqCall
-        self.query_params['room_id'] = roomId
-        return self
-
-    def set_start_time(self, startTime):
-        # type: (int) -> MeetingListReqCall
-        self.query_params['start_time'] = startTime
-        return self
-
-    def set_end_time(self, endTime):
-        # type: (int) -> MeetingListReqCall
-        self.query_params['end_time'] = endTime
-        return self
-
-    def set_status(self, status):
-        # type: (int) -> MeetingListReqCall
-        self.query_params['status'] = status
-        return self
-
-    def set_page_token(self, pageToken):
-        # type: (str) -> MeetingListReqCall
-        self.query_params['page_token'] = pageToken
-        return self
-
-    def set_page_size(self, pageSize):
-        # type: (int) -> MeetingListReqCall
-        self.query_params['page_size'] = pageSize
-        return self
-
-    def do(self):
-        # type: () -> Response[MeetingListResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/meetings', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MeetingListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -454,14 +386,14 @@ class ReportGetTopUserReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_start_time(self, startTime):
+    def set_start_time(self, start_time):
         # type: (int) -> ReportGetTopUserReqCall
-        self.query_params['start_time'] = startTime
+        self.query_params['start_time'] = start_time
         return self
 
-    def set_end_time(self, endTime):
+    def set_end_time(self, end_time):
         # type: (int) -> ReportGetTopUserReqCall
-        self.query_params['end_time'] = endTime
+        self.query_params['end_time'] = end_time
         return self
 
     def set_limit(self, limit):
@@ -469,9 +401,14 @@ class ReportGetTopUserReqCall(object):
         self.query_params['limit'] = limit
         return self
 
-    def set_order_by(self, orderBy):
+    def set_order_by(self, order_by):
         # type: (int) -> ReportGetTopUserReqCall
-        self.query_params['order_by'] = orderBy
+        self.query_params['order_by'] = order_by
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> ReportGetTopUserReqCall
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -480,7 +417,7 @@ class ReportGetTopUserReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/reports/get_top_user', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/vc/v1/reports/get_top_user', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=ReportGetTopUserResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -500,14 +437,14 @@ class MeetingSetHostReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingSetHostReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MeetingSetHostReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -517,7 +454,7 @@ class MeetingSetHostReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/meetings/:meeting_id/set_host', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id/set_host', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MeetingSetHostResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -536,9 +473,9 @@ class MeetingRecordingGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingRecordingGetReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
     def do(self):
@@ -547,7 +484,7 @@ class MeetingRecordingGetReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('vc/v1/meetings/:meeting_id/recording', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording', 'GET', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=MeetingRecordingGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -566,9 +503,9 @@ class MeetingEndReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingEndReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
     def do(self):
@@ -577,7 +514,7 @@ class MeetingEndReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('vc/v1/meetings/:meeting_id/end', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id/end', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -596,9 +533,9 @@ class MeetingRecordingStopReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingRecordingStopReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
     def do(self):
@@ -607,7 +544,7 @@ class MeetingRecordingStopReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('vc/v1/meetings/:meeting_id/recording/stop', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording/stop', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -626,14 +563,14 @@ class ReportGetDailyReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_start_time(self, startTime):
+    def set_start_time(self, start_time):
         # type: (int) -> ReportGetDailyReqCall
-        self.query_params['start_time'] = startTime
+        self.query_params['start_time'] = start_time
         return self
 
-    def set_end_time(self, endTime):
+    def set_end_time(self, end_time):
         # type: (int) -> ReportGetDailyReqCall
-        self.query_params['end_time'] = endTime
+        self.query_params['end_time'] = end_time
         return self
 
     def do(self):
@@ -642,7 +579,7 @@ class ReportGetDailyReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/reports/get_daily', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/vc/v1/reports/get_daily', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=ReportGetDailyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -662,24 +599,24 @@ class MeetingGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingGetReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
-    def set_with_participants(self, withParticipants):
+    def set_with_participants(self, with_participants):
         # type: (bool) -> MeetingGetReqCall
-        self.query_params['with_participants'] = withParticipants
+        self.query_params['with_participants'] = with_participants
         return self
 
-    def set_with_meeting_ability(self, withMeetingAbility):
+    def set_with_meeting_ability(self, with_meeting_ability):
         # type: (bool) -> MeetingGetReqCall
-        self.query_params['with_meeting_ability'] = withMeetingAbility
+        self.query_params['with_meeting_ability'] = with_meeting_ability
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MeetingGetReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -689,7 +626,7 @@ class MeetingGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/meetings/:meeting_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=MeetingGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -712,7 +649,7 @@ class RoomConfigSetReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('vc/v1/room_configs/set', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/vc/v1/room_configs/set', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -732,14 +669,14 @@ class MeetingRecordingSetPermissionReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingRecordingSetPermissionReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> MeetingRecordingSetPermissionReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -749,7 +686,7 @@ class MeetingRecordingSetPermissionReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/meetings/:meeting_id/recording/set_permission', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording/set_permission', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -768,9 +705,9 @@ class MeetingRecordingStartReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_meeting_id(self, meetingId):
+    def set_meeting_id(self, meeting_id):
         # type: (int) -> MeetingRecordingStartReqCall
-        self.path_params['meeting_id'] = meetingId
+        self.path_params['meeting_id'] = meeting_id
         return self
 
     def do(self):
@@ -779,7 +716,7 @@ class MeetingRecordingStartReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('vc/v1/meetings/:meeting_id/recording/start', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording/start', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -799,14 +736,14 @@ class ReserveUpdateReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_reserve_id(self, reserveId):
+    def set_reserve_id(self, reserve_id):
         # type: (int) -> ReserveUpdateReqCall
-        self.path_params['reserve_id'] = reserveId
+        self.path_params['reserve_id'] = reserve_id
         return self
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ReserveUpdateReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -816,7 +753,7 @@ class ReserveUpdateReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/reserves/:reserve_id', 'PUT', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/reserves/:reserve_id', 'PUT', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=ReserveUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -835,9 +772,9 @@ class ReserveApplyReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_user_id_type(self, userIdType):
+    def set_user_id_type(self, user_id_type):
         # type: (str) -> ReserveApplyReqCall
-        self.query_params['user_id_type'] = userIdType
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -846,7 +783,7 @@ class ReserveApplyReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/reserves/apply', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/reserves/apply', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=ReserveApplyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -859,15 +796,21 @@ class ReserveGetReqCall(object):
         self.service = service
         
         self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
 
         if request_opts:
             self.request_opts = request_opts
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_reserve_id(self, reserveId):
+    def set_reserve_id(self, reserve_id):
         # type: (int) -> ReserveGetReqCall
-        self.path_params['reserve_id'] = reserveId
+        self.path_params['reserve_id'] = reserve_id
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> ReserveGetReqCall
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -876,7 +819,8 @@ class ReserveGetReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('vc/v1/reserves/:reserve_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('/open-apis/vc/v1/reserves/:reserve_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=ReserveGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -896,14 +840,19 @@ class ReserveGetActiveMeetingReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_reserve_id(self, reserveId):
+    def set_reserve_id(self, reserve_id):
         # type: (int) -> ReserveGetActiveMeetingReqCall
-        self.path_params['reserve_id'] = reserveId
+        self.path_params['reserve_id'] = reserve_id
         return self
 
-    def set_with_participants(self, withParticipants):
+    def set_with_participants(self, with_participants):
         # type: (bool) -> ReserveGetActiveMeetingReqCall
-        self.query_params['with_participants'] = withParticipants
+        self.query_params['with_participants'] = with_participants
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> ReserveGetActiveMeetingReqCall
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
@@ -913,7 +862,7 @@ class ReserveGetActiveMeetingReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('vc/v1/reserves/:reserve_id/get_active_meeting', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting', 'GET', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=ReserveGetActiveMeetingResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -932,9 +881,9 @@ class ReserveDeleteReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_reserve_id(self, reserveId):
+    def set_reserve_id(self, reserve_id):
         # type: (int) -> ReserveDeleteReqCall
-        self.path_params['reserve_id'] = reserveId
+        self.path_params['reserve_id'] = reserve_id
         return self
 
     def do(self):
@@ -943,7 +892,7 @@ class ReserveDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('vc/v1/reserves/:reserve_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/vc/v1/reserves/:reserve_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

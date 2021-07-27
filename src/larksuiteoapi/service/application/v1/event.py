@@ -22,8 +22,7 @@ class AppOpenEventHandler(object):
     def set_callback(conf, callback):
         # type: (Config, Callable[[Context, Config, AppOpenEvent], Any]) -> None
         handler = AppOpenEventHandler(callback)
-        set_event_callback(conf, "app_open",
-                          handler.handle, clazz=AppOpenEvent)
+        set_event_callback(conf, "app_open", handler.handle, clazz=AppOpenEvent)
 
 
 class AppStatusChangeEventHandler(object):
@@ -39,7 +38,7 @@ class AppStatusChangeEventHandler(object):
         # type: (Config, Callable[[Context, Config, AppStatusChangeEvent], Any]) -> None
         handler = AppStatusChangeEventHandler(callback)
         set_event_callback(conf, "app_status_change",
-                          handler.handle, clazz=AppStatusChangeEvent)
+                           handler.handle, clazz=AppStatusChangeEvent)
 
 
 class AppUninstalledEventHandler(object):
@@ -55,7 +54,7 @@ class AppUninstalledEventHandler(object):
         # type: (Config, Callable[[Context, Config, AppUninstalledEvent], Any]) -> None
         handler = AppUninstalledEventHandler(callback)
         set_event_callback(conf, "app_uninstalled",
-                          handler.handle, clazz=AppUninstalledEvent)
+                           handler.handle, clazz=AppUninstalledEvent)
 
 
 class OrderPaidEventHandler(object):
@@ -71,4 +70,4 @@ class OrderPaidEventHandler(object):
         # type: (Config, Callable[[Context, Config, OrderPaidEvent], Any]) -> None
         handler = OrderPaidEventHandler(callback)
         set_event_callback(conf, "order_paid",
-                          handler.handle, clazz=OrderPaidEvent)
+                           handler.handle, clazz=OrderPaidEvent)

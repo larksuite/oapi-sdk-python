@@ -75,7 +75,7 @@ class PublicGetReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/v2/public', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/v2/public', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=PublicGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -98,7 +98,7 @@ class PublicUpdateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/v2/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/v2/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

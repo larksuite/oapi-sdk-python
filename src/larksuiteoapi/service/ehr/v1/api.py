@@ -87,7 +87,7 @@ class AttachmentGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_is_response_stream()]
-        req = Request('ehr/v1/attachments/:token', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/ehr/v1/attachments/:token', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -157,7 +157,7 @@ class EmployeeListReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('ehr/v1/employees', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/ehr/v1/employees', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=EmployeeListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

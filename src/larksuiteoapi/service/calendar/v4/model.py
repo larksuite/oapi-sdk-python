@@ -11,6 +11,9 @@ import attr
 @to_json_decorator
 @attr.s
 class Vchat(object):
+    vc_type = attr.ib(type=str, default=None, metadata={'json': 'vc_type'})
+    icon_type = attr.ib(type=str, default=None, metadata={'json': 'icon_type'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
     meeting_url = attr.ib(type=str, default=None, metadata={'json': 'meeting_url'})
 
 
@@ -137,6 +140,14 @@ class AclScopeEvent(object):
 
 @to_json_decorator
 @attr.s
+class CalendarAclEvent(object):
+    acl_id = attr.ib(type=str, default=None, metadata={'json': 'acl_id'})
+    role = attr.ib(type=str, default=None, metadata={'json': 'role'})
+    scope = attr.ib(type=AclScopeEvent, default=None, metadata={'json': 'scope'})
+
+
+@to_json_decorator
+@attr.s
 class Calendar(object):
     calendar_id = attr.ib(type=str, default=None, metadata={'json': 'calendar_id'})
     summary = attr.ib(type=str, default=None, metadata={'json': 'summary'})
@@ -232,8 +243,10 @@ class CalendarAclListResult(object):
 
 
 @attr.s
-class CalendarEventCreateResult(object):
-    event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
+class CalendarEventAttendeeListResult(object):
+    items = attr.ib(type=List[CalendarEventAttendee], default=None, metadata={'json': 'items'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
 
 
 
@@ -243,14 +256,6 @@ class CalendarListResult(object):
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     sync_token = attr.ib(type=str, default=None, metadata={'json': 'sync_token'})
     calendar_list = attr.ib(type=List[Calendar], default=None, metadata={'json': 'calendar_list'})
-
-
-
-@attr.s
-class CalendarEventAttendeeListResult(object):
-    items = attr.ib(type=List[CalendarEventAttendee], default=None, metadata={'json': 'items'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
 
 
 @to_json_decorator
@@ -367,8 +372,3 @@ class CalendarEventAttendeeChatMemberListResult(object):
     items = attr.ib(type=List[CalendarEventAttendeeChatMember], default=None, metadata={'json': 'items'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-
-
-
-
-

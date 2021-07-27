@@ -11,9 +11,28 @@ import attr
 
 @to_json_decorator
 @attr.s
+class Sender(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
+    sender_type = attr.ib(type=str, default=None, metadata={'json': 'sender_type'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
+
+
+@to_json_decorator
+@attr.s
 class Operator(object):
     operator_id = attr.ib(type=str, default=None, metadata={'json': 'operator_id'})
     operator_type = attr.ib(type=str, default=None, metadata={'json': 'operator_type'})
+
+
+@to_json_decorator
+@attr.s
+class Mention(object):
+    key = attr.ib(type=str, default=None, metadata={'json': 'key'})
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
 
 
 @to_json_decorator
@@ -29,25 +48,6 @@ class MessageReaction(object):
     operator = attr.ib(type=Operator, default=None, metadata={'json': 'operator'})
     action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
     reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
-
-
-@to_json_decorator
-@attr.s
-class Sender(object):
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
-    sender_type = attr.ib(type=str, default=None, metadata={'json': 'sender_type'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-
-
-@to_json_decorator
-@attr.s
-class Mention(object):
-    key = attr.ib(type=str, default=None, metadata={'json': 'key'})
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
 
 
 @to_json_decorator
@@ -277,12 +277,6 @@ class ReadUser(object):
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
 
 
-@to_json_decorator
-@attr.s
-class ChatCustomBot(object):
-    pass
-
-
 
 
 @attr.s
@@ -476,17 +470,6 @@ class ChatMembersDeleteResult(object):
 
 
 @attr.s
-class ChatMembersGetResult(object):
-    items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    member_total = attr.ib(type=int, default=None, metadata={'json': 'member_total'})
-
-
-
-
-
-@attr.s
 class ChatAnnouncementGetResult(object):
     content = attr.ib(type=str, default=None, metadata={'json': 'content'})
     revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
@@ -496,6 +479,17 @@ class ChatAnnouncementGetResult(object):
     owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
     modifier_id_type = attr.ib(type=str, default=None, metadata={'json': 'modifier_id_type'})
     modifier_id = attr.ib(type=str, default=None, metadata={'json': 'modifier_id'})
+
+
+
+@attr.s
+class ChatMembersGetResult(object):
+    items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    member_total = attr.ib(type=int, default=None, metadata={'json': 'member_total'})
+
+
 
 
 
@@ -512,94 +506,6 @@ class ChatAnnouncementPatchReqBody(object):
     revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
     requests = attr.ib(type=List[str], default=None, metadata={'json': 'requests'})
 
-
-
-@to_json_decorator
-@attr.s
-class ChatCustomBotCreateReqBody(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["chat_id", "uuid"])
-    chat_id = attr.ib(type=int, default=None, metadata={'json': 'chat_id'})
-    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
-    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
-    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
-    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
-    uuid = attr.ib(type=int, default=None, metadata={'json': 'uuid'})
-
-
-@attr.s
-class ChatCustomBotCreateResult(object):
-    bot_id = attr.ib(type=int, default=None, metadata={'json': 'bot_id'})
-    chat_id = attr.ib(type=int, default=None, metadata={'json': 'chat_id'})
-    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
-    i18n_names = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_names'})
-    i18n_descriptions = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_descriptions'})
-    webhook = attr.ib(type=str, default=None, metadata={'json': 'webhook'})
-    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
-    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
-    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
-    signature = attr.ib(type=str, default=None, metadata={'json': 'signature'})
-    enable = attr.ib(type=bool, default=None, metadata={'json': 'enable'})
-    invitor_id = attr.ib(type=int, default=None, metadata={'json': 'invitor_id'})
-    invitor_id_type = attr.ib(type=str, default=None, metadata={'json': 'invitor_id_type'})
-    version = attr.ib(type=int, default=None, metadata={'json': 'version'})
-
-
-
-
-
-@attr.s
-class ChatCustomBotGetResult(object):
-    bot_id = attr.ib(type=int, default=None, metadata={'json': 'bot_id'})
-    chat_id = attr.ib(type=int, default=None, metadata={'json': 'chat_id'})
-    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
-    i18n_names = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_names'})
-    i18n_descriptions = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_descriptions'})
-    webhook = attr.ib(type=str, default=None, metadata={'json': 'webhook'})
-    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
-    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
-    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
-    signature = attr.ib(type=str, default=None, metadata={'json': 'signature'})
-    enable = attr.ib(type=bool, default=None, metadata={'json': 'enable'})
-    invitor_id = attr.ib(type=int, default=None, metadata={'json': 'invitor_id'})
-    invitor_id_type = attr.ib(type=str, default=None, metadata={'json': 'invitor_id_type'})
-    version = attr.ib(type=int, default=None, metadata={'json': 'version'})
-
-
-@to_json_decorator
-@attr.s
-class ChatCustomBotPatchReqBody(object):
-    avatar_key = attr.ib(type=str, default=None, metadata={'json': 'avatar_key'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
-    allow_ips = attr.ib(type=List[str], default=None, metadata={'json': 'allow_ips'})
-    key_words = attr.ib(type=List[str], default=None, metadata={'json': 'key_words'})
-    signature_status = attr.ib(type=bool, default=None, metadata={'json': 'signature_status'})
-    change_signature = attr.ib(type=bool, default=None, metadata={'json': 'change_signature'})
-    enable = attr.ib(type=bool, default=None, metadata={'json': 'enable'})
-
-
-
-@to_json_decorator
-@attr.s
-class MessageReactionCreateReqBody(object):
-    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
-
-
-
-
-
-
-@attr.s
-class MessageReactionListResult(object):
-    items = attr.ib(type=List[MessageReaction], default=None, metadata={'json': 'items'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
 
 
 @attr.s
@@ -646,6 +552,20 @@ class ChatDisbandedEvent(BaseEventV2):
 
 
 @attr.s
+class ChatMemberBotAddedEventData(object):
+    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
+    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
+    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
+    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
+
+
+@attr.s
+class ChatMemberBotAddedEvent(BaseEventV2):
+    event = attr.ib(type=ChatMemberBotAddedEventData, default=None)
+
+
+
+@attr.s
 class ChatMemberUserAddedEventData(object):
     chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
@@ -657,20 +577,6 @@ class ChatMemberUserAddedEventData(object):
 @attr.s
 class ChatMemberUserAddedEvent(BaseEventV2):
     event = attr.ib(type=ChatMemberUserAddedEventData, default=None)
-
-
-
-@attr.s
-class ChatMemberBotAddedEventData(object):
-    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
-    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
-    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
-    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
-
-
-@attr.s
-class ChatMemberBotAddedEvent(BaseEventV2):
-    event = attr.ib(type=ChatMemberBotAddedEventData, default=None)
 
 
 
@@ -719,18 +625,6 @@ class ChatMemberUserDeletedEvent(BaseEventV2):
 
 
 @attr.s
-class MessageAtMessageReadEventData(object):
-    reader = attr.ib(type=EventMessageReader, default=None, metadata={'json': 'reader'})
-    message_id_list = attr.ib(type=List[str], default=None, metadata={'json': 'message_id_list'})
-
-
-@attr.s
-class MessageAtMessageReadEvent(BaseEventV2):
-    event = attr.ib(type=MessageAtMessageReadEventData, default=None)
-
-
-
-@attr.s
 class MessageMessageReadEventData(object):
     reader = attr.ib(type=EventMessageReader, default=None, metadata={'json': 'reader'})
     message_id_list = attr.ib(type=List[str], default=None, metadata={'json': 'message_id_list'})
@@ -739,47 +633,3 @@ class MessageMessageReadEventData(object):
 @attr.s
 class MessageMessageReadEvent(BaseEventV2):
     event = attr.ib(type=MessageMessageReadEventData, default=None)
-
-
-
-@attr.s
-class MessageUrgentMessageReadEventData(object):
-    reader = attr.ib(type=EventMessageReader, default=None, metadata={'json': 'reader'})
-    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
-
-
-@attr.s
-class MessageUrgentMessageReadEvent(BaseEventV2):
-    event = attr.ib(type=MessageUrgentMessageReadEventData, default=None)
-
-
-
-@attr.s
-class MessageReactionCreatedEventData(object):
-    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
-    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
-    operator_type = attr.ib(type=str, default=None, metadata={'json': 'operator_type'})
-    user_id = attr.ib(type=UserId, default=None, metadata={'json': 'user_id'})
-    app_id = attr.ib(type=str, default=None, metadata={'json': 'app_id'})
-    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
-
-
-@attr.s
-class MessageReactionCreatedEvent(BaseEventV2):
-    event = attr.ib(type=MessageReactionCreatedEventData, default=None)
-
-
-
-@attr.s
-class MessageReactionDeletedEventData(object):
-    message_id = attr.ib(type=str, default=None, metadata={'json': 'message_id'})
-    reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
-    operator_type = attr.ib(type=str, default=None, metadata={'json': 'operator_type'})
-    user_id = attr.ib(type=UserId, default=None, metadata={'json': 'user_id'})
-    app_id = attr.ib(type=str, default=None, metadata={'json': 'app_id'})
-    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
-
-
-@attr.s
-class MessageReactionDeletedEvent(BaseEventV2):
-    event = attr.ib(type=MessageReactionDeletedEventData, default=None)

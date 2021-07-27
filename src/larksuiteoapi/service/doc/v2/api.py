@@ -130,7 +130,7 @@ class DocBatchUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('doc/v2/:docToken/batch_update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/doc/v2/:docToken/batch_update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -160,7 +160,7 @@ class DocContentReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('doc/v2/:docToken/content', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/doc/v2/:docToken/content', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=DocContentResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -183,7 +183,7 @@ class DocCreateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('doc/v2/create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/doc/v2/create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=DocCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -213,7 +213,7 @@ class DocMetaReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('doc/v2/meta/:docToken', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/doc/v2/meta/:docToken', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=DocMetaResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -243,7 +243,7 @@ class DocRawContentReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('doc/v2/:docToken/raw_content', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/doc/v2/:docToken/raw_content', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=DocRawContentResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

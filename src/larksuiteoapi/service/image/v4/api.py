@@ -80,7 +80,7 @@ class ImageGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
         self.request_opts += [set_is_response_stream()]
-        req = Request('image/v4/get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/image/v4/get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -113,7 +113,7 @@ class ImagePutReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('image/v4/put', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=Image , request_opts=self.request_opts)
+        req = Request('/open-apis/image/v4/put', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=Image , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

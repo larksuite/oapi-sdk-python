@@ -51,6 +51,18 @@ class Properties(object):
 
 @to_json_decorator
 @attr.s
+class UpdateSheet(object):
+    properties = attr.ib(type=Properties, default=None, metadata={'json': 'properties'})
+
+
+@to_json_decorator
+@attr.s
+class CopySheetReply(object):
+    properties = attr.ib(type=Properties, default=None, metadata={'json': 'properties'})
+
+
+@to_json_decorator
+@attr.s
 class AddSheet(object):
     properties = attr.ib(type=Properties, default=None, metadata={'json': 'properties'})
 
@@ -199,8 +211,8 @@ class DeleteSheetReply(object):
 @attr.s
 class Reply(object):
     update_sheet = attr.ib(type=Properties, default=None, metadata={'json': 'updateSheet'})
-    add_sheet = attr.ib(type=Properties, default=None, metadata={'json': 'addSheet'})
-    copy_sheet = attr.ib(type=Properties, default=None, metadata={'json': 'copySheet'})
+    add_sheet = attr.ib(type=AddSheet, default=None, metadata={'json': 'addSheet'})
+    copy_sheet = attr.ib(type=CopySheetReply, default=None, metadata={'json': 'copySheet'})
     delete_sheet = attr.ib(type=DeleteSheetReply, default=None, metadata={'json': 'deleteSheet'})
 
 
@@ -216,7 +228,7 @@ class Requests(object):
     add_sheet = attr.ib(type=AddSheet, default=None, metadata={'json': 'addSheet'})
     copy_sheet = attr.ib(type=CopySheet, default=None, metadata={'json': 'copySheet'})
     delete_sheet = attr.ib(type=DeleteSheet, default=None, metadata={'json': 'deleteSheet'})
-    update_sheet = attr.ib(type=Properties, default=None, metadata={'json': 'updateSheet'})
+    update_sheet = attr.ib(type=UpdateSheet, default=None, metadata={'json': 'updateSheet'})
 
 
 @to_json_decorator

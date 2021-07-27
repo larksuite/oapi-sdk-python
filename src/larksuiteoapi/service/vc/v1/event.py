@@ -122,22 +122,6 @@ class MeetingRecordingStartedEventHandler(object):
                           handler.handle, clazz=MeetingRecordingStartedEvent)
 
 
-class MeetingSendMeetingImEventHandler(object):
-    def __init__(self, callback):
-        # type: (Callable[[Context, Config, MeetingSendMeetingImEvent], Any]) -> None
-        self.handler = callback
-
-    def handle(self, ctx, conf, event):  # type: (Context, Config, MeetingSendMeetingImEvent) -> Any
-        return self.handler(ctx, conf, event)
-
-    @staticmethod
-    def set_callback(conf, callback):
-        # type: (Config, Callable[[Context, Config, MeetingSendMeetingImEvent], Any]) -> None
-        handler = MeetingSendMeetingImEventHandler(callback)
-        set_event_callback(conf, "vc.meeting.send_meeting_im_v1",
-                          handler.handle, clazz=MeetingSendMeetingImEvent)
-
-
 class MeetingShareStartedEventHandler(object):
     def __init__(self, callback):
         # type: (Callable[[Context, Config, MeetingShareStartedEvent], Any]) -> None

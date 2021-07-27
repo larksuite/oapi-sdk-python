@@ -19,7 +19,6 @@ class Image(object):
 @attr.s
 class ImageBasicRecognizeReqBody(object):
     image = attr.ib(type=str, default=None, metadata={'json': 'image'})
-    image_key = attr.ib(type=str, default=None, metadata={'json': 'image_key'})
 
 
 @attr.s

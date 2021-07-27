@@ -10,7 +10,7 @@ from ...config import Config
 from ...consts import *
 from ...context import Context
 from ...api.api_error import APIError, ERR_ACCESS_TOKEN_TYPE_INVALID, ERR_TENANT_KEY_IS_EMPTY, \
-    ERR_USER_ACCESS_TOKEN_KEY_IS_EMPTY, ERR_APP_TICKET_IS_EMPTY
+    ERR_USER_ACCESS_TOKEN_KEY_IS_EMPTY, ERR_APP_TICKET_IS_EMPTY, ERR_HELP_DESK_AUTH_EMPTY
 from ..response.response import Response, ResponseError
 from ..tokens import *
 from .form_data import FormData
@@ -21,19 +21,17 @@ T = TypeVar('T')
 
 
 class Option(object):
-    def __init__(self, no_data_field=False, user_access_token='', tenant_key='', is_response_stream=False,
-                 path_params=None, query_params=None, timeout=None, response_stream=None):
-        # type: (bool, str, str, bool, Union[None, Dict[str, str]], Union[None, Dict[str, str]], Union[None, int], Union[None, IO[Any]]) -> None
-        self.no_data_field = no_data_field  # type: bool
-        self.user_access_token = user_access_token  # type: str
-        self.tenant_key = tenant_key  # type: str
-        self.is_response_stream = is_response_stream  # type: bool
-        self.path_params = path_params  # type: Union[None, Dict[str, str]]
-        self.query_params = query_params  # type: Union[None, Dict[str, str]]
-        self.timeout = timeout  # type: Union[None, int]
-
-        # type: Union[None, IO[Any]]
-        self.response_stream_file = response_stream
+    def __init__(self):
+        # type: () -> None
+        self.no_data_field = False  # type: bool
+        self.user_access_token = ''  # type: str
+        self.tenant_key = ''  # type: str
+        self.is_response_stream = False  # type: bool
+        self.path_params = {}  # type: Union[None, Dict[str, str]]
+        self.query_params = {}  # type: Union[None, Dict[str, str]]
+        self.timeout = 30  # type: Union[None, int]
+        self.response_stream_file = None  # type: Union[None, IO[Any]]
+        self.need_help_desk_auth = False  # type: bool
 
 
 class Request(Generic[T]):
@@ -71,6 +69,7 @@ class Request(Generic[T]):
         self.is_response_stream = False  # type: bool
         self.is_response_stream_current = False  # type: bool
         self.response_stream_file = None  # type: Union[None, IO[Any]]
+        self.need_help_desk_auth = False  # type: bool
         self.no_data_field = False  # type: bool
         self.timeout = None  # type: Union[None, int]
 
@@ -84,6 +83,7 @@ class Request(Generic[T]):
         self.no_data_field = option.no_data_field
         self.is_response_stream = option.is_response_stream
         self.response_stream_file = option.response_stream_file
+        self.need_help_desk_auth = option.need_help_desk_auth
 
         if option.tenant_key != "" \
                 and self.accessible_token_type_list.count(ACCESS_TOKEN_TYPE_TENANT):
@@ -99,8 +99,7 @@ class Request(Generic[T]):
             self.query_params = option.query_params
 
         if option.path_params is not None:
-            self.http_path = resolve_path(
-                self.http_path, option.path_params)
+            self.http_path = resolve_path(self.http_path, option.path_params)
 
         if option.timeout is not None:
             self.timeout = option.timeout
@@ -114,6 +113,9 @@ class Request(Generic[T]):
 
     def set_authorization_to_header(self, token):  # type: (str) -> None
         self.session.headers['Authorization'] = ('Bearer %s' % token)
+
+    def set_helpdesk_authorization_to_header(self, token):  # type: (str) -> None
+        self.session.headers['X-Lark-Helpdesk-Authorization'] = token
 
     def do_request(self, config):  # type: (Config) -> requests.Response
         method, path = self.http_method, self.http_path
@@ -192,8 +194,11 @@ class Handlers(object):
         self.req.prepare()
         req, conf = self.req, self.config
 
-        req.http_path = "%s/%s/%s" % (conf.domain,
-                                      OAPI_ROOT_PATH, req.http_path)
+        if not req.http_path.startswith("http"):
+            if req.http_path.startswith("/open-apis/"):
+                req.http_path = "%s%s" % (conf.domain, req.http_path)
+            else:
+                req.http_path = "%s/%s/%s" % (conf.domain, OAPI_ROOT_PATH, req.http_path)
 
     def validate(self):  # type: () -> None
         req, config = self.req, self.config
@@ -229,6 +234,12 @@ class Handlers(object):
             AccessToken(self).set_tenant_access_token()
         elif req.access_token_type == ACCESS_TOKEN_TYPE_USER:
             AccessToken(self).set_user_access_token()
+
+        if req.need_help_desk_auth:
+            if self.config.helpDeskAuthorization:
+                req.set_helpdesk_authorization_to_header(self.config.helpDeskAuthorization)
+            else:
+                raise ERR_HELP_DESK_AUTH_EMPTY
 
     def send(self):  # type: () -> None
         req = self.req
@@ -558,13 +569,22 @@ def set_response_stream(stream):
     return fn
 
 
+def set_need_help_desk_auth():
+    # type: () -> Callable[[Option], Any]
+
+    def fn(option):  # type: (Option) -> None
+        option.need_help_desk_auth = True
+
+    return fn
+
+
 def resolve_path(path, path_variables):  # type: (str, Dict[str, str]) -> str
-    splitted = path.split('/')
-    for i in range(len(splitted)):
-        if splitted[i].startswith(':'):
-            k = splitted[i][1:]
-            v = path_variables.get(splitted[i][1:], '')
+    splatted = path.split('/')
+    for i in range(len(splatted)):
+        if splatted[i].startswith(':'):
+            k = splatted[i][1:]
+            v = path_variables.get(splatted[i][1:], '')
             if v == '':
                 raise RuntimeError("http path:%s, param name `%s` not found value" % (path, k))
-            splitted[i] = v
-    return '/'.join(splitted)
+            splatted[i] = v
+    return '/'.join(splatted)

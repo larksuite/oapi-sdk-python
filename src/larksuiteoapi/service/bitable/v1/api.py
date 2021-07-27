@@ -18,6 +18,7 @@ class Service(object):
         self.app_tables = AppTableService(self)
         self.app_table_fields = AppTableFieldService(self)
         self.app_table_records = AppTableRecordService(self)
+        self.app_table_views = AppTableViewService(self)
         
 
 
@@ -27,13 +28,16 @@ class AppService(object):
         # type: (Service) -> None
         self.service = service
 
-    def get(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> AppGetReqCall
+    def get(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppGetReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
@@ -46,18 +50,85 @@ class AppTableService(object):
         # type: (Service) -> None
         self.service = service
 
-    def list(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> AppTableListReqCall
+    def list(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableListReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
 
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableListReqCall(self, request_opts=request_opts)
+
+    def batch_create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableBatchCreateReqBody, str, str, int) -> AppTableBatchCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableBatchCreateReqCall(self, body, request_opts=request_opts)
+
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableCreateReqBody, str, str, int) -> AppTableCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableCreateReqCall(self, body, request_opts=request_opts)
+
+    def delete(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableDeleteReqCall(self, request_opts=request_opts)
+
+    def batch_delete(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableBatchDeleteReqBody, str, str, int) -> AppTableBatchDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableBatchDeleteReqCall(self, body, request_opts=request_opts)
 
 
 class AppTableFieldService(object):
@@ -65,18 +136,69 @@ class AppTableFieldService(object):
         # type: (Service) -> None
         self.service = service
 
-    def list(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> AppTableFieldListReqCall
+    def list(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableFieldListReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
 
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableFieldListReqCall(self, request_opts=request_opts)
+
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableField, str, str, int) -> AppTableFieldCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableFieldCreateReqCall(self, body, request_opts=request_opts)
+
+    def delete(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableFieldDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableFieldDeleteReqCall(self, request_opts=request_opts)
+
+    def update(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableField, str, str, int) -> AppTableFieldUpdateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableFieldUpdateReqCall(self, body, request_opts=request_opts)
 
 
 class AppTableRecordService(object):
@@ -84,109 +206,187 @@ class AppTableRecordService(object):
         # type: (Service) -> None
         self.service = service
 
-    def batch_delete(self, body, user_access_token=None, timeout=None):
-        # type: (AppTableRecordBatchDeleteReqBody, str, int) -> AppTableRecordBatchDeleteReqCall
+    def batch_delete(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableRecordBatchDeleteReqBody, str, str, int) -> AppTableRecordBatchDeleteReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordBatchDeleteReqCall(self, body, request_opts=request_opts)
 
-    def batch_create(self, body, user_access_token=None, timeout=None):
-        # type: (AppTableRecordBatchCreateReqBody, str, int) -> AppTableRecordBatchCreateReqCall
+    def batch_create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableRecordBatchCreateReqBody, str, str, int) -> AppTableRecordBatchCreateReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordBatchCreateReqCall(self, body, request_opts=request_opts)
 
-    def get(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> AppTableRecordGetReqCall
+    def get(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableRecordGetReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordGetReqCall(self, request_opts=request_opts)
 
-    def update(self, body, user_access_token=None, timeout=None):
-        # type: (AppTableRecord, str, int) -> AppTableRecordUpdateReqCall
+    def update(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableRecord, str, str, int) -> AppTableRecordUpdateReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordUpdateReqCall(self, body, request_opts=request_opts)
 
-    def delete(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> AppTableRecordDeleteReqCall
+    def delete(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableRecordDeleteReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordDeleteReqCall(self, request_opts=request_opts)
 
-    def list(self, user_access_token=None, timeout=None):
-        # type: (str, int) -> AppTableRecordListReqCall
+    def list(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableRecordListReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordListReqCall(self, request_opts=request_opts)
 
-    def batch_update(self, body, user_access_token=None, timeout=None):
-        # type: (AppTableRecordBatchUpdateReqBody, str, int) -> AppTableRecordBatchUpdateReqCall
+    def batch_update(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableRecordBatchUpdateReqBody, str, str, int) -> AppTableRecordBatchUpdateReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
 
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordBatchUpdateReqCall(self, body, request_opts=request_opts)
 
-    def create(self, body, user_access_token=None, timeout=None):
-        # type: (AppTableRecord, str, int) -> AppTableRecordCreateReqCall
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableRecord, str, str, int) -> AppTableRecordCreateReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
         if timeout is not None:
             request_opts += [set_timeout(timeout)]
 
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
         if user_access_token is not None:
             request_opts += [set_user_access_token(user_access_token)]
 
         return AppTableRecordCreateReqCall(self, body, request_opts=request_opts)
+
+
+class AppTableViewService(object):
+    def __init__(self, service):
+        # type: (Service) -> None
+        self.service = service
+
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (AppTableView, str, str, int) -> AppTableViewCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableViewCreateReqCall(self, body, request_opts=request_opts)
+
+    def delete(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableViewDeleteReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableViewDeleteReqCall(self, request_opts=request_opts)
+
+    def list(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> AppTableViewListReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return AppTableViewListReqCall(self, request_opts=request_opts)
 
 
 
@@ -219,7 +419,7 @@ class AppTableRecordBatchDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=AppTableRecordBatchDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -261,7 +461,7 @@ class AppTableRecordBatchCreateReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/batch_create', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=AppTableRecordBatchCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -274,6 +474,7 @@ class AppTableRecordGetReqCall(object):
         self.service = service
         
         self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
 
         if request_opts:
             self.request_opts = request_opts
@@ -295,13 +496,19 @@ class AppTableRecordGetReqCall(object):
         self.path_params['record_id'] = record_id
         return self
 
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> AppTableRecordGetReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
     def do(self):
         # type: () -> Response[AppTableRecordGetResult]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=AppTableRecordGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -348,7 +555,7 @@ class AppTableRecordUpdateReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'PUT', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=AppTableRecordUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -388,7 +595,7 @@ class AppTableRecordDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=DeleteRecord, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -423,6 +630,21 @@ class AppTableRecordListReqCall(object):
         self.query_params['view_id'] = view_id
         return self
 
+    def set_filter(self, filter):
+        # type: (str) -> AppTableRecordListReqCall
+        self.query_params['filter'] = filter
+        return self
+
+    def set_sort(self, sort):
+        # type: (str) -> AppTableRecordListReqCall
+        self.query_params['sort'] = sort
+        return self
+
+    def set_field_names(self, field_names):
+        # type: (str) -> AppTableRecordListReqCall
+        self.query_params['field_names'] = field_names
+        return self
+
     def set_page_token(self, page_token):
         # type: (str) -> AppTableRecordListReqCall
         self.query_params['page_token'] = page_token
@@ -433,6 +655,11 @@ class AppTableRecordListReqCall(object):
         self.query_params['page_size'] = page_size
         return self
 
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> AppTableRecordListReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
     def do(self):
         # type: () -> Response[AppTableRecordListResult]
         root_service = self.service.service
@@ -440,7 +667,7 @@ class AppTableRecordListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=AppTableRecordListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -482,7 +709,7 @@ class AppTableRecordBatchUpdateReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records/batch_update', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=AppTableRecordBatchUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -524,7 +751,7 @@ class AppTableRecordCreateReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/records', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=AppTableRecordCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -554,7 +781,7 @@ class AppGetReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('bitable/v1/apps/:app_token', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=AppGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -596,7 +823,7 @@ class AppTableListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('bitable/v1/apps/:app_token/tables', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=AppTableListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -648,8 +875,391 @@ class AppTableFieldListReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('bitable/v1/apps/:app_token/tables/:table_id/fields', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=AppTableFieldListResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableFieldCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (AppTableFieldService, AppTableField, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableFieldCreateReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_table_id(self, table_id):
+        # type: (str) -> AppTableFieldCreateReqCall
+        self.path_params['table_id'] = table_id
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> AppTableFieldCreateReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[AppTableFieldCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=AppTableFieldCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableBatchCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (AppTableService, AppTableBatchCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableBatchCreateReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> AppTableBatchCreateReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[AppTableBatchCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/batch_create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=AppTableBatchCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (AppTableService, AppTableCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableCreateReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> AppTableCreateReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> Response[AppTableCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=AppTableCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableDeleteReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (AppTableService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableDeleteReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_table_id(self, table_id):
+        # type: (str) -> AppTableDeleteReqCall
+        self.path_params['table_id'] = table_id
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableFieldDeleteReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (AppTableFieldService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableFieldDeleteReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_table_id(self, table_id):
+        # type: (str) -> AppTableFieldDeleteReqCall
+        self.path_params['table_id'] = table_id
+        return self
+
+    def set_field_id(self, field_id):
+        # type: (str) -> AppTableFieldDeleteReqCall
+        self.path_params['field_id'] = field_id
+        return self
+
+    def do(self):
+        # type: () -> Response[AppTableFieldDeleteResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=AppTableFieldDeleteResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableFieldUpdateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (AppTableFieldService, AppTableField, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableFieldUpdateReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_table_id(self, table_id):
+        # type: (str) -> AppTableFieldUpdateReqCall
+        self.path_params['table_id'] = table_id
+        return self
+
+    def set_field_id(self, field_id):
+        # type: (str) -> AppTableFieldUpdateReqCall
+        self.path_params['field_id'] = field_id
+        return self
+
+    def do(self):
+        # type: () -> Response[AppTableFieldUpdateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=AppTableFieldUpdateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableBatchDeleteReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (AppTableService, AppTableBatchDeleteReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableBatchDeleteReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/batch_delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableViewCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (AppTableViewService, AppTableView, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableViewCreateReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_table_id(self, table_id):
+        # type: (str) -> AppTableViewCreateReqCall
+        self.path_params['table_id'] = table_id
+        return self
+
+    def do(self):
+        # type: () -> Response[AppTableViewCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      self.body, output_class=AppTableViewCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableViewDeleteReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (AppTableViewService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableViewDeleteReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_table_id(self, table_id):
+        # type: (str) -> AppTableViewDeleteReqCall
+        self.path_params['table_id'] = table_id
+        return self
+
+    def set_view_id(self, view_id):
+        # type: (str) -> AppTableViewDeleteReqCall
+        self.path_params['view_id'] = view_id
+        return self
+
+    def do(self):
+        # type: () -> Response[None]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class AppTableViewListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (AppTableViewService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_app_token(self, app_token):
+        # type: (str) -> AppTableViewListReqCall
+        self.path_params['app_token'] = app_token
+        return self
+
+    def set_table_id(self, table_id):
+        # type: (str) -> AppTableViewListReqCall
+        self.path_params['table_id'] = table_id
+        return self
+
+    def set_page_size(self, page_size):
+        # type: (int) -> AppTableViewListReqCall
+        self.query_params['page_size'] = page_size
+        return self
+
+    def set_page_token(self, page_token):
+        # type: (str) -> AppTableViewListReqCall
+        self.query_params['page_token'] = page_token
+        return self
+
+    def do(self):
+        # type: () -> Response[AppTableViewListResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=AppTableViewListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -562,7 +562,7 @@ class SpreadsheetsConditionFormatsBatchCreateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_create', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_create', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsConditionFormatsBatchCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -592,7 +592,7 @@ class SpreadsheetsConditionFormatsBatchDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_delete', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_delete', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsConditionFormatsBatchDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -629,7 +629,7 @@ class SpreadsheetsConditionFormatsBatchGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/condition_formats', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=SpreadsheetsConditionFormatsBatchGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -659,7 +659,7 @@ class SpreadsheetsConditionFormatsBatchUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsConditionFormatsBatchUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -689,7 +689,7 @@ class SpreadsheetsDataValidationCreateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/dataValidation', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -719,7 +719,7 @@ class SpreadsheetsDataValidationDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/dataValidation', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsDataValidationDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -759,7 +759,7 @@ class SpreadsheetsDataValidationGetReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/dataValidation', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=SpreadsheetsDataValidationGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -799,7 +799,7 @@ class SpreadsheetsDataValidationUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/dataValidation/:sheetId/:dataValidationId', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation/:sheetId/:dataValidationId', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsDataValidationUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -829,7 +829,7 @@ class SpreadsheetsDimensionRangeAddReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/dimension_range', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dimension_range', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsDimensionRangeAddResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -859,7 +859,7 @@ class SpreadsheetsDimensionRangeDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/dimension_range', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dimension_range', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsDimensionRangeDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -889,7 +889,7 @@ class SpreadsheetsDimensionRangeUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/dimension_range', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dimension_range', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -912,7 +912,7 @@ class SpreadsheetsImportReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('sheets/v2/import', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/import', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsImportResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -942,7 +942,7 @@ class SpreadsheetsImportResultReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('sheets/v2/import/result', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/import/result', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=SpreadsheetsImportResultResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -972,7 +972,7 @@ class SpreadsheetsInsertDimensionRangeReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/insert_dimension_range', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/insert_dimension_range', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1002,7 +1002,7 @@ class SpreadsheetsMergeCellsReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/merge_cells', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/merge_cells', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsMergeCellsResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1039,7 +1039,7 @@ class SpreadsheetsMetainfoReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/metainfo', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/metainfo', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=SpreadsheetsMetainfoResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1069,7 +1069,7 @@ class SpreadsheetsProtectedRangeBatchCreateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/protected_dimension', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_dimension', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsProtectedRangeBatchCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1099,7 +1099,7 @@ class SpreadsheetsProtectedRangeBatchDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_del', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_del', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsProtectedRangeBatchDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1141,7 +1141,7 @@ class SpreadsheetsProtectedRangeBatchGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=SpreadsheetsProtectedRangeBatchGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1171,7 +1171,7 @@ class SpreadsheetsProtectedRangeBatchUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsProtectedRangeBatchUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1201,7 +1201,7 @@ class SpreadsheetsSheetsBatchUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/sheets_batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/sheets_batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsSheetsBatchUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1231,7 +1231,7 @@ class SpreadsheetsSheetsUpdatePropertiesReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/properties', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/properties', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsSheetsUpdatePropertiesResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1261,7 +1261,7 @@ class SpreadsheetsStyleUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/style', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/style', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsStyleUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1291,7 +1291,7 @@ class SpreadsheetsStylesBatchUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/styles_batch_update', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/styles_batch_update', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsStylesBatchUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1321,7 +1321,7 @@ class SpreadsheetsUnmergeCellsReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/unmerge_cells', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/unmerge_cells', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsUnmergeCellsResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1358,7 +1358,7 @@ class SpreadsheetsValuesAppendReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/values_append', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_append', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsValuesAppendResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1405,7 +1405,7 @@ class SpreadsheetsValuesBatchGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/values_batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=SpreadsheetsValuesBatchGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1435,7 +1435,7 @@ class SpreadsheetsValuesBatchUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/values_batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_batch_update', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsValuesBatchUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1482,7 +1482,7 @@ class SpreadsheetsValuesGetReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/values/:range', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values/:range', 'GET', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       None, output_class=SpreadsheetsValuesGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1512,7 +1512,7 @@ class SpreadsheetsValuesImageReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/values_image', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_image', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsValuesImageResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1542,7 +1542,7 @@ class SpreadsheetsValuesPrependReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/values_prepend', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_prepend', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsValuesPrependResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -1572,7 +1572,7 @@ class SpreadsheetsValuesUpdateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('sheets/v2/spreadsheets/:spreadsheetToken/values', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=SpreadsheetsValuesUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

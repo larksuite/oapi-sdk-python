@@ -1,6 +1,7 @@
 [**飞书，点这里**](README.zh.md) | Larksuite(Overseas)
 
-- 如果使用的是飞书，请看 [**飞书，点这里**](README.zh.md) ，飞书与Larksuite使用的域名不一样，引用的文档地址也是不同的。(If you are using FeiShu, please see [**飞书，点这里**](README.zh.md) , Feishu and larksuite use different domain names and reference different document addresses.)
+- 如果使用的是飞书，请看 [**飞书，点这里**](README.zh.md) ，飞书与Larksuite使用的域名不一样，引用的文档地址也是不同的。(If you are using FeiShu, please see [**
+  飞书，点这里**](README.zh.md) , Feishu and larksuite use different domain names and reference different document addresses.)
 
 # LarkSuite open api SDK
 
@@ -18,8 +19,9 @@
 ## Problem feedback
 
 ---
-If you encounter any problems during usage, please let us know by submitting  [Github Issues](https://github.com/larksuite/oapi-sdk-python/issues). We will deal with these Issues and get back to you as soon as possible.
-
+If you encounter any problems during usage, please let us know by
+submitting  [Github Issues](https://github.com/larksuite/oapi-sdk-python/issues). We will deal with these Issues and get
+back to you as soon as possible.
 
 ## Run environment
 
@@ -33,18 +35,9 @@ If you encounter any problems during usage, please let us know by submitting  [G
 
 ---
 
-- The latest release candidate provides more [open services API](/src/larksuiteoapi/service) and bug repair.
-
 ```shell
 pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.24rc3
-```
-
-- Stable version
-
-```shell
-pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.8
+pip install larksuite-oapi==1.0.25rc1
 ```
 
 ## Explanation of terms
@@ -84,11 +77,12 @@ from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, DOMAIN_LARK_SUITE, D
 # Configuration of "Custom App", parameter description:
 # AppID、AppSecret: "Developer Console" -> "Credentials"（App ID、App Secret）
 # VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Verification Token、Encrypt Key）	
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+# More optional configurations are as follows: README.md -> How to build app settings(AppSettings)
 app_settings = Config.new_internal_app_settings_from_env()
 
-# Currently, you are visiting larksuite, which uses default storage and default log (debug level). More optional configurations are as follows: README.md->Advanced use->How to build overall configuration(Config)。
-conf = Config.new_config_with_memory_store(DOMAIN_LARK_SUITE, app_settings, DefaultLogger(), LEVEL_DEBUG)
+# Currently, you are visiting larksuite, which uses default storage and default log (error level). 
+# More optional configurations are as follows: README.md->How to build overall configuration(Config)
+conf = Config(DOMAIN_LARK_SUITE, app_settings, log_level=LEVEL_DEBUG)
 
 
 def test_send_message():
@@ -100,7 +94,7 @@ def test_send_message():
         }
     }
 
-    req = Request('message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body, request_opts=[set_timeout(3)])
+    req = Request('/open-apis/message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body, request_opts=[set_timeout(3)])
     resp = req.do(conf)
     print('request id = %s' % resp.get_request_id())
     print(resp.code)
@@ -133,16 +127,17 @@ from larksuiteoapi.model import OapiHeader, OapiRequest
 from flask import Flask, request
 from flask.helpers import make_response
 
-from larksuiteoapi import Config, Context, DOMAIN_FEISHU,DOMAIN_LARK_SUITE,  DefaultLogger, LEVEL_DEBUG
+from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DOMAIN_LARK_SUITE, DefaultLogger, LEVEL_DEBUG
 
 # Configuration of "Custom App", parameter description:
 # AppID、AppSecret: "Developer Console" -> "Credentials"（App ID、App Secret）
 # VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Verification Token、Encrypt Key）	
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+# More optional configurations are as follows: README.md -> How to build app settings(AppSettings)
 app_settings = Config.new_internal_app_settings_from_env()
 
-# Currently, you are visiting larksuite, which uses default storage and default log (debug level). More optional configurations are as follows: README.md->Advanced use->How to build overall configuration(Config)。
-conf = Config.new_config_with_memory_store(DOMAIN_LARK_SUITE, app_settings, DefaultLogger(), LEVEL_DEBUG)
+# Currently, you are visiting larksuite, which uses default storage and default log (error level). 
+# More optional configurations are as follows: README.md->How to build overall configuration(Config)
+conf = Config(DOMAIN_LARK_SUITE, app_settings, log_level=LEVEL_DEBUG)
 
 
 def app_open_event_handle(ctx, conf, event):
@@ -200,11 +195,12 @@ from flask.helpers import make_response
 # Configuration of "Custom App", parameter description:
 # AppID、AppSecret: "Developer Console" -> "Credentials"（App ID、App Secret）
 # VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Verification Token、Encrypt Key）	
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+# More optional configurations are as follows: README.md -> How to build app settings(AppSettings)
 app_settings = Config.new_internal_app_settings_from_env()
 
-# Currently, you are visiting larksuite, which uses default storage and default log (debug level). More optional configurations are as follows: README.md->Advanced use->How to build overall configuration(Config)。
-conf = Config.new_config_with_memory_store(DOMAIN_LARK_SUITE, app_settings, DefaultLogger(), LEVEL_DEBUG)
+# Currently, you are visiting larksuite, which uses default storage and default log (error level). 
+# More optional configurations are as follows: README.md->How to build overall configuration(Config)
+conf = Config(DOMAIN_LARK_SUITE, app_settings, log_level=LEVEL_DEBUG)
 
 
 # Return value: can be None or JSON(dict) of new message card
@@ -273,13 +269,9 @@ if __name__ == '__main__':
     app.run(port=8089, host="0.0.0.0")
 
 
-```    
+```
 
-## Advanced use
-
----
-
-### How to build app settings(AppSettings)
+## How to build app settings(AppSettings)
 
 ```python
 from larksuiteoapi import Config
@@ -290,6 +282,8 @@ from larksuiteoapi import Config
 # VERIFICATION_Token: VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Verification Token）
 # ENCRYPT_Key: VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Encrypt Key）
 # The configuration of "Custom App" is obtained through environment variables
+# HELP_DESK_ID: Help desk setting -> ID
+# HELP_DESK_TOKEN: Help desk setting -> Token
 app_settings = Config.new_internal_app_settings_from_env()
 # The configuration of "Marketplace App" is obtained through environment variables
 app_settings = Config.new_isv_app_settings_from_env()
@@ -298,12 +292,16 @@ app_settings = Config.new_isv_app_settings_from_env()
 # AppID、AppSecret: "Developer Console" -> "Credentials"（App ID、App Secret）
 # VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Verification Token、Encrypt Key）
 # The configuration of "Custom App"
-app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+app_settings = Config.new_internal_app_settings(app_id="AppID", app_secret="AppSecret",
+                                                verification_token="VerificationToken", encrypt_key="EncryptKey",
+                                                help_desk_id="HelpDeskID", help_desk_token="HelpDeskToken")
 # The configuration of "Marketplace App"
-app_settings = Config.new_isv_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+app_settings = Config.new_isv_app_settings(app_id="AppID", app_secret="AppSecret",
+                                           verification_token="VerificationToken", encrypt_key="EncryptKey",
+                                           help_desk_id="HelpDeskID", help_desk_token="HelpDeskToken")
 ```
 
-### How to build overall configuration(Config)
+## How to build overall configuration(Config)
 
 - Visit Larksuite, Feishu or others
 - App settings
@@ -318,33 +316,23 @@ app_settings = Config.new_isv_app_settings("AppID", "AppSecret", "VerificationTo
           implementation of the storage (store) needs to support distributed storage.
 
 ```python
-from larksuiteoapi import Config, AppSettings, \
-    Logger, DefaultLogger, LEVEL_DEBUG, LEVEL_INFO, LEVEL_WARN, LEVEL_ERROR, \
+from larksuiteoapi import Config, AppSettings, Logger, MemoryStore, DefaultLogger, LEVEL_DEBUG, LEVEL_INFO, LEVEL_WARN, LEVEL_ERROR,\
     DOMAIN_FEISHU, DOMAIN_LARK_SUITE
 
 # for Cutome APP
 app_settings = Config.new_internal_app_settings_from_env()
 
-# Method 1: it is recommended to use redis to implement the store interface, so as to reduce the times of accessing the access_token API: [RedisStore](sample/config/config.py)
 # Parameter Description:
 # domain: DOMAIN_FEISHU / DOMAIN_LARK_SUITE / URL domain address
 # app_settings: AppSetting
 # logger: [Logger](src/larksuiteoapi/logger.py)
 # log_level: LEVEL_DEBUG/LEVEL_INFO/LEVEL_WARN/LEVEL_ERROR
-# store: [Store](src/larksuiteoapi/store.py)，用来存储 app_ticket/access_token
-conf = Config.new_config(DOMAIN_FEISHU, app_settings, logger, log_level, store)
-
-# Method 2: use the implementation of the default storage interface (store), which is suitable for light-weight use (not suitable: "Marketplace App" applies or calls the server API frequently)
-# 参数说明: 
-# domain: DOMAIN_FEISHU / DOMAIN_LARK_SUITE / URL domain address
-# app_settings: AppSetting
-# logger: [Logger](src/larksuiteoapi/logger.py)
-# log_level: LEVEL_DEBUG/LEVEL_INFO/LEVEL_WARN/LEVEL_ERROR
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, logger, log_level)
+# store: [Store](src/larksuiteoapi/store.py), store app_ticket/access_token
+conf = Config(DOMAIN_FEISHU, app_settings, logger=DefaultLogger(), log_level=LEVEL_ERROR, store=MemoryStore())
 
 ```
 
-### How to build a request(Request)
+## How to build a request(Request)
 
 - Some of the old interfaces do not have an SDK that can be used directly. They can use `native` mode. At this time,
   they need to build requests.
@@ -352,13 +340,15 @@ conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, logger, 
 
 ```python
 from larksuiteoapi import ACCESS_TOKEN_TYPE_APP, ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER
-from larksuiteoapi.api import Request, FormData, FormDataFile, \
-    set_path_params, set_query_params, set_timeout, set_no_data_field, \
-    set_user_access_token, set_tenant_key, set_is_response_stream, set_response_stream
-
+from larksuiteoapi.api import Request, FormData, FormDataFile,set_path_params, set_query_params, set_timeout, set_no_data_field,\
+set_user_access_token, set_tenant_key, set_is_response_stream, set_response_stream
 
 # Parameter Description:
-# http_path: API path（the path after `open-apis/`）, for example: https://domain/open-apis/contact/v3/users/:user_id, then httpPath: "contact/v3/users/:user_id"
+# http_path: API path
+    # such as: https://domain/open-apis/contact/v3/users/:user_id
+    # support: the path of the domain name after, http_path: "/open apis/contact/v3/users/:user_id" (recommended)
+    # support: the full path, http_path: "https://domain/open-apis/contact/v3/users/:user_id"
+    # support: http_path: "contact/v3/users/:user_id"
 # http_Method: GET/POST/PUT/BATCH/DELETE
 # access_token_type: What kind of access certificate does the API use and the value range: ACCESS_TOKEN_TYPE_APP, ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER
 # request_body: Request body (possibly FormData()(e.g. file upload)), if the request body (e.g. some get requests) is not needed, it will be transferred to: None
@@ -367,10 +357,11 @@ from larksuiteoapi.api import Request, FormData, FormDataFile, \
     # set_query_params({"age":4,"types":[1,2]}): Set the URL query, will append to the url?age=4&types=1&types=2   
     # set_is_response_stream(), set whether the response is a stream, response.data = bytes(file binary)
     # set_response_stream(IO[any]), set whether the response is a stream, such as downloading a file, response.data = IO[any]
-    # set_no_data_field, set whether the response does not have a `data` field, business interfaces all have `data `Field, so you don’t need to set 
-    # set_tenant_key, as an `app store application`, it means using `tenant_access_token` to access the API, you need to set
-    # set_user_access_token, which means using` user_access_token` To access the API, you need to set 
-    # set_timeou, set the request timeout (in seconds)
+    # set_no_data_field(), set whether the response does not have a `data` field, business interfaces all have `data `Field, so you don’t need to set 
+    # set_tenant_key(str), as an `app store application`, it means using `tenant_access_token` to access the API, you need to set
+    # set_user_access_token(str), which means using` user_access_token` To access the API, you need to set 
+    # set_timeout(int), set the request timeout (in seconds)
+    # set_need_help_desk_auth(), Indicates that the help desk API needs to set help desk information of AppSettings
 
 # (str, str, str, Any, T, List[Callable[[Option], Any]]) -> None
 req = Request(http_path, http_Method, access_token_type, request_body, request_opts=None)
@@ -391,7 +382,7 @@ status_code = ctx.get_http_status_code()
 
 ```
 
-### How to send a request
+## How to send a request
 
 - Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the business API, you don't
   need to get the app_access_token、tenant_access_token. If the business interface needs to use user_access_token, which
