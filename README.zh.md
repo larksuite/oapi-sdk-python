@@ -86,8 +86,10 @@ def test_message_create():
     body.content = '{"text":"<at user_id=\\"ou_a11d2bcc7d852afbcaf37e5b3ad01f7e\\">Tom</at> test content"}'
     body.msg_type = 'text'
     body.receive_id = 'ou_a11d2bcc7d852afbcaf37e5b3ad01f7e'
+    
     req_call = service.messages.create(body)
     req_call.set_receive_id_type('open_id')
+    
     resp = req_call.do()
     print('request id = %s' % resp.get_request_id())
     print('http status code = %s' % resp.get_http_status_code())
@@ -133,6 +135,7 @@ def test_send_message():
     }
 
     req = Request('/open-apis/message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body, request_opts=[set_timeout(3)])
+    
     resp = req.do(conf)
     print('request id = %s' % resp.get_request_id())
     print(resp.code)

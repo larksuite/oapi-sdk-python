@@ -95,6 +95,7 @@ def test_send_message():
     }
 
     req = Request('/open-apis/message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body, request_opts=[set_timeout(3)])
+    
     resp = req.do(conf)
     print('request id = %s' % resp.get_request_id())
     print(resp.code)
