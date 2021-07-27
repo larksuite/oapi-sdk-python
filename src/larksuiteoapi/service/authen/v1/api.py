@@ -76,7 +76,7 @@ class AuthenAccessTokenReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('authen/v1/access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
+        req = Request('/open-apis/authen/v1/access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
                       self.body, output_class=UserAccessTokenInfo, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -99,7 +99,7 @@ class AuthenRefreshAccessTokenReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('authen/v1/refresh_access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
+        req = Request('/open-apis/authen/v1/refresh_access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
                       self.body, output_class=UserAccessTokenInfo, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -122,7 +122,7 @@ class AuthenUserInfoReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('authen/v1/user_info', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/authen/v1/user_info', 'GET', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=UserInfo, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

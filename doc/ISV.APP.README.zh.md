@@ -8,8 +8,8 @@
         - 使用SDK调用服务端API时，如果当前还没有收到开发平台下发的app_ticket，会报错且向开放平台申请下发app_ticket，可以尽快的收到开发平台下发的app_ticket，保证再次调用服务端API的正常。
         - 使用SDK调用服务端API时，需要使用tenant_access_token访问凭证时，需要 tenant_key ，来表示当前是哪个租户使用这个应用调用服务端API。
             - tenant_key，租户安装启用了这个应用，开放平台发送的服务端事件，事件内容中都含有tenant_key。
-
-### 使用`应用商店应用`访问 [发送文本消息API](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM) 示例
+    
+## 使用`应用商店应用`访问 [修改用户部分信息API](https://open.feishu.cn/document/contact/v3/user/patch) 示例
 
 - 第一步：启动启动事件订阅服务，用于接收`app_ticket`。
 
@@ -20,16 +20,18 @@ from larksuiteoapi.model import OapiHeader, OapiRequest
 from flask import Flask, request
 from flask.helpers import make_response
 
-from larksuiteoapi import Config, DOMAIN_FEISHU
+from larksuiteoapi import Config, DOMAIN_FEISHU, LEVEL_DEBUG
+
 
 # 应用商店应用的配置
 # AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
 # VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_isv_app_settings_from_env("AppID", "AppSecret", "VerificationToken", "EncryptKey")
-app_settings = Config.new_isv_app_settings_from_env()
+# 更多可选配置，请看：README.zh.md->如何构建应用配置（AppSettings）。
+app_settings = Config.new_internal_app_settings_from_env()
 
-# 当前访问的是飞书，使用redis store，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config(DOMAIN_FEISHU, app_settings, app_settings, logger, log_level, store)
+# 当前访问的是飞书，使用redis store、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
+# RedisStore 示例: sample/config/config.py
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG, store=RedisStore())
 
 app = Flask(__name__)
 
@@ -51,69 +53,22 @@ if __name__ == '__main__':
 
 ```
 
-- 第二步：调用服务端接口，有些老版接口，没有直接可以使用的SDK，可以使用`原生`模式。
-
-```python
-# -*- coding: UTF-8 -*-
-
-from larksuiteoapi.api import Request, set_timeout, set_tenant_key
-
-from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
-
-# 应用商店应用的配置
-# AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
-# VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_isv_app_settings_from_env("AppID", "AppSecret", "VerificationToken", "EncryptKey")
-app_settings = Config.new_isv_app_settings_from_env()
-
-# 当前访问的是飞书，使用redis store，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config(DOMAIN_FEISHU, app_settings, app_settings, logger, log_level, store)
-
-
-def test_send_message():
-    body = {
-        "user_id": "77bbc392",
-        "msg_type": "text",
-        "content": {
-            "text": "test send message",
-        }
-    }
-    # 构建请求 && 设置企业标识（tenant_key）
-    req = Request('message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body,
-                  request_opts=[set_tenant_key("Tenant key"), set_timeout(3)])
-    resp = req.do(conf)
-    print('request id = %s' % resp.get_request_id())
-    print(resp.code)
-    if resp.code == 0:
-        print(resp.data)
-    else:
-        print(resp.msg)
-        print(resp.error)
-
-
-if __name__ == '__main__':
-    test_send_message()
-```
-
-## 使用`应用商店应用`访问 [修改用户部分信息API](https://open.feishu.cn/document/contact/v3/user/patch) 示例
-
-- 第一步：略，同上
-
-- 第二步：调用服务端接口，该接口是新的接口（请看"README.zh.md -> 已生成SDK的业务服务"），可以直接使用SDK。
+- - 第二步：在 [service](../src/larksuiteoapi/service) 下的业务 API 或 Event，都是可以直接使用SDK。
 
 ```python
 from larksuiteoapi.service.contact.v3 import Service as ContactV3Service, User
 
-from larksuiteoapi import Config, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
+from larksuiteoapi import Config, DOMAIN_FEISHU, LEVEL_DEBUG
 
 # 应用商店应用的配置
 # AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
 # VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_isv_app_settings_from_env("AppID", "AppSecret", "VerificationToken", "EncryptKey")
-app_settings = Config.new_isv_app_settings_from_env()
+# 更多可选配置，请看：README.zh.md->如何构建应用配置（AppSettings）。
+app_settings = Config.new_internal_app_settings_from_env()
 
-# 当前访问的是飞书，使用redis store，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config(DOMAIN_FEISHU, app_settings, app_settings, logger, log_level, store)
+# 当前访问的是飞书，使用redis store、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
+# RedisStore 示例: sample/config/config.py
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG, store=RedisStore())
 
 # 通讯录V3版本服务
 service = ContactV3Service(conf)
@@ -136,3 +91,54 @@ def test_user_patch():
 if __name__ == '__main__':
     test_user_patch()
 ```
+
+## 使用`应用商店应用`访问 [发送文本消息API](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM) 示例
+
+- 第一步：略，同上
+  
+- 第二步：调用服务端接口，有些老版接口，没有直接可以使用的SDK，可以使用`原生`模式。
+
+```python
+# -*- coding: UTF-8 -*-
+
+from larksuiteoapi.api import Request, set_timeout, set_tenant_key
+
+from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, DOMAIN_FEISHU, LEVEL_DEBUG
+
+# 应用商店应用的配置
+# AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
+# VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
+# 更多可选配置，请看：README.zh.md->如何构建应用配置（AppSettings）。
+app_settings = Config.new_internal_app_settings_from_env()
+
+# 当前访问的是飞书，使用redis store、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
+# RedisStore 示例: sample/config/config.py
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG, store=RedisStore())
+
+
+def test_send_message():
+    body = {
+        "user_id": "77bbc392",
+        "msg_type": "text",
+        "content": {
+            "text": "test send message",
+        }
+    }
+    # 构建请求 && 设置企业标识（tenant_key）
+    req = Request('/open-apis/message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body,
+                  request_opts=[set_tenant_key("Tenant key"), set_timeout(3)])
+    resp = req.do(conf)
+    print('request id = %s' % resp.get_request_id())
+    print(resp.code)
+    if resp.code == 0:
+        print(resp.data)
+    else:
+        print(resp.msg)
+        print(resp.error)
+
+
+if __name__ == '__main__':
+    test_send_message()
+```
+
+

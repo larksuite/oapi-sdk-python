@@ -168,7 +168,7 @@ class FolderChildrenReqCall(object):
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('drive/explorer/v2/folder/:folderToken/children', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/folder/:folderToken/children', 'GET', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=FolderChildrenResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -198,7 +198,7 @@ class FileCopyReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('drive/explorer/v2/file/copy/files/:fileToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/file/copy/files/:fileToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=FileCopyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -228,7 +228,7 @@ class FileCreateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('drive/explorer/v2/file/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/file/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=FileCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -258,7 +258,7 @@ class FolderCreateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('drive/explorer/v2/folder/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/folder/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=FolderCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -288,7 +288,7 @@ class FileDocsDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('drive/explorer/v2/file/docs/:docToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/file/docs/:docToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=FileDocsDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -318,7 +318,7 @@ class FolderMetaReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('drive/explorer/v2/folder/:folderToken/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/folder/:folderToken/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=FolderMetaResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -341,7 +341,7 @@ class FolderRootMetaReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/explorer/v2/root_folder/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/root_folder/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=FolderRootMetaResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -371,7 +371,7 @@ class FileSpreadsheetsDeleteReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('drive/explorer/v2/file/spreadsheets/:spreadsheetToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+        req = Request('/open-apis/drive/explorer/v2/file/spreadsheets/:spreadsheetToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
                       None, output_class=FileSpreadsheetsDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

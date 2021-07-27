@@ -14,18 +14,18 @@ class Service(object):
     def __init__(self, conf):
         # type: (Config) -> None
         self.conf = conf
-        self.images = ImageService(self)
+        self.tenants = TenantService(self)
         
 
 
 
-class ImageService(object):
+class TenantService(object):
     def __init__(self, service):
         # type: (Service) -> None
         self.service = service
 
-    def basic_recognize(self, body, tenant_key=None, timeout=None):
-        # type: (ImageBasicRecognizeReqBody, str, int) -> ImageBasicRecognizeReqCall
+    def query(self, tenant_key=None, timeout=None):
+        # type: (str, int) -> TenantQueryReqCall
 
         request_opts = []   # type: List[Callable[[Any], Any]]
 
@@ -35,16 +35,16 @@ class ImageService(object):
         if tenant_key is not None:
             request_opts += [set_tenant_key(tenant_key)]
 
-        return ImageBasicRecognizeReqCall(self, body, request_opts=request_opts)
+        return TenantQueryReqCall(self, request_opts=request_opts)
 
 
 
-class ImageBasicRecognizeReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (ImageService, ImageBasicRecognizeReqBody, List[Any]) -> None
+class TenantQueryReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (TenantService, List[Any]) -> None
 
         self.service = service
-        self.body = body
+        
 
         if request_opts:
             self.request_opts = request_opts
@@ -52,12 +52,12 @@ class ImageBasicRecognizeReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[ImageBasicRecognizeResult]
+        # type: () -> Response[TenantQueryResult]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/optical_char_recognition/v1/image/basic_recognize', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=ImageBasicRecognizeResult, request_opts=self.request_opts)
+        req = Request('/open-apis/tenant/v2/tenant/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                      None, output_class=TenantQueryResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

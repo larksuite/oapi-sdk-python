@@ -10,6 +10,66 @@ import attr
 
 @to_json_decorator
 @attr.s
+class AppTableFieldPropertyOption(object):
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableFieldProperty(object):
+    options = attr.ib(type=List[AppTableFieldPropertyOption], default=None, metadata={'json': 'options'})
+    formatter = attr.ib(type=str, default=None, metadata={'json': 'formatter'})
+    date_format = attr.ib(type=str, default=None, metadata={'json': 'date_format'})
+    time_format = attr.ib(type=str, default=None, metadata={'json': 'time_format'})
+    auto_fill = attr.ib(type=bool, default=None, metadata={'json': 'auto_fill'})
+    multiple = attr.ib(type=bool, default=None, metadata={'json': 'multiple'})
+    table_id = attr.ib(type=str, default=None, metadata={'json': 'table_id'})
+    view_id = attr.ib(type=str, default=None, metadata={'json': 'view_id'})
+    fields = attr.ib(type=List[str], default=None, metadata={'json': 'fields'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableField(object):
+    field_id = attr.ib(type=str, default=None, metadata={'json': 'field_id'})
+    field_name = attr.ib(type=str, default=None, metadata={'json': 'field_name'})
+    type = attr.ib(type=int, default=None, metadata={'json': 'type'})
+    property = attr.ib(type=AppTableFieldProperty, default=None, metadata={'json': 'property'})
+
+
+@to_json_decorator
+@attr.s
+class App(object):
+    app_token = attr.ib(type=str, default=None, metadata={'json': 'app_token'})
+    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
+
+
+@to_json_decorator
+@attr.s
+class AppTable(object):
+    table_id = attr.ib(type=str, default=None, metadata={'json': 'table_id'})
+    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableRecord(object):
+    record_id = attr.ib(type=str, default=None, metadata={'json': 'record_id'})
+    fields = attr.ib(type=Dict[str, Any], default=None, metadata={'json': 'fields'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableView(object):
+    view_id = attr.ib(type=str, default=None, metadata={'json': 'view_id'})
+    view_name = attr.ib(type=str, default=None, metadata={'json': 'view_name'})
+    view_type = attr.ib(type=str, default=None, metadata={'json': 'view_type'})
+
+
+@to_json_decorator
+@attr.s
 class DeleteRecord(object):
     deleted = attr.ib(type=bool, default=None, metadata={'json': 'deleted'})
     record_id = attr.ib(type=str, default=None, metadata={'json': 'record_id'})
@@ -26,37 +86,7 @@ class Person(object):
 
 @to_json_decorator
 @attr.s
-class App(object):
-    app_token = attr.ib(type=str, default=None, metadata={'json': 'app_token'})
-    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
-
-
-@to_json_decorator
-@attr.s
-class AppTable(object):
-    table_id = attr.ib(type=str, default=None, metadata={'json': 'table_id'})
-    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
-
-
-@to_json_decorator
-@attr.s
-class AppTableField(object):
-    field_id = attr.ib(type=str, default=None, metadata={'json': 'field_id'})
-    field_name = attr.ib(type=str, default=None, metadata={'json': 'field_name'})
-    type = attr.ib(type=int, default=None, metadata={'json': 'type'})
-    property = attr.ib(type=Any, default=None, metadata={'json': 'property'})
-
-
-@to_json_decorator
-@attr.s
-class AppTableRecord(object):
-    record_id = attr.ib(type=str, default=None, metadata={'json': 'record_id'})
-    fields = attr.ib(type=Dict[str, Any], default=None, metadata={'json': 'fields'})
-
-
-@to_json_decorator
-@attr.s
-class Option(object):
+class ReqTable(object):
     name = attr.ib(type=str, default=None, metadata={'json': 'name'})
 
 
@@ -142,3 +172,69 @@ class AppTableFieldListResult(object):
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     items = attr.ib(type=List[AppTableField], default=None, metadata={'json': 'items'})
+
+
+
+@attr.s
+class AppTableFieldCreateResult(object):
+    field = attr.ib(type=AppTableField, default=None, metadata={'json': 'field'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableBatchCreateReqBody(object):
+    tables = attr.ib(type=List[ReqTable], default=None, metadata={'json': 'tables'})
+
+
+@attr.s
+class AppTableBatchCreateResult(object):
+    table_ids = attr.ib(type=List[str], default=None, metadata={'json': 'table_ids'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableCreateReqBody(object):
+    table = attr.ib(type=ReqTable, default=None, metadata={'json': 'table'})
+
+
+@attr.s
+class AppTableCreateResult(object):
+    table_id = attr.ib(type=str, default=None, metadata={'json': 'table_id'})
+
+
+
+
+
+@attr.s
+class AppTableFieldDeleteResult(object):
+    field_id = attr.ib(type=str, default=None, metadata={'json': 'field_id'})
+    deleted = attr.ib(type=bool, default=None, metadata={'json': 'deleted'})
+
+
+
+@attr.s
+class AppTableFieldUpdateResult(object):
+    field = attr.ib(type=AppTableField, default=None, metadata={'json': 'field'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableBatchDeleteReqBody(object):
+    table_ids = attr.ib(type=List[str], default=None, metadata={'json': 'table_ids'})
+
+
+
+
+@attr.s
+class AppTableViewCreateResult(object):
+    app_table_view = attr.ib(type=AppTableView, default=None, metadata={'json': 'app.table.view'})
+
+
+
+
+
+@attr.s
+class AppTableViewListResult(object):
+    items = attr.ib(type=List[AppTableView], default=None, metadata={'json': 'items'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})

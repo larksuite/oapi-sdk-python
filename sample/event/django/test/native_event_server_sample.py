@@ -30,7 +30,7 @@ from larksuiteoapi.service.contact.v3 import UserUpdatedEventHandler, UserUpdate
 app_settings = Config.new_internal_app_settings_from_env()
 
 # for memory store and logger(level=debug)
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
 
 
 @attr.s

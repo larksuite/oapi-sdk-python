@@ -12,7 +12,7 @@ app_settings = Config.new_internal_app_settings_from_env()
 conf = test_config_with_redis_store(DOMAIN_FEISHU, app_settings)
 
 # for memory store and logger(level=debug)
-# conf = test_config_with_memory_store(DOMAIN_FEISHU, app_settings)
+# conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
 
 service = ImageV4Service(conf)
 

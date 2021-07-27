@@ -6,29 +6,3 @@ from ....utils.dt import to_json_decorator
 import attr
 
 
-
-
-@to_json_decorator
-@attr.s
-class FaceVerify(object):
-    pass
-
-
-
-
-@attr.s
-class FaceVerifyCropFaceImageResult(object):
-    face_image = attr.ib(type=str, default=None, metadata={'json': 'face_image'})
-
-
-
-@attr.s
-class FaceVerifyQueryAuthResultResult(object):
-    auth_state = attr.ib(type=int, default=None, metadata={'json': 'auth_state'})
-    auth_timpstamp = attr.ib(type=int, default=None, metadata={'json': 'auth_timpstamp'})
-
-
-
-@attr.s
-class FaceVerifyUploadFaceImageResult(object):
-    face_uid = attr.ib(type=str, default=None, metadata={'json': 'face_uid'})

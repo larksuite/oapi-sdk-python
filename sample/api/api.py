@@ -10,7 +10,7 @@ from larksuiteoapi.api import Request, FormData, FormDataFile, set_timeout, set_
     set_is_response_stream, set_response_stream, set_tenant_key
 
 from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP, \
-    APP_TICKET_KEY_PREFIX, DOMAIN_FEISHU
+    DOMAIN_FEISHU, LEVEL_ERROR, LEVEL_DEBUG
 from larksuiteoapi.utils.dt import to_json_decorator, make_datatype
 
 from sample.config.config import test_config_with_memory_store, test_config_with_redis_store
@@ -19,11 +19,10 @@ from sample.config.config import test_config_with_memory_store, test_config_with
 app_settings = Config.new_internal_app_settings_from_env()
 
 # for redis store and logger(level=debug)
-conf = test_config_with_redis_store(DOMAIN_FEISHU, app_settings)
-
+# conf = test_config_with_redis_store(DOMAIN_FEISHU, app_settings)
 
 # for memory store and logger(level=debug)
-# conf = test_config_with_memory_store(DOMAIN_FEISHU, app_settings)
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
 
 
 @attr.s
@@ -81,7 +80,7 @@ def test_send_message():
         }
     }
 
-    req = Request('message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body,
+    req = Request('/open-apis/message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body,
                   output_class=Message, request_opts=[set_timeout(3)])
     resp = req.do(conf)
     print('header = %s' % resp.get_header().items())
@@ -123,14 +122,13 @@ def test_user_update():
     path_params = {"user_id": "77bbc392"}
     query_params = {"user_id_type": "user_id"}
     user = User()
-    user.id = 9223372036854775806
     user.name = "rename"
 
     d = json.loads('{"id": "9223372036854775806", "name": "rename"}')
     user = make_datatype(User, d)
     print(user)
 
-    req = Request('contact/v3/users/:user_id', 'Patch', ACCESS_TOKEN_TYPE_TENANT, user,
+    req = Request('/open-apis/contact/v3/users/:user_id', 'Patch', ACCESS_TOKEN_TYPE_TENANT, user,
                   output_class=UserUpdateResult,
                   request_opts=[set_path_params(path_params), set_query_params(query_params)])
     resp = req.do(conf)
@@ -148,7 +146,7 @@ def test_upload_file():
     formData = FormData()
     formData.add_param('image_type', 'message')
     formData.add_file('image', FormDataFile(img))
-    req = Request('image/v4/put', 'POST', [ACCESS_TOKEN_TYPE_TENANT], formData)
+    req = Request('image/v4/put', 'POST', ACCESS_TOKEN_TYPE_TENANT, formData)
     resp = req.do(conf)
     print('request id = %s' % resp.get_request_id())
     print(resp.code)
@@ -160,7 +158,7 @@ def test_upload_file():
     img.close()
 
 
-def test_download_file(timeout=False, isv=False):
+def test_download_file(timeout=False):
     body = {
         "image_key": "img_6b6fe6d0-75d8-47d2-9725-54b6d535d86g",
     }
@@ -170,12 +168,6 @@ def test_download_file(timeout=False, isv=False):
 
     f = open('./a1.png', 'wb')
     operations += [set_response_stream(f)]
-
-    if isv:
-        operations += [set_tenant_key('2d0546bc1f4f575d')]
-        key = '%s-%s' % (APP_TICKET_KEY_PREFIX, conf.app_settings.app_id)
-        conf.store.set(
-            key, 'f39cd859b9643fbeebed0d93f863df44ee990186', int(time.time()) + 50000)
 
     req = Request('image/v4/get', 'GET',
                   [ACCESS_TOKEN_TYPE_TENANT], body, request_opts=operations)
@@ -190,5 +182,5 @@ def test_download_file(timeout=False, isv=False):
 if __name__ == '__main__':
     # test_send_message()
     # test_download_file()
-    # test_upload_file()
-    test_user_update()
+    test_upload_file()
+    # test_user_update()

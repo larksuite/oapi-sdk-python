@@ -16,7 +16,6 @@
 --- 
 如有任何SDK使用相关问题，请提交 [Github Issues](https://github.com/larksuite/oapi-sdk-python/issues), 我们会在收到 Issues 的第一时间处理，并尽快给您答复。
 
-
 ## 运行环境
 
 ---
@@ -27,18 +26,9 @@
 
 ---
 
-- 最新的发布候选版本，提供更多[开放服务 API](/src/larksuiteoapi/service) 以及 Bug 修复
-
 ```shell
 pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.24rc3
-```
-
-- 稳定版本
-
-```shell
-pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.8
+pip install larksuite-oapi==1.0.25rc1
 ```
 
 ## 术语解释
@@ -66,23 +56,73 @@ pip install larksuite-oapi==1.0.8
   UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 - 更多示例，请看：[sample/api/api.py](sample/api/api.py)（含：文件的上传与下载）
 
-#### 使用`企业自建应用`访问 发送文本消息API 示例
+#### [使用`应用商店应用`调用 服务端API 示例](doc/ISV.APP.README.zh.md)
+
+#### 使用`企业自建应用`访问 [发送消息API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create) 示例
+
+- 在 [service](./src/larksuiteoapi/service) 下的业务 API，都是可以直接使用SDK。
+
+```python
+# -*- coding: UTF-8 -*-
+from larksuiteoapi.service.im.v1 import Service as ImService, model
+from larksuiteoapi import DOMAIN_FEISHU, Config, LEVEL_DEBUG, LEVEL_INFO, \
+    LEVEL_WARN, LEVEL_ERROR
+
+# 企业自建应用的配置
+# AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（App ID、App Secret）
+# VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（Verification Token、Encrypt Key）。
+# 更多介绍请看：Github->README.zh.md->如何构建应用配置（AppSettings）
+app_settings = Config.new_internal_app_settings_from_env()
+
+# 当前访问的是飞书，使用默认存储、默认日志（Error级别）
+# 更多介绍请看：Github->README.zh.md->如何构建整体配置（Config）
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+
+service = ImService(conf)
+
+def test_message_create():
+    # body
+    body = model.MessageCreateReqBody()
+    body.content = '{"text":"<at user_id=\\"ou_a11d2bcc7d852afbcaf37e5b3ad01f7e\\">Tom</at> test content"}'
+    body.msg_type = 'text'
+    body.receive_id = 'ou_a11d2bcc7d852afbcaf37e5b3ad01f7e'
+    
+    req_call = service.messages.create(body)
+    req_call.set_receive_id_type('open_id')
+    
+    resp = req_call.do()
+    print('request id = %s' % resp.get_request_id())
+    print('http status code = %s' % resp.get_http_status_code())
+    print('header = %s' % resp.get_header().items())
+    if resp.code == 0:
+        print(resp.data.message_id)
+    else:
+        print(resp.msg)
+        print(resp.error)
+
+if __name__ == '__main__':
+    test_message_create()
+
+```
+
+
+#### 使用`企业自建应用`访问 [发送文本消息API](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM) 示例
 
 - 有些老版接口，没有直接可以使用的SDK，可以使用`原生`模式。
 
 ```python
 from larksuiteoapi.api import Request, set_timeout
 
-from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
+from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, DOMAIN_FEISHU, LEVEL_DEBUG
 
 # 企业自建应用的配置
 # AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
 # VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+# 更多可选配置，请看：README.zh.md->如何构建应用配置（AppSettings）。
 app_settings = Config.new_internal_app_settings_from_env()
 
-# 当前访问的是飞书，使用默认存储、默认日志（Debug级别），更多可选配置，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
+# 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
 
 
 def test_send_message():
@@ -94,7 +134,8 @@ def test_send_message():
         }
     }
 
-    req = Request('message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body, request_opts=[set_timeout(3)])
+    req = Request('/open-apis/message/v4/send', 'POST', ACCESS_TOKEN_TYPE_TENANT, body, request_opts=[set_timeout(3)])
+    
     resp = req.do(conf)
     print('request id = %s' % resp.get_request_id())
     print(resp.code)
@@ -110,115 +151,14 @@ if __name__ == '__main__':
 
 ```
 
-#### 使用`企业自建应用`访问 修改用户部分信息API 示例
-
-- 该接口是新的接口（请看"README.zh.md -> 已生成SDK的业务服务"），可以直接使用SDK。
-
-```python
-# -*- coding: UTF-8 -*-
-
-from larksuiteoapi.service.contact.v3 import Service as ContactV3Service, User
-
-from larksuiteoapi import Config, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
-
-# 企业自建应用的配置
-# AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
-# VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
-from src.larksuiteoapi.service.contact.v3 import User
-
-app_settings = Config.new_internal_app_settings_from_env()
-
-# 当前访问的是飞书，使用默认存储、默认日志（Debug级别），更多可选配置，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
-
-# 通讯录V3版本服务
-service = ContactV3Service(conf)
-
-
-def test_user_patch():
-    user = User()
-    user.name = "rename"
-    resp = service.users.patch(user).set_user_id("77bbc392").set_user_id_type("user_id").do()
-    print('request id = %s' % resp.get_request_id())
-    print(resp.code)
-    if resp.code == 0:
-        print(resp.data.user)
-    else:
-        print(resp.msg)
-        print(resp.error)
-
-
-if __name__ == '__main__':
-    test_user_patch()
-```
-
-#### [使用`应用商店应用`调用 服务端API 示例](doc/ISV.APP.README.zh.md)
-
 ### 订阅服务端事件
 
 - **必看** [订阅事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM) ，了解订阅事件的过程及注意事项。
 - 更多使用示例，请看[sample/event](sample/event)（含：结合flask的使用）
 
-#### 使用`企业自建应用` 订阅 [首次启用应用事件](https://open.feishu.cn/document/ukTMukTMukTM/uQTNxYjL0UTM24CN1EjN) 示例
+#### 使用`企业自建应用`订阅 [员工变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/updated) 示例
 
-- 有些老的事件，没有直接可以使用的SDK，可以使用`原生`模式
-
-```python
-
-from larksuiteoapi.event import handle_event, set_event_callback
-from larksuiteoapi.model import OapiHeader, OapiRequest
-
-from flask import Flask, request
-from flask.helpers import make_response
-
-from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
-
-# 企业自建应用的配置
-# AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
-# VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
-app_settings = Config.new_internal_app_settings_from_env()
-
-# 当前访问的是飞书，使用默认存储、默认日志（Debug级别），更多可选配置，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
-
-
-def app_open_event_handle(ctx, conf, event):
-    # type: (Context, Config, dict) -> None
-    print(ctx.get_request_id())
-    print(conf.app_settings)
-    print(event)
-
-
-# set event type 'app_status_change' handle
-set_event_callback(conf, 'app_open', app_open_event_handle)
-
-app = Flask(__name__)
-
-
-@app.route('/webhook/event', methods=['GET', 'POST'])
-def webhook_event():
-    oapi_request = OapiRequest(uri=request.path, body=request.data, header=OapiHeader(request.headers))
-    resp = make_response()
-    oapi_resp = handle_event(conf, oapi_request)
-    resp.headers['Content-Type'] = oapi_resp.content_type
-    resp.data = oapi_resp.body
-    resp.status_code = oapi_resp.status_code
-    return resp
-
-
-# 设置 "开发者后台" -> "事件订阅" 请求网址 URL：https://domain/webhook/event
-# startup event http server, port: 8089
-if __name__ == '__main__':
-    app.run(port=8089, host="0.0.0.0")
-
-
-```
-
-#### 使用`企业自建应用`订阅 [用户数据变更事件](https://open.feishu.cn/document/ukTMukTMukTM/uITNxYjLyUTM24iM1EjN#70402aa) 示例
-
-- 该接口是新的事件，可以直接使用SDK
+- 在 [service](./src/larksuiteoapi/service) 下的业务 Event，都是可以直接使用SDK。
 
 ```python
 # -*- coding: UTF-8 -*-
@@ -235,11 +175,11 @@ from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DefaultLogger, LEVEL_D
 # 企业自建应用的配置
 # AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
 # VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+# 更多可选配置，请看：README.zh.md->如何构建应用配置（AppSettings）。
 app_settings = Config.new_internal_app_settings_from_env()
 
-# 当前访问的是飞书，使用默认存储、默认日志（Debug级别），更多可选配置，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
+# 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
 
 
 def user_update_handle(ctx, conf, event):
@@ -274,6 +214,63 @@ if __name__ == '__main__':
 
 ```
 
+
+#### 使用`企业自建应用` 订阅 [首次启用应用事件](https://open.feishu.cn/document/ukTMukTMukTM/uQTNxYjL0UTM24CN1EjN) 示例
+
+- 有些老的事件，没有直接可以使用的SDK，可以使用`原生`模式
+
+```python
+
+from larksuiteoapi.event import handle_event, set_event_callback
+from larksuiteoapi.model import OapiHeader, OapiRequest
+
+from flask import Flask, request
+from flask.helpers import make_response
+
+from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
+
+# 企业自建应用的配置
+# AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
+# VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
+# 更多可选配置，请看：README.zh.md->如何构建应用配置（AppSettings）。
+app_settings = Config.new_internal_app_settings_from_env()
+
+# 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+
+
+def app_open_event_handle(ctx, conf, event):
+    # type: (Context, Config, dict) -> None
+    print(ctx.get_request_id())
+    print(conf.app_settings)
+    print(event)
+
+
+# set event type 'app_status_change' handle
+set_event_callback(conf, 'app_open', app_open_event_handle)
+
+app = Flask(__name__)
+
+
+@app.route('/webhook/event', methods=['GET', 'POST'])
+def webhook_event():
+    oapi_request = OapiRequest(uri=request.path, body=request.data, header=OapiHeader(request.headers))
+    resp = make_response()
+    oapi_resp = handle_event(conf, oapi_request)
+    resp.headers['Content-Type'] = oapi_resp.content_type
+    resp.data = oapi_resp.body
+    resp.status_code = oapi_resp.status_code
+    return resp
+
+
+# 设置 "开发者后台" -> "事件订阅" 请求网址 URL：https://domain/webhook/event
+# startup event http server, port: 8089
+if __name__ == '__main__':
+    app.run(port=8089, host="0.0.0.0")
+
+
+```
+
 ### 处理消息卡片回调
 
 - **必看** [消息卡片开发流程](https://open.feishu.cn/document/ukTMukTMukTM/uAzMxEjLwMTMx4CMzETM) ，了解订阅事件的过程及注意事项
@@ -297,11 +294,11 @@ from flask.helpers import make_response
 # 企业自建应用的配置
 # AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（AppID、AppSecret）
 # VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（VerificationToken、EncryptKey）
-# app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+# 更多可选配置，请看：README.zh.md->如何构建应用配置（AppSettings）。
 app_settings = Config.new_internal_app_settings_from_env()
 
-# 当前访问的是飞书，使用默认存储、默认日志（Debug级别），更多可选配置，请看：README.zh.md->高级使用->如何构建整体配置（Config）。
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, DefaultLogger(), LEVEL_DEBUG)
+# 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
 
 
 # 设置消息卡片的处理
@@ -370,13 +367,9 @@ def webhook_card():
 if __name__ == '__main__':
     app.run(port=8089, host="0.0.0.0")
 
-```    
+```
 
-## 高级使用
-
----
-
-### 如何构建应用配置（AppSettings）
+## 如何构建应用配置（AppSettings）
 
 ```python
 from larksuiteoapi import Config
@@ -386,6 +379,8 @@ from larksuiteoapi import Config
 # APP_SECRET："开发者后台" -> "凭证与基础信息" -> 应用凭证 App Secret
 # VERIFICATION_TOKEN："开发者后台" -> "事件订阅" -> 事件订阅 Verification Token
 # ENCRYPT_KEY："开发者后台" -> "事件订阅" -> 事件订阅 Encrypt Key
+# HELP_DESK_ID: 服务台设置中心 -> ID
+# HELP_DESK_TOKEN: 服务台设置中心 -> 令牌
 # 企业自建应用的配置，通过环境变量获取应用配置
 app_settings = Config.new_internal_app_settings_from_env()
 # 应用商店应用的配置，通过环境变量获取应用配置
@@ -394,14 +389,19 @@ app_settings = Config.new_isv_app_settings_from_env()
 # 参数说明：
 # AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（App ID、App Secret）
 # VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（Verification Token、Encrypt Key）
+# HelpDeskID、HelpDeskToken：服务台设置中心 -> ID、令牌
 # 企业自建应用的配置
-app_settings = Config.new_internal_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+app_settings = Config.new_internal_app_settings(app_id="AppID", app_secret="AppSecret",
+                                                verification_token="VerificationToken", encrypt_key="EncryptKey",
+                                                help_desk_id="HelpDeskID", help_desk_token="HelpDeskToken")
 # 应用商店应用的配置
-app_settings = Config.new_isv_app_settings("AppID", "AppSecret", "VerificationToken", "EncryptKey")
+app_settings = Config.new_isv_app_settings(app_id="AppID", app_secret="AppSecret",
+                                           verification_token="VerificationToken", encrypt_key="EncryptKey",
+                                           help_desk_id="HelpDeskID", help_desk_token="HelpDeskToken")
 
 ```
 
-### 如何构建整体配置（Config）
+## 如何构建整体配置（Config）
 
 - 访问 飞书、LarkSuite或者其他domain
 - 应用的配置
@@ -412,47 +412,39 @@ app_settings = Config.new_isv_app_settings("AppID", "AppSecret", "VerificationTo
         - 应用商店应用，接受开放平台下发的 `app_ticket` ，会保存到存储中，所以存储（Store）的实现需要支持分布式存储。
 
 ```python
-from larksuiteoapi import Config, AppSettings, \
-    Logger, DefaultLogger, LEVEL_DEBUG, LEVEL_INFO, LEVEL_WARN, LEVEL_ERROR, \
-    DOMAIN_FEISHU, DOMAIN_LARK_SUITE
+from larksuiteoapi import Config, AppSettings,Logger, DefaultLogger, MemoryStore, LEVEL_DEBUG, LEVEL_INFO, LEVEL_WARN,\ 
+LEVEL_ERROR,DOMAIN_FEISHU, DOMAIN_LARK_SUITE
 
 # for Cutome APP（企业自建应用）
 app_settings = Config.new_internal_app_settings_from_env()
 
-# 方法一，推荐使用Redis实现存储（Store），减少访问获取AccessToken接口的次数，请看示例：[RedisStore](sample/config/config.py)
 # 参数说明：
 # domain：DOMAIN_FEISHU / DOMAIN_LARK_SUITE / 其他域名地址
 # app_settings：应用配置
-# logger：[Logger](src/larksuiteoapi/logger.py)
-# log_level：输出的日志级别 LEVEL_DEBUG/LEVEL_INFO/LEVEL_WARN/LEVEL_ERROR
-# store: [Store](src/larksuiteoapi/store.py)，用来存储 app_ticket/access_token
-conf = Config.new_config(DOMAIN_FEISHU, app_settings, logger, log_level, store)
-
-# 方法二，使用默认的存储（Store）的实现，适合轻量的使用（不合适：应用商店应用 或 调用服务端API次数频繁）
-# 参数说明：
-# domain：DOMAIN_FEISHU / DOMAIN_LARK_SUITE / 其他域名地址
-# app_settings：应用配置
-# logger：[Logger](src/larksuiteoapi/logger.py)
-# log_level：输出的日志级别 LEVEL_DEBUG/LEVEL_INFO/LEVEL_WARN/LEVEL_ERROR
-conf = Config.new_config_with_memory_store(DOMAIN_FEISHU, app_settings, logger, log_level)
+# logger：[Logger](src/larksuiteoapi/logger.py)，默认：控制台输出
+# log_level：输出的日志级别 LEVEL_DEBUG/LEVEL_INFO/LEVEL_WARN/LEVEL_ERROR，默认：LEVEL_ERROR
+# store: [Store](src/larksuiteoapi/store.py)，用来存储 app_ticket/access_token，默认：内存存储，适合轻量的使用（不合适：应用商店应用）
+conf = Config(DOMAIN_FEISHU, app_settings, logger=DefaultLogger(), log_level=LEVEL_ERROR, store=MemoryStore())
 
 ```
 
-### 如何构建请求（Request）
+## 如何构建请求（Request）
 
-- 有些老版接口，没有直接可以使用的SDK，可以使用原生模式，这时需要构建请求。
+- 没有可以使用SDK的接口，可以使用原生模式，这时需要构建请求。
 - 更多示例，请看：[sample/api/api.py](sample/api/api.py)（含：文件的上传与下载）
 
 ```python
 
 from larksuiteoapi import ACCESS_TOKEN_TYPE_APP, ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER
-from larksuiteoapi.api import Request, FormData, FormDataFile, \
-    set_path_params, set_query_params, set_timeout, set_no_data_field, \
-    set_user_access_token, set_tenant_key, set_is_response_stream, set_response_stream
-
+from larksuiteoapi.api import Request, FormData, FormDataFile,set_path_params, set_query_params, set_timeout, set_no_data_field,\
+set_user_access_token, set_tenant_key, set_is_response_stream, set_response_stream, set_need_help_desk_auth
 
 # 参数说明：
-# http_path：API路径（`open-apis/`之后的路径），例如：https://domain/open-apis/contact/v3/users/:user_id，则 httpPath："contact/v3/users/:user_id"
+# http_path：API路径
+# 例如：https://domain/open-apis/contact/v3/users/:user_id
+# 支持域名之后的路径，则 http_path："/open-apis/contact/v3/users/:user_id"（推荐）
+# 也支持全路径，则 http_path："https://domain/open-apis/contact/v3/users/:user_id"
+# 也支持 /open-apis/ 之后的路径，则 http_path："contact/v3/users/:user_id"
 # http_Method: GET/POST/PUT/BATCH/DELETE
 # access_token_type：API使用哪种访问凭证，取值范围：ACCESS_TOKEN_TYPE_APP, ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER
 # request_body：请求体（可能是 FormData()（例如：文件上传））,如果不需要请求体（例如一些GET请求），则传：nil
@@ -461,35 +453,22 @@ from larksuiteoapi.api import Request, FormData, FormDataFile, \
     # set_query_params({"age":4,"types":[1,2]})：设置 URL query，会在url追加?age=4&types=1&types=2
     # set_is_response_stream()，设置响应是否是流，response.data = bytes(文件内容)
     # set_response_stream(IO[any])，设置响应是否是流且响应流写入目标IO，response.data = 目标IO
-    # set_no_data_field,设置响应的是否 没有`data`字段，业务接口都是有`data`字段，所以不需要设置
-    # set_tenant_key，以`应用商店应用`身份，表示使用`tenant_access_token`访问API，需要设置
-    # set_user_access_token，表示使用`user_access_token`访问API，需要设置
-    # set_timeout，设置请求超时时间（单位：秒）
+    # set_no_data_field(),设置响应的是否 没有`data`字段，业务接口都是有`data`字段，所以不需要设置
+    # set_tenant_key(str)，以`应用商店应用`身份，表示使用`tenant_access_token`访问API，需要设置
+    # set_user_access_token(str)，表示使用`user_access_token`访问API，需要设置
+    # set_timeout(int)，设置请求超时时间（单位：秒）
+    # set_need_help_desk_auth() ，表示是服务台API，需要设置 config.AppSettings 的 help desk 信息
 
 # (str, str, str, Any, T, List[Callable[[Option], Any]]) -> None
 req = Request(http_path, http_Method, access_token_type, request_body, request_opts=None)
 
 ```
 
-### 请求上下文（Context）及常用方法
+## 如何发送请求
 
-```python
+-
 
-from larksuiteoapi import Context
-
-ctx = Context()
-
-# 获取请求的Request ID，便于排查问题
-request_id = ctx.get_request_id()
-
-# 获取请求的响应状态码
-status_code = ctx.get_http_status_code()
-
-```
-
-### 如何发送请求
-
-- 由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（request.SetUserAccessToken("
+由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（request.SetUserAccessToken("
 UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 
 - 更多使用示例，请看：[sample/api/api.py](sample/api/api.py)
@@ -517,27 +496,10 @@ else:
 
 ```
 
-## 已生成SDK的业务服务
-
----
-
-|业务域|版本|路径|代码示例|
-|---|---|---|----|
-|[用户身份验证](https://open.feishu.cn/document/ukTMukTMukTM/uETOwYjLxkDM24SM5AjN)|v1|[service/authen](src/larksuiteoapi/service/authen)|[sample/api/authen_service.py](sample/api/authen_service.py)|
-|[图片](https://open.feishu.cn/document/ukTMukTMukTM/uEDO04SM4QjLxgDN)|v4|[service/image](src/larksuiteoapi/service/image)|[sample/api/image_service.py](sample/api/image_service.py)|
-|[通讯录](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/introduction)|v3|[service/contact](src/larksuiteoapi/service/contact)|[sample/api/contact_service.py](sample/api/contact_service.py)|
-|[日历](https://open.feishu.cn/document/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN)|v4|[service/calendar](src/larksuiteoapi/service/calendar)|[sample/api/calendar_service.py](sample/api/calendar_service.py)|
-
 ## License
 
 ---
 
 - MIT
-
-## 联系我们
-
----
-
-- 飞书：[服务端SDK](https://open.feishu.cn/document/ukTMukTMukTM/uETO1YjLxkTN24SM5UjN) 页面右上角【这篇文档是否对你有帮助？】提交反馈
 
 

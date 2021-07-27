@@ -162,7 +162,7 @@ class MemberCreateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/member/create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/member/create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MemberCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -185,7 +185,7 @@ class MemberDeleteReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/member/delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/member/delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MemberDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -208,7 +208,7 @@ class MemberListReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/member/list', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/member/list', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -231,7 +231,7 @@ class MemberPermittedReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/member/permitted', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/member/permitted', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MemberPermittedResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -254,7 +254,7 @@ class MemberTransferReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/member/transfer', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/member/transfer', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MemberTransferResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -277,7 +277,7 @@ class MemberUpdateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/member/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/member/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=MemberUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -300,7 +300,7 @@ class PublicUpdateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('drive/permission/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/drive/permission/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=PublicUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

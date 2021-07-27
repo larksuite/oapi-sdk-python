@@ -69,7 +69,7 @@ class TextTranslateReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('translation/v1/text/translate', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/translation/v1/text/translate', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=TextTranslateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -92,7 +92,7 @@ class TextDetectReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('translation/v1/text/detect', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/translation/v1/text/detect', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=TextDetectResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

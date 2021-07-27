@@ -24,14 +24,16 @@ class RedisStore(Store):
         self.cli.set(key, value, ex=expire)
 
 
-def test_config_with_memory_store(domain, app_settings):  # type: (str, AppSettings) -> Config
+def test_config_with_memory_store(domain, app_settings):
+    # type: (str, AppSettings) -> Config
     return Config.new_config_with_memory_store(domain, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
 
-def test_config_with_redis_store(domain, app_settings):  # type: (str, AppSettings) -> Config
+def test_config_with_redis_store(domain, app_settings):
+    # type: (str, AppSettings) -> Config
     return new_config_with_redis_store(domain, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
 
-def new_config_with_redis_store(domain, app_settings, logger,
-                                log_level):  # type: (str, AppSettings, Logger, int) -> Config
+def new_config_with_redis_store(domain, app_settings, logger, log_level):
+    # type: (str, AppSettings, Logger, int) -> Config
     return Config.new_config(domain, app_settings, logger, log_level, RedisStore())

@@ -6,7 +6,7 @@ DEFAULT_CONTENT_TYPE = CONTENT_TYPE_JSON + "; charset=utf-8"
 
 HTTP_HEADER_KEY = "HTTP-Request"
 HTTP_HEADER_KEY_REQUEST_ID = "X-Request-Id"
-HTTP_HEADER_KEY_LOG_ID = "X-Log-Id"
+HTTP_HEADER_KEY_LOG_ID = "X-Tt-Logid"
 HTTP_KEY_STATUS_CODE = "http_status_code"
 
 APP_TYPE_ISV = "isv"

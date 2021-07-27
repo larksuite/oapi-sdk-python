@@ -18,19 +18,19 @@ class FileConfig(object):
 
 @to_json_decorator
 @attr.s
+class Speech(object):
+    speech = attr.ib(type=str, default=None, metadata={'json': 'speech'})
+    speech_key = attr.ib(type=str, default=None, metadata={'json': 'speech_key'})
+
+
+@to_json_decorator
+@attr.s
 class StreamConfig(object):
     stream_id = attr.ib(type=str, default=None, metadata={'json': 'stream_id'})
     sequence_id = attr.ib(type=int, default=None, metadata={'json': 'sequence_id'})
     action = attr.ib(type=int, default=None, metadata={'json': 'action'})
     format = attr.ib(type=str, default=None, metadata={'json': 'format'})
     engine_type = attr.ib(type=str, default=None, metadata={'json': 'engine_type'})
-
-
-@to_json_decorator
-@attr.s
-class Speech(object):
-    speech = attr.ib(type=str, default=None, metadata={'json': 'speech'})
-    speech_key = attr.ib(type=str, default=None, metadata={'json': 'speech_key'})
 
 
 

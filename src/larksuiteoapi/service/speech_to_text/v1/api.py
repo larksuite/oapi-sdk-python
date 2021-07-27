@@ -69,7 +69,7 @@ class SpeechFileRecognizeReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('speech_to_text/v1/speech/file_recognize', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/speech_to_text/v1/speech/file_recognize', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=SpeechFileRecognizeResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
@@ -92,7 +92,7 @@ class SpeechStreamRecognizeReqCall(object):
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('speech_to_text/v1/speech/stream_recognize', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/speech_to_text/v1/speech/stream_recognize', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=SpeechStreamRecognizeResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

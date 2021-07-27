@@ -68,7 +68,7 @@ class IdentityCreateReqCall(object):
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('human_authentication/v1/identities', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+        req = Request('/open-apis/human_authentication/v1/identities', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                       self.body, output_class=IdentityCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
