@@ -243,6 +243,12 @@ class CalendarAclListResult(object):
 
 
 @attr.s
+class CalendarEventCreateResult(object):
+    event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
+
+
+
+@attr.s
 class CalendarEventAttendeeListResult(object):
     items = attr.ib(type=List[CalendarEventAttendee], default=None, metadata={'json': 'items'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})

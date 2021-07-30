@@ -274,6 +274,22 @@ class CalendarEventService(object):
 
         return CalendarEventGetReqCall(self, request_opts=request_opts)
 
+    def create(self, body, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (CalendarEvent, str, str, int) -> CalendarEventCreateReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return CalendarEventCreateReqCall(self, body, request_opts=request_opts)
+
     def list(self, tenant_key=None, user_access_token=None, timeout=None):
         # type: (str, str, int) -> CalendarEventListReqCall
 
@@ -755,6 +771,36 @@ class CalendarAclCreateReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = Request('/open-apis/calendar/v4/calendars/:calendar_id/acls', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
                       self.body, output_class=CalendarAcl, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class CalendarEventCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (CalendarEventService, CalendarEvent, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_calendar_id(self, calendar_id):
+        # type: (str) -> CalendarEventCreateReqCall
+        self.path_params['calendar_id'] = calendar_id
+        return self
+
+    def do(self):
+        # type: () -> Response[CalendarEventCreateResult]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = Request('/open-apis/calendar/v4/calendars/:calendar_id/events', 'POST', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+                      self.body, output_class=CalendarEventCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
