@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -71,12 +71,12 @@ class PublicGetReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[PublicGetResult]
+        # type: () -> APIResponse[Type[PublicGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/v2/public', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=PublicGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/v2/public', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=PublicGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -94,12 +94,12 @@ class PublicUpdateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/v2/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/v2/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -162,14 +162,14 @@ class FolderChildrenReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[FolderChildrenResult]
+        # type: () -> APIResponse[Type[FolderChildrenResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/drive/explorer/v2/folder/:folderToken/children', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=FolderChildrenResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/explorer/v2/folder/:folderToken/children', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=FolderChildrenResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -193,43 +193,13 @@ class FileCopyReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[FileCopyResult]
+        # type: () -> APIResponse[Type[FileCopyResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/drive/explorer/v2/file/copy/files/:fileToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=FileCopyResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class FileCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (FileService, FileCreateReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_folderToken(self, folder_token):
-        # type: (str) -> FileCreateReqCall
-        self.path_params['folderToken'] = folder_token
-        return self
-
-    def do(self):
-        # type: () -> Response[FileCreateResult]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/drive/explorer/v2/file/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=FileCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/explorer/v2/file/copy/files/:fileToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=FileCopyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -253,13 +223,43 @@ class FolderCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[FolderCreateResult]
+        # type: () -> APIResponse[Type[FolderCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/drive/explorer/v2/folder/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=FolderCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/explorer/v2/folder/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=FolderCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FileCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (FileService, FileCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_folderToken(self, folder_token):
+        # type: (str) -> FileCreateReqCall
+        self.path_params['folderToken'] = folder_token
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[FileCreateResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = APIRequest('/open-apis/drive/explorer/v2/file/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=FileCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -283,13 +283,13 @@ class FileDocsDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[FileDocsDeleteResult]
+        # type: () -> APIResponse[Type[FileDocsDeleteResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/drive/explorer/v2/file/docs/:docToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=FileDocsDeleteResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/explorer/v2/file/docs/:docToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=FileDocsDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -313,13 +313,13 @@ class FolderMetaReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[FolderMetaResult]
+        # type: () -> APIResponse[Type[FolderMetaResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/drive/explorer/v2/folder/:folderToken/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=FolderMetaResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/explorer/v2/folder/:folderToken/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=FolderMetaResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -337,12 +337,12 @@ class FolderRootMetaReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[FolderRootMetaResult]
+        # type: () -> APIResponse[Type[FolderRootMetaResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/explorer/v2/root_folder/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=FolderRootMetaResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/explorer/v2/root_folder/meta', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=FolderRootMetaResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -366,13 +366,13 @@ class FileSpreadsheetsDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[FileSpreadsheetsDeleteResult]
+        # type: () -> APIResponse[Type[FileSpreadsheetsDeleteResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/drive/explorer/v2/file/spreadsheets/:spreadsheetToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=FileSpreadsheetsDeleteResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/explorer/v2/file/spreadsheets/:spreadsheetToken', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=FileSpreadsheetsDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -502,13 +502,13 @@ class MessageListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MessageListResult]
+        # type: () -> APIResponse[Type[MessageListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/messages', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MessageListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/messages', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MessageListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -532,13 +532,13 @@ class MessagePatchReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/messages/:message_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/messages/:message_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -562,13 +562,13 @@ class MessageReplyReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[Message]
+        # type: () -> APIResponse[Type[Message]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/messages/:message_id/reply', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=Message, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/messages/:message_id/reply', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=Message, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -592,13 +592,13 @@ class MessageCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[Message]
+        # type: () -> APIResponse[Type[Message]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/messages', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=Message, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/messages', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=Message, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -622,13 +622,13 @@ class MessageDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/messages/:message_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/messages/:message_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -668,14 +668,14 @@ class MessageReadUsersReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MessageReadUsersResult]
+        # type: () -> APIResponse[Type[MessageReadUsersResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/messages/:message_id/read_users', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MessageReadUsersResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/messages/:message_id/read_users', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MessageReadUsersResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -705,14 +705,14 @@ class ChatUpdateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id', 'PUT', [ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -750,11 +750,11 @@ class FileCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[FileCreateResult]
+        # type: () -> APIResponse[Type[FileCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/im/v1/files', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=FileCreateResult , request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/files', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=FileCreateResult , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -778,14 +778,14 @@ class FileGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_is_response_stream()]
-        req = Request('/open-apis/im/v1/files/:file_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/files/:file_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -819,13 +819,13 @@ class ChatListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatListResult]
+        # type: () -> APIResponse[Type[ChatListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ChatListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ChatListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -853,11 +853,11 @@ class ImageCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ImageCreateResult]
+        # type: () -> APIResponse[Type[ImageCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/im/v1/images', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=ImageCreateResult , request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/images', 'POST', [ACCESS_TOKEN_TYPE_TENANT], self.body, output_class=ImageCreateResult , request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -881,13 +881,13 @@ class ChatDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -911,14 +911,14 @@ class ImageGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_is_response_stream()]
-        req = Request('/open-apis/im/v1/images/:image_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/images/:image_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -948,14 +948,14 @@ class ChatGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatGetResult]
+        # type: () -> APIResponse[Type[ChatGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ChatGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ChatGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -979,13 +979,13 @@ class ChatCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatCreateResult]
+        # type: () -> APIResponse[Type[ChatCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=ChatCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=ChatCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1024,13 +1024,13 @@ class ChatSearchReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatSearchResult]
+        # type: () -> APIResponse[Type[ChatSearchResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats/search', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ChatSearchResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/search', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ChatSearchResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1054,13 +1054,13 @@ class MessageGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MessageGetResult]
+        # type: () -> APIResponse[Type[MessageGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/messages/:message_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MessageGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/messages/:message_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MessageGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1090,14 +1090,14 @@ class ChatMembersCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatMembersCreateResult]
+        # type: () -> APIResponse[Type[ChatMembersCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id/members', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=ChatMembersCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id/members', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=ChatMembersCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1127,21 +1127,21 @@ class ChatMembersDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatMembersDeleteResult]
+        # type: () -> APIResponse[Type[ChatMembersDeleteResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id/members', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=ChatMembersDeleteResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id/members', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=ChatMembersDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
 
-class ChatAnnouncementGetReqCall(object):
+class MessageResourceGetReqCall(object):
     def __init__(self, service, request_opts=None):
-        # type: (ChatAnnouncementService, List[Any]) -> None
+        # type: (MessageResourceService, List[Any]) -> None
 
         self.service = service
         
@@ -1153,25 +1153,31 @@ class ChatAnnouncementGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_chat_id(self, chat_id):
-        # type: (str) -> ChatAnnouncementGetReqCall
-        self.path_params['chat_id'] = chat_id
+    def set_message_id(self, message_id):
+        # type: (str) -> MessageResourceGetReqCall
+        self.path_params['message_id'] = message_id
         return self
 
-    def set_user_id_type(self, user_id_type):
-        # type: (str) -> ChatAnnouncementGetReqCall
-        self.query_params['user_id_type'] = user_id_type
+    def set_file_key(self, file_key):
+        # type: (str) -> MessageResourceGetReqCall
+        self.path_params['file_key'] = file_key
+        return self
+
+    def set_type(self, type):
+        # type: (str) -> MessageResourceGetReqCall
+        self.query_params['type'] = type
         return self
 
     def do(self):
-        # type: () -> Response[ChatAnnouncementGetResult]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id/announcement', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ChatAnnouncementGetResult, request_opts=self.request_opts)
+        self.request_opts += [set_is_response_stream()]
+        req = APIRequest('/open-apis/im/v1/messages/:message_id/resources/:file_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1211,21 +1217,21 @@ class ChatMembersGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatMembersGetResult]
+        # type: () -> APIResponse[Type[ChatMembersGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id/members', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ChatMembersGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id/members', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ChatMembersGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
 
-class MessageResourceGetReqCall(object):
+class ChatAnnouncementGetReqCall(object):
     def __init__(self, service, request_opts=None):
-        # type: (MessageResourceService, List[Any]) -> None
+        # type: (ChatAnnouncementService, List[Any]) -> None
 
         self.service = service
         
@@ -1237,31 +1243,25 @@ class MessageResourceGetReqCall(object):
         else:
             self.request_opts = []  # type: List[Any]
 
-    def set_message_id(self, message_id):
-        # type: (str) -> MessageResourceGetReqCall
-        self.path_params['message_id'] = message_id
+    def set_chat_id(self, chat_id):
+        # type: (str) -> ChatAnnouncementGetReqCall
+        self.path_params['chat_id'] = chat_id
         return self
 
-    def set_file_key(self, file_key):
-        # type: (str) -> MessageResourceGetReqCall
-        self.path_params['file_key'] = file_key
-        return self
-
-    def set_type(self, type):
-        # type: (str) -> MessageResourceGetReqCall
-        self.query_params['type'] = type
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> ChatAnnouncementGetReqCall
+        self.query_params['user_id_type'] = user_id_type
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[ChatAnnouncementGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        self.request_opts += [set_is_response_stream()]
-        req = Request('/open-apis/im/v1/messages/:message_id/resources/:file_key', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id/announcement', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ChatAnnouncementGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1285,13 +1285,13 @@ class ChatMembersIsInChatReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ChatMembersIsInChatResult]
+        # type: () -> APIResponse[Type[ChatMembersIsInChatResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id/members/is_in_chat', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ChatMembersIsInChatResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id/members/is_in_chat', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ChatMembersIsInChatResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1315,13 +1315,13 @@ class ChatMembersMeJoinReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id/members/me_join', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id/members/me_join', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1345,13 +1345,13 @@ class ChatAnnouncementPatchReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/im/v1/chats/:chat_id/announcement', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/im/v1/chats/:chat_id/announcement', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

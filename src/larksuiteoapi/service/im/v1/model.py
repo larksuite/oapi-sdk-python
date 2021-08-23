@@ -469,17 +469,6 @@ class ChatMembersDeleteResult(object):
 
 
 
-@attr.s
-class ChatAnnouncementGetResult(object):
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-    revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
-    create_time = attr.ib(type=str, default=None, metadata={'json': 'create_time'})
-    update_time = attr.ib(type=str, default=None, metadata={'json': 'update_time'})
-    owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
-    owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
-    modifier_id_type = attr.ib(type=str, default=None, metadata={'json': 'modifier_id_type'})
-    modifier_id = attr.ib(type=str, default=None, metadata={'json': 'modifier_id'})
-
 
 
 @attr.s
@@ -490,6 +479,17 @@ class ChatMembersGetResult(object):
     member_total = attr.ib(type=int, default=None, metadata={'json': 'member_total'})
 
 
+
+@attr.s
+class ChatAnnouncementGetResult(object):
+    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+    revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
+    create_time = attr.ib(type=str, default=None, metadata={'json': 'create_time'})
+    update_time = attr.ib(type=str, default=None, metadata={'json': 'update_time'})
+    owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
+    owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
+    modifier_id_type = attr.ib(type=str, default=None, metadata={'json': 'modifier_id_type'})
+    modifier_id = attr.ib(type=str, default=None, metadata={'json': 'modifier_id'})
 
 
 

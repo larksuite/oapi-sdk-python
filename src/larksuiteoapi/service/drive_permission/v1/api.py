@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -158,12 +158,12 @@ class MemberCreateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[MemberCreateResult]
+        # type: () -> APIResponse[Type[MemberCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/member/create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MemberCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/member/create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MemberCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -181,12 +181,12 @@ class MemberDeleteReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[MemberDeleteResult]
+        # type: () -> APIResponse[Type[MemberDeleteResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/member/delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MemberDeleteResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/member/delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MemberDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -204,12 +204,12 @@ class MemberListReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[MemberListResult]
+        # type: () -> APIResponse[Type[MemberListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/member/list', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MemberListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/member/list', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -227,12 +227,12 @@ class MemberPermittedReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[MemberPermittedResult]
+        # type: () -> APIResponse[Type[MemberPermittedResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/member/permitted', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MemberPermittedResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/member/permitted', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MemberPermittedResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -250,12 +250,12 @@ class MemberTransferReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[MemberTransferResult]
+        # type: () -> APIResponse[Type[MemberTransferResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/member/transfer', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MemberTransferResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/member/transfer', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MemberTransferResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -273,12 +273,12 @@ class MemberUpdateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[MemberUpdateResult]
+        # type: () -> APIResponse[Type[MemberUpdateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/member/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MemberUpdateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/member/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MemberUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -296,12 +296,12 @@ class PublicUpdateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[PublicUpdateResult]
+        # type: () -> APIResponse[Type[PublicUpdateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/drive/permission/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=PublicUpdateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/drive/permission/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=PublicUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

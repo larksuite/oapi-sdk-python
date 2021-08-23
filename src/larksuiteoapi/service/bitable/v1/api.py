@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -414,13 +414,13 @@ class AppTableRecordBatchDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableRecordBatchDeleteResult]
+        # type: () -> APIResponse[Type[AppTableRecordBatchDeleteResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableRecordBatchDeleteResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableRecordBatchDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -455,14 +455,14 @@ class AppTableRecordBatchCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableRecordBatchCreateResult]
+        # type: () -> APIResponse[Type[AppTableRecordBatchCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableRecordBatchCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableRecordBatchCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -502,14 +502,14 @@ class AppTableRecordGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableRecordGetResult]
+        # type: () -> APIResponse[Type[AppTableRecordGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AppTableRecordGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AppTableRecordGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -549,14 +549,14 @@ class AppTableRecordUpdateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableRecordUpdateResult]
+        # type: () -> APIResponse[Type[AppTableRecordUpdateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableRecordUpdateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableRecordUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -590,13 +590,13 @@ class AppTableRecordDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[DeleteRecord]
+        # type: () -> APIResponse[Type[DeleteRecord]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=DeleteRecord, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=DeleteRecord, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -661,14 +661,14 @@ class AppTableRecordListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableRecordListResult]
+        # type: () -> APIResponse[Type[AppTableRecordListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AppTableRecordListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AppTableRecordListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -703,14 +703,14 @@ class AppTableRecordBatchUpdateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableRecordBatchUpdateResult]
+        # type: () -> APIResponse[Type[AppTableRecordBatchUpdateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableRecordBatchUpdateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableRecordBatchUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -745,14 +745,14 @@ class AppTableRecordCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableRecordCreateResult]
+        # type: () -> APIResponse[Type[AppTableRecordCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableRecordCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableRecordCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -776,13 +776,13 @@ class AppGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppGetResult]
+        # type: () -> APIResponse[Type[AppGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AppGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AppGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -817,14 +817,14 @@ class AppTableListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableListResult]
+        # type: () -> APIResponse[Type[AppTableListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AppTableListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AppTableListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -869,14 +869,14 @@ class AppTableFieldListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableFieldListResult]
+        # type: () -> APIResponse[Type[AppTableFieldListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AppTableFieldListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AppTableFieldListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -911,14 +911,14 @@ class AppTableFieldCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableFieldCreateResult]
+        # type: () -> APIResponse[Type[AppTableFieldCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableFieldCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableFieldCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -948,14 +948,14 @@ class AppTableBatchCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableBatchCreateResult]
+        # type: () -> APIResponse[Type[AppTableBatchCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/batch_create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableBatchCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/batch_create', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableBatchCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -985,14 +985,14 @@ class AppTableCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableCreateResult]
+        # type: () -> APIResponse[Type[AppTableCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1021,13 +1021,13 @@ class AppTableDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1061,13 +1061,13 @@ class AppTableFieldDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableFieldDeleteResult]
+        # type: () -> APIResponse[Type[AppTableFieldDeleteResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AppTableFieldDeleteResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AppTableFieldDeleteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1101,13 +1101,13 @@ class AppTableFieldUpdateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableFieldUpdateResult]
+        # type: () -> APIResponse[Type[AppTableFieldUpdateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableFieldUpdateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id', 'PUT', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableFieldUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1131,13 +1131,13 @@ class AppTableBatchDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/batch_delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/batch_delete', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1166,13 +1166,13 @@ class AppTableViewCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableViewCreateResult]
+        # type: () -> APIResponse[Type[AppTableViewCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=AppTableViewCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=AppTableViewCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1206,13 +1206,13 @@ class AppTableViewDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1252,14 +1252,14 @@ class AppTableViewListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AppTableViewListResult]
+        # type: () -> APIResponse[Type[AppTableViewListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AppTableViewListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AppTableViewListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

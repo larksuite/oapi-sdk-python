@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -108,13 +108,13 @@ class AdminDeptStatListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AdminDeptStatListResult]
+        # type: () -> APIResponse[Type[AdminDeptStatListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/admin/v1/admin_dept_stats', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AdminDeptStatListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/admin/v1/admin_dept_stats', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AdminDeptStatListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -173,13 +173,13 @@ class AdminUserStatListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[AdminUserStatListResult]
+        # type: () -> APIResponse[Type[AdminUserStatListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/admin/v1/admin_user_stats', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=AdminUserStatListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/admin/v1/admin_user_stats', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=AdminUserStatListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

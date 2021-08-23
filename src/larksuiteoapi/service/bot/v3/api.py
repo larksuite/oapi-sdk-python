@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_no_data_field, set_user_access_token, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_no_data_field, set_user_access_token, \
     set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
@@ -49,11 +49,11 @@ class BotGetReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[BotGetResult]
+        # type: () -> APIResponse[Type[BotGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('bot/v3/info', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+        req = APIRequest('bot/v3/info', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                       None, output_class=BotGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp

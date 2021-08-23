@@ -64,13 +64,12 @@ class FileCopyResult(object):
 
 @to_json_decorator
 @attr.s
-class FileCreateReqBody(object):
+class FolderCreateReqBody(object):
     title = attr.ib(type=str, default=None, metadata={'json': 'title'})
-    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
 
 
 @attr.s
-class FileCreateResult(object):
+class FolderCreateResult(object):
     url = attr.ib(type=str, default=None, metadata={'json': 'url'})
     revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})
@@ -78,12 +77,13 @@ class FileCreateResult(object):
 
 @to_json_decorator
 @attr.s
-class FolderCreateReqBody(object):
+class FileCreateReqBody(object):
     title = attr.ib(type=str, default=None, metadata={'json': 'title'})
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
 
 
 @attr.s
-class FolderCreateResult(object):
+class FileCreateResult(object):
     url = attr.ib(type=str, default=None, metadata={'json': 'url'})
     revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})

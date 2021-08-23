@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -390,13 +390,13 @@ class MailgroupPermissionMemberDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -431,14 +431,14 @@ class PublicMailboxMemberGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[PublicMailboxMember]
+        # type: () -> APIResponse[Type[PublicMailboxMember]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=PublicMailboxMember, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=PublicMailboxMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -467,13 +467,13 @@ class PublicMailboxMemberDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -518,14 +518,14 @@ class MailgroupMemberListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MailgroupMemberListResult]
+        # type: () -> APIResponse[Type[MailgroupMemberListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MailgroupMemberListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MailgroupMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -565,14 +565,14 @@ class MailgroupPermissionMemberGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MailgroupPermissionMember]
+        # type: () -> APIResponse[Type[MailgroupPermissionMember]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MailgroupPermissionMember, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MailgroupPermissionMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -617,14 +617,14 @@ class MailgroupPermissionMemberListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MailgroupPermissionMemberListResult]
+        # type: () -> APIResponse[Type[MailgroupPermissionMemberListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MailgroupPermissionMemberListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MailgroupPermissionMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -648,13 +648,13 @@ class PublicMailboxUpdateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[PublicMailbox]
+        # type: () -> APIResponse[Type[PublicMailbox]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id', 'PUT', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=PublicMailbox, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id', 'PUT', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=PublicMailbox, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -678,13 +678,13 @@ class PublicMailboxMemberClearReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/clear', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/clear', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -724,14 +724,14 @@ class PublicMailboxMemberListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[PublicMailboxMemberListResult]
+        # type: () -> APIResponse[Type[PublicMailboxMemberListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=PublicMailboxMemberListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=PublicMailboxMemberListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -761,14 +761,14 @@ class PublicMailboxMemberCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[PublicMailboxMember]
+        # type: () -> APIResponse[Type[PublicMailboxMember]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=PublicMailboxMember, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=PublicMailboxMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -792,13 +792,13 @@ class MailgroupGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[Mailgroup]
+        # type: () -> APIResponse[Type[Mailgroup]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=Mailgroup, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=Mailgroup, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -822,13 +822,13 @@ class MailgroupUpdateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[Mailgroup]
+        # type: () -> APIResponse[Type[Mailgroup]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'PUT', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=Mailgroup, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'PUT', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=Mailgroup, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -857,13 +857,13 @@ class PublicMailboxListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[PublicMailboxListResult]
+        # type: () -> APIResponse[Type[PublicMailboxListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=PublicMailboxListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=PublicMailboxListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -887,13 +887,13 @@ class MailgroupDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -928,14 +928,14 @@ class MailgroupPermissionMemberCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MailgroupPermissionMember]
+        # type: () -> APIResponse[Type[MailgroupPermissionMember]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MailgroupPermissionMember, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MailgroupPermissionMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -953,12 +953,12 @@ class PublicMailboxCreateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[PublicMailbox]
+        # type: () -> APIResponse[Type[PublicMailbox]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/mail/v1/public_mailboxes', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=PublicMailbox, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=PublicMailbox, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -998,14 +998,14 @@ class MailgroupMemberGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MailgroupMember]
+        # type: () -> APIResponse[Type[MailgroupMember]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MailgroupMember, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MailgroupMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1029,13 +1029,13 @@ class PublicMailboxGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[PublicMailbox]
+        # type: () -> APIResponse[Type[PublicMailbox]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=PublicMailbox, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=PublicMailbox, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1059,13 +1059,13 @@ class PublicMailboxPatchReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[PublicMailbox]
+        # type: () -> APIResponse[Type[PublicMailbox]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=PublicMailbox, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/public_mailboxes/:public_mailbox_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=PublicMailbox, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1083,12 +1083,12 @@ class MailgroupCreateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[Mailgroup]
+        # type: () -> APIResponse[Type[Mailgroup]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/mail/v1/mailgroups', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=Mailgroup, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=Mailgroup, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1117,13 +1117,13 @@ class MailgroupListReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MailgroupListResult]
+        # type: () -> APIResponse[Type[MailgroupListResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/mailgroups', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MailgroupListResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MailgroupListResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1147,13 +1147,13 @@ class MailgroupPatchReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[Mailgroup]
+        # type: () -> APIResponse[Type[Mailgroup]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=Mailgroup, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id', 'PATCH', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=Mailgroup, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1188,14 +1188,14 @@ class MailgroupMemberCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MailgroupMember]
+        # type: () -> APIResponse[Type[MailgroupMember]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/members', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MailgroupMember, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/members', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MailgroupMember, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -1224,13 +1224,13 @@ class MailgroupMemberDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id', 'DELETE', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

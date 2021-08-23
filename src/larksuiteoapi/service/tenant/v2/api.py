@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -52,12 +52,12 @@ class TenantQueryReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[TenantQueryResult]
+        # type: () -> APIResponse[Type[TenantQueryResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/tenant/v2/tenant/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=TenantQueryResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/tenant/v2/tenant/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=TenantQueryResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

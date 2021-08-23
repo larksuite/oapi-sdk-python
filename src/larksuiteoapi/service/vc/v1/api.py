@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -325,13 +325,13 @@ class RoomConfigQueryReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[RoomConfig]
+        # type: () -> APIResponse[Type[RoomConfig]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/room_configs/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=RoomConfig, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/room_configs/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=RoomConfig, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -361,14 +361,14 @@ class MeetingInviteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MeetingInviteResult]
+        # type: () -> APIResponse[Type[MeetingInviteResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id/invite', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=MeetingInviteResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/invite', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=MeetingInviteResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -412,13 +412,13 @@ class ReportGetTopUserReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ReportGetTopUserResult]
+        # type: () -> APIResponse[Type[ReportGetTopUserResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/reports/get_top_user', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ReportGetTopUserResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/reports/get_top_user', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ReportGetTopUserResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -448,14 +448,14 @@ class MeetingSetHostReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MeetingSetHostResult]
+        # type: () -> APIResponse[Type[MeetingSetHostResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id/set_host', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=MeetingSetHostResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/set_host', 'PATCH', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MeetingSetHostResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -479,13 +479,13 @@ class MeetingRecordingGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MeetingRecordingGetResult]
+        # type: () -> APIResponse[Type[MeetingRecordingGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=MeetingRecordingGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=MeetingRecordingGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -509,13 +509,13 @@ class MeetingEndReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id/end', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/end', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -539,13 +539,13 @@ class MeetingRecordingStopReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording/stop', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording/stop', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -574,13 +574,13 @@ class ReportGetDailyReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ReportGetDailyResult]
+        # type: () -> APIResponse[Type[ReportGetDailyResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/reports/get_daily', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=ReportGetDailyResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/reports/get_daily', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ReportGetDailyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -620,14 +620,14 @@ class MeetingGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[MeetingGetResult]
+        # type: () -> APIResponse[Type[MeetingGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                      None, output_class=MeetingGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MeetingGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -645,12 +645,12 @@ class RoomConfigSetReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/vc/v1/room_configs/set', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/room_configs/set', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -680,14 +680,14 @@ class MeetingRecordingSetPermissionReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording/set_permission', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording/set_permission', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -711,13 +711,13 @@ class MeetingRecordingStartReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/vc/v1/meetings/:meeting_id/recording/start', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording/start', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -747,14 +747,14 @@ class ReserveUpdateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ReserveUpdateResult]
+        # type: () -> APIResponse[Type[ReserveUpdateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/reserves/:reserve_id', 'PUT', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=ReserveUpdateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/reserves/:reserve_id', 'PUT', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=ReserveUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -778,13 +778,13 @@ class ReserveApplyReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ReserveApplyResult]
+        # type: () -> APIResponse[Type[ReserveApplyResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/reserves/apply', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=ReserveApplyResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/reserves/apply', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=ReserveApplyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -814,14 +814,14 @@ class ReserveGetReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ReserveGetResult]
+        # type: () -> APIResponse[Type[ReserveGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/reserves/:reserve_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=ReserveGetResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/reserves/:reserve_id', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=ReserveGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -856,14 +856,14 @@ class ReserveGetActiveMeetingReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[ReserveGetActiveMeetingResult]
+        # type: () -> APIResponse[Type[ReserveGetActiveMeetingResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=ReserveGetActiveMeetingResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=ReserveGetActiveMeetingResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -887,13 +887,13 @@ class ReserveDeleteReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[None]
+        # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_path_params(self.path_params)]
-        req = Request('/open-apis/vc/v1/reserves/:reserve_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
-                      None, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/vc/v1/reserves/:reserve_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -65,12 +65,12 @@ class TextTranslateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[TextTranslateResult]
+        # type: () -> APIResponse[Type[TextTranslateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/translation/v1/text/translate', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=TextTranslateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/translation/v1/text/translate', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=TextTranslateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -88,12 +88,12 @@ class TextDetectReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[TextDetectResult]
+        # type: () -> APIResponse[Type[TextDetectResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/translation/v1/text/detect', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=TextDetectResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/translation/v1/text/detect', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=TextDetectResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

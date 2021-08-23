@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -72,12 +72,12 @@ class AuthenAccessTokenReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[UserAccessTokenInfo]
+        # type: () -> APIResponse[Type[UserAccessTokenInfo]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/authen/v1/access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
-                      self.body, output_class=UserAccessTokenInfo, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/authen/v1/access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
+                        self.body, output_class=UserAccessTokenInfo, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -95,12 +95,12 @@ class AuthenRefreshAccessTokenReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[UserAccessTokenInfo]
+        # type: () -> APIResponse[Type[UserAccessTokenInfo]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/authen/v1/refresh_access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
-                      self.body, output_class=UserAccessTokenInfo, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/authen/v1/refresh_access_token', 'POST', [ACCESS_TOKEN_TYPE_APP],
+                        self.body, output_class=UserAccessTokenInfo, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -118,12 +118,12 @@ class AuthenUserInfoReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[UserInfo]
+        # type: () -> APIResponse[Type[UserInfo]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/authen/v1/user_info', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                      None, output_class=UserInfo, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/authen/v1/user_info', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=UserInfo, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

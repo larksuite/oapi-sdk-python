@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -63,13 +63,13 @@ class IdentityCreateReqCall(object):
         return self
 
     def do(self):
-        # type: () -> Response[IdentityCreateResult]
+        # type: () -> APIResponse[Type[IdentityCreateResult]]
         root_service = self.service.service
 
         conf = root_service.conf
         self.request_opts += [set_query_params(self.query_params)]
-        req = Request('/open-apis/human_authentication/v1/identities', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=IdentityCreateResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/human_authentication/v1/identities', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=IdentityCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -65,12 +65,12 @@ class DocsApiMetaReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[DocsApiMetaResult]
+        # type: () -> APIResponse[Type[DocsApiMetaResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/suite/docs-api/meta', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=DocsApiMetaResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/suite/docs-api/meta', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=DocsApiMetaResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -88,12 +88,12 @@ class DocsApiSearchReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[DocsApiSearchResult]
+        # type: () -> APIResponse[Type[DocsApiSearchResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/suite/docs-api/search/object', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                      self.body, output_class=DocsApiSearchResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/suite/docs-api/search/object', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=DocsApiSearchResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

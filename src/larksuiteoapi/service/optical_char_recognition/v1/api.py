@@ -3,7 +3,7 @@
 
 from typing import *
 
-from ....api import Request, Response, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
+from ....api import Request as APIRequest, Response as APIResponse, set_timeout, set_tenant_key, set_user_access_token, set_path_params, \
     set_query_params, set_response_stream, set_is_response_stream, FormData, FormDataFile
 from ....config import Config
 from ....consts import ACCESS_TOKEN_TYPE_TENANT, ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_APP
@@ -52,12 +52,12 @@ class ImageBasicRecognizeReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> Response[ImageBasicRecognizeResult]
+        # type: () -> APIResponse[Type[ImageBasicRecognizeResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = Request('/open-apis/optical_char_recognition/v1/image/basic_recognize', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                      self.body, output_class=ImageBasicRecognizeResult, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/optical_char_recognition/v1/image/basic_recognize', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=ImageBasicRecognizeResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

@@ -125,24 +125,6 @@ class MeetingRoom(object):
 
 
 
-@to_json_decorator
-@attr.s
-class SummaryBatchGetReqBody(object):
-    event_uids = attr.ib(type=List[EventUid], default=None, metadata={'json': 'EventUids'})
-
-
-@attr.s
-class SummaryBatchGetResult(object):
-    event_infos = attr.ib(type=List[EventInfo], default=None, metadata={'json': 'EventInfos'})
-    error_event_uids = attr.ib(type=List[ErrorEventUid], default=None, metadata={'json': 'ErrorEventUids'})
-
-
-
-@attr.s
-class BuildingBatchGetResult(object):
-    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
-
-
 
 @attr.s
 class RoomBatchGetResult(object):
@@ -155,6 +137,24 @@ class FreebusyBatchGetResult(object):
     time_min = attr.ib(type=str, default=None, metadata={'json': 'time_min'})
     time_max = attr.ib(type=str, default=None, metadata={'json': 'time_max'})
     free_busy = attr.ib(type=Dict[str, List[RoomFreeBusy]], default=None, metadata={'json': 'free_busy'})
+
+
+
+@attr.s
+class BuildingBatchGetResult(object):
+    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
+
+
+@to_json_decorator
+@attr.s
+class SummaryBatchGetReqBody(object):
+    event_uids = attr.ib(type=List[EventUid], default=None, metadata={'json': 'EventUids'})
+
+
+@attr.s
+class SummaryBatchGetResult(object):
+    event_infos = attr.ib(type=List[EventInfo], default=None, metadata={'json': 'EventInfos'})
+    error_event_uids = attr.ib(type=List[ErrorEventUid], default=None, metadata={'json': 'ErrorEventUids'})
 
 
 
@@ -202,30 +202,22 @@ class BuildingCreateResult(object):
 
 @to_json_decorator
 @attr.s
-class RoomDeleteReqBody(object):
-    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
-
-
-
-@to_json_decorator
-@attr.s
 class BuildingDeleteReqBody(object):
     building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
 
 
 
+@to_json_decorator
+@attr.s
+class RoomDeleteReqBody(object):
+    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
+
+
+
 
 @attr.s
-class CountryListResult(object):
-    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
-
-
-
-@attr.s
-class RoomListResult(object):
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
+class DistrictListResult(object):
+    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
 
 
 
@@ -238,8 +230,16 @@ class BuildingListResult(object):
 
 
 @attr.s
-class DistrictListResult(object):
-    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
+class RoomListResult(object):
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
+
+
+
+@attr.s
+class CountryListResult(object):
+    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
 
 
 @to_json_decorator
