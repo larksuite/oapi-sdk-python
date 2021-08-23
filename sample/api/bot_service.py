@@ -18,7 +18,7 @@ def test_bot_get_get():
     service = BotV3Service(conf)
     resp = service.bots.get().do()
     print('request id = %s' % resp.get_request_id())
-    print(resp.code)
+    print(resp)
     if resp.code == 0:
         print(resp.data.bot)
     else:

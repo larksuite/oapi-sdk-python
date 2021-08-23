@@ -224,7 +224,7 @@ class DeleteSheet(object):
 
 @to_json_decorator
 @attr.s
-class Requests(object):
+class Request(object):
     add_sheet = attr.ib(type=AddSheet, default=None, metadata={'json': 'addSheet'})
     copy_sheet = attr.ib(type=CopySheet, default=None, metadata={'json': 'copySheet'})
     delete_sheet = attr.ib(type=DeleteSheet, default=None, metadata={'json': 'deleteSheet'})
@@ -592,7 +592,7 @@ class SpreadsheetsProtectedRangeBatchUpdateResult(object):
 @to_json_decorator
 @attr.s
 class SpreadsheetsSheetsBatchUpdateReqBody(object):
-    requests = attr.ib(type=Requests, default=None, metadata={'json': 'requests'})
+    requests = attr.ib(type=List[Request], default=None, metadata={'json': 'requests'})
 
 
 @attr.s

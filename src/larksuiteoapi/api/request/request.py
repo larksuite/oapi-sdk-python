@@ -271,8 +271,7 @@ class Handlers(object):
 
         if not content_type or not content_type.count(CONTENT_TYPE_JSON):
             raise APIError(
-                message='response request_id:%s, status_code: %d, content-type: %s, body: %s . if this is a stream, '
-                        'please specify response_stream in the constructor function' % (
+                message='response request_id:%s, status_code: %d, content-type: %s, body: %s ' % (
                             self.ctx.get_request_id(), resp.status_code, content_type, resp.content)
             )
 

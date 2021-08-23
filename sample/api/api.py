@@ -85,7 +85,7 @@ def test_send_message():
     resp = req.do(conf)
     print('header = %s' % resp.get_header().items())
     print('request id = %s' % resp.get_request_id())
-    print(resp.code)
+    print(resp)
     if resp.code == 0:
         print(resp.data.message_id)
     else:
@@ -149,7 +149,7 @@ def test_upload_file():
     req = Request('image/v4/put', 'POST', ACCESS_TOKEN_TYPE_TENANT, formData)
     resp = req.do(conf)
     print('request id = %s' % resp.get_request_id())
-    print(resp.code)
+    print(resp)
     if resp.code == 0:
         print(resp.data)
     else:

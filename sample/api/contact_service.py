@@ -1,33 +1,37 @@
 # -*- coding: UTF-8 -*-
-from larksuiteoapi.service.contact.v3 import Service as ContactV3Service, User
+from larksuiteoapi.service.contact.v3 import Service as ContactService, model
+from larksuiteoapi import DOMAIN_FEISHU, Config, LEVEL_DEBUG, LEVEL_INFO, \
+    LEVEL_WARN, LEVEL_ERROR
 
-from sample.config.config import test_config_with_memory_store, test_config_with_redis_store
-from larksuiteoapi import DOMAIN_FEISHU, DOMAIN_LARK_SUITE, Config
+# 企业自建应用的配置
+# AppID、AppSecret: "开发者后台" -> "凭证与基础信息" -> 应用凭证（App ID、App Secret）
+# VerificationToken、EncryptKey："开发者后台" -> "事件订阅" -> 事件订阅（Verification Token、Encrypt Key），非必需，订阅事件、消息卡片时必需
+# 更多介绍请看：Github -> README.zh.md -> 如何构建应用配置（AppSettings）
+app_settings = Config.new_internal_app_settings(app_id='AppID', app_secret='AppSecret',
+                                                verification_token='VerificationToken', encrypt_key='EncryptKey')
 
-# for Cutome APP（企业自建应用）
-app_settings = Config.new_internal_app_settings_from_env()
+# 当前访问的是飞书，使用默认内存存储、默认日志（Error 级别）
+# 更多介绍请看：Github -> README.zh.md -> 如何构建整体配置（Config）
+conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_ERROR)
 
-# for redis store and logger(level=debug)
-conf = test_config_with_redis_store(DOMAIN_FEISHU, app_settings)
+service = ContactService(conf)
 
-# for memory store and logger(level=debug)
-# conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+if __name__ == '__main__':
+    # body params
+    body = model.User()
+    body.name = ''
+    body.mobile = ''
+    department_ids_1 = []
+    body.department_ids = department_ids_1
+    body.employee_type = 0
+    req_call = service.users.create(body=body)
 
-service = ContactV3Service(conf)
-
-
-def test_user_patch():
-    user = User()
-    user.name = "rename"
-    resp = service.users.patch(user).set_user_id("77bbc392").set_user_id_type("user_id").do()
+    resp = req_call.do()
     print('request id = %s' % resp.get_request_id())
-    print(resp.code)
+    print('HTTP status code = %s' % resp.get_http_status_code())
+    print('HTTP response header = %s' % resp.get_header().items())
     if resp.code == 0:
-        print(resp.data.user)
+        print(resp.data)
     else:
         print(resp.msg)
         print(resp.error)
-
-
-if __name__ == '__main__':
-    test_user_patch()

@@ -62,3 +62,8 @@ class Response(Generic[T]):
 
     def get_http_status_code(self):  # type: () -> Union[None, int]
         return self.ctx.get_http_status_code()
+
+    def __str__(self):
+        return 'response, request_id:%s, status_code:%d, code:%d, msg:%s, data: %s' % (self.get_request_id(),
+                                                                                       self.get_http_status_code(),
+                                                                                       self.code, self.msg, self.data)
