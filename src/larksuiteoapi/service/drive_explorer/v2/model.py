@@ -64,19 +64,6 @@ class FileCopyResult(object):
 
 @to_json_decorator
 @attr.s
-class FolderCreateReqBody(object):
-    title = attr.ib(type=str, default=None, metadata={'json': 'title'})
-
-
-@attr.s
-class FolderCreateResult(object):
-    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
-    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
-    token = attr.ib(type=str, default=None, metadata={'json': 'token'})
-
-
-@to_json_decorator
-@attr.s
 class FileCreateReqBody(object):
     title = attr.ib(type=str, default=None, metadata={'json': 'title'})
     type = attr.ib(type=str, default=None, metadata={'json': 'type'})
@@ -84,6 +71,19 @@ class FileCreateReqBody(object):
 
 @attr.s
 class FileCreateResult(object):
+    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
+    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
+    token = attr.ib(type=str, default=None, metadata={'json': 'token'})
+
+
+@to_json_decorator
+@attr.s
+class FolderCreateReqBody(object):
+    title = attr.ib(type=str, default=None, metadata={'json': 'title'})
+
+
+@attr.s
+class FolderCreateResult(object):
     url = attr.ib(type=str, default=None, metadata={'json': 'url'})
     revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})

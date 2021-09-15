@@ -204,36 +204,6 @@ class FileCopyReqCall(object):
         return resp
 
 
-class FolderCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (FolderService, FolderCreateReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_folderToken(self, folder_token):
-        # type: (str) -> FolderCreateReqCall
-        self.path_params['folderToken'] = folder_token
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[FolderCreateResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = APIRequest('/open-apis/drive/explorer/v2/folder/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
-                        self.body, output_class=FolderCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class FileCreateReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (FileService, FileCreateReqBody, List[Any]) -> None
@@ -260,6 +230,36 @@ class FileCreateReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         req = APIRequest('/open-apis/drive/explorer/v2/file/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
                         self.body, output_class=FileCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FolderCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (FolderService, FolderCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_folderToken(self, folder_token):
+        # type: (str) -> FolderCreateReqCall
+        self.path_params['folderToken'] = folder_token
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[FolderCreateResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = APIRequest('/open-apis/drive/explorer/v2/folder/:folderToken', 'POST', [ACCESS_TOKEN_TYPE_USER],
+                        self.body, output_class=FolderCreateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

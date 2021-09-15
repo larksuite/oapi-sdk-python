@@ -260,29 +260,6 @@ class MemberTransferReqCall(object):
         return resp
 
 
-class MemberUpdateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (MemberService, MemberUpdateReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> APIResponse[Type[MemberUpdateResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = APIRequest('/open-apis/drive/permission/member/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
-                        self.body, output_class=MemberUpdateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class PublicUpdateReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (PublicService, PublicUpdateReqBody, List[Any]) -> None
@@ -302,6 +279,29 @@ class PublicUpdateReqCall(object):
         conf = root_service.conf
         req = APIRequest('/open-apis/drive/permission/public/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
                         self.body, output_class=PublicUpdateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MemberUpdateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (MemberService, MemberUpdateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> APIResponse[Type[MemberUpdateResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = APIRequest('/open-apis/drive/permission/member/update', 'POST', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MemberUpdateResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

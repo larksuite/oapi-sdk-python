@@ -28,7 +28,7 @@
 
 ```shell
 pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.25rc4
+pip install larksuite-oapi==1.0.25rc6
 ```
 
 ## 术语解释

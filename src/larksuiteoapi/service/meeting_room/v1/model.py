@@ -125,6 +125,24 @@ class MeetingRoom(object):
 
 
 
+@to_json_decorator
+@attr.s
+class SummaryBatchGetReqBody(object):
+    event_uids = attr.ib(type=List[EventUid], default=None, metadata={'json': 'EventUids'})
+
+
+@attr.s
+class SummaryBatchGetResult(object):
+    event_infos = attr.ib(type=List[EventInfo], default=None, metadata={'json': 'EventInfos'})
+    error_event_uids = attr.ib(type=List[ErrorEventUid], default=None, metadata={'json': 'ErrorEventUids'})
+
+
+
+@attr.s
+class BuildingBatchGetResult(object):
+    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
+
+
 
 @attr.s
 class RoomBatchGetResult(object):
@@ -141,24 +159,6 @@ class FreebusyBatchGetResult(object):
 
 
 @attr.s
-class BuildingBatchGetResult(object):
-    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
-
-
-@to_json_decorator
-@attr.s
-class SummaryBatchGetReqBody(object):
-    event_uids = attr.ib(type=List[EventUid], default=None, metadata={'json': 'EventUids'})
-
-
-@attr.s
-class SummaryBatchGetResult(object):
-    event_infos = attr.ib(type=List[EventInfo], default=None, metadata={'json': 'EventInfos'})
-    error_event_uids = attr.ib(type=List[ErrorEventUid], default=None, metadata={'json': 'ErrorEventUids'})
-
-
-
-@attr.s
 class BuildingBatchGetIdResult(object):
     buildings = attr.ib(type=List[BuildingId], default=None, metadata={'json': 'buildings'})
 
@@ -167,6 +167,21 @@ class BuildingBatchGetIdResult(object):
 @attr.s
 class RoomBatchGetIdResult(object):
     rooms = attr.ib(type=List[RoomId], default=None, metadata={'json': 'rooms'})
+
+
+@to_json_decorator
+@attr.s
+class BuildingCreateReqBody(object):
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    floors = attr.ib(type=List[str], default=None, metadata={'json': 'floors'})
+    country_id = attr.ib(type=str, default=None, metadata={'json': 'country_id'})
+    district_id = attr.ib(type=str, default=None, metadata={'json': 'district_id'})
+    custom_building_id = attr.ib(type=str, default=None, metadata={'json': 'custom_building_id'})
+
+
+@attr.s
+class BuildingCreateResult(object):
+    building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
 
 
 @to_json_decorator
@@ -187,17 +202,9 @@ class RoomCreateResult(object):
 
 @to_json_decorator
 @attr.s
-class BuildingCreateReqBody(object):
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    floors = attr.ib(type=List[str], default=None, metadata={'json': 'floors'})
-    country_id = attr.ib(type=str, default=None, metadata={'json': 'country_id'})
-    district_id = attr.ib(type=str, default=None, metadata={'json': 'district_id'})
-    custom_building_id = attr.ib(type=str, default=None, metadata={'json': 'custom_building_id'})
+class RoomDeleteReqBody(object):
+    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
 
-
-@attr.s
-class BuildingCreateResult(object):
-    building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
 
 
 @to_json_decorator
@@ -205,19 +212,6 @@ class BuildingCreateResult(object):
 class BuildingDeleteReqBody(object):
     building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
 
-
-
-@to_json_decorator
-@attr.s
-class RoomDeleteReqBody(object):
-    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
-
-
-
-
-@attr.s
-class DistrictListResult(object):
-    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
 
 
 
@@ -230,6 +224,12 @@ class BuildingListResult(object):
 
 
 @attr.s
+class CountryListResult(object):
+    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
+
+
+
+@attr.s
 class RoomListResult(object):
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
@@ -238,8 +238,8 @@ class RoomListResult(object):
 
 
 @attr.s
-class CountryListResult(object):
-    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
+class DistrictListResult(object):
+    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
 
 
 @to_json_decorator

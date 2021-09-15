@@ -291,7 +291,7 @@ class Sheet(object):
     frozen_row_count = attr.ib(type=int, default=None, metadata={'json': 'frozenRowCount'})
     frozen_col_count = attr.ib(type=int, default=None, metadata={'json': 'frozenColCount'})
     merges = attr.ib(type=List[Merge], default=None, metadata={'json': 'merges'})
-    protected_range = attr.ib(type=ProtectedRange, default=None, metadata={'json': 'protectedRange'})
+    protected_range = attr.ib(type=List[ProtectedRange], default=None, metadata={'json': 'protectedRange'})
     block_info = attr.ib(type=BlockInfo, default=None, metadata={'json': 'blockInfo'})
 
 
@@ -347,12 +347,6 @@ class SheetCfId(object):
 @attr.s
 class SpreadsheetToken(object):
     range = attr.ib(type=str, default=None, metadata={'json': 'range'})
-
-
-@to_json_decorator
-@attr.s
-class Spreadsheets(object):
-    pass
 
 
 @to_json_decorator
@@ -675,7 +669,7 @@ class SpreadsheetsValuesBatchGetResult(object):
     revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
     spreadsheet_token = attr.ib(type=str, default=None, metadata={'json': 'spreadsheetToken'})
     total_cells = attr.ib(type=int, default=None, metadata={'json': 'totalCells'})
-    value_range = attr.ib(type=List[ValueRange], default=None, metadata={'json': 'valueRange'})
+    value_ranges = attr.ib(type=List[ValueRange], default=None, metadata={'json': 'valueRanges'})
 
 
 @to_json_decorator
