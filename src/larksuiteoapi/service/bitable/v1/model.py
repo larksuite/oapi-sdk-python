@@ -40,32 +40,10 @@ class AppTableField(object):
 
 @to_json_decorator
 @attr.s
-class App(object):
-    app_token = attr.ib(type=str, default=None, metadata={'json': 'app_token'})
-    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
-
-
-@to_json_decorator
-@attr.s
 class AppTable(object):
     table_id = attr.ib(type=str, default=None, metadata={'json': 'table_id'})
     revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
     name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-
-
-@to_json_decorator
-@attr.s
-class AppTableRecord(object):
-    record_id = attr.ib(type=str, default=None, metadata={'json': 'record_id'})
-    fields = attr.ib(type=Dict[str, Any], default=None, metadata={'json': 'fields'})
-
-
-@to_json_decorator
-@attr.s
-class AppTableView(object):
-    view_id = attr.ib(type=str, default=None, metadata={'json': 'view_id'})
-    view_name = attr.ib(type=str, default=None, metadata={'json': 'view_name'})
-    view_type = attr.ib(type=str, default=None, metadata={'json': 'view_type'})
 
 
 @to_json_decorator
@@ -86,9 +64,124 @@ class Person(object):
 
 @to_json_decorator
 @attr.s
+class App(object):
+    app_token = attr.ib(type=str, default=None, metadata={'json': 'app_token'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableRecord(object):
+    record_id = attr.ib(type=str, default=None, metadata={'json': 'record_id'})
+    fields = attr.ib(type=Dict[str, Any], default=None, metadata={'json': 'fields'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableView(object):
+    view_id = attr.ib(type=str, default=None, metadata={'json': 'view_id'})
+    view_name = attr.ib(type=str, default=None, metadata={'json': 'view_name'})
+    view_type = attr.ib(type=str, default=None, metadata={'json': 'view_type'})
+
+
+@to_json_decorator
+@attr.s
+class Attachment(object):
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+    size = attr.ib(type=int, default=None, metadata={'json': 'size'})
+    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
+    tmp_url = attr.ib(type=str, default=None, metadata={'json': 'tmp_url'})
+
+
+@to_json_decorator
+@attr.s
 class ReqTable(object):
     name = attr.ib(type=str, default=None, metadata={'json': 'name'})
 
+
+@to_json_decorator
+@attr.s
+class Url(object):
+    text = attr.ib(type=str, default=None, metadata={'json': 'text'})
+    link = attr.ib(type=str, default=None, metadata={'json': 'link'})
+
+
+
+
+@attr.s
+class AppGetResult(object):
+    app = attr.ib(type=App, default=None, metadata={'json': 'app'})
+
+
+
+@attr.s
+class AppTableListResult(object):
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    total = attr.ib(type=int, default=None, metadata={'json': 'total'})
+    items = attr.ib(type=List[AppTable], default=None, metadata={'json': 'items'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableBatchCreateReqBody(object):
+    tables = attr.ib(type=List[ReqTable], default=None, metadata={'json': 'tables'})
+
+
+@attr.s
+class AppTableBatchCreateResult(object):
+    table_ids = attr.ib(type=List[str], default=None, metadata={'json': 'table_ids'})
+
+
+@to_json_decorator
+@attr.s
+class AppTableCreateReqBody(object):
+    table = attr.ib(type=ReqTable, default=None, metadata={'json': 'table'})
+
+
+@attr.s
+class AppTableCreateResult(object):
+    table_id = attr.ib(type=str, default=None, metadata={'json': 'table_id'})
+
+
+
+
+@to_json_decorator
+@attr.s
+class AppTableBatchDeleteReqBody(object):
+    table_ids = attr.ib(type=List[str], default=None, metadata={'json': 'table_ids'})
+
+
+
+
+@attr.s
+class AppTableFieldListResult(object):
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    total = attr.ib(type=int, default=None, metadata={'json': 'total'})
+    items = attr.ib(type=List[AppTableField], default=None, metadata={'json': 'items'})
+
+
+
+@attr.s
+class AppTableFieldCreateResult(object):
+    field = attr.ib(type=AppTableField, default=None, metadata={'json': 'field'})
+
+
+
+@attr.s
+class AppTableFieldDeleteResult(object):
+    field_id = attr.ib(type=str, default=None, metadata={'json': 'field_id'})
+    deleted = attr.ib(type=bool, default=None, metadata={'json': 'deleted'})
+
+
+
+@attr.s
+class AppTableFieldUpdateResult(object):
+    field = attr.ib(type=AppTableField, default=None, metadata={'json': 'field'})
 
 
 @to_json_decorator
@@ -132,6 +225,7 @@ class AppTableRecordUpdateResult(object):
 class AppTableRecordListResult(object):
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    total = attr.ib(type=int, default=None, metadata={'json': 'total'})
     items = attr.ib(type=List[AppTableRecord], default=None, metadata={'json': 'items'})
 
 
@@ -154,78 +248,6 @@ class AppTableRecordCreateResult(object):
 
 
 @attr.s
-class AppGetResult(object):
-    app = attr.ib(type=App, default=None, metadata={'json': 'app'})
-
-
-
-@attr.s
-class AppTableListResult(object):
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    items = attr.ib(type=List[AppTable], default=None, metadata={'json': 'items'})
-
-
-
-@attr.s
-class AppTableFieldListResult(object):
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    items = attr.ib(type=List[AppTableField], default=None, metadata={'json': 'items'})
-
-
-
-@attr.s
-class AppTableFieldCreateResult(object):
-    field = attr.ib(type=AppTableField, default=None, metadata={'json': 'field'})
-
-
-@to_json_decorator
-@attr.s
-class AppTableBatchCreateReqBody(object):
-    tables = attr.ib(type=List[ReqTable], default=None, metadata={'json': 'tables'})
-
-
-@attr.s
-class AppTableBatchCreateResult(object):
-    table_ids = attr.ib(type=List[str], default=None, metadata={'json': 'table_ids'})
-
-
-@to_json_decorator
-@attr.s
-class AppTableCreateReqBody(object):
-    table = attr.ib(type=ReqTable, default=None, metadata={'json': 'table'})
-
-
-@attr.s
-class AppTableCreateResult(object):
-    table_id = attr.ib(type=str, default=None, metadata={'json': 'table_id'})
-
-
-
-
-
-@attr.s
-class AppTableFieldDeleteResult(object):
-    field_id = attr.ib(type=str, default=None, metadata={'json': 'field_id'})
-    deleted = attr.ib(type=bool, default=None, metadata={'json': 'deleted'})
-
-
-
-@attr.s
-class AppTableFieldUpdateResult(object):
-    field = attr.ib(type=AppTableField, default=None, metadata={'json': 'field'})
-
-
-@to_json_decorator
-@attr.s
-class AppTableBatchDeleteReqBody(object):
-    table_ids = attr.ib(type=List[str], default=None, metadata={'json': 'table_ids'})
-
-
-
-
-@attr.s
 class AppTableViewCreateResult(object):
     app_table_view = attr.ib(type=AppTableView, default=None, metadata={'json': 'app.table.view'})
 
@@ -238,3 +260,4 @@ class AppTableViewListResult(object):
     items = attr.ib(type=List[AppTableView], default=None, metadata={'json': 'items'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    total = attr.ib(type=int, default=None, metadata={'json': 'total'})

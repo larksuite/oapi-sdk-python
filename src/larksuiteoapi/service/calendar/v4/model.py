@@ -3,6 +3,7 @@
 
 from typing import List, Dict, Any
 from ....utils.dt import to_json_decorator
+from ....event.model.event import *
 import attr
 
 
@@ -15,6 +16,21 @@ class Vchat(object):
     icon_type = attr.ib(type=str, default=None, metadata={'json': 'icon_type'})
     description = attr.ib(type=str, default=None, metadata={'json': 'description'})
     meeting_url = attr.ib(type=str, default=None, metadata={'json': 'meeting_url'})
+
+
+@to_json_decorator
+@attr.s
+class CustomizationOption(object):
+    option_key = attr.ib(type=str, default=None, metadata={'json': 'option_key'})
+    others_content = attr.ib(type=str, default=None, metadata={'json': 'others_content'})
+
+
+@to_json_decorator
+@attr.s
+class CalendarAttendeeResourceCustomization(object):
+    index_key = attr.ib(type=str, default=None, metadata={'json': 'index_key'})
+    input_content = attr.ib(type=str, default=None, metadata={'json': 'input_content'})
+    options = attr.ib(type=List[CustomizationOption], default=None, metadata={'json': 'options'})
 
 
 @to_json_decorator
@@ -106,6 +122,8 @@ class CalendarEventAttendee(object):
     chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
     room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
     third_party_email = attr.ib(type=str, default=None, metadata={'json': 'third_party_email'})
+    operate_id = attr.ib(type=str, default=None, metadata={'json': 'operate_id'})
+    resource_customization = attr.ib(type=List[CalendarAttendeeResourceCustomization], default=None, metadata={'json': 'resource_customization'})
 
 
 @to_json_decorator
@@ -144,6 +162,7 @@ class CalendarAclEvent(object):
     acl_id = attr.ib(type=str, default=None, metadata={'json': 'acl_id'})
     role = attr.ib(type=str, default=None, metadata={'json': 'role'})
     scope = attr.ib(type=AclScopeEvent, default=None, metadata={'json': 'scope'})
+    user_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'user_id_list'})
 
 
 @to_json_decorator
@@ -180,12 +199,6 @@ class Freebusy(object):
 
 @to_json_decorator
 @attr.s
-class Setting(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
 class TimeoffEvent(object):
     timeoff_event_id = attr.ib(type=str, default=None, metadata={'json': 'timeoff_event_id'})
     user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
@@ -214,16 +227,41 @@ class CalendarCreateResult(object):
 
 
 
-
-
-@attr.s
-class CalendarEventGetResult(object):
-    event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
-
-
-
 @attr.s
 class CalendarPatchResult(object):
+    calendar = attr.ib(type=Calendar, default=None, metadata={'json': 'calendar'})
+
+
+
+
+
+@attr.s
+class CalendarListResult(object):
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    sync_token = attr.ib(type=str, default=None, metadata={'json': 'sync_token'})
+    calendar_list = attr.ib(type=List[Calendar], default=None, metadata={'json': 'calendar_list'})
+
+
+
+
+@to_json_decorator
+@attr.s
+class CalendarSearchReqBody(object):
+    query = attr.ib(type=str, default=None, metadata={'json': 'query'})
+
+
+@attr.s
+class CalendarSearchResult(object):
+    items = attr.ib(type=List[Calendar], default=None, metadata={'json': 'items'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+
+
+
+
+
+@attr.s
+class CalendarSubscribeResult(object):
     calendar = attr.ib(type=Calendar, default=None, metadata={'json': 'calendar'})
 
 
@@ -240,20 +278,51 @@ class CalendarAclListResult(object):
 
 
 
+
+
+
+
+
+
+@attr.s
+class CalendarEventGetResult(object):
+    event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
+
+
+
 @attr.s
 class CalendarEventCreateResult(object):
     event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
 
 
 
-
-
 @attr.s
-class CalendarListResult(object):
+class CalendarEventListResult(object):
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     sync_token = attr.ib(type=str, default=None, metadata={'json': 'sync_token'})
-    calendar_list = attr.ib(type=List[Calendar], default=None, metadata={'json': 'calendar_list'})
+    items = attr.ib(type=List[CalendarEvent], default=None, metadata={'json': 'items'})
+
+
+
+@attr.s
+class CalendarEventPatchResult(object):
+    event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
+
+
+@to_json_decorator
+@attr.s
+class CalendarEventSearchReqBody(object):
+    query = attr.ib(type=str, default=None, metadata={'json': 'query'})
+    filter = attr.ib(type=EventSearchFilter, default=None, metadata={'json': 'filter'})
+
+
+@attr.s
+class CalendarEventSearchResult(object):
+    items = attr.ib(type=List[CalendarEvent], default=None, metadata={'json': 'items'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+
+
 
 
 
@@ -285,25 +354,10 @@ class CalendarEventAttendeeCreateResult(object):
 
 
 
-
-
 @attr.s
-class CalendarEventListResult(object):
+class CalendarEventAttendeeChatMemberListResult(object):
+    items = attr.ib(type=List[CalendarEventAttendeeChatMember], default=None, metadata={'json': 'items'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    sync_token = attr.ib(type=str, default=None, metadata={'json': 'sync_token'})
-    items = attr.ib(type=List[CalendarEvent], default=None, metadata={'json': 'items'})
-
-
-@to_json_decorator
-@attr.s
-class CalendarSearchReqBody(object):
-    query = attr.ib(type=str, default=None, metadata={'json': 'query'})
-
-
-@attr.s
-class CalendarSearchResult(object):
-    items = attr.ib(type=List[Calendar], default=None, metadata={'json': 'items'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
 
 
@@ -319,37 +373,6 @@ class FreebusyListReqBody(object):
 @attr.s
 class FreebusyListResult(object):
     freebusy_list = attr.ib(type=List[Freebusy], default=None, metadata={'json': 'freebusy_list'})
-
-
-
-@attr.s
-class CalendarEventPatchResult(object):
-    event = attr.ib(type=CalendarEvent, default=None, metadata={'json': 'event'})
-
-
-
-
-
-
-
-
-@to_json_decorator
-@attr.s
-class CalendarEventSearchReqBody(object):
-    query = attr.ib(type=str, default=None, metadata={'json': 'query'})
-    filter = attr.ib(type=EventSearchFilter, default=None, metadata={'json': 'filter'})
-
-
-@attr.s
-class CalendarEventSearchResult(object):
-    items = attr.ib(type=List[CalendarEvent], default=None, metadata={'json': 'items'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-
-
-
-@attr.s
-class CalendarSubscribeResult(object):
-    calendar = attr.ib(type=Calendar, default=None, metadata={'json': 'calendar'})
 
 
 @to_json_decorator
@@ -370,11 +393,51 @@ class SettingGenerateCaldavConfResult(object):
 
 
 
+@attr.s
+class CalendarChangedEventData(object):
+    user_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'user_id_list'})
+
+
+@attr.s
+class CalendarChangedEvent(BaseEventV2):
+    event = attr.ib(type=CalendarChangedEventData, default=None)
 
 
 
 @attr.s
-class CalendarEventAttendeeChatMemberListResult(object):
-    items = attr.ib(type=List[CalendarEventAttendeeChatMember], default=None, metadata={'json': 'items'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+class CalendarAclCreatedEventData(object):
+    acl_id = attr.ib(type=str, default=None, metadata={'json': 'acl_id'})
+    role = attr.ib(type=str, default=None, metadata={'json': 'role'})
+    scope = attr.ib(type=AclScopeEvent, default=None, metadata={'json': 'scope'})
+    user_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'user_id_list'})
+
+
+@attr.s
+class CalendarAclCreatedEvent(BaseEventV2):
+    event = attr.ib(type=CalendarAclCreatedEventData, default=None)
+
+
+
+@attr.s
+class CalendarAclDeletedEventData(object):
+    acl_id = attr.ib(type=str, default=None, metadata={'json': 'acl_id'})
+    role = attr.ib(type=str, default=None, metadata={'json': 'role'})
+    scope = attr.ib(type=AclScopeEvent, default=None, metadata={'json': 'scope'})
+    user_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'user_id_list'})
+
+
+@attr.s
+class CalendarAclDeletedEvent(BaseEventV2):
+    event = attr.ib(type=CalendarAclDeletedEventData, default=None)
+
+
+
+@attr.s
+class CalendarEventChangedEventData(object):
+    calendar_id = attr.ib(type=str, default=None, metadata={'json': 'calendar_id'})
+    user_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'user_id_list'})
+
+
+@attr.s
+class CalendarEventChangedEvent(BaseEventV2):
+    event = attr.ib(type=CalendarEventChangedEventData, default=None)

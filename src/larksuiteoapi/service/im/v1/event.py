@@ -10,22 +10,6 @@ from ....event.event import set_event_callback
 from .model import *
 
 
-class MessageReceiveEventHandler(object):
-    def __init__(self, callback):
-        # type: (Callable[[Context, Config, MessageReceiveEvent], Any]) -> None
-        self.handler = callback
-
-    def handle(self, ctx, conf, event):  # type: (Context, Config, MessageReceiveEvent) -> Any
-        return self.handler(ctx, conf, event)
-
-    @staticmethod
-    def set_callback(conf, callback):
-        # type: (Config, Callable[[Context, Config, MessageReceiveEvent], Any]) -> None
-        handler = MessageReceiveEventHandler(callback)
-        set_event_callback(conf, "im.message.receive_v1",
-                          handler.handle, clazz=MessageReceiveEvent)
-
-
 class ChatUpdatedEventHandler(object):
     def __init__(self, callback):
         # type: (Callable[[Context, Config, ChatUpdatedEvent], Any]) -> None
@@ -74,22 +58,6 @@ class ChatMemberBotAddedEventHandler(object):
                           handler.handle, clazz=ChatMemberBotAddedEvent)
 
 
-class ChatMemberUserAddedEventHandler(object):
-    def __init__(self, callback):
-        # type: (Callable[[Context, Config, ChatMemberUserAddedEvent], Any]) -> None
-        self.handler = callback
-
-    def handle(self, ctx, conf, event):  # type: (Context, Config, ChatMemberUserAddedEvent) -> Any
-        return self.handler(ctx, conf, event)
-
-    @staticmethod
-    def set_callback(conf, callback):
-        # type: (Config, Callable[[Context, Config, ChatMemberUserAddedEvent], Any]) -> None
-        handler = ChatMemberUserAddedEventHandler(callback)
-        set_event_callback(conf, "im.chat.member.user.added_v1",
-                          handler.handle, clazz=ChatMemberUserAddedEvent)
-
-
 class ChatMemberBotDeletedEventHandler(object):
     def __init__(self, callback):
         # type: (Callable[[Context, Config, ChatMemberBotDeletedEvent], Any]) -> None
@@ -104,6 +72,22 @@ class ChatMemberBotDeletedEventHandler(object):
         handler = ChatMemberBotDeletedEventHandler(callback)
         set_event_callback(conf, "im.chat.member.bot.deleted_v1",
                           handler.handle, clazz=ChatMemberBotDeletedEvent)
+
+
+class ChatMemberUserAddedEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, ChatMemberUserAddedEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, ChatMemberUserAddedEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, ChatMemberUserAddedEvent], Any]) -> None
+        handler = ChatMemberUserAddedEventHandler(callback)
+        set_event_callback(conf, "im.chat.member.user.added_v1",
+                          handler.handle, clazz=ChatMemberUserAddedEvent)
 
 
 class ChatMemberUserWithdrawnEventHandler(object):
@@ -136,6 +120,22 @@ class ChatMemberUserDeletedEventHandler(object):
         handler = ChatMemberUserDeletedEventHandler(callback)
         set_event_callback(conf, "im.chat.member.user.deleted_v1",
                           handler.handle, clazz=ChatMemberUserDeletedEvent)
+
+
+class MessageReceiveEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, MessageReceiveEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, MessageReceiveEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, MessageReceiveEvent], Any]) -> None
+        handler = MessageReceiveEventHandler(callback)
+        set_event_callback(conf, "im.message.receive_v1",
+                          handler.handle, clazz=MessageReceiveEvent)
 
 
 class MessageMessageReadEventHandler(object):

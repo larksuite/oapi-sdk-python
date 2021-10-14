@@ -15,12 +15,6 @@ class Term(object):
     to = attr.ib(type=str, default=None, metadata={'json': 'to'})
 
 
-@to_json_decorator
-@attr.s
-class Text(object):
-    pass
-
-
 
 @to_json_decorator
 @attr.s

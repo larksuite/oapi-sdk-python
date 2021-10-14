@@ -64,6 +64,18 @@ class PublicMailboxMember(object):
 
 
 
+
+
+@attr.s
+class MailgroupListResult(object):
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    items = attr.ib(type=List[Mailgroup], default=None, metadata={'json': 'items'})
+
+
+
+
+
 @attr.s
 class MailgroupMemberListResult(object):
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
@@ -74,25 +86,19 @@ class MailgroupMemberListResult(object):
 
 
 
+
+
+
+
+
+
+
+
 @attr.s
 class MailgroupPermissionMemberListResult(object):
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     items = attr.ib(type=List[MailgroupPermissionMember], default=None, metadata={'json': 'items'})
-
-
-
-
-
-
-
-@attr.s
-class PublicMailboxMemberListResult(object):
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    items = attr.ib(type=List[PublicMailboxMember], default=None, metadata={'json': 'items'})
-
-
 
 
 
@@ -120,15 +126,9 @@ class PublicMailboxListResult(object):
 
 
 
-
-
 @attr.s
-class MailgroupListResult(object):
+class PublicMailboxMemberListResult(object):
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    items = attr.ib(type=List[Mailgroup], default=None, metadata={'json': 'items'})
-
-
-
-
+    items = attr.ib(type=List[PublicMailboxMember], default=None, metadata={'json': 'items'})
 

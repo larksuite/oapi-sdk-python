@@ -11,28 +11,9 @@ import attr
 
 @to_json_decorator
 @attr.s
-class Sender(object):
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
-    sender_type = attr.ib(type=str, default=None, metadata={'json': 'sender_type'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-
-
-@to_json_decorator
-@attr.s
 class Operator(object):
     operator_id = attr.ib(type=str, default=None, metadata={'json': 'operator_id'})
     operator_type = attr.ib(type=str, default=None, metadata={'json': 'operator_type'})
-
-
-@to_json_decorator
-@attr.s
-class Mention(object):
-    key = attr.ib(type=str, default=None, metadata={'json': 'key'})
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
 
 
 @to_json_decorator
@@ -44,16 +25,36 @@ class Emoji(object):
 @to_json_decorator
 @attr.s
 class MessageReaction(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["action_time"])
     reaction_id = attr.ib(type=str, default=None, metadata={'json': 'reaction_id'})
     operator = attr.ib(type=Operator, default=None, metadata={'json': 'operator'})
-    action_time = attr.ib(type=str, default=None, metadata={'json': 'action_time'})
+    action_time = attr.ib(type=int, default=None, metadata={'json': 'action_time'})
     reaction_type = attr.ib(type=Emoji, default=None, metadata={'json': 'reaction_type'})
+
+
+@to_json_decorator
+@attr.s
+class Sender(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
+    sender_type = attr.ib(type=str, default=None, metadata={'json': 'sender_type'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
 
 
 @to_json_decorator
 @attr.s
 class MessageBody(object):
     content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+
+
+@to_json_decorator
+@attr.s
+class Mention(object):
+    key = attr.ib(type=str, default=None, metadata={'json': 'key'})
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    id_type = attr.ib(type=str, default=None, metadata={'json': 'id_type'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
 
 
 @to_json_decorator
@@ -134,6 +135,25 @@ class EventMessage(object):
 
 @to_json_decorator
 @attr.s
+class ChatChange(object):
+    avatar = attr.ib(type=str, default=None, metadata={'json': 'avatar'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    i18n_names = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_names'})
+    add_member_permission = attr.ib(type=str, default=None, metadata={'json': 'add_member_permission'})
+    share_card_permission = attr.ib(type=str, default=None, metadata={'json': 'share_card_permission'})
+    at_all_permission = attr.ib(type=str, default=None, metadata={'json': 'at_all_permission'})
+    edit_permission = attr.ib(type=str, default=None, metadata={'json': 'edit_permission'})
+    membership_approval = attr.ib(type=str, default=None, metadata={'json': 'membership_approval'})
+    join_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'join_message_visibility'})
+    leave_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'leave_message_visibility'})
+    moderation_permission = attr.ib(type=str, default=None, metadata={'json': 'moderation_permission'})
+    owner_id = attr.ib(type=UserId, default=None, metadata={'json': 'owner_id'})
+    
+
+
+@to_json_decorator
+@attr.s
 class ListEventModerator(object):
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
     user_id = attr.ib(type=UserId, default=None, metadata={'json': 'user_id'})
@@ -164,35 +184,10 @@ class EventMessageReader(object):
 
 @to_json_decorator
 @attr.s
-class ChatChange(object):
-    avatar = attr.ib(type=str, default=None, metadata={'json': 'avatar'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
-    i18n_names = attr.ib(type=I18nNames, default=None, metadata={'json': 'i18n_names'})
-    add_member_permission = attr.ib(type=str, default=None, metadata={'json': 'add_member_permission'})
-    share_card_permission = attr.ib(type=str, default=None, metadata={'json': 'share_card_permission'})
-    at_all_permission = attr.ib(type=str, default=None, metadata={'json': 'at_all_permission'})
-    edit_permission = attr.ib(type=str, default=None, metadata={'json': 'edit_permission'})
-    membership_approval = attr.ib(type=str, default=None, metadata={'json': 'membership_approval'})
-    join_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'join_message_visibility'})
-    leave_message_visibility = attr.ib(type=str, default=None, metadata={'json': 'leave_message_visibility'})
-    moderation_permission = attr.ib(type=str, default=None, metadata={'json': 'moderation_permission'})
-    owner_id = attr.ib(type=UserId, default=None, metadata={'json': 'owner_id'})
-    
-
-
-@to_json_decorator
-@attr.s
 class ChatMemberUser(object):
     name = attr.ib(type=str, default=None, metadata={'json': 'name'})
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
     user_id = attr.ib(type=UserId, default=None, metadata={'json': 'user_id'})
-
-
-@to_json_decorator
-@attr.s
-class ChatAnnouncement(object):
-    pass
 
 
 @to_json_decorator
@@ -211,44 +206,6 @@ class ChatMemberBot(object):
 @attr.s
 class ChatMembers(object):
     user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
-
-
-@to_json_decorator
-@attr.s
-class File(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
-class Image(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
-class MessageResource(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
-class UrgentReceivers(object):
-    user_id_list = attr.ib(type=List[str], default=None, metadata={'json': 'user_id_list'})
-
-
-@to_json_decorator
-@attr.s
-class ListChat(object):
-    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
-    avatar = attr.ib(type=str, default=None, metadata={'json': 'avatar'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
-    owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
-    owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
-    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
-    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
-    
 
 
 @to_json_decorator
@@ -277,47 +234,32 @@ class ReadUser(object):
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
 
 
-
-
+@to_json_decorator
 @attr.s
-class MessageListResult(object):
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    items = attr.ib(type=List[Message], default=None, metadata={'json': 'items'})
+class UrgentReceivers(object):
+    user_id_list = attr.ib(type=List[str], default=None, metadata={'json': 'user_id_list'})
 
 
 @to_json_decorator
 @attr.s
-class MessagePatchReqBody(object):
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-
-
-
-@to_json_decorator
-@attr.s
-class MessageReplyReqBody(object):
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-    msg_type = attr.ib(type=str, default=None, metadata={'json': 'msg_type'})
-
+class ChatManagers(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["manager_id"])
+    manager_id = attr.ib(type=int, default=None, metadata={'json': 'manager_id'})
 
 
 @to_json_decorator
 @attr.s
-class MessageCreateReqBody(object):
-    receive_id = attr.ib(type=str, default=None, metadata={'json': 'receive_id'})
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-    msg_type = attr.ib(type=str, default=None, metadata={'json': 'msg_type'})
+class ListChat(object):
+    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
+    avatar = attr.ib(type=str, default=None, metadata={'json': 'avatar'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
+    owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
+    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
+    tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
+    
 
-
-
-
-
-
-@attr.s
-class MessageReadUsersResult(object):
-    items = attr.ib(type=List[ReadUser], default=None, metadata={'json': 'items'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
 
 
 @to_json_decorator
@@ -341,26 +283,10 @@ class ChatUpdateReqBody(object):
 
 
 @attr.s
-class FileCreateResult(object):
-    file_key = attr.ib(type=str, default=None, metadata={'json': 'file_key'})
-
-
-
-
-
-@attr.s
 class ChatListResult(object):
     items = attr.ib(type=List[ListChat], default=None, metadata={'json': 'items'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-
-
-
-@attr.s
-class ImageCreateResult(object):
-    image_key = attr.ib(type=str, default=None, metadata={'json': 'image_key'})
-
-
 
 
 
@@ -442,8 +368,23 @@ class ChatSearchResult(object):
 
 
 @attr.s
-class MessageGetResult(object):
-    items = attr.ib(type=List[Message], default=None, metadata={'json': 'items'})
+class ChatAnnouncementGetResult(object):
+    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+    revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
+    create_time = attr.ib(type=str, default=None, metadata={'json': 'create_time'})
+    update_time = attr.ib(type=str, default=None, metadata={'json': 'update_time'})
+    owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
+    owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
+    modifier_id_type = attr.ib(type=str, default=None, metadata={'json': 'modifier_id_type'})
+    modifier_id = attr.ib(type=str, default=None, metadata={'json': 'modifier_id'})
+
+
+@to_json_decorator
+@attr.s
+class ChatAnnouncementPatchReqBody(object):
+    revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
+    requests = attr.ib(type=List[str], default=None, metadata={'json': 'requests'})
+
 
 
 @to_json_decorator
@@ -469,8 +410,6 @@ class ChatMembersDeleteResult(object):
 
 
 
-
-
 @attr.s
 class ChatMembersGetResult(object):
     items = attr.ib(type=List[ListMember], default=None, metadata={'json': 'items'})
@@ -481,42 +420,75 @@ class ChatMembersGetResult(object):
 
 
 @attr.s
-class ChatAnnouncementGetResult(object):
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-    revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
-    create_time = attr.ib(type=str, default=None, metadata={'json': 'create_time'})
-    update_time = attr.ib(type=str, default=None, metadata={'json': 'update_time'})
-    owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
-    owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
-    modifier_id_type = attr.ib(type=str, default=None, metadata={'json': 'modifier_id_type'})
-    modifier_id = attr.ib(type=str, default=None, metadata={'json': 'modifier_id'})
-
-
-
-@attr.s
 class ChatMembersIsInChatResult(object):
     is_in_chat = attr.ib(type=bool, default=None, metadata={'json': 'is_in_chat'})
 
 
 
 
+
+@attr.s
+class FileCreateResult(object):
+    file_key = attr.ib(type=str, default=None, metadata={'json': 'file_key'})
+
+
+
+
+
+@attr.s
+class ImageCreateResult(object):
+    image_key = attr.ib(type=str, default=None, metadata={'json': 'image_key'})
+
+
+
+
+
+@attr.s
+class MessageListResult(object):
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    items = attr.ib(type=List[Message], default=None, metadata={'json': 'items'})
+
+
 @to_json_decorator
 @attr.s
-class ChatAnnouncementPatchReqBody(object):
-    revision = attr.ib(type=str, default=None, metadata={'json': 'revision'})
-    requests = attr.ib(type=List[str], default=None, metadata={'json': 'requests'})
+class MessagePatchReqBody(object):
+    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+
+
+
+@to_json_decorator
+@attr.s
+class MessageReplyReqBody(object):
+    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+    msg_type = attr.ib(type=str, default=None, metadata={'json': 'msg_type'})
+
+
+
+@to_json_decorator
+@attr.s
+class MessageCreateReqBody(object):
+    receive_id = attr.ib(type=str, default=None, metadata={'json': 'receive_id'})
+    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+    msg_type = attr.ib(type=str, default=None, metadata={'json': 'msg_type'})
+
+
+
 
 
 
 @attr.s
-class MessageReceiveEventData(object):
-    sender = attr.ib(type=EventSender, default=None, metadata={'json': 'sender'})
-    message = attr.ib(type=EventMessage, default=None, metadata={'json': 'message'})
+class MessageReadUsersResult(object):
+    items = attr.ib(type=List[ReadUser], default=None, metadata={'json': 'items'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+
 
 
 @attr.s
-class MessageReceiveEvent(BaseEventV2):
-    event = attr.ib(type=MessageReceiveEventData, default=None)
+class MessageGetResult(object):
+    items = attr.ib(type=List[Message], default=None, metadata={'json': 'items'})
+
 
 
 
@@ -566,6 +538,20 @@ class ChatMemberBotAddedEvent(BaseEventV2):
 
 
 @attr.s
+class ChatMemberBotDeletedEventData(object):
+    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
+    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
+    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
+    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
+
+
+@attr.s
+class ChatMemberBotDeletedEvent(BaseEventV2):
+    event = attr.ib(type=ChatMemberBotDeletedEventData, default=None)
+
+
+
+@attr.s
 class ChatMemberUserAddedEventData(object):
     chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
@@ -577,20 +563,6 @@ class ChatMemberUserAddedEventData(object):
 @attr.s
 class ChatMemberUserAddedEvent(BaseEventV2):
     event = attr.ib(type=ChatMemberUserAddedEventData, default=None)
-
-
-
-@attr.s
-class ChatMemberBotDeletedEventData(object):
-    chat_id = attr.ib(type=str, default=None, metadata={'json': 'chat_id'})
-    operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
-    external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
-    operator_tenant_key = attr.ib(type=str, default=None, metadata={'json': 'operator_tenant_key'})
-
-
-@attr.s
-class ChatMemberBotDeletedEvent(BaseEventV2):
-    event = attr.ib(type=ChatMemberBotDeletedEventData, default=None)
 
 
 
@@ -621,6 +593,18 @@ class ChatMemberUserDeletedEventData(object):
 @attr.s
 class ChatMemberUserDeletedEvent(BaseEventV2):
     event = attr.ib(type=ChatMemberUserDeletedEventData, default=None)
+
+
+
+@attr.s
+class MessageReceiveEventData(object):
+    sender = attr.ib(type=EventSender, default=None, metadata={'json': 'sender'})
+    message = attr.ib(type=EventMessage, default=None, metadata={'json': 'message'})
+
+
+@attr.s
+class MessageReceiveEvent(BaseEventV2):
+    event = attr.ib(type=MessageReceiveEventData, default=None)
 
 
 

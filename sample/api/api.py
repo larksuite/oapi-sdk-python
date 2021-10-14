@@ -182,5 +182,5 @@ def test_download_file(timeout=False):
 if __name__ == '__main__':
     # test_send_message()
     # test_download_file()
-    test_upload_file()
-    # test_user_update()
+    # test_upload_file()
+    test_user_update()

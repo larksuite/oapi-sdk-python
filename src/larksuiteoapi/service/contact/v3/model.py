@@ -11,28 +11,46 @@ import attr
 
 @to_json_decorator
 @attr.s
-class NotificationOption(object):
-    channels = attr.ib(type=List[str], default=None, metadata={'json': 'channels'})
-    language = attr.ib(type=str, default=None, metadata={'json': 'language'})
-
-
-@to_json_decorator
-@attr.s
-class I18nContent(object):
-    locale = attr.ib(type=str, default=None, metadata={'json': 'locale'})
+class CustomAttrOption(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
     value = attr.ib(type=str, default=None, metadata={'json': 'value'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
 
 
 @to_json_decorator
 @attr.s
-class EmployeeTypeEnum(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["enum_value"])
-    enum_id = attr.ib(type=str, default=None, metadata={'json': 'enum_id'})
-    enum_value = attr.ib(type=int, default=None, metadata={'json': 'enum_value'})
-    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
-    enum_type = attr.ib(type=int, default=None, metadata={'json': 'enum_type'})
-    enum_status = attr.ib(type=int, default=None, metadata={'json': 'enum_status'})
-    i18n_content = attr.ib(type=List[I18nContent], default=None, metadata={'json': 'i18n_content'})
+class CustomAttrOptions(object):
+    default_option_id = attr.ib(type=str, default=None, metadata={'json': 'default_option_id'})
+    option_type = attr.ib(type=str, default=None, metadata={'json': 'option_type'})
+    options = attr.ib(type=List[CustomAttrOption], default=None, metadata={'json': 'options'})
+
+
+@to_json_decorator
+@attr.s
+class CustomAttrGenericUser(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    type = attr.ib(type=int, default=None, metadata={'json': 'type'})
+
+
+@to_json_decorator
+@attr.s
+class UserCustomAttrValue(object):
+    text = attr.ib(type=str, default=None, metadata={'json': 'text'})
+    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
+    pc_url = attr.ib(type=str, default=None, metadata={'json': 'pc_url'})
+    option_id = attr.ib(type=str, default=None, metadata={'json': 'option_id'})
+    option_value = attr.ib(type=str, default=None, metadata={'json': 'option_value'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    picture_url = attr.ib(type=str, default=None, metadata={'json': 'picture_url'})
+    generic_user = attr.ib(type=CustomAttrGenericUser, default=None, metadata={'json': 'generic_user'})
+
+
+@to_json_decorator
+@attr.s
+class UserCustomAttr(object):
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    value = attr.ib(type=UserCustomAttrValue, default=None, metadata={'json': 'value'})
 
 
 @to_json_decorator
@@ -74,18 +92,37 @@ class UserGroup(object):
 
 @to_json_decorator
 @attr.s
-class UserCustomAttrValue(object):
-    text = attr.ib(type=str, default=None, metadata={'json': 'text'})
-    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
-    pc_url = attr.ib(type=str, default=None, metadata={'json': 'pc_url'})
+class NotificationOption(object):
+    channels = attr.ib(type=List[str], default=None, metadata={'json': 'channels'})
+    language = attr.ib(type=str, default=None, metadata={'json': 'language'})
 
 
 @to_json_decorator
 @attr.s
-class UserCustomAttr(object):
-    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+class I18nContent(object):
+    locale = attr.ib(type=str, default=None, metadata={'json': 'locale'})
+    value = attr.ib(type=str, default=None, metadata={'json': 'value'})
+
+
+@to_json_decorator
+@attr.s
+class EmployeeTypeEnum(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["enum_value"])
+    enum_id = attr.ib(type=str, default=None, metadata={'json': 'enum_id'})
+    enum_value = attr.ib(type=int, default=None, metadata={'json': 'enum_value'})
+    content = attr.ib(type=str, default=None, metadata={'json': 'content'})
+    enum_type = attr.ib(type=int, default=None, metadata={'json': 'enum_type'})
+    enum_status = attr.ib(type=int, default=None, metadata={'json': 'enum_status'})
+    i18n_content = attr.ib(type=List[I18nContent], default=None, metadata={'json': 'i18n_content'})
+
+
+@to_json_decorator
+@attr.s
+class CustomAttr(object):
     id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    value = attr.ib(type=UserCustomAttrValue, default=None, metadata={'json': 'value'})
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+    options = attr.ib(type=CustomAttrOptions, default=None, metadata={'json': 'options'})
+    i18n_name = attr.ib(type=List[I18nContent], default=None, metadata={'json': 'i18n_name'})
 
 
 @to_json_decorator
@@ -249,12 +286,6 @@ class GroupEvent(object):
 
 @to_json_decorator
 @attr.s
-class UserGroupMember(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
 class DepartmentCount(object):
     department_id = attr.ib(type=str, default=None, metadata={'json': 'department_id'})
     direct_department_count = attr.ib(type=int, default=None, metadata={'json': 'direct_department_count'})
@@ -277,23 +308,36 @@ class OldUserObject(object):
     open_id = attr.ib(type=str, default=None, metadata={'json': 'open_id'})
 
 
+@to_json_decorator
+@attr.s
+class Group(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    member_user_count = attr.ib(type=int, default=None, metadata={'json': 'member_user_count'})
+    member_department_count = attr.ib(type=int, default=None, metadata={'json': 'member_department_count'})
+
+
+@to_json_decorator
+@attr.s
+class Memberlist(object):
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+
+
+
+
+@attr.s
+class CustomAttrListResult(object):
+    items = attr.ib(type=List[CustomAttr], default=None, metadata={'json': 'items'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+
 
 
 @attr.s
 class DepartmentGetResult(object):
     department = attr.ib(type=Department, default=None, metadata={'json': 'department'})
-
-
-@to_json_decorator
-@attr.s
-class UserDeleteReqBody(object):
-    department_chat_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'department_chat_acceptor_user_id'})
-    external_chat_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'external_chat_acceptor_user_id'})
-    docs_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'docs_acceptor_user_id'})
-    calendar_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'calendar_acceptor_user_id'})
-    application_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'application_acceptor_user_id'})
-    helpdesk_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'helpdesk_acceptor_user_id'})
-
 
 
 
@@ -308,6 +352,139 @@ class DepartmentListResult(object):
 @attr.s
 class DepartmentPatchResult(object):
     department = attr.ib(type=Department, default=None, metadata={'json': 'department'})
+
+
+
+@attr.s
+class DepartmentCreateResult(object):
+    department = attr.ib(type=Department, default=None, metadata={'json': 'department'})
+
+
+
+
+
+@attr.s
+class DepartmentUpdateResult(object):
+    department = attr.ib(type=Department, default=None, metadata={'json': 'department'})
+
+
+
+@attr.s
+class DepartmentParentResult(object):
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    items = attr.ib(type=List[Department], default=None, metadata={'json': 'items'})
+
+
+@to_json_decorator
+@attr.s
+class DepartmentSearchReqBody(object):
+    query = attr.ib(type=str, default=None, metadata={'json': 'query'})
+
+
+@attr.s
+class DepartmentSearchResult(object):
+    items = attr.ib(type=List[Department], default=None, metadata={'json': 'items'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+
+
+
+@attr.s
+class EmployeeTypeEnumListResult(object):
+    items = attr.ib(type=List[EmployeeTypeEnum], default=None, metadata={'json': 'items'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+
+
+
+@attr.s
+class EmployeeTypeEnumCreateResult(object):
+    employee_type_enum = attr.ib(type=EmployeeTypeEnum, default=None, metadata={'json': 'employee_type_enum'})
+
+
+
+
+
+@attr.s
+class EmployeeTypeEnumUpdateResult(object):
+    employee_type_enum = attr.ib(type=EmployeeTypeEnum, default=None, metadata={'json': 'employee_type_enum'})
+
+
+@to_json_decorator
+@attr.s
+class GroupCreateReqBody(object):
+    group_id = attr.ib(type=str, default=None, metadata={'json': 'group_id'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+    type = attr.ib(type=int, default=None, metadata={'json': 'type'})
+
+
+@attr.s
+class GroupCreateResult(object):
+    group_id = attr.ib(type=str, default=None, metadata={'json': 'group_id'})
+
+
+
+@attr.s
+class GroupSimplelistResult(object):
+    grouplist = attr.ib(type=List[Group], default=None, metadata={'json': 'grouplist'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+
+
+
+
+
+@attr.s
+class GroupGetResult(object):
+    group = attr.ib(type=Group, default=None, metadata={'json': 'group'})
+
+
+@to_json_decorator
+@attr.s
+class GroupPatchReqBody(object):
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    description = attr.ib(type=str, default=None, metadata={'json': 'description'})
+
+
+
+
+@attr.s
+class GroupMemberSimplelistResult(object):
+    memberlist = attr.ib(type=List[Memberlist], default=None, metadata={'json': 'memberlist'})
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+
+
+@to_json_decorator
+@attr.s
+class GroupMemberAddReqBody(object):
+    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_id_type = attr.ib(type=str, default=None, metadata={'json': 'member_id_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+
+
+
+@to_json_decorator
+@attr.s
+class GroupMemberRemoveReqBody(object):
+    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+    member_id_type = attr.ib(type=str, default=None, metadata={'json': 'member_id_type'})
+
+
+
+@to_json_decorator
+@attr.s
+class UserDeleteReqBody(object):
+    department_chat_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'department_chat_acceptor_user_id'})
+    external_chat_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'external_chat_acceptor_user_id'})
+    docs_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'docs_acceptor_user_id'})
+    calendar_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'calendar_acceptor_user_id'})
+    application_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'application_acceptor_user_id'})
+    helpdesk_acceptor_user_id = attr.ib(type=str, default=None, metadata={'json': 'helpdesk_acceptor_user_id'})
+
 
 
 
@@ -330,22 +507,8 @@ class UserPatchResult(object):
 
 
 @attr.s
-class DepartmentCreateResult(object):
-    department = attr.ib(type=Department, default=None, metadata={'json': 'department'})
-
-
-
-
-
-@attr.s
 class UserGetResult(object):
     user = attr.ib(type=User, default=None, metadata={'json': 'user'})
-
-
-
-@attr.s
-class DepartmentUpdateResult(object):
-    department = attr.ib(type=Department, default=None, metadata={'json': 'department'})
 
 
 
@@ -354,27 +517,6 @@ class UserListResult(object):
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     items = attr.ib(type=List[User], default=None, metadata={'json': 'items'})
-
-
-
-@attr.s
-class DepartmentParentResult(object):
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    items = attr.ib(type=List[Department], default=None, metadata={'json': 'items'})
-
-
-@to_json_decorator
-@attr.s
-class DepartmentSearchReqBody(object):
-    query = attr.ib(type=str, default=None, metadata={'json': 'query'})
-
-
-@attr.s
-class DepartmentSearchResult(object):
-    items = attr.ib(type=List[Department], default=None, metadata={'json': 'items'})
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
 
 
 @attr.s
@@ -409,110 +551,6 @@ class DepartmentUpdatedEventData(object):
 @attr.s
 class DepartmentUpdatedEvent(BaseEventV2):
     event = attr.ib(type=DepartmentUpdatedEventData, default=None)
-
-
-
-@attr.s
-class UserCreatedEventData(object):
-    object = attr.ib(type=UserEvent, default=None, metadata={'json': 'object'})
-
-
-@attr.s
-class UserCreatedEvent(BaseEventV2):
-    event = attr.ib(type=UserCreatedEventData, default=None)
-
-
-
-@attr.s
-class UserDeletedEventData(object):
-    object = attr.ib(type=UserEvent, default=None, metadata={'json': 'object'})
-    old_object = attr.ib(type=OldUserObject, default=None, metadata={'json': 'old_object'})
-
-
-@attr.s
-class UserDeletedEvent(BaseEventV2):
-    event = attr.ib(type=UserDeletedEventData, default=None)
-
-
-
-@attr.s
-class UserUpdatedEventData(object):
-    object = attr.ib(type=UserEvent, default=None, metadata={'json': 'object'})
-    old_object = attr.ib(type=UserEvent, default=None, metadata={'json': 'old_object'})
-
-
-@attr.s
-class UserUpdatedEvent(BaseEventV2):
-    event = attr.ib(type=UserUpdatedEventData, default=None)
-
-
-
-@attr.s
-class UserGroupCreatedEventData(object):
-    object = attr.ib(type=GroupEvent, default=None, metadata={'json': 'object'})
-
-
-@attr.s
-class UserGroupCreatedEvent(BaseEventV2):
-    event = attr.ib(type=UserGroupCreatedEventData, default=None)
-
-
-
-@attr.s
-class UserGroupDeletedEventData(object):
-    object = attr.ib(type=GroupEvent, default=None, metadata={'json': 'object'})
-
-
-@attr.s
-class UserGroupDeletedEvent(BaseEventV2):
-    event = attr.ib(type=UserGroupDeletedEventData, default=None)
-
-
-
-@attr.s
-class UserGroupUpdatedEventData(object):
-    object = attr.ib(type=GroupEvent, default=None, metadata={'json': 'object'})
-    old_object = attr.ib(type=GroupEvent, default=None, metadata={'json': 'old_object'})
-
-
-@attr.s
-class UserGroupUpdatedEvent(BaseEventV2):
-    event = attr.ib(type=UserGroupUpdatedEventData, default=None)
-
-
-
-@attr.s
-class ScopeUpdatedEventData(object):
-    added = attr.ib(type=Scope, default=None, metadata={'json': 'added'})
-    removed = attr.ib(type=Scope, default=None, metadata={'json': 'removed'})
-
-
-@attr.s
-class ScopeUpdatedEvent(BaseEventV2):
-    event = attr.ib(type=ScopeUpdatedEventData, default=None)
-
-
-
-@attr.s
-class UserGroupMemberChangedEventData(object):
-    object = attr.ib(type=GroupEvent, default=None, metadata={'json': 'object'})
-
-
-@attr.s
-class UserGroupMemberChangedEvent(BaseEventV2):
-    event = attr.ib(type=UserGroupMemberChangedEventData, default=None)
-
-
-
-@attr.s
-class CustomAttrEventUpdatedEventData(object):
-    object = attr.ib(type=CustomAttrEvent, default=None, metadata={'json': 'object'})
-    old_object = attr.ib(type=CustomAttrEvent, default=None, metadata={'json': 'old_object'})
-
-
-@attr.s
-class CustomAttrEventUpdatedEvent(BaseEventV2):
-    event = attr.ib(type=CustomAttrEventUpdatedEventData, default=None)
 
 
 
@@ -571,3 +609,50 @@ class EmployeeTypeEnumUpdatedEventData(object):
 @attr.s
 class EmployeeTypeEnumUpdatedEvent(BaseEventV2):
     event = attr.ib(type=EmployeeTypeEnumUpdatedEventData, default=None)
+
+
+
+@attr.s
+class ScopeUpdatedEventData(object):
+    added = attr.ib(type=Scope, default=None, metadata={'json': 'added'})
+    removed = attr.ib(type=Scope, default=None, metadata={'json': 'removed'})
+
+
+@attr.s
+class ScopeUpdatedEvent(BaseEventV2):
+    event = attr.ib(type=ScopeUpdatedEventData, default=None)
+
+
+
+@attr.s
+class UserCreatedEventData(object):
+    object = attr.ib(type=UserEvent, default=None, metadata={'json': 'object'})
+
+
+@attr.s
+class UserCreatedEvent(BaseEventV2):
+    event = attr.ib(type=UserCreatedEventData, default=None)
+
+
+
+@attr.s
+class UserDeletedEventData(object):
+    object = attr.ib(type=UserEvent, default=None, metadata={'json': 'object'})
+    old_object = attr.ib(type=OldUserObject, default=None, metadata={'json': 'old_object'})
+
+
+@attr.s
+class UserDeletedEvent(BaseEventV2):
+    event = attr.ib(type=UserDeletedEventData, default=None)
+
+
+
+@attr.s
+class UserUpdatedEventData(object):
+    object = attr.ib(type=UserEvent, default=None, metadata={'json': 'object'})
+    old_object = attr.ib(type=UserEvent, default=None, metadata={'json': 'old_object'})
+
+
+@attr.s
+class UserUpdatedEvent(BaseEventV2):
+    event = attr.ib(type=UserUpdatedEventData, default=None)

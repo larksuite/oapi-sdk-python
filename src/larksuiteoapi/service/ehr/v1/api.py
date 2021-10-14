@@ -137,7 +137,7 @@ class EmployeeListReqCall(object):
         return self
 
     def set_user_ids(self, user_ids):
-        # type: (str) -> EmployeeListReqCall
+        # type: (List[str]) -> EmployeeListReqCall
         self.query_params['user_ids'] = user_ids
         return self
 

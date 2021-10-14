@@ -86,6 +86,35 @@ class MeetingService(object):
 
         return MeetingGetReqCall(self, request_opts=request_opts)
 
+    def kickout(self, body, tenant_key=None, timeout=None):
+        # type: (MeetingKickoutReqBody, str, int) -> MeetingKickoutReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        return MeetingKickoutReqCall(self, body, request_opts=request_opts)
+
+    def list_by_no(self, tenant_key=None, user_access_token=None, timeout=None):
+        # type: (str, str, int) -> MeetingListByNoReqCall
+
+        request_opts = []   # type: List[Callable[[Any], Any]]
+
+        if timeout is not None:
+            request_opts += [set_timeout(timeout)]
+
+        if tenant_key is not None:
+            request_opts += [set_tenant_key(tenant_key)]
+
+        if user_access_token is not None:
+            request_opts += [set_user_access_token(user_access_token)]
+
+        return MeetingListByNoReqCall(self, request_opts=request_opts)
+
 
 class MeetingRecordingService(object):
     def __init__(self, service):
@@ -281,61 +310,6 @@ class RoomConfigService(object):
 
 
 
-class RoomConfigQueryReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (RoomConfigService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_scope(self, scope):
-        # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['scope'] = scope
-        return self
-
-    def set_country_id(self, country_id):
-        # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['country_id'] = country_id
-        return self
-
-    def set_district_id(self, district_id):
-        # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['district_id'] = district_id
-        return self
-
-    def set_building_id(self, building_id):
-        # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['building_id'] = building_id
-        return self
-
-    def set_floor_name(self, floor_name):
-        # type: (str) -> RoomConfigQueryReqCall
-        self.query_params['floor_name'] = floor_name
-        return self
-
-    def set_room_id(self, room_id):
-        # type: (int) -> RoomConfigQueryReqCall
-        self.query_params['room_id'] = room_id
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[RoomConfig]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = APIRequest('/open-apis/vc/v1/room_configs/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                        None, output_class=RoomConfig, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class MeetingInviteReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (MeetingService, MeetingInviteReqBody, List[Any]) -> None
@@ -369,56 +343,6 @@ class MeetingInviteReqCall(object):
         self.request_opts += [set_query_params(self.query_params)]
         req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/invite', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                         self.body, output_class=MeetingInviteResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class ReportGetTopUserReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (ReportService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_start_time(self, start_time):
-        # type: (int) -> ReportGetTopUserReqCall
-        self.query_params['start_time'] = start_time
-        return self
-
-    def set_end_time(self, end_time):
-        # type: (int) -> ReportGetTopUserReqCall
-        self.query_params['end_time'] = end_time
-        return self
-
-    def set_limit(self, limit):
-        # type: (int) -> ReportGetTopUserReqCall
-        self.query_params['limit'] = limit
-        return self
-
-    def set_order_by(self, order_by):
-        # type: (int) -> ReportGetTopUserReqCall
-        self.query_params['order_by'] = order_by
-        return self
-
-    def set_user_id_type(self, user_id_type):
-        # type: (str) -> ReportGetTopUserReqCall
-        self.query_params['user_id_type'] = user_id_type
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[ReportGetTopUserResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = APIRequest('/open-apis/vc/v1/reports/get_top_user', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                        None, output_class=ReportGetTopUserResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -460,36 +384,6 @@ class MeetingSetHostReqCall(object):
         return resp
 
 
-class MeetingRecordingGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MeetingRecordingService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_meeting_id(self, meeting_id):
-        # type: (int) -> MeetingRecordingGetReqCall
-        self.path_params['meeting_id'] = meeting_id
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[MeetingRecordingGetResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording', 'GET', [ACCESS_TOKEN_TYPE_USER],
-                        None, output_class=MeetingRecordingGetResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class MeetingEndReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (MeetingService, List[Any]) -> None
@@ -516,71 +410,6 @@ class MeetingEndReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/end', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                         None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class MeetingRecordingStopReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (MeetingRecordingService, List[Any]) -> None
-
-        self.service = service
-        
-        self.path_params = {}   # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_meeting_id(self, meeting_id):
-        # type: (int) -> MeetingRecordingStopReqCall
-        self.path_params['meeting_id'] = meeting_id
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[None]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_path_params(self.path_params)]
-        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording/stop', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
-                        None, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class ReportGetDailyReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (ReportService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_start_time(self, start_time):
-        # type: (int) -> ReportGetDailyReqCall
-        self.query_params['start_time'] = start_time
-        return self
-
-    def set_end_time(self, end_time):
-        # type: (int) -> ReportGetDailyReqCall
-        self.query_params['end_time'] = end_time
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[ReportGetDailyResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = APIRequest('/open-apis/vc/v1/reports/get_daily', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                        None, output_class=ReportGetDailyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -632,25 +461,149 @@ class MeetingGetReqCall(object):
         return resp
 
 
-class RoomConfigSetReqCall(object):
+class MeetingKickoutReqCall(object):
     def __init__(self, service, body, request_opts=None):
-        # type: (RoomConfigService, RoomConfigSetReqBody, List[Any]) -> None
+        # type: (MeetingService, MeetingKickoutReqBody, List[Any]) -> None
 
         self.service = service
         self.body = body
+        self.path_params = {}   # type: Dict[str, Any]
+        self.query_params = {}  # type: Dict[str, Any]
 
         if request_opts:
             self.request_opts = request_opts
         else:
             self.request_opts = []  # type: List[Any]
 
+    def set_meeting_id(self, meeting_id):
+        # type: (int) -> MeetingKickoutReqCall
+        self.path_params['meeting_id'] = meeting_id
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> MeetingKickoutReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[MeetingKickoutResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/kickout', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=MeetingKickoutResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MeetingListByNoReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MeetingService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_meeting_no(self, meeting_no):
+        # type: (str) -> MeetingListByNoReqCall
+        self.query_params['meeting_no'] = meeting_no
+        return self
+
+    def set_start_time(self, start_time):
+        # type: (int) -> MeetingListByNoReqCall
+        self.query_params['start_time'] = start_time
+        return self
+
+    def set_end_time(self, end_time):
+        # type: (int) -> MeetingListByNoReqCall
+        self.query_params['end_time'] = end_time
+        return self
+
+    def set_page_token(self, page_token):
+        # type: (str) -> MeetingListByNoReqCall
+        self.query_params['page_token'] = page_token
+        return self
+
+    def set_page_size(self, page_size):
+        # type: (int) -> MeetingListByNoReqCall
+        self.query_params['page_size'] = page_size
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[MeetingListByNoResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/vc/v1/meetings/list_by_no', 'GET', [ACCESS_TOKEN_TYPE_USER, ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=MeetingListByNoResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MeetingRecordingGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MeetingRecordingService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_meeting_id(self, meeting_id):
+        # type: (int) -> MeetingRecordingGetReqCall
+        self.path_params['meeting_id'] = meeting_id
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[MeetingRecordingGetResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_path_params(self.path_params)]
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording', 'GET', [ACCESS_TOKEN_TYPE_USER],
+                        None, output_class=MeetingRecordingGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class MeetingRecordingStopReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (MeetingRecordingService, List[Any]) -> None
+
+        self.service = service
+        
+        self.path_params = {}   # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_meeting_id(self, meeting_id):
+        # type: (int) -> MeetingRecordingStopReqCall
+        self.path_params['meeting_id'] = meeting_id
+        return self
+
     def do(self):
         # type: () -> APIResponse[Type[None]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = APIRequest('/open-apis/vc/v1/room_configs/set', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                        self.body, request_opts=self.request_opts)
+        self.request_opts += [set_path_params(self.path_params)]
+        req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording/stop', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
+                        None, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -718,6 +671,91 @@ class MeetingRecordingStartReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         req = APIRequest('/open-apis/vc/v1/meetings/:meeting_id/recording/start', 'PATCH', [ACCESS_TOKEN_TYPE_USER],
                         self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ReportGetTopUserReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ReportService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_start_time(self, start_time):
+        # type: (int) -> ReportGetTopUserReqCall
+        self.query_params['start_time'] = start_time
+        return self
+
+    def set_end_time(self, end_time):
+        # type: (int) -> ReportGetTopUserReqCall
+        self.query_params['end_time'] = end_time
+        return self
+
+    def set_limit(self, limit):
+        # type: (int) -> ReportGetTopUserReqCall
+        self.query_params['limit'] = limit
+        return self
+
+    def set_order_by(self, order_by):
+        # type: (int) -> ReportGetTopUserReqCall
+        self.query_params['order_by'] = order_by
+        return self
+
+    def set_user_id_type(self, user_id_type):
+        # type: (str) -> ReportGetTopUserReqCall
+        self.query_params['user_id_type'] = user_id_type
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[ReportGetTopUserResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/vc/v1/reports/get_top_user', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ReportGetTopUserResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class ReportGetDailyReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (ReportService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_start_time(self, start_time):
+        # type: (int) -> ReportGetDailyReqCall
+        self.query_params['start_time'] = start_time
+        return self
+
+    def set_end_time(self, end_time):
+        # type: (int) -> ReportGetDailyReqCall
+        self.query_params['end_time'] = end_time
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[ReportGetDailyResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/vc/v1/reports/get_daily', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=ReportGetDailyResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -894,6 +932,84 @@ class ReserveDeleteReqCall(object):
         self.request_opts += [set_path_params(self.path_params)]
         req = APIRequest('/open-apis/vc/v1/reserves/:reserve_id', 'DELETE', [ACCESS_TOKEN_TYPE_USER],
                         None, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class RoomConfigQueryReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (RoomConfigService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_scope(self, scope):
+        # type: (int) -> RoomConfigQueryReqCall
+        self.query_params['scope'] = scope
+        return self
+
+    def set_country_id(self, country_id):
+        # type: (str) -> RoomConfigQueryReqCall
+        self.query_params['country_id'] = country_id
+        return self
+
+    def set_district_id(self, district_id):
+        # type: (str) -> RoomConfigQueryReqCall
+        self.query_params['district_id'] = district_id
+        return self
+
+    def set_building_id(self, building_id):
+        # type: (str) -> RoomConfigQueryReqCall
+        self.query_params['building_id'] = building_id
+        return self
+
+    def set_floor_name(self, floor_name):
+        # type: (str) -> RoomConfigQueryReqCall
+        self.query_params['floor_name'] = floor_name
+        return self
+
+    def set_room_id(self, room_id):
+        # type: (str) -> RoomConfigQueryReqCall
+        self.query_params['room_id'] = room_id
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[RoomConfig]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/vc/v1/room_configs/query', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=RoomConfig, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class RoomConfigSetReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (RoomConfigService, RoomConfigSetReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> APIResponse[Type[None]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = APIRequest('/open-apis/vc/v1/room_configs/set', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
