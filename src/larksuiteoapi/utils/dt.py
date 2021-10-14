@@ -75,7 +75,7 @@ def make_datatype(t, kwargs):
     if isinstance(kwargs, (int, str, bool)):
         return kwargs
 
-    if t.__class__ == List.__class__ and isinstance(kwargs, list):
+    if isinstance(kwargs, list):
         return [make_datatype(t.__args__[0], i) for i in kwargs]
 
     if not hasattr(t, '__attrs_attrs__'):
