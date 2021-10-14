@@ -259,20 +259,21 @@ class Handlers(object):
         resp = req.response
         content_type = resp.headers.get(CONTENT_TYPE)
         if req.is_response_stream:
+            if resp.status_code == 200:
+                req.is_response_stream_current = True
+                return
             if content_type.count(CONTENT_TYPE_JSON):
                 req.is_response_stream_current = False
                 return
             if resp.status_code != 200:
                 raise APIError(message="response status_code:%d, not equal 200, body:%s" % (
                     resp.status_code, resp.content))
-
-            req.is_response_stream_current = True
             return
 
         if not content_type or not content_type.count(CONTENT_TYPE_JSON):
             raise APIError(
                 message='response request_id:%s, status_code: %d, content-type: %s, body: %s ' % (
-                            self.ctx.get_request_id(), resp.status_code, content_type, resp.content)
+                    self.ctx.get_request_id(), resp.status_code, content_type, resp.content)
             )
 
     def parse_response(self):  # type: () -> None

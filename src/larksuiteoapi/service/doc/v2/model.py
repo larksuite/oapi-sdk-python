@@ -8,12 +8,6 @@ import attr
 
 
 
-@to_json_decorator
-@attr.s
-class Doc(object):
-    pass
-
-
 
 @to_json_decorator
 @attr.s

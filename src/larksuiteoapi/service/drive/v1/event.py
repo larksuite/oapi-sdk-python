@@ -104,3 +104,19 @@ class FileTrashedEventHandler(object):
         handler = FileTrashedEventHandler(callback)
         set_event_callback(conf, "drive.file.trashed_v1",
                           handler.handle, clazz=FileTrashedEvent)
+
+
+class FileEditEventHandler(object):
+    def __init__(self, callback):
+        # type: (Callable[[Context, Config, FileEditEvent], Any]) -> None
+        self.handler = callback
+
+    def handle(self, ctx, conf, event):  # type: (Context, Config, FileEditEvent) -> Any
+        return self.handler(ctx, conf, event)
+
+    @staticmethod
+    def set_callback(conf, callback):
+        # type: (Config, Callable[[Context, Config, FileEditEvent], Any]) -> None
+        handler = FileEditEventHandler(callback)
+        set_event_callback(conf, "drive.file.edit_v1",
+                          handler.handle, clazz=FileEditEvent)

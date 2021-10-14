@@ -296,29 +296,6 @@ class MeetingRoomService(object):
 
 
 
-class SummaryBatchGetReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (SummaryService, SummaryBatchGetReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> APIResponse[Type[SummaryBatchGetResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = APIRequest('/open-apis/meeting_room/summary/batch_get', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                        self.body, output_class=SummaryBatchGetResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class BuildingBatchGetReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (BuildingService, List[Any]) -> None
@@ -354,81 +331,6 @@ class BuildingBatchGetReqCall(object):
         return resp
 
 
-class RoomBatchGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (RoomService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_room_ids(self, room_ids):
-        # type: (List[str]) -> RoomBatchGetReqCall
-        self.query_params['room_ids'] = room_ids
-        return self
-
-    def set_fields(self, fields):
-        # type: (str) -> RoomBatchGetReqCall
-        self.query_params['fields'] = fields
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[RoomBatchGetResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = APIRequest('/open-apis/meeting_room/room/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                        None, output_class=RoomBatchGetResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class FreebusyBatchGetReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (FreebusyService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_room_ids(self, room_ids):
-        # type: (List[str]) -> FreebusyBatchGetReqCall
-        self.query_params['room_ids'] = room_ids
-        return self
-
-    def set_time_min(self, time_min):
-        # type: (str) -> FreebusyBatchGetReqCall
-        self.query_params['time_min'] = time_min
-        return self
-
-    def set_time_max(self, time_max):
-        # type: (str) -> FreebusyBatchGetReqCall
-        self.query_params['time_max'] = time_max
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[FreebusyBatchGetResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = APIRequest('/open-apis/meeting_room/freebusy/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                        None, output_class=FreebusyBatchGetResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class BuildingBatchGetIdReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (BuildingService, List[Any]) -> None
@@ -459,36 +361,6 @@ class BuildingBatchGetIdReqCall(object):
         return resp
 
 
-class RoomBatchGetIdReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (RoomService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_custom_room_ids(self, custom_room_ids):
-        # type: (List[str]) -> RoomBatchGetIdReqCall
-        self.query_params['custom_room_ids'] = custom_room_ids
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[RoomBatchGetIdResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = APIRequest('/open-apis/meeting_room/room/batch_get_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                        None, output_class=RoomBatchGetIdResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class BuildingCreateReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (BuildingService, BuildingCreateReqBody, List[Any]) -> None
@@ -508,52 +380,6 @@ class BuildingCreateReqCall(object):
         conf = root_service.conf
         req = APIRequest('/open-apis/meeting_room/building/create', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
                         self.body, output_class=BuildingCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class RoomCreateReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (RoomService, RoomCreateReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> APIResponse[Type[RoomCreateResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = APIRequest('/open-apis/meeting_room/room/create', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                        self.body, output_class=RoomCreateResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class RoomDeleteReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (RoomService, RoomDeleteReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> APIResponse[Type[None]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = APIRequest('/open-apis/meeting_room/room/delete', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -626,6 +452,29 @@ class BuildingListReqCall(object):
         return resp
 
 
+class BuildingUpdateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (BuildingService, BuildingUpdateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> APIResponse[Type[None]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = APIRequest('/open-apis/meeting_room/building/update', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
 class CountryListReqCall(object):
     def __init__(self, service, request_opts=None):
         # type: (CountryService, List[Any]) -> None
@@ -645,6 +494,210 @@ class CountryListReqCall(object):
         conf = root_service.conf
         req = APIRequest('/open-apis/meeting_room/country/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
                         None, output_class=CountryListResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class DistrictListReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (DistrictService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_country_id(self, country_id):
+        # type: (int) -> DistrictListReqCall
+        self.query_params['country_id'] = country_id
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[DistrictListResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/meeting_room/district/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=DistrictListResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class FreebusyBatchGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (FreebusyService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_room_ids(self, room_ids):
+        # type: (List[str]) -> FreebusyBatchGetReqCall
+        self.query_params['room_ids'] = room_ids
+        return self
+
+    def set_time_min(self, time_min):
+        # type: (str) -> FreebusyBatchGetReqCall
+        self.query_params['time_min'] = time_min
+        return self
+
+    def set_time_max(self, time_max):
+        # type: (str) -> FreebusyBatchGetReqCall
+        self.query_params['time_max'] = time_max
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[FreebusyBatchGetResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/meeting_room/freebusy/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=FreebusyBatchGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class InstanceReplyReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (InstanceService, InstanceReplyReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> APIResponse[Type[None]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = APIRequest('/open-apis/meeting_room/instance/reply', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class RoomBatchGetReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (RoomService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_room_ids(self, room_ids):
+        # type: (List[str]) -> RoomBatchGetReqCall
+        self.query_params['room_ids'] = room_ids
+        return self
+
+    def set_fields(self, fields):
+        # type: (str) -> RoomBatchGetReqCall
+        self.query_params['fields'] = fields
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[RoomBatchGetResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/meeting_room/room/batch_get', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=RoomBatchGetResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class RoomBatchGetIdReqCall(object):
+    def __init__(self, service, request_opts=None):
+        # type: (RoomService, List[Any]) -> None
+
+        self.service = service
+        
+        self.query_params = {}  # type: Dict[str, Any]
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def set_custom_room_ids(self, custom_room_ids):
+        # type: (List[str]) -> RoomBatchGetIdReqCall
+        self.query_params['custom_room_ids'] = custom_room_ids
+        return self
+
+    def do(self):
+        # type: () -> APIResponse[Type[RoomBatchGetIdResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        self.request_opts += [set_query_params(self.query_params)]
+        req = APIRequest('/open-apis/meeting_room/room/batch_get_id', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
+                        None, output_class=RoomBatchGetIdResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class RoomCreateReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (RoomService, RoomCreateReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> APIResponse[Type[RoomCreateResult]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = APIRequest('/open-apis/meeting_room/room/create', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=RoomCreateResult, request_opts=self.request_opts)
+        resp = req.do(conf)
+        return resp
+
+
+class RoomDeleteReqCall(object):
+    def __init__(self, service, body, request_opts=None):
+        # type: (RoomService, RoomDeleteReqBody, List[Any]) -> None
+
+        self.service = service
+        self.body = body
+
+        if request_opts:
+            self.request_opts = request_opts
+        else:
+            self.request_opts = []  # type: List[Any]
+
+    def do(self):
+        # type: () -> APIResponse[Type[None]]
+        root_service = self.service.service
+
+        conf = root_service.conf
+        req = APIRequest('/open-apis/meeting_room/room/delete', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 
@@ -699,59 +752,6 @@ class RoomListReqCall(object):
         return resp
 
 
-class DistrictListReqCall(object):
-    def __init__(self, service, request_opts=None):
-        # type: (DistrictService, List[Any]) -> None
-
-        self.service = service
-        
-        self.query_params = {}  # type: Dict[str, Any]
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def set_country_id(self, country_id):
-        # type: (int) -> DistrictListReqCall
-        self.query_params['country_id'] = country_id
-        return self
-
-    def do(self):
-        # type: () -> APIResponse[Type[DistrictListResult]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        self.request_opts += [set_query_params(self.query_params)]
-        req = APIRequest('/open-apis/meeting_room/district/list', 'GET', [ACCESS_TOKEN_TYPE_TENANT],
-                        None, output_class=DistrictListResult, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
-class InstanceReplyReqCall(object):
-    def __init__(self, service, body, request_opts=None):
-        # type: (InstanceService, InstanceReplyReqBody, List[Any]) -> None
-
-        self.service = service
-        self.body = body
-
-        if request_opts:
-            self.request_opts = request_opts
-        else:
-            self.request_opts = []  # type: List[Any]
-
-    def do(self):
-        # type: () -> APIResponse[Type[None]]
-        root_service = self.service.service
-
-        conf = root_service.conf
-        req = APIRequest('/open-apis/meeting_room/instance/reply', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                        self.body, request_opts=self.request_opts)
-        resp = req.do(conf)
-        return resp
-
-
 class RoomUpdateReqCall(object):
     def __init__(self, service, body, request_opts=None):
         # type: (RoomService, RoomUpdateReqBody, List[Any]) -> None
@@ -775,9 +775,9 @@ class RoomUpdateReqCall(object):
         return resp
 
 
-class BuildingUpdateReqCall(object):
+class SummaryBatchGetReqCall(object):
     def __init__(self, service, body, request_opts=None):
-        # type: (BuildingService, BuildingUpdateReqBody, List[Any]) -> None
+        # type: (SummaryService, SummaryBatchGetReqBody, List[Any]) -> None
 
         self.service = service
         self.body = body
@@ -788,12 +788,12 @@ class BuildingUpdateReqCall(object):
             self.request_opts = []  # type: List[Any]
 
     def do(self):
-        # type: () -> APIResponse[Type[None]]
+        # type: () -> APIResponse[Type[SummaryBatchGetResult]]
         root_service = self.service.service
 
         conf = root_service.conf
-        req = APIRequest('/open-apis/meeting_room/building/update', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
-                        self.body, request_opts=self.request_opts)
+        req = APIRequest('/open-apis/meeting_room/summary/batch_get', 'POST', [ACCESS_TOKEN_TYPE_TENANT],
+                        self.body, output_class=SummaryBatchGetResult, request_opts=self.request_opts)
         resp = req.do(conf)
         return resp
 

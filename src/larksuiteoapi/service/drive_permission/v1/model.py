@@ -32,12 +32,6 @@ class Owner(object):
     member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
 
 
-@to_json_decorator
-@attr.s
-class Public(object):
-    pass
-
-
 
 @to_json_decorator
 @attr.s
@@ -113,6 +107,22 @@ class MemberTransferResult(object):
 
 @to_json_decorator
 @attr.s
+class MemberUpdateReqBody(object):
+    token = attr.ib(type=str, default=None, metadata={'json': 'token'})
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
+    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+    perm = attr.ib(type=str, default=None, metadata={'json': 'perm'})
+    notify_lark = attr.ib(type=bool, default=None, metadata={'json': 'notify_lark'})
+
+
+@attr.s
+class MemberUpdateResult(object):
+    is_success = attr.ib(type=bool, default=None, metadata={'json': 'is_success'})
+
+
+@to_json_decorator
+@attr.s
 class PublicUpdateReqBody(object):
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})
     type = attr.ib(type=str, default=None, metadata={'json': 'type'})
@@ -126,20 +136,4 @@ class PublicUpdateReqBody(object):
 
 @attr.s
 class PublicUpdateResult(object):
-    is_success = attr.ib(type=bool, default=None, metadata={'json': 'is_success'})
-
-
-@to_json_decorator
-@attr.s
-class MemberUpdateReqBody(object):
-    token = attr.ib(type=str, default=None, metadata={'json': 'token'})
-    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
-    member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
-    member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
-    perm = attr.ib(type=str, default=None, metadata={'json': 'perm'})
-    notify_lark = attr.ib(type=bool, default=None, metadata={'json': 'notify_lark'})
-
-
-@attr.s
-class MemberUpdateResult(object):
     is_success = attr.ib(type=bool, default=None, metadata={'json': 'is_success'})

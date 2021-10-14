@@ -23,6 +23,29 @@ class Person(object):
 
 @to_json_decorator
 @attr.s
+class ImportTaskMountPoint(object):
+    mount_type = attr.ib(type=int, default=None, metadata={'json': 'mount_type'})
+    mount_key = attr.ib(type=str, default=None, metadata={'json': 'mount_key'})
+
+
+@to_json_decorator
+@attr.s
+class ImportTask(object):
+    ticket = attr.ib(type=str, default=None, metadata={'json': 'ticket'})
+    file_extension = attr.ib(type=str, default=None, metadata={'json': 'file_extension'})
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    type = attr.ib(type=str, default=None, metadata={'json': 'type'})
+    file_name = attr.ib(type=str, default=None, metadata={'json': 'file_name'})
+    point = attr.ib(type=ImportTaskMountPoint, default=None, metadata={'json': 'point'})
+    job_status = attr.ib(type=int, default=None, metadata={'json': 'job_status'})
+    job_error_msg = attr.ib(type=str, default=None, metadata={'json': 'job_error_msg'})
+    token = attr.ib(type=str, default=None, metadata={'json': 'token'})
+    url = attr.ib(type=str, default=None, metadata={'json': 'url'})
+    extra = attr.ib(type=List[str], default=None, metadata={'json': 'extra'})
+
+
+@to_json_decorator
+@attr.s
 class DocsLink(object):
     url = attr.ib(type=str, default=None, metadata={'json': 'url'})
 
@@ -99,11 +122,30 @@ class File(object):
 
 @to_json_decorator
 @attr.s
+class FileUploadInfo(object):
+    file_name = attr.ib(type=str, default=None, metadata={'json': 'file_name'})
+    parent_type = attr.ib(type=str, default=None, metadata={'json': 'parent_type'})
+    parent_node = attr.ib(type=str, default=None, metadata={'json': 'parent_node'})
+    size = attr.ib(type=int, default=None, metadata={'json': 'size'})
+
+
+@to_json_decorator
+@attr.s
 class Media(object):
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
     file_name = attr.ib(type=str, default=None, metadata={'json': 'file_name'})
     size = attr.ib(type=int, default=None, metadata={'json': 'size'})
     mime_type = attr.ib(type=str, default=None, metadata={'json': 'mime_type'})
+
+
+@to_json_decorator
+@attr.s
+class MediaUploadInfo(object):
+    file_name = attr.ib(type=str, default=None, metadata={'json': 'file_name'})
+    parent_type = attr.ib(type=str, default=None, metadata={'json': 'parent_type'})
+    parent_node = attr.ib(type=str, default=None, metadata={'json': 'parent_node'})
+    size = attr.ib(type=int, default=None, metadata={'json': 'size'})
+    extra = attr.ib(type=str, default=None, metadata={'json': 'extra'})
 
 
 @to_json_decorator
@@ -119,6 +161,17 @@ class Member(object):
 class Owner(object):
     member_type = attr.ib(type=str, default=None, metadata={'json': 'member_type'})
     member_id = attr.ib(type=str, default=None, metadata={'json': 'member_id'})
+
+
+@to_json_decorator
+@attr.s
+class PermissionPublic(object):
+    external_access = attr.ib(type=bool, default=None, metadata={'json': 'external_access'})
+    security_entity = attr.ib(type=str, default=None, metadata={'json': 'security_entity'})
+    comment_entity = attr.ib(type=str, default=None, metadata={'json': 'comment_entity'})
+    share_entity = attr.ib(type=str, default=None, metadata={'json': 'share_entity'})
+    link_share_entity = attr.ib(type=str, default=None, metadata={'json': 'link_share_entity'})
+    invite_external = attr.ib(type=bool, default=None, metadata={'json': 'invite_external'})
 
 
 @to_json_decorator
@@ -144,6 +197,13 @@ class UploadInfo(object):
     size = attr.ib(type=int, default=None, metadata={'json': 'size'})
 
 
+@to_json_decorator
+@attr.s
+class FileStatistics(object):
+    uv = attr.ib(type=int, default=None, metadata={'json': 'uv'})
+    pv = attr.ib(type=int, default=None, metadata={'json': 'pv'})
+    like_count = attr.ib(type=int, default=None, metadata={'json': 'like_count'})
+    timestamp = attr.ib(type=int, default=None, metadata={'json': 'timestamp'})
 
 
 
@@ -169,58 +229,17 @@ class FileUploadPrepareResult(object):
 
 
 @attr.s
-class MediaUploadAllResult(object):
-    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
-
-
-@to_json_decorator
-@attr.s
-class MediaUploadFinishReqBody(object):
-    upload_id = attr.ib(type=str, default=None, metadata={'json': 'upload_id'})
-    block_num = attr.ib(type=int, default=None, metadata={'json': 'block_num'})
-
-
-@attr.s
-class MediaUploadFinishResult(object):
-    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
-
-
-
-@attr.s
 class FileUploadAllResult(object):
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
 
 
 
-@attr.s
-class MediaUploadPrepareResult(object):
-    upload_id = attr.ib(type=str, default=None, metadata={'json': 'upload_id'})
-    block_size = attr.ib(type=int, default=None, metadata={'json': 'block_size'})
-    block_num = attr.ib(type=int, default=None, metadata={'json': 'block_num'})
-
-
-
-
-
-@attr.s
-class MediaBatchGetTmpDownloadUrlResult(object):
-    tmp_download_urls = attr.ib(type=List[TmpDownloadUrl], default=None, metadata={'json': 'tmp_download_urls'})
 
 
 
 
 
 
-
-
-
-
-
-
-@to_json_decorator
-@attr.s
-class FileCommentReplyUpdateReqBody(object):
-    content = attr.ib(type=ReplyContent, default=None, metadata={'json': 'content'})
 
 
 
@@ -239,17 +258,89 @@ class FileCommentPatchReqBody(object):
 
 
 
+@to_json_decorator
+@attr.s
+class FileCommentReplyUpdateReqBody(object):
+    content = attr.ib(type=ReplyContent, default=None, metadata={'json': 'content'})
+
+
+
+
+
+
+@attr.s
+class FileStatisticsGetResult(object):
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    file_type = attr.ib(type=str, default=None, metadata={'json': 'file_type'})
+    statistics = attr.ib(type=FileStatistics, default=None, metadata={'json': 'statistics'})
+
+
+
+@attr.s
+class ImportTaskCreateResult(object):
+    ticket = attr.ib(type=str, default=None, metadata={'json': 'ticket'})
+
+
+
+@attr.s
+class ImportTaskGetResult(object):
+    result = attr.ib(type=ImportTask, default=None, metadata={'json': 'result'})
+
+
+
+
+
+@attr.s
+class MediaUploadAllResult(object):
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
 
 
 @to_json_decorator
 @attr.s
-class FileCommentReplyCreateReqBody(object):
-    content = attr.ib(type=ReplyContent, default=None, metadata={'json': 'content'})
+class MediaUploadFinishReqBody(object):
+    upload_id = attr.ib(type=str, default=None, metadata={'json': 'upload_id'})
+    block_num = attr.ib(type=int, default=None, metadata={'json': 'block_num'})
 
 
 @attr.s
-class FileCommentReplyCreateResult(object):
-    file_comment_reply = attr.ib(type=FileCommentReply, default=None, metadata={'json': 'file.comment.reply'})
+class MediaUploadFinishResult(object):
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+
+
+
+@attr.s
+class MediaUploadPrepareResult(object):
+    upload_id = attr.ib(type=str, default=None, metadata={'json': 'upload_id'})
+    block_size = attr.ib(type=int, default=None, metadata={'json': 'block_size'})
+    block_num = attr.ib(type=int, default=None, metadata={'json': 'block_num'})
+
+
+
+@attr.s
+class MediaBatchGetTmpDownloadUrlResult(object):
+    tmp_download_urls = attr.ib(type=List[TmpDownloadUrl], default=None, metadata={'json': 'tmp_download_urls'})
+
+
+
+
+
+@attr.s
+class PermissionMemberCreateResult(object):
+    member = attr.ib(type=Member, default=None, metadata={'json': 'member'})
+
+
+
+
+
+@attr.s
+class PermissionMemberUpdateResult(object):
+    member = attr.ib(type=Member, default=None, metadata={'json': 'member'})
+
+
+
+@attr.s
+class PermissionPublicPatchResult(object):
+    permission_public = attr.ib(type=PermissionPublic, default=None, metadata={'json': 'permission_public'})
 
 
 @attr.s
@@ -257,6 +348,7 @@ class FileDeletedEventData(object):
     file_type = attr.ib(type=str, default=None, metadata={'json': 'file_type'})
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
+    subscriber_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'subscriber_id_list'})
 
 
 @attr.s
@@ -272,6 +364,7 @@ class FilePermissionMemberAddedEventData(object):
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
     user_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'user_list'})
     chat_list = attr.ib(type=List[str], default=None, metadata={'json': 'chat_list'})
+    subscriber_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'subscriber_id_list'})
 
 
 @attr.s
@@ -287,6 +380,7 @@ class FilePermissionMemberRemovedEventData(object):
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
     user_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'user_list'})
     chat_list = attr.ib(type=List[str], default=None, metadata={'json': 'chat_list'})
+    subscriber_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'subscriber_id_list'})
 
 
 @attr.s
@@ -300,6 +394,7 @@ class FileReadEventData(object):
     file_type = attr.ib(type=str, default=None, metadata={'json': 'file_type'})
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
     operator_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'operator_id_list'})
+    subscriber_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'subscriber_id_list'})
 
 
 @attr.s
@@ -313,6 +408,7 @@ class FileTitleUpdatedEventData(object):
     file_type = attr.ib(type=str, default=None, metadata={'json': 'file_type'})
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
+    subscriber_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'subscriber_id_list'})
 
 
 @attr.s
@@ -326,8 +422,23 @@ class FileTrashedEventData(object):
     file_type = attr.ib(type=str, default=None, metadata={'json': 'file_type'})
     file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
     operator_id = attr.ib(type=UserId, default=None, metadata={'json': 'operator_id'})
+    subscriber_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'subscriber_id_list'})
 
 
 @attr.s
 class FileTrashedEvent(BaseEventV2):
     event = attr.ib(type=FileTrashedEventData, default=None)
+
+
+
+@attr.s
+class FileEditEventData(object):
+    file_type = attr.ib(type=str, default=None, metadata={'json': 'file_type'})
+    file_token = attr.ib(type=str, default=None, metadata={'json': 'file_token'})
+    operator_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'operator_id_list'})
+    subscriber_id_list = attr.ib(type=List[UserId], default=None, metadata={'json': 'subscriber_id_list'})
+
+
+@attr.s
+class FileEditEvent(BaseEventV2):
+    event = attr.ib(type=FileEditEventData, default=None)

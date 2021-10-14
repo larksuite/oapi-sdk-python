@@ -10,12 +10,6 @@ import attr
 
 @to_json_decorator
 @attr.s
-class DocsApi(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
 class DocsEntity(object):
     docs_token = attr.ib(type=str, default=None, metadata={'json': 'docs_token'})
     docs_type = attr.ib(type=str, default=None, metadata={'json': 'docs_type'})

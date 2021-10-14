@@ -18,30 +18,11 @@ class Child(object):
 
 @to_json_decorator
 @attr.s
-class File(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
-class Folder(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
 class OperatorId(object):
     open_id = attr.ib(type=str, default=None, metadata={'json': 'open_id'})
     union_id = attr.ib(type=str, default=None, metadata={'json': 'union_id'})
     user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
 
-
-
-
-@attr.s
-class FolderChildrenResult(object):
-    parent_token = attr.ib(type=str, default=None, metadata={'json': 'parentToken'})
-    children = attr.ib(type=Dict[str, Child], default=None, metadata={'json': 'children'})
 
 
 @to_json_decorator
@@ -76,6 +57,27 @@ class FileCreateResult(object):
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})
 
 
+
+@attr.s
+class FileDocsDeleteResult(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    result = attr.ib(type=bool, default=None, metadata={'json': 'result'})
+
+
+
+@attr.s
+class FileSpreadsheetsDeleteResult(object):
+    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
+    result = attr.ib(type=bool, default=None, metadata={'json': 'result'})
+
+
+
+@attr.s
+class FolderChildrenResult(object):
+    parent_token = attr.ib(type=str, default=None, metadata={'json': 'parentToken'})
+    children = attr.ib(type=Dict[str, Child], default=None, metadata={'json': 'children'})
+
+
 @to_json_decorator
 @attr.s
 class FolderCreateReqBody(object):
@@ -87,13 +89,6 @@ class FolderCreateResult(object):
     url = attr.ib(type=str, default=None, metadata={'json': 'url'})
     revision = attr.ib(type=int, default=None, metadata={'json': 'revision'})
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})
-
-
-
-@attr.s
-class FileDocsDeleteResult(object):
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    result = attr.ib(type=bool, default=None, metadata={'json': 'result'})
 
 
 
@@ -114,10 +109,3 @@ class FolderRootMetaResult(object):
     token = attr.ib(type=str, default=None, metadata={'json': 'token'})
     id = attr.ib(type=str, default=None, metadata={'json': 'id'})
     user_id = attr.ib(type=str, default=None, metadata={'json': 'user_id'})
-
-
-
-@attr.s
-class FileSpreadsheetsDeleteResult(object):
-    id = attr.ib(type=str, default=None, metadata={'json': 'id'})
-    result = attr.ib(type=bool, default=None, metadata={'json': 'result'})

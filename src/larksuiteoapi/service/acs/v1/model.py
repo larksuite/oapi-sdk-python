@@ -54,16 +54,6 @@ class AccessRecord(object):
     is_door_open = attr.ib(type=bool, default=None, metadata={'json': 'is_door_open'})
 
 
-@to_json_decorator
-@attr.s
-class File(object):
-    files = attr.ib(type=IO[Any], default=None, metadata={'json': 'files'})
-    file_type = attr.ib(type=str, default=None, metadata={'json': 'file_type'})
-    file_name = attr.ib(type=str, default=None, metadata={'json': 'file_name'})
-
-
-
-
 @attr.s
 class AccessRecordListResult(object):
     items = attr.ib(type=List[AccessRecord], default=None, metadata={'json': 'items'})

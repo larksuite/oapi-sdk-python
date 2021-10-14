@@ -81,18 +81,6 @@ class EventUid(object):
 
 @to_json_decorator
 @attr.s
-class Freebusy(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
-class Instance(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
 class Room(object):
     room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
     building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
@@ -114,27 +102,9 @@ class RoomId(object):
 
 @to_json_decorator
 @attr.s
-class Summary(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
 class MeetingRoom(object):
     room_id = attr.ib(type=int, default=None, metadata={'json': 'room_id'})
 
-
-
-@to_json_decorator
-@attr.s
-class SummaryBatchGetReqBody(object):
-    event_uids = attr.ib(type=List[EventUid], default=None, metadata={'json': 'EventUids'})
-
-
-@attr.s
-class SummaryBatchGetResult(object):
-    event_infos = attr.ib(type=List[EventInfo], default=None, metadata={'json': 'EventInfos'})
-    error_event_uids = attr.ib(type=List[ErrorEventUid], default=None, metadata={'json': 'ErrorEventUids'})
 
 
 
@@ -145,28 +115,8 @@ class BuildingBatchGetResult(object):
 
 
 @attr.s
-class RoomBatchGetResult(object):
-    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
-
-
-
-@attr.s
-class FreebusyBatchGetResult(object):
-    time_min = attr.ib(type=str, default=None, metadata={'json': 'time_min'})
-    time_max = attr.ib(type=str, default=None, metadata={'json': 'time_max'})
-    free_busy = attr.ib(type=Dict[str, List[RoomFreeBusy]], default=None, metadata={'json': 'free_busy'})
-
-
-
-@attr.s
 class BuildingBatchGetIdResult(object):
     buildings = attr.ib(type=List[BuildingId], default=None, metadata={'json': 'buildings'})
-
-
-
-@attr.s
-class RoomBatchGetIdResult(object):
-    rooms = attr.ib(type=List[RoomId], default=None, metadata={'json': 'rooms'})
 
 
 @to_json_decorator
@@ -182,6 +132,75 @@ class BuildingCreateReqBody(object):
 @attr.s
 class BuildingCreateResult(object):
     building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
+
+
+@to_json_decorator
+@attr.s
+class BuildingDeleteReqBody(object):
+    building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
+
+
+
+
+@attr.s
+class BuildingListResult(object):
+    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
+    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
+    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
+
+
+@to_json_decorator
+@attr.s
+class BuildingUpdateReqBody(object):
+    building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    floors = attr.ib(type=List[str], default=None, metadata={'json': 'floors'})
+    country_id = attr.ib(type=str, default=None, metadata={'json': 'country_id'})
+    district_id = attr.ib(type=str, default=None, metadata={'json': 'district_id'})
+    custom_building_id = attr.ib(type=str, default=None, metadata={'json': 'custom_building_id'})
+
+
+
+
+@attr.s
+class CountryListResult(object):
+    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
+
+
+
+@attr.s
+class DistrictListResult(object):
+    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
+
+
+
+@attr.s
+class FreebusyBatchGetResult(object):
+    time_min = attr.ib(type=str, default=None, metadata={'json': 'time_min'})
+    time_max = attr.ib(type=str, default=None, metadata={'json': 'time_max'})
+    free_busy = attr.ib(type=Dict[str, List[RoomFreeBusy]], default=None, metadata={'json': 'free_busy'})
+
+
+@to_json_decorator
+@attr.s
+class InstanceReplyReqBody(object):
+    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
+    uid = attr.ib(type=str, default=None, metadata={'json': 'uid'})
+    original_time = attr.ib(type=int, default=None, metadata={'json': 'original_time'})
+    status = attr.ib(type=str, default=None, metadata={'json': 'status'})
+
+
+
+
+@attr.s
+class RoomBatchGetResult(object):
+    rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
+
+
+
+@attr.s
+class RoomBatchGetIdResult(object):
+    rooms = attr.ib(type=List[RoomId], default=None, metadata={'json': 'rooms'})
 
 
 @to_json_decorator
@@ -207,49 +226,12 @@ class RoomDeleteReqBody(object):
 
 
 
-@to_json_decorator
-@attr.s
-class BuildingDeleteReqBody(object):
-    building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
-
-
-
-
-@attr.s
-class BuildingListResult(object):
-    page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
-    has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
-    buildings = attr.ib(type=List[Building], default=None, metadata={'json': 'buildings'})
-
-
-
-@attr.s
-class CountryListResult(object):
-    countries = attr.ib(type=List[Country], default=None, metadata={'json': 'countries'})
-
-
 
 @attr.s
 class RoomListResult(object):
     page_token = attr.ib(type=str, default=None, metadata={'json': 'page_token'})
     has_more = attr.ib(type=bool, default=None, metadata={'json': 'has_more'})
     rooms = attr.ib(type=List[Room], default=None, metadata={'json': 'rooms'})
-
-
-
-@attr.s
-class DistrictListResult(object):
-    districts = attr.ib(type=List[District], default=None, metadata={'json': 'districts'})
-
-
-@to_json_decorator
-@attr.s
-class InstanceReplyReqBody(object):
-    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
-    uid = attr.ib(type=str, default=None, metadata={'json': 'uid'})
-    original_time = attr.ib(type=int, default=None, metadata={'json': 'original_time'})
-    status = attr.ib(type=str, default=None, metadata={'json': 'status'})
-
 
 
 @to_json_decorator
@@ -265,13 +247,61 @@ class RoomUpdateReqBody(object):
 
 @to_json_decorator
 @attr.s
-class BuildingUpdateReqBody(object):
-    building_id = attr.ib(type=str, default=None, metadata={'json': 'building_id'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    floors = attr.ib(type=List[str], default=None, metadata={'json': 'floors'})
-    country_id = attr.ib(type=str, default=None, metadata={'json': 'country_id'})
-    district_id = attr.ib(type=str, default=None, metadata={'json': 'district_id'})
-    custom_building_id = attr.ib(type=str, default=None, metadata={'json': 'custom_building_id'})
+class SummaryBatchGetReqBody(object):
+    event_uids = attr.ib(type=List[EventUid], default=None, metadata={'json': 'EventUids'})
+
+
+@attr.s
+class SummaryBatchGetResult(object):
+    event_infos = attr.ib(type=List[EventInfo], default=None, metadata={'json': 'EventInfos'})
+    error_event_uids = attr.ib(type=List[ErrorEventUid], default=None, metadata={'json': 'ErrorEventUids'})
+
+
+@attr.s
+class MeetingRoomStatusChangedEventData(object):
+    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
+    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
+
+
+@attr.s
+class MeetingRoomStatusChangedEvent(BaseEventV2):
+    event = attr.ib(type=MeetingRoomStatusChangedEventData, default=None)
+
+
+
+@attr.s
+class MeetingRoomCreatedEventData(object):
+    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
+    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
+
+
+@attr.s
+class MeetingRoomCreatedEvent(BaseEventV2):
+    event = attr.ib(type=MeetingRoomCreatedEventData, default=None)
+
+
+
+@attr.s
+class MeetingRoomDeletedEventData(object):
+    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
+    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
+
+
+@attr.s
+class MeetingRoomDeletedEvent(BaseEventV2):
+    event = attr.ib(type=MeetingRoomDeletedEventData, default=None)
+
+
+
+@attr.s
+class MeetingRoomUpdatedEventData(object):
+    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
+    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
+
+
+@attr.s
+class MeetingRoomUpdatedEvent(BaseEventV2):
+    event = attr.ib(type=MeetingRoomUpdatedEventData, default=None)
 
 
 
@@ -320,51 +350,3 @@ class RoomUpdatedEventData(object):
 @attr.s
 class RoomUpdatedEvent(BaseEventV2):
     event = attr.ib(type=RoomUpdatedEventData, default=None)
-
-
-
-@attr.s
-class MeetingRoomStatusChangedEventData(object):
-    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
-    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
-
-
-@attr.s
-class MeetingRoomStatusChangedEvent(BaseEventV2):
-    event = attr.ib(type=MeetingRoomStatusChangedEventData, default=None)
-
-
-
-@attr.s
-class MeetingRoomCreatedEventData(object):
-    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
-    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
-
-
-@attr.s
-class MeetingRoomCreatedEvent(BaseEventV2):
-    event = attr.ib(type=MeetingRoomCreatedEventData, default=None)
-
-
-
-@attr.s
-class MeetingRoomDeletedEventData(object):
-    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
-    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
-
-
-@attr.s
-class MeetingRoomDeletedEvent(BaseEventV2):
-    event = attr.ib(type=MeetingRoomDeletedEventData, default=None)
-
-
-
-@attr.s
-class MeetingRoomUpdatedEventData(object):
-    room_name = attr.ib(type=str, default=None, metadata={'json': 'room_name'})
-    room_id = attr.ib(type=str, default=None, metadata={'json': 'room_id'})
-
-
-@attr.s
-class MeetingRoomUpdatedEvent(BaseEventV2):
-    event = attr.ib(type=MeetingRoomUpdatedEventData, default=None)

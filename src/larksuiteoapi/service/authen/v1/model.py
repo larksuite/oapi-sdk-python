@@ -10,12 +10,6 @@ import attr
 
 @to_json_decorator
 @attr.s
-class Authen(object):
-    pass
-
-
-@to_json_decorator
-@attr.s
 class UserAccessTokenInfo(object):
     access_token = attr.ib(type=str, default=None, metadata={'json': 'access_token'})
     token_type = attr.ib(type=str, default=None, metadata={'json': 'token_type'})
