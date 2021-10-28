@@ -37,7 +37,7 @@ back to you as soon as possible.
 
 ```shell
 pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.28
+pip install larksuite-oapi==1.0.29
 ```
 
 ## Explanation of terms

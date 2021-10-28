@@ -36,17 +36,18 @@ def test_message_create():
 
 
 def test_image_upload():
-    req_call = service.images.create().set_image(open('./test.png', 'rb'))
+    img = open('test.png', 'rb')
+    req_call = service.images.create().set_image(img.read()).set_image_type("message")
     resp = req_call.do()
     print('request id = %s' % resp.get_request_id())
     print('http status code = %s' % resp.get_http_status_code())
     if resp.code == 0:
-        print(resp.data)
+        print(resp.data.image_key)
     else:
         print(resp.msg)
     print(resp.error)
 
 
 if __name__ == '__main__':
-    test_message_create()
-    # test_image_upload()
+    #test_message_create()
+    test_image_upload()

@@ -128,7 +128,6 @@ class Request(Generic[T]):
 
             files, data, need_close = body.to_map()
             try:
-                self.is_response_stream = True
                 self.response = session.request(
                     method, path, files=files, data=data, stream=True, timeout=self.timeout)
             finally:
