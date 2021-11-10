@@ -96,20 +96,22 @@ def test_send_message():
 @to_json_decorator
 @attr.s
 class AvatarInfo(object):
-    avatar_72 = attr.ib(type=str, default='', metadata={'json': 'sheetCount'})
-    avatar_240 = attr.ib(type=str, default='')
-    avatar_640 = attr.ib(type=str, default='')
-    avatar_origin = attr.ib(type=str, default='')
+    avatar_72 = attr.ib(type=str, default=None, metadata={'json': 'avatar_72'})
+    avatar_240 = attr.ib(type=str, default=None)
+    avatar_640 = attr.ib(type=str, default=None)
+    avatar_origin = attr.ib(type=str, default=None)
 
 
 @to_json_decorator
 @attr.s
 class User(object):
     __int_to_string_fields__ = attr.ib(type=List[str], default=["id"])
-    id = attr.ib(type=int, default=None)
-    name = attr.ib(type=str, default=None)
-    en_name = attr.ib(type=str, default=None)
-    avatar = attr.ib(type=AvatarInfo, default=None)
+    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
+    age = attr.ib(type=int, default=None, metadata={'json': 'age'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    en_name = attr.ib(type=str, default=None, metadata={'json': 'en_name'})
+    avatar = attr.ib(type=AvatarInfo, default=None, metadata={'json': 'avatar'})
+    finds = attr.ib(type=list[str], default=None, metadata={'json': 'finds'})
 
 
 @to_json_decorator
@@ -121,10 +123,8 @@ class UserUpdateResult(object):
 def test_user_update():
     path_params = {"user_id": "77bbc392"}
     query_params = {"user_id_type": "user_id"}
-    user = User()
-    user.name = "rename"
 
-    d = json.loads('{"id": "9223372036854775806", "name": "rename"}')
+    d = json.loads('{"id": "9223372036854775806", "age":0, "name": "","finds":["1"] , "avatar":{"avatar_72":"avatar_72-1"}, "en_name":null }')
     user = make_datatype(User, d)
     print(user)
 

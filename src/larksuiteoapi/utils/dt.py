@@ -53,8 +53,11 @@ def make_datatype(t, kwargs):
     :type kwargs: Any
     :rtype: T
     """
-    if not kwargs:
-        return
+    if kwargs is None:
+        return None
+    if (not kwargs) and (isinstance(kwargs, (list, dict))):
+        return None
+
     kwargs = deepcopy(kwargs)
 
     if PY3:
@@ -72,7 +75,7 @@ def make_datatype(t, kwargs):
     if t == int and isinstance(kwargs, str):
         return int(kwargs)
 
-    if isinstance(kwargs, (int, str, bool)):
+    if isinstance(kwargs, (int, str, bool, float)):
         return kwargs
 
     if isinstance(kwargs, list):
@@ -86,13 +89,10 @@ def make_datatype(t, kwargs):
     for att in getattr(t, '__attrs_attrs__', []):
         att_name = att.name
         json_name = getattr(attr_field, att.name).metadata.get('json') or att_name
-        att_default = att.default
 
         att_value = kwargs.get(json_name)
-        if att_value:
+        if att_value is not None:
             d[att_name] = make_datatype(att.type, att_value)
             del kwargs[json_name]
-        elif att_default is attr.NOTHING:
-            d[att_name] = None
 
     return t(**d)
