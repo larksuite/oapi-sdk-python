@@ -2,6 +2,7 @@
 from typing import Tuple
 
 import redis
+import logging
 from larksuiteoapi import Store, Config, AppSettings, Logger, LEVEL_DEBUG, LEVEL_INFO, LEVEL_WARN, LEVEL_ERROR, \
     DefaultLogger
 
@@ -26,11 +27,13 @@ class RedisStore(Store):
 
 def test_config_with_memory_store(domain, app_settings):
     # type: (str, AppSettings) -> Config
+    logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
     return Config.new_config_with_memory_store(domain, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
 
 def test_config_with_redis_store(domain, app_settings):
     # type: (str, AppSettings) -> Config
+    logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
     return new_config_with_redis_store(domain, app_settings, DefaultLogger(), LEVEL_DEBUG)
 
 

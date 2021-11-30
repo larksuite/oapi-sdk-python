@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import logging
 from larksuiteoapi.service.authen.v1 import Service as AuthenV1Service, AuthenAccessTokenReqBody
 
 from sample.config.config import test_config_with_redis_store
@@ -12,6 +13,7 @@ conf = test_config_with_redis_store(DOMAIN_FEISHU, app_settings)
 
 # for memory store and logger(level=debug)
 # conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+# logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 service = AuthenV1Service(conf)
 

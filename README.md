@@ -37,7 +37,7 @@ back to you as soon as possible.
 
 ```shell
 pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.30
+pip install larksuite-oapi==1.0.31
 ```
 
 ## Explanation of terms
@@ -137,6 +137,7 @@ from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DOMAIN_LARK_SUITE, Def
 app_settings = Config.new_internal_app_settings_from_env()
 
 # Currently, you are visiting larksuite, which uses default storage and default log (error level). 
+# When using default logging, you need to set logging.basicConfig(...) // import logging
 # More optional configurations are as follows: README.md->How to build overall configuration(Config)
 conf = Config(DOMAIN_LARK_SUITE, app_settings, log_level=LEVEL_DEBUG)
 

@@ -53,9 +53,6 @@ class DefaultLogger(Logger):
     This is the default logger which emits logs to python logging APIs
     """
 
-    def __init__(self):
-        logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
-
     def debug(self, message):  # type: (str) -> None
         logging.debug(message)
 

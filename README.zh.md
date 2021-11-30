@@ -28,7 +28,7 @@
 
 ```shell
 pip install typing # python version < 3.5
-pip install larksuite-oapi==1.0.30
+pip install larksuite-oapi==1.0.31
 ```
 
 ## 术语解释
@@ -75,6 +75,7 @@ from larksuiteoapi import DOMAIN_FEISHU, Config, LEVEL_DEBUG, LEVEL_INFO, \
 app_settings = Config.new_internal_app_settings_from_env()
 
 # 当前访问的是飞书，使用默认存储、默认日志（Error级别）
+# 当使用默认日志时，需要设置 logging.basicConfig(...) // import logging 
 # 更多介绍请看：Github->README.zh.md->如何构建整体配置（Config）
 conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
 

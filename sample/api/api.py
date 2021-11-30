@@ -2,6 +2,7 @@
 import json
 
 import attr
+import logging
 
 import time
 from typing import List
@@ -23,6 +24,8 @@ app_settings = Config.new_internal_app_settings_from_env()
 
 # for memory store and logger(level=debug)
 conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 
 @attr.s
@@ -93,54 +96,6 @@ def test_send_message():
         print(resp.error)
 
 
-@to_json_decorator
-@attr.s
-class AvatarInfo(object):
-    avatar_72 = attr.ib(type=str, default=None, metadata={'json': 'avatar_72'})
-    avatar_240 = attr.ib(type=str, default=None)
-    avatar_640 = attr.ib(type=str, default=None)
-    avatar_origin = attr.ib(type=str, default=None)
-
-
-@to_json_decorator
-@attr.s
-class User(object):
-    __int_to_string_fields__ = attr.ib(type=List[str], default=["id"])
-    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
-    age = attr.ib(type=int, default=None, metadata={'json': 'age'})
-    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
-    en_name = attr.ib(type=str, default=None, metadata={'json': 'en_name'})
-    avatar = attr.ib(type=AvatarInfo, default=None, metadata={'json': 'avatar'})
-    finds = attr.ib(type=list[str], default=None, metadata={'json': 'finds'})
-
-
-@to_json_decorator
-@attr.s
-class UserUpdateResult(object):
-    user = attr.ib(type=User, default=None)
-
-
-def test_user_update():
-    path_params = {"user_id": "77bbc392"}
-    query_params = {"user_id_type": "user_id"}
-
-    d = json.loads('{"id": "9223372036854775806", "age":0, "name": "","finds":["1"] , "avatar":{"avatar_72":"avatar_72-1"}, "en_name":null }')
-    user = make_datatype(User, d)
-    print(user)
-
-    req = Request('/open-apis/contact/v3/users/:user_id', 'Patch', ACCESS_TOKEN_TYPE_TENANT, user,
-                  output_class=UserUpdateResult,
-                  request_opts=[set_path_params(path_params), set_query_params(query_params)])
-    resp = req.do(conf)
-    print('request id = %s' % resp.get_request_id())
-    print(resp.code)
-    if resp.code == 0:
-        print(resp.data.user)
-    else:
-        print(resp.msg)
-        print(resp.error)
-
-
 def test_upload_file():
     img = open('./test.png', 'rb')
     formData = FormData()
@@ -179,8 +134,57 @@ def test_download_file(timeout=False):
         print(resp.error)
 
 
+@to_json_decorator
+@attr.s
+class AvatarInfo(object):
+    avatar_72 = attr.ib(type=str, default=None, metadata={'json': 'avatar_72'})
+    avatar_240 = attr.ib(type=str, default=None)
+    avatar_640 = attr.ib(type=str, default=None)
+    avatar_origin = attr.ib(type=str, default=None)
+
+
+@to_json_decorator
+@attr.s
+class User(object):
+    __int_to_string_fields__ = attr.ib(type=List[str], default=["id"])
+    id = attr.ib(type=int, default=None, metadata={'json': 'id'})
+    age = attr.ib(type=int, default=None, metadata={'json': 'age'})
+    name = attr.ib(type=str, default=None, metadata={'json': 'name'})
+    en_name = attr.ib(type=str, default=None, metadata={'json': 'en_name'})
+    avatar = attr.ib(type=AvatarInfo, default=None, metadata={'json': 'avatar'})
+    finds = attr.ib(type=List[str], default=None, metadata={'json': 'finds'})
+
+
+@to_json_decorator
+@attr.s
+class UserUpdateResult(object):
+    user = attr.ib(type=User, default=None)
+
+
+def test_user_update():
+    path_params = {"user_id": "77bbc392"}
+    query_params = {"user_id_type": "user_id"}
+
+    d = json.loads(
+        '{"id": "9223372036854775806", "age":0, "name": "","finds":["1"] , "avatar":{"avatar_72":"avatar_72-1"}, "en_name":null }')
+    user = make_datatype(User, d)
+    print(user)
+
+    req = Request('/open-apis/contact/v3/users/:user_id', 'Patch', ACCESS_TOKEN_TYPE_TENANT, user,
+                  output_class=UserUpdateResult,
+                  request_opts=[set_path_params(path_params), set_query_params(query_params)])
+    resp = req.do(conf)
+    print('request id = %s' % resp.get_request_id())
+    print(resp.code)
+    if resp.code == 0:
+        print(resp.data.user)
+    else:
+        print(resp.msg)
+        print(resp.error)
+
+
 if __name__ == '__main__':
-    # test_send_message()
+    test_send_message()
     # test_download_file()
     # test_upload_file()
-    test_user_update()
+    # test_user_update()
