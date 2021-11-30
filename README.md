@@ -70,6 +70,8 @@ pip install larksuite-oapi==1.0.31
 - Some of the old API do not have a direct SDK to use. They can use the `native` mode.
 
 ```python
+
+import logging
 from larksuiteoapi.api import Request, set_timeout
 
 from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, DOMAIN_LARK_SUITE, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
@@ -83,7 +85,7 @@ app_settings = Config.new_internal_app_settings_from_env()
 # Currently, you are visiting larksuite, which uses default storage and default log (error level). 
 # More optional configurations are as follows: README.md->How to build overall configuration(Config)
 conf = Config(DOMAIN_LARK_SUITE, app_settings, log_level=LEVEL_DEBUG)
-
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 def test_send_message():
     body = {
@@ -121,7 +123,7 @@ if __name__ == '__main__':
 - For some old events, there is no SDK that can be used directly. You can use the `native` mode
 
 ```python
-
+import logging
 from larksuiteoapi.event import handle_event, set_event_callback
 from larksuiteoapi.model import OapiHeader, OapiRequest
 
@@ -137,9 +139,9 @@ from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DOMAIN_LARK_SUITE, Def
 app_settings = Config.new_internal_app_settings_from_env()
 
 # Currently, you are visiting larksuite, which uses default storage and default log (error level). 
-# When using default logging, you need to set logging.basicConfig(...) // import logging
 # More optional configurations are as follows: README.md->How to build overall configuration(Config)
 conf = Config(DOMAIN_LARK_SUITE, app_settings, log_level=LEVEL_DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 
 def app_open_event_handle(ctx, conf, event):
@@ -182,7 +184,7 @@ if __name__ == '__main__':
 #### Example of using "Custom App" to handling message card callback.
 
 ```python
-
+import logging
 from typing import Any, Union, Dict
 
 from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DOMAIN_LARK_SUITE, DefaultLogger, LEVEL_DEBUG
@@ -203,6 +205,7 @@ app_settings = Config.new_internal_app_settings_from_env()
 # Currently, you are visiting larksuite, which uses default storage and default log (error level). 
 # More optional configurations are as follows: README.md->How to build overall configuration(Config)
 conf = Config(DOMAIN_LARK_SUITE, app_settings, log_level=LEVEL_DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 
 # Return value: can be None or JSON(dict) of new message card
@@ -327,7 +330,8 @@ app_settings = Config.new_internal_app_settings_from_env()
 # Parameter Description:
 # domain: DOMAIN_FEISHU / DOMAIN_LARK_SUITE / URL domain address
 # app_settings: AppSetting
-# logger: [Logger](src/larksuiteoapi/logger.py)
+# logger: [Logger](src/larksuiteoapi/logger.py), The default logging implementation is Python Logging
+# When using default logging, you need to set logging.basicConfig(...) // import logging
 # log_level: LEVEL_DEBUG/LEVEL_INFO/LEVEL_WARN/LEVEL_ERROR
 # store: [Store](src/larksuiteoapi/store.py), store app_ticket/access_token
 conf = Config(DOMAIN_FEISHU, app_settings, logger=DefaultLogger(), log_level=LEVEL_ERROR, store=MemoryStore())

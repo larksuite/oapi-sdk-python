@@ -64,6 +64,7 @@ pip install larksuite-oapi==1.0.31
 
 ```python
 # -*- coding: UTF-8 -*-
+import logging
 from larksuiteoapi.service.im.v1 import Service as ImService, model
 from larksuiteoapi import DOMAIN_FEISHU, Config, LEVEL_DEBUG, LEVEL_INFO, \
     LEVEL_WARN, LEVEL_ERROR
@@ -75,9 +76,9 @@ from larksuiteoapi import DOMAIN_FEISHU, Config, LEVEL_DEBUG, LEVEL_INFO, \
 app_settings = Config.new_internal_app_settings_from_env()
 
 # 当前访问的是飞书，使用默认存储、默认日志（Error级别）
-# 当使用默认日志时，需要设置 logging.basicConfig(...) // import logging 
 # 更多介绍请看：Github->README.zh.md->如何构建整体配置（Config）
 conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 service = ImService(conf)
 
@@ -112,6 +113,7 @@ if __name__ == '__main__':
 - 有些老版接口，没有直接可以使用的SDK，可以使用`原生`模式。
 
 ```python
+import logging
 from larksuiteoapi.api import Request, set_timeout
 
 from larksuiteoapi import Config, ACCESS_TOKEN_TYPE_TENANT, DOMAIN_FEISHU, LEVEL_DEBUG
@@ -124,6 +126,7 @@ app_settings = Config.new_internal_app_settings_from_env()
 
 # 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
 conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 
 def test_send_message():
@@ -163,7 +166,7 @@ if __name__ == '__main__':
 
 ```python
 # -*- coding: UTF-8 -*-
-
+import logging
 from larksuiteoapi.event import handle_event
 from larksuiteoapi.service.contact.v3 import UserUpdatedEventHandler, UserUpdatedEvent
 from larksuiteoapi.model import OapiHeader, OapiRequest
@@ -181,6 +184,7 @@ app_settings = Config.new_internal_app_settings_from_env()
 
 # 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
 conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 
 def user_update_handle(ctx, conf, event):
@@ -221,7 +225,7 @@ if __name__ == '__main__':
 - 有些老的事件，没有直接可以使用的SDK，可以使用`原生`模式
 
 ```python
-
+import logging
 from larksuiteoapi.event import handle_event, set_event_callback
 from larksuiteoapi.model import OapiHeader, OapiRequest
 
@@ -238,6 +242,7 @@ app_settings = Config.new_internal_app_settings_from_env()
 
 # 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
 conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 
 def app_open_event_handle(ctx, conf, event):
@@ -280,7 +285,7 @@ if __name__ == '__main__':
 #### 使用`企业自建应用`处理消息卡片回调示例
 
 ```python
-
+import logging
 from typing import Any, Union, Dict
 
 from larksuiteoapi import Config, Context, DOMAIN_FEISHU, DefaultLogger, LEVEL_DEBUG
@@ -300,6 +305,7 @@ app_settings = Config.new_internal_app_settings_from_env()
 
 # 当前访问的是飞书，使用默认存储、默认日志（Error级别），更多可选配置，请看：README.zh.md->如何构建整体配置（Config）。
 conf = Config(DOMAIN_FEISHU, app_settings, log_level=LEVEL_DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 
 # 设置消息卡片的处理
@@ -422,7 +428,8 @@ app_settings = Config.new_internal_app_settings_from_env()
 # 参数说明：
 # domain：DOMAIN_FEISHU / DOMAIN_LARK_SUITE / 其他域名地址
 # app_settings：应用配置
-# logger：[Logger](src/larksuiteoapi/logger.py)，默认：控制台输出
+# logger：[Logger](src/larksuiteoapi/logger.py)，默认日志实现：python logging
+# 当使用默认日志时，需要设置 logging.basicConfig(...) // import logging 
 # log_level：输出的日志级别 LEVEL_DEBUG/LEVEL_INFO/LEVEL_WARN/LEVEL_ERROR，默认：LEVEL_ERROR
 # store: [Store](src/larksuiteoapi/store.py)，用来存储 app_ticket/access_token，默认：内存存储，适合轻量的使用（不合适：应用商店应用）
 conf = Config(DOMAIN_FEISHU, app_settings, logger=DefaultLogger(), log_level=LEVEL_ERROR, store=MemoryStore())
