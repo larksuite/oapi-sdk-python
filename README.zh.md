@@ -461,7 +461,7 @@ set_user_access_token, set_tenant_key, set_is_response_stream, set_response_stre
     # set_query_params({"age":4,"types":[1,2]})：设置 URL query，会在url追加?age=4&types=1&types=2
     # set_is_response_stream()，设置响应是否是流，response.data = bytes(文件内容)
     # set_response_stream(IO[any])，设置响应是否是流且响应流写入目标IO，response.data = 目标IO
-    # set_no_data_field(),设置响应的是否 没有`data`字段，业务接口都是有`data`字段，所以不需要设置
+    # set_no_data_field(), 有一些 API 的响应体没有`data`字段，需要设置  
     # set_tenant_key(str)，以`应用商店应用`身份，表示使用`tenant_access_token`访问API，需要设置
     # set_user_access_token(str)，表示使用`user_access_token`访问API，需要设置
     # set_timeout(int)，设置请求超时时间（单位：秒）

@@ -363,7 +363,7 @@ set_user_access_token, set_tenant_key, set_is_response_stream, set_response_stre
     # set_query_params({"age":4,"types":[1,2]}): Set the URL query, will append to the url?age=4&types=1&types=2   
     # set_is_response_stream(), set whether the response is a stream, response.data = bytes(file binary)
     # set_response_stream(IO[any]), set whether the response is a stream, such as downloading a file, response.data = IO[any]
-    # set_no_data_field(), set whether the response does not have a `data` field, business interfaces all have `data `Field, so you don’t need to set 
+    # set_no_data_field(), Some apis do not have a 'data' field in the response body and need to be set
     # set_tenant_key(str), as an `app store application`, it means using `tenant_access_token` to access the API, you need to set
     # set_user_access_token(str), which means using` user_access_token` To access the API, you need to set 
     # set_timeout(int), set the request timeout (in seconds)
