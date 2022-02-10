@@ -21,9 +21,9 @@ class Store(object):
 
 
 class ExpireValue(object):
-    def __init__(self, value, expire):  # type: (str, int) -> None
+    def __init__(self, value, expireTime):  # type: (str, int) -> None
         self.value = value
-        self.expire = expire
+        self.expireTime = expireTime
 
 
 class MemoryStore(Store):
@@ -43,7 +43,7 @@ class MemoryStore(Store):
             if val is None:
                 return False, ""
             else:
-                if val.expire < int(time.time()):
+                if val.expireTime < int(time.time()):
                     self.data.pop(key)
                     return False, ""
                 else:
@@ -58,6 +58,6 @@ class MemoryStore(Store):
         """
         self.mutex.acquire()
         try:
-            self.data[key] = ExpireValue(value, expire)
+            self.data[key] = ExpireValue(value, int(time.time()) + expire)
         finally:
             self.mutex.release()
