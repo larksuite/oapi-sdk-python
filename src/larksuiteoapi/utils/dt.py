@@ -79,7 +79,7 @@ def make_datatype(t, kwargs):
         return kwargs
 
     if isinstance(kwargs, list):
-        return [make_datatype(t.__args__[0], i) for i in kwargs]
+        return [make_datatype(getattr(t, '__args__', ()) and t.__args__[0] or t, i) for i in kwargs]
 
     if not hasattr(t, '__attrs_attrs__'):
         return kwargs
