@@ -1,0 +1,8 @@
+build/
+dist/
+lark_oapi.egg-info/
+
+
+*/__pycache__/
+*.pyc
+*.cache
