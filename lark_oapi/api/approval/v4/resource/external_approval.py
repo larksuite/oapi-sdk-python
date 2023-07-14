@@ -12,6 +12,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from lark_oapi.api.approval.v4.model.create_external_approval_request import CreateExternalApprovalRequest
 from lark_oapi.api.approval.v4.model.create_external_approval_response import CreateExternalApprovalResponse
+from lark_oapi.api.approval.v4.model.get_external_approval_request import GetExternalApprovalRequest
+from lark_oapi.api.approval.v4.model.get_external_approval_response import GetExternalApprovalResponse
 
 
 class ExternalApproval(object):
@@ -27,6 +29,19 @@ class ExternalApproval(object):
         
         # 反序列化
         response: CreateExternalApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalApprovalResponse)
+        response.raw = resp
+
+        return response
+
+    def get(self, request: GetExternalApprovalRequest, option: RequestOption = RequestOption()) -> GetExternalApprovalResponse:
+        # 鉴权、获取token
+        verify(self.config, request, option)
+        
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+        
+        # 反序列化
+        response: GetExternalApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExternalApprovalResponse)
         response.raw = resp
 
         return response

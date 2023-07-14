@@ -11,6 +11,7 @@ class CreateCalendarEventRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.idempotency_key: Optional[str] = None
+        self.user_id_type: Optional[str] = None
         self.calendar_id: Optional[str] = None
         self.request_body: Optional[CalendarEvent] = None
 
@@ -30,6 +31,11 @@ class CreateCalendarEventRequestBuilder(object):
     def idempotency_key(self, idempotency_key: str) -> "CreateCalendarEventRequestBuilder":
         self._create_calendar_event_request.idempotency_key = idempotency_key
         self._create_calendar_event_request.queries["idempotency_key"] = str(idempotency_key)
+        return self
+    
+    def user_id_type(self, user_id_type: str) -> "CreateCalendarEventRequestBuilder":
+        self._create_calendar_event_request.user_id_type = user_id_type
+        self._create_calendar_event_request.queries["user_id_type"] = str(user_id_type)
         return self
     
     def calendar_id(self, calendar_id: str) -> "CreateCalendarEventRequestBuilder":

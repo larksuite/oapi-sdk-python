@@ -10,6 +10,7 @@ class ListCalendarEventAttendeeRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.user_id_type: Optional[str] = None
+        self.need_resource_customization: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
         self.calendar_id: Optional[str] = None
@@ -31,6 +32,11 @@ class ListCalendarEventAttendeeRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "ListCalendarEventAttendeeRequestBuilder":
         self._list_calendar_event_attendee_request.user_id_type = user_id_type
         self._list_calendar_event_attendee_request.queries["user_id_type"] = str(user_id_type)
+        return self
+    
+    def need_resource_customization(self, need_resource_customization: bool) -> "ListCalendarEventAttendeeRequestBuilder":
+        self._list_calendar_event_attendee_request.need_resource_customization = need_resource_customization
+        self._list_calendar_event_attendee_request.queries["need_resource_customization"] = str(need_resource_customization)
         return self
     
     def page_token(self, page_token: str) -> "ListCalendarEventAttendeeRequestBuilder":

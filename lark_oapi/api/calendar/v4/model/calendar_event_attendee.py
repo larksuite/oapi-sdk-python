@@ -23,6 +23,7 @@ class CalendarEventAttendee(object):
         "third_party_email": str,
         "operate_id": str,
         "resource_customization": List[CalendarAttendeeResourceCustomization],
+        "approval_reason": str,
     }
 
     def __init__(self, d):
@@ -40,6 +41,7 @@ class CalendarEventAttendee(object):
         self.third_party_email: Optional[str] = None
         self.operate_id: Optional[str] = None
         self.resource_customization: Optional[List[CalendarAttendeeResourceCustomization]] = None
+        self.approval_reason: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -105,6 +107,10 @@ class CalendarEventAttendeeBuilder(object):
     
     def resource_customization(self, resource_customization: List[CalendarAttendeeResourceCustomization]) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.resource_customization = resource_customization
+        return self
+    
+    def approval_reason(self, approval_reason: str) -> "CalendarEventAttendeeBuilder":
+        self._calendar_event_attendee.approval_reason = approval_reason
         return self
     
     def build(self) -> "CalendarEventAttendee":

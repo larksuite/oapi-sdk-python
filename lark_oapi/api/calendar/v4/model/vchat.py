@@ -4,6 +4,7 @@ from typing import *
 from typing import IO
 from lark_oapi.core.construct import init
 from .vc_info import VcInfo
+from .meeting_settings import MeetingSettings
 
 
 class Vchat(object):
@@ -12,6 +13,7 @@ class Vchat(object):
         "icon_type": str,
         "description": str,
         "meeting_url": str,
+        "meeting_settings": MeetingSettings,
     }
 
     def __init__(self, d):
@@ -21,6 +23,7 @@ class Vchat(object):
         self.meeting_url: Optional[str] = None
         self.live_link: Optional[str] = None
         self.vc_info: Optional[VcInfo] = None
+        self.meeting_settings: Optional[MeetingSettings] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +52,10 @@ class VchatBuilder(object):
         return self
     
     
+    
+    def meeting_settings(self, meeting_settings: MeetingSettings) -> "VchatBuilder":
+        self._vchat.meeting_settings = meeting_settings
+        return self
     
     def build(self) -> "Vchat":
         return self._vchat

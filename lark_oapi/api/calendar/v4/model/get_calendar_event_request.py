@@ -9,6 +9,8 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class GetCalendarEventRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.need_meeting_settings: Optional[bool] = None
+        self.user_id_type: Optional[str] = None
         self.calendar_id: Optional[str] = None
         self.event_id: Optional[str] = None
 
@@ -24,6 +26,16 @@ class GetCalendarEventRequestBuilder(object):
         get_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
         get_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_calendar_event_request: GetCalendarEventRequest = get_calendar_event_request
+    
+    def need_meeting_settings(self, need_meeting_settings: bool) -> "GetCalendarEventRequestBuilder":
+        self._get_calendar_event_request.need_meeting_settings = need_meeting_settings
+        self._get_calendar_event_request.queries["need_meeting_settings"] = str(need_meeting_settings)
+        return self
+    
+    def user_id_type(self, user_id_type: str) -> "GetCalendarEventRequestBuilder":
+        self._get_calendar_event_request.user_id_type = user_id_type
+        self._get_calendar_event_request.queries["user_id_type"] = str(user_id_type)
+        return self
     
     def calendar_id(self, calendar_id: str) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.calendar_id = calendar_id

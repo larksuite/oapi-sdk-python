@@ -90,6 +90,7 @@ from .get_approval_request import *
 from .subscribe_approval_request import *
 from .unsubscribe_approval_request import *
 from .create_external_approval_request import *
+from .get_external_approval_request import *
 from .check_external_instance_request_body import *
 from .check_external_instance_request import *
 from .create_external_instance_request import *
@@ -125,6 +126,8 @@ from .subscribe_approval_response import *
 from .unsubscribe_approval_response import *
 from .create_external_approval_response_body import *
 from .create_external_approval_response import *
+from .get_external_approval_response_body import *
+from .get_external_approval_response import *
 from .check_external_instance_response_body import *
 from .check_external_instance_response import *
 from .create_external_instance_response_body import *

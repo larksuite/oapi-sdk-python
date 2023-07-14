@@ -16,6 +16,7 @@ def main():
 	request: CreateCalendarEventRequest = lark.calendar.v4.CreateCalendarEventRequest.builder() \
 		.calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
 		.idempotency_key("25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6") \
+		.user_id_type("user_id") \
 		.request_body(lark.calendar.v4.CalendarEvent.builder()
 					  .summary("日程标题")
 					  .description("日程描述")

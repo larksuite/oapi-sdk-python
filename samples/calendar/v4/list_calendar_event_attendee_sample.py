@@ -17,6 +17,7 @@ def main():
 		.calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
 		.event_id("xxxxxxxxx_0") \
 		.user_id_type("user_id") \
+		.need_resource_customization(True) \
 		.page_token("780TRhwXXXXX") \
 		.page_size(20) \
 		.build()

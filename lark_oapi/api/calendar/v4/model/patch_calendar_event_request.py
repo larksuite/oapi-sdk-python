@@ -10,6 +10,7 @@ from .calendar_event import CalendarEvent
 class PatchCalendarEventRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.calendar_id: Optional[str] = None
         self.event_id: Optional[str] = None
         self.request_body: Optional[CalendarEvent] = None
@@ -26,6 +27,11 @@ class PatchCalendarEventRequestBuilder(object):
         patch_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
         patch_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._patch_calendar_event_request: PatchCalendarEventRequest = patch_calendar_event_request
+    
+    def user_id_type(self, user_id_type: str) -> "PatchCalendarEventRequestBuilder":
+        self._patch_calendar_event_request.user_id_type = user_id_type
+        self._patch_calendar_event_request.queries["user_id_type"] = str(user_id_type)
+        return self
     
     def calendar_id(self, calendar_id: str) -> "PatchCalendarEventRequestBuilder":
         self._patch_calendar_event_request.calendar_id = calendar_id
