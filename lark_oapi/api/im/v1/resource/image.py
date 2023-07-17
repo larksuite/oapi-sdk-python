@@ -2,18 +2,19 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
+
 from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.im.v1.model.create_image_request import CreateImageRequest
 from lark_oapi.api.im.v1.model.create_image_response import CreateImageResponse
 from lark_oapi.api.im.v1.model.get_image_request import GetImageRequest
 from lark_oapi.api.im.v1.model.get_image_response import GetImageResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8, CONTENT_TYPE
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class Image(object):
@@ -23,16 +24,16 @@ class Image(object):
     def create(self, request: CreateImageRequest, option: RequestOption = RequestOption()) -> CreateImageResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 处理 form-data
         if request.body is not None:
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             option.headers[CONTENT_TYPE] = form_data.content_type
             request.body = form_data
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImageResponse)
         response.raw = resp
@@ -42,10 +43,10 @@ class Image(object):
     def get(self, request: GetImageRequest, option: RequestOption = RequestOption()) -> GetImageResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: GetImageResponse = GetImageResponse({})
@@ -54,11 +55,9 @@ class Image(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
         response: GetImageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetImageResponse)
         response.raw = resp
 
         return response
-
-    

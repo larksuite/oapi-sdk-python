@@ -2,46 +2,47 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
-from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.drive.v1.model.create_export_task_request import CreateExportTaskRequest
 from lark_oapi.api.drive.v1.model.create_export_task_response import CreateExportTaskResponse
 from lark_oapi.api.drive.v1.model.download_export_task_request import DownloadExportTaskRequest
 from lark_oapi.api.drive.v1.model.download_export_task_response import DownloadExportTaskResponse
 from lark_oapi.api.drive.v1.model.get_export_task_request import GetExportTaskRequest
 from lark_oapi.api.drive.v1.model.get_export_task_response import GetExportTaskResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class ExportTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateExportTaskRequest, option: RequestOption = RequestOption()) -> CreateExportTaskResponse:
+    def create(self, request: CreateExportTaskRequest,
+               option: RequestOption = RequestOption()) -> CreateExportTaskResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExportTaskResponse)
         response.raw = resp
 
         return response
 
-    def download(self, request: DownloadExportTaskRequest, option: RequestOption = RequestOption()) -> DownloadExportTaskResponse:
+    def download(self, request: DownloadExportTaskRequest,
+                 option: RequestOption = RequestOption()) -> DownloadExportTaskResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: DownloadExportTaskResponse = DownloadExportTaskResponse({})
@@ -50,7 +51,7 @@ class ExportTask(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
         response: DownloadExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), DownloadExportTaskResponse)
         response.raw = resp
@@ -60,14 +61,12 @@ class ExportTask(object):
     def get(self, request: GetExportTaskRequest, option: RequestOption = RequestOption()) -> GetExportTaskResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportTaskResponse)
         response.raw = resp
 
         return response
-
-    

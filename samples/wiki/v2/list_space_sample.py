@@ -5,31 +5,31 @@ from lark_oapi.api.wiki.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListSpaceRequest = ListSpaceRequest.builder() \
-		.page_size(10) \
-		.page_token("1565676577122621") \
-		.build()
+    # 构造请求对象
+    request: ListSpaceRequest = ListSpaceRequest.builder() \
+        .page_size(10) \
+        .page_token("1565676577122621") \
+        .build()
 
-	# 发起请求
-	response: ListSpaceResponse = client.wiki.v2.space.list(request)
+    # 发起请求
+    response: ListSpaceResponse = client.wiki.v2.space.list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.wiki.v2.space.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.wiki.v2.space.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

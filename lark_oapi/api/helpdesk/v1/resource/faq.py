@@ -2,14 +2,7 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
-from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.helpdesk.v1.model.create_faq_request import CreateFaqRequest
 from lark_oapi.api.helpdesk.v1.model.create_faq_response import CreateFaqResponse
 from lark_oapi.api.helpdesk.v1.model.delete_faq_request import DeleteFaqRequest
@@ -24,6 +17,12 @@ from lark_oapi.api.helpdesk.v1.model.patch_faq_request import PatchFaqRequest
 from lark_oapi.api.helpdesk.v1.model.patch_faq_response import PatchFaqResponse
 from lark_oapi.api.helpdesk.v1.model.search_faq_request import SearchFaqRequest
 from lark_oapi.api.helpdesk.v1.model.search_faq_response import SearchFaqResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class Faq(object):
@@ -33,10 +32,10 @@ class Faq(object):
     def create(self, request: CreateFaqRequest, option: RequestOption = RequestOption()) -> CreateFaqResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFaqResponse)
         response.raw = resp
@@ -46,10 +45,10 @@ class Faq(object):
     def delete(self, request: DeleteFaqRequest, option: RequestOption = RequestOption()) -> DeleteFaqResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFaqResponse)
         response.raw = resp
@@ -59,10 +58,10 @@ class Faq(object):
     def faq_image(self, request: FaqImageFaqRequest, option: RequestOption = RequestOption()) -> FaqImageFaqResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: FaqImageFaqResponse = FaqImageFaqResponse({})
@@ -71,7 +70,7 @@ class Faq(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
         response: FaqImageFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), FaqImageFaqResponse)
         response.raw = resp
@@ -81,10 +80,10 @@ class Faq(object):
     def get(self, request: GetFaqRequest, option: RequestOption = RequestOption()) -> GetFaqResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), GetFaqResponse)
         response.raw = resp
@@ -94,10 +93,10 @@ class Faq(object):
     def list(self, request: ListFaqRequest, option: RequestOption = RequestOption()) -> ListFaqResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFaqResponse)
         response.raw = resp
@@ -107,10 +106,10 @@ class Faq(object):
     def patch(self, request: PatchFaqRequest, option: RequestOption = RequestOption()) -> PatchFaqResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchFaqResponse)
         response.raw = resp
@@ -120,14 +119,12 @@ class Faq(object):
     def search(self, request: SearchFaqRequest, option: RequestOption = RequestOption()) -> SearchFaqResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchFaqResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchFaqResponse)
         response.raw = resp
 
         return response
-
-    

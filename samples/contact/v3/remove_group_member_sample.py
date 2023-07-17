@@ -5,35 +5,35 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: RemoveGroupMemberRequest = RemoveGroupMemberRequest.builder() \
-		.group_id("g198123") \
-		.request_body(RemoveGroupMemberRequestBody.builder()
-					  .member_type("user")
-					  .member_id("xj82871k")
-					  .member_id_type("open_id")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: RemoveGroupMemberRequest = RemoveGroupMemberRequest.builder() \
+        .group_id("g198123") \
+        .request_body(RemoveGroupMemberRequestBody.builder()
+                      .member_type("user")
+                      .member_id("xj82871k")
+                      .member_id_type("open_id")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: RemoveGroupMemberResponse = client.contact.v3.group_member.remove(request)
+    # 发起请求
+    response: RemoveGroupMemberResponse = client.contact.v3.group_member.remove(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.contact.v3.group_member.remove failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.contact.v3.group_member.remove failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

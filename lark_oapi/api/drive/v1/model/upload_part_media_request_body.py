@@ -2,6 +2,7 @@
 
 from typing import *
 from typing import IO
+
 from lark_oapi.core.construct import init
 
 
@@ -28,28 +29,29 @@ class UploadPartMediaRequestBody(object):
 
 
 class UploadPartMediaRequestBodyBuilder(object):
-    def __init__(self, upload_part_media_request_body: UploadPartMediaRequestBody = UploadPartMediaRequestBody({})) -> None:
+    def __init__(self,
+                 upload_part_media_request_body: UploadPartMediaRequestBody = UploadPartMediaRequestBody({})) -> None:
         self._upload_part_media_request_body: UploadPartMediaRequestBody = upload_part_media_request_body
-    
+
     def upload_id(self, upload_id: str) -> "UploadPartMediaRequestBodyBuilder":
         self._upload_part_media_request_body.upload_id = upload_id
         return self
-    
+
     def seq(self, seq: int) -> "UploadPartMediaRequestBodyBuilder":
         self._upload_part_media_request_body.seq = seq
         return self
-    
+
     def size(self, size: int) -> "UploadPartMediaRequestBodyBuilder":
         self._upload_part_media_request_body.size = size
         return self
-    
+
     def checksum(self, checksum: str) -> "UploadPartMediaRequestBodyBuilder":
         self._upload_part_media_request_body.checksum = checksum
         return self
-    
+
     def file(self, file: IO[Any]) -> "UploadPartMediaRequestBodyBuilder":
         self._upload_part_media_request_body.file = file
         return self
-    
+
     def build(self) -> "UploadPartMediaRequestBody":
         return self._upload_part_media_request_body

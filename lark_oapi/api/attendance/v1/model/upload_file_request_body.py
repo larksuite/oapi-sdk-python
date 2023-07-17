@@ -2,6 +2,7 @@
 
 from typing import *
 from typing import IO
+
 from lark_oapi.core.construct import init
 
 
@@ -22,10 +23,10 @@ class UploadFileRequestBody(object):
 class UploadFileRequestBodyBuilder(object):
     def __init__(self, upload_file_request_body: UploadFileRequestBody = UploadFileRequestBody({})) -> None:
         self._upload_file_request_body: UploadFileRequestBody = upload_file_request_body
-    
+
     def file(self, file: IO[Any]) -> "UploadFileRequestBodyBuilder":
         self._upload_file_request_body.file = file
         return self
-    
+
     def build(self) -> "UploadFileRequestBody":
         return self._upload_file_request_body

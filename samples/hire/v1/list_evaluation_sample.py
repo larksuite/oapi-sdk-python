@@ -5,35 +5,35 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListEvaluationRequest = ListEvaluationRequest.builder() \
-		.page_token("eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9") \
-		.page_size(10) \
-		.application_id("6875569957036738823") \
-		.update_start_time("1600843767338") \
-		.update_end_time("1600843938726") \
-		.user_id_type("open_id") \
-		.build()
+    # 构造请求对象
+    request: ListEvaluationRequest = ListEvaluationRequest.builder() \
+        .page_token("eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9") \
+        .page_size(10) \
+        .application_id("6875569957036738823") \
+        .update_start_time("1600843767338") \
+        .update_end_time("1600843938726") \
+        .user_id_type("open_id") \
+        .build()
 
-	# 发起请求
-	response: ListEvaluationResponse = client.hire.v1.evaluation.list(request)
+    # 发起请求
+    response: ListEvaluationResponse = client.hire.v1.evaluation.list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.evaluation.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.evaluation.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

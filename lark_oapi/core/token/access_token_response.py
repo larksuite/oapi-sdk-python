@@ -1,7 +1,7 @@
 from typing import Optional
 
-from lark_oapi.core.model import BaseResponse
 from lark_oapi.core.construct import init
+from lark_oapi.core.model import BaseResponse
 
 
 class AccessTokenResponse(BaseResponse):

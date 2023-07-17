@@ -5,37 +5,37 @@ from lark_oapi.api.admin.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListAdminUserStatRequest = ListAdminUserStatRequest.builder() \
-		.user_id_type("user_id") \
-		.department_id_type("open_department_id") \
-		.start_date("2020-02-15") \
-		.end_date("2020-02-15") \
-		.department_id("od-382e2793cfc9471f892e8a672987654c") \
-		.user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
-		.page_size(10) \
-		.page_token("2") \
-		.build()
+    # 构造请求对象
+    request: ListAdminUserStatRequest = ListAdminUserStatRequest.builder() \
+        .user_id_type("user_id") \
+        .department_id_type("open_department_id") \
+        .start_date("2020-02-15") \
+        .end_date("2020-02-15") \
+        .department_id("od-382e2793cfc9471f892e8a672987654c") \
+        .user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
+        .page_size(10) \
+        .page_token("2") \
+        .build()
 
-	# 发起请求
-	response: ListAdminUserStatResponse = client.admin.v1.admin_user_stat.list(request)
+    # 发起请求
+    response: ListAdminUserStatResponse = client.admin.v1.admin_user_stat.list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.admin.v1.admin_user_stat.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.admin.v1.admin_user_stat.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

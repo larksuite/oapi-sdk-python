@@ -2,6 +2,7 @@
 
 from typing import *
 from typing import IO
+
 from lark_oapi.core.construct import init
 
 
@@ -24,14 +25,14 @@ class CreateImageRequestBody(object):
 class CreateImageRequestBodyBuilder(object):
     def __init__(self, create_image_request_body: CreateImageRequestBody = CreateImageRequestBody({})) -> None:
         self._create_image_request_body: CreateImageRequestBody = create_image_request_body
-    
+
     def image_type(self, image_type: str) -> "CreateImageRequestBodyBuilder":
         self._create_image_request_body.image_type = image_type
         return self
-    
+
     def image(self, image: IO[Any]) -> "CreateImageRequestBodyBuilder":
         self._create_image_request_body.image = image
         return self
-    
+
     def build(self) -> "CreateImageRequestBody":
         return self._create_image_request_body

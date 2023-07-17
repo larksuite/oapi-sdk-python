@@ -5,35 +5,36 @@ from lark_oapi.api.acs.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListAccessRecordRequest = ListAccessRecordRequest.builder() \
-		.page_size(100) \
-		.page_token("AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=") \
-		.from_(1624520521) \
-		.to(1624520521) \
-		.device_id("7091146989218002577") \
-		.user_id_type("user_id") \
-		.build()
+    # 构造请求对象
+    request: ListAccessRecordRequest = ListAccessRecordRequest.builder() \
+        .page_size(100) \
+        .page_token(
+        "AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=") \
+        .from_(1624520521) \
+        .to(1624520521) \
+        .device_id("7091146989218002577") \
+        .user_id_type("user_id") \
+        .build()
 
-	# 发起请求
-	response: ListAccessRecordResponse = client.acs.v1.access_record.list(request)
+    # 发起请求
+    response: ListAccessRecordResponse = client.acs.v1.access_record.list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.acs.v1.access_record.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.acs.v1.access_record.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

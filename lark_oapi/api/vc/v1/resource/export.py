@@ -2,14 +2,7 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
-from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.vc.v1.model.download_export_request import DownloadExportRequest
 from lark_oapi.api.vc.v1.model.download_export_response import DownloadExportResponse
 from lark_oapi.api.vc.v1.model.get_export_request import GetExportRequest
@@ -22,19 +15,26 @@ from lark_oapi.api.vc.v1.model.participant_quality_list_export_request import Pa
 from lark_oapi.api.vc.v1.model.participant_quality_list_export_response import ParticipantQualityListExportResponse
 from lark_oapi.api.vc.v1.model.resource_reservation_list_export_request import ResourceReservationListExportRequest
 from lark_oapi.api.vc.v1.model.resource_reservation_list_export_response import ResourceReservationListExportResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class Export(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def download(self, request: DownloadExportRequest, option: RequestOption = RequestOption()) -> DownloadExportResponse:
+    def download(self, request: DownloadExportRequest,
+                 option: RequestOption = RequestOption()) -> DownloadExportResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: DownloadExportResponse = DownloadExportResponse({})
@@ -43,7 +43,7 @@ class Export(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
         response: DownloadExportResponse = JSON.unmarshal(str(resp.content, UTF_8), DownloadExportResponse)
         response.raw = resp
@@ -53,66 +53,71 @@ class Export(object):
     def get(self, request: GetExportRequest, option: RequestOption = RequestOption()) -> GetExportResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetExportResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportResponse)
         response.raw = resp
 
         return response
 
-    def meeting_list(self, request: MeetingListExportRequest, option: RequestOption = RequestOption()) -> MeetingListExportResponse:
+    def meeting_list(self, request: MeetingListExportRequest,
+                     option: RequestOption = RequestOption()) -> MeetingListExportResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: MeetingListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), MeetingListExportResponse)
         response.raw = resp
 
         return response
 
-    def participant_list(self, request: ParticipantListExportRequest, option: RequestOption = RequestOption()) -> ParticipantListExportResponse:
+    def participant_list(self, request: ParticipantListExportRequest,
+                         option: RequestOption = RequestOption()) -> ParticipantListExportResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ParticipantListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ParticipantListExportResponse)
+        response: ParticipantListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 ParticipantListExportResponse)
         response.raw = resp
 
         return response
 
-    def participant_quality_list(self, request: ParticipantQualityListExportRequest, option: RequestOption = RequestOption()) -> ParticipantQualityListExportResponse:
+    def participant_quality_list(self, request: ParticipantQualityListExportRequest,
+                                 option: RequestOption = RequestOption()) -> ParticipantQualityListExportResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ParticipantQualityListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ParticipantQualityListExportResponse)
+        response: ParticipantQualityListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        ParticipantQualityListExportResponse)
         response.raw = resp
 
         return response
 
-    def resource_reservation_list(self, request: ResourceReservationListExportRequest, option: RequestOption = RequestOption()) -> ResourceReservationListExportResponse:
+    def resource_reservation_list(self, request: ResourceReservationListExportRequest,
+                                  option: RequestOption = RequestOption()) -> ResourceReservationListExportResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ResourceReservationListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ResourceReservationListExportResponse)
+        response: ResourceReservationListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         ResourceReservationListExportResponse)
         response.raw = resp
 
         return response
-
-    

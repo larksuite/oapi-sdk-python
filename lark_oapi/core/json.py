@@ -1,6 +1,6 @@
 import datetime
-from typing import *
 from json import *
+from typing import *
 
 from .const import UTF_8
 

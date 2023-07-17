@@ -1,8 +1,8 @@
 from typing import Optional
 
+from lark_oapi.core import AppType, LogLevel
 from lark_oapi.core.cache import ICache
 from lark_oapi.core.const import FEISHU_DOMAIN
-from lark_oapi.core import AppType, LogLevel
 
 
 class Config(object):

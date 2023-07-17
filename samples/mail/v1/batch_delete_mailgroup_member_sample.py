@@ -5,33 +5,33 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: BatchDeleteMailgroupMemberRequest = BatchDeleteMailgroupMemberRequest.builder() \
-		.mailgroup_id("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx") \
-		.request_body(BatchDeleteMailgroupMemberRequestBody.builder()
-					  .member_id_list([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: BatchDeleteMailgroupMemberRequest = BatchDeleteMailgroupMemberRequest.builder() \
+        .mailgroup_id("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx") \
+        .request_body(BatchDeleteMailgroupMemberRequestBody.builder()
+                      .member_id_list([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: BatchDeleteMailgroupMemberResponse = client.mail.v1.mailgroup_member.batch_delete(request)
+    # 发起请求
+    response: BatchDeleteMailgroupMemberResponse = client.mail.v1.mailgroup_member.batch_delete(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.mail.v1.mailgroup_member.batch_delete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.mail.v1.mailgroup_member.batch_delete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

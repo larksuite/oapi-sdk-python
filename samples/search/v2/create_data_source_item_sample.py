@@ -5,37 +5,37 @@ from lark_oapi.api.search.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateDataSourceItemRequest = CreateDataSourceItemRequest.builder() \
-		.data_source_id("service_ticket") \
-		.request_body(Item.builder()
-					  .id("str")
-					  .acl([])
-					  .metadata(ItemMetadata.builder().build())
-					  .structured_data("str")
-					  .content(ItemContent.builder().build())
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateDataSourceItemRequest = CreateDataSourceItemRequest.builder() \
+        .data_source_id("service_ticket") \
+        .request_body(Item.builder()
+                      .id("str")
+                      .acl([])
+                      .metadata(ItemMetadata.builder().build())
+                      .structured_data("str")
+                      .content(ItemContent.builder().build())
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateDataSourceItemResponse = client.search.v2.data_source_item.create(request)
+    # 发起请求
+    response: CreateDataSourceItemResponse = client.search.v2.data_source_item.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.search.v2.data_source_item.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.search.v2.data_source_item.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

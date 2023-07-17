@@ -5,44 +5,44 @@ from lark_oapi.api.block.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: UpdateEntityRequest = UpdateEntityRequest.builder() \
-		.block_id("7794641623571830467") \
-		.request_body(Entity.builder()
-					  .title("已阅block")
-					  .block_type_id("blk_6204893fee000013739f5359")
-					  .source_data("")
-					  .source_meta("")
-					  .version("1651716489253602")
-					  .source_link("str")
-					  .summary("")
-					  .preview("")
-					  .i18n_summay("")
-					  .i18n_preview("")
-					  .owner("ou_fa7aa170f92d1615de63371ac425a767")
-					  .extra("{}")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: UpdateEntityRequest = UpdateEntityRequest.builder() \
+        .block_id("7794641623571830467") \
+        .request_body(Entity.builder()
+                      .title("已阅block")
+                      .block_type_id("blk_6204893fee000013739f5359")
+                      .source_data("")
+                      .source_meta("")
+                      .version("1651716489253602")
+                      .source_link("str")
+                      .summary("")
+                      .preview("")
+                      .i18n_summay("")
+                      .i18n_preview("")
+                      .owner("ou_fa7aa170f92d1615de63371ac425a767")
+                      .extra("{}")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: UpdateEntityResponse = client.block.v2.entity.update(request)
+    # 发起请求
+    response: UpdateEntityResponse = client.block.v2.entity.update(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.block.v2.entity.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.block.v2.entity.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

@@ -2,6 +2,7 @@
 
 from typing import *
 from typing import IO
+
 from lark_oapi.core.construct import init
 
 
@@ -24,14 +25,14 @@ class UploadPersonRequestBody(object):
 class UploadPersonRequestBodyBuilder(object):
     def __init__(self, upload_person_request_body: UploadPersonRequestBody = UploadPersonRequestBody({})) -> None:
         self._upload_person_request_body: UploadPersonRequestBody = upload_person_request_body
-    
+
     def file_content(self, file_content: IO[Any]) -> "UploadPersonRequestBodyBuilder":
         self._upload_person_request_body.file_content = file_content
         return self
-    
+
     def file_name(self, file_name: str) -> "UploadPersonRequestBodyBuilder":
         self._upload_person_request_body.file_name = file_name
         return self
-    
+
     def build(self) -> "UploadPersonRequestBody":
         return self._upload_person_request_body

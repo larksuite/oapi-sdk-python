@@ -5,32 +5,32 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: DownloadFileRequest = DownloadFileRequest.builder() \
-		.file_token("boxbcEcmKiD3SGHvgqWTpvdc7jc") \
-		.build()
+    # 构造请求对象
+    request: DownloadFileRequest = DownloadFileRequest.builder() \
+        .file_token("boxbcEcmKiD3SGHvgqWTpvdc7jc") \
+        .build()
 
-	# 发起请求
-	response: DownloadFileResponse = client.baike.v1.file.download(request)
+    # 发起请求
+    response: DownloadFileResponse = client.baike.v1.file.download(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.baike.v1.file.download failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.baike.v1.file.download failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	f = open(f"file_path/{response.file_name}", "wb")
-	f.write(response.file.read())
-	f.close()
+    # 处理业务结果
+    f = open(f"file_path/{response.file_name}", "wb")
+    f.write(response.file.read())
+    f.close()
 
 
 if __name__ == "__main__":
-	main()
+    main()

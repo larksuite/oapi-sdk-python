@@ -1,6 +1,6 @@
 from .agent import *
-from .agent_schedules import *
 from .agent_schedule import *
+from .agent_schedules import *
 from .agent_skill import *
 from .agent_skill_rule import *
 from .bot_message import *
@@ -9,5 +9,5 @@ from .event import *
 from .faq import *
 from .notification import *
 from .ticket import *
-from .ticket_message import *
 from .ticket_customized_field import *
+from .ticket_message import *

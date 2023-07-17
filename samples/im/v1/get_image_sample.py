@@ -5,32 +5,32 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: GetImageRequest = GetImageRequest.builder() \
-		.image_key("img_8d5181ca-0aed-40f0-b0d1-b1452132afbg") \
-		.build()
+    # 构造请求对象
+    request: GetImageRequest = GetImageRequest.builder() \
+        .image_key("img_8d5181ca-0aed-40f0-b0d1-b1452132afbg") \
+        .build()
 
-	# 发起请求
-	response: GetImageResponse = client.im.v1.image.get(request)
+    # 发起请求
+    response: GetImageResponse = client.im.v1.image.get(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.im.v1.image.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.im.v1.image.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	f = open(f"file_path/{response.file_name}", "wb")
-	f.write(response.file.read())
-	f.close()
+    # 处理业务结果
+    f = open(f"file_path/{response.file_name}", "wb")
+    f.write(response.file.read())
+    f.close()
 
 
 if __name__ == "__main__":
-	main()
+    main()

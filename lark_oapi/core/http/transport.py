@@ -1,11 +1,10 @@
-from typing import Dict
-
 import requests
 from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.core import JSON, logger
-from lark_oapi.core.model import *
 from lark_oapi.core.const import *
 from lark_oapi.core.enum import *
+from lark_oapi.core.model import *
 
 
 class Transport(object):

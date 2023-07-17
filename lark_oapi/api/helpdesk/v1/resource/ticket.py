@@ -2,14 +2,7 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
-from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.helpdesk.v1.model.answer_user_query_ticket_request import AnswerUserQueryTicketRequest
 from lark_oapi.api.helpdesk.v1.model.answer_user_query_ticket_response import AnswerUserQueryTicketResponse
 from lark_oapi.api.helpdesk.v1.model.customized_fields_ticket_request import CustomizedFieldsTicketRequest
@@ -24,34 +17,44 @@ from lark_oapi.api.helpdesk.v1.model.ticket_image_ticket_request import TicketIm
 from lark_oapi.api.helpdesk.v1.model.ticket_image_ticket_response import TicketImageTicketResponse
 from lark_oapi.api.helpdesk.v1.model.update_ticket_request import UpdateTicketRequest
 from lark_oapi.api.helpdesk.v1.model.update_ticket_response import UpdateTicketResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class Ticket(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def answer_user_query(self, request: AnswerUserQueryTicketRequest, option: RequestOption = RequestOption()) -> AnswerUserQueryTicketResponse:
+    def answer_user_query(self, request: AnswerUserQueryTicketRequest,
+                          option: RequestOption = RequestOption()) -> AnswerUserQueryTicketResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: AnswerUserQueryTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), AnswerUserQueryTicketResponse)
+        response: AnswerUserQueryTicketResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 AnswerUserQueryTicketResponse)
         response.raw = resp
 
         return response
 
-    def customized_fields(self, request: CustomizedFieldsTicketRequest, option: RequestOption = RequestOption()) -> CustomizedFieldsTicketResponse:
+    def customized_fields(self, request: CustomizedFieldsTicketRequest,
+                          option: RequestOption = RequestOption()) -> CustomizedFieldsTicketResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CustomizedFieldsTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), CustomizedFieldsTicketResponse)
+        response: CustomizedFieldsTicketResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  CustomizedFieldsTicketResponse)
         response.raw = resp
 
         return response
@@ -59,10 +62,10 @@ class Ticket(object):
     def get(self, request: GetTicketRequest, option: RequestOption = RequestOption()) -> GetTicketResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTicketResponse)
         response.raw = resp
@@ -72,36 +75,38 @@ class Ticket(object):
     def list(self, request: ListTicketRequest, option: RequestOption = RequestOption()) -> ListTicketResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTicketResponse)
         response.raw = resp
 
         return response
 
-    def start_service(self, request: StartServiceTicketRequest, option: RequestOption = RequestOption()) -> StartServiceTicketResponse:
+    def start_service(self, request: StartServiceTicketRequest,
+                      option: RequestOption = RequestOption()) -> StartServiceTicketResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: StartServiceTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), StartServiceTicketResponse)
         response.raw = resp
 
         return response
 
-    def ticket_image(self, request: TicketImageTicketRequest, option: RequestOption = RequestOption()) -> TicketImageTicketResponse:
+    def ticket_image(self, request: TicketImageTicketRequest,
+                     option: RequestOption = RequestOption()) -> TicketImageTicketResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: TicketImageTicketResponse = TicketImageTicketResponse({})
@@ -110,7 +115,7 @@ class Ticket(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
         response: TicketImageTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), TicketImageTicketResponse)
         response.raw = resp
@@ -120,14 +125,12 @@ class Ticket(object):
     def update(self, request: UpdateTicketRequest, option: RequestOption = RequestOption()) -> UpdateTicketResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTicketResponse)
         response.raw = resp
 
         return response
-
-    

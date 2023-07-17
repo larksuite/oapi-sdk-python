@@ -61,7 +61,7 @@ client = lark.Client.builder() \
 ```
 
 ## API 调用
-创建完 API Client 后，我们可以使用 ``Client.业务域.版本.资源.方法名称`` 来定位具体的 API 方法，然后对具体的 API 发起调用。
+创建完 API Client 后，我们可以使用 ``client.业务域.版本.资源.方法名称`` 来定位具体的 API 方法，然后对具体的 API 发起调用。
 
 ![](./doc/client_expr.png)
 
@@ -103,9 +103,100 @@ if not response.success():
 
 # 处理业务结果
 lark.logger.info(lark.JSON.marshal(response.data, indent=4))
-
 ```
 更多示例可参考：[请求示例](./samples)
+
+### Request 配置项
+在每次发起 API 调用时，可以设置请求级别的一些参数，比如传递 userAccessToken, 自定义 headers 等。
+
+```python
+import lark_oapi as lark
+from lark_oapi.api.contact.v3 import *
+
+# 创建client
+import lark_oapi as lark
+from lark_oapi.api.contact.v3 import *
+
+# 创建client
+client = lark.Client.builder() \
+    .enable_set_token(True) \
+    .log_level(lark.LogLevel.DEBUG) \
+    .build()
+
+# 构造请求对象
+request: BatchGetIdUserRequest = BatchGetIdUserRequest.builder() \
+    .user_id_type("open_id") \
+    .request_body(BatchGetIdUserRequestBody.builder()
+                  .emails(["xxxx@bytedance.com"])
+                  .mobiles(["15000000000"])
+                  .build()) \
+    .build()
+
+# 设置请求选项
+headers = {"key1": "value1", "key2": "value2"}
+req_opt = lark.RequestOption.builder()\
+    .tenant_access_token("t-g1047hjTXIZKCBFYWXUCK3D2LJWZYCWYL7USXXXX")\
+    .headers(headers)\
+    .build()
+
+# 发起请求
+response: BatchGetIdUserResponse = client.contact.v3.user.batch_get_id(request, req_opt)
+
+# 处理失败返回
+if not response.success():
+    lark.logger.error(
+        f"client.contact.v3.user.batch_get_id failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+
+# 处理业务结果
+lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+```
+
+如上使用 RequestOptions 的 Builder 模式构建请求级别的参数。如下表格，展示了所有可设置的选项：
+
+<table>
+  <thead align=left>
+    <tr>
+      <th>
+        配置选项
+      </th>
+       <th>
+        描述
+      </th>
+    </tr>
+  </thead>
+  <tbody align=left valign=top>
+    <tr>
+      <th>
+        <code>tenant_key</code>
+      </th>
+      <td>租户 key, 商店应用必须设置该选项。</td>
+    </tr>
+    <tr>
+      <th>
+        <code>user_access_token</code>
+      </th>
+      <td>用户 token，创建 Client 时 enable_set_token 需要设置为 True。</td>
+    </tr>
+    <tr>
+      <th>
+        <code>tenant_access_token</code>
+      </th>
+      <td>租户 token，创建 Client 时 enable_set_token 需要设置为 True。</td>
+    </tr>
+    <tr>
+      <th>
+        <code>app_access_token</code>
+      </th>
+      <td>应用 token，创建 Client 时 enable_set_token 需要设置为 True。</td>
+    </tr>
+    <tr>
+      <th>
+        <code>headers</code>
+      </th>
+      <td>自定义请求头，这些请求头会被透传到飞书开放平台服务端。</td
+    </tr>
+  </tbody>
+</table>
 
 ### 原生方式调用
 部分老版本接口，由于没有元数据信息，所以无法生成对应的 SDK 模型，需要使用原生方式调用。

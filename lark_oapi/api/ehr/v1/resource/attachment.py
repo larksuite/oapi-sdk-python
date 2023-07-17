@@ -2,16 +2,15 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
-from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.ehr.v1.model.get_attachment_request import GetAttachmentRequest
 from lark_oapi.api.ehr.v1.model.get_attachment_response import GetAttachmentResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class Attachment(object):
@@ -21,10 +20,10 @@ class Attachment(object):
     def get(self, request: GetAttachmentRequest, option: RequestOption = RequestOption()) -> GetAttachmentResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: GetAttachmentResponse = GetAttachmentResponse({})
@@ -33,11 +32,9 @@ class Attachment(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
         response: GetAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAttachmentResponse)
         response.raw = resp
 
         return response
-
-    

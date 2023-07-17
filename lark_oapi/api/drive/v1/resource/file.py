@@ -2,14 +2,9 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
+
 from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.drive.v1.model.copy_file_request import CopyFileRequest
 from lark_oapi.api.drive.v1.model.copy_file_response import CopyFileResponse
 from lark_oapi.api.drive.v1.model.create_folder_file_request import CreateFolderFileRequest
@@ -36,6 +31,12 @@ from lark_oapi.api.drive.v1.model.upload_part_file_request import UploadPartFile
 from lark_oapi.api.drive.v1.model.upload_part_file_response import UploadPartFileResponse
 from lark_oapi.api.drive.v1.model.upload_prepare_file_request import UploadPrepareFileRequest
 from lark_oapi.api.drive.v1.model.upload_prepare_file_response import UploadPrepareFileResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8, CONTENT_TYPE
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class File(object):
@@ -45,36 +46,38 @@ class File(object):
     def copy(self, request: CopyFileRequest, option: RequestOption = RequestOption()) -> CopyFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CopyFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CopyFileResponse)
         response.raw = resp
 
         return response
 
-    def create_folder(self, request: CreateFolderFileRequest, option: RequestOption = RequestOption()) -> CreateFolderFileResponse:
+    def create_folder(self, request: CreateFolderFileRequest,
+                      option: RequestOption = RequestOption()) -> CreateFolderFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateFolderFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFolderFileResponse)
         response.raw = resp
 
         return response
 
-    def create_shortcut(self, request: CreateShortcutFileRequest, option: RequestOption = RequestOption()) -> CreateShortcutFileResponse:
+    def create_shortcut(self, request: CreateShortcutFileRequest,
+                        option: RequestOption = RequestOption()) -> CreateShortcutFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateShortcutFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateShortcutFileResponse)
         response.raw = resp
@@ -84,10 +87,10 @@ class File(object):
     def delete(self, request: DeleteFileRequest, option: RequestOption = RequestOption()) -> DeleteFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteFileResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFileResponse)
         response.raw = resp
@@ -97,10 +100,10 @@ class File(object):
     def download(self, request: DownloadFileRequest, option: RequestOption = RequestOption()) -> DownloadFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: DownloadFileResponse = DownloadFileResponse({})
@@ -109,7 +112,7 @@ class File(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
         response: DownloadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), DownloadFileResponse)
         response.raw = resp
@@ -119,10 +122,10 @@ class File(object):
     def list(self, request: ListFileRequest, option: RequestOption = RequestOption()) -> ListFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListFileResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileResponse)
         response.raw = resp
@@ -132,104 +135,108 @@ class File(object):
     def move(self, request: MoveFileRequest, option: RequestOption = RequestOption()) -> MoveFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: MoveFileResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveFileResponse)
         response.raw = resp
 
         return response
 
-    def subscribe(self, request: SubscribeFileRequest, option: RequestOption = RequestOption()) -> SubscribeFileResponse:
+    def subscribe(self, request: SubscribeFileRequest,
+                  option: RequestOption = RequestOption()) -> SubscribeFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SubscribeFileResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeFileResponse)
         response.raw = resp
 
         return response
 
-    def task_check(self, request: TaskCheckFileRequest, option: RequestOption = RequestOption()) -> TaskCheckFileResponse:
+    def task_check(self, request: TaskCheckFileRequest,
+                   option: RequestOption = RequestOption()) -> TaskCheckFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: TaskCheckFileResponse = JSON.unmarshal(str(resp.content, UTF_8), TaskCheckFileResponse)
         response.raw = resp
 
         return response
 
-    def upload_all(self, request: UploadAllFileRequest, option: RequestOption = RequestOption()) -> UploadAllFileResponse:
+    def upload_all(self, request: UploadAllFileRequest,
+                   option: RequestOption = RequestOption()) -> UploadAllFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 处理 form-data
         if request.body is not None:
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             option.headers[CONTENT_TYPE] = form_data.content_type
             request.body = form_data
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UploadAllFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAllFileResponse)
         response.raw = resp
 
         return response
 
-    def upload_finish(self, request: UploadFinishFileRequest, option: RequestOption = RequestOption()) -> UploadFinishFileResponse:
+    def upload_finish(self, request: UploadFinishFileRequest,
+                      option: RequestOption = RequestOption()) -> UploadFinishFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UploadFinishFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFinishFileResponse)
         response.raw = resp
 
         return response
 
-    def upload_part(self, request: UploadPartFileRequest, option: RequestOption = RequestOption()) -> UploadPartFileResponse:
+    def upload_part(self, request: UploadPartFileRequest,
+                    option: RequestOption = RequestOption()) -> UploadPartFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 处理 form-data
         if request.body is not None:
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             option.headers[CONTENT_TYPE] = form_data.content_type
             request.body = form_data
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UploadPartFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPartFileResponse)
         response.raw = resp
 
         return response
 
-    def upload_prepare(self, request: UploadPrepareFileRequest, option: RequestOption = RequestOption()) -> UploadPrepareFileResponse:
+    def upload_prepare(self, request: UploadPrepareFileRequest,
+                       option: RequestOption = RequestOption()) -> UploadPrepareFileResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UploadPrepareFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPrepareFileResponse)
         response.raw = resp
 
         return response
-
-    

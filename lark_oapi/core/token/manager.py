@@ -1,16 +1,15 @@
+from lark_oapi.core import JSON, Strings
 from lark_oapi.core.cache import *
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.exception import ObtainAccessTokenException
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RawResponse
-from lark_oapi.core import JSON, Strings
-
-from .create_self_app_token_request import CreateSelfAppTokenRequest
-from .create_token_request_body import CreateTokenRequestBody
 from .access_token_response import AccessTokenResponse
-from .create_self_tenant_token_request import CreateSelfTenantTokenRequest
 from .create_isv_app_token_request import CreateIsvAppTokenRequest
 from .create_isv_tenant_token_request import CreateIsvTenantTokenRequest
+from .create_self_app_token_request import CreateSelfAppTokenRequest
+from .create_self_tenant_token_request import CreateSelfTenantTokenRequest
+from .create_token_request_body import CreateTokenRequestBody
 
 
 class TokenManager(object):

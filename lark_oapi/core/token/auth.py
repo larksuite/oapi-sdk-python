@@ -1,7 +1,6 @@
+from lark_oapi.core.exception import NoAuthorizationException
 from lark_oapi.core.model import *
 from lark_oapi.core.utils import Strings
-from lark_oapi.core.exception import NoAuthorizationException
-
 from .manager import TokenManager
 
 

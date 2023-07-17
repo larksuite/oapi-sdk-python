@@ -5,40 +5,40 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateGroupRequest = CreateGroupRequest.builder() \
-		.user_id_type("open_id") \
-		.department_id_type("open_department_id") \
-		.request_body(Group.builder()
-					  .name("IT 外包组")
-					  .description("IT服务人员的集合")
-					  .type(1)
-					  .dynamic_group_rule(DynamicGroupRule.builder().build())
-					  .visible_scope(GroupVisibleScope.builder().build())
-					  .department_scope_list([])
-					  .group_id("g122817")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateGroupRequest = CreateGroupRequest.builder() \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .request_body(Group.builder()
+                      .name("IT 外包组")
+                      .description("IT服务人员的集合")
+                      .type(1)
+                      .dynamic_group_rule(DynamicGroupRule.builder().build())
+                      .visible_scope(GroupVisibleScope.builder().build())
+                      .department_scope_list([])
+                      .group_id("g122817")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateGroupResponse = client.contact.v3.group.create(request)
+    # 发起请求
+    response: CreateGroupResponse = client.contact.v3.group.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.contact.v3.group.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.contact.v3.group.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

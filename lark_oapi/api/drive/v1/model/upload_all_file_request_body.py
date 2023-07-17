@@ -2,6 +2,7 @@
 
 from typing import *
 from typing import IO
+
 from lark_oapi.core.construct import init
 
 
@@ -32,30 +33,30 @@ class UploadAllFileRequestBody(object):
 class UploadAllFileRequestBodyBuilder(object):
     def __init__(self, upload_all_file_request_body: UploadAllFileRequestBody = UploadAllFileRequestBody({})) -> None:
         self._upload_all_file_request_body: UploadAllFileRequestBody = upload_all_file_request_body
-    
+
     def file_name(self, file_name: str) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.file_name = file_name
         return self
-    
+
     def parent_type(self, parent_type: str) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.parent_type = parent_type
         return self
-    
+
     def parent_node(self, parent_node: str) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.parent_node = parent_node
         return self
-    
+
     def size(self, size: int) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.size = size
         return self
-    
+
     def checksum(self, checksum: str) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.checksum = checksum
         return self
-    
+
     def file(self, file: IO[Any]) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.file = file
         return self
-    
+
     def build(self) -> "UploadAllFileRequestBody":
         return self._upload_all_file_request_body

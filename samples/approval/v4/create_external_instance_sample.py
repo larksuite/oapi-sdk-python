@@ -5,55 +5,55 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateExternalInstanceRequest = CreateExternalInstanceRequest.builder() \
-		.request_body(ExternalInstance.builder()
-					  .approval_code("81D31358-93AF-92D6-7425-01A5D67C4E71")
-					  .status("PENDING")
-					  .extra("")
-					  .instance_id("24492654")
-					  .links(ExternalInstanceLink.builder().build())
-					  .title("@i18n@1")
-					  .form([])
-					  .user_id("a987sf9s")
-					  .user_name("@i18n@9")
-					  .open_id("ou_be73cbc0ee35eb6ca54e9e7cc14998c1")
-					  .department_id("od-8ec33278bc2")
-					  .department_name("@i18n@10")
-					  .start_time("1556468012678")
-					  .end_time("1556468012678")
-					  .update_time("1556468012678")
-					  .display_method("BROWSER")
-					  .update_mode("UPDATE")
-					  .task_list([])
-					  .cc_list([])
-					  .i18n_resources([])
-					  .trusteeship_url_token("788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306")
-					  .trusteeship_user_id_type("user_id")
-					  .trusteeship_urls(TrusteeshipUrls.builder().build())
-					  .trusteeship_cache_config(TrusteeshipInstanceCacheConfig.builder().build())
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateExternalInstanceRequest = CreateExternalInstanceRequest.builder() \
+        .request_body(ExternalInstance.builder()
+                      .approval_code("81D31358-93AF-92D6-7425-01A5D67C4E71")
+                      .status("PENDING")
+                      .extra("")
+                      .instance_id("24492654")
+                      .links(ExternalInstanceLink.builder().build())
+                      .title("@i18n@1")
+                      .form([])
+                      .user_id("a987sf9s")
+                      .user_name("@i18n@9")
+                      .open_id("ou_be73cbc0ee35eb6ca54e9e7cc14998c1")
+                      .department_id("od-8ec33278bc2")
+                      .department_name("@i18n@10")
+                      .start_time("1556468012678")
+                      .end_time("1556468012678")
+                      .update_time("1556468012678")
+                      .display_method("BROWSER")
+                      .update_mode("UPDATE")
+                      .task_list([])
+                      .cc_list([])
+                      .i18n_resources([])
+                      .trusteeship_url_token("788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306")
+                      .trusteeship_user_id_type("user_id")
+                      .trusteeship_urls(TrusteeshipUrls.builder().build())
+                      .trusteeship_cache_config(TrusteeshipInstanceCacheConfig.builder().build())
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateExternalInstanceResponse = client.approval.v4.external_instance.create(request)
+    # 发起请求
+    response: CreateExternalInstanceResponse = client.approval.v4.external_instance.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.approval.v4.external_instance.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.approval.v4.external_instance.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

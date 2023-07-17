@@ -2,29 +2,29 @@
 
 import io
 from typing import *
-from typing import IO
-from lark_oapi.core.const import UTF_8, CONTENT_TYPE
-from lark_oapi.core import JSON
-from lark_oapi.core.token import verify
-from lark_oapi.core.http import Transport
-from lark_oapi.core.model import Config, RequestOption, RawResponse
-from lark_oapi.core.utils import Files
-from requests_toolbelt import MultipartEncoder
+
 from lark_oapi.api.acs.v1.model.get_access_record_access_photo_request import GetAccessRecordAccessPhotoRequest
 from lark_oapi.api.acs.v1.model.get_access_record_access_photo_response import GetAccessRecordAccessPhotoResponse
+from lark_oapi.core import JSON
+from lark_oapi.core.const import UTF_8
+from lark_oapi.core.http import Transport
+from lark_oapi.core.model import Config, RequestOption, RawResponse
+from lark_oapi.core.token import verify
+from lark_oapi.core.utils import Files
 
 
 class AccessRecordAccessPhoto(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetAccessRecordAccessPhotoRequest, option: RequestOption = RequestOption()) -> GetAccessRecordAccessPhotoResponse:
+    def get(self, request: GetAccessRecordAccessPhotoRequest,
+            option: RequestOption = RequestOption()) -> GetAccessRecordAccessPhotoResponse:
         # 鉴权、获取token
         verify(self.config, request, option)
-        
+
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         if resp.status_code == 200:
             response: GetAccessRecordAccessPhotoResponse = GetAccessRecordAccessPhotoResponse({})
@@ -33,11 +33,10 @@ class AccessRecordAccessPhoto(object):
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.header)
             return response
-        
+
         # 反序列化
-        response: GetAccessRecordAccessPhotoResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAccessRecordAccessPhotoResponse)
+        response: GetAccessRecordAccessPhotoResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      GetAccessRecordAccessPhotoResponse)
         response.raw = resp
 
         return response
-
-    

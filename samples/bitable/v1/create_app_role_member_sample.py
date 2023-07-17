@@ -5,35 +5,35 @@ from lark_oapi.api.bitable.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateAppRoleMemberRequest = CreateAppRoleMemberRequest.builder() \
-		.app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-		.role_id("roljRpwIUt") \
-		.member_id_type("open_id") \
-		.request_body(AppRoleMember.builder()
-					  .member_id("ou_7dab8a3d3cdcc9da365777c7ad535d62")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateAppRoleMemberRequest = CreateAppRoleMemberRequest.builder() \
+        .app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
+        .role_id("roljRpwIUt") \
+        .member_id_type("open_id") \
+        .request_body(AppRoleMember.builder()
+                      .member_id("ou_7dab8a3d3cdcc9da365777c7ad535d62")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateAppRoleMemberResponse = client.bitable.v1.app_role_member.create(request)
+    # 发起请求
+    response: CreateAppRoleMemberResponse = client.bitable.v1.app_role_member.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.bitable.v1.app_role_member.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.bitable.v1.app_role_member.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

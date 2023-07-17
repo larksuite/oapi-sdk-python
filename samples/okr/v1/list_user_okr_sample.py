@@ -5,35 +5,35 @@ from lark_oapi.api.okr.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id("APP_ID") \
-		.app_secret("APP_SECRET") \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id("APP_ID") \
+        .app_secret("APP_SECRET") \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListUserOkrRequest = ListUserOkrRequest.builder() \
-		.user_id("ou-asdasdasdasdasd") \
-		.user_id_type("open_id") \
-		.offset("0") \
-		.limit("5") \
-		.lang("zh_cn") \
-		.period_ids([]) \
-		.build()
+    # 构造请求对象
+    request: ListUserOkrRequest = ListUserOkrRequest.builder() \
+        .user_id("ou-asdasdasdasdasd") \
+        .user_id_type("open_id") \
+        .offset("0") \
+        .limit("5") \
+        .lang("zh_cn") \
+        .period_ids([]) \
+        .build()
 
-	# 发起请求
-	response: ListUserOkrResponse = client.okr.v1.user_okr.list(request)
+    # 发起请求
+    response: ListUserOkrResponse = client.okr.v1.user_okr.list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.okr.v1.user_okr.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.okr.v1.user_okr.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	main()
+    main()

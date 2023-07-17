@@ -2,6 +2,7 @@
 
 from typing import *
 from typing import IO
+
 from lark_oapi.core.construct import init
 
 
@@ -22,16 +23,17 @@ class CreateBadgeImageRequestBody(object):
 
 
 class CreateBadgeImageRequestBodyBuilder(object):
-    def __init__(self, create_badge_image_request_body: CreateBadgeImageRequestBody = CreateBadgeImageRequestBody({})) -> None:
+    def __init__(self, create_badge_image_request_body: CreateBadgeImageRequestBody = CreateBadgeImageRequestBody(
+        {})) -> None:
         self._create_badge_image_request_body: CreateBadgeImageRequestBody = create_badge_image_request_body
-    
+
     def image_file(self, image_file: IO[Any]) -> "CreateBadgeImageRequestBodyBuilder":
         self._create_badge_image_request_body.image_file = image_file
         return self
-    
+
     def image_type(self, image_type: int) -> "CreateBadgeImageRequestBodyBuilder":
         self._create_badge_image_request_body.image_type = image_type
         return self
-    
+
     def build(self) -> "CreateBadgeImageRequestBody":
         return self._create_badge_image_request_body

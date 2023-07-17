@@ -2,6 +2,7 @@
 
 from typing import *
 from typing import IO
+
 from lark_oapi.core.construct import init
 
 
@@ -32,36 +33,37 @@ class UploadAllMediaRequestBody(object):
 
 
 class UploadAllMediaRequestBodyBuilder(object):
-    def __init__(self, upload_all_media_request_body: UploadAllMediaRequestBody = UploadAllMediaRequestBody({})) -> None:
+    def __init__(self,
+                 upload_all_media_request_body: UploadAllMediaRequestBody = UploadAllMediaRequestBody({})) -> None:
         self._upload_all_media_request_body: UploadAllMediaRequestBody = upload_all_media_request_body
-    
+
     def file_name(self, file_name: str) -> "UploadAllMediaRequestBodyBuilder":
         self._upload_all_media_request_body.file_name = file_name
         return self
-    
+
     def parent_type(self, parent_type: str) -> "UploadAllMediaRequestBodyBuilder":
         self._upload_all_media_request_body.parent_type = parent_type
         return self
-    
+
     def parent_node(self, parent_node: str) -> "UploadAllMediaRequestBodyBuilder":
         self._upload_all_media_request_body.parent_node = parent_node
         return self
-    
+
     def size(self, size: int) -> "UploadAllMediaRequestBodyBuilder":
         self._upload_all_media_request_body.size = size
         return self
-    
+
     def checksum(self, checksum: str) -> "UploadAllMediaRequestBodyBuilder":
         self._upload_all_media_request_body.checksum = checksum
         return self
-    
+
     def extra(self, extra: str) -> "UploadAllMediaRequestBodyBuilder":
         self._upload_all_media_request_body.extra = extra
         return self
-    
+
     def file(self, file: IO[Any]) -> "UploadAllMediaRequestBodyBuilder":
         self._upload_all_media_request_body.file = file
         return self
-    
+
     def build(self) -> "UploadAllMediaRequestBody":
         return self._upload_all_media_request_body
