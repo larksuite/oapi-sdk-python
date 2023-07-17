@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PutTopNoticeChatTopNoticeRequest = lark.im.v1.PutTopNoticeChatTopNoticeRequest.builder() \
+	request: PutTopNoticeChatTopNoticeRequest = PutTopNoticeChatTopNoticeRequest.builder() \
 		.chat_id("oc_5ad11d72b830411d72b836c20") \
-		.request_body(lark.im.v1.PutTopNoticeChatTopNoticeRequestBody.builder()
+		.request_body(PutTopNoticeChatTopNoticeRequestBody.builder()
 					  .chat_top_notice([])
 					  .build()) \
 		.build()

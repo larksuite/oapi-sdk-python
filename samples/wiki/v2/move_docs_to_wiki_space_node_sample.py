@@ -5,7 +5,7 @@ from lark_oapi.api.wiki.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: MoveDocsToWikiSpaceNodeRequest = lark.wiki.v2.MoveDocsToWikiSpaceNodeRequest.builder() \
+	request: MoveDocsToWikiSpaceNodeRequest = MoveDocsToWikiSpaceNodeRequest.builder() \
 		.space_id("1565676577122621") \
-		.request_body(lark.wiki.v2.MoveDocsToWikiSpaceNodeRequestBody.builder()
+		.request_body(MoveDocsToWikiSpaceNodeRequestBody.builder()
 					  .parent_wiki_token("wikcnKQ1k3p******8Vabce")
 					  .obj_type("doc")
 					  .obj_token("doccnzAaOD******Wabcdef")

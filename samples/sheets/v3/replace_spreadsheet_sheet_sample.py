@@ -5,7 +5,7 @@ from lark_oapi.api.sheets.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ReplaceSpreadsheetSheetRequest = lark.sheets.v3.ReplaceSpreadsheetSheetRequest.builder() \
+	request: ReplaceSpreadsheetSheetRequest = ReplaceSpreadsheetSheetRequest.builder() \
 		.spreadsheet_token("shtcnmBA*****yGehy8") \
 		.sheet_id("0b**12") \
-		.request_body(lark.sheets.v3.Replace.builder()
+		.request_body(Replace.builder()
 					  .find_condition(FindCondition.builder().build())
 					  .find("str")
 					  .replacement("str")

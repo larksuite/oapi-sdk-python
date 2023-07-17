@@ -5,7 +5,7 @@ from lark_oapi.api.sheets.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,12 +13,12 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateSpreadsheetSheetFilterViewConditionRequest = lark.sheets.v3.UpdateSpreadsheetSheetFilterViewConditionRequest.builder() \
+	request: UpdateSpreadsheetSheetFilterViewConditionRequest = UpdateSpreadsheetSheetFilterViewConditionRequest.builder() \
 		.spreadsheet_token("shtcnmBA*****yGehy8") \
 		.sheet_id("0b**12") \
 		.filter_view_id("pH9hbVcCXA") \
 		.condition_id("E") \
-		.request_body(lark.sheets.v3.FilterViewCondition.builder()
+		.request_body(FilterViewCondition.builder()
 					  .filter_type("str")
 					  .compare_type("str")
 					  .expected([])

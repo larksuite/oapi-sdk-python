@@ -5,7 +5,7 @@ from lark_oapi.api.helpdesk.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchAgentRequest = lark.helpdesk.v1.PatchAgentRequest.builder() \
+	request: PatchAgentRequest = PatchAgentRequest.builder() \
 		.agent_id("ou_14777d82ffef0f707de5a8c7ff2c5ebe") \
-		.request_body(lark.helpdesk.v1.PatchAgentRequestBody.builder()
+		.request_body(PatchAgentRequestBody.builder()
 					  .status(int)
 					  .build()) \
 		.build()

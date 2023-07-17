@@ -5,7 +5,7 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListUserMailboxAliasRequest = lark.mail.v1.ListUserMailboxAliasRequest.builder() \
+	request: ListUserMailboxAliasRequest = ListUserMailboxAliasRequest.builder() \
 		.user_mailbox_id("user@xxx.xx") \
 		.page_token("xxx") \
 		.page_size(20) \

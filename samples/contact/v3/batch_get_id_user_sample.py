@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchGetIdUserRequest = lark.contact.v3.BatchGetIdUserRequest.builder() \
+	request: BatchGetIdUserRequest = BatchGetIdUserRequest.builder() \
 		.user_id_type("open_id") \
-		.request_body(lark.contact.v3.BatchGetIdUserRequestBody.builder()
+		.request_body(BatchGetIdUserRequestBody.builder()
 					  .emails([])
 					  .mobiles([])
 					  .build()) \

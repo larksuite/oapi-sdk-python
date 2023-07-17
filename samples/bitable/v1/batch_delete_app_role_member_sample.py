@@ -5,7 +5,7 @@ from lark_oapi.api.bitable.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchDeleteAppRoleMemberRequest = lark.bitable.v1.BatchDeleteAppRoleMemberRequest.builder() \
+	request: BatchDeleteAppRoleMemberRequest = BatchDeleteAppRoleMemberRequest.builder() \
 		.app_token("bascnnKKvcoUblgmmhZkYqabcef") \
 		.role_id("rolNGhPqks") \
-		.request_body(lark.bitable.v1.BatchDeleteAppRoleMemberRequestBody.builder()
+		.request_body(BatchDeleteAppRoleMemberRequestBody.builder()
 					  .member_list([])
 					  .build()) \
 		.build()

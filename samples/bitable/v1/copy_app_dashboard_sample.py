@@ -5,7 +5,7 @@ from lark_oapi.api.bitable.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CopyAppDashboardRequest = lark.bitable.v1.CopyAppDashboardRequest.builder() \
+	request: CopyAppDashboardRequest = CopyAppDashboardRequest.builder() \
 		.app_token("basbcldP5xZeskcHDFZQfeToydb") \
 		.block_id("blkEsvEEaNllY2UV") \
-		.request_body(lark.bitable.v1.CopyAppDashboardRequestBody.builder()
+		.request_body(CopyAppDashboardRequestBody.builder()
 					  .name("Dashboard")
 					  .build()) \
 		.build()

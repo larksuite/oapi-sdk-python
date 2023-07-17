@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -14,9 +14,9 @@ def main():
 
 	# 构造请求对象
 	file = open("file_path", "rb")
-	request: UploadFileRequest = lark.attendance.v1.UploadFileRequest.builder() \
+	request: UploadFileRequest = UploadFileRequest.builder() \
 		.file_name("人脸照片.jpg") \
-		.request_body(lark.attendance.v1.UploadFileRequestBody.builder()
+		.request_body(UploadFileRequestBody.builder()
 					  .file(file)
 					  .build()) \
 		.build()

@@ -5,7 +5,7 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -14,8 +14,8 @@ def main():
 
 	# 构造请求对象
 	file = open("file_path", "rb")
-	request: UploadFileRequest = lark.baike.v1.UploadFileRequest.builder() \
-		.request_body(lark.baike.v1.File.builder()
+	request: UploadFileRequest = UploadFileRequest.builder() \
+		.request_body(File.builder()
 					  .name("示例图片.png")
 					  .file(file)
 					  .build()) \

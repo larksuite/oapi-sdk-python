@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchQueryFileCommentRequest = lark.drive.v1.BatchQueryFileCommentRequest.builder() \
+	request: BatchQueryFileCommentRequest = BatchQueryFileCommentRequest.builder() \
 		.file_token("doxbcdl03Vsxhm7Qmnj110abcef") \
 		.file_type("doc;docx;sheet;file") \
 		.user_id_type("user_id") \
-		.request_body(lark.drive.v1.BatchQueryFileCommentRequestBody.builder()
+		.request_body(BatchQueryFileCommentRequestBody.builder()
 					  .comment_ids([])
 					  .build()) \
 		.build()

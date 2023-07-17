@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: SubmitOffboardingRequest = lark.corehr.v1.SubmitOffboardingRequest.builder() \
+	request: SubmitOffboardingRequest = SubmitOffboardingRequest.builder() \
 		.user_id_type("people_corehr_id") \
-		.request_body(lark.corehr.v1.SubmitOffboardingRequestBody.builder()
+		.request_body(SubmitOffboardingRequestBody.builder()
 					  .offboarding_mode(1)
 					  .employment_id("6982509313466189342")
 					  .offboarding_date("2022-05-18")

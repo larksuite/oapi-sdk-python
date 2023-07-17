@@ -5,7 +5,7 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: HighlightEntityRequest = lark.baike.v1.HighlightEntityRequest.builder() \
-		.request_body(lark.baike.v1.HighlightEntityRequestBody.builder()
+	request: HighlightEntityRequest = HighlightEntityRequest.builder() \
+		.request_body(HighlightEntityRequestBody.builder()
 					  .text("企业百科是飞书提供的一款知识管理工具")
 					  .build()) \
 		.build()

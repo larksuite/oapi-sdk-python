@@ -5,7 +5,7 @@ from lark_oapi.api.okr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateProgressRecordRequest = lark.okr.v1.UpdateProgressRecordRequest.builder() \
+	request: UpdateProgressRecordRequest = UpdateProgressRecordRequest.builder() \
 		.progress_id("7041857032248410131") \
 		.user_id_type("user_id") \
-		.request_body(lark.okr.v1.UpdateProgressRecordRequestBody.builder()
+		.request_body(UpdateProgressRecordRequestBody.builder()
 					  .content(ContentBlock.builder().build())
 					  .build()) \
 		.build()

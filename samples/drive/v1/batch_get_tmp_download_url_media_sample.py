@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchGetTmpDownloadUrlMediaRequest = lark.drive.v1.BatchGetTmpDownloadUrlMediaRequest.builder() \
+	request: BatchGetTmpDownloadUrlMediaRequest = BatchGetTmpDownloadUrlMediaRequest.builder() \
 		.file_tokens([]) \
 		.extra("[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)") \
 		.build()

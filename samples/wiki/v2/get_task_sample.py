@@ -5,7 +5,7 @@ from lark_oapi.api.wiki.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetTaskRequest = lark.wiki.v2.GetTaskRequest.builder() \
+	request: GetTaskRequest = GetTaskRequest.builder() \
 		.task_id("7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7") \
 		.task_type("move") \
 		.build()

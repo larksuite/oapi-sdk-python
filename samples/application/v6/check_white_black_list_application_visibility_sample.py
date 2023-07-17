@@ -5,7 +5,7 @@ from lark_oapi.api.application.v6 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CheckWhiteBlackListApplicationVisibilityRequest = lark.application.v6.CheckWhiteBlackListApplicationVisibilityRequest.builder() \
+	request: CheckWhiteBlackListApplicationVisibilityRequest = CheckWhiteBlackListApplicationVisibilityRequest.builder() \
 		.app_id("cli_a3a3d00b40b8d01b") \
 		.user_id_type("open_id") \
 		.department_id_type("department_id") \
-		.request_body(lark.application.v6.CheckWhiteBlackListApplicationVisibilityRequestBody.builder()
+		.request_body(CheckWhiteBlackListApplicationVisibilityRequestBody.builder()
 					  .user_ids([])
 					  .department_ids([])
 					  .group_ids([])

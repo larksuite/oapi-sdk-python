@@ -5,7 +5,7 @@ from lark_oapi.api.helpdesk.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: FaqImageFaqRequest = lark.helpdesk.v1.FaqImageFaqRequest.builder() \
+	request: FaqImageFaqRequest = FaqImageFaqRequest.builder() \
 		.id("12345") \
 		.image_key("img_b07ffac0-19c1-48a3-afca-599f8ea825fj") \
 		.build()

@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListSubregionRequest = lark.corehr.v1.ListSubregionRequest.builder() \
+	request: ListSubregionRequest = ListSubregionRequest.builder() \
 		.page_token("1231231987") \
 		.page_size("100") \
 		.subdivision_id("100") \

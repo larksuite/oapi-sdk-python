@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -14,8 +14,8 @@ def main():
 
 	# 构造请求对象
 	file = open("file_path", "rb")
-	request: CreateFileRequest = lark.im.v1.CreateFileRequest.builder() \
-		.request_body(lark.im.v1.CreateFileRequestBody.builder()
+	request: CreateFileRequest = CreateFileRequest.builder() \
+		.request_body(CreateFileRequestBody.builder()
 					  .file_type("mp4")
 					  .file_name("测试视频.mp4")
 					  .duration(3000)

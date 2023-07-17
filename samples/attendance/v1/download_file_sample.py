@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DownloadFileRequest = lark.attendance.v1.DownloadFileRequest.builder() \
+	request: DownloadFileRequest = DownloadFileRequest.builder() \
 		.file_id("xxxxxb306842b1c189bc5212eefxxxxx") \
 		.build()
 

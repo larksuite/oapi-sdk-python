@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ForwardMessageRequest = lark.im.v1.ForwardMessageRequest.builder() \
+	request: ForwardMessageRequest = ForwardMessageRequest.builder() \
 		.message_id("om_dc13264520392913993dd051dba21dcf") \
 		.receive_id_type("open_id") \
 		.uuid("b13g2t38-1jd2-458b-8djf-dtbca5104204") \
-		.request_body(lark.im.v1.ForwardMessageRequestBody.builder()
+		.request_body(ForwardMessageRequestBody.builder()
 					  .receive_id("oc_a0553eda9014c201e6969b478895c230")
 					  .build()) \
 		.build()

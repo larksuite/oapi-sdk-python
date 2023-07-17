@@ -5,7 +5,7 @@ from lark_oapi.api.search.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteDataSourceItemRequest = lark.search.v2.DeleteDataSourceItemRequest.builder() \
+	request: DeleteDataSourceItemRequest = DeleteDataSourceItemRequest.builder() \
 		.data_source_id("service_ticket") \
 		.item_id("01010111") \
 		.build()

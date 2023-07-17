@@ -5,7 +5,7 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: SearchEntityRequest = lark.baike.v1.SearchEntityRequest.builder() \
+	request: SearchEntityRequest = SearchEntityRequest.builder() \
 		.page_size(20) \
 		.page_token("b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c") \
 		.user_id_type("user_id") \
-		.request_body(lark.baike.v1.SearchEntityRequestBody.builder()
+		.request_body(SearchEntityRequestBody.builder()
 					  .query("百科")
 					  .classification_filter(ClassificationFilter.builder().build())
 					  .sources([])

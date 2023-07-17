@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateGroupRequest = lark.contact.v3.CreateGroupRequest.builder() \
+	request: CreateGroupRequest = CreateGroupRequest.builder() \
 		.user_id_type("open_id") \
 		.department_id_type("open_department_id") \
-		.request_body(lark.contact.v3.Group.builder()
+		.request_body(Group.builder()
 					  .name("IT 外包组")
 					  .description("IT服务人员的集合")
 					  .type(1)

@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListEmployeeTypeEnumRequest = lark.contact.v3.ListEmployeeTypeEnumRequest.builder() \
+	request: ListEmployeeTypeEnumRequest = ListEmployeeTypeEnumRequest.builder() \
 		.page_token("3") \
 		.page_size(20) \
 		.build()

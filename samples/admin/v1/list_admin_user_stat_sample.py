@@ -5,7 +5,7 @@ from lark_oapi.api.admin.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListAdminUserStatRequest = lark.admin.v1.ListAdminUserStatRequest.builder() \
+	request: ListAdminUserStatRequest = ListAdminUserStatRequest.builder() \
 		.user_id_type("user_id") \
 		.department_id_type("open_department_id") \
 		.start_date("2020-02-15") \

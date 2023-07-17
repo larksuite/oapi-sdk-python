@@ -5,7 +5,7 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CcInstanceRequest = lark.approval.v4.CcInstanceRequest.builder() \
+	request: CcInstanceRequest = CcInstanceRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.approval.v4.InstanceCc.builder()
+		.request_body(InstanceCc.builder()
 					  .approval_code("7C468A54-8745-2245-9675-08B7C63E7A85")
 					  .instance_code("7C468A54-8745-2245-9675-08B7C63E7A85")
 					  .user_id("f7cb567e")

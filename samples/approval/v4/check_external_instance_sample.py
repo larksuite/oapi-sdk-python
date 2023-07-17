@@ -5,7 +5,7 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CheckExternalInstanceRequest = lark.approval.v4.CheckExternalInstanceRequest.builder() \
-		.request_body(lark.approval.v4.CheckExternalInstanceRequestBody.builder()
+	request: CheckExternalInstanceRequest = CheckExternalInstanceRequest.builder() \
+		.request_body(CheckExternalInstanceRequestBody.builder()
 					  .instances([])
 					  .build()) \
 		.build()

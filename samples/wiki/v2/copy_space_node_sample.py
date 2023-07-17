@@ -5,7 +5,7 @@ from lark_oapi.api.wiki.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CopySpaceNodeRequest = lark.wiki.v2.CopySpaceNodeRequest.builder() \
+	request: CopySpaceNodeRequest = CopySpaceNodeRequest.builder() \
 		.space_id("6946843325487912356") \
 		.node_token("wikcnKQ1k3p******8Vabce") \
-		.request_body(lark.wiki.v2.CopySpaceNodeRequestBody.builder()
+		.request_body(CopySpaceNodeRequestBody.builder()
 					  .target_parent_token("wikcnKQ1k3p******8Vabce")
 					  .target_space_id("6946843325487912356")
 					  .title("新标题。")

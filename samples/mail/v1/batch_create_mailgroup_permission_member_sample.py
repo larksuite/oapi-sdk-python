@@ -5,7 +5,7 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchCreateMailgroupPermissionMemberRequest = lark.mail.v1.BatchCreateMailgroupPermissionMemberRequest.builder() \
+	request: BatchCreateMailgroupPermissionMemberRequest = BatchCreateMailgroupPermissionMemberRequest.builder() \
 		.mailgroup_id("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx") \
 		.user_id_type("open_id") \
 		.department_id_type("open_department_id") \
-		.request_body(lark.mail.v1.BatchCreateMailgroupPermissionMemberRequestBody.builder()
+		.request_body(BatchCreateMailgroupPermissionMemberRequestBody.builder()
 					  .items([])
 					  .build()) \
 		.build()

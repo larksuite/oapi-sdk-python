@@ -5,7 +5,7 @@ from lark_oapi.api.sheets.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateSpreadsheetRequest = lark.sheets.v3.CreateSpreadsheetRequest.builder() \
-		.request_body(lark.sheets.v3.Spreadsheet.builder()
+	request: CreateSpreadsheetRequest = CreateSpreadsheetRequest.builder() \
+		.request_body(Spreadsheet.builder()
 					  .title("title")
 					  .folder_token("fldxxxxxxxxxxxx")
 					  .build()) \

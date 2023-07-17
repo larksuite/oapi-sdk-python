@@ -5,7 +5,7 @@ from lark_oapi.api.search.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchSchemaRequest = lark.search.v2.PatchSchemaRequest.builder() \
+	request: PatchSchemaRequest = PatchSchemaRequest.builder() \
 		.schema_id("custom_schema_id") \
-		.request_body(lark.search.v2.PatchSchemaRequestBody.builder()
+		.request_body(PatchSchemaRequestBody.builder()
 					  .display(SchemaDisplay.builder().build())
 					  .build()) \
 		.build()

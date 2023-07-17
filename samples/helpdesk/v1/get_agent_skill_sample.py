@@ -5,7 +5,7 @@ from lark_oapi.api.helpdesk.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetAgentSkillRequest = lark.helpdesk.v1.GetAgentSkillRequest.builder() \
+	request: GetAgentSkillRequest = GetAgentSkillRequest.builder() \
 		.agent_skill_id("6941215891786825756") \
 		.build()
 

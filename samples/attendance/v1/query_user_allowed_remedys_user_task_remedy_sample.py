@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: QueryUserAllowedRemedysUserTaskRemedyRequest = lark.attendance.v1.QueryUserAllowedRemedysUserTaskRemedyRequest.builder() \
+	request: QueryUserAllowedRemedysUserTaskRemedyRequest = QueryUserAllowedRemedysUserTaskRemedyRequest.builder() \
 		.employee_type("employee_id") \
-		.request_body(lark.attendance.v1.QueryUserAllowedRemedysUserTaskRemedyRequestBody.builder()
+		.request_body(QueryUserAllowedRemedysUserTaskRemedyRequestBody.builder()
 					  .user_id("abd754f7")
 					  .remedy_date(20210104)
 					  .build()) \

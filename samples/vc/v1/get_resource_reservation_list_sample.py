@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetResourceReservationListRequest = lark.vc.v1.GetResourceReservationListRequest.builder() \
+	request: GetResourceReservationListRequest = GetResourceReservationListRequest.builder() \
 		.room_level_id("omb_57c9cc7d9a81e27e54c8fabfd02759e7") \
 		.need_topic(True) \
 		.start_time("1655276858") \

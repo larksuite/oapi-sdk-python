@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchNationalIdTypeRequest = lark.corehr.v1.PatchNationalIdTypeRequest.builder() \
+	request: PatchNationalIdTypeRequest = PatchNationalIdTypeRequest.builder() \
 		.national_id_type_id("1616161616") \
 		.client_token("12454646") \
-		.request_body(lark.corehr.v1.NationalIdType.builder()
+		.request_body(NationalIdType.builder()
 					  .country_region_id("6862995747139225096")
 					  .name([])
 					  .active(True)

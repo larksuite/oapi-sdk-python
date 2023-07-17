@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchCreateUserDailyShiftRequest = lark.attendance.v1.BatchCreateUserDailyShiftRequest.builder() \
+	request: BatchCreateUserDailyShiftRequest = BatchCreateUserDailyShiftRequest.builder() \
 		.employee_type("employee_id") \
-		.request_body(lark.attendance.v1.BatchCreateUserDailyShiftRequestBody.builder()
+		.request_body(BatchCreateUserDailyShiftRequestBody.builder()
 					  .user_daily_shifts([])
 					  .operator_id("dd31248a")
 					  .build()) \

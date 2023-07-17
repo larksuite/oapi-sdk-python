@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateExternalApplicationRequest = lark.hire.v1.CreateExternalApplicationRequest.builder() \
-		.request_body(lark.hire.v1.ExternalApplication.builder()
+	request: CreateExternalApplicationRequest = CreateExternalApplicationRequest.builder() \
+		.request_body(ExternalApplication.builder()
 					  .external_id("123")
 					  .job_recruitment_type(1)
 					  .job_title("高级Java")

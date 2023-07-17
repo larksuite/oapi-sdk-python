@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,12 +13,12 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdatePermissionMemberRequest = lark.drive.v1.UpdatePermissionMemberRequest.builder() \
+	request: UpdatePermissionMemberRequest = UpdatePermissionMemberRequest.builder() \
 		.token("doccnBKgoMyY5OMbUG6FioTXuBe") \
 		.member_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
 		.need_notification(False) \
 		.type("doc") \
-		.request_body(lark.drive.v1.BaseMember.builder()
+		.request_body(BaseMember.builder()
 					  .member_type("openid")
 					  .perm("view")
 					  .build()) \

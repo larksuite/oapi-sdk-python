@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateFileCommentRequest = lark.drive.v1.CreateFileCommentRequest.builder() \
+	request: CreateFileCommentRequest = CreateFileCommentRequest.builder() \
 		.file_token("doccnGp4UK1UskrOEJwBXd3****") \
 		.file_type("doc") \
 		.user_id_type("user_id") \
-		.request_body(lark.drive.v1.FileComment.builder()
+		.request_body(FileComment.builder()
 					  .comment_id("str")
 					  .user_id("str")
 					  .create_time(int)

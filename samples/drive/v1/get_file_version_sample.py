@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetFileVersionRequest = lark.drive.v1.GetFileVersionRequest.builder() \
+	request: GetFileVersionRequest = GetFileVersionRequest.builder() \
 		.file_token("shtbcqqoXZJaKYrfN5IHQg4sVFZ") \
 		.version_id("file_version") \
 		.obj_type("doc/sheet/bitable/docx") \

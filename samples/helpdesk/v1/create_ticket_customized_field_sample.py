@@ -5,7 +5,7 @@ from lark_oapi.api.helpdesk.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateTicketCustomizedFieldRequest = lark.helpdesk.v1.CreateTicketCustomizedFieldRequest.builder() \
-		.request_body(lark.helpdesk.v1.TicketCustomizedField.builder()
+	request: CreateTicketCustomizedFieldRequest = CreateTicketCustomizedFieldRequest.builder() \
+		.request_body(TicketCustomizedField.builder()
 					  .helpdesk_id("str")
 					  .key_name("str")
 					  .display_name("str")

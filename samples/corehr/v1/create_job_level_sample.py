@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateJobLevelRequest = lark.corehr.v1.CreateJobLevelRequest.builder() \
+	request: CreateJobLevelRequest = CreateJobLevelRequest.builder() \
 		.client_token("12454646") \
-		.request_body(lark.corehr.v1.JobLevel.builder()
+		.request_body(JobLevel.builder()
 					  .level_order(9999)
 					  .code("VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=")
 					  .name([])

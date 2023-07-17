@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListDepartmentRequest = lark.corehr.v1.ListDepartmentRequest.builder() \
+	request: ListDepartmentRequest = ListDepartmentRequest.builder() \
 		.page_token("") \
 		.page_size("100") \
 		.department_id_list([]) \

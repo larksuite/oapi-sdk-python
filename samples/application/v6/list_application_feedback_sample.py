@@ -5,7 +5,7 @@ from lark_oapi.api.application.v6 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListApplicationFeedbackRequest = lark.application.v6.ListApplicationFeedbackRequest.builder() \
+	request: ListApplicationFeedbackRequest = ListApplicationFeedbackRequest.builder() \
 		.app_id("cli_9f115af860f7901b") \
 		.from_date("2022-01-30") \
 		.to_date("2022-01-30") \

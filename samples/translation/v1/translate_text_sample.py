@@ -5,7 +5,7 @@ from lark_oapi.api.translation.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: TranslateTextRequest = lark.translation.v1.TranslateTextRequest.builder() \
-		.request_body(lark.translation.v1.TranslateTextRequestBody.builder()
+	request: TranslateTextRequest = TranslateTextRequest.builder() \
+		.request_body(TranslateTextRequestBody.builder()
 					  .source_language("zh")
 					  .text("尝试使用一下飞书吧")
 					  .target_language("en")

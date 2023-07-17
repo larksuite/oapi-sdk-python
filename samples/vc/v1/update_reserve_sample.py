@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateReserveRequest = lark.vc.v1.UpdateReserveRequest.builder() \
+	request: UpdateReserveRequest = UpdateReserveRequest.builder() \
 		.reserve_id("6911188411932033028") \
 		.user_id_type("user_id") \
-		.request_body(lark.vc.v1.UpdateReserveRequestBody.builder()
+		.request_body(UpdateReserveRequestBody.builder()
 					  .end_time("1608888867")
 					  .meeting_settings(ReserveMeetingSetting.builder().build())
 					  .build()) \

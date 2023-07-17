@@ -5,7 +5,7 @@ from lark_oapi.api.ehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetAttachmentRequest = lark.ehr.v1.GetAttachmentRequest.builder() \
+	request: GetAttachmentRequest = GetAttachmentRequest.builder() \
 		.token("09bf7b924f9a4a69875788891b5970d8") \
 		.build()
 

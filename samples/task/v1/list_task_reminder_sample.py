@@ -5,7 +5,7 @@ from lark_oapi.api.task.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListTaskReminderRequest = lark.task.v1.ListTaskReminderRequest.builder() \
+	request: ListTaskReminderRequest = ListTaskReminderRequest.builder() \
 		.task_id("0d38e26e-190a-49e9-93a2-35067763ed1f") \
 		.page_size(50) \
 		.page_token("「填写上次返回的page_token」") \

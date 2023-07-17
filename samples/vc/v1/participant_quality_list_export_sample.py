@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ParticipantQualityListExportRequest = lark.vc.v1.ParticipantQualityListExportRequest.builder() \
+	request: ParticipantQualityListExportRequest = ParticipantQualityListExportRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.vc.v1.ParticipantQualityListExportRequestBody.builder()
+		.request_body(ParticipantQualityListExportRequestBody.builder()
 					  .meeting_start_time("1655276858")
 					  .meeting_end_time("1655276858")
 					  .meeting_no("123456789")

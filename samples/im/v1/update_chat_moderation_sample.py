@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateChatModerationRequest = lark.im.v1.UpdateChatModerationRequest.builder() \
+	request: UpdateChatModerationRequest = UpdateChatModerationRequest.builder() \
 		.chat_id("oc_a0553eda9014c201e6969b478895c230") \
 		.user_id_type("user_id") \
-		.request_body(lark.im.v1.UpdateChatModerationRequestBody.builder()
+		.request_body(UpdateChatModerationRequestBody.builder()
 					  .moderation_setting("moderator_list")
 					  .moderator_added_list([])
 					  .moderator_removed_list([])

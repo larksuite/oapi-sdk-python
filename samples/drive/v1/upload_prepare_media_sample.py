@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UploadPrepareMediaRequest = lark.drive.v1.UploadPrepareMediaRequest.builder() \
-		.request_body(lark.drive.v1.MediaUploadInfo.builder()
+	request: UploadPrepareMediaRequest = UploadPrepareMediaRequest.builder() \
+		.request_body(MediaUploadInfo.builder()
 					  .file_name("123.txt")
 					  .parent_type("doc_image")
 					  .parent_node("fldcnxxxxxx")

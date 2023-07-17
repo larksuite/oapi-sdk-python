@@ -5,7 +5,7 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListClassificationRequest = lark.baike.v1.ListClassificationRequest.builder() \
+	request: ListClassificationRequest = ListClassificationRequest.builder() \
 		.page_size(20) \
 		.page_token("408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba") \
 		.build()

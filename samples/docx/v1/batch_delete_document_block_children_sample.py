@@ -5,7 +5,7 @@ from lark_oapi.api.docx.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,12 +13,12 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchDeleteDocumentBlockChildrenRequest = lark.docx.v1.BatchDeleteDocumentBlockChildrenRequest.builder() \
+	request: BatchDeleteDocumentBlockChildrenRequest = BatchDeleteDocumentBlockChildrenRequest.builder() \
 		.document_id("doxcnePuYufKa49ISjhD8Ih0ikh") \
 		.block_id("doxcnO6UW6wAw2qIcYf4hZpFIth") \
 		.document_revision_id(-1) \
 		.client_token("fe599b60-450f-46ff-b2ef-9f6675625b97") \
-		.request_body(lark.docx.v1.BatchDeleteDocumentBlockChildrenRequestBody.builder()
+		.request_body(BatchDeleteDocumentBlockChildrenRequestBody.builder()
 					  .start_index(0)
 					  .end_index(1)
 					  .build()) \

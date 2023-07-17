@@ -5,7 +5,7 @@ from lark_oapi.api.admin.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetBadgeGrantRequest = lark.admin.v1.GetBadgeGrantRequest.builder() \
+	request: GetBadgeGrantRequest = GetBadgeGrantRequest.builder() \
 		.badge_id("m_DjMzaK") \
 		.grant_id("g_uS4yux") \
 		.user_id_type("open_id") \

@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: TerminateApplicationRequest = lark.hire.v1.TerminateApplicationRequest.builder() \
+	request: TerminateApplicationRequest = TerminateApplicationRequest.builder() \
 		.application_id("12312312312") \
-		.request_body(lark.hire.v1.TerminateApplicationRequestBody.builder()
+		.request_body(TerminateApplicationRequestBody.builder()
 					  .termination_type(1)
 					  .termination_reason_list([])
 					  .termination_reason_note("不符合期望")

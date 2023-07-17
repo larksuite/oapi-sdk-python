@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -14,8 +14,8 @@ def main():
 
 	# 构造请求对象
 	file = open("file_path", "rb")
-	request: CreateImageRequest = lark.im.v1.CreateImageRequest.builder() \
-		.request_body(lark.im.v1.CreateImageRequestBody.builder()
+	request: CreateImageRequest = CreateImageRequest.builder() \
+		.request_body(CreateImageRequestBody.builder()
 					  .image_type("message")
 					  .image(file)
 					  .build()) \

@@ -5,7 +5,7 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateExchangeBindingRequest = lark.calendar.v4.CreateExchangeBindingRequest.builder() \
+	request: CreateExchangeBindingRequest = CreateExchangeBindingRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.calendar.v4.ExchangeBinding.builder()
+		.request_body(ExchangeBinding.builder()
 					  .admin_account("str")
 					  .exchange_account("str")
 					  .user_id("str")

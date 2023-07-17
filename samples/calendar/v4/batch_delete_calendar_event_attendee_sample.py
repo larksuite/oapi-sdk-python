@@ -5,7 +5,7 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchDeleteCalendarEventAttendeeRequest = lark.calendar.v4.BatchDeleteCalendarEventAttendeeRequest.builder() \
+	request: BatchDeleteCalendarEventAttendeeRequest = BatchDeleteCalendarEventAttendeeRequest.builder() \
 		.calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
 		.event_id("xxxxxxxxx_0") \
 		.user_id_type("user_id") \
-		.request_body(lark.calendar.v4.BatchDeleteCalendarEventAttendeeRequestBody.builder()
+		.request_body(BatchDeleteCalendarEventAttendeeRequestBody.builder()
 					  .attendee_ids([])
 					  .delete_ids([])
 					  .need_notification(False)

@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,12 +13,12 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: TransferOwnerPermissionMemberRequest = lark.drive.v1.TransferOwnerPermissionMemberRequest.builder() \
+	request: TransferOwnerPermissionMemberRequest = TransferOwnerPermissionMemberRequest.builder() \
 		.token("doccnBKgoMyY5OMbUG6FioTXuBe") \
 		.type("doc") \
 		.need_notification(True) \
 		.remove_old_owner(False) \
-		.request_body(lark.drive.v1.Owner.builder()
+		.request_body(Owner.builder()
 					  .member_type("openid")
 					  .member_id("string")
 					  .build()) \

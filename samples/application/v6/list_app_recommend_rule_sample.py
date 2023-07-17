@@ -5,7 +5,7 @@ from lark_oapi.api.application.v6 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListAppRecommendRuleRequest = lark.application.v6.ListAppRecommendRuleRequest.builder() \
+	request: ListAppRecommendRuleRequest = ListAppRecommendRuleRequest.builder() \
 		.page_size(10) \
 		.page_token("new-e11ee058b4a8ed2881da11ac7e37c4fc") \
 		.user_id_type("user_id") \

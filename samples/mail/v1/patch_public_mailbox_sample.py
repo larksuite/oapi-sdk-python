@@ -5,7 +5,7 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchPublicMailboxRequest = lark.mail.v1.PatchPublicMailboxRequest.builder() \
+	request: PatchPublicMailboxRequest = PatchPublicMailboxRequest.builder() \
 		.public_mailbox_id("xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx") \
-		.request_body(lark.mail.v1.PublicMailbox.builder()
+		.request_body(PublicMailbox.builder()
 					  .email("test_public_mailbox@xxx.xx")
 					  .name("test public mailbox")
 					  .build()) \

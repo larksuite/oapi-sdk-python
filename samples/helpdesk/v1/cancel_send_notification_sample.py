@@ -5,7 +5,7 @@ from lark_oapi.api.helpdesk.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CancelSendNotificationRequest = lark.helpdesk.v1.CancelSendNotificationRequest.builder() \
+	request: CancelSendNotificationRequest = CancelSendNotificationRequest.builder() \
 		.notification_id("6981801914270744596") \
-		.request_body(lark.helpdesk.v1.CancelSendNotificationRequestBody.builder()
+		.request_body(CancelSendNotificationRequestBody.builder()
 					  .is_recall(True)
 					  .build()) \
 		.build()

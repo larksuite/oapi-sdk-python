@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateShortcutFileRequest = lark.drive.v1.CreateShortcutFileRequest.builder() \
-		.request_body(lark.drive.v1.CreateShortcutFileRequestBody.builder()
+	request: CreateShortcutFileRequest = CreateShortcutFileRequest.builder() \
+		.request_body(CreateShortcutFileRequestBody.builder()
 					  .parent_token("fldbc5qgwyQnO0uedNllWuF3fAd")
 					  .refer_entity(ReferEntity.builder().build())
 					  .build()) \

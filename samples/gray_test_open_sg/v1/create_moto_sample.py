@@ -5,7 +5,7 @@ from lark_oapi.api.gray_test_open_sg.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateMotoRequest = lark.gray_test_open_sg.v1.CreateMotoRequest.builder() \
+	request: CreateMotoRequest = CreateMotoRequest.builder() \
 		.department_id_type("str") \
 		.user_id_type("str") \
-		.request_body(lark.gray_test_open_sg.v1.Level.builder()
+		.request_body(Level.builder()
 					  .level("str")
 					  .body("str")
 					  .type("str")

@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: SetHostMeetingRequest = lark.vc.v1.SetHostMeetingRequest.builder() \
+	request: SetHostMeetingRequest = SetHostMeetingRequest.builder() \
 		.meeting_id("6911188411932033028") \
 		.user_id_type("user_id") \
-		.request_body(lark.vc.v1.SetHostMeetingRequestBody.builder()
+		.request_body(SetHostMeetingRequestBody.builder()
 					  .host_user(MeetingUser.builder().build())
 					  .old_host_user(MeetingUser.builder().build())
 					  .build()) \

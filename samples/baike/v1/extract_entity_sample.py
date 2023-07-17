@@ -5,7 +5,7 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ExtractEntityRequest = lark.baike.v1.ExtractEntityRequest.builder() \
-		.request_body(lark.baike.v1.ExtractEntityRequestBody.builder()
+	request: ExtractEntityRequest = ExtractEntityRequest.builder() \
+		.request_body(ExtractEntityRequestBody.builder()
 					  .text("企业百科是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线百科全书")
 					  .build()) \
 		.build()

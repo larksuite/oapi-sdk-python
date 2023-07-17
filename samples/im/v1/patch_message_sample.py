@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchMessageRequest = lark.im.v1.PatchMessageRequest.builder() \
+	request: PatchMessageRequest = PatchMessageRequest.builder() \
 		.message_id("om_dc13264520392913993dd051dba21dcf") \
-		.request_body(lark.im.v1.PatchMessageRequestBody.builder()
+		.request_body(PatchMessageRequestBody.builder()
 					  .content("参考链接")
 					  .build()) \
 		.build()

@@ -5,7 +5,7 @@ from lark_oapi.api.wiki.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetNodeSpaceRequest = lark.wiki.v2.GetNodeSpaceRequest.builder() \
+	request: GetNodeSpaceRequest = GetNodeSpaceRequest.builder() \
 		.token("wikcnKQ1k3p******8Vabcef") \
 		.build()
 

@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchFileSubscriptionRequest = lark.drive.v1.PatchFileSubscriptionRequest.builder() \
+	request: PatchFileSubscriptionRequest = PatchFileSubscriptionRequest.builder() \
 		.file_token("doxcnxxxxxxxxxxxxxxxxxxxxxx") \
 		.subscription_id("1234567890987654321") \
-		.request_body(lark.drive.v1.PatchFileSubscriptionRequestBody.builder()
+		.request_body(PatchFileSubscriptionRequestBody.builder()
 					  .is_subscribe(True)
 					  .file_type("doc")
 					  .build()) \

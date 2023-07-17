@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateMessageReactionRequest = lark.im.v1.CreateMessageReactionRequest.builder() \
+	request: CreateMessageReactionRequest = CreateMessageReactionRequest.builder() \
 		.message_id("om_a8f2294b************a1a38afaac9d") \
-		.request_body(lark.im.v1.CreateMessageReactionRequestBody.builder()
+		.request_body(CreateMessageReactionRequestBody.builder()
 					  .reaction_type(Emoji.builder().build())
 					  .build()) \
 		.build()

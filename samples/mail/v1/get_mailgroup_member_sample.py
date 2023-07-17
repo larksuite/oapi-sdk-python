@@ -5,7 +5,7 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetMailgroupMemberRequest = lark.mail.v1.GetMailgroupMemberRequest.builder() \
+	request: GetMailgroupMemberRequest = GetMailgroupMemberRequest.builder() \
 		.mailgroup_id("xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx") \
 		.member_id("xxxxxxxxxxxxxxx") \
 		.user_id_type("user_id") \

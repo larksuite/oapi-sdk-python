@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateRoomRequest = lark.vc.v1.CreateRoomRequest.builder() \
+	request: CreateRoomRequest = CreateRoomRequest.builder() \
 		.user_id_type("open_id") \
-		.request_body(lark.vc.v1.Room.builder()
+		.request_body(Room.builder()
 					  .name("测试会议室")
 					  .capacity(10)
 					  .description("测试会议室描述")

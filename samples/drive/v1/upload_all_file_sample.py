@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -14,8 +14,8 @@ def main():
 
 	# 构造请求对象
 	file = open("file_path", "rb")
-	request: UploadAllFileRequest = lark.drive.v1.UploadAllFileRequest.builder() \
-		.request_body(lark.drive.v1.UploadAllFileRequestBody.builder()
+	request: UploadAllFileRequest = UploadAllFileRequest.builder() \
+		.request_body(UploadAllFileRequestBody.builder()
 					  .file_name("demo.pdf")
 					  .parent_type("explorer")
 					  .parent_node("fldbcO1UuPz8VwnpPx5a92abcef")

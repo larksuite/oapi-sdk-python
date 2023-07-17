@@ -2,9 +2,10 @@
 
 from typing import Optional
 
-from .core import logger
+from .core.const import UTF_8
+from .core import logger, JSON
 from .core.model import *
-from .core.token import TokenManager
+from .core.token import TokenManager, verify
 from .core.http import Transport
 from .api.acs.service import AcsService
 from .api.admin.service import AdminService
@@ -95,8 +96,18 @@ class Client(object):
 	def builder() -> "ClientBuilder":
 		return ClientBuilder()
 
-	def request(self, request: BaseRequest, option: RequestOption) -> RawResponse:
-		return Transport.execute(self._config, request, option)
+	def request(self, request: BaseRequest, option: RequestOption = RequestOption()) -> BaseResponse:
+		# 鉴权、获取token
+		verify(self._config, request, option)
+
+		# 发起请求
+		raw_resp = Transport.execute(self._config, request, option)
+
+		# 反序列化
+		resp: BaseResponse = JSON.unmarshal(str(raw_resp.content, UTF_8), BaseResponse)
+		resp.raw = raw_resp
+
+		return resp
 
 
 class ClientBuilder(object):

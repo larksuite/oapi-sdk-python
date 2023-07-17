@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchEhrImportTaskRequest = lark.hire.v1.PatchEhrImportTaskRequest.builder() \
+	request: PatchEhrImportTaskRequest = PatchEhrImportTaskRequest.builder() \
 		.ehr_import_task_id("623455234") \
-		.request_body(lark.hire.v1.EhrImportTask.builder()
+		.request_body(EhrImportTask.builder()
 					  .fail_reason("当前HC不可用")
 					  .redirect_url("https://example.com")
 					  .state(1)

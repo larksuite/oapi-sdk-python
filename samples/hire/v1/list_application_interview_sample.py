@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListApplicationInterviewRequest = lark.hire.v1.ListApplicationInterviewRequest.builder() \
+	request: ListApplicationInterviewRequest = ListApplicationInterviewRequest.builder() \
 		.application_id("6960663240925956555") \
 		.page_size(10) \
 		.page_token("xx") \

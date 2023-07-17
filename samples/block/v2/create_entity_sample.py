@@ -5,7 +5,7 @@ from lark_oapi.api.block.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateEntityRequest = lark.block.v2.CreateEntityRequest.builder() \
-		.request_body(lark.block.v2.CreateEntityRequestBody.builder()
+	request: CreateEntityRequest = CreateEntityRequest.builder() \
+		.request_body(CreateEntityRequestBody.builder()
 					  .title("已阅block")
 					  .block_type_id("blk_614c1c952f800014b27f87d6")
 					  .source_data("")

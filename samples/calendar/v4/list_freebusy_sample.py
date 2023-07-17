@@ -5,7 +5,7 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListFreebusyRequest = lark.calendar.v4.ListFreebusyRequest.builder() \
+	request: ListFreebusyRequest = ListFreebusyRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.calendar.v4.ListFreebusyRequestBody.builder()
+		.request_body(ListFreebusyRequestBody.builder()
 					  .time_min("2020-10-28T12:00:00+08:00")
 					  .time_max("2020-12-28T12:00:00+08:00")
 					  .user_id("ou_xxxxxxxxxx")

@@ -5,7 +5,7 @@ from lark_oapi.api.search.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateSchemaRequest = lark.search.v2.CreateSchemaRequest.builder() \
+	request: CreateSchemaRequest = CreateSchemaRequest.builder() \
 		.validate_only(False) \
-		.request_body(lark.search.v2.Schema.builder()
+		.request_body(Schema.builder()
 					  .properties([])
 					  .display(SchemaDisplay.builder().build())
 					  .schema_id("jira_schema")

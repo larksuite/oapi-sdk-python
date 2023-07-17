@@ -5,7 +5,7 @@ from lark_oapi.api.admin.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -14,8 +14,8 @@ def main():
 
 	# 构造请求对象
 	file = open("file_path", "rb")
-	request: CreateBadgeImageRequest = lark.admin.v1.CreateBadgeImageRequest.builder() \
-		.request_body(lark.admin.v1.CreateBadgeImageRequestBody.builder()
+	request: CreateBadgeImageRequest = CreateBadgeImageRequest.builder() \
+		.request_body(CreateBadgeImageRequestBody.builder()
 					  .image_file(file)
 					  .image_type(1)
 					  .build()) \

@@ -5,7 +5,7 @@ from lark_oapi.api.bitable.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListAppTableFieldRequest = lark.bitable.v1.ListAppTableFieldRequest.builder() \
+	request: ListAppTableFieldRequest = ListAppTableFieldRequest.builder() \
 		.app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
 		.table_id("tblsRc9GRRXKqhvW") \
 		.view_id("vewOVMEXPF") \

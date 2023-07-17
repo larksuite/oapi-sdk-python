@@ -5,7 +5,7 @@ from lark_oapi.api.personal_settings.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteSystemStatusRequest = lark.personal_settings.v1.DeleteSystemStatusRequest.builder() \
+	request: DeleteSystemStatusRequest = DeleteSystemStatusRequest.builder() \
 		.system_status_id("7101214603622940633") \
 		.build()
 

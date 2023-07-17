@@ -5,7 +5,7 @@ from lark_oapi.api.bitable.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateAppRoleRequest = lark.bitable.v1.CreateAppRoleRequest.builder() \
+	request: CreateAppRoleRequest = CreateAppRoleRequest.builder() \
 		.app_token("appbcbWCzen6D8dezhoCH2RpMAh") \
-		.request_body(lark.bitable.v1.AppRole.builder()
+		.request_body(AppRole.builder()
 					  .role_name("自定义权限1")
 					  .table_roles([])
 					  .block_roles([])

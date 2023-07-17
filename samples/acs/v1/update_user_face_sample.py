@@ -5,7 +5,7 @@ from lark_oapi.api.acs.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -14,10 +14,10 @@ def main():
 
 	# 构造请求对象
 	file = open("file_path", "rb")
-	request: UpdateUserFaceRequest = lark.acs.v1.UpdateUserFaceRequest.builder() \
+	request: UpdateUserFaceRequest = UpdateUserFaceRequest.builder() \
 		.user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
 		.user_id_type("user_id") \
-		.request_body(lark.acs.v1.File.builder()
+		.request_body(File.builder()
 					  .files(file)
 					  .file_type("jpg")
 					  .file_name("efeqz12f.jpg")

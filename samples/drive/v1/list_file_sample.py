@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListFileRequest = lark.drive.v1.ListFileRequest.builder() \
+	request: ListFileRequest = ListFileRequest.builder() \
 		.page_size(10) \
 		.page_token("MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef") \
 		.folder_token("fldbcO1UuPz8VwnpPx5a9abcef") \

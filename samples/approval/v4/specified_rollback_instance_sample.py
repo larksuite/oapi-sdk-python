@@ -5,7 +5,7 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: SpecifiedRollbackInstanceRequest = lark.approval.v4.SpecifiedRollbackInstanceRequest.builder() \
+	request: SpecifiedRollbackInstanceRequest = SpecifiedRollbackInstanceRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.approval.v4.SpecifiedRollback.builder()
+		.request_body(SpecifiedRollback.builder()
 					  .user_id("893g4c45")
 					  .task_id("7026591166355210260")
 					  .reason("申请事项填写不具体，请重新填写")

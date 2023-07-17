@@ -5,7 +5,7 @@ from lark_oapi.api.personal_settings.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchOpenSystemStatusRequest = lark.personal_settings.v1.BatchOpenSystemStatusRequest.builder() \
+	request: BatchOpenSystemStatusRequest = BatchOpenSystemStatusRequest.builder() \
 		.system_status_id("7101214603622940672") \
 		.user_id_type("open_id") \
-		.request_body(lark.personal_settings.v1.BatchOpenSystemStatusRequestBody.builder()
+		.request_body(BatchOpenSystemStatusRequestBody.builder()
 					  .user_list([])
 					  .build()) \
 		.build()

@@ -5,7 +5,7 @@ from lark_oapi.api.speech_to_text.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: StreamRecognizeSpeechRequest = lark.speech_to_text.v1.StreamRecognizeSpeechRequest.builder() \
-		.request_body(lark.speech_to_text.v1.StreamRecognizeSpeechRequestBody.builder()
+	request: StreamRecognizeSpeechRequest = StreamRecognizeSpeechRequest.builder() \
+		.request_body(StreamRecognizeSpeechRequestBody.builder()
 					  .speech(Speech.builder().build())
 					  .config(StreamConfig.builder().build())
 					  .build()) \

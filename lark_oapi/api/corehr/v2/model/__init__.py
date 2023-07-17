@@ -7,7 +7,9 @@ from .bank_branch import *
 from .basic_department import *
 from .basic_employee import *
 from .basic_info import *
+from .basic_job_data import *
 from .basic_person_info import *
+from .bp import *
 from .city import *
 from .company import *
 from .contract import *
@@ -19,6 +21,7 @@ from .currency import *
 from .custom_field_data import *
 from .custom_name import *
 from .department import *
+from .department_hrbp import *
 from .department_parent_info import *
 from .department_parents import *
 from .dependent import *
@@ -28,12 +31,15 @@ from .education_info import *
 from .email import *
 from .emergency_contact import *
 from .employee import *
+from .employee_job_data import *
 from .employment import *
+from .employment_bp import *
 from .enum import *
 from .file import *
 from .hiberarchy_common import *
 from .i18n import *
 from .job_change import *
+from .job_data import *
 from .job_data_cost_center import *
 from .job_family import *
 from .job_level import *
@@ -50,6 +56,7 @@ from .phone import *
 from .prehire_create import *
 from .probation_info import *
 from .probation_info_for_submit import *
+from .support_cost_center_item import *
 from .transfer_info import *
 from .work_email import *
 from .work_experience import *

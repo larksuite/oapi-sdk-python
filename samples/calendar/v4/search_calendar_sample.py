@@ -5,7 +5,7 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: SearchCalendarRequest = lark.calendar.v4.SearchCalendarRequest.builder() \
+	request: SearchCalendarRequest = SearchCalendarRequest.builder() \
 		.page_token("10") \
 		.page_size(20) \
-		.request_body(lark.calendar.v4.SearchCalendarRequestBody.builder()
+		.request_body(SearchCalendarRequestBody.builder()
 					  .query("query words")
 					  .build()) \
 		.build()

@@ -5,7 +5,7 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateDraftRequest = lark.baike.v1.UpdateDraftRequest.builder() \
+	request: UpdateDraftRequest = UpdateDraftRequest.builder() \
 		.draft_id("5347") \
 		.user_id_type("user_id") \
-		.request_body(lark.baike.v1.Entity.builder()
+		.request_body(Entity.builder()
 					  .id("enterprise_40217521")
 					  .main_keys([])
 					  .aliases([])

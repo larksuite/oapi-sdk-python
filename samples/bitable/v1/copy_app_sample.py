@@ -5,7 +5,7 @@ from lark_oapi.api.bitable.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CopyAppRequest = lark.bitable.v1.CopyAppRequest.builder() \
+	request: CopyAppRequest = CopyAppRequest.builder() \
 		.app_token("S404b*****e9PQsYDWYcNryFn0g") \
-		.request_body(lark.bitable.v1.CopyAppRequestBody.builder()
+		.request_body(CopyAppRequestBody.builder()
 					  .name("一篇新的多维表格")
 					  .folder_token("fldbco*****CIMltVc")
 					  .without_content(False)

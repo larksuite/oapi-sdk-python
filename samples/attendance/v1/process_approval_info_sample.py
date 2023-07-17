@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ProcessApprovalInfoRequest = lark.attendance.v1.ProcessApprovalInfoRequest.builder() \
-		.request_body(lark.attendance.v1.ProcessApprovalInfoRequestBody.builder()
+	request: ProcessApprovalInfoRequest = ProcessApprovalInfoRequest.builder() \
+		.request_body(ProcessApprovalInfoRequestBody.builder()
 					  .approval_id("6737202939523236113")
 					  .approval_type("remedy")
 					  .status(4)

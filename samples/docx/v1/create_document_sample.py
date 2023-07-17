@@ -5,7 +5,7 @@ from lark_oapi.api.docx.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateDocumentRequest = lark.docx.v1.CreateDocumentRequest.builder() \
-		.request_body(lark.docx.v1.CreateDocumentRequestBody.builder()
+	request: CreateDocumentRequest = CreateDocumentRequest.builder() \
+		.request_body(CreateDocumentRequestBody.builder()
 					  .folder_token("fldcnqquW1svRIYVT2Np6IuLCKd")
 					  .title("undefined")
 					  .build()) \

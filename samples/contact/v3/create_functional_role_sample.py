@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateFunctionalRoleRequest = lark.contact.v3.CreateFunctionalRoleRequest.builder() \
-		.request_body(lark.contact.v3.CreateFunctionalRoleRequestBody.builder()
+	request: CreateFunctionalRoleRequest = CreateFunctionalRoleRequest.builder() \
+		.request_body(CreateFunctionalRoleRequestBody.builder()
 					  .role_name("考勤管理员")
 					  .build()) \
 		.build()

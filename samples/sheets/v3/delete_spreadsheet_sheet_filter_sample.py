@@ -5,7 +5,7 @@ from lark_oapi.api.sheets.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteSpreadsheetSheetFilterRequest = lark.sheets.v3.DeleteSpreadsheetSheetFilterRequest.builder() \
+	request: DeleteSpreadsheetSheetFilterRequest = DeleteSpreadsheetSheetFilterRequest.builder() \
 		.spreadsheet_token("") \
 		.sheet_id("") \
 		.build()

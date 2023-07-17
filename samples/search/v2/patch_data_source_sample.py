@@ -5,7 +5,7 @@ from lark_oapi.api.search.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchDataSourceRequest = lark.search.v2.PatchDataSourceRequest.builder() \
+	request: PatchDataSourceRequest = PatchDataSourceRequest.builder() \
 		.data_source_id("service_ticket") \
-		.request_body(lark.search.v2.PatchDataSourceRequestBody.builder()
+		.request_body(PatchDataSourceRequestBody.builder()
 					  .name("客服工单")
 					  .state(0)
 					  .description("搜索客服工单")

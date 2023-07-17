@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetAttachmentRequest = lark.hire.v1.GetAttachmentRequest.builder() \
+	request: GetAttachmentRequest = GetAttachmentRequest.builder() \
 		.attachment_id("6435242341238") \
 		.type(1) \
 		.build()

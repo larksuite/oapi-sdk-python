@@ -5,7 +5,7 @@ from lark_oapi.api.docx.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,12 +13,12 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchUpdateDocumentBlockRequest = lark.docx.v1.BatchUpdateDocumentBlockRequest.builder() \
+	request: BatchUpdateDocumentBlockRequest = BatchUpdateDocumentBlockRequest.builder() \
 		.document_id("doxcnePuYufKa49ISjhD8Ih0ikh") \
 		.document_revision_id(-1) \
 		.client_token("0e2633a3-aa1a-4171-af9e-0768ff863566") \
 		.user_id_type("user_id") \
-		.request_body(lark.docx.v1.BatchUpdateDocumentBlockRequestBody.builder()
+		.request_body(BatchUpdateDocumentBlockRequestBody.builder()
 					  .requests([])
 					  .build()) \
 		.build()

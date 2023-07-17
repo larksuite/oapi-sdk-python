@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: TransferOnboardApplicationRequest = lark.hire.v1.TransferOnboardApplicationRequest.builder() \
+	request: TransferOnboardApplicationRequest = TransferOnboardApplicationRequest.builder() \
 		.application_id("7073372582620416300") \
 		.user_id_type("open_id") \
 		.department_id_type("people_admin_department_id") \
-		.request_body(lark.hire.v1.TransferOnboardApplicationRequestBody.builder()
+		.request_body(TransferOnboardApplicationRequestBody.builder()
 					  .actual_onboard_time(0)
 					  .expected_conversion_time(0)
 					  .job_requirement_id("6960663240925956402")

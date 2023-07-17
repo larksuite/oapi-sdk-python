@@ -5,7 +5,7 @@ from lark_oapi.api.task.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListTaskRequest = lark.task.v1.ListTaskRequest.builder() \
+	request: ListTaskRequest = ListTaskRequest.builder() \
 		.page_size(10) \
 		.page_token("MTYzMTg3ODUxNQ==") \
 		.start_create_time("1652323331") \

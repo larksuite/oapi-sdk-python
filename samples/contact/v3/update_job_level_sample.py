@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateJobLevelRequest = lark.contact.v3.UpdateJobLevelRequest.builder() \
+	request: UpdateJobLevelRequest = UpdateJobLevelRequest.builder() \
 		.job_level_id("mga5oa8ayjlp9rb") \
-		.request_body(lark.contact.v3.JobLevel.builder()
+		.request_body(JobLevel.builder()
 					  .name("高级专家")
 					  .description("公司内部中高级职称，有一定专业技术能力的人员")
 					  .order(200)

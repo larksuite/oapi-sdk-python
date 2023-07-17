@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: StartMeetingRecordingRequest = lark.vc.v1.StartMeetingRecordingRequest.builder() \
+	request: StartMeetingRecordingRequest = StartMeetingRecordingRequest.builder() \
 		.meeting_id("6911188411932033028") \
-		.request_body(lark.vc.v1.StartMeetingRecordingRequestBody.builder()
+		.request_body(StartMeetingRecordingRequestBody.builder()
 					  .timezone(8)
 					  .build()) \
 		.build()

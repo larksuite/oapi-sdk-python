@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UnreadSpecialFocusRequest = lark.im.v1.UnreadSpecialFocusRequest.builder() \
+	request: UnreadSpecialFocusRequest = UnreadSpecialFocusRequest.builder() \
 		.member_id_type("open_id") \
-		.request_body(lark.im.v1.UnreadSpecialFocusRequestBody.builder()
+		.request_body(UnreadSpecialFocusRequestBody.builder()
 					  .id_list([])
 					  .chat_mode("group")
 					  .build()) \

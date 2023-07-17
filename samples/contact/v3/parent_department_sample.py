@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ParentDepartmentRequest = lark.contact.v3.ParentDepartmentRequest.builder() \
+	request: ParentDepartmentRequest = ParentDepartmentRequest.builder() \
 		.user_id_type("user_id") \
 		.department_id_type("open_department_id") \
 		.department_id("od-4e6ac4d14bcd5071a37a39de902c7141") \

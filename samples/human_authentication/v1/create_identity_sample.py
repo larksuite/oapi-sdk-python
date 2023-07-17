@@ -5,7 +5,7 @@ from lark_oapi.api.human_authentication.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateIdentityRequest = lark.human_authentication.v1.CreateIdentityRequest.builder() \
+	request: CreateIdentityRequest = CreateIdentityRequest.builder() \
 		.user_id("ou_2eb5483cb377daa5054bc6f86e2089a5") \
 		.user_id_type("open_id") \
-		.request_body(lark.human_authentication.v1.CreateIdentityRequestBody.builder()
+		.request_body(CreateIdentityRequestBody.builder()
 					  .identity_name("张三")
 					  .identity_code("4xxxxxxxx")
 					  .mobile("13xxxxxxx")

@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetFileRequest = lark.corehr.v1.GetFileRequest.builder() \
+	request: GetFileRequest = GetFileRequest.builder() \
 		.id("150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150100") \
 		.build()
 

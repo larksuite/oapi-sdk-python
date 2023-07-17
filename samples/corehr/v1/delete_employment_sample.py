@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteEmploymentRequest = lark.corehr.v1.DeleteEmploymentRequest.builder() \
+	request: DeleteEmploymentRequest = DeleteEmploymentRequest.builder() \
 		.employment_id("65536878783232") \
 		.user_id_type("people_corehr_id") \
 		.build()

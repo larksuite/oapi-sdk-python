@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: OfferStatusOfferRequest = lark.hire.v1.OfferStatusOfferRequest.builder() \
+	request: OfferStatusOfferRequest = OfferStatusOfferRequest.builder() \
 		.offer_id("6930815272790114324") \
-		.request_body(lark.hire.v1.OfferStatusOfferRequestBody.builder()
+		.request_body(OfferStatusOfferRequestBody.builder()
 					  .offer_status(2)
 					  .expiration_date("2023-01-01")
 					  .termination_reason_id_list([])

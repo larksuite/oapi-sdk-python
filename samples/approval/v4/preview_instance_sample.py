@@ -5,7 +5,7 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PreviewInstanceRequest = lark.approval.v4.PreviewInstanceRequest.builder() \
+	request: PreviewInstanceRequest = PreviewInstanceRequest.builder() \
 		.user_id_type("open_id") \
-		.request_body(lark.approval.v4.PreviewInstanceRequestBody.builder()
+		.request_body(PreviewInstanceRequestBody.builder()
 					  .user_id("发起审批用户id，按照user_id_type类型填写")
 					  .approval_code("C2CAAA90-70D9-3214-906B-B6FFF947F00D")
 					  .department_id("6982332863116876308")

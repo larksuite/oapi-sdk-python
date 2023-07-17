@@ -5,7 +5,7 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateExternalInstanceRequest = lark.approval.v4.CreateExternalInstanceRequest.builder() \
-		.request_body(lark.approval.v4.ExternalInstance.builder()
+	request: CreateExternalInstanceRequest = CreateExternalInstanceRequest.builder() \
+		.request_body(ExternalInstance.builder()
 					  .approval_code("81D31358-93AF-92D6-7425-01A5D67C4E71")
 					  .status("PENDING")
 					  .extra("")

@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchJobRequest = lark.corehr.v1.PatchJobRequest.builder() \
+	request: PatchJobRequest = PatchJobRequest.builder() \
 		.job_id("1616161616") \
 		.client_token("12454646") \
-		.request_body(lark.corehr.v1.Job.builder()
+		.request_body(Job.builder()
 					  .code("JP422119")
 					  .name([])
 					  .description([])

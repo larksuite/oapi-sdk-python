@@ -5,7 +5,7 @@ from lark_oapi.api.application.v6 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: OverviewApplicationAppUsageRequest = lark.application.v6.OverviewApplicationAppUsageRequest.builder() \
+	request: OverviewApplicationAppUsageRequest = OverviewApplicationAppUsageRequest.builder() \
 		.app_id("cli_9f115af860f7901b") \
 		.department_id_type("open_department_id") \
-		.request_body(lark.application.v6.OverviewApplicationAppUsageRequestBody.builder()
+		.request_body(OverviewApplicationAppUsageRequestBody.builder()
 					  .date("2021-07-08")
 					  .cycle_type(1)
 					  .department_id("od-4e6ac4d14bcd5071a37a39de902c7141")

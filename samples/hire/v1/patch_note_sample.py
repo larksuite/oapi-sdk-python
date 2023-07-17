@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchNoteRequest = lark.hire.v1.PatchNoteRequest.builder() \
+	request: PatchNoteRequest = PatchNoteRequest.builder() \
 		.note_id("6960663240925956401") \
 		.user_id_type("open_id") \
-		.request_body(lark.hire.v1.PatchNoteRequestBody.builder()
+		.request_body(PatchNoteRequestBody.builder()
 					  .content("111")
 					  .build()) \
 		.build()

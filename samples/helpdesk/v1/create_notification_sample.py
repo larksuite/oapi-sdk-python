@@ -5,7 +5,7 @@ from lark_oapi.api.helpdesk.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateNotificationRequest = lark.helpdesk.v1.CreateNotificationRequest.builder() \
+	request: CreateNotificationRequest = CreateNotificationRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.helpdesk.v1.Notification.builder()
+		.request_body(Notification.builder()
 					  .id("6981801914270744596")
 					  .job_name("测试推送任务")
 					  .status(0)

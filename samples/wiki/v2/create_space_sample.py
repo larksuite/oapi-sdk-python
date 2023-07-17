@@ -5,7 +5,7 @@ from lark_oapi.api.wiki.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateSpaceRequest = lark.wiki.v2.CreateSpaceRequest.builder() \
-		.request_body(lark.wiki.v2.Space.builder()
+	request: CreateSpaceRequest = CreateSpaceRequest.builder() \
+		.request_body(Space.builder()
 					  .name("str")
 					  .description("str")
 					  .build()) \

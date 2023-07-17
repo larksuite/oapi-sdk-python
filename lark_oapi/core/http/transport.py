@@ -28,6 +28,7 @@ class Transport(object):
             headers=headers,
             params=req.queries,
             data=data,
+            timeout=conf.timeout,
         )
 
         logger.debug(f"{str(req.http_method.name)} {url} {response.status_code}, "

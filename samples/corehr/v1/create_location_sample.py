@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateLocationRequest = lark.corehr.v1.CreateLocationRequest.builder() \
+	request: CreateLocationRequest = CreateLocationRequest.builder() \
 		.client_token("12454646") \
-		.request_body(lark.corehr.v1.Location.builder()
+		.request_body(Location.builder()
 					  .hiberarchy_common(HiberarchyCommon.builder().build())
 					  .location_usage_list([])
 					  .address([])

@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: AddToFolderTalentRequest = lark.hire.v1.AddToFolderTalentRequest.builder() \
-		.request_body(lark.hire.v1.AddToFolderTalentRequestBody.builder()
+	request: AddToFolderTalentRequest = AddToFolderTalentRequest.builder() \
+		.request_body(AddToFolderTalentRequestBody.builder()
 					  .talent_id_list([])
 					  .folder_id("7039620186502138156")
 					  .build()) \

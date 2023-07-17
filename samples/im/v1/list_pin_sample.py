@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListPinRequest = lark.im.v1.ListPinRequest.builder() \
+	request: ListPinRequest = ListPinRequest.builder() \
 		.chat_id("oc_234jsi43d3ssi993d43545f") \
 		.start_time("1658632251800") \
 		.end_time("1658731646425") \

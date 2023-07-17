@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UploadFinishMediaRequest = lark.drive.v1.UploadFinishMediaRequest.builder() \
-		.request_body(lark.drive.v1.UploadFinishMediaRequestBody.builder()
+	request: UploadFinishMediaRequest = UploadFinishMediaRequest.builder() \
+		.request_body(UploadFinishMediaRequestBody.builder()
 					  .upload_id("7111211691345512356")
 					  .block_num(1)
 					  .build()) \

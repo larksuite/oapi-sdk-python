@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: QueryUserStatsFieldRequest = lark.attendance.v1.QueryUserStatsFieldRequest.builder() \
+	request: QueryUserStatsFieldRequest = QueryUserStatsFieldRequest.builder() \
 		.employee_type("employee_id") \
-		.request_body(lark.attendance.v1.QueryUserStatsFieldRequestBody.builder()
+		.request_body(QueryUserStatsFieldRequestBody.builder()
 					  .locale("zh")
 					  .stats_type("daily")
 					  .start_date(20210316)

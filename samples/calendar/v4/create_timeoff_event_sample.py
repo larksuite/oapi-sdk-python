@@ -5,7 +5,7 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateTimeoffEventRequest = lark.calendar.v4.CreateTimeoffEventRequest.builder() \
+	request: CreateTimeoffEventRequest = CreateTimeoffEventRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.calendar.v4.TimeoffEvent.builder()
+		.request_body(TimeoffEvent.builder()
 					  .user_id("str")
 					  .timezone("str")
 					  .start_time("str")

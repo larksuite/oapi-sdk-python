@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchLeaveAccrualRecordRequest = lark.attendance.v1.PatchLeaveAccrualRecordRequest.builder() \
+	request: PatchLeaveAccrualRecordRequest = PatchLeaveAccrualRecordRequest.builder() \
 		.leave_id("1") \
 		.user_id_type("open_id") \
-		.request_body(lark.attendance.v1.PatchLeaveAccrualRecordRequestBody.builder()
+		.request_body(PatchLeaveAccrualRecordRequestBody.builder()
 					  .leave_granting_record_id("1")
 					  .employment_id("1")
 					  .leave_type_id("1")

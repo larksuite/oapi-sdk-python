@@ -5,7 +5,7 @@ from lark_oapi.api.baike.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateEntityRequest = lark.baike.v1.CreateEntityRequest.builder() \
+	request: CreateEntityRequest = CreateEntityRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.baike.v1.Entity.builder()
+		.request_body(Entity.builder()
 					  .main_keys([])
 					  .aliases([])
 					  .description("企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通")

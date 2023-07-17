@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteTabsChatTabRequest = lark.im.v1.DeleteTabsChatTabRequest.builder() \
+	request: DeleteTabsChatTabRequest = DeleteTabsChatTabRequest.builder() \
 		.chat_id("oc_a0553eda9014c201e6969b478895c230") \
-		.request_body(lark.im.v1.DeleteTabsChatTabRequestBody.builder()
+		.request_body(DeleteTabsChatTabRequestBody.builder()
 					  .tab_ids([])
 					  .build()) \
 		.build()

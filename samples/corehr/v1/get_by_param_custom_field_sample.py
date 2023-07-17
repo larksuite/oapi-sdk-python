@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetByParamCustomFieldRequest = lark.corehr.v1.GetByParamCustomFieldRequest.builder() \
+	request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest.builder() \
 		.custom_api_name("custom_field_33") \
 		.object_api_name("offboarding_info") \
 		.build()

@@ -5,7 +5,7 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteInstanceCommentRequest = lark.approval.v4.DeleteInstanceCommentRequest.builder() \
+	request: DeleteInstanceCommentRequest = DeleteInstanceCommentRequest.builder() \
 		.instance_id("6A123516-FB88-470D-A428-9AF58B71B3C0") \
 		.comment_id("7081516627711606803") \
 		.user_id_type("user_id") \

@@ -5,7 +5,7 @@ from lark_oapi.api.auth.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ResendAppTicketRequest = lark.auth.v3.ResendAppTicketRequest.builder() \
-		.request_body(lark.auth.v3.ResendAppTicketRequestBody.builder()
+	request: ResendAppTicketRequest = ResendAppTicketRequest.builder() \
+		.request_body(ResendAppTicketRequestBody.builder()
 					  .app_id("cli_slkdjalasdkjasd")
 					  .app_secret("dskLLdkasdjlasdKK")
 					  .build()) \

@@ -5,7 +5,7 @@ from lark_oapi.api.task.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetTaskCommentRequest = lark.task.v1.GetTaskCommentRequest.builder() \
+	request: GetTaskCommentRequest = GetTaskCommentRequest.builder() \
 		.task_id("83912691-2e43-47fc-94a4-d512e03984fa") \
 		.comment_id("6937231762296684564") \
 		.user_id_type("user_id") \

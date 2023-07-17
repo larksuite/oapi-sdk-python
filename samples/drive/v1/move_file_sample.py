@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: MoveFileRequest = lark.drive.v1.MoveFileRequest.builder() \
+	request: MoveFileRequest = MoveFileRequest.builder() \
 		.file_token("boxcnrHpsg1QDqXAAAyachabcef") \
-		.request_body(lark.drive.v1.MoveFileRequestBody.builder()
+		.request_body(MoveFileRequestBody.builder()
 					  .type("file")
 					  .folder_token("fldbcO1UuPz8VwnpPx5a92abcef")
 					  .build()) \

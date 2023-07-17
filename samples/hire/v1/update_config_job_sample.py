@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,10 +13,10 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateConfigJobRequest = lark.hire.v1.UpdateConfigJobRequest.builder() \
+	request: UpdateConfigJobRequest = UpdateConfigJobRequest.builder() \
 		.job_id("6960663240925956660") \
 		.user_id_type("user_id") \
-		.request_body(lark.hire.v1.JobConfig.builder()
+		.request_body(JobConfig.builder()
 					  .offer_apply_schema_id("6960663240925956573")
 					  .offer_process_conf("6960663240925956572")
 					  .recommended_evaluator_id_list([])

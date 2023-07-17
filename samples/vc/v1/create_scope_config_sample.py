@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateScopeConfigRequest = lark.vc.v1.CreateScopeConfigRequest.builder() \
+	request: CreateScopeConfigRequest = CreateScopeConfigRequest.builder() \
 		.user_id_type("open_id") \
-		.request_body(lark.vc.v1.ScopeConfig.builder()
+		.request_body(ScopeConfig.builder()
 					  .scope_type(1)
 					  .scope_id("omm_608d34d82d531b27fa993902d350a307")
 					  .scope_config(RoomConfig.builder().build())

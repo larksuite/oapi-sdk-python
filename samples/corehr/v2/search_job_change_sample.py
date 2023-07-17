@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,12 +13,12 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: SearchJobChangeRequest = lark.corehr.v2.SearchJobChangeRequest.builder() \
+	request: SearchJobChangeRequest = SearchJobChangeRequest.builder() \
 		.page_size(100) \
 		.page_token("6891251722631890445") \
 		.user_id_type("open_id") \
 		.department_id_type("open_department_id") \
-		.request_body(lark.corehr.v2.SearchJobChangeRequestBody.builder()
+		.request_body(SearchJobChangeRequestBody.builder()
 					  .employment_ids([])
 					  .job_change_ids([])
 					  .statuses([])

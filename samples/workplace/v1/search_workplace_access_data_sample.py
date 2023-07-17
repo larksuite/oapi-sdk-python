@@ -5,7 +5,7 @@ from lark_oapi.api.workplace.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: SearchWorkplaceAccessDataRequest = lark.workplace.v1.SearchWorkplaceAccessDataRequest.builder() \
+	request: SearchWorkplaceAccessDataRequest = SearchWorkplaceAccessDataRequest.builder() \
 		.from_date("2023-03-01") \
 		.to_date("2023-03-22") \
 		.page_size(20) \

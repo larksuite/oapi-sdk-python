@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: UpdateJobFamilyRequest = lark.contact.v3.UpdateJobFamilyRequest.builder() \
+	request: UpdateJobFamilyRequest = UpdateJobFamilyRequest.builder() \
 		.job_family_id("mga5oa8ayjlp9rb") \
-		.request_body(lark.contact.v3.JobFamily.builder()
+		.request_body(JobFamily.builder()
 					  .name("产品")
 					  .description("负责产品策略制定的相关工作")
 					  .parent_job_family_id("mga5oa8ayjlp9rb")

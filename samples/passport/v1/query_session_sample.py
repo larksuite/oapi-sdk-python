@@ -5,7 +5,7 @@ from lark_oapi.api.passport.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: QuerySessionRequest = lark.passport.v1.QuerySessionRequest.builder() \
+	request: QuerySessionRequest = QuerySessionRequest.builder() \
 		.user_id_type("open_id") \
-		.request_body(lark.passport.v1.QuerySessionRequestBody.builder()
+		.request_body(QuerySessionRequestBody.builder()
 					  .user_ids([])
 					  .build()) \
 		.build()

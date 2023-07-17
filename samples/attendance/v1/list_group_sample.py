@@ -5,7 +5,7 @@ from lark_oapi.api.attendance.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListGroupRequest = lark.attendance.v1.ListGroupRequest.builder() \
+	request: ListGroupRequest = ListGroupRequest.builder() \
 		.page_size(10) \
 		.page_token("wgNOR1rmxogRvAsGl6CXlQ==") \
 		.build()

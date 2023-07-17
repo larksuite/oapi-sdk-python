@@ -5,7 +5,7 @@ from lark_oapi.api.im.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteMessageReactionRequest = lark.im.v1.DeleteMessageReactionRequest.builder() \
+	request: DeleteMessageReactionRequest = DeleteMessageReactionRequest.builder() \
 		.message_id("om_8964d1b4*********2b31383276113") \
 		.reaction_id("ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_") \
 		.build()

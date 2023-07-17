@@ -5,7 +5,7 @@ from lark_oapi.api.auth.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateAppAccessTokenRequest = lark.auth.v3.CreateAppAccessTokenRequest.builder() \
-		.request_body(lark.auth.v3.CreateAppAccessTokenRequestBody.builder()
+	request: CreateAppAccessTokenRequest = CreateAppAccessTokenRequest.builder() \
+		.request_body(CreateAppAccessTokenRequestBody.builder()
 					  .app_id("cli_ddfgkk38emd38")
 					  .app_secret("clkfgkfdjes384kjdf9830d3k")
 					  .app_ticket("jdjlsd03jk34hj3kldjflcmkel")

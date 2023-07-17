@@ -5,7 +5,7 @@ from lark_oapi.api.task.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateTaskRequest = lark.task.v1.CreateTaskRequest.builder() \
+	request: CreateTaskRequest = CreateTaskRequest.builder() \
 		.user_id_type("user_id") \
-		.request_body(lark.task.v1.Task.builder()
+		.request_body(Task.builder()
 					  .summary("每天喝八杯水，保持身心愉悦")
 					  .description("多吃水果，多运动，健康生活，快乐工作。")
 					  .extra("dGVzdA==")

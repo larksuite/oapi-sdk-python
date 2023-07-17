@@ -5,7 +5,7 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteMailgroupRequest = lark.mail.v1.DeleteMailgroupRequest.builder() \
+	request: DeleteMailgroupRequest = DeleteMailgroupRequest.builder() \
 		.mailgroup_id("xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx") \
 		.build()
 

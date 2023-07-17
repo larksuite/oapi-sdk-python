@@ -5,7 +5,7 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: DeleteReserveRequest = lark.vc.v1.DeleteReserveRequest.builder() \
+	request: DeleteReserveRequest = DeleteReserveRequest.builder() \
 		.reserve_id("6911188411932033028") \
 		.build()
 

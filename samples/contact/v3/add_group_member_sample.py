@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: AddGroupMemberRequest = lark.contact.v3.AddGroupMemberRequest.builder() \
+	request: AddGroupMemberRequest = AddGroupMemberRequest.builder() \
 		.group_id("g281721") \
-		.request_body(lark.contact.v3.AddGroupMemberRequestBody.builder()
+		.request_body(AddGroupMemberRequestBody.builder()
 					  .member_type("user")
 					  .member_id_type("open_id")
 					  .member_id("ou_7dab8a3d3cdcc9da365777c7ad535d62")

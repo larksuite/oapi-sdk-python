@@ -5,7 +5,7 @@ from lark_oapi.api.okr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,12 +13,12 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: PatchMetricSourceTableItemRequest = lark.okr.v1.PatchMetricSourceTableItemRequest.builder() \
+	request: PatchMetricSourceTableItemRequest = PatchMetricSourceTableItemRequest.builder() \
 		.metric_source_id("7041857032248410131") \
 		.metric_table_id("7041857032248410131") \
 		.metric_item_id("7041857032248410131") \
 		.user_id_type("open_id") \
-		.request_body(lark.okr.v1.PatchMetricSourceTableItemRequestBody.builder()
+		.request_body(PatchMetricSourceTableItemRequestBody.builder()
 					  .metric_initial_value(1.0)
 					  .metric_target_value(3.0)
 					  .metric_current_value(2.0)

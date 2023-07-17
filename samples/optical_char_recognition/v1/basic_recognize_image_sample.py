@@ -5,7 +5,7 @@ from lark_oapi.api.optical_char_recognition.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BasicRecognizeImageRequest = lark.optical_char_recognition.v1.BasicRecognizeImageRequest.builder() \
-		.request_body(lark.optical_char_recognition.v1.BasicRecognizeImageRequestBody.builder()
+	request: BasicRecognizeImageRequest = BasicRecognizeImageRequest.builder() \
+		.request_body(BasicRecognizeImageRequestBody.builder()
 					  .image("base64后的图片二进制数据")
 					  .build()) \
 		.build()

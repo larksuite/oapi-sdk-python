@@ -5,7 +5,7 @@ from lark_oapi.api.admin.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,11 +13,11 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateBadgeGrantRequest = lark.admin.v1.CreateBadgeGrantRequest.builder() \
+	request: CreateBadgeGrantRequest = CreateBadgeGrantRequest.builder() \
 		.badge_id("m_DjMzaK") \
 		.user_id_type("open_id") \
 		.department_id_type("open_department_id") \
-		.request_body(lark.admin.v1.Grant.builder()
+		.request_body(Grant.builder()
 					  .name("激励勋章的授予名单")
 					  .grant_type(0)
 					  .time_zone("Asia/Shanghai")

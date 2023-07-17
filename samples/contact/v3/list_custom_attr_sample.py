@@ -5,7 +5,7 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: ListCustomAttrRequest = lark.contact.v3.ListCustomAttrRequest.builder() \
+	request: ListCustomAttrRequest = ListCustomAttrRequest.builder() \
 		.page_size(20) \
 		.page_token("AQD9/Rn9eij9Pm39ED40/RYU5lvOM4s6zgbeeNNaWd%2BVKwAsoreeRWk0J2noGvJy") \
 		.build()

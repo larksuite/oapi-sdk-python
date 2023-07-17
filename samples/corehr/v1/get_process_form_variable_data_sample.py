@@ -5,7 +5,7 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,7 +13,7 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: GetProcessFormVariableDataRequest = lark.corehr.v1.GetProcessFormVariableDataRequest.builder() \
+	request: GetProcessFormVariableDataRequest = GetProcessFormVariableDataRequest.builder() \
 		.process_id("123456987") \
 		.build()
 

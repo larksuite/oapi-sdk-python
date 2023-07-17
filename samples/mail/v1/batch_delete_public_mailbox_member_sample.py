@@ -5,7 +5,7 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: BatchDeletePublicMailboxMemberRequest = lark.mail.v1.BatchDeletePublicMailboxMemberRequest.builder() \
+	request: BatchDeletePublicMailboxMemberRequest = BatchDeletePublicMailboxMemberRequest.builder() \
 		.public_mailbox_id("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx") \
-		.request_body(lark.mail.v1.BatchDeletePublicMailboxMemberRequestBody.builder()
+		.request_body(BatchDeletePublicMailboxMemberRequestBody.builder()
 					  .member_id_list([])
 					  .build()) \
 		.build()

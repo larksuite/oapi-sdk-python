@@ -5,7 +5,7 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,9 +13,9 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: InternOfferStatusOfferRequest = lark.hire.v1.InternOfferStatusOfferRequest.builder() \
+	request: InternOfferStatusOfferRequest = InternOfferStatusOfferRequest.builder() \
 		.offer_id("7016605170635213100") \
-		.request_body(lark.hire.v1.InternOfferStatus.builder()
+		.request_body(InternOfferStatus.builder()
 					  .operation("confirm_onboarding")
 					  .onboarding_info(InternOfferOnboardingInfo.builder().build())
 					  .offboarding_info(InternOfferOffboardingInfo.builder().build())

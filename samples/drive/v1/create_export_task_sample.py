@@ -5,7 +5,7 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-	# 构建client
+	# 创建client
 	client = lark.Client.builder() \
 		.app_id("APP_ID") \
 		.app_secret("APP_SECRET") \
@@ -13,8 +13,8 @@ def main():
 		.build()
 
 	# 构造请求对象
-	request: CreateExportTaskRequest = lark.drive.v1.CreateExportTaskRequest.builder() \
-		.request_body(lark.drive.v1.ExportTask.builder()
+	request: CreateExportTaskRequest = CreateExportTaskRequest.builder() \
+		.request_body(ExportTask.builder()
 					  .file_extension("pdf")
 					  .token("doccnxe5OxxxxxxxSNdsJviENsk")
 					  .type("doc")
