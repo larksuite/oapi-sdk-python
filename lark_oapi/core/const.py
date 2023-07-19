@@ -1,5 +1,5 @@
 # Info
-PROJECT = "oapi-sdk-java"
+PROJECT = "oapi-sdk-python"
 VERSION = "v1.0.0"
 
 # Domain
