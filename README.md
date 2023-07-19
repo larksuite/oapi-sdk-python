@@ -242,9 +242,4 @@ MIT
 ## 加入讨论群
 [单击](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=575k28fa-2c12-400a-80c0-2d8924e00d38)或扫码加入讨论群
 
-![qrcode](./doc/qrcode.png)
-<style>
-    img[alt="qrcode"]{
-        width:200px;
-    }
-</style>
+<img src="doc/qrcode.png" width="200" alt="讨论群">
