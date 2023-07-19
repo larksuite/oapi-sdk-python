@@ -1,7 +1,7 @@
 build/
 dist/
 lark_oapi.egg-info/
-setup.sh
+upload.sh
 
 .idea/
 .DS_Store

@@ -3,7 +3,7 @@ from setuptools import find_packages, find_namespace_packages
 
 setup(
     name='lark-oapi',
-    version='1.0.0',
+    version='1.0.1',
     description='Lark OpenAPI SDK for Python',
     author='Wenbo Mao',
     author_email='maowenbo@bytedance.com',
