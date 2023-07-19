@@ -3,7 +3,7 @@
 
 ## 安装
 ```shell
-pip
+pip install lark-oapi
 ```
 支持 Python 3.8 及以上
 
@@ -239,4 +239,12 @@ lark.logger.info(str(response.raw.content, lark.UTF_8))
 ## License
 MIT
 
-## 加入答疑群
+## 加入讨论群
+[单击](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=575k28fa-2c12-400a-80c0-2d8924e00d38)或扫码加入讨论群
+
+![qrcode](./doc/qrcode.png)
+<style>
+    img[alt="qrcode"]{
+        width:200px;
+    }
+</style>

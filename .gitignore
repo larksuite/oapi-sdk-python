@@ -1,6 +1,8 @@
 build/
 dist/
 lark_oapi.egg-info/
+setup.sh
+
 .idea/
 .DS_Store
 */__pycache__/
