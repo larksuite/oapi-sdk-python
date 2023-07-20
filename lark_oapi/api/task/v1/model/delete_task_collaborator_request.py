@@ -29,17 +29,17 @@ class DeleteTaskCollaboratorRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "DeleteTaskCollaboratorRequestBuilder":
         self._delete_task_collaborator_request.user_id_type = user_id_type
-        self._delete_task_collaborator_request.queries["user_id_type"] = str(user_id_type)
+        self._delete_task_collaborator_request.add_query("user_id_type", user_id_type)
         return self
 
     def task_id(self, task_id: str) -> "DeleteTaskCollaboratorRequestBuilder":
         self._delete_task_collaborator_request.task_id = task_id
-        self._delete_task_collaborator_request.paths["task_id"] = task_id
+        self._delete_task_collaborator_request.paths["task_id"] = str(task_id)
         return self
 
     def collaborator_id(self, collaborator_id: str) -> "DeleteTaskCollaboratorRequestBuilder":
         self._delete_task_collaborator_request.collaborator_id = collaborator_id
-        self._delete_task_collaborator_request.paths["collaborator_id"] = collaborator_id
+        self._delete_task_collaborator_request.paths["collaborator_id"] = str(collaborator_id)
         return self
 
     def build(self) -> DeleteTaskCollaboratorRequest:

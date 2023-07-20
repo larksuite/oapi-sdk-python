@@ -30,17 +30,17 @@ class PatchDepartmentRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "PatchDepartmentRequestBuilder":
         self._patch_department_request.user_id_type = user_id_type
-        self._patch_department_request.queries["user_id_type"] = str(user_id_type)
+        self._patch_department_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "PatchDepartmentRequestBuilder":
         self._patch_department_request.department_id_type = department_id_type
-        self._patch_department_request.queries["department_id_type"] = str(department_id_type)
+        self._patch_department_request.add_query("department_id_type", department_id_type)
         return self
 
     def department_id(self, department_id: str) -> "PatchDepartmentRequestBuilder":
         self._patch_department_request.department_id = department_id
-        self._patch_department_request.paths["department_id"] = department_id
+        self._patch_department_request.paths["department_id"] = str(department_id)
         return self
 
     def request_body(self, request_body: Department) -> "PatchDepartmentRequestBuilder":

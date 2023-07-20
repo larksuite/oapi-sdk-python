@@ -42,87 +42,87 @@ class ListTicketRequestBuilder(object):
 
     def ticket_id(self, ticket_id: str) -> "ListTicketRequestBuilder":
         self._list_ticket_request.ticket_id = ticket_id
-        self._list_ticket_request.queries["ticket_id"] = str(ticket_id)
+        self._list_ticket_request.add_query("ticket_id", ticket_id)
         return self
 
     def agent_id(self, agent_id: str) -> "ListTicketRequestBuilder":
         self._list_ticket_request.agent_id = agent_id
-        self._list_ticket_request.queries["agent_id"] = str(agent_id)
+        self._list_ticket_request.add_query("agent_id", agent_id)
         return self
 
     def closed_by_id(self, closed_by_id: str) -> "ListTicketRequestBuilder":
         self._list_ticket_request.closed_by_id = closed_by_id
-        self._list_ticket_request.queries["closed_by_id"] = str(closed_by_id)
+        self._list_ticket_request.add_query("closed_by_id", closed_by_id)
         return self
 
     def type(self, type: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.type = type
-        self._list_ticket_request.queries["type"] = str(type)
+        self._list_ticket_request.add_query("type", type)
         return self
 
     def channel(self, channel: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.channel = channel
-        self._list_ticket_request.queries["channel"] = str(channel)
+        self._list_ticket_request.add_query("channel", channel)
         return self
 
     def solved(self, solved: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.solved = solved
-        self._list_ticket_request.queries["solved"] = str(solved)
+        self._list_ticket_request.add_query("solved", solved)
         return self
 
     def score(self, score: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.score = score
-        self._list_ticket_request.queries["score"] = str(score)
+        self._list_ticket_request.add_query("score", score)
         return self
 
     def status_list(self, status_list: List[int]) -> "ListTicketRequestBuilder":
         self._list_ticket_request.status_list = status_list
-        self._list_ticket_request.queries["status_list"] = str(status_list)
+        self._list_ticket_request.add_query("status_list", status_list)
         return self
 
     def guest_name(self, guest_name: str) -> "ListTicketRequestBuilder":
         self._list_ticket_request.guest_name = guest_name
-        self._list_ticket_request.queries["guest_name"] = str(guest_name)
+        self._list_ticket_request.add_query("guest_name", guest_name)
         return self
 
     def guest_id(self, guest_id: str) -> "ListTicketRequestBuilder":
         self._list_ticket_request.guest_id = guest_id
-        self._list_ticket_request.queries["guest_id"] = str(guest_id)
+        self._list_ticket_request.add_query("guest_id", guest_id)
         return self
 
     def tags(self, tags: List[str]) -> "ListTicketRequestBuilder":
         self._list_ticket_request.tags = tags
-        self._list_ticket_request.queries["tags"] = str(tags)
+        self._list_ticket_request.add_query("tags", tags)
         return self
 
     def page(self, page: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.page = page
-        self._list_ticket_request.queries["page"] = str(page)
+        self._list_ticket_request.add_query("page", page)
         return self
 
     def page_size(self, page_size: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.page_size = page_size
-        self._list_ticket_request.queries["page_size"] = str(page_size)
+        self._list_ticket_request.add_query("page_size", page_size)
         return self
 
     def create_time_start(self, create_time_start: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.create_time_start = create_time_start
-        self._list_ticket_request.queries["create_time_start"] = str(create_time_start)
+        self._list_ticket_request.add_query("create_time_start", create_time_start)
         return self
 
     def create_time_end(self, create_time_end: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.create_time_end = create_time_end
-        self._list_ticket_request.queries["create_time_end"] = str(create_time_end)
+        self._list_ticket_request.add_query("create_time_end", create_time_end)
         return self
 
     def update_time_start(self, update_time_start: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.update_time_start = update_time_start
-        self._list_ticket_request.queries["update_time_start"] = str(update_time_start)
+        self._list_ticket_request.add_query("update_time_start", update_time_start)
         return self
 
     def update_time_end(self, update_time_end: int) -> "ListTicketRequestBuilder":
         self._list_ticket_request.update_time_end = update_time_end
-        self._list_ticket_request.queries["update_time_end"] = str(update_time_end)
+        self._list_ticket_request.add_query("update_time_end", update_time_end)
         return self
 
     def build(self) -> ListTicketRequest:

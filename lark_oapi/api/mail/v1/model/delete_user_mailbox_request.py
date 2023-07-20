@@ -27,12 +27,12 @@ class DeleteUserMailboxRequestBuilder(object):
 
     def transfer_mailbox(self, transfer_mailbox: str) -> "DeleteUserMailboxRequestBuilder":
         self._delete_user_mailbox_request.transfer_mailbox = transfer_mailbox
-        self._delete_user_mailbox_request.queries["transfer_mailbox"] = str(transfer_mailbox)
+        self._delete_user_mailbox_request.add_query("transfer_mailbox", transfer_mailbox)
         return self
 
     def user_mailbox_id(self, user_mailbox_id: str) -> "DeleteUserMailboxRequestBuilder":
         self._delete_user_mailbox_request.user_mailbox_id = user_mailbox_id
-        self._delete_user_mailbox_request.paths["user_mailbox_id"] = user_mailbox_id
+        self._delete_user_mailbox_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
 
     def build(self) -> DeleteUserMailboxRequest:

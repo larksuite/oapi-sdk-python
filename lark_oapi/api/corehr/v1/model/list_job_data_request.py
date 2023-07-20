@@ -34,47 +34,47 @@ class ListJobDataRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.page_token = page_token
-        self._list_job_data_request.queries["page_token"] = str(page_token)
+        self._list_job_data_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: str) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.page_size = page_size
-        self._list_job_data_request.queries["page_size"] = str(page_size)
+        self._list_job_data_request.add_query("page_size", page_size)
         return self
 
     def employment_id(self, employment_id: str) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.employment_id = employment_id
-        self._list_job_data_request.queries["employment_id"] = str(employment_id)
+        self._list_job_data_request.add_query("employment_id", employment_id)
         return self
 
     def job_data_id_list(self, job_data_id_list: List[str]) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.job_data_id_list = job_data_id_list
-        self._list_job_data_request.queries["job_data_id_list"] = str(job_data_id_list)
+        self._list_job_data_request.add_query("job_data_id_list", job_data_id_list)
         return self
 
     def department_id(self, department_id: str) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.department_id = department_id
-        self._list_job_data_request.queries["department_id"] = str(department_id)
+        self._list_job_data_request.add_query("department_id", department_id)
         return self
 
     def job_id(self, job_id: str) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.job_id = job_id
-        self._list_job_data_request.queries["job_id"] = str(job_id)
+        self._list_job_data_request.add_query("job_id", job_id)
         return self
 
     def get_all_version(self, get_all_version: bool) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.get_all_version = get_all_version
-        self._list_job_data_request.queries["get_all_version"] = str(get_all_version)
+        self._list_job_data_request.add_query("get_all_version", get_all_version)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.user_id_type = user_id_type
-        self._list_job_data_request.queries["user_id_type"] = str(user_id_type)
+        self._list_job_data_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "ListJobDataRequestBuilder":
         self._list_job_data_request.department_id_type = department_id_type
-        self._list_job_data_request.queries["department_id_type"] = str(department_id_type)
+        self._list_job_data_request.add_query("department_id_type", department_id_type)
         return self
 
     def build(self) -> ListJobDataRequest:

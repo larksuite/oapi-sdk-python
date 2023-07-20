@@ -28,17 +28,17 @@ class TicketImageTicketRequestBuilder(object):
 
     def ticket_id(self, ticket_id: str) -> "TicketImageTicketRequestBuilder":
         self._ticket_image_ticket_request.ticket_id = ticket_id
-        self._ticket_image_ticket_request.queries["ticket_id"] = str(ticket_id)
+        self._ticket_image_ticket_request.add_query("ticket_id", ticket_id)
         return self
 
     def msg_id(self, msg_id: str) -> "TicketImageTicketRequestBuilder":
         self._ticket_image_ticket_request.msg_id = msg_id
-        self._ticket_image_ticket_request.queries["msg_id"] = str(msg_id)
+        self._ticket_image_ticket_request.add_query("msg_id", msg_id)
         return self
 
     def index(self, index: int) -> "TicketImageTicketRequestBuilder":
         self._ticket_image_ticket_request.index = index
-        self._ticket_image_ticket_request.queries["index"] = str(index)
+        self._ticket_image_ticket_request.add_query("index", index)
         return self
 
     def build(self) -> TicketImageTicketRequest:

@@ -28,7 +28,7 @@ class OfferStatusOfferRequestBuilder(object):
 
     def offer_id(self, offer_id: str) -> "OfferStatusOfferRequestBuilder":
         self._offer_status_offer_request.offer_id = offer_id
-        self._offer_status_offer_request.paths["offer_id"] = offer_id
+        self._offer_status_offer_request.paths["offer_id"] = str(offer_id)
         return self
 
     def request_body(self, request_body: OfferStatusOfferRequestBody) -> "OfferStatusOfferRequestBuilder":

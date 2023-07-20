@@ -30,22 +30,22 @@ class DeleteFileCommentReplyRequestBuilder(object):
 
     def file_type(self, file_type: str) -> "DeleteFileCommentReplyRequestBuilder":
         self._delete_file_comment_reply_request.file_type = file_type
-        self._delete_file_comment_reply_request.queries["file_type"] = str(file_type)
+        self._delete_file_comment_reply_request.add_query("file_type", file_type)
         return self
 
     def file_token(self, file_token: str) -> "DeleteFileCommentReplyRequestBuilder":
         self._delete_file_comment_reply_request.file_token = file_token
-        self._delete_file_comment_reply_request.paths["file_token"] = file_token
+        self._delete_file_comment_reply_request.paths["file_token"] = str(file_token)
         return self
 
     def comment_id(self, comment_id: int) -> "DeleteFileCommentReplyRequestBuilder":
         self._delete_file_comment_reply_request.comment_id = comment_id
-        self._delete_file_comment_reply_request.paths["comment_id"] = comment_id
+        self._delete_file_comment_reply_request.paths["comment_id"] = str(comment_id)
         return self
 
     def reply_id(self, reply_id: int) -> "DeleteFileCommentReplyRequestBuilder":
         self._delete_file_comment_reply_request.reply_id = reply_id
-        self._delete_file_comment_reply_request.paths["reply_id"] = reply_id
+        self._delete_file_comment_reply_request.paths["reply_id"] = str(reply_id)
         return self
 
     def build(self) -> DeleteFileCommentReplyRequest:

@@ -29,7 +29,7 @@ class QueryUserStatsFieldRequestBuilder(object):
 
     def employee_type(self, employee_type: str) -> "QueryUserStatsFieldRequestBuilder":
         self._query_user_stats_field_request.employee_type = employee_type
-        self._query_user_stats_field_request.queries["employee_type"] = str(employee_type)
+        self._query_user_stats_field_request.add_query("employee_type", employee_type)
         return self
 
     def request_body(self, request_body: QueryUserStatsFieldRequestBody) -> "QueryUserStatsFieldRequestBuilder":

@@ -28,7 +28,7 @@ class UpdateJobFamilyRequestBuilder(object):
 
     def job_family_id(self, job_family_id: str) -> "UpdateJobFamilyRequestBuilder":
         self._update_job_family_request.job_family_id = job_family_id
-        self._update_job_family_request.paths["job_family_id"] = job_family_id
+        self._update_job_family_request.paths["job_family_id"] = str(job_family_id)
         return self
 
     def request_body(self, request_body: JobFamily) -> "UpdateJobFamilyRequestBuilder":

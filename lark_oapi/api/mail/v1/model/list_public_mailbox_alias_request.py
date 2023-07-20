@@ -27,7 +27,7 @@ class ListPublicMailboxAliasRequestBuilder(object):
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "ListPublicMailboxAliasRequestBuilder":
         self._list_public_mailbox_alias_request.public_mailbox_id = public_mailbox_id
-        self._list_public_mailbox_alias_request.paths["public_mailbox_id"] = public_mailbox_id
+        self._list_public_mailbox_alias_request.paths["public_mailbox_id"] = str(public_mailbox_id)
         return self
 
     def build(self) -> ListPublicMailboxAliasRequest:

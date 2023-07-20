@@ -28,7 +28,7 @@ class PatchSpreadsheetRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "PatchSpreadsheetRequestBuilder":
         self._patch_spreadsheet_request.spreadsheet_token = spreadsheet_token
-        self._patch_spreadsheet_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._patch_spreadsheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def request_body(self, request_body: UpdateSpreadsheetProperties) -> "PatchSpreadsheetRequestBuilder":

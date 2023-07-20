@@ -26,7 +26,7 @@ class GetFaqRequestBuilder(object):
 
     def id(self, id: str) -> "GetFaqRequestBuilder":
         self._get_faq_request.id = id
-        self._get_faq_request.paths["id"] = id
+        self._get_faq_request.paths["id"] = str(id)
         return self
 
     def build(self) -> GetFaqRequest:

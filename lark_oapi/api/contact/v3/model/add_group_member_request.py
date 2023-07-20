@@ -28,7 +28,7 @@ class AddGroupMemberRequestBuilder(object):
 
     def group_id(self, group_id: str) -> "AddGroupMemberRequestBuilder":
         self._add_group_member_request.group_id = group_id
-        self._add_group_member_request.paths["group_id"] = group_id
+        self._add_group_member_request.paths["group_id"] = str(group_id)
         return self
 
     def request_body(self, request_body: AddGroupMemberRequestBody) -> "AddGroupMemberRequestBuilder":

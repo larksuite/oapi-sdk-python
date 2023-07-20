@@ -7,8 +7,8 @@ from lark_oapi.api.hire.v1 import *
 def main():
     # 创建client
     client = lark.Client.builder() \
-        .app_id("APP_ID") \
-        .app_secret("APP_SECRET") \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
         .log_level(lark.LogLevel.DEBUG) \
         .build()
 
@@ -45,6 +45,7 @@ def main():
                       .job_attribute(1)
                       .expiry_timestamp("1622484739955")
                       .interview_registration_schema_id("6930815272790114324")
+                      .onboard_registration_schema_id("6930815272790114325")
                       .build()) \
         .build()
 

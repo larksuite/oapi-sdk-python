@@ -27,12 +27,12 @@ class FaqImageFaqRequestBuilder(object):
 
     def id(self, id: str) -> "FaqImageFaqRequestBuilder":
         self._faq_image_faq_request.id = id
-        self._faq_image_faq_request.paths["id"] = id
+        self._faq_image_faq_request.paths["id"] = str(id)
         return self
 
     def image_key(self, image_key: str) -> "FaqImageFaqRequestBuilder":
         self._faq_image_faq_request.image_key = image_key
-        self._faq_image_faq_request.paths["image_key"] = image_key
+        self._faq_image_faq_request.paths["image_key"] = str(image_key)
         return self
 
     def build(self) -> FaqImageFaqRequest:

@@ -28,17 +28,17 @@ class BatchGetOkrRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "BatchGetOkrRequestBuilder":
         self._batch_get_okr_request.user_id_type = user_id_type
-        self._batch_get_okr_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_get_okr_request.add_query("user_id_type", user_id_type)
         return self
 
     def okr_ids(self, okr_ids: List[str]) -> "BatchGetOkrRequestBuilder":
         self._batch_get_okr_request.okr_ids = okr_ids
-        self._batch_get_okr_request.queries["okr_ids"] = str(okr_ids)
+        self._batch_get_okr_request.add_query("okr_ids", okr_ids)
         return self
 
     def lang(self, lang: str) -> "BatchGetOkrRequestBuilder":
         self._batch_get_okr_request.lang = lang
-        self._batch_get_okr_request.queries["lang"] = str(lang)
+        self._batch_get_okr_request.add_query("lang", lang)
         return self
 
     def build(self) -> BatchGetOkrRequest:

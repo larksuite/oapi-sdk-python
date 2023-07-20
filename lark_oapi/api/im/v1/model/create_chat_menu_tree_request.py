@@ -28,7 +28,7 @@ class CreateChatMenuTreeRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "CreateChatMenuTreeRequestBuilder":
         self._create_chat_menu_tree_request.chat_id = chat_id
-        self._create_chat_menu_tree_request.paths["chat_id"] = chat_id
+        self._create_chat_menu_tree_request.paths["chat_id"] = str(chat_id)
         return self
 
     def request_body(self, request_body: CreateChatMenuTreeRequestBody) -> "CreateChatMenuTreeRequestBuilder":

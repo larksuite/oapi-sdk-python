@@ -13,7 +13,7 @@ class JSON(object):
     def marshal(obj: Any, indent=None) -> Optional[str]:
         if obj is None:
             return None
-        return dumps(obj, cls=Encoder, indent=indent)
+        return dumps(obj, cls=Encoder, indent=indent, ensure_ascii=False)
 
     @staticmethod
     def unmarshal(json_str: str, clazz: Type[T]) -> T:
@@ -35,4 +35,4 @@ class Encoder(JSONEncoder):
             return float(o)
         if isinstance(o, set):
             return list(o)
-        return super(Encoder, self).default(o)
+        return super().default(o)

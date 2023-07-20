@@ -27,7 +27,7 @@ class DeleteAgentSchedulesRequestBuilder(object):
 
     def agent_id(self, agent_id: str) -> "DeleteAgentSchedulesRequestBuilder":
         self._delete_agent_schedules_request.agent_id = agent_id
-        self._delete_agent_schedules_request.paths["agent_id"] = agent_id
+        self._delete_agent_schedules_request.paths["agent_id"] = str(agent_id)
         return self
 
     def build(self) -> DeleteAgentSchedulesRequest:

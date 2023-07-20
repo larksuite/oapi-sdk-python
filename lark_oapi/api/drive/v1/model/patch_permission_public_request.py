@@ -30,12 +30,12 @@ class PatchPermissionPublicRequestBuilder(object):
 
     def type(self, type: str) -> "PatchPermissionPublicRequestBuilder":
         self._patch_permission_public_request.type = type
-        self._patch_permission_public_request.queries["type"] = str(type)
+        self._patch_permission_public_request.add_query("type", type)
         return self
 
     def token(self, token: str) -> "PatchPermissionPublicRequestBuilder":
         self._patch_permission_public_request.token = token
-        self._patch_permission_public_request.paths["token"] = token
+        self._patch_permission_public_request.paths["token"] = str(token)
         return self
 
     def request_body(self, request_body: PermissionPublicRequest) -> "PatchPermissionPublicRequestBuilder":

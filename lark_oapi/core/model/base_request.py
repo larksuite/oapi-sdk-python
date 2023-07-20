@@ -9,9 +9,16 @@ class BaseRequest(object):
         self.uri: Optional[str] = None
         self.token_types: Set[AccessTokenType] = set()
         self.paths: Dict[str, str] = {}
-        self.queries: Dict[str, str] = {}
+        self.queries: List[Tuple[str, str]] = []
         self.headers: Dict[str, str] = {}
         self.body: Any = None
+
+    def add_query(self, k: str, v: Any) -> None:
+        if isinstance(v, (list, tuple)):
+            for i in v:
+                self.queries.append((k, str(i)))
+        else:
+            self.queries.append((k, str(v)))
 
     @staticmethod
     def builder() -> "BaseRequestBuilder":
@@ -39,7 +46,7 @@ class BaseRequestBuilder(object):
         self._base_request.paths = paths
         return self
 
-    def queries(self, queries: Dict[str, str]) -> "BaseRequestBuilder":
+    def queries(self, queries: List[Tuple[str, str]]) -> "BaseRequestBuilder":
         self._base_request.queries = queries
         return self
 

@@ -32,37 +32,37 @@ class ListAdminDeptStatRequestBuilder(object):
 
     def department_id_type(self, department_id_type: str) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.department_id_type = department_id_type
-        self._list_admin_dept_stat_request.queries["department_id_type"] = str(department_id_type)
+        self._list_admin_dept_stat_request.add_query("department_id_type", department_id_type)
         return self
 
     def start_date(self, start_date: str) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.start_date = start_date
-        self._list_admin_dept_stat_request.queries["start_date"] = str(start_date)
+        self._list_admin_dept_stat_request.add_query("start_date", start_date)
         return self
 
     def end_date(self, end_date: str) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.end_date = end_date
-        self._list_admin_dept_stat_request.queries["end_date"] = str(end_date)
+        self._list_admin_dept_stat_request.add_query("end_date", end_date)
         return self
 
     def department_id(self, department_id: str) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.department_id = department_id
-        self._list_admin_dept_stat_request.queries["department_id"] = str(department_id)
+        self._list_admin_dept_stat_request.add_query("department_id", department_id)
         return self
 
     def contains_child_dept(self, contains_child_dept: bool) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.contains_child_dept = contains_child_dept
-        self._list_admin_dept_stat_request.queries["contains_child_dept"] = str(contains_child_dept)
+        self._list_admin_dept_stat_request.add_query("contains_child_dept", contains_child_dept)
         return self
 
     def page_size(self, page_size: int) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.page_size = page_size
-        self._list_admin_dept_stat_request.queries["page_size"] = str(page_size)
+        self._list_admin_dept_stat_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.page_token = page_token
-        self._list_admin_dept_stat_request.queries["page_token"] = str(page_token)
+        self._list_admin_dept_stat_request.add_query("page_token", page_token)
         return self
 
     def build(self) -> ListAdminDeptStatRequest:

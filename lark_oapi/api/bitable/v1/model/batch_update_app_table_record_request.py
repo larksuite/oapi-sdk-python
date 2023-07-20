@@ -31,17 +31,17 @@ class BatchUpdateAppTableRecordRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "BatchUpdateAppTableRecordRequestBuilder":
         self._batch_update_app_table_record_request.user_id_type = user_id_type
-        self._batch_update_app_table_record_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_update_app_table_record_request.add_query("user_id_type", user_id_type)
         return self
 
     def app_token(self, app_token: str) -> "BatchUpdateAppTableRecordRequestBuilder":
         self._batch_update_app_table_record_request.app_token = app_token
-        self._batch_update_app_table_record_request.paths["app_token"] = app_token
+        self._batch_update_app_table_record_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "BatchUpdateAppTableRecordRequestBuilder":
         self._batch_update_app_table_record_request.table_id = table_id
-        self._batch_update_app_table_record_request.paths["table_id"] = table_id
+        self._batch_update_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
     def request_body(self,

@@ -28,17 +28,17 @@ class GetMessageResourceRequestBuilder(object):
 
     def type(self, type: str) -> "GetMessageResourceRequestBuilder":
         self._get_message_resource_request.type = type
-        self._get_message_resource_request.queries["type"] = str(type)
+        self._get_message_resource_request.add_query("type", type)
         return self
 
     def message_id(self, message_id: str) -> "GetMessageResourceRequestBuilder":
         self._get_message_resource_request.message_id = message_id
-        self._get_message_resource_request.paths["message_id"] = message_id
+        self._get_message_resource_request.paths["message_id"] = str(message_id)
         return self
 
     def file_key(self, file_key: str) -> "GetMessageResourceRequestBuilder":
         self._get_message_resource_request.file_key = file_key
-        self._get_message_resource_request.paths["file_key"] = file_key
+        self._get_message_resource_request.paths["file_key"] = str(file_key)
         return self
 
     def build(self) -> GetMessageResourceRequest:

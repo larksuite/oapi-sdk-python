@@ -32,22 +32,22 @@ class PatchMetricSourceTableItemRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "PatchMetricSourceTableItemRequestBuilder":
         self._patch_metric_source_table_item_request.user_id_type = user_id_type
-        self._patch_metric_source_table_item_request.queries["user_id_type"] = str(user_id_type)
+        self._patch_metric_source_table_item_request.add_query("user_id_type", user_id_type)
         return self
 
     def metric_source_id(self, metric_source_id: str) -> "PatchMetricSourceTableItemRequestBuilder":
         self._patch_metric_source_table_item_request.metric_source_id = metric_source_id
-        self._patch_metric_source_table_item_request.paths["metric_source_id"] = metric_source_id
+        self._patch_metric_source_table_item_request.paths["metric_source_id"] = str(metric_source_id)
         return self
 
     def metric_table_id(self, metric_table_id: str) -> "PatchMetricSourceTableItemRequestBuilder":
         self._patch_metric_source_table_item_request.metric_table_id = metric_table_id
-        self._patch_metric_source_table_item_request.paths["metric_table_id"] = metric_table_id
+        self._patch_metric_source_table_item_request.paths["metric_table_id"] = str(metric_table_id)
         return self
 
     def metric_item_id(self, metric_item_id: str) -> "PatchMetricSourceTableItemRequestBuilder":
         self._patch_metric_source_table_item_request.metric_item_id = metric_item_id
-        self._patch_metric_source_table_item_request.paths["metric_item_id"] = metric_item_id
+        self._patch_metric_source_table_item_request.paths["metric_item_id"] = str(metric_item_id)
         return self
 
     def request_body(self,

@@ -28,17 +28,17 @@ class ListSpecialFocusRequestBuilder(object):
 
     def member_id_type(self, member_id_type: str) -> "ListSpecialFocusRequestBuilder":
         self._list_special_focus_request.member_id_type = member_id_type
-        self._list_special_focus_request.queries["member_id_type"] = str(member_id_type)
+        self._list_special_focus_request.add_query("member_id_type", member_id_type)
         return self
 
     def page_size(self, page_size: int) -> "ListSpecialFocusRequestBuilder":
         self._list_special_focus_request.page_size = page_size
-        self._list_special_focus_request.queries["page_size"] = str(page_size)
+        self._list_special_focus_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListSpecialFocusRequestBuilder":
         self._list_special_focus_request.page_token = page_token
-        self._list_special_focus_request.queries["page_token"] = str(page_token)
+        self._list_special_focus_request.add_query("page_token", page_token)
         return self
 
     def build(self) -> ListSpecialFocusRequest:

@@ -26,7 +26,7 @@ class ListMailgroupAliasRequestBuilder(object):
 
     def mailgroup_id(self, mailgroup_id: str) -> "ListMailgroupAliasRequestBuilder":
         self._list_mailgroup_alias_request.mailgroup_id = mailgroup_id
-        self._list_mailgroup_alias_request.paths["mailgroup_id"] = mailgroup_id
+        self._list_mailgroup_alias_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def build(self) -> ListMailgroupAliasRequest:

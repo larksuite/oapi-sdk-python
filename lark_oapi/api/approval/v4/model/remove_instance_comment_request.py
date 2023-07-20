@@ -29,17 +29,17 @@ class RemoveInstanceCommentRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "RemoveInstanceCommentRequestBuilder":
         self._remove_instance_comment_request.user_id_type = user_id_type
-        self._remove_instance_comment_request.queries["user_id_type"] = str(user_id_type)
+        self._remove_instance_comment_request.add_query("user_id_type", user_id_type)
         return self
 
     def user_id(self, user_id: int) -> "RemoveInstanceCommentRequestBuilder":
         self._remove_instance_comment_request.user_id = user_id
-        self._remove_instance_comment_request.queries["user_id"] = str(user_id)
+        self._remove_instance_comment_request.add_query("user_id", user_id)
         return self
 
     def instance_id(self, instance_id: str) -> "RemoveInstanceCommentRequestBuilder":
         self._remove_instance_comment_request.instance_id = instance_id
-        self._remove_instance_comment_request.paths["instance_id"] = instance_id
+        self._remove_instance_comment_request.paths["instance_id"] = str(instance_id)
         return self
 
     def build(self) -> RemoveInstanceCommentRequest:

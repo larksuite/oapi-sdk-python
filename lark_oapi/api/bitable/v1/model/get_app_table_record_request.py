@@ -32,37 +32,37 @@ class GetAppTableRecordRequestBuilder(object):
 
     def text_field_as_array(self, text_field_as_array: bool) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.text_field_as_array = text_field_as_array
-        self._get_app_table_record_request.queries["text_field_as_array"] = str(text_field_as_array)
+        self._get_app_table_record_request.add_query("text_field_as_array", text_field_as_array)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.user_id_type = user_id_type
-        self._get_app_table_record_request.queries["user_id_type"] = str(user_id_type)
+        self._get_app_table_record_request.add_query("user_id_type", user_id_type)
         return self
 
     def display_formula_ref(self, display_formula_ref: bool) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.display_formula_ref = display_formula_ref
-        self._get_app_table_record_request.queries["display_formula_ref"] = str(display_formula_ref)
+        self._get_app_table_record_request.add_query("display_formula_ref", display_formula_ref)
         return self
 
     def automatic_fields(self, automatic_fields: bool) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.automatic_fields = automatic_fields
-        self._get_app_table_record_request.queries["automatic_fields"] = str(automatic_fields)
+        self._get_app_table_record_request.add_query("automatic_fields", automatic_fields)
         return self
 
     def app_token(self, app_token: str) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.app_token = app_token
-        self._get_app_table_record_request.paths["app_token"] = app_token
+        self._get_app_table_record_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.table_id = table_id
-        self._get_app_table_record_request.paths["table_id"] = table_id
+        self._get_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
     def record_id(self, record_id: str) -> "GetAppTableRecordRequestBuilder":
         self._get_app_table_record_request.record_id = record_id
-        self._get_app_table_record_request.paths["record_id"] = record_id
+        self._get_app_table_record_request.paths["record_id"] = str(record_id)
         return self
 
     def build(self) -> GetAppTableRecordRequest:

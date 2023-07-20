@@ -28,12 +28,12 @@ class QuerySpreadsheetSheetFloatImageRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "QuerySpreadsheetSheetFloatImageRequestBuilder":
         self._query_spreadsheet_sheet_float_image_request.spreadsheet_token = spreadsheet_token
-        self._query_spreadsheet_sheet_float_image_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._query_spreadsheet_sheet_float_image_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def sheet_id(self, sheet_id: str) -> "QuerySpreadsheetSheetFloatImageRequestBuilder":
         self._query_spreadsheet_sheet_float_image_request.sheet_id = sheet_id
-        self._query_spreadsheet_sheet_float_image_request.paths["sheet_id"] = sheet_id
+        self._query_spreadsheet_sheet_float_image_request.paths["sheet_id"] = str(sheet_id)
         return self
 
     def build(self) -> QuerySpreadsheetSheetFloatImageRequest:

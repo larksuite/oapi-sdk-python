@@ -27,12 +27,12 @@ class SubscribeFileRequestBuilder(object):
 
     def file_type(self, file_type: str) -> "SubscribeFileRequestBuilder":
         self._subscribe_file_request.file_type = file_type
-        self._subscribe_file_request.queries["file_type"] = str(file_type)
+        self._subscribe_file_request.add_query("file_type", file_type)
         return self
 
     def file_token(self, file_token: str) -> "SubscribeFileRequestBuilder":
         self._subscribe_file_request.file_token = file_token
-        self._subscribe_file_request.paths["file_token"] = file_token
+        self._subscribe_file_request.paths["file_token"] = str(file_token)
         return self
 
     def build(self) -> SubscribeFileRequest:

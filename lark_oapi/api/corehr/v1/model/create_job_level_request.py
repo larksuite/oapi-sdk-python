@@ -28,7 +28,7 @@ class CreateJobLevelRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreateJobLevelRequestBuilder":
         self._create_job_level_request.client_token = client_token
-        self._create_job_level_request.queries["client_token"] = str(client_token)
+        self._create_job_level_request.add_query("client_token", client_token)
         return self
 
     def request_body(self, request_body: JobLevel) -> "CreateJobLevelRequestBuilder":

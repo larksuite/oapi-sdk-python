@@ -29,22 +29,22 @@ class GetChatMembersRequestBuilder(object):
 
     def member_id_type(self, member_id_type: str) -> "GetChatMembersRequestBuilder":
         self._get_chat_members_request.member_id_type = member_id_type
-        self._get_chat_members_request.queries["member_id_type"] = str(member_id_type)
+        self._get_chat_members_request.add_query("member_id_type", member_id_type)
         return self
 
     def page_size(self, page_size: int) -> "GetChatMembersRequestBuilder":
         self._get_chat_members_request.page_size = page_size
-        self._get_chat_members_request.queries["page_size"] = str(page_size)
+        self._get_chat_members_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "GetChatMembersRequestBuilder":
         self._get_chat_members_request.page_token = page_token
-        self._get_chat_members_request.queries["page_token"] = str(page_token)
+        self._get_chat_members_request.add_query("page_token", page_token)
         return self
 
     def chat_id(self, chat_id: str) -> "GetChatMembersRequestBuilder":
         self._get_chat_members_request.chat_id = chat_id
-        self._get_chat_members_request.paths["chat_id"] = chat_id
+        self._get_chat_members_request.paths["chat_id"] = str(chat_id)
         return self
 
     def build(self) -> GetChatMembersRequest:

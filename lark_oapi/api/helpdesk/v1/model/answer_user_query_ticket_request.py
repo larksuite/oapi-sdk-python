@@ -29,7 +29,7 @@ class AnswerUserQueryTicketRequestBuilder(object):
 
     def ticket_id(self, ticket_id: str) -> "AnswerUserQueryTicketRequestBuilder":
         self._answer_user_query_ticket_request.ticket_id = ticket_id
-        self._answer_user_query_ticket_request.paths["ticket_id"] = ticket_id
+        self._answer_user_query_ticket_request.paths["ticket_id"] = str(ticket_id)
         return self
 
     def request_body(self, request_body: AnswerUserQueryTicketRequestBody) -> "AnswerUserQueryTicketRequestBuilder":

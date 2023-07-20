@@ -29,12 +29,12 @@ class CreateGroupRequestBuilder(object):
 
     def employee_type(self, employee_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.employee_type = employee_type
-        self._create_group_request.queries["employee_type"] = str(employee_type)
+        self._create_group_request.add_query("employee_type", employee_type)
         return self
 
     def dept_type(self, dept_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.dept_type = dept_type
-        self._create_group_request.queries["dept_type"] = str(dept_type)
+        self._create_group_request.add_query("dept_type", dept_type)
         return self
 
     def request_body(self, request_body: CreateGroupRequestBody) -> "CreateGroupRequestBuilder":

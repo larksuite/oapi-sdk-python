@@ -27,7 +27,7 @@ class DeleteNationalIdTypeRequestBuilder(object):
 
     def national_id_type_id(self, national_id_type_id: str) -> "DeleteNationalIdTypeRequestBuilder":
         self._delete_national_id_type_request.national_id_type_id = national_id_type_id
-        self._delete_national_id_type_request.paths["national_id_type_id"] = national_id_type_id
+        self._delete_national_id_type_request.paths["national_id_type_id"] = str(national_id_type_id)
         return self
 
     def build(self) -> DeleteNationalIdTypeRequest:

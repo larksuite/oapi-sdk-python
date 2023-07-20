@@ -34,47 +34,47 @@ class ListJobRequirementRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.page_token = page_token
-        self._list_job_requirement_request.queries["page_token"] = str(page_token)
+        self._list_job_requirement_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.page_size = page_size
-        self._list_job_requirement_request.queries["page_size"] = str(page_size)
+        self._list_job_requirement_request.add_query("page_size", page_size)
         return self
 
     def job_id(self, job_id: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.job_id = job_id
-        self._list_job_requirement_request.queries["job_id"] = str(job_id)
+        self._list_job_requirement_request.add_query("job_id", job_id)
         return self
 
     def create_time_begin(self, create_time_begin: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.create_time_begin = create_time_begin
-        self._list_job_requirement_request.queries["create_time_begin"] = str(create_time_begin)
+        self._list_job_requirement_request.add_query("create_time_begin", create_time_begin)
         return self
 
     def create_time_end(self, create_time_end: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.create_time_end = create_time_end
-        self._list_job_requirement_request.queries["create_time_end"] = str(create_time_end)
+        self._list_job_requirement_request.add_query("create_time_end", create_time_end)
         return self
 
     def update_time_begin(self, update_time_begin: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.update_time_begin = update_time_begin
-        self._list_job_requirement_request.queries["update_time_begin"] = str(update_time_begin)
+        self._list_job_requirement_request.add_query("update_time_begin", update_time_begin)
         return self
 
     def update_time_end(self, update_time_end: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.update_time_end = update_time_end
-        self._list_job_requirement_request.queries["update_time_end"] = str(update_time_end)
+        self._list_job_requirement_request.add_query("update_time_end", update_time_end)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.user_id_type = user_id_type
-        self._list_job_requirement_request.queries["user_id_type"] = str(user_id_type)
+        self._list_job_requirement_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "ListJobRequirementRequestBuilder":
         self._list_job_requirement_request.department_id_type = department_id_type
-        self._list_job_requirement_request.queries["department_id_type"] = str(department_id_type)
+        self._list_job_requirement_request.add_query("department_id_type", department_id_type)
         return self
 
     def build(self) -> ListJobRequirementRequest:

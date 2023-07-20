@@ -28,12 +28,12 @@ class GetExternalApprovalRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetExternalApprovalRequestBuilder":
         self._get_external_approval_request.user_id_type = user_id_type
-        self._get_external_approval_request.queries["user_id_type"] = str(user_id_type)
+        self._get_external_approval_request.add_query("user_id_type", user_id_type)
         return self
 
     def approval_code(self, approval_code: str) -> "GetExternalApprovalRequestBuilder":
         self._get_external_approval_request.approval_code = approval_code
-        self._get_external_approval_request.paths["approval_code"] = approval_code
+        self._get_external_approval_request.paths["approval_code"] = str(approval_code)
         return self
 
     def build(self) -> GetExternalApprovalRequest:

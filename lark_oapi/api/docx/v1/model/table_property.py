@@ -12,6 +12,8 @@ class TableProperty(object):
         "column_size": int,
         "column_width": List[int],
         "merge_info": List[TableMergeInfo],
+        "header_row": bool,
+        "header_column": bool,
     }
 
     def __init__(self, d):
@@ -19,6 +21,8 @@ class TableProperty(object):
         self.column_size: Optional[int] = None
         self.column_width: Optional[List[int]] = None
         self.merge_info: Optional[List[TableMergeInfo]] = None
+        self.header_row: Optional[bool] = None
+        self.header_column: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -44,6 +48,14 @@ class TablePropertyBuilder(object):
 
     def merge_info(self, merge_info: List[TableMergeInfo]) -> "TablePropertyBuilder":
         self._table_property.merge_info = merge_info
+        return self
+
+    def header_row(self, header_row: bool) -> "TablePropertyBuilder":
+        self._table_property.header_row = header_row
+        return self
+
+    def header_column(self, header_column: bool) -> "TablePropertyBuilder":
+        self._table_property.header_column = header_column
         return self
 
     def build(self) -> "TableProperty":

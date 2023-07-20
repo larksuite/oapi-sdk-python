@@ -29,12 +29,12 @@ class UpdateConfigJobRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UpdateConfigJobRequestBuilder":
         self._update_config_job_request.user_id_type = user_id_type
-        self._update_config_job_request.queries["user_id_type"] = str(user_id_type)
+        self._update_config_job_request.add_query("user_id_type", user_id_type)
         return self
 
     def job_id(self, job_id: str) -> "UpdateConfigJobRequestBuilder":
         self._update_config_job_request.job_id = job_id
-        self._update_config_job_request.paths["job_id"] = job_id
+        self._update_config_job_request.paths["job_id"] = str(job_id)
         return self
 
     def request_body(self, request_body: JobConfig) -> "UpdateConfigJobRequestBuilder":

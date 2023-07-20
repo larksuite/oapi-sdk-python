@@ -29,12 +29,12 @@ class UpdateDraftRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UpdateDraftRequestBuilder":
         self._update_draft_request.user_id_type = user_id_type
-        self._update_draft_request.queries["user_id_type"] = str(user_id_type)
+        self._update_draft_request.add_query("user_id_type", user_id_type)
         return self
 
     def draft_id(self, draft_id: int) -> "UpdateDraftRequestBuilder":
         self._update_draft_request.draft_id = draft_id
-        self._update_draft_request.paths["draft_id"] = draft_id
+        self._update_draft_request.paths["draft_id"] = str(draft_id)
         return self
 
     def request_body(self, request_body: Entity) -> "UpdateDraftRequestBuilder":

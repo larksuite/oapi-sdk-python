@@ -30,17 +30,17 @@ class PatchEmployeeRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.user_id_type = user_id_type
-        self._patch_employee_request.queries["user_id_type"] = str(user_id_type)
+        self._patch_employee_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.department_id_type = department_id_type
-        self._patch_employee_request.queries["department_id_type"] = str(department_id_type)
+        self._patch_employee_request.add_query("department_id_type", department_id_type)
         return self
 
     def employee_id(self, employee_id: str) -> "PatchEmployeeRequestBuilder":
         self._patch_employee_request.employee_id = employee_id
-        self._patch_employee_request.paths["employee_id"] = employee_id
+        self._patch_employee_request.paths["employee_id"] = str(employee_id)
         return self
 
     def request_body(self, request_body: ChangeEmployeeStage) -> "PatchEmployeeRequestBuilder":

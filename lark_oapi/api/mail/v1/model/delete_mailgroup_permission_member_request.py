@@ -28,12 +28,12 @@ class DeleteMailgroupPermissionMemberRequestBuilder(object):
 
     def mailgroup_id(self, mailgroup_id: str) -> "DeleteMailgroupPermissionMemberRequestBuilder":
         self._delete_mailgroup_permission_member_request.mailgroup_id = mailgroup_id
-        self._delete_mailgroup_permission_member_request.paths["mailgroup_id"] = mailgroup_id
+        self._delete_mailgroup_permission_member_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def permission_member_id(self, permission_member_id: str) -> "DeleteMailgroupPermissionMemberRequestBuilder":
         self._delete_mailgroup_permission_member_request.permission_member_id = permission_member_id
-        self._delete_mailgroup_permission_member_request.paths["permission_member_id"] = permission_member_id
+        self._delete_mailgroup_permission_member_request.paths["permission_member_id"] = str(permission_member_id)
         return self
 
     def build(self) -> DeleteMailgroupPermissionMemberRequest:

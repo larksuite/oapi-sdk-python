@@ -219,7 +219,7 @@ request: lark.BaseRequest = lark.BaseRequest.builder() \
     .http_method(lark.HttpMethod.POST) \
     .uri("/open-apis/contact/v3/users/batch_get_id") \
     .token_types({lark.AccessTokenType.TENANT}) \
-    .queries({"user_id_type": "open_id"}) \
+    .queries([("user_id_type", "open_id")]) \
     .body({"emails": ["xxxx@bytedance.com"], "mobiles": ["15000000000"]}) \
     .build()
 

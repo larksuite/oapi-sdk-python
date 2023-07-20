@@ -26,7 +26,7 @@ class GetCategoryRequestBuilder(object):
 
     def id(self, id: str) -> "GetCategoryRequestBuilder":
         self._get_category_request.id = id
-        self._get_category_request.paths["id"] = id
+        self._get_category_request.paths["id"] = str(id)
         return self
 
     def build(self) -> GetCategoryRequest:

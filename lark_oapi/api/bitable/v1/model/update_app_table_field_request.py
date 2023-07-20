@@ -31,17 +31,17 @@ class UpdateAppTableFieldRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "UpdateAppTableFieldRequestBuilder":
         self._update_app_table_field_request.app_token = app_token
-        self._update_app_table_field_request.paths["app_token"] = app_token
+        self._update_app_table_field_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "UpdateAppTableFieldRequestBuilder":
         self._update_app_table_field_request.table_id = table_id
-        self._update_app_table_field_request.paths["table_id"] = table_id
+        self._update_app_table_field_request.paths["table_id"] = str(table_id)
         return self
 
     def field_id(self, field_id: str) -> "UpdateAppTableFieldRequestBuilder":
         self._update_app_table_field_request.field_id = field_id
-        self._update_app_table_field_request.paths["field_id"] = field_id
+        self._update_app_table_field_request.paths["field_id"] = str(field_id)
         return self
 
     def request_body(self, request_body: AppTableField) -> "UpdateAppTableFieldRequestBuilder":

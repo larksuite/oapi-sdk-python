@@ -28,7 +28,7 @@ class CreateTaskReminderRequestBuilder(object):
 
     def task_id(self, task_id: str) -> "CreateTaskReminderRequestBuilder":
         self._create_task_reminder_request.task_id = task_id
-        self._create_task_reminder_request.paths["task_id"] = task_id
+        self._create_task_reminder_request.paths["task_id"] = str(task_id)
         return self
 
     def request_body(self, request_body: Reminder) -> "CreateTaskReminderRequestBuilder":

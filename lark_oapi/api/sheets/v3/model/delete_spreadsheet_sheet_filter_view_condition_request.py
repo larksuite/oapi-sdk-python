@@ -31,22 +31,22 @@ class DeleteSpreadsheetSheetFilterViewConditionRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "DeleteSpreadsheetSheetFilterViewConditionRequestBuilder":
         self._delete_spreadsheet_sheet_filter_view_condition_request.spreadsheet_token = spreadsheet_token
-        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def sheet_id(self, sheet_id: str) -> "DeleteSpreadsheetSheetFilterViewConditionRequestBuilder":
         self._delete_spreadsheet_sheet_filter_view_condition_request.sheet_id = sheet_id
-        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["sheet_id"] = sheet_id
+        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["sheet_id"] = str(sheet_id)
         return self
 
     def filter_view_id(self, filter_view_id: str) -> "DeleteSpreadsheetSheetFilterViewConditionRequestBuilder":
         self._delete_spreadsheet_sheet_filter_view_condition_request.filter_view_id = filter_view_id
-        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["filter_view_id"] = filter_view_id
+        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["filter_view_id"] = str(filter_view_id)
         return self
 
     def condition_id(self, condition_id: str) -> "DeleteSpreadsheetSheetFilterViewConditionRequestBuilder":
         self._delete_spreadsheet_sheet_filter_view_condition_request.condition_id = condition_id
-        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["condition_id"] = condition_id
+        self._delete_spreadsheet_sheet_filter_view_condition_request.paths["condition_id"] = str(condition_id)
         return self
 
     def build(self) -> DeleteSpreadsheetSheetFilterViewConditionRequest:

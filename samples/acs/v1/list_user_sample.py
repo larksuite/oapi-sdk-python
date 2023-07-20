@@ -7,8 +7,8 @@ from lark_oapi.api.acs.v1 import *
 def main():
     # 创建client
     client = lark.Client.builder() \
-        .app_id("APP_ID") \
-        .app_secret("APP_SECRET") \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
         .log_level(lark.LogLevel.DEBUG) \
         .build()
 

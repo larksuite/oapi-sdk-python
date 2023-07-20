@@ -27,12 +27,12 @@ class DeleteDepartmentRequestBuilder(object):
 
     def department_id_type(self, department_id_type: str) -> "DeleteDepartmentRequestBuilder":
         self._delete_department_request.department_id_type = department_id_type
-        self._delete_department_request.queries["department_id_type"] = str(department_id_type)
+        self._delete_department_request.add_query("department_id_type", department_id_type)
         return self
 
     def department_id(self, department_id: str) -> "DeleteDepartmentRequestBuilder":
         self._delete_department_request.department_id = department_id
-        self._delete_department_request.paths["department_id"] = department_id
+        self._delete_department_request.paths["department_id"] = str(department_id)
         return self
 
     def build(self) -> DeleteDepartmentRequest:

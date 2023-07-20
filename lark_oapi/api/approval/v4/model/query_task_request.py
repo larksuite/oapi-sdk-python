@@ -30,27 +30,27 @@ class QueryTaskRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "QueryTaskRequestBuilder":
         self._query_task_request.page_size = page_size
-        self._query_task_request.queries["page_size"] = str(page_size)
+        self._query_task_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "QueryTaskRequestBuilder":
         self._query_task_request.page_token = page_token
-        self._query_task_request.queries["page_token"] = str(page_token)
+        self._query_task_request.add_query("page_token", page_token)
         return self
 
     def user_id(self, user_id: str) -> "QueryTaskRequestBuilder":
         self._query_task_request.user_id = user_id
-        self._query_task_request.queries["user_id"] = str(user_id)
+        self._query_task_request.add_query("user_id", user_id)
         return self
 
     def topic(self, topic: int) -> "QueryTaskRequestBuilder":
         self._query_task_request.topic = topic
-        self._query_task_request.queries["topic"] = str(topic)
+        self._query_task_request.add_query("topic", topic)
         return self
 
     def user_id_type(self, user_id_type: str) -> "QueryTaskRequestBuilder":
         self._query_task_request.user_id_type = user_id_type
-        self._query_task_request.queries["user_id_type"] = str(user_id_type)
+        self._query_task_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> QueryTaskRequest:

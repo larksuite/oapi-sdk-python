@@ -28,7 +28,7 @@ class CreateEmployeeTypeRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreateEmployeeTypeRequestBuilder":
         self._create_employee_type_request.client_token = client_token
-        self._create_employee_type_request.queries["client_token"] = str(client_token)
+        self._create_employee_type_request.add_query("client_token", client_token)
         return self
 
     def request_body(self, request_body: EmployeeType) -> "CreateEmployeeTypeRequestBuilder":

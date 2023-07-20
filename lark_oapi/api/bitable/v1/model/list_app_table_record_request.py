@@ -37,62 +37,62 @@ class ListAppTableRecordRequestBuilder(object):
 
     def view_id(self, view_id: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.view_id = view_id
-        self._list_app_table_record_request.queries["view_id"] = str(view_id)
+        self._list_app_table_record_request.add_query("view_id", view_id)
         return self
 
     def filter(self, filter: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.filter = filter
-        self._list_app_table_record_request.queries["filter"] = str(filter)
+        self._list_app_table_record_request.add_query("filter", filter)
         return self
 
     def sort(self, sort: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.sort = sort
-        self._list_app_table_record_request.queries["sort"] = str(sort)
+        self._list_app_table_record_request.add_query("sort", sort)
         return self
 
     def field_names(self, field_names: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.field_names = field_names
-        self._list_app_table_record_request.queries["field_names"] = str(field_names)
+        self._list_app_table_record_request.add_query("field_names", field_names)
         return self
 
     def text_field_as_array(self, text_field_as_array: bool) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.text_field_as_array = text_field_as_array
-        self._list_app_table_record_request.queries["text_field_as_array"] = str(text_field_as_array)
+        self._list_app_table_record_request.add_query("text_field_as_array", text_field_as_array)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.user_id_type = user_id_type
-        self._list_app_table_record_request.queries["user_id_type"] = str(user_id_type)
+        self._list_app_table_record_request.add_query("user_id_type", user_id_type)
         return self
 
     def display_formula_ref(self, display_formula_ref: bool) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.display_formula_ref = display_formula_ref
-        self._list_app_table_record_request.queries["display_formula_ref"] = str(display_formula_ref)
+        self._list_app_table_record_request.add_query("display_formula_ref", display_formula_ref)
         return self
 
     def automatic_fields(self, automatic_fields: bool) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.automatic_fields = automatic_fields
-        self._list_app_table_record_request.queries["automatic_fields"] = str(automatic_fields)
+        self._list_app_table_record_request.add_query("automatic_fields", automatic_fields)
         return self
 
     def page_token(self, page_token: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.page_token = page_token
-        self._list_app_table_record_request.queries["page_token"] = str(page_token)
+        self._list_app_table_record_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.page_size = page_size
-        self._list_app_table_record_request.queries["page_size"] = str(page_size)
+        self._list_app_table_record_request.add_query("page_size", page_size)
         return self
 
     def app_token(self, app_token: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.app_token = app_token
-        self._list_app_table_record_request.paths["app_token"] = app_token
+        self._list_app_table_record_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "ListAppTableRecordRequestBuilder":
         self._list_app_table_record_request.table_id = table_id
-        self._list_app_table_record_request.paths["table_id"] = table_id
+        self._list_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
     def build(self) -> ListAppTableRecordRequest:

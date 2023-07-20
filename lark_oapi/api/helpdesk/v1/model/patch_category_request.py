@@ -28,7 +28,7 @@ class PatchCategoryRequestBuilder(object):
 
     def id(self, id: str) -> "PatchCategoryRequestBuilder":
         self._patch_category_request.id = id
-        self._patch_category_request.paths["id"] = id
+        self._patch_category_request.paths["id"] = str(id)
         return self
 
     def request_body(self, request_body: Category) -> "PatchCategoryRequestBuilder":

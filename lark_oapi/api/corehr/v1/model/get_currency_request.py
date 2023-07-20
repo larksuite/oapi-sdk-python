@@ -26,7 +26,7 @@ class GetCurrencyRequestBuilder(object):
 
     def currency_id(self, currency_id: str) -> "GetCurrencyRequestBuilder":
         self._get_currency_request.currency_id = currency_id
-        self._get_currency_request.paths["currency_id"] = currency_id
+        self._get_currency_request.paths["currency_id"] = str(currency_id)
         return self
 
     def build(self) -> GetCurrencyRequest:

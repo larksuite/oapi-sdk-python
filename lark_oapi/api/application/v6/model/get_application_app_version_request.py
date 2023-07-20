@@ -30,22 +30,22 @@ class GetApplicationAppVersionRequestBuilder(object):
 
     def lang(self, lang: str) -> "GetApplicationAppVersionRequestBuilder":
         self._get_application_app_version_request.lang = lang
-        self._get_application_app_version_request.queries["lang"] = str(lang)
+        self._get_application_app_version_request.add_query("lang", lang)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetApplicationAppVersionRequestBuilder":
         self._get_application_app_version_request.user_id_type = user_id_type
-        self._get_application_app_version_request.queries["user_id_type"] = str(user_id_type)
+        self._get_application_app_version_request.add_query("user_id_type", user_id_type)
         return self
 
     def app_id(self, app_id: str) -> "GetApplicationAppVersionRequestBuilder":
         self._get_application_app_version_request.app_id = app_id
-        self._get_application_app_version_request.paths["app_id"] = app_id
+        self._get_application_app_version_request.paths["app_id"] = str(app_id)
         return self
 
     def version_id(self, version_id: int) -> "GetApplicationAppVersionRequestBuilder":
         self._get_application_app_version_request.version_id = version_id
-        self._get_application_app_version_request.paths["version_id"] = version_id
+        self._get_application_app_version_request.paths["version_id"] = str(version_id)
         return self
 
     def build(self) -> GetApplicationAppVersionRequest:

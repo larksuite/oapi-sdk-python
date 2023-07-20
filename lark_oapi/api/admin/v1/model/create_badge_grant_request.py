@@ -30,17 +30,17 @@ class CreateBadgeGrantRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateBadgeGrantRequestBuilder":
         self._create_badge_grant_request.user_id_type = user_id_type
-        self._create_badge_grant_request.queries["user_id_type"] = str(user_id_type)
+        self._create_badge_grant_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "CreateBadgeGrantRequestBuilder":
         self._create_badge_grant_request.department_id_type = department_id_type
-        self._create_badge_grant_request.queries["department_id_type"] = str(department_id_type)
+        self._create_badge_grant_request.add_query("department_id_type", department_id_type)
         return self
 
     def badge_id(self, badge_id: str) -> "CreateBadgeGrantRequestBuilder":
         self._create_badge_grant_request.badge_id = badge_id
-        self._create_badge_grant_request.paths["badge_id"] = badge_id
+        self._create_badge_grant_request.paths["badge_id"] = str(badge_id)
         return self
 
     def request_body(self, request_body: Grant) -> "CreateBadgeGrantRequestBuilder":

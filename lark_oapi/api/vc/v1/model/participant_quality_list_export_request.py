@@ -29,7 +29,7 @@ class ParticipantQualityListExportRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "ParticipantQualityListExportRequestBuilder":
         self._participant_quality_list_export_request.user_id_type = user_id_type
-        self._participant_quality_list_export_request.queries["user_id_type"] = str(user_id_type)
+        self._participant_quality_list_export_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self,

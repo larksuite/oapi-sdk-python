@@ -29,7 +29,7 @@ class QueryUserDailyShiftRequestBuilder(object):
 
     def employee_type(self, employee_type: str) -> "QueryUserDailyShiftRequestBuilder":
         self._query_user_daily_shift_request.employee_type = employee_type
-        self._query_user_daily_shift_request.queries["employee_type"] = str(employee_type)
+        self._query_user_daily_shift_request.add_query("employee_type", employee_type)
         return self
 
     def request_body(self, request_body: QueryUserDailyShiftRequestBody) -> "QueryUserDailyShiftRequestBuilder":

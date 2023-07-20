@@ -29,7 +29,7 @@ class BatchDeleteMailgroupPermissionMemberRequestBuilder(object):
 
     def mailgroup_id(self, mailgroup_id: str) -> "BatchDeleteMailgroupPermissionMemberRequestBuilder":
         self._batch_delete_mailgroup_permission_member_request.mailgroup_id = mailgroup_id
-        self._batch_delete_mailgroup_permission_member_request.paths["mailgroup_id"] = mailgroup_id
+        self._batch_delete_mailgroup_permission_member_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def request_body(self,

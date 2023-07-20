@@ -29,12 +29,12 @@ class CreateAppTableViewRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "CreateAppTableViewRequestBuilder":
         self._create_app_table_view_request.app_token = app_token
-        self._create_app_table_view_request.paths["app_token"] = app_token
+        self._create_app_table_view_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "CreateAppTableViewRequestBuilder":
         self._create_app_table_view_request.table_id = table_id
-        self._create_app_table_view_request.paths["table_id"] = table_id
+        self._create_app_table_view_request.paths["table_id"] = str(table_id)
         return self
 
     def request_body(self, request_body: ReqView) -> "CreateAppTableViewRequestBuilder":

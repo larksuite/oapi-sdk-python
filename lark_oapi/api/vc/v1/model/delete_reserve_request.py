@@ -26,7 +26,7 @@ class DeleteReserveRequestBuilder(object):
 
     def reserve_id(self, reserve_id: int) -> "DeleteReserveRequestBuilder":
         self._delete_reserve_request.reserve_id = reserve_id
-        self._delete_reserve_request.paths["reserve_id"] = reserve_id
+        self._delete_reserve_request.paths["reserve_id"] = str(reserve_id)
         return self
 
     def build(self) -> DeleteReserveRequest:

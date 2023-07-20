@@ -27,7 +27,7 @@ class DeleteLeaveGrantingRecordRequestBuilder(object):
 
     def leave_granting_record_id(self, leave_granting_record_id: str) -> "DeleteLeaveGrantingRecordRequestBuilder":
         self._delete_leave_granting_record_request.leave_granting_record_id = leave_granting_record_id
-        self._delete_leave_granting_record_request.paths["leave_granting_record_id"] = leave_granting_record_id
+        self._delete_leave_granting_record_request.paths["leave_granting_record_id"] = str(leave_granting_record_id)
         return self
 
     def build(self) -> DeleteLeaveGrantingRecordRequest:

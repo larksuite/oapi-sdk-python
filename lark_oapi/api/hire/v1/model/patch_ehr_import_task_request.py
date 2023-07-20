@@ -28,7 +28,7 @@ class PatchEhrImportTaskRequestBuilder(object):
 
     def ehr_import_task_id(self, ehr_import_task_id: str) -> "PatchEhrImportTaskRequestBuilder":
         self._patch_ehr_import_task_request.ehr_import_task_id = ehr_import_task_id
-        self._patch_ehr_import_task_request.paths["ehr_import_task_id"] = ehr_import_task_id
+        self._patch_ehr_import_task_request.paths["ehr_import_task_id"] = str(ehr_import_task_id)
         return self
 
     def request_body(self, request_body: EhrImportTask) -> "PatchEhrImportTaskRequestBuilder":

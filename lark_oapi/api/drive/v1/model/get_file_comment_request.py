@@ -29,22 +29,22 @@ class GetFileCommentRequestBuilder(object):
 
     def file_type(self, file_type: str) -> "GetFileCommentRequestBuilder":
         self._get_file_comment_request.file_type = file_type
-        self._get_file_comment_request.queries["file_type"] = str(file_type)
+        self._get_file_comment_request.add_query("file_type", file_type)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetFileCommentRequestBuilder":
         self._get_file_comment_request.user_id_type = user_id_type
-        self._get_file_comment_request.queries["user_id_type"] = str(user_id_type)
+        self._get_file_comment_request.add_query("user_id_type", user_id_type)
         return self
 
     def file_token(self, file_token: str) -> "GetFileCommentRequestBuilder":
         self._get_file_comment_request.file_token = file_token
-        self._get_file_comment_request.paths["file_token"] = file_token
+        self._get_file_comment_request.paths["file_token"] = str(file_token)
         return self
 
     def comment_id(self, comment_id: int) -> "GetFileCommentRequestBuilder":
         self._get_file_comment_request.comment_id = comment_id
-        self._get_file_comment_request.paths["comment_id"] = comment_id
+        self._get_file_comment_request.paths["comment_id"] = str(comment_id)
         return self
 
     def build(self) -> GetFileCommentRequest:

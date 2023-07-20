@@ -27,12 +27,12 @@ class DeleteTaskReminderRequestBuilder(object):
 
     def task_id(self, task_id: str) -> "DeleteTaskReminderRequestBuilder":
         self._delete_task_reminder_request.task_id = task_id
-        self._delete_task_reminder_request.paths["task_id"] = task_id
+        self._delete_task_reminder_request.paths["task_id"] = str(task_id)
         return self
 
     def reminder_id(self, reminder_id: str) -> "DeleteTaskReminderRequestBuilder":
         self._delete_task_reminder_request.reminder_id = reminder_id
-        self._delete_task_reminder_request.paths["reminder_id"] = reminder_id
+        self._delete_task_reminder_request.paths["reminder_id"] = str(reminder_id)
         return self
 
     def build(self) -> DeleteTaskReminderRequest:

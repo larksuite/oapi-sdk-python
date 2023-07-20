@@ -29,12 +29,12 @@ class CopySpaceNodeRequestBuilder(object):
 
     def space_id(self, space_id: int) -> "CopySpaceNodeRequestBuilder":
         self._copy_space_node_request.space_id = space_id
-        self._copy_space_node_request.paths["space_id"] = space_id
+        self._copy_space_node_request.paths["space_id"] = str(space_id)
         return self
 
     def node_token(self, node_token: str) -> "CopySpaceNodeRequestBuilder":
         self._copy_space_node_request.node_token = node_token
-        self._copy_space_node_request.paths["node_token"] = node_token
+        self._copy_space_node_request.paths["node_token"] = str(node_token)
         return self
 
     def request_body(self, request_body: CopySpaceNodeRequestBody) -> "CopySpaceNodeRequestBuilder":

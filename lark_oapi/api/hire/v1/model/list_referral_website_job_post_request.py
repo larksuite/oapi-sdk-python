@@ -31,27 +31,27 @@ class ListReferralWebsiteJobPostRequestBuilder(object):
 
     def process_type(self, process_type: int) -> "ListReferralWebsiteJobPostRequestBuilder":
         self._list_referral_website_job_post_request.process_type = process_type
-        self._list_referral_website_job_post_request.queries["process_type"] = str(process_type)
+        self._list_referral_website_job_post_request.add_query("process_type", process_type)
         return self
 
     def page_token(self, page_token: str) -> "ListReferralWebsiteJobPostRequestBuilder":
         self._list_referral_website_job_post_request.page_token = page_token
-        self._list_referral_website_job_post_request.queries["page_token"] = str(page_token)
+        self._list_referral_website_job_post_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListReferralWebsiteJobPostRequestBuilder":
         self._list_referral_website_job_post_request.page_size = page_size
-        self._list_referral_website_job_post_request.queries["page_size"] = str(page_size)
+        self._list_referral_website_job_post_request.add_query("page_size", page_size)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListReferralWebsiteJobPostRequestBuilder":
         self._list_referral_website_job_post_request.user_id_type = user_id_type
-        self._list_referral_website_job_post_request.queries["user_id_type"] = str(user_id_type)
+        self._list_referral_website_job_post_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "ListReferralWebsiteJobPostRequestBuilder":
         self._list_referral_website_job_post_request.department_id_type = department_id_type
-        self._list_referral_website_job_post_request.queries["department_id_type"] = str(department_id_type)
+        self._list_referral_website_job_post_request.add_query("department_id_type", department_id_type)
         return self
 
     def build(self) -> ListReferralWebsiteJobPostRequest:

@@ -26,7 +26,7 @@ class DeleteDataSourceRequestBuilder(object):
 
     def data_source_id(self, data_source_id: str) -> "DeleteDataSourceRequestBuilder":
         self._delete_data_source_request.data_source_id = data_source_id
-        self._delete_data_source_request.paths["data_source_id"] = data_source_id
+        self._delete_data_source_request.paths["data_source_id"] = str(data_source_id)
         return self
 
     def build(self) -> DeleteDataSourceRequest:

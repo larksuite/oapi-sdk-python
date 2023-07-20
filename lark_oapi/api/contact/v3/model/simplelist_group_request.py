@@ -28,17 +28,17 @@ class SimplelistGroupRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "SimplelistGroupRequestBuilder":
         self._simplelist_group_request.page_size = page_size
-        self._simplelist_group_request.queries["page_size"] = str(page_size)
+        self._simplelist_group_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "SimplelistGroupRequestBuilder":
         self._simplelist_group_request.page_token = page_token
-        self._simplelist_group_request.queries["page_token"] = str(page_token)
+        self._simplelist_group_request.add_query("page_token", page_token)
         return self
 
     def type(self, type: int) -> "SimplelistGroupRequestBuilder":
         self._simplelist_group_request.type = type
-        self._simplelist_group_request.queries["type"] = str(type)
+        self._simplelist_group_request.add_query("type", type)
         return self
 
     def build(self) -> SimplelistGroupRequest:

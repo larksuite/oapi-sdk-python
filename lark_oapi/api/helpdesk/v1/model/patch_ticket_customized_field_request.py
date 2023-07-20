@@ -29,7 +29,8 @@ class PatchTicketCustomizedFieldRequestBuilder(object):
 
     def ticket_customized_field_id(self, ticket_customized_field_id: str) -> "PatchTicketCustomizedFieldRequestBuilder":
         self._patch_ticket_customized_field_request.ticket_customized_field_id = ticket_customized_field_id
-        self._patch_ticket_customized_field_request.paths["ticket_customized_field_id"] = ticket_customized_field_id
+        self._patch_ticket_customized_field_request.paths["ticket_customized_field_id"] = str(
+            ticket_customized_field_id)
         return self
 
     def request_body(self, request_body: TicketCustomizedField) -> "PatchTicketCustomizedFieldRequestBuilder":

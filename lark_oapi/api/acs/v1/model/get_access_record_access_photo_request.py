@@ -27,7 +27,7 @@ class GetAccessRecordAccessPhotoRequestBuilder(object):
 
     def access_record_id(self, access_record_id: int) -> "GetAccessRecordAccessPhotoRequestBuilder":
         self._get_access_record_access_photo_request.access_record_id = access_record_id
-        self._get_access_record_access_photo_request.paths["access_record_id"] = access_record_id
+        self._get_access_record_access_photo_request.paths["access_record_id"] = str(access_record_id)
         return self
 
     def build(self) -> GetAccessRecordAccessPhotoRequest:

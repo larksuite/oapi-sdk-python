@@ -26,7 +26,7 @@ class DeletePinRequestBuilder(object):
 
     def message_id(self, message_id: str) -> "DeletePinRequestBuilder":
         self._delete_pin_request.message_id = message_id
-        self._delete_pin_request.paths["message_id"] = message_id
+        self._delete_pin_request.paths["message_id"] = str(message_id)
         return self
 
     def build(self) -> DeletePinRequest:

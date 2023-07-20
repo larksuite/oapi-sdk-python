@@ -30,22 +30,22 @@ class GetFunctionalRoleMemberRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetFunctionalRoleMemberRequestBuilder":
         self._get_functional_role_member_request.user_id_type = user_id_type
-        self._get_functional_role_member_request.queries["user_id_type"] = str(user_id_type)
+        self._get_functional_role_member_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "GetFunctionalRoleMemberRequestBuilder":
         self._get_functional_role_member_request.department_id_type = department_id_type
-        self._get_functional_role_member_request.queries["department_id_type"] = str(department_id_type)
+        self._get_functional_role_member_request.add_query("department_id_type", department_id_type)
         return self
 
     def role_id(self, role_id: str) -> "GetFunctionalRoleMemberRequestBuilder":
         self._get_functional_role_member_request.role_id = role_id
-        self._get_functional_role_member_request.paths["role_id"] = role_id
+        self._get_functional_role_member_request.paths["role_id"] = str(role_id)
         return self
 
     def member_id(self, member_id: str) -> "GetFunctionalRoleMemberRequestBuilder":
         self._get_functional_role_member_request.member_id = member_id
-        self._get_functional_role_member_request.paths["member_id"] = member_id
+        self._get_functional_role_member_request.paths["member_id"] = str(member_id)
         return self
 
     def build(self) -> GetFunctionalRoleMemberRequest:

@@ -26,7 +26,7 @@ class GetSchemaRequestBuilder(object):
 
     def schema_id(self, schema_id: str) -> "GetSchemaRequestBuilder":
         self._get_schema_request.schema_id = schema_id
-        self._get_schema_request.paths["schema_id"] = schema_id
+        self._get_schema_request.paths["schema_id"] = str(schema_id)
         return self
 
     def build(self) -> GetSchemaRequest:

@@ -29,22 +29,22 @@ class GetApprovalRequestBuilder(object):
 
     def locale(self, locale: str) -> "GetApprovalRequestBuilder":
         self._get_approval_request.locale = locale
-        self._get_approval_request.queries["locale"] = str(locale)
+        self._get_approval_request.add_query("locale", locale)
         return self
 
     def with_admin_id(self, with_admin_id: bool) -> "GetApprovalRequestBuilder":
         self._get_approval_request.with_admin_id = with_admin_id
-        self._get_approval_request.queries["with_admin_id"] = str(with_admin_id)
+        self._get_approval_request.add_query("with_admin_id", with_admin_id)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetApprovalRequestBuilder":
         self._get_approval_request.user_id_type = user_id_type
-        self._get_approval_request.queries["user_id_type"] = str(user_id_type)
+        self._get_approval_request.add_query("user_id_type", user_id_type)
         return self
 
     def approval_code(self, approval_code: str) -> "GetApprovalRequestBuilder":
         self._get_approval_request.approval_code = approval_code
-        self._get_approval_request.paths["approval_code"] = approval_code
+        self._get_approval_request.paths["approval_code"] = str(approval_code)
         return self
 
     def build(self) -> GetApprovalRequest:

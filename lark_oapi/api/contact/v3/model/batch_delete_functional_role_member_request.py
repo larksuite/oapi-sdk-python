@@ -30,12 +30,12 @@ class BatchDeleteFunctionalRoleMemberRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "BatchDeleteFunctionalRoleMemberRequestBuilder":
         self._batch_delete_functional_role_member_request.user_id_type = user_id_type
-        self._batch_delete_functional_role_member_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_delete_functional_role_member_request.add_query("user_id_type", user_id_type)
         return self
 
     def role_id(self, role_id: str) -> "BatchDeleteFunctionalRoleMemberRequestBuilder":
         self._batch_delete_functional_role_member_request.role_id = role_id
-        self._batch_delete_functional_role_member_request.paths["role_id"] = role_id
+        self._batch_delete_functional_role_member_request.paths["role_id"] = str(role_id)
         return self
 
     def request_body(self,

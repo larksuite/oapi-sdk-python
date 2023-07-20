@@ -29,7 +29,7 @@ class SubmitApproveNotificationRequestBuilder(object):
 
     def notification_id(self, notification_id: str) -> "SubmitApproveNotificationRequestBuilder":
         self._submit_approve_notification_request.notification_id = notification_id
-        self._submit_approve_notification_request.paths["notification_id"] = notification_id
+        self._submit_approve_notification_request.paths["notification_id"] = str(notification_id)
         return self
 
     def request_body(self,

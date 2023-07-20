@@ -26,7 +26,7 @@ class GetJobFamilyRequestBuilder(object):
 
     def job_family_id(self, job_family_id: str) -> "GetJobFamilyRequestBuilder":
         self._get_job_family_request.job_family_id = job_family_id
-        self._get_job_family_request.paths["job_family_id"] = job_family_id
+        self._get_job_family_request.paths["job_family_id"] = str(job_family_id)
         return self
 
     def build(self) -> GetJobFamilyRequest:

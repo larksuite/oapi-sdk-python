@@ -27,12 +27,12 @@ class DeleteCalendarAclRequestBuilder(object):
 
     def calendar_id(self, calendar_id: str) -> "DeleteCalendarAclRequestBuilder":
         self._delete_calendar_acl_request.calendar_id = calendar_id
-        self._delete_calendar_acl_request.paths["calendar_id"] = calendar_id
+        self._delete_calendar_acl_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def acl_id(self, acl_id: str) -> "DeleteCalendarAclRequestBuilder":
         self._delete_calendar_acl_request.acl_id = acl_id
-        self._delete_calendar_acl_request.paths["acl_id"] = acl_id
+        self._delete_calendar_acl_request.paths["acl_id"] = str(acl_id)
         return self
 
     def build(self) -> DeleteCalendarAclRequest:

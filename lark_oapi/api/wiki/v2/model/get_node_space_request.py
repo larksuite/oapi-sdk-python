@@ -26,7 +26,7 @@ class GetNodeSpaceRequestBuilder(object):
 
     def token(self, token: str) -> "GetNodeSpaceRequestBuilder":
         self._get_node_space_request.token = token
-        self._get_node_space_request.queries["token"] = str(token)
+        self._get_node_space_request.add_query("token", token)
         return self
 
     def build(self) -> GetNodeSpaceRequest:

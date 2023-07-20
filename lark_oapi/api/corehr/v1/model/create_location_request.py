@@ -28,7 +28,7 @@ class CreateLocationRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreateLocationRequestBuilder":
         self._create_location_request.client_token = client_token
-        self._create_location_request.queries["client_token"] = str(client_token)
+        self._create_location_request.add_query("client_token", client_token)
         return self
 
     def request_body(self, request_body: Location) -> "CreateLocationRequestBuilder":

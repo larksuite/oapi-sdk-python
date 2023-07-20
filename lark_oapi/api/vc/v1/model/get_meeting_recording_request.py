@@ -27,7 +27,7 @@ class GetMeetingRecordingRequestBuilder(object):
 
     def meeting_id(self, meeting_id: int) -> "GetMeetingRecordingRequestBuilder":
         self._get_meeting_recording_request.meeting_id = meeting_id
-        self._get_meeting_recording_request.paths["meeting_id"] = meeting_id
+        self._get_meeting_recording_request.paths["meeting_id"] = str(meeting_id)
         return self
 
     def build(self) -> GetMeetingRecordingRequest:

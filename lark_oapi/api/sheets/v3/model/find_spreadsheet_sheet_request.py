@@ -30,12 +30,12 @@ class FindSpreadsheetSheetRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "FindSpreadsheetSheetRequestBuilder":
         self._find_spreadsheet_sheet_request.spreadsheet_token = spreadsheet_token
-        self._find_spreadsheet_sheet_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._find_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def sheet_id(self, sheet_id: str) -> "FindSpreadsheetSheetRequestBuilder":
         self._find_spreadsheet_sheet_request.sheet_id = sheet_id
-        self._find_spreadsheet_sheet_request.paths["sheet_id"] = sheet_id
+        self._find_spreadsheet_sheet_request.paths["sheet_id"] = str(sheet_id)
         return self
 
     def request_body(self, request_body: Find) -> "FindSpreadsheetSheetRequestBuilder":

@@ -28,17 +28,17 @@ class BatchUserRequestBuilder(object):
 
     def user_ids(self, user_ids: List[str]) -> "BatchUserRequestBuilder":
         self._batch_user_request.user_ids = user_ids
-        self._batch_user_request.queries["user_ids"] = str(user_ids)
+        self._batch_user_request.add_query("user_ids", user_ids)
         return self
 
     def user_id_type(self, user_id_type: str) -> "BatchUserRequestBuilder":
         self._batch_user_request.user_id_type = user_id_type
-        self._batch_user_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_user_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "BatchUserRequestBuilder":
         self._batch_user_request.department_id_type = department_id_type
-        self._batch_user_request.queries["department_id_type"] = str(department_id_type)
+        self._batch_user_request.add_query("department_id_type", department_id_type)
         return self
 
     def build(self) -> BatchUserRequest:

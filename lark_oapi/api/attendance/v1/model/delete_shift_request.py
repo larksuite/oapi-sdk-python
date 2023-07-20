@@ -26,7 +26,7 @@ class DeleteShiftRequestBuilder(object):
 
     def shift_id(self, shift_id: str) -> "DeleteShiftRequestBuilder":
         self._delete_shift_request.shift_id = shift_id
-        self._delete_shift_request.paths["shift_id"] = shift_id
+        self._delete_shift_request.paths["shift_id"] = str(shift_id)
         return self
 
     def build(self) -> DeleteShiftRequest:

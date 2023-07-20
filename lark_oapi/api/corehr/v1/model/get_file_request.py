@@ -26,7 +26,7 @@ class GetFileRequestBuilder(object):
 
     def id(self, id: str) -> "GetFileRequestBuilder":
         self._get_file_request.id = id
-        self._get_file_request.paths["id"] = id
+        self._get_file_request.paths["id"] = str(id)
         return self
 
     def build(self) -> GetFileRequest:

@@ -26,7 +26,7 @@ class SearchRoomLevelRequestBuilder(object):
 
     def custom_level_ids(self, custom_level_ids: str) -> "SearchRoomLevelRequestBuilder":
         self._search_room_level_request.custom_level_ids = custom_level_ids
-        self._search_room_level_request.queries["custom_level_ids"] = str(custom_level_ids)
+        self._search_room_level_request.add_query("custom_level_ids", custom_level_ids)
         return self
 
     def build(self) -> SearchRoomLevelRequest:

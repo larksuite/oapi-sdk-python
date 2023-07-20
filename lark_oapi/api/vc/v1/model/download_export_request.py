@@ -26,7 +26,7 @@ class DownloadExportRequestBuilder(object):
 
     def file_token(self, file_token: str) -> "DownloadExportRequestBuilder":
         self._download_export_request.file_token = file_token
-        self._download_export_request.queries["file_token"] = str(file_token)
+        self._download_export_request.add_query("file_token", file_token)
         return self
 
     def build(self) -> DownloadExportRequest:

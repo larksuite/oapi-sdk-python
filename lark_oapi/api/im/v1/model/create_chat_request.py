@@ -30,17 +30,17 @@ class CreateChatRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateChatRequestBuilder":
         self._create_chat_request.user_id_type = user_id_type
-        self._create_chat_request.queries["user_id_type"] = str(user_id_type)
+        self._create_chat_request.add_query("user_id_type", user_id_type)
         return self
 
     def set_bot_manager(self, set_bot_manager: bool) -> "CreateChatRequestBuilder":
         self._create_chat_request.set_bot_manager = set_bot_manager
-        self._create_chat_request.queries["set_bot_manager"] = str(set_bot_manager)
+        self._create_chat_request.add_query("set_bot_manager", set_bot_manager)
         return self
 
     def uuid(self, uuid: str) -> "CreateChatRequestBuilder":
         self._create_chat_request.uuid = uuid
-        self._create_chat_request.queries["uuid"] = str(uuid)
+        self._create_chat_request.add_query("uuid", uuid)
         return self
 
     def request_body(self, request_body: CreateChatRequestBody) -> "CreateChatRequestBuilder":

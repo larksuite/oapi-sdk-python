@@ -29,7 +29,7 @@ class MoveDocsToWikiSpaceNodeRequestBuilder(object):
 
     def space_id(self, space_id: int) -> "MoveDocsToWikiSpaceNodeRequestBuilder":
         self._move_docs_to_wiki_space_node_request.space_id = space_id
-        self._move_docs_to_wiki_space_node_request.paths["space_id"] = space_id
+        self._move_docs_to_wiki_space_node_request.paths["space_id"] = str(space_id)
         return self
 
     def request_body(self, request_body: MoveDocsToWikiSpaceNodeRequestBody) -> "MoveDocsToWikiSpaceNodeRequestBuilder":

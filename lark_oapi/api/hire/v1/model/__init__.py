@@ -384,7 +384,10 @@ from .question import *
 from .questionnaire import *
 from .recruitment_type import *
 from .referral import *
+from .registration_basic_info import *
 from .registration_info import *
+from .registration_schema import *
+from .registration_schema_info import *
 from .resume_source import *
 from .role import *
 from .salary import *

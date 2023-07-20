@@ -28,7 +28,7 @@ class PatchRoomLevelRequestBuilder(object):
 
     def room_level_id(self, room_level_id: str) -> "PatchRoomLevelRequestBuilder":
         self._patch_room_level_request.room_level_id = room_level_id
-        self._patch_room_level_request.paths["room_level_id"] = room_level_id
+        self._patch_room_level_request.paths["room_level_id"] = str(room_level_id)
         return self
 
     def request_body(self, request_body: RoomLevel) -> "PatchRoomLevelRequestBuilder":

@@ -4,8 +4,8 @@ import lark_oapi as lark
 def batch_get_id_user():
     # 创建client
     client = lark.Client.builder() \
-        .app_id("APP_ID") \
-        .app_secret("APP_SECRET") \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
         .log_level(lark.LogLevel.DEBUG) \
         .build()
 
@@ -14,7 +14,7 @@ def batch_get_id_user():
         .http_method(lark.HttpMethod.POST) \
         .uri("/open-apis/contact/v3/users/batch_get_id") \
         .token_types({lark.AccessTokenType.TENANT}) \
-        .queries({"user_id_type": "open_id"}) \
+        .queries([("user_id_type", "open_id")]) \
         .body({"emails": ["xxxx@bytedance.com"], "mobiles": ["15000000000"]}) \
         .build()
 

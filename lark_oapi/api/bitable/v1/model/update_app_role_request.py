@@ -29,12 +29,12 @@ class UpdateAppRoleRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "UpdateAppRoleRequestBuilder":
         self._update_app_role_request.app_token = app_token
-        self._update_app_role_request.paths["app_token"] = app_token
+        self._update_app_role_request.paths["app_token"] = str(app_token)
         return self
 
     def role_id(self, role_id: str) -> "UpdateAppRoleRequestBuilder":
         self._update_app_role_request.role_id = role_id
-        self._update_app_role_request.paths["role_id"] = role_id
+        self._update_app_role_request.paths["role_id"] = str(role_id)
         return self
 
     def request_body(self, request_body: AppRole) -> "UpdateAppRoleRequestBuilder":

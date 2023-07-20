@@ -28,7 +28,7 @@ class CreateSpaceNodeRequestBuilder(object):
 
     def space_id(self, space_id: str) -> "CreateSpaceNodeRequestBuilder":
         self._create_space_node_request.space_id = space_id
-        self._create_space_node_request.paths["space_id"] = space_id
+        self._create_space_node_request.paths["space_id"] = str(space_id)
         return self
 
     def request_body(self, request_body: Node) -> "CreateSpaceNodeRequestBuilder":

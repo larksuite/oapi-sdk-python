@@ -26,7 +26,7 @@ class GetAttachmentRequestBuilder(object):
 
     def token(self, token: str) -> "GetAttachmentRequestBuilder":
         self._get_attachment_request.token = token
-        self._get_attachment_request.paths["token"] = token
+        self._get_attachment_request.paths["token"] = str(token)
         return self
 
     def build(self) -> GetAttachmentRequest:

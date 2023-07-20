@@ -28,12 +28,12 @@ class DeleteExternalApplicationRequestBuilder(object):
 
     def talent_id(self, talent_id: str) -> "DeleteExternalApplicationRequestBuilder":
         self._delete_external_application_request.talent_id = talent_id
-        self._delete_external_application_request.queries["talent_id"] = str(talent_id)
+        self._delete_external_application_request.add_query("talent_id", talent_id)
         return self
 
     def external_application_id(self, external_application_id: str) -> "DeleteExternalApplicationRequestBuilder":
         self._delete_external_application_request.external_application_id = external_application_id
-        self._delete_external_application_request.paths["external_application_id"] = external_application_id
+        self._delete_external_application_request.paths["external_application_id"] = str(external_application_id)
         return self
 
     def build(self) -> DeleteExternalApplicationRequest:

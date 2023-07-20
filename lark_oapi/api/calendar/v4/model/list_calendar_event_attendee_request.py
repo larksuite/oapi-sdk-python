@@ -32,34 +32,33 @@ class ListCalendarEventAttendeeRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "ListCalendarEventAttendeeRequestBuilder":
         self._list_calendar_event_attendee_request.user_id_type = user_id_type
-        self._list_calendar_event_attendee_request.queries["user_id_type"] = str(user_id_type)
+        self._list_calendar_event_attendee_request.add_query("user_id_type", user_id_type)
         return self
 
     def need_resource_customization(self,
                                     need_resource_customization: bool) -> "ListCalendarEventAttendeeRequestBuilder":
         self._list_calendar_event_attendee_request.need_resource_customization = need_resource_customization
-        self._list_calendar_event_attendee_request.queries["need_resource_customization"] = str(
-            need_resource_customization)
+        self._list_calendar_event_attendee_request.add_query("need_resource_customization", need_resource_customization)
         return self
 
     def page_token(self, page_token: str) -> "ListCalendarEventAttendeeRequestBuilder":
         self._list_calendar_event_attendee_request.page_token = page_token
-        self._list_calendar_event_attendee_request.queries["page_token"] = str(page_token)
+        self._list_calendar_event_attendee_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListCalendarEventAttendeeRequestBuilder":
         self._list_calendar_event_attendee_request.page_size = page_size
-        self._list_calendar_event_attendee_request.queries["page_size"] = str(page_size)
+        self._list_calendar_event_attendee_request.add_query("page_size", page_size)
         return self
 
     def calendar_id(self, calendar_id: str) -> "ListCalendarEventAttendeeRequestBuilder":
         self._list_calendar_event_attendee_request.calendar_id = calendar_id
-        self._list_calendar_event_attendee_request.paths["calendar_id"] = calendar_id
+        self._list_calendar_event_attendee_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def event_id(self, event_id: str) -> "ListCalendarEventAttendeeRequestBuilder":
         self._list_calendar_event_attendee_request.event_id = event_id
-        self._list_calendar_event_attendee_request.paths["event_id"] = event_id
+        self._list_calendar_event_attendee_request.paths["event_id"] = str(event_id)
         return self
 
     def build(self) -> ListCalendarEventAttendeeRequest:

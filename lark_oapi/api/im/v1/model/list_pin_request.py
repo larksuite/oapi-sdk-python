@@ -30,27 +30,27 @@ class ListPinRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "ListPinRequestBuilder":
         self._list_pin_request.chat_id = chat_id
-        self._list_pin_request.queries["chat_id"] = str(chat_id)
+        self._list_pin_request.add_query("chat_id", chat_id)
         return self
 
     def start_time(self, start_time: str) -> "ListPinRequestBuilder":
         self._list_pin_request.start_time = start_time
-        self._list_pin_request.queries["start_time"] = str(start_time)
+        self._list_pin_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: str) -> "ListPinRequestBuilder":
         self._list_pin_request.end_time = end_time
-        self._list_pin_request.queries["end_time"] = str(end_time)
+        self._list_pin_request.add_query("end_time", end_time)
         return self
 
     def page_size(self, page_size: int) -> "ListPinRequestBuilder":
         self._list_pin_request.page_size = page_size
-        self._list_pin_request.queries["page_size"] = str(page_size)
+        self._list_pin_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListPinRequestBuilder":
         self._list_pin_request.page_token = page_token
-        self._list_pin_request.queries["page_token"] = str(page_token)
+        self._list_pin_request.add_query("page_token", page_token)
         return self
 
     def build(self) -> ListPinRequest:

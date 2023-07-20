@@ -29,12 +29,12 @@ class CreateTaskFollowerRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateTaskFollowerRequestBuilder":
         self._create_task_follower_request.user_id_type = user_id_type
-        self._create_task_follower_request.queries["user_id_type"] = str(user_id_type)
+        self._create_task_follower_request.add_query("user_id_type", user_id_type)
         return self
 
     def task_id(self, task_id: str) -> "CreateTaskFollowerRequestBuilder":
         self._create_task_follower_request.task_id = task_id
-        self._create_task_follower_request.paths["task_id"] = task_id
+        self._create_task_follower_request.paths["task_id"] = str(task_id)
         return self
 
     def request_body(self, request_body: Follower) -> "CreateTaskFollowerRequestBuilder":

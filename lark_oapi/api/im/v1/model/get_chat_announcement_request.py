@@ -28,12 +28,12 @@ class GetChatAnnouncementRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetChatAnnouncementRequestBuilder":
         self._get_chat_announcement_request.user_id_type = user_id_type
-        self._get_chat_announcement_request.queries["user_id_type"] = str(user_id_type)
+        self._get_chat_announcement_request.add_query("user_id_type", user_id_type)
         return self
 
     def chat_id(self, chat_id: str) -> "GetChatAnnouncementRequestBuilder":
         self._get_chat_announcement_request.chat_id = chat_id
-        self._get_chat_announcement_request.paths["chat_id"] = chat_id
+        self._get_chat_announcement_request.paths["chat_id"] = str(chat_id)
         return self
 
     def build(self) -> GetChatAnnouncementRequest:

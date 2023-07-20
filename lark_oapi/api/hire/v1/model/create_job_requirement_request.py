@@ -30,12 +30,12 @@ class CreateJobRequirementRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateJobRequirementRequestBuilder":
         self._create_job_requirement_request.user_id_type = user_id_type
-        self._create_job_requirement_request.queries["user_id_type"] = str(user_id_type)
+        self._create_job_requirement_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "CreateJobRequirementRequestBuilder":
         self._create_job_requirement_request.department_id_type = department_id_type
-        self._create_job_requirement_request.queries["department_id_type"] = str(department_id_type)
+        self._create_job_requirement_request.add_query("department_id_type", department_id_type)
         return self
 
     def request_body(self, request_body: JobRequirement) -> "CreateJobRequirementRequestBuilder":

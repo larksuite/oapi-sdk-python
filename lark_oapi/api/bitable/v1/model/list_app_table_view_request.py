@@ -30,27 +30,27 @@ class ListAppTableViewRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListAppTableViewRequestBuilder":
         self._list_app_table_view_request.page_size = page_size
-        self._list_app_table_view_request.queries["page_size"] = str(page_size)
+        self._list_app_table_view_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListAppTableViewRequestBuilder":
         self._list_app_table_view_request.page_token = page_token
-        self._list_app_table_view_request.queries["page_token"] = str(page_token)
+        self._list_app_table_view_request.add_query("page_token", page_token)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListAppTableViewRequestBuilder":
         self._list_app_table_view_request.user_id_type = user_id_type
-        self._list_app_table_view_request.queries["user_id_type"] = str(user_id_type)
+        self._list_app_table_view_request.add_query("user_id_type", user_id_type)
         return self
 
     def app_token(self, app_token: str) -> "ListAppTableViewRequestBuilder":
         self._list_app_table_view_request.app_token = app_token
-        self._list_app_table_view_request.paths["app_token"] = app_token
+        self._list_app_table_view_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "ListAppTableViewRequestBuilder":
         self._list_app_table_view_request.table_id = table_id
-        self._list_app_table_view_request.paths["table_id"] = table_id
+        self._list_app_table_view_request.paths["table_id"] = str(table_id)
         return self
 
     def build(self) -> ListAppTableViewRequest:

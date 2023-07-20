@@ -27,7 +27,7 @@ class IsInChatChatMembersRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "IsInChatChatMembersRequestBuilder":
         self._is_in_chat_chat_members_request.chat_id = chat_id
-        self._is_in_chat_chat_members_request.paths["chat_id"] = chat_id
+        self._is_in_chat_chat_members_request.paths["chat_id"] = str(chat_id)
         return self
 
     def build(self) -> IsInChatChatMembersRequest:

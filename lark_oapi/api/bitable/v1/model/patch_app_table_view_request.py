@@ -30,17 +30,17 @@ class PatchAppTableViewRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "PatchAppTableViewRequestBuilder":
         self._patch_app_table_view_request.app_token = app_token
-        self._patch_app_table_view_request.paths["app_token"] = app_token
+        self._patch_app_table_view_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "PatchAppTableViewRequestBuilder":
         self._patch_app_table_view_request.table_id = table_id
-        self._patch_app_table_view_request.paths["table_id"] = table_id
+        self._patch_app_table_view_request.paths["table_id"] = str(table_id)
         return self
 
     def view_id(self, view_id: str) -> "PatchAppTableViewRequestBuilder":
         self._patch_app_table_view_request.view_id = view_id
-        self._patch_app_table_view_request.paths["view_id"] = view_id
+        self._patch_app_table_view_request.paths["view_id"] = str(view_id)
         return self
 
     def request_body(self, request_body: PatchAppTableViewRequestBody) -> "PatchAppTableViewRequestBuilder":

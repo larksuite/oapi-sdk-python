@@ -28,17 +28,17 @@ class GetJobManagerRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetJobManagerRequestBuilder":
         self._get_job_manager_request.user_id_type = user_id_type
-        self._get_job_manager_request.queries["user_id_type"] = str(user_id_type)
+        self._get_job_manager_request.add_query("user_id_type", user_id_type)
         return self
 
     def job_id(self, job_id: str) -> "GetJobManagerRequestBuilder":
         self._get_job_manager_request.job_id = job_id
-        self._get_job_manager_request.paths["job_id"] = job_id
+        self._get_job_manager_request.paths["job_id"] = str(job_id)
         return self
 
     def manager_id(self, manager_id: str) -> "GetJobManagerRequestBuilder":
         self._get_job_manager_request.manager_id = manager_id
-        self._get_job_manager_request.paths["manager_id"] = manager_id
+        self._get_job_manager_request.paths["manager_id"] = str(manager_id)
         return self
 
     def build(self) -> GetJobManagerRequest:

@@ -32,22 +32,22 @@ class UpdatePermissionMemberRequestBuilder(object):
 
     def need_notification(self, need_notification: bool) -> "UpdatePermissionMemberRequestBuilder":
         self._update_permission_member_request.need_notification = need_notification
-        self._update_permission_member_request.queries["need_notification"] = str(need_notification)
+        self._update_permission_member_request.add_query("need_notification", need_notification)
         return self
 
     def type(self, type: str) -> "UpdatePermissionMemberRequestBuilder":
         self._update_permission_member_request.type = type
-        self._update_permission_member_request.queries["type"] = str(type)
+        self._update_permission_member_request.add_query("type", type)
         return self
 
     def token(self, token: str) -> "UpdatePermissionMemberRequestBuilder":
         self._update_permission_member_request.token = token
-        self._update_permission_member_request.paths["token"] = token
+        self._update_permission_member_request.paths["token"] = str(token)
         return self
 
     def member_id(self, member_id: str) -> "UpdatePermissionMemberRequestBuilder":
         self._update_permission_member_request.member_id = member_id
-        self._update_permission_member_request.paths["member_id"] = member_id
+        self._update_permission_member_request.paths["member_id"] = str(member_id)
         return self
 
     def request_body(self, request_body: BaseMember) -> "UpdatePermissionMemberRequestBuilder":

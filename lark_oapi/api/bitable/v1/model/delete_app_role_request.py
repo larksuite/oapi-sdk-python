@@ -27,12 +27,12 @@ class DeleteAppRoleRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "DeleteAppRoleRequestBuilder":
         self._delete_app_role_request.app_token = app_token
-        self._delete_app_role_request.paths["app_token"] = app_token
+        self._delete_app_role_request.paths["app_token"] = str(app_token)
         return self
 
     def role_id(self, role_id: str) -> "DeleteAppRoleRequestBuilder":
         self._delete_app_role_request.role_id = role_id
-        self._delete_app_role_request.paths["role_id"] = role_id
+        self._delete_app_role_request.paths["role_id"] = str(role_id)
         return self
 
     def build(self) -> DeleteAppRoleRequest:

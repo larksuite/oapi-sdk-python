@@ -27,12 +27,12 @@ class GetExchangeBindingRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetExchangeBindingRequestBuilder":
         self._get_exchange_binding_request.user_id_type = user_id_type
-        self._get_exchange_binding_request.queries["user_id_type"] = str(user_id_type)
+        self._get_exchange_binding_request.add_query("user_id_type", user_id_type)
         return self
 
     def exchange_binding_id(self, exchange_binding_id: str) -> "GetExchangeBindingRequestBuilder":
         self._get_exchange_binding_request.exchange_binding_id = exchange_binding_id
-        self._get_exchange_binding_request.paths["exchange_binding_id"] = exchange_binding_id
+        self._get_exchange_binding_request.paths["exchange_binding_id"] = str(exchange_binding_id)
         return self
 
     def build(self) -> GetExchangeBindingRequest:

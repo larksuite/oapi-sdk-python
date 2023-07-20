@@ -28,12 +28,12 @@ class DeleteMailgroupMemberRequestBuilder(object):
 
     def mailgroup_id(self, mailgroup_id: str) -> "DeleteMailgroupMemberRequestBuilder":
         self._delete_mailgroup_member_request.mailgroup_id = mailgroup_id
-        self._delete_mailgroup_member_request.paths["mailgroup_id"] = mailgroup_id
+        self._delete_mailgroup_member_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def member_id(self, member_id: str) -> "DeleteMailgroupMemberRequestBuilder":
         self._delete_mailgroup_member_request.member_id = member_id
-        self._delete_mailgroup_member_request.paths["member_id"] = member_id
+        self._delete_mailgroup_member_request.paths["member_id"] = str(member_id)
         return self
 
     def build(self) -> DeleteMailgroupMemberRequest:

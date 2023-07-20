@@ -27,7 +27,7 @@ class DeleteTopNoticeChatTopNoticeRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "DeleteTopNoticeChatTopNoticeRequestBuilder":
         self._delete_top_notice_chat_top_notice_request.chat_id = chat_id
-        self._delete_top_notice_chat_top_notice_request.paths["chat_id"] = chat_id
+        self._delete_top_notice_chat_top_notice_request.paths["chat_id"] = str(chat_id)
         return self
 
     def build(self) -> DeleteTopNoticeChatTopNoticeRequest:

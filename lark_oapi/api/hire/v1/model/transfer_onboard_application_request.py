@@ -31,17 +31,17 @@ class TransferOnboardApplicationRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "TransferOnboardApplicationRequestBuilder":
         self._transfer_onboard_application_request.user_id_type = user_id_type
-        self._transfer_onboard_application_request.queries["user_id_type"] = str(user_id_type)
+        self._transfer_onboard_application_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "TransferOnboardApplicationRequestBuilder":
         self._transfer_onboard_application_request.department_id_type = department_id_type
-        self._transfer_onboard_application_request.queries["department_id_type"] = str(department_id_type)
+        self._transfer_onboard_application_request.add_query("department_id_type", department_id_type)
         return self
 
     def application_id(self, application_id: str) -> "TransferOnboardApplicationRequestBuilder":
         self._transfer_onboard_application_request.application_id = application_id
-        self._transfer_onboard_application_request.paths["application_id"] = application_id
+        self._transfer_onboard_application_request.paths["application_id"] = str(application_id)
         return self
 
     def request_body(self,

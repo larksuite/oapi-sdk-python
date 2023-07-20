@@ -28,7 +28,7 @@ class UpdateTicketRequestBuilder(object):
 
     def ticket_id(self, ticket_id: str) -> "UpdateTicketRequestBuilder":
         self._update_ticket_request.ticket_id = ticket_id
-        self._update_ticket_request.paths["ticket_id"] = ticket_id
+        self._update_ticket_request.paths["ticket_id"] = str(ticket_id)
         return self
 
     def request_body(self, request_body: UpdateTicketRequestBody) -> "UpdateTicketRequestBuilder":

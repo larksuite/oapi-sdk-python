@@ -30,17 +30,17 @@ class SearchOffboardingRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "SearchOffboardingRequestBuilder":
         self._search_offboarding_request.page_size = page_size
-        self._search_offboarding_request.queries["page_size"] = str(page_size)
+        self._search_offboarding_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "SearchOffboardingRequestBuilder":
         self._search_offboarding_request.page_token = page_token
-        self._search_offboarding_request.queries["page_token"] = str(page_token)
+        self._search_offboarding_request.add_query("page_token", page_token)
         return self
 
     def user_id_type(self, user_id_type: str) -> "SearchOffboardingRequestBuilder":
         self._search_offboarding_request.user_id_type = user_id_type
-        self._search_offboarding_request.queries["user_id_type"] = str(user_id_type)
+        self._search_offboarding_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: SearchOffboardingRequestBody) -> "SearchOffboardingRequestBuilder":

@@ -29,7 +29,7 @@ class TerminateApplicationRequestBuilder(object):
 
     def application_id(self, application_id: str) -> "TerminateApplicationRequestBuilder":
         self._terminate_application_request.application_id = application_id
-        self._terminate_application_request.paths["application_id"] = application_id
+        self._terminate_application_request.paths["application_id"] = str(application_id)
         return self
 
     def request_body(self, request_body: TerminateApplicationRequestBody) -> "TerminateApplicationRequestBuilder":

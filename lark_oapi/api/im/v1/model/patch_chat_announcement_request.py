@@ -29,7 +29,7 @@ class PatchChatAnnouncementRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "PatchChatAnnouncementRequestBuilder":
         self._patch_chat_announcement_request.chat_id = chat_id
-        self._patch_chat_announcement_request.paths["chat_id"] = chat_id
+        self._patch_chat_announcement_request.paths["chat_id"] = str(chat_id)
         return self
 
     def request_body(self, request_body: PatchChatAnnouncementRequestBody) -> "PatchChatAnnouncementRequestBuilder":

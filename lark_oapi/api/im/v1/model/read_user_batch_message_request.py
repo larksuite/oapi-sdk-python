@@ -27,7 +27,7 @@ class ReadUserBatchMessageRequestBuilder(object):
 
     def batch_message_id(self, batch_message_id: str) -> "ReadUserBatchMessageRequestBuilder":
         self._read_user_batch_message_request.batch_message_id = batch_message_id
-        self._read_user_batch_message_request.paths["batch_message_id"] = batch_message_id
+        self._read_user_batch_message_request.paths["batch_message_id"] = str(batch_message_id)
         return self
 
     def build(self) -> ReadUserBatchMessageRequest:

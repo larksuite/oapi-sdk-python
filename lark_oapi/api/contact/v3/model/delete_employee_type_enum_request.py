@@ -27,7 +27,7 @@ class DeleteEmployeeTypeEnumRequestBuilder(object):
 
     def enum_id(self, enum_id: str) -> "DeleteEmployeeTypeEnumRequestBuilder":
         self._delete_employee_type_enum_request.enum_id = enum_id
-        self._delete_employee_type_enum_request.paths["enum_id"] = enum_id
+        self._delete_employee_type_enum_request.paths["enum_id"] = str(enum_id)
         return self
 
     def build(self) -> DeleteEmployeeTypeEnumRequest:

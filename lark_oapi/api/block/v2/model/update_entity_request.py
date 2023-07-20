@@ -28,7 +28,7 @@ class UpdateEntityRequestBuilder(object):
 
     def block_id(self, block_id: str) -> "UpdateEntityRequestBuilder":
         self._update_entity_request.block_id = block_id
-        self._update_entity_request.paths["block_id"] = block_id
+        self._update_entity_request.paths["block_id"] = str(block_id)
         return self
 
     def request_body(self, request_body: Entity) -> "UpdateEntityRequestBuilder":

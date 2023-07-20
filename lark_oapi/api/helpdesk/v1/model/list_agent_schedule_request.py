@@ -26,7 +26,7 @@ class ListAgentScheduleRequestBuilder(object):
 
     def status(self, status: List[int]) -> "ListAgentScheduleRequestBuilder":
         self._list_agent_schedule_request.status = status
-        self._list_agent_schedule_request.queries["status"] = str(status)
+        self._list_agent_schedule_request.add_query("status", status)
         return self
 
     def build(self) -> ListAgentScheduleRequest:

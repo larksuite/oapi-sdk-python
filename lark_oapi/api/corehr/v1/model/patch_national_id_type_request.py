@@ -30,12 +30,12 @@ class PatchNationalIdTypeRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "PatchNationalIdTypeRequestBuilder":
         self._patch_national_id_type_request.client_token = client_token
-        self._patch_national_id_type_request.queries["client_token"] = str(client_token)
+        self._patch_national_id_type_request.add_query("client_token", client_token)
         return self
 
     def national_id_type_id(self, national_id_type_id: str) -> "PatchNationalIdTypeRequestBuilder":
         self._patch_national_id_type_request.national_id_type_id = national_id_type_id
-        self._patch_national_id_type_request.paths["national_id_type_id"] = national_id_type_id
+        self._patch_national_id_type_request.paths["national_id_type_id"] = str(national_id_type_id)
         return self
 
     def request_body(self, request_body: NationalIdType) -> "PatchNationalIdTypeRequestBuilder":

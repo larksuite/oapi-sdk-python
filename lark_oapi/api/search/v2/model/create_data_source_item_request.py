@@ -29,7 +29,7 @@ class CreateDataSourceItemRequestBuilder(object):
 
     def data_source_id(self, data_source_id: str) -> "CreateDataSourceItemRequestBuilder":
         self._create_data_source_item_request.data_source_id = data_source_id
-        self._create_data_source_item_request.paths["data_source_id"] = data_source_id
+        self._create_data_source_item_request.paths["data_source_id"] = str(data_source_id)
         return self
 
     def request_body(self, request_body: Item) -> "CreateDataSourceItemRequestBuilder":

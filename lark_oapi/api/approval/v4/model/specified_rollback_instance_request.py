@@ -29,7 +29,7 @@ class SpecifiedRollbackInstanceRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "SpecifiedRollbackInstanceRequestBuilder":
         self._specified_rollback_instance_request.user_id_type = user_id_type
-        self._specified_rollback_instance_request.queries["user_id_type"] = str(user_id_type)
+        self._specified_rollback_instance_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: SpecifiedRollback) -> "SpecifiedRollbackInstanceRequestBuilder":

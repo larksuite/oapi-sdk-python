@@ -28,7 +28,7 @@ class CreatePersonRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreatePersonRequestBuilder":
         self._create_person_request.client_token = client_token
-        self._create_person_request.queries["client_token"] = str(client_token)
+        self._create_person_request.add_query("client_token", client_token)
         return self
 
     def request_body(self, request_body: PersonInfo) -> "CreatePersonRequestBuilder":

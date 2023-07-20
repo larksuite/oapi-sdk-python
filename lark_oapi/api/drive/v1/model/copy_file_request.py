@@ -28,7 +28,7 @@ class CopyFileRequestBuilder(object):
 
     def file_token(self, file_token: str) -> "CopyFileRequestBuilder":
         self._copy_file_request.file_token = file_token
-        self._copy_file_request.paths["file_token"] = file_token
+        self._copy_file_request.paths["file_token"] = str(file_token)
         return self
 
     def request_body(self, request_body: CopyFileRequestBody) -> "CopyFileRequestBuilder":

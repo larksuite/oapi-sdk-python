@@ -28,7 +28,7 @@ class CreateEmploymentRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreateEmploymentRequestBuilder":
         self._create_employment_request.client_token = client_token
-        self._create_employment_request.queries["client_token"] = str(client_token)
+        self._create_employment_request.add_query("client_token", client_token)
         return self
 
     def request_body(self, request_body: EmploymentCreate) -> "CreateEmploymentRequestBuilder":

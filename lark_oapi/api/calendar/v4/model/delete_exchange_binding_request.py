@@ -27,7 +27,7 @@ class DeleteExchangeBindingRequestBuilder(object):
 
     def exchange_binding_id(self, exchange_binding_id: str) -> "DeleteExchangeBindingRequestBuilder":
         self._delete_exchange_binding_request.exchange_binding_id = exchange_binding_id
-        self._delete_exchange_binding_request.paths["exchange_binding_id"] = exchange_binding_id
+        self._delete_exchange_binding_request.paths["exchange_binding_id"] = str(exchange_binding_id)
         return self
 
     def build(self) -> DeleteExchangeBindingRequest:

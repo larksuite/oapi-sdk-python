@@ -30,17 +30,17 @@ class PatchFileCommentRequestBuilder(object):
 
     def file_type(self, file_type: str) -> "PatchFileCommentRequestBuilder":
         self._patch_file_comment_request.file_type = file_type
-        self._patch_file_comment_request.queries["file_type"] = str(file_type)
+        self._patch_file_comment_request.add_query("file_type", file_type)
         return self
 
     def file_token(self, file_token: str) -> "PatchFileCommentRequestBuilder":
         self._patch_file_comment_request.file_token = file_token
-        self._patch_file_comment_request.paths["file_token"] = file_token
+        self._patch_file_comment_request.paths["file_token"] = str(file_token)
         return self
 
     def comment_id(self, comment_id: int) -> "PatchFileCommentRequestBuilder":
         self._patch_file_comment_request.comment_id = comment_id
-        self._patch_file_comment_request.paths["comment_id"] = comment_id
+        self._patch_file_comment_request.paths["comment_id"] = str(comment_id)
         return self
 
     def request_body(self, request_body: PatchFileCommentRequestBody) -> "PatchFileCommentRequestBuilder":

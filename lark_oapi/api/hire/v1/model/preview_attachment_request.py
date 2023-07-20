@@ -26,7 +26,7 @@ class PreviewAttachmentRequestBuilder(object):
 
     def attachment_id(self, attachment_id: str) -> "PreviewAttachmentRequestBuilder":
         self._preview_attachment_request.attachment_id = attachment_id
-        self._preview_attachment_request.paths["attachment_id"] = attachment_id
+        self._preview_attachment_request.paths["attachment_id"] = str(attachment_id)
         return self
 
     def build(self) -> PreviewAttachmentRequest:

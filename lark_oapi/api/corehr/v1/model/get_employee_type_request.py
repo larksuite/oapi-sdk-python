@@ -26,7 +26,7 @@ class GetEmployeeTypeRequestBuilder(object):
 
     def employee_type_id(self, employee_type_id: str) -> "GetEmployeeTypeRequestBuilder":
         self._get_employee_type_request.employee_type_id = employee_type_id
-        self._get_employee_type_request.paths["employee_type_id"] = employee_type_id
+        self._get_employee_type_request.paths["employee_type_id"] = str(employee_type_id)
         return self
 
     def build(self) -> GetEmployeeTypeRequest:

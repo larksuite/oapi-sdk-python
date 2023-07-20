@@ -29,7 +29,7 @@ class CreateUserMailboxAliasRequestBuilder(object):
 
     def user_mailbox_id(self, user_mailbox_id: str) -> "CreateUserMailboxAliasRequestBuilder":
         self._create_user_mailbox_alias_request.user_mailbox_id = user_mailbox_id
-        self._create_user_mailbox_alias_request.paths["user_mailbox_id"] = user_mailbox_id
+        self._create_user_mailbox_alias_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
 
     def request_body(self, request_body: EmailAlias) -> "CreateUserMailboxAliasRequestBuilder":

@@ -29,17 +29,17 @@ class ListPermissionMemberRequestBuilder(object):
 
     def type(self, type: str) -> "ListPermissionMemberRequestBuilder":
         self._list_permission_member_request.type = type
-        self._list_permission_member_request.queries["type"] = str(type)
+        self._list_permission_member_request.add_query("type", type)
         return self
 
     def fields(self, fields: str) -> "ListPermissionMemberRequestBuilder":
         self._list_permission_member_request.fields = fields
-        self._list_permission_member_request.queries["fields"] = str(fields)
+        self._list_permission_member_request.add_query("fields", fields)
         return self
 
     def token(self, token: str) -> "ListPermissionMemberRequestBuilder":
         self._list_permission_member_request.token = token
-        self._list_permission_member_request.paths["token"] = token
+        self._list_permission_member_request.paths["token"] = str(token)
         return self
 
     def build(self) -> ListPermissionMemberRequest:

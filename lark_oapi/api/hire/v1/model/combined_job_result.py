@@ -6,7 +6,7 @@ from lark_oapi.core.construct import init
 from .combined_job_result_default_job_post import CombinedJobResultDefaultJobPost
 from .job import Job
 from .job_manager import JobManager
-from .registration_info import RegistrationInfo
+from .registration_schema_info import RegistrationSchemaInfo
 
 
 class CombinedJobResult(object):
@@ -14,14 +14,16 @@ class CombinedJobResult(object):
         "default_job_post": CombinedJobResultDefaultJobPost,
         "job": Job,
         "job_manager": JobManager,
-        "interview_registration_schema_info": RegistrationInfo,
+        "interview_registration_schema_info": RegistrationSchemaInfo,
+        "onboard_registration_schema_info": RegistrationSchemaInfo,
     }
 
     def __init__(self, d):
         self.default_job_post: Optional[CombinedJobResultDefaultJobPost] = None
         self.job: Optional[Job] = None
         self.job_manager: Optional[JobManager] = None
-        self.interview_registration_schema_info: Optional[RegistrationInfo] = None
+        self.interview_registration_schema_info: Optional[RegistrationSchemaInfo] = None
+        self.onboard_registration_schema_info: Optional[RegistrationSchemaInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -46,8 +48,13 @@ class CombinedJobResultBuilder(object):
         return self
 
     def interview_registration_schema_info(self,
-                                           interview_registration_schema_info: RegistrationInfo) -> "CombinedJobResultBuilder":
+                                           interview_registration_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
         self._combined_job_result.interview_registration_schema_info = interview_registration_schema_info
+        return self
+
+    def onboard_registration_schema_info(self,
+                                         onboard_registration_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
+        self._combined_job_result.onboard_registration_schema_info = onboard_registration_schema_info
         return self
 
     def build(self) -> "CombinedJobResult":

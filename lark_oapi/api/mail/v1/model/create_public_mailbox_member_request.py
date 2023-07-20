@@ -30,12 +30,12 @@ class CreatePublicMailboxMemberRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreatePublicMailboxMemberRequestBuilder":
         self._create_public_mailbox_member_request.user_id_type = user_id_type
-        self._create_public_mailbox_member_request.queries["user_id_type"] = str(user_id_type)
+        self._create_public_mailbox_member_request.add_query("user_id_type", user_id_type)
         return self
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "CreatePublicMailboxMemberRequestBuilder":
         self._create_public_mailbox_member_request.public_mailbox_id = public_mailbox_id
-        self._create_public_mailbox_member_request.paths["public_mailbox_id"] = public_mailbox_id
+        self._create_public_mailbox_member_request.paths["public_mailbox_id"] = str(public_mailbox_id)
         return self
 
     def request_body(self, request_body: PublicMailboxMember) -> "CreatePublicMailboxMemberRequestBuilder":

@@ -31,17 +31,17 @@ class CreatePermissionMemberRequestBuilder(object):
 
     def type(self, type: str) -> "CreatePermissionMemberRequestBuilder":
         self._create_permission_member_request.type = type
-        self._create_permission_member_request.queries["type"] = str(type)
+        self._create_permission_member_request.add_query("type", type)
         return self
 
     def need_notification(self, need_notification: bool) -> "CreatePermissionMemberRequestBuilder":
         self._create_permission_member_request.need_notification = need_notification
-        self._create_permission_member_request.queries["need_notification"] = str(need_notification)
+        self._create_permission_member_request.add_query("need_notification", need_notification)
         return self
 
     def token(self, token: str) -> "CreatePermissionMemberRequestBuilder":
         self._create_permission_member_request.token = token
-        self._create_permission_member_request.paths["token"] = token
+        self._create_permission_member_request.paths["token"] = str(token)
         return self
 
     def request_body(self, request_body: BaseMember) -> "CreatePermissionMemberRequestBuilder":

@@ -30,12 +30,12 @@ class UpdateUserStatsViewRequestBuilder(object):
 
     def employee_type(self, employee_type: str) -> "UpdateUserStatsViewRequestBuilder":
         self._update_user_stats_view_request.employee_type = employee_type
-        self._update_user_stats_view_request.queries["employee_type"] = str(employee_type)
+        self._update_user_stats_view_request.add_query("employee_type", employee_type)
         return self
 
     def user_stats_view_id(self, user_stats_view_id: str) -> "UpdateUserStatsViewRequestBuilder":
         self._update_user_stats_view_request.user_stats_view_id = user_stats_view_id
-        self._update_user_stats_view_request.paths["user_stats_view_id"] = user_stats_view_id
+        self._update_user_stats_view_request.paths["user_stats_view_id"] = str(user_stats_view_id)
         return self
 
     def request_body(self, request_body: UpdateUserStatsViewRequestBody) -> "UpdateUserStatsViewRequestBuilder":

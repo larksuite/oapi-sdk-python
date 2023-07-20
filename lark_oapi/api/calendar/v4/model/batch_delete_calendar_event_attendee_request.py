@@ -31,17 +31,17 @@ class BatchDeleteCalendarEventAttendeeRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
         self._batch_delete_calendar_event_attendee_request.user_id_type = user_id_type
-        self._batch_delete_calendar_event_attendee_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_delete_calendar_event_attendee_request.add_query("user_id_type", user_id_type)
         return self
 
     def calendar_id(self, calendar_id: str) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
         self._batch_delete_calendar_event_attendee_request.calendar_id = calendar_id
-        self._batch_delete_calendar_event_attendee_request.paths["calendar_id"] = calendar_id
+        self._batch_delete_calendar_event_attendee_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def event_id(self, event_id: str) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
         self._batch_delete_calendar_event_attendee_request.event_id = event_id
-        self._batch_delete_calendar_event_attendee_request.paths["event_id"] = event_id
+        self._batch_delete_calendar_event_attendee_request.paths["event_id"] = str(event_id)
         return self
 
     def request_body(self,

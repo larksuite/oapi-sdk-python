@@ -27,7 +27,7 @@ class UnsubscriptionCalendarEventRequestBuilder(object):
 
     def calendar_id(self, calendar_id: str) -> "UnsubscriptionCalendarEventRequestBuilder":
         self._unsubscription_calendar_event_request.calendar_id = calendar_id
-        self._unsubscription_calendar_event_request.paths["calendar_id"] = calendar_id
+        self._unsubscription_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def build(self) -> UnsubscriptionCalendarEventRequest:

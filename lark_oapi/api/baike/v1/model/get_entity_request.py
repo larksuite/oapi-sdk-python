@@ -29,22 +29,22 @@ class GetEntityRequestBuilder(object):
 
     def provider(self, provider: str) -> "GetEntityRequestBuilder":
         self._get_entity_request.provider = provider
-        self._get_entity_request.queries["provider"] = str(provider)
+        self._get_entity_request.add_query("provider", provider)
         return self
 
     def outer_id(self, outer_id: str) -> "GetEntityRequestBuilder":
         self._get_entity_request.outer_id = outer_id
-        self._get_entity_request.queries["outer_id"] = str(outer_id)
+        self._get_entity_request.add_query("outer_id", outer_id)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetEntityRequestBuilder":
         self._get_entity_request.user_id_type = user_id_type
-        self._get_entity_request.queries["user_id_type"] = str(user_id_type)
+        self._get_entity_request.add_query("user_id_type", user_id_type)
         return self
 
     def entity_id(self, entity_id: str) -> "GetEntityRequestBuilder":
         self._get_entity_request.entity_id = entity_id
-        self._get_entity_request.paths["entity_id"] = entity_id
+        self._get_entity_request.paths["entity_id"] = str(entity_id)
         return self
 
     def build(self) -> GetEntityRequest:

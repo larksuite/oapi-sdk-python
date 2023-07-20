@@ -7,8 +7,8 @@ from lark_oapi.api.hire.v1 import *
 def main():
     # 创建client
     client = lark.Client.builder() \
-        .app_id("APP_ID") \
-        .app_secret("APP_SECRET") \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
         .log_level(lark.LogLevel.DEBUG) \
         .build()
 
@@ -25,6 +25,7 @@ def main():
                       .interview_round_conf_list([])
                       .jr_id_list([])
                       .interview_registration_schema_id("6930815272790114324")
+                      .onboard_registration_schema_id("6930815272790114324")
                       .interview_round_type_conf_list([])
                       .related_job_id_list([])
                       .interview_appointment_config(InterviewAppointmentConfig.builder().build())

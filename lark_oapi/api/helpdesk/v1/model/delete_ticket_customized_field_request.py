@@ -28,7 +28,8 @@ class DeleteTicketCustomizedFieldRequestBuilder(object):
     def ticket_customized_field_id(self,
                                    ticket_customized_field_id: str) -> "DeleteTicketCustomizedFieldRequestBuilder":
         self._delete_ticket_customized_field_request.ticket_customized_field_id = ticket_customized_field_id
-        self._delete_ticket_customized_field_request.paths["ticket_customized_field_id"] = ticket_customized_field_id
+        self._delete_ticket_customized_field_request.paths["ticket_customized_field_id"] = str(
+            ticket_customized_field_id)
         return self
 
     def build(self) -> DeleteTicketCustomizedFieldRequest:

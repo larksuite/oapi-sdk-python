@@ -26,7 +26,7 @@ class DeleteChatRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "DeleteChatRequestBuilder":
         self._delete_chat_request.chat_id = chat_id
-        self._delete_chat_request.paths["chat_id"] = chat_id
+        self._delete_chat_request.paths["chat_id"] = str(chat_id)
         return self
 
     def build(self) -> DeleteChatRequest:

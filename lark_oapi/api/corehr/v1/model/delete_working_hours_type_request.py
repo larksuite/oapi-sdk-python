@@ -27,7 +27,7 @@ class DeleteWorkingHoursTypeRequestBuilder(object):
 
     def working_hours_type_id(self, working_hours_type_id: str) -> "DeleteWorkingHoursTypeRequestBuilder":
         self._delete_working_hours_type_request.working_hours_type_id = working_hours_type_id
-        self._delete_working_hours_type_request.paths["working_hours_type_id"] = working_hours_type_id
+        self._delete_working_hours_type_request.paths["working_hours_type_id"] = str(working_hours_type_id)
         return self
 
     def build(self) -> DeleteWorkingHoursTypeRequest:

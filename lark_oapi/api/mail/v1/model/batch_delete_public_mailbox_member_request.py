@@ -29,7 +29,7 @@ class BatchDeletePublicMailboxMemberRequestBuilder(object):
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "BatchDeletePublicMailboxMemberRequestBuilder":
         self._batch_delete_public_mailbox_member_request.public_mailbox_id = public_mailbox_id
-        self._batch_delete_public_mailbox_member_request.paths["public_mailbox_id"] = public_mailbox_id
+        self._batch_delete_public_mailbox_member_request.paths["public_mailbox_id"] = str(public_mailbox_id)
         return self
 
     def request_body(self,

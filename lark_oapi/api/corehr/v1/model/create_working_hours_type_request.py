@@ -29,7 +29,7 @@ class CreateWorkingHoursTypeRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreateWorkingHoursTypeRequestBuilder":
         self._create_working_hours_type_request.client_token = client_token
-        self._create_working_hours_type_request.queries["client_token"] = str(client_token)
+        self._create_working_hours_type_request.add_query("client_token", client_token)
         return self
 
     def request_body(self, request_body: WorkingHoursType) -> "CreateWorkingHoursTypeRequestBuilder":

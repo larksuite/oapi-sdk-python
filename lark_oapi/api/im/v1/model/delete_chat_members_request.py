@@ -29,12 +29,12 @@ class DeleteChatMembersRequestBuilder(object):
 
     def member_id_type(self, member_id_type: str) -> "DeleteChatMembersRequestBuilder":
         self._delete_chat_members_request.member_id_type = member_id_type
-        self._delete_chat_members_request.queries["member_id_type"] = str(member_id_type)
+        self._delete_chat_members_request.add_query("member_id_type", member_id_type)
         return self
 
     def chat_id(self, chat_id: str) -> "DeleteChatMembersRequestBuilder":
         self._delete_chat_members_request.chat_id = chat_id
-        self._delete_chat_members_request.paths["chat_id"] = chat_id
+        self._delete_chat_members_request.paths["chat_id"] = str(chat_id)
         return self
 
     def request_body(self, request_body: DeleteChatMembersRequestBody) -> "DeleteChatMembersRequestBuilder":

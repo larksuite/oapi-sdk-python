@@ -30,12 +30,12 @@ class PatchFileSubscriptionRequestBuilder(object):
 
     def file_token(self, file_token: str) -> "PatchFileSubscriptionRequestBuilder":
         self._patch_file_subscription_request.file_token = file_token
-        self._patch_file_subscription_request.paths["file_token"] = file_token
+        self._patch_file_subscription_request.paths["file_token"] = str(file_token)
         return self
 
     def subscription_id(self, subscription_id: str) -> "PatchFileSubscriptionRequestBuilder":
         self._patch_file_subscription_request.subscription_id = subscription_id
-        self._patch_file_subscription_request.paths["subscription_id"] = subscription_id
+        self._patch_file_subscription_request.paths["subscription_id"] = str(subscription_id)
         return self
 
     def request_body(self, request_body: PatchFileSubscriptionRequestBody) -> "PatchFileSubscriptionRequestBuilder":

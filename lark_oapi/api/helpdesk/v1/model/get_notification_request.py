@@ -27,12 +27,12 @@ class GetNotificationRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetNotificationRequestBuilder":
         self._get_notification_request.user_id_type = user_id_type
-        self._get_notification_request.queries["user_id_type"] = str(user_id_type)
+        self._get_notification_request.add_query("user_id_type", user_id_type)
         return self
 
     def notification_id(self, notification_id: str) -> "GetNotificationRequestBuilder":
         self._get_notification_request.notification_id = notification_id
-        self._get_notification_request.paths["notification_id"] = notification_id
+        self._get_notification_request.paths["notification_id"] = str(notification_id)
         return self
 
     def build(self) -> GetNotificationRequest:

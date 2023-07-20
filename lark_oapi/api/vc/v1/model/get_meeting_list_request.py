@@ -33,42 +33,42 @@ class GetMeetingListRequestBuilder(object):
 
     def start_time(self, start_time: int) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.start_time = start_time
-        self._get_meeting_list_request.queries["start_time"] = str(start_time)
+        self._get_meeting_list_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: int) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.end_time = end_time
-        self._get_meeting_list_request.queries["end_time"] = str(end_time)
+        self._get_meeting_list_request.add_query("end_time", end_time)
         return self
 
     def meeting_no(self, meeting_no: str) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.meeting_no = meeting_no
-        self._get_meeting_list_request.queries["meeting_no"] = str(meeting_no)
+        self._get_meeting_list_request.add_query("meeting_no", meeting_no)
         return self
 
     def user_id(self, user_id: str) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.user_id = user_id
-        self._get_meeting_list_request.queries["user_id"] = str(user_id)
+        self._get_meeting_list_request.add_query("user_id", user_id)
         return self
 
     def room_id(self, room_id: str) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.room_id = room_id
-        self._get_meeting_list_request.queries["room_id"] = str(room_id)
+        self._get_meeting_list_request.add_query("room_id", room_id)
         return self
 
     def page_size(self, page_size: int) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.page_size = page_size
-        self._get_meeting_list_request.queries["page_size"] = str(page_size)
+        self._get_meeting_list_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.page_token = page_token
-        self._get_meeting_list_request.queries["page_token"] = str(page_token)
+        self._get_meeting_list_request.add_query("page_token", page_token)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.user_id_type = user_id_type
-        self._get_meeting_list_request.queries["user_id_type"] = str(user_id_type)
+        self._get_meeting_list_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> GetMeetingListRequest:

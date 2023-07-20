@@ -34,42 +34,42 @@ class GetResourceReservationListRequestBuilder(object):
 
     def room_level_id(self, room_level_id: str) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.room_level_id = room_level_id
-        self._get_resource_reservation_list_request.queries["room_level_id"] = str(room_level_id)
+        self._get_resource_reservation_list_request.add_query("room_level_id", room_level_id)
         return self
 
     def need_topic(self, need_topic: bool) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.need_topic = need_topic
-        self._get_resource_reservation_list_request.queries["need_topic"] = str(need_topic)
+        self._get_resource_reservation_list_request.add_query("need_topic", need_topic)
         return self
 
     def start_time(self, start_time: int) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.start_time = start_time
-        self._get_resource_reservation_list_request.queries["start_time"] = str(start_time)
+        self._get_resource_reservation_list_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: int) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.end_time = end_time
-        self._get_resource_reservation_list_request.queries["end_time"] = str(end_time)
+        self._get_resource_reservation_list_request.add_query("end_time", end_time)
         return self
 
     def room_ids(self, room_ids: List[str]) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.room_ids = room_ids
-        self._get_resource_reservation_list_request.queries["room_ids"] = str(room_ids)
+        self._get_resource_reservation_list_request.add_query("room_ids", room_ids)
         return self
 
     def is_exclude(self, is_exclude: bool) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.is_exclude = is_exclude
-        self._get_resource_reservation_list_request.queries["is_exclude"] = str(is_exclude)
+        self._get_resource_reservation_list_request.add_query("is_exclude", is_exclude)
         return self
 
     def page_size(self, page_size: int) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.page_size = page_size
-        self._get_resource_reservation_list_request.queries["page_size"] = str(page_size)
+        self._get_resource_reservation_list_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "GetResourceReservationListRequestBuilder":
         self._get_resource_reservation_list_request.page_token = page_token
-        self._get_resource_reservation_list_request.queries["page_token"] = str(page_token)
+        self._get_resource_reservation_list_request.add_query("page_token", page_token)
         return self
 
     def build(self) -> GetResourceReservationListRequest:

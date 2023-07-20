@@ -26,7 +26,7 @@ class DeletePersonRequestBuilder(object):
 
     def person_id(self, person_id: str) -> "DeletePersonRequestBuilder":
         self._delete_person_request.person_id = person_id
-        self._delete_person_request.paths["person_id"] = person_id
+        self._delete_person_request.paths["person_id"] = str(person_id)
         return self
 
     def build(self) -> DeletePersonRequest:

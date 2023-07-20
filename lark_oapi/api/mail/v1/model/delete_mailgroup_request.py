@@ -26,7 +26,7 @@ class DeleteMailgroupRequestBuilder(object):
 
     def mailgroup_id(self, mailgroup_id: str) -> "DeleteMailgroupRequestBuilder":
         self._delete_mailgroup_request.mailgroup_id = mailgroup_id
-        self._delete_mailgroup_request.paths["mailgroup_id"] = mailgroup_id
+        self._delete_mailgroup_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def build(self) -> DeleteMailgroupRequest:

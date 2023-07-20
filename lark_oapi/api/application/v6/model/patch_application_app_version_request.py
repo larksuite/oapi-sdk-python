@@ -33,27 +33,27 @@ class PatchApplicationAppVersionRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.user_id_type = user_id_type
-        self._patch_application_app_version_request.queries["user_id_type"] = str(user_id_type)
+        self._patch_application_app_version_request.add_query("user_id_type", user_id_type)
         return self
 
     def operator_id(self, operator_id: int) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.operator_id = operator_id
-        self._patch_application_app_version_request.queries["operator_id"] = str(operator_id)
+        self._patch_application_app_version_request.add_query("operator_id", operator_id)
         return self
 
     def reject_reason(self, reject_reason: str) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.reject_reason = reject_reason
-        self._patch_application_app_version_request.queries["reject_reason"] = str(reject_reason)
+        self._patch_application_app_version_request.add_query("reject_reason", reject_reason)
         return self
 
     def app_id(self, app_id: str) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.app_id = app_id
-        self._patch_application_app_version_request.paths["app_id"] = app_id
+        self._patch_application_app_version_request.paths["app_id"] = str(app_id)
         return self
 
     def version_id(self, version_id: int) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.version_id = version_id
-        self._patch_application_app_version_request.paths["version_id"] = version_id
+        self._patch_application_app_version_request.paths["version_id"] = str(version_id)
         return self
 
     def request_body(self, request_body: ApplicationAppVersion) -> "PatchApplicationAppVersionRequestBuilder":

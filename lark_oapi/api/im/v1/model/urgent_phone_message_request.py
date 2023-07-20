@@ -29,12 +29,12 @@ class UrgentPhoneMessageRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UrgentPhoneMessageRequestBuilder":
         self._urgent_phone_message_request.user_id_type = user_id_type
-        self._urgent_phone_message_request.queries["user_id_type"] = str(user_id_type)
+        self._urgent_phone_message_request.add_query("user_id_type", user_id_type)
         return self
 
     def message_id(self, message_id: str) -> "UrgentPhoneMessageRequestBuilder":
         self._urgent_phone_message_request.message_id = message_id
-        self._urgent_phone_message_request.paths["message_id"] = message_id
+        self._urgent_phone_message_request.paths["message_id"] = str(message_id)
         return self
 
     def request_body(self, request_body: UrgentReceivers) -> "UrgentPhoneMessageRequestBuilder":

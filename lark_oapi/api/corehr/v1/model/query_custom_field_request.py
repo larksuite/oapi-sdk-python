@@ -26,7 +26,7 @@ class QueryCustomFieldRequestBuilder(object):
 
     def object_api_name_list(self, object_api_name_list: List[str]) -> "QueryCustomFieldRequestBuilder":
         self._query_custom_field_request.object_api_name_list = object_api_name_list
-        self._query_custom_field_request.queries["object_api_name_list"] = str(object_api_name_list)
+        self._query_custom_field_request.add_query("object_api_name_list", object_api_name_list)
         return self
 
     def build(self) -> QueryCustomFieldRequest:

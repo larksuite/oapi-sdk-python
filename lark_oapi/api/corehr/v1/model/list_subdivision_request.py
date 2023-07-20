@@ -28,17 +28,17 @@ class ListSubdivisionRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListSubdivisionRequestBuilder":
         self._list_subdivision_request.page_token = page_token
-        self._list_subdivision_request.queries["page_token"] = str(page_token)
+        self._list_subdivision_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: str) -> "ListSubdivisionRequestBuilder":
         self._list_subdivision_request.page_size = page_size
-        self._list_subdivision_request.queries["page_size"] = str(page_size)
+        self._list_subdivision_request.add_query("page_size", page_size)
         return self
 
     def country_region_id(self, country_region_id: str) -> "ListSubdivisionRequestBuilder":
         self._list_subdivision_request.country_region_id = country_region_id
-        self._list_subdivision_request.queries["country_region_id"] = str(country_region_id)
+        self._list_subdivision_request.add_query("country_region_id", country_region_id)
         return self
 
     def build(self) -> ListSubdivisionRequest:

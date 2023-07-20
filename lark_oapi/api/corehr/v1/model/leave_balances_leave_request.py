@@ -30,27 +30,27 @@ class LeaveBalancesLeaveRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.page_token = page_token
-        self._leave_balances_leave_request.queries["page_token"] = str(page_token)
+        self._leave_balances_leave_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: str) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.page_size = page_size
-        self._leave_balances_leave_request.queries["page_size"] = str(page_size)
+        self._leave_balances_leave_request.add_query("page_size", page_size)
         return self
 
     def as_of_date(self, as_of_date: str) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.as_of_date = as_of_date
-        self._leave_balances_leave_request.queries["as_of_date"] = str(as_of_date)
+        self._leave_balances_leave_request.add_query("as_of_date", as_of_date)
         return self
 
     def employment_id_list(self, employment_id_list: List[str]) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.employment_id_list = employment_id_list
-        self._leave_balances_leave_request.queries["employment_id_list"] = str(employment_id_list)
+        self._leave_balances_leave_request.add_query("employment_id_list", employment_id_list)
         return self
 
     def user_id_type(self, user_id_type: str) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.user_id_type = user_id_type
-        self._leave_balances_leave_request.queries["user_id_type"] = str(user_id_type)
+        self._leave_balances_leave_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> LeaveBalancesLeaveRequest:

@@ -28,7 +28,7 @@ class CreateContractRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreateContractRequestBuilder":
         self._create_contract_request.client_token = client_token
-        self._create_contract_request.queries["client_token"] = str(client_token)
+        self._create_contract_request.add_query("client_token", client_token)
         return self
 
     def request_body(self, request_body: Contract) -> "CreateContractRequestBuilder":

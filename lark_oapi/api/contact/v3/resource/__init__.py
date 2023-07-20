@@ -8,6 +8,8 @@ from .group import *
 from .group_member import *
 from .job_family import *
 from .job_level import *
+from .job_title import *
 from .scope import *
 from .unit import *
 from .user import *
+from .work_city import *

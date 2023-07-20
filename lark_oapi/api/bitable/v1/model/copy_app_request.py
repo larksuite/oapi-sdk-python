@@ -28,7 +28,7 @@ class CopyAppRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "CopyAppRequestBuilder":
         self._copy_app_request.app_token = app_token
-        self._copy_app_request.paths["app_token"] = app_token
+        self._copy_app_request.paths["app_token"] = str(app_token)
         return self
 
     def request_body(self, request_body: CopyAppRequestBody) -> "CopyAppRequestBuilder":

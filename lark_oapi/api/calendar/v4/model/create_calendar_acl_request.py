@@ -29,12 +29,12 @@ class CreateCalendarAclRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateCalendarAclRequestBuilder":
         self._create_calendar_acl_request.user_id_type = user_id_type
-        self._create_calendar_acl_request.queries["user_id_type"] = str(user_id_type)
+        self._create_calendar_acl_request.add_query("user_id_type", user_id_type)
         return self
 
     def calendar_id(self, calendar_id: str) -> "CreateCalendarAclRequestBuilder":
         self._create_calendar_acl_request.calendar_id = calendar_id
-        self._create_calendar_acl_request.paths["calendar_id"] = calendar_id
+        self._create_calendar_acl_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def request_body(self, request_body: CalendarAcl) -> "CreateCalendarAclRequestBuilder":

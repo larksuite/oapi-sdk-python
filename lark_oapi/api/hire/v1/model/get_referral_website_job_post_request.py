@@ -29,17 +29,17 @@ class GetReferralWebsiteJobPostRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetReferralWebsiteJobPostRequestBuilder":
         self._get_referral_website_job_post_request.user_id_type = user_id_type
-        self._get_referral_website_job_post_request.queries["user_id_type"] = str(user_id_type)
+        self._get_referral_website_job_post_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "GetReferralWebsiteJobPostRequestBuilder":
         self._get_referral_website_job_post_request.department_id_type = department_id_type
-        self._get_referral_website_job_post_request.queries["department_id_type"] = str(department_id_type)
+        self._get_referral_website_job_post_request.add_query("department_id_type", department_id_type)
         return self
 
     def job_post_id(self, job_post_id: str) -> "GetReferralWebsiteJobPostRequestBuilder":
         self._get_referral_website_job_post_request.job_post_id = job_post_id
-        self._get_referral_website_job_post_request.paths["job_post_id"] = job_post_id
+        self._get_referral_website_job_post_request.paths["job_post_id"] = str(job_post_id)
         return self
 
     def build(self) -> GetReferralWebsiteJobPostRequest:

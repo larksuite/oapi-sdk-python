@@ -26,7 +26,7 @@ class GetShiftRequestBuilder(object):
 
     def shift_id(self, shift_id: str) -> "GetShiftRequestBuilder":
         self._get_shift_request.shift_id = shift_id
-        self._get_shift_request.paths["shift_id"] = shift_id
+        self._get_shift_request.paths["shift_id"] = str(shift_id)
         return self
 
     def build(self) -> GetShiftRequest:

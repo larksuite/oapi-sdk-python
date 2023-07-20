@@ -30,17 +30,17 @@ class UpdateOfferRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UpdateOfferRequestBuilder":
         self._update_offer_request.user_id_type = user_id_type
-        self._update_offer_request.queries["user_id_type"] = str(user_id_type)
+        self._update_offer_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "UpdateOfferRequestBuilder":
         self._update_offer_request.department_id_type = department_id_type
-        self._update_offer_request.queries["department_id_type"] = str(department_id_type)
+        self._update_offer_request.add_query("department_id_type", department_id_type)
         return self
 
     def offer_id(self, offer_id: str) -> "UpdateOfferRequestBuilder":
         self._update_offer_request.offer_id = offer_id
-        self._update_offer_request.paths["offer_id"] = offer_id
+        self._update_offer_request.paths["offer_id"] = str(offer_id)
         return self
 
     def request_body(self, request_body: OfferInfo) -> "UpdateOfferRequestBuilder":

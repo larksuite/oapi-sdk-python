@@ -29,22 +29,22 @@ class SearchFaqRequestBuilder(object):
 
     def query(self, query: str) -> "SearchFaqRequestBuilder":
         self._search_faq_request.query = query
-        self._search_faq_request.queries["query"] = str(query)
+        self._search_faq_request.add_query("query", query)
         return self
 
     def base64(self, base64: str) -> "SearchFaqRequestBuilder":
         self._search_faq_request.base64 = base64
-        self._search_faq_request.queries["base64"] = str(base64)
+        self._search_faq_request.add_query("base64", base64)
         return self
 
     def page_token(self, page_token: str) -> "SearchFaqRequestBuilder":
         self._search_faq_request.page_token = page_token
-        self._search_faq_request.queries["page_token"] = str(page_token)
+        self._search_faq_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "SearchFaqRequestBuilder":
         self._search_faq_request.page_size = page_size
-        self._search_faq_request.queries["page_size"] = str(page_size)
+        self._search_faq_request.add_query("page_size", page_size)
         return self
 
     def build(self) -> SearchFaqRequest:

@@ -27,12 +27,12 @@ class DeleteFileRequestBuilder(object):
 
     def type(self, type: str) -> "DeleteFileRequestBuilder":
         self._delete_file_request.type = type
-        self._delete_file_request.queries["type"] = str(type)
+        self._delete_file_request.add_query("type", type)
         return self
 
     def file_token(self, file_token: str) -> "DeleteFileRequestBuilder":
         self._delete_file_request.file_token = file_token
-        self._delete_file_request.paths["file_token"] = file_token
+        self._delete_file_request.paths["file_token"] = str(file_token)
         return self
 
     def build(self) -> DeleteFileRequest:

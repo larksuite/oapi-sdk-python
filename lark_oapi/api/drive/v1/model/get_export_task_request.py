@@ -27,12 +27,12 @@ class GetExportTaskRequestBuilder(object):
 
     def token(self, token: str) -> "GetExportTaskRequestBuilder":
         self._get_export_task_request.token = token
-        self._get_export_task_request.queries["token"] = str(token)
+        self._get_export_task_request.add_query("token", token)
         return self
 
     def ticket(self, ticket: str) -> "GetExportTaskRequestBuilder":
         self._get_export_task_request.ticket = ticket
-        self._get_export_task_request.paths["ticket"] = ticket
+        self._get_export_task_request.paths["ticket"] = str(ticket)
         return self
 
     def build(self) -> GetExportTaskRequest:

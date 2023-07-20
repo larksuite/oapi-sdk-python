@@ -30,12 +30,12 @@ class BatchDeleteAppRoleMemberRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "BatchDeleteAppRoleMemberRequestBuilder":
         self._batch_delete_app_role_member_request.app_token = app_token
-        self._batch_delete_app_role_member_request.paths["app_token"] = app_token
+        self._batch_delete_app_role_member_request.paths["app_token"] = str(app_token)
         return self
 
     def role_id(self, role_id: str) -> "BatchDeleteAppRoleMemberRequestBuilder":
         self._batch_delete_app_role_member_request.role_id = role_id
-        self._batch_delete_app_role_member_request.paths["role_id"] = role_id
+        self._batch_delete_app_role_member_request.paths["role_id"] = str(role_id)
         return self
 
     def request_body(self,

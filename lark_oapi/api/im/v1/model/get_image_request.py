@@ -26,7 +26,7 @@ class GetImageRequestBuilder(object):
 
     def image_key(self, image_key: str) -> "GetImageRequestBuilder":
         self._get_image_request.image_key = image_key
-        self._get_image_request.paths["image_key"] = image_key
+        self._get_image_request.paths["image_key"] = str(image_key)
         return self
 
     def build(self) -> GetImageRequest:

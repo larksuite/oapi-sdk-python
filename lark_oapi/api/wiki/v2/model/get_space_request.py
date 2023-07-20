@@ -26,7 +26,7 @@ class GetSpaceRequestBuilder(object):
 
     def space_id(self, space_id: str) -> "GetSpaceRequestBuilder":
         self._get_space_request.space_id = space_id
-        self._get_space_request.paths["space_id"] = space_id
+        self._get_space_request.paths["space_id"] = str(space_id)
         return self
 
     def build(self) -> GetSpaceRequest:

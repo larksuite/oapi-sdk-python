@@ -28,7 +28,7 @@ class UploadFileRequestBuilder(object):
 
     def file_name(self, file_name: str) -> "UploadFileRequestBuilder":
         self._upload_file_request.file_name = file_name
-        self._upload_file_request.queries["file_name"] = str(file_name)
+        self._upload_file_request.add_query("file_name", file_name)
         return self
 
     def request_body(self, request_body: UploadFileRequestBody) -> "UploadFileRequestBuilder":

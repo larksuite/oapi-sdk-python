@@ -31,27 +31,27 @@ class ListMetricSourceTableItemRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "ListMetricSourceTableItemRequestBuilder":
         self._list_metric_source_table_item_request.user_id_type = user_id_type
-        self._list_metric_source_table_item_request.queries["user_id_type"] = str(user_id_type)
+        self._list_metric_source_table_item_request.add_query("user_id_type", user_id_type)
         return self
 
     def page_token(self, page_token: str) -> "ListMetricSourceTableItemRequestBuilder":
         self._list_metric_source_table_item_request.page_token = page_token
-        self._list_metric_source_table_item_request.queries["page_token"] = str(page_token)
+        self._list_metric_source_table_item_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: str) -> "ListMetricSourceTableItemRequestBuilder":
         self._list_metric_source_table_item_request.page_size = page_size
-        self._list_metric_source_table_item_request.queries["page_size"] = str(page_size)
+        self._list_metric_source_table_item_request.add_query("page_size", page_size)
         return self
 
     def metric_source_id(self, metric_source_id: str) -> "ListMetricSourceTableItemRequestBuilder":
         self._list_metric_source_table_item_request.metric_source_id = metric_source_id
-        self._list_metric_source_table_item_request.paths["metric_source_id"] = metric_source_id
+        self._list_metric_source_table_item_request.paths["metric_source_id"] = str(metric_source_id)
         return self
 
     def metric_table_id(self, metric_table_id: str) -> "ListMetricSourceTableItemRequestBuilder":
         self._list_metric_source_table_item_request.metric_table_id = metric_table_id
-        self._list_metric_source_table_item_request.paths["metric_table_id"] = metric_table_id
+        self._list_metric_source_table_item_request.paths["metric_table_id"] = str(metric_table_id)
         return self
 
     def build(self) -> ListMetricSourceTableItemRequest:

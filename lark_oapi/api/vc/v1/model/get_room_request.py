@@ -27,12 +27,12 @@ class GetRoomRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetRoomRequestBuilder":
         self._get_room_request.user_id_type = user_id_type
-        self._get_room_request.queries["user_id_type"] = str(user_id_type)
+        self._get_room_request.add_query("user_id_type", user_id_type)
         return self
 
     def room_id(self, room_id: str) -> "GetRoomRequestBuilder":
         self._get_room_request.room_id = room_id
-        self._get_room_request.paths["room_id"] = room_id
+        self._get_room_request.paths["room_id"] = str(room_id)
         return self
 
     def build(self) -> GetRoomRequest:

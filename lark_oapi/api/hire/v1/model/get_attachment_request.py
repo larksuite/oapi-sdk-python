@@ -27,12 +27,12 @@ class GetAttachmentRequestBuilder(object):
 
     def type(self, type: int) -> "GetAttachmentRequestBuilder":
         self._get_attachment_request.type = type
-        self._get_attachment_request.queries["type"] = str(type)
+        self._get_attachment_request.add_query("type", type)
         return self
 
     def attachment_id(self, attachment_id: str) -> "GetAttachmentRequestBuilder":
         self._get_attachment_request.attachment_id = attachment_id
-        self._get_attachment_request.paths["attachment_id"] = attachment_id
+        self._get_attachment_request.paths["attachment_id"] = str(attachment_id)
         return self
 
     def build(self) -> GetAttachmentRequest:

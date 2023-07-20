@@ -29,7 +29,7 @@ class CreateTicketMessageRequestBuilder(object):
 
     def ticket_id(self, ticket_id: str) -> "CreateTicketMessageRequestBuilder":
         self._create_ticket_message_request.ticket_id = ticket_id
-        self._create_ticket_message_request.paths["ticket_id"] = ticket_id
+        self._create_ticket_message_request.paths["ticket_id"] = str(ticket_id)
         return self
 
     def request_body(self, request_body: CreateTicketMessageRequestBody) -> "CreateTicketMessageRequestBuilder":

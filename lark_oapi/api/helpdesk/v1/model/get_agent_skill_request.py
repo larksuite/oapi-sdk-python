@@ -26,7 +26,7 @@ class GetAgentSkillRequestBuilder(object):
 
     def agent_skill_id(self, agent_skill_id: str) -> "GetAgentSkillRequestBuilder":
         self._get_agent_skill_request.agent_skill_id = agent_skill_id
-        self._get_agent_skill_request.paths["agent_skill_id"] = agent_skill_id
+        self._get_agent_skill_request.paths["agent_skill_id"] = str(agent_skill_id)
         return self
 
     def build(self) -> GetAgentSkillRequest:

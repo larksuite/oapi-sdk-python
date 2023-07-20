@@ -26,7 +26,7 @@ class GetUnitRequestBuilder(object):
 
     def unit_id(self, unit_id: str) -> "GetUnitRequestBuilder":
         self._get_unit_request.unit_id = unit_id
-        self._get_unit_request.paths["unit_id"] = unit_id
+        self._get_unit_request.paths["unit_id"] = str(unit_id)
         return self
 
     def build(self) -> GetUnitRequest:

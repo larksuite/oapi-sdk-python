@@ -26,7 +26,7 @@ class DeleteCategoryRequestBuilder(object):
 
     def id(self, id: str) -> "DeleteCategoryRequestBuilder":
         self._delete_category_request.id = id
-        self._delete_category_request.paths["id"] = id
+        self._delete_category_request.paths["id"] = str(id)
         return self
 
     def build(self) -> DeleteCategoryRequest:

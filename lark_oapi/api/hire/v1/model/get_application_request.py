@@ -26,7 +26,7 @@ class GetApplicationRequestBuilder(object):
 
     def application_id(self, application_id: str) -> "GetApplicationRequestBuilder":
         self._get_application_request.application_id = application_id
-        self._get_application_request.paths["application_id"] = application_id
+        self._get_application_request.paths["application_id"] = str(application_id)
         return self
 
     def build(self) -> GetApplicationRequest:

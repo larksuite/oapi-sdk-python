@@ -28,7 +28,7 @@ class CreateNotificationRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateNotificationRequestBuilder":
         self._create_notification_request.user_id_type = user_id_type
-        self._create_notification_request.queries["user_id_type"] = str(user_id_type)
+        self._create_notification_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: Notification) -> "CreateNotificationRequestBuilder":

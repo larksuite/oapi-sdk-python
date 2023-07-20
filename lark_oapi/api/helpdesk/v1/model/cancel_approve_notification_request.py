@@ -27,7 +27,7 @@ class CancelApproveNotificationRequestBuilder(object):
 
     def notification_id(self, notification_id: str) -> "CancelApproveNotificationRequestBuilder":
         self._cancel_approve_notification_request.notification_id = notification_id
-        self._cancel_approve_notification_request.paths["notification_id"] = notification_id
+        self._cancel_approve_notification_request.paths["notification_id"] = str(notification_id)
         return self
 
     def build(self) -> CancelApproveNotificationRequest:

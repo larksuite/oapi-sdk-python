@@ -28,7 +28,7 @@ class PatchDataSourceRequestBuilder(object):
 
     def data_source_id(self, data_source_id: str) -> "PatchDataSourceRequestBuilder":
         self._patch_data_source_request.data_source_id = data_source_id
-        self._patch_data_source_request.paths["data_source_id"] = data_source_id
+        self._patch_data_source_request.paths["data_source_id"] = str(data_source_id)
         return self
 
     def request_body(self, request_body: PatchDataSourceRequestBody) -> "PatchDataSourceRequestBuilder":

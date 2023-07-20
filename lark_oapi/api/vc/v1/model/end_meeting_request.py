@@ -26,7 +26,7 @@ class EndMeetingRequestBuilder(object):
 
     def meeting_id(self, meeting_id: int) -> "EndMeetingRequestBuilder":
         self._end_meeting_request.meeting_id = meeting_id
-        self._end_meeting_request.paths["meeting_id"] = meeting_id
+        self._end_meeting_request.paths["meeting_id"] = str(meeting_id)
         return self
 
     def build(self) -> EndMeetingRequest:

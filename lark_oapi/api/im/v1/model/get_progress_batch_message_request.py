@@ -27,7 +27,7 @@ class GetProgressBatchMessageRequestBuilder(object):
 
     def batch_message_id(self, batch_message_id: str) -> "GetProgressBatchMessageRequestBuilder":
         self._get_progress_batch_message_request.batch_message_id = batch_message_id
-        self._get_progress_batch_message_request.paths["batch_message_id"] = batch_message_id
+        self._get_progress_batch_message_request.paths["batch_message_id"] = str(batch_message_id)
         return self
 
     def build(self) -> GetProgressBatchMessageRequest:

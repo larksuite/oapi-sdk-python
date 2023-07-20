@@ -29,22 +29,22 @@ class GetChatModerationRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetChatModerationRequestBuilder":
         self._get_chat_moderation_request.user_id_type = user_id_type
-        self._get_chat_moderation_request.queries["user_id_type"] = str(user_id_type)
+        self._get_chat_moderation_request.add_query("user_id_type", user_id_type)
         return self
 
     def page_size(self, page_size: int) -> "GetChatModerationRequestBuilder":
         self._get_chat_moderation_request.page_size = page_size
-        self._get_chat_moderation_request.queries["page_size"] = str(page_size)
+        self._get_chat_moderation_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "GetChatModerationRequestBuilder":
         self._get_chat_moderation_request.page_token = page_token
-        self._get_chat_moderation_request.queries["page_token"] = str(page_token)
+        self._get_chat_moderation_request.add_query("page_token", page_token)
         return self
 
     def chat_id(self, chat_id: str) -> "GetChatModerationRequestBuilder":
         self._get_chat_moderation_request.chat_id = chat_id
-        self._get_chat_moderation_request.paths["chat_id"] = chat_id
+        self._get_chat_moderation_request.paths["chat_id"] = str(chat_id)
         return self
 
     def build(self) -> GetChatModerationRequest:

@@ -27,12 +27,12 @@ class GetUserRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetUserRequestBuilder":
         self._get_user_request.user_id_type = user_id_type
-        self._get_user_request.queries["user_id_type"] = str(user_id_type)
+        self._get_user_request.add_query("user_id_type", user_id_type)
         return self
 
     def user_id(self, user_id: str) -> "GetUserRequestBuilder":
         self._get_user_request.user_id = user_id
-        self._get_user_request.paths["user_id"] = user_id
+        self._get_user_request.paths["user_id"] = str(user_id)
         return self
 
     def build(self) -> GetUserRequest:

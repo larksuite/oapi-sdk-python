@@ -27,7 +27,7 @@ class GetProcessFormVariableDataRequestBuilder(object):
 
     def process_id(self, process_id: str) -> "GetProcessFormVariableDataRequestBuilder":
         self._get_process_form_variable_data_request.process_id = process_id
-        self._get_process_form_variable_data_request.paths["process_id"] = process_id
+        self._get_process_form_variable_data_request.paths["process_id"] = str(process_id)
         return self
 
     def build(self) -> GetProcessFormVariableDataRequest:

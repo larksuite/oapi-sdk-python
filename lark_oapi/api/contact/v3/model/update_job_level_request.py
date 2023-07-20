@@ -28,7 +28,7 @@ class UpdateJobLevelRequestBuilder(object):
 
     def job_level_id(self, job_level_id: str) -> "UpdateJobLevelRequestBuilder":
         self._update_job_level_request.job_level_id = job_level_id
-        self._update_job_level_request.paths["job_level_id"] = job_level_id
+        self._update_job_level_request.paths["job_level_id"] = str(job_level_id)
         return self
 
     def request_body(self, request_body: JobLevel) -> "UpdateJobLevelRequestBuilder":

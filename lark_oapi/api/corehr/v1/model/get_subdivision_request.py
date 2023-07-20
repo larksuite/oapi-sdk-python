@@ -26,7 +26,7 @@ class GetSubdivisionRequestBuilder(object):
 
     def subdivision_id(self, subdivision_id: str) -> "GetSubdivisionRequestBuilder":
         self._get_subdivision_request.subdivision_id = subdivision_id
-        self._get_subdivision_request.paths["subdivision_id"] = subdivision_id
+        self._get_subdivision_request.paths["subdivision_id"] = str(subdivision_id)
         return self
 
     def build(self) -> GetSubdivisionRequest:

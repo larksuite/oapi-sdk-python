@@ -26,7 +26,7 @@ class GetRoomLevelRequestBuilder(object):
 
     def room_level_id(self, room_level_id: str) -> "GetRoomLevelRequestBuilder":
         self._get_room_level_request.room_level_id = room_level_id
-        self._get_room_level_request.paths["room_level_id"] = room_level_id
+        self._get_room_level_request.paths["room_level_id"] = str(room_level_id)
         return self
 
     def build(self) -> GetRoomLevelRequest:

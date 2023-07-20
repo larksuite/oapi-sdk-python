@@ -28,12 +28,12 @@ class GetByParamCustomFieldRequestBuilder(object):
 
     def custom_api_name(self, custom_api_name: str) -> "GetByParamCustomFieldRequestBuilder":
         self._get_by_param_custom_field_request.custom_api_name = custom_api_name
-        self._get_by_param_custom_field_request.queries["custom_api_name"] = str(custom_api_name)
+        self._get_by_param_custom_field_request.add_query("custom_api_name", custom_api_name)
         return self
 
     def object_api_name(self, object_api_name: str) -> "GetByParamCustomFieldRequestBuilder":
         self._get_by_param_custom_field_request.object_api_name = object_api_name
-        self._get_by_param_custom_field_request.queries["object_api_name"] = str(object_api_name)
+        self._get_by_param_custom_field_request.add_query("object_api_name", object_api_name)
         return self
 
     def build(self) -> GetByParamCustomFieldRequest:

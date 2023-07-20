@@ -26,7 +26,7 @@ class GetExportRequestBuilder(object):
 
     def task_id(self, task_id: str) -> "GetExportRequestBuilder":
         self._get_export_request.task_id = task_id
-        self._get_export_request.paths["task_id"] = task_id
+        self._get_export_request.paths["task_id"] = str(task_id)
         return self
 
     def build(self) -> GetExportRequest:

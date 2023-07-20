@@ -29,22 +29,22 @@ class GetMeetingRequestBuilder(object):
 
     def with_participants(self, with_participants: bool) -> "GetMeetingRequestBuilder":
         self._get_meeting_request.with_participants = with_participants
-        self._get_meeting_request.queries["with_participants"] = str(with_participants)
+        self._get_meeting_request.add_query("with_participants", with_participants)
         return self
 
     def with_meeting_ability(self, with_meeting_ability: bool) -> "GetMeetingRequestBuilder":
         self._get_meeting_request.with_meeting_ability = with_meeting_ability
-        self._get_meeting_request.queries["with_meeting_ability"] = str(with_meeting_ability)
+        self._get_meeting_request.add_query("with_meeting_ability", with_meeting_ability)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetMeetingRequestBuilder":
         self._get_meeting_request.user_id_type = user_id_type
-        self._get_meeting_request.queries["user_id_type"] = str(user_id_type)
+        self._get_meeting_request.add_query("user_id_type", user_id_type)
         return self
 
     def meeting_id(self, meeting_id: int) -> "GetMeetingRequestBuilder":
         self._get_meeting_request.meeting_id = meeting_id
-        self._get_meeting_request.paths["meeting_id"] = meeting_id
+        self._get_meeting_request.paths["meeting_id"] = str(meeting_id)
         return self
 
     def build(self) -> GetMeetingRequest:

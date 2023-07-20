@@ -29,12 +29,12 @@ class PatchAppTableRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "PatchAppTableRequestBuilder":
         self._patch_app_table_request.app_token = app_token
-        self._patch_app_table_request.paths["app_token"] = app_token
+        self._patch_app_table_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "PatchAppTableRequestBuilder":
         self._patch_app_table_request.table_id = table_id
-        self._patch_app_table_request.paths["table_id"] = table_id
+        self._patch_app_table_request.paths["table_id"] = str(table_id)
         return self
 
     def request_body(self, request_body: PatchAppTableRequestBody) -> "PatchAppTableRequestBuilder":

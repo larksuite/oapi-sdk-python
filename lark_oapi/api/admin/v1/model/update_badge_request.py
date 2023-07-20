@@ -28,7 +28,7 @@ class UpdateBadgeRequestBuilder(object):
 
     def badge_id(self, badge_id: str) -> "UpdateBadgeRequestBuilder":
         self._update_badge_request.badge_id = badge_id
-        self._update_badge_request.paths["badge_id"] = badge_id
+        self._update_badge_request.paths["badge_id"] = str(badge_id)
         return self
 
     def request_body(self, request_body: Badge) -> "UpdateBadgeRequestBuilder":

@@ -26,7 +26,7 @@ class DeleteFaqRequestBuilder(object):
 
     def id(self, id: str) -> "DeleteFaqRequestBuilder":
         self._delete_faq_request.id = id
-        self._delete_faq_request.paths["id"] = id
+        self._delete_faq_request.paths["id"] = str(id)
         return self
 
     def build(self) -> DeleteFaqRequest:

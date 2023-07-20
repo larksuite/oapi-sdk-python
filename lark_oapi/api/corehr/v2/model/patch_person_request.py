@@ -29,12 +29,12 @@ class PatchPersonRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "PatchPersonRequestBuilder":
         self._patch_person_request.client_token = client_token
-        self._patch_person_request.queries["client_token"] = str(client_token)
+        self._patch_person_request.add_query("client_token", client_token)
         return self
 
     def person_id(self, person_id: str) -> "PatchPersonRequestBuilder":
         self._patch_person_request.person_id = person_id
-        self._patch_person_request.paths["person_id"] = person_id
+        self._patch_person_request.paths["person_id"] = str(person_id)
         return self
 
     def request_body(self, request_body: PersonInfo) -> "PatchPersonRequestBuilder":

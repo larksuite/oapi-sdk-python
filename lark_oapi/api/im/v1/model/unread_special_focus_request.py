@@ -28,7 +28,7 @@ class UnreadSpecialFocusRequestBuilder(object):
 
     def member_id_type(self, member_id_type: str) -> "UnreadSpecialFocusRequestBuilder":
         self._unread_special_focus_request.member_id_type = member_id_type
-        self._unread_special_focus_request.queries["member_id_type"] = str(member_id_type)
+        self._unread_special_focus_request.add_query("member_id_type", member_id_type)
         return self
 
     def request_body(self, request_body: UnreadSpecialFocusRequestBody) -> "UnreadSpecialFocusRequestBuilder":

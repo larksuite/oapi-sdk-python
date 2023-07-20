@@ -6,7 +6,7 @@ from lark_oapi.core.construct import init
 from .basic_job_data import BasicJobData
 from .custom_field_data import CustomFieldData
 from .enum import Enum
-from .support_cost_center_item import SupportCostCenterItem
+from .job_data_cost_center import JobDataCostCenter
 
 
 class JobData(object):
@@ -32,7 +32,7 @@ class JobData(object):
         "direct_manager": BasicJobData,
         "dotted_line_managers": List[BasicJobData],
         "second_direct_manager": BasicJobData,
-        "cost_center_rates": List[SupportCostCenterItem],
+        "cost_center_rates": List[JobDataCostCenter],
         "custom_fields": List[CustomFieldData],
     }
 
@@ -58,7 +58,7 @@ class JobData(object):
         self.direct_manager: Optional[BasicJobData] = None
         self.dotted_line_managers: Optional[List[BasicJobData]] = None
         self.second_direct_manager: Optional[BasicJobData] = None
-        self.cost_center_rates: Optional[List[SupportCostCenterItem]] = None
+        self.cost_center_rates: Optional[List[JobDataCostCenter]] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
@@ -155,7 +155,7 @@ class JobDataBuilder(object):
         self._job_data.second_direct_manager = second_direct_manager
         return self
 
-    def cost_center_rates(self, cost_center_rates: List[SupportCostCenterItem]) -> "JobDataBuilder":
+    def cost_center_rates(self, cost_center_rates: List[JobDataCostCenter]) -> "JobDataBuilder":
         self._job_data.cost_center_rates = cost_center_rates
         return self
 

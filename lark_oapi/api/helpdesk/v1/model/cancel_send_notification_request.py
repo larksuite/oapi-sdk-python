@@ -29,7 +29,7 @@ class CancelSendNotificationRequestBuilder(object):
 
     def notification_id(self, notification_id: str) -> "CancelSendNotificationRequestBuilder":
         self._cancel_send_notification_request.notification_id = notification_id
-        self._cancel_send_notification_request.paths["notification_id"] = notification_id
+        self._cancel_send_notification_request.paths["notification_id"] = str(notification_id)
         return self
 
     def request_body(self, request_body: CancelSendNotificationRequestBody) -> "CancelSendNotificationRequestBuilder":

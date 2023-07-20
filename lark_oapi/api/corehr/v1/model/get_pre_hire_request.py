@@ -26,7 +26,7 @@ class GetPreHireRequestBuilder(object):
 
     def pre_hire_id(self, pre_hire_id: str) -> "GetPreHireRequestBuilder":
         self._get_pre_hire_request.pre_hire_id = pre_hire_id
-        self._get_pre_hire_request.paths["pre_hire_id"] = pre_hire_id
+        self._get_pre_hire_request.paths["pre_hire_id"] = str(pre_hire_id)
         return self
 
     def build(self) -> GetPreHireRequest:

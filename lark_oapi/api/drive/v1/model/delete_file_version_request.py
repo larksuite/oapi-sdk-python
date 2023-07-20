@@ -29,22 +29,22 @@ class DeleteFileVersionRequestBuilder(object):
 
     def obj_type(self, obj_type: str) -> "DeleteFileVersionRequestBuilder":
         self._delete_file_version_request.obj_type = obj_type
-        self._delete_file_version_request.queries["obj_type"] = str(obj_type)
+        self._delete_file_version_request.add_query("obj_type", obj_type)
         return self
 
     def user_id_type(self, user_id_type: str) -> "DeleteFileVersionRequestBuilder":
         self._delete_file_version_request.user_id_type = user_id_type
-        self._delete_file_version_request.queries["user_id_type"] = str(user_id_type)
+        self._delete_file_version_request.add_query("user_id_type", user_id_type)
         return self
 
     def file_token(self, file_token: str) -> "DeleteFileVersionRequestBuilder":
         self._delete_file_version_request.file_token = file_token
-        self._delete_file_version_request.paths["file_token"] = file_token
+        self._delete_file_version_request.paths["file_token"] = str(file_token)
         return self
 
     def version_id(self, version_id: str) -> "DeleteFileVersionRequestBuilder":
         self._delete_file_version_request.version_id = version_id
-        self._delete_file_version_request.paths["version_id"] = version_id
+        self._delete_file_version_request.paths["version_id"] = str(version_id)
         return self
 
     def build(self) -> DeleteFileVersionRequest:

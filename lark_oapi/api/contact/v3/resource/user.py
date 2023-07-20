@@ -20,6 +20,8 @@ from lark_oapi.api.contact.v3.model.patch_user_request import PatchUserRequest
 from lark_oapi.api.contact.v3.model.patch_user_response import PatchUserResponse
 from lark_oapi.api.contact.v3.model.resurrect_user_request import ResurrectUserRequest
 from lark_oapi.api.contact.v3.model.resurrect_user_response import ResurrectUserResponse
+from lark_oapi.api.contact.v3.model.update_user_id_user_request import UpdateUserIdUserRequest
+from lark_oapi.api.contact.v3.model.update_user_id_user_response import UpdateUserIdUserResponse
 from lark_oapi.api.contact.v3.model.update_user_request import UpdateUserRequest
 from lark_oapi.api.contact.v3.model.update_user_response import UpdateUserResponse
 from lark_oapi.core import JSON
@@ -162,6 +164,20 @@ class User(object):
 
         # 反序列化
         response: UpdateUserResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserResponse)
+        response.raw = resp
+
+        return response
+
+    def update_user_id(self, request: UpdateUserIdUserRequest,
+                       option: RequestOption = RequestOption()) -> UpdateUserIdUserResponse:
+        # 鉴权、获取token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateUserIdUserResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserIdUserResponse)
         response.raw = resp
 
         return response

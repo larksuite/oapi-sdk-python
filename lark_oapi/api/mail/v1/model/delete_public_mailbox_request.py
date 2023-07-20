@@ -27,7 +27,7 @@ class DeletePublicMailboxRequestBuilder(object):
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "DeletePublicMailboxRequestBuilder":
         self._delete_public_mailbox_request.public_mailbox_id = public_mailbox_id
-        self._delete_public_mailbox_request.paths["public_mailbox_id"] = public_mailbox_id
+        self._delete_public_mailbox_request.paths["public_mailbox_id"] = str(public_mailbox_id)
         return self
 
     def build(self) -> DeletePublicMailboxRequest:

@@ -26,7 +26,7 @@ class GetImportTaskRequestBuilder(object):
 
     def ticket(self, ticket: str) -> "GetImportTaskRequestBuilder":
         self._get_import_task_request.ticket = ticket
-        self._get_import_task_request.paths["ticket"] = ticket
+        self._get_import_task_request.paths["ticket"] = str(ticket)
         return self
 
     def build(self) -> GetImportTaskRequest:

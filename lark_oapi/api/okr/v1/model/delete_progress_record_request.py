@@ -27,7 +27,7 @@ class DeleteProgressRecordRequestBuilder(object):
 
     def progress_id(self, progress_id: int) -> "DeleteProgressRecordRequestBuilder":
         self._delete_progress_record_request.progress_id = progress_id
-        self._delete_progress_record_request.paths["progress_id"] = progress_id
+        self._delete_progress_record_request.paths["progress_id"] = str(progress_id)
         return self
 
     def build(self) -> DeleteProgressRecordRequest:

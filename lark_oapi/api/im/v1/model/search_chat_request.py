@@ -29,22 +29,22 @@ class SearchChatRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "SearchChatRequestBuilder":
         self._search_chat_request.user_id_type = user_id_type
-        self._search_chat_request.queries["user_id_type"] = str(user_id_type)
+        self._search_chat_request.add_query("user_id_type", user_id_type)
         return self
 
     def query(self, query: str) -> "SearchChatRequestBuilder":
         self._search_chat_request.query = query
-        self._search_chat_request.queries["query"] = str(query)
+        self._search_chat_request.add_query("query", query)
         return self
 
     def page_token(self, page_token: str) -> "SearchChatRequestBuilder":
         self._search_chat_request.page_token = page_token
-        self._search_chat_request.queries["page_token"] = str(page_token)
+        self._search_chat_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "SearchChatRequestBuilder":
         self._search_chat_request.page_size = page_size
-        self._search_chat_request.queries["page_size"] = str(page_size)
+        self._search_chat_request.add_query("page_size", page_size)
         return self
 
     def build(self) -> SearchChatRequest:

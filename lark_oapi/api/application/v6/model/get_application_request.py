@@ -28,17 +28,17 @@ class GetApplicationRequestBuilder(object):
 
     def lang(self, lang: str) -> "GetApplicationRequestBuilder":
         self._get_application_request.lang = lang
-        self._get_application_request.queries["lang"] = str(lang)
+        self._get_application_request.add_query("lang", lang)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetApplicationRequestBuilder":
         self._get_application_request.user_id_type = user_id_type
-        self._get_application_request.queries["user_id_type"] = str(user_id_type)
+        self._get_application_request.add_query("user_id_type", user_id_type)
         return self
 
     def app_id(self, app_id: str) -> "GetApplicationRequestBuilder":
         self._get_application_request.app_id = app_id
-        self._get_application_request.paths["app_id"] = app_id
+        self._get_application_request.paths["app_id"] = str(app_id)
         return self
 
     def build(self) -> GetApplicationRequest:

@@ -29,12 +29,12 @@ class PatchContractRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "PatchContractRequestBuilder":
         self._patch_contract_request.client_token = client_token
-        self._patch_contract_request.queries["client_token"] = str(client_token)
+        self._patch_contract_request.add_query("client_token", client_token)
         return self
 
     def contract_id(self, contract_id: str) -> "PatchContractRequestBuilder":
         self._patch_contract_request.contract_id = contract_id
-        self._patch_contract_request.paths["contract_id"] = contract_id
+        self._patch_contract_request.paths["contract_id"] = str(contract_id)
         return self
 
     def request_body(self, request_body: Contract) -> "PatchContractRequestBuilder":

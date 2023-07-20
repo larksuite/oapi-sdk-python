@@ -27,7 +27,7 @@ class ClearPublicMailboxMemberRequestBuilder(object):
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "ClearPublicMailboxMemberRequestBuilder":
         self._clear_public_mailbox_member_request.public_mailbox_id = public_mailbox_id
-        self._clear_public_mailbox_member_request.paths["public_mailbox_id"] = public_mailbox_id
+        self._clear_public_mailbox_member_request.paths["public_mailbox_id"] = str(public_mailbox_id)
         return self
 
     def build(self) -> ClearPublicMailboxMemberRequest:

@@ -31,17 +31,17 @@ class CreateMailgroupPermissionMemberRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateMailgroupPermissionMemberRequestBuilder":
         self._create_mailgroup_permission_member_request.user_id_type = user_id_type
-        self._create_mailgroup_permission_member_request.queries["user_id_type"] = str(user_id_type)
+        self._create_mailgroup_permission_member_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "CreateMailgroupPermissionMemberRequestBuilder":
         self._create_mailgroup_permission_member_request.department_id_type = department_id_type
-        self._create_mailgroup_permission_member_request.queries["department_id_type"] = str(department_id_type)
+        self._create_mailgroup_permission_member_request.add_query("department_id_type", department_id_type)
         return self
 
     def mailgroup_id(self, mailgroup_id: str) -> "CreateMailgroupPermissionMemberRequestBuilder":
         self._create_mailgroup_permission_member_request.mailgroup_id = mailgroup_id
-        self._create_mailgroup_permission_member_request.paths["mailgroup_id"] = mailgroup_id
+        self._create_mailgroup_permission_member_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def request_body(self, request_body: MailgroupPermissionMember) -> "CreateMailgroupPermissionMemberRequestBuilder":

@@ -29,17 +29,17 @@ class ListMetricSourceTableRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListMetricSourceTableRequestBuilder":
         self._list_metric_source_table_request.page_token = page_token
-        self._list_metric_source_table_request.queries["page_token"] = str(page_token)
+        self._list_metric_source_table_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: str) -> "ListMetricSourceTableRequestBuilder":
         self._list_metric_source_table_request.page_size = page_size
-        self._list_metric_source_table_request.queries["page_size"] = str(page_size)
+        self._list_metric_source_table_request.add_query("page_size", page_size)
         return self
 
     def metric_source_id(self, metric_source_id: str) -> "ListMetricSourceTableRequestBuilder":
         self._list_metric_source_table_request.metric_source_id = metric_source_id
-        self._list_metric_source_table_request.paths["metric_source_id"] = metric_source_id
+        self._list_metric_source_table_request.paths["metric_source_id"] = str(metric_source_id)
         return self
 
     def build(self) -> ListMetricSourceTableRequest:

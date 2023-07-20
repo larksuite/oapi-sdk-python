@@ -29,12 +29,12 @@ class QueryUserFlowRequestBuilder(object):
 
     def employee_type(self, employee_type: str) -> "QueryUserFlowRequestBuilder":
         self._query_user_flow_request.employee_type = employee_type
-        self._query_user_flow_request.queries["employee_type"] = str(employee_type)
+        self._query_user_flow_request.add_query("employee_type", employee_type)
         return self
 
     def include_terminated_user(self, include_terminated_user: bool) -> "QueryUserFlowRequestBuilder":
         self._query_user_flow_request.include_terminated_user = include_terminated_user
-        self._query_user_flow_request.queries["include_terminated_user"] = str(include_terminated_user)
+        self._query_user_flow_request.add_query("include_terminated_user", include_terminated_user)
         return self
 
     def request_body(self, request_body: QueryUserFlowRequestBody) -> "QueryUserFlowRequestBuilder":

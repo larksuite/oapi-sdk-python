@@ -26,7 +26,7 @@ class DeleteTaskRequestBuilder(object):
 
     def task_id(self, task_id: str) -> "DeleteTaskRequestBuilder":
         self._delete_task_request.task_id = task_id
-        self._delete_task_request.paths["task_id"] = task_id
+        self._delete_task_request.paths["task_id"] = str(task_id)
         return self
 
     def build(self) -> DeleteTaskRequest:

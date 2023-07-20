@@ -29,12 +29,12 @@ class CreateOfferRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateOfferRequestBuilder":
         self._create_offer_request.user_id_type = user_id_type
-        self._create_offer_request.queries["user_id_type"] = str(user_id_type)
+        self._create_offer_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "CreateOfferRequestBuilder":
         self._create_offer_request.department_id_type = department_id_type
-        self._create_offer_request.queries["department_id_type"] = str(department_id_type)
+        self._create_offer_request.add_query("department_id_type", department_id_type)
         return self
 
     def request_body(self, request_body: OfferInfo) -> "CreateOfferRequestBuilder":

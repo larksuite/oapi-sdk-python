@@ -28,7 +28,7 @@ class CreateAppTableRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "CreateAppTableRequestBuilder":
         self._create_app_table_request.app_token = app_token
-        self._create_app_table_request.paths["app_token"] = app_token
+        self._create_app_table_request.paths["app_token"] = str(app_token)
         return self
 
     def request_body(self, request_body: CreateAppTableRequestBody) -> "CreateAppTableRequestBuilder":

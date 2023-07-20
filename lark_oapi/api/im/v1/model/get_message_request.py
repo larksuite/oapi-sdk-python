@@ -26,7 +26,7 @@ class GetMessageRequestBuilder(object):
 
     def message_id(self, message_id: str) -> "GetMessageRequestBuilder":
         self._get_message_request.message_id = message_id
-        self._get_message_request.paths["message_id"] = message_id
+        self._get_message_request.paths["message_id"] = str(message_id)
         return self
 
     def build(self) -> GetMessageRequest:

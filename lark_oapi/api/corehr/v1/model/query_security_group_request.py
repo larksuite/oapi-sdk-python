@@ -28,7 +28,7 @@ class QuerySecurityGroupRequestBuilder(object):
 
     def department_id_type(self, department_id_type: str) -> "QuerySecurityGroupRequestBuilder":
         self._query_security_group_request.department_id_type = department_id_type
-        self._query_security_group_request.queries["department_id_type"] = str(department_id_type)
+        self._query_security_group_request.add_query("department_id_type", department_id_type)
         return self
 
     def request_body(self, request_body: QuerySecurityGroupRequestBody) -> "QuerySecurityGroupRequestBuilder":

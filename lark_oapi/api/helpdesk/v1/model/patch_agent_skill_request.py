@@ -28,7 +28,7 @@ class PatchAgentSkillRequestBuilder(object):
 
     def agent_skill_id(self, agent_skill_id: str) -> "PatchAgentSkillRequestBuilder":
         self._patch_agent_skill_request.agent_skill_id = agent_skill_id
-        self._patch_agent_skill_request.paths["agent_skill_id"] = agent_skill_id
+        self._patch_agent_skill_request.paths["agent_skill_id"] = str(agent_skill_id)
         return self
 
     def request_body(self, request_body: PatchAgentSkillRequestBody) -> "PatchAgentSkillRequestBuilder":

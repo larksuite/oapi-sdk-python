@@ -29,12 +29,12 @@ class CreateGroupRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.user_id_type = user_id_type
-        self._create_group_request.queries["user_id_type"] = str(user_id_type)
+        self._create_group_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "CreateGroupRequestBuilder":
         self._create_group_request.department_id_type = department_id_type
-        self._create_group_request.queries["department_id_type"] = str(department_id_type)
+        self._create_group_request.add_query("department_id_type", department_id_type)
         return self
 
     def request_body(self, request_body: Group) -> "CreateGroupRequestBuilder":

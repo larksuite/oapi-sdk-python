@@ -28,12 +28,12 @@ class DeleteDataSourceItemRequestBuilder(object):
 
     def data_source_id(self, data_source_id: str) -> "DeleteDataSourceItemRequestBuilder":
         self._delete_data_source_item_request.data_source_id = data_source_id
-        self._delete_data_source_item_request.paths["data_source_id"] = data_source_id
+        self._delete_data_source_item_request.paths["data_source_id"] = str(data_source_id)
         return self
 
     def item_id(self, item_id: str) -> "DeleteDataSourceItemRequestBuilder":
         self._delete_data_source_item_request.item_id = item_id
-        self._delete_data_source_item_request.paths["item_id"] = item_id
+        self._delete_data_source_item_request.paths["item_id"] = str(item_id)
         return self
 
     def build(self) -> DeleteDataSourceItemRequest:

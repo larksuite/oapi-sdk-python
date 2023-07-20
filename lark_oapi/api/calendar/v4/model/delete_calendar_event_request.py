@@ -29,17 +29,17 @@ class DeleteCalendarEventRequestBuilder(object):
 
     def need_notification(self, need_notification: bool) -> "DeleteCalendarEventRequestBuilder":
         self._delete_calendar_event_request.need_notification = need_notification
-        self._delete_calendar_event_request.queries["need_notification"] = str(need_notification)
+        self._delete_calendar_event_request.add_query("need_notification", need_notification)
         return self
 
     def calendar_id(self, calendar_id: str) -> "DeleteCalendarEventRequestBuilder":
         self._delete_calendar_event_request.calendar_id = calendar_id
-        self._delete_calendar_event_request.paths["calendar_id"] = calendar_id
+        self._delete_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def event_id(self, event_id: str) -> "DeleteCalendarEventRequestBuilder":
         self._delete_calendar_event_request.event_id = event_id
-        self._delete_calendar_event_request.paths["event_id"] = event_id
+        self._delete_calendar_event_request.paths["event_id"] = str(event_id)
         return self
 
     def build(self) -> DeleteCalendarEventRequest:

@@ -28,12 +28,12 @@ class DeletePublicMailboxAliasRequestBuilder(object):
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "DeletePublicMailboxAliasRequestBuilder":
         self._delete_public_mailbox_alias_request.public_mailbox_id = public_mailbox_id
-        self._delete_public_mailbox_alias_request.paths["public_mailbox_id"] = public_mailbox_id
+        self._delete_public_mailbox_alias_request.paths["public_mailbox_id"] = str(public_mailbox_id)
         return self
 
     def alias_id(self, alias_id: str) -> "DeletePublicMailboxAliasRequestBuilder":
         self._delete_public_mailbox_alias_request.alias_id = alias_id
-        self._delete_public_mailbox_alias_request.paths["alias_id"] = alias_id
+        self._delete_public_mailbox_alias_request.paths["alias_id"] = str(alias_id)
         return self
 
     def build(self) -> DeletePublicMailboxAliasRequest:

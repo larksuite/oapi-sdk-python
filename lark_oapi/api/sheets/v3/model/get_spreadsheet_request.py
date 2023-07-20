@@ -27,12 +27,12 @@ class GetSpreadsheetRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetSpreadsheetRequestBuilder":
         self._get_spreadsheet_request.user_id_type = user_id_type
-        self._get_spreadsheet_request.queries["user_id_type"] = str(user_id_type)
+        self._get_spreadsheet_request.add_query("user_id_type", user_id_type)
         return self
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "GetSpreadsheetRequestBuilder":
         self._get_spreadsheet_request.spreadsheet_token = spreadsheet_token
-        self._get_spreadsheet_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._get_spreadsheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def build(self) -> GetSpreadsheetRequest:

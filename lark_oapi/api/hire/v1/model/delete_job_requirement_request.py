@@ -27,7 +27,7 @@ class DeleteJobRequirementRequestBuilder(object):
 
     def job_requirement_id(self, job_requirement_id: str) -> "DeleteJobRequirementRequestBuilder":
         self._delete_job_requirement_request.job_requirement_id = job_requirement_id
-        self._delete_job_requirement_request.paths["job_requirement_id"] = job_requirement_id
+        self._delete_job_requirement_request.paths["job_requirement_id"] = str(job_requirement_id)
         return self
 
     def build(self) -> DeleteJobRequirementRequest:

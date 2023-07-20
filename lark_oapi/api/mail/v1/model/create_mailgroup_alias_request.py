@@ -29,7 +29,7 @@ class CreateMailgroupAliasRequestBuilder(object):
 
     def mailgroup_id(self, mailgroup_id: str) -> "CreateMailgroupAliasRequestBuilder":
         self._create_mailgroup_alias_request.mailgroup_id = mailgroup_id
-        self._create_mailgroup_alias_request.paths["mailgroup_id"] = mailgroup_id
+        self._create_mailgroup_alias_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def request_body(self, request_body: EmailAlias) -> "CreateMailgroupAliasRequestBuilder":

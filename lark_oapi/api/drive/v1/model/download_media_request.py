@@ -27,12 +27,12 @@ class DownloadMediaRequestBuilder(object):
 
     def extra(self, extra: str) -> "DownloadMediaRequestBuilder":
         self._download_media_request.extra = extra
-        self._download_media_request.queries["extra"] = str(extra)
+        self._download_media_request.add_query("extra", extra)
         return self
 
     def file_token(self, file_token: str) -> "DownloadMediaRequestBuilder":
         self._download_media_request.file_token = file_token
-        self._download_media_request.paths["file_token"] = file_token
+        self._download_media_request.paths["file_token"] = str(file_token)
         return self
 
     def build(self) -> DownloadMediaRequest:

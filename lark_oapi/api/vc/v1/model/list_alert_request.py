@@ -31,32 +31,32 @@ class ListAlertRequestBuilder(object):
 
     def start_time(self, start_time: int) -> "ListAlertRequestBuilder":
         self._list_alert_request.start_time = start_time
-        self._list_alert_request.queries["start_time"] = str(start_time)
+        self._list_alert_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: int) -> "ListAlertRequestBuilder":
         self._list_alert_request.end_time = end_time
-        self._list_alert_request.queries["end_time"] = str(end_time)
+        self._list_alert_request.add_query("end_time", end_time)
         return self
 
     def query_type(self, query_type: int) -> "ListAlertRequestBuilder":
         self._list_alert_request.query_type = query_type
-        self._list_alert_request.queries["query_type"] = str(query_type)
+        self._list_alert_request.add_query("query_type", query_type)
         return self
 
     def query_value(self, query_value: str) -> "ListAlertRequestBuilder":
         self._list_alert_request.query_value = query_value
-        self._list_alert_request.queries["query_value"] = str(query_value)
+        self._list_alert_request.add_query("query_value", query_value)
         return self
 
     def page_size(self, page_size: int) -> "ListAlertRequestBuilder":
         self._list_alert_request.page_size = page_size
-        self._list_alert_request.queries["page_size"] = str(page_size)
+        self._list_alert_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListAlertRequestBuilder":
         self._list_alert_request.page_token = page_token
-        self._list_alert_request.queries["page_token"] = str(page_token)
+        self._list_alert_request.add_query("page_token", page_token)
         return self
 
     def build(self) -> ListAlertRequest:

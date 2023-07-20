@@ -26,7 +26,7 @@ class MeJoinChatMembersRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "MeJoinChatMembersRequestBuilder":
         self._me_join_chat_members_request.chat_id = chat_id
-        self._me_join_chat_members_request.paths["chat_id"] = chat_id
+        self._me_join_chat_members_request.paths["chat_id"] = str(chat_id)
         return self
 
     def build(self) -> MeJoinChatMembersRequest:

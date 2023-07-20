@@ -26,7 +26,7 @@ class DeleteGroupRequestBuilder(object):
 
     def group_id(self, group_id: str) -> "DeleteGroupRequestBuilder":
         self._delete_group_request.group_id = group_id
-        self._delete_group_request.paths["group_id"] = group_id
+        self._delete_group_request.paths["group_id"] = str(group_id)
         return self
 
     def build(self) -> DeleteGroupRequest:

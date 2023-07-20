@@ -28,12 +28,12 @@ class DeleteMessageReactionRequestBuilder(object):
 
     def message_id(self, message_id: str) -> "DeleteMessageReactionRequestBuilder":
         self._delete_message_reaction_request.message_id = message_id
-        self._delete_message_reaction_request.paths["message_id"] = message_id
+        self._delete_message_reaction_request.paths["message_id"] = str(message_id)
         return self
 
     def reaction_id(self, reaction_id: str) -> "DeleteMessageReactionRequestBuilder":
         self._delete_message_reaction_request.reaction_id = reaction_id
-        self._delete_message_reaction_request.paths["reaction_id"] = reaction_id
+        self._delete_message_reaction_request.paths["reaction_id"] = str(reaction_id)
         return self
 
     def build(self) -> DeleteMessageReactionRequest:

@@ -28,7 +28,7 @@ class PatchMailgroupRequestBuilder(object):
 
     def mailgroup_id(self, mailgroup_id: str) -> "PatchMailgroupRequestBuilder":
         self._patch_mailgroup_request.mailgroup_id = mailgroup_id
-        self._patch_mailgroup_request.paths["mailgroup_id"] = mailgroup_id
+        self._patch_mailgroup_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
 
     def request_body(self, request_body: Mailgroup) -> "PatchMailgroupRequestBuilder":

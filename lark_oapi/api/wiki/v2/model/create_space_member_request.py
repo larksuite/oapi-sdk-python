@@ -29,12 +29,12 @@ class CreateSpaceMemberRequestBuilder(object):
 
     def need_notification(self, need_notification: bool) -> "CreateSpaceMemberRequestBuilder":
         self._create_space_member_request.need_notification = need_notification
-        self._create_space_member_request.queries["need_notification"] = str(need_notification)
+        self._create_space_member_request.add_query("need_notification", need_notification)
         return self
 
     def space_id(self, space_id: str) -> "CreateSpaceMemberRequestBuilder":
         self._create_space_member_request.space_id = space_id
-        self._create_space_member_request.paths["space_id"] = space_id
+        self._create_space_member_request.paths["space_id"] = str(space_id)
         return self
 
     def request_body(self, request_body: Member) -> "CreateSpaceMemberRequestBuilder":

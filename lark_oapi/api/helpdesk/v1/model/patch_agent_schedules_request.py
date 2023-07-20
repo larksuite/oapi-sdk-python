@@ -29,7 +29,7 @@ class PatchAgentSchedulesRequestBuilder(object):
 
     def agent_id(self, agent_id: str) -> "PatchAgentSchedulesRequestBuilder":
         self._patch_agent_schedules_request.agent_id = agent_id
-        self._patch_agent_schedules_request.paths["agent_id"] = agent_id
+        self._patch_agent_schedules_request.paths["agent_id"] = str(agent_id)
         return self
 
     def request_body(self, request_body: PatchAgentSchedulesRequestBody) -> "PatchAgentSchedulesRequestBuilder":

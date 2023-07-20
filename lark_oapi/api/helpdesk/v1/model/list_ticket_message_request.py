@@ -30,27 +30,27 @@ class ListTicketMessageRequestBuilder(object):
 
     def time_start(self, time_start: int) -> "ListTicketMessageRequestBuilder":
         self._list_ticket_message_request.time_start = time_start
-        self._list_ticket_message_request.queries["time_start"] = str(time_start)
+        self._list_ticket_message_request.add_query("time_start", time_start)
         return self
 
     def time_end(self, time_end: int) -> "ListTicketMessageRequestBuilder":
         self._list_ticket_message_request.time_end = time_end
-        self._list_ticket_message_request.queries["time_end"] = str(time_end)
+        self._list_ticket_message_request.add_query("time_end", time_end)
         return self
 
     def page(self, page: int) -> "ListTicketMessageRequestBuilder":
         self._list_ticket_message_request.page = page
-        self._list_ticket_message_request.queries["page"] = str(page)
+        self._list_ticket_message_request.add_query("page", page)
         return self
 
     def page_size(self, page_size: int) -> "ListTicketMessageRequestBuilder":
         self._list_ticket_message_request.page_size = page_size
-        self._list_ticket_message_request.queries["page_size"] = str(page_size)
+        self._list_ticket_message_request.add_query("page_size", page_size)
         return self
 
     def ticket_id(self, ticket_id: str) -> "ListTicketMessageRequestBuilder":
         self._list_ticket_message_request.ticket_id = ticket_id
-        self._list_ticket_message_request.paths["ticket_id"] = ticket_id
+        self._list_ticket_message_request.paths["ticket_id"] = str(ticket_id)
         return self
 
     def build(self) -> ListTicketMessageRequest:

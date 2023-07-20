@@ -27,7 +27,7 @@ class DeleteFunctionalRoleRequestBuilder(object):
 
     def role_id(self, role_id: str) -> "DeleteFunctionalRoleRequestBuilder":
         self._delete_functional_role_request.role_id = role_id
-        self._delete_functional_role_request.paths["role_id"] = role_id
+        self._delete_functional_role_request.paths["role_id"] = str(role_id)
         return self
 
     def build(self) -> DeleteFunctionalRoleRequest:

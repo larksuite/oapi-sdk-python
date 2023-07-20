@@ -30,12 +30,12 @@ class BatchCreateAppTableRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "BatchCreateAppTableRequestBuilder":
         self._batch_create_app_table_request.user_id_type = user_id_type
-        self._batch_create_app_table_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_create_app_table_request.add_query("user_id_type", user_id_type)
         return self
 
     def app_token(self, app_token: str) -> "BatchCreateAppTableRequestBuilder":
         self._batch_create_app_table_request.app_token = app_token
-        self._batch_create_app_table_request.paths["app_token"] = app_token
+        self._batch_create_app_table_request.paths["app_token"] = str(app_token)
         return self
 
     def request_body(self, request_body: BatchCreateAppTableRequestBody) -> "BatchCreateAppTableRequestBuilder":

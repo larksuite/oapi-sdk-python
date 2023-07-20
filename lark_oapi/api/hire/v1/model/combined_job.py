@@ -38,6 +38,7 @@ class CombinedJob(object):
         "job_attribute": int,
         "expiry_timestamp": str,
         "interview_registration_schema_id": str,
+        "onboard_registration_schema_id": str,
     }
 
     def __init__(self, d):
@@ -71,6 +72,7 @@ class CombinedJob(object):
         self.job_attribute: Optional[int] = None
         self.expiry_timestamp: Optional[str] = None
         self.interview_registration_schema_id: Optional[str] = None
+        self.onboard_registration_schema_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -196,6 +198,10 @@ class CombinedJobBuilder(object):
 
     def interview_registration_schema_id(self, interview_registration_schema_id: str) -> "CombinedJobBuilder":
         self._combined_job.interview_registration_schema_id = interview_registration_schema_id
+        return self
+
+    def onboard_registration_schema_id(self, onboard_registration_schema_id: str) -> "CombinedJobBuilder":
+        self._combined_job.onboard_registration_schema_id = onboard_registration_schema_id
         return self
 
     def build(self) -> "CombinedJob":

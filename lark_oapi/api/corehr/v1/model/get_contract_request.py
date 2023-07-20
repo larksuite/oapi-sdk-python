@@ -26,7 +26,7 @@ class GetContractRequestBuilder(object):
 
     def contract_id(self, contract_id: str) -> "GetContractRequestBuilder":
         self._get_contract_request.contract_id = contract_id
-        self._get_contract_request.paths["contract_id"] = contract_id
+        self._get_contract_request.paths["contract_id"] = str(contract_id)
         return self
 
     def build(self) -> GetContractRequest:

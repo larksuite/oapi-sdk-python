@@ -32,22 +32,22 @@ class TransferOwnerPermissionMemberRequestBuilder(object):
 
     def type(self, type: str) -> "TransferOwnerPermissionMemberRequestBuilder":
         self._transfer_owner_permission_member_request.type = type
-        self._transfer_owner_permission_member_request.queries["type"] = str(type)
+        self._transfer_owner_permission_member_request.add_query("type", type)
         return self
 
     def need_notification(self, need_notification: bool) -> "TransferOwnerPermissionMemberRequestBuilder":
         self._transfer_owner_permission_member_request.need_notification = need_notification
-        self._transfer_owner_permission_member_request.queries["need_notification"] = str(need_notification)
+        self._transfer_owner_permission_member_request.add_query("need_notification", need_notification)
         return self
 
     def remove_old_owner(self, remove_old_owner: bool) -> "TransferOwnerPermissionMemberRequestBuilder":
         self._transfer_owner_permission_member_request.remove_old_owner = remove_old_owner
-        self._transfer_owner_permission_member_request.queries["remove_old_owner"] = str(remove_old_owner)
+        self._transfer_owner_permission_member_request.add_query("remove_old_owner", remove_old_owner)
         return self
 
     def token(self, token: str) -> "TransferOwnerPermissionMemberRequestBuilder":
         self._transfer_owner_permission_member_request.token = token
-        self._transfer_owner_permission_member_request.paths["token"] = token
+        self._transfer_owner_permission_member_request.paths["token"] = str(token)
         return self
 
     def request_body(self, request_body: Owner) -> "TransferOwnerPermissionMemberRequestBuilder":

@@ -32,32 +32,32 @@ class ListCalendarEventAttendeeChatMemberRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListCalendarEventAttendeeChatMemberRequestBuilder":
         self._list_calendar_event_attendee_chat_member_request.page_token = page_token
-        self._list_calendar_event_attendee_chat_member_request.queries["page_token"] = str(page_token)
+        self._list_calendar_event_attendee_chat_member_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListCalendarEventAttendeeChatMemberRequestBuilder":
         self._list_calendar_event_attendee_chat_member_request.page_size = page_size
-        self._list_calendar_event_attendee_chat_member_request.queries["page_size"] = str(page_size)
+        self._list_calendar_event_attendee_chat_member_request.add_query("page_size", page_size)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListCalendarEventAttendeeChatMemberRequestBuilder":
         self._list_calendar_event_attendee_chat_member_request.user_id_type = user_id_type
-        self._list_calendar_event_attendee_chat_member_request.queries["user_id_type"] = str(user_id_type)
+        self._list_calendar_event_attendee_chat_member_request.add_query("user_id_type", user_id_type)
         return self
 
     def calendar_id(self, calendar_id: str) -> "ListCalendarEventAttendeeChatMemberRequestBuilder":
         self._list_calendar_event_attendee_chat_member_request.calendar_id = calendar_id
-        self._list_calendar_event_attendee_chat_member_request.paths["calendar_id"] = calendar_id
+        self._list_calendar_event_attendee_chat_member_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def event_id(self, event_id: str) -> "ListCalendarEventAttendeeChatMemberRequestBuilder":
         self._list_calendar_event_attendee_chat_member_request.event_id = event_id
-        self._list_calendar_event_attendee_chat_member_request.paths["event_id"] = event_id
+        self._list_calendar_event_attendee_chat_member_request.paths["event_id"] = str(event_id)
         return self
 
     def attendee_id(self, attendee_id: str) -> "ListCalendarEventAttendeeChatMemberRequestBuilder":
         self._list_calendar_event_attendee_chat_member_request.attendee_id = attendee_id
-        self._list_calendar_event_attendee_chat_member_request.paths["attendee_id"] = attendee_id
+        self._list_calendar_event_attendee_chat_member_request.paths["attendee_id"] = str(attendee_id)
         return self
 
     def build(self) -> ListCalendarEventAttendeeChatMemberRequest:

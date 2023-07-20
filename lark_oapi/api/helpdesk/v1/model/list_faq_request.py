@@ -30,27 +30,27 @@ class ListFaqRequestBuilder(object):
 
     def category_id(self, category_id: str) -> "ListFaqRequestBuilder":
         self._list_faq_request.category_id = category_id
-        self._list_faq_request.queries["category_id"] = str(category_id)
+        self._list_faq_request.add_query("category_id", category_id)
         return self
 
     def status(self, status: str) -> "ListFaqRequestBuilder":
         self._list_faq_request.status = status
-        self._list_faq_request.queries["status"] = str(status)
+        self._list_faq_request.add_query("status", status)
         return self
 
     def search(self, search: str) -> "ListFaqRequestBuilder":
         self._list_faq_request.search = search
-        self._list_faq_request.queries["search"] = str(search)
+        self._list_faq_request.add_query("search", search)
         return self
 
     def page_token(self, page_token: str) -> "ListFaqRequestBuilder":
         self._list_faq_request.page_token = page_token
-        self._list_faq_request.queries["page_token"] = str(page_token)
+        self._list_faq_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListFaqRequestBuilder":
         self._list_faq_request.page_size = page_size
-        self._list_faq_request.queries["page_size"] = str(page_size)
+        self._list_faq_request.add_query("page_size", page_size)
         return self
 
     def build(self) -> ListFaqRequest:

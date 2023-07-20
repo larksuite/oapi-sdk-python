@@ -29,7 +29,7 @@ class UpdateEmployeeTypeEnumRequestBuilder(object):
 
     def enum_id(self, enum_id: str) -> "UpdateEmployeeTypeEnumRequestBuilder":
         self._update_employee_type_enum_request.enum_id = enum_id
-        self._update_employee_type_enum_request.paths["enum_id"] = enum_id
+        self._update_employee_type_enum_request.paths["enum_id"] = str(enum_id)
         return self
 
     def request_body(self, request_body: EmployeeTypeEnum) -> "UpdateEmployeeTypeEnumRequestBuilder":

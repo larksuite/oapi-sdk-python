@@ -30,12 +30,12 @@ class PatchReserveConfigFormRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "PatchReserveConfigFormRequestBuilder":
         self._patch_reserve_config_form_request.user_id_type = user_id_type
-        self._patch_reserve_config_form_request.queries["user_id_type"] = str(user_id_type)
+        self._patch_reserve_config_form_request.add_query("user_id_type", user_id_type)
         return self
 
     def reserve_config_id(self, reserve_config_id: str) -> "PatchReserveConfigFormRequestBuilder":
         self._patch_reserve_config_form_request.reserve_config_id = reserve_config_id
-        self._patch_reserve_config_form_request.paths["reserve_config_id"] = reserve_config_id
+        self._patch_reserve_config_form_request.paths["reserve_config_id"] = str(reserve_config_id)
         return self
 
     def request_body(self, request_body: PatchReserveConfigFormRequestBody) -> "PatchReserveConfigFormRequestBuilder":

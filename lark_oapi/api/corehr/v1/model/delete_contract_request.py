@@ -26,7 +26,7 @@ class DeleteContractRequestBuilder(object):
 
     def contract_id(self, contract_id: str) -> "DeleteContractRequestBuilder":
         self._delete_contract_request.contract_id = contract_id
-        self._delete_contract_request.paths["contract_id"] = contract_id
+        self._delete_contract_request.paths["contract_id"] = str(contract_id)
         return self
 
     def build(self) -> DeleteContractRequest:

@@ -29,12 +29,12 @@ class PatchEmployeeTypeRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "PatchEmployeeTypeRequestBuilder":
         self._patch_employee_type_request.client_token = client_token
-        self._patch_employee_type_request.queries["client_token"] = str(client_token)
+        self._patch_employee_type_request.add_query("client_token", client_token)
         return self
 
     def employee_type_id(self, employee_type_id: str) -> "PatchEmployeeTypeRequestBuilder":
         self._patch_employee_type_request.employee_type_id = employee_type_id
-        self._patch_employee_type_request.paths["employee_type_id"] = employee_type_id
+        self._patch_employee_type_request.paths["employee_type_id"] = str(employee_type_id)
         return self
 
     def request_body(self, request_body: EmployeeType) -> "PatchEmployeeTypeRequestBuilder":

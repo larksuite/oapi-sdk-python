@@ -28,12 +28,12 @@ class GetSpreadsheetSheetFilterRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "GetSpreadsheetSheetFilterRequestBuilder":
         self._get_spreadsheet_sheet_filter_request.spreadsheet_token = spreadsheet_token
-        self._get_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._get_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def sheet_id(self, sheet_id: str) -> "GetSpreadsheetSheetFilterRequestBuilder":
         self._get_spreadsheet_sheet_filter_request.sheet_id = sheet_id
-        self._get_spreadsheet_sheet_filter_request.paths["sheet_id"] = sheet_id
+        self._get_spreadsheet_sheet_filter_request.paths["sheet_id"] = str(sheet_id)
         return self
 
     def build(self) -> GetSpreadsheetSheetFilterRequest:

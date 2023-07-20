@@ -26,7 +26,7 @@ class GetAgentSchedulesRequestBuilder(object):
 
     def agent_id(self, agent_id: str) -> "GetAgentSchedulesRequestBuilder":
         self._get_agent_schedules_request.agent_id = agent_id
-        self._get_agent_schedules_request.paths["agent_id"] = agent_id
+        self._get_agent_schedules_request.paths["agent_id"] = str(agent_id)
         return self
 
     def build(self) -> GetAgentSchedulesRequest:

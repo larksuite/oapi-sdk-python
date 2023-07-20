@@ -18,6 +18,7 @@ class JobConfig(object):
         "interview_round_conf_list": List[JobConfigInterviewRoundConf],
         "jr_id_list": List[str],
         "interview_registration_schema_id": str,
+        "onboard_registration_schema_id": str,
         "interview_round_type_conf_list": List[JobConfigRoundType],
         "related_job_id_list": List[str],
         "interview_appointment_config": InterviewAppointmentConfig,
@@ -32,6 +33,7 @@ class JobConfig(object):
         self.interview_round_conf_list: Optional[List[JobConfigInterviewRoundConf]] = None
         self.jr_id_list: Optional[List[str]] = None
         self.interview_registration_schema_id: Optional[str] = None
+        self.onboard_registration_schema_id: Optional[str] = None
         self.interview_round_type_conf_list: Optional[List[JobConfigRoundType]] = None
         self.related_job_id_list: Optional[List[str]] = None
         self.interview_appointment_config: Optional[InterviewAppointmentConfig] = None
@@ -77,6 +79,10 @@ class JobConfigBuilder(object):
 
     def interview_registration_schema_id(self, interview_registration_schema_id: str) -> "JobConfigBuilder":
         self._job_config.interview_registration_schema_id = interview_registration_schema_id
+        return self
+
+    def onboard_registration_schema_id(self, onboard_registration_schema_id: str) -> "JobConfigBuilder":
+        self._job_config.onboard_registration_schema_id = onboard_registration_schema_id
         return self
 
     def interview_round_type_conf_list(self,

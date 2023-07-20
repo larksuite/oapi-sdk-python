@@ -18,7 +18,8 @@ class JobConfigResult(object):
         "id": str,
         "interview_round_list": List[JobConfigInterviewRound],
         "job_requirement_list": List[IdNameObject],
-        "interview_registration_schema": RegistrationInfo,
+        "interview_registration": RegistrationInfo,
+        "onboard_registration": RegistrationInfo,
         "interview_round_type_list": List[JobConfigRoundTypeResult],
         "related_job_list": List[IdNameObject],
         "job_attribute": int,
@@ -32,7 +33,8 @@ class JobConfigResult(object):
         self.id: Optional[str] = None
         self.interview_round_list: Optional[List[JobConfigInterviewRound]] = None
         self.job_requirement_list: Optional[List[IdNameObject]] = None
-        self.interview_registration_schema: Optional[RegistrationInfo] = None
+        self.interview_registration: Optional[RegistrationInfo] = None
+        self.onboard_registration: Optional[RegistrationInfo] = None
         self.interview_round_type_list: Optional[List[JobConfigRoundTypeResult]] = None
         self.related_job_list: Optional[List[IdNameObject]] = None
         self.job_attribute: Optional[int] = None
@@ -75,9 +77,12 @@ class JobConfigResultBuilder(object):
         self._job_config_result.job_requirement_list = job_requirement_list
         return self
 
-    def interview_registration_schema(self,
-                                      interview_registration_schema: RegistrationInfo) -> "JobConfigResultBuilder":
-        self._job_config_result.interview_registration_schema = interview_registration_schema
+    def interview_registration(self, interview_registration: RegistrationInfo) -> "JobConfigResultBuilder":
+        self._job_config_result.interview_registration = interview_registration
+        return self
+
+    def onboard_registration(self, onboard_registration: RegistrationInfo) -> "JobConfigResultBuilder":
+        self._job_config_result.onboard_registration = onboard_registration
         return self
 
     def interview_round_type_list(self, interview_round_type_list: List[

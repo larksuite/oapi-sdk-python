@@ -32,37 +32,37 @@ class ListCalendarEventRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.page_size = page_size
-        self._list_calendar_event_request.queries["page_size"] = str(page_size)
+        self._list_calendar_event_request.add_query("page_size", page_size)
         return self
 
     def anchor_time(self, anchor_time: str) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.anchor_time = anchor_time
-        self._list_calendar_event_request.queries["anchor_time"] = str(anchor_time)
+        self._list_calendar_event_request.add_query("anchor_time", anchor_time)
         return self
 
     def page_token(self, page_token: str) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.page_token = page_token
-        self._list_calendar_event_request.queries["page_token"] = str(page_token)
+        self._list_calendar_event_request.add_query("page_token", page_token)
         return self
 
     def sync_token(self, sync_token: str) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.sync_token = sync_token
-        self._list_calendar_event_request.queries["sync_token"] = str(sync_token)
+        self._list_calendar_event_request.add_query("sync_token", sync_token)
         return self
 
     def start_time(self, start_time: str) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.start_time = start_time
-        self._list_calendar_event_request.queries["start_time"] = str(start_time)
+        self._list_calendar_event_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: str) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.end_time = end_time
-        self._list_calendar_event_request.queries["end_time"] = str(end_time)
+        self._list_calendar_event_request.add_query("end_time", end_time)
         return self
 
     def calendar_id(self, calendar_id: str) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.calendar_id = calendar_id
-        self._list_calendar_event_request.paths["calendar_id"] = calendar_id
+        self._list_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def build(self) -> ListCalendarEventRequest:

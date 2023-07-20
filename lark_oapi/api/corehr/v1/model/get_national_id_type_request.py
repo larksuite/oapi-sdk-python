@@ -26,7 +26,7 @@ class GetNationalIdTypeRequestBuilder(object):
 
     def national_id_type_id(self, national_id_type_id: str) -> "GetNationalIdTypeRequestBuilder":
         self._get_national_id_type_request.national_id_type_id = national_id_type_id
-        self._get_national_id_type_request.paths["national_id_type_id"] = national_id_type_id
+        self._get_national_id_type_request.paths["national_id_type_id"] = str(national_id_type_id)
         return self
 
     def build(self) -> GetNationalIdTypeRequest:

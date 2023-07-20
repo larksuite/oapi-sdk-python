@@ -27,12 +27,12 @@ class GetDailyReportRequestBuilder(object):
 
     def start_time(self, start_time: int) -> "GetDailyReportRequestBuilder":
         self._get_daily_report_request.start_time = start_time
-        self._get_daily_report_request.queries["start_time"] = str(start_time)
+        self._get_daily_report_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: int) -> "GetDailyReportRequestBuilder":
         self._get_daily_report_request.end_time = end_time
-        self._get_daily_report_request.queries["end_time"] = str(end_time)
+        self._get_daily_report_request.add_query("end_time", end_time)
         return self
 
     def build(self) -> GetDailyReportRequest:

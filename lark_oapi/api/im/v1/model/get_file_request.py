@@ -26,7 +26,7 @@ class GetFileRequestBuilder(object):
 
     def file_key(self, file_key: str) -> "GetFileRequestBuilder":
         self._get_file_request.file_key = file_key
-        self._get_file_request.paths["file_key"] = file_key
+        self._get_file_request.paths["file_key"] = str(file_key)
         return self
 
     def build(self) -> GetFileRequest:

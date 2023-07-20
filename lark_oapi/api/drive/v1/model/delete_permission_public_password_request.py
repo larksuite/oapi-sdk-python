@@ -28,12 +28,12 @@ class DeletePermissionPublicPasswordRequestBuilder(object):
 
     def type(self, type: str) -> "DeletePermissionPublicPasswordRequestBuilder":
         self._delete_permission_public_password_request.type = type
-        self._delete_permission_public_password_request.queries["type"] = str(type)
+        self._delete_permission_public_password_request.add_query("type", type)
         return self
 
     def token(self, token: str) -> "DeletePermissionPublicPasswordRequestBuilder":
         self._delete_permission_public_password_request.token = token
-        self._delete_permission_public_password_request.paths["token"] = token
+        self._delete_permission_public_password_request.paths["token"] = str(token)
         return self
 
     def build(self) -> DeletePermissionPublicPasswordRequest:

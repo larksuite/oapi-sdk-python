@@ -29,22 +29,22 @@ class ListOfferRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListOfferRequestBuilder":
         self._list_offer_request.page_token = page_token
-        self._list_offer_request.queries["page_token"] = str(page_token)
+        self._list_offer_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListOfferRequestBuilder":
         self._list_offer_request.page_size = page_size
-        self._list_offer_request.queries["page_size"] = str(page_size)
+        self._list_offer_request.add_query("page_size", page_size)
         return self
 
     def talent_id(self, talent_id: str) -> "ListOfferRequestBuilder":
         self._list_offer_request.talent_id = talent_id
-        self._list_offer_request.queries["talent_id"] = str(talent_id)
+        self._list_offer_request.add_query("talent_id", talent_id)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListOfferRequestBuilder":
         self._list_offer_request.user_id_type = user_id_type
-        self._list_offer_request.queries["user_id_type"] = str(user_id_type)
+        self._list_offer_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> ListOfferRequest:

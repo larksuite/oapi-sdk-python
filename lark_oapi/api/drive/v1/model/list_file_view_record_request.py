@@ -30,27 +30,27 @@ class ListFileViewRecordRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListFileViewRecordRequestBuilder":
         self._list_file_view_record_request.page_size = page_size
-        self._list_file_view_record_request.queries["page_size"] = str(page_size)
+        self._list_file_view_record_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListFileViewRecordRequestBuilder":
         self._list_file_view_record_request.page_token = page_token
-        self._list_file_view_record_request.queries["page_token"] = str(page_token)
+        self._list_file_view_record_request.add_query("page_token", page_token)
         return self
 
     def file_type(self, file_type: str) -> "ListFileViewRecordRequestBuilder":
         self._list_file_view_record_request.file_type = file_type
-        self._list_file_view_record_request.queries["file_type"] = str(file_type)
+        self._list_file_view_record_request.add_query("file_type", file_type)
         return self
 
     def viewer_id_type(self, viewer_id_type: str) -> "ListFileViewRecordRequestBuilder":
         self._list_file_view_record_request.viewer_id_type = viewer_id_type
-        self._list_file_view_record_request.queries["viewer_id_type"] = str(viewer_id_type)
+        self._list_file_view_record_request.add_query("viewer_id_type", viewer_id_type)
         return self
 
     def file_token(self, file_token: str) -> "ListFileViewRecordRequestBuilder":
         self._list_file_view_record_request.file_token = file_token
-        self._list_file_view_record_request.paths["file_token"] = file_token
+        self._list_file_view_record_request.paths["file_token"] = str(file_token)
         return self
 
     def build(self) -> ListFileViewRecordRequest:

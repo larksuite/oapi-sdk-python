@@ -26,7 +26,7 @@ class DeleteJobRequestBuilder(object):
 
     def job_id(self, job_id: str) -> "DeleteJobRequestBuilder":
         self._delete_job_request.job_id = job_id
-        self._delete_job_request.paths["job_id"] = job_id
+        self._delete_job_request.paths["job_id"] = str(job_id)
         return self
 
     def build(self) -> DeleteJobRequest:

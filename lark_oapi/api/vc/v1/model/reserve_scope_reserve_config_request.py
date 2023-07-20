@@ -29,17 +29,17 @@ class ReserveScopeReserveConfigRequestBuilder(object):
 
     def scope_id(self, scope_id: str) -> "ReserveScopeReserveConfigRequestBuilder":
         self._reserve_scope_reserve_config_request.scope_id = scope_id
-        self._reserve_scope_reserve_config_request.queries["scope_id"] = str(scope_id)
+        self._reserve_scope_reserve_config_request.add_query("scope_id", scope_id)
         return self
 
     def scope_type(self, scope_type: int) -> "ReserveScopeReserveConfigRequestBuilder":
         self._reserve_scope_reserve_config_request.scope_type = scope_type
-        self._reserve_scope_reserve_config_request.queries["scope_type"] = str(scope_type)
+        self._reserve_scope_reserve_config_request.add_query("scope_type", scope_type)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ReserveScopeReserveConfigRequestBuilder":
         self._reserve_scope_reserve_config_request.user_id_type = user_id_type
-        self._reserve_scope_reserve_config_request.queries["user_id_type"] = str(user_id_type)
+        self._reserve_scope_reserve_config_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> ReserveScopeReserveConfigRequest:

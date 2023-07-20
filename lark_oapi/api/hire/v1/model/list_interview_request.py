@@ -32,37 +32,37 @@ class ListInterviewRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListInterviewRequestBuilder":
         self._list_interview_request.page_size = page_size
-        self._list_interview_request.queries["page_size"] = str(page_size)
+        self._list_interview_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListInterviewRequestBuilder":
         self._list_interview_request.page_token = page_token
-        self._list_interview_request.queries["page_token"] = str(page_token)
+        self._list_interview_request.add_query("page_token", page_token)
         return self
 
     def application_id(self, application_id: str) -> "ListInterviewRequestBuilder":
         self._list_interview_request.application_id = application_id
-        self._list_interview_request.queries["application_id"] = str(application_id)
+        self._list_interview_request.add_query("application_id", application_id)
         return self
 
     def interview_id(self, interview_id: str) -> "ListInterviewRequestBuilder":
         self._list_interview_request.interview_id = interview_id
-        self._list_interview_request.queries["interview_id"] = str(interview_id)
+        self._list_interview_request.add_query("interview_id", interview_id)
         return self
 
     def start_time(self, start_time: str) -> "ListInterviewRequestBuilder":
         self._list_interview_request.start_time = start_time
-        self._list_interview_request.queries["start_time"] = str(start_time)
+        self._list_interview_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: str) -> "ListInterviewRequestBuilder":
         self._list_interview_request.end_time = end_time
-        self._list_interview_request.queries["end_time"] = str(end_time)
+        self._list_interview_request.add_query("end_time", end_time)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListInterviewRequestBuilder":
         self._list_interview_request.user_id_type = user_id_type
-        self._list_interview_request.queries["user_id_type"] = str(user_id_type)
+        self._list_interview_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> ListInterviewRequest:

@@ -29,17 +29,17 @@ class GetReserveConfigDisableInformRequestBuilder(object):
 
     def scope_type(self, scope_type: int) -> "GetReserveConfigDisableInformRequestBuilder":
         self._get_reserve_config_disable_inform_request.scope_type = scope_type
-        self._get_reserve_config_disable_inform_request.queries["scope_type"] = str(scope_type)
+        self._get_reserve_config_disable_inform_request.add_query("scope_type", scope_type)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetReserveConfigDisableInformRequestBuilder":
         self._get_reserve_config_disable_inform_request.user_id_type = user_id_type
-        self._get_reserve_config_disable_inform_request.queries["user_id_type"] = str(user_id_type)
+        self._get_reserve_config_disable_inform_request.add_query("user_id_type", user_id_type)
         return self
 
     def reserve_config_id(self, reserve_config_id: str) -> "GetReserveConfigDisableInformRequestBuilder":
         self._get_reserve_config_disable_inform_request.reserve_config_id = reserve_config_id
-        self._get_reserve_config_disable_inform_request.paths["reserve_config_id"] = reserve_config_id
+        self._get_reserve_config_disable_inform_request.paths["reserve_config_id"] = str(reserve_config_id)
         return self
 
     def build(self) -> GetReserveConfigDisableInformRequest:

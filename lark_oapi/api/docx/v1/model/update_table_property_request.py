@@ -9,11 +9,15 @@ class UpdateTablePropertyRequest(object):
     _types = {
         "column_width": int,
         "column_index": int,
+        "header_row": bool,
+        "header_column": bool,
     }
 
     def __init__(self, d):
         self.column_width: Optional[int] = None
         self.column_index: Optional[int] = None
+        self.header_row: Optional[bool] = None
+        self.header_column: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -32,6 +36,14 @@ class UpdateTablePropertyRequestBuilder(object):
 
     def column_index(self, column_index: int) -> "UpdateTablePropertyRequestBuilder":
         self._update_table_property_request.column_index = column_index
+        return self
+
+    def header_row(self, header_row: bool) -> "UpdateTablePropertyRequestBuilder":
+        self._update_table_property_request.header_row = header_row
+        return self
+
+    def header_column(self, header_column: bool) -> "UpdateTablePropertyRequestBuilder":
+        self._update_table_property_request.header_column = header_column
         return self
 
     def build(self) -> "UpdateTablePropertyRequest":

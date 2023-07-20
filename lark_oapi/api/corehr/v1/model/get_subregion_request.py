@@ -26,7 +26,7 @@ class GetSubregionRequestBuilder(object):
 
     def subregion_id(self, subregion_id: str) -> "GetSubregionRequestBuilder":
         self._get_subregion_request.subregion_id = subregion_id
-        self._get_subregion_request.paths["subregion_id"] = subregion_id
+        self._get_subregion_request.paths["subregion_id"] = str(subregion_id)
         return self
 
     def build(self) -> GetSubregionRequest:

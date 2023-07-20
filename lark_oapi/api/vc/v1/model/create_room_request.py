@@ -28,7 +28,7 @@ class CreateRoomRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "CreateRoomRequestBuilder":
         self._create_room_request.user_id_type = user_id_type
-        self._create_room_request.queries["user_id_type"] = str(user_id_type)
+        self._create_room_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: Room) -> "CreateRoomRequestBuilder":

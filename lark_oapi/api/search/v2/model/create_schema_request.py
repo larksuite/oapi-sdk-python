@@ -28,7 +28,7 @@ class CreateSchemaRequestBuilder(object):
 
     def validate_only(self, validate_only: bool) -> "CreateSchemaRequestBuilder":
         self._create_schema_request.validate_only = validate_only
-        self._create_schema_request.queries["validate_only"] = str(validate_only)
+        self._create_schema_request.add_query("validate_only", validate_only)
         return self
 
     def request_body(self, request_body: Schema) -> "CreateSchemaRequestBuilder":

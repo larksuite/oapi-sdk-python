@@ -31,27 +31,27 @@ class PatchApplicationFeedbackRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "PatchApplicationFeedbackRequestBuilder":
         self._patch_application_feedback_request.user_id_type = user_id_type
-        self._patch_application_feedback_request.queries["user_id_type"] = str(user_id_type)
+        self._patch_application_feedback_request.add_query("user_id_type", user_id_type)
         return self
 
     def status(self, status: int) -> "PatchApplicationFeedbackRequestBuilder":
         self._patch_application_feedback_request.status = status
-        self._patch_application_feedback_request.queries["status"] = str(status)
+        self._patch_application_feedback_request.add_query("status", status)
         return self
 
     def operator_id(self, operator_id: str) -> "PatchApplicationFeedbackRequestBuilder":
         self._patch_application_feedback_request.operator_id = operator_id
-        self._patch_application_feedback_request.queries["operator_id"] = str(operator_id)
+        self._patch_application_feedback_request.add_query("operator_id", operator_id)
         return self
 
     def app_id(self, app_id: str) -> "PatchApplicationFeedbackRequestBuilder":
         self._patch_application_feedback_request.app_id = app_id
-        self._patch_application_feedback_request.paths["app_id"] = app_id
+        self._patch_application_feedback_request.paths["app_id"] = str(app_id)
         return self
 
     def feedback_id(self, feedback_id: int) -> "PatchApplicationFeedbackRequestBuilder":
         self._patch_application_feedback_request.feedback_id = feedback_id
-        self._patch_application_feedback_request.paths["feedback_id"] = feedback_id
+        self._patch_application_feedback_request.paths["feedback_id"] = str(feedback_id)
         return self
 
     def build(self) -> PatchApplicationFeedbackRequest:

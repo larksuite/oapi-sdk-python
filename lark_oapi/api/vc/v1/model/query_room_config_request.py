@@ -32,37 +32,37 @@ class QueryRoomConfigRequestBuilder(object):
 
     def scope(self, scope: int) -> "QueryRoomConfigRequestBuilder":
         self._query_room_config_request.scope = scope
-        self._query_room_config_request.queries["scope"] = str(scope)
+        self._query_room_config_request.add_query("scope", scope)
         return self
 
     def country_id(self, country_id: str) -> "QueryRoomConfigRequestBuilder":
         self._query_room_config_request.country_id = country_id
-        self._query_room_config_request.queries["country_id"] = str(country_id)
+        self._query_room_config_request.add_query("country_id", country_id)
         return self
 
     def district_id(self, district_id: str) -> "QueryRoomConfigRequestBuilder":
         self._query_room_config_request.district_id = district_id
-        self._query_room_config_request.queries["district_id"] = str(district_id)
+        self._query_room_config_request.add_query("district_id", district_id)
         return self
 
     def building_id(self, building_id: str) -> "QueryRoomConfigRequestBuilder":
         self._query_room_config_request.building_id = building_id
-        self._query_room_config_request.queries["building_id"] = str(building_id)
+        self._query_room_config_request.add_query("building_id", building_id)
         return self
 
     def floor_name(self, floor_name: str) -> "QueryRoomConfigRequestBuilder":
         self._query_room_config_request.floor_name = floor_name
-        self._query_room_config_request.queries["floor_name"] = str(floor_name)
+        self._query_room_config_request.add_query("floor_name", floor_name)
         return self
 
     def room_id(self, room_id: str) -> "QueryRoomConfigRequestBuilder":
         self._query_room_config_request.room_id = room_id
-        self._query_room_config_request.queries["room_id"] = str(room_id)
+        self._query_room_config_request.add_query("room_id", room_id)
         return self
 
     def user_id_type(self, user_id_type: str) -> "QueryRoomConfigRequestBuilder":
         self._query_room_config_request.user_id_type = user_id_type
-        self._query_room_config_request.queries["user_id_type"] = str(user_id_type)
+        self._query_room_config_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> QueryRoomConfigRequest:

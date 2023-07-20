@@ -26,7 +26,7 @@ class GetCountryRegionRequestBuilder(object):
 
     def country_region_id(self, country_region_id: str) -> "GetCountryRegionRequestBuilder":
         self._get_country_region_request.country_region_id = country_region_id
-        self._get_country_region_request.paths["country_region_id"] = country_region_id
+        self._get_country_region_request.paths["country_region_id"] = str(country_region_id)
         return self
 
     def build(self) -> GetCountryRegionRequest:

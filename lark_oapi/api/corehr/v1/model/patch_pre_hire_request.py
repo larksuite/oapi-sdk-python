@@ -29,12 +29,12 @@ class PatchPreHireRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "PatchPreHireRequestBuilder":
         self._patch_pre_hire_request.client_token = client_token
-        self._patch_pre_hire_request.queries["client_token"] = str(client_token)
+        self._patch_pre_hire_request.add_query("client_token", client_token)
         return self
 
     def pre_hire_id(self, pre_hire_id: str) -> "PatchPreHireRequestBuilder":
         self._patch_pre_hire_request.pre_hire_id = pre_hire_id
-        self._patch_pre_hire_request.paths["pre_hire_id"] = pre_hire_id
+        self._patch_pre_hire_request.paths["pre_hire_id"] = str(pre_hire_id)
         return self
 
     def request_body(self, request_body: PreHire) -> "PatchPreHireRequestBuilder":

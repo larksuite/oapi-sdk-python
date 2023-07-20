@@ -26,7 +26,7 @@ class DeleteSchemaRequestBuilder(object):
 
     def schema_id(self, schema_id: str) -> "DeleteSchemaRequestBuilder":
         self._delete_schema_request.schema_id = schema_id
-        self._delete_schema_request.paths["schema_id"] = schema_id
+        self._delete_schema_request.paths["schema_id"] = str(schema_id)
         return self
 
     def build(self) -> DeleteSchemaRequest:

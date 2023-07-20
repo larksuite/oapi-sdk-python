@@ -26,7 +26,7 @@ class DownloadFileRequestBuilder(object):
 
     def file_token(self, file_token: str) -> "DownloadFileRequestBuilder":
         self._download_file_request.file_token = file_token
-        self._download_file_request.paths["file_token"] = file_token
+        self._download_file_request.paths["file_token"] = str(file_token)
         return self
 
     def build(self) -> DownloadFileRequest:

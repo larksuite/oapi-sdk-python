@@ -28,12 +28,12 @@ class GetPermissionPublicRequestBuilder(object):
 
     def type(self, type: str) -> "GetPermissionPublicRequestBuilder":
         self._get_permission_public_request.type = type
-        self._get_permission_public_request.queries["type"] = str(type)
+        self._get_permission_public_request.add_query("type", type)
         return self
 
     def token(self, token: str) -> "GetPermissionPublicRequestBuilder":
         self._get_permission_public_request.token = token
-        self._get_permission_public_request.paths["token"] = token
+        self._get_permission_public_request.paths["token"] = str(token)
         return self
 
     def build(self) -> GetPermissionPublicRequest:

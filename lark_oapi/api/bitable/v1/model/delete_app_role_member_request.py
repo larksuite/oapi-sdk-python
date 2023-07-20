@@ -30,22 +30,22 @@ class DeleteAppRoleMemberRequestBuilder(object):
 
     def member_id_type(self, member_id_type: str) -> "DeleteAppRoleMemberRequestBuilder":
         self._delete_app_role_member_request.member_id_type = member_id_type
-        self._delete_app_role_member_request.queries["member_id_type"] = str(member_id_type)
+        self._delete_app_role_member_request.add_query("member_id_type", member_id_type)
         return self
 
     def app_token(self, app_token: str) -> "DeleteAppRoleMemberRequestBuilder":
         self._delete_app_role_member_request.app_token = app_token
-        self._delete_app_role_member_request.paths["app_token"] = app_token
+        self._delete_app_role_member_request.paths["app_token"] = str(app_token)
         return self
 
     def role_id(self, role_id: str) -> "DeleteAppRoleMemberRequestBuilder":
         self._delete_app_role_member_request.role_id = role_id
-        self._delete_app_role_member_request.paths["role_id"] = role_id
+        self._delete_app_role_member_request.paths["role_id"] = str(role_id)
         return self
 
     def member_id(self, member_id: str) -> "DeleteAppRoleMemberRequestBuilder":
         self._delete_app_role_member_request.member_id = member_id
-        self._delete_app_role_member_request.paths["member_id"] = member_id
+        self._delete_app_role_member_request.paths["member_id"] = str(member_id)
         return self
 
     def build(self) -> DeleteAppRoleMemberRequest:

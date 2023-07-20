@@ -29,22 +29,22 @@ class GetCalendarEventRequestBuilder(object):
 
     def need_meeting_settings(self, need_meeting_settings: bool) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.need_meeting_settings = need_meeting_settings
-        self._get_calendar_event_request.queries["need_meeting_settings"] = str(need_meeting_settings)
+        self._get_calendar_event_request.add_query("need_meeting_settings", need_meeting_settings)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.user_id_type = user_id_type
-        self._get_calendar_event_request.queries["user_id_type"] = str(user_id_type)
+        self._get_calendar_event_request.add_query("user_id_type", user_id_type)
         return self
 
     def calendar_id(self, calendar_id: str) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.calendar_id = calendar_id
-        self._get_calendar_event_request.paths["calendar_id"] = calendar_id
+        self._get_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def event_id(self, event_id: str) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.event_id = event_id
-        self._get_calendar_event_request.paths["event_id"] = event_id
+        self._get_calendar_event_request.paths["event_id"] = str(event_id)
         return self
 
     def build(self) -> GetCalendarEventRequest:

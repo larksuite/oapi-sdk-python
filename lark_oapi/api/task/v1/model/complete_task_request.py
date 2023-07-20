@@ -26,7 +26,7 @@ class CompleteTaskRequestBuilder(object):
 
     def task_id(self, task_id: str) -> "CompleteTaskRequestBuilder":
         self._complete_task_request.task_id = task_id
-        self._complete_task_request.paths["task_id"] = task_id
+        self._complete_task_request.paths["task_id"] = str(task_id)
         return self
 
     def build(self) -> CompleteTaskRequest:

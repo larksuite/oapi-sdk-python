@@ -31,22 +31,22 @@ class PatchEmploymentRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.client_token = client_token
-        self._patch_employment_request.queries["client_token"] = str(client_token)
+        self._patch_employment_request.add_query("client_token", client_token)
         return self
 
     def user_id_type(self, user_id_type: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.user_id_type = user_id_type
-        self._patch_employment_request.queries["user_id_type"] = str(user_id_type)
+        self._patch_employment_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.department_id_type = department_id_type
-        self._patch_employment_request.queries["department_id_type"] = str(department_id_type)
+        self._patch_employment_request.add_query("department_id_type", department_id_type)
         return self
 
     def employment_id(self, employment_id: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.employment_id = employment_id
-        self._patch_employment_request.paths["employment_id"] = employment_id
+        self._patch_employment_request.paths["employment_id"] = str(employment_id)
         return self
 
     def request_body(self, request_body: Employment) -> "PatchEmploymentRequestBuilder":

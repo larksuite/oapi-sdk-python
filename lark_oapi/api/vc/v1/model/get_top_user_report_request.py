@@ -30,27 +30,27 @@ class GetTopUserReportRequestBuilder(object):
 
     def start_time(self, start_time: int) -> "GetTopUserReportRequestBuilder":
         self._get_top_user_report_request.start_time = start_time
-        self._get_top_user_report_request.queries["start_time"] = str(start_time)
+        self._get_top_user_report_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: int) -> "GetTopUserReportRequestBuilder":
         self._get_top_user_report_request.end_time = end_time
-        self._get_top_user_report_request.queries["end_time"] = str(end_time)
+        self._get_top_user_report_request.add_query("end_time", end_time)
         return self
 
     def limit(self, limit: int) -> "GetTopUserReportRequestBuilder":
         self._get_top_user_report_request.limit = limit
-        self._get_top_user_report_request.queries["limit"] = str(limit)
+        self._get_top_user_report_request.add_query("limit", limit)
         return self
 
     def order_by(self, order_by: int) -> "GetTopUserReportRequestBuilder":
         self._get_top_user_report_request.order_by = order_by
-        self._get_top_user_report_request.queries["order_by"] = str(order_by)
+        self._get_top_user_report_request.add_query("order_by", order_by)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetTopUserReportRequestBuilder":
         self._get_top_user_report_request.user_id_type = user_id_type
-        self._get_top_user_report_request.queries["user_id_type"] = str(user_id_type)
+        self._get_top_user_report_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> GetTopUserReportRequest:

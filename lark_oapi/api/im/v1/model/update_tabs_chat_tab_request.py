@@ -28,7 +28,7 @@ class UpdateTabsChatTabRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "UpdateTabsChatTabRequestBuilder":
         self._update_tabs_chat_tab_request.chat_id = chat_id
-        self._update_tabs_chat_tab_request.paths["chat_id"] = chat_id
+        self._update_tabs_chat_tab_request.paths["chat_id"] = str(chat_id)
         return self
 
     def request_body(self, request_body: UpdateTabsChatTabRequestBody) -> "UpdateTabsChatTabRequestBuilder":

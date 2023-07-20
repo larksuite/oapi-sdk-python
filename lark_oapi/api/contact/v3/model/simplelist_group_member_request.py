@@ -31,27 +31,27 @@ class SimplelistGroupMemberRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "SimplelistGroupMemberRequestBuilder":
         self._simplelist_group_member_request.page_size = page_size
-        self._simplelist_group_member_request.queries["page_size"] = str(page_size)
+        self._simplelist_group_member_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "SimplelistGroupMemberRequestBuilder":
         self._simplelist_group_member_request.page_token = page_token
-        self._simplelist_group_member_request.queries["page_token"] = str(page_token)
+        self._simplelist_group_member_request.add_query("page_token", page_token)
         return self
 
     def member_id_type(self, member_id_type: str) -> "SimplelistGroupMemberRequestBuilder":
         self._simplelist_group_member_request.member_id_type = member_id_type
-        self._simplelist_group_member_request.queries["member_id_type"] = str(member_id_type)
+        self._simplelist_group_member_request.add_query("member_id_type", member_id_type)
         return self
 
     def member_type(self, member_type: str) -> "SimplelistGroupMemberRequestBuilder":
         self._simplelist_group_member_request.member_type = member_type
-        self._simplelist_group_member_request.queries["member_type"] = str(member_type)
+        self._simplelist_group_member_request.add_query("member_type", member_type)
         return self
 
     def group_id(self, group_id: str) -> "SimplelistGroupMemberRequestBuilder":
         self._simplelist_group_member_request.group_id = group_id
-        self._simplelist_group_member_request.paths["group_id"] = group_id
+        self._simplelist_group_member_request.paths["group_id"] = str(group_id)
         return self
 
     def build(self) -> SimplelistGroupMemberRequest:

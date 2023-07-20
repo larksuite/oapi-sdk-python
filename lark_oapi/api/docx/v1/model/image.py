@@ -10,12 +10,14 @@ class Image(object):
         "width": int,
         "height": int,
         "token": str,
+        "align": int,
     }
 
     def __init__(self, d):
         self.width: Optional[int] = None
         self.height: Optional[int] = None
         self.token: Optional[str] = None
+        self.align: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +39,10 @@ class ImageBuilder(object):
 
     def token(self, token: str) -> "ImageBuilder":
         self._image.token = token
+        return self
+
+    def align(self, align: int) -> "ImageBuilder":
+        self._image.align = align
         return self
 
     def build(self) -> "Image":

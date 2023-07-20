@@ -26,7 +26,7 @@ class DeleteLocationRequestBuilder(object):
 
     def location_id(self, location_id: str) -> "DeleteLocationRequestBuilder":
         self._delete_location_request.location_id = location_id
-        self._delete_location_request.paths["location_id"] = location_id
+        self._delete_location_request.paths["location_id"] = str(location_id)
         return self
 
     def build(self) -> DeleteLocationRequest:

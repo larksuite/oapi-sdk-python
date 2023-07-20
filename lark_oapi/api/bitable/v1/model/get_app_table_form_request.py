@@ -28,17 +28,17 @@ class GetAppTableFormRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "GetAppTableFormRequestBuilder":
         self._get_app_table_form_request.app_token = app_token
-        self._get_app_table_form_request.paths["app_token"] = app_token
+        self._get_app_table_form_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "GetAppTableFormRequestBuilder":
         self._get_app_table_form_request.table_id = table_id
-        self._get_app_table_form_request.paths["table_id"] = table_id
+        self._get_app_table_form_request.paths["table_id"] = str(table_id)
         return self
 
     def form_id(self, form_id: str) -> "GetAppTableFormRequestBuilder":
         self._get_app_table_form_request.form_id = form_id
-        self._get_app_table_form_request.paths["form_id"] = form_id
+        self._get_app_table_form_request.paths["form_id"] = str(form_id)
         return self
 
     def build(self) -> GetAppTableFormRequest:

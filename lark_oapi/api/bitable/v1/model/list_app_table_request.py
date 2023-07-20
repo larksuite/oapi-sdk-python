@@ -28,17 +28,17 @@ class ListAppTableRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListAppTableRequestBuilder":
         self._list_app_table_request.page_token = page_token
-        self._list_app_table_request.queries["page_token"] = str(page_token)
+        self._list_app_table_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListAppTableRequestBuilder":
         self._list_app_table_request.page_size = page_size
-        self._list_app_table_request.queries["page_size"] = str(page_size)
+        self._list_app_table_request.add_query("page_size", page_size)
         return self
 
     def app_token(self, app_token: str) -> "ListAppTableRequestBuilder":
         self._list_app_table_request.app_token = app_token
-        self._list_app_table_request.paths["app_token"] = app_token
+        self._list_app_table_request.paths["app_token"] = str(app_token)
         return self
 
     def build(self) -> ListAppTableRequest:

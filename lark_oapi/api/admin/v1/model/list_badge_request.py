@@ -28,17 +28,17 @@ class ListBadgeRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListBadgeRequestBuilder":
         self._list_badge_request.page_size = page_size
-        self._list_badge_request.queries["page_size"] = str(page_size)
+        self._list_badge_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListBadgeRequestBuilder":
         self._list_badge_request.page_token = page_token
-        self._list_badge_request.queries["page_token"] = str(page_token)
+        self._list_badge_request.add_query("page_token", page_token)
         return self
 
     def name(self, name: str) -> "ListBadgeRequestBuilder":
         self._list_badge_request.name = name
-        self._list_badge_request.queries["name"] = str(name)
+        self._list_badge_request.add_query("name", name)
         return self
 
     def build(self) -> ListBadgeRequest:

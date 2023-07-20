@@ -32,37 +32,37 @@ class ListFileCommentRequestBuilder(object):
 
     def file_type(self, file_type: str) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.file_type = file_type
-        self._list_file_comment_request.queries["file_type"] = str(file_type)
+        self._list_file_comment_request.add_query("file_type", file_type)
         return self
 
     def is_whole(self, is_whole: bool) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.is_whole = is_whole
-        self._list_file_comment_request.queries["is_whole"] = str(is_whole)
+        self._list_file_comment_request.add_query("is_whole", is_whole)
         return self
 
     def is_solved(self, is_solved: bool) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.is_solved = is_solved
-        self._list_file_comment_request.queries["is_solved"] = str(is_solved)
+        self._list_file_comment_request.add_query("is_solved", is_solved)
         return self
 
     def page_token(self, page_token: str) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.page_token = page_token
-        self._list_file_comment_request.queries["page_token"] = str(page_token)
+        self._list_file_comment_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.page_size = page_size
-        self._list_file_comment_request.queries["page_size"] = str(page_size)
+        self._list_file_comment_request.add_query("page_size", page_size)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.user_id_type = user_id_type
-        self._list_file_comment_request.queries["user_id_type"] = str(user_id_type)
+        self._list_file_comment_request.add_query("user_id_type", user_id_type)
         return self
 
     def file_token(self, file_token: str) -> "ListFileCommentRequestBuilder":
         self._list_file_comment_request.file_token = file_token
-        self._list_file_comment_request.paths["file_token"] = file_token
+        self._list_file_comment_request.paths["file_token"] = str(file_token)
         return self
 
     def build(self) -> ListFileCommentRequest:

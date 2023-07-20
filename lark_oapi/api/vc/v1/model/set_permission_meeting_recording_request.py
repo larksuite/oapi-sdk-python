@@ -30,12 +30,12 @@ class SetPermissionMeetingRecordingRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "SetPermissionMeetingRecordingRequestBuilder":
         self._set_permission_meeting_recording_request.user_id_type = user_id_type
-        self._set_permission_meeting_recording_request.queries["user_id_type"] = str(user_id_type)
+        self._set_permission_meeting_recording_request.add_query("user_id_type", user_id_type)
         return self
 
     def meeting_id(self, meeting_id: int) -> "SetPermissionMeetingRecordingRequestBuilder":
         self._set_permission_meeting_recording_request.meeting_id = meeting_id
-        self._set_permission_meeting_recording_request.paths["meeting_id"] = meeting_id
+        self._set_permission_meeting_recording_request.paths["meeting_id"] = str(meeting_id)
         return self
 
     def request_body(self,

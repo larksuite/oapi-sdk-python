@@ -29,17 +29,17 @@ class GetByApplicationEmployeeRequestBuilder(object):
 
     def application_id(self, application_id: str) -> "GetByApplicationEmployeeRequestBuilder":
         self._get_by_application_employee_request.application_id = application_id
-        self._get_by_application_employee_request.queries["application_id"] = str(application_id)
+        self._get_by_application_employee_request.add_query("application_id", application_id)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetByApplicationEmployeeRequestBuilder":
         self._get_by_application_employee_request.user_id_type = user_id_type
-        self._get_by_application_employee_request.queries["user_id_type"] = str(user_id_type)
+        self._get_by_application_employee_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "GetByApplicationEmployeeRequestBuilder":
         self._get_by_application_employee_request.department_id_type = department_id_type
-        self._get_by_application_employee_request.queries["department_id_type"] = str(department_id_type)
+        self._get_by_application_employee_request.add_query("department_id_type", department_id_type)
         return self
 
     def build(self) -> GetByApplicationEmployeeRequest:

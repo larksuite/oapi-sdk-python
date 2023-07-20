@@ -27,7 +27,7 @@ class QuerySpreadsheetSheetRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "QuerySpreadsheetSheetRequestBuilder":
         self._query_spreadsheet_sheet_request.spreadsheet_token = spreadsheet_token
-        self._query_spreadsheet_sheet_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._query_spreadsheet_sheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def build(self) -> QuerySpreadsheetSheetRequest:

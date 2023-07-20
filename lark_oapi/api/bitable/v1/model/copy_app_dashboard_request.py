@@ -29,12 +29,12 @@ class CopyAppDashboardRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "CopyAppDashboardRequestBuilder":
         self._copy_app_dashboard_request.app_token = app_token
-        self._copy_app_dashboard_request.paths["app_token"] = app_token
+        self._copy_app_dashboard_request.paths["app_token"] = str(app_token)
         return self
 
     def block_id(self, block_id: str) -> "CopyAppDashboardRequestBuilder":
         self._copy_app_dashboard_request.block_id = block_id
-        self._copy_app_dashboard_request.paths["block_id"] = block_id
+        self._copy_app_dashboard_request.paths["block_id"] = str(block_id)
         return self
 
     def request_body(self, request_body: CopyAppDashboardRequestBody) -> "CopyAppDashboardRequestBuilder":

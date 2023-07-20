@@ -28,17 +28,17 @@ class GetGroupRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetGroupRequestBuilder":
         self._get_group_request.user_id_type = user_id_type
-        self._get_group_request.queries["user_id_type"] = str(user_id_type)
+        self._get_group_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "GetGroupRequestBuilder":
         self._get_group_request.department_id_type = department_id_type
-        self._get_group_request.queries["department_id_type"] = str(department_id_type)
+        self._get_group_request.add_query("department_id_type", department_id_type)
         return self
 
     def group_id(self, group_id: str) -> "GetGroupRequestBuilder":
         self._get_group_request.group_id = group_id
-        self._get_group_request.paths["group_id"] = group_id
+        self._get_group_request.paths["group_id"] = str(group_id)
         return self
 
     def build(self) -> GetGroupRequest:

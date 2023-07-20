@@ -30,12 +30,12 @@ class CreateSpreadsheetSheetFilterViewRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "CreateSpreadsheetSheetFilterViewRequestBuilder":
         self._create_spreadsheet_sheet_filter_view_request.spreadsheet_token = spreadsheet_token
-        self._create_spreadsheet_sheet_filter_view_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._create_spreadsheet_sheet_filter_view_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def sheet_id(self, sheet_id: str) -> "CreateSpreadsheetSheetFilterViewRequestBuilder":
         self._create_spreadsheet_sheet_filter_view_request.sheet_id = sheet_id
-        self._create_spreadsheet_sheet_filter_view_request.paths["sheet_id"] = sheet_id
+        self._create_spreadsheet_sheet_filter_view_request.paths["sheet_id"] = str(sheet_id)
         return self
 
     def request_body(self, request_body: FilterView) -> "CreateSpreadsheetSheetFilterViewRequestBuilder":

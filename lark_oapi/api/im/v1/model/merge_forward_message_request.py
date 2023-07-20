@@ -30,12 +30,12 @@ class MergeForwardMessageRequestBuilder(object):
 
     def receive_id_type(self, receive_id_type: str) -> "MergeForwardMessageRequestBuilder":
         self._merge_forward_message_request.receive_id_type = receive_id_type
-        self._merge_forward_message_request.queries["receive_id_type"] = str(receive_id_type)
+        self._merge_forward_message_request.add_query("receive_id_type", receive_id_type)
         return self
 
     def uuid(self, uuid: str) -> "MergeForwardMessageRequestBuilder":
         self._merge_forward_message_request.uuid = uuid
-        self._merge_forward_message_request.queries["uuid"] = str(uuid)
+        self._merge_forward_message_request.add_query("uuid", uuid)
         return self
 
     def request_body(self, request_body: MergeForwardMessageRequestBody) -> "MergeForwardMessageRequestBuilder":

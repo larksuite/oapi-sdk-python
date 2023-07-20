@@ -29,12 +29,12 @@ class SearchCalendarRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "SearchCalendarRequestBuilder":
         self._search_calendar_request.page_token = page_token
-        self._search_calendar_request.queries["page_token"] = str(page_token)
+        self._search_calendar_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "SearchCalendarRequestBuilder":
         self._search_calendar_request.page_size = page_size
-        self._search_calendar_request.queries["page_size"] = str(page_size)
+        self._search_calendar_request.add_query("page_size", page_size)
         return self
 
     def request_body(self, request_body: SearchCalendarRequestBody) -> "SearchCalendarRequestBuilder":

@@ -28,7 +28,7 @@ class PatchFaqRequestBuilder(object):
 
     def id(self, id: str) -> "PatchFaqRequestBuilder":
         self._patch_faq_request.id = id
-        self._patch_faq_request.paths["id"] = id
+        self._patch_faq_request.paths["id"] = str(id)
         return self
 
     def request_body(self, request_body: PatchFaqRequestBody) -> "PatchFaqRequestBuilder":

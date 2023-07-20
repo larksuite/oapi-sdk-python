@@ -28,7 +28,7 @@ class BatchGetIdUserRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "BatchGetIdUserRequestBuilder":
         self._batch_get_id_user_request.user_id_type = user_id_type
-        self._batch_get_id_user_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_get_id_user_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: BatchGetIdUserRequestBody) -> "BatchGetIdUserRequestBuilder":

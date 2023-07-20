@@ -27,12 +27,12 @@ class DeleteAppTableRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "DeleteAppTableRequestBuilder":
         self._delete_app_table_request.app_token = app_token
-        self._delete_app_table_request.paths["app_token"] = app_token
+        self._delete_app_table_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "DeleteAppTableRequestBuilder":
         self._delete_app_table_request.table_id = table_id
-        self._delete_app_table_request.paths["table_id"] = table_id
+        self._delete_app_table_request.paths["table_id"] = str(table_id)
         return self
 
     def build(self) -> DeleteAppTableRequest:

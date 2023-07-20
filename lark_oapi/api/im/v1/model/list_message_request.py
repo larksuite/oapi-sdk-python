@@ -32,37 +32,37 @@ class ListMessageRequestBuilder(object):
 
     def container_id_type(self, container_id_type: str) -> "ListMessageRequestBuilder":
         self._list_message_request.container_id_type = container_id_type
-        self._list_message_request.queries["container_id_type"] = str(container_id_type)
+        self._list_message_request.add_query("container_id_type", container_id_type)
         return self
 
     def container_id(self, container_id: str) -> "ListMessageRequestBuilder":
         self._list_message_request.container_id = container_id
-        self._list_message_request.queries["container_id"] = str(container_id)
+        self._list_message_request.add_query("container_id", container_id)
         return self
 
     def start_time(self, start_time: str) -> "ListMessageRequestBuilder":
         self._list_message_request.start_time = start_time
-        self._list_message_request.queries["start_time"] = str(start_time)
+        self._list_message_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: str) -> "ListMessageRequestBuilder":
         self._list_message_request.end_time = end_time
-        self._list_message_request.queries["end_time"] = str(end_time)
+        self._list_message_request.add_query("end_time", end_time)
         return self
 
     def sort_type(self, sort_type: str) -> "ListMessageRequestBuilder":
         self._list_message_request.sort_type = sort_type
-        self._list_message_request.queries["sort_type"] = str(sort_type)
+        self._list_message_request.add_query("sort_type", sort_type)
         return self
 
     def page_size(self, page_size: int) -> "ListMessageRequestBuilder":
         self._list_message_request.page_size = page_size
-        self._list_message_request.queries["page_size"] = str(page_size)
+        self._list_message_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListMessageRequestBuilder":
         self._list_message_request.page_token = page_token
-        self._list_message_request.queries["page_token"] = str(page_token)
+        self._list_message_request.add_query("page_token", page_token)
         return self
 
     def build(self) -> ListMessageRequest:

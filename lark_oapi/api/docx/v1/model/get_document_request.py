@@ -26,7 +26,7 @@ class GetDocumentRequestBuilder(object):
 
     def document_id(self, document_id: str) -> "GetDocumentRequestBuilder":
         self._get_document_request.document_id = document_id
-        self._get_document_request.paths["document_id"] = document_id
+        self._get_document_request.paths["document_id"] = str(document_id)
         return self
 
     def build(self) -> GetDocumentRequest:

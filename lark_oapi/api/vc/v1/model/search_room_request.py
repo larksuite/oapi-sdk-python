@@ -28,7 +28,7 @@ class SearchRoomRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "SearchRoomRequestBuilder":
         self._search_room_request.user_id_type = user_id_type
-        self._search_room_request.queries["user_id_type"] = str(user_id_type)
+        self._search_room_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: SearchRoomRequestBody) -> "SearchRoomRequestBuilder":

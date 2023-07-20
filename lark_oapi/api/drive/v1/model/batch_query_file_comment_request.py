@@ -31,17 +31,17 @@ class BatchQueryFileCommentRequestBuilder(object):
 
     def file_type(self, file_type: str) -> "BatchQueryFileCommentRequestBuilder":
         self._batch_query_file_comment_request.file_type = file_type
-        self._batch_query_file_comment_request.queries["file_type"] = str(file_type)
+        self._batch_query_file_comment_request.add_query("file_type", file_type)
         return self
 
     def user_id_type(self, user_id_type: str) -> "BatchQueryFileCommentRequestBuilder":
         self._batch_query_file_comment_request.user_id_type = user_id_type
-        self._batch_query_file_comment_request.queries["user_id_type"] = str(user_id_type)
+        self._batch_query_file_comment_request.add_query("user_id_type", user_id_type)
         return self
 
     def file_token(self, file_token: str) -> "BatchQueryFileCommentRequestBuilder":
         self._batch_query_file_comment_request.file_token = file_token
-        self._batch_query_file_comment_request.paths["file_token"] = file_token
+        self._batch_query_file_comment_request.paths["file_token"] = str(file_token)
         return self
 
     def request_body(self, request_body: BatchQueryFileCommentRequestBody) -> "BatchQueryFileCommentRequestBuilder":

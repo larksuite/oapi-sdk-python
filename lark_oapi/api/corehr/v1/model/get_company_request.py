@@ -26,7 +26,7 @@ class GetCompanyRequestBuilder(object):
 
     def company_id(self, company_id: str) -> "GetCompanyRequestBuilder":
         self._get_company_request.company_id = company_id
-        self._get_company_request.paths["company_id"] = company_id
+        self._get_company_request.paths["company_id"] = str(company_id)
         return self
 
     def build(self) -> GetCompanyRequest:

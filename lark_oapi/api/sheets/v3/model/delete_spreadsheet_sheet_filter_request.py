@@ -28,12 +28,12 @@ class DeleteSpreadsheetSheetFilterRequestBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "DeleteSpreadsheetSheetFilterRequestBuilder":
         self._delete_spreadsheet_sheet_filter_request.spreadsheet_token = spreadsheet_token
-        self._delete_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = spreadsheet_token
+        self._delete_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
 
     def sheet_id(self, sheet_id: str) -> "DeleteSpreadsheetSheetFilterRequestBuilder":
         self._delete_spreadsheet_sheet_filter_request.sheet_id = sheet_id
-        self._delete_spreadsheet_sheet_filter_request.paths["sheet_id"] = sheet_id
+        self._delete_spreadsheet_sheet_filter_request.paths["sheet_id"] = str(sheet_id)
         return self
 
     def build(self) -> DeleteSpreadsheetSheetFilterRequest:

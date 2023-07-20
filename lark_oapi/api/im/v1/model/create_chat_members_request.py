@@ -30,17 +30,17 @@ class CreateChatMembersRequestBuilder(object):
 
     def member_id_type(self, member_id_type: str) -> "CreateChatMembersRequestBuilder":
         self._create_chat_members_request.member_id_type = member_id_type
-        self._create_chat_members_request.queries["member_id_type"] = str(member_id_type)
+        self._create_chat_members_request.add_query("member_id_type", member_id_type)
         return self
 
     def succeed_type(self, succeed_type: int) -> "CreateChatMembersRequestBuilder":
         self._create_chat_members_request.succeed_type = succeed_type
-        self._create_chat_members_request.queries["succeed_type"] = str(succeed_type)
+        self._create_chat_members_request.add_query("succeed_type", succeed_type)
         return self
 
     def chat_id(self, chat_id: str) -> "CreateChatMembersRequestBuilder":
         self._create_chat_members_request.chat_id = chat_id
-        self._create_chat_members_request.paths["chat_id"] = chat_id
+        self._create_chat_members_request.paths["chat_id"] = str(chat_id)
         return self
 
     def request_body(self, request_body: CreateChatMembersRequestBody) -> "CreateChatMembersRequestBuilder":

@@ -29,7 +29,7 @@ class CreateFileSubscriptionRequestBuilder(object):
 
     def file_token(self, file_token: str) -> "CreateFileSubscriptionRequestBuilder":
         self._create_file_subscription_request.file_token = file_token
-        self._create_file_subscription_request.paths["file_token"] = file_token
+        self._create_file_subscription_request.paths["file_token"] = str(file_token)
         return self
 
     def request_body(self, request_body: FileSubscription) -> "CreateFileSubscriptionRequestBuilder":

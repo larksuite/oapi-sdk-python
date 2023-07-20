@@ -28,7 +28,7 @@ class SetRoomConfigRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "SetRoomConfigRequestBuilder":
         self._set_room_config_request.user_id_type = user_id_type
-        self._set_room_config_request.queries["user_id_type"] = str(user_id_type)
+        self._set_room_config_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: SetRoomConfigRequestBody) -> "SetRoomConfigRequestBuilder":

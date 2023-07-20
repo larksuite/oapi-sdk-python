@@ -30,12 +30,12 @@ class BatchDeleteAppTableRecordRequestBuilder(object):
 
     def app_token(self, app_token: str) -> "BatchDeleteAppTableRecordRequestBuilder":
         self._batch_delete_app_table_record_request.app_token = app_token
-        self._batch_delete_app_table_record_request.paths["app_token"] = app_token
+        self._batch_delete_app_table_record_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "BatchDeleteAppTableRecordRequestBuilder":
         self._batch_delete_app_table_record_request.table_id = table_id
-        self._batch_delete_app_table_record_request.paths["table_id"] = table_id
+        self._batch_delete_app_table_record_request.paths["table_id"] = str(table_id)
         return self
 
     def request_body(self,

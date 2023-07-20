@@ -31,17 +31,17 @@ class CreateCalendarEventRequestBuilder(object):
 
     def idempotency_key(self, idempotency_key: str) -> "CreateCalendarEventRequestBuilder":
         self._create_calendar_event_request.idempotency_key = idempotency_key
-        self._create_calendar_event_request.queries["idempotency_key"] = str(idempotency_key)
+        self._create_calendar_event_request.add_query("idempotency_key", idempotency_key)
         return self
 
     def user_id_type(self, user_id_type: str) -> "CreateCalendarEventRequestBuilder":
         self._create_calendar_event_request.user_id_type = user_id_type
-        self._create_calendar_event_request.queries["user_id_type"] = str(user_id_type)
+        self._create_calendar_event_request.add_query("user_id_type", user_id_type)
         return self
 
     def calendar_id(self, calendar_id: str) -> "CreateCalendarEventRequestBuilder":
         self._create_calendar_event_request.calendar_id = calendar_id
-        self._create_calendar_event_request.paths["calendar_id"] = calendar_id
+        self._create_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def request_body(self, request_body: CalendarEvent) -> "CreateCalendarEventRequestBuilder":

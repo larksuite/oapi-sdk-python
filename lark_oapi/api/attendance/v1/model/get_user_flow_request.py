@@ -27,12 +27,12 @@ class GetUserFlowRequestBuilder(object):
 
     def employee_type(self, employee_type: str) -> "GetUserFlowRequestBuilder":
         self._get_user_flow_request.employee_type = employee_type
-        self._get_user_flow_request.queries["employee_type"] = str(employee_type)
+        self._get_user_flow_request.add_query("employee_type", employee_type)
         return self
 
     def user_flow_id(self, user_flow_id: str) -> "GetUserFlowRequestBuilder":
         self._get_user_flow_request.user_flow_id = user_flow_id
-        self._get_user_flow_request.paths["user_flow_id"] = user_flow_id
+        self._get_user_flow_request.paths["user_flow_id"] = str(user_flow_id)
         return self
 
     def build(self) -> GetUserFlowRequest:

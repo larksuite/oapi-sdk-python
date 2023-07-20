@@ -3,6 +3,7 @@
 from typing import *
 
 from lark_oapi.core.construct import init
+from .registration_basic_info import RegistrationBasicInfo
 from .talent_award_info import TalentAwardInfo
 from .talent_basic_info import TalentBasicInfo
 from .talent_career_info import TalentCareerInfo
@@ -31,6 +32,7 @@ class Talent(object):
         "sns_list": List[TalentSnsInfo],
         "resume_source_list": List[TalentResumeSource],
         "interview_registration_list": List[TalentInterviewRegistrationSimple],
+        "registration_list": List[RegistrationBasicInfo],
         "resume_attachment_id_list": List[str],
         "customized_data_list": List[TalentCustomizedData],
         "top_degree": int,
@@ -51,6 +53,7 @@ class Talent(object):
         self.sns_list: Optional[List[TalentSnsInfo]] = None
         self.resume_source_list: Optional[List[TalentResumeSource]] = None
         self.interview_registration_list: Optional[List[TalentInterviewRegistrationSimple]] = None
+        self.registration_list: Optional[List[RegistrationBasicInfo]] = None
         self.resume_attachment_id_list: Optional[List[str]] = None
         self.customized_data_list: Optional[List[TalentCustomizedData]] = None
         self.top_degree: Optional[int] = None
@@ -117,6 +120,10 @@ class TalentBuilder(object):
     def interview_registration_list(self, interview_registration_list: List[
         TalentInterviewRegistrationSimple]) -> "TalentBuilder":
         self._talent.interview_registration_list = interview_registration_list
+        return self
+
+    def registration_list(self, registration_list: List[RegistrationBasicInfo]) -> "TalentBuilder":
+        self._talent.registration_list = registration_list
         return self
 
     def resume_attachment_id_list(self, resume_attachment_id_list: List[str]) -> "TalentBuilder":

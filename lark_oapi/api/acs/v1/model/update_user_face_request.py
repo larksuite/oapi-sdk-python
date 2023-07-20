@@ -29,12 +29,12 @@ class UpdateUserFaceRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UpdateUserFaceRequestBuilder":
         self._update_user_face_request.user_id_type = user_id_type
-        self._update_user_face_request.queries["user_id_type"] = str(user_id_type)
+        self._update_user_face_request.add_query("user_id_type", user_id_type)
         return self
 
     def user_id(self, user_id: str) -> "UpdateUserFaceRequestBuilder":
         self._update_user_face_request.user_id = user_id
-        self._update_user_face_request.paths["user_id"] = user_id
+        self._update_user_face_request.paths["user_id"] = str(user_id)
         return self
 
     def request_body(self, request_body: File) -> "UpdateUserFaceRequestBuilder":

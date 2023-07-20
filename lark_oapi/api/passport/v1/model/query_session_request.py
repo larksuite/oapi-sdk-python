@@ -28,7 +28,7 @@ class QuerySessionRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "QuerySessionRequestBuilder":
         self._query_session_request.user_id_type = user_id_type
-        self._query_session_request.queries["user_id_type"] = str(user_id_type)
+        self._query_session_request.add_query("user_id_type", user_id_type)
         return self
 
     def request_body(self, request_body: QuerySessionRequestBody) -> "QuerySessionRequestBuilder":

@@ -29,7 +29,7 @@ class QueryUserTaskRemedyRequestBuilder(object):
 
     def employee_type(self, employee_type: str) -> "QueryUserTaskRemedyRequestBuilder":
         self._query_user_task_remedy_request.employee_type = employee_type
-        self._query_user_task_remedy_request.queries["employee_type"] = str(employee_type)
+        self._query_user_task_remedy_request.add_query("employee_type", employee_type)
         return self
 
     def request_body(self, request_body: QueryUserTaskRemedyRequestBody) -> "QueryUserTaskRemedyRequestBuilder":

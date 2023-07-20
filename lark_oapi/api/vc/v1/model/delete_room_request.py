@@ -26,7 +26,7 @@ class DeleteRoomRequestBuilder(object):
 
     def room_id(self, room_id: str) -> "DeleteRoomRequestBuilder":
         self._delete_room_request.room_id = room_id
-        self._delete_room_request.paths["room_id"] = room_id
+        self._delete_room_request.paths["room_id"] = str(room_id)
         return self
 
     def build(self) -> DeleteRoomRequest:

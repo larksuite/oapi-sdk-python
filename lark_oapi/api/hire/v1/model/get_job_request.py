@@ -28,17 +28,17 @@ class GetJobRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetJobRequestBuilder":
         self._get_job_request.user_id_type = user_id_type
-        self._get_job_request.queries["user_id_type"] = str(user_id_type)
+        self._get_job_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "GetJobRequestBuilder":
         self._get_job_request.department_id_type = department_id_type
-        self._get_job_request.queries["department_id_type"] = str(department_id_type)
+        self._get_job_request.add_query("department_id_type", department_id_type)
         return self
 
     def job_id(self, job_id: str) -> "GetJobRequestBuilder":
         self._get_job_request.job_id = job_id
-        self._get_job_request.paths["job_id"] = job_id
+        self._get_job_request.paths["job_id"] = str(job_id)
         return self
 
     def build(self) -> GetJobRequest:

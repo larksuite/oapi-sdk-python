@@ -27,12 +27,12 @@ class GetNoteRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "GetNoteRequestBuilder":
         self._get_note_request.user_id_type = user_id_type
-        self._get_note_request.queries["user_id_type"] = str(user_id_type)
+        self._get_note_request.add_query("user_id_type", user_id_type)
         return self
 
     def note_id(self, note_id: str) -> "GetNoteRequestBuilder":
         self._get_note_request.note_id = note_id
-        self._get_note_request.paths["note_id"] = note_id
+        self._get_note_request.paths["note_id"] = str(note_id)
         return self
 
     def build(self) -> GetNoteRequest:

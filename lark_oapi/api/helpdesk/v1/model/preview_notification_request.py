@@ -26,7 +26,7 @@ class PreviewNotificationRequestBuilder(object):
 
     def notification_id(self, notification_id: str) -> "PreviewNotificationRequestBuilder":
         self._preview_notification_request.notification_id = notification_id
-        self._preview_notification_request.paths["notification_id"] = notification_id
+        self._preview_notification_request.paths["notification_id"] = str(notification_id)
         return self
 
     def build(self) -> PreviewNotificationRequest:

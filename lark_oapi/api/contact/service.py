@@ -20,6 +20,8 @@ class V3(object):
         self.group_member: Optional[GroupMember] = GroupMember(config)
         self.job_family: Optional[JobFamily] = JobFamily(config)
         self.job_level: Optional[JobLevel] = JobLevel(config)
+        self.job_title: Optional[JobTitle] = JobTitle(config)
         self.scope: Optional[Scope] = Scope(config)
         self.unit: Optional[Unit] = Unit(config)
         self.user: Optional[User] = User(config)
+        self.work_city: Optional[WorkCity] = WorkCity(config)

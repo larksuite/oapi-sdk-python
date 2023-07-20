@@ -31,32 +31,32 @@ class ListQuestionnaireRequestBuilder(object):
 
     def page_token(self, page_token: str) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.page_token = page_token
-        self._list_questionnaire_request.queries["page_token"] = str(page_token)
+        self._list_questionnaire_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.page_size = page_size
-        self._list_questionnaire_request.queries["page_size"] = str(page_size)
+        self._list_questionnaire_request.add_query("page_size", page_size)
         return self
 
     def application_id(self, application_id: str) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.application_id = application_id
-        self._list_questionnaire_request.queries["application_id"] = str(application_id)
+        self._list_questionnaire_request.add_query("application_id", application_id)
         return self
 
     def interview_id(self, interview_id: str) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.interview_id = interview_id
-        self._list_questionnaire_request.queries["interview_id"] = str(interview_id)
+        self._list_questionnaire_request.add_query("interview_id", interview_id)
         return self
 
     def update_start_time(self, update_start_time: str) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.update_start_time = update_start_time
-        self._list_questionnaire_request.queries["update_start_time"] = str(update_start_time)
+        self._list_questionnaire_request.add_query("update_start_time", update_start_time)
         return self
 
     def update_end_time(self, update_end_time: str) -> "ListQuestionnaireRequestBuilder":
         self._list_questionnaire_request.update_end_time = update_end_time
-        self._list_questionnaire_request.queries["update_end_time"] = str(update_end_time)
+        self._list_questionnaire_request.add_query("update_end_time", update_end_time)
         return self
 
     def build(self) -> ListQuestionnaireRequest:

@@ -29,12 +29,12 @@ class PatchApplicationRequestBuilder(object):
 
     def lang(self, lang: str) -> "PatchApplicationRequestBuilder":
         self._patch_application_request.lang = lang
-        self._patch_application_request.queries["lang"] = str(lang)
+        self._patch_application_request.add_query("lang", lang)
         return self
 
     def app_id(self, app_id: str) -> "PatchApplicationRequestBuilder":
         self._patch_application_request.app_id = app_id
-        self._patch_application_request.paths["app_id"] = app_id
+        self._patch_application_request.paths["app_id"] = str(app_id)
         return self
 
     def request_body(self, request_body: Application) -> "PatchApplicationRequestBuilder":

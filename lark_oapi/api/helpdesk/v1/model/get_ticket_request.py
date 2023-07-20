@@ -26,7 +26,7 @@ class GetTicketRequestBuilder(object):
 
     def ticket_id(self, ticket_id: str) -> "GetTicketRequestBuilder":
         self._get_ticket_request.ticket_id = ticket_id
-        self._get_ticket_request.paths["ticket_id"] = ticket_id
+        self._get_ticket_request.paths["ticket_id"] = str(ticket_id)
         return self
 
     def build(self) -> GetTicketRequest:

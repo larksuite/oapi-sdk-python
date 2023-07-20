@@ -26,7 +26,7 @@ class QueryShiftRequestBuilder(object):
 
     def shift_name(self, shift_name: str) -> "QueryShiftRequestBuilder":
         self._query_shift_request.shift_name = shift_name
-        self._query_shift_request.queries["shift_name"] = str(shift_name)
+        self._query_shift_request.add_query("shift_name", shift_name)
         return self
 
     def build(self) -> QueryShiftRequest:

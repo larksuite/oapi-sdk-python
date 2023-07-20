@@ -31,32 +31,32 @@ class ListUserOkrRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "ListUserOkrRequestBuilder":
         self._list_user_okr_request.user_id_type = user_id_type
-        self._list_user_okr_request.queries["user_id_type"] = str(user_id_type)
+        self._list_user_okr_request.add_query("user_id_type", user_id_type)
         return self
 
     def offset(self, offset: str) -> "ListUserOkrRequestBuilder":
         self._list_user_okr_request.offset = offset
-        self._list_user_okr_request.queries["offset"] = str(offset)
+        self._list_user_okr_request.add_query("offset", offset)
         return self
 
     def limit(self, limit: str) -> "ListUserOkrRequestBuilder":
         self._list_user_okr_request.limit = limit
-        self._list_user_okr_request.queries["limit"] = str(limit)
+        self._list_user_okr_request.add_query("limit", limit)
         return self
 
     def lang(self, lang: str) -> "ListUserOkrRequestBuilder":
         self._list_user_okr_request.lang = lang
-        self._list_user_okr_request.queries["lang"] = str(lang)
+        self._list_user_okr_request.add_query("lang", lang)
         return self
 
     def period_ids(self, period_ids: List[str]) -> "ListUserOkrRequestBuilder":
         self._list_user_okr_request.period_ids = period_ids
-        self._list_user_okr_request.queries["period_ids"] = str(period_ids)
+        self._list_user_okr_request.add_query("period_ids", period_ids)
         return self
 
     def user_id(self, user_id: str) -> "ListUserOkrRequestBuilder":
         self._list_user_okr_request.user_id = user_id
-        self._list_user_okr_request.paths["user_id"] = user_id
+        self._list_user_okr_request.paths["user_id"] = str(user_id)
         return self
 
     def build(self) -> ListUserOkrRequest:

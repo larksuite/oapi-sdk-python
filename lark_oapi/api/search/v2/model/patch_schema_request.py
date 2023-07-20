@@ -28,7 +28,7 @@ class PatchSchemaRequestBuilder(object):
 
     def schema_id(self, schema_id: str) -> "PatchSchemaRequestBuilder":
         self._patch_schema_request.schema_id = schema_id
-        self._patch_schema_request.paths["schema_id"] = schema_id
+        self._patch_schema_request.paths["schema_id"] = str(schema_id)
         return self
 
     def request_body(self, request_body: PatchSchemaRequestBody) -> "PatchSchemaRequestBuilder":

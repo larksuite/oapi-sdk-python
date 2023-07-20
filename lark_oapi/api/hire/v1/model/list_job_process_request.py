@@ -27,12 +27,12 @@ class ListJobProcessRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListJobProcessRequestBuilder":
         self._list_job_process_request.page_size = page_size
-        self._list_job_process_request.queries["page_size"] = str(page_size)
+        self._list_job_process_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListJobProcessRequestBuilder":
         self._list_job_process_request.page_token = page_token
-        self._list_job_process_request.queries["page_token"] = str(page_token)
+        self._list_job_process_request.add_query("page_token", page_token)
         return self
 
     def build(self) -> ListJobProcessRequest:

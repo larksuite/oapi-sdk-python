@@ -27,12 +27,12 @@ class GetTaskRequestBuilder(object):
 
     def task_type(self, task_type: str) -> "GetTaskRequestBuilder":
         self._get_task_request.task_type = task_type
-        self._get_task_request.queries["task_type"] = str(task_type)
+        self._get_task_request.add_query("task_type", task_type)
         return self
 
     def task_id(self, task_id: str) -> "GetTaskRequestBuilder":
         self._get_task_request.task_id = task_id
-        self._get_task_request.paths["task_id"] = task_id
+        self._get_task_request.paths["task_id"] = str(task_id)
         return self
 
     def build(self) -> GetTaskRequest:

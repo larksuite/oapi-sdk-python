@@ -29,22 +29,22 @@ class ListSpaceNodeRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListSpaceNodeRequestBuilder":
         self._list_space_node_request.page_size = page_size
-        self._list_space_node_request.queries["page_size"] = str(page_size)
+        self._list_space_node_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListSpaceNodeRequestBuilder":
         self._list_space_node_request.page_token = page_token
-        self._list_space_node_request.queries["page_token"] = str(page_token)
+        self._list_space_node_request.add_query("page_token", page_token)
         return self
 
     def parent_node_token(self, parent_node_token: str) -> "ListSpaceNodeRequestBuilder":
         self._list_space_node_request.parent_node_token = parent_node_token
-        self._list_space_node_request.queries["parent_node_token"] = str(parent_node_token)
+        self._list_space_node_request.add_query("parent_node_token", parent_node_token)
         return self
 
     def space_id(self, space_id: str) -> "ListSpaceNodeRequestBuilder":
         self._list_space_node_request.space_id = space_id
-        self._list_space_node_request.paths["space_id"] = space_id
+        self._list_space_node_request.paths["space_id"] = str(space_id)
         return self
 
     def build(self) -> ListSpaceNodeRequest:

@@ -29,7 +29,7 @@ class UpdateExternalApplicationRequestBuilder(object):
 
     def external_application_id(self, external_application_id: str) -> "UpdateExternalApplicationRequestBuilder":
         self._update_external_application_request.external_application_id = external_application_id
-        self._update_external_application_request.paths["external_application_id"] = external_application_id
+        self._update_external_application_request.paths["external_application_id"] = str(external_application_id)
         return self
 
     def request_body(self, request_body: ExternalApplication) -> "UpdateExternalApplicationRequestBuilder":

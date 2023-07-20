@@ -31,17 +31,17 @@ class CreateAppTableFieldRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "CreateAppTableFieldRequestBuilder":
         self._create_app_table_field_request.client_token = client_token
-        self._create_app_table_field_request.queries["client_token"] = str(client_token)
+        self._create_app_table_field_request.add_query("client_token", client_token)
         return self
 
     def app_token(self, app_token: str) -> "CreateAppTableFieldRequestBuilder":
         self._create_app_table_field_request.app_token = app_token
-        self._create_app_table_field_request.paths["app_token"] = app_token
+        self._create_app_table_field_request.paths["app_token"] = str(app_token)
         return self
 
     def table_id(self, table_id: str) -> "CreateAppTableFieldRequestBuilder":
         self._create_app_table_field_request.table_id = table_id
-        self._create_app_table_field_request.paths["table_id"] = table_id
+        self._create_app_table_field_request.paths["table_id"] = str(table_id)
         return self
 
     def request_body(self, request_body: AppTableField) -> "CreateAppTableFieldRequestBuilder":

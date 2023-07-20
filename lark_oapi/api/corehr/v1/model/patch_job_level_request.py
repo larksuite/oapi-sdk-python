@@ -29,12 +29,12 @@ class PatchJobLevelRequestBuilder(object):
 
     def client_token(self, client_token: str) -> "PatchJobLevelRequestBuilder":
         self._patch_job_level_request.client_token = client_token
-        self._patch_job_level_request.queries["client_token"] = str(client_token)
+        self._patch_job_level_request.add_query("client_token", client_token)
         return self
 
     def job_level_id(self, job_level_id: str) -> "PatchJobLevelRequestBuilder":
         self._patch_job_level_request.job_level_id = job_level_id
-        self._patch_job_level_request.paths["job_level_id"] = job_level_id
+        self._patch_job_level_request.paths["job_level_id"] = str(job_level_id)
         return self
 
     def request_body(self, request_body: JobLevel) -> "PatchJobLevelRequestBuilder":

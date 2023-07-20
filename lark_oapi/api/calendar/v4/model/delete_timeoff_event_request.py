@@ -26,7 +26,7 @@ class DeleteTimeoffEventRequestBuilder(object):
 
     def timeoff_event_id(self, timeoff_event_id: str) -> "DeleteTimeoffEventRequestBuilder":
         self._delete_timeoff_event_request.timeoff_event_id = timeoff_event_id
-        self._delete_timeoff_event_request.paths["timeoff_event_id"] = timeoff_event_id
+        self._delete_timeoff_event_request.paths["timeoff_event_id"] = str(timeoff_event_id)
         return self
 
     def build(self) -> DeleteTimeoffEventRequest:

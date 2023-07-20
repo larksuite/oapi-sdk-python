@@ -31,17 +31,17 @@ class UpdateJobRequirementRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.user_id_type = user_id_type
-        self._update_job_requirement_request.queries["user_id_type"] = str(user_id_type)
+        self._update_job_requirement_request.add_query("user_id_type", user_id_type)
         return self
 
     def department_id_type(self, department_id_type: str) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.department_id_type = department_id_type
-        self._update_job_requirement_request.queries["department_id_type"] = str(department_id_type)
+        self._update_job_requirement_request.add_query("department_id_type", department_id_type)
         return self
 
     def job_requirement_id(self, job_requirement_id: str) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.job_requirement_id = job_requirement_id
-        self._update_job_requirement_request.paths["job_requirement_id"] = job_requirement_id
+        self._update_job_requirement_request.paths["job_requirement_id"] = str(job_requirement_id)
         return self
 
     def request_body(self, request_body: JobRequirement) -> "UpdateJobRequirementRequestBuilder":

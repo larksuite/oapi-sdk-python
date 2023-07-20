@@ -29,12 +29,12 @@ class PatchChatMenuItemRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "PatchChatMenuItemRequestBuilder":
         self._patch_chat_menu_item_request.chat_id = chat_id
-        self._patch_chat_menu_item_request.paths["chat_id"] = chat_id
+        self._patch_chat_menu_item_request.paths["chat_id"] = str(chat_id)
         return self
 
     def menu_item_id(self, menu_item_id: int) -> "PatchChatMenuItemRequestBuilder":
         self._patch_chat_menu_item_request.menu_item_id = menu_item_id
-        self._patch_chat_menu_item_request.paths["menu_item_id"] = menu_item_id
+        self._patch_chat_menu_item_request.paths["menu_item_id"] = str(menu_item_id)
         return self
 
     def request_body(self, request_body: PatchChatMenuItemRequestBody) -> "PatchChatMenuItemRequestBuilder":

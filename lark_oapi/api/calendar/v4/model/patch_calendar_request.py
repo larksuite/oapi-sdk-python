@@ -28,7 +28,7 @@ class PatchCalendarRequestBuilder(object):
 
     def calendar_id(self, calendar_id: str) -> "PatchCalendarRequestBuilder":
         self._patch_calendar_request.calendar_id = calendar_id
-        self._patch_calendar_request.paths["calendar_id"] = calendar_id
+        self._patch_calendar_request.paths["calendar_id"] = str(calendar_id)
         return self
 
     def request_body(self, request_body: Calendar) -> "PatchCalendarRequestBuilder":

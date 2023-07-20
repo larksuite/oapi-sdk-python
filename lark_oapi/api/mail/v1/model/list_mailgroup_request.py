@@ -29,22 +29,22 @@ class ListMailgroupRequestBuilder(object):
 
     def manager_user_id(self, manager_user_id: str) -> "ListMailgroupRequestBuilder":
         self._list_mailgroup_request.manager_user_id = manager_user_id
-        self._list_mailgroup_request.queries["manager_user_id"] = str(manager_user_id)
+        self._list_mailgroup_request.add_query("manager_user_id", manager_user_id)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListMailgroupRequestBuilder":
         self._list_mailgroup_request.user_id_type = user_id_type
-        self._list_mailgroup_request.queries["user_id_type"] = str(user_id_type)
+        self._list_mailgroup_request.add_query("user_id_type", user_id_type)
         return self
 
     def page_token(self, page_token: str) -> "ListMailgroupRequestBuilder":
         self._list_mailgroup_request.page_token = page_token
-        self._list_mailgroup_request.queries["page_token"] = str(page_token)
+        self._list_mailgroup_request.add_query("page_token", page_token)
         return self
 
     def page_size(self, page_size: int) -> "ListMailgroupRequestBuilder":
         self._list_mailgroup_request.page_size = page_size
-        self._list_mailgroup_request.queries["page_size"] = str(page_size)
+        self._list_mailgroup_request.add_query("page_size", page_size)
         return self
 
     def build(self) -> ListMailgroupRequest:

@@ -29,12 +29,12 @@ class InviteMeetingRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "InviteMeetingRequestBuilder":
         self._invite_meeting_request.user_id_type = user_id_type
-        self._invite_meeting_request.queries["user_id_type"] = str(user_id_type)
+        self._invite_meeting_request.add_query("user_id_type", user_id_type)
         return self
 
     def meeting_id(self, meeting_id: int) -> "InviteMeetingRequestBuilder":
         self._invite_meeting_request.meeting_id = meeting_id
-        self._invite_meeting_request.paths["meeting_id"] = meeting_id
+        self._invite_meeting_request.paths["meeting_id"] = str(meeting_id)
         return self
 
     def request_body(self, request_body: InviteMeetingRequestBody) -> "InviteMeetingRequestBuilder":

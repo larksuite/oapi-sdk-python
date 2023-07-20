@@ -31,27 +31,27 @@ class SearchCustomWorkplaceAccessDataRequestBuilder(object):
 
     def from_date(self, from_date: str) -> "SearchCustomWorkplaceAccessDataRequestBuilder":
         self._search_custom_workplace_access_data_request.from_date = from_date
-        self._search_custom_workplace_access_data_request.queries["from_date"] = str(from_date)
+        self._search_custom_workplace_access_data_request.add_query("from_date", from_date)
         return self
 
     def to_date(self, to_date: str) -> "SearchCustomWorkplaceAccessDataRequestBuilder":
         self._search_custom_workplace_access_data_request.to_date = to_date
-        self._search_custom_workplace_access_data_request.queries["to_date"] = str(to_date)
+        self._search_custom_workplace_access_data_request.add_query("to_date", to_date)
         return self
 
     def page_size(self, page_size: int) -> "SearchCustomWorkplaceAccessDataRequestBuilder":
         self._search_custom_workplace_access_data_request.page_size = page_size
-        self._search_custom_workplace_access_data_request.queries["page_size"] = str(page_size)
+        self._search_custom_workplace_access_data_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "SearchCustomWorkplaceAccessDataRequestBuilder":
         self._search_custom_workplace_access_data_request.page_token = page_token
-        self._search_custom_workplace_access_data_request.queries["page_token"] = str(page_token)
+        self._search_custom_workplace_access_data_request.add_query("page_token", page_token)
         return self
 
     def custom_workplace_id(self, custom_workplace_id: str) -> "SearchCustomWorkplaceAccessDataRequestBuilder":
         self._search_custom_workplace_access_data_request.custom_workplace_id = custom_workplace_id
-        self._search_custom_workplace_access_data_request.queries["custom_workplace_id"] = str(custom_workplace_id)
+        self._search_custom_workplace_access_data_request.add_query("custom_workplace_id", custom_workplace_id)
         return self
 
     def build(self) -> SearchCustomWorkplaceAccessDataRequest:

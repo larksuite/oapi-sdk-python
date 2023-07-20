@@ -29,12 +29,12 @@ class DeleteSpaceMemberRequestBuilder(object):
 
     def space_id(self, space_id: str) -> "DeleteSpaceMemberRequestBuilder":
         self._delete_space_member_request.space_id = space_id
-        self._delete_space_member_request.paths["space_id"] = space_id
+        self._delete_space_member_request.paths["space_id"] = str(space_id)
         return self
 
     def member_id(self, member_id: str) -> "DeleteSpaceMemberRequestBuilder":
         self._delete_space_member_request.member_id = member_id
-        self._delete_space_member_request.paths["member_id"] = member_id
+        self._delete_space_member_request.paths["member_id"] = str(member_id)
         return self
 
     def request_body(self, request_body: Member) -> "DeleteSpaceMemberRequestBuilder":

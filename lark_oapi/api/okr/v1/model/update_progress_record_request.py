@@ -30,12 +30,12 @@ class UpdateProgressRecordRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UpdateProgressRecordRequestBuilder":
         self._update_progress_record_request.user_id_type = user_id_type
-        self._update_progress_record_request.queries["user_id_type"] = str(user_id_type)
+        self._update_progress_record_request.add_query("user_id_type", user_id_type)
         return self
 
     def progress_id(self, progress_id: int) -> "UpdateProgressRecordRequestBuilder":
         self._update_progress_record_request.progress_id = progress_id
-        self._update_progress_record_request.paths["progress_id"] = progress_id
+        self._update_progress_record_request.paths["progress_id"] = str(progress_id)
         return self
 
     def request_body(self, request_body: UpdateProgressRecordRequestBody) -> "UpdateProgressRecordRequestBuilder":

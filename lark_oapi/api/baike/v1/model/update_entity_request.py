@@ -29,12 +29,12 @@ class UpdateEntityRequestBuilder(object):
 
     def user_id_type(self, user_id_type: str) -> "UpdateEntityRequestBuilder":
         self._update_entity_request.user_id_type = user_id_type
-        self._update_entity_request.queries["user_id_type"] = str(user_id_type)
+        self._update_entity_request.add_query("user_id_type", user_id_type)
         return self
 
     def entity_id(self, entity_id: str) -> "UpdateEntityRequestBuilder":
         self._update_entity_request.entity_id = entity_id
-        self._update_entity_request.paths["entity_id"] = entity_id
+        self._update_entity_request.paths["entity_id"] = str(entity_id)
         return self
 
     def request_body(self, request_body: Entity) -> "UpdateEntityRequestBuilder":

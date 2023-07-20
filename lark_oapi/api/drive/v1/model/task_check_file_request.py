@@ -26,7 +26,7 @@ class TaskCheckFileRequestBuilder(object):
 
     def task_id(self, task_id: str) -> "TaskCheckFileRequestBuilder":
         self._task_check_file_request.task_id = task_id
-        self._task_check_file_request.queries["task_id"] = str(task_id)
+        self._task_check_file_request.add_query("task_id", task_id)
         return self
 
     def build(self) -> TaskCheckFileRequest:

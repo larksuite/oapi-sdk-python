@@ -28,7 +28,7 @@ class UpdateSpaceSettingRequestBuilder(object):
 
     def space_id(self, space_id: str) -> "UpdateSpaceSettingRequestBuilder":
         self._update_space_setting_request.space_id = space_id
-        self._update_space_setting_request.paths["space_id"] = space_id
+        self._update_space_setting_request.paths["space_id"] = str(space_id)
         return self
 
     def request_body(self, request_body: Setting) -> "UpdateSpaceSettingRequestBuilder":

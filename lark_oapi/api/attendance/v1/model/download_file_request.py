@@ -26,7 +26,7 @@ class DownloadFileRequestBuilder(object):
 
     def file_id(self, file_id: str) -> "DownloadFileRequestBuilder":
         self._download_file_request.file_id = file_id
-        self._download_file_request.paths["file_id"] = file_id
+        self._download_file_request.paths["file_id"] = str(file_id)
         return self
 
     def build(self) -> DownloadFileRequest:

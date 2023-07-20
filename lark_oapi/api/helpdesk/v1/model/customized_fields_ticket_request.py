@@ -27,7 +27,7 @@ class CustomizedFieldsTicketRequestBuilder(object):
 
     def visible_only(self, visible_only: bool) -> "CustomizedFieldsTicketRequestBuilder":
         self._customized_fields_ticket_request.visible_only = visible_only
-        self._customized_fields_ticket_request.queries["visible_only"] = str(visible_only)
+        self._customized_fields_ticket_request.add_query("visible_only", visible_only)
         return self
 
     def build(self) -> CustomizedFieldsTicketRequest:

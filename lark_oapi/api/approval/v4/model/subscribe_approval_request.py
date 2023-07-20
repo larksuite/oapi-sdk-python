@@ -26,7 +26,7 @@ class SubscribeApprovalRequestBuilder(object):
 
     def approval_code(self, approval_code: str) -> "SubscribeApprovalRequestBuilder":
         self._subscribe_approval_request.approval_code = approval_code
-        self._subscribe_approval_request.paths["approval_code"] = approval_code
+        self._subscribe_approval_request.paths["approval_code"] = str(approval_code)
         return self
 
     def build(self) -> SubscribeApprovalRequest:

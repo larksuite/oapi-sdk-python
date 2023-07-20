@@ -28,7 +28,7 @@ class CreateMessageRequestBuilder(object):
 
     def receive_id_type(self, receive_id_type: str) -> "CreateMessageRequestBuilder":
         self._create_message_request.receive_id_type = receive_id_type
-        self._create_message_request.queries["receive_id_type"] = str(receive_id_type)
+        self._create_message_request.add_query("receive_id_type", receive_id_type)
         return self
 
     def request_body(self, request_body: CreateMessageRequestBody) -> "CreateMessageRequestBuilder":

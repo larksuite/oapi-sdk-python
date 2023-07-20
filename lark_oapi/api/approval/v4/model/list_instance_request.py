@@ -30,27 +30,27 @@ class ListInstanceRequestBuilder(object):
 
     def page_size(self, page_size: int) -> "ListInstanceRequestBuilder":
         self._list_instance_request.page_size = page_size
-        self._list_instance_request.queries["page_size"] = str(page_size)
+        self._list_instance_request.add_query("page_size", page_size)
         return self
 
     def page_token(self, page_token: str) -> "ListInstanceRequestBuilder":
         self._list_instance_request.page_token = page_token
-        self._list_instance_request.queries["page_token"] = str(page_token)
+        self._list_instance_request.add_query("page_token", page_token)
         return self
 
     def approval_code(self, approval_code: str) -> "ListInstanceRequestBuilder":
         self._list_instance_request.approval_code = approval_code
-        self._list_instance_request.queries["approval_code"] = str(approval_code)
+        self._list_instance_request.add_query("approval_code", approval_code)
         return self
 
     def start_time(self, start_time: int) -> "ListInstanceRequestBuilder":
         self._list_instance_request.start_time = start_time
-        self._list_instance_request.queries["start_time"] = str(start_time)
+        self._list_instance_request.add_query("start_time", start_time)
         return self
 
     def end_time(self, end_time: int) -> "ListInstanceRequestBuilder":
         self._list_instance_request.end_time = end_time
-        self._list_instance_request.queries["end_time"] = str(end_time)
+        self._list_instance_request.add_query("end_time", end_time)
         return self
 
     def build(self) -> ListInstanceRequest:

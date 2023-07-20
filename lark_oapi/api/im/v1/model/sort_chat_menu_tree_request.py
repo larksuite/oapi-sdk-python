@@ -28,7 +28,7 @@ class SortChatMenuTreeRequestBuilder(object):
 
     def chat_id(self, chat_id: str) -> "SortChatMenuTreeRequestBuilder":
         self._sort_chat_menu_tree_request.chat_id = chat_id
-        self._sort_chat_menu_tree_request.paths["chat_id"] = chat_id
+        self._sort_chat_menu_tree_request.paths["chat_id"] = str(chat_id)
         return self
 
     def request_body(self, request_body: SortChatMenuTreeRequestBody) -> "SortChatMenuTreeRequestBuilder":

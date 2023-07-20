@@ -27,12 +27,12 @@ class RawContentDocumentRequestBuilder(object):
 
     def lang(self, lang: int) -> "RawContentDocumentRequestBuilder":
         self._raw_content_document_request.lang = lang
-        self._raw_content_document_request.queries["lang"] = str(lang)
+        self._raw_content_document_request.add_query("lang", lang)
         return self
 
     def document_id(self, document_id: str) -> "RawContentDocumentRequestBuilder":
         self._raw_content_document_request.document_id = document_id
-        self._raw_content_document_request.paths["document_id"] = document_id
+        self._raw_content_document_request.paths["document_id"] = str(document_id)
         return self
 
     def build(self) -> RawContentDocumentRequest:
