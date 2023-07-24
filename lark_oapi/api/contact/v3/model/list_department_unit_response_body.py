@@ -13,7 +13,7 @@ class ListDepartmentUnitResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.departmentlist: Optional[List[UnitDepartment]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListDepartmentUnitResponseBody(object):
 
 
 class ListDepartmentUnitResponseBodyBuilder(object):
-    def __init__(self,
-                 list_department_unit_response_body: ListDepartmentUnitResponseBody = ListDepartmentUnitResponseBody(
-                     {})) -> None:
-        self._list_department_unit_response_body: ListDepartmentUnitResponseBody = list_department_unit_response_body
+    def __init__(self) -> None:
+        self._list_department_unit_response_body = ListDepartmentUnitResponseBody()
 
     def departmentlist(self, departmentlist: List[UnitDepartment]) -> "ListDepartmentUnitResponseBodyBuilder":
         self._list_department_unit_response_body.departmentlist = departmentlist

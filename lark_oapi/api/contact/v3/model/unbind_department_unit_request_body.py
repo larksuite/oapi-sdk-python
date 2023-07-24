@@ -12,7 +12,7 @@ class UnbindDepartmentUnitRequestBody(object):
         "department_id_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.unit_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.department_id_type: Optional[str] = None
@@ -24,10 +24,8 @@ class UnbindDepartmentUnitRequestBody(object):
 
 
 class UnbindDepartmentUnitRequestBodyBuilder(object):
-    def __init__(self,
-                 unbind_department_unit_request_body: UnbindDepartmentUnitRequestBody = UnbindDepartmentUnitRequestBody(
-                     {})) -> None:
-        self._unbind_department_unit_request_body: UnbindDepartmentUnitRequestBody = unbind_department_unit_request_body
+    def __init__(self) -> None:
+        self._unbind_department_unit_request_body = UnbindDepartmentUnitRequestBody()
 
     def unit_id(self, unit_id: str) -> "UnbindDepartmentUnitRequestBodyBuilder":
         self._unbind_department_unit_request_body.unit_id = unit_id

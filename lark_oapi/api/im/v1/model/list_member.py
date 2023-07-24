@@ -13,7 +13,7 @@ class ListMember(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id_type: Optional[str] = None
         self.member_id: Optional[str] = None
         self.name: Optional[str] = None
@@ -26,8 +26,8 @@ class ListMember(object):
 
 
 class ListMemberBuilder(object):
-    def __init__(self, list_member: ListMember = ListMember({})) -> None:
-        self._list_member: ListMember = list_member
+    def __init__(self) -> None:
+        self._list_member = ListMember()
 
     def member_id_type(self, member_id_type: str) -> "ListMemberBuilder":
         self._list_member.member_id_type = member_id_type

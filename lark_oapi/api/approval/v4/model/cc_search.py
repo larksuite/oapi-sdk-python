@@ -19,7 +19,7 @@ class CcSearch(object):
         "locale": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
@@ -38,8 +38,8 @@ class CcSearch(object):
 
 
 class CcSearchBuilder(object):
-    def __init__(self, cc_search: CcSearch = CcSearch({})) -> None:
-        self._cc_search: CcSearch = cc_search
+    def __init__(self) -> None:
+        self._cc_search = CcSearch()
 
     def user_id(self, user_id: str) -> "CcSearchBuilder":
         self._cc_search.user_id = user_id

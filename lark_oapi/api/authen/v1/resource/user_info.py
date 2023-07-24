@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.authen.v1.model.get_user_info_request import GetUserInfoRequest
-from lark_oapi.api.authen.v1.model.get_user_info_response import GetUserInfoResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_user_info_request import GetUserInfoRequest
+from ..model.get_user_info_response import GetUserInfoResponse
 
 
 class UserInfo(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetUserInfoRequest, option: RequestOption = RequestOption()) -> GetUserInfoResponse:
+    def get(self, request: GetUserInfoRequest, option: Optional[RequestOption] = None) -> GetUserInfoResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

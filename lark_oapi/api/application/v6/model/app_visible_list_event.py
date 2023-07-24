@@ -12,7 +12,7 @@ class AppVisibleListEvent(object):
         "department_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.open_ids: Optional[List[UserId]] = None
         self.department_ids: Optional[List[str]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class AppVisibleListEvent(object):
 
 
 class AppVisibleListEventBuilder(object):
-    def __init__(self, app_visible_list_event: AppVisibleListEvent = AppVisibleListEvent({})) -> None:
-        self._app_visible_list_event: AppVisibleListEvent = app_visible_list_event
+    def __init__(self) -> None:
+        self._app_visible_list_event = AppVisibleListEvent()
 
     def open_ids(self, open_ids: List[UserId]) -> "AppVisibleListEventBuilder":
         self._app_visible_list_event.open_ids = open_ids

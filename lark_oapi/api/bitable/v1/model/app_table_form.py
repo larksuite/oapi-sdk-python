@@ -15,7 +15,7 @@ class AppTableForm(object):
         "submit_limit_once": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         self.shared: Optional[bool] = None
@@ -30,8 +30,8 @@ class AppTableForm(object):
 
 
 class AppTableFormBuilder(object):
-    def __init__(self, app_table_form: AppTableForm = AppTableForm({})) -> None:
-        self._app_table_form: AppTableForm = app_table_form
+    def __init__(self) -> None:
+        self._app_table_form = AppTableForm()
 
     def name(self, name: str) -> "AppTableFormBuilder":
         self._app_table_form.name = name

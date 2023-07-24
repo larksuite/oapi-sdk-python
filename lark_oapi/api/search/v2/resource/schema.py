@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.search.v2.model.create_schema_request import CreateSchemaRequest
-from lark_oapi.api.search.v2.model.create_schema_response import CreateSchemaResponse
-from lark_oapi.api.search.v2.model.delete_schema_request import DeleteSchemaRequest
-from lark_oapi.api.search.v2.model.delete_schema_response import DeleteSchemaResponse
-from lark_oapi.api.search.v2.model.get_schema_request import GetSchemaRequest
-from lark_oapi.api.search.v2.model.get_schema_response import GetSchemaResponse
-from lark_oapi.api.search.v2.model.patch_schema_request import PatchSchemaRequest
-from lark_oapi.api.search.v2.model.patch_schema_response import PatchSchemaResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_schema_request import CreateSchemaRequest
+from ..model.create_schema_response import CreateSchemaResponse
+from ..model.delete_schema_request import DeleteSchemaRequest
+from ..model.delete_schema_response import DeleteSchemaResponse
+from ..model.get_schema_request import GetSchemaRequest
+from ..model.get_schema_response import GetSchemaResponse
+from ..model.patch_schema_request import PatchSchemaRequest
+from ..model.patch_schema_response import PatchSchemaResponse
 
 
 class Schema(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateSchemaRequest, option: RequestOption = RequestOption()) -> CreateSchemaResponse:
+    def create(self, request: CreateSchemaRequest, option: Optional[RequestOption] = None) -> CreateSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Schema(object):
 
         return response
 
-    def delete(self, request: DeleteSchemaRequest, option: RequestOption = RequestOption()) -> DeleteSchemaResponse:
+    def delete(self, request: DeleteSchemaRequest, option: Optional[RequestOption] = None) -> DeleteSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Schema(object):
 
         return response
 
-    def get(self, request: GetSchemaRequest, option: RequestOption = RequestOption()) -> GetSchemaResponse:
+    def get(self, request: GetSchemaRequest, option: Optional[RequestOption] = None) -> GetSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +69,10 @@ class Schema(object):
 
         return response
 
-    def patch(self, request: PatchSchemaRequest, option: RequestOption = RequestOption()) -> PatchSchemaResponse:
+    def patch(self, request: PatchSchemaRequest, option: Optional[RequestOption] = None) -> PatchSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

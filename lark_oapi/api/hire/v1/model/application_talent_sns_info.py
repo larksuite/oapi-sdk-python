@@ -12,7 +12,7 @@ class ApplicationTalentSnsInfo(object):
         "link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.sns_type: Optional[int] = None
         self.link: Optional[str] = None
@@ -24,8 +24,8 @@ class ApplicationTalentSnsInfo(object):
 
 
 class ApplicationTalentSnsInfoBuilder(object):
-    def __init__(self, application_talent_sns_info: ApplicationTalentSnsInfo = ApplicationTalentSnsInfo({})) -> None:
-        self._application_talent_sns_info: ApplicationTalentSnsInfo = application_talent_sns_info
+    def __init__(self) -> None:
+        self._application_talent_sns_info = ApplicationTalentSnsInfo()
 
     def id(self, id: str) -> "ApplicationTalentSnsInfoBuilder":
         self._application_talent_sns_info.id = id

@@ -11,7 +11,7 @@ class FieldGroup(object):
         "readable": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.writable: Optional[List[str]] = None
         self.readable: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class FieldGroup(object):
 
 
 class FieldGroupBuilder(object):
-    def __init__(self, field_group: FieldGroup = FieldGroup({})) -> None:
-        self._field_group: FieldGroup = field_group
+    def __init__(self) -> None:
+        self._field_group = FieldGroup()
 
     def writable(self, writable: List[str]) -> "FieldGroupBuilder":
         self._field_group.writable = writable

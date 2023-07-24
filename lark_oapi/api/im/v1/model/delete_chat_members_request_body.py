@@ -10,7 +10,7 @@ class DeleteChatMembersRequestBody(object):
         "id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class DeleteChatMembersRequestBody(object):
 
 
 class DeleteChatMembersRequestBodyBuilder(object):
-    def __init__(self, delete_chat_members_request_body: DeleteChatMembersRequestBody = DeleteChatMembersRequestBody(
-        {})) -> None:
-        self._delete_chat_members_request_body: DeleteChatMembersRequestBody = delete_chat_members_request_body
+    def __init__(self) -> None:
+        self._delete_chat_members_request_body = DeleteChatMembersRequestBody()
 
     def id_list(self, id_list: List[str]) -> "DeleteChatMembersRequestBodyBuilder":
         self._delete_chat_members_request_body.id_list = id_list

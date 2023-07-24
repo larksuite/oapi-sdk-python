@@ -2,27 +2,27 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.batch_create_app_table_record_request import BatchCreateAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.batch_create_app_table_record_response import BatchCreateAppTableRecordResponse
-from lark_oapi.api.bitable.v1.model.batch_delete_app_table_record_request import BatchDeleteAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.batch_delete_app_table_record_response import BatchDeleteAppTableRecordResponse
-from lark_oapi.api.bitable.v1.model.batch_update_app_table_record_request import BatchUpdateAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.batch_update_app_table_record_response import BatchUpdateAppTableRecordResponse
-from lark_oapi.api.bitable.v1.model.create_app_table_record_request import CreateAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.create_app_table_record_response import CreateAppTableRecordResponse
-from lark_oapi.api.bitable.v1.model.delete_app_table_record_request import DeleteAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.delete_app_table_record_response import DeleteAppTableRecordResponse
-from lark_oapi.api.bitable.v1.model.get_app_table_record_request import GetAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.get_app_table_record_response import GetAppTableRecordResponse
-from lark_oapi.api.bitable.v1.model.list_app_table_record_request import ListAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.list_app_table_record_response import ListAppTableRecordResponse
-from lark_oapi.api.bitable.v1.model.update_app_table_record_request import UpdateAppTableRecordRequest
-from lark_oapi.api.bitable.v1.model.update_app_table_record_response import UpdateAppTableRecordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_app_table_record_request import BatchCreateAppTableRecordRequest
+from ..model.batch_create_app_table_record_response import BatchCreateAppTableRecordResponse
+from ..model.batch_delete_app_table_record_request import BatchDeleteAppTableRecordRequest
+from ..model.batch_delete_app_table_record_response import BatchDeleteAppTableRecordResponse
+from ..model.batch_update_app_table_record_request import BatchUpdateAppTableRecordRequest
+from ..model.batch_update_app_table_record_response import BatchUpdateAppTableRecordResponse
+from ..model.create_app_table_record_request import CreateAppTableRecordRequest
+from ..model.create_app_table_record_response import CreateAppTableRecordResponse
+from ..model.delete_app_table_record_request import DeleteAppTableRecordRequest
+from ..model.delete_app_table_record_response import DeleteAppTableRecordResponse
+from ..model.get_app_table_record_request import GetAppTableRecordRequest
+from ..model.get_app_table_record_response import GetAppTableRecordResponse
+from ..model.list_app_table_record_request import ListAppTableRecordRequest
+from ..model.list_app_table_record_response import ListAppTableRecordResponse
+from ..model.update_app_table_record_request import UpdateAppTableRecordRequest
+from ..model.update_app_table_record_response import UpdateAppTableRecordResponse
 
 
 class AppTableRecord(object):
@@ -30,7 +30,10 @@ class AppTableRecord(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateAppTableRecordRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateAppTableRecordResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -45,7 +48,10 @@ class AppTableRecord(object):
         return response
 
     def batch_delete(self, request: BatchDeleteAppTableRecordRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteAppTableRecordResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +66,10 @@ class AppTableRecord(object):
         return response
 
     def batch_update(self, request: BatchUpdateAppTableRecordRequest,
-                     option: RequestOption = RequestOption()) -> BatchUpdateAppTableRecordResponse:
+                     option: Optional[RequestOption] = None) -> BatchUpdateAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +84,10 @@ class AppTableRecord(object):
         return response
 
     def create(self, request: CreateAppTableRecordRequest,
-               option: RequestOption = RequestOption()) -> CreateAppTableRecordResponse:
+               option: Optional[RequestOption] = None) -> CreateAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -89,7 +101,10 @@ class AppTableRecord(object):
         return response
 
     def delete(self, request: DeleteAppTableRecordRequest,
-               option: RequestOption = RequestOption()) -> DeleteAppTableRecordResponse:
+               option: Optional[RequestOption] = None) -> DeleteAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -103,7 +118,10 @@ class AppTableRecord(object):
         return response
 
     def get(self, request: GetAppTableRecordRequest,
-            option: RequestOption = RequestOption()) -> GetAppTableRecordResponse:
+            option: Optional[RequestOption] = None) -> GetAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -117,7 +135,10 @@ class AppTableRecord(object):
         return response
 
     def list(self, request: ListAppTableRecordRequest,
-             option: RequestOption = RequestOption()) -> ListAppTableRecordResponse:
+             option: Optional[RequestOption] = None) -> ListAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -131,7 +152,10 @@ class AppTableRecord(object):
         return response
 
     def update(self, request: UpdateAppTableRecordRequest,
-               option: RequestOption = RequestOption()) -> UpdateAppTableRecordResponse:
+               option: Optional[RequestOption] = None) -> UpdateAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

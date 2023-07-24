@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.get_daily_report_request import GetDailyReportRequest
-from lark_oapi.api.vc.v1.model.get_daily_report_response import GetDailyReportResponse
-from lark_oapi.api.vc.v1.model.get_top_user_report_request import GetTopUserReportRequest
-from lark_oapi.api.vc.v1.model.get_top_user_report_response import GetTopUserReportResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_daily_report_request import GetDailyReportRequest
+from ..model.get_daily_report_response import GetDailyReportResponse
+from ..model.get_top_user_report_request import GetTopUserReportRequest
+from ..model.get_top_user_report_response import GetTopUserReportResponse
 
 
 class Report(object):
@@ -18,7 +18,10 @@ class Report(object):
         self.config: Optional[Config] = config
 
     def get_daily(self, request: GetDailyReportRequest,
-                  option: RequestOption = RequestOption()) -> GetDailyReportResponse:
+                  option: Optional[RequestOption] = None) -> GetDailyReportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class Report(object):
         return response
 
     def get_top_user(self, request: GetTopUserReportRequest,
-                     option: RequestOption = RequestOption()) -> GetTopUserReportResponse:
+                     option: Optional[RequestOption] = None) -> GetTopUserReportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

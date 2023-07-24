@@ -11,7 +11,7 @@ class FunctionalRoleMemberResult(object):
         "reason": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.reason: Optional[int] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class FunctionalRoleMemberResult(object):
 
 
 class FunctionalRoleMemberResultBuilder(object):
-    def __init__(self,
-                 functional_role_member_result: FunctionalRoleMemberResult = FunctionalRoleMemberResult({})) -> None:
-        self._functional_role_member_result: FunctionalRoleMemberResult = functional_role_member_result
+    def __init__(self) -> None:
+        self._functional_role_member_result = FunctionalRoleMemberResult()
 
     def user_id(self, user_id: str) -> "FunctionalRoleMemberResultBuilder":
         self._functional_role_member_result.user_id = user_id

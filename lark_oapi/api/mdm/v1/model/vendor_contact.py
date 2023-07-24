@@ -17,7 +17,7 @@ class VendorContact(object):
         "extend_info": List[ExtendField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         self.position: Optional[str] = None
@@ -33,8 +33,8 @@ class VendorContact(object):
 
 
 class VendorContactBuilder(object):
-    def __init__(self, vendor_contact: VendorContact = VendorContact({})) -> None:
-        self._vendor_contact: VendorContact = vendor_contact
+    def __init__(self) -> None:
+        self._vendor_contact = VendorContact()
 
     def id(self, id: int) -> "VendorContactBuilder":
         self._vendor_contact.id = id

@@ -23,7 +23,7 @@ class HiberarchyCommon(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.parent_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.type: Optional[Enum] = None
@@ -43,8 +43,8 @@ class HiberarchyCommon(object):
 
 
 class HiberarchyCommonBuilder(object):
-    def __init__(self, hiberarchy_common: HiberarchyCommon = HiberarchyCommon({})) -> None:
-        self._hiberarchy_common: HiberarchyCommon = hiberarchy_common
+    def __init__(self) -> None:
+        self._hiberarchy_common = HiberarchyCommon()
 
     def parent_id(self, parent_id: str) -> "HiberarchyCommonBuilder":
         self._hiberarchy_common.parent_id = parent_id

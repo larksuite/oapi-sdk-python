@@ -18,7 +18,8 @@ class GetBadgeRequest(BaseRequest):
 
 class GetBadgeRequestBuilder(object):
 
-    def __init__(self, get_badge_request: GetBadgeRequest = GetBadgeRequest()) -> None:
+    def __init__(self) -> None:
+        get_badge_request = GetBadgeRequest()
         get_badge_request.http_method = HttpMethod.GET
         get_badge_request.uri = "/open-apis/admin/v1/badges/:badge_id"
         get_badge_request.token_types = {AccessTokenType.TENANT}

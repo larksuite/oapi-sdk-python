@@ -11,7 +11,7 @@ class SiteResumeLanguageSkill(object):
         "proficiency": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.language: Optional[str] = None
         self.proficiency: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SiteResumeLanguageSkill(object):
 
 
 class SiteResumeLanguageSkillBuilder(object):
-    def __init__(self, site_resume_language_skill: SiteResumeLanguageSkill = SiteResumeLanguageSkill({})) -> None:
-        self._site_resume_language_skill: SiteResumeLanguageSkill = site_resume_language_skill
+    def __init__(self) -> None:
+        self._site_resume_language_skill = SiteResumeLanguageSkill()
 
     def language(self, language: str) -> "SiteResumeLanguageSkillBuilder":
         self._site_resume_language_skill.language = language

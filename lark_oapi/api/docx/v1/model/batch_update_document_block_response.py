@@ -12,7 +12,7 @@ class BatchUpdateDocumentBlockResponse(BaseResponse):
         "data": BatchUpdateDocumentBlockResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[BatchUpdateDocumentBlockResponseBody] = None
         init(self, d, self._types)

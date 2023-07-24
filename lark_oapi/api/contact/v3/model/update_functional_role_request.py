@@ -20,8 +20,8 @@ class UpdateFunctionalRoleRequest(BaseRequest):
 
 class UpdateFunctionalRoleRequestBuilder(object):
 
-    def __init__(self,
-                 update_functional_role_request: UpdateFunctionalRoleRequest = UpdateFunctionalRoleRequest()) -> None:
+    def __init__(self) -> None:
+        update_functional_role_request = UpdateFunctionalRoleRequest()
         update_functional_role_request.http_method = HttpMethod.PUT
         update_functional_role_request.uri = "/open-apis/contact/v3/functional_roles/:role_id"
         update_functional_role_request.token_types = {AccessTokenType.TENANT}

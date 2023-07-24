@@ -11,7 +11,7 @@ class PrimaryCalendarResponseBody(object):
         "calendars": List[UserCalendar],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.calendars: Optional[List[UserCalendar]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class PrimaryCalendarResponseBody(object):
 
 
 class PrimaryCalendarResponseBodyBuilder(object):
-    def __init__(self,
-                 primary_calendar_response_body: PrimaryCalendarResponseBody = PrimaryCalendarResponseBody({})) -> None:
-        self._primary_calendar_response_body: PrimaryCalendarResponseBody = primary_calendar_response_body
+    def __init__(self) -> None:
+        self._primary_calendar_response_body = PrimaryCalendarResponseBody()
 
     def calendars(self, calendars: List[UserCalendar]) -> "PrimaryCalendarResponseBodyBuilder":
         self._primary_calendar_response_body.calendars = calendars

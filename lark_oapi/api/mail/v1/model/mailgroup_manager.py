@@ -10,7 +10,7 @@ class MailgroupManager(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class MailgroupManager(object):
 
 
 class MailgroupManagerBuilder(object):
-    def __init__(self, mailgroup_manager: MailgroupManager = MailgroupManager({})) -> None:
-        self._mailgroup_manager: MailgroupManager = mailgroup_manager
+    def __init__(self) -> None:
+        self._mailgroup_manager = MailgroupManager()
 
     def user_id(self, user_id: str) -> "MailgroupManagerBuilder":
         self._mailgroup_manager.user_id = user_id

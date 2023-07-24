@@ -20,7 +20,8 @@ class SortChatMenuTreeRequest(BaseRequest):
 
 class SortChatMenuTreeRequestBuilder(object):
 
-    def __init__(self, sort_chat_menu_tree_request: SortChatMenuTreeRequest = SortChatMenuTreeRequest()) -> None:
+    def __init__(self) -> None:
+        sort_chat_menu_tree_request = SortChatMenuTreeRequest()
         sort_chat_menu_tree_request.http_method = HttpMethod.POST
         sort_chat_menu_tree_request.uri = "/open-apis/im/v1/chats/:chat_id/menu_tree/sort"
         sort_chat_menu_tree_request.token_types = {AccessTokenType.TENANT}

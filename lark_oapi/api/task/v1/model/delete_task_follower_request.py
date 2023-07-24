@@ -20,7 +20,8 @@ class DeleteTaskFollowerRequest(BaseRequest):
 
 class DeleteTaskFollowerRequestBuilder(object):
 
-    def __init__(self, delete_task_follower_request: DeleteTaskFollowerRequest = DeleteTaskFollowerRequest()) -> None:
+    def __init__(self) -> None:
+        delete_task_follower_request = DeleteTaskFollowerRequest()
         delete_task_follower_request.http_method = HttpMethod.DELETE
         delete_task_follower_request.uri = "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
         delete_task_follower_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

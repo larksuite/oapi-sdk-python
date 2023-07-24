@@ -21,8 +21,8 @@ class UpdateUserStatsViewRequest(BaseRequest):
 
 class UpdateUserStatsViewRequestBuilder(object):
 
-    def __init__(self,
-                 update_user_stats_view_request: UpdateUserStatsViewRequest = UpdateUserStatsViewRequest()) -> None:
+    def __init__(self) -> None:
+        update_user_stats_view_request = UpdateUserStatsViewRequest()
         update_user_stats_view_request.http_method = HttpMethod.PUT
         update_user_stats_view_request.uri = "/open-apis/attendance/v1/user_stats_views/:user_stats_view_id"
         update_user_stats_view_request.token_types = {AccessTokenType.TENANT}

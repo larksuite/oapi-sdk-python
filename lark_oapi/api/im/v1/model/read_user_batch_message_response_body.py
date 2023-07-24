@@ -11,7 +11,7 @@ class ReadUserBatchMessageResponseBody(object):
         "read_user": BatchMessageReadUser,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.read_user: Optional[BatchMessageReadUser] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ReadUserBatchMessageResponseBody(object):
 
 
 class ReadUserBatchMessageResponseBodyBuilder(object):
-    def __init__(self,
-                 read_user_batch_message_response_body: ReadUserBatchMessageResponseBody = ReadUserBatchMessageResponseBody(
-                     {})) -> None:
-        self._read_user_batch_message_response_body: ReadUserBatchMessageResponseBody = read_user_batch_message_response_body
+    def __init__(self) -> None:
+        self._read_user_batch_message_response_body = ReadUserBatchMessageResponseBody()
 
     def read_user(self, read_user: BatchMessageReadUser) -> "ReadUserBatchMessageResponseBodyBuilder":
         self._read_user_batch_message_response_body.read_user = read_user

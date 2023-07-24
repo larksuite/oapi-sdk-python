@@ -12,7 +12,7 @@ class UpdateTaskCommentResponse(BaseResponse):
         "data": UpdateTaskCommentResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UpdateTaskCommentResponseBody] = None
         init(self, d, self._types)

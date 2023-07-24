@@ -20,7 +20,8 @@ class ModifyUserSettingRequest(BaseRequest):
 
 class ModifyUserSettingRequestBuilder(object):
 
-    def __init__(self, modify_user_setting_request: ModifyUserSettingRequest = ModifyUserSettingRequest()) -> None:
+    def __init__(self) -> None:
+        modify_user_setting_request = ModifyUserSettingRequest()
         modify_user_setting_request.http_method = HttpMethod.POST
         modify_user_setting_request.uri = "/open-apis/attendance/v1/user_settings/modify"
         modify_user_setting_request.token_types = {AccessTokenType.TENANT}

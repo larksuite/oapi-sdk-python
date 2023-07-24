@@ -25,7 +25,7 @@ class LeaveRequest(object):
         "notes": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_request_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.employment_name: Optional[List[I18n]] = None
@@ -49,8 +49,8 @@ class LeaveRequest(object):
 
 
 class LeaveRequestBuilder(object):
-    def __init__(self, leave_request: LeaveRequest = LeaveRequest({})) -> None:
-        self._leave_request: LeaveRequest = leave_request
+    def __init__(self) -> None:
+        self._leave_request = LeaveRequest()
 
     def leave_request_id(self, leave_request_id: str) -> "LeaveRequestBuilder":
         self._leave_request.leave_request_id = leave_request_id

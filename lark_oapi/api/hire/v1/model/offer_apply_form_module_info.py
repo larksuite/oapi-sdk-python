@@ -17,7 +17,7 @@ class OfferApplyFormModuleInfo(object):
         "object_list": List[OfferApplyFormObjectInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.is_customized: Optional[bool] = None
@@ -32,8 +32,8 @@ class OfferApplyFormModuleInfo(object):
 
 
 class OfferApplyFormModuleInfoBuilder(object):
-    def __init__(self, offer_apply_form_module_info: OfferApplyFormModuleInfo = OfferApplyFormModuleInfo({})) -> None:
-        self._offer_apply_form_module_info: OfferApplyFormModuleInfo = offer_apply_form_module_info
+    def __init__(self) -> None:
+        self._offer_apply_form_module_info = OfferApplyFormModuleInfo()
 
     def id(self, id: str) -> "OfferApplyFormModuleInfoBuilder":
         self._offer_apply_form_module_info.id = id

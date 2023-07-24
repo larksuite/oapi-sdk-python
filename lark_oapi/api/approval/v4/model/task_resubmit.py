@@ -15,7 +15,7 @@ class TaskResubmit(object):
         "form": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -30,8 +30,8 @@ class TaskResubmit(object):
 
 
 class TaskResubmitBuilder(object):
-    def __init__(self, task_resubmit: TaskResubmit = TaskResubmit({})) -> None:
-        self._task_resubmit: TaskResubmit = task_resubmit
+    def __init__(self) -> None:
+        self._task_resubmit = TaskResubmit()
 
     def approval_code(self, approval_code: str) -> "TaskResubmitBuilder":
         self._task_resubmit.approval_code = approval_code

@@ -20,7 +20,8 @@ class ListFileRequest(BaseRequest):
 
 class ListFileRequestBuilder(object):
 
-    def __init__(self, list_file_request: ListFileRequest = ListFileRequest()) -> None:
+    def __init__(self) -> None:
+        list_file_request = ListFileRequest()
         list_file_request.http_method = HttpMethod.GET
         list_file_request.uri = "/open-apis/drive/v1/files"
         list_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -22,7 +22,8 @@ class ListNationalIdTypeRequest(BaseRequest):
 
 class ListNationalIdTypeRequestBuilder(object):
 
-    def __init__(self, list_national_id_type_request: ListNationalIdTypeRequest = ListNationalIdTypeRequest()) -> None:
+    def __init__(self) -> None:
+        list_national_id_type_request = ListNationalIdTypeRequest()
         list_national_id_type_request.http_method = HttpMethod.GET
         list_national_id_type_request.uri = "/open-apis/corehr/v1/national_id_types"
         list_national_id_type_request.token_types = {AccessTokenType.TENANT}

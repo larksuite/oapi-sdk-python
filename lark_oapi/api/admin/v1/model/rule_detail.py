@@ -13,7 +13,7 @@ class RuleDetail(object):
         "effective_period": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.effective_time: Optional[int] = None
         self.expiration_time: Optional[int] = None
         self.anniversary: Optional[int] = None
@@ -26,8 +26,8 @@ class RuleDetail(object):
 
 
 class RuleDetailBuilder(object):
-    def __init__(self, rule_detail: RuleDetail = RuleDetail({})) -> None:
-        self._rule_detail: RuleDetail = rule_detail
+    def __init__(self) -> None:
+        self._rule_detail = RuleDetail()
 
     def effective_time(self, effective_time: int) -> "RuleDetailBuilder":
         self._rule_detail.effective_time = effective_time

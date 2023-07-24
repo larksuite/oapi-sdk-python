@@ -12,7 +12,7 @@ class FilterSchema(object):
         "default_val": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field: Optional[str] = None
         self.type: Optional[str] = None
         self.default_val: Optional[str] = None
@@ -24,8 +24,8 @@ class FilterSchema(object):
 
 
 class FilterSchemaBuilder(object):
-    def __init__(self, filter_schema: FilterSchema = FilterSchema({})) -> None:
-        self._filter_schema: FilterSchema = filter_schema
+    def __init__(self) -> None:
+        self._filter_schema = FilterSchema()
 
     def field(self, field: str) -> "FilterSchemaBuilder":
         self._filter_schema.field = field

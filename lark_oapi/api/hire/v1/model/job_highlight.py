@@ -12,7 +12,7 @@ class JobHighlight(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class JobHighlight(object):
 
 
 class JobHighlightBuilder(object):
-    def __init__(self, job_highlight: JobHighlight = JobHighlight({})) -> None:
-        self._job_highlight: JobHighlight = job_highlight
+    def __init__(self) -> None:
+        self._job_highlight = JobHighlight()
 
     def id(self, id: str) -> "JobHighlightBuilder":
         self._job_highlight.id = id

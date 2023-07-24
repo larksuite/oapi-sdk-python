@@ -21,7 +21,8 @@ class CreateFileVersionRequest(BaseRequest):
 
 class CreateFileVersionRequestBuilder(object):
 
-    def __init__(self, create_file_version_request: CreateFileVersionRequest = CreateFileVersionRequest()) -> None:
+    def __init__(self) -> None:
+        create_file_version_request = CreateFileVersionRequest()
         create_file_version_request.http_method = HttpMethod.POST
         create_file_version_request.uri = "/open-apis/drive/v1/files/:file_token/versions"
         create_file_version_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

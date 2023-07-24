@@ -11,7 +11,7 @@ class JiraIssue(object):
         "key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.key: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class JiraIssue(object):
 
 
 class JiraIssueBuilder(object):
-    def __init__(self, jira_issue: JiraIssue = JiraIssue({})) -> None:
-        self._jira_issue: JiraIssue = jira_issue
+    def __init__(self) -> None:
+        self._jira_issue = JiraIssue()
 
     def id(self, id: str) -> "JiraIssueBuilder":
         self._jira_issue.id = id

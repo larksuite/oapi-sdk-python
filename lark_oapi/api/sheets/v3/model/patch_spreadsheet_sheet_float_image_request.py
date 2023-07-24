@@ -22,8 +22,8 @@ class PatchSpreadsheetSheetFloatImageRequest(BaseRequest):
 
 class PatchSpreadsheetSheetFloatImageRequestBuilder(object):
 
-    def __init__(self,
-                 patch_spreadsheet_sheet_float_image_request: PatchSpreadsheetSheetFloatImageRequest = PatchSpreadsheetSheetFloatImageRequest()) -> None:
+    def __init__(self) -> None:
+        patch_spreadsheet_sheet_float_image_request = PatchSpreadsheetSheetFloatImageRequest()
         patch_spreadsheet_sheet_float_image_request.http_method = HttpMethod.PATCH
         patch_spreadsheet_sheet_float_image_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
         patch_spreadsheet_sheet_float_image_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

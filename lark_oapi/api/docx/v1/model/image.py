@@ -13,7 +13,7 @@ class Image(object):
         "align": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.width: Optional[int] = None
         self.height: Optional[int] = None
         self.token: Optional[str] = None
@@ -26,8 +26,8 @@ class Image(object):
 
 
 class ImageBuilder(object):
-    def __init__(self, image: Image = Image({})) -> None:
-        self._image: Image = image
+    def __init__(self) -> None:
+        self._image = Image()
 
     def width(self, width: int) -> "ImageBuilder":
         self._image.width = width

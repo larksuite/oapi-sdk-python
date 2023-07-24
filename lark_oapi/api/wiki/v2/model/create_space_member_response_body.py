@@ -11,7 +11,7 @@ class CreateSpaceMemberResponseBody(object):
         "member": Member,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member: Optional[Member] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateSpaceMemberResponseBody(object):
 
 
 class CreateSpaceMemberResponseBodyBuilder(object):
-    def __init__(self, create_space_member_response_body: CreateSpaceMemberResponseBody = CreateSpaceMemberResponseBody(
-        {})) -> None:
-        self._create_space_member_response_body: CreateSpaceMemberResponseBody = create_space_member_response_body
+    def __init__(self) -> None:
+        self._create_space_member_response_body = CreateSpaceMemberResponseBody()
 
     def member(self, member: Member) -> "CreateSpaceMemberResponseBodyBuilder":
         self._create_space_member_response_body.member = member

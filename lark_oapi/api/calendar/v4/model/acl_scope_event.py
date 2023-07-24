@@ -12,7 +12,7 @@ class AclScopeEvent(object):
         "user_id": UserId,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.user_id: Optional[UserId] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class AclScopeEvent(object):
 
 
 class AclScopeEventBuilder(object):
-    def __init__(self, acl_scope_event: AclScopeEvent = AclScopeEvent({})) -> None:
-        self._acl_scope_event: AclScopeEvent = acl_scope_event
+    def __init__(self) -> None:
+        self._acl_scope_event = AclScopeEvent()
 
     def type(self, type: str) -> "AclScopeEventBuilder":
         self._acl_scope_event.type = type

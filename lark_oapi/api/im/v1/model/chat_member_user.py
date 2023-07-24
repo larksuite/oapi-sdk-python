@@ -13,7 +13,7 @@ class ChatMemberUser(object):
         "user_id": UserId,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.tenant_key: Optional[str] = None
         self.user_id: Optional[UserId] = None
@@ -25,8 +25,8 @@ class ChatMemberUser(object):
 
 
 class ChatMemberUserBuilder(object):
-    def __init__(self, chat_member_user: ChatMemberUser = ChatMemberUser({})) -> None:
-        self._chat_member_user: ChatMemberUser = chat_member_user
+    def __init__(self) -> None:
+        self._chat_member_user = ChatMemberUser()
 
     def name(self, name: str) -> "ChatMemberUserBuilder":
         self._chat_member_user.name = name

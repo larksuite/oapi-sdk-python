@@ -18,7 +18,8 @@ class QueryCustomFieldRequest(BaseRequest):
 
 class QueryCustomFieldRequestBuilder(object):
 
-    def __init__(self, query_custom_field_request: QueryCustomFieldRequest = QueryCustomFieldRequest()) -> None:
+    def __init__(self) -> None:
+        query_custom_field_request = QueryCustomFieldRequest()
         query_custom_field_request.http_method = HttpMethod.GET
         query_custom_field_request.uri = "/open-apis/corehr/v1/custom_fields/query"
         query_custom_field_request.token_types = {AccessTokenType.TENANT}

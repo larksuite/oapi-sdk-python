@@ -19,7 +19,8 @@ class UploadPrepareMediaRequest(BaseRequest):
 
 class UploadPrepareMediaRequestBuilder(object):
 
-    def __init__(self, upload_prepare_media_request: UploadPrepareMediaRequest = UploadPrepareMediaRequest()) -> None:
+    def __init__(self) -> None:
+        upload_prepare_media_request = UploadPrepareMediaRequest()
         upload_prepare_media_request.http_method = HttpMethod.POST
         upload_prepare_media_request.uri = "/open-apis/drive/v1/medias/upload_prepare"
         upload_prepare_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

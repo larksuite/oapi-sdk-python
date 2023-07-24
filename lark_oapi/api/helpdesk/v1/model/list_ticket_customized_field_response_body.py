@@ -13,7 +13,7 @@ class ListTicketCustomizedFieldResponseBody(object):
         "items": List[TicketCustomizedField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.next_page_token: Optional[str] = None
         self.items: Optional[List[TicketCustomizedField]] = None
@@ -25,10 +25,8 @@ class ListTicketCustomizedFieldResponseBody(object):
 
 
 class ListTicketCustomizedFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 list_ticket_customized_field_response_body: ListTicketCustomizedFieldResponseBody = ListTicketCustomizedFieldResponseBody(
-                     {})) -> None:
-        self._list_ticket_customized_field_response_body: ListTicketCustomizedFieldResponseBody = list_ticket_customized_field_response_body
+    def __init__(self) -> None:
+        self._list_ticket_customized_field_response_body = ListTicketCustomizedFieldResponseBody()
 
     def has_more(self, has_more: bool) -> "ListTicketCustomizedFieldResponseBodyBuilder":
         self._list_ticket_customized_field_response_body.has_more = has_more

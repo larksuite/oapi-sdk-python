@@ -11,7 +11,7 @@ class UnmergeTableCellsRequest(object):
         "column_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.row_index: Optional[int] = None
         self.column_index: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class UnmergeTableCellsRequest(object):
 
 
 class UnmergeTableCellsRequestBuilder(object):
-    def __init__(self, unmerge_table_cells_request: UnmergeTableCellsRequest = UnmergeTableCellsRequest({})) -> None:
-        self._unmerge_table_cells_request: UnmergeTableCellsRequest = unmerge_table_cells_request
+    def __init__(self) -> None:
+        self._unmerge_table_cells_request = UnmergeTableCellsRequest()
 
     def row_index(self, row_index: int) -> "UnmergeTableCellsRequestBuilder":
         self._unmerge_table_cells_request.row_index = row_index

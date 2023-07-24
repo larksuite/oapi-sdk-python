@@ -21,8 +21,8 @@ class BatchDeleteFunctionalRoleMemberRequest(BaseRequest):
 
 class BatchDeleteFunctionalRoleMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_functional_role_member_request: BatchDeleteFunctionalRoleMemberRequest = BatchDeleteFunctionalRoleMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_functional_role_member_request = BatchDeleteFunctionalRoleMemberRequest()
         batch_delete_functional_role_member_request.http_method = HttpMethod.PATCH
         batch_delete_functional_role_member_request.uri = "/open-apis/contact/v3/functional_roles/:role_id/members/batch_delete"
         batch_delete_functional_role_member_request.token_types = {AccessTokenType.TENANT}

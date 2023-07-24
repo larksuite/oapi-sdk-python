@@ -20,7 +20,8 @@ class BatchQueryMetaRequest(BaseRequest):
 
 class BatchQueryMetaRequestBuilder(object):
 
-    def __init__(self, batch_query_meta_request: BatchQueryMetaRequest = BatchQueryMetaRequest()) -> None:
+    def __init__(self) -> None:
+        batch_query_meta_request = BatchQueryMetaRequest()
         batch_query_meta_request.http_method = HttpMethod.POST
         batch_query_meta_request.uri = "/open-apis/drive/v1/metas/batch_query"
         batch_query_meta_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

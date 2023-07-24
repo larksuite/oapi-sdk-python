@@ -19,7 +19,7 @@ class TalentCareerInfo(object):
         "customized_data_list": List[TalentCustomizedDataChild],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.company: Optional[str] = None
         self.title: Optional[str] = None
@@ -37,8 +37,8 @@ class TalentCareerInfo(object):
 
 
 class TalentCareerInfoBuilder(object):
-    def __init__(self, talent_career_info: TalentCareerInfo = TalentCareerInfo({})) -> None:
-        self._talent_career_info: TalentCareerInfo = talent_career_info
+    def __init__(self) -> None:
+        self._talent_career_info = TalentCareerInfo()
 
     def id(self, id: str) -> "TalentCareerInfoBuilder":
         self._talent_career_info.id = id

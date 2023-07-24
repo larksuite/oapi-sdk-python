@@ -19,8 +19,8 @@ class ProcessApprovalInfoRequest(BaseRequest):
 
 class ProcessApprovalInfoRequestBuilder(object):
 
-    def __init__(self,
-                 process_approval_info_request: ProcessApprovalInfoRequest = ProcessApprovalInfoRequest()) -> None:
+    def __init__(self) -> None:
+        process_approval_info_request = ProcessApprovalInfoRequest()
         process_approval_info_request.http_method = HttpMethod.POST
         process_approval_info_request.uri = "/open-apis/attendance/v1/approval_infos/process"
         process_approval_info_request.token_types = {AccessTokenType.TENANT}

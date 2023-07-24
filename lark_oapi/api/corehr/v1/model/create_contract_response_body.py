@@ -11,7 +11,7 @@ class CreateContractResponseBody(object):
         "contract": Contract,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.contract: Optional[Contract] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateContractResponseBody(object):
 
 
 class CreateContractResponseBodyBuilder(object):
-    def __init__(self,
-                 create_contract_response_body: CreateContractResponseBody = CreateContractResponseBody({})) -> None:
-        self._create_contract_response_body: CreateContractResponseBody = create_contract_response_body
+    def __init__(self) -> None:
+        self._create_contract_response_body = CreateContractResponseBody()
 
     def contract(self, contract: Contract) -> "CreateContractResponseBodyBuilder":
         self._create_contract_response_body.contract = contract

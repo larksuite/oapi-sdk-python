@@ -18,7 +18,8 @@ class GetMessageRequest(BaseRequest):
 
 class GetMessageRequestBuilder(object):
 
-    def __init__(self, get_message_request: GetMessageRequest = GetMessageRequest()) -> None:
+    def __init__(self) -> None:
+        get_message_request = GetMessageRequest()
         get_message_request.http_method = HttpMethod.GET
         get_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         get_message_request.token_types = {AccessTokenType.TENANT}

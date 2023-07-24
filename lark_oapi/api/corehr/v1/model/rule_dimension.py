@@ -12,7 +12,7 @@ class RuleDimension(object):
         "entity_name": Name,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.entity_key: Optional[str] = None
         self.entity_name: Optional[Name] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class RuleDimension(object):
 
 
 class RuleDimensionBuilder(object):
-    def __init__(self, rule_dimension: RuleDimension = RuleDimension({})) -> None:
-        self._rule_dimension: RuleDimension = rule_dimension
+    def __init__(self) -> None:
+        self._rule_dimension = RuleDimension()
 
     def entity_key(self, entity_key: str) -> "RuleDimensionBuilder":
         self._rule_dimension.entity_key = entity_key

@@ -11,7 +11,7 @@ class CreateTaskReminderResponseBody(object):
         "reminder": Reminder,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reminder: Optional[Reminder] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateTaskReminderResponseBody(object):
 
 
 class CreateTaskReminderResponseBodyBuilder(object):
-    def __init__(self,
-                 create_task_reminder_response_body: CreateTaskReminderResponseBody = CreateTaskReminderResponseBody(
-                     {})) -> None:
-        self._create_task_reminder_response_body: CreateTaskReminderResponseBody = create_task_reminder_response_body
+    def __init__(self) -> None:
+        self._create_task_reminder_response_body = CreateTaskReminderResponseBody()
 
     def reminder(self, reminder: Reminder) -> "CreateTaskReminderResponseBodyBuilder":
         self._create_task_reminder_response_body.reminder = reminder

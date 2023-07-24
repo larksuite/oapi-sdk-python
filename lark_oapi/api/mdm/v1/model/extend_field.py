@@ -18,7 +18,7 @@ class ExtendField(object):
         "appendix": List[Appendix],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_type: Optional[int] = None
         self.field_value: Optional[str] = None
         self.options: Optional[List[str]] = None
@@ -35,8 +35,8 @@ class ExtendField(object):
 
 
 class ExtendFieldBuilder(object):
-    def __init__(self, extend_field: ExtendField = ExtendField({})) -> None:
-        self._extend_field: ExtendField = extend_field
+    def __init__(self) -> None:
+        self._extend_field = ExtendField()
 
     def field_type(self, field_type: int) -> "ExtendFieldBuilder":
         self._extend_field.field_type = field_type

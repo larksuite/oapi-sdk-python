@@ -12,7 +12,7 @@ class EnumFieldSetting(object):
         "is_multiple": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.enum_field_option_list: Optional[List[CommonSchemaOption]] = None
         self.is_multiple: Optional[bool] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class EnumFieldSetting(object):
 
 
 class EnumFieldSettingBuilder(object):
-    def __init__(self, enum_field_setting: EnumFieldSetting = EnumFieldSetting({})) -> None:
-        self._enum_field_setting: EnumFieldSetting = enum_field_setting
+    def __init__(self) -> None:
+        self._enum_field_setting = EnumFieldSetting()
 
     def enum_field_option_list(self, enum_field_option_list: List[CommonSchemaOption]) -> "EnumFieldSettingBuilder":
         self._enum_field_setting.enum_field_option_list = enum_field_option_list

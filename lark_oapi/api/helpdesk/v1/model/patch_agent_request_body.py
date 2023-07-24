@@ -10,7 +10,7 @@ class PatchAgentRequestBody(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class PatchAgentRequestBody(object):
 
 
 class PatchAgentRequestBodyBuilder(object):
-    def __init__(self, patch_agent_request_body: PatchAgentRequestBody = PatchAgentRequestBody({})) -> None:
-        self._patch_agent_request_body: PatchAgentRequestBody = patch_agent_request_body
+    def __init__(self) -> None:
+        self._patch_agent_request_body = PatchAgentRequestBody()
 
     def status(self, status: int) -> "PatchAgentRequestBodyBuilder":
         self._patch_agent_request_body.status = status

@@ -19,7 +19,7 @@ class SearchOffboardingRequestBody(object):
         "employee_reasons": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_ids: Optional[List[str]] = None
         self.apply_initiating_time_start: Optional[str] = None
         self.apply_initiating_time_end: Optional[str] = None
@@ -38,9 +38,8 @@ class SearchOffboardingRequestBody(object):
 
 
 class SearchOffboardingRequestBodyBuilder(object):
-    def __init__(self, search_offboarding_request_body: SearchOffboardingRequestBody = SearchOffboardingRequestBody(
-        {})) -> None:
-        self._search_offboarding_request_body: SearchOffboardingRequestBody = search_offboarding_request_body
+    def __init__(self) -> None:
+        self._search_offboarding_request_body = SearchOffboardingRequestBody()
 
     def employment_ids(self, employment_ids: List[str]) -> "SearchOffboardingRequestBodyBuilder":
         self._search_offboarding_request_body.employment_ids = employment_ids

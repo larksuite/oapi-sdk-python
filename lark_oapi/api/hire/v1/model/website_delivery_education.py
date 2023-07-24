@@ -18,7 +18,7 @@ class WebsiteDeliveryEducation(object):
         "degree": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.education_type: Optional[int] = None
         self.end_time: Optional[int] = None
         self.field_of_study: Optional[str] = None
@@ -35,8 +35,8 @@ class WebsiteDeliveryEducation(object):
 
 
 class WebsiteDeliveryEducationBuilder(object):
-    def __init__(self, website_delivery_education: WebsiteDeliveryEducation = WebsiteDeliveryEducation({})) -> None:
-        self._website_delivery_education: WebsiteDeliveryEducation = website_delivery_education
+    def __init__(self) -> None:
+        self._website_delivery_education = WebsiteDeliveryEducation()
 
     def education_type(self, education_type: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.education_type = education_type

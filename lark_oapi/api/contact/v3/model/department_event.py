@@ -22,7 +22,7 @@ class DepartmentEvent(object):
         "department_hrbps": List[UserId],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.parent_department_id: Optional[str] = None
         self.department_id: Optional[str] = None
@@ -42,8 +42,8 @@ class DepartmentEvent(object):
 
 
 class DepartmentEventBuilder(object):
-    def __init__(self, department_event: DepartmentEvent = DepartmentEvent({})) -> None:
-        self._department_event: DepartmentEvent = department_event
+    def __init__(self) -> None:
+        self._department_event = DepartmentEvent()
 
     def name(self, name: str) -> "DepartmentEventBuilder":
         self._department_event.name = name

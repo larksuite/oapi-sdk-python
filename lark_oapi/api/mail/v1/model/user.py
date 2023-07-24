@@ -12,7 +12,7 @@ class User(object):
         "type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.email: Optional[str] = None
         self.status: Optional[int] = None
         self.type: Optional[int] = None
@@ -24,8 +24,8 @@ class User(object):
 
 
 class UserBuilder(object):
-    def __init__(self, user: User = User({})) -> None:
-        self._user: User = user
+    def __init__(self) -> None:
+        self._user = User()
 
     def email(self, email: str) -> "UserBuilder":
         self._user.email = email

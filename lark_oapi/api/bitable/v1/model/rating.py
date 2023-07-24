@@ -10,7 +10,7 @@ class Rating(object):
         "symbol": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.symbol: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Rating(object):
 
 
 class RatingBuilder(object):
-    def __init__(self, rating: Rating = Rating({})) -> None:
-        self._rating: Rating = rating
+    def __init__(self) -> None:
+        self._rating = Rating()
 
     def symbol(self, symbol: str) -> "RatingBuilder":
         self._rating.symbol = symbol

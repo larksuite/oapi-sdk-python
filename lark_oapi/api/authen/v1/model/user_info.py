@@ -23,7 +23,7 @@ class UserInfo(object):
         "employee_no": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
         self.avatar_url: Optional[str] = None
@@ -46,8 +46,8 @@ class UserInfo(object):
 
 
 class UserInfoBuilder(object):
-    def __init__(self, user_info: UserInfo = UserInfo({})) -> None:
-        self._user_info: UserInfo = user_info
+    def __init__(self) -> None:
+        self._user_info = UserInfo()
 
     def name(self, name: str) -> "UserInfoBuilder":
         self._user_info.name = name

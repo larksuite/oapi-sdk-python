@@ -11,7 +11,7 @@ class BatchUpdateMetricSourceTableItemRequestBody(object):
         "items": List[MetricItemRequest],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[MetricItemRequest]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchUpdateMetricSourceTableItemRequestBody(object):
 
 
 class BatchUpdateMetricSourceTableItemRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_update_metric_source_table_item_request_body: BatchUpdateMetricSourceTableItemRequestBody = BatchUpdateMetricSourceTableItemRequestBody(
-                     {})) -> None:
-        self._batch_update_metric_source_table_item_request_body: BatchUpdateMetricSourceTableItemRequestBody = batch_update_metric_source_table_item_request_body
+    def __init__(self) -> None:
+        self._batch_update_metric_source_table_item_request_body = BatchUpdateMetricSourceTableItemRequestBody()
 
     def items(self, items: List[MetricItemRequest]) -> "BatchUpdateMetricSourceTableItemRequestBodyBuilder":
         self._batch_update_metric_source_table_item_request_body.items = items

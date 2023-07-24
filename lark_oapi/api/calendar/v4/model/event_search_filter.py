@@ -15,7 +15,7 @@ class EventSearchFilter(object):
         "chat_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start_time: Optional[TimeInfo] = None
         self.end_time: Optional[TimeInfo] = None
         self.user_ids: Optional[List[str]] = None
@@ -29,8 +29,8 @@ class EventSearchFilter(object):
 
 
 class EventSearchFilterBuilder(object):
-    def __init__(self, event_search_filter: EventSearchFilter = EventSearchFilter({})) -> None:
-        self._event_search_filter: EventSearchFilter = event_search_filter
+    def __init__(self) -> None:
+        self._event_search_filter = EventSearchFilter()
 
     def start_time(self, start_time: TimeInfo) -> "EventSearchFilterBuilder":
         self._event_search_filter.start_time = start_time

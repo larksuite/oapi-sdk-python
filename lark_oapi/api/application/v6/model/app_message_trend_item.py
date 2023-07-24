@@ -14,7 +14,7 @@ class AppMessageTrendItem(object):
         "trend": List[UsageTrendItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_type: Optional[str] = None
         self.event_type: Optional[str] = None
         self.message_type: Optional[str] = None
@@ -27,8 +27,8 @@ class AppMessageTrendItem(object):
 
 
 class AppMessageTrendItemBuilder(object):
-    def __init__(self, app_message_trend_item: AppMessageTrendItem = AppMessageTrendItem({})) -> None:
-        self._app_message_trend_item: AppMessageTrendItem = app_message_trend_item
+    def __init__(self) -> None:
+        self._app_message_trend_item = AppMessageTrendItem()
 
     def chat_type(self, chat_type: str) -> "AppMessageTrendItemBuilder":
         self._app_message_trend_item.chat_type = chat_type

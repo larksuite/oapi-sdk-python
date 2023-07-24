@@ -19,7 +19,7 @@ class BaseAddress(object):
         "country": BaseCountry,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -35,8 +35,8 @@ class BaseAddress(object):
 
 
 class BaseAddressBuilder(object):
-    def __init__(self, base_address: BaseAddress = BaseAddress({})) -> None:
-        self._base_address: BaseAddress = base_address
+    def __init__(self) -> None:
+        self._base_address = BaseAddress()
 
     def id(self, id: str) -> "BaseAddressBuilder":
         self._base_address.id = id

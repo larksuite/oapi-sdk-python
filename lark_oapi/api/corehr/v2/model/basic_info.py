@@ -21,7 +21,7 @@ class BasicInfo(object):
         "worker_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[Name] = None
         self.phone_number: Optional[str] = None
         self.international_area_code: Optional[str] = None
@@ -41,8 +41,8 @@ class BasicInfo(object):
 
 
 class BasicInfoBuilder(object):
-    def __init__(self, basic_info: BasicInfo = BasicInfo({})) -> None:
-        self._basic_info: BasicInfo = basic_info
+    def __init__(self) -> None:
+        self._basic_info = BasicInfo()
 
     def name(self, name: Name) -> "BasicInfoBuilder":
         self._basic_info.name = name

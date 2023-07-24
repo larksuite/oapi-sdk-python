@@ -11,7 +11,7 @@ class Bitable(object):
         "view_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.view_type: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Bitable(object):
 
 
 class BitableBuilder(object):
-    def __init__(self, bitable: Bitable = Bitable({})) -> None:
-        self._bitable: Bitable = bitable
+    def __init__(self) -> None:
+        self._bitable = Bitable()
 
     def token(self, token: str) -> "BitableBuilder":
         self._bitable.token = token

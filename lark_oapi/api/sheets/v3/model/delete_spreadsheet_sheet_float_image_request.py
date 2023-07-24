@@ -20,8 +20,8 @@ class DeleteSpreadsheetSheetFloatImageRequest(BaseRequest):
 
 class DeleteSpreadsheetSheetFloatImageRequestBuilder(object):
 
-    def __init__(self,
-                 delete_spreadsheet_sheet_float_image_request: DeleteSpreadsheetSheetFloatImageRequest = DeleteSpreadsheetSheetFloatImageRequest()) -> None:
+    def __init__(self) -> None:
+        delete_spreadsheet_sheet_float_image_request = DeleteSpreadsheetSheetFloatImageRequest()
         delete_spreadsheet_sheet_float_image_request.http_method = HttpMethod.DELETE
         delete_spreadsheet_sheet_float_image_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
         delete_spreadsheet_sheet_float_image_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

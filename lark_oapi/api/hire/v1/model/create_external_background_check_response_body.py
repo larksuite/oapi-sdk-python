@@ -11,7 +11,7 @@ class CreateExternalBackgroundCheckResponseBody(object):
         "external_background_check": ExternalBackgroundCheck,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_background_check: Optional[ExternalBackgroundCheck] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateExternalBackgroundCheckResponseBody(object):
 
 
 class CreateExternalBackgroundCheckResponseBodyBuilder(object):
-    def __init__(self,
-                 create_external_background_check_response_body: CreateExternalBackgroundCheckResponseBody = CreateExternalBackgroundCheckResponseBody(
-                     {})) -> None:
-        self._create_external_background_check_response_body: CreateExternalBackgroundCheckResponseBody = create_external_background_check_response_body
+    def __init__(self) -> None:
+        self._create_external_background_check_response_body = CreateExternalBackgroundCheckResponseBody()
 
     def external_background_check(self,
                                   external_background_check: ExternalBackgroundCheck) -> "CreateExternalBackgroundCheckResponseBodyBuilder":

@@ -19,8 +19,8 @@ class CreateTicketCustomizedFieldRequest(BaseRequest):
 
 class CreateTicketCustomizedFieldRequestBuilder(object):
 
-    def __init__(self,
-                 create_ticket_customized_field_request: CreateTicketCustomizedFieldRequest = CreateTicketCustomizedFieldRequest()) -> None:
+    def __init__(self) -> None:
+        create_ticket_customized_field_request = CreateTicketCustomizedFieldRequest()
         create_ticket_customized_field_request.http_method = HttpMethod.POST
         create_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields"
         create_ticket_customized_field_request.token_types = {AccessTokenType.USER}

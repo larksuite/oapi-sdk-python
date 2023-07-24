@@ -11,7 +11,7 @@ class CreateUserMailboxAliasResponseBody(object):
         "user_mailbox_alias": EmailAlias,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_mailbox_alias: Optional[EmailAlias] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateUserMailboxAliasResponseBody(object):
 
 
 class CreateUserMailboxAliasResponseBodyBuilder(object):
-    def __init__(self,
-                 create_user_mailbox_alias_response_body: CreateUserMailboxAliasResponseBody = CreateUserMailboxAliasResponseBody(
-                     {})) -> None:
-        self._create_user_mailbox_alias_response_body: CreateUserMailboxAliasResponseBody = create_user_mailbox_alias_response_body
+    def __init__(self) -> None:
+        self._create_user_mailbox_alias_response_body = CreateUserMailboxAliasResponseBody()
 
     def user_mailbox_alias(self, user_mailbox_alias: EmailAlias) -> "CreateUserMailboxAliasResponseBodyBuilder":
         self._create_user_mailbox_alias_response_body.user_mailbox_alias = user_mailbox_alias

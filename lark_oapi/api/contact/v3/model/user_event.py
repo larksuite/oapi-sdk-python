@@ -39,7 +39,7 @@ class UserEvent(object):
         "job_family_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.open_id: Optional[str] = None
         self.union_id: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -77,8 +77,8 @@ class UserEvent(object):
 
 
 class UserEventBuilder(object):
-    def __init__(self, user_event: UserEvent = UserEvent({})) -> None:
-        self._user_event: UserEvent = user_event
+    def __init__(self) -> None:
+        self._user_event = UserEvent()
 
     def open_id(self, open_id: str) -> "UserEventBuilder":
         self._user_event.open_id = open_id

@@ -12,7 +12,7 @@ class ExternalBackgroundCheckAttachment(object):
         "size": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.size: Optional[int] = None
@@ -24,10 +24,8 @@ class ExternalBackgroundCheckAttachment(object):
 
 
 class ExternalBackgroundCheckAttachmentBuilder(object):
-    def __init__(self,
-                 external_background_check_attachment: ExternalBackgroundCheckAttachment = ExternalBackgroundCheckAttachment(
-                     {})) -> None:
-        self._external_background_check_attachment: ExternalBackgroundCheckAttachment = external_background_check_attachment
+    def __init__(self) -> None:
+        self._external_background_check_attachment = ExternalBackgroundCheckAttachment()
 
     def id(self, id: str) -> "ExternalBackgroundCheckAttachmentBuilder":
         self._external_background_check_attachment.id = id

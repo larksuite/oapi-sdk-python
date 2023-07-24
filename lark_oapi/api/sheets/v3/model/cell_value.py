@@ -30,7 +30,7 @@ class CellValue(object):
         "formula": Formula,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.text: Optional[Text] = None
         self.mention_user: Optional[MentionUser] = None
@@ -50,8 +50,8 @@ class CellValue(object):
 
 
 class CellValueBuilder(object):
-    def __init__(self, cell_value: CellValue = CellValue({})) -> None:
-        self._cell_value: CellValue = cell_value
+    def __init__(self) -> None:
+        self._cell_value = CellValue()
 
     def type(self, type: str) -> "CellValueBuilder":
         self._cell_value.type = type

@@ -15,7 +15,7 @@ class CalendarAclEvent(object):
         "user_id_list": List[UserId],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.acl_id: Optional[str] = None
         self.role: Optional[str] = None
         self.scope: Optional[AclScopeEvent] = None
@@ -28,8 +28,8 @@ class CalendarAclEvent(object):
 
 
 class CalendarAclEventBuilder(object):
-    def __init__(self, calendar_acl_event: CalendarAclEvent = CalendarAclEvent({})) -> None:
-        self._calendar_acl_event: CalendarAclEvent = calendar_acl_event
+    def __init__(self) -> None:
+        self._calendar_acl_event = CalendarAclEvent()
 
     def acl_id(self, acl_id: str) -> "CalendarAclEventBuilder":
         self._calendar_acl_event.acl_id = acl_id

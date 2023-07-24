@@ -14,7 +14,7 @@ class SiteApplication(object):
         "status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_id: Optional[str] = None
         self.job_post_id: Optional[str] = None
         self.resume: Optional[SiteApplicationResume] = None
@@ -27,8 +27,8 @@ class SiteApplication(object):
 
 
 class SiteApplicationBuilder(object):
-    def __init__(self, site_application: SiteApplication = SiteApplication({})) -> None:
-        self._site_application: SiteApplication = site_application
+    def __init__(self) -> None:
+        self._site_application = SiteApplication()
 
     def external_id(self, external_id: str) -> "SiteApplicationBuilder":
         self._site_application.external_id = external_id

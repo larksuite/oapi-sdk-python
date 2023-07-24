@@ -10,7 +10,7 @@ class QueryUserRequestBody(object):
         "email_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.email_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class QueryUserRequestBody(object):
 
 
 class QueryUserRequestBodyBuilder(object):
-    def __init__(self, query_user_request_body: QueryUserRequestBody = QueryUserRequestBody({})) -> None:
-        self._query_user_request_body: QueryUserRequestBody = query_user_request_body
+    def __init__(self) -> None:
+        self._query_user_request_body = QueryUserRequestBody()
 
     def email_list(self, email_list: List[str]) -> "QueryUserRequestBodyBuilder":
         self._query_user_request_body.email_list = email_list

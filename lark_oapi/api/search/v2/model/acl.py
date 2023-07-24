@@ -12,7 +12,7 @@ class Acl(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.access: Optional[str] = None
         self.value: Optional[str] = None
         self.type: Optional[str] = None
@@ -24,8 +24,8 @@ class Acl(object):
 
 
 class AclBuilder(object):
-    def __init__(self, acl: Acl = Acl({})) -> None:
-        self._acl: Acl = acl
+    def __init__(self) -> None:
+        self._acl = Acl()
 
     def access(self, access: str) -> "AclBuilder":
         self._acl.access = access

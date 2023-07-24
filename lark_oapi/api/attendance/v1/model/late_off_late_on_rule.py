@@ -11,7 +11,7 @@ class LateOffLateOnRule(object):
         "late_on_minutes": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.late_off_minutes: Optional[int] = None
         self.late_on_minutes: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class LateOffLateOnRule(object):
 
 
 class LateOffLateOnRuleBuilder(object):
-    def __init__(self, late_off_late_on_rule: LateOffLateOnRule = LateOffLateOnRule({})) -> None:
-        self._late_off_late_on_rule: LateOffLateOnRule = late_off_late_on_rule
+    def __init__(self) -> None:
+        self._late_off_late_on_rule = LateOffLateOnRule()
 
     def late_off_minutes(self, late_off_minutes: int) -> "LateOffLateOnRuleBuilder":
         self._late_off_late_on_rule.late_off_minutes = late_off_minutes

@@ -21,7 +21,8 @@ class ListExternalTaskRequest(BaseRequest):
 
 class ListExternalTaskRequestBuilder(object):
 
-    def __init__(self, list_external_task_request: ListExternalTaskRequest = ListExternalTaskRequest()) -> None:
+    def __init__(self) -> None:
+        list_external_task_request = ListExternalTaskRequest()
         list_external_task_request.http_method = HttpMethod.GET
         list_external_task_request.uri = "/open-apis/approval/v4/external_tasks"
         list_external_task_request.token_types = {AccessTokenType.TENANT}

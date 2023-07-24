@@ -11,7 +11,7 @@ class CreateMessageReactionRequestBody(object):
         "reaction_type": Emoji,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reaction_type: Optional[Emoji] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateMessageReactionRequestBody(object):
 
 
 class CreateMessageReactionRequestBodyBuilder(object):
-    def __init__(self,
-                 create_message_reaction_request_body: CreateMessageReactionRequestBody = CreateMessageReactionRequestBody(
-                     {})) -> None:
-        self._create_message_reaction_request_body: CreateMessageReactionRequestBody = create_message_reaction_request_body
+    def __init__(self) -> None:
+        self._create_message_reaction_request_body = CreateMessageReactionRequestBody()
 
     def reaction_type(self, reaction_type: Emoji) -> "CreateMessageReactionRequestBodyBuilder":
         self._create_message_reaction_request_body.reaction_type = reaction_type

@@ -11,7 +11,7 @@ class AppVersionId(object):
         "version_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.version: Optional[str] = None
         self.version_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppVersionId(object):
 
 
 class AppVersionIdBuilder(object):
-    def __init__(self, app_version_id: AppVersionId = AppVersionId({})) -> None:
-        self._app_version_id: AppVersionId = app_version_id
+    def __init__(self) -> None:
+        self._app_version_id = AppVersionId()
 
     def version(self, version: str) -> "AppVersionIdBuilder":
         self._app_version_id.version = version

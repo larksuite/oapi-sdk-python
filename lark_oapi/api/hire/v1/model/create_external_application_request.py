@@ -19,8 +19,8 @@ class CreateExternalApplicationRequest(BaseRequest):
 
 class CreateExternalApplicationRequestBuilder(object):
 
-    def __init__(self,
-                 create_external_application_request: CreateExternalApplicationRequest = CreateExternalApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        create_external_application_request = CreateExternalApplicationRequest()
         create_external_application_request.http_method = HttpMethod.POST
         create_external_application_request.uri = "/open-apis/hire/v1/external_applications"
         create_external_application_request.token_types = {AccessTokenType.TENANT}

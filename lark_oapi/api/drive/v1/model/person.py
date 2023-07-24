@@ -10,7 +10,7 @@ class Person(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Person(object):
 
 
 class PersonBuilder(object):
-    def __init__(self, person: Person = Person({})) -> None:
-        self._person: Person = person
+    def __init__(self) -> None:
+        self._person = Person()
 
     def user_id(self, user_id: str) -> "PersonBuilder":
         self._person.user_id = user_id

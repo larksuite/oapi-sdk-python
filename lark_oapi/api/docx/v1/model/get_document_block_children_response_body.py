@@ -13,7 +13,7 @@ class GetDocumentBlockChildrenResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Block]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class GetDocumentBlockChildrenResponseBody(object):
 
 
 class GetDocumentBlockChildrenResponseBodyBuilder(object):
-    def __init__(self,
-                 get_document_block_children_response_body: GetDocumentBlockChildrenResponseBody = GetDocumentBlockChildrenResponseBody(
-                     {})) -> None:
-        self._get_document_block_children_response_body: GetDocumentBlockChildrenResponseBody = get_document_block_children_response_body
+    def __init__(self) -> None:
+        self._get_document_block_children_response_body = GetDocumentBlockChildrenResponseBody()
 
     def items(self, items: List[Block]) -> "GetDocumentBlockChildrenResponseBodyBuilder":
         self._get_document_block_children_response_body.items = items

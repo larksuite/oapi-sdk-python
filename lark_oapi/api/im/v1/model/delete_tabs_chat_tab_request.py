@@ -20,7 +20,8 @@ class DeleteTabsChatTabRequest(BaseRequest):
 
 class DeleteTabsChatTabRequestBuilder(object):
 
-    def __init__(self, delete_tabs_chat_tab_request: DeleteTabsChatTabRequest = DeleteTabsChatTabRequest()) -> None:
+    def __init__(self) -> None:
+        delete_tabs_chat_tab_request = DeleteTabsChatTabRequest()
         delete_tabs_chat_tab_request.http_method = HttpMethod.DELETE
         delete_tabs_chat_tab_request.uri = "/open-apis/im/v1/chats/:chat_id/chat_tabs/delete_tabs"
         delete_tabs_chat_tab_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

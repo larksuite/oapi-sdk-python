@@ -13,7 +13,7 @@ class LeaveBalancesLeaveResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_leave_balance_list: Optional[List[EmploymentLeaveBalance]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class LeaveBalancesLeaveResponseBody(object):
 
 
 class LeaveBalancesLeaveResponseBodyBuilder(object):
-    def __init__(self,
-                 leave_balances_leave_response_body: LeaveBalancesLeaveResponseBody = LeaveBalancesLeaveResponseBody(
-                     {})) -> None:
-        self._leave_balances_leave_response_body: LeaveBalancesLeaveResponseBody = leave_balances_leave_response_body
+    def __init__(self) -> None:
+        self._leave_balances_leave_response_body = LeaveBalancesLeaveResponseBody()
 
     def employment_leave_balance_list(self, employment_leave_balance_list: List[
         EmploymentLeaveBalance]) -> "LeaveBalancesLeaveResponseBodyBuilder":

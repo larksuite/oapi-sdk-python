@@ -20,8 +20,8 @@ class BatchCreateUserDailyShiftRequest(BaseRequest):
 
 class BatchCreateUserDailyShiftRequestBuilder(object):
 
-    def __init__(self,
-                 batch_create_user_daily_shift_request: BatchCreateUserDailyShiftRequest = BatchCreateUserDailyShiftRequest()) -> None:
+    def __init__(self) -> None:
+        batch_create_user_daily_shift_request = BatchCreateUserDailyShiftRequest()
         batch_create_user_daily_shift_request.http_method = HttpMethod.POST
         batch_create_user_daily_shift_request.uri = "/open-apis/attendance/v1/user_daily_shifts/batch_create"
         batch_create_user_daily_shift_request.token_types = {AccessTokenType.TENANT}

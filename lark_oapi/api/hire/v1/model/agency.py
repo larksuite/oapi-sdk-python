@@ -12,7 +12,7 @@ class Agency(object):
         "contactor_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.contactor_id: Optional[str] = None
@@ -24,8 +24,8 @@ class Agency(object):
 
 
 class AgencyBuilder(object):
-    def __init__(self, agency: Agency = Agency({})) -> None:
-        self._agency: Agency = agency
+    def __init__(self) -> None:
+        self._agency = Agency()
 
     def id(self, id: str) -> "AgencyBuilder":
         self._agency.id = id

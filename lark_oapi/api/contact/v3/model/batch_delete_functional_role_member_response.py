@@ -12,7 +12,7 @@ class BatchDeleteFunctionalRoleMemberResponse(BaseResponse):
         "data": BatchDeleteFunctionalRoleMemberResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[BatchDeleteFunctionalRoleMemberResponseBody] = None
         init(self, d, self._types)

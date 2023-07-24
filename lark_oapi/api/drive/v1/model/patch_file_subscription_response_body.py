@@ -11,7 +11,7 @@ class PatchFileSubscriptionResponseBody(object):
         "subscription": FileSubscription,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subscription: Optional[FileSubscription] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchFileSubscriptionResponseBody(object):
 
 
 class PatchFileSubscriptionResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_file_subscription_response_body: PatchFileSubscriptionResponseBody = PatchFileSubscriptionResponseBody(
-                     {})) -> None:
-        self._patch_file_subscription_response_body: PatchFileSubscriptionResponseBody = patch_file_subscription_response_body
+    def __init__(self) -> None:
+        self._patch_file_subscription_response_body = PatchFileSubscriptionResponseBody()
 
     def subscription(self, subscription: FileSubscription) -> "PatchFileSubscriptionResponseBodyBuilder":
         self._patch_file_subscription_response_body.subscription = subscription

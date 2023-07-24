@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.search.v2.model.create_data_source_request import CreateDataSourceRequest
-from lark_oapi.api.search.v2.model.create_data_source_response import CreateDataSourceResponse
-from lark_oapi.api.search.v2.model.delete_data_source_request import DeleteDataSourceRequest
-from lark_oapi.api.search.v2.model.delete_data_source_response import DeleteDataSourceResponse
-from lark_oapi.api.search.v2.model.get_data_source_request import GetDataSourceRequest
-from lark_oapi.api.search.v2.model.get_data_source_response import GetDataSourceResponse
-from lark_oapi.api.search.v2.model.list_data_source_request import ListDataSourceRequest
-from lark_oapi.api.search.v2.model.list_data_source_response import ListDataSourceResponse
-from lark_oapi.api.search.v2.model.patch_data_source_request import PatchDataSourceRequest
-from lark_oapi.api.search.v2.model.patch_data_source_response import PatchDataSourceResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_data_source_request import CreateDataSourceRequest
+from ..model.create_data_source_response import CreateDataSourceResponse
+from ..model.delete_data_source_request import DeleteDataSourceRequest
+from ..model.delete_data_source_response import DeleteDataSourceResponse
+from ..model.get_data_source_request import GetDataSourceRequest
+from ..model.get_data_source_response import GetDataSourceResponse
+from ..model.list_data_source_request import ListDataSourceRequest
+from ..model.list_data_source_response import ListDataSourceResponse
+from ..model.patch_data_source_request import PatchDataSourceRequest
+from ..model.patch_data_source_response import PatchDataSourceResponse
 
 
 class DataSource(object):
@@ -24,7 +24,10 @@ class DataSource(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateDataSourceRequest,
-               option: RequestOption = RequestOption()) -> CreateDataSourceResponse:
+               option: Optional[RequestOption] = None) -> CreateDataSourceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class DataSource(object):
         return response
 
     def delete(self, request: DeleteDataSourceRequest,
-               option: RequestOption = RequestOption()) -> DeleteDataSourceResponse:
+               option: Optional[RequestOption] = None) -> DeleteDataSourceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class DataSource(object):
 
         return response
 
-    def get(self, request: GetDataSourceRequest, option: RequestOption = RequestOption()) -> GetDataSourceResponse:
+    def get(self, request: GetDataSourceRequest, option: Optional[RequestOption] = None) -> GetDataSourceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class DataSource(object):
 
         return response
 
-    def list(self, request: ListDataSourceRequest, option: RequestOption = RequestOption()) -> ListDataSourceResponse:
+    def list(self, request: ListDataSourceRequest, option: Optional[RequestOption] = None) -> ListDataSourceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -77,8 +89,10 @@ class DataSource(object):
 
         return response
 
-    def patch(self, request: PatchDataSourceRequest,
-              option: RequestOption = RequestOption()) -> PatchDataSourceResponse:
+    def patch(self, request: PatchDataSourceRequest, option: Optional[RequestOption] = None) -> PatchDataSourceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

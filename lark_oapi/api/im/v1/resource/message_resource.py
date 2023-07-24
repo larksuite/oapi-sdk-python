@@ -3,14 +3,14 @@
 import io
 from typing import *
 
-from lark_oapi.api.im.v1.model.get_message_resource_request import GetMessageResourceRequest
-from lark_oapi.api.im.v1.model.get_message_resource_response import GetMessageResourceResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.get_message_resource_request import GetMessageResourceRequest
+from ..model.get_message_resource_response import GetMessageResourceResponse
 
 
 class MessageResource(object):
@@ -18,7 +18,10 @@ class MessageResource(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetMessageResourceRequest,
-            option: RequestOption = RequestOption()) -> GetMessageResourceResponse:
+            option: Optional[RequestOption] = None) -> GetMessageResourceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

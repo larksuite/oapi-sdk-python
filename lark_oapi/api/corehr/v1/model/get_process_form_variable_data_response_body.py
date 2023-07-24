@@ -11,7 +11,7 @@ class GetProcessFormVariableDataResponseBody(object):
         "field_variable_values": List[FormFieldVariable],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_variable_values: Optional[List[FormFieldVariable]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetProcessFormVariableDataResponseBody(object):
 
 
 class GetProcessFormVariableDataResponseBodyBuilder(object):
-    def __init__(self,
-                 get_process_form_variable_data_response_body: GetProcessFormVariableDataResponseBody = GetProcessFormVariableDataResponseBody(
-                     {})) -> None:
-        self._get_process_form_variable_data_response_body: GetProcessFormVariableDataResponseBody = get_process_form_variable_data_response_body
+    def __init__(self) -> None:
+        self._get_process_form_variable_data_response_body = GetProcessFormVariableDataResponseBody()
 
     def field_variable_values(self, field_variable_values: List[
         FormFieldVariable]) -> "GetProcessFormVariableDataResponseBodyBuilder":

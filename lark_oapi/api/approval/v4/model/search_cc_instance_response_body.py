@@ -14,7 +14,7 @@ class SearchCcInstanceResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.count: Optional[int] = None
         self.cc_list: Optional[List[CcSearchItem]] = None
         self.page_token: Optional[str] = None
@@ -27,9 +27,8 @@ class SearchCcInstanceResponseBody(object):
 
 
 class SearchCcInstanceResponseBodyBuilder(object):
-    def __init__(self, search_cc_instance_response_body: SearchCcInstanceResponseBody = SearchCcInstanceResponseBody(
-        {})) -> None:
-        self._search_cc_instance_response_body: SearchCcInstanceResponseBody = search_cc_instance_response_body
+    def __init__(self) -> None:
+        self._search_cc_instance_response_body = SearchCcInstanceResponseBody()
 
     def count(self, count: int) -> "SearchCcInstanceResponseBodyBuilder":
         self._search_cc_instance_response_body.count = count

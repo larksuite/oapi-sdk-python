@@ -18,7 +18,8 @@ class DeleteCompanyRequest(BaseRequest):
 
 class DeleteCompanyRequestBuilder(object):
 
-    def __init__(self, delete_company_request: DeleteCompanyRequest = DeleteCompanyRequest()) -> None:
+    def __init__(self) -> None:
+        delete_company_request = DeleteCompanyRequest()
         delete_company_request.http_method = HttpMethod.DELETE
         delete_company_request.uri = "/open-apis/corehr/v1/companies/:company_id"
         delete_company_request.token_types = {AccessTokenType.TENANT}

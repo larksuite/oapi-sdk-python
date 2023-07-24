@@ -16,7 +16,7 @@ class FloatImage(object):
         "offset_y": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.float_image_id: Optional[str] = None
         self.float_image_token: Optional[str] = None
         self.range: Optional[str] = None
@@ -32,8 +32,8 @@ class FloatImage(object):
 
 
 class FloatImageBuilder(object):
-    def __init__(self, float_image: FloatImage = FloatImage({})) -> None:
-        self._float_image: FloatImage = float_image
+    def __init__(self) -> None:
+        self._float_image = FloatImage()
 
     def float_image_id(self, float_image_id: str) -> "FloatImageBuilder":
         self._float_image.float_image_id = float_image_id

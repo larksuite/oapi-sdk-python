@@ -14,7 +14,7 @@ class ListScopeResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_ids: Optional[List[str]] = None
         self.user_ids: Optional[List[str]] = None
         self.group_ids: Optional[List[str]] = None
@@ -28,8 +28,8 @@ class ListScopeResponseBody(object):
 
 
 class ListScopeResponseBodyBuilder(object):
-    def __init__(self, list_scope_response_body: ListScopeResponseBody = ListScopeResponseBody({})) -> None:
-        self._list_scope_response_body: ListScopeResponseBody = list_scope_response_body
+    def __init__(self) -> None:
+        self._list_scope_response_body = ListScopeResponseBody()
 
     def department_ids(self, department_ids: List[str]) -> "ListScopeResponseBodyBuilder":
         self._list_scope_response_body.department_ids = department_ids

@@ -11,7 +11,7 @@ class CreateTaskResponseBody(object):
         "task": Task,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task: Optional[Task] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CreateTaskResponseBody(object):
 
 
 class CreateTaskResponseBodyBuilder(object):
-    def __init__(self, create_task_response_body: CreateTaskResponseBody = CreateTaskResponseBody({})) -> None:
-        self._create_task_response_body: CreateTaskResponseBody = create_task_response_body
+    def __init__(self) -> None:
+        self._create_task_response_body = CreateTaskResponseBody()
 
     def task(self, task: Task) -> "CreateTaskResponseBodyBuilder":
         self._create_task_response_body.task = task

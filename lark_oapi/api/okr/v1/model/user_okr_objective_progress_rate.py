@@ -11,7 +11,7 @@ class UserOkrObjectiveProgressRate(object):
         "status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.percent: Optional[int] = None
         self.status: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class UserOkrObjectiveProgressRate(object):
 
 
 class UserOkrObjectiveProgressRateBuilder(object):
-    def __init__(self, user_okr_objective_progress_rate: UserOkrObjectiveProgressRate = UserOkrObjectiveProgressRate(
-        {})) -> None:
-        self._user_okr_objective_progress_rate: UserOkrObjectiveProgressRate = user_okr_objective_progress_rate
+    def __init__(self) -> None:
+        self._user_okr_objective_progress_rate = UserOkrObjectiveProgressRate()
 
     def percent(self, percent: int) -> "UserOkrObjectiveProgressRateBuilder":
         self._user_okr_objective_progress_rate.percent = percent

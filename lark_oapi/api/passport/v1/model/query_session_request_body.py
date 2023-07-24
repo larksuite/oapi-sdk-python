@@ -10,7 +10,7 @@ class QuerySessionRequestBody(object):
         "user_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class QuerySessionRequestBody(object):
 
 
 class QuerySessionRequestBodyBuilder(object):
-    def __init__(self, query_session_request_body: QuerySessionRequestBody = QuerySessionRequestBody({})) -> None:
-        self._query_session_request_body: QuerySessionRequestBody = query_session_request_body
+    def __init__(self) -> None:
+        self._query_session_request_body = QuerySessionRequestBody()
 
     def user_ids(self, user_ids: List[str]) -> "QuerySessionRequestBodyBuilder":
         self._query_session_request_body.user_ids = user_ids

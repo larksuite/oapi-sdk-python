@@ -11,7 +11,7 @@ class NodeApprover(object):
         "value": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.value: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class NodeApprover(object):
 
 
 class NodeApproverBuilder(object):
-    def __init__(self, node_approver: NodeApprover = NodeApprover({})) -> None:
-        self._node_approver: NodeApprover = node_approver
+    def __init__(self) -> None:
+        self._node_approver = NodeApprover()
 
     def key(self, key: str) -> "NodeApproverBuilder":
         self._node_approver.key = key

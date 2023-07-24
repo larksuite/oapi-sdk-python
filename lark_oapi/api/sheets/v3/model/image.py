@@ -10,7 +10,7 @@ class Image(object):
         "image_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_token: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Image(object):
 
 
 class ImageBuilder(object):
-    def __init__(self, image: Image = Image({})) -> None:
-        self._image: Image = image
+    def __init__(self) -> None:
+        self._image = Image()
 
     def image_token(self, image_token: str) -> "ImageBuilder":
         self._image.image_token = image_token

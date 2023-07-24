@@ -13,7 +13,7 @@ class ListAlertResponseBody(object):
         "items": List[Alert],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[Alert]] = None
@@ -25,8 +25,8 @@ class ListAlertResponseBody(object):
 
 
 class ListAlertResponseBodyBuilder(object):
-    def __init__(self, list_alert_response_body: ListAlertResponseBody = ListAlertResponseBody({})) -> None:
-        self._list_alert_response_body: ListAlertResponseBody = list_alert_response_body
+    def __init__(self) -> None:
+        self._list_alert_response_body = ListAlertResponseBody()
 
     def has_more(self, has_more: bool) -> "ListAlertResponseBodyBuilder":
         self._list_alert_response_body.has_more = has_more

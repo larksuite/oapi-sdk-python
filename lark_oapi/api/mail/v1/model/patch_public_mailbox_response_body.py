@@ -12,7 +12,7 @@ class PatchPublicMailboxResponseBody(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.public_mailbox_id: Optional[str] = None
         self.email: Optional[str] = None
         self.name: Optional[str] = None
@@ -24,10 +24,8 @@ class PatchPublicMailboxResponseBody(object):
 
 
 class PatchPublicMailboxResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_public_mailbox_response_body: PatchPublicMailboxResponseBody = PatchPublicMailboxResponseBody(
-                     {})) -> None:
-        self._patch_public_mailbox_response_body: PatchPublicMailboxResponseBody = patch_public_mailbox_response_body
+    def __init__(self) -> None:
+        self._patch_public_mailbox_response_body = PatchPublicMailboxResponseBody()
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "PatchPublicMailboxResponseBodyBuilder":
         self._patch_public_mailbox_response_body.public_mailbox_id = public_mailbox_id

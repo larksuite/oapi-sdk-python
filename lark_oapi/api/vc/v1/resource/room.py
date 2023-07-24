@@ -2,32 +2,35 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.create_room_request import CreateRoomRequest
-from lark_oapi.api.vc.v1.model.create_room_response import CreateRoomResponse
-from lark_oapi.api.vc.v1.model.delete_room_request import DeleteRoomRequest
-from lark_oapi.api.vc.v1.model.delete_room_response import DeleteRoomResponse
-from lark_oapi.api.vc.v1.model.get_room_request import GetRoomRequest
-from lark_oapi.api.vc.v1.model.get_room_response import GetRoomResponse
-from lark_oapi.api.vc.v1.model.list_room_request import ListRoomRequest
-from lark_oapi.api.vc.v1.model.list_room_response import ListRoomResponse
-from lark_oapi.api.vc.v1.model.mget_room_request import MgetRoomRequest
-from lark_oapi.api.vc.v1.model.mget_room_response import MgetRoomResponse
-from lark_oapi.api.vc.v1.model.patch_room_request import PatchRoomRequest
-from lark_oapi.api.vc.v1.model.patch_room_response import PatchRoomResponse
-from lark_oapi.api.vc.v1.model.search_room_request import SearchRoomRequest
-from lark_oapi.api.vc.v1.model.search_room_response import SearchRoomResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_room_request import CreateRoomRequest
+from ..model.create_room_response import CreateRoomResponse
+from ..model.delete_room_request import DeleteRoomRequest
+from ..model.delete_room_response import DeleteRoomResponse
+from ..model.get_room_request import GetRoomRequest
+from ..model.get_room_response import GetRoomResponse
+from ..model.list_room_request import ListRoomRequest
+from ..model.list_room_response import ListRoomResponse
+from ..model.mget_room_request import MgetRoomRequest
+from ..model.mget_room_response import MgetRoomResponse
+from ..model.patch_room_request import PatchRoomRequest
+from ..model.patch_room_response import PatchRoomResponse
+from ..model.search_room_request import SearchRoomRequest
+from ..model.search_room_response import SearchRoomResponse
 
 
 class Room(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateRoomRequest, option: RequestOption = RequestOption()) -> CreateRoomResponse:
+    def create(self, request: CreateRoomRequest, option: Optional[RequestOption] = None) -> CreateRoomResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class Room(object):
 
         return response
 
-    def delete(self, request: DeleteRoomRequest, option: RequestOption = RequestOption()) -> DeleteRoomResponse:
+    def delete(self, request: DeleteRoomRequest, option: Optional[RequestOption] = None) -> DeleteRoomResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -53,7 +59,10 @@ class Room(object):
 
         return response
 
-    def get(self, request: GetRoomRequest, option: RequestOption = RequestOption()) -> GetRoomResponse:
+    def get(self, request: GetRoomRequest, option: Optional[RequestOption] = None) -> GetRoomResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class Room(object):
 
         return response
 
-    def list(self, request: ListRoomRequest, option: RequestOption = RequestOption()) -> ListRoomResponse:
+    def list(self, request: ListRoomRequest, option: Optional[RequestOption] = None) -> ListRoomResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class Room(object):
 
         return response
 
-    def mget(self, request: MgetRoomRequest, option: RequestOption = RequestOption()) -> MgetRoomResponse:
+    def mget(self, request: MgetRoomRequest, option: Optional[RequestOption] = None) -> MgetRoomResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -92,7 +107,10 @@ class Room(object):
 
         return response
 
-    def patch(self, request: PatchRoomRequest, option: RequestOption = RequestOption()) -> PatchRoomResponse:
+    def patch(self, request: PatchRoomRequest, option: Optional[RequestOption] = None) -> PatchRoomResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -105,7 +123,10 @@ class Room(object):
 
         return response
 
-    def search(self, request: SearchRoomRequest, option: RequestOption = RequestOption()) -> SearchRoomResponse:
+    def search(self, request: SearchRoomRequest, option: Optional[RequestOption] = None) -> SearchRoomResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

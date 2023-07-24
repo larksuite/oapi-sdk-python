@@ -10,7 +10,7 @@ class ParticipantListExportResponseBody(object):
         "task_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class ParticipantListExportResponseBody(object):
 
 
 class ParticipantListExportResponseBodyBuilder(object):
-    def __init__(self,
-                 participant_list_export_response_body: ParticipantListExportResponseBody = ParticipantListExportResponseBody(
-                     {})) -> None:
-        self._participant_list_export_response_body: ParticipantListExportResponseBody = participant_list_export_response_body
+    def __init__(self) -> None:
+        self._participant_list_export_response_body = ParticipantListExportResponseBody()
 
     def task_id(self, task_id: str) -> "ParticipantListExportResponseBodyBuilder":
         self._participant_list_export_response_body.task_id = task_id

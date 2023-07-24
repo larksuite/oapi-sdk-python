@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.search.v2.model.create_data_source_item_request import CreateDataSourceItemRequest
-from lark_oapi.api.search.v2.model.create_data_source_item_response import CreateDataSourceItemResponse
-from lark_oapi.api.search.v2.model.delete_data_source_item_request import DeleteDataSourceItemRequest
-from lark_oapi.api.search.v2.model.delete_data_source_item_response import DeleteDataSourceItemResponse
-from lark_oapi.api.search.v2.model.get_data_source_item_request import GetDataSourceItemRequest
-from lark_oapi.api.search.v2.model.get_data_source_item_response import GetDataSourceItemResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_data_source_item_request import CreateDataSourceItemRequest
+from ..model.create_data_source_item_response import CreateDataSourceItemResponse
+from ..model.delete_data_source_item_request import DeleteDataSourceItemRequest
+from ..model.delete_data_source_item_response import DeleteDataSourceItemResponse
+from ..model.get_data_source_item_request import GetDataSourceItemRequest
+from ..model.get_data_source_item_response import GetDataSourceItemResponse
 
 
 class DataSourceItem(object):
@@ -20,7 +20,10 @@ class DataSourceItem(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateDataSourceItemRequest,
-               option: RequestOption = RequestOption()) -> CreateDataSourceItemResponse:
+               option: Optional[RequestOption] = None) -> CreateDataSourceItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class DataSourceItem(object):
         return response
 
     def delete(self, request: DeleteDataSourceItemRequest,
-               option: RequestOption = RequestOption()) -> DeleteDataSourceItemResponse:
+               option: Optional[RequestOption] = None) -> DeleteDataSourceItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class DataSourceItem(object):
         return response
 
     def get(self, request: GetDataSourceItemRequest,
-            option: RequestOption = RequestOption()) -> GetDataSourceItemResponse:
+            option: Optional[RequestOption] = None) -> GetDataSourceItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

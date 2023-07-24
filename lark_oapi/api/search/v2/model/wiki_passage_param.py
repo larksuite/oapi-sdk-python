@@ -11,7 +11,7 @@ class WikiPassageParam(object):
         "space_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.searchable: Optional[bool] = None
         self.space_ids: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class WikiPassageParam(object):
 
 
 class WikiPassageParamBuilder(object):
-    def __init__(self, wiki_passage_param: WikiPassageParam = WikiPassageParam({})) -> None:
-        self._wiki_passage_param: WikiPassageParam = wiki_passage_param
+    def __init__(self) -> None:
+        self._wiki_passage_param = WikiPassageParam()
 
     def searchable(self, searchable: bool) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.searchable = searchable

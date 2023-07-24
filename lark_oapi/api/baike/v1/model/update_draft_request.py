@@ -21,7 +21,8 @@ class UpdateDraftRequest(BaseRequest):
 
 class UpdateDraftRequestBuilder(object):
 
-    def __init__(self, update_draft_request: UpdateDraftRequest = UpdateDraftRequest()) -> None:
+    def __init__(self) -> None:
+        update_draft_request = UpdateDraftRequest()
         update_draft_request.http_method = HttpMethod.PUT
         update_draft_request.uri = "/open-apis/baike/v1/drafts/:draft_id"
         update_draft_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

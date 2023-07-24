@@ -20,8 +20,8 @@ class CreateExchangeBindingRequest(BaseRequest):
 
 class CreateExchangeBindingRequestBuilder(object):
 
-    def __init__(self,
-                 create_exchange_binding_request: CreateExchangeBindingRequest = CreateExchangeBindingRequest()) -> None:
+    def __init__(self) -> None:
+        create_exchange_binding_request = CreateExchangeBindingRequest()
         create_exchange_binding_request.http_method = HttpMethod.POST
         create_exchange_binding_request.uri = "/open-apis/calendar/v4/exchange_bindings"
         create_exchange_binding_request.token_types = {AccessTokenType.USER}

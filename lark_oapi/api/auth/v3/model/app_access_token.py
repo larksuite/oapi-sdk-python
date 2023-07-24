@@ -7,7 +7,7 @@ class AppAccessToken(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class AppAccessToken(object):
 
 
 class AppAccessTokenBuilder(object):
-    def __init__(self, app_access_token: AppAccessToken = AppAccessToken({})) -> None:
-        self._app_access_token: AppAccessToken = app_access_token
+    def __init__(self) -> None:
+        self._app_access_token = AppAccessToken()
 
     def build(self) -> "AppAccessToken":
         return self._app_access_token

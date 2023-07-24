@@ -11,7 +11,7 @@ class ListAgentScheduleResponseBody(object):
         "agent_schedules": List[AgentSchedule],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_schedules: Optional[List[AgentSchedule]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class ListAgentScheduleResponseBody(object):
 
 
 class ListAgentScheduleResponseBodyBuilder(object):
-    def __init__(self, list_agent_schedule_response_body: ListAgentScheduleResponseBody = ListAgentScheduleResponseBody(
-        {})) -> None:
-        self._list_agent_schedule_response_body: ListAgentScheduleResponseBody = list_agent_schedule_response_body
+    def __init__(self) -> None:
+        self._list_agent_schedule_response_body = ListAgentScheduleResponseBody()
 
     def agent_schedules(self, agent_schedules: List[AgentSchedule]) -> "ListAgentScheduleResponseBodyBuilder":
         self._list_agent_schedule_response_body.agent_schedules = agent_schedules

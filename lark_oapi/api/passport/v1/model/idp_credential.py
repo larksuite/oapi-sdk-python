@@ -7,7 +7,7 @@ class IdpCredential(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class IdpCredential(object):
 
 
 class IdpCredentialBuilder(object):
-    def __init__(self, idp_credential: IdpCredential = IdpCredential({})) -> None:
-        self._idp_credential: IdpCredential = idp_credential
+    def __init__(self) -> None:
+        self._idp_credential = IdpCredential()
 
     def build(self) -> "IdpCredential":
         return self._idp_credential

@@ -19,7 +19,8 @@ class UploadPartFileRequest(BaseRequest):
 
 class UploadPartFileRequestBuilder(object):
 
-    def __init__(self, upload_part_file_request: UploadPartFileRequest = UploadPartFileRequest()) -> None:
+    def __init__(self) -> None:
+        upload_part_file_request = UploadPartFileRequest()
         upload_part_file_request.http_method = HttpMethod.POST
         upload_part_file_request.uri = "/open-apis/drive/v1/files/upload_part"
         upload_part_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

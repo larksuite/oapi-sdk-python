@@ -11,7 +11,7 @@ class PatchFaqRequestBody(object):
         "faq": FaqUpdateInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.faq: Optional[FaqUpdateInfo] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchFaqRequestBody(object):
 
 
 class PatchFaqRequestBodyBuilder(object):
-    def __init__(self, patch_faq_request_body: PatchFaqRequestBody = PatchFaqRequestBody({})) -> None:
-        self._patch_faq_request_body: PatchFaqRequestBody = patch_faq_request_body
+    def __init__(self) -> None:
+        self._patch_faq_request_body = PatchFaqRequestBody()
 
     def faq(self, faq: FaqUpdateInfo) -> "PatchFaqRequestBodyBuilder":
         self._patch_faq_request_body.faq = faq

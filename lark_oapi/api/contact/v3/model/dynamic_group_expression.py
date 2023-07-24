@@ -13,7 +13,7 @@ class DynamicGroupExpression(object):
         "values": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field: Optional[str] = None
         self.operator: Optional[str] = None
         self.value: Optional[str] = None
@@ -26,8 +26,8 @@ class DynamicGroupExpression(object):
 
 
 class DynamicGroupExpressionBuilder(object):
-    def __init__(self, dynamic_group_expression: DynamicGroupExpression = DynamicGroupExpression({})) -> None:
-        self._dynamic_group_expression: DynamicGroupExpression = dynamic_group_expression
+    def __init__(self) -> None:
+        self._dynamic_group_expression = DynamicGroupExpression()
 
     def field(self, field: str) -> "DynamicGroupExpressionBuilder":
         self._dynamic_group_expression.field = field

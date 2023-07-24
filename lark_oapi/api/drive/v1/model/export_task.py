@@ -18,7 +18,7 @@ class ExportTask(object):
         "job_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_extension: Optional[str] = None
         self.token: Optional[str] = None
         self.type: Optional[str] = None
@@ -36,8 +36,8 @@ class ExportTask(object):
 
 
 class ExportTaskBuilder(object):
-    def __init__(self, export_task: ExportTask = ExportTask({})) -> None:
-        self._export_task: ExportTask = export_task
+    def __init__(self) -> None:
+        self._export_task = ExportTask()
 
     def file_extension(self, file_extension: str) -> "ExportTaskBuilder":
         self._export_task.file_extension = file_extension

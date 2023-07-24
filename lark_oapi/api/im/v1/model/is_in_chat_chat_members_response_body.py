@@ -10,7 +10,7 @@ class IsInChatChatMembersResponseBody(object):
         "is_in_chat": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_in_chat: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class IsInChatChatMembersResponseBody(object):
 
 
 class IsInChatChatMembersResponseBodyBuilder(object):
-    def __init__(self,
-                 is_in_chat_chat_members_response_body: IsInChatChatMembersResponseBody = IsInChatChatMembersResponseBody(
-                     {})) -> None:
-        self._is_in_chat_chat_members_response_body: IsInChatChatMembersResponseBody = is_in_chat_chat_members_response_body
+    def __init__(self) -> None:
+        self._is_in_chat_chat_members_response_body = IsInChatChatMembersResponseBody()
 
     def is_in_chat(self, is_in_chat: bool) -> "IsInChatChatMembersResponseBodyBuilder":
         self._is_in_chat_chat_members_response_body.is_in_chat = is_in_chat

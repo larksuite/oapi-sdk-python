@@ -11,7 +11,7 @@ class BlockI18nInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.i18n_key: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BlockI18nInfo(object):
 
 
 class BlockI18nInfoBuilder(object):
-    def __init__(self, block_i18n_info: BlockI18nInfo = BlockI18nInfo({})) -> None:
-        self._block_i18n_info: BlockI18nInfo = block_i18n_info
+    def __init__(self) -> None:
+        self._block_i18n_info = BlockI18nInfo()
 
     def i18n_key(self, i18n_key: str) -> "BlockI18nInfoBuilder":
         self._block_i18n_info.i18n_key = i18n_key

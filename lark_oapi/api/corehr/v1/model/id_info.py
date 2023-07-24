@@ -11,7 +11,7 @@ class IdInfo(object):
         "target_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.target_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class IdInfo(object):
 
 
 class IdInfoBuilder(object):
-    def __init__(self, id_info: IdInfo = IdInfo({})) -> None:
-        self._id_info: IdInfo = id_info
+    def __init__(self) -> None:
+        self._id_info = IdInfo()
 
     def id(self, id: str) -> "IdInfoBuilder":
         self._id_info.id = id

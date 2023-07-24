@@ -25,7 +25,7 @@ class ReplyMessageResponseBody(object):
         "upper_message_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[str] = None
         self.root_id: Optional[str] = None
         self.parent_id: Optional[str] = None
@@ -47,8 +47,8 @@ class ReplyMessageResponseBody(object):
 
 
 class ReplyMessageResponseBodyBuilder(object):
-    def __init__(self, reply_message_response_body: ReplyMessageResponseBody = ReplyMessageResponseBody({})) -> None:
-        self._reply_message_response_body: ReplyMessageResponseBody = reply_message_response_body
+    def __init__(self) -> None:
+        self._reply_message_response_body = ReplyMessageResponseBody()
 
     def message_id(self, message_id: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.message_id = message_id

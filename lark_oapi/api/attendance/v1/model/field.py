@@ -13,7 +13,7 @@ class Field(object):
         "child_fields": List[ChildField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.title: Optional[str] = None
         self.child_fields: Optional[List[ChildField]] = None
@@ -25,8 +25,8 @@ class Field(object):
 
 
 class FieldBuilder(object):
-    def __init__(self, field: Field = Field({})) -> None:
-        self._field: Field = field
+    def __init__(self) -> None:
+        self._field = Field()
 
     def code(self, code: str) -> "FieldBuilder":
         self._field.code = code

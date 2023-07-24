@@ -13,7 +13,7 @@ class ListSpaceResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Space]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListSpaceResponseBody(object):
 
 
 class ListSpaceResponseBodyBuilder(object):
-    def __init__(self, list_space_response_body: ListSpaceResponseBody = ListSpaceResponseBody({})) -> None:
-        self._list_space_response_body: ListSpaceResponseBody = list_space_response_body
+    def __init__(self) -> None:
+        self._list_space_response_body = ListSpaceResponseBody()
 
     def items(self, items: List[Space]) -> "ListSpaceResponseBodyBuilder":
         self._list_space_response_body.items = items

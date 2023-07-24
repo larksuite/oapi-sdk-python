@@ -14,7 +14,7 @@ class ShareUser(object):
         "avatar": AvatarInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.open_id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -27,8 +27,8 @@ class ShareUser(object):
 
 
 class ShareUserBuilder(object):
-    def __init__(self, share_user: ShareUser = ShareUser({})) -> None:
-        self._share_user: ShareUser = share_user
+    def __init__(self) -> None:
+        self._share_user = ShareUser()
 
     def open_id(self, open_id: str) -> "ShareUserBuilder":
         self._share_user.open_id = open_id

@@ -11,7 +11,7 @@ class GetEmployeeResponseBody(object):
         "employee": Employee,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employee: Optional[Employee] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetEmployeeResponseBody(object):
 
 
 class GetEmployeeResponseBodyBuilder(object):
-    def __init__(self, get_employee_response_body: GetEmployeeResponseBody = GetEmployeeResponseBody({})) -> None:
-        self._get_employee_response_body: GetEmployeeResponseBody = get_employee_response_body
+    def __init__(self) -> None:
+        self._get_employee_response_body = GetEmployeeResponseBody()
 
     def employee(self, employee: Employee) -> "GetEmployeeResponseBodyBuilder":
         self._get_employee_response_body.employee = employee

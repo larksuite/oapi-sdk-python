@@ -32,7 +32,7 @@ class Notification(object):
         "ext": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.job_name: Optional[str] = None
         self.status: Optional[int] = None
@@ -61,8 +61,8 @@ class Notification(object):
 
 
 class NotificationBuilder(object):
-    def __init__(self, notification: Notification = Notification({})) -> None:
-        self._notification: Notification = notification
+    def __init__(self) -> None:
+        self._notification = Notification()
 
     def id(self, id: str) -> "NotificationBuilder":
         self._notification.id = id

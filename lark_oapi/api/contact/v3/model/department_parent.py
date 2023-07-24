@@ -11,7 +11,7 @@ class DepartmentParent(object):
         "parent_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.parent_ids: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DepartmentParent(object):
 
 
 class DepartmentParentBuilder(object):
-    def __init__(self, department_parent: DepartmentParent = DepartmentParent({})) -> None:
-        self._department_parent: DepartmentParent = department_parent
+    def __init__(self) -> None:
+        self._department_parent = DepartmentParent()
 
     def department_id(self, department_id: str) -> "DepartmentParentBuilder":
         self._department_parent.department_id = department_id

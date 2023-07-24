@@ -12,7 +12,7 @@ class DepartmentPath(object):
         "department_path_name": DepartmentPathName,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_ids: Optional[List[str]] = None
         self.department_path_name: Optional[DepartmentPathName] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class DepartmentPath(object):
 
 
 class DepartmentPathBuilder(object):
-    def __init__(self, department_path: DepartmentPath = DepartmentPath({})) -> None:
-        self._department_path: DepartmentPath = department_path
+    def __init__(self) -> None:
+        self._department_path = DepartmentPath()
 
     def department_ids(self, department_ids: List[str]) -> "DepartmentPathBuilder":
         self._department_path.department_ids = department_ids

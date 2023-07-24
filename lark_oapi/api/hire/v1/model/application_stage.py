@@ -18,7 +18,7 @@ class ApplicationStage(object):
         "publish_en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -36,8 +36,8 @@ class ApplicationStage(object):
 
 
 class ApplicationStageBuilder(object):
-    def __init__(self, application_stage: ApplicationStage = ApplicationStage({})) -> None:
-        self._application_stage: ApplicationStage = application_stage
+    def __init__(self) -> None:
+        self._application_stage = ApplicationStage()
 
     def id(self, id: str) -> "ApplicationStageBuilder":
         self._application_stage.id = id

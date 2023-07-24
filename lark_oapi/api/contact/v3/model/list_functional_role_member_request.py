@@ -22,8 +22,8 @@ class ListFunctionalRoleMemberRequest(BaseRequest):
 
 class ListFunctionalRoleMemberRequestBuilder(object):
 
-    def __init__(self,
-                 list_functional_role_member_request: ListFunctionalRoleMemberRequest = ListFunctionalRoleMemberRequest()) -> None:
+    def __init__(self) -> None:
+        list_functional_role_member_request = ListFunctionalRoleMemberRequest()
         list_functional_role_member_request.http_method = HttpMethod.GET
         list_functional_role_member_request.uri = "/open-apis/contact/v3/functional_roles/:role_id/members"
         list_functional_role_member_request.token_types = {AccessTokenType.TENANT}

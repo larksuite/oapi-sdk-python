@@ -12,7 +12,7 @@ class BitableTableFieldActionValuePropertyOption(object):
         "color": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.id: Optional[str] = None
         self.color: Optional[int] = None
@@ -24,10 +24,8 @@ class BitableTableFieldActionValuePropertyOption(object):
 
 
 class BitableTableFieldActionValuePropertyOptionBuilder(object):
-    def __init__(self,
-                 bitable_table_field_action_value_property_option: BitableTableFieldActionValuePropertyOption = BitableTableFieldActionValuePropertyOption(
-                     {})) -> None:
-        self._bitable_table_field_action_value_property_option: BitableTableFieldActionValuePropertyOption = bitable_table_field_action_value_property_option
+    def __init__(self) -> None:
+        self._bitable_table_field_action_value_property_option = BitableTableFieldActionValuePropertyOption()
 
     def name(self, name: str) -> "BitableTableFieldActionValuePropertyOptionBuilder":
         self._bitable_table_field_action_value_property_option.name = name

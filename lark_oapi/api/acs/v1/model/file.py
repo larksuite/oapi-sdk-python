@@ -13,7 +13,7 @@ class File(object):
         "file_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.files: Optional[IO[Any]] = None
         self.file_type: Optional[str] = None
         self.file_name: Optional[str] = None
@@ -25,8 +25,8 @@ class File(object):
 
 
 class FileBuilder(object):
-    def __init__(self, file: File = File({})) -> None:
-        self._file: File = file
+    def __init__(self) -> None:
+        self._file = File()
 
     def files(self, files: IO[Any]) -> "FileBuilder":
         self._file.files = files

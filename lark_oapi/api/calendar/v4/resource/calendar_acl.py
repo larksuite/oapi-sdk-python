@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.calendar.v4.model.create_calendar_acl_request import CreateCalendarAclRequest
-from lark_oapi.api.calendar.v4.model.create_calendar_acl_response import CreateCalendarAclResponse
-from lark_oapi.api.calendar.v4.model.delete_calendar_acl_request import DeleteCalendarAclRequest
-from lark_oapi.api.calendar.v4.model.delete_calendar_acl_response import DeleteCalendarAclResponse
-from lark_oapi.api.calendar.v4.model.list_calendar_acl_request import ListCalendarAclRequest
-from lark_oapi.api.calendar.v4.model.list_calendar_acl_response import ListCalendarAclResponse
-from lark_oapi.api.calendar.v4.model.subscription_calendar_acl_request import SubscriptionCalendarAclRequest
-from lark_oapi.api.calendar.v4.model.subscription_calendar_acl_response import SubscriptionCalendarAclResponse
-from lark_oapi.api.calendar.v4.model.unsubscription_calendar_acl_request import UnsubscriptionCalendarAclRequest
-from lark_oapi.api.calendar.v4.model.unsubscription_calendar_acl_response import UnsubscriptionCalendarAclResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_calendar_acl_request import CreateCalendarAclRequest
+from ..model.create_calendar_acl_response import CreateCalendarAclResponse
+from ..model.delete_calendar_acl_request import DeleteCalendarAclRequest
+from ..model.delete_calendar_acl_response import DeleteCalendarAclResponse
+from ..model.list_calendar_acl_request import ListCalendarAclRequest
+from ..model.list_calendar_acl_response import ListCalendarAclResponse
+from ..model.subscription_calendar_acl_request import SubscriptionCalendarAclRequest
+from ..model.subscription_calendar_acl_response import SubscriptionCalendarAclResponse
+from ..model.unsubscription_calendar_acl_request import UnsubscriptionCalendarAclRequest
+from ..model.unsubscription_calendar_acl_response import UnsubscriptionCalendarAclResponse
 
 
 class CalendarAcl(object):
@@ -24,7 +24,10 @@ class CalendarAcl(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateCalendarAclRequest,
-               option: RequestOption = RequestOption()) -> CreateCalendarAclResponse:
+               option: Optional[RequestOption] = None) -> CreateCalendarAclResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class CalendarAcl(object):
         return response
 
     def delete(self, request: DeleteCalendarAclRequest,
-               option: RequestOption = RequestOption()) -> DeleteCalendarAclResponse:
+               option: Optional[RequestOption] = None) -> DeleteCalendarAclResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class CalendarAcl(object):
 
         return response
 
-    def list(self, request: ListCalendarAclRequest, option: RequestOption = RequestOption()) -> ListCalendarAclResponse:
+    def list(self, request: ListCalendarAclRequest, option: Optional[RequestOption] = None) -> ListCalendarAclResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +74,10 @@ class CalendarAcl(object):
         return response
 
     def subscription(self, request: SubscriptionCalendarAclRequest,
-                     option: RequestOption = RequestOption()) -> SubscriptionCalendarAclResponse:
+                     option: Optional[RequestOption] = None) -> SubscriptionCalendarAclResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -80,7 +92,10 @@ class CalendarAcl(object):
         return response
 
     def unsubscription(self, request: UnsubscriptionCalendarAclRequest,
-                       option: RequestOption = RequestOption()) -> UnsubscriptionCalendarAclResponse:
+                       option: Optional[RequestOption] = None) -> UnsubscriptionCalendarAclResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

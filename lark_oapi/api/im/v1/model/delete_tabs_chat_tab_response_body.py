@@ -11,7 +11,7 @@ class DeleteTabsChatTabResponseBody(object):
         "chat_tabs": List[ChatTab],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_tabs: Optional[List[ChatTab]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class DeleteTabsChatTabResponseBody(object):
 
 
 class DeleteTabsChatTabResponseBodyBuilder(object):
-    def __init__(self,
-                 delete_tabs_chat_tab_response_body: DeleteTabsChatTabResponseBody = DeleteTabsChatTabResponseBody(
-                     {})) -> None:
-        self._delete_tabs_chat_tab_response_body: DeleteTabsChatTabResponseBody = delete_tabs_chat_tab_response_body
+    def __init__(self) -> None:
+        self._delete_tabs_chat_tab_response_body = DeleteTabsChatTabResponseBody()
 
     def chat_tabs(self, chat_tabs: List[ChatTab]) -> "DeleteTabsChatTabResponseBodyBuilder":
         self._delete_tabs_chat_tab_response_body.chat_tabs = chat_tabs

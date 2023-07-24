@@ -16,7 +16,7 @@ class AppTableView(object):
         "view_private_owner_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view_id: Optional[str] = None
         self.view_name: Optional[str] = None
         self.view_type: Optional[str] = None
@@ -31,8 +31,8 @@ class AppTableView(object):
 
 
 class AppTableViewBuilder(object):
-    def __init__(self, app_table_view: AppTableView = AppTableView({})) -> None:
-        self._app_table_view: AppTableView = app_table_view
+    def __init__(self) -> None:
+        self._app_table_view = AppTableView()
 
     def view_id(self, view_id: str) -> "AppTableViewBuilder":
         self._app_table_view.view_id = view_id

@@ -20,7 +20,8 @@ class CreateNoteRequest(BaseRequest):
 
 class CreateNoteRequestBuilder(object):
 
-    def __init__(self, create_note_request: CreateNoteRequest = CreateNoteRequest()) -> None:
+    def __init__(self) -> None:
+        create_note_request = CreateNoteRequest()
         create_note_request.http_method = HttpMethod.POST
         create_note_request.uri = "/open-apis/hire/v1/notes"
         create_note_request.token_types = {AccessTokenType.TENANT}

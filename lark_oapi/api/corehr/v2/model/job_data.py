@@ -36,7 +36,7 @@ class JobData(object):
         "custom_fields": List[CustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_data_id: Optional[str] = None
         self.version_id: Optional[str] = None
         self.employee_type_id: Optional[str] = None
@@ -68,8 +68,8 @@ class JobData(object):
 
 
 class JobDataBuilder(object):
-    def __init__(self, job_data: JobData = JobData({})) -> None:
-        self._job_data: JobData = job_data
+    def __init__(self) -> None:
+        self._job_data = JobData()
 
     def job_data_id(self, job_data_id: str) -> "JobDataBuilder":
         self._job_data.job_data_id = job_data_id

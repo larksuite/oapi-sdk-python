@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.query_transfer_reason_request import QueryTransferReasonRequest
-from lark_oapi.api.corehr.v1.model.query_transfer_reason_response import QueryTransferReasonResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_transfer_reason_request import QueryTransferReasonRequest
+from ..model.query_transfer_reason_response import QueryTransferReasonResponse
 
 
 class TransferReason(object):
@@ -16,7 +16,10 @@ class TransferReason(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryTransferReasonRequest,
-              option: RequestOption = RequestOption()) -> QueryTransferReasonResponse:
+              option: Optional[RequestOption] = None) -> QueryTransferReasonResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

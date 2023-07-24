@@ -12,7 +12,7 @@ class WebsiteJobPostCustomizedOption(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class WebsiteJobPostCustomizedOption(object):
 
 
 class WebsiteJobPostCustomizedOptionBuilder(object):
-    def __init__(self,
-                 website_job_post_customized_option: WebsiteJobPostCustomizedOption = WebsiteJobPostCustomizedOption(
-                     {})) -> None:
-        self._website_job_post_customized_option: WebsiteJobPostCustomizedOption = website_job_post_customized_option
+    def __init__(self) -> None:
+        self._website_job_post_customized_option = WebsiteJobPostCustomizedOption()
 
     def key(self, key: str) -> "WebsiteJobPostCustomizedOptionBuilder":
         self._website_job_post_customized_option.key = key

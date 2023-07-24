@@ -11,7 +11,7 @@ class CreateRefreshAccessTokenRequestBody(object):
         "refresh_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.grant_type: Optional[str] = None
         self.refresh_token: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class CreateRefreshAccessTokenRequestBody(object):
 
 
 class CreateRefreshAccessTokenRequestBodyBuilder(object):
-    def __init__(self,
-                 create_refresh_access_token_request_body: CreateRefreshAccessTokenRequestBody = CreateRefreshAccessTokenRequestBody(
-                     {})) -> None:
-        self._create_refresh_access_token_request_body: CreateRefreshAccessTokenRequestBody = create_refresh_access_token_request_body
+    def __init__(self) -> None:
+        self._create_refresh_access_token_request_body = CreateRefreshAccessTokenRequestBody()
 
     def grant_type(self, grant_type: str) -> "CreateRefreshAccessTokenRequestBodyBuilder":
         self._create_refresh_access_token_request_body.grant_type = grant_type

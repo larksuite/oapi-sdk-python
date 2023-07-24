@@ -19,7 +19,7 @@ class InstanceSearch(object):
         "locale": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
@@ -38,8 +38,8 @@ class InstanceSearch(object):
 
 
 class InstanceSearchBuilder(object):
-    def __init__(self, instance_search: InstanceSearch = InstanceSearch({})) -> None:
-        self._instance_search: InstanceSearch = instance_search
+    def __init__(self) -> None:
+        self._instance_search = InstanceSearch()
 
     def user_id(self, user_id: str) -> "InstanceSearchBuilder":
         self._instance_search.user_id = user_id

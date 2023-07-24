@@ -21,7 +21,8 @@ class GetEntityRequest(BaseRequest):
 
 class GetEntityRequestBuilder(object):
 
-    def __init__(self, get_entity_request: GetEntityRequest = GetEntityRequest()) -> None:
+    def __init__(self) -> None:
+        get_entity_request = GetEntityRequest()
         get_entity_request.http_method = HttpMethod.GET
         get_entity_request.uri = "/open-apis/baike/v1/entities/:entity_id"
         get_entity_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

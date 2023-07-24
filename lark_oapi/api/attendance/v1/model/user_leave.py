@@ -21,7 +21,7 @@ class UserLeave(object):
         "approve_apply_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_id: Optional[str] = None
         self.uniq_id: Optional[str] = None
         self.unit: Optional[int] = None
@@ -41,8 +41,8 @@ class UserLeave(object):
 
 
 class UserLeaveBuilder(object):
-    def __init__(self, user_leave: UserLeave = UserLeave({})) -> None:
-        self._user_leave: UserLeave = user_leave
+    def __init__(self) -> None:
+        self._user_leave = UserLeave()
 
     def approval_id(self, approval_id: str) -> "UserLeaveBuilder":
         self._user_leave.approval_id = approval_id

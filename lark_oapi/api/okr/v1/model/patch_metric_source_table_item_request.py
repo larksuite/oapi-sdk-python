@@ -23,8 +23,8 @@ class PatchMetricSourceTableItemRequest(BaseRequest):
 
 class PatchMetricSourceTableItemRequestBuilder(object):
 
-    def __init__(self,
-                 patch_metric_source_table_item_request: PatchMetricSourceTableItemRequest = PatchMetricSourceTableItemRequest()) -> None:
+    def __init__(self) -> None:
+        patch_metric_source_table_item_request = PatchMetricSourceTableItemRequest()
         patch_metric_source_table_item_request.http_method = HttpMethod.PATCH
         patch_metric_source_table_item_request.uri = "/open-apis/okr/v1/metric_sources/:metric_source_id/tables/:metric_table_id/items/:metric_item_id"
         patch_metric_source_table_item_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

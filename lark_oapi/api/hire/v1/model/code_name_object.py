@@ -12,7 +12,7 @@ class CodeNameObject(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class CodeNameObject(object):
 
 
 class CodeNameObjectBuilder(object):
-    def __init__(self, code_name_object: CodeNameObject = CodeNameObject({})) -> None:
-        self._code_name_object: CodeNameObject = code_name_object
+    def __init__(self) -> None:
+        self._code_name_object = CodeNameObject()
 
     def code(self, code: str) -> "CodeNameObjectBuilder":
         self._code_name_object.code = code

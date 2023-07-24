@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.admin.v1.model.list_admin_dept_stat_request import ListAdminDeptStatRequest
-from lark_oapi.api.admin.v1.model.list_admin_dept_stat_response import ListAdminDeptStatResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_admin_dept_stat_request import ListAdminDeptStatRequest
+from ..model.list_admin_dept_stat_response import ListAdminDeptStatResponse
 
 
 class AdminDeptStat(object):
@@ -16,7 +16,10 @@ class AdminDeptStat(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListAdminDeptStatRequest,
-             option: RequestOption = RequestOption()) -> ListAdminDeptStatResponse:
+             option: Optional[RequestOption] = None) -> ListAdminDeptStatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

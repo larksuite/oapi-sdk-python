@@ -11,7 +11,7 @@ class ApplicationOfferAttachment(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.attachment_id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class ApplicationOfferAttachment(object):
 
 
 class ApplicationOfferAttachmentBuilder(object):
-    def __init__(self,
-                 application_offer_attachment: ApplicationOfferAttachment = ApplicationOfferAttachment({})) -> None:
-        self._application_offer_attachment: ApplicationOfferAttachment = application_offer_attachment
+    def __init__(self) -> None:
+        self._application_offer_attachment = ApplicationOfferAttachment()
 
     def attachment_id(self, attachment_id: str) -> "ApplicationOfferAttachmentBuilder":
         self._application_offer_attachment.attachment_id = attachment_id

@@ -11,7 +11,7 @@ class CustomName(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CustomName(object):
 
 
 class CustomNameBuilder(object):
-    def __init__(self, custom_name: CustomName = CustomName({})) -> None:
-        self._custom_name: CustomName = custom_name
+    def __init__(self) -> None:
+        self._custom_name = CustomName()
 
     def zh_cn(self, zh_cn: str) -> "CustomNameBuilder":
         self._custom_name.zh_cn = zh_cn

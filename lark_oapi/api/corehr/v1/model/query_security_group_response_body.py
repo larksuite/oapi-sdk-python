@@ -11,7 +11,7 @@ class QuerySecurityGroupResponseBody(object):
         "hrbp_list": List[Hrbp],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.hrbp_list: Optional[List[Hrbp]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QuerySecurityGroupResponseBody(object):
 
 
 class QuerySecurityGroupResponseBodyBuilder(object):
-    def __init__(self,
-                 query_security_group_response_body: QuerySecurityGroupResponseBody = QuerySecurityGroupResponseBody(
-                     {})) -> None:
-        self._query_security_group_response_body: QuerySecurityGroupResponseBody = query_security_group_response_body
+    def __init__(self) -> None:
+        self._query_security_group_response_body = QuerySecurityGroupResponseBody()
 
     def hrbp_list(self, hrbp_list: List[Hrbp]) -> "QuerySecurityGroupResponseBodyBuilder":
         self._query_security_group_response_body.hrbp_list = hrbp_list

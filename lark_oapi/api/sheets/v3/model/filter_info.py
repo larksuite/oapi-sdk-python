@@ -12,7 +12,7 @@ class FilterInfo(object):
         "conditions": List[Condition],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.col: Optional[str] = None
         self.conditions: Optional[List[Condition]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class FilterInfo(object):
 
 
 class FilterInfoBuilder(object):
-    def __init__(self, filter_info: FilterInfo = FilterInfo({})) -> None:
-        self._filter_info: FilterInfo = filter_info
+    def __init__(self) -> None:
+        self._filter_info = FilterInfo()
 
     def col(self, col: str) -> "FilterInfoBuilder":
         self._filter_info.col = col

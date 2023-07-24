@@ -16,7 +16,7 @@ class QueryUserApprovalRequestBody(object):
         "check_time_to": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_ids: Optional[List[str]] = None
         self.check_date_from: Optional[int] = None
         self.check_date_to: Optional[int] = None
@@ -32,9 +32,8 @@ class QueryUserApprovalRequestBody(object):
 
 
 class QueryUserApprovalRequestBodyBuilder(object):
-    def __init__(self, query_user_approval_request_body: QueryUserApprovalRequestBody = QueryUserApprovalRequestBody(
-        {})) -> None:
-        self._query_user_approval_request_body: QueryUserApprovalRequestBody = query_user_approval_request_body
+    def __init__(self) -> None:
+        self._query_user_approval_request_body = QueryUserApprovalRequestBody()
 
     def user_ids(self, user_ids: List[str]) -> "QueryUserApprovalRequestBodyBuilder":
         self._query_user_approval_request_body.user_ids = user_ids

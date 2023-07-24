@@ -18,7 +18,8 @@ class DeleteMessageRequest(BaseRequest):
 
 class DeleteMessageRequestBuilder(object):
 
-    def __init__(self, delete_message_request: DeleteMessageRequest = DeleteMessageRequest()) -> None:
+    def __init__(self) -> None:
+        delete_message_request = DeleteMessageRequest()
         delete_message_request.http_method = HttpMethod.DELETE
         delete_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         delete_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

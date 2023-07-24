@@ -4,6 +4,8 @@ from .exception import UnmarshalException
 
 
 def init(obj: Any, d: Dict, types: Dict) -> None:
+    if d is None:
+        return
     for k, v in d.items():
         if not hasattr(obj, k):
             continue

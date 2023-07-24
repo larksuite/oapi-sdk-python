@@ -19,7 +19,8 @@ class ListClassificationRequest(BaseRequest):
 
 class ListClassificationRequestBuilder(object):
 
-    def __init__(self, list_classification_request: ListClassificationRequest = ListClassificationRequest()) -> None:
+    def __init__(self) -> None:
+        list_classification_request = ListClassificationRequest()
         list_classification_request.http_method = HttpMethod.GET
         list_classification_request.uri = "/open-apis/baike/v1/classifications"
         list_classification_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

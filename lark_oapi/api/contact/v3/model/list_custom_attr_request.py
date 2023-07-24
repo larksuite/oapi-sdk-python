@@ -19,7 +19,8 @@ class ListCustomAttrRequest(BaseRequest):
 
 class ListCustomAttrRequestBuilder(object):
 
-    def __init__(self, list_custom_attr_request: ListCustomAttrRequest = ListCustomAttrRequest()) -> None:
+    def __init__(self) -> None:
+        list_custom_attr_request = ListCustomAttrRequest()
         list_custom_attr_request.http_method = HttpMethod.GET
         list_custom_attr_request.uri = "/open-apis/contact/v3/custom_attrs"
         list_custom_attr_request.token_types = {AccessTokenType.TENANT}

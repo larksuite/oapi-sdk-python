@@ -19,7 +19,8 @@ class CreateFileRequest(BaseRequest):
 
 class CreateFileRequestBuilder(object):
 
-    def __init__(self, create_file_request: CreateFileRequest = CreateFileRequest()) -> None:
+    def __init__(self) -> None:
+        create_file_request = CreateFileRequest()
         create_file_request.http_method = HttpMethod.POST
         create_file_request.uri = "/open-apis/im/v1/files"
         create_file_request.token_types = {AccessTokenType.TENANT}

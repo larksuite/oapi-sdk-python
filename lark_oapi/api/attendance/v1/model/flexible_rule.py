@@ -11,7 +11,7 @@ class FlexibleRule(object):
         "flexible_late_minutes": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.flexible_early_minutes: Optional[int] = None
         self.flexible_late_minutes: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class FlexibleRule(object):
 
 
 class FlexibleRuleBuilder(object):
-    def __init__(self, flexible_rule: FlexibleRule = FlexibleRule({})) -> None:
-        self._flexible_rule: FlexibleRule = flexible_rule
+    def __init__(self) -> None:
+        self._flexible_rule = FlexibleRule()
 
     def flexible_early_minutes(self, flexible_early_minutes: int) -> "FlexibleRuleBuilder":
         self._flexible_rule.flexible_early_minutes = flexible_early_minutes

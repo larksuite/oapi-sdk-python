@@ -22,7 +22,8 @@ class CreateAppRequest(BaseRequest):
 
 class CreateAppRequestBuilder(object):
 
-    def __init__(self, create_app_request: CreateAppRequest = CreateAppRequest()) -> None:
+    def __init__(self) -> None:
+        create_app_request = CreateAppRequest()
         create_app_request.http_method = HttpMethod.POST
         create_app_request.uri = "/open-apis/search/v2/app"
         create_app_request.token_types = {AccessTokenType.USER}

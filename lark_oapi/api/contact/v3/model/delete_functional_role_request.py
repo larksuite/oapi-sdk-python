@@ -18,8 +18,8 @@ class DeleteFunctionalRoleRequest(BaseRequest):
 
 class DeleteFunctionalRoleRequestBuilder(object):
 
-    def __init__(self,
-                 delete_functional_role_request: DeleteFunctionalRoleRequest = DeleteFunctionalRoleRequest()) -> None:
+    def __init__(self) -> None:
+        delete_functional_role_request = DeleteFunctionalRoleRequest()
         delete_functional_role_request.http_method = HttpMethod.DELETE
         delete_functional_role_request.uri = "/open-apis/contact/v3/functional_roles/:role_id"
         delete_functional_role_request.token_types = {AccessTokenType.TENANT}

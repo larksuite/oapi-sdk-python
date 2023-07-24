@@ -12,7 +12,7 @@ class JobDepartment(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class JobDepartment(object):
 
 
 class JobDepartmentBuilder(object):
-    def __init__(self, job_department: JobDepartment = JobDepartment({})) -> None:
-        self._job_department: JobDepartment = job_department
+    def __init__(self) -> None:
+        self._job_department = JobDepartment()
 
     def id(self, id: str) -> "JobDepartmentBuilder":
         self._job_department.id = id

@@ -14,7 +14,7 @@ class Schema(object):
         "schema_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.properties: Optional[List[SchemaProperty]] = None
         self.display: Optional[SchemaDisplay] = None
         self.schema_id: Optional[str] = None
@@ -26,8 +26,8 @@ class Schema(object):
 
 
 class SchemaBuilder(object):
-    def __init__(self, schema: Schema = Schema({})) -> None:
-        self._schema: Schema = schema
+    def __init__(self) -> None:
+        self._schema = Schema()
 
     def properties(self, properties: List[SchemaProperty]) -> "SchemaBuilder":
         self._schema.properties = properties

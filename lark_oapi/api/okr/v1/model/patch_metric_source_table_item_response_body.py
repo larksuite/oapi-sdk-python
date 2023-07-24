@@ -21,7 +21,7 @@ class PatchMetricSourceTableItemResponseBody(object):
         "updated_by": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_item_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.period_id: Optional[str] = None
@@ -41,10 +41,8 @@ class PatchMetricSourceTableItemResponseBody(object):
 
 
 class PatchMetricSourceTableItemResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_metric_source_table_item_response_body: PatchMetricSourceTableItemResponseBody = PatchMetricSourceTableItemResponseBody(
-                     {})) -> None:
-        self._patch_metric_source_table_item_response_body: PatchMetricSourceTableItemResponseBody = patch_metric_source_table_item_response_body
+    def __init__(self) -> None:
+        self._patch_metric_source_table_item_response_body = PatchMetricSourceTableItemResponseBody()
 
     def metric_item_id(self, metric_item_id: str) -> "PatchMetricSourceTableItemResponseBodyBuilder":
         self._patch_metric_source_table_item_response_body.metric_item_id = metric_item_id

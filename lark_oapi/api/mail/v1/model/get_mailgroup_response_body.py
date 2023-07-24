@@ -17,7 +17,7 @@ class GetMailgroupResponseBody(object):
         "who_can_send_mail": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.mailgroup_id: Optional[str] = None
         self.email: Optional[str] = None
         self.name: Optional[str] = None
@@ -34,8 +34,8 @@ class GetMailgroupResponseBody(object):
 
 
 class GetMailgroupResponseBodyBuilder(object):
-    def __init__(self, get_mailgroup_response_body: GetMailgroupResponseBody = GetMailgroupResponseBody({})) -> None:
-        self._get_mailgroup_response_body: GetMailgroupResponseBody = get_mailgroup_response_body
+    def __init__(self) -> None:
+        self._get_mailgroup_response_body = GetMailgroupResponseBody()
 
     def mailgroup_id(self, mailgroup_id: str) -> "GetMailgroupResponseBodyBuilder":
         self._get_mailgroup_response_body.mailgroup_id = mailgroup_id

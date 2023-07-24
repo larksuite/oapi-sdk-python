@@ -16,7 +16,7 @@ class TransferReason(object):
         "updated_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.transfer_reason_unique_identifier: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.active: Optional[bool] = None
@@ -31,8 +31,8 @@ class TransferReason(object):
 
 
 class TransferReasonBuilder(object):
-    def __init__(self, transfer_reason: TransferReason = TransferReason({})) -> None:
-        self._transfer_reason: TransferReason = transfer_reason
+    def __init__(self) -> None:
+        self._transfer_reason = TransferReason()
 
     def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: str) -> "TransferReasonBuilder":
         self._transfer_reason.transfer_reason_unique_identifier = transfer_reason_unique_identifier

@@ -11,7 +11,7 @@ class GetTalentResponseBody(object):
         "talent": Talent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.talent: Optional[Talent] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetTalentResponseBody(object):
 
 
 class GetTalentResponseBodyBuilder(object):
-    def __init__(self, get_talent_response_body: GetTalentResponseBody = GetTalentResponseBody({})) -> None:
-        self._get_talent_response_body: GetTalentResponseBody = get_talent_response_body
+    def __init__(self) -> None:
+        self._get_talent_response_body = GetTalentResponseBody()
 
     def talent(self, talent: Talent) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.talent = talent

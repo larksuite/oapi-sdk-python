@@ -10,7 +10,7 @@ class Reminder(object):
         "minutes": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.minutes: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Reminder(object):
 
 
 class ReminderBuilder(object):
-    def __init__(self, reminder: Reminder = Reminder({})) -> None:
-        self._reminder: Reminder = reminder
+    def __init__(self) -> None:
+        self._reminder = Reminder()
 
     def minutes(self, minutes: int) -> "ReminderBuilder":
         self._reminder.minutes = minutes

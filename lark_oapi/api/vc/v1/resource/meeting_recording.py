@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.get_meeting_recording_request import GetMeetingRecordingRequest
-from lark_oapi.api.vc.v1.model.get_meeting_recording_response import GetMeetingRecordingResponse
-from lark_oapi.api.vc.v1.model.set_permission_meeting_recording_request import SetPermissionMeetingRecordingRequest
-from lark_oapi.api.vc.v1.model.set_permission_meeting_recording_response import SetPermissionMeetingRecordingResponse
-from lark_oapi.api.vc.v1.model.start_meeting_recording_request import StartMeetingRecordingRequest
-from lark_oapi.api.vc.v1.model.start_meeting_recording_response import StartMeetingRecordingResponse
-from lark_oapi.api.vc.v1.model.stop_meeting_recording_request import StopMeetingRecordingRequest
-from lark_oapi.api.vc.v1.model.stop_meeting_recording_response import StopMeetingRecordingResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_meeting_recording_request import GetMeetingRecordingRequest
+from ..model.get_meeting_recording_response import GetMeetingRecordingResponse
+from ..model.set_permission_meeting_recording_request import SetPermissionMeetingRecordingRequest
+from ..model.set_permission_meeting_recording_response import SetPermissionMeetingRecordingResponse
+from ..model.start_meeting_recording_request import StartMeetingRecordingRequest
+from ..model.start_meeting_recording_response import StartMeetingRecordingResponse
+from ..model.stop_meeting_recording_request import StopMeetingRecordingRequest
+from ..model.stop_meeting_recording_response import StopMeetingRecordingResponse
 
 
 class MeetingRecording(object):
@@ -22,7 +22,10 @@ class MeetingRecording(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetMeetingRecordingRequest,
-            option: RequestOption = RequestOption()) -> GetMeetingRecordingResponse:
+            option: Optional[RequestOption] = None) -> GetMeetingRecordingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class MeetingRecording(object):
         return response
 
     def set_permission(self, request: SetPermissionMeetingRecordingRequest,
-                       option: RequestOption = RequestOption()) -> SetPermissionMeetingRecordingResponse:
+                       option: Optional[RequestOption] = None) -> SetPermissionMeetingRecordingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class MeetingRecording(object):
         return response
 
     def start(self, request: StartMeetingRecordingRequest,
-              option: RequestOption = RequestOption()) -> StartMeetingRecordingResponse:
+              option: Optional[RequestOption] = None) -> StartMeetingRecordingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class MeetingRecording(object):
         return response
 
     def stop(self, request: StopMeetingRecordingRequest,
-             option: RequestOption = RequestOption()) -> StopMeetingRecordingResponse:
+             option: Optional[RequestOption] = None) -> StopMeetingRecordingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

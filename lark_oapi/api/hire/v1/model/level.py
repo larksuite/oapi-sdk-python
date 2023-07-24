@@ -12,7 +12,7 @@ class Level(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class Level(object):
 
 
 class LevelBuilder(object):
-    def __init__(self, level: Level = Level({})) -> None:
-        self._level: Level = level
+    def __init__(self) -> None:
+        self._level = Level()
 
     def id(self, id: str) -> "LevelBuilder":
         self._level.id = id

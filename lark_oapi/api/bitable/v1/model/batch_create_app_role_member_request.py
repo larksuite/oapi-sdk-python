@@ -21,8 +21,8 @@ class BatchCreateAppRoleMemberRequest(BaseRequest):
 
 class BatchCreateAppRoleMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_create_app_role_member_request: BatchCreateAppRoleMemberRequest = BatchCreateAppRoleMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_create_app_role_member_request = BatchCreateAppRoleMemberRequest()
         batch_create_app_role_member_request.http_method = HttpMethod.POST
         batch_create_app_role_member_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_create"
         batch_create_app_role_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

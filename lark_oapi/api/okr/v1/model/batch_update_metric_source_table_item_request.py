@@ -22,8 +22,8 @@ class BatchUpdateMetricSourceTableItemRequest(BaseRequest):
 
 class BatchUpdateMetricSourceTableItemRequestBuilder(object):
 
-    def __init__(self,
-                 batch_update_metric_source_table_item_request: BatchUpdateMetricSourceTableItemRequest = BatchUpdateMetricSourceTableItemRequest()) -> None:
+    def __init__(self) -> None:
+        batch_update_metric_source_table_item_request = BatchUpdateMetricSourceTableItemRequest()
         batch_update_metric_source_table_item_request.http_method = HttpMethod.PATCH
         batch_update_metric_source_table_item_request.uri = "/open-apis/okr/v1/metric_sources/:metric_source_id/tables/:metric_table_id/items/batch_update"
         batch_update_metric_source_table_item_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -11,7 +11,7 @@ class BackgroundCheckFeedbackInfo(object):
         "result": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.attachment_url: Optional[str] = None
         self.result: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class BackgroundCheckFeedbackInfo(object):
 
 
 class BackgroundCheckFeedbackInfoBuilder(object):
-    def __init__(self,
-                 background_check_feedback_info: BackgroundCheckFeedbackInfo = BackgroundCheckFeedbackInfo({})) -> None:
-        self._background_check_feedback_info: BackgroundCheckFeedbackInfo = background_check_feedback_info
+    def __init__(self) -> None:
+        self._background_check_feedback_info = BackgroundCheckFeedbackInfo()
 
     def attachment_url(self, attachment_url: str) -> "BackgroundCheckFeedbackInfoBuilder":
         self._background_check_feedback_info.attachment_url = attachment_url

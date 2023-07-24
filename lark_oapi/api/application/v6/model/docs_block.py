@@ -14,7 +14,7 @@ class DocsBlock(object):
         "pc_icon_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block_type_id: Optional[str] = None
         self.i18n: Optional[List[BlockI18nInfo]] = None
         self.mobile_icon_url: Optional[str] = None
@@ -27,8 +27,8 @@ class DocsBlock(object):
 
 
 class DocsBlockBuilder(object):
-    def __init__(self, docs_block: DocsBlock = DocsBlock({})) -> None:
-        self._docs_block: DocsBlock = docs_block
+    def __init__(self) -> None:
+        self._docs_block = DocsBlock()
 
     def block_type_id(self, block_type_id: str) -> "DocsBlockBuilder":
         self._docs_block.block_type_id = block_type_id

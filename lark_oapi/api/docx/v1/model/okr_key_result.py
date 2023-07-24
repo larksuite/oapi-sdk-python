@@ -19,7 +19,7 @@ class OkrKeyResult(object):
         "content": Text,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.kr_id: Optional[int] = None
         self.confidential: Optional[bool] = None
         self.position: Optional[int] = None
@@ -36,8 +36,8 @@ class OkrKeyResult(object):
 
 
 class OkrKeyResultBuilder(object):
-    def __init__(self, okr_key_result: OkrKeyResult = OkrKeyResult({})) -> None:
-        self._okr_key_result: OkrKeyResult = okr_key_result
+    def __init__(self) -> None:
+        self._okr_key_result = OkrKeyResult()
 
     def kr_id(self, kr_id: int) -> "OkrKeyResultBuilder":
         self._okr_key_result.kr_id = kr_id

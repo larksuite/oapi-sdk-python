@@ -56,7 +56,7 @@ class TransferInfo(object):
         "target_cost_center_rate": List[SupportCostCenterItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.remark: Optional[str] = None
         self.offer_info: Optional[str] = None
         self.target_dotted_manager_clean: Optional[bool] = None
@@ -111,8 +111,8 @@ class TransferInfo(object):
 
 
 class TransferInfoBuilder(object):
-    def __init__(self, transfer_info: TransferInfo = TransferInfo({})) -> None:
-        self._transfer_info: TransferInfo = transfer_info
+    def __init__(self) -> None:
+        self._transfer_info = TransferInfo()
 
     def remark(self, remark: str) -> "TransferInfoBuilder":
         self._transfer_info.remark = remark

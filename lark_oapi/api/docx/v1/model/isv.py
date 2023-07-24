@@ -11,7 +11,7 @@ class Isv(object):
         "component_type_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.component_id: Optional[str] = None
         self.component_type_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Isv(object):
 
 
 class IsvBuilder(object):
-    def __init__(self, isv: Isv = Isv({})) -> None:
-        self._isv: Isv = isv
+    def __init__(self) -> None:
+        self._isv = Isv()
 
     def component_id(self, component_id: str) -> "IsvBuilder":
         self._isv.component_id = component_id

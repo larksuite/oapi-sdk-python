@@ -18,8 +18,8 @@ class DeleteAgentSchedulesRequest(BaseRequest):
 
 class DeleteAgentSchedulesRequestBuilder(object):
 
-    def __init__(self,
-                 delete_agent_schedules_request: DeleteAgentSchedulesRequest = DeleteAgentSchedulesRequest()) -> None:
+    def __init__(self) -> None:
+        delete_agent_schedules_request = DeleteAgentSchedulesRequest()
         delete_agent_schedules_request.http_method = HttpMethod.DELETE
         delete_agent_schedules_request.uri = "/open-apis/helpdesk/v1/agents/:agent_id/schedules"
         delete_agent_schedules_request.token_types = {AccessTokenType.USER}

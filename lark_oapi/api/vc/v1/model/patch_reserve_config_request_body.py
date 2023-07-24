@@ -16,7 +16,7 @@ class PatchReserveConfigRequestBody(object):
         "reserve_scope_config": ReserveScopeConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope_type: Optional[int] = None
         self.approval_config: Optional[ApprovalConfig] = None
         self.time_config: Optional[TimeConfig] = None
@@ -29,9 +29,8 @@ class PatchReserveConfigRequestBody(object):
 
 
 class PatchReserveConfigRequestBodyBuilder(object):
-    def __init__(self, patch_reserve_config_request_body: PatchReserveConfigRequestBody = PatchReserveConfigRequestBody(
-        {})) -> None:
-        self._patch_reserve_config_request_body: PatchReserveConfigRequestBody = patch_reserve_config_request_body
+    def __init__(self) -> None:
+        self._patch_reserve_config_request_body = PatchReserveConfigRequestBody()
 
     def scope_type(self, scope_type: int) -> "PatchReserveConfigRequestBodyBuilder":
         self._patch_reserve_config_request_body.scope_type = scope_type

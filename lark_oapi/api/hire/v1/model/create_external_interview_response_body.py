@@ -11,7 +11,7 @@ class CreateExternalInterviewResponseBody(object):
         "external_interview": ExternalInterview,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_interview: Optional[ExternalInterview] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateExternalInterviewResponseBody(object):
 
 
 class CreateExternalInterviewResponseBodyBuilder(object):
-    def __init__(self,
-                 create_external_interview_response_body: CreateExternalInterviewResponseBody = CreateExternalInterviewResponseBody(
-                     {})) -> None:
-        self._create_external_interview_response_body: CreateExternalInterviewResponseBody = create_external_interview_response_body
+    def __init__(self) -> None:
+        self._create_external_interview_response_body = CreateExternalInterviewResponseBody()
 
     def external_interview(self, external_interview: ExternalInterview) -> "CreateExternalInterviewResponseBodyBuilder":
         self._create_external_interview_response_body.external_interview = external_interview

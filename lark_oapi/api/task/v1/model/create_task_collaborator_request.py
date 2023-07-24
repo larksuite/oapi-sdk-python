@@ -21,8 +21,8 @@ class CreateTaskCollaboratorRequest(BaseRequest):
 
 class CreateTaskCollaboratorRequestBuilder(object):
 
-    def __init__(self,
-                 create_task_collaborator_request: CreateTaskCollaboratorRequest = CreateTaskCollaboratorRequest()) -> None:
+    def __init__(self) -> None:
+        create_task_collaborator_request = CreateTaskCollaboratorRequest()
         create_task_collaborator_request.http_method = HttpMethod.POST
         create_task_collaborator_request.uri = "/open-apis/task/v1/tasks/:task_id/collaborators"
         create_task_collaborator_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -14,7 +14,7 @@ class ApprovalConfigEvent(object):
         "approvers": List[SubscribeUserEvent],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_switch: Optional[int] = None
         self.approval_condition: Optional[int] = None
         self.meeting_duration: Optional[float] = None
@@ -27,8 +27,8 @@ class ApprovalConfigEvent(object):
 
 
 class ApprovalConfigEventBuilder(object):
-    def __init__(self, approval_config_event: ApprovalConfigEvent = ApprovalConfigEvent({})) -> None:
-        self._approval_config_event: ApprovalConfigEvent = approval_config_event
+    def __init__(self) -> None:
+        self._approval_config_event = ApprovalConfigEvent()
 
     def approval_switch(self, approval_switch: int) -> "ApprovalConfigEventBuilder":
         self._approval_config_event.approval_switch = approval_switch

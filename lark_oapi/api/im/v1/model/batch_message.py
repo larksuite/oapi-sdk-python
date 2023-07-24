@@ -14,7 +14,7 @@ class BatchMessage(object):
         "batch_recall_progress": BatchRecallProgress,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.batch_message_id: Optional[str] = None
         self.batch_send_progress: Optional[BatchSendProgress] = None
         self.batch_recall_progress: Optional[BatchRecallProgress] = None
@@ -26,8 +26,8 @@ class BatchMessage(object):
 
 
 class BatchMessageBuilder(object):
-    def __init__(self, batch_message: BatchMessage = BatchMessage({})) -> None:
-        self._batch_message: BatchMessage = batch_message
+    def __init__(self) -> None:
+        self._batch_message = BatchMessage()
 
     def batch_message_id(self, batch_message_id: str) -> "BatchMessageBuilder":
         self._batch_message.batch_message_id = batch_message_id

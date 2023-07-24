@@ -10,7 +10,7 @@ class ContentPerson(object):
         "open_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.open_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ContentPerson(object):
 
 
 class ContentPersonBuilder(object):
-    def __init__(self, content_person: ContentPerson = ContentPerson({})) -> None:
-        self._content_person: ContentPerson = content_person
+    def __init__(self) -> None:
+        self._content_person = ContentPerson()
 
     def open_id(self, open_id: str) -> "ContentPersonBuilder":
         self._content_person.open_id = open_id

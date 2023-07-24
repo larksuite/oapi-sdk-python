@@ -14,7 +14,7 @@ class BatchGetIdTalentRequestBody(object):
         "identification_number_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.mobile_code: Optional[str] = None
         self.mobile_number_list: Optional[List[str]] = None
         self.email_list: Optional[List[str]] = None
@@ -28,9 +28,8 @@ class BatchGetIdTalentRequestBody(object):
 
 
 class BatchGetIdTalentRequestBodyBuilder(object):
-    def __init__(self, batch_get_id_talent_request_body: BatchGetIdTalentRequestBody = BatchGetIdTalentRequestBody(
-        {})) -> None:
-        self._batch_get_id_talent_request_body: BatchGetIdTalentRequestBody = batch_get_id_talent_request_body
+    def __init__(self) -> None:
+        self._batch_get_id_talent_request_body = BatchGetIdTalentRequestBody()
 
     def mobile_code(self, mobile_code: str) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.mobile_code = mobile_code

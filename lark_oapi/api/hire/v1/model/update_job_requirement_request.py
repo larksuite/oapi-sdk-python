@@ -22,8 +22,8 @@ class UpdateJobRequirementRequest(BaseRequest):
 
 class UpdateJobRequirementRequestBuilder(object):
 
-    def __init__(self,
-                 update_job_requirement_request: UpdateJobRequirementRequest = UpdateJobRequirementRequest()) -> None:
+    def __init__(self) -> None:
+        update_job_requirement_request = UpdateJobRequirementRequest()
         update_job_requirement_request.http_method = HttpMethod.PUT
         update_job_requirement_request.uri = "/open-apis/hire/v1/job_requirements/:job_requirement_id"
         update_job_requirement_request.token_types = {AccessTokenType.TENANT}

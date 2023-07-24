@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.create_message_reaction_request import CreateMessageReactionRequest
-from lark_oapi.api.im.v1.model.create_message_reaction_response import CreateMessageReactionResponse
-from lark_oapi.api.im.v1.model.delete_message_reaction_request import DeleteMessageReactionRequest
-from lark_oapi.api.im.v1.model.delete_message_reaction_response import DeleteMessageReactionResponse
-from lark_oapi.api.im.v1.model.list_message_reaction_request import ListMessageReactionRequest
-from lark_oapi.api.im.v1.model.list_message_reaction_response import ListMessageReactionResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_message_reaction_request import CreateMessageReactionRequest
+from ..model.create_message_reaction_response import CreateMessageReactionResponse
+from ..model.delete_message_reaction_request import DeleteMessageReactionRequest
+from ..model.delete_message_reaction_response import DeleteMessageReactionResponse
+from ..model.list_message_reaction_request import ListMessageReactionRequest
+from ..model.list_message_reaction_response import ListMessageReactionResponse
 
 
 class MessageReaction(object):
@@ -20,7 +20,10 @@ class MessageReaction(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateMessageReactionRequest,
-               option: RequestOption = RequestOption()) -> CreateMessageReactionResponse:
+               option: Optional[RequestOption] = None) -> CreateMessageReactionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class MessageReaction(object):
         return response
 
     def delete(self, request: DeleteMessageReactionRequest,
-               option: RequestOption = RequestOption()) -> DeleteMessageReactionResponse:
+               option: Optional[RequestOption] = None) -> DeleteMessageReactionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class MessageReaction(object):
         return response
 
     def list(self, request: ListMessageReactionRequest,
-             option: RequestOption = RequestOption()) -> ListMessageReactionResponse:
+             option: Optional[RequestOption] = None) -> ListMessageReactionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

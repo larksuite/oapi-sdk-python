@@ -11,7 +11,7 @@ class ProgressRate(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.percent: Optional[int] = None
         self.status: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ProgressRate(object):
 
 
 class ProgressRateBuilder(object):
-    def __init__(self, progress_rate: ProgressRate = ProgressRate({})) -> None:
-        self._progress_rate: ProgressRate = progress_rate
+    def __init__(self) -> None:
+        self._progress_rate = ProgressRate()
 
     def percent(self, percent: int) -> "ProgressRateBuilder":
         self._progress_rate.percent = percent

@@ -11,7 +11,7 @@ class GetReserveResponseBody(object):
         "reserve": Reserve,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reserve: Optional[Reserve] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetReserveResponseBody(object):
 
 
 class GetReserveResponseBodyBuilder(object):
-    def __init__(self, get_reserve_response_body: GetReserveResponseBody = GetReserveResponseBody({})) -> None:
-        self._get_reserve_response_body: GetReserveResponseBody = get_reserve_response_body
+    def __init__(self) -> None:
+        self._get_reserve_response_body = GetReserveResponseBody()
 
     def reserve(self, reserve: Reserve) -> "GetReserveResponseBodyBuilder":
         self._get_reserve_response_body.reserve = reserve

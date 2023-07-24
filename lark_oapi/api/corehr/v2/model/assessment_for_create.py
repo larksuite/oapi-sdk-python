@@ -16,7 +16,7 @@ class AssessmentForCreate(object):
         "is_final_asssessment": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.assessment_status: Optional[str] = None
         self.assessment_result: Optional[str] = None
         self.assessment_score: Optional[float] = None
@@ -32,8 +32,8 @@ class AssessmentForCreate(object):
 
 
 class AssessmentForCreateBuilder(object):
-    def __init__(self, assessment_for_create: AssessmentForCreate = AssessmentForCreate({})) -> None:
-        self._assessment_for_create: AssessmentForCreate = assessment_for_create
+    def __init__(self) -> None:
+        self._assessment_for_create = AssessmentForCreate()
 
     def assessment_status(self, assessment_status: str) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_status = assessment_status

@@ -12,7 +12,7 @@ class EcoExamLoginInfo(object):
         "password": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.exam_url: Optional[str] = None
         self.username: Optional[str] = None
         self.password: Optional[str] = None
@@ -24,8 +24,8 @@ class EcoExamLoginInfo(object):
 
 
 class EcoExamLoginInfoBuilder(object):
-    def __init__(self, eco_exam_login_info: EcoExamLoginInfo = EcoExamLoginInfo({})) -> None:
-        self._eco_exam_login_info: EcoExamLoginInfo = eco_exam_login_info
+    def __init__(self) -> None:
+        self._eco_exam_login_info = EcoExamLoginInfo()
 
     def exam_url(self, exam_url: str) -> "EcoExamLoginInfoBuilder":
         self._eco_exam_login_info.exam_url = exam_url

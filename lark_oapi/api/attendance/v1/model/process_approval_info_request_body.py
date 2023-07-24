@@ -12,7 +12,7 @@ class ProcessApprovalInfoRequestBody(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_id: Optional[str] = None
         self.approval_type: Optional[str] = None
         self.status: Optional[int] = None
@@ -24,10 +24,8 @@ class ProcessApprovalInfoRequestBody(object):
 
 
 class ProcessApprovalInfoRequestBodyBuilder(object):
-    def __init__(self,
-                 process_approval_info_request_body: ProcessApprovalInfoRequestBody = ProcessApprovalInfoRequestBody(
-                     {})) -> None:
-        self._process_approval_info_request_body: ProcessApprovalInfoRequestBody = process_approval_info_request_body
+    def __init__(self) -> None:
+        self._process_approval_info_request_body = ProcessApprovalInfoRequestBody()
 
     def approval_id(self, approval_id: str) -> "ProcessApprovalInfoRequestBodyBuilder":
         self._process_approval_info_request_body.approval_id = approval_id

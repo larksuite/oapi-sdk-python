@@ -13,7 +13,7 @@ class ListJobFamilyResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[JobFamily]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListJobFamilyResponseBody(object):
 
 
 class ListJobFamilyResponseBodyBuilder(object):
-    def __init__(self,
-                 list_job_family_response_body: ListJobFamilyResponseBody = ListJobFamilyResponseBody({})) -> None:
-        self._list_job_family_response_body: ListJobFamilyResponseBody = list_job_family_response_body
+    def __init__(self) -> None:
+        self._list_job_family_response_body = ListJobFamilyResponseBody()
 
     def items(self, items: List[JobFamily]) -> "ListJobFamilyResponseBodyBuilder":
         self._list_job_family_response_body.items = items

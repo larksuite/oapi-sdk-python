@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.query_transfer_type_request import QueryTransferTypeRequest
-from lark_oapi.api.corehr.v1.model.query_transfer_type_response import QueryTransferTypeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_transfer_type_request import QueryTransferTypeRequest
+from ..model.query_transfer_type_response import QueryTransferTypeResponse
 
 
 class TransferType(object):
@@ -16,7 +16,10 @@ class TransferType(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryTransferTypeRequest,
-              option: RequestOption = RequestOption()) -> QueryTransferTypeResponse:
+              option: Optional[RequestOption] = None) -> QueryTransferTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

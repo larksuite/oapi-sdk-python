@@ -15,7 +15,7 @@ class ResourceReservationListExportRequestBody(object):
         "is_exclude": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_level_id: Optional[str] = None
         self.need_topic: Optional[bool] = None
         self.start_time: Optional[int] = None
@@ -30,10 +30,8 @@ class ResourceReservationListExportRequestBody(object):
 
 
 class ResourceReservationListExportRequestBodyBuilder(object):
-    def __init__(self,
-                 resource_reservation_list_export_request_body: ResourceReservationListExportRequestBody = ResourceReservationListExportRequestBody(
-                     {})) -> None:
-        self._resource_reservation_list_export_request_body: ResourceReservationListExportRequestBody = resource_reservation_list_export_request_body
+    def __init__(self) -> None:
+        self._resource_reservation_list_export_request_body = ResourceReservationListExportRequestBody()
 
     def room_level_id(self, room_level_id: str) -> "ResourceReservationListExportRequestBodyBuilder":
         self._resource_reservation_list_export_request_body.room_level_id = room_level_id

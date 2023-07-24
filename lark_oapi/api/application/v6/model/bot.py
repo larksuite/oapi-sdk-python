@@ -10,7 +10,7 @@ class Bot(object):
         "card_request_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.card_request_url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Bot(object):
 
 
 class BotBuilder(object):
-    def __init__(self, bot: Bot = Bot({})) -> None:
-        self._bot: Bot = bot
+    def __init__(self) -> None:
+        self._bot = Bot()
 
     def card_request_url(self, card_request_url: str) -> "BotBuilder":
         self._bot.card_request_url = card_request_url

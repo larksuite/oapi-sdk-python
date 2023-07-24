@@ -13,7 +13,7 @@ class GetSpreadsheet(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.owner_id: Optional[str] = None
         self.token: Optional[str] = None
@@ -26,8 +26,8 @@ class GetSpreadsheet(object):
 
 
 class GetSpreadsheetBuilder(object):
-    def __init__(self, get_spreadsheet: GetSpreadsheet = GetSpreadsheet({})) -> None:
-        self._get_spreadsheet: GetSpreadsheet = get_spreadsheet
+    def __init__(self) -> None:
+        self._get_spreadsheet = GetSpreadsheet()
 
     def title(self, title: str) -> "GetSpreadsheetBuilder":
         self._get_spreadsheet.title = title

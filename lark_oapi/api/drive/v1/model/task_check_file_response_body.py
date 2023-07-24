@@ -10,7 +10,7 @@ class TaskCheckFileResponseBody(object):
         "status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class TaskCheckFileResponseBody(object):
 
 
 class TaskCheckFileResponseBodyBuilder(object):
-    def __init__(self,
-                 task_check_file_response_body: TaskCheckFileResponseBody = TaskCheckFileResponseBody({})) -> None:
-        self._task_check_file_response_body: TaskCheckFileResponseBody = task_check_file_response_body
+    def __init__(self) -> None:
+        self._task_check_file_response_body = TaskCheckFileResponseBody()
 
     def status(self, status: str) -> "TaskCheckFileResponseBodyBuilder":
         self._task_check_file_response_body.status = status

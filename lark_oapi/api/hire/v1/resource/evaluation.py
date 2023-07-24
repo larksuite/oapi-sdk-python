@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.list_evaluation_request import ListEvaluationRequest
-from lark_oapi.api.hire.v1.model.list_evaluation_response import ListEvaluationResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_evaluation_request import ListEvaluationRequest
+from ..model.list_evaluation_response import ListEvaluationResponse
 
 
 class Evaluation(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListEvaluationRequest, option: RequestOption = RequestOption()) -> ListEvaluationResponse:
+    def list(self, request: ListEvaluationRequest, option: Optional[RequestOption] = None) -> ListEvaluationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

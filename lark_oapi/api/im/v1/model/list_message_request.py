@@ -24,7 +24,8 @@ class ListMessageRequest(BaseRequest):
 
 class ListMessageRequestBuilder(object):
 
-    def __init__(self, list_message_request: ListMessageRequest = ListMessageRequest()) -> None:
+    def __init__(self) -> None:
+        list_message_request = ListMessageRequest()
         list_message_request.http_method = HttpMethod.GET
         list_message_request.uri = "/open-apis/im/v1/messages"
         list_message_request.token_types = {AccessTokenType.TENANT}

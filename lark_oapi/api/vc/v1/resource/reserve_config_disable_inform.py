@@ -2,16 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.get_reserve_config_disable_inform_request import GetReserveConfigDisableInformRequest
-from lark_oapi.api.vc.v1.model.get_reserve_config_disable_inform_response import GetReserveConfigDisableInformResponse
-from lark_oapi.api.vc.v1.model.patch_reserve_config_disable_inform_request import PatchReserveConfigDisableInformRequest
-from lark_oapi.api.vc.v1.model.patch_reserve_config_disable_inform_response import \
-    PatchReserveConfigDisableInformResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_reserve_config_disable_inform_request import GetReserveConfigDisableInformRequest
+from ..model.get_reserve_config_disable_inform_response import GetReserveConfigDisableInformResponse
+from ..model.patch_reserve_config_disable_inform_request import PatchReserveConfigDisableInformRequest
+from ..model.patch_reserve_config_disable_inform_response import PatchReserveConfigDisableInformResponse
 
 
 class ReserveConfigDisableInform(object):
@@ -19,7 +18,10 @@ class ReserveConfigDisableInform(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetReserveConfigDisableInformRequest,
-            option: RequestOption = RequestOption()) -> GetReserveConfigDisableInformResponse:
+            option: Optional[RequestOption] = None) -> GetReserveConfigDisableInformResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +36,10 @@ class ReserveConfigDisableInform(object):
         return response
 
     def patch(self, request: PatchReserveConfigDisableInformRequest,
-              option: RequestOption = RequestOption()) -> PatchReserveConfigDisableInformResponse:
+              option: Optional[RequestOption] = None) -> PatchReserveConfigDisableInformResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

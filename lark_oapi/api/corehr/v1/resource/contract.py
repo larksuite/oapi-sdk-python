@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_contract_request import CreateContractRequest
-from lark_oapi.api.corehr.v1.model.create_contract_response import CreateContractResponse
-from lark_oapi.api.corehr.v1.model.delete_contract_request import DeleteContractRequest
-from lark_oapi.api.corehr.v1.model.delete_contract_response import DeleteContractResponse
-from lark_oapi.api.corehr.v1.model.get_contract_request import GetContractRequest
-from lark_oapi.api.corehr.v1.model.get_contract_response import GetContractResponse
-from lark_oapi.api.corehr.v1.model.list_contract_request import ListContractRequest
-from lark_oapi.api.corehr.v1.model.list_contract_response import ListContractResponse
-from lark_oapi.api.corehr.v1.model.patch_contract_request import PatchContractRequest
-from lark_oapi.api.corehr.v1.model.patch_contract_response import PatchContractResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_contract_request import CreateContractRequest
+from ..model.create_contract_response import CreateContractResponse
+from ..model.delete_contract_request import DeleteContractRequest
+from ..model.delete_contract_response import DeleteContractResponse
+from ..model.get_contract_request import GetContractRequest
+from ..model.get_contract_response import GetContractResponse
+from ..model.list_contract_request import ListContractRequest
+from ..model.list_contract_response import ListContractResponse
+from ..model.patch_contract_request import PatchContractRequest
+from ..model.patch_contract_response import PatchContractResponse
 
 
 class Contract(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateContractRequest, option: RequestOption = RequestOption()) -> CreateContractResponse:
+    def create(self, request: CreateContractRequest, option: Optional[RequestOption] = None) -> CreateContractResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class Contract(object):
 
         return response
 
-    def delete(self, request: DeleteContractRequest, option: RequestOption = RequestOption()) -> DeleteContractResponse:
+    def delete(self, request: DeleteContractRequest, option: Optional[RequestOption] = None) -> DeleteContractResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class Contract(object):
 
         return response
 
-    def get(self, request: GetContractRequest, option: RequestOption = RequestOption()) -> GetContractResponse:
+    def get(self, request: GetContractRequest, option: Optional[RequestOption] = None) -> GetContractResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class Contract(object):
 
         return response
 
-    def list(self, request: ListContractRequest, option: RequestOption = RequestOption()) -> ListContractResponse:
+    def list(self, request: ListContractRequest, option: Optional[RequestOption] = None) -> ListContractResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +87,10 @@ class Contract(object):
 
         return response
 
-    def patch(self, request: PatchContractRequest, option: RequestOption = RequestOption()) -> PatchContractResponse:
+    def patch(self, request: PatchContractRequest, option: Optional[RequestOption] = None) -> PatchContractResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

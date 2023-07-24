@@ -11,7 +11,7 @@ class Rule(object):
         "visible_department_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_all_visible: Optional[bool] = None
         self.visible_department_ids: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Rule(object):
 
 
 class RuleBuilder(object):
-    def __init__(self, rule: Rule = Rule({})) -> None:
-        self._rule: Rule = rule
+    def __init__(self) -> None:
+        self._rule = Rule()
 
     def is_all_visible(self, is_all_visible: bool) -> "RuleBuilder":
         self._rule.is_all_visible = is_all_visible

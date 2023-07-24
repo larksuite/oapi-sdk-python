@@ -12,7 +12,7 @@ class DepartmentPathName(object):
         "i18n_name": DepartmentI18nName,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.i18n_name: Optional[DepartmentI18nName] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class DepartmentPathName(object):
 
 
 class DepartmentPathNameBuilder(object):
-    def __init__(self, department_path_name: DepartmentPathName = DepartmentPathName({})) -> None:
-        self._department_path_name: DepartmentPathName = department_path_name
+    def __init__(self) -> None:
+        self._department_path_name = DepartmentPathName()
 
     def name(self, name: str) -> "DepartmentPathNameBuilder":
         self._department_path_name.name = name

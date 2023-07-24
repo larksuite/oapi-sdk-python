@@ -11,7 +11,7 @@ class CreateTaskFollowerResponseBody(object):
         "follower": Follower,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.follower: Optional[Follower] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateTaskFollowerResponseBody(object):
 
 
 class CreateTaskFollowerResponseBodyBuilder(object):
-    def __init__(self,
-                 create_task_follower_response_body: CreateTaskFollowerResponseBody = CreateTaskFollowerResponseBody(
-                     {})) -> None:
-        self._create_task_follower_response_body: CreateTaskFollowerResponseBody = create_task_follower_response_body
+    def __init__(self) -> None:
+        self._create_task_follower_response_body = CreateTaskFollowerResponseBody()
 
     def follower(self, follower: Follower) -> "CreateTaskFollowerResponseBodyBuilder":
         self._create_task_follower_response_body.follower = follower

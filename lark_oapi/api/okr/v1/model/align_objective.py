@@ -12,7 +12,7 @@ class AlignObjective(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.okr_id: Optional[int] = None
         self.user_id: Optional[str] = None
@@ -24,8 +24,8 @@ class AlignObjective(object):
 
 
 class AlignObjectiveBuilder(object):
-    def __init__(self, align_objective: AlignObjective = AlignObjective({})) -> None:
-        self._align_objective: AlignObjective = align_objective
+    def __init__(self) -> None:
+        self._align_objective = AlignObjective()
 
     def id(self, id: int) -> "AlignObjectiveBuilder":
         self._align_objective.id = id

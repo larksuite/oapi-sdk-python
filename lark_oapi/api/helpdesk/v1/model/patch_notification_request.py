@@ -21,7 +21,8 @@ class PatchNotificationRequest(BaseRequest):
 
 class PatchNotificationRequestBuilder(object):
 
-    def __init__(self, patch_notification_request: PatchNotificationRequest = PatchNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        patch_notification_request = PatchNotificationRequest()
         patch_notification_request.http_method = HttpMethod.PATCH
         patch_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id"
         patch_notification_request.token_types = {AccessTokenType.USER}

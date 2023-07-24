@@ -21,7 +21,7 @@ class RelatedMeta(object):
         "images": List[BaikeImage],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.users: Optional[List[Referer]] = None
         self.chats: Optional[List[Referer]] = None
         self.docs: Optional[List[Referer]] = None
@@ -38,8 +38,8 @@ class RelatedMeta(object):
 
 
 class RelatedMetaBuilder(object):
-    def __init__(self, related_meta: RelatedMeta = RelatedMeta({})) -> None:
-        self._related_meta: RelatedMeta = related_meta
+    def __init__(self) -> None:
+        self._related_meta = RelatedMeta()
 
     def users(self, users: List[Referer]) -> "RelatedMetaBuilder":
         self._related_meta.users = users

@@ -11,7 +11,7 @@ class JobConfigRoundType(object):
         "assessment_template_biz_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.round_biz_id: Optional[str] = None
         self.assessment_template_biz_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class JobConfigRoundType(object):
 
 
 class JobConfigRoundTypeBuilder(object):
-    def __init__(self, job_config_round_type: JobConfigRoundType = JobConfigRoundType({})) -> None:
-        self._job_config_round_type: JobConfigRoundType = job_config_round_type
+    def __init__(self) -> None:
+        self._job_config_round_type = JobConfigRoundType()
 
     def round_biz_id(self, round_biz_id: str) -> "JobConfigRoundTypeBuilder":
         self._job_config_round_type.round_biz_id = round_biz_id

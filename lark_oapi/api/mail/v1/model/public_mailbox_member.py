@@ -12,7 +12,7 @@ class PublicMailboxMember(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.type: Optional[str] = None
@@ -24,8 +24,8 @@ class PublicMailboxMember(object):
 
 
 class PublicMailboxMemberBuilder(object):
-    def __init__(self, public_mailbox_member: PublicMailboxMember = PublicMailboxMember({})) -> None:
-        self._public_mailbox_member: PublicMailboxMember = public_mailbox_member
+    def __init__(self) -> None:
+        self._public_mailbox_member = PublicMailboxMember()
 
     def member_id(self, member_id: str) -> "PublicMailboxMemberBuilder":
         self._public_mailbox_member.member_id = member_id

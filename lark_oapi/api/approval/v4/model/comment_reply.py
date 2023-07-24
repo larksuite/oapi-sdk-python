@@ -18,7 +18,7 @@ class CommentReply(object):
         "extra": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.content: Optional[str] = None
         self.create_time: Optional[int] = None
@@ -35,8 +35,8 @@ class CommentReply(object):
 
 
 class CommentReplyBuilder(object):
-    def __init__(self, comment_reply: CommentReply = CommentReply({})) -> None:
-        self._comment_reply: CommentReply = comment_reply
+    def __init__(self) -> None:
+        self._comment_reply = CommentReply()
 
     def id(self, id: int) -> "CommentReplyBuilder":
         self._comment_reply.id = id

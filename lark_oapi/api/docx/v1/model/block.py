@@ -84,7 +84,7 @@ class Block(object):
         "wiki_catalog": WikiCatalog,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block_id: Optional[str] = None
         self.parent_id: Optional[str] = None
         self.children: Optional[List[str]] = None
@@ -141,8 +141,8 @@ class Block(object):
 
 
 class BlockBuilder(object):
-    def __init__(self, block: Block = Block({})) -> None:
-        self._block: Block = block
+    def __init__(self) -> None:
+        self._block = Block()
 
     def block_id(self, block_id: str) -> "BlockBuilder":
         self._block.block_id = block_id

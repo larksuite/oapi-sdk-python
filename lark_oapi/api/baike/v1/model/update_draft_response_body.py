@@ -11,7 +11,7 @@ class UpdateDraftResponseBody(object):
         "draft": Draft,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.draft: Optional[Draft] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class UpdateDraftResponseBody(object):
 
 
 class UpdateDraftResponseBodyBuilder(object):
-    def __init__(self, update_draft_response_body: UpdateDraftResponseBody = UpdateDraftResponseBody({})) -> None:
-        self._update_draft_response_body: UpdateDraftResponseBody = update_draft_response_body
+    def __init__(self) -> None:
+        self._update_draft_response_body = UpdateDraftResponseBody()
 
     def draft(self, draft: Draft) -> "UpdateDraftResponseBodyBuilder":
         self._update_draft_response_body.draft = draft

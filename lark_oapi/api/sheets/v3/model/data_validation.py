@@ -14,7 +14,7 @@ class DataValidation(object):
         "help_text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data_validation_id: Optional[int] = None
         self.data_validation_rule: Optional[DataValidationRule] = None
         self.strict: Optional[str] = None
@@ -27,8 +27,8 @@ class DataValidation(object):
 
 
 class DataValidationBuilder(object):
-    def __init__(self, data_validation: DataValidation = DataValidation({})) -> None:
-        self._data_validation: DataValidation = data_validation
+    def __init__(self) -> None:
+        self._data_validation = DataValidation()
 
     def data_validation_id(self, data_validation_id: int) -> "DataValidationBuilder":
         self._data_validation.data_validation_id = data_validation_id

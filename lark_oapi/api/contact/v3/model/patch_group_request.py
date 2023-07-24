@@ -22,7 +22,8 @@ class PatchGroupRequest(BaseRequest):
 
 class PatchGroupRequestBuilder(object):
 
-    def __init__(self, patch_group_request: PatchGroupRequest = PatchGroupRequest()) -> None:
+    def __init__(self) -> None:
+        patch_group_request = PatchGroupRequest()
         patch_group_request.http_method = HttpMethod.PATCH
         patch_group_request.uri = "/open-apis/contact/v3/group/:group_id"
         patch_group_request.token_types = {AccessTokenType.TENANT}

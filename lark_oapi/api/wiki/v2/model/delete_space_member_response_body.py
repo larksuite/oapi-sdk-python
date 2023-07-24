@@ -11,7 +11,7 @@ class DeleteSpaceMemberResponseBody(object):
         "member": Member,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member: Optional[Member] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class DeleteSpaceMemberResponseBody(object):
 
 
 class DeleteSpaceMemberResponseBodyBuilder(object):
-    def __init__(self, delete_space_member_response_body: DeleteSpaceMemberResponseBody = DeleteSpaceMemberResponseBody(
-        {})) -> None:
-        self._delete_space_member_response_body: DeleteSpaceMemberResponseBody = delete_space_member_response_body
+    def __init__(self) -> None:
+        self._delete_space_member_response_body = DeleteSpaceMemberResponseBody()
 
     def member(self, member: Member) -> "DeleteSpaceMemberResponseBodyBuilder":
         self._delete_space_member_response_body.member = member

@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.patch_reserve_config_request import PatchReserveConfigRequest
-from lark_oapi.api.vc.v1.model.patch_reserve_config_response import PatchReserveConfigResponse
-from lark_oapi.api.vc.v1.model.reserve_scope_reserve_config_request import ReserveScopeReserveConfigRequest
-from lark_oapi.api.vc.v1.model.reserve_scope_reserve_config_response import ReserveScopeReserveConfigResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.patch_reserve_config_request import PatchReserveConfigRequest
+from ..model.patch_reserve_config_response import PatchReserveConfigResponse
+from ..model.reserve_scope_reserve_config_request import ReserveScopeReserveConfigRequest
+from ..model.reserve_scope_reserve_config_response import ReserveScopeReserveConfigResponse
 
 
 class ReserveConfig(object):
@@ -18,7 +18,10 @@ class ReserveConfig(object):
         self.config: Optional[Config] = config
 
     def patch(self, request: PatchReserveConfigRequest,
-              option: RequestOption = RequestOption()) -> PatchReserveConfigResponse:
+              option: Optional[RequestOption] = None) -> PatchReserveConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class ReserveConfig(object):
         return response
 
     def reserve_scope(self, request: ReserveScopeReserveConfigRequest,
-                      option: RequestOption = RequestOption()) -> ReserveScopeReserveConfigResponse:
+                      option: Optional[RequestOption] = None) -> ReserveScopeReserveConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

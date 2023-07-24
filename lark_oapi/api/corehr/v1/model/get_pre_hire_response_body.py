@@ -11,7 +11,7 @@ class GetPreHireResponseBody(object):
         "pre_hire": PreHire,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pre_hire: Optional[PreHire] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetPreHireResponseBody(object):
 
 
 class GetPreHireResponseBodyBuilder(object):
-    def __init__(self, get_pre_hire_response_body: GetPreHireResponseBody = GetPreHireResponseBody({})) -> None:
-        self._get_pre_hire_response_body: GetPreHireResponseBody = get_pre_hire_response_body
+    def __init__(self) -> None:
+        self._get_pre_hire_response_body = GetPreHireResponseBody()
 
     def pre_hire(self, pre_hire: PreHire) -> "GetPreHireResponseBodyBuilder":
         self._get_pre_hire_response_body.pre_hire = pre_hire

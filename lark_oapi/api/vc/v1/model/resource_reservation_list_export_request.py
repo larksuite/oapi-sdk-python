@@ -19,8 +19,8 @@ class ResourceReservationListExportRequest(BaseRequest):
 
 class ResourceReservationListExportRequestBuilder(object):
 
-    def __init__(self,
-                 resource_reservation_list_export_request: ResourceReservationListExportRequest = ResourceReservationListExportRequest()) -> None:
+    def __init__(self) -> None:
+        resource_reservation_list_export_request = ResourceReservationListExportRequest()
         resource_reservation_list_export_request.http_method = HttpMethod.POST
         resource_reservation_list_export_request.uri = "/open-apis/vc/v1/exports/resource_reservation_list"
         resource_reservation_list_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

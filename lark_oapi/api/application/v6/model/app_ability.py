@@ -27,7 +27,7 @@ class AppAbility(object):
         "plus_menu": PlusMenu,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.gadget: Optional[Gadget] = None
         self.web_app: Optional[WebApp] = None
         self.bot: Optional[Bot] = None
@@ -45,8 +45,8 @@ class AppAbility(object):
 
 
 class AppAbilityBuilder(object):
-    def __init__(self, app_ability: AppAbility = AppAbility({})) -> None:
-        self._app_ability: AppAbility = app_ability
+    def __init__(self) -> None:
+        self._app_ability = AppAbility()
 
     def gadget(self, gadget: Gadget) -> "AppAbilityBuilder":
         self._app_ability.gadget = gadget

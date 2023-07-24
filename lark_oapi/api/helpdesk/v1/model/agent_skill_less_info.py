@@ -12,7 +12,7 @@ class AgentSkillLessInfo(object):
         "is_default": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.is_default: Optional[bool] = None
@@ -24,8 +24,8 @@ class AgentSkillLessInfo(object):
 
 
 class AgentSkillLessInfoBuilder(object):
-    def __init__(self, agent_skill_less_info: AgentSkillLessInfo = AgentSkillLessInfo({})) -> None:
-        self._agent_skill_less_info: AgentSkillLessInfo = agent_skill_less_info
+    def __init__(self) -> None:
+        self._agent_skill_less_info = AgentSkillLessInfo()
 
     def id(self, id: str) -> "AgentSkillLessInfoBuilder":
         self._agent_skill_less_info.id = id

@@ -14,7 +14,7 @@ class Subregion(object):
         "superior_subregion_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.subdivision_id: Optional[str] = None
@@ -27,8 +27,8 @@ class Subregion(object):
 
 
 class SubregionBuilder(object):
-    def __init__(self, subregion: Subregion = Subregion({})) -> None:
-        self._subregion: Subregion = subregion
+    def __init__(self) -> None:
+        self._subregion = Subregion()
 
     def id(self, id: str) -> "SubregionBuilder":
         self._subregion.id = id

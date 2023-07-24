@@ -11,7 +11,7 @@ class DeleteExternalApplicationResponseBody(object):
         "external_application": ExternalApplication,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_application: Optional[ExternalApplication] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class DeleteExternalApplicationResponseBody(object):
 
 
 class DeleteExternalApplicationResponseBodyBuilder(object):
-    def __init__(self,
-                 delete_external_application_response_body: DeleteExternalApplicationResponseBody = DeleteExternalApplicationResponseBody(
-                     {})) -> None:
-        self._delete_external_application_response_body: DeleteExternalApplicationResponseBody = delete_external_application_response_body
+    def __init__(self) -> None:
+        self._delete_external_application_response_body = DeleteExternalApplicationResponseBody()
 
     def external_application(self,
                              external_application: ExternalApplication) -> "DeleteExternalApplicationResponseBodyBuilder":

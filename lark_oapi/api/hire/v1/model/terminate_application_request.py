@@ -20,8 +20,8 @@ class TerminateApplicationRequest(BaseRequest):
 
 class TerminateApplicationRequestBuilder(object):
 
-    def __init__(self,
-                 terminate_application_request: TerminateApplicationRequest = TerminateApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        terminate_application_request = TerminateApplicationRequest()
         terminate_application_request.http_method = HttpMethod.POST
         terminate_application_request.uri = "/open-apis/hire/v1/applications/:application_id/terminate"
         terminate_application_request.token_types = {AccessTokenType.TENANT}

@@ -12,7 +12,7 @@ class InstanceCcUser(object):
         "open_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.cc_id: Optional[str] = None
         self.open_id: Optional[str] = None
@@ -24,8 +24,8 @@ class InstanceCcUser(object):
 
 
 class InstanceCcUserBuilder(object):
-    def __init__(self, instance_cc_user: InstanceCcUser = InstanceCcUser({})) -> None:
-        self._instance_cc_user: InstanceCcUser = instance_cc_user
+    def __init__(self) -> None:
+        self._instance_cc_user = InstanceCcUser()
 
     def user_id(self, user_id: str) -> "InstanceCcUserBuilder":
         self._instance_cc_user.user_id = user_id

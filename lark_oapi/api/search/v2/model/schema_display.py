@@ -12,7 +12,7 @@ class SchemaDisplay(object):
         "fields_mapping": List[SchemaDisplayFieldMapping],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.card_key: Optional[str] = None
         self.fields_mapping: Optional[List[SchemaDisplayFieldMapping]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class SchemaDisplay(object):
 
 
 class SchemaDisplayBuilder(object):
-    def __init__(self, schema_display: SchemaDisplay = SchemaDisplay({})) -> None:
-        self._schema_display: SchemaDisplay = schema_display
+    def __init__(self) -> None:
+        self._schema_display = SchemaDisplay()
 
     def card_key(self, card_key: str) -> "SchemaDisplayBuilder":
         self._schema_display.card_key = card_key

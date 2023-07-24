@@ -12,7 +12,7 @@ class CreateBadgeImageRequestBody(object):
         "image_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_file: Optional[IO[Any]] = None
         self.image_type: Optional[int] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class CreateBadgeImageRequestBody(object):
 
 
 class CreateBadgeImageRequestBodyBuilder(object):
-    def __init__(self, create_badge_image_request_body: CreateBadgeImageRequestBody = CreateBadgeImageRequestBody(
-        {})) -> None:
-        self._create_badge_image_request_body: CreateBadgeImageRequestBody = create_badge_image_request_body
+    def __init__(self) -> None:
+        self._create_badge_image_request_body = CreateBadgeImageRequestBody()
 
     def image_file(self, image_file: IO[Any]) -> "CreateBadgeImageRequestBodyBuilder":
         self._create_badge_image_request_body.image_file = image_file

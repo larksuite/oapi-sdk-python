@@ -10,7 +10,7 @@ class PreviewAttachmentResponseBody(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class PreviewAttachmentResponseBody(object):
 
 
 class PreviewAttachmentResponseBodyBuilder(object):
-    def __init__(self, preview_attachment_response_body: PreviewAttachmentResponseBody = PreviewAttachmentResponseBody(
-        {})) -> None:
-        self._preview_attachment_response_body: PreviewAttachmentResponseBody = preview_attachment_response_body
+    def __init__(self) -> None:
+        self._preview_attachment_response_body = PreviewAttachmentResponseBody()
 
     def url(self, url: str) -> "PreviewAttachmentResponseBodyBuilder":
         self._preview_attachment_response_body.url = url

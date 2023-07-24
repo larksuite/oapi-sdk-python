@@ -2,25 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.create_room_level_request import CreateRoomLevelRequest
-from lark_oapi.api.vc.v1.model.create_room_level_response import CreateRoomLevelResponse
-from lark_oapi.api.vc.v1.model.del_room_level_request import DelRoomLevelRequest
-from lark_oapi.api.vc.v1.model.del_room_level_response import DelRoomLevelResponse
-from lark_oapi.api.vc.v1.model.get_room_level_request import GetRoomLevelRequest
-from lark_oapi.api.vc.v1.model.get_room_level_response import GetRoomLevelResponse
-from lark_oapi.api.vc.v1.model.list_room_level_request import ListRoomLevelRequest
-from lark_oapi.api.vc.v1.model.list_room_level_response import ListRoomLevelResponse
-from lark_oapi.api.vc.v1.model.mget_room_level_request import MgetRoomLevelRequest
-from lark_oapi.api.vc.v1.model.mget_room_level_response import MgetRoomLevelResponse
-from lark_oapi.api.vc.v1.model.patch_room_level_request import PatchRoomLevelRequest
-from lark_oapi.api.vc.v1.model.patch_room_level_response import PatchRoomLevelResponse
-from lark_oapi.api.vc.v1.model.search_room_level_request import SearchRoomLevelRequest
-from lark_oapi.api.vc.v1.model.search_room_level_response import SearchRoomLevelResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_room_level_request import CreateRoomLevelRequest
+from ..model.create_room_level_response import CreateRoomLevelResponse
+from ..model.del_room_level_request import DelRoomLevelRequest
+from ..model.del_room_level_response import DelRoomLevelResponse
+from ..model.get_room_level_request import GetRoomLevelRequest
+from ..model.get_room_level_response import GetRoomLevelResponse
+from ..model.list_room_level_request import ListRoomLevelRequest
+from ..model.list_room_level_response import ListRoomLevelResponse
+from ..model.mget_room_level_request import MgetRoomLevelRequest
+from ..model.mget_room_level_response import MgetRoomLevelResponse
+from ..model.patch_room_level_request import PatchRoomLevelRequest
+from ..model.patch_room_level_response import PatchRoomLevelResponse
+from ..model.search_room_level_request import SearchRoomLevelRequest
+from ..model.search_room_level_response import SearchRoomLevelResponse
 
 
 class RoomLevel(object):
@@ -28,7 +28,10 @@ class RoomLevel(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateRoomLevelRequest,
-               option: RequestOption = RequestOption()) -> CreateRoomLevelResponse:
+               option: Optional[RequestOption] = None) -> CreateRoomLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -41,7 +44,10 @@ class RoomLevel(object):
 
         return response
 
-    def del_(self, request: DelRoomLevelRequest, option: RequestOption = RequestOption()) -> DelRoomLevelResponse:
+    def del_(self, request: DelRoomLevelRequest, option: Optional[RequestOption] = None) -> DelRoomLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -54,7 +60,10 @@ class RoomLevel(object):
 
         return response
 
-    def get(self, request: GetRoomLevelRequest, option: RequestOption = RequestOption()) -> GetRoomLevelResponse:
+    def get(self, request: GetRoomLevelRequest, option: Optional[RequestOption] = None) -> GetRoomLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -67,7 +76,10 @@ class RoomLevel(object):
 
         return response
 
-    def list(self, request: ListRoomLevelRequest, option: RequestOption = RequestOption()) -> ListRoomLevelResponse:
+    def list(self, request: ListRoomLevelRequest, option: Optional[RequestOption] = None) -> ListRoomLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -80,7 +92,10 @@ class RoomLevel(object):
 
         return response
 
-    def mget(self, request: MgetRoomLevelRequest, option: RequestOption = RequestOption()) -> MgetRoomLevelResponse:
+    def mget(self, request: MgetRoomLevelRequest, option: Optional[RequestOption] = None) -> MgetRoomLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -93,7 +108,10 @@ class RoomLevel(object):
 
         return response
 
-    def patch(self, request: PatchRoomLevelRequest, option: RequestOption = RequestOption()) -> PatchRoomLevelResponse:
+    def patch(self, request: PatchRoomLevelRequest, option: Optional[RequestOption] = None) -> PatchRoomLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -107,7 +125,10 @@ class RoomLevel(object):
         return response
 
     def search(self, request: SearchRoomLevelRequest,
-               option: RequestOption = RequestOption()) -> SearchRoomLevelResponse:
+               option: Optional[RequestOption] = None) -> SearchRoomLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

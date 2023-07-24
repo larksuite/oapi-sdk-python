@@ -12,7 +12,7 @@ class QueryUserStatsFieldResponse(BaseResponse):
         "data": QueryUserStatsFieldResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[QueryUserStatsFieldResponseBody] = None
         init(self, d, self._types)

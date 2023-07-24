@@ -15,7 +15,7 @@ class SegmentStyleStyle(object):
         "font_size": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bold: Optional[bool] = None
         self.italic: Optional[bool] = None
         self.strike_through: Optional[bool] = None
@@ -30,8 +30,8 @@ class SegmentStyleStyle(object):
 
 
 class SegmentStyleStyleBuilder(object):
-    def __init__(self, segment_style_style: SegmentStyleStyle = SegmentStyleStyle({})) -> None:
-        self._segment_style_style: SegmentStyleStyle = segment_style_style
+    def __init__(self) -> None:
+        self._segment_style_style = SegmentStyleStyle()
 
     def bold(self, bold: bool) -> "SegmentStyleStyleBuilder":
         self._segment_style_style.bold = bold

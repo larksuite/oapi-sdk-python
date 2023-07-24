@@ -11,7 +11,7 @@ class ContentBlock(object):
         "blocks": List[ContentBlockElement],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.blocks: Optional[List[ContentBlockElement]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ContentBlock(object):
 
 
 class ContentBlockBuilder(object):
-    def __init__(self, content_block: ContentBlock = ContentBlock({})) -> None:
-        self._content_block: ContentBlock = content_block
+    def __init__(self) -> None:
+        self._content_block = ContentBlock()
 
     def blocks(self, blocks: List[ContentBlockElement]) -> "ContentBlockBuilder":
         self._content_block.blocks = blocks

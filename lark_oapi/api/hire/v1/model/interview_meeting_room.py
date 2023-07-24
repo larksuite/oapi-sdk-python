@@ -14,7 +14,7 @@ class InterviewMeetingRoom(object):
         "floor_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_id: Optional[str] = None
         self.room_name: Optional[str] = None
         self.building_name: Optional[str] = None
@@ -28,8 +28,8 @@ class InterviewMeetingRoom(object):
 
 
 class InterviewMeetingRoomBuilder(object):
-    def __init__(self, interview_meeting_room: InterviewMeetingRoom = InterviewMeetingRoom({})) -> None:
-        self._interview_meeting_room: InterviewMeetingRoom = interview_meeting_room
+    def __init__(self) -> None:
+        self._interview_meeting_room = InterviewMeetingRoom()
 
     def room_id(self, room_id: str) -> "InterviewMeetingRoomBuilder":
         self._interview_meeting_room.room_id = room_id

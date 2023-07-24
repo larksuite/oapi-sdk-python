@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.leave_balances_leave_request import LeaveBalancesLeaveRequest
-from lark_oapi.api.corehr.v1.model.leave_balances_leave_response import LeaveBalancesLeaveResponse
-from lark_oapi.api.corehr.v1.model.leave_request_history_leave_request import LeaveRequestHistoryLeaveRequest
-from lark_oapi.api.corehr.v1.model.leave_request_history_leave_response import LeaveRequestHistoryLeaveResponse
-from lark_oapi.api.corehr.v1.model.leave_types_leave_request import LeaveTypesLeaveRequest
-from lark_oapi.api.corehr.v1.model.leave_types_leave_response import LeaveTypesLeaveResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.leave_balances_leave_request import LeaveBalancesLeaveRequest
+from ..model.leave_balances_leave_response import LeaveBalancesLeaveResponse
+from ..model.leave_request_history_leave_request import LeaveRequestHistoryLeaveRequest
+from ..model.leave_request_history_leave_response import LeaveRequestHistoryLeaveResponse
+from ..model.leave_types_leave_request import LeaveTypesLeaveRequest
+from ..model.leave_types_leave_response import LeaveTypesLeaveResponse
 
 
 class Leave(object):
@@ -20,7 +20,10 @@ class Leave(object):
         self.config: Optional[Config] = config
 
     def leave_balances(self, request: LeaveBalancesLeaveRequest,
-                       option: RequestOption = RequestOption()) -> LeaveBalancesLeaveResponse:
+                       option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Leave(object):
         return response
 
     def leave_request_history(self, request: LeaveRequestHistoryLeaveRequest,
-                              option: RequestOption = RequestOption()) -> LeaveRequestHistoryLeaveResponse:
+                              option: Optional[RequestOption] = None) -> LeaveRequestHistoryLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class Leave(object):
         return response
 
     def leave_types(self, request: LeaveTypesLeaveRequest,
-                    option: RequestOption = RequestOption()) -> LeaveTypesLeaveResponse:
+                    option: Optional[RequestOption] = None) -> LeaveTypesLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

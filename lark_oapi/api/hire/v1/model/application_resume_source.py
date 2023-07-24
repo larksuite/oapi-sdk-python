@@ -13,7 +13,7 @@ class ApplicationResumeSource(object):
         "resume_source_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.resume_source_type: Optional[int] = None
@@ -25,8 +25,8 @@ class ApplicationResumeSource(object):
 
 
 class ApplicationResumeSourceBuilder(object):
-    def __init__(self, application_resume_source: ApplicationResumeSource = ApplicationResumeSource({})) -> None:
-        self._application_resume_source: ApplicationResumeSource = application_resume_source
+    def __init__(self) -> None:
+        self._application_resume_source = ApplicationResumeSource()
 
     def id(self, id: str) -> "ApplicationResumeSourceBuilder":
         self._application_resume_source.id = id

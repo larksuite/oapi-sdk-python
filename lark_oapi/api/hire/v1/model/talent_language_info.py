@@ -14,7 +14,7 @@ class TalentLanguageInfo(object):
         "customized_data_list": List[TalentCustomizedDataChild],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.language: Optional[int] = None
         self.proficiency: Optional[int] = None
@@ -27,8 +27,8 @@ class TalentLanguageInfo(object):
 
 
 class TalentLanguageInfoBuilder(object):
-    def __init__(self, talent_language_info: TalentLanguageInfo = TalentLanguageInfo({})) -> None:
-        self._talent_language_info: TalentLanguageInfo = talent_language_info
+    def __init__(self) -> None:
+        self._talent_language_info = TalentLanguageInfo()
 
     def id(self, id: str) -> "TalentLanguageInfoBuilder":
         self._talent_language_info.id = id

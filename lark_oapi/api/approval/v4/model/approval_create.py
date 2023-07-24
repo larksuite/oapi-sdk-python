@@ -26,7 +26,7 @@ class ApprovalCreate(object):
         "process_manager_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_name: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.description: Optional[str] = None
@@ -46,8 +46,8 @@ class ApprovalCreate(object):
 
 
 class ApprovalCreateBuilder(object):
-    def __init__(self, approval_create: ApprovalCreate = ApprovalCreate({})) -> None:
-        self._approval_create: ApprovalCreate = approval_create
+    def __init__(self) -> None:
+        self._approval_create = ApprovalCreate()
 
     def approval_name(self, approval_name: str) -> "ApprovalCreateBuilder":
         self._approval_create.approval_name = approval_name

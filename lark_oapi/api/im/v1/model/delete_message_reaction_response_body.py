@@ -15,7 +15,7 @@ class DeleteMessageReactionResponseBody(object):
         "reaction_type": Emoji,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reaction_id: Optional[str] = None
         self.operator: Optional[Operator] = None
         self.action_time: Optional[int] = None
@@ -28,10 +28,8 @@ class DeleteMessageReactionResponseBody(object):
 
 
 class DeleteMessageReactionResponseBodyBuilder(object):
-    def __init__(self,
-                 delete_message_reaction_response_body: DeleteMessageReactionResponseBody = DeleteMessageReactionResponseBody(
-                     {})) -> None:
-        self._delete_message_reaction_response_body: DeleteMessageReactionResponseBody = delete_message_reaction_response_body
+    def __init__(self) -> None:
+        self._delete_message_reaction_response_body = DeleteMessageReactionResponseBody()
 
     def reaction_id(self, reaction_id: str) -> "DeleteMessageReactionResponseBodyBuilder":
         self._delete_message_reaction_response_body.reaction_id = reaction_id

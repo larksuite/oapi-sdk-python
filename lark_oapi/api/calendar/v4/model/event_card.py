@@ -13,15 +13,17 @@ class EventCard(object):
         "start_timezone": str,
         "participant_ids": str,
         "recurrence_rule": str,
+        "meeting_room_ids": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.summary: Optional[str] = None
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         self.start_timezone: Optional[str] = None
         self.participant_ids: Optional[str] = None
         self.recurrence_rule: Optional[str] = None
+        self.meeting_room_ids: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,8 +32,8 @@ class EventCard(object):
 
 
 class EventCardBuilder(object):
-    def __init__(self, event_card: EventCard = EventCard({})) -> None:
-        self._event_card: EventCard = event_card
+    def __init__(self) -> None:
+        self._event_card = EventCard()
 
     def summary(self, summary: str) -> "EventCardBuilder":
         self._event_card.summary = summary
@@ -55,6 +57,10 @@ class EventCardBuilder(object):
 
     def recurrence_rule(self, recurrence_rule: str) -> "EventCardBuilder":
         self._event_card.recurrence_rule = recurrence_rule
+        return self
+
+    def meeting_room_ids(self, meeting_room_ids: str) -> "EventCardBuilder":
+        self._event_card.meeting_room_ids = meeting_room_ids
         return self
 
     def build(self) -> "EventCard":

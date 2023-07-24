@@ -19,8 +19,8 @@ class DeleteExternalApplicationRequest(BaseRequest):
 
 class DeleteExternalApplicationRequestBuilder(object):
 
-    def __init__(self,
-                 delete_external_application_request: DeleteExternalApplicationRequest = DeleteExternalApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        delete_external_application_request = DeleteExternalApplicationRequest()
         delete_external_application_request.http_method = HttpMethod.DELETE
         delete_external_application_request.uri = "/open-apis/hire/v1/external_applications/:external_application_id"
         delete_external_application_request.token_types = {AccessTokenType.TENANT}

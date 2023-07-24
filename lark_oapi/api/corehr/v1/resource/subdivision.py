@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.get_subdivision_request import GetSubdivisionRequest
-from lark_oapi.api.corehr.v1.model.get_subdivision_response import GetSubdivisionResponse
-from lark_oapi.api.corehr.v1.model.list_subdivision_request import ListSubdivisionRequest
-from lark_oapi.api.corehr.v1.model.list_subdivision_response import ListSubdivisionResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_subdivision_request import GetSubdivisionRequest
+from ..model.get_subdivision_response import GetSubdivisionResponse
+from ..model.list_subdivision_request import ListSubdivisionRequest
+from ..model.list_subdivision_response import ListSubdivisionResponse
 
 
 class Subdivision(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetSubdivisionRequest, option: RequestOption = RequestOption()) -> GetSubdivisionResponse:
+    def get(self, request: GetSubdivisionRequest, option: Optional[RequestOption] = None) -> GetSubdivisionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -30,7 +33,10 @@ class Subdivision(object):
 
         return response
 
-    def list(self, request: ListSubdivisionRequest, option: RequestOption = RequestOption()) -> ListSubdivisionResponse:
+    def list(self, request: ListSubdivisionRequest, option: Optional[RequestOption] = None) -> ListSubdivisionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

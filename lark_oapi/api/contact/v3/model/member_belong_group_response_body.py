@@ -12,7 +12,7 @@ class MemberBelongGroupResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_list: Optional[List[str]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -24,9 +24,8 @@ class MemberBelongGroupResponseBody(object):
 
 
 class MemberBelongGroupResponseBodyBuilder(object):
-    def __init__(self, member_belong_group_response_body: MemberBelongGroupResponseBody = MemberBelongGroupResponseBody(
-        {})) -> None:
-        self._member_belong_group_response_body: MemberBelongGroupResponseBody = member_belong_group_response_body
+    def __init__(self) -> None:
+        self._member_belong_group_response_body = MemberBelongGroupResponseBody()
 
     def group_list(self, group_list: List[str]) -> "MemberBelongGroupResponseBodyBuilder":
         self._member_belong_group_response_body.group_list = group_list

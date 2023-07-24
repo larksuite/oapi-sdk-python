@@ -13,7 +13,7 @@ class MeetingEventUser(object):
         "user_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[UserId] = None
         self.user_role: Optional[int] = None
         self.user_type: Optional[int] = None
@@ -25,8 +25,8 @@ class MeetingEventUser(object):
 
 
 class MeetingEventUserBuilder(object):
-    def __init__(self, meeting_event_user: MeetingEventUser = MeetingEventUser({})) -> None:
-        self._meeting_event_user: MeetingEventUser = meeting_event_user
+    def __init__(self) -> None:
+        self._meeting_event_user = MeetingEventUser()
 
     def id(self, id: UserId) -> "MeetingEventUserBuilder":
         self._meeting_event_user.id = id

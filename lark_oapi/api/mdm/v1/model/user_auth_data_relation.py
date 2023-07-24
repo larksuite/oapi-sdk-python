@@ -13,7 +13,7 @@ class UserAuthDataRelation(object):
         "uams_app_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.root_dimension_type: Optional[str] = None
         self.sub_dimension_types: Optional[List[str]] = None
         self.authorized_user_ids: Optional[List[str]] = None
@@ -26,8 +26,8 @@ class UserAuthDataRelation(object):
 
 
 class UserAuthDataRelationBuilder(object):
-    def __init__(self, user_auth_data_relation: UserAuthDataRelation = UserAuthDataRelation({})) -> None:
-        self._user_auth_data_relation: UserAuthDataRelation = user_auth_data_relation
+    def __init__(self) -> None:
+        self._user_auth_data_relation = UserAuthDataRelation()
 
     def root_dimension_type(self, root_dimension_type: str) -> "UserAuthDataRelationBuilder":
         self._user_auth_data_relation.root_dimension_type = root_dimension_type

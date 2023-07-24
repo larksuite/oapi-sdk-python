@@ -13,7 +13,7 @@ class ListDocumentBlockResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Block]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListDocumentBlockResponseBody(object):
 
 
 class ListDocumentBlockResponseBodyBuilder(object):
-    def __init__(self, list_document_block_response_body: ListDocumentBlockResponseBody = ListDocumentBlockResponseBody(
-        {})) -> None:
-        self._list_document_block_response_body: ListDocumentBlockResponseBody = list_document_block_response_body
+    def __init__(self) -> None:
+        self._list_document_block_response_body = ListDocumentBlockResponseBody()
 
     def items(self, items: List[Block]) -> "ListDocumentBlockResponseBodyBuilder":
         self._list_document_block_response_body.items = items

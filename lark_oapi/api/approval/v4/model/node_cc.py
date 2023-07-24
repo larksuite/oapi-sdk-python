@@ -11,7 +11,7 @@ class NodeCc(object):
         "value": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.value: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class NodeCc(object):
 
 
 class NodeCcBuilder(object):
-    def __init__(self, node_cc: NodeCc = NodeCc({})) -> None:
-        self._node_cc: NodeCc = node_cc
+    def __init__(self) -> None:
+        self._node_cc = NodeCc()
 
     def key(self, key: str) -> "NodeCcBuilder":
         self._node_cc.key = key

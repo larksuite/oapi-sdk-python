@@ -13,7 +13,7 @@ class CommonSchemaOption(object):
         "description": Name,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.api_name: Optional[str] = None
         self.name: Optional[Name] = None
         self.description: Optional[Name] = None
@@ -25,8 +25,8 @@ class CommonSchemaOption(object):
 
 
 class CommonSchemaOptionBuilder(object):
-    def __init__(self, common_schema_option: CommonSchemaOption = CommonSchemaOption({})) -> None:
-        self._common_schema_option: CommonSchemaOption = common_schema_option
+    def __init__(self) -> None:
+        self._common_schema_option = CommonSchemaOption()
 
     def api_name(self, api_name: str) -> "CommonSchemaOptionBuilder":
         self._common_schema_option.api_name = api_name

@@ -11,7 +11,7 @@ class MatchInfo(object):
         "type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.entity_id: Optional[str] = None
         self.type: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MatchInfo(object):
 
 
 class MatchInfoBuilder(object):
-    def __init__(self, match_info: MatchInfo = MatchInfo({})) -> None:
-        self._match_info: MatchInfo = match_info
+    def __init__(self) -> None:
+        self._match_info = MatchInfo()
 
     def entity_id(self, entity_id: str) -> "MatchInfoBuilder":
         self._match_info.entity_id = entity_id

@@ -14,7 +14,7 @@ class MetricItemRequest(object):
         "supported_user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_item_id: Optional[str] = None
         self.metric_initial_value: Optional[float] = None
         self.metric_target_value: Optional[float] = None
@@ -28,8 +28,8 @@ class MetricItemRequest(object):
 
 
 class MetricItemRequestBuilder(object):
-    def __init__(self, metric_item_request: MetricItemRequest = MetricItemRequest({})) -> None:
-        self._metric_item_request: MetricItemRequest = metric_item_request
+    def __init__(self) -> None:
+        self._metric_item_request = MetricItemRequest()
 
     def metric_item_id(self, metric_item_id: str) -> "MetricItemRequestBuilder":
         self._metric_item_request.metric_item_id = metric_item_id

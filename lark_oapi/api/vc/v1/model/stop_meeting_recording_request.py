@@ -18,8 +18,8 @@ class StopMeetingRecordingRequest(BaseRequest):
 
 class StopMeetingRecordingRequestBuilder(object):
 
-    def __init__(self,
-                 stop_meeting_recording_request: StopMeetingRecordingRequest = StopMeetingRecordingRequest()) -> None:
+    def __init__(self) -> None:
+        stop_meeting_recording_request = StopMeetingRecordingRequest()
         stop_meeting_recording_request.http_method = HttpMethod.PATCH
         stop_meeting_recording_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/recording/stop"
         stop_meeting_recording_request.token_types = {AccessTokenType.USER}

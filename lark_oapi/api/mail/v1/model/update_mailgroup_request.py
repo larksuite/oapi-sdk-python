@@ -20,7 +20,8 @@ class UpdateMailgroupRequest(BaseRequest):
 
 class UpdateMailgroupRequestBuilder(object):
 
-    def __init__(self, update_mailgroup_request: UpdateMailgroupRequest = UpdateMailgroupRequest()) -> None:
+    def __init__(self) -> None:
+        update_mailgroup_request = UpdateMailgroupRequest()
         update_mailgroup_request.http_method = HttpMethod.PUT
         update_mailgroup_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id"
         update_mailgroup_request.token_types = {AccessTokenType.TENANT}

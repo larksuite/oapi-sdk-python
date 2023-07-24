@@ -10,7 +10,7 @@ class UpdatePermissionPublicPasswordResponseBody(object):
         "password": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.password: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class UpdatePermissionPublicPasswordResponseBody(object):
 
 
 class UpdatePermissionPublicPasswordResponseBodyBuilder(object):
-    def __init__(self,
-                 update_permission_public_password_response_body: UpdatePermissionPublicPasswordResponseBody = UpdatePermissionPublicPasswordResponseBody(
-                     {})) -> None:
-        self._update_permission_public_password_response_body: UpdatePermissionPublicPasswordResponseBody = update_permission_public_password_response_body
+    def __init__(self) -> None:
+        self._update_permission_public_password_response_body = UpdatePermissionPublicPasswordResponseBody()
 
     def password(self, password: str) -> "UpdatePermissionPublicPasswordResponseBodyBuilder":
         self._update_permission_public_password_response_body.password = password

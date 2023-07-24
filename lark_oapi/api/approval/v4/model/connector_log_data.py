@@ -16,7 +16,7 @@ class ConnectorLogData(object):
         "version": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date_time: Optional[str] = None
         self.data: Optional[str] = None
         self.level: Optional[str] = None
@@ -32,8 +32,8 @@ class ConnectorLogData(object):
 
 
 class ConnectorLogDataBuilder(object):
-    def __init__(self, connector_log_data: ConnectorLogData = ConnectorLogData({})) -> None:
-        self._connector_log_data: ConnectorLogData = connector_log_data
+    def __init__(self) -> None:
+        self._connector_log_data = ConnectorLogData()
 
     def date_time(self, date_time: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.date_time = date_time

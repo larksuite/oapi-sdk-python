@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.batch_create_app_role_member_request import BatchCreateAppRoleMemberRequest
-from lark_oapi.api.bitable.v1.model.batch_create_app_role_member_response import BatchCreateAppRoleMemberResponse
-from lark_oapi.api.bitable.v1.model.batch_delete_app_role_member_request import BatchDeleteAppRoleMemberRequest
-from lark_oapi.api.bitable.v1.model.batch_delete_app_role_member_response import BatchDeleteAppRoleMemberResponse
-from lark_oapi.api.bitable.v1.model.create_app_role_member_request import CreateAppRoleMemberRequest
-from lark_oapi.api.bitable.v1.model.create_app_role_member_response import CreateAppRoleMemberResponse
-from lark_oapi.api.bitable.v1.model.delete_app_role_member_request import DeleteAppRoleMemberRequest
-from lark_oapi.api.bitable.v1.model.delete_app_role_member_response import DeleteAppRoleMemberResponse
-from lark_oapi.api.bitable.v1.model.list_app_role_member_request import ListAppRoleMemberRequest
-from lark_oapi.api.bitable.v1.model.list_app_role_member_response import ListAppRoleMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_app_role_member_request import BatchCreateAppRoleMemberRequest
+from ..model.batch_create_app_role_member_response import BatchCreateAppRoleMemberResponse
+from ..model.batch_delete_app_role_member_request import BatchDeleteAppRoleMemberRequest
+from ..model.batch_delete_app_role_member_response import BatchDeleteAppRoleMemberResponse
+from ..model.create_app_role_member_request import CreateAppRoleMemberRequest
+from ..model.create_app_role_member_response import CreateAppRoleMemberResponse
+from ..model.delete_app_role_member_request import DeleteAppRoleMemberRequest
+from ..model.delete_app_role_member_response import DeleteAppRoleMemberResponse
+from ..model.list_app_role_member_request import ListAppRoleMemberRequest
+from ..model.list_app_role_member_response import ListAppRoleMemberResponse
 
 
 class AppRoleMember(object):
@@ -24,7 +24,10 @@ class AppRoleMember(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateAppRoleMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateAppRoleMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateAppRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +42,10 @@ class AppRoleMember(object):
         return response
 
     def batch_delete(self, request: BatchDeleteAppRoleMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteAppRoleMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteAppRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -54,7 +60,10 @@ class AppRoleMember(object):
         return response
 
     def create(self, request: CreateAppRoleMemberRequest,
-               option: RequestOption = RequestOption()) -> CreateAppRoleMemberResponse:
+               option: Optional[RequestOption] = None) -> CreateAppRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -68,7 +77,10 @@ class AppRoleMember(object):
         return response
 
     def delete(self, request: DeleteAppRoleMemberRequest,
-               option: RequestOption = RequestOption()) -> DeleteAppRoleMemberResponse:
+               option: Optional[RequestOption] = None) -> DeleteAppRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -82,7 +94,10 @@ class AppRoleMember(object):
         return response
 
     def list(self, request: ListAppRoleMemberRequest,
-             option: RequestOption = RequestOption()) -> ListAppRoleMemberResponse:
+             option: Optional[RequestOption] = None) -> ListAppRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

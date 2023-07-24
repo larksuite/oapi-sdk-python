@@ -11,7 +11,7 @@ class BatchSendProgress(object):
         "total_send_count": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.send_count: Optional[str] = None
         self.total_send_count: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BatchSendProgress(object):
 
 
 class BatchSendProgressBuilder(object):
-    def __init__(self, batch_send_progress: BatchSendProgress = BatchSendProgress({})) -> None:
-        self._batch_send_progress: BatchSendProgress = batch_send_progress
+    def __init__(self) -> None:
+        self._batch_send_progress = BatchSendProgress()
 
     def send_count(self, send_count: str) -> "BatchSendProgressBuilder":
         self._batch_send_progress.send_count = send_count

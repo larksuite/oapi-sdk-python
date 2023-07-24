@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_employee_type_request import CreateEmployeeTypeRequest
-from lark_oapi.api.corehr.v1.model.create_employee_type_response import CreateEmployeeTypeResponse
-from lark_oapi.api.corehr.v1.model.delete_employee_type_request import DeleteEmployeeTypeRequest
-from lark_oapi.api.corehr.v1.model.delete_employee_type_response import DeleteEmployeeTypeResponse
-from lark_oapi.api.corehr.v1.model.get_employee_type_request import GetEmployeeTypeRequest
-from lark_oapi.api.corehr.v1.model.get_employee_type_response import GetEmployeeTypeResponse
-from lark_oapi.api.corehr.v1.model.list_employee_type_request import ListEmployeeTypeRequest
-from lark_oapi.api.corehr.v1.model.list_employee_type_response import ListEmployeeTypeResponse
-from lark_oapi.api.corehr.v1.model.patch_employee_type_request import PatchEmployeeTypeRequest
-from lark_oapi.api.corehr.v1.model.patch_employee_type_response import PatchEmployeeTypeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_employee_type_request import CreateEmployeeTypeRequest
+from ..model.create_employee_type_response import CreateEmployeeTypeResponse
+from ..model.delete_employee_type_request import DeleteEmployeeTypeRequest
+from ..model.delete_employee_type_response import DeleteEmployeeTypeResponse
+from ..model.get_employee_type_request import GetEmployeeTypeRequest
+from ..model.get_employee_type_response import GetEmployeeTypeResponse
+from ..model.list_employee_type_request import ListEmployeeTypeRequest
+from ..model.list_employee_type_response import ListEmployeeTypeResponse
+from ..model.patch_employee_type_request import PatchEmployeeTypeRequest
+from ..model.patch_employee_type_response import PatchEmployeeTypeResponse
 
 
 class EmployeeType(object):
@@ -24,7 +24,10 @@ class EmployeeType(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateEmployeeTypeRequest,
-               option: RequestOption = RequestOption()) -> CreateEmployeeTypeResponse:
+               option: Optional[RequestOption] = None) -> CreateEmployeeTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class EmployeeType(object):
         return response
 
     def delete(self, request: DeleteEmployeeTypeRequest,
-               option: RequestOption = RequestOption()) -> DeleteEmployeeTypeResponse:
+               option: Optional[RequestOption] = None) -> DeleteEmployeeTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class EmployeeType(object):
 
         return response
 
-    def get(self, request: GetEmployeeTypeRequest, option: RequestOption = RequestOption()) -> GetEmployeeTypeResponse:
+    def get(self, request: GetEmployeeTypeRequest, option: Optional[RequestOption] = None) -> GetEmployeeTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +74,10 @@ class EmployeeType(object):
         return response
 
     def list(self, request: ListEmployeeTypeRequest,
-             option: RequestOption = RequestOption()) -> ListEmployeeTypeResponse:
+             option: Optional[RequestOption] = None) -> ListEmployeeTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class EmployeeType(object):
         return response
 
     def patch(self, request: PatchEmployeeTypeRequest,
-              option: RequestOption = RequestOption()) -> PatchEmployeeTypeResponse:
+              option: Optional[RequestOption] = None) -> PatchEmployeeTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

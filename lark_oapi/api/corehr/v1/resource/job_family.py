@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_job_family_request import CreateJobFamilyRequest
-from lark_oapi.api.corehr.v1.model.create_job_family_response import CreateJobFamilyResponse
-from lark_oapi.api.corehr.v1.model.delete_job_family_request import DeleteJobFamilyRequest
-from lark_oapi.api.corehr.v1.model.delete_job_family_response import DeleteJobFamilyResponse
-from lark_oapi.api.corehr.v1.model.get_job_family_request import GetJobFamilyRequest
-from lark_oapi.api.corehr.v1.model.get_job_family_response import GetJobFamilyResponse
-from lark_oapi.api.corehr.v1.model.list_job_family_request import ListJobFamilyRequest
-from lark_oapi.api.corehr.v1.model.list_job_family_response import ListJobFamilyResponse
-from lark_oapi.api.corehr.v1.model.patch_job_family_request import PatchJobFamilyRequest
-from lark_oapi.api.corehr.v1.model.patch_job_family_response import PatchJobFamilyResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_job_family_request import CreateJobFamilyRequest
+from ..model.create_job_family_response import CreateJobFamilyResponse
+from ..model.delete_job_family_request import DeleteJobFamilyRequest
+from ..model.delete_job_family_response import DeleteJobFamilyResponse
+from ..model.get_job_family_request import GetJobFamilyRequest
+from ..model.get_job_family_response import GetJobFamilyResponse
+from ..model.list_job_family_request import ListJobFamilyRequest
+from ..model.list_job_family_response import ListJobFamilyResponse
+from ..model.patch_job_family_request import PatchJobFamilyRequest
+from ..model.patch_job_family_response import PatchJobFamilyResponse
 
 
 class JobFamily(object):
@@ -24,7 +24,10 @@ class JobFamily(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateJobFamilyRequest,
-               option: RequestOption = RequestOption()) -> CreateJobFamilyResponse:
+               option: Optional[RequestOption] = None) -> CreateJobFamilyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class JobFamily(object):
         return response
 
     def delete(self, request: DeleteJobFamilyRequest,
-               option: RequestOption = RequestOption()) -> DeleteJobFamilyResponse:
+               option: Optional[RequestOption] = None) -> DeleteJobFamilyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class JobFamily(object):
 
         return response
 
-    def get(self, request: GetJobFamilyRequest, option: RequestOption = RequestOption()) -> GetJobFamilyResponse:
+    def get(self, request: GetJobFamilyRequest, option: Optional[RequestOption] = None) -> GetJobFamilyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class JobFamily(object):
 
         return response
 
-    def list(self, request: ListJobFamilyRequest, option: RequestOption = RequestOption()) -> ListJobFamilyResponse:
+    def list(self, request: ListJobFamilyRequest, option: Optional[RequestOption] = None) -> ListJobFamilyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -77,7 +89,10 @@ class JobFamily(object):
 
         return response
 
-    def patch(self, request: PatchJobFamilyRequest, option: RequestOption = RequestOption()) -> PatchJobFamilyResponse:
+    def patch(self, request: PatchJobFamilyRequest, option: Optional[RequestOption] = None) -> PatchJobFamilyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

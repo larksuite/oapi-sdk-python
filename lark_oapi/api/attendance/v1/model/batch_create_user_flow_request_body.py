@@ -11,7 +11,7 @@ class BatchCreateUserFlowRequestBody(object):
         "flow_records": List[UserFlow],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.flow_records: Optional[List[UserFlow]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateUserFlowRequestBody(object):
 
 
 class BatchCreateUserFlowRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_create_user_flow_request_body: BatchCreateUserFlowRequestBody = BatchCreateUserFlowRequestBody(
-                     {})) -> None:
-        self._batch_create_user_flow_request_body: BatchCreateUserFlowRequestBody = batch_create_user_flow_request_body
+    def __init__(self) -> None:
+        self._batch_create_user_flow_request_body = BatchCreateUserFlowRequestBody()
 
     def flow_records(self, flow_records: List[UserFlow]) -> "BatchCreateUserFlowRequestBodyBuilder":
         self._batch_create_user_flow_request_body.flow_records = flow_records

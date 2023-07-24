@@ -11,7 +11,7 @@ class BatchCreateMailgroupMemberRequestBody(object):
         "items": List[MailgroupMember],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[MailgroupMember]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateMailgroupMemberRequestBody(object):
 
 
 class BatchCreateMailgroupMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_create_mailgroup_member_request_body: BatchCreateMailgroupMemberRequestBody = BatchCreateMailgroupMemberRequestBody(
-                     {})) -> None:
-        self._batch_create_mailgroup_member_request_body: BatchCreateMailgroupMemberRequestBody = batch_create_mailgroup_member_request_body
+    def __init__(self) -> None:
+        self._batch_create_mailgroup_member_request_body = BatchCreateMailgroupMemberRequestBody()
 
     def items(self, items: List[MailgroupMember]) -> "BatchCreateMailgroupMemberRequestBodyBuilder":
         self._batch_create_mailgroup_member_request_body.items = items

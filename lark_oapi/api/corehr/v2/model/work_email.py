@@ -12,7 +12,7 @@ class WorkEmail(object):
         "email_usage": Enum,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.email: Optional[str] = None
         self.email_usage: Optional[Enum] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class WorkEmail(object):
 
 
 class WorkEmailBuilder(object):
-    def __init__(self, work_email: WorkEmail = WorkEmail({})) -> None:
-        self._work_email: WorkEmail = work_email
+    def __init__(self) -> None:
+        self._work_email = WorkEmail()
 
     def email(self, email: str) -> "WorkEmailBuilder":
         self._work_email.email = email

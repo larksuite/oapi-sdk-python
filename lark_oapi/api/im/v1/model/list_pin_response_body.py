@@ -13,7 +13,7 @@ class ListPinResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Pin]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListPinResponseBody(object):
 
 
 class ListPinResponseBodyBuilder(object):
-    def __init__(self, list_pin_response_body: ListPinResponseBody = ListPinResponseBody({})) -> None:
-        self._list_pin_response_body: ListPinResponseBody = list_pin_response_body
+    def __init__(self) -> None:
+        self._list_pin_response_body = ListPinResponseBody()
 
     def items(self, items: List[Pin]) -> "ListPinResponseBodyBuilder":
         self._list_pin_response_body.items = items

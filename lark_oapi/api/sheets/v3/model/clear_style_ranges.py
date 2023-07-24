@@ -10,7 +10,7 @@ class ClearStyleRanges(object):
         "ranges": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ranges: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ClearStyleRanges(object):
 
 
 class ClearStyleRangesBuilder(object):
-    def __init__(self, clear_style_ranges: ClearStyleRanges = ClearStyleRanges({})) -> None:
-        self._clear_style_ranges: ClearStyleRanges = clear_style_ranges
+    def __init__(self) -> None:
+        self._clear_style_ranges = ClearStyleRanges()
 
     def ranges(self, ranges: List[str]) -> "ClearStyleRangesBuilder":
         self._clear_style_ranges.ranges = ranges

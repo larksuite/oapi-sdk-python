@@ -18,7 +18,8 @@ class DeletePersonRequest(BaseRequest):
 
 class DeletePersonRequestBuilder(object):
 
-    def __init__(self, delete_person_request: DeletePersonRequest = DeletePersonRequest()) -> None:
+    def __init__(self) -> None:
+        delete_person_request = DeletePersonRequest()
         delete_person_request.http_method = HttpMethod.DELETE
         delete_person_request.uri = "/open-apis/corehr/v1/persons/:person_id"
         delete_person_request.token_types = {AccessTokenType.TENANT}

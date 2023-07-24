@@ -10,7 +10,7 @@ class BackgroundCheckReportObject(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class BackgroundCheckReportObject(object):
 
 
 class BackgroundCheckReportObjectBuilder(object):
-    def __init__(self,
-                 background_check_report_object: BackgroundCheckReportObject = BackgroundCheckReportObject({})) -> None:
-        self._background_check_report_object: BackgroundCheckReportObject = background_check_report_object
+    def __init__(self) -> None:
+        self._background_check_report_object = BackgroundCheckReportObject()
 
     def url(self, url: str) -> "BackgroundCheckReportObjectBuilder":
         self._background_check_report_object.url = url

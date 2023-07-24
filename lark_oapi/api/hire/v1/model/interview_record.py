@@ -23,7 +23,7 @@ class InterviewRecord(object):
         "dimension_assessment_list": List[InterviewDimensionAssessment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.content: Optional[str] = None
@@ -43,8 +43,8 @@ class InterviewRecord(object):
 
 
 class InterviewRecordBuilder(object):
-    def __init__(self, interview_record: InterviewRecord = InterviewRecord({})) -> None:
-        self._interview_record: InterviewRecord = interview_record
+    def __init__(self) -> None:
+        self._interview_record = InterviewRecord()
 
     def id(self, id: str) -> "InterviewRecordBuilder":
         self._interview_record.id = id

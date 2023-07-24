@@ -11,7 +11,7 @@ class MaterialUploadResult(object):
         "result": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.result: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MaterialUploadResult(object):
 
 
 class MaterialUploadResultBuilder(object):
-    def __init__(self, material_upload_result: MaterialUploadResult = MaterialUploadResult({})) -> None:
-        self._material_upload_result: MaterialUploadResult = material_upload_result
+    def __init__(self) -> None:
+        self._material_upload_result = MaterialUploadResult()
 
     def file_token(self, file_token: str) -> "MaterialUploadResultBuilder":
         self._material_upload_result.file_token = file_token

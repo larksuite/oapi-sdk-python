@@ -22,7 +22,8 @@ class CreateUserRequest(BaseRequest):
 
 class CreateUserRequestBuilder(object):
 
-    def __init__(self, create_user_request: CreateUserRequest = CreateUserRequest()) -> None:
+    def __init__(self) -> None:
+        create_user_request = CreateUserRequest()
         create_user_request.http_method = HttpMethod.POST
         create_user_request.uri = "/open-apis/contact/v3/users"
         create_user_request.token_types = {AccessTokenType.TENANT}

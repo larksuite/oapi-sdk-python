@@ -23,8 +23,8 @@ class SearchCalendarEventRequest(BaseRequest):
 
 class SearchCalendarEventRequestBuilder(object):
 
-    def __init__(self,
-                 search_calendar_event_request: SearchCalendarEventRequest = SearchCalendarEventRequest()) -> None:
+    def __init__(self) -> None:
+        search_calendar_event_request = SearchCalendarEventRequest()
         search_calendar_event_request.http_method = HttpMethod.POST
         search_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
         search_calendar_event_request.token_types = {AccessTokenType.USER}

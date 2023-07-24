@@ -11,7 +11,7 @@ class AppScopes(object):
         "low_level_scopes": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.high_level_scopes: Optional[List[str]] = None
         self.low_level_scopes: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppScopes(object):
 
 
 class AppScopesBuilder(object):
-    def __init__(self, app_scopes: AppScopes = AppScopes({})) -> None:
-        self._app_scopes: AppScopes = app_scopes
+    def __init__(self) -> None:
+        self._app_scopes = AppScopes()
 
     def high_level_scopes(self, high_level_scopes: List[str]) -> "AppScopesBuilder":
         self._app_scopes.high_level_scopes = high_level_scopes

@@ -16,7 +16,7 @@ class Gadget(object):
         "pc_min_lark_version": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.enable_pc_mode: Optional[int] = None
         self.schema_urls: Optional[List[str]] = None
         self.pc_use_mobile_pkg: Optional[bool] = None
@@ -32,8 +32,8 @@ class Gadget(object):
 
 
 class GadgetBuilder(object):
-    def __init__(self, gadget: Gadget = Gadget({})) -> None:
-        self._gadget: Gadget = gadget
+    def __init__(self) -> None:
+        self._gadget = Gadget()
 
     def enable_pc_mode(self, enable_pc_mode: int) -> "GadgetBuilder":
         self._gadget.enable_pc_mode = enable_pc_mode

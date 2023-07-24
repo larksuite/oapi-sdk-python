@@ -13,7 +13,7 @@ class BotMessage(object):
         "receive_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.msg_type: Optional[str] = None
         self.content: Optional[str] = None
         self.receiver_id: Optional[str] = None
@@ -26,8 +26,8 @@ class BotMessage(object):
 
 
 class BotMessageBuilder(object):
-    def __init__(self, bot_message: BotMessage = BotMessage({})) -> None:
-        self._bot_message: BotMessage = bot_message
+    def __init__(self) -> None:
+        self._bot_message = BotMessage()
 
     def msg_type(self, msg_type: str) -> "BotMessageBuilder":
         self._bot_message.msg_type = msg_type

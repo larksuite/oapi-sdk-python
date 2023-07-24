@@ -11,7 +11,7 @@ class EntityWord(object):
         "aliases": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.aliases: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class EntityWord(object):
 
 
 class EntityWordBuilder(object):
-    def __init__(self, entity_word: EntityWord = EntityWord({})) -> None:
-        self._entity_word: EntityWord = entity_word
+    def __init__(self) -> None:
+        self._entity_word = EntityWord()
 
     def name(self, name: str) -> "EntityWordBuilder":
         self._entity_word.name = name

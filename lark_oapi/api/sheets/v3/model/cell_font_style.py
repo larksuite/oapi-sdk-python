@@ -15,7 +15,7 @@ class CellFontStyle(object):
         "background_color": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bold: Optional[bool] = None
         self.italic: Optional[bool] = None
         self.strikethrough: Optional[bool] = None
@@ -30,8 +30,8 @@ class CellFontStyle(object):
 
 
 class CellFontStyleBuilder(object):
-    def __init__(self, cell_font_style: CellFontStyle = CellFontStyle({})) -> None:
-        self._cell_font_style: CellFontStyle = cell_font_style
+    def __init__(self) -> None:
+        self._cell_font_style = CellFontStyle()
 
     def bold(self, bold: bool) -> "CellFontStyleBuilder":
         self._cell_font_style.bold = bold

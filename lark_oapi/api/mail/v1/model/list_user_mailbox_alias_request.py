@@ -20,8 +20,8 @@ class ListUserMailboxAliasRequest(BaseRequest):
 
 class ListUserMailboxAliasRequestBuilder(object):
 
-    def __init__(self,
-                 list_user_mailbox_alias_request: ListUserMailboxAliasRequest = ListUserMailboxAliasRequest()) -> None:
+    def __init__(self) -> None:
+        list_user_mailbox_alias_request = ListUserMailboxAliasRequest()
         list_user_mailbox_alias_request.http_method = HttpMethod.GET
         list_user_mailbox_alias_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases"
         list_user_mailbox_alias_request.token_types = {AccessTokenType.TENANT}

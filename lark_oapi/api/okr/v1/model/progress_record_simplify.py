@@ -10,7 +10,7 @@ class ProgressRecordSimplify(object):
         "id": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ProgressRecordSimplify(object):
 
 
 class ProgressRecordSimplifyBuilder(object):
-    def __init__(self, progress_record_simplify: ProgressRecordSimplify = ProgressRecordSimplify({})) -> None:
-        self._progress_record_simplify: ProgressRecordSimplify = progress_record_simplify
+    def __init__(self) -> None:
+        self._progress_record_simplify = ProgressRecordSimplify()
 
     def id(self, id: int) -> "ProgressRecordSimplifyBuilder":
         self._progress_record_simplify.id = id

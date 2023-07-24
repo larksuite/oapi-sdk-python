@@ -11,7 +11,7 @@ class FileList(object):
         "files": List[File],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.files: Optional[List[File]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class FileList(object):
 
 
 class FileListBuilder(object):
-    def __init__(self, file_list: FileList = FileList({})) -> None:
-        self._file_list: FileList = file_list
+    def __init__(self) -> None:
+        self._file_list = FileList()
 
     def files(self, files: List[File]) -> "FileListBuilder":
         self._file_list.files = files

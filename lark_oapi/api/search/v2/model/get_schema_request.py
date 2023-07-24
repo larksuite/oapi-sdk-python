@@ -18,7 +18,8 @@ class GetSchemaRequest(BaseRequest):
 
 class GetSchemaRequestBuilder(object):
 
-    def __init__(self, get_schema_request: GetSchemaRequest = GetSchemaRequest()) -> None:
+    def __init__(self) -> None:
+        get_schema_request = GetSchemaRequest()
         get_schema_request.http_method = HttpMethod.GET
         get_schema_request.uri = "/open-apis/search/v2/schemas/:schema_id"
         get_schema_request.token_types = {AccessTokenType.TENANT}

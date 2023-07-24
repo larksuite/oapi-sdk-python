@@ -26,7 +26,7 @@ class ChatChange(object):
         "restricted_mode_setting": RestrictedModeSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.avatar: Optional[str] = None
         self.name: Optional[str] = None
         self.description: Optional[str] = None
@@ -50,8 +50,8 @@ class ChatChange(object):
 
 
 class ChatChangeBuilder(object):
-    def __init__(self, chat_change: ChatChange = ChatChange({})) -> None:
-        self._chat_change: ChatChange = chat_change
+    def __init__(self) -> None:
+        self._chat_change = ChatChange()
 
     def avatar(self, avatar: str) -> "ChatChangeBuilder":
         self._chat_change.avatar = avatar

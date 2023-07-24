@@ -21,8 +21,8 @@ class GetApplicationAppVersionRequest(BaseRequest):
 
 class GetApplicationAppVersionRequestBuilder(object):
 
-    def __init__(self,
-                 get_application_app_version_request: GetApplicationAppVersionRequest = GetApplicationAppVersionRequest()) -> None:
+    def __init__(self) -> None:
+        get_application_app_version_request = GetApplicationAppVersionRequest()
         get_application_app_version_request.http_method = HttpMethod.GET
         get_application_app_version_request.uri = "/open-apis/application/v6/applications/:app_id/app_versions/:version_id"
         get_application_app_version_request.token_types = {AccessTokenType.TENANT}

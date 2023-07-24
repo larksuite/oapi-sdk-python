@@ -20,7 +20,8 @@ class CreateEmploymentRequest(BaseRequest):
 
 class CreateEmploymentRequestBuilder(object):
 
-    def __init__(self, create_employment_request: CreateEmploymentRequest = CreateEmploymentRequest()) -> None:
+    def __init__(self) -> None:
+        create_employment_request = CreateEmploymentRequest()
         create_employment_request.http_method = HttpMethod.POST
         create_employment_request.uri = "/open-apis/corehr/v1/employments"
         create_employment_request.token_types = {AccessTokenType.TENANT}

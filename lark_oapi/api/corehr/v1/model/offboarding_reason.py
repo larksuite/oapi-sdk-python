@@ -16,7 +16,7 @@ class OffboardingReason(object):
         "updated_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offboarding_reason_unique_identifier: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.active: Optional[bool] = None
@@ -31,8 +31,8 @@ class OffboardingReason(object):
 
 
 class OffboardingReasonBuilder(object):
-    def __init__(self, offboarding_reason: OffboardingReason = OffboardingReason({})) -> None:
-        self._offboarding_reason: OffboardingReason = offboarding_reason
+    def __init__(self) -> None:
+        self._offboarding_reason = OffboardingReason()
 
     def offboarding_reason_unique_identifier(self,
                                              offboarding_reason_unique_identifier: str) -> "OffboardingReasonBuilder":

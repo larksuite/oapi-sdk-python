@@ -19,7 +19,8 @@ class MgetRoomLevelRequest(BaseRequest):
 
 class MgetRoomLevelRequestBuilder(object):
 
-    def __init__(self, mget_room_level_request: MgetRoomLevelRequest = MgetRoomLevelRequest()) -> None:
+    def __init__(self) -> None:
+        mget_room_level_request = MgetRoomLevelRequest()
         mget_room_level_request.http_method = HttpMethod.POST
         mget_room_level_request.uri = "/open-apis/vc/v1/room_levels/mget"
         mget_room_level_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

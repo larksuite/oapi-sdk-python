@@ -11,7 +11,7 @@ class PatchChatAnnouncementRequestBody(object):
         "requests": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.revision: Optional[str] = None
         self.requests: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class PatchChatAnnouncementRequestBody(object):
 
 
 class PatchChatAnnouncementRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_chat_announcement_request_body: PatchChatAnnouncementRequestBody = PatchChatAnnouncementRequestBody(
-                     {})) -> None:
-        self._patch_chat_announcement_request_body: PatchChatAnnouncementRequestBody = patch_chat_announcement_request_body
+    def __init__(self) -> None:
+        self._patch_chat_announcement_request_body = PatchChatAnnouncementRequestBody()
 
     def revision(self, revision: str) -> "PatchChatAnnouncementRequestBodyBuilder":
         self._patch_chat_announcement_request_body.revision = revision

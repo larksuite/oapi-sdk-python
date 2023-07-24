@@ -23,7 +23,7 @@ class CommonSchemaConfig(object):
         "image_field_setting": ImageFieldSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text_field_setting: Optional[TextFieldSetting] = None
         self.number_field_setting: Optional[NumberFieldSetting] = None
         self.enum_field_setting: Optional[EnumFieldSetting] = None
@@ -39,8 +39,8 @@ class CommonSchemaConfig(object):
 
 
 class CommonSchemaConfigBuilder(object):
-    def __init__(self, common_schema_config: CommonSchemaConfig = CommonSchemaConfig({})) -> None:
-        self._common_schema_config: CommonSchemaConfig = common_schema_config
+    def __init__(self) -> None:
+        self._common_schema_config = CommonSchemaConfig()
 
     def text_field_setting(self, text_field_setting: TextFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.text_field_setting = text_field_setting

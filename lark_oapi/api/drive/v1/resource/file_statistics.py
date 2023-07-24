@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.get_file_statistics_request import GetFileStatisticsRequest
-from lark_oapi.api.drive.v1.model.get_file_statistics_response import GetFileStatisticsResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_file_statistics_request import GetFileStatisticsRequest
+from ..model.get_file_statistics_response import GetFileStatisticsResponse
 
 
 class FileStatistics(object):
@@ -16,7 +16,10 @@ class FileStatistics(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetFileStatisticsRequest,
-            option: RequestOption = RequestOption()) -> GetFileStatisticsResponse:
+            option: Optional[RequestOption] = None) -> GetFileStatisticsResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

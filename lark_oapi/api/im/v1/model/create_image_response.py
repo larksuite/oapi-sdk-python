@@ -12,7 +12,7 @@ class CreateImageResponse(BaseResponse):
         "data": CreateImageResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateImageResponseBody] = None
         init(self, d, self._types)

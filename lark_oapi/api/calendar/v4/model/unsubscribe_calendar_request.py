@@ -18,7 +18,8 @@ class UnsubscribeCalendarRequest(BaseRequest):
 
 class UnsubscribeCalendarRequestBuilder(object):
 
-    def __init__(self, unsubscribe_calendar_request: UnsubscribeCalendarRequest = UnsubscribeCalendarRequest()) -> None:
+    def __init__(self) -> None:
+        unsubscribe_calendar_request = UnsubscribeCalendarRequest()
         unsubscribe_calendar_request.http_method = HttpMethod.POST
         unsubscribe_calendar_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
         unsubscribe_calendar_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

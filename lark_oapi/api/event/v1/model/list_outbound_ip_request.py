@@ -19,7 +19,8 @@ class ListOutboundIpRequest(BaseRequest):
 
 class ListOutboundIpRequestBuilder(object):
 
-    def __init__(self, list_outbound_ip_request: ListOutboundIpRequest = ListOutboundIpRequest()) -> None:
+    def __init__(self) -> None:
+        list_outbound_ip_request = ListOutboundIpRequest()
         list_outbound_ip_request.http_method = HttpMethod.GET
         list_outbound_ip_request.uri = "/open-apis/event/v1/outbound_ip"
         list_outbound_ip_request.token_types = {AccessTokenType.TENANT}

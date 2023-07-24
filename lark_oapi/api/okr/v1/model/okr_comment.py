@@ -17,7 +17,7 @@ class OkrComment(object):
         "solved_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.content: Optional[str] = None
         self.comment_time: Optional[int] = None
@@ -33,8 +33,8 @@ class OkrComment(object):
 
 
 class OkrCommentBuilder(object):
-    def __init__(self, okr_comment: OkrComment = OkrComment({})) -> None:
-        self._okr_comment: OkrComment = okr_comment
+    def __init__(self) -> None:
+        self._okr_comment = OkrComment()
 
     def id(self, id: int) -> "OkrCommentBuilder":
         self._okr_comment.id = id

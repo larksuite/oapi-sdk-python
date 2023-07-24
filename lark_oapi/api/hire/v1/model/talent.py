@@ -39,7 +39,7 @@ class Talent(object):
         "first_degree": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.is_in_agency_period: Optional[bool] = None
         self.is_onboarded: Optional[bool] = None
@@ -66,8 +66,8 @@ class Talent(object):
 
 
 class TalentBuilder(object):
-    def __init__(self, talent: Talent = Talent({})) -> None:
-        self._talent: Talent = talent
+    def __init__(self) -> None:
+        self._talent = Talent()
 
     def id(self, id: str) -> "TalentBuilder":
         self._talent.id = id

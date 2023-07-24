@@ -17,7 +17,7 @@ class SetRoomConfigRequestBody(object):
         "room_config": RoomConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope: Optional[int] = None
         self.country_id: Optional[str] = None
         self.district_id: Optional[str] = None
@@ -33,8 +33,8 @@ class SetRoomConfigRequestBody(object):
 
 
 class SetRoomConfigRequestBodyBuilder(object):
-    def __init__(self, set_room_config_request_body: SetRoomConfigRequestBody = SetRoomConfigRequestBody({})) -> None:
-        self._set_room_config_request_body: SetRoomConfigRequestBody = set_room_config_request_body
+    def __init__(self) -> None:
+        self._set_room_config_request_body = SetRoomConfigRequestBody()
 
     def scope(self, scope: int) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.scope = scope

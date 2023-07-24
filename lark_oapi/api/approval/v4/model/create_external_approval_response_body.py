@@ -10,7 +10,7 @@ class CreateExternalApprovalResponseBody(object):
         "approval_code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class CreateExternalApprovalResponseBody(object):
 
 
 class CreateExternalApprovalResponseBodyBuilder(object):
-    def __init__(self,
-                 create_external_approval_response_body: CreateExternalApprovalResponseBody = CreateExternalApprovalResponseBody(
-                     {})) -> None:
-        self._create_external_approval_response_body: CreateExternalApprovalResponseBody = create_external_approval_response_body
+    def __init__(self) -> None:
+        self._create_external_approval_response_body = CreateExternalApprovalResponseBody()
 
     def approval_code(self, approval_code: str) -> "CreateExternalApprovalResponseBodyBuilder":
         self._create_external_approval_response_body.approval_code = approval_code

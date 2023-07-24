@@ -13,7 +13,7 @@ class CustomizedFieldsTicketResponseBody(object):
         "ticket_customized_fields": List[TicketCustomizedField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_customized_fields: Optional[List[UserCustomizedField]] = None
         self.ticket_customized_fields: Optional[List[TicketCustomizedField]] = None
         init(self, d, self._types)
@@ -24,10 +24,8 @@ class CustomizedFieldsTicketResponseBody(object):
 
 
 class CustomizedFieldsTicketResponseBodyBuilder(object):
-    def __init__(self,
-                 customized_fields_ticket_response_body: CustomizedFieldsTicketResponseBody = CustomizedFieldsTicketResponseBody(
-                     {})) -> None:
-        self._customized_fields_ticket_response_body: CustomizedFieldsTicketResponseBody = customized_fields_ticket_response_body
+    def __init__(self) -> None:
+        self._customized_fields_ticket_response_body = CustomizedFieldsTicketResponseBody()
 
     def user_customized_fields(self, user_customized_fields: List[
         UserCustomizedField]) -> "CustomizedFieldsTicketResponseBodyBuilder":

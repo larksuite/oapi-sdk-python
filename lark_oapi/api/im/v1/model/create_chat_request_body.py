@@ -18,14 +18,13 @@ class CreateChatRequestBody(object):
         "bot_id_list": List[str],
         "chat_mode": str,
         "chat_type": str,
-        "external": bool,
         "join_message_visibility": str,
         "leave_message_visibility": str,
         "membership_approval": str,
         "restricted_mode_setting": RestrictedModeSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.avatar: Optional[str] = None
         self.name: Optional[str] = None
         self.description: Optional[str] = None
@@ -50,8 +49,8 @@ class CreateChatRequestBody(object):
 
 
 class CreateChatRequestBodyBuilder(object):
-    def __init__(self, create_chat_request_body: CreateChatRequestBody = CreateChatRequestBody({})) -> None:
-        self._create_chat_request_body: CreateChatRequestBody = create_chat_request_body
+    def __init__(self) -> None:
+        self._create_chat_request_body = CreateChatRequestBody()
 
     def avatar(self, avatar: str) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.avatar = avatar
@@ -87,10 +86,6 @@ class CreateChatRequestBodyBuilder(object):
 
     def chat_type(self, chat_type: str) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.chat_type = chat_type
-        return self
-
-    def external(self, external: bool) -> "CreateChatRequestBodyBuilder":
-        self._create_chat_request_body.external = external
         return self
 
     def join_message_visibility(self, join_message_visibility: str) -> "CreateChatRequestBodyBuilder":

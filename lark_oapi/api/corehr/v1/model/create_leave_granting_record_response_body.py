@@ -11,7 +11,7 @@ class CreateLeaveGrantingRecordResponseBody(object):
         "leave_granting_record": LeaveGrantingRecord,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_granting_record: Optional[LeaveGrantingRecord] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateLeaveGrantingRecordResponseBody(object):
 
 
 class CreateLeaveGrantingRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 create_leave_granting_record_response_body: CreateLeaveGrantingRecordResponseBody = CreateLeaveGrantingRecordResponseBody(
-                     {})) -> None:
-        self._create_leave_granting_record_response_body: CreateLeaveGrantingRecordResponseBody = create_leave_granting_record_response_body
+    def __init__(self) -> None:
+        self._create_leave_granting_record_response_body = CreateLeaveGrantingRecordResponseBody()
 
     def leave_granting_record(self,
                               leave_granting_record: LeaveGrantingRecord) -> "CreateLeaveGrantingRecordResponseBodyBuilder":

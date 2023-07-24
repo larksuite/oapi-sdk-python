@@ -14,7 +14,7 @@ class Website(object):
         "job_channel_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.process_type_list: Optional[List[int]] = None
@@ -27,8 +27,8 @@ class Website(object):
 
 
 class WebsiteBuilder(object):
-    def __init__(self, website: Website = Website({})) -> None:
-        self._website: Website = website
+    def __init__(self) -> None:
+        self._website = Website()
 
     def id(self, id: str) -> "WebsiteBuilder":
         self._website.id = id

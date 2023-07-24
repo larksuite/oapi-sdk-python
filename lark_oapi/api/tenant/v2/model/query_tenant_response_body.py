@@ -11,7 +11,7 @@ class QueryTenantResponseBody(object):
         "tenant": Tenant,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tenant: Optional[Tenant] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class QueryTenantResponseBody(object):
 
 
 class QueryTenantResponseBodyBuilder(object):
-    def __init__(self, query_tenant_response_body: QueryTenantResponseBody = QueryTenantResponseBody({})) -> None:
-        self._query_tenant_response_body: QueryTenantResponseBody = query_tenant_response_body
+    def __init__(self) -> None:
+        self._query_tenant_response_body = QueryTenantResponseBody()
 
     def tenant(self, tenant: Tenant) -> "QueryTenantResponseBodyBuilder":
         self._query_tenant_response_body.tenant = tenant

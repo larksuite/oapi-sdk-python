@@ -12,7 +12,7 @@ class WorkplaceUserNotification(object):
         "expire_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.notification_id: Optional[str] = None
         self.content: Optional[str] = None
         self.expire_time: Optional[int] = None
@@ -24,8 +24,8 @@ class WorkplaceUserNotification(object):
 
 
 class WorkplaceUserNotificationBuilder(object):
-    def __init__(self, workplace_user_notification: WorkplaceUserNotification = WorkplaceUserNotification({})) -> None:
-        self._workplace_user_notification: WorkplaceUserNotification = workplace_user_notification
+    def __init__(self) -> None:
+        self._workplace_user_notification = WorkplaceUserNotification()
 
     def notification_id(self, notification_id: str) -> "WorkplaceUserNotificationBuilder":
         self._workplace_user_notification.notification_id = notification_id

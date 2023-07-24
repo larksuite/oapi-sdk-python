@@ -18,7 +18,8 @@ class SubscribeApprovalRequest(BaseRequest):
 
 class SubscribeApprovalRequestBuilder(object):
 
-    def __init__(self, subscribe_approval_request: SubscribeApprovalRequest = SubscribeApprovalRequest()) -> None:
+    def __init__(self) -> None:
+        subscribe_approval_request = SubscribeApprovalRequest()
         subscribe_approval_request.http_method = HttpMethod.POST
         subscribe_approval_request.uri = "/open-apis/approval/v4/approvals/:approval_code/subscribe"
         subscribe_approval_request.token_types = {AccessTokenType.TENANT}

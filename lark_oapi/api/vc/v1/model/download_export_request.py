@@ -18,7 +18,8 @@ class DownloadExportRequest(BaseRequest):
 
 class DownloadExportRequestBuilder(object):
 
-    def __init__(self, download_export_request: DownloadExportRequest = DownloadExportRequest()) -> None:
+    def __init__(self) -> None:
+        download_export_request = DownloadExportRequest()
         download_export_request.http_method = HttpMethod.GET
         download_export_request.uri = "/open-apis/vc/v1/exports/download"
         download_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

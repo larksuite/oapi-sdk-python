@@ -11,7 +11,7 @@ class ApplicationTalentAttachmentResumeInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class ApplicationTalentAttachmentResumeInfo(object):
 
 
 class ApplicationTalentAttachmentResumeInfoBuilder(object):
-    def __init__(self,
-                 application_talent_attachment_resume_info: ApplicationTalentAttachmentResumeInfo = ApplicationTalentAttachmentResumeInfo(
-                     {})) -> None:
-        self._application_talent_attachment_resume_info: ApplicationTalentAttachmentResumeInfo = application_talent_attachment_resume_info
+    def __init__(self) -> None:
+        self._application_talent_attachment_resume_info = ApplicationTalentAttachmentResumeInfo()
 
     def id(self, id: str) -> "ApplicationTalentAttachmentResumeInfoBuilder":
         self._application_talent_attachment_resume_info.id = id

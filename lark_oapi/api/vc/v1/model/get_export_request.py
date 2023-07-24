@@ -18,7 +18,8 @@ class GetExportRequest(BaseRequest):
 
 class GetExportRequestBuilder(object):
 
-    def __init__(self, get_export_request: GetExportRequest = GetExportRequest()) -> None:
+    def __init__(self) -> None:
+        get_export_request = GetExportRequest()
         get_export_request.http_method = HttpMethod.GET
         get_export_request.uri = "/open-apis/vc/v1/exports/:task_id"
         get_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

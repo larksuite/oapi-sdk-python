@@ -18,7 +18,7 @@ class MeetingParticipant(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.first_join_time: Optional[int] = None
         self.final_leave_time: Optional[int] = None
@@ -36,8 +36,8 @@ class MeetingParticipant(object):
 
 
 class MeetingParticipantBuilder(object):
-    def __init__(self, meeting_participant: MeetingParticipant = MeetingParticipant({})) -> None:
-        self._meeting_participant: MeetingParticipant = meeting_participant
+    def __init__(self) -> None:
+        self._meeting_participant = MeetingParticipant()
 
     def id(self, id: str) -> "MeetingParticipantBuilder":
         self._meeting_participant.id = id

@@ -12,7 +12,7 @@ class NotificationUser(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.avatar_url: Optional[str] = None
         self.name: Optional[str] = None
@@ -24,8 +24,8 @@ class NotificationUser(object):
 
 
 class NotificationUserBuilder(object):
-    def __init__(self, notification_user: NotificationUser = NotificationUser({})) -> None:
-        self._notification_user: NotificationUser = notification_user
+    def __init__(self) -> None:
+        self._notification_user = NotificationUser()
 
     def user_id(self, user_id: str) -> "NotificationUserBuilder":
         self._notification_user.user_id = user_id

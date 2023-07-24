@@ -11,7 +11,7 @@ class ListInstanceCommentResponseBody(object):
         "comments": List[Comment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.comments: Optional[List[Comment]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ListInstanceCommentResponseBody(object):
 
 
 class ListInstanceCommentResponseBodyBuilder(object):
-    def __init__(self,
-                 list_instance_comment_response_body: ListInstanceCommentResponseBody = ListInstanceCommentResponseBody(
-                     {})) -> None:
-        self._list_instance_comment_response_body: ListInstanceCommentResponseBody = list_instance_comment_response_body
+    def __init__(self) -> None:
+        self._list_instance_comment_response_body = ListInstanceCommentResponseBody()
 
     def comments(self, comments: List[Comment]) -> "ListInstanceCommentResponseBodyBuilder":
         self._list_instance_comment_response_body.comments = comments

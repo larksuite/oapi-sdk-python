@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.list_security_group_request import ListSecurityGroupRequest
-from lark_oapi.api.corehr.v1.model.list_security_group_response import ListSecurityGroupResponse
-from lark_oapi.api.corehr.v1.model.query_security_group_request import QuerySecurityGroupRequest
-from lark_oapi.api.corehr.v1.model.query_security_group_response import QuerySecurityGroupResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_security_group_request import ListSecurityGroupRequest
+from ..model.list_security_group_response import ListSecurityGroupResponse
+from ..model.query_security_group_request import QuerySecurityGroupRequest
+from ..model.query_security_group_response import QuerySecurityGroupResponse
 
 
 class SecurityGroup(object):
@@ -18,7 +18,10 @@ class SecurityGroup(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListSecurityGroupRequest,
-             option: RequestOption = RequestOption()) -> ListSecurityGroupResponse:
+             option: Optional[RequestOption] = None) -> ListSecurityGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class SecurityGroup(object):
         return response
 
     def query(self, request: QuerySecurityGroupRequest,
-              option: RequestOption = RequestOption()) -> QuerySecurityGroupResponse:
+              option: Optional[RequestOption] = None) -> QuerySecurityGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

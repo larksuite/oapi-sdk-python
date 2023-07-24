@@ -25,7 +25,7 @@ class TextElement(object):
         "equation": Equation,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text_run: Optional[TextRun] = None
         self.mention_user: Optional[MentionUser] = None
         self.mention_doc: Optional[MentionDoc] = None
@@ -42,8 +42,8 @@ class TextElement(object):
 
 
 class TextElementBuilder(object):
-    def __init__(self, text_element: TextElement = TextElement({})) -> None:
-        self._text_element: TextElement = text_element
+    def __init__(self) -> None:
+        self._text_element = TextElement()
 
     def text_run(self, text_run: TextRun) -> "TextElementBuilder":
         self._text_element.text_run = text_run

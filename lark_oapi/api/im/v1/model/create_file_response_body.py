@@ -10,7 +10,7 @@ class CreateFileResponseBody(object):
         "file_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_key: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class CreateFileResponseBody(object):
 
 
 class CreateFileResponseBodyBuilder(object):
-    def __init__(self, create_file_response_body: CreateFileResponseBody = CreateFileResponseBody({})) -> None:
-        self._create_file_response_body: CreateFileResponseBody = create_file_response_body
+    def __init__(self) -> None:
+        self._create_file_response_body = CreateFileResponseBody()
 
     def file_key(self, file_key: str) -> "CreateFileResponseBodyBuilder":
         self._create_file_response_body.file_key = file_key

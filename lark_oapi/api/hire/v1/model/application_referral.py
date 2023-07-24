@@ -12,7 +12,7 @@ class ApplicationReferral(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class ApplicationReferral(object):
 
 
 class ApplicationReferralBuilder(object):
-    def __init__(self, application_referral: ApplicationReferral = ApplicationReferral({})) -> None:
-        self._application_referral: ApplicationReferral = application_referral
+    def __init__(self) -> None:
+        self._application_referral = ApplicationReferral()
 
     def id(self, id: str) -> "ApplicationReferralBuilder":
         self._application_referral.id = id

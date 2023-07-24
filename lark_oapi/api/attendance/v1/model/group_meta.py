@@ -11,7 +11,7 @@ class GroupMeta(object):
         "group_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_id: Optional[str] = None
         self.group_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class GroupMeta(object):
 
 
 class GroupMetaBuilder(object):
-    def __init__(self, group_meta: GroupMeta = GroupMeta({})) -> None:
-        self._group_meta: GroupMeta = group_meta
+    def __init__(self) -> None:
+        self._group_meta = GroupMeta()
 
     def group_id(self, group_id: str) -> "GroupMetaBuilder":
         self._group_meta.group_id = group_id

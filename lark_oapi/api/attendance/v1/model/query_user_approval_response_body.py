@@ -11,7 +11,7 @@ class QueryUserApprovalResponseBody(object):
         "user_approvals": List[UserApproval],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_approvals: Optional[List[UserApproval]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class QueryUserApprovalResponseBody(object):
 
 
 class QueryUserApprovalResponseBodyBuilder(object):
-    def __init__(self, query_user_approval_response_body: QueryUserApprovalResponseBody = QueryUserApprovalResponseBody(
-        {})) -> None:
-        self._query_user_approval_response_body: QueryUserApprovalResponseBody = query_user_approval_response_body
+    def __init__(self) -> None:
+        self._query_user_approval_response_body = QueryUserApprovalResponseBody()
 
     def user_approvals(self, user_approvals: List[UserApproval]) -> "QueryUserApprovalResponseBodyBuilder":
         self._query_user_approval_response_body.user_approvals = user_approvals

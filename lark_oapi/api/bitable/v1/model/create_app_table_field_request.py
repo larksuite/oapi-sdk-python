@@ -22,8 +22,8 @@ class CreateAppTableFieldRequest(BaseRequest):
 
 class CreateAppTableFieldRequestBuilder(object):
 
-    def __init__(self,
-                 create_app_table_field_request: CreateAppTableFieldRequest = CreateAppTableFieldRequest()) -> None:
+    def __init__(self) -> None:
+        create_app_table_field_request = CreateAppTableFieldRequest()
         create_app_table_field_request.http_method = HttpMethod.POST
         create_app_table_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
         create_app_table_field_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

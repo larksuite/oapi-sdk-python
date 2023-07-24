@@ -12,7 +12,7 @@ class ListApplicationResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[str]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -24,9 +24,8 @@ class ListApplicationResponseBody(object):
 
 
 class ListApplicationResponseBodyBuilder(object):
-    def __init__(self,
-                 list_application_response_body: ListApplicationResponseBody = ListApplicationResponseBody({})) -> None:
-        self._list_application_response_body: ListApplicationResponseBody = list_application_response_body
+    def __init__(self) -> None:
+        self._list_application_response_body = ListApplicationResponseBody()
 
     def items(self, items: List[str]) -> "ListApplicationResponseBodyBuilder":
         self._list_application_response_body.items = items

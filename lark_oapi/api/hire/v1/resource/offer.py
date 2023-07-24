@@ -2,30 +2,33 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_offer_request import CreateOfferRequest
-from lark_oapi.api.hire.v1.model.create_offer_response import CreateOfferResponse
-from lark_oapi.api.hire.v1.model.get_offer_request import GetOfferRequest
-from lark_oapi.api.hire.v1.model.get_offer_response import GetOfferResponse
-from lark_oapi.api.hire.v1.model.intern_offer_status_offer_request import InternOfferStatusOfferRequest
-from lark_oapi.api.hire.v1.model.intern_offer_status_offer_response import InternOfferStatusOfferResponse
-from lark_oapi.api.hire.v1.model.list_offer_request import ListOfferRequest
-from lark_oapi.api.hire.v1.model.list_offer_response import ListOfferResponse
-from lark_oapi.api.hire.v1.model.offer_status_offer_request import OfferStatusOfferRequest
-from lark_oapi.api.hire.v1.model.offer_status_offer_response import OfferStatusOfferResponse
-from lark_oapi.api.hire.v1.model.update_offer_request import UpdateOfferRequest
-from lark_oapi.api.hire.v1.model.update_offer_response import UpdateOfferResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_offer_request import CreateOfferRequest
+from ..model.create_offer_response import CreateOfferResponse
+from ..model.get_offer_request import GetOfferRequest
+from ..model.get_offer_response import GetOfferResponse
+from ..model.intern_offer_status_offer_request import InternOfferStatusOfferRequest
+from ..model.intern_offer_status_offer_response import InternOfferStatusOfferResponse
+from ..model.list_offer_request import ListOfferRequest
+from ..model.list_offer_response import ListOfferResponse
+from ..model.offer_status_offer_request import OfferStatusOfferRequest
+from ..model.offer_status_offer_response import OfferStatusOfferResponse
+from ..model.update_offer_request import UpdateOfferRequest
+from ..model.update_offer_response import UpdateOfferResponse
 
 
 class Offer(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateOfferRequest, option: RequestOption = RequestOption()) -> CreateOfferResponse:
+    def create(self, request: CreateOfferRequest, option: Optional[RequestOption] = None) -> CreateOfferResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class Offer(object):
 
         return response
 
-    def get(self, request: GetOfferRequest, option: RequestOption = RequestOption()) -> GetOfferResponse:
+    def get(self, request: GetOfferRequest, option: Optional[RequestOption] = None) -> GetOfferResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class Offer(object):
         return response
 
     def intern_offer_status(self, request: InternOfferStatusOfferRequest,
-                            option: RequestOption = RequestOption()) -> InternOfferStatusOfferResponse:
+                            option: Optional[RequestOption] = None) -> InternOfferStatusOfferResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class Offer(object):
 
         return response
 
-    def list(self, request: ListOfferRequest, option: RequestOption = RequestOption()) -> ListOfferResponse:
+    def list(self, request: ListOfferRequest, option: Optional[RequestOption] = None) -> ListOfferResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -80,7 +92,10 @@ class Offer(object):
         return response
 
     def offer_status(self, request: OfferStatusOfferRequest,
-                     option: RequestOption = RequestOption()) -> OfferStatusOfferResponse:
+                     option: Optional[RequestOption] = None) -> OfferStatusOfferResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -93,7 +108,10 @@ class Offer(object):
 
         return response
 
-    def update(self, request: UpdateOfferRequest, option: RequestOption = RequestOption()) -> UpdateOfferResponse:
+    def update(self, request: UpdateOfferRequest, option: Optional[RequestOption] = None) -> UpdateOfferResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

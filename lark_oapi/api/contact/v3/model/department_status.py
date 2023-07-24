@@ -10,7 +10,7 @@ class DepartmentStatus(object):
         "is_deleted": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_deleted: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class DepartmentStatus(object):
 
 
 class DepartmentStatusBuilder(object):
-    def __init__(self, department_status: DepartmentStatus = DepartmentStatus({})) -> None:
-        self._department_status: DepartmentStatus = department_status
+    def __init__(self) -> None:
+        self._department_status = DepartmentStatus()
 
     def is_deleted(self, is_deleted: bool) -> "DepartmentStatusBuilder":
         self._department_status.is_deleted = is_deleted

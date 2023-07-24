@@ -17,7 +17,7 @@ class QualityNetwork(object):
         "packet_loss_max_sent": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time: Optional[str] = None
         self.network_delay: Optional[str] = None
         self.bitrate_received: Optional[str] = None
@@ -34,8 +34,8 @@ class QualityNetwork(object):
 
 
 class QualityNetworkBuilder(object):
-    def __init__(self, quality_network: QualityNetwork = QualityNetwork({})) -> None:
-        self._quality_network: QualityNetwork = quality_network
+    def __init__(self) -> None:
+        self._quality_network = QualityNetwork()
 
     def time(self, time: str) -> "QualityNetworkBuilder":
         self._quality_network.time = time

@@ -11,7 +11,7 @@ class PatchWorkingHoursTypeResponseBody(object):
         "working_hours_type": WorkingHoursType,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.working_hours_type: Optional[WorkingHoursType] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchWorkingHoursTypeResponseBody(object):
 
 
 class PatchWorkingHoursTypeResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_working_hours_type_response_body: PatchWorkingHoursTypeResponseBody = PatchWorkingHoursTypeResponseBody(
-                     {})) -> None:
-        self._patch_working_hours_type_response_body: PatchWorkingHoursTypeResponseBody = patch_working_hours_type_response_body
+    def __init__(self) -> None:
+        self._patch_working_hours_type_response_body = PatchWorkingHoursTypeResponseBody()
 
     def working_hours_type(self, working_hours_type: WorkingHoursType) -> "PatchWorkingHoursTypeResponseBodyBuilder":
         self._patch_working_hours_type_response_body.working_hours_type = working_hours_type

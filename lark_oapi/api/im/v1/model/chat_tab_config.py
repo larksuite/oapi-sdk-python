@@ -11,7 +11,7 @@ class ChatTabConfig(object):
         "is_built_in": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.icon_key: Optional[str] = None
         self.is_built_in: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ChatTabConfig(object):
 
 
 class ChatTabConfigBuilder(object):
-    def __init__(self, chat_tab_config: ChatTabConfig = ChatTabConfig({})) -> None:
-        self._chat_tab_config: ChatTabConfig = chat_tab_config
+    def __init__(self) -> None:
+        self._chat_tab_config = ChatTabConfig()
 
     def icon_key(self, icon_key: str) -> "ChatTabConfigBuilder":
         self._chat_tab_config.icon_key = icon_key

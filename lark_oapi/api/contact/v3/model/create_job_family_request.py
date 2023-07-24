@@ -19,7 +19,8 @@ class CreateJobFamilyRequest(BaseRequest):
 
 class CreateJobFamilyRequestBuilder(object):
 
-    def __init__(self, create_job_family_request: CreateJobFamilyRequest = CreateJobFamilyRequest()) -> None:
+    def __init__(self) -> None:
+        create_job_family_request = CreateJobFamilyRequest()
         create_job_family_request.http_method = HttpMethod.POST
         create_job_family_request.uri = "/open-apis/contact/v3/job_families"
         create_job_family_request.token_types = {AccessTokenType.TENANT}

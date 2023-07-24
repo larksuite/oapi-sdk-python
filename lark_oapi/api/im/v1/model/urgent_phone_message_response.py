@@ -12,7 +12,7 @@ class UrgentPhoneMessageResponse(BaseResponse):
         "data": UrgentPhoneMessageResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UrgentPhoneMessageResponseBody] = None
         init(self, d, self._types)

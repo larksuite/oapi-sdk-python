@@ -12,7 +12,7 @@ class CreateAppAccessTokenRequestBody(object):
         "app_ticket": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_id: Optional[str] = None
         self.app_secret: Optional[str] = None
         self.app_ticket: Optional[str] = None
@@ -24,10 +24,8 @@ class CreateAppAccessTokenRequestBody(object):
 
 
 class CreateAppAccessTokenRequestBodyBuilder(object):
-    def __init__(self,
-                 create_app_access_token_request_body: CreateAppAccessTokenRequestBody = CreateAppAccessTokenRequestBody(
-                     {})) -> None:
-        self._create_app_access_token_request_body: CreateAppAccessTokenRequestBody = create_app_access_token_request_body
+    def __init__(self) -> None:
+        self._create_app_access_token_request_body = CreateAppAccessTokenRequestBody()
 
     def app_id(self, app_id: str) -> "CreateAppAccessTokenRequestBodyBuilder":
         self._create_app_access_token_request_body.app_id = app_id

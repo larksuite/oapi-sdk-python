@@ -21,7 +21,8 @@ class CopySpaceNodeRequest(BaseRequest):
 
 class CopySpaceNodeRequestBuilder(object):
 
-    def __init__(self, copy_space_node_request: CopySpaceNodeRequest = CopySpaceNodeRequest()) -> None:
+    def __init__(self) -> None:
+        copy_space_node_request = CopySpaceNodeRequest()
         copy_space_node_request.http_method = HttpMethod.POST
         copy_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy"
         copy_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -13,7 +13,7 @@ class PatchMetricSourceTableItemRequestBody(object):
         "supported_user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_initial_value: Optional[float] = None
         self.metric_target_value: Optional[float] = None
         self.metric_current_value: Optional[float] = None
@@ -26,10 +26,8 @@ class PatchMetricSourceTableItemRequestBody(object):
 
 
 class PatchMetricSourceTableItemRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_metric_source_table_item_request_body: PatchMetricSourceTableItemRequestBody = PatchMetricSourceTableItemRequestBody(
-                     {})) -> None:
-        self._patch_metric_source_table_item_request_body: PatchMetricSourceTableItemRequestBody = patch_metric_source_table_item_request_body
+    def __init__(self) -> None:
+        self._patch_metric_source_table_item_request_body = PatchMetricSourceTableItemRequestBody()
 
     def metric_initial_value(self, metric_initial_value: float) -> "PatchMetricSourceTableItemRequestBodyBuilder":
         self._patch_metric_source_table_item_request_body.metric_initial_value = metric_initial_value

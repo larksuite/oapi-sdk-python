@@ -17,7 +17,7 @@ class Company(object):
         "company_name_en": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.company_code: Optional[str] = None
         self.company_name: Optional[str] = None
         self.company_uid: Optional[str] = None
@@ -34,8 +34,8 @@ class Company(object):
 
 
 class CompanyBuilder(object):
-    def __init__(self, company: Company = Company({})) -> None:
-        self._company: Company = company
+    def __init__(self) -> None:
+        self._company = Company()
 
     def company_code(self, company_code: str) -> "CompanyBuilder":
         self._company.company_code = company_code

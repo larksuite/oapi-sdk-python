@@ -43,7 +43,7 @@ class Employment(object):
         "rehire_employment_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.prehire_id: Optional[str] = None
         self.employee_type_id: Optional[str] = None
         self.tenure: Optional[str] = None
@@ -82,8 +82,8 @@ class Employment(object):
 
 
 class EmploymentBuilder(object):
-    def __init__(self, employment: Employment = Employment({})) -> None:
-        self._employment: Employment = employment
+    def __init__(self) -> None:
+        self._employment = Employment()
 
     def prehire_id(self, prehire_id: str) -> "EmploymentBuilder":
         self._employment.prehire_id = prehire_id

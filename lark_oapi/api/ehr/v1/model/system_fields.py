@@ -80,7 +80,7 @@ class SystemFields(object):
         "update_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
         self.email: Optional[str] = None
@@ -150,8 +150,8 @@ class SystemFields(object):
 
 
 class SystemFieldsBuilder(object):
-    def __init__(self, system_fields: SystemFields = SystemFields({})) -> None:
-        self._system_fields: SystemFields = system_fields
+    def __init__(self) -> None:
+        self._system_fields = SystemFields()
 
     def name(self, name: str) -> "SystemFieldsBuilder":
         self._system_fields.name = name

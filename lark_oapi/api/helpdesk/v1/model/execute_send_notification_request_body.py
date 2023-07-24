@@ -10,7 +10,7 @@ class ExecuteSendNotificationRequestBody(object):
         "send_at": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.send_at: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class ExecuteSendNotificationRequestBody(object):
 
 
 class ExecuteSendNotificationRequestBodyBuilder(object):
-    def __init__(self,
-                 execute_send_notification_request_body: ExecuteSendNotificationRequestBody = ExecuteSendNotificationRequestBody(
-                     {})) -> None:
-        self._execute_send_notification_request_body: ExecuteSendNotificationRequestBody = execute_send_notification_request_body
+    def __init__(self) -> None:
+        self._execute_send_notification_request_body = ExecuteSendNotificationRequestBody()
 
     def send_at(self, send_at: str) -> "ExecuteSendNotificationRequestBodyBuilder":
         self._execute_send_notification_request_body.send_at = send_at

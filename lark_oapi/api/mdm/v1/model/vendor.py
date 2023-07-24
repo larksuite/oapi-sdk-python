@@ -51,7 +51,7 @@ class Vendor(object):
         "owner_depts": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.ad_country: Optional[str] = None
         self.ad_province: Optional[str] = None
@@ -96,8 +96,8 @@ class Vendor(object):
 
 
 class VendorBuilder(object):
-    def __init__(self, vendor: Vendor = Vendor({})) -> None:
-        self._vendor: Vendor = vendor
+    def __init__(self) -> None:
+        self._vendor = Vendor()
 
     def id(self, id: int) -> "VendorBuilder":
         self._vendor.id = id

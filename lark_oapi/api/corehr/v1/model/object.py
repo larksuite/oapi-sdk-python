@@ -15,7 +15,7 @@ class Object(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_api_name: Optional[str] = None
         self.name: Optional[Name] = None
         self.is_open: Optional[bool] = None
@@ -29,8 +29,8 @@ class Object(object):
 
 
 class ObjectBuilder(object):
-    def __init__(self, object: Object = Object({})) -> None:
-        self._object: Object = object
+    def __init__(self) -> None:
+        self._object = Object()
 
     def object_api_name(self, object_api_name: str) -> "ObjectBuilder":
         self._object.object_api_name = object_api_name

@@ -20,7 +20,8 @@ class ListSubdivisionRequest(BaseRequest):
 
 class ListSubdivisionRequestBuilder(object):
 
-    def __init__(self, list_subdivision_request: ListSubdivisionRequest = ListSubdivisionRequest()) -> None:
+    def __init__(self) -> None:
+        list_subdivision_request = ListSubdivisionRequest()
         list_subdivision_request.http_method = HttpMethod.GET
         list_subdivision_request.uri = "/open-apis/corehr/v1/subdivisions"
         list_subdivision_request.token_types = {AccessTokenType.TENANT}

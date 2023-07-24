@@ -19,7 +19,7 @@ class OkrObjective(object):
         "content": Text,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.objective_id: Optional[int] = None
         self.confidential: Optional[bool] = None
         self.position: Optional[int] = None
@@ -36,8 +36,8 @@ class OkrObjective(object):
 
 
 class OkrObjectiveBuilder(object):
-    def __init__(self, okr_objective: OkrObjective = OkrObjective({})) -> None:
-        self._okr_objective: OkrObjective = okr_objective
+    def __init__(self) -> None:
+        self._okr_objective = OkrObjective()
 
     def objective_id(self, objective_id: int) -> "OkrObjectiveBuilder":
         self._okr_objective.objective_id = objective_id

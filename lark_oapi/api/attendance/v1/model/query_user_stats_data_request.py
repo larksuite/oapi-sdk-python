@@ -20,7 +20,8 @@ class QueryUserStatsDataRequest(BaseRequest):
 
 class QueryUserStatsDataRequestBuilder(object):
 
-    def __init__(self, query_user_stats_data_request: QueryUserStatsDataRequest = QueryUserStatsDataRequest()) -> None:
+    def __init__(self) -> None:
+        query_user_stats_data_request = QueryUserStatsDataRequest()
         query_user_stats_data_request.http_method = HttpMethod.POST
         query_user_stats_data_request.uri = "/open-apis/attendance/v1/user_stats_datas/query"
         query_user_stats_data_request.token_types = {AccessTokenType.TENANT}

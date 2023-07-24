@@ -11,7 +11,7 @@ class CreateCalendarEventAttendeeResponseBody(object):
         "attendees": List[CalendarEventAttendee],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.attendees: Optional[List[CalendarEventAttendee]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateCalendarEventAttendeeResponseBody(object):
 
 
 class CreateCalendarEventAttendeeResponseBodyBuilder(object):
-    def __init__(self,
-                 create_calendar_event_attendee_response_body: CreateCalendarEventAttendeeResponseBody = CreateCalendarEventAttendeeResponseBody(
-                     {})) -> None:
-        self._create_calendar_event_attendee_response_body: CreateCalendarEventAttendeeResponseBody = create_calendar_event_attendee_response_body
+    def __init__(self) -> None:
+        self._create_calendar_event_attendee_response_body = CreateCalendarEventAttendeeResponseBody()
 
     def attendees(self, attendees: List[CalendarEventAttendee]) -> "CreateCalendarEventAttendeeResponseBodyBuilder":
         self._create_calendar_event_attendee_response_body.attendees = attendees

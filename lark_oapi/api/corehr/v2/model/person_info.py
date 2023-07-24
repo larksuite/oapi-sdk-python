@@ -57,7 +57,7 @@ class PersonInfo(object):
         "family_address": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.person_id: Optional[str] = None
         self.phone_number: Optional[str] = None
         self.legal_name: Optional[str] = None
@@ -102,8 +102,8 @@ class PersonInfo(object):
 
 
 class PersonInfoBuilder(object):
-    def __init__(self, person_info: PersonInfo = PersonInfo({})) -> None:
-        self._person_info: PersonInfo = person_info
+    def __init__(self) -> None:
+        self._person_info = PersonInfo()
 
     def person_id(self, person_id: str) -> "PersonInfoBuilder":
         self._person_info.person_id = person_id

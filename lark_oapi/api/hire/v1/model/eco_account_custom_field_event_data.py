@@ -11,7 +11,7 @@ class EcoAccountCustomFieldEventData(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class EcoAccountCustomFieldEventData(object):
 
 
 class EcoAccountCustomFieldEventDataBuilder(object):
-    def __init__(self,
-                 eco_account_custom_field_event_data: EcoAccountCustomFieldEventData = EcoAccountCustomFieldEventData(
-                     {})) -> None:
-        self._eco_account_custom_field_event_data: EcoAccountCustomFieldEventData = eco_account_custom_field_event_data
+    def __init__(self) -> None:
+        self._eco_account_custom_field_event_data = EcoAccountCustomFieldEventData()
 
     def key(self, key: str) -> "EcoAccountCustomFieldEventDataBuilder":
         self._eco_account_custom_field_event_data.key = key

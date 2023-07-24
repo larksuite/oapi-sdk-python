@@ -2,21 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.okr.v1.model.batch_update_metric_source_table_item_request import \
-    BatchUpdateMetricSourceTableItemRequest
-from lark_oapi.api.okr.v1.model.batch_update_metric_source_table_item_response import \
-    BatchUpdateMetricSourceTableItemResponse
-from lark_oapi.api.okr.v1.model.get_metric_source_table_item_request import GetMetricSourceTableItemRequest
-from lark_oapi.api.okr.v1.model.get_metric_source_table_item_response import GetMetricSourceTableItemResponse
-from lark_oapi.api.okr.v1.model.list_metric_source_table_item_request import ListMetricSourceTableItemRequest
-from lark_oapi.api.okr.v1.model.list_metric_source_table_item_response import ListMetricSourceTableItemResponse
-from lark_oapi.api.okr.v1.model.patch_metric_source_table_item_request import PatchMetricSourceTableItemRequest
-from lark_oapi.api.okr.v1.model.patch_metric_source_table_item_response import PatchMetricSourceTableItemResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_update_metric_source_table_item_request import BatchUpdateMetricSourceTableItemRequest
+from ..model.batch_update_metric_source_table_item_response import BatchUpdateMetricSourceTableItemResponse
+from ..model.get_metric_source_table_item_request import GetMetricSourceTableItemRequest
+from ..model.get_metric_source_table_item_response import GetMetricSourceTableItemResponse
+from ..model.list_metric_source_table_item_request import ListMetricSourceTableItemRequest
+from ..model.list_metric_source_table_item_response import ListMetricSourceTableItemResponse
+from ..model.patch_metric_source_table_item_request import PatchMetricSourceTableItemRequest
+from ..model.patch_metric_source_table_item_response import PatchMetricSourceTableItemResponse
 
 
 class MetricSourceTableItem(object):
@@ -24,7 +22,10 @@ class MetricSourceTableItem(object):
         self.config: Optional[Config] = config
 
     def batch_update(self, request: BatchUpdateMetricSourceTableItemRequest,
-                     option: RequestOption = RequestOption()) -> BatchUpdateMetricSourceTableItemResponse:
+                     option: Optional[RequestOption] = None) -> BatchUpdateMetricSourceTableItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +40,10 @@ class MetricSourceTableItem(object):
         return response
 
     def get(self, request: GetMetricSourceTableItemRequest,
-            option: RequestOption = RequestOption()) -> GetMetricSourceTableItemResponse:
+            option: Optional[RequestOption] = None) -> GetMetricSourceTableItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -54,7 +58,10 @@ class MetricSourceTableItem(object):
         return response
 
     def list(self, request: ListMetricSourceTableItemRequest,
-             option: RequestOption = RequestOption()) -> ListMetricSourceTableItemResponse:
+             option: Optional[RequestOption] = None) -> ListMetricSourceTableItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -69,7 +76,10 @@ class MetricSourceTableItem(object):
         return response
 
     def patch(self, request: PatchMetricSourceTableItemRequest,
-              option: RequestOption = RequestOption()) -> PatchMetricSourceTableItemResponse:
+              option: Optional[RequestOption] = None) -> PatchMetricSourceTableItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

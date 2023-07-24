@@ -12,7 +12,7 @@ class ProtectedRows(object):
         "end_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sheet_id: Optional[str] = None
         self.start_index: Optional[int] = None
         self.end_index: Optional[int] = None
@@ -24,8 +24,8 @@ class ProtectedRows(object):
 
 
 class ProtectedRowsBuilder(object):
-    def __init__(self, protected_rows: ProtectedRows = ProtectedRows({})) -> None:
-        self._protected_rows: ProtectedRows = protected_rows
+    def __init__(self) -> None:
+        self._protected_rows = ProtectedRows()
 
     def sheet_id(self, sheet_id: str) -> "ProtectedRowsBuilder":
         self._protected_rows.sheet_id = sheet_id

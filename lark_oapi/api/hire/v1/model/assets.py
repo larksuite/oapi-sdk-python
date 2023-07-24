@@ -11,7 +11,7 @@ class Assets(object):
         "confirmed_bonus": BonusAmount,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.confirmed_bonus: Optional[BonusAmount] = None
         self.paid_bonus: Optional[BonusAmount] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Assets(object):
 
 
 class AssetsBuilder(object):
-    def __init__(self, assets: Assets = Assets({})) -> None:
-        self._assets: Assets = assets
+    def __init__(self) -> None:
+        self._assets = Assets()
 
     def confirmed_bonus(self, confirmed_bonus: BonusAmount) -> "AssetsBuilder":
         self._assets.confirmed_bonus = confirmed_bonus

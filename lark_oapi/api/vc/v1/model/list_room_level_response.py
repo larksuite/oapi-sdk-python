@@ -12,7 +12,7 @@ class ListRoomLevelResponse(BaseResponse):
         "data": ListRoomLevelResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListRoomLevelResponseBody] = None
         init(self, d, self._types)

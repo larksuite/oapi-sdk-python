@@ -7,7 +7,7 @@ class Attachment(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class Attachment(object):
 
 
 class AttachmentBuilder(object):
-    def __init__(self, attachment: Attachment = Attachment({})) -> None:
-        self._attachment: Attachment = attachment
+    def __init__(self) -> None:
+        self._attachment = Attachment()
 
     def build(self) -> "Attachment":
         return self._attachment

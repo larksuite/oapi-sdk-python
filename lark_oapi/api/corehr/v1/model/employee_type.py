@@ -17,7 +17,7 @@ class EmployeeType(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.default_employee_type: Optional[bool] = None
@@ -32,8 +32,8 @@ class EmployeeType(object):
 
 
 class EmployeeTypeBuilder(object):
-    def __init__(self, employee_type: EmployeeType = EmployeeType({})) -> None:
-        self._employee_type: EmployeeType = employee_type
+    def __init__(self) -> None:
+        self._employee_type = EmployeeType()
 
     def id(self, id: str) -> "EmployeeTypeBuilder":
         self._employee_type.id = id

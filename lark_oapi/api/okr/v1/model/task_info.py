@@ -14,7 +14,7 @@ class TaskInfo(object):
         "period_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         self.app_token: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -28,8 +28,8 @@ class TaskInfo(object):
 
 
 class TaskInfoBuilder(object):
-    def __init__(self, task_info: TaskInfo = TaskInfo({})) -> None:
-        self._task_info: TaskInfo = task_info
+    def __init__(self) -> None:
+        self._task_info = TaskInfo()
 
     def task_id(self, task_id: str) -> "TaskInfoBuilder":
         self._task_info.task_id = task_id

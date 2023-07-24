@@ -11,7 +11,7 @@ class GetWorkingHoursTypeResponseBody(object):
         "working_hours_type": WorkingHoursType,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.working_hours_type: Optional[WorkingHoursType] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetWorkingHoursTypeResponseBody(object):
 
 
 class GetWorkingHoursTypeResponseBodyBuilder(object):
-    def __init__(self,
-                 get_working_hours_type_response_body: GetWorkingHoursTypeResponseBody = GetWorkingHoursTypeResponseBody(
-                     {})) -> None:
-        self._get_working_hours_type_response_body: GetWorkingHoursTypeResponseBody = get_working_hours_type_response_body
+    def __init__(self) -> None:
+        self._get_working_hours_type_response_body = GetWorkingHoursTypeResponseBody()
 
     def working_hours_type(self, working_hours_type: WorkingHoursType) -> "GetWorkingHoursTypeResponseBodyBuilder":
         self._get_working_hours_type_response_body.working_hours_type = working_hours_type

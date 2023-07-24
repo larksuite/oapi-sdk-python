@@ -11,7 +11,7 @@ class BasicJobData(object):
         "employment_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_data_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BasicJobData(object):
 
 
 class BasicJobDataBuilder(object):
-    def __init__(self, basic_job_data: BasicJobData = BasicJobData({})) -> None:
-        self._basic_job_data: BasicJobData = basic_job_data
+    def __init__(self) -> None:
+        self._basic_job_data = BasicJobData()
 
     def job_data_id(self, job_data_id: str) -> "BasicJobDataBuilder":
         self._basic_job_data.job_data_id = job_data_id

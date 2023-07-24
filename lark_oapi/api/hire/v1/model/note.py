@@ -18,7 +18,7 @@ class Note(object):
         "privacy": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.talent_id: Optional[str] = None
         self.application_id: Optional[str] = None
@@ -36,8 +36,8 @@ class Note(object):
 
 
 class NoteBuilder(object):
-    def __init__(self, note: Note = Note({})) -> None:
-        self._note: Note = note
+    def __init__(self) -> None:
+        self._note = Note()
 
     def id(self, id: str) -> "NoteBuilder":
         self._note.id = id

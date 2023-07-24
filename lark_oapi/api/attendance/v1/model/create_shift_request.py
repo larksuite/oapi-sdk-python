@@ -19,7 +19,8 @@ class CreateShiftRequest(BaseRequest):
 
 class CreateShiftRequestBuilder(object):
 
-    def __init__(self, create_shift_request: CreateShiftRequest = CreateShiftRequest()) -> None:
+    def __init__(self) -> None:
+        create_shift_request = CreateShiftRequest()
         create_shift_request.http_method = HttpMethod.POST
         create_shift_request.uri = "/open-apis/attendance/v1/shifts"
         create_shift_request.token_types = {AccessTokenType.TENANT}

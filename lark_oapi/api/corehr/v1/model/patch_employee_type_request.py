@@ -21,7 +21,8 @@ class PatchEmployeeTypeRequest(BaseRequest):
 
 class PatchEmployeeTypeRequestBuilder(object):
 
-    def __init__(self, patch_employee_type_request: PatchEmployeeTypeRequest = PatchEmployeeTypeRequest()) -> None:
+    def __init__(self) -> None:
+        patch_employee_type_request = PatchEmployeeTypeRequest()
         patch_employee_type_request.http_method = HttpMethod.PATCH
         patch_employee_type_request.uri = "/open-apis/corehr/v1/employee_types/:employee_type_id"
         patch_employee_type_request.token_types = {AccessTokenType.TENANT}

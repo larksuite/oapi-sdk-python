@@ -7,7 +7,7 @@ class AppRoleTableRoleFieldPerm(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,9 +16,8 @@ class AppRoleTableRoleFieldPerm(object):
 
 
 class AppRoleTableRoleFieldPermBuilder(object):
-    def __init__(self,
-                 app_role_table_role_field_perm: AppRoleTableRoleFieldPerm = AppRoleTableRoleFieldPerm({})) -> None:
-        self._app_role_table_role_field_perm: AppRoleTableRoleFieldPerm = app_role_table_role_field_perm
+    def __init__(self) -> None:
+        self._app_role_table_role_field_perm = AppRoleTableRoleFieldPerm()
 
     def build(self) -> "AppRoleTableRoleFieldPerm":
         return self._app_role_table_role_field_perm

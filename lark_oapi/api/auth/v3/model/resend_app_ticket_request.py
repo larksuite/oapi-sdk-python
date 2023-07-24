@@ -19,7 +19,8 @@ class ResendAppTicketRequest(BaseRequest):
 
 class ResendAppTicketRequestBuilder(object):
 
-    def __init__(self, resend_app_ticket_request: ResendAppTicketRequest = ResendAppTicketRequest()) -> None:
+    def __init__(self) -> None:
+        resend_app_ticket_request = ResendAppTicketRequest()
         resend_app_ticket_request.http_method = HttpMethod.POST
         resend_app_ticket_request.uri = "/open-apis/auth/v3/app_ticket/resend"
         resend_app_ticket_request.token_types = {}

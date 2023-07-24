@@ -17,7 +17,7 @@ class UserTask(object):
         "records": List[TaskResult],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.result_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.employee_name: Optional[str] = None
@@ -33,8 +33,8 @@ class UserTask(object):
 
 
 class UserTaskBuilder(object):
-    def __init__(self, user_task: UserTask = UserTask({})) -> None:
-        self._user_task: UserTask = user_task
+    def __init__(self) -> None:
+        self._user_task = UserTask()
 
     def result_id(self, result_id: str) -> "UserTaskBuilder":
         self._user_task.result_id = result_id

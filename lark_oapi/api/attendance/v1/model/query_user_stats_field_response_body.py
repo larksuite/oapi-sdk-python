@@ -11,7 +11,7 @@ class QueryUserStatsFieldResponseBody(object):
         "user_stats_field": UserStatsField,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_stats_field: Optional[UserStatsField] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QueryUserStatsFieldResponseBody(object):
 
 
 class QueryUserStatsFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 query_user_stats_field_response_body: QueryUserStatsFieldResponseBody = QueryUserStatsFieldResponseBody(
-                     {})) -> None:
-        self._query_user_stats_field_response_body: QueryUserStatsFieldResponseBody = query_user_stats_field_response_body
+    def __init__(self) -> None:
+        self._query_user_stats_field_response_body = QueryUserStatsFieldResponseBody()
 
     def user_stats_field(self, user_stats_field: UserStatsField) -> "QueryUserStatsFieldResponseBodyBuilder":
         self._query_user_stats_field_response_body.user_stats_field = user_stats_field

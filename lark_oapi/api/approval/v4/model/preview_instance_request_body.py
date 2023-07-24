@@ -16,7 +16,7 @@ class PreviewInstanceRequestBody(object):
         "task_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.department_id: Optional[str] = None
@@ -32,9 +32,8 @@ class PreviewInstanceRequestBody(object):
 
 
 class PreviewInstanceRequestBodyBuilder(object):
-    def __init__(self,
-                 preview_instance_request_body: PreviewInstanceRequestBody = PreviewInstanceRequestBody({})) -> None:
-        self._preview_instance_request_body: PreviewInstanceRequestBody = preview_instance_request_body
+    def __init__(self) -> None:
+        self._preview_instance_request_body = PreviewInstanceRequestBody()
 
     def user_id(self, user_id: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.user_id = user_id

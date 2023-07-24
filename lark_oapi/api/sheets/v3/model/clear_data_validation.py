@@ -10,7 +10,7 @@ class ClearDataValidation(object):
         "ranges": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ranges: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ClearDataValidation(object):
 
 
 class ClearDataValidationBuilder(object):
-    def __init__(self, clear_data_validation: ClearDataValidation = ClearDataValidation({})) -> None:
-        self._clear_data_validation: ClearDataValidation = clear_data_validation
+    def __init__(self) -> None:
+        self._clear_data_validation = ClearDataValidation()
 
     def ranges(self, ranges: List[str]) -> "ClearDataValidationBuilder":
         self._clear_data_validation.ranges = ranges

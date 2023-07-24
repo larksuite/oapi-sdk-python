@@ -22,7 +22,8 @@ class QueryInstanceRequest(BaseRequest):
 
 class QueryInstanceRequestBuilder(object):
 
-    def __init__(self, query_instance_request: QueryInstanceRequest = QueryInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        query_instance_request = QueryInstanceRequest()
         query_instance_request.http_method = HttpMethod.POST
         query_instance_request.uri = "/open-apis/approval/v4/instances/query"
         query_instance_request.token_types = {AccessTokenType.TENANT}

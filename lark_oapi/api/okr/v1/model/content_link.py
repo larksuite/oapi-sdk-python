@@ -10,7 +10,7 @@ class ContentLink(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ContentLink(object):
 
 
 class ContentLinkBuilder(object):
-    def __init__(self, content_link: ContentLink = ContentLink({})) -> None:
-        self._content_link: ContentLink = content_link
+    def __init__(self) -> None:
+        self._content_link = ContentLink()
 
     def url(self, url: str) -> "ContentLinkBuilder":
         self._content_link.url = url

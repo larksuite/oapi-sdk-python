@@ -11,7 +11,7 @@ class PatchSpreadsheetSheetFilterViewResponseBody(object):
         "filter_view": FilterView,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.filter_view: Optional[FilterView] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchSpreadsheetSheetFilterViewResponseBody(object):
 
 
 class PatchSpreadsheetSheetFilterViewResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_spreadsheet_sheet_filter_view_response_body: PatchSpreadsheetSheetFilterViewResponseBody = PatchSpreadsheetSheetFilterViewResponseBody(
-                     {})) -> None:
-        self._patch_spreadsheet_sheet_filter_view_response_body: PatchSpreadsheetSheetFilterViewResponseBody = patch_spreadsheet_sheet_filter_view_response_body
+    def __init__(self) -> None:
+        self._patch_spreadsheet_sheet_filter_view_response_body = PatchSpreadsheetSheetFilterViewResponseBody()
 
     def filter_view(self, filter_view: FilterView) -> "PatchSpreadsheetSheetFilterViewResponseBodyBuilder":
         self._patch_spreadsheet_sheet_filter_view_response_body.filter_view = filter_view

@@ -15,7 +15,7 @@ class QueryTaskResponseBody(object):
         "count": Count,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tasks: Optional[List[Task]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -28,8 +28,8 @@ class QueryTaskResponseBody(object):
 
 
 class QueryTaskResponseBodyBuilder(object):
-    def __init__(self, query_task_response_body: QueryTaskResponseBody = QueryTaskResponseBody({})) -> None:
-        self._query_task_response_body: QueryTaskResponseBody = query_task_response_body
+    def __init__(self) -> None:
+        self._query_task_response_body = QueryTaskResponseBody()
 
     def tasks(self, tasks: List[Task]) -> "QueryTaskResponseBodyBuilder":
         self._query_task_response_body.tasks = tasks

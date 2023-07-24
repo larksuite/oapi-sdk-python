@@ -11,7 +11,7 @@ class BatchCreatePublicMailboxMemberRequestBody(object):
         "items": List[PublicMailboxMember],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[PublicMailboxMember]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreatePublicMailboxMemberRequestBody(object):
 
 
 class BatchCreatePublicMailboxMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_create_public_mailbox_member_request_body: BatchCreatePublicMailboxMemberRequestBody = BatchCreatePublicMailboxMemberRequestBody(
-                     {})) -> None:
-        self._batch_create_public_mailbox_member_request_body: BatchCreatePublicMailboxMemberRequestBody = batch_create_public_mailbox_member_request_body
+    def __init__(self) -> None:
+        self._batch_create_public_mailbox_member_request_body = BatchCreatePublicMailboxMemberRequestBody()
 
     def items(self, items: List[PublicMailboxMember]) -> "BatchCreatePublicMailboxMemberRequestBodyBuilder":
         self._batch_create_public_mailbox_member_request_body.items = items

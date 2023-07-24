@@ -20,7 +20,8 @@ class ListSubregionRequest(BaseRequest):
 
 class ListSubregionRequestBuilder(object):
 
-    def __init__(self, list_subregion_request: ListSubregionRequest = ListSubregionRequest()) -> None:
+    def __init__(self) -> None:
+        list_subregion_request = ListSubregionRequest()
         list_subregion_request.http_method = HttpMethod.GET
         list_subregion_request.uri = "/open-apis/corehr/v1/subregions"
         list_subregion_request.token_types = {AccessTokenType.TENANT}

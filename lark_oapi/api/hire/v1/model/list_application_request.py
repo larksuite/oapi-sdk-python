@@ -26,7 +26,8 @@ class ListApplicationRequest(BaseRequest):
 
 class ListApplicationRequestBuilder(object):
 
-    def __init__(self, list_application_request: ListApplicationRequest = ListApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        list_application_request = ListApplicationRequest()
         list_application_request.http_method = HttpMethod.GET
         list_application_request.uri = "/open-apis/hire/v1/applications"
         list_application_request.token_types = {AccessTokenType.TENANT}

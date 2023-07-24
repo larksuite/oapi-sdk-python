@@ -22,8 +22,8 @@ class PatchSpreadsheetSheetFilterViewRequest(BaseRequest):
 
 class PatchSpreadsheetSheetFilterViewRequestBuilder(object):
 
-    def __init__(self,
-                 patch_spreadsheet_sheet_filter_view_request: PatchSpreadsheetSheetFilterViewRequest = PatchSpreadsheetSheetFilterViewRequest()) -> None:
+    def __init__(self) -> None:
+        patch_spreadsheet_sheet_filter_view_request = PatchSpreadsheetSheetFilterViewRequest()
         patch_spreadsheet_sheet_filter_view_request.http_method = HttpMethod.PATCH
         patch_spreadsheet_sheet_filter_view_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
         patch_spreadsheet_sheet_filter_view_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -20,7 +20,8 @@ class GetOfferRequest(BaseRequest):
 
 class GetOfferRequestBuilder(object):
 
-    def __init__(self, get_offer_request: GetOfferRequest = GetOfferRequest()) -> None:
+    def __init__(self) -> None:
+        get_offer_request = GetOfferRequest()
         get_offer_request.http_method = HttpMethod.GET
         get_offer_request.uri = "/open-apis/hire/v1/offers/:offer_id"
         get_offer_request.token_types = {AccessTokenType.TENANT}

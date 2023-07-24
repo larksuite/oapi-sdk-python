@@ -11,7 +11,7 @@ class QueryOffboardingRequestBody(object):
         "offboarding_reason_unique_identifier": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.active: Optional[bool] = None
         self.offboarding_reason_unique_identifier: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class QueryOffboardingRequestBody(object):
 
 
 class QueryOffboardingRequestBodyBuilder(object):
-    def __init__(self,
-                 query_offboarding_request_body: QueryOffboardingRequestBody = QueryOffboardingRequestBody({})) -> None:
-        self._query_offboarding_request_body: QueryOffboardingRequestBody = query_offboarding_request_body
+    def __init__(self) -> None:
+        self._query_offboarding_request_body = QueryOffboardingRequestBody()
 
     def active(self, active: bool) -> "QueryOffboardingRequestBodyBuilder":
         self._query_offboarding_request_body.active = active

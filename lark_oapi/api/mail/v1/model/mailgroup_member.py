@@ -14,7 +14,7 @@ class MailgroupMember(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id: Optional[str] = None
         self.email: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -28,8 +28,8 @@ class MailgroupMember(object):
 
 
 class MailgroupMemberBuilder(object):
-    def __init__(self, mailgroup_member: MailgroupMember = MailgroupMember({})) -> None:
-        self._mailgroup_member: MailgroupMember = mailgroup_member
+    def __init__(self) -> None:
+        self._mailgroup_member = MailgroupMember()
 
     def member_id(self, member_id: str) -> "MailgroupMemberBuilder":
         self._mailgroup_member.member_id = member_id

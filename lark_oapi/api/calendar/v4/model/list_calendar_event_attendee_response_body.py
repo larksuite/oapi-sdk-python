@@ -13,7 +13,7 @@ class ListCalendarEventAttendeeResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[CalendarEventAttendee]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListCalendarEventAttendeeResponseBody(object):
 
 
 class ListCalendarEventAttendeeResponseBodyBuilder(object):
-    def __init__(self,
-                 list_calendar_event_attendee_response_body: ListCalendarEventAttendeeResponseBody = ListCalendarEventAttendeeResponseBody(
-                     {})) -> None:
-        self._list_calendar_event_attendee_response_body: ListCalendarEventAttendeeResponseBody = list_calendar_event_attendee_response_body
+    def __init__(self) -> None:
+        self._list_calendar_event_attendee_response_body = ListCalendarEventAttendeeResponseBody()
 
     def items(self, items: List[CalendarEventAttendee]) -> "ListCalendarEventAttendeeResponseBodyBuilder":
         self._list_calendar_event_attendee_response_body.items = items

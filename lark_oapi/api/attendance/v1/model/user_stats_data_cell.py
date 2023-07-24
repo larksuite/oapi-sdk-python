@@ -14,7 +14,7 @@ class UserStatsDataCell(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.value: Optional[str] = None
         self.features: Optional[List[UserStatsDataFeature]] = None
@@ -27,8 +27,8 @@ class UserStatsDataCell(object):
 
 
 class UserStatsDataCellBuilder(object):
-    def __init__(self, user_stats_data_cell: UserStatsDataCell = UserStatsDataCell({})) -> None:
-        self._user_stats_data_cell: UserStatsDataCell = user_stats_data_cell
+    def __init__(self) -> None:
+        self._user_stats_data_cell = UserStatsDataCell()
 
     def code(self, code: str) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.code = code

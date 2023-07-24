@@ -19,7 +19,8 @@ class CreateDocumentRequest(BaseRequest):
 
 class CreateDocumentRequestBuilder(object):
 
-    def __init__(self, create_document_request: CreateDocumentRequest = CreateDocumentRequest()) -> None:
+    def __init__(self) -> None:
+        create_document_request = CreateDocumentRequest()
         create_document_request.http_method = HttpMethod.POST
         create_document_request.uri = "/open-apis/docx/v1/documents"
         create_document_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

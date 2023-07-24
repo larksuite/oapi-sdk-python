@@ -11,7 +11,7 @@ class ManageableInstanceItem(object):
         "instance": ManageableInstanceNode,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instance: Optional[ManageableInstanceNode] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ManageableInstanceItem(object):
 
 
 class ManageableInstanceItemBuilder(object):
-    def __init__(self, manageable_instance_item: ManageableInstanceItem = ManageableInstanceItem({})) -> None:
-        self._manageable_instance_item: ManageableInstanceItem = manageable_instance_item
+    def __init__(self) -> None:
+        self._manageable_instance_item = ManageableInstanceItem()
 
     def instance(self, instance: ManageableInstanceNode) -> "ManageableInstanceItemBuilder":
         self._manageable_instance_item.instance = instance

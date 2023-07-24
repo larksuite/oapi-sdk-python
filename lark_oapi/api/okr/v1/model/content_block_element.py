@@ -14,7 +14,7 @@ class ContentBlockElement(object):
         "gallery": ContentGallery,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.paragraph: Optional[ContentParagraph] = None
         self.gallery: Optional[ContentGallery] = None
@@ -26,8 +26,8 @@ class ContentBlockElement(object):
 
 
 class ContentBlockElementBuilder(object):
-    def __init__(self, content_block_element: ContentBlockElement = ContentBlockElement({})) -> None:
-        self._content_block_element: ContentBlockElement = content_block_element
+    def __init__(self) -> None:
+        self._content_block_element = ContentBlockElement()
 
     def type(self, type: str) -> "ContentBlockElementBuilder":
         self._content_block_element.type = type

@@ -15,7 +15,8 @@ class ListDeviceRequest(BaseRequest):
 
 class ListDeviceRequestBuilder(object):
 
-    def __init__(self, list_device_request: ListDeviceRequest = ListDeviceRequest()) -> None:
+    def __init__(self) -> None:
+        list_device_request = ListDeviceRequest()
         list_device_request.http_method = HttpMethod.GET
         list_device_request.uri = "/open-apis/acs/v1/devices"
         list_device_request.token_types = {AccessTokenType.TENANT}

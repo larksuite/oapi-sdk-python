@@ -11,7 +11,7 @@ class GetAttachmentResponseBody(object):
         "attachment": Attachment,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.attachment: Optional[Attachment] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetAttachmentResponseBody(object):
 
 
 class GetAttachmentResponseBodyBuilder(object):
-    def __init__(self, get_attachment_response_body: GetAttachmentResponseBody = GetAttachmentResponseBody({})) -> None:
-        self._get_attachment_response_body: GetAttachmentResponseBody = get_attachment_response_body
+    def __init__(self) -> None:
+        self._get_attachment_response_body = GetAttachmentResponseBody()
 
     def attachment(self, attachment: Attachment) -> "GetAttachmentResponseBodyBuilder":
         self._get_attachment_response_body.attachment = attachment

@@ -20,8 +20,8 @@ class MoveDocsToWikiSpaceNodeRequest(BaseRequest):
 
 class MoveDocsToWikiSpaceNodeRequestBuilder(object):
 
-    def __init__(self,
-                 move_docs_to_wiki_space_node_request: MoveDocsToWikiSpaceNodeRequest = MoveDocsToWikiSpaceNodeRequest()) -> None:
+    def __init__(self) -> None:
+        move_docs_to_wiki_space_node_request = MoveDocsToWikiSpaceNodeRequest()
         move_docs_to_wiki_space_node_request.http_method = HttpMethod.POST
         move_docs_to_wiki_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
         move_docs_to_wiki_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

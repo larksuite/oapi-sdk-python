@@ -10,7 +10,7 @@ class FormFieldVariableDepartmentValue(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class FormFieldVariableDepartmentValue(object):
 
 
 class FormFieldVariableDepartmentValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_department_value: FormFieldVariableDepartmentValue = FormFieldVariableDepartmentValue(
-                     {})) -> None:
-        self._form_field_variable_department_value: FormFieldVariableDepartmentValue = form_field_variable_department_value
+    def __init__(self) -> None:
+        self._form_field_variable_department_value = FormFieldVariableDepartmentValue()
 
     def value(self, value: str) -> "FormFieldVariableDepartmentValueBuilder":
         self._form_field_variable_department_value.value = value

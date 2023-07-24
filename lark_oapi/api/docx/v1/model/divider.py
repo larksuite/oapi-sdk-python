@@ -7,7 +7,7 @@ class Divider(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class Divider(object):
 
 
 class DividerBuilder(object):
-    def __init__(self, divider: Divider = Divider({})) -> None:
-        self._divider: Divider = divider
+    def __init__(self) -> None:
+        self._divider = Divider()
 
     def build(self) -> "Divider":
         return self._divider

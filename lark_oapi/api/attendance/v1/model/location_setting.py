@@ -14,7 +14,7 @@ class LocationSetting(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.location: Optional[LocationInfo] = None
         self.wifi: Optional[WifiInfo] = None
         self.user_id: Optional[str] = None
@@ -26,8 +26,8 @@ class LocationSetting(object):
 
 
 class LocationSettingBuilder(object):
-    def __init__(self, location_setting: LocationSetting = LocationSetting({})) -> None:
-        self._location_setting: LocationSetting = location_setting
+    def __init__(self) -> None:
+        self._location_setting = LocationSetting()
 
     def location(self, location: LocationInfo) -> "LocationSettingBuilder":
         self._location_setting.location = location

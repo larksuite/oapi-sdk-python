@@ -14,7 +14,7 @@ class ChangeEmployeeStage(object):
         "overboard_info": EmployeeOverboardInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.operation: Optional[int] = None
         self.conversion_info: Optional[EmployeeConversionInfo] = None
         self.overboard_info: Optional[EmployeeOverboardInfo] = None
@@ -26,8 +26,8 @@ class ChangeEmployeeStage(object):
 
 
 class ChangeEmployeeStageBuilder(object):
-    def __init__(self, change_employee_stage: ChangeEmployeeStage = ChangeEmployeeStage({})) -> None:
-        self._change_employee_stage: ChangeEmployeeStage = change_employee_stage
+    def __init__(self) -> None:
+        self._change_employee_stage = ChangeEmployeeStage()
 
     def operation(self, operation: int) -> "ChangeEmployeeStageBuilder":
         self._change_employee_stage.operation = operation

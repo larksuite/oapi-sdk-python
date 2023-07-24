@@ -20,7 +20,8 @@ class CreatePersonRequest(BaseRequest):
 
 class CreatePersonRequestBuilder(object):
 
-    def __init__(self, create_person_request: CreatePersonRequest = CreatePersonRequest()) -> None:
+    def __init__(self) -> None:
+        create_person_request = CreatePersonRequest()
         create_person_request.http_method = HttpMethod.POST
         create_person_request.uri = "/open-apis/corehr/v2/persons"
         create_person_request.token_types = {AccessTokenType.TENANT}

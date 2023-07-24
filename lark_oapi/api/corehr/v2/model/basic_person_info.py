@@ -13,7 +13,7 @@ class BasicPersonInfo(object):
         "preferred_english_full_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.person_id: Optional[str] = None
         self.preferred_name: Optional[str] = None
         self.preferred_local_full_name: Optional[str] = None
@@ -26,8 +26,8 @@ class BasicPersonInfo(object):
 
 
 class BasicPersonInfoBuilder(object):
-    def __init__(self, basic_person_info: BasicPersonInfo = BasicPersonInfo({})) -> None:
-        self._basic_person_info: BasicPersonInfo = basic_person_info
+    def __init__(self) -> None:
+        self._basic_person_info = BasicPersonInfo()
 
     def person_id(self, person_id: str) -> "BasicPersonInfoBuilder":
         self._basic_person_info.person_id = person_id

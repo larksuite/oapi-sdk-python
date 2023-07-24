@@ -12,7 +12,7 @@ class GetTopUserReportResponse(BaseResponse):
         "data": GetTopUserReportResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetTopUserReportResponseBody] = None
         init(self, d, self._types)

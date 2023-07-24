@@ -20,8 +20,8 @@ class PatchChatAnnouncementRequest(BaseRequest):
 
 class PatchChatAnnouncementRequestBuilder(object):
 
-    def __init__(self,
-                 patch_chat_announcement_request: PatchChatAnnouncementRequest = PatchChatAnnouncementRequest()) -> None:
+    def __init__(self) -> None:
+        patch_chat_announcement_request = PatchChatAnnouncementRequest()
         patch_chat_announcement_request.http_method = HttpMethod.PATCH
         patch_chat_announcement_request.uri = "/open-apis/im/v1/chats/:chat_id/announcement"
         patch_chat_announcement_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

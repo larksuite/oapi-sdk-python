@@ -12,7 +12,7 @@ class CommentAtInfo(object):
         "offset": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[int] = None
         self.name: Optional[str] = None
         self.offset: Optional[int] = None
@@ -24,8 +24,8 @@ class CommentAtInfo(object):
 
 
 class CommentAtInfoBuilder(object):
-    def __init__(self, comment_at_info: CommentAtInfo = CommentAtInfo({})) -> None:
-        self._comment_at_info: CommentAtInfo = comment_at_info
+    def __init__(self) -> None:
+        self._comment_at_info = CommentAtInfo()
 
     def user_id(self, user_id: int) -> "CommentAtInfoBuilder":
         self._comment_at_info.user_id = user_id

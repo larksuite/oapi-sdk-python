@@ -21,7 +21,8 @@ class PatchContractRequest(BaseRequest):
 
 class PatchContractRequestBuilder(object):
 
-    def __init__(self, patch_contract_request: PatchContractRequest = PatchContractRequest()) -> None:
+    def __init__(self) -> None:
+        patch_contract_request = PatchContractRequest()
         patch_contract_request.http_method = HttpMethod.PATCH
         patch_contract_request.uri = "/open-apis/corehr/v1/contracts/:contract_id"
         patch_contract_request.token_types = {AccessTokenType.TENANT}

@@ -12,7 +12,7 @@ class CreateLocationResponse(BaseResponse):
         "data": CreateLocationResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateLocationResponseBody] = None
         init(self, d, self._types)

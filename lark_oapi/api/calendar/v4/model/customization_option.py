@@ -11,7 +11,7 @@ class CustomizationOption(object):
         "others_content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.option_key: Optional[str] = None
         self.others_content: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CustomizationOption(object):
 
 
 class CustomizationOptionBuilder(object):
-    def __init__(self, customization_option: CustomizationOption = CustomizationOption({})) -> None:
-        self._customization_option: CustomizationOption = customization_option
+    def __init__(self) -> None:
+        self._customization_option = CustomizationOption()
 
     def option_key(self, option_key: str) -> "CustomizationOptionBuilder":
         self._customization_option.option_key = option_key

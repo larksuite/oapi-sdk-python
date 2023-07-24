@@ -13,7 +13,7 @@ class ListShiftResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.shift_list: Optional[List[Shift]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListShiftResponseBody(object):
 
 
 class ListShiftResponseBodyBuilder(object):
-    def __init__(self, list_shift_response_body: ListShiftResponseBody = ListShiftResponseBody({})) -> None:
-        self._list_shift_response_body: ListShiftResponseBody = list_shift_response_body
+    def __init__(self) -> None:
+        self._list_shift_response_body = ListShiftResponseBody()
 
     def shift_list(self, shift_list: List[Shift]) -> "ListShiftResponseBodyBuilder":
         self._list_shift_response_body.shift_list = shift_list

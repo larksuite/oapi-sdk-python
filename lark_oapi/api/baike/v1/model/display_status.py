@@ -11,7 +11,7 @@ class DisplayStatus(object):
         "allow_search": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.allow_highlight: Optional[bool] = None
         self.allow_search: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DisplayStatus(object):
 
 
 class DisplayStatusBuilder(object):
-    def __init__(self, display_status: DisplayStatus = DisplayStatus({})) -> None:
-        self._display_status: DisplayStatus = display_status
+    def __init__(self) -> None:
+        self._display_status = DisplayStatus()
 
     def allow_highlight(self, allow_highlight: bool) -> "DisplayStatusBuilder":
         self._display_status.allow_highlight = allow_highlight

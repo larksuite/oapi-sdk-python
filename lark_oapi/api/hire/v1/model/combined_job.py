@@ -41,7 +41,7 @@ class CombinedJob(object):
         "onboard_registration_schema_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.code: Optional[str] = None
         self.experience: Optional[int] = None
@@ -81,8 +81,8 @@ class CombinedJob(object):
 
 
 class CombinedJobBuilder(object):
-    def __init__(self, combined_job: CombinedJob = CombinedJob({})) -> None:
-        self._combined_job: CombinedJob = combined_job
+    def __init__(self) -> None:
+        self._combined_job = CombinedJob()
 
     def id(self, id: str) -> "CombinedJobBuilder":
         self._combined_job.id = id

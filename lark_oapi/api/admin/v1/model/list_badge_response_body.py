@@ -13,7 +13,7 @@ class ListBadgeResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.badges: Optional[List[Badge]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListBadgeResponseBody(object):
 
 
 class ListBadgeResponseBodyBuilder(object):
-    def __init__(self, list_badge_response_body: ListBadgeResponseBody = ListBadgeResponseBody({})) -> None:
-        self._list_badge_response_body: ListBadgeResponseBody = list_badge_response_body
+    def __init__(self) -> None:
+        self._list_badge_response_body = ListBadgeResponseBody()
 
     def badges(self, badges: List[Badge]) -> "ListBadgeResponseBodyBuilder":
         self._list_badge_response_body.badges = badges

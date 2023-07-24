@@ -11,7 +11,7 @@ class Href(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         self.title: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Href(object):
 
 
 class HrefBuilder(object):
-    def __init__(self, href: Href = Href({})) -> None:
-        self._href: Href = href
+    def __init__(self) -> None:
+        self._href = Href()
 
     def url(self, url: str) -> "HrefBuilder":
         self._href.url = url

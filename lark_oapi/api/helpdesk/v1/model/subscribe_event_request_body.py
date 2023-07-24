@@ -11,7 +11,7 @@ class SubscribeEventRequestBody(object):
         "events": List[Event],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.events: Optional[List[Event]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class SubscribeEventRequestBody(object):
 
 
 class SubscribeEventRequestBodyBuilder(object):
-    def __init__(self, subscribe_event_request_body: SubscribeEventRequestBody = SubscribeEventRequestBody({})) -> None:
-        self._subscribe_event_request_body: SubscribeEventRequestBody = subscribe_event_request_body
+    def __init__(self) -> None:
+        self._subscribe_event_request_body = SubscribeEventRequestBody()
 
     def events(self, events: List[Event]) -> "SubscribeEventRequestBodyBuilder":
         self._subscribe_event_request_body.events = events

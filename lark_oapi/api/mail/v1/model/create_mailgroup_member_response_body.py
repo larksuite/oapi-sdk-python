@@ -14,7 +14,7 @@ class CreateMailgroupMemberResponseBody(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id: Optional[str] = None
         self.email: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -28,10 +28,8 @@ class CreateMailgroupMemberResponseBody(object):
 
 
 class CreateMailgroupMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 create_mailgroup_member_response_body: CreateMailgroupMemberResponseBody = CreateMailgroupMemberResponseBody(
-                     {})) -> None:
-        self._create_mailgroup_member_response_body: CreateMailgroupMemberResponseBody = create_mailgroup_member_response_body
+    def __init__(self) -> None:
+        self._create_mailgroup_member_response_body = CreateMailgroupMemberResponseBody()
 
     def member_id(self, member_id: str) -> "CreateMailgroupMemberResponseBodyBuilder":
         self._create_mailgroup_member_response_body.member_id = member_id

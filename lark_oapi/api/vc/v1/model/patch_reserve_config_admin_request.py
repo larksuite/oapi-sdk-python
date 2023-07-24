@@ -21,8 +21,8 @@ class PatchReserveConfigAdminRequest(BaseRequest):
 
 class PatchReserveConfigAdminRequestBuilder(object):
 
-    def __init__(self,
-                 patch_reserve_config_admin_request: PatchReserveConfigAdminRequest = PatchReserveConfigAdminRequest()) -> None:
+    def __init__(self) -> None:
+        patch_reserve_config_admin_request = PatchReserveConfigAdminRequest()
         patch_reserve_config_admin_request.http_method = HttpMethod.PATCH
         patch_reserve_config_admin_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/admin"
         patch_reserve_config_admin_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

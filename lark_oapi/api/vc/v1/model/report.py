@@ -14,7 +14,7 @@ class Report(object):
         "daily_report": List[ReportMeetingDaily],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.total_meeting_count: Optional[int] = None
         self.total_meeting_duration: Optional[int] = None
         self.total_participant_count: Optional[int] = None
@@ -27,8 +27,8 @@ class Report(object):
 
 
 class ReportBuilder(object):
-    def __init__(self, report: Report = Report({})) -> None:
-        self._report: Report = report
+    def __init__(self) -> None:
+        self._report = Report()
 
     def total_meeting_count(self, total_meeting_count: int) -> "ReportBuilder":
         self._report.total_meeting_count = total_meeting_count

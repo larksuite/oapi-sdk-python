@@ -20,7 +20,8 @@ class GetEmployeeRequest(BaseRequest):
 
 class GetEmployeeRequestBuilder(object):
 
-    def __init__(self, get_employee_request: GetEmployeeRequest = GetEmployeeRequest()) -> None:
+    def __init__(self) -> None:
+        get_employee_request = GetEmployeeRequest()
         get_employee_request.http_method = HttpMethod.GET
         get_employee_request.uri = "/open-apis/hire/v1/employees/:employee_id"
         get_employee_request.token_types = {AccessTokenType.TENANT}

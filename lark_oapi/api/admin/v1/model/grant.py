@@ -20,7 +20,7 @@ class Grant(object):
         "group_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.badge_id: Optional[str] = None
         self.name: Optional[str] = None
@@ -39,8 +39,8 @@ class Grant(object):
 
 
 class GrantBuilder(object):
-    def __init__(self, grant: Grant = Grant({})) -> None:
-        self._grant: Grant = grant
+    def __init__(self) -> None:
+        self._grant = Grant()
 
     def id(self, id: str) -> "GrantBuilder":
         self._grant.id = id

@@ -14,7 +14,7 @@ class QueryUserTaskRemedyRequestBody(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_ids: Optional[List[str]] = None
         self.check_time_from: Optional[str] = None
         self.check_time_to: Optional[str] = None
@@ -28,10 +28,8 @@ class QueryUserTaskRemedyRequestBody(object):
 
 
 class QueryUserTaskRemedyRequestBodyBuilder(object):
-    def __init__(self,
-                 query_user_task_remedy_request_body: QueryUserTaskRemedyRequestBody = QueryUserTaskRemedyRequestBody(
-                     {})) -> None:
-        self._query_user_task_remedy_request_body: QueryUserTaskRemedyRequestBody = query_user_task_remedy_request_body
+    def __init__(self) -> None:
+        self._query_user_task_remedy_request_body = QueryUserTaskRemedyRequestBody()
 
     def user_ids(self, user_ids: List[str]) -> "QueryUserTaskRemedyRequestBodyBuilder":
         self._query_user_task_remedy_request_body.user_ids = user_ids

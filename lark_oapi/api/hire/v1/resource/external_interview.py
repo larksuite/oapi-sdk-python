@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_external_interview_request import CreateExternalInterviewRequest
-from lark_oapi.api.hire.v1.model.create_external_interview_response import CreateExternalInterviewResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_external_interview_request import CreateExternalInterviewRequest
+from ..model.create_external_interview_response import CreateExternalInterviewResponse
 
 
 class ExternalInterview(object):
@@ -16,7 +16,10 @@ class ExternalInterview(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateExternalInterviewRequest,
-               option: RequestOption = RequestOption()) -> CreateExternalInterviewResponse:
+               option: Optional[RequestOption] = None) -> CreateExternalInterviewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

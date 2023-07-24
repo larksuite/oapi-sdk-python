@@ -13,7 +13,7 @@ class ListMailgroupMemberResponseBody(object):
         "items": List[MailgroupMember],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[MailgroupMember]] = None
@@ -25,10 +25,8 @@ class ListMailgroupMemberResponseBody(object):
 
 
 class ListMailgroupMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 list_mailgroup_member_response_body: ListMailgroupMemberResponseBody = ListMailgroupMemberResponseBody(
-                     {})) -> None:
-        self._list_mailgroup_member_response_body: ListMailgroupMemberResponseBody = list_mailgroup_member_response_body
+    def __init__(self) -> None:
+        self._list_mailgroup_member_response_body = ListMailgroupMemberResponseBody()
 
     def has_more(self, has_more: bool) -> "ListMailgroupMemberResponseBodyBuilder":
         self._list_mailgroup_member_response_body.has_more = has_more

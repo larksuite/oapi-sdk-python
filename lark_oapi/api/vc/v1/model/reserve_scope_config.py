@@ -14,7 +14,7 @@ class ReserveScopeConfig(object):
         "allow_depts": List[SubscribeDepartment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.allow_all_users: Optional[int] = None
         self.allow_users: Optional[List[SubscribeUser]] = None
         self.allow_depts: Optional[List[SubscribeDepartment]] = None
@@ -26,8 +26,8 @@ class ReserveScopeConfig(object):
 
 
 class ReserveScopeConfigBuilder(object):
-    def __init__(self, reserve_scope_config: ReserveScopeConfig = ReserveScopeConfig({})) -> None:
-        self._reserve_scope_config: ReserveScopeConfig = reserve_scope_config
+    def __init__(self) -> None:
+        self._reserve_scope_config = ReserveScopeConfig()
 
     def allow_all_users(self, allow_all_users: int) -> "ReserveScopeConfigBuilder":
         self._reserve_scope_config.allow_all_users = allow_all_users

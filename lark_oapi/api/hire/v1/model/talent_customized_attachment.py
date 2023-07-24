@@ -13,7 +13,7 @@ class TalentCustomizedAttachment(object):
         "file_size": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_id: Optional[str] = None
         self.file_name: Optional[str] = None
         self.content_type: Optional[str] = None
@@ -26,9 +26,8 @@ class TalentCustomizedAttachment(object):
 
 
 class TalentCustomizedAttachmentBuilder(object):
-    def __init__(self,
-                 talent_customized_attachment: TalentCustomizedAttachment = TalentCustomizedAttachment({})) -> None:
-        self._talent_customized_attachment: TalentCustomizedAttachment = talent_customized_attachment
+    def __init__(self) -> None:
+        self._talent_customized_attachment = TalentCustomizedAttachment()
 
     def file_id(self, file_id: str) -> "TalentCustomizedAttachmentBuilder":
         self._talent_customized_attachment.file_id = file_id

@@ -15,7 +15,7 @@ class JobSchema(object):
         "object_list": List[CommonSchema],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.scenario_type: Optional[int] = None
@@ -28,8 +28,8 @@ class JobSchema(object):
 
 
 class JobSchemaBuilder(object):
-    def __init__(self, job_schema: JobSchema = JobSchema({})) -> None:
-        self._job_schema: JobSchema = job_schema
+    def __init__(self) -> None:
+        self._job_schema = JobSchema()
 
     def id(self, id: str) -> "JobSchemaBuilder":
         self._job_schema.id = id

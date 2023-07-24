@@ -19,7 +19,7 @@ class Reserve(object):
         "meeting_settings": ReserveMeetingSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.meeting_no: Optional[str] = None
         self.url: Optional[str] = None
@@ -37,8 +37,8 @@ class Reserve(object):
 
 
 class ReserveBuilder(object):
-    def __init__(self, reserve: Reserve = Reserve({})) -> None:
-        self._reserve: Reserve = reserve
+    def __init__(self) -> None:
+        self._reserve = Reserve()
 
     def id(self, id: int) -> "ReserveBuilder":
         self._reserve.id = id

@@ -11,7 +11,7 @@ class UserQueryFaqInfo(object):
         "score": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.score: Optional[float] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class UserQueryFaqInfo(object):
 
 
 class UserQueryFaqInfoBuilder(object):
-    def __init__(self, user_query_faq_info: UserQueryFaqInfo = UserQueryFaqInfo({})) -> None:
-        self._user_query_faq_info: UserQueryFaqInfo = user_query_faq_info
+    def __init__(self) -> None:
+        self._user_query_faq_info = UserQueryFaqInfo()
 
     def id(self, id: str) -> "UserQueryFaqInfoBuilder":
         self._user_query_faq_info.id = id

@@ -11,7 +11,7 @@ class PatchAppTableFormResponseBody(object):
         "form": AppTableForm,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.form: Optional[AppTableForm] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchAppTableFormResponseBody(object):
 
 
 class PatchAppTableFormResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_app_table_form_response_body: PatchAppTableFormResponseBody = PatchAppTableFormResponseBody(
-                     {})) -> None:
-        self._patch_app_table_form_response_body: PatchAppTableFormResponseBody = patch_app_table_form_response_body
+    def __init__(self) -> None:
+        self._patch_app_table_form_response_body = PatchAppTableFormResponseBody()
 
     def form(self, form: AppTableForm) -> "PatchAppTableFormResponseBodyBuilder":
         self._patch_app_table_form_response_body.form = form

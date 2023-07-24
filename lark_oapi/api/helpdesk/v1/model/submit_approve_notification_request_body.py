@@ -10,7 +10,7 @@ class SubmitApproveNotificationRequestBody(object):
         "reason": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reason: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class SubmitApproveNotificationRequestBody(object):
 
 
 class SubmitApproveNotificationRequestBodyBuilder(object):
-    def __init__(self,
-                 submit_approve_notification_request_body: SubmitApproveNotificationRequestBody = SubmitApproveNotificationRequestBody(
-                     {})) -> None:
-        self._submit_approve_notification_request_body: SubmitApproveNotificationRequestBody = submit_approve_notification_request_body
+    def __init__(self) -> None:
+        self._submit_approve_notification_request_body = SubmitApproveNotificationRequestBody()
 
     def reason(self, reason: str) -> "SubmitApproveNotificationRequestBodyBuilder":
         self._submit_approve_notification_request_body.reason = reason

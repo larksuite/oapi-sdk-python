@@ -11,7 +11,7 @@ class ReqView(object):
         "view_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view_name: Optional[str] = None
         self.view_type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ReqView(object):
 
 
 class ReqViewBuilder(object):
-    def __init__(self, req_view: ReqView = ReqView({})) -> None:
-        self._req_view: ReqView = req_view
+    def __init__(self) -> None:
+        self._req_view = ReqView()
 
     def view_name(self, view_name: str) -> "ReqViewBuilder":
         self._req_view.view_name = view_name

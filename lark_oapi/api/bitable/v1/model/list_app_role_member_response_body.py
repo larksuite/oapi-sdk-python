@@ -14,7 +14,7 @@ class ListAppRoleMemberResponseBody(object):
         "total": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[AppRoleMember]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -27,10 +27,8 @@ class ListAppRoleMemberResponseBody(object):
 
 
 class ListAppRoleMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 list_app_role_member_response_body: ListAppRoleMemberResponseBody = ListAppRoleMemberResponseBody(
-                     {})) -> None:
-        self._list_app_role_member_response_body: ListAppRoleMemberResponseBody = list_app_role_member_response_body
+    def __init__(self) -> None:
+        self._list_app_role_member_response_body = ListAppRoleMemberResponseBody()
 
     def items(self, items: List[AppRoleMember]) -> "ListAppRoleMemberResponseBodyBuilder":
         self._list_app_role_member_response_body.items = items

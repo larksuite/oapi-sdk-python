@@ -10,7 +10,7 @@ class CopyAppDashboardRequestBody(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class CopyAppDashboardRequestBody(object):
 
 
 class CopyAppDashboardRequestBodyBuilder(object):
-    def __init__(self, copy_app_dashboard_request_body: CopyAppDashboardRequestBody = CopyAppDashboardRequestBody(
-        {})) -> None:
-        self._copy_app_dashboard_request_body: CopyAppDashboardRequestBody = copy_app_dashboard_request_body
+    def __init__(self) -> None:
+        self._copy_app_dashboard_request_body = CopyAppDashboardRequestBody()
 
     def name(self, name: str) -> "CopyAppDashboardRequestBodyBuilder":
         self._copy_app_dashboard_request_body.name = name

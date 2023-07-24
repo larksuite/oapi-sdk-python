@@ -11,7 +11,7 @@ class PatchSchemaResponseBody(object):
         "schema": Schema,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.schema: Optional[Schema] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchSchemaResponseBody(object):
 
 
 class PatchSchemaResponseBodyBuilder(object):
-    def __init__(self, patch_schema_response_body: PatchSchemaResponseBody = PatchSchemaResponseBody({})) -> None:
-        self._patch_schema_response_body: PatchSchemaResponseBody = patch_schema_response_body
+    def __init__(self) -> None:
+        self._patch_schema_response_body = PatchSchemaResponseBody()
 
     def schema(self, schema: Schema) -> "PatchSchemaResponseBodyBuilder":
         self._patch_schema_response_body.schema = schema

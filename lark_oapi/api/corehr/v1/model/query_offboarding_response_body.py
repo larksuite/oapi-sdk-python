@@ -11,7 +11,7 @@ class QueryOffboardingResponseBody(object):
         "items": List[OffboardingReason],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[OffboardingReason]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class QueryOffboardingResponseBody(object):
 
 
 class QueryOffboardingResponseBodyBuilder(object):
-    def __init__(self, query_offboarding_response_body: QueryOffboardingResponseBody = QueryOffboardingResponseBody(
-        {})) -> None:
-        self._query_offboarding_response_body: QueryOffboardingResponseBody = query_offboarding_response_body
+    def __init__(self) -> None:
+        self._query_offboarding_response_body = QueryOffboardingResponseBody()
 
     def items(self, items: List[OffboardingReason]) -> "QueryOffboardingResponseBodyBuilder":
         self._query_offboarding_response_body.items = items

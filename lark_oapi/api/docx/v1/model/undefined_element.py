@@ -7,7 +7,7 @@ class UndefinedElement(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class UndefinedElement(object):
 
 
 class UndefinedElementBuilder(object):
-    def __init__(self, undefined_element: UndefinedElement = UndefinedElement({})) -> None:
-        self._undefined_element: UndefinedElement = undefined_element
+    def __init__(self) -> None:
+        self._undefined_element = UndefinedElement()
 
     def build(self) -> "UndefinedElement":
         return self._undefined_element

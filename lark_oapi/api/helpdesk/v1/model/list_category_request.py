@@ -20,7 +20,8 @@ class ListCategoryRequest(BaseRequest):
 
 class ListCategoryRequestBuilder(object):
 
-    def __init__(self, list_category_request: ListCategoryRequest = ListCategoryRequest()) -> None:
+    def __init__(self) -> None:
+        list_category_request = ListCategoryRequest()
         list_category_request.http_method = HttpMethod.GET
         list_category_request.uri = "/open-apis/helpdesk/v1/categories"
         list_category_request.token_types = {AccessTokenType.TENANT}

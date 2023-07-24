@@ -12,7 +12,7 @@ class PatchTaskRequestBody(object):
         "update_fields": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task: Optional[Task] = None
         self.update_fields: Optional[List[str]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class PatchTaskRequestBody(object):
 
 
 class PatchTaskRequestBodyBuilder(object):
-    def __init__(self, patch_task_request_body: PatchTaskRequestBody = PatchTaskRequestBody({})) -> None:
-        self._patch_task_request_body: PatchTaskRequestBody = patch_task_request_body
+    def __init__(self) -> None:
+        self._patch_task_request_body = PatchTaskRequestBody()
 
     def task(self, task: Task) -> "PatchTaskRequestBodyBuilder":
         self._patch_task_request_body.task = task

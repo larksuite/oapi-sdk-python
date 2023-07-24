@@ -12,7 +12,7 @@ class I18nMeta(object):
         "ja_jp": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         self.ja_jp: Optional[str] = None
@@ -24,8 +24,8 @@ class I18nMeta(object):
 
 
 class I18nMetaBuilder(object):
-    def __init__(self, i18n_meta: I18nMeta = I18nMeta({})) -> None:
-        self._i18n_meta: I18nMeta = i18n_meta
+    def __init__(self) -> None:
+        self._i18n_meta = I18nMeta()
 
     def zh_cn(self, zh_cn: str) -> "I18nMetaBuilder":
         self._i18n_meta.zh_cn = zh_cn

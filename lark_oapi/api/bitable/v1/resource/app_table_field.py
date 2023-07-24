@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.create_app_table_field_request import CreateAppTableFieldRequest
-from lark_oapi.api.bitable.v1.model.create_app_table_field_response import CreateAppTableFieldResponse
-from lark_oapi.api.bitable.v1.model.delete_app_table_field_request import DeleteAppTableFieldRequest
-from lark_oapi.api.bitable.v1.model.delete_app_table_field_response import DeleteAppTableFieldResponse
-from lark_oapi.api.bitable.v1.model.list_app_table_field_request import ListAppTableFieldRequest
-from lark_oapi.api.bitable.v1.model.list_app_table_field_response import ListAppTableFieldResponse
-from lark_oapi.api.bitable.v1.model.update_app_table_field_request import UpdateAppTableFieldRequest
-from lark_oapi.api.bitable.v1.model.update_app_table_field_response import UpdateAppTableFieldResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_app_table_field_request import CreateAppTableFieldRequest
+from ..model.create_app_table_field_response import CreateAppTableFieldResponse
+from ..model.delete_app_table_field_request import DeleteAppTableFieldRequest
+from ..model.delete_app_table_field_response import DeleteAppTableFieldResponse
+from ..model.list_app_table_field_request import ListAppTableFieldRequest
+from ..model.list_app_table_field_response import ListAppTableFieldResponse
+from ..model.update_app_table_field_request import UpdateAppTableFieldRequest
+from ..model.update_app_table_field_response import UpdateAppTableFieldResponse
 
 
 class AppTableField(object):
@@ -22,7 +22,10 @@ class AppTableField(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateAppTableFieldRequest,
-               option: RequestOption = RequestOption()) -> CreateAppTableFieldResponse:
+               option: Optional[RequestOption] = None) -> CreateAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class AppTableField(object):
         return response
 
     def delete(self, request: DeleteAppTableFieldRequest,
-               option: RequestOption = RequestOption()) -> DeleteAppTableFieldResponse:
+               option: Optional[RequestOption] = None) -> DeleteAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class AppTableField(object):
         return response
 
     def list(self, request: ListAppTableFieldRequest,
-             option: RequestOption = RequestOption()) -> ListAppTableFieldResponse:
+             option: Optional[RequestOption] = None) -> ListAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class AppTableField(object):
         return response
 
     def update(self, request: UpdateAppTableFieldRequest,
-               option: RequestOption = RequestOption()) -> UpdateAppTableFieldResponse:
+               option: Optional[RequestOption] = None) -> UpdateAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

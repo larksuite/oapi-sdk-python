@@ -11,7 +11,7 @@ class GetSpreadsheetSheetFloatImageResponseBody(object):
         "float_image": FloatImage,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.float_image: Optional[FloatImage] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetSpreadsheetSheetFloatImageResponseBody(object):
 
 
 class GetSpreadsheetSheetFloatImageResponseBodyBuilder(object):
-    def __init__(self,
-                 get_spreadsheet_sheet_float_image_response_body: GetSpreadsheetSheetFloatImageResponseBody = GetSpreadsheetSheetFloatImageResponseBody(
-                     {})) -> None:
-        self._get_spreadsheet_sheet_float_image_response_body: GetSpreadsheetSheetFloatImageResponseBody = get_spreadsheet_sheet_float_image_response_body
+    def __init__(self) -> None:
+        self._get_spreadsheet_sheet_float_image_response_body = GetSpreadsheetSheetFloatImageResponseBody()
 
     def float_image(self, float_image: FloatImage) -> "GetSpreadsheetSheetFloatImageResponseBodyBuilder":
         self._get_spreadsheet_sheet_float_image_response_body.float_image = float_image

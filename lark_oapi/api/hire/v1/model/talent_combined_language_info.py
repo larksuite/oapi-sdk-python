@@ -14,7 +14,7 @@ class TalentCombinedLanguageInfo(object):
         "customized_data": List[TalentCustomizedDataObjectValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.language: Optional[int] = None
         self.proficiency: Optional[int] = None
@@ -27,9 +27,8 @@ class TalentCombinedLanguageInfo(object):
 
 
 class TalentCombinedLanguageInfoBuilder(object):
-    def __init__(self,
-                 talent_combined_language_info: TalentCombinedLanguageInfo = TalentCombinedLanguageInfo({})) -> None:
-        self._talent_combined_language_info: TalentCombinedLanguageInfo = talent_combined_language_info
+    def __init__(self) -> None:
+        self._talent_combined_language_info = TalentCombinedLanguageInfo()
 
     def id(self, id: str) -> "TalentCombinedLanguageInfoBuilder":
         self._talent_combined_language_info.id = id

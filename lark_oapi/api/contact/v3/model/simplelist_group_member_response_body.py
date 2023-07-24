@@ -13,7 +13,7 @@ class SimplelistGroupMemberResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.memberlist: Optional[List[Memberlist]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class SimplelistGroupMemberResponseBody(object):
 
 
 class SimplelistGroupMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 simplelist_group_member_response_body: SimplelistGroupMemberResponseBody = SimplelistGroupMemberResponseBody(
-                     {})) -> None:
-        self._simplelist_group_member_response_body: SimplelistGroupMemberResponseBody = simplelist_group_member_response_body
+    def __init__(self) -> None:
+        self._simplelist_group_member_response_body = SimplelistGroupMemberResponseBody()
 
     def memberlist(self, memberlist: List[Memberlist]) -> "SimplelistGroupMemberResponseBodyBuilder":
         self._simplelist_group_member_response_body.memberlist = memberlist

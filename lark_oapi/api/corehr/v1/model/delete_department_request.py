@@ -18,7 +18,8 @@ class DeleteDepartmentRequest(BaseRequest):
 
 class DeleteDepartmentRequestBuilder(object):
 
-    def __init__(self, delete_department_request: DeleteDepartmentRequest = DeleteDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        delete_department_request = DeleteDepartmentRequest()
         delete_department_request.http_method = HttpMethod.DELETE
         delete_department_request.uri = "/open-apis/corehr/v1/departments/:department_id"
         delete_department_request.token_types = {AccessTokenType.TENANT}

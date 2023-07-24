@@ -20,7 +20,8 @@ class ListCalendarRequest(BaseRequest):
 
 class ListCalendarRequestBuilder(object):
 
-    def __init__(self, list_calendar_request: ListCalendarRequest = ListCalendarRequest()) -> None:
+    def __init__(self) -> None:
+        list_calendar_request = ListCalendarRequest()
         list_calendar_request.http_method = HttpMethod.GET
         list_calendar_request.uri = "/open-apis/calendar/v4/calendars"
         list_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

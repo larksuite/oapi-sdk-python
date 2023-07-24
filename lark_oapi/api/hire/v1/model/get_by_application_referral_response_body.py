@@ -11,7 +11,7 @@ class GetByApplicationReferralResponseBody(object):
         "referral": Referral,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.referral: Optional[Referral] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetByApplicationReferralResponseBody(object):
 
 
 class GetByApplicationReferralResponseBodyBuilder(object):
-    def __init__(self,
-                 get_by_application_referral_response_body: GetByApplicationReferralResponseBody = GetByApplicationReferralResponseBody(
-                     {})) -> None:
-        self._get_by_application_referral_response_body: GetByApplicationReferralResponseBody = get_by_application_referral_response_body
+    def __init__(self) -> None:
+        self._get_by_application_referral_response_body = GetByApplicationReferralResponseBody()
 
     def referral(self, referral: Referral) -> "GetByApplicationReferralResponseBodyBuilder":
         self._get_by_application_referral_response_body.referral = referral

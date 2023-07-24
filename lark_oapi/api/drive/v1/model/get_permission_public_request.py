@@ -19,8 +19,8 @@ class GetPermissionPublicRequest(BaseRequest):
 
 class GetPermissionPublicRequestBuilder(object):
 
-    def __init__(self,
-                 get_permission_public_request: GetPermissionPublicRequest = GetPermissionPublicRequest()) -> None:
+    def __init__(self) -> None:
+        get_permission_public_request = GetPermissionPublicRequest()
         get_permission_public_request.http_method = HttpMethod.GET
         get_permission_public_request.uri = "/open-apis/drive/v1/permissions/:token/public"
         get_permission_public_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

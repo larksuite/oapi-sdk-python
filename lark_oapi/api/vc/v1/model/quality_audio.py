@@ -18,7 +18,7 @@ class QualityAudio(object):
         "jitter_sent": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time: Optional[str] = None
         self.mic_input_volume: Optional[str] = None
         self.speaker_volume: Optional[str] = None
@@ -36,8 +36,8 @@ class QualityAudio(object):
 
 
 class QualityAudioBuilder(object):
-    def __init__(self, quality_audio: QualityAudio = QualityAudio({})) -> None:
-        self._quality_audio: QualityAudio = quality_audio
+    def __init__(self) -> None:
+        self._quality_audio = QualityAudio()
 
     def time(self, time: str) -> "QualityAudioBuilder":
         self._quality_audio.time = time

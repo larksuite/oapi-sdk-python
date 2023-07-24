@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_job_requirement_request import CreateJobRequirementRequest
-from lark_oapi.api.hire.v1.model.create_job_requirement_response import CreateJobRequirementResponse
-from lark_oapi.api.hire.v1.model.delete_job_requirement_request import DeleteJobRequirementRequest
-from lark_oapi.api.hire.v1.model.delete_job_requirement_response import DeleteJobRequirementResponse
-from lark_oapi.api.hire.v1.model.list_by_id_job_requirement_request import ListByIdJobRequirementRequest
-from lark_oapi.api.hire.v1.model.list_by_id_job_requirement_response import ListByIdJobRequirementResponse
-from lark_oapi.api.hire.v1.model.list_job_requirement_request import ListJobRequirementRequest
-from lark_oapi.api.hire.v1.model.list_job_requirement_response import ListJobRequirementResponse
-from lark_oapi.api.hire.v1.model.update_job_requirement_request import UpdateJobRequirementRequest
-from lark_oapi.api.hire.v1.model.update_job_requirement_response import UpdateJobRequirementResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_job_requirement_request import CreateJobRequirementRequest
+from ..model.create_job_requirement_response import CreateJobRequirementResponse
+from ..model.delete_job_requirement_request import DeleteJobRequirementRequest
+from ..model.delete_job_requirement_response import DeleteJobRequirementResponse
+from ..model.list_by_id_job_requirement_request import ListByIdJobRequirementRequest
+from ..model.list_by_id_job_requirement_response import ListByIdJobRequirementResponse
+from ..model.list_job_requirement_request import ListJobRequirementRequest
+from ..model.list_job_requirement_response import ListJobRequirementResponse
+from ..model.update_job_requirement_request import UpdateJobRequirementRequest
+from ..model.update_job_requirement_response import UpdateJobRequirementResponse
 
 
 class JobRequirement(object):
@@ -24,7 +24,10 @@ class JobRequirement(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateJobRequirementRequest,
-               option: RequestOption = RequestOption()) -> CreateJobRequirementResponse:
+               option: Optional[RequestOption] = None) -> CreateJobRequirementResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class JobRequirement(object):
         return response
 
     def delete(self, request: DeleteJobRequirementRequest,
-               option: RequestOption = RequestOption()) -> DeleteJobRequirementResponse:
+               option: Optional[RequestOption] = None) -> DeleteJobRequirementResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class JobRequirement(object):
         return response
 
     def list(self, request: ListJobRequirementRequest,
-             option: RequestOption = RequestOption()) -> ListJobRequirementResponse:
+             option: Optional[RequestOption] = None) -> ListJobRequirementResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class JobRequirement(object):
         return response
 
     def list_by_id(self, request: ListByIdJobRequirementRequest,
-                   option: RequestOption = RequestOption()) -> ListByIdJobRequirementResponse:
+                   option: Optional[RequestOption] = None) -> ListByIdJobRequirementResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -81,7 +93,10 @@ class JobRequirement(object):
         return response
 
     def update(self, request: UpdateJobRequirementRequest,
-               option: RequestOption = RequestOption()) -> UpdateJobRequirementResponse:
+               option: Optional[RequestOption] = None) -> UpdateJobRequirementResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

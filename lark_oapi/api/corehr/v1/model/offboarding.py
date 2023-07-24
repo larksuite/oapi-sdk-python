@@ -17,7 +17,7 @@ class Offboarding(object):
         "offboarding_checklist": OffboardingChecklist,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.initiating_type: Optional[str] = None
         self.status: Optional[str] = None
         self.application_info: Optional[ApplicationInfo] = None
@@ -31,8 +31,8 @@ class Offboarding(object):
 
 
 class OffboardingBuilder(object):
-    def __init__(self, offboarding: Offboarding = Offboarding({})) -> None:
-        self._offboarding: Offboarding = offboarding
+    def __init__(self) -> None:
+        self._offboarding = Offboarding()
 
     def initiating_type(self, initiating_type: str) -> "OffboardingBuilder":
         self._offboarding.initiating_type = initiating_type

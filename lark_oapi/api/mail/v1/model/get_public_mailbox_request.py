@@ -18,7 +18,8 @@ class GetPublicMailboxRequest(BaseRequest):
 
 class GetPublicMailboxRequestBuilder(object):
 
-    def __init__(self, get_public_mailbox_request: GetPublicMailboxRequest = GetPublicMailboxRequest()) -> None:
+    def __init__(self) -> None:
+        get_public_mailbox_request = GetPublicMailboxRequest()
         get_public_mailbox_request.http_method = HttpMethod.GET
         get_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id"
         get_public_mailbox_request.token_types = {AccessTokenType.TENANT}

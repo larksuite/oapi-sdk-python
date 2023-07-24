@@ -11,7 +11,7 @@ class FormFieldVariableI18nValue(object):
         "value": BpmDataengineI18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[BpmDataengineI18n] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class FormFieldVariableI18nValue(object):
 
 
 class FormFieldVariableI18nValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_i18n_value: FormFieldVariableI18nValue = FormFieldVariableI18nValue({})) -> None:
-        self._form_field_variable_i18n_value: FormFieldVariableI18nValue = form_field_variable_i18n_value
+    def __init__(self) -> None:
+        self._form_field_variable_i18n_value = FormFieldVariableI18nValue()
 
     def value(self, value: BpmDataengineI18n) -> "FormFieldVariableI18nValueBuilder":
         self._form_field_variable_i18n_value.value = value

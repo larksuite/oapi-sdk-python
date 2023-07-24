@@ -11,7 +11,7 @@ class PatchAgentSkillRequestBody(object):
         "agent_skill": AgentSkill,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_skill: Optional[AgentSkill] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class PatchAgentSkillRequestBody(object):
 
 
 class PatchAgentSkillRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_agent_skill_request_body: PatchAgentSkillRequestBody = PatchAgentSkillRequestBody({})) -> None:
-        self._patch_agent_skill_request_body: PatchAgentSkillRequestBody = patch_agent_skill_request_body
+    def __init__(self) -> None:
+        self._patch_agent_skill_request_body = PatchAgentSkillRequestBody()
 
     def agent_skill(self, agent_skill: AgentSkill) -> "PatchAgentSkillRequestBodyBuilder":
         self._patch_agent_skill_request_body.agent_skill = agent_skill

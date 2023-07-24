@@ -11,7 +11,7 @@ class MaterialDeleteResult(object):
         "result": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.result: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MaterialDeleteResult(object):
 
 
 class MaterialDeleteResultBuilder(object):
-    def __init__(self, material_delete_result: MaterialDeleteResult = MaterialDeleteResult({})) -> None:
-        self._material_delete_result: MaterialDeleteResult = material_delete_result
+    def __init__(self) -> None:
+        self._material_delete_result = MaterialDeleteResult()
 
     def file_token(self, file_token: str) -> "MaterialDeleteResultBuilder":
         self._material_delete_result.file_token = file_token

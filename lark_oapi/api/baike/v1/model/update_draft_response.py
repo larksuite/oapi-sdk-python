@@ -12,7 +12,7 @@ class UpdateDraftResponse(BaseResponse):
         "data": UpdateDraftResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UpdateDraftResponseBody] = None
         init(self, d, self._types)

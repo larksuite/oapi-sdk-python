@@ -11,7 +11,7 @@ class PatchAppTableViewResponseBody(object):
         "view": AppTableView,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view: Optional[AppTableView] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchAppTableViewResponseBody(object):
 
 
 class PatchAppTableViewResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_app_table_view_response_body: PatchAppTableViewResponseBody = PatchAppTableViewResponseBody(
-                     {})) -> None:
-        self._patch_app_table_view_response_body: PatchAppTableViewResponseBody = patch_app_table_view_response_body
+    def __init__(self) -> None:
+        self._patch_app_table_view_response_body = PatchAppTableViewResponseBody()
 
     def view(self, view: AppTableView) -> "PatchAppTableViewResponseBodyBuilder":
         self._patch_app_table_view_response_body.view = view

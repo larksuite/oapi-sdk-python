@@ -14,7 +14,7 @@ class ConditionalFormatRange(object):
         "end_column_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sheet_id: Optional[str] = None
         self.start_row_index: Optional[int] = None
         self.end_row_index: Optional[int] = None
@@ -28,8 +28,8 @@ class ConditionalFormatRange(object):
 
 
 class ConditionalFormatRangeBuilder(object):
-    def __init__(self, conditional_format_range: ConditionalFormatRange = ConditionalFormatRange({})) -> None:
-        self._conditional_format_range: ConditionalFormatRange = conditional_format_range
+    def __init__(self) -> None:
+        self._conditional_format_range = ConditionalFormatRange()
 
     def sheet_id(self, sheet_id: str) -> "ConditionalFormatRangeBuilder":
         self._conditional_format_range.sheet_id = sheet_id

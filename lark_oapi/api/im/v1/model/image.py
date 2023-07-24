@@ -7,7 +7,7 @@ class Image(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class Image(object):
 
 
 class ImageBuilder(object):
-    def __init__(self, image: Image = Image({})) -> None:
-        self._image: Image = image
+    def __init__(self) -> None:
+        self._image = Image()
 
     def build(self) -> "Image":
         return self._image

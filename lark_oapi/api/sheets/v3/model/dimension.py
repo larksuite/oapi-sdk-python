@@ -12,7 +12,7 @@ class Dimension(object):
         "end_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.major_dimension: Optional[str] = None
         self.start_index: Optional[int] = None
         self.end_index: Optional[int] = None
@@ -24,8 +24,8 @@ class Dimension(object):
 
 
 class DimensionBuilder(object):
-    def __init__(self, dimension: Dimension = Dimension({})) -> None:
-        self._dimension: Dimension = dimension
+    def __init__(self) -> None:
+        self._dimension = Dimension()
 
     def major_dimension(self, major_dimension: str) -> "DimensionBuilder":
         self._dimension.major_dimension = major_dimension

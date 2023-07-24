@@ -13,7 +13,7 @@ class EventSender(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sender_id: Optional[UserId] = None
         self.sender_type: Optional[str] = None
         self.tenant_key: Optional[str] = None
@@ -25,8 +25,8 @@ class EventSender(object):
 
 
 class EventSenderBuilder(object):
-    def __init__(self, event_sender: EventSender = EventSender({})) -> None:
-        self._event_sender: EventSender = event_sender
+    def __init__(self) -> None:
+        self._event_sender = EventSender()
 
     def sender_id(self, sender_id: UserId) -> "EventSenderBuilder":
         self._event_sender.sender_id = sender_id

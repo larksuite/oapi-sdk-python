@@ -24,8 +24,8 @@ class UpdateFileCommentReplyRequest(BaseRequest):
 
 class UpdateFileCommentReplyRequestBuilder(object):
 
-    def __init__(self,
-                 update_file_comment_reply_request: UpdateFileCommentReplyRequest = UpdateFileCommentReplyRequest()) -> None:
+    def __init__(self) -> None:
+        update_file_comment_reply_request = UpdateFileCommentReplyRequest()
         update_file_comment_reply_request.http_method = HttpMethod.PUT
         update_file_comment_reply_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
         update_file_comment_reply_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

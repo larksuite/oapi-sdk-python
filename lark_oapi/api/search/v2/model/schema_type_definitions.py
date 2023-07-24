@@ -11,7 +11,7 @@ class SchemaTypeDefinitions(object):
         "tag": List[SchemaTagOptions],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tag: Optional[List[SchemaTagOptions]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class SchemaTypeDefinitions(object):
 
 
 class SchemaTypeDefinitionsBuilder(object):
-    def __init__(self, schema_type_definitions: SchemaTypeDefinitions = SchemaTypeDefinitions({})) -> None:
-        self._schema_type_definitions: SchemaTypeDefinitions = schema_type_definitions
+    def __init__(self) -> None:
+        self._schema_type_definitions = SchemaTypeDefinitions()
 
     def tag(self, tag: List[SchemaTagOptions]) -> "SchemaTypeDefinitionsBuilder":
         self._schema_type_definitions.tag = tag

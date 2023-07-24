@@ -20,7 +20,8 @@ class MgetRoomRequest(BaseRequest):
 
 class MgetRoomRequestBuilder(object):
 
-    def __init__(self, mget_room_request: MgetRoomRequest = MgetRoomRequest()) -> None:
+    def __init__(self) -> None:
+        mget_room_request = MgetRoomRequest()
         mget_room_request.http_method = HttpMethod.POST
         mget_room_request.uri = "/open-apis/vc/v1/rooms/mget"
         mget_room_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

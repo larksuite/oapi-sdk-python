@@ -11,7 +11,7 @@ class VcInfo(object):
         "meeting_no": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.unique_id: Optional[int] = None
         self.meeting_no: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class VcInfo(object):
 
 
 class VcInfoBuilder(object):
-    def __init__(self, vc_info: VcInfo = VcInfo({})) -> None:
-        self._vc_info: VcInfo = vc_info
+    def __init__(self) -> None:
+        self._vc_info = VcInfo()
 
     def unique_id(self, unique_id: int) -> "VcInfoBuilder":
         self._vc_info.unique_id = unique_id

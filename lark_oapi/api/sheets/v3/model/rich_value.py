@@ -10,7 +10,7 @@ class RichValue(object):
         "values": List[list],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.values: Optional[List[list]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class RichValue(object):
 
 
 class RichValueBuilder(object):
-    def __init__(self, rich_value: RichValue = RichValue({})) -> None:
-        self._rich_value: RichValue = rich_value
+    def __init__(self) -> None:
+        self._rich_value = RichValue()
 
     def values(self, values: List[list]) -> "RichValueBuilder":
         self._rich_value.values = values

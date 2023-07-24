@@ -12,7 +12,7 @@ class ContentTextRun(object):
         "style": ContentTextStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         self.style: Optional[ContentTextStyle] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ContentTextRun(object):
 
 
 class ContentTextRunBuilder(object):
-    def __init__(self, content_text_run: ContentTextRun = ContentTextRun({})) -> None:
-        self._content_text_run: ContentTextRun = content_text_run
+    def __init__(self) -> None:
+        self._content_text_run = ContentTextRun()
 
     def text(self, text: str) -> "ContentTextRunBuilder":
         self._content_text_run.text = text

@@ -21,7 +21,8 @@ class DeleteChatMembersRequest(BaseRequest):
 
 class DeleteChatMembersRequestBuilder(object):
 
-    def __init__(self, delete_chat_members_request: DeleteChatMembersRequest = DeleteChatMembersRequest()) -> None:
+    def __init__(self) -> None:
+        delete_chat_members_request = DeleteChatMembersRequest()
         delete_chat_members_request.http_method = HttpMethod.DELETE
         delete_chat_members_request.uri = "/open-apis/im/v1/chats/:chat_id/members"
         delete_chat_members_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

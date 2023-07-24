@@ -14,7 +14,7 @@ class ExchangeBinding(object):
         "exchange_binding_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.admin_account: Optional[str] = None
         self.exchange_account: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -28,8 +28,8 @@ class ExchangeBinding(object):
 
 
 class ExchangeBindingBuilder(object):
-    def __init__(self, exchange_binding: ExchangeBinding = ExchangeBinding({})) -> None:
-        self._exchange_binding: ExchangeBinding = exchange_binding
+    def __init__(self) -> None:
+        self._exchange_binding = ExchangeBinding()
 
     def admin_account(self, admin_account: str) -> "ExchangeBindingBuilder":
         self._exchange_binding.admin_account = admin_account

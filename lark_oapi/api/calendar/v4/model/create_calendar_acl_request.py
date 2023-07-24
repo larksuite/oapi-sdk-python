@@ -21,7 +21,8 @@ class CreateCalendarAclRequest(BaseRequest):
 
 class CreateCalendarAclRequestBuilder(object):
 
-    def __init__(self, create_calendar_acl_request: CreateCalendarAclRequest = CreateCalendarAclRequest()) -> None:
+    def __init__(self) -> None:
+        create_calendar_acl_request = CreateCalendarAclRequest()
         create_calendar_acl_request.http_method = HttpMethod.POST
         create_calendar_acl_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/acls"
         create_calendar_acl_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

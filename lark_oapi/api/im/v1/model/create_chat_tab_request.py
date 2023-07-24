@@ -20,7 +20,8 @@ class CreateChatTabRequest(BaseRequest):
 
 class CreateChatTabRequestBuilder(object):
 
-    def __init__(self, create_chat_tab_request: CreateChatTabRequest = CreateChatTabRequest()) -> None:
+    def __init__(self) -> None:
+        create_chat_tab_request = CreateChatTabRequest()
         create_chat_tab_request.http_method = HttpMethod.POST
         create_chat_tab_request.uri = "/open-apis/im/v1/chats/:chat_id/chat_tabs"
         create_chat_tab_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

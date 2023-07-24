@@ -15,7 +15,7 @@ class UploadPartMediaRequestBody(object):
         "file": IO[Any],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.upload_id: Optional[str] = None
         self.seq: Optional[int] = None
         self.size: Optional[int] = None
@@ -29,9 +29,8 @@ class UploadPartMediaRequestBody(object):
 
 
 class UploadPartMediaRequestBodyBuilder(object):
-    def __init__(self,
-                 upload_part_media_request_body: UploadPartMediaRequestBody = UploadPartMediaRequestBody({})) -> None:
-        self._upload_part_media_request_body: UploadPartMediaRequestBody = upload_part_media_request_body
+    def __init__(self) -> None:
+        self._upload_part_media_request_body = UploadPartMediaRequestBody()
 
     def upload_id(self, upload_id: str) -> "UploadPartMediaRequestBodyBuilder":
         self._upload_part_media_request_body.upload_id = upload_id

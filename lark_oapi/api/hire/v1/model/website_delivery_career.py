@@ -16,7 +16,7 @@ class WebsiteDeliveryCareer(object):
         "customized_data": List[WebsiteDeliveryCustomizedData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.desc: Optional[str] = None
         self.end_time: Optional[int] = None
         self.start_time: Optional[int] = None
@@ -31,8 +31,8 @@ class WebsiteDeliveryCareer(object):
 
 
 class WebsiteDeliveryCareerBuilder(object):
-    def __init__(self, website_delivery_career: WebsiteDeliveryCareer = WebsiteDeliveryCareer({})) -> None:
-        self._website_delivery_career: WebsiteDeliveryCareer = website_delivery_career
+    def __init__(self) -> None:
+        self._website_delivery_career = WebsiteDeliveryCareer()
 
     def desc(self, desc: str) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.desc = desc

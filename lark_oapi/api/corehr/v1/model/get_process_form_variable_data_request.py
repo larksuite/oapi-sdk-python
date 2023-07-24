@@ -18,8 +18,8 @@ class GetProcessFormVariableDataRequest(BaseRequest):
 
 class GetProcessFormVariableDataRequestBuilder(object):
 
-    def __init__(self,
-                 get_process_form_variable_data_request: GetProcessFormVariableDataRequest = GetProcessFormVariableDataRequest()) -> None:
+    def __init__(self) -> None:
+        get_process_form_variable_data_request = GetProcessFormVariableDataRequest()
         get_process_form_variable_data_request.http_method = HttpMethod.GET
         get_process_form_variable_data_request.uri = "/open-apis/corehr/v1/processes/:process_id/form_variable_data"
         get_process_form_variable_data_request.token_types = {AccessTokenType.TENANT}

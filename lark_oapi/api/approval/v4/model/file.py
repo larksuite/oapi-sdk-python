@@ -13,7 +13,7 @@ class File(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         self.file_size: Optional[int] = None
         self.title: Optional[str] = None
@@ -26,8 +26,8 @@ class File(object):
 
 
 class FileBuilder(object):
-    def __init__(self, file: File = File({})) -> None:
-        self._file: File = file
+    def __init__(self) -> None:
+        self._file = File()
 
     def url(self, url: str) -> "FileBuilder":
         self._file.url = url

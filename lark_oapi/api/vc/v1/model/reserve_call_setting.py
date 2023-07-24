@@ -11,7 +11,7 @@ class ReserveCallSetting(object):
         "callee": ReserveCallee,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.callee: Optional[ReserveCallee] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ReserveCallSetting(object):
 
 
 class ReserveCallSettingBuilder(object):
-    def __init__(self, reserve_call_setting: ReserveCallSetting = ReserveCallSetting({})) -> None:
-        self._reserve_call_setting: ReserveCallSetting = reserve_call_setting
+    def __init__(self) -> None:
+        self._reserve_call_setting = ReserveCallSetting()
 
     def callee(self, callee: ReserveCallee) -> "ReserveCallSettingBuilder":
         self._reserve_call_setting.callee = callee

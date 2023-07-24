@@ -20,7 +20,8 @@ class PatchCategoryRequest(BaseRequest):
 
 class PatchCategoryRequestBuilder(object):
 
-    def __init__(self, patch_category_request: PatchCategoryRequest = PatchCategoryRequest()) -> None:
+    def __init__(self) -> None:
+        patch_category_request = PatchCategoryRequest()
         patch_category_request.http_method = HttpMethod.PATCH
         patch_category_request.uri = "/open-apis/helpdesk/v1/categories/:id"
         patch_category_request.token_types = {AccessTokenType.USER}

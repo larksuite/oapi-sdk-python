@@ -10,7 +10,7 @@ class FormFieldVariableBoolValue(object):
         "value": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class FormFieldVariableBoolValue(object):
 
 
 class FormFieldVariableBoolValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_bool_value: FormFieldVariableBoolValue = FormFieldVariableBoolValue({})) -> None:
-        self._form_field_variable_bool_value: FormFieldVariableBoolValue = form_field_variable_bool_value
+    def __init__(self) -> None:
+        self._form_field_variable_bool_value = FormFieldVariableBoolValue()
 
     def value(self, value: bool) -> "FormFieldVariableBoolValueBuilder":
         self._form_field_variable_bool_value.value = value

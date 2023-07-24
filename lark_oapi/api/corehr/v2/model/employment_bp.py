@@ -12,7 +12,7 @@ class EmploymentBp(object):
         "location_bp_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.hrbp_ids: Optional[List[str]] = None
         self.location_bp_ids: Optional[List[str]] = None
@@ -24,8 +24,8 @@ class EmploymentBp(object):
 
 
 class EmploymentBpBuilder(object):
-    def __init__(self, employment_bp: EmploymentBp = EmploymentBp({})) -> None:
-        self._employment_bp: EmploymentBp = employment_bp
+    def __init__(self) -> None:
+        self._employment_bp = EmploymentBp()
 
     def employment_id(self, employment_id: str) -> "EmploymentBpBuilder":
         self._employment_bp.employment_id = employment_id

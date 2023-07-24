@@ -12,7 +12,7 @@ class ListInstanceResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instance_code_list: Optional[List[str]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -24,8 +24,8 @@ class ListInstanceResponseBody(object):
 
 
 class ListInstanceResponseBodyBuilder(object):
-    def __init__(self, list_instance_response_body: ListInstanceResponseBody = ListInstanceResponseBody({})) -> None:
-        self._list_instance_response_body: ListInstanceResponseBody = list_instance_response_body
+    def __init__(self) -> None:
+        self._list_instance_response_body = ListInstanceResponseBody()
 
     def instance_code_list(self, instance_code_list: List[str]) -> "ListInstanceResponseBodyBuilder":
         self._list_instance_response_body.instance_code_list = instance_code_list

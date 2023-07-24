@@ -12,7 +12,7 @@ class ApplicationWebsiteChannel(object):
         "channel_name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.channel_id: Optional[str] = None
         self.channel_name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ApplicationWebsiteChannel(object):
 
 
 class ApplicationWebsiteChannelBuilder(object):
-    def __init__(self, application_website_channel: ApplicationWebsiteChannel = ApplicationWebsiteChannel({})) -> None:
-        self._application_website_channel: ApplicationWebsiteChannel = application_website_channel
+    def __init__(self) -> None:
+        self._application_website_channel = ApplicationWebsiteChannel()
 
     def channel_id(self, channel_id: str) -> "ApplicationWebsiteChannelBuilder":
         self._application_website_channel.channel_id = channel_id

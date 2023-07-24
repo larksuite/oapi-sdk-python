@@ -12,7 +12,7 @@ class CopyAppResponse(BaseResponse):
         "data": CopyAppResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CopyAppResponseBody] = None
         init(self, d, self._types)

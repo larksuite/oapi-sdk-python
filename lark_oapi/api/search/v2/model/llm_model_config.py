@@ -13,7 +13,7 @@ class LlmModelConfig(object):
         "temperature": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.model_name: Optional[str] = None
         self.prompt: Optional[str] = None
         self.max_token: Optional[int] = None
@@ -26,8 +26,8 @@ class LlmModelConfig(object):
 
 
 class LlmModelConfigBuilder(object):
-    def __init__(self, llm_model_config: LlmModelConfig = LlmModelConfig({})) -> None:
-        self._llm_model_config: LlmModelConfig = llm_model_config
+    def __init__(self) -> None:
+        self._llm_model_config = LlmModelConfig()
 
     def model_name(self, model_name: str) -> "LlmModelConfigBuilder":
         self._llm_model_config.model_name = model_name

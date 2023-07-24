@@ -11,7 +11,7 @@ class SchemaSortOptions(object):
         "order": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.priority: Optional[int] = None
         self.order: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SchemaSortOptions(object):
 
 
 class SchemaSortOptionsBuilder(object):
-    def __init__(self, schema_sort_options: SchemaSortOptions = SchemaSortOptions({})) -> None:
-        self._schema_sort_options: SchemaSortOptions = schema_sort_options
+    def __init__(self) -> None:
+        self._schema_sort_options = SchemaSortOptions()
 
     def priority(self, priority: int) -> "SchemaSortOptionsBuilder":
         self._schema_sort_options.priority = priority

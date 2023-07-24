@@ -12,7 +12,7 @@ class SearchCalendarEventRequestBody(object):
         "filter": EventSearchFilter,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.query: Optional[str] = None
         self.filter: Optional[EventSearchFilter] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class SearchCalendarEventRequestBody(object):
 
 
 class SearchCalendarEventRequestBodyBuilder(object):
-    def __init__(self,
-                 search_calendar_event_request_body: SearchCalendarEventRequestBody = SearchCalendarEventRequestBody(
-                     {})) -> None:
-        self._search_calendar_event_request_body: SearchCalendarEventRequestBody = search_calendar_event_request_body
+    def __init__(self) -> None:
+        self._search_calendar_event_request_body = SearchCalendarEventRequestBody()
 
     def query(self, query: str) -> "SearchCalendarEventRequestBodyBuilder":
         self._search_calendar_event_request_body.query = query

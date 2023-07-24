@@ -13,7 +13,7 @@ class ListMessageReactionResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[MessageReaction]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListMessageReactionResponseBody(object):
 
 
 class ListMessageReactionResponseBodyBuilder(object):
-    def __init__(self,
-                 list_message_reaction_response_body: ListMessageReactionResponseBody = ListMessageReactionResponseBody(
-                     {})) -> None:
-        self._list_message_reaction_response_body: ListMessageReactionResponseBody = list_message_reaction_response_body
+    def __init__(self) -> None:
+        self._list_message_reaction_response_body = ListMessageReactionResponseBody()
 
     def items(self, items: List[MessageReaction]) -> "ListMessageReactionResponseBodyBuilder":
         self._list_message_reaction_response_body.items = items

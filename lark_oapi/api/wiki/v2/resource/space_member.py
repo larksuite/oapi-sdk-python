@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.wiki.v2.model.create_space_member_request import CreateSpaceMemberRequest
-from lark_oapi.api.wiki.v2.model.create_space_member_response import CreateSpaceMemberResponse
-from lark_oapi.api.wiki.v2.model.delete_space_member_request import DeleteSpaceMemberRequest
-from lark_oapi.api.wiki.v2.model.delete_space_member_response import DeleteSpaceMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_space_member_request import CreateSpaceMemberRequest
+from ..model.create_space_member_response import CreateSpaceMemberResponse
+from ..model.delete_space_member_request import DeleteSpaceMemberRequest
+from ..model.delete_space_member_response import DeleteSpaceMemberResponse
 
 
 class SpaceMember(object):
@@ -18,7 +18,10 @@ class SpaceMember(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateSpaceMemberRequest,
-               option: RequestOption = RequestOption()) -> CreateSpaceMemberResponse:
+               option: Optional[RequestOption] = None) -> CreateSpaceMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class SpaceMember(object):
         return response
 
     def delete(self, request: DeleteSpaceMemberRequest,
-               option: RequestOption = RequestOption()) -> DeleteSpaceMemberResponse:
+               option: Optional[RequestOption] = None) -> DeleteSpaceMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class BatchDeleteFunctionalRoleMemberResponseBody(object):
         "result": List[FunctionalRoleMemberResult],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.result: Optional[List[FunctionalRoleMemberResult]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchDeleteFunctionalRoleMemberResponseBody(object):
 
 
 class BatchDeleteFunctionalRoleMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_functional_role_member_response_body: BatchDeleteFunctionalRoleMemberResponseBody = BatchDeleteFunctionalRoleMemberResponseBody(
-                     {})) -> None:
-        self._batch_delete_functional_role_member_response_body: BatchDeleteFunctionalRoleMemberResponseBody = batch_delete_functional_role_member_response_body
+    def __init__(self) -> None:
+        self._batch_delete_functional_role_member_response_body = BatchDeleteFunctionalRoleMemberResponseBody()
 
     def result(self, result: List[FunctionalRoleMemberResult]) -> "BatchDeleteFunctionalRoleMemberResponseBodyBuilder":
         self._batch_delete_functional_role_member_response_body.result = result

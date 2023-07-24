@@ -15,7 +15,7 @@ class MessageReaction(object):
         "reaction_type": Emoji,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reaction_id: Optional[str] = None
         self.operator: Optional[Operator] = None
         self.action_time: Optional[int] = None
@@ -28,8 +28,8 @@ class MessageReaction(object):
 
 
 class MessageReactionBuilder(object):
-    def __init__(self, message_reaction: MessageReaction = MessageReaction({})) -> None:
-        self._message_reaction: MessageReaction = message_reaction
+    def __init__(self) -> None:
+        self._message_reaction = MessageReaction()
 
     def reaction_id(self, reaction_id: str) -> "MessageReactionBuilder":
         self._message_reaction.reaction_id = reaction_id

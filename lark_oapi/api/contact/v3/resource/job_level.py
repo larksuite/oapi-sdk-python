@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.create_job_level_request import CreateJobLevelRequest
-from lark_oapi.api.contact.v3.model.create_job_level_response import CreateJobLevelResponse
-from lark_oapi.api.contact.v3.model.delete_job_level_request import DeleteJobLevelRequest
-from lark_oapi.api.contact.v3.model.delete_job_level_response import DeleteJobLevelResponse
-from lark_oapi.api.contact.v3.model.get_job_level_request import GetJobLevelRequest
-from lark_oapi.api.contact.v3.model.get_job_level_response import GetJobLevelResponse
-from lark_oapi.api.contact.v3.model.list_job_level_request import ListJobLevelRequest
-from lark_oapi.api.contact.v3.model.list_job_level_response import ListJobLevelResponse
-from lark_oapi.api.contact.v3.model.update_job_level_request import UpdateJobLevelRequest
-from lark_oapi.api.contact.v3.model.update_job_level_response import UpdateJobLevelResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_job_level_request import CreateJobLevelRequest
+from ..model.create_job_level_response import CreateJobLevelResponse
+from ..model.delete_job_level_request import DeleteJobLevelRequest
+from ..model.delete_job_level_response import DeleteJobLevelResponse
+from ..model.get_job_level_request import GetJobLevelRequest
+from ..model.get_job_level_response import GetJobLevelResponse
+from ..model.list_job_level_request import ListJobLevelRequest
+from ..model.list_job_level_response import ListJobLevelResponse
+from ..model.update_job_level_request import UpdateJobLevelRequest
+from ..model.update_job_level_response import UpdateJobLevelResponse
 
 
 class JobLevel(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateJobLevelRequest, option: RequestOption = RequestOption()) -> CreateJobLevelResponse:
+    def create(self, request: CreateJobLevelRequest, option: Optional[RequestOption] = None) -> CreateJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class JobLevel(object):
 
         return response
 
-    def delete(self, request: DeleteJobLevelRequest, option: RequestOption = RequestOption()) -> DeleteJobLevelResponse:
+    def delete(self, request: DeleteJobLevelRequest, option: Optional[RequestOption] = None) -> DeleteJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class JobLevel(object):
 
         return response
 
-    def get(self, request: GetJobLevelRequest, option: RequestOption = RequestOption()) -> GetJobLevelResponse:
+    def get(self, request: GetJobLevelRequest, option: Optional[RequestOption] = None) -> GetJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class JobLevel(object):
 
         return response
 
-    def list(self, request: ListJobLevelRequest, option: RequestOption = RequestOption()) -> ListJobLevelResponse:
+    def list(self, request: ListJobLevelRequest, option: Optional[RequestOption] = None) -> ListJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +87,10 @@ class JobLevel(object):
 
         return response
 
-    def update(self, request: UpdateJobLevelRequest, option: RequestOption = RequestOption()) -> UpdateJobLevelResponse:
+    def update(self, request: UpdateJobLevelRequest, option: Optional[RequestOption] = None) -> UpdateJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

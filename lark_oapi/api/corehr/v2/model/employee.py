@@ -66,7 +66,7 @@ class Employee(object):
         "time_zone": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.ats_application_id: Optional[str] = None
         self.prehire_id: Optional[str] = None
@@ -125,8 +125,8 @@ class Employee(object):
 
 
 class EmployeeBuilder(object):
-    def __init__(self, employee: Employee = Employee({})) -> None:
-        self._employee: Employee = employee
+    def __init__(self) -> None:
+        self._employee = Employee()
 
     def employment_id(self, employment_id: str) -> "EmployeeBuilder":
         self._employee.employment_id = employment_id

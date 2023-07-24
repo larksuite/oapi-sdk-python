@@ -11,7 +11,7 @@ class UpdateTaskCommentRequestBody(object):
         "rich_content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.rich_content: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class UpdateTaskCommentRequestBody(object):
 
 
 class UpdateTaskCommentRequestBodyBuilder(object):
-    def __init__(self, update_task_comment_request_body: UpdateTaskCommentRequestBody = UpdateTaskCommentRequestBody(
-        {})) -> None:
-        self._update_task_comment_request_body: UpdateTaskCommentRequestBody = update_task_comment_request_body
+    def __init__(self) -> None:
+        self._update_task_comment_request_body = UpdateTaskCommentRequestBody()
 
     def content(self, content: str) -> "UpdateTaskCommentRequestBodyBuilder":
         self._update_task_comment_request_body.content = content

@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.query_talent_object_request import QueryTalentObjectRequest
-from lark_oapi.api.hire.v1.model.query_talent_object_response import QueryTalentObjectResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_talent_object_request import QueryTalentObjectRequest
+from ..model.query_talent_object_response import QueryTalentObjectResponse
 
 
 class TalentObject(object):
@@ -16,7 +16,10 @@ class TalentObject(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryTalentObjectRequest,
-              option: RequestOption = RequestOption()) -> QueryTalentObjectResponse:
+              option: Optional[RequestOption] = None) -> QueryTalentObjectResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

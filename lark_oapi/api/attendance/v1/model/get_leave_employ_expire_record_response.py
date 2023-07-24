@@ -12,7 +12,7 @@ class GetLeaveEmployExpireRecordResponse(BaseResponse):
         "data": GetLeaveEmployExpireRecordResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetLeaveEmployExpireRecordResponseBody] = None
         init(self, d, self._types)

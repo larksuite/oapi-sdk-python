@@ -25,7 +25,7 @@ class JobConfigResult(object):
         "job_attribute": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_apply_schema: Optional[IdNameObject] = None
         self.offer_process_conf: Optional[IdNameObject] = None
         self.recommended_evaluator_list: Optional[List[IdNameObject]] = None
@@ -46,8 +46,8 @@ class JobConfigResult(object):
 
 
 class JobConfigResultBuilder(object):
-    def __init__(self, job_config_result: JobConfigResult = JobConfigResult({})) -> None:
-        self._job_config_result: JobConfigResult = job_config_result
+    def __init__(self) -> None:
+        self._job_config_result = JobConfigResult()
 
     def offer_apply_schema(self, offer_apply_schema: IdNameObject) -> "JobConfigResultBuilder":
         self._job_config_result.offer_apply_schema = offer_apply_schema

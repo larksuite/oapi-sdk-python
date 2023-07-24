@@ -14,7 +14,7 @@ class ChatMenuItemRedirectLink(object):
         "web_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.common_url: Optional[str] = None
         self.ios_url: Optional[str] = None
         self.android_url: Optional[str] = None
@@ -28,8 +28,8 @@ class ChatMenuItemRedirectLink(object):
 
 
 class ChatMenuItemRedirectLinkBuilder(object):
-    def __init__(self, chat_menu_item_redirect_link: ChatMenuItemRedirectLink = ChatMenuItemRedirectLink({})) -> None:
-        self._chat_menu_item_redirect_link: ChatMenuItemRedirectLink = chat_menu_item_redirect_link
+    def __init__(self) -> None:
+        self._chat_menu_item_redirect_link = ChatMenuItemRedirectLink()
 
     def common_url(self, common_url: str) -> "ChatMenuItemRedirectLinkBuilder":
         self._chat_menu_item_redirect_link.common_url = common_url

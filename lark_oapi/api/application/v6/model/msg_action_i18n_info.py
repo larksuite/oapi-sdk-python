@@ -11,7 +11,7 @@ class MsgActionI18nInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.i18n_key: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MsgActionI18nInfo(object):
 
 
 class MsgActionI18nInfoBuilder(object):
-    def __init__(self, msg_action_i18n_info: MsgActionI18nInfo = MsgActionI18nInfo({})) -> None:
-        self._msg_action_i18n_info: MsgActionI18nInfo = msg_action_i18n_info
+    def __init__(self) -> None:
+        self._msg_action_i18n_info = MsgActionI18nInfo()
 
     def i18n_key(self, i18n_key: str) -> "MsgActionI18nInfoBuilder":
         self._msg_action_i18n_info.i18n_key = i18n_key

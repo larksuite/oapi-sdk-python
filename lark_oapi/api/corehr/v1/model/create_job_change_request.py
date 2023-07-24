@@ -21,7 +21,8 @@ class CreateJobChangeRequest(BaseRequest):
 
 class CreateJobChangeRequestBuilder(object):
 
-    def __init__(self, create_job_change_request: CreateJobChangeRequest = CreateJobChangeRequest()) -> None:
+    def __init__(self) -> None:
+        create_job_change_request = CreateJobChangeRequest()
         create_job_change_request.http_method = HttpMethod.POST
         create_job_change_request.uri = "/open-apis/corehr/v1/job_changes"
         create_job_change_request.token_types = {AccessTokenType.TENANT}

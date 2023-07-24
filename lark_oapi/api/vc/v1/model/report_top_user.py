@@ -14,7 +14,7 @@ class ReportTopUser(object):
         "meeting_duration": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         self.user_type: Optional[int] = None
@@ -28,8 +28,8 @@ class ReportTopUser(object):
 
 
 class ReportTopUserBuilder(object):
-    def __init__(self, report_top_user: ReportTopUser = ReportTopUser({})) -> None:
-        self._report_top_user: ReportTopUser = report_top_user
+    def __init__(self) -> None:
+        self._report_top_user = ReportTopUser()
 
     def id(self, id: int) -> "ReportTopUserBuilder":
         self._report_top_user.id = id

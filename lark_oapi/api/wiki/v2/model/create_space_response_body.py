@@ -11,7 +11,7 @@ class CreateSpaceResponseBody(object):
         "space": Space,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.space: Optional[Space] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CreateSpaceResponseBody(object):
 
 
 class CreateSpaceResponseBodyBuilder(object):
-    def __init__(self, create_space_response_body: CreateSpaceResponseBody = CreateSpaceResponseBody({})) -> None:
-        self._create_space_response_body: CreateSpaceResponseBody = create_space_response_body
+    def __init__(self) -> None:
+        self._create_space_response_body = CreateSpaceResponseBody()
 
     def space(self, space: Space) -> "CreateSpaceResponseBodyBuilder":
         self._create_space_response_body.space = space

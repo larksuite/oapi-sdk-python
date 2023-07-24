@@ -11,7 +11,7 @@ class InterviewRecordTemplate(object):
         "assessment_template": InterviewAssessmentTemplate,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.assessment_template: Optional[InterviewAssessmentTemplate] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class InterviewRecordTemplate(object):
 
 
 class InterviewRecordTemplateBuilder(object):
-    def __init__(self, interview_record_template: InterviewRecordTemplate = InterviewRecordTemplate({})) -> None:
-        self._interview_record_template: InterviewRecordTemplate = interview_record_template
+    def __init__(self) -> None:
+        self._interview_record_template = InterviewRecordTemplate()
 
     def assessment_template(self, assessment_template: InterviewAssessmentTemplate) -> "InterviewRecordTemplateBuilder":
         self._interview_record_template.assessment_template = assessment_template

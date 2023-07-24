@@ -11,7 +11,7 @@ class CreateCompanyResponseBody(object):
         "company": Company,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.company: Optional[Company] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CreateCompanyResponseBody(object):
 
 
 class CreateCompanyResponseBodyBuilder(object):
-    def __init__(self, create_company_response_body: CreateCompanyResponseBody = CreateCompanyResponseBody({})) -> None:
-        self._create_company_response_body: CreateCompanyResponseBody = create_company_response_body
+    def __init__(self) -> None:
+        self._create_company_response_body = CreateCompanyResponseBody()
 
     def company(self, company: Company) -> "CreateCompanyResponseBodyBuilder":
         self._create_company_response_body.company = company

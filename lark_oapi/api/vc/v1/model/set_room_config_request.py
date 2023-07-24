@@ -20,7 +20,8 @@ class SetRoomConfigRequest(BaseRequest):
 
 class SetRoomConfigRequestBuilder(object):
 
-    def __init__(self, set_room_config_request: SetRoomConfigRequest = SetRoomConfigRequest()) -> None:
+    def __init__(self) -> None:
+        set_room_config_request = SetRoomConfigRequest()
         set_room_config_request.http_method = HttpMethod.POST
         set_room_config_request.uri = "/open-apis/vc/v1/room_configs/set"
         set_room_config_request.token_types = {AccessTokenType.TENANT}

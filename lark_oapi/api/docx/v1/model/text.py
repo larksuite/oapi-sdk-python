@@ -13,7 +13,7 @@ class Text(object):
         "elements": List[TextElement],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.style: Optional[TextStyle] = None
         self.elements: Optional[List[TextElement]] = None
         init(self, d, self._types)
@@ -24,8 +24,8 @@ class Text(object):
 
 
 class TextBuilder(object):
-    def __init__(self, text: Text = Text({})) -> None:
-        self._text: Text = text
+    def __init__(self) -> None:
+        self._text = Text()
 
     def style(self, style: TextStyle) -> "TextBuilder":
         self._text.style = style

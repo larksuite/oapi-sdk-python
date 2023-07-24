@@ -22,7 +22,7 @@ class Alert(object):
         "process_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.alert_id: Optional[int] = None
         self.resource_scope: Optional[str] = None
         self.monitor_target: Optional[int] = None
@@ -43,8 +43,8 @@ class Alert(object):
 
 
 class AlertBuilder(object):
-    def __init__(self, alert: Alert = Alert({})) -> None:
-        self._alert: Alert = alert
+    def __init__(self) -> None:
+        self._alert = Alert()
 
     def alert_id(self, alert_id: int) -> "AlertBuilder":
         self._alert.alert_id = alert_id

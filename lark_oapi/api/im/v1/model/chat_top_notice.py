@@ -11,7 +11,7 @@ class ChatTopNotice(object):
         "message_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.action_type: Optional[str] = None
         self.message_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ChatTopNotice(object):
 
 
 class ChatTopNoticeBuilder(object):
-    def __init__(self, chat_top_notice: ChatTopNotice = ChatTopNotice({})) -> None:
-        self._chat_top_notice: ChatTopNotice = chat_top_notice
+    def __init__(self) -> None:
+        self._chat_top_notice = ChatTopNotice()
 
     def action_type(self, action_type: str) -> "ChatTopNoticeBuilder":
         self._chat_top_notice.action_type = action_type

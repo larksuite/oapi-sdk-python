@@ -11,7 +11,7 @@ class CreateCategoryResponseBody(object):
         "category": Category,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.category: Optional[Category] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateCategoryResponseBody(object):
 
 
 class CreateCategoryResponseBodyBuilder(object):
-    def __init__(self,
-                 create_category_response_body: CreateCategoryResponseBody = CreateCategoryResponseBody({})) -> None:
-        self._create_category_response_body: CreateCategoryResponseBody = create_category_response_body
+    def __init__(self) -> None:
+        self._create_category_response_body = CreateCategoryResponseBody()
 
     def category(self, category: Category) -> "CreateCategoryResponseBodyBuilder":
         self._create_category_response_body.category = category

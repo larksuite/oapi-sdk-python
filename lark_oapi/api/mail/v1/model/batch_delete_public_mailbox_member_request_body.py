@@ -10,7 +10,7 @@ class BatchDeletePublicMailboxMemberRequestBody(object):
         "member_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class BatchDeletePublicMailboxMemberRequestBody(object):
 
 
 class BatchDeletePublicMailboxMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_public_mailbox_member_request_body: BatchDeletePublicMailboxMemberRequestBody = BatchDeletePublicMailboxMemberRequestBody(
-                     {})) -> None:
-        self._batch_delete_public_mailbox_member_request_body: BatchDeletePublicMailboxMemberRequestBody = batch_delete_public_mailbox_member_request_body
+    def __init__(self) -> None:
+        self._batch_delete_public_mailbox_member_request_body = BatchDeletePublicMailboxMemberRequestBody()
 
     def member_id_list(self, member_id_list: List[str]) -> "BatchDeletePublicMailboxMemberRequestBodyBuilder":
         self._batch_delete_public_mailbox_member_request_body.member_id_list = member_id_list

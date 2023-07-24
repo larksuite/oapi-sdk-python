@@ -18,7 +18,8 @@ class EndMeetingRequest(BaseRequest):
 
 class EndMeetingRequestBuilder(object):
 
-    def __init__(self, end_meeting_request: EndMeetingRequest = EndMeetingRequest()) -> None:
+    def __init__(self) -> None:
+        end_meeting_request = EndMeetingRequest()
         end_meeting_request.http_method = HttpMethod.PATCH
         end_meeting_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/end"
         end_meeting_request.token_types = {AccessTokenType.USER}

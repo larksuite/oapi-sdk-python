@@ -13,7 +13,7 @@ class CreateDocumentBlockChildrenResponseBody(object):
         "client_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.children: Optional[List[Block]] = None
         self.document_revision_id: Optional[int] = None
         self.client_token: Optional[str] = None
@@ -25,10 +25,8 @@ class CreateDocumentBlockChildrenResponseBody(object):
 
 
 class CreateDocumentBlockChildrenResponseBodyBuilder(object):
-    def __init__(self,
-                 create_document_block_children_response_body: CreateDocumentBlockChildrenResponseBody = CreateDocumentBlockChildrenResponseBody(
-                     {})) -> None:
-        self._create_document_block_children_response_body: CreateDocumentBlockChildrenResponseBody = create_document_block_children_response_body
+    def __init__(self) -> None:
+        self._create_document_block_children_response_body = CreateDocumentBlockChildrenResponseBody()
 
     def children(self, children: List[Block]) -> "CreateDocumentBlockChildrenResponseBodyBuilder":
         self._create_document_block_children_response_body.children = children

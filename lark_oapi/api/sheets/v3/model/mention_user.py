@@ -14,7 +14,7 @@ class MentionUser(object):
         "segment_style": SegmentStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.user_id: Optional[str] = None
         self.notify: Optional[bool] = None
@@ -27,8 +27,8 @@ class MentionUser(object):
 
 
 class MentionUserBuilder(object):
-    def __init__(self, mention_user: MentionUser = MentionUser({})) -> None:
-        self._mention_user: MentionUser = mention_user
+    def __init__(self) -> None:
+        self._mention_user = MentionUser()
 
     def name(self, name: str) -> "MentionUserBuilder":
         self._mention_user.name = name

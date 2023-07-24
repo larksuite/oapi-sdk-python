@@ -12,7 +12,7 @@ class PatchReserveConfigFormRequestBody(object):
         "reserve_form_config": ReserveFormConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope_type: Optional[int] = None
         self.reserve_form_config: Optional[ReserveFormConfig] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class PatchReserveConfigFormRequestBody(object):
 
 
 class PatchReserveConfigFormRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_reserve_config_form_request_body: PatchReserveConfigFormRequestBody = PatchReserveConfigFormRequestBody(
-                     {})) -> None:
-        self._patch_reserve_config_form_request_body: PatchReserveConfigFormRequestBody = patch_reserve_config_form_request_body
+    def __init__(self) -> None:
+        self._patch_reserve_config_form_request_body = PatchReserveConfigFormRequestBody()
 
     def scope_type(self, scope_type: int) -> "PatchReserveConfigFormRequestBodyBuilder":
         self._patch_reserve_config_form_request_body.scope_type = scope_type

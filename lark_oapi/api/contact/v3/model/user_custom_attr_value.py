@@ -18,7 +18,7 @@ class UserCustomAttrValue(object):
         "generic_user": CustomAttrGenericUser,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         self.url: Optional[str] = None
         self.pc_url: Optional[str] = None
@@ -35,8 +35,8 @@ class UserCustomAttrValue(object):
 
 
 class UserCustomAttrValueBuilder(object):
-    def __init__(self, user_custom_attr_value: UserCustomAttrValue = UserCustomAttrValue({})) -> None:
-        self._user_custom_attr_value: UserCustomAttrValue = user_custom_attr_value
+    def __init__(self) -> None:
+        self._user_custom_attr_value = UserCustomAttrValue()
 
     def text(self, text: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.text = text

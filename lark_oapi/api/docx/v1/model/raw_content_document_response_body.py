@@ -10,7 +10,7 @@ class RawContentDocumentResponseBody(object):
         "content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class RawContentDocumentResponseBody(object):
 
 
 class RawContentDocumentResponseBodyBuilder(object):
-    def __init__(self,
-                 raw_content_document_response_body: RawContentDocumentResponseBody = RawContentDocumentResponseBody(
-                     {})) -> None:
-        self._raw_content_document_response_body: RawContentDocumentResponseBody = raw_content_document_response_body
+    def __init__(self) -> None:
+        self._raw_content_document_response_body = RawContentDocumentResponseBody()
 
     def content(self, content: str) -> "RawContentDocumentResponseBodyBuilder":
         self._raw_content_document_response_body.content = content

@@ -30,7 +30,7 @@ class ApplicationOfferBasicInfo(object):
         "customize_info_list": List[ApplicationOfferCustomValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_type: Optional[int] = None
         self.remark: Optional[str] = None
         self.expire_time: Optional[int] = None
@@ -57,8 +57,8 @@ class ApplicationOfferBasicInfo(object):
 
 
 class ApplicationOfferBasicInfoBuilder(object):
-    def __init__(self, application_offer_basic_info: ApplicationOfferBasicInfo = ApplicationOfferBasicInfo({})) -> None:
-        self._application_offer_basic_info: ApplicationOfferBasicInfo = application_offer_basic_info
+    def __init__(self) -> None:
+        self._application_offer_basic_info = ApplicationOfferBasicInfo()
 
     def offer_type(self, offer_type: int) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.offer_type = offer_type

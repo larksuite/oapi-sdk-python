@@ -11,7 +11,7 @@ class BatchDeleteDocumentBlockChildrenResponseBody(object):
         "client_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.document_revision_id: Optional[int] = None
         self.client_token: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class BatchDeleteDocumentBlockChildrenResponseBody(object):
 
 
 class BatchDeleteDocumentBlockChildrenResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_document_block_children_response_body: BatchDeleteDocumentBlockChildrenResponseBody = BatchDeleteDocumentBlockChildrenResponseBody(
-                     {})) -> None:
-        self._batch_delete_document_block_children_response_body: BatchDeleteDocumentBlockChildrenResponseBody = batch_delete_document_block_children_response_body
+    def __init__(self) -> None:
+        self._batch_delete_document_block_children_response_body = BatchDeleteDocumentBlockChildrenResponseBody()
 
     def document_revision_id(self, document_revision_id: int) -> "BatchDeleteDocumentBlockChildrenResponseBodyBuilder":
         self._batch_delete_document_block_children_response_body.document_revision_id = document_revision_id

@@ -21,7 +21,8 @@ class PatchPersonRequest(BaseRequest):
 
 class PatchPersonRequestBuilder(object):
 
-    def __init__(self, patch_person_request: PatchPersonRequest = PatchPersonRequest()) -> None:
+    def __init__(self) -> None:
+        patch_person_request = PatchPersonRequest()
         patch_person_request.http_method = HttpMethod.PATCH
         patch_person_request.uri = "/open-apis/corehr/v2/persons/:person_id"
         patch_person_request.token_types = {AccessTokenType.TENANT}

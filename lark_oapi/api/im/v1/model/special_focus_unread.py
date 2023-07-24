@@ -12,7 +12,7 @@ class SpecialFocusUnread(object):
         "unread_count": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.id_type: Optional[str] = None
         self.unread_count: Optional[str] = None
@@ -24,8 +24,8 @@ class SpecialFocusUnread(object):
 
 
 class SpecialFocusUnreadBuilder(object):
-    def __init__(self, special_focus_unread: SpecialFocusUnread = SpecialFocusUnread({})) -> None:
-        self._special_focus_unread: SpecialFocusUnread = special_focus_unread
+    def __init__(self) -> None:
+        self._special_focus_unread = SpecialFocusUnread()
 
     def id(self, id: str) -> "SpecialFocusUnreadBuilder":
         self._special_focus_unread.id = id

@@ -12,7 +12,7 @@ class ListEntityResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.entities: Optional[List[Entity]] = None
         self.page_token: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ListEntityResponseBody(object):
 
 
 class ListEntityResponseBodyBuilder(object):
-    def __init__(self, list_entity_response_body: ListEntityResponseBody = ListEntityResponseBody({})) -> None:
-        self._list_entity_response_body: ListEntityResponseBody = list_entity_response_body
+    def __init__(self) -> None:
+        self._list_entity_response_body = ListEntityResponseBody()
 
     def entities(self, entities: List[Entity]) -> "ListEntityResponseBodyBuilder":
         self._list_entity_response_body.entities = entities

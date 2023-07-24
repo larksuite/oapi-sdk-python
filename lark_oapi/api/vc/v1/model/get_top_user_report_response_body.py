@@ -11,7 +11,7 @@ class GetTopUserReportResponseBody(object):
         "top_user_report": List[ReportTopUser],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.top_user_report: Optional[List[ReportTopUser]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetTopUserReportResponseBody(object):
 
 
 class GetTopUserReportResponseBodyBuilder(object):
-    def __init__(self, get_top_user_report_response_body: GetTopUserReportResponseBody = GetTopUserReportResponseBody(
-        {})) -> None:
-        self._get_top_user_report_response_body: GetTopUserReportResponseBody = get_top_user_report_response_body
+    def __init__(self) -> None:
+        self._get_top_user_report_response_body = GetTopUserReportResponseBody()
 
     def top_user_report(self, top_user_report: List[ReportTopUser]) -> "GetTopUserReportResponseBodyBuilder":
         self._get_top_user_report_response_body.top_user_report = top_user_report

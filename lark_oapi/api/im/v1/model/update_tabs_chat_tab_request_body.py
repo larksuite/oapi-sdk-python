@@ -11,7 +11,7 @@ class UpdateTabsChatTabRequestBody(object):
         "chat_tabs": List[ChatTab],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_tabs: Optional[List[ChatTab]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class UpdateTabsChatTabRequestBody(object):
 
 
 class UpdateTabsChatTabRequestBodyBuilder(object):
-    def __init__(self, update_tabs_chat_tab_request_body: UpdateTabsChatTabRequestBody = UpdateTabsChatTabRequestBody(
-        {})) -> None:
-        self._update_tabs_chat_tab_request_body: UpdateTabsChatTabRequestBody = update_tabs_chat_tab_request_body
+    def __init__(self) -> None:
+        self._update_tabs_chat_tab_request_body = UpdateTabsChatTabRequestBody()
 
     def chat_tabs(self, chat_tabs: List[ChatTab]) -> "UpdateTabsChatTabRequestBodyBuilder":
         self._update_tabs_chat_tab_request_body.chat_tabs = chat_tabs

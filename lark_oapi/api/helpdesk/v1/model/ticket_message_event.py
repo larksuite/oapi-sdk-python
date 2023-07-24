@@ -23,7 +23,7 @@ class TicketMessageEvent(object):
         "content": TicketMessageContent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket_message_id: Optional[str] = None
         self.message_id: Optional[str] = None
         self.msg_type: Optional[str] = None
@@ -43,8 +43,8 @@ class TicketMessageEvent(object):
 
 
 class TicketMessageEventBuilder(object):
-    def __init__(self, ticket_message_event: TicketMessageEvent = TicketMessageEvent({})) -> None:
-        self._ticket_message_event: TicketMessageEvent = ticket_message_event
+    def __init__(self) -> None:
+        self._ticket_message_event = TicketMessageEvent()
 
     def ticket_message_id(self, ticket_message_id: str) -> "TicketMessageEventBuilder":
         self._ticket_message_event.ticket_message_id = ticket_message_id

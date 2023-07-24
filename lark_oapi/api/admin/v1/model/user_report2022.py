@@ -37,7 +37,7 @@ class UserReport2022(object):
         "receive_email_count": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.user_register_date: Optional[str] = None
         self.active_day_count: Optional[int] = None
@@ -74,8 +74,8 @@ class UserReport2022(object):
 
 
 class UserReport2022Builder(object):
-    def __init__(self, user_report2022: UserReport2022 = UserReport2022({})) -> None:
-        self._user_report2022: UserReport2022 = user_report2022
+    def __init__(self) -> None:
+        self._user_report2022 = UserReport2022()
 
     def user_id(self, user_id: str) -> "UserReport2022Builder":
         self._user_report2022.user_id = user_id

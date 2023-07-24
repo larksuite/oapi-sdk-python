@@ -11,7 +11,7 @@ class PatchCalendarResponseBody(object):
         "calendar": Calendar,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.calendar: Optional[Calendar] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchCalendarResponseBody(object):
 
 
 class PatchCalendarResponseBodyBuilder(object):
-    def __init__(self, patch_calendar_response_body: PatchCalendarResponseBody = PatchCalendarResponseBody({})) -> None:
-        self._patch_calendar_response_body: PatchCalendarResponseBody = patch_calendar_response_body
+    def __init__(self) -> None:
+        self._patch_calendar_response_body = PatchCalendarResponseBody()
 
     def calendar(self, calendar: Calendar) -> "PatchCalendarResponseBodyBuilder":
         self._patch_calendar_response_body.calendar = calendar

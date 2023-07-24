@@ -11,7 +11,7 @@ class QueryUserSettingResponseBody(object):
         "user_settings": List[UserSetting],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_settings: Optional[List[UserSetting]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class QueryUserSettingResponseBody(object):
 
 
 class QueryUserSettingResponseBodyBuilder(object):
-    def __init__(self, query_user_setting_response_body: QueryUserSettingResponseBody = QueryUserSettingResponseBody(
-        {})) -> None:
-        self._query_user_setting_response_body: QueryUserSettingResponseBody = query_user_setting_response_body
+    def __init__(self) -> None:
+        self._query_user_setting_response_body = QueryUserSettingResponseBody()
 
     def user_settings(self, user_settings: List[UserSetting]) -> "QueryUserSettingResponseBodyBuilder":
         self._query_user_setting_response_body.user_settings = user_settings

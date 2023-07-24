@@ -2,29 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.task.v1.model.batch_delete_collaborator_task_request import BatchDeleteCollaboratorTaskRequest
-from lark_oapi.api.task.v1.model.batch_delete_collaborator_task_response import BatchDeleteCollaboratorTaskResponse
-from lark_oapi.api.task.v1.model.batch_delete_follower_task_request import BatchDeleteFollowerTaskRequest
-from lark_oapi.api.task.v1.model.batch_delete_follower_task_response import BatchDeleteFollowerTaskResponse
-from lark_oapi.api.task.v1.model.complete_task_request import CompleteTaskRequest
-from lark_oapi.api.task.v1.model.complete_task_response import CompleteTaskResponse
-from lark_oapi.api.task.v1.model.create_task_request import CreateTaskRequest
-from lark_oapi.api.task.v1.model.create_task_response import CreateTaskResponse
-from lark_oapi.api.task.v1.model.delete_task_request import DeleteTaskRequest
-from lark_oapi.api.task.v1.model.delete_task_response import DeleteTaskResponse
-from lark_oapi.api.task.v1.model.get_task_request import GetTaskRequest
-from lark_oapi.api.task.v1.model.get_task_response import GetTaskResponse
-from lark_oapi.api.task.v1.model.list_task_request import ListTaskRequest
-from lark_oapi.api.task.v1.model.list_task_response import ListTaskResponse
-from lark_oapi.api.task.v1.model.patch_task_request import PatchTaskRequest
-from lark_oapi.api.task.v1.model.patch_task_response import PatchTaskResponse
-from lark_oapi.api.task.v1.model.uncomplete_task_request import UncompleteTaskRequest
-from lark_oapi.api.task.v1.model.uncomplete_task_response import UncompleteTaskResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_delete_collaborator_task_request import BatchDeleteCollaboratorTaskRequest
+from ..model.batch_delete_collaborator_task_response import BatchDeleteCollaboratorTaskResponse
+from ..model.batch_delete_follower_task_request import BatchDeleteFollowerTaskRequest
+from ..model.batch_delete_follower_task_response import BatchDeleteFollowerTaskResponse
+from ..model.complete_task_request import CompleteTaskRequest
+from ..model.complete_task_response import CompleteTaskResponse
+from ..model.create_task_request import CreateTaskRequest
+from ..model.create_task_response import CreateTaskResponse
+from ..model.delete_task_request import DeleteTaskRequest
+from ..model.delete_task_response import DeleteTaskResponse
+from ..model.get_task_request import GetTaskRequest
+from ..model.get_task_response import GetTaskResponse
+from ..model.list_task_request import ListTaskRequest
+from ..model.list_task_response import ListTaskResponse
+from ..model.patch_task_request import PatchTaskRequest
+from ..model.patch_task_response import PatchTaskResponse
+from ..model.uncomplete_task_request import UncompleteTaskRequest
+from ..model.uncomplete_task_response import UncompleteTaskResponse
 
 
 class Task(object):
@@ -32,7 +32,10 @@ class Task(object):
         self.config: Optional[Config] = config
 
     def batch_delete_collaborator(self, request: BatchDeleteCollaboratorTaskRequest,
-                                  option: RequestOption = RequestOption()) -> BatchDeleteCollaboratorTaskResponse:
+                                  option: Optional[RequestOption] = None) -> BatchDeleteCollaboratorTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +50,10 @@ class Task(object):
         return response
 
     def batch_delete_follower(self, request: BatchDeleteFollowerTaskRequest,
-                              option: RequestOption = RequestOption()) -> BatchDeleteFollowerTaskResponse:
+                              option: Optional[RequestOption] = None) -> BatchDeleteFollowerTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -61,7 +67,10 @@ class Task(object):
 
         return response
 
-    def complete(self, request: CompleteTaskRequest, option: RequestOption = RequestOption()) -> CompleteTaskResponse:
+    def complete(self, request: CompleteTaskRequest, option: Optional[RequestOption] = None) -> CompleteTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -74,7 +83,10 @@ class Task(object):
 
         return response
 
-    def create(self, request: CreateTaskRequest, option: RequestOption = RequestOption()) -> CreateTaskResponse:
+    def create(self, request: CreateTaskRequest, option: Optional[RequestOption] = None) -> CreateTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -87,7 +99,10 @@ class Task(object):
 
         return response
 
-    def delete(self, request: DeleteTaskRequest, option: RequestOption = RequestOption()) -> DeleteTaskResponse:
+    def delete(self, request: DeleteTaskRequest, option: Optional[RequestOption] = None) -> DeleteTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -100,7 +115,10 @@ class Task(object):
 
         return response
 
-    def get(self, request: GetTaskRequest, option: RequestOption = RequestOption()) -> GetTaskResponse:
+    def get(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -113,7 +131,10 @@ class Task(object):
 
         return response
 
-    def list(self, request: ListTaskRequest, option: RequestOption = RequestOption()) -> ListTaskResponse:
+    def list(self, request: ListTaskRequest, option: Optional[RequestOption] = None) -> ListTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -126,7 +147,10 @@ class Task(object):
 
         return response
 
-    def patch(self, request: PatchTaskRequest, option: RequestOption = RequestOption()) -> PatchTaskResponse:
+    def patch(self, request: PatchTaskRequest, option: Optional[RequestOption] = None) -> PatchTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -140,7 +164,10 @@ class Task(object):
         return response
 
     def uncomplete(self, request: UncompleteTaskRequest,
-                   option: RequestOption = RequestOption()) -> UncompleteTaskResponse:
+                   option: Optional[RequestOption] = None) -> UncompleteTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

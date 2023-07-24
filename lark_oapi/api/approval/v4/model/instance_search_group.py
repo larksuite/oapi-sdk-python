@@ -11,7 +11,7 @@ class InstanceSearchGroup(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class InstanceSearchGroup(object):
 
 
 class InstanceSearchGroupBuilder(object):
-    def __init__(self, instance_search_group: InstanceSearchGroup = InstanceSearchGroup({})) -> None:
-        self._instance_search_group: InstanceSearchGroup = instance_search_group
+    def __init__(self) -> None:
+        self._instance_search_group = InstanceSearchGroup()
 
     def external_id(self, external_id: str) -> "InstanceSearchGroupBuilder":
         self._instance_search_group.external_id = external_id

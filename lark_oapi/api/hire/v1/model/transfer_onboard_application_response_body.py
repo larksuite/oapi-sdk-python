@@ -11,7 +11,7 @@ class TransferOnboardApplicationResponseBody(object):
         "employee": Employee,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employee: Optional[Employee] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class TransferOnboardApplicationResponseBody(object):
 
 
 class TransferOnboardApplicationResponseBodyBuilder(object):
-    def __init__(self,
-                 transfer_onboard_application_response_body: TransferOnboardApplicationResponseBody = TransferOnboardApplicationResponseBody(
-                     {})) -> None:
-        self._transfer_onboard_application_response_body: TransferOnboardApplicationResponseBody = transfer_onboard_application_response_body
+    def __init__(self) -> None:
+        self._transfer_onboard_application_response_body = TransferOnboardApplicationResponseBody()
 
     def employee(self, employee: Employee) -> "TransferOnboardApplicationResponseBodyBuilder":
         self._transfer_onboard_application_response_body.employee = employee

@@ -13,7 +13,7 @@ class CreateAgentSkillRequestBody(object):
         "agent_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.rules: Optional[List[AgentSkillRule]] = None
         self.agent_ids: Optional[List[str]] = None
@@ -25,9 +25,8 @@ class CreateAgentSkillRequestBody(object):
 
 
 class CreateAgentSkillRequestBodyBuilder(object):
-    def __init__(self, create_agent_skill_request_body: CreateAgentSkillRequestBody = CreateAgentSkillRequestBody(
-        {})) -> None:
-        self._create_agent_skill_request_body: CreateAgentSkillRequestBody = create_agent_skill_request_body
+    def __init__(self) -> None:
+        self._create_agent_skill_request_body = CreateAgentSkillRequestBody()
 
     def name(self, name: str) -> "CreateAgentSkillRequestBodyBuilder":
         self._create_agent_skill_request_body.name = name

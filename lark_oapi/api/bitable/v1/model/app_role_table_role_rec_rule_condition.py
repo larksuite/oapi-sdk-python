@@ -13,7 +13,7 @@ class AppRoleTableRoleRecRuleCondition(object):
         "field_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_name: Optional[str] = None
         self.operator: Optional[str] = None
         self.value: Optional[List[str]] = None
@@ -26,10 +26,8 @@ class AppRoleTableRoleRecRuleCondition(object):
 
 
 class AppRoleTableRoleRecRuleConditionBuilder(object):
-    def __init__(self,
-                 app_role_table_role_rec_rule_condition: AppRoleTableRoleRecRuleCondition = AppRoleTableRoleRecRuleCondition(
-                     {})) -> None:
-        self._app_role_table_role_rec_rule_condition: AppRoleTableRoleRecRuleCondition = app_role_table_role_rec_rule_condition
+    def __init__(self) -> None:
+        self._app_role_table_role_rec_rule_condition = AppRoleTableRoleRecRuleCondition()
 
     def field_name(self, field_name: str) -> "AppRoleTableRoleRecRuleConditionBuilder":
         self._app_role_table_role_rec_rule_condition.field_name = field_name

@@ -20,7 +20,8 @@ class BatchGetIdUserRequest(BaseRequest):
 
 class BatchGetIdUserRequestBuilder(object):
 
-    def __init__(self, batch_get_id_user_request: BatchGetIdUserRequest = BatchGetIdUserRequest()) -> None:
+    def __init__(self) -> None:
+        batch_get_id_user_request = BatchGetIdUserRequest()
         batch_get_id_user_request.http_method = HttpMethod.POST
         batch_get_id_user_request.uri = "/open-apis/contact/v3/users/batch_get_id"
         batch_get_id_user_request.token_types = {AccessTokenType.TENANT}

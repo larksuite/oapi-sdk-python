@@ -11,7 +11,7 @@ class MgetRoomLevelResponseBody(object):
         "items": List[RoomLevel],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[RoomLevel]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class MgetRoomLevelResponseBody(object):
 
 
 class MgetRoomLevelResponseBodyBuilder(object):
-    def __init__(self,
-                 mget_room_level_response_body: MgetRoomLevelResponseBody = MgetRoomLevelResponseBody({})) -> None:
-        self._mget_room_level_response_body: MgetRoomLevelResponseBody = mget_room_level_response_body
+    def __init__(self) -> None:
+        self._mget_room_level_response_body = MgetRoomLevelResponseBody()
 
     def items(self, items: List[RoomLevel]) -> "MgetRoomLevelResponseBodyBuilder":
         self._mget_room_level_response_body.items = items

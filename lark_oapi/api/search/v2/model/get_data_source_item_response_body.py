@@ -11,7 +11,7 @@ class GetDataSourceItemResponseBody(object):
         "item": Item,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.item: Optional[Item] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetDataSourceItemResponseBody(object):
 
 
 class GetDataSourceItemResponseBodyBuilder(object):
-    def __init__(self,
-                 get_data_source_item_response_body: GetDataSourceItemResponseBody = GetDataSourceItemResponseBody(
-                     {})) -> None:
-        self._get_data_source_item_response_body: GetDataSourceItemResponseBody = get_data_source_item_response_body
+    def __init__(self) -> None:
+        self._get_data_source_item_response_body = GetDataSourceItemResponseBody()
 
     def item(self, item: Item) -> "GetDataSourceItemResponseBodyBuilder":
         self._get_data_source_item_response_body.item = item

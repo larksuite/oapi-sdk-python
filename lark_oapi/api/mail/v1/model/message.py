@@ -22,7 +22,7 @@ class Message(object):
         "body_plain_text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.raw: Optional[str] = None
         self.subject: Optional[str] = None
         self.to: Optional[List[MailAddress]] = None
@@ -43,8 +43,8 @@ class Message(object):
 
 
 class MessageBuilder(object):
-    def __init__(self, message: Message = Message({})) -> None:
-        self._message: Message = message
+    def __init__(self) -> None:
+        self._message = Message()
 
     def raw(self, raw: str) -> "MessageBuilder":
         self._message.raw = raw

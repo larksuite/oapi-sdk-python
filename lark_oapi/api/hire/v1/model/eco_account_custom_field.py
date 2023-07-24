@@ -12,7 +12,7 @@ class EcoAccountCustomField(object):
         "custom_field_list": List[EcoAccountCustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope: Optional[int] = None
         self.custom_field_list: Optional[List[EcoAccountCustomFieldData]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class EcoAccountCustomField(object):
 
 
 class EcoAccountCustomFieldBuilder(object):
-    def __init__(self, eco_account_custom_field: EcoAccountCustomField = EcoAccountCustomField({})) -> None:
-        self._eco_account_custom_field: EcoAccountCustomField = eco_account_custom_field
+    def __init__(self) -> None:
+        self._eco_account_custom_field = EcoAccountCustomField()
 
     def scope(self, scope: int) -> "EcoAccountCustomFieldBuilder":
         self._eco_account_custom_field.scope = scope

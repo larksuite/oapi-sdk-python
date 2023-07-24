@@ -11,7 +11,7 @@ class FindSpreadsheetSheetResponseBody(object):
         "find_result": FindReplaceResult,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.find_result: Optional[FindReplaceResult] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class FindSpreadsheetSheetResponseBody(object):
 
 
 class FindSpreadsheetSheetResponseBodyBuilder(object):
-    def __init__(self,
-                 find_spreadsheet_sheet_response_body: FindSpreadsheetSheetResponseBody = FindSpreadsheetSheetResponseBody(
-                     {})) -> None:
-        self._find_spreadsheet_sheet_response_body: FindSpreadsheetSheetResponseBody = find_spreadsheet_sheet_response_body
+    def __init__(self) -> None:
+        self._find_spreadsheet_sheet_response_body = FindSpreadsheetSheetResponseBody()
 
     def find_result(self, find_result: FindReplaceResult) -> "FindSpreadsheetSheetResponseBodyBuilder":
         self._find_spreadsheet_sheet_response_body.find_result = find_result

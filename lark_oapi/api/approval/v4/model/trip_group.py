@@ -20,7 +20,7 @@ class TripGroup(object):
         "trip_peers": List[User],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.start_user: Optional[User] = None
@@ -38,8 +38,8 @@ class TripGroup(object):
 
 
 class TripGroupBuilder(object):
-    def __init__(self, trip_group: TripGroup = TripGroup({})) -> None:
-        self._trip_group: TripGroup = trip_group
+    def __init__(self) -> None:
+        self._trip_group = TripGroup()
 
     def type(self, type: str) -> "TripGroupBuilder":
         self._trip_group.type = type

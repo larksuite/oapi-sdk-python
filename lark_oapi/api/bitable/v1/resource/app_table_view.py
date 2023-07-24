@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.create_app_table_view_request import CreateAppTableViewRequest
-from lark_oapi.api.bitable.v1.model.create_app_table_view_response import CreateAppTableViewResponse
-from lark_oapi.api.bitable.v1.model.delete_app_table_view_request import DeleteAppTableViewRequest
-from lark_oapi.api.bitable.v1.model.delete_app_table_view_response import DeleteAppTableViewResponse
-from lark_oapi.api.bitable.v1.model.get_app_table_view_request import GetAppTableViewRequest
-from lark_oapi.api.bitable.v1.model.get_app_table_view_response import GetAppTableViewResponse
-from lark_oapi.api.bitable.v1.model.list_app_table_view_request import ListAppTableViewRequest
-from lark_oapi.api.bitable.v1.model.list_app_table_view_response import ListAppTableViewResponse
-from lark_oapi.api.bitable.v1.model.patch_app_table_view_request import PatchAppTableViewRequest
-from lark_oapi.api.bitable.v1.model.patch_app_table_view_response import PatchAppTableViewResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_app_table_view_request import CreateAppTableViewRequest
+from ..model.create_app_table_view_response import CreateAppTableViewResponse
+from ..model.delete_app_table_view_request import DeleteAppTableViewRequest
+from ..model.delete_app_table_view_response import DeleteAppTableViewResponse
+from ..model.get_app_table_view_request import GetAppTableViewRequest
+from ..model.get_app_table_view_response import GetAppTableViewResponse
+from ..model.list_app_table_view_request import ListAppTableViewRequest
+from ..model.list_app_table_view_response import ListAppTableViewResponse
+from ..model.patch_app_table_view_request import PatchAppTableViewRequest
+from ..model.patch_app_table_view_response import PatchAppTableViewResponse
 
 
 class AppTableView(object):
@@ -24,7 +24,10 @@ class AppTableView(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateAppTableViewRequest,
-               option: RequestOption = RequestOption()) -> CreateAppTableViewResponse:
+               option: Optional[RequestOption] = None) -> CreateAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class AppTableView(object):
         return response
 
     def delete(self, request: DeleteAppTableViewRequest,
-               option: RequestOption = RequestOption()) -> DeleteAppTableViewResponse:
+               option: Optional[RequestOption] = None) -> DeleteAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class AppTableView(object):
 
         return response
 
-    def get(self, request: GetAppTableViewRequest, option: RequestOption = RequestOption()) -> GetAppTableViewResponse:
+    def get(self, request: GetAppTableViewRequest, option: Optional[RequestOption] = None) -> GetAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +74,10 @@ class AppTableView(object):
         return response
 
     def list(self, request: ListAppTableViewRequest,
-             option: RequestOption = RequestOption()) -> ListAppTableViewResponse:
+             option: Optional[RequestOption] = None) -> ListAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class AppTableView(object):
         return response
 
     def patch(self, request: PatchAppTableViewRequest,
-              option: RequestOption = RequestOption()) -> PatchAppTableViewResponse:
+              option: Optional[RequestOption] = None) -> PatchAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -19,7 +19,8 @@ class ListSecurityGroupRequest(BaseRequest):
 
 class ListSecurityGroupRequestBuilder(object):
 
-    def __init__(self, list_security_group_request: ListSecurityGroupRequest = ListSecurityGroupRequest()) -> None:
+    def __init__(self) -> None:
+        list_security_group_request = ListSecurityGroupRequest()
         list_security_group_request.http_method = HttpMethod.GET
         list_security_group_request.uri = "/open-apis/corehr/v1/security_groups"
         list_security_group_request.token_types = {AccessTokenType.TENANT}

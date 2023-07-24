@@ -13,7 +13,7 @@ class ListNationalIdTypeResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[NationalIdType]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListNationalIdTypeResponseBody(object):
 
 
 class ListNationalIdTypeResponseBodyBuilder(object):
-    def __init__(self,
-                 list_national_id_type_response_body: ListNationalIdTypeResponseBody = ListNationalIdTypeResponseBody(
-                     {})) -> None:
-        self._list_national_id_type_response_body: ListNationalIdTypeResponseBody = list_national_id_type_response_body
+    def __init__(self) -> None:
+        self._list_national_id_type_response_body = ListNationalIdTypeResponseBody()
 
     def items(self, items: List[NationalIdType]) -> "ListNationalIdTypeResponseBodyBuilder":
         self._list_national_id_type_response_body.items = items

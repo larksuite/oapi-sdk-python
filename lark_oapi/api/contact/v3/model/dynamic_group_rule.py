@@ -14,7 +14,7 @@ class DynamicGroupRule(object):
         "group_status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_level: Optional[str] = None
         self.expressions: Optional[List[DynamicGroupExpression]] = None
         self.joiner_rule: Optional[str] = None
@@ -27,8 +27,8 @@ class DynamicGroupRule(object):
 
 
 class DynamicGroupRuleBuilder(object):
-    def __init__(self, dynamic_group_rule: DynamicGroupRule = DynamicGroupRule({})) -> None:
-        self._dynamic_group_rule: DynamicGroupRule = dynamic_group_rule
+    def __init__(self) -> None:
+        self._dynamic_group_rule = DynamicGroupRule()
 
     def department_level(self, department_level: str) -> "DynamicGroupRuleBuilder":
         self._dynamic_group_rule.department_level = department_level

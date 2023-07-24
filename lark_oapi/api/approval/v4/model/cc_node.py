@@ -20,7 +20,7 @@ class CcNode(object):
         "display_method": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.cc_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
@@ -39,8 +39,8 @@ class CcNode(object):
 
 
 class CcNodeBuilder(object):
-    def __init__(self, cc_node: CcNode = CcNode({})) -> None:
-        self._cc_node: CcNode = cc_node
+    def __init__(self) -> None:
+        self._cc_node = CcNode()
 
     def cc_id(self, cc_id: str) -> "CcNodeBuilder":
         self._cc_node.cc_id = cc_id

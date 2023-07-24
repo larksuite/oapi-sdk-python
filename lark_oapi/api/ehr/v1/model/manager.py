@@ -12,7 +12,7 @@ class Manager(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class Manager(object):
 
 
 class ManagerBuilder(object):
-    def __init__(self, manager: Manager = Manager({})) -> None:
-        self._manager: Manager = manager
+    def __init__(self) -> None:
+        self._manager = Manager()
 
     def user_id(self, user_id: str) -> "ManagerBuilder":
         self._manager.user_id = user_id

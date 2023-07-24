@@ -11,7 +11,7 @@ class QueryUserTaskRemedyResponseBody(object):
         "user_remedys": List[UserTaskRemedy],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_remedys: Optional[List[UserTaskRemedy]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QueryUserTaskRemedyResponseBody(object):
 
 
 class QueryUserTaskRemedyResponseBodyBuilder(object):
-    def __init__(self,
-                 query_user_task_remedy_response_body: QueryUserTaskRemedyResponseBody = QueryUserTaskRemedyResponseBody(
-                     {})) -> None:
-        self._query_user_task_remedy_response_body: QueryUserTaskRemedyResponseBody = query_user_task_remedy_response_body
+    def __init__(self) -> None:
+        self._query_user_task_remedy_response_body = QueryUserTaskRemedyResponseBody()
 
     def user_remedys(self, user_remedys: List[UserTaskRemedy]) -> "QueryUserTaskRemedyResponseBodyBuilder":
         self._query_user_task_remedy_response_body.user_remedys = user_remedys

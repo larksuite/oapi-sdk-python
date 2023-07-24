@@ -22,7 +22,8 @@ class SearchOffboardingRequest(BaseRequest):
 
 class SearchOffboardingRequestBuilder(object):
 
-    def __init__(self, search_offboarding_request: SearchOffboardingRequest = SearchOffboardingRequest()) -> None:
+    def __init__(self) -> None:
+        search_offboarding_request = SearchOffboardingRequest()
         search_offboarding_request.http_method = HttpMethod.POST
         search_offboarding_request.uri = "/open-apis/corehr/v1/offboardings/search"
         search_offboarding_request.token_types = {AccessTokenType.TENANT}

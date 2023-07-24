@@ -13,7 +13,7 @@ class RollbackNode(object):
         "node_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node_id: Optional[str] = None
         self.node_name: Optional[str] = None
         self.custom_node_id: Optional[str] = None
@@ -26,8 +26,8 @@ class RollbackNode(object):
 
 
 class RollbackNodeBuilder(object):
-    def __init__(self, rollback_node: RollbackNode = RollbackNode({})) -> None:
-        self._rollback_node: RollbackNode = rollback_node
+    def __init__(self) -> None:
+        self._rollback_node = RollbackNode()
 
     def node_id(self, node_id: str) -> "RollbackNodeBuilder":
         self._rollback_node.node_id = node_id

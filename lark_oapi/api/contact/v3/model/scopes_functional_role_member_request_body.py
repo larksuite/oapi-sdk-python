@@ -11,7 +11,7 @@ class ScopesFunctionalRoleMemberRequestBody(object):
         "departments": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.members: Optional[List[str]] = None
         self.departments: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class ScopesFunctionalRoleMemberRequestBody(object):
 
 
 class ScopesFunctionalRoleMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 scopes_functional_role_member_request_body: ScopesFunctionalRoleMemberRequestBody = ScopesFunctionalRoleMemberRequestBody(
-                     {})) -> None:
-        self._scopes_functional_role_member_request_body: ScopesFunctionalRoleMemberRequestBody = scopes_functional_role_member_request_body
+    def __init__(self) -> None:
+        self._scopes_functional_role_member_request_body = ScopesFunctionalRoleMemberRequestBody()
 
     def members(self, members: List[str]) -> "ScopesFunctionalRoleMemberRequestBodyBuilder":
         self._scopes_functional_role_member_request_body.members = members

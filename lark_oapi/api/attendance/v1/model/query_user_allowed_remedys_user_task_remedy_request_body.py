@@ -11,7 +11,7 @@ class QueryUserAllowedRemedysUserTaskRemedyRequestBody(object):
         "remedy_date": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.remedy_date: Optional[int] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class QueryUserAllowedRemedysUserTaskRemedyRequestBody(object):
 
 
 class QueryUserAllowedRemedysUserTaskRemedyRequestBodyBuilder(object):
-    def __init__(self,
-                 query_user_allowed_remedys_user_task_remedy_request_body: QueryUserAllowedRemedysUserTaskRemedyRequestBody = QueryUserAllowedRemedysUserTaskRemedyRequestBody(
-                     {})) -> None:
-        self._query_user_allowed_remedys_user_task_remedy_request_body: QueryUserAllowedRemedysUserTaskRemedyRequestBody = query_user_allowed_remedys_user_task_remedy_request_body
+    def __init__(self) -> None:
+        self._query_user_allowed_remedys_user_task_remedy_request_body = QueryUserAllowedRemedysUserTaskRemedyRequestBody()
 
     def user_id(self, user_id: str) -> "QueryUserAllowedRemedysUserTaskRemedyRequestBodyBuilder":
         self._query_user_allowed_remedys_user_task_remedy_request_body.user_id = user_id

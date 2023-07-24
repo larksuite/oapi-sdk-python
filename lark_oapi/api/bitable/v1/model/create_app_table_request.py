@@ -20,7 +20,8 @@ class CreateAppTableRequest(BaseRequest):
 
 class CreateAppTableRequestBuilder(object):
 
-    def __init__(self, create_app_table_request: CreateAppTableRequest = CreateAppTableRequest()) -> None:
+    def __init__(self) -> None:
+        create_app_table_request = CreateAppTableRequest()
         create_app_table_request.http_method = HttpMethod.POST
         create_app_table_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables"
         create_app_table_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

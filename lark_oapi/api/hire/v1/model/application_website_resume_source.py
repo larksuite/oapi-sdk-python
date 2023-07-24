@@ -14,7 +14,7 @@ class ApplicationWebsiteResumeSource(object):
         "channel": ApplicationWebsiteChannel,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.website_id: Optional[str] = None
         self.website_name: Optional[I18n] = None
         self.channel: Optional[ApplicationWebsiteChannel] = None
@@ -26,10 +26,8 @@ class ApplicationWebsiteResumeSource(object):
 
 
 class ApplicationWebsiteResumeSourceBuilder(object):
-    def __init__(self,
-                 application_website_resume_source: ApplicationWebsiteResumeSource = ApplicationWebsiteResumeSource(
-                     {})) -> None:
-        self._application_website_resume_source: ApplicationWebsiteResumeSource = application_website_resume_source
+    def __init__(self) -> None:
+        self._application_website_resume_source = ApplicationWebsiteResumeSource()
 
     def website_id(self, website_id: str) -> "ApplicationWebsiteResumeSourceBuilder":
         self._application_website_resume_source.website_id = website_id

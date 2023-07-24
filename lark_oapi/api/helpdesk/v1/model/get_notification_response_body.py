@@ -12,7 +12,7 @@ class GetNotificationResponseBody(object):
         "approval_app_link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.notification: Optional[Notification] = None
         self.approval_app_link: Optional[str] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class GetNotificationResponseBody(object):
 
 
 class GetNotificationResponseBodyBuilder(object):
-    def __init__(self,
-                 get_notification_response_body: GetNotificationResponseBody = GetNotificationResponseBody({})) -> None:
-        self._get_notification_response_body: GetNotificationResponseBody = get_notification_response_body
+    def __init__(self) -> None:
+        self._get_notification_response_body = GetNotificationResponseBody()
 
     def notification(self, notification: Notification) -> "GetNotificationResponseBodyBuilder":
         self._get_notification_response_body.notification = notification

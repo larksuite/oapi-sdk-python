@@ -12,7 +12,7 @@ class SetHostMeetingRequestBody(object):
         "old_host_user": MeetingUser,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.host_user: Optional[MeetingUser] = None
         self.old_host_user: Optional[MeetingUser] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class SetHostMeetingRequestBody(object):
 
 
 class SetHostMeetingRequestBodyBuilder(object):
-    def __init__(self,
-                 set_host_meeting_request_body: SetHostMeetingRequestBody = SetHostMeetingRequestBody({})) -> None:
-        self._set_host_meeting_request_body: SetHostMeetingRequestBody = set_host_meeting_request_body
+    def __init__(self) -> None:
+        self._set_host_meeting_request_body = SetHostMeetingRequestBody()
 
     def host_user(self, host_user: MeetingUser) -> "SetHostMeetingRequestBodyBuilder":
         self._set_host_meeting_request_body.host_user = host_user

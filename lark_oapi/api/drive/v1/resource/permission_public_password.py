@@ -2,20 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.create_permission_public_password_request import CreatePermissionPublicPasswordRequest
-from lark_oapi.api.drive.v1.model.create_permission_public_password_response import \
-    CreatePermissionPublicPasswordResponse
-from lark_oapi.api.drive.v1.model.delete_permission_public_password_request import DeletePermissionPublicPasswordRequest
-from lark_oapi.api.drive.v1.model.delete_permission_public_password_response import \
-    DeletePermissionPublicPasswordResponse
-from lark_oapi.api.drive.v1.model.update_permission_public_password_request import UpdatePermissionPublicPasswordRequest
-from lark_oapi.api.drive.v1.model.update_permission_public_password_response import \
-    UpdatePermissionPublicPasswordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_permission_public_password_request import CreatePermissionPublicPasswordRequest
+from ..model.create_permission_public_password_response import CreatePermissionPublicPasswordResponse
+from ..model.delete_permission_public_password_request import DeletePermissionPublicPasswordRequest
+from ..model.delete_permission_public_password_response import DeletePermissionPublicPasswordResponse
+from ..model.update_permission_public_password_request import UpdatePermissionPublicPasswordRequest
+from ..model.update_permission_public_password_response import UpdatePermissionPublicPasswordResponse
 
 
 class PermissionPublicPassword(object):
@@ -23,7 +20,10 @@ class PermissionPublicPassword(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreatePermissionPublicPasswordRequest,
-               option: RequestOption = RequestOption()) -> CreatePermissionPublicPasswordResponse:
+               option: Optional[RequestOption] = None) -> CreatePermissionPublicPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +38,10 @@ class PermissionPublicPassword(object):
         return response
 
     def delete(self, request: DeletePermissionPublicPasswordRequest,
-               option: RequestOption = RequestOption()) -> DeletePermissionPublicPasswordResponse:
+               option: Optional[RequestOption] = None) -> DeletePermissionPublicPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -53,7 +56,10 @@ class PermissionPublicPassword(object):
         return response
 
     def update(self, request: UpdatePermissionPublicPasswordRequest,
-               option: RequestOption = RequestOption()) -> UpdatePermissionPublicPasswordResponse:
+               option: Optional[RequestOption] = None) -> UpdatePermissionPublicPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

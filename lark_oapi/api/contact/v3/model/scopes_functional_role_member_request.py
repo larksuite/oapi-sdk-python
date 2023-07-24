@@ -22,8 +22,8 @@ class ScopesFunctionalRoleMemberRequest(BaseRequest):
 
 class ScopesFunctionalRoleMemberRequestBuilder(object):
 
-    def __init__(self,
-                 scopes_functional_role_member_request: ScopesFunctionalRoleMemberRequest = ScopesFunctionalRoleMemberRequest()) -> None:
+    def __init__(self) -> None:
+        scopes_functional_role_member_request = ScopesFunctionalRoleMemberRequest()
         scopes_functional_role_member_request.http_method = HttpMethod.PATCH
         scopes_functional_role_member_request.uri = "/open-apis/contact/v3/functional_roles/:role_id/members/scopes"
         scopes_functional_role_member_request.token_types = {AccessTokenType.TENANT}

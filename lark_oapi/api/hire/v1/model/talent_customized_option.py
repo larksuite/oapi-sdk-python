@@ -12,7 +12,7 @@ class TalentCustomizedOption(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class TalentCustomizedOption(object):
 
 
 class TalentCustomizedOptionBuilder(object):
-    def __init__(self, talent_customized_option: TalentCustomizedOption = TalentCustomizedOption({})) -> None:
-        self._talent_customized_option: TalentCustomizedOption = talent_customized_option
+    def __init__(self) -> None:
+        self._talent_customized_option = TalentCustomizedOption()
 
     def key(self, key: str) -> "TalentCustomizedOptionBuilder":
         self._talent_customized_option.key = key

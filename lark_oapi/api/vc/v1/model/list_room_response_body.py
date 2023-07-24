@@ -13,7 +13,7 @@ class ListRoomResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rooms: Optional[List[Room]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListRoomResponseBody(object):
 
 
 class ListRoomResponseBodyBuilder(object):
-    def __init__(self, list_room_response_body: ListRoomResponseBody = ListRoomResponseBody({})) -> None:
-        self._list_room_response_body: ListRoomResponseBody = list_room_response_body
+    def __init__(self) -> None:
+        self._list_room_response_body = ListRoomResponseBody()
 
     def rooms(self, rooms: List[Room]) -> "ListRoomResponseBodyBuilder":
         self._list_room_response_body.rooms = rooms

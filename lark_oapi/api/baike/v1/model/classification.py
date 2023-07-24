@@ -12,7 +12,7 @@ class Classification(object):
         "father_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.father_id: Optional[str] = None
@@ -24,8 +24,8 @@ class Classification(object):
 
 
 class ClassificationBuilder(object):
-    def __init__(self, classification: Classification = Classification({})) -> None:
-        self._classification: Classification = classification
+    def __init__(self) -> None:
+        self._classification = Classification()
 
     def id(self, id: str) -> "ClassificationBuilder":
         self._classification.id = id

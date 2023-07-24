@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.batch_create_user_flow_request import BatchCreateUserFlowRequest
-from lark_oapi.api.attendance.v1.model.batch_create_user_flow_response import BatchCreateUserFlowResponse
-from lark_oapi.api.attendance.v1.model.get_user_flow_request import GetUserFlowRequest
-from lark_oapi.api.attendance.v1.model.get_user_flow_response import GetUserFlowResponse
-from lark_oapi.api.attendance.v1.model.query_user_flow_request import QueryUserFlowRequest
-from lark_oapi.api.attendance.v1.model.query_user_flow_response import QueryUserFlowResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_user_flow_request import BatchCreateUserFlowRequest
+from ..model.batch_create_user_flow_response import BatchCreateUserFlowResponse
+from ..model.get_user_flow_request import GetUserFlowRequest
+from ..model.get_user_flow_response import GetUserFlowResponse
+from ..model.query_user_flow_request import QueryUserFlowRequest
+from ..model.query_user_flow_response import QueryUserFlowResponse
 
 
 class UserFlow(object):
@@ -20,7 +20,10 @@ class UserFlow(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateUserFlowRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateUserFlowResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class UserFlow(object):
 
         return response
 
-    def get(self, request: GetUserFlowRequest, option: RequestOption = RequestOption()) -> GetUserFlowResponse:
+    def get(self, request: GetUserFlowRequest, option: Optional[RequestOption] = None) -> GetUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -46,7 +52,10 @@ class UserFlow(object):
 
         return response
 
-    def query(self, request: QueryUserFlowRequest, option: RequestOption = RequestOption()) -> QueryUserFlowResponse:
+    def query(self, request: QueryUserFlowRequest, option: Optional[RequestOption] = None) -> QueryUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class GetSubregionResponseBody(object):
         "subregion": Subregion,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subregion: Optional[Subregion] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetSubregionResponseBody(object):
 
 
 class GetSubregionResponseBodyBuilder(object):
-    def __init__(self, get_subregion_response_body: GetSubregionResponseBody = GetSubregionResponseBody({})) -> None:
-        self._get_subregion_response_body: GetSubregionResponseBody = get_subregion_response_body
+    def __init__(self) -> None:
+        self._get_subregion_response_body = GetSubregionResponseBody()
 
     def subregion(self, subregion: Subregion) -> "GetSubregionResponseBodyBuilder":
         self._get_subregion_response_body.subregion = subregion

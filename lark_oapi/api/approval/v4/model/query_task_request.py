@@ -22,7 +22,8 @@ class QueryTaskRequest(BaseRequest):
 
 class QueryTaskRequestBuilder(object):
 
-    def __init__(self, query_task_request: QueryTaskRequest = QueryTaskRequest()) -> None:
+    def __init__(self) -> None:
+        query_task_request = QueryTaskRequest()
         query_task_request.http_method = HttpMethod.GET
         query_task_request.uri = "/open-apis/approval/v4/tasks/query"
         query_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -12,7 +12,7 @@ class EhrImportTask(object):
         "state": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.fail_reason: Optional[str] = None
         self.redirect_url: Optional[str] = None
         self.state: Optional[int] = None
@@ -24,8 +24,8 @@ class EhrImportTask(object):
 
 
 class EhrImportTaskBuilder(object):
-    def __init__(self, ehr_import_task: EhrImportTask = EhrImportTask({})) -> None:
-        self._ehr_import_task: EhrImportTask = ehr_import_task
+    def __init__(self) -> None:
+        self._ehr_import_task = EhrImportTask()
 
     def fail_reason(self, fail_reason: str) -> "EhrImportTaskBuilder":
         self._ehr_import_task.fail_reason = fail_reason

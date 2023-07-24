@@ -11,7 +11,7 @@ class CheckExternalInstanceResponseBody(object):
         "diff_instances": List[ExteranlInstanceCheckResponse],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.diff_instances: Optional[List[ExteranlInstanceCheckResponse]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CheckExternalInstanceResponseBody(object):
 
 
 class CheckExternalInstanceResponseBodyBuilder(object):
-    def __init__(self,
-                 check_external_instance_response_body: CheckExternalInstanceResponseBody = CheckExternalInstanceResponseBody(
-                     {})) -> None:
-        self._check_external_instance_response_body: CheckExternalInstanceResponseBody = check_external_instance_response_body
+    def __init__(self) -> None:
+        self._check_external_instance_response_body = CheckExternalInstanceResponseBody()
 
     def diff_instances(self, diff_instances: List[
         ExteranlInstanceCheckResponse]) -> "CheckExternalInstanceResponseBodyBuilder":

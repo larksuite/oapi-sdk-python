@@ -11,7 +11,7 @@ class CpstI18n(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CpstI18n(object):
 
 
 class CpstI18nBuilder(object):
-    def __init__(self, cpst_i18n: CpstI18n = CpstI18n({})) -> None:
-        self._cpst_i18n: CpstI18n = cpst_i18n
+    def __init__(self) -> None:
+        self._cpst_i18n = CpstI18n()
 
     def zh_cn(self, zh_cn: str) -> "CpstI18nBuilder":
         self._cpst_i18n.zh_cn = zh_cn

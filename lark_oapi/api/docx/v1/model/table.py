@@ -12,7 +12,7 @@ class Table(object):
         "property": TableProperty,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.cells: Optional[List[str]] = None
         self.property: Optional[TableProperty] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Table(object):
 
 
 class TableBuilder(object):
-    def __init__(self, table: Table = Table({})) -> None:
-        self._table: Table = table
+    def __init__(self) -> None:
+        self._table = Table()
 
     def cells(self, cells: List[str]) -> "TableBuilder":
         self._table.cells = cells

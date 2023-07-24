@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.okr.v1.model.list_metric_source_table_request import ListMetricSourceTableRequest
-from lark_oapi.api.okr.v1.model.list_metric_source_table_response import ListMetricSourceTableResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_metric_source_table_request import ListMetricSourceTableRequest
+from ..model.list_metric_source_table_response import ListMetricSourceTableResponse
 
 
 class MetricSourceTable(object):
@@ -16,7 +16,10 @@ class MetricSourceTable(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListMetricSourceTableRequest,
-             option: RequestOption = RequestOption()) -> ListMetricSourceTableResponse:
+             option: Optional[RequestOption] = None) -> ListMetricSourceTableResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

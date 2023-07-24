@@ -7,7 +7,7 @@ class UserGroupMember(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class UserGroupMember(object):
 
 
 class UserGroupMemberBuilder(object):
-    def __init__(self, user_group_member: UserGroupMember = UserGroupMember({})) -> None:
-        self._user_group_member: UserGroupMember = user_group_member
+    def __init__(self) -> None:
+        self._user_group_member = UserGroupMember()
 
     def build(self) -> "UserGroupMember":
         return self._user_group_member

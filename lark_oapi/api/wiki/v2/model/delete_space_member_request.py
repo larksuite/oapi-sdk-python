@@ -21,7 +21,8 @@ class DeleteSpaceMemberRequest(BaseRequest):
 
 class DeleteSpaceMemberRequestBuilder(object):
 
-    def __init__(self, delete_space_member_request: DeleteSpaceMemberRequest = DeleteSpaceMemberRequest()) -> None:
+    def __init__(self) -> None:
+        delete_space_member_request = DeleteSpaceMemberRequest()
         delete_space_member_request.http_method = HttpMethod.DELETE
         delete_space_member_request.uri = "/open-apis/wiki/v2/spaces/:space_id/members/:member_id"
         delete_space_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

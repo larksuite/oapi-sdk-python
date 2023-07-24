@@ -10,7 +10,7 @@ class AddManagersChatManagersRequestBody(object):
         "manager_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.manager_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class AddManagersChatManagersRequestBody(object):
 
 
 class AddManagersChatManagersRequestBodyBuilder(object):
-    def __init__(self,
-                 add_managers_chat_managers_request_body: AddManagersChatManagersRequestBody = AddManagersChatManagersRequestBody(
-                     {})) -> None:
-        self._add_managers_chat_managers_request_body: AddManagersChatManagersRequestBody = add_managers_chat_managers_request_body
+    def __init__(self) -> None:
+        self._add_managers_chat_managers_request_body = AddManagersChatManagersRequestBody()
 
     def manager_ids(self, manager_ids: List[str]) -> "AddManagersChatManagersRequestBodyBuilder":
         self._add_managers_chat_managers_request_body.manager_ids = manager_ids

@@ -11,7 +11,7 @@ class ReplyContent(object):
         "elements": List[ReplyElement],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.elements: Optional[List[ReplyElement]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ReplyContent(object):
 
 
 class ReplyContentBuilder(object):
-    def __init__(self, reply_content: ReplyContent = ReplyContent({})) -> None:
-        self._reply_content: ReplyContent = reply_content
+    def __init__(self) -> None:
+        self._reply_content = ReplyContent()
 
     def elements(self, elements: List[ReplyElement]) -> "ReplyContentBuilder":
         self._reply_content.elements = elements

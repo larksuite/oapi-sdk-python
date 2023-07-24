@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_job_request import CreateJobRequest
-from lark_oapi.api.corehr.v1.model.create_job_response import CreateJobResponse
-from lark_oapi.api.corehr.v1.model.delete_job_request import DeleteJobRequest
-from lark_oapi.api.corehr.v1.model.delete_job_response import DeleteJobResponse
-from lark_oapi.api.corehr.v1.model.get_job_request import GetJobRequest
-from lark_oapi.api.corehr.v1.model.get_job_response import GetJobResponse
-from lark_oapi.api.corehr.v1.model.list_job_request import ListJobRequest
-from lark_oapi.api.corehr.v1.model.list_job_response import ListJobResponse
-from lark_oapi.api.corehr.v1.model.patch_job_request import PatchJobRequest
-from lark_oapi.api.corehr.v1.model.patch_job_response import PatchJobResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_job_request import CreateJobRequest
+from ..model.create_job_response import CreateJobResponse
+from ..model.delete_job_request import DeleteJobRequest
+from ..model.delete_job_response import DeleteJobResponse
+from ..model.get_job_request import GetJobRequest
+from ..model.get_job_response import GetJobResponse
+from ..model.list_job_request import ListJobRequest
+from ..model.list_job_response import ListJobResponse
+from ..model.patch_job_request import PatchJobRequest
+from ..model.patch_job_response import PatchJobResponse
 
 
 class Job(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateJobRequest, option: RequestOption = RequestOption()) -> CreateJobResponse:
+    def create(self, request: CreateJobRequest, option: Optional[RequestOption] = None) -> CreateJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class Job(object):
 
         return response
 
-    def delete(self, request: DeleteJobRequest, option: RequestOption = RequestOption()) -> DeleteJobResponse:
+    def delete(self, request: DeleteJobRequest, option: Optional[RequestOption] = None) -> DeleteJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class Job(object):
 
         return response
 
-    def get(self, request: GetJobRequest, option: RequestOption = RequestOption()) -> GetJobResponse:
+    def get(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class Job(object):
 
         return response
 
-    def list(self, request: ListJobRequest, option: RequestOption = RequestOption()) -> ListJobResponse:
+    def list(self, request: ListJobRequest, option: Optional[RequestOption] = None) -> ListJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +87,10 @@ class Job(object):
 
         return response
 
-    def patch(self, request: PatchJobRequest, option: RequestOption = RequestOption()) -> PatchJobResponse:
+    def patch(self, request: PatchJobRequest, option: Optional[RequestOption] = None) -> PatchJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

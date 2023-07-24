@@ -25,7 +25,7 @@ class CalendarEventAttendeeResp(object):
         "resource_customization": List[CalendarAttendeeResourceCustomization],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.attendee_id: Optional[str] = None
         self.rsvp_status: Optional[str] = None
@@ -48,8 +48,8 @@ class CalendarEventAttendeeResp(object):
 
 
 class CalendarEventAttendeeRespBuilder(object):
-    def __init__(self, calendar_event_attendee_resp: CalendarEventAttendeeResp = CalendarEventAttendeeResp({})) -> None:
-        self._calendar_event_attendee_resp: CalendarEventAttendeeResp = calendar_event_attendee_resp
+    def __init__(self) -> None:
+        self._calendar_event_attendee_resp = CalendarEventAttendeeResp()
 
     def type(self, type: str) -> "CalendarEventAttendeeRespBuilder":
         self._calendar_event_attendee_resp.type = type

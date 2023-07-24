@@ -21,7 +21,8 @@ class CreateOfferRequest(BaseRequest):
 
 class CreateOfferRequestBuilder(object):
 
-    def __init__(self, create_offer_request: CreateOfferRequest = CreateOfferRequest()) -> None:
+    def __init__(self) -> None:
+        create_offer_request = CreateOfferRequest()
         create_offer_request.http_method = HttpMethod.POST
         create_offer_request.uri = "/open-apis/hire/v1/offers"
         create_offer_request.token_types = {AccessTokenType.TENANT}

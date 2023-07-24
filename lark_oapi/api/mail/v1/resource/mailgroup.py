@@ -2,23 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.create_mailgroup_request import CreateMailgroupRequest
-from lark_oapi.api.mail.v1.model.create_mailgroup_response import CreateMailgroupResponse
-from lark_oapi.api.mail.v1.model.delete_mailgroup_request import DeleteMailgroupRequest
-from lark_oapi.api.mail.v1.model.delete_mailgroup_response import DeleteMailgroupResponse
-from lark_oapi.api.mail.v1.model.get_mailgroup_request import GetMailgroupRequest
-from lark_oapi.api.mail.v1.model.get_mailgroup_response import GetMailgroupResponse
-from lark_oapi.api.mail.v1.model.list_mailgroup_request import ListMailgroupRequest
-from lark_oapi.api.mail.v1.model.list_mailgroup_response import ListMailgroupResponse
-from lark_oapi.api.mail.v1.model.patch_mailgroup_request import PatchMailgroupRequest
-from lark_oapi.api.mail.v1.model.patch_mailgroup_response import PatchMailgroupResponse
-from lark_oapi.api.mail.v1.model.update_mailgroup_request import UpdateMailgroupRequest
-from lark_oapi.api.mail.v1.model.update_mailgroup_response import UpdateMailgroupResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_mailgroup_request import CreateMailgroupRequest
+from ..model.create_mailgroup_response import CreateMailgroupResponse
+from ..model.delete_mailgroup_request import DeleteMailgroupRequest
+from ..model.delete_mailgroup_response import DeleteMailgroupResponse
+from ..model.get_mailgroup_request import GetMailgroupRequest
+from ..model.get_mailgroup_response import GetMailgroupResponse
+from ..model.list_mailgroup_request import ListMailgroupRequest
+from ..model.list_mailgroup_response import ListMailgroupResponse
+from ..model.patch_mailgroup_request import PatchMailgroupRequest
+from ..model.patch_mailgroup_response import PatchMailgroupResponse
+from ..model.update_mailgroup_request import UpdateMailgroupRequest
+from ..model.update_mailgroup_response import UpdateMailgroupResponse
 
 
 class Mailgroup(object):
@@ -26,7 +26,10 @@ class Mailgroup(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateMailgroupRequest,
-               option: RequestOption = RequestOption()) -> CreateMailgroupResponse:
+               option: Optional[RequestOption] = None) -> CreateMailgroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class Mailgroup(object):
         return response
 
     def delete(self, request: DeleteMailgroupRequest,
-               option: RequestOption = RequestOption()) -> DeleteMailgroupResponse:
+               option: Optional[RequestOption] = None) -> DeleteMailgroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -53,7 +59,10 @@ class Mailgroup(object):
 
         return response
 
-    def get(self, request: GetMailgroupRequest, option: RequestOption = RequestOption()) -> GetMailgroupResponse:
+    def get(self, request: GetMailgroupRequest, option: Optional[RequestOption] = None) -> GetMailgroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class Mailgroup(object):
 
         return response
 
-    def list(self, request: ListMailgroupRequest, option: RequestOption = RequestOption()) -> ListMailgroupResponse:
+    def list(self, request: ListMailgroupRequest, option: Optional[RequestOption] = None) -> ListMailgroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class Mailgroup(object):
 
         return response
 
-    def patch(self, request: PatchMailgroupRequest, option: RequestOption = RequestOption()) -> PatchMailgroupResponse:
+    def patch(self, request: PatchMailgroupRequest, option: Optional[RequestOption] = None) -> PatchMailgroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -93,7 +108,10 @@ class Mailgroup(object):
         return response
 
     def update(self, request: UpdateMailgroupRequest,
-               option: RequestOption = RequestOption()) -> UpdateMailgroupResponse:
+               option: Optional[RequestOption] = None) -> UpdateMailgroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

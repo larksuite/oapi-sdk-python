@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.approval.v4.model.create_external_approval_request import CreateExternalApprovalRequest
-from lark_oapi.api.approval.v4.model.create_external_approval_response import CreateExternalApprovalResponse
-from lark_oapi.api.approval.v4.model.get_external_approval_request import GetExternalApprovalRequest
-from lark_oapi.api.approval.v4.model.get_external_approval_response import GetExternalApprovalResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_external_approval_request import CreateExternalApprovalRequest
+from ..model.create_external_approval_response import CreateExternalApprovalResponse
+from ..model.get_external_approval_request import GetExternalApprovalRequest
+from ..model.get_external_approval_response import GetExternalApprovalResponse
 
 
 class ExternalApproval(object):
@@ -18,7 +18,10 @@ class ExternalApproval(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateExternalApprovalRequest,
-               option: RequestOption = RequestOption()) -> CreateExternalApprovalResponse:
+               option: Optional[RequestOption] = None) -> CreateExternalApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class ExternalApproval(object):
         return response
 
     def get(self, request: GetExternalApprovalRequest,
-            option: RequestOption = RequestOption()) -> GetExternalApprovalResponse:
+            option: Optional[RequestOption] = None) -> GetExternalApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

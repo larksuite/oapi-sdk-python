@@ -12,7 +12,7 @@ class SearchEntityResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.entities: Optional[List[Entity]] = None
         self.page_token: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class SearchEntityResponseBody(object):
 
 
 class SearchEntityResponseBodyBuilder(object):
-    def __init__(self, search_entity_response_body: SearchEntityResponseBody = SearchEntityResponseBody({})) -> None:
-        self._search_entity_response_body: SearchEntityResponseBody = search_entity_response_body
+    def __init__(self) -> None:
+        self._search_entity_response_body = SearchEntityResponseBody()
 
     def entities(self, entities: List[Entity]) -> "SearchEntityResponseBodyBuilder":
         self._search_entity_response_body.entities = entities

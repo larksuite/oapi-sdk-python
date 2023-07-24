@@ -12,7 +12,7 @@ class AddGroupMemberRequestBody(object):
         "member_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_type: Optional[str] = None
         self.member_id_type: Optional[str] = None
         self.member_id: Optional[str] = None
@@ -24,9 +24,8 @@ class AddGroupMemberRequestBody(object):
 
 
 class AddGroupMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 add_group_member_request_body: AddGroupMemberRequestBody = AddGroupMemberRequestBody({})) -> None:
-        self._add_group_member_request_body: AddGroupMemberRequestBody = add_group_member_request_body
+    def __init__(self) -> None:
+        self._add_group_member_request_body = AddGroupMemberRequestBody()
 
     def member_type(self, member_type: str) -> "AddGroupMemberRequestBodyBuilder":
         self._add_group_member_request_body.member_type = member_type

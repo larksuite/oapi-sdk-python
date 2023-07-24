@@ -13,7 +13,7 @@ class JobManager(object):
         "assistant_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.recruiter_id: Optional[str] = None
         self.hiring_manager_id_list: Optional[List[str]] = None
@@ -26,8 +26,8 @@ class JobManager(object):
 
 
 class JobManagerBuilder(object):
-    def __init__(self, job_manager: JobManager = JobManager({})) -> None:
-        self._job_manager: JobManager = job_manager
+    def __init__(self) -> None:
+        self._job_manager = JobManager()
 
     def id(self, id: str) -> "JobManagerBuilder":
         self._job_manager.id = id

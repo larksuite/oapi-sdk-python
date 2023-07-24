@@ -12,7 +12,7 @@ class CreateMessageResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[str]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -24,8 +24,8 @@ class CreateMessageResponseBody(object):
 
 
 class CreateMessageResponseBodyBuilder(object):
-    def __init__(self, create_message_response_body: CreateMessageResponseBody = CreateMessageResponseBody({})) -> None:
-        self._create_message_response_body: CreateMessageResponseBody = create_message_response_body
+    def __init__(self) -> None:
+        self._create_message_response_body = CreateMessageResponseBody()
 
     def items(self, items: List[str]) -> "CreateMessageResponseBodyBuilder":
         self._create_message_response_body.items = items

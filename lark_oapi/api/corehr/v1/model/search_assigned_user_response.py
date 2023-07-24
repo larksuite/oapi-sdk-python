@@ -12,7 +12,7 @@ class SearchAssignedUserResponse(BaseResponse):
         "data": SearchAssignedUserResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[SearchAssignedUserResponseBody] = None
         init(self, d, self._types)

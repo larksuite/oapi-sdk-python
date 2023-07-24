@@ -14,7 +14,7 @@ class CreateFileRequestBody(object):
         "file": IO[Any],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_type: Optional[str] = None
         self.file_name: Optional[str] = None
         self.duration: Optional[int] = None
@@ -27,8 +27,8 @@ class CreateFileRequestBody(object):
 
 
 class CreateFileRequestBodyBuilder(object):
-    def __init__(self, create_file_request_body: CreateFileRequestBody = CreateFileRequestBody({})) -> None:
-        self._create_file_request_body: CreateFileRequestBody = create_file_request_body
+    def __init__(self) -> None:
+        self._create_file_request_body = CreateFileRequestBody()
 
     def file_type(self, file_type: str) -> "CreateFileRequestBodyBuilder":
         self._create_file_request_body.file_type = file_type

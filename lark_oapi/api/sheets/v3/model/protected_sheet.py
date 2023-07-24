@@ -10,7 +10,7 @@ class ProtectedSheet(object):
         "sheet_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sheet_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ProtectedSheet(object):
 
 
 class ProtectedSheetBuilder(object):
-    def __init__(self, protected_sheet: ProtectedSheet = ProtectedSheet({})) -> None:
-        self._protected_sheet: ProtectedSheet = protected_sheet
+    def __init__(self) -> None:
+        self._protected_sheet = ProtectedSheet()
 
     def sheet_id(self, sheet_id: str) -> "ProtectedSheetBuilder":
         self._protected_sheet.sheet_id = sheet_id

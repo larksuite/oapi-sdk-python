@@ -15,7 +15,7 @@ class BitableTableFieldActionValue(object):
         "property": BitableTableFieldActionValueProperty,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.type: Optional[int] = None
@@ -29,9 +29,8 @@ class BitableTableFieldActionValue(object):
 
 
 class BitableTableFieldActionValueBuilder(object):
-    def __init__(self, bitable_table_field_action_value: BitableTableFieldActionValue = BitableTableFieldActionValue(
-        {})) -> None:
-        self._bitable_table_field_action_value: BitableTableFieldActionValue = bitable_table_field_action_value
+    def __init__(self) -> None:
+        self._bitable_table_field_action_value = BitableTableFieldActionValue()
 
     def id(self, id: str) -> "BitableTableFieldActionValueBuilder":
         self._bitable_table_field_action_value.id = id

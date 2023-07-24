@@ -18,7 +18,7 @@ class WorkExperienceInfo(object):
         "custom_fields": List[CustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.company_organization: Optional[List[I18n]] = None
         self.department: Optional[List[I18n]] = None
         self.job: Optional[List[I18n]] = None
@@ -34,8 +34,8 @@ class WorkExperienceInfo(object):
 
 
 class WorkExperienceInfoBuilder(object):
-    def __init__(self, work_experience_info: WorkExperienceInfo = WorkExperienceInfo({})) -> None:
-        self._work_experience_info: WorkExperienceInfo = work_experience_info
+    def __init__(self) -> None:
+        self._work_experience_info = WorkExperienceInfo()
 
     def company_organization(self, company_organization: List[I18n]) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.company_organization = company_organization

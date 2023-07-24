@@ -12,7 +12,7 @@ class QueryUserStatsViewRequestBody(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.locale: Optional[str] = None
         self.stats_type: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -24,10 +24,8 @@ class QueryUserStatsViewRequestBody(object):
 
 
 class QueryUserStatsViewRequestBodyBuilder(object):
-    def __init__(self,
-                 query_user_stats_view_request_body: QueryUserStatsViewRequestBody = QueryUserStatsViewRequestBody(
-                     {})) -> None:
-        self._query_user_stats_view_request_body: QueryUserStatsViewRequestBody = query_user_stats_view_request_body
+    def __init__(self) -> None:
+        self._query_user_stats_view_request_body = QueryUserStatsViewRequestBody()
 
     def locale(self, locale: str) -> "QueryUserStatsViewRequestBodyBuilder":
         self._query_user_stats_view_request_body.locale = locale

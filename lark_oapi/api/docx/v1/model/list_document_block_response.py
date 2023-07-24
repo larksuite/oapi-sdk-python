@@ -12,7 +12,7 @@ class ListDocumentBlockResponse(BaseResponse):
         "data": ListDocumentBlockResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListDocumentBlockResponseBody] = None
         init(self, d, self._types)

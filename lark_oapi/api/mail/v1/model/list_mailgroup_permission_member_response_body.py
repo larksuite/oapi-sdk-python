@@ -13,7 +13,7 @@ class ListMailgroupPermissionMemberResponseBody(object):
         "items": List[MailgroupPermissionMember],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[MailgroupPermissionMember]] = None
@@ -25,10 +25,8 @@ class ListMailgroupPermissionMemberResponseBody(object):
 
 
 class ListMailgroupPermissionMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 list_mailgroup_permission_member_response_body: ListMailgroupPermissionMemberResponseBody = ListMailgroupPermissionMemberResponseBody(
-                     {})) -> None:
-        self._list_mailgroup_permission_member_response_body: ListMailgroupPermissionMemberResponseBody = list_mailgroup_permission_member_response_body
+    def __init__(self) -> None:
+        self._list_mailgroup_permission_member_response_body = ListMailgroupPermissionMemberResponseBody()
 
     def has_more(self, has_more: bool) -> "ListMailgroupPermissionMemberResponseBodyBuilder":
         self._list_mailgroup_permission_member_response_body.has_more = has_more

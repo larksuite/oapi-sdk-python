@@ -19,7 +19,8 @@ class CreateCategoryRequest(BaseRequest):
 
 class CreateCategoryRequestBuilder(object):
 
-    def __init__(self, create_category_request: CreateCategoryRequest = CreateCategoryRequest()) -> None:
+    def __init__(self) -> None:
+        create_category_request = CreateCategoryRequest()
         create_category_request.http_method = HttpMethod.POST
         create_category_request.uri = "/open-apis/helpdesk/v1/categories"
         create_category_request.token_types = {AccessTokenType.USER}

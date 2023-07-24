@@ -14,7 +14,7 @@ class UserStatus(object):
         "is_unjoin": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_frozen: Optional[bool] = None
         self.is_resigned: Optional[bool] = None
         self.is_activated: Optional[bool] = None
@@ -28,8 +28,8 @@ class UserStatus(object):
 
 
 class UserStatusBuilder(object):
-    def __init__(self, user_status: UserStatus = UserStatus({})) -> None:
-        self._user_status: UserStatus = user_status
+    def __init__(self) -> None:
+        self._user_status = UserStatus()
 
     def is_frozen(self, is_frozen: bool) -> "UserStatusBuilder":
         self._user_status.is_frozen = is_frozen

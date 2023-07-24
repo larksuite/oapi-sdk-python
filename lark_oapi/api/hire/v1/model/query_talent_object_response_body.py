@@ -11,7 +11,7 @@ class QueryTalentObjectResponseBody(object):
         "items": List[CommonSchema],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[CommonSchema]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class QueryTalentObjectResponseBody(object):
 
 
 class QueryTalentObjectResponseBodyBuilder(object):
-    def __init__(self, query_talent_object_response_body: QueryTalentObjectResponseBody = QueryTalentObjectResponseBody(
-        {})) -> None:
-        self._query_talent_object_response_body: QueryTalentObjectResponseBody = query_talent_object_response_body
+    def __init__(self) -> None:
+        self._query_talent_object_response_body = QueryTalentObjectResponseBody()
 
     def items(self, items: List[CommonSchema]) -> "QueryTalentObjectResponseBodyBuilder":
         self._query_talent_object_response_body.items = items

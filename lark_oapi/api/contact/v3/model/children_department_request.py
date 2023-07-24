@@ -23,7 +23,8 @@ class ChildrenDepartmentRequest(BaseRequest):
 
 class ChildrenDepartmentRequestBuilder(object):
 
-    def __init__(self, children_department_request: ChildrenDepartmentRequest = ChildrenDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        children_department_request = ChildrenDepartmentRequest()
         children_department_request.http_method = HttpMethod.GET
         children_department_request.uri = "/open-apis/contact/v3/departments/:department_id/children"
         children_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

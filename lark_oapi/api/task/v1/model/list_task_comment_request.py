@@ -22,7 +22,8 @@ class ListTaskCommentRequest(BaseRequest):
 
 class ListTaskCommentRequestBuilder(object):
 
-    def __init__(self, list_task_comment_request: ListTaskCommentRequest = ListTaskCommentRequest()) -> None:
+    def __init__(self) -> None:
+        list_task_comment_request = ListTaskCommentRequest()
         list_task_comment_request.http_method = HttpMethod.GET
         list_task_comment_request.uri = "/open-apis/task/v1/tasks/:task_id/comments"
         list_task_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

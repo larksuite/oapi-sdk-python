@@ -11,7 +11,7 @@ class GetGroupResponseBody(object):
         "group": Group,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group: Optional[Group] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetGroupResponseBody(object):
 
 
 class GetGroupResponseBodyBuilder(object):
-    def __init__(self, get_group_response_body: GetGroupResponseBody = GetGroupResponseBody({})) -> None:
-        self._get_group_response_body: GetGroupResponseBody = get_group_response_body
+    def __init__(self) -> None:
+        self._get_group_response_body = GetGroupResponseBody()
 
     def group(self, group: Group) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.group = group

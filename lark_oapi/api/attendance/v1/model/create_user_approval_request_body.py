@@ -11,7 +11,7 @@ class CreateUserApprovalRequestBody(object):
         "user_approval": UserApproval,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_approval: Optional[UserApproval] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateUserApprovalRequestBody(object):
 
 
 class CreateUserApprovalRequestBodyBuilder(object):
-    def __init__(self, create_user_approval_request_body: CreateUserApprovalRequestBody = CreateUserApprovalRequestBody(
-        {})) -> None:
-        self._create_user_approval_request_body: CreateUserApprovalRequestBody = create_user_approval_request_body
+    def __init__(self) -> None:
+        self._create_user_approval_request_body = CreateUserApprovalRequestBody()
 
     def user_approval(self, user_approval: UserApproval) -> "CreateUserApprovalRequestBodyBuilder":
         self._create_user_approval_request_body.user_approval = user_approval

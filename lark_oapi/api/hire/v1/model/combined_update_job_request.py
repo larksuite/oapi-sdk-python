@@ -22,7 +22,8 @@ class CombinedUpdateJobRequest(BaseRequest):
 
 class CombinedUpdateJobRequestBuilder(object):
 
-    def __init__(self, combined_update_job_request: CombinedUpdateJobRequest = CombinedUpdateJobRequest()) -> None:
+    def __init__(self) -> None:
+        combined_update_job_request = CombinedUpdateJobRequest()
         combined_update_job_request.http_method = HttpMethod.POST
         combined_update_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/combined_update"
         combined_update_job_request.token_types = {AccessTokenType.TENANT}

@@ -17,7 +17,7 @@ class OkrDetailObjectiveKr(object):
         "modify_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.pos: Optional[int] = None
         self.score: Optional[int] = None
@@ -33,8 +33,8 @@ class OkrDetailObjectiveKr(object):
 
 
 class OkrDetailObjectiveKrBuilder(object):
-    def __init__(self, okr_detail_objective_kr: OkrDetailObjectiveKr = OkrDetailObjectiveKr({})) -> None:
-        self._okr_detail_objective_kr: OkrDetailObjectiveKr = okr_detail_objective_kr
+    def __init__(self) -> None:
+        self._okr_detail_objective_kr = OkrDetailObjectiveKr()
 
     def id(self, id: int) -> "OkrDetailObjectiveKrBuilder":
         self._okr_detail_objective_kr.id = id

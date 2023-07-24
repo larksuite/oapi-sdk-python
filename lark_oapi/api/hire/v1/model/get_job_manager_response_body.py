@@ -11,7 +11,7 @@ class GetJobManagerResponseBody(object):
         "info": JobManager,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.info: Optional[JobManager] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetJobManagerResponseBody(object):
 
 
 class GetJobManagerResponseBodyBuilder(object):
-    def __init__(self,
-                 get_job_manager_response_body: GetJobManagerResponseBody = GetJobManagerResponseBody({})) -> None:
-        self._get_job_manager_response_body: GetJobManagerResponseBody = get_job_manager_response_body
+    def __init__(self) -> None:
+        self._get_job_manager_response_body = GetJobManagerResponseBody()
 
     def info(self, info: JobManager) -> "GetJobManagerResponseBodyBuilder":
         self._get_job_manager_response_body.info = info

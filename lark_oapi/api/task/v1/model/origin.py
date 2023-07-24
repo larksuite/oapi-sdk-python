@@ -12,7 +12,7 @@ class Origin(object):
         "href": Href,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.platform_i18n_name: Optional[str] = None
         self.href: Optional[Href] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Origin(object):
 
 
 class OriginBuilder(object):
-    def __init__(self, origin: Origin = Origin({})) -> None:
-        self._origin: Origin = origin
+    def __init__(self) -> None:
+        self._origin = Origin()
 
     def platform_i18n_name(self, platform_i18n_name: str) -> "OriginBuilder":
         self._origin.platform_i18n_name = platform_i18n_name

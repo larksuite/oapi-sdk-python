@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.subscribe_event_request import SubscribeEventRequest
-from lark_oapi.api.helpdesk.v1.model.subscribe_event_response import SubscribeEventResponse
-from lark_oapi.api.helpdesk.v1.model.unsubscribe_event_request import UnsubscribeEventRequest
-from lark_oapi.api.helpdesk.v1.model.unsubscribe_event_response import UnsubscribeEventResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.subscribe_event_request import SubscribeEventRequest
+from ..model.subscribe_event_response import SubscribeEventResponse
+from ..model.unsubscribe_event_request import UnsubscribeEventRequest
+from ..model.unsubscribe_event_response import UnsubscribeEventResponse
 
 
 class Event(object):
@@ -18,7 +18,10 @@ class Event(object):
         self.config: Optional[Config] = config
 
     def subscribe(self, request: SubscribeEventRequest,
-                  option: RequestOption = RequestOption()) -> SubscribeEventResponse:
+                  option: Optional[RequestOption] = None) -> SubscribeEventResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class Event(object):
         return response
 
     def unsubscribe(self, request: UnsubscribeEventRequest,
-                    option: RequestOption = RequestOption()) -> UnsubscribeEventResponse:
+                    option: Optional[RequestOption] = None) -> UnsubscribeEventResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

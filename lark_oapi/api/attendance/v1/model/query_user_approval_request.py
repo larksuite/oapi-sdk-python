@@ -20,7 +20,8 @@ class QueryUserApprovalRequest(BaseRequest):
 
 class QueryUserApprovalRequestBuilder(object):
 
-    def __init__(self, query_user_approval_request: QueryUserApprovalRequest = QueryUserApprovalRequest()) -> None:
+    def __init__(self) -> None:
+        query_user_approval_request = QueryUserApprovalRequest()
         query_user_approval_request.http_method = HttpMethod.POST
         query_user_approval_request.uri = "/open-apis/attendance/v1/user_approvals/query"
         query_user_approval_request.token_types = {AccessTokenType.TENANT}

@@ -22,7 +22,8 @@ class LeaveBalancesLeaveRequest(BaseRequest):
 
 class LeaveBalancesLeaveRequestBuilder(object):
 
-    def __init__(self, leave_balances_leave_request: LeaveBalancesLeaveRequest = LeaveBalancesLeaveRequest()) -> None:
+    def __init__(self) -> None:
+        leave_balances_leave_request = LeaveBalancesLeaveRequest()
         leave_balances_leave_request.http_method = HttpMethod.GET
         leave_balances_leave_request.uri = "/open-apis/corehr/v1/leaves/leave_balances"
         leave_balances_leave_request.token_types = {AccessTokenType.TENANT}

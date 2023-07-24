@@ -11,7 +11,7 @@ class ResourceAcceptor(object):
         "acceptor_user_id": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.processing_type: Optional[int] = None
         self.acceptor_user_id: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ResourceAcceptor(object):
 
 
 class ResourceAcceptorBuilder(object):
-    def __init__(self, resource_acceptor: ResourceAcceptor = ResourceAcceptor({})) -> None:
-        self._resource_acceptor: ResourceAcceptor = resource_acceptor
+    def __init__(self) -> None:
+        self._resource_acceptor = ResourceAcceptor()
 
     def processing_type(self, processing_type: int) -> "ResourceAcceptorBuilder":
         self._resource_acceptor.processing_type = processing_type

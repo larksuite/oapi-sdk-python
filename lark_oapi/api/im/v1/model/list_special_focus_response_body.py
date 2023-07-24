@@ -13,7 +13,7 @@ class ListSpecialFocusResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[SpecialFocus]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListSpecialFocusResponseBody(object):
 
 
 class ListSpecialFocusResponseBodyBuilder(object):
-    def __init__(self, list_special_focus_response_body: ListSpecialFocusResponseBody = ListSpecialFocusResponseBody(
-        {})) -> None:
-        self._list_special_focus_response_body: ListSpecialFocusResponseBody = list_special_focus_response_body
+    def __init__(self) -> None:
+        self._list_special_focus_response_body = ListSpecialFocusResponseBody()
 
     def items(self, items: List[SpecialFocus]) -> "ListSpecialFocusResponseBodyBuilder":
         self._list_special_focus_response_body.items = items

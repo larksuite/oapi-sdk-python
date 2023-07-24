@@ -19,7 +19,8 @@ class UploadPrepareFileRequest(BaseRequest):
 
 class UploadPrepareFileRequestBuilder(object):
 
-    def __init__(self, upload_prepare_file_request: UploadPrepareFileRequest = UploadPrepareFileRequest()) -> None:
+    def __init__(self) -> None:
+        upload_prepare_file_request = UploadPrepareFileRequest()
         upload_prepare_file_request.http_method = HttpMethod.POST
         upload_prepare_file_request.uri = "/open-apis/drive/v1/files/upload_prepare"
         upload_prepare_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

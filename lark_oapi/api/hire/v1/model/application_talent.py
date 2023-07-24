@@ -33,7 +33,7 @@ class ApplicationTalent(object):
         "attachment_resume_list": List[AppliTalentAttachResumeInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.basic_info: Optional[ApplicationTalentBasicInfo] = None
         self.self_evaluation: Optional[str] = None
@@ -55,8 +55,8 @@ class ApplicationTalent(object):
 
 
 class ApplicationTalentBuilder(object):
-    def __init__(self, application_talent: ApplicationTalent = ApplicationTalent({})) -> None:
-        self._application_talent: ApplicationTalent = application_talent
+    def __init__(self) -> None:
+        self._application_talent = ApplicationTalent()
 
     def id(self, id: str) -> "ApplicationTalentBuilder":
         self._application_talent.id = id

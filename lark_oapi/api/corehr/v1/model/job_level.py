@@ -18,7 +18,7 @@ class JobLevel(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.level_order: Optional[int] = None
         self.code: Optional[str] = None
@@ -34,8 +34,8 @@ class JobLevel(object):
 
 
 class JobLevelBuilder(object):
-    def __init__(self, job_level: JobLevel = JobLevel({})) -> None:
-        self._job_level: JobLevel = job_level
+    def __init__(self) -> None:
+        self._job_level = JobLevel()
 
     def id(self, id: str) -> "JobLevelBuilder":
         self._job_level.id = id

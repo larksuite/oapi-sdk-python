@@ -21,7 +21,7 @@ class UserOut(object):
         "approve_apply_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_id: Optional[str] = None
         self.uniq_id: Optional[str] = None
         self.unit: Optional[int] = None
@@ -41,8 +41,8 @@ class UserOut(object):
 
 
 class UserOutBuilder(object):
-    def __init__(self, user_out: UserOut = UserOut({})) -> None:
-        self._user_out: UserOut = user_out
+    def __init__(self) -> None:
+        self._user_out = UserOut()
 
     def approval_id(self, approval_id: str) -> "UserOutBuilder":
         self._user_out.approval_id = approval_id

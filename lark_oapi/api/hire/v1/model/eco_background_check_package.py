@@ -14,7 +14,7 @@ class EcoBackgroundCheckPackage(object):
         "additional_item_list": List[EcoBackgroundCheckPackageAdditionalItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.account_id: Optional[str] = None
         self.package_list: Optional[List[EcoBackgroundCheckPackageData]] = None
         self.additional_item_list: Optional[List[EcoBackgroundCheckPackageAdditionalItem]] = None
@@ -26,8 +26,8 @@ class EcoBackgroundCheckPackage(object):
 
 
 class EcoBackgroundCheckPackageBuilder(object):
-    def __init__(self, eco_background_check_package: EcoBackgroundCheckPackage = EcoBackgroundCheckPackage({})) -> None:
-        self._eco_background_check_package: EcoBackgroundCheckPackage = eco_background_check_package
+    def __init__(self) -> None:
+        self._eco_background_check_package = EcoBackgroundCheckPackage()
 
     def account_id(self, account_id: str) -> "EcoBackgroundCheckPackageBuilder":
         self._eco_background_check_package.account_id = account_id

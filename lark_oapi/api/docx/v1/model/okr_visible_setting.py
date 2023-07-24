@@ -12,7 +12,7 @@ class OkrVisibleSetting(object):
         "score_visible": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.progress_fill_area_visible: Optional[bool] = None
         self.progress_status_visible: Optional[bool] = None
         self.score_visible: Optional[bool] = None
@@ -24,8 +24,8 @@ class OkrVisibleSetting(object):
 
 
 class OkrVisibleSettingBuilder(object):
-    def __init__(self, okr_visible_setting: OkrVisibleSetting = OkrVisibleSetting({})) -> None:
-        self._okr_visible_setting: OkrVisibleSetting = okr_visible_setting
+    def __init__(self) -> None:
+        self._okr_visible_setting = OkrVisibleSetting()
 
     def progress_fill_area_visible(self, progress_fill_area_visible: bool) -> "OkrVisibleSettingBuilder":
         self._okr_visible_setting.progress_fill_area_visible = progress_fill_area_visible

@@ -22,7 +22,8 @@ class PatchEmployeeRequest(BaseRequest):
 
 class PatchEmployeeRequestBuilder(object):
 
-    def __init__(self, patch_employee_request: PatchEmployeeRequest = PatchEmployeeRequest()) -> None:
+    def __init__(self) -> None:
+        patch_employee_request = PatchEmployeeRequest()
         patch_employee_request.http_method = HttpMethod.PATCH
         patch_employee_request.uri = "/open-apis/hire/v1/employees/:employee_id"
         patch_employee_request.token_types = {AccessTokenType.TENANT}

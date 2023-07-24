@@ -12,7 +12,7 @@ class CreateChatTabResponse(BaseResponse):
         "data": CreateChatTabResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateChatTabResponseBody] = None
         init(self, d, self._types)

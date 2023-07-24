@@ -22,7 +22,7 @@ class LocationRecord(object):
         "client_info": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[UserId] = None
         self.timestamp: Optional[str] = None
         self.location: Optional[LocationInfoEvent] = None
@@ -40,8 +40,8 @@ class LocationRecord(object):
 
 
 class LocationRecordBuilder(object):
-    def __init__(self, location_record: LocationRecord = LocationRecord({})) -> None:
-        self._location_record: LocationRecord = location_record
+    def __init__(self) -> None:
+        self._location_record = LocationRecord()
 
     def user_id(self, user_id: UserId) -> "LocationRecordBuilder":
         self._location_record.user_id = user_id

@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.combined_create_job_request import CombinedCreateJobRequest
-from lark_oapi.api.hire.v1.model.combined_create_job_response import CombinedCreateJobResponse
-from lark_oapi.api.hire.v1.model.combined_update_job_request import CombinedUpdateJobRequest
-from lark_oapi.api.hire.v1.model.combined_update_job_response import CombinedUpdateJobResponse
-from lark_oapi.api.hire.v1.model.config_job_request import ConfigJobRequest
-from lark_oapi.api.hire.v1.model.config_job_response import ConfigJobResponse
-from lark_oapi.api.hire.v1.model.get_job_request import GetJobRequest
-from lark_oapi.api.hire.v1.model.get_job_response import GetJobResponse
-from lark_oapi.api.hire.v1.model.update_config_job_request import UpdateConfigJobRequest
-from lark_oapi.api.hire.v1.model.update_config_job_response import UpdateConfigJobResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.combined_create_job_request import CombinedCreateJobRequest
+from ..model.combined_create_job_response import CombinedCreateJobResponse
+from ..model.combined_update_job_request import CombinedUpdateJobRequest
+from ..model.combined_update_job_response import CombinedUpdateJobResponse
+from ..model.config_job_request import ConfigJobRequest
+from ..model.config_job_response import ConfigJobResponse
+from ..model.get_job_request import GetJobRequest
+from ..model.get_job_response import GetJobResponse
+from ..model.update_config_job_request import UpdateConfigJobRequest
+from ..model.update_config_job_response import UpdateConfigJobResponse
 
 
 class Job(object):
@@ -24,7 +24,10 @@ class Job(object):
         self.config: Optional[Config] = config
 
     def combined_create(self, request: CombinedCreateJobRequest,
-                        option: RequestOption = RequestOption()) -> CombinedCreateJobResponse:
+                        option: Optional[RequestOption] = None) -> CombinedCreateJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class Job(object):
         return response
 
     def combined_update(self, request: CombinedUpdateJobRequest,
-                        option: RequestOption = RequestOption()) -> CombinedUpdateJobResponse:
+                        option: Optional[RequestOption] = None) -> CombinedUpdateJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class Job(object):
 
         return response
 
-    def config(self, request: ConfigJobRequest, option: RequestOption = RequestOption()) -> ConfigJobResponse:
+    def config(self, request: ConfigJobRequest, option: Optional[RequestOption] = None) -> ConfigJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class Job(object):
 
         return response
 
-    def get(self, request: GetJobRequest, option: RequestOption = RequestOption()) -> GetJobResponse:
+    def get(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -78,7 +90,10 @@ class Job(object):
         return response
 
     def update_config(self, request: UpdateConfigJobRequest,
-                      option: RequestOption = RequestOption()) -> UpdateConfigJobResponse:
+                      option: Optional[RequestOption] = None) -> UpdateConfigJobResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

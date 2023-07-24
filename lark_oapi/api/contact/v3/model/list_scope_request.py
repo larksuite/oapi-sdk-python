@@ -21,7 +21,8 @@ class ListScopeRequest(BaseRequest):
 
 class ListScopeRequestBuilder(object):
 
-    def __init__(self, list_scope_request: ListScopeRequest = ListScopeRequest()) -> None:
+    def __init__(self) -> None:
+        list_scope_request = ListScopeRequest()
         list_scope_request.http_method = HttpMethod.GET
         list_scope_request.uri = "/open-apis/contact/v3/scopes"
         list_scope_request.token_types = {AccessTokenType.TENANT}

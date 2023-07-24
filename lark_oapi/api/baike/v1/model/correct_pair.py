@@ -12,7 +12,7 @@ class CorrectPair(object):
         "total": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.source_text: Optional[str] = None
         self.target_text: Optional[str] = None
         self.total: Optional[int] = None
@@ -24,8 +24,8 @@ class CorrectPair(object):
 
 
 class CorrectPairBuilder(object):
-    def __init__(self, correct_pair: CorrectPair = CorrectPair({})) -> None:
-        self._correct_pair: CorrectPair = correct_pair
+    def __init__(self) -> None:
+        self._correct_pair = CorrectPair()
 
     def source_text(self, source_text: str) -> "CorrectPairBuilder":
         self._correct_pair.source_text = source_text

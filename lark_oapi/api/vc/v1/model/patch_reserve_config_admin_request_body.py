@@ -12,7 +12,7 @@ class PatchReserveConfigAdminRequestBody(object):
         "reserve_admin_config": ReserveAdminConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope_type: Optional[int] = None
         self.reserve_admin_config: Optional[ReserveAdminConfig] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class PatchReserveConfigAdminRequestBody(object):
 
 
 class PatchReserveConfigAdminRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_reserve_config_admin_request_body: PatchReserveConfigAdminRequestBody = PatchReserveConfigAdminRequestBody(
-                     {})) -> None:
-        self._patch_reserve_config_admin_request_body: PatchReserveConfigAdminRequestBody = patch_reserve_config_admin_request_body
+    def __init__(self) -> None:
+        self._patch_reserve_config_admin_request_body = PatchReserveConfigAdminRequestBody()
 
     def scope_type(self, scope_type: int) -> "PatchReserveConfigAdminRequestBodyBuilder":
         self._patch_reserve_config_admin_request_body.scope_type = scope_type

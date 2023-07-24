@@ -19,8 +19,8 @@ class QueryTransferReasonRequest(BaseRequest):
 
 class QueryTransferReasonRequestBuilder(object):
 
-    def __init__(self,
-                 query_transfer_reason_request: QueryTransferReasonRequest = QueryTransferReasonRequest()) -> None:
+    def __init__(self) -> None:
+        query_transfer_reason_request = QueryTransferReasonRequest()
         query_transfer_reason_request.http_method = HttpMethod.GET
         query_transfer_reason_request.uri = "/open-apis/corehr/v1/transfer_reasons/query"
         query_transfer_reason_request.token_types = {AccessTokenType.TENANT}

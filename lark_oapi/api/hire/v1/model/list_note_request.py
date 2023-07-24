@@ -21,7 +21,8 @@ class ListNoteRequest(BaseRequest):
 
 class ListNoteRequestBuilder(object):
 
-    def __init__(self, list_note_request: ListNoteRequest = ListNoteRequest()) -> None:
+    def __init__(self) -> None:
+        list_note_request = ListNoteRequest()
         list_note_request.http_method = HttpMethod.GET
         list_note_request.uri = "/open-apis/hire/v1/notes"
         list_note_request.token_types = {AccessTokenType.TENANT}

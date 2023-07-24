@@ -16,7 +16,7 @@ class CreateTimeoffEventResponseBody(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.timeoff_event_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.timezone: Optional[str] = None
@@ -32,10 +32,8 @@ class CreateTimeoffEventResponseBody(object):
 
 
 class CreateTimeoffEventResponseBodyBuilder(object):
-    def __init__(self,
-                 create_timeoff_event_response_body: CreateTimeoffEventResponseBody = CreateTimeoffEventResponseBody(
-                     {})) -> None:
-        self._create_timeoff_event_response_body: CreateTimeoffEventResponseBody = create_timeoff_event_response_body
+    def __init__(self) -> None:
+        self._create_timeoff_event_response_body = CreateTimeoffEventResponseBody()
 
     def timeoff_event_id(self, timeoff_event_id: str) -> "CreateTimeoffEventResponseBodyBuilder":
         self._create_timeoff_event_response_body.timeoff_event_id = timeoff_event_id

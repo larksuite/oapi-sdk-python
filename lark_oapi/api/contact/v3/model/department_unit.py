@@ -12,7 +12,7 @@ class DepartmentUnit(object):
         "unit_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.unit_id: Optional[str] = None
         self.unit_type: Optional[str] = None
         self.unit_name: Optional[str] = None
@@ -24,8 +24,8 @@ class DepartmentUnit(object):
 
 
 class DepartmentUnitBuilder(object):
-    def __init__(self, department_unit: DepartmentUnit = DepartmentUnit({})) -> None:
-        self._department_unit: DepartmentUnit = department_unit
+    def __init__(self) -> None:
+        self._department_unit = DepartmentUnit()
 
     def unit_id(self, unit_id: str) -> "DepartmentUnitBuilder":
         self._department_unit.unit_id = unit_id

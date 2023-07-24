@@ -38,7 +38,7 @@ class AdminUserStat(object):
         "email_receive_in_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date: Optional[str] = None
         self.user_id: Optional[str] = None
         self.user_name: Optional[str] = None
@@ -76,8 +76,8 @@ class AdminUserStat(object):
 
 
 class AdminUserStatBuilder(object):
-    def __init__(self, admin_user_stat: AdminUserStat = AdminUserStat({})) -> None:
-        self._admin_user_stat: AdminUserStat = admin_user_stat
+    def __init__(self) -> None:
+        self._admin_user_stat = AdminUserStat()
 
     def date(self, date: str) -> "AdminUserStatBuilder":
         self._admin_user_stat.date = date

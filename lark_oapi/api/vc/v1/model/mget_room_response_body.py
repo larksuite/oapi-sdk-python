@@ -11,7 +11,7 @@ class MgetRoomResponseBody(object):
         "items": List[Room],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Room]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class MgetRoomResponseBody(object):
 
 
 class MgetRoomResponseBodyBuilder(object):
-    def __init__(self, mget_room_response_body: MgetRoomResponseBody = MgetRoomResponseBody({})) -> None:
-        self._mget_room_response_body: MgetRoomResponseBody = mget_room_response_body
+    def __init__(self) -> None:
+        self._mget_room_response_body = MgetRoomResponseBody()
 
     def items(self, items: List[Room]) -> "MgetRoomResponseBodyBuilder":
         self._mget_room_response_body.items = items

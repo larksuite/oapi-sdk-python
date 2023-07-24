@@ -19,7 +19,7 @@ class EventMessage(object):
         "mentions": List[MentionEvent],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[str] = None
         self.root_id: Optional[str] = None
         self.parent_id: Optional[str] = None
@@ -37,8 +37,8 @@ class EventMessage(object):
 
 
 class EventMessageBuilder(object):
-    def __init__(self, event_message: EventMessage = EventMessage({})) -> None:
-        self._event_message: EventMessage = event_message
+    def __init__(self) -> None:
+        self._event_message = EventMessage()
 
     def message_id(self, message_id: str) -> "EventMessageBuilder":
         self._event_message.message_id = message_id

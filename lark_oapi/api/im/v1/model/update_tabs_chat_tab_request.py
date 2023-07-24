@@ -20,7 +20,8 @@ class UpdateTabsChatTabRequest(BaseRequest):
 
 class UpdateTabsChatTabRequestBuilder(object):
 
-    def __init__(self, update_tabs_chat_tab_request: UpdateTabsChatTabRequest = UpdateTabsChatTabRequest()) -> None:
+    def __init__(self) -> None:
+        update_tabs_chat_tab_request = UpdateTabsChatTabRequest()
         update_tabs_chat_tab_request.http_method = HttpMethod.POST
         update_tabs_chat_tab_request.uri = "/open-apis/im/v1/chats/:chat_id/chat_tabs/update_tabs"
         update_tabs_chat_tab_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

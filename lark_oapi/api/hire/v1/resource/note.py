@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_note_request import CreateNoteRequest
-from lark_oapi.api.hire.v1.model.create_note_response import CreateNoteResponse
-from lark_oapi.api.hire.v1.model.get_note_request import GetNoteRequest
-from lark_oapi.api.hire.v1.model.get_note_response import GetNoteResponse
-from lark_oapi.api.hire.v1.model.list_note_request import ListNoteRequest
-from lark_oapi.api.hire.v1.model.list_note_response import ListNoteResponse
-from lark_oapi.api.hire.v1.model.patch_note_request import PatchNoteRequest
-from lark_oapi.api.hire.v1.model.patch_note_response import PatchNoteResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_note_request import CreateNoteRequest
+from ..model.create_note_response import CreateNoteResponse
+from ..model.get_note_request import GetNoteRequest
+from ..model.get_note_response import GetNoteResponse
+from ..model.list_note_request import ListNoteRequest
+from ..model.list_note_response import ListNoteResponse
+from ..model.patch_note_request import PatchNoteRequest
+from ..model.patch_note_response import PatchNoteResponse
 
 
 class Note(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateNoteRequest, option: RequestOption = RequestOption()) -> CreateNoteResponse:
+    def create(self, request: CreateNoteRequest, option: Optional[RequestOption] = None) -> CreateNoteResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Note(object):
 
         return response
 
-    def get(self, request: GetNoteRequest, option: RequestOption = RequestOption()) -> GetNoteResponse:
+    def get(self, request: GetNoteRequest, option: Optional[RequestOption] = None) -> GetNoteResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Note(object):
 
         return response
 
-    def list(self, request: ListNoteRequest, option: RequestOption = RequestOption()) -> ListNoteResponse:
+    def list(self, request: ListNoteRequest, option: Optional[RequestOption] = None) -> ListNoteResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +69,10 @@ class Note(object):
 
         return response
 
-    def patch(self, request: PatchNoteRequest, option: RequestOption = RequestOption()) -> PatchNoteResponse:
+    def patch(self, request: PatchNoteRequest, option: Optional[RequestOption] = None) -> PatchNoteResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

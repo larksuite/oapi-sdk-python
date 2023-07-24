@@ -2,30 +2,33 @@
 
 from typing import *
 
-from lark_oapi.api.approval.v4.model.approve_task_request import ApproveTaskRequest
-from lark_oapi.api.approval.v4.model.approve_task_response import ApproveTaskResponse
-from lark_oapi.api.approval.v4.model.query_task_request import QueryTaskRequest
-from lark_oapi.api.approval.v4.model.query_task_response import QueryTaskResponse
-from lark_oapi.api.approval.v4.model.reject_task_request import RejectTaskRequest
-from lark_oapi.api.approval.v4.model.reject_task_response import RejectTaskResponse
-from lark_oapi.api.approval.v4.model.resubmit_task_request import ResubmitTaskRequest
-from lark_oapi.api.approval.v4.model.resubmit_task_response import ResubmitTaskResponse
-from lark_oapi.api.approval.v4.model.search_task_request import SearchTaskRequest
-from lark_oapi.api.approval.v4.model.search_task_response import SearchTaskResponse
-from lark_oapi.api.approval.v4.model.transfer_task_request import TransferTaskRequest
-from lark_oapi.api.approval.v4.model.transfer_task_response import TransferTaskResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.approve_task_request import ApproveTaskRequest
+from ..model.approve_task_response import ApproveTaskResponse
+from ..model.query_task_request import QueryTaskRequest
+from ..model.query_task_response import QueryTaskResponse
+from ..model.reject_task_request import RejectTaskRequest
+from ..model.reject_task_response import RejectTaskResponse
+from ..model.resubmit_task_request import ResubmitTaskRequest
+from ..model.resubmit_task_response import ResubmitTaskResponse
+from ..model.search_task_request import SearchTaskRequest
+from ..model.search_task_response import SearchTaskResponse
+from ..model.transfer_task_request import TransferTaskRequest
+from ..model.transfer_task_response import TransferTaskResponse
 
 
 class Task(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def approve(self, request: ApproveTaskRequest, option: RequestOption = RequestOption()) -> ApproveTaskResponse:
+    def approve(self, request: ApproveTaskRequest, option: Optional[RequestOption] = None) -> ApproveTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class Task(object):
 
         return response
 
-    def query(self, request: QueryTaskRequest, option: RequestOption = RequestOption()) -> QueryTaskResponse:
+    def query(self, request: QueryTaskRequest, option: Optional[RequestOption] = None) -> QueryTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class Task(object):
 
         return response
 
-    def reject(self, request: RejectTaskRequest, option: RequestOption = RequestOption()) -> RejectTaskResponse:
+    def reject(self, request: RejectTaskRequest, option: Optional[RequestOption] = None) -> RejectTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class Task(object):
 
         return response
 
-    def resubmit(self, request: ResubmitTaskRequest, option: RequestOption = RequestOption()) -> ResubmitTaskResponse:
+    def resubmit(self, request: ResubmitTaskRequest, option: Optional[RequestOption] = None) -> ResubmitTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -77,7 +89,10 @@ class Task(object):
 
         return response
 
-    def search(self, request: SearchTaskRequest, option: RequestOption = RequestOption()) -> SearchTaskResponse:
+    def search(self, request: SearchTaskRequest, option: Optional[RequestOption] = None) -> SearchTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -90,7 +105,10 @@ class Task(object):
 
         return response
 
-    def transfer(self, request: TransferTaskRequest, option: RequestOption = RequestOption()) -> TransferTaskResponse:
+    def transfer(self, request: TransferTaskRequest, option: Optional[RequestOption] = None) -> TransferTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

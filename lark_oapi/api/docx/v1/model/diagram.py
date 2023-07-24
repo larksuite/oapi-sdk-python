@@ -10,7 +10,7 @@ class Diagram(object):
         "diagram_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.diagram_type: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Diagram(object):
 
 
 class DiagramBuilder(object):
-    def __init__(self, diagram: Diagram = Diagram({})) -> None:
-        self._diagram: Diagram = diagram
+    def __init__(self) -> None:
+        self._diagram = Diagram()
 
     def diagram_type(self, diagram_type: int) -> "DiagramBuilder":
         self._diagram.diagram_type = diagram_type

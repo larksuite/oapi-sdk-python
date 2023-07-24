@@ -11,7 +11,7 @@ class GetReserveConfigDisableInformResponseBody(object):
         "disable_inform": DisableInformConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.disable_inform: Optional[DisableInformConfig] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetReserveConfigDisableInformResponseBody(object):
 
 
 class GetReserveConfigDisableInformResponseBodyBuilder(object):
-    def __init__(self,
-                 get_reserve_config_disable_inform_response_body: GetReserveConfigDisableInformResponseBody = GetReserveConfigDisableInformResponseBody(
-                     {})) -> None:
-        self._get_reserve_config_disable_inform_response_body: GetReserveConfigDisableInformResponseBody = get_reserve_config_disable_inform_response_body
+    def __init__(self) -> None:
+        self._get_reserve_config_disable_inform_response_body = GetReserveConfigDisableInformResponseBody()
 
     def disable_inform(self, disable_inform: DisableInformConfig) -> "GetReserveConfigDisableInformResponseBodyBuilder":
         self._get_reserve_config_disable_inform_response_body.disable_inform = disable_inform

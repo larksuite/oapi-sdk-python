@@ -11,7 +11,7 @@ class OldUserObject(object):
         "open_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_ids: Optional[List[str]] = None
         self.open_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OldUserObject(object):
 
 
 class OldUserObjectBuilder(object):
-    def __init__(self, old_user_object: OldUserObject = OldUserObject({})) -> None:
-        self._old_user_object: OldUserObject = old_user_object
+    def __init__(self) -> None:
+        self._old_user_object = OldUserObject()
 
     def department_ids(self, department_ids: List[str]) -> "OldUserObjectBuilder":
         self._old_user_object.department_ids = department_ids

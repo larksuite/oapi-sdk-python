@@ -10,7 +10,7 @@ class MeetingListExportResponseBody(object):
         "task_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class MeetingListExportResponseBody(object):
 
 
 class MeetingListExportResponseBodyBuilder(object):
-    def __init__(self, meeting_list_export_response_body: MeetingListExportResponseBody = MeetingListExportResponseBody(
-        {})) -> None:
-        self._meeting_list_export_response_body: MeetingListExportResponseBody = meeting_list_export_response_body
+    def __init__(self) -> None:
+        self._meeting_list_export_response_body = MeetingListExportResponseBody()
 
     def task_id(self, task_id: str) -> "MeetingListExportResponseBodyBuilder":
         self._meeting_list_export_response_body.task_id = task_id

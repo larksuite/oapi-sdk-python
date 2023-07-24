@@ -23,8 +23,8 @@ class ListCalendarEventAttendeeChatMemberRequest(BaseRequest):
 
 class ListCalendarEventAttendeeChatMemberRequestBuilder(object):
 
-    def __init__(self,
-                 list_calendar_event_attendee_chat_member_request: ListCalendarEventAttendeeChatMemberRequest = ListCalendarEventAttendeeChatMemberRequest()) -> None:
+    def __init__(self) -> None:
+        list_calendar_event_attendee_chat_member_request = ListCalendarEventAttendeeChatMemberRequest()
         list_calendar_event_attendee_chat_member_request.http_method = HttpMethod.GET
         list_calendar_event_attendee_chat_member_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
         list_calendar_event_attendee_chat_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

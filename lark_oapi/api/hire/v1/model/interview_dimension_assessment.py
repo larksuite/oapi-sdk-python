@@ -18,7 +18,7 @@ class InterviewDimensionAssessment(object):
         "dimension_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.content: Optional[str] = None
@@ -34,9 +34,8 @@ class InterviewDimensionAssessment(object):
 
 
 class InterviewDimensionAssessmentBuilder(object):
-    def __init__(self, interview_dimension_assessment: InterviewDimensionAssessment = InterviewDimensionAssessment(
-        {})) -> None:
-        self._interview_dimension_assessment: InterviewDimensionAssessment = interview_dimension_assessment
+    def __init__(self) -> None:
+        self._interview_dimension_assessment = InterviewDimensionAssessment()
 
     def id(self, id: str) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.id = id

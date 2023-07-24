@@ -25,7 +25,8 @@ class GetMeetingListRequest(BaseRequest):
 
 class GetMeetingListRequestBuilder(object):
 
-    def __init__(self, get_meeting_list_request: GetMeetingListRequest = GetMeetingListRequest()) -> None:
+    def __init__(self) -> None:
+        get_meeting_list_request = GetMeetingListRequest()
         get_meeting_list_request.http_method = HttpMethod.GET
         get_meeting_list_request.uri = "/open-apis/vc/v1/meeting_list"
         get_meeting_list_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

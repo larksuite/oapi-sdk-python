@@ -13,7 +13,7 @@ class GetFileStatisticsResponseBody(object):
         "statistics": FileStatistics,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.file_type: Optional[str] = None
         self.statistics: Optional[FileStatistics] = None
@@ -25,9 +25,8 @@ class GetFileStatisticsResponseBody(object):
 
 
 class GetFileStatisticsResponseBodyBuilder(object):
-    def __init__(self, get_file_statistics_response_body: GetFileStatisticsResponseBody = GetFileStatisticsResponseBody(
-        {})) -> None:
-        self._get_file_statistics_response_body: GetFileStatisticsResponseBody = get_file_statistics_response_body
+    def __init__(self) -> None:
+        self._get_file_statistics_response_body = GetFileStatisticsResponseBody()
 
     def file_token(self, file_token: str) -> "GetFileStatisticsResponseBodyBuilder":
         self._get_file_statistics_response_body.file_token = file_token

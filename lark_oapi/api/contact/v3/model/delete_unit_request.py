@@ -18,7 +18,8 @@ class DeleteUnitRequest(BaseRequest):
 
 class DeleteUnitRequestBuilder(object):
 
-    def __init__(self, delete_unit_request: DeleteUnitRequest = DeleteUnitRequest()) -> None:
+    def __init__(self) -> None:
+        delete_unit_request = DeleteUnitRequest()
         delete_unit_request.http_method = HttpMethod.DELETE
         delete_unit_request.uri = "/open-apis/contact/v3/unit/:unit_id"
         delete_unit_request.token_types = {AccessTokenType.TENANT}

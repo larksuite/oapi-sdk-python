@@ -12,7 +12,7 @@ class OkrObjectiveAlignment(object):
         "to_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.to_id: Optional[int] = None
         self.to_type: Optional[int] = None
@@ -24,8 +24,8 @@ class OkrObjectiveAlignment(object):
 
 
 class OkrObjectiveAlignmentBuilder(object):
-    def __init__(self, okr_objective_alignment: OkrObjectiveAlignment = OkrObjectiveAlignment({})) -> None:
-        self._okr_objective_alignment: OkrObjectiveAlignment = okr_objective_alignment
+    def __init__(self) -> None:
+        self._okr_objective_alignment = OkrObjectiveAlignment()
 
     def id(self, id: int) -> "OkrObjectiveAlignmentBuilder":
         self._okr_objective_alignment.id = id

@@ -16,7 +16,7 @@ class Location(object):
         "full_address": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.location: Optional[str] = None
         self.pname: Optional[str] = None
         self.cityname: Optional[str] = None
@@ -32,8 +32,8 @@ class Location(object):
 
 
 class LocationBuilder(object):
-    def __init__(self, location: Location = Location({})) -> None:
-        self._location: Location = location
+    def __init__(self) -> None:
+        self._location = Location()
 
     def location(self, location: str) -> "LocationBuilder":
         self._location.location = location

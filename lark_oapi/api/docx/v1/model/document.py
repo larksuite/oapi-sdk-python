@@ -12,7 +12,7 @@ class Document(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.document_id: Optional[str] = None
         self.revision_id: Optional[int] = None
         self.title: Optional[str] = None
@@ -24,8 +24,8 @@ class Document(object):
 
 
 class DocumentBuilder(object):
-    def __init__(self, document: Document = Document({})) -> None:
-        self._document: Document = document
+    def __init__(self) -> None:
+        self._document = Document()
 
     def document_id(self, document_id: str) -> "DocumentBuilder":
         self._document.document_id = document_id

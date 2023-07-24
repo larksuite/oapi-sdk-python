@@ -11,7 +11,7 @@ class BottomBorderStyle(object):
         "color": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.style: Optional[str] = None
         self.color: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BottomBorderStyle(object):
 
 
 class BottomBorderStyleBuilder(object):
-    def __init__(self, bottom_border_style: BottomBorderStyle = BottomBorderStyle({})) -> None:
-        self._bottom_border_style: BottomBorderStyle = bottom_border_style
+    def __init__(self) -> None:
+        self._bottom_border_style = BottomBorderStyle()
 
     def style(self, style: str) -> "BottomBorderStyleBuilder":
         self._bottom_border_style.style = style

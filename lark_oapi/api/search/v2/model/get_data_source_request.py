@@ -18,7 +18,8 @@ class GetDataSourceRequest(BaseRequest):
 
 class GetDataSourceRequestBuilder(object):
 
-    def __init__(self, get_data_source_request: GetDataSourceRequest = GetDataSourceRequest()) -> None:
+    def __init__(self) -> None:
+        get_data_source_request = GetDataSourceRequest()
         get_data_source_request.http_method = HttpMethod.GET
         get_data_source_request.uri = "/open-apis/search/v2/data_sources/:data_source_id"
         get_data_source_request.token_types = {AccessTokenType.TENANT}

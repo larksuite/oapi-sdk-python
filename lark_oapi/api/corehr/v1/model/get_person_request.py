@@ -19,7 +19,8 @@ class GetPersonRequest(BaseRequest):
 
 class GetPersonRequestBuilder(object):
 
-    def __init__(self, get_person_request: GetPersonRequest = GetPersonRequest()) -> None:
+    def __init__(self) -> None:
+        get_person_request = GetPersonRequest()
         get_person_request.http_method = HttpMethod.GET
         get_person_request.uri = "/open-apis/corehr/v1/persons/:person_id"
         get_person_request.token_types = {AccessTokenType.TENANT}

@@ -21,7 +21,8 @@ class InviteMeetingRequest(BaseRequest):
 
 class InviteMeetingRequestBuilder(object):
 
-    def __init__(self, invite_meeting_request: InviteMeetingRequest = InviteMeetingRequest()) -> None:
+    def __init__(self) -> None:
+        invite_meeting_request = InviteMeetingRequest()
         invite_meeting_request.http_method = HttpMethod.PATCH
         invite_meeting_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/invite"
         invite_meeting_request.token_types = {AccessTokenType.USER}

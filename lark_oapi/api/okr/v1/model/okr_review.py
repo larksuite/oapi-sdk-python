@@ -13,7 +13,7 @@ class OkrReview(object):
         "review_period_list": List[OkrReviewPeriod],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[OkrObjectiveAlignedObjectiveOwner] = None
         self.review_period_list: Optional[List[OkrReviewPeriod]] = None
         init(self, d, self._types)
@@ -24,8 +24,8 @@ class OkrReview(object):
 
 
 class OkrReviewBuilder(object):
-    def __init__(self, okr_review: OkrReview = OkrReview({})) -> None:
-        self._okr_review: OkrReview = okr_review
+    def __init__(self) -> None:
+        self._okr_review = OkrReview()
 
     def user_id(self, user_id: OkrObjectiveAlignedObjectiveOwner) -> "OkrReviewBuilder":
         self._okr_review.user_id = user_id

@@ -13,7 +13,7 @@ class JobCategory(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -26,8 +26,8 @@ class JobCategory(object):
 
 
 class JobCategoryBuilder(object):
-    def __init__(self, job_category: JobCategory = JobCategory({})) -> None:
-        self._job_category: JobCategory = job_category
+    def __init__(self) -> None:
+        self._job_category = JobCategory()
 
     def id(self, id: str) -> "JobCategoryBuilder":
         self._job_category.id = id

@@ -12,7 +12,7 @@ class EcoBackgroundCheckPackageAdditionalItem(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.description: Optional[str] = None
@@ -24,10 +24,8 @@ class EcoBackgroundCheckPackageAdditionalItem(object):
 
 
 class EcoBackgroundCheckPackageAdditionalItemBuilder(object):
-    def __init__(self,
-                 eco_background_check_package_additional_item: EcoBackgroundCheckPackageAdditionalItem = EcoBackgroundCheckPackageAdditionalItem(
-                     {})) -> None:
-        self._eco_background_check_package_additional_item: EcoBackgroundCheckPackageAdditionalItem = eco_background_check_package_additional_item
+    def __init__(self) -> None:
+        self._eco_background_check_package_additional_item = EcoBackgroundCheckPackageAdditionalItem()
 
     def id(self, id: str) -> "EcoBackgroundCheckPackageAdditionalItemBuilder":
         self._eco_background_check_package_additional_item.id = id

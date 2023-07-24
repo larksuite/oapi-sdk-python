@@ -12,7 +12,7 @@ class GetDocumentResponse(BaseResponse):
         "data": GetDocumentResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetDocumentResponseBody] = None
         init(self, d, self._types)

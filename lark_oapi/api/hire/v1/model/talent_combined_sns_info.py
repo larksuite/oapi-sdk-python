@@ -14,7 +14,7 @@ class TalentCombinedSnsInfo(object):
         "customized_data": List[TalentCustomizedDataObjectValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.sns_type: Optional[int] = None
         self.link: Optional[str] = None
@@ -27,8 +27,8 @@ class TalentCombinedSnsInfo(object):
 
 
 class TalentCombinedSnsInfoBuilder(object):
-    def __init__(self, talent_combined_sns_info: TalentCombinedSnsInfo = TalentCombinedSnsInfo({})) -> None:
-        self._talent_combined_sns_info: TalentCombinedSnsInfo = talent_combined_sns_info
+    def __init__(self) -> None:
+        self._talent_combined_sns_info = TalentCombinedSnsInfo()
 
     def id(self, id: str) -> "TalentCombinedSnsInfoBuilder":
         self._talent_combined_sns_info.id = id

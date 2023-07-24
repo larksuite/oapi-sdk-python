@@ -12,7 +12,7 @@ class FilterView(object):
         "range": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.filter_view_id: Optional[str] = None
         self.filter_view_name: Optional[str] = None
         self.range: Optional[str] = None
@@ -24,8 +24,8 @@ class FilterView(object):
 
 
 class FilterViewBuilder(object):
-    def __init__(self, filter_view: FilterView = FilterView({})) -> None:
-        self._filter_view: FilterView = filter_view
+    def __init__(self) -> None:
+        self._filter_view = FilterView()
 
     def filter_view_id(self, filter_view_id: str) -> "FilterViewBuilder":
         self._filter_view.filter_view_id = filter_view_id

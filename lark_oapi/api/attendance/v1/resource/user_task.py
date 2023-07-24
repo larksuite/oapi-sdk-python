@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.query_user_task_request import QueryUserTaskRequest
-from lark_oapi.api.attendance.v1.model.query_user_task_response import QueryUserTaskResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_user_task_request import QueryUserTaskRequest
+from ..model.query_user_task_response import QueryUserTaskResponse
 
 
 class UserTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def query(self, request: QueryUserTaskRequest, option: RequestOption = RequestOption()) -> QueryUserTaskResponse:
+    def query(self, request: QueryUserTaskRequest, option: Optional[RequestOption] = None) -> QueryUserTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

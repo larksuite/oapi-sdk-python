@@ -11,7 +11,7 @@ class ApprovalForm(object):
         "widget_relation": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.form_content: Optional[str] = None
         self.widget_relation: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ApprovalForm(object):
 
 
 class ApprovalFormBuilder(object):
-    def __init__(self, approval_form: ApprovalForm = ApprovalForm({})) -> None:
-        self._approval_form: ApprovalForm = approval_form
+    def __init__(self) -> None:
+        self._approval_form = ApprovalForm()
 
     def form_content(self, form_content: str) -> "ApprovalFormBuilder":
         self._approval_form.form_content = form_content

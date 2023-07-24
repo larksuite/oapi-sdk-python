@@ -2,30 +2,33 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.create_group_request import CreateGroupRequest
-from lark_oapi.api.contact.v3.model.create_group_response import CreateGroupResponse
-from lark_oapi.api.contact.v3.model.delete_group_request import DeleteGroupRequest
-from lark_oapi.api.contact.v3.model.delete_group_response import DeleteGroupResponse
-from lark_oapi.api.contact.v3.model.get_group_request import GetGroupRequest
-from lark_oapi.api.contact.v3.model.get_group_response import GetGroupResponse
-from lark_oapi.api.contact.v3.model.member_belong_group_request import MemberBelongGroupRequest
-from lark_oapi.api.contact.v3.model.member_belong_group_response import MemberBelongGroupResponse
-from lark_oapi.api.contact.v3.model.patch_group_request import PatchGroupRequest
-from lark_oapi.api.contact.v3.model.patch_group_response import PatchGroupResponse
-from lark_oapi.api.contact.v3.model.simplelist_group_request import SimplelistGroupRequest
-from lark_oapi.api.contact.v3.model.simplelist_group_response import SimplelistGroupResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_group_request import CreateGroupRequest
+from ..model.create_group_response import CreateGroupResponse
+from ..model.delete_group_request import DeleteGroupRequest
+from ..model.delete_group_response import DeleteGroupResponse
+from ..model.get_group_request import GetGroupRequest
+from ..model.get_group_response import GetGroupResponse
+from ..model.member_belong_group_request import MemberBelongGroupRequest
+from ..model.member_belong_group_response import MemberBelongGroupResponse
+from ..model.patch_group_request import PatchGroupRequest
+from ..model.patch_group_response import PatchGroupResponse
+from ..model.simplelist_group_request import SimplelistGroupRequest
+from ..model.simplelist_group_response import SimplelistGroupResponse
 
 
 class Group(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateGroupRequest, option: RequestOption = RequestOption()) -> CreateGroupResponse:
+    def create(self, request: CreateGroupRequest, option: Optional[RequestOption] = None) -> CreateGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class Group(object):
 
         return response
 
-    def delete(self, request: DeleteGroupRequest, option: RequestOption = RequestOption()) -> DeleteGroupResponse:
+    def delete(self, request: DeleteGroupRequest, option: Optional[RequestOption] = None) -> DeleteGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class Group(object):
 
         return response
 
-    def get(self, request: GetGroupRequest, option: RequestOption = RequestOption()) -> GetGroupResponse:
+    def get(self, request: GetGroupRequest, option: Optional[RequestOption] = None) -> GetGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +74,10 @@ class Group(object):
         return response
 
     def member_belong(self, request: MemberBelongGroupRequest,
-                      option: RequestOption = RequestOption()) -> MemberBelongGroupResponse:
+                      option: Optional[RequestOption] = None) -> MemberBelongGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -78,7 +90,10 @@ class Group(object):
 
         return response
 
-    def patch(self, request: PatchGroupRequest, option: RequestOption = RequestOption()) -> PatchGroupResponse:
+    def patch(self, request: PatchGroupRequest, option: Optional[RequestOption] = None) -> PatchGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -92,7 +107,10 @@ class Group(object):
         return response
 
     def simplelist(self, request: SimplelistGroupRequest,
-                   option: RequestOption = RequestOption()) -> SimplelistGroupResponse:
+                   option: Optional[RequestOption] = None) -> SimplelistGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

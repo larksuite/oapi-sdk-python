@@ -14,7 +14,7 @@ class InterviewAssessmentTemplate(object):
         "args": InterviewAssessmentTemplateArgs,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.args: Optional[InterviewAssessmentTemplateArgs] = None
@@ -26,9 +26,8 @@ class InterviewAssessmentTemplate(object):
 
 
 class InterviewAssessmentTemplateBuilder(object):
-    def __init__(self,
-                 interview_assessment_template: InterviewAssessmentTemplate = InterviewAssessmentTemplate({})) -> None:
-        self._interview_assessment_template: InterviewAssessmentTemplate = interview_assessment_template
+    def __init__(self) -> None:
+        self._interview_assessment_template = InterviewAssessmentTemplate()
 
     def id(self, id: str) -> "InterviewAssessmentTemplateBuilder":
         self._interview_assessment_template.id = id

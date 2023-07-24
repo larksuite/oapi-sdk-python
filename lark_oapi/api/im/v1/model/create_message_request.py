@@ -20,7 +20,8 @@ class CreateMessageRequest(BaseRequest):
 
 class CreateMessageRequestBuilder(object):
 
-    def __init__(self, create_message_request: CreateMessageRequest = CreateMessageRequest()) -> None:
+    def __init__(self) -> None:
+        create_message_request = CreateMessageRequest()
         create_message_request.http_method = HttpMethod.POST
         create_message_request.uri = "/open-apis/im/v1/messages"
         create_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

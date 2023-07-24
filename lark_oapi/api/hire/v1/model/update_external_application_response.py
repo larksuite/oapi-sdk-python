@@ -12,7 +12,7 @@ class UpdateExternalApplicationResponse(BaseResponse):
         "data": UpdateExternalApplicationResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UpdateExternalApplicationResponseBody] = None
         init(self, d, self._types)

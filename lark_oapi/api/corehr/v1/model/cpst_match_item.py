@@ -13,7 +13,7 @@ class CpstMatchItem(object):
         "effective_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.standard_id: Optional[str] = None
         self.grade: Optional[CpstGrade] = None
         self.effective_time: Optional[str] = None
@@ -25,8 +25,8 @@ class CpstMatchItem(object):
 
 
 class CpstMatchItemBuilder(object):
-    def __init__(self, cpst_match_item: CpstMatchItem = CpstMatchItem({})) -> None:
-        self._cpst_match_item: CpstMatchItem = cpst_match_item
+    def __init__(self) -> None:
+        self._cpst_match_item = CpstMatchItem()
 
     def standard_id(self, standard_id: str) -> "CpstMatchItemBuilder":
         self._cpst_match_item.standard_id = standard_id

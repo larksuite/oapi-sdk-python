@@ -16,7 +16,7 @@ class QueryRoomConfigResponseBody(object):
         "room_status": RoomStatus,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_background: Optional[str] = None
         self.display_background: Optional[str] = None
         self.digital_signage: Optional[RoomDigitalSignage] = None
@@ -30,9 +30,8 @@ class QueryRoomConfigResponseBody(object):
 
 
 class QueryRoomConfigResponseBodyBuilder(object):
-    def __init__(self, query_room_config_response_body: QueryRoomConfigResponseBody = QueryRoomConfigResponseBody(
-        {})) -> None:
-        self._query_room_config_response_body: QueryRoomConfigResponseBody = query_room_config_response_body
+    def __init__(self) -> None:
+        self._query_room_config_response_body = QueryRoomConfigResponseBody()
 
     def room_background(self, room_background: str) -> "QueryRoomConfigResponseBodyBuilder":
         self._query_room_config_response_body.room_background = room_background

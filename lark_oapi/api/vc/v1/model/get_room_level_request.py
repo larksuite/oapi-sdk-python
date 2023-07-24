@@ -18,7 +18,8 @@ class GetRoomLevelRequest(BaseRequest):
 
 class GetRoomLevelRequestBuilder(object):
 
-    def __init__(self, get_room_level_request: GetRoomLevelRequest = GetRoomLevelRequest()) -> None:
+    def __init__(self) -> None:
+        get_room_level_request = GetRoomLevelRequest()
         get_room_level_request.http_method = HttpMethod.GET
         get_room_level_request.uri = "/open-apis/vc/v1/room_levels/:room_level_id"
         get_room_level_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

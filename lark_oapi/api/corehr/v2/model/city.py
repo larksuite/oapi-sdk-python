@@ -15,7 +15,7 @@ class City(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.city_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.country_region_subdivision_id: Optional[str] = None
@@ -29,8 +29,8 @@ class City(object):
 
 
 class CityBuilder(object):
-    def __init__(self, city: City = City({})) -> None:
-        self._city: City = city
+    def __init__(self) -> None:
+        self._city = City()
 
     def city_id(self, city_id: str) -> "CityBuilder":
         self._city.city_id = city_id

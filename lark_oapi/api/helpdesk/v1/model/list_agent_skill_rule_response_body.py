@@ -11,7 +11,7 @@ class ListAgentSkillRuleResponseBody(object):
         "rules": List[AgentSkillRule],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rules: Optional[List[AgentSkillRule]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ListAgentSkillRuleResponseBody(object):
 
 
 class ListAgentSkillRuleResponseBodyBuilder(object):
-    def __init__(self,
-                 list_agent_skill_rule_response_body: ListAgentSkillRuleResponseBody = ListAgentSkillRuleResponseBody(
-                     {})) -> None:
-        self._list_agent_skill_rule_response_body: ListAgentSkillRuleResponseBody = list_agent_skill_rule_response_body
+    def __init__(self) -> None:
+        self._list_agent_skill_rule_response_body = ListAgentSkillRuleResponseBody()
 
     def rules(self, rules: List[AgentSkillRule]) -> "ListAgentSkillRuleResponseBodyBuilder":
         self._list_agent_skill_rule_response_body.rules = rules

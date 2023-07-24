@@ -11,7 +11,7 @@ class ListByIdJobRequirementResponseBody(object):
         "items": List[JobRequirementDto],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[JobRequirementDto]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ListByIdJobRequirementResponseBody(object):
 
 
 class ListByIdJobRequirementResponseBodyBuilder(object):
-    def __init__(self,
-                 list_by_id_job_requirement_response_body: ListByIdJobRequirementResponseBody = ListByIdJobRequirementResponseBody(
-                     {})) -> None:
-        self._list_by_id_job_requirement_response_body: ListByIdJobRequirementResponseBody = list_by_id_job_requirement_response_body
+    def __init__(self) -> None:
+        self._list_by_id_job_requirement_response_body = ListByIdJobRequirementResponseBody()
 
     def items(self, items: List[JobRequirementDto]) -> "ListByIdJobRequirementResponseBodyBuilder":
         self._list_by_id_job_requirement_response_body.items = items

@@ -20,7 +20,8 @@ class UnreadSpecialFocusRequest(BaseRequest):
 
 class UnreadSpecialFocusRequestBuilder(object):
 
-    def __init__(self, unread_special_focus_request: UnreadSpecialFocusRequest = UnreadSpecialFocusRequest()) -> None:
+    def __init__(self) -> None:
+        unread_special_focus_request = UnreadSpecialFocusRequest()
         unread_special_focus_request.http_method = HttpMethod.POST
         unread_special_focus_request.uri = "/open-apis/im/v1/special_focus/unread"
         unread_special_focus_request.token_types = {AccessTokenType.USER}

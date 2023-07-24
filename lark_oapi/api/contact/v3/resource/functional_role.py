@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.create_functional_role_request import CreateFunctionalRoleRequest
-from lark_oapi.api.contact.v3.model.create_functional_role_response import CreateFunctionalRoleResponse
-from lark_oapi.api.contact.v3.model.delete_functional_role_request import DeleteFunctionalRoleRequest
-from lark_oapi.api.contact.v3.model.delete_functional_role_response import DeleteFunctionalRoleResponse
-from lark_oapi.api.contact.v3.model.update_functional_role_request import UpdateFunctionalRoleRequest
-from lark_oapi.api.contact.v3.model.update_functional_role_response import UpdateFunctionalRoleResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_functional_role_request import CreateFunctionalRoleRequest
+from ..model.create_functional_role_response import CreateFunctionalRoleResponse
+from ..model.delete_functional_role_request import DeleteFunctionalRoleRequest
+from ..model.delete_functional_role_response import DeleteFunctionalRoleResponse
+from ..model.update_functional_role_request import UpdateFunctionalRoleRequest
+from ..model.update_functional_role_response import UpdateFunctionalRoleResponse
 
 
 class FunctionalRole(object):
@@ -20,7 +20,10 @@ class FunctionalRole(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateFunctionalRoleRequest,
-               option: RequestOption = RequestOption()) -> CreateFunctionalRoleResponse:
+               option: Optional[RequestOption] = None) -> CreateFunctionalRoleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class FunctionalRole(object):
         return response
 
     def delete(self, request: DeleteFunctionalRoleRequest,
-               option: RequestOption = RequestOption()) -> DeleteFunctionalRoleResponse:
+               option: Optional[RequestOption] = None) -> DeleteFunctionalRoleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class FunctionalRole(object):
         return response
 
     def update(self, request: UpdateFunctionalRoleRequest,
-               option: RequestOption = RequestOption()) -> UpdateFunctionalRoleResponse:
+               option: Optional[RequestOption] = None) -> UpdateFunctionalRoleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

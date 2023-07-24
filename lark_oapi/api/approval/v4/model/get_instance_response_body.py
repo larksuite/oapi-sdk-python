@@ -30,7 +30,7 @@ class GetInstanceResponseBody(object):
         "instance_code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_name: Optional[str] = None
         self.start_time: Optional[int] = None
         self.end_time: Optional[int] = None
@@ -57,8 +57,8 @@ class GetInstanceResponseBody(object):
 
 
 class GetInstanceResponseBodyBuilder(object):
-    def __init__(self, get_instance_response_body: GetInstanceResponseBody = GetInstanceResponseBody({})) -> None:
-        self._get_instance_response_body: GetInstanceResponseBody = get_instance_response_body
+    def __init__(self) -> None:
+        self._get_instance_response_body = GetInstanceResponseBody()
 
     def approval_name(self, approval_name: str) -> "GetInstanceResponseBodyBuilder":
         self._get_instance_response_body.approval_name = approval_name

@@ -12,7 +12,7 @@ class UploadPersonRequestBody(object):
         "file_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_content: Optional[IO[Any]] = None
         self.file_name: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class UploadPersonRequestBody(object):
 
 
 class UploadPersonRequestBodyBuilder(object):
-    def __init__(self, upload_person_request_body: UploadPersonRequestBody = UploadPersonRequestBody({})) -> None:
-        self._upload_person_request_body: UploadPersonRequestBody = upload_person_request_body
+    def __init__(self) -> None:
+        self._upload_person_request_body = UploadPersonRequestBody()
 
     def file_content(self, file_content: IO[Any]) -> "UploadPersonRequestBodyBuilder":
         self._upload_person_request_body.file_content = file_content

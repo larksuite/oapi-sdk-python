@@ -18,7 +18,7 @@ class DeleteUserRequestBody(object):
         "email_acceptor": ResourceAcceptor,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_chat_acceptor_user_id: Optional[str] = None
         self.external_chat_acceptor_user_id: Optional[str] = None
         self.docs_acceptor_user_id: Optional[str] = None
@@ -35,8 +35,8 @@ class DeleteUserRequestBody(object):
 
 
 class DeleteUserRequestBodyBuilder(object):
-    def __init__(self, delete_user_request_body: DeleteUserRequestBody = DeleteUserRequestBody({})) -> None:
-        self._delete_user_request_body: DeleteUserRequestBody = delete_user_request_body
+    def __init__(self) -> None:
+        self._delete_user_request_body = DeleteUserRequestBody()
 
     def department_chat_acceptor_user_id(self, department_chat_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.department_chat_acceptor_user_id = department_chat_acceptor_user_id

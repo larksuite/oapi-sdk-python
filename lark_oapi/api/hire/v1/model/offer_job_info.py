@@ -11,7 +11,7 @@ class OfferJobInfo(object):
         "job_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_id: Optional[str] = None
         self.job_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OfferJobInfo(object):
 
 
 class OfferJobInfoBuilder(object):
-    def __init__(self, offer_job_info: OfferJobInfo = OfferJobInfo({})) -> None:
-        self._offer_job_info: OfferJobInfo = offer_job_info
+    def __init__(self) -> None:
+        self._offer_job_info = OfferJobInfo()
 
     def job_id(self, job_id: str) -> "OfferJobInfoBuilder":
         self._offer_job_info.job_id = job_id

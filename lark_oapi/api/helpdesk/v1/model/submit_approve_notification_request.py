@@ -20,8 +20,8 @@ class SubmitApproveNotificationRequest(BaseRequest):
 
 class SubmitApproveNotificationRequestBuilder(object):
 
-    def __init__(self,
-                 submit_approve_notification_request: SubmitApproveNotificationRequest = SubmitApproveNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        submit_approve_notification_request = SubmitApproveNotificationRequest()
         submit_approve_notification_request.http_method = HttpMethod.POST
         submit_approve_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id/submit_approve"
         submit_approve_notification_request.token_types = {AccessTokenType.USER}

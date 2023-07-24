@@ -11,7 +11,7 @@ class GetFunctionalRoleMemberResponseBody(object):
         "member": FunctionalRoleMember,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member: Optional[FunctionalRoleMember] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetFunctionalRoleMemberResponseBody(object):
 
 
 class GetFunctionalRoleMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 get_functional_role_member_response_body: GetFunctionalRoleMemberResponseBody = GetFunctionalRoleMemberResponseBody(
-                     {})) -> None:
-        self._get_functional_role_member_response_body: GetFunctionalRoleMemberResponseBody = get_functional_role_member_response_body
+    def __init__(self) -> None:
+        self._get_functional_role_member_response_body = GetFunctionalRoleMemberResponseBody()
 
     def member(self, member: FunctionalRoleMember) -> "GetFunctionalRoleMemberResponseBodyBuilder":
         self._get_functional_role_member_response_body.member = member

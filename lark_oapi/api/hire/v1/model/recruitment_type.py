@@ -12,7 +12,7 @@ class RecruitmentType(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class RecruitmentType(object):
 
 
 class RecruitmentTypeBuilder(object):
-    def __init__(self, recruitment_type: RecruitmentType = RecruitmentType({})) -> None:
-        self._recruitment_type: RecruitmentType = recruitment_type
+    def __init__(self) -> None:
+        self._recruitment_type = RecruitmentType()
 
     def id(self, id: str) -> "RecruitmentTypeBuilder":
         self._recruitment_type.id = id

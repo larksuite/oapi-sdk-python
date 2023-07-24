@@ -20,7 +20,8 @@ class UpdateJobLevelRequest(BaseRequest):
 
 class UpdateJobLevelRequestBuilder(object):
 
-    def __init__(self, update_job_level_request: UpdateJobLevelRequest = UpdateJobLevelRequest()) -> None:
+    def __init__(self) -> None:
+        update_job_level_request = UpdateJobLevelRequest()
         update_job_level_request.http_method = HttpMethod.PUT
         update_job_level_request.uri = "/open-apis/contact/v3/job_levels/:job_level_id"
         update_job_level_request.token_types = {AccessTokenType.TENANT}

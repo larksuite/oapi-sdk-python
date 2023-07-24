@@ -11,7 +11,7 @@ class SubscribeUserEvent(object):
         "user_id": UserId,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[UserId] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class SubscribeUserEvent(object):
 
 
 class SubscribeUserEventBuilder(object):
-    def __init__(self, subscribe_user_event: SubscribeUserEvent = SubscribeUserEvent({})) -> None:
-        self._subscribe_user_event: SubscribeUserEvent = subscribe_user_event
+    def __init__(self) -> None:
+        self._subscribe_user_event = SubscribeUserEvent()
 
     def user_id(self, user_id: UserId) -> "SubscribeUserEventBuilder":
         self._subscribe_user_event.user_id = user_id

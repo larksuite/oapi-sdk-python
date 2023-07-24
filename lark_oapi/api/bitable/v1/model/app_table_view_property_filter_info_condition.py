@@ -14,7 +14,7 @@ class AppTableViewPropertyFilterInfoCondition(object):
         "field_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_id: Optional[str] = None
         self.operator: Optional[str] = None
         self.value: Optional[str] = None
@@ -28,10 +28,8 @@ class AppTableViewPropertyFilterInfoCondition(object):
 
 
 class AppTableViewPropertyFilterInfoConditionBuilder(object):
-    def __init__(self,
-                 app_table_view_property_filter_info_condition: AppTableViewPropertyFilterInfoCondition = AppTableViewPropertyFilterInfoCondition(
-                     {})) -> None:
-        self._app_table_view_property_filter_info_condition: AppTableViewPropertyFilterInfoCondition = app_table_view_property_filter_info_condition
+    def __init__(self) -> None:
+        self._app_table_view_property_filter_info_condition = AppTableViewPropertyFilterInfoCondition()
 
     def field_id(self, field_id: str) -> "AppTableViewPropertyFilterInfoConditionBuilder":
         self._app_table_view_property_filter_info_condition.field_id = field_id

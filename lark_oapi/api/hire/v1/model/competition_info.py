@@ -11,7 +11,7 @@ class CompetitionInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.desc: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CompetitionInfo(object):
 
 
 class CompetitionInfoBuilder(object):
-    def __init__(self, competition_info: CompetitionInfo = CompetitionInfo({})) -> None:
-        self._competition_info: CompetitionInfo = competition_info
+    def __init__(self) -> None:
+        self._competition_info = CompetitionInfo()
 
     def desc(self, desc: str) -> "CompetitionInfoBuilder":
         self._competition_info.desc = desc

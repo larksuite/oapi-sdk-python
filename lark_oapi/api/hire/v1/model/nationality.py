@@ -12,7 +12,7 @@ class Nationality(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.nationality_code: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class Nationality(object):
 
 
 class NationalityBuilder(object):
-    def __init__(self, nationality: Nationality = Nationality({})) -> None:
-        self._nationality: Nationality = nationality
+    def __init__(self) -> None:
+        self._nationality = Nationality()
 
     def nationality_code(self, nationality_code: str) -> "NationalityBuilder":
         self._nationality.nationality_code = nationality_code

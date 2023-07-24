@@ -33,7 +33,7 @@ class PersonName(object):
         "display_name_western_script": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.local_primary: Optional[str] = None
         self.local_first_name: Optional[str] = None
         self.country_region_id: Optional[str] = None
@@ -65,8 +65,8 @@ class PersonName(object):
 
 
 class PersonNameBuilder(object):
-    def __init__(self, person_name: PersonName = PersonName({})) -> None:
-        self._person_name: PersonName = person_name
+    def __init__(self) -> None:
+        self._person_name = PersonName()
 
     def local_primary(self, local_primary: str) -> "PersonNameBuilder":
         self._person_name.local_primary = local_primary

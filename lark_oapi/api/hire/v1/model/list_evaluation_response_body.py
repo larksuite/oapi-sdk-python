@@ -13,7 +13,7 @@ class ListEvaluationResponseBody(object):
         "items": List[Evaluation],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[Evaluation]] = None
@@ -25,9 +25,8 @@ class ListEvaluationResponseBody(object):
 
 
 class ListEvaluationResponseBodyBuilder(object):
-    def __init__(self,
-                 list_evaluation_response_body: ListEvaluationResponseBody = ListEvaluationResponseBody({})) -> None:
-        self._list_evaluation_response_body: ListEvaluationResponseBody = list_evaluation_response_body
+    def __init__(self) -> None:
+        self._list_evaluation_response_body = ListEvaluationResponseBody()
 
     def has_more(self, has_more: bool) -> "ListEvaluationResponseBodyBuilder":
         self._list_evaluation_response_body.has_more = has_more

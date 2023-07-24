@@ -27,7 +27,7 @@ class OfferBasicInfo(object):
         "operator_user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.leader_user_id: Optional[str] = None
         self.employment_job_id: Optional[str] = None
@@ -54,8 +54,8 @@ class OfferBasicInfo(object):
 
 
 class OfferBasicInfoBuilder(object):
-    def __init__(self, offer_basic_info: OfferBasicInfo = OfferBasicInfo({})) -> None:
-        self._offer_basic_info: OfferBasicInfo = offer_basic_info
+    def __init__(self) -> None:
+        self._offer_basic_info = OfferBasicInfo()
 
     def department_id(self, department_id: str) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.department_id = department_id

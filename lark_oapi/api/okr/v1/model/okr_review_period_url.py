@@ -11,7 +11,7 @@ class OkrReviewPeriodUrl(object):
         "create_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         self.create_time: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OkrReviewPeriodUrl(object):
 
 
 class OkrReviewPeriodUrlBuilder(object):
-    def __init__(self, okr_review_period_url: OkrReviewPeriodUrl = OkrReviewPeriodUrl({})) -> None:
-        self._okr_review_period_url: OkrReviewPeriodUrl = okr_review_period_url
+    def __init__(self) -> None:
+        self._okr_review_period_url = OkrReviewPeriodUrl()
 
     def url(self, url: str) -> "OkrReviewPeriodUrlBuilder":
         self._okr_review_period_url.url = url

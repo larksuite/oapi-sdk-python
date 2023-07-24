@@ -11,7 +11,7 @@ class CreateSpaceNodeResponseBody(object):
         "node": Node,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node: Optional[Node] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateSpaceNodeResponseBody(object):
 
 
 class CreateSpaceNodeResponseBodyBuilder(object):
-    def __init__(self, create_space_node_response_body: CreateSpaceNodeResponseBody = CreateSpaceNodeResponseBody(
-        {})) -> None:
-        self._create_space_node_response_body: CreateSpaceNodeResponseBody = create_space_node_response_body
+    def __init__(self) -> None:
+        self._create_space_node_response_body = CreateSpaceNodeResponseBody()
 
     def node(self, node: Node) -> "CreateSpaceNodeResponseBodyBuilder":
         self._create_space_node_response_body.node = node

@@ -7,7 +7,7 @@ class OkrProgress(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class OkrProgress(object):
 
 
 class OkrProgressBuilder(object):
-    def __init__(self, okr_progress: OkrProgress = OkrProgress({})) -> None:
-        self._okr_progress: OkrProgress = okr_progress
+    def __init__(self) -> None:
+        self._okr_progress = OkrProgress()
 
     def build(self) -> "OkrProgress":
         return self._okr_progress

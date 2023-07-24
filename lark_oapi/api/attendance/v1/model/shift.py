@@ -25,7 +25,7 @@ class Shift(object):
         "overtime_rule": List[OvertimeRule],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.shift_id: Optional[str] = None
         self.shift_name: Optional[str] = None
         self.punch_times: Optional[int] = None
@@ -45,8 +45,8 @@ class Shift(object):
 
 
 class ShiftBuilder(object):
-    def __init__(self, shift: Shift = Shift({})) -> None:
-        self._shift: Shift = shift
+    def __init__(self) -> None:
+        self._shift = Shift()
 
     def shift_id(self, shift_id: str) -> "ShiftBuilder":
         self._shift.shift_id = shift_id

@@ -11,7 +11,7 @@ class CreateJobDataResponseBody(object):
         "job_data": JobData,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_data: Optional[JobData] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateJobDataResponseBody(object):
 
 
 class CreateJobDataResponseBodyBuilder(object):
-    def __init__(self,
-                 create_job_data_response_body: CreateJobDataResponseBody = CreateJobDataResponseBody({})) -> None:
-        self._create_job_data_response_body: CreateJobDataResponseBody = create_job_data_response_body
+    def __init__(self) -> None:
+        self._create_job_data_response_body = CreateJobDataResponseBody()
 
     def job_data(self, job_data: JobData) -> "CreateJobDataResponseBodyBuilder":
         self._create_job_data_response_body.job_data = job_data

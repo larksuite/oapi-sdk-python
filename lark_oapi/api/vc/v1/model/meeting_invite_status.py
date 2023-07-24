@@ -12,7 +12,7 @@ class MeetingInviteStatus(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.user_type: Optional[int] = None
         self.status: Optional[int] = None
@@ -24,8 +24,8 @@ class MeetingInviteStatus(object):
 
 
 class MeetingInviteStatusBuilder(object):
-    def __init__(self, meeting_invite_status: MeetingInviteStatus = MeetingInviteStatus({})) -> None:
-        self._meeting_invite_status: MeetingInviteStatus = meeting_invite_status
+    def __init__(self) -> None:
+        self._meeting_invite_status = MeetingInviteStatus()
 
     def id(self, id: str) -> "MeetingInviteStatusBuilder":
         self._meeting_invite_status.id = id

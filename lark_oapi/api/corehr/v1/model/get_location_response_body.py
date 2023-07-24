@@ -11,7 +11,7 @@ class GetLocationResponseBody(object):
         "location": Location,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.location: Optional[Location] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetLocationResponseBody(object):
 
 
 class GetLocationResponseBodyBuilder(object):
-    def __init__(self, get_location_response_body: GetLocationResponseBody = GetLocationResponseBody({})) -> None:
-        self._get_location_response_body: GetLocationResponseBody = get_location_response_body
+    def __init__(self) -> None:
+        self._get_location_response_body = GetLocationResponseBody()
 
     def location(self, location: Location) -> "GetLocationResponseBodyBuilder":
         self._get_location_response_body.location = location

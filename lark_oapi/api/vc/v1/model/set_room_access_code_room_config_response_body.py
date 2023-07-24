@@ -10,7 +10,7 @@ class SetRoomAccessCodeRoomConfigResponseBody(object):
         "access_code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.access_code: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class SetRoomAccessCodeRoomConfigResponseBody(object):
 
 
 class SetRoomAccessCodeRoomConfigResponseBodyBuilder(object):
-    def __init__(self,
-                 set_room_access_code_room_config_response_body: SetRoomAccessCodeRoomConfigResponseBody = SetRoomAccessCodeRoomConfigResponseBody(
-                     {})) -> None:
-        self._set_room_access_code_room_config_response_body: SetRoomAccessCodeRoomConfigResponseBody = set_room_access_code_room_config_response_body
+    def __init__(self) -> None:
+        self._set_room_access_code_room_config_response_body = SetRoomAccessCodeRoomConfigResponseBody()
 
     def access_code(self, access_code: str) -> "SetRoomAccessCodeRoomConfigResponseBodyBuilder":
         self._set_room_access_code_room_config_response_body.access_code = access_code

@@ -24,7 +24,7 @@ class AuditIosContext(object):
         "i_p": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.udid: Optional[str] = None
         self.did: Optional[str] = None
         self.app_ver: Optional[str] = None
@@ -48,8 +48,8 @@ class AuditIosContext(object):
 
 
 class AuditIosContextBuilder(object):
-    def __init__(self, audit_ios_context: AuditIosContext = AuditIosContext({})) -> None:
-        self._audit_ios_context: AuditIosContext = audit_ios_context
+    def __init__(self) -> None:
+        self._audit_ios_context = AuditIosContext()
 
     def udid(self, udid: str) -> "AuditIosContextBuilder":
         self._audit_ios_context.udid = udid

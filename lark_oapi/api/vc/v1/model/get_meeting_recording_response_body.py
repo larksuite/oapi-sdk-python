@@ -11,7 +11,7 @@ class GetMeetingRecordingResponseBody(object):
         "recording": MeetingRecording,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.recording: Optional[MeetingRecording] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetMeetingRecordingResponseBody(object):
 
 
 class GetMeetingRecordingResponseBodyBuilder(object):
-    def __init__(self,
-                 get_meeting_recording_response_body: GetMeetingRecordingResponseBody = GetMeetingRecordingResponseBody(
-                     {})) -> None:
-        self._get_meeting_recording_response_body: GetMeetingRecordingResponseBody = get_meeting_recording_response_body
+    def __init__(self) -> None:
+        self._get_meeting_recording_response_body = GetMeetingRecordingResponseBody()
 
     def recording(self, recording: MeetingRecording) -> "GetMeetingRecordingResponseBodyBuilder":
         self._get_meeting_recording_response_body.recording = recording

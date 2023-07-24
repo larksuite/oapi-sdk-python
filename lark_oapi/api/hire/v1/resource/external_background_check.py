@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_external_background_check_request import CreateExternalBackgroundCheckRequest
-from lark_oapi.api.hire.v1.model.create_external_background_check_response import CreateExternalBackgroundCheckResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_external_background_check_request import CreateExternalBackgroundCheckRequest
+from ..model.create_external_background_check_response import CreateExternalBackgroundCheckResponse
 
 
 class ExternalBackgroundCheck(object):
@@ -16,7 +16,10 @@ class ExternalBackgroundCheck(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateExternalBackgroundCheckRequest,
-               option: RequestOption = RequestOption()) -> CreateExternalBackgroundCheckResponse:
+               option: Optional[RequestOption] = None) -> CreateExternalBackgroundCheckResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

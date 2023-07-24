@@ -11,7 +11,7 @@ class SiteResumeCertificate(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SiteResumeCertificate(object):
 
 
 class SiteResumeCertificateBuilder(object):
-    def __init__(self, site_resume_certificate: SiteResumeCertificate = SiteResumeCertificate({})) -> None:
-        self._site_resume_certificate: SiteResumeCertificate = site_resume_certificate
+    def __init__(self) -> None:
+        self._site_resume_certificate = SiteResumeCertificate()
 
     def name(self, name: str) -> "SiteResumeCertificateBuilder":
         self._site_resume_certificate.name = name

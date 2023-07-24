@@ -21,8 +21,8 @@ class ListPublicMailboxMemberRequest(BaseRequest):
 
 class ListPublicMailboxMemberRequestBuilder(object):
 
-    def __init__(self,
-                 list_public_mailbox_member_request: ListPublicMailboxMemberRequest = ListPublicMailboxMemberRequest()) -> None:
+    def __init__(self) -> None:
+        list_public_mailbox_member_request = ListPublicMailboxMemberRequest()
         list_public_mailbox_member_request.http_method = HttpMethod.GET
         list_public_mailbox_member_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members"
         list_public_mailbox_member_request.token_types = {AccessTokenType.TENANT}

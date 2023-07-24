@@ -16,7 +16,7 @@ class ExternalTaskList(object):
         "tasks": List[ExternalTaskItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instance_id: Optional[str] = None
         self.approval_id: Optional[str] = None
         self.approval_code: Optional[str] = None
@@ -31,8 +31,8 @@ class ExternalTaskList(object):
 
 
 class ExternalTaskListBuilder(object):
-    def __init__(self, external_task_list: ExternalTaskList = ExternalTaskList({})) -> None:
-        self._external_task_list: ExternalTaskList = external_task_list
+    def __init__(self) -> None:
+        self._external_task_list = ExternalTaskList()
 
     def instance_id(self, instance_id: str) -> "ExternalTaskListBuilder":
         self._external_task_list.instance_id = instance_id

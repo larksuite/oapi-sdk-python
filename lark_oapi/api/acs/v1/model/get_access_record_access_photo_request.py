@@ -18,8 +18,8 @@ class GetAccessRecordAccessPhotoRequest(BaseRequest):
 
 class GetAccessRecordAccessPhotoRequestBuilder(object):
 
-    def __init__(self,
-                 get_access_record_access_photo_request: GetAccessRecordAccessPhotoRequest = GetAccessRecordAccessPhotoRequest()) -> None:
+    def __init__(self) -> None:
+        get_access_record_access_photo_request = GetAccessRecordAccessPhotoRequest()
         get_access_record_access_photo_request.http_method = HttpMethod.GET
         get_access_record_access_photo_request.uri = "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
         get_access_record_access_photo_request.token_types = {AccessTokenType.TENANT}

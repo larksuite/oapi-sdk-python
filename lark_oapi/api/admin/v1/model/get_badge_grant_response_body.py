@@ -11,7 +11,7 @@ class GetBadgeGrantResponseBody(object):
         "grant": Grant,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.grant: Optional[Grant] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetBadgeGrantResponseBody(object):
 
 
 class GetBadgeGrantResponseBodyBuilder(object):
-    def __init__(self,
-                 get_badge_grant_response_body: GetBadgeGrantResponseBody = GetBadgeGrantResponseBody({})) -> None:
-        self._get_badge_grant_response_body: GetBadgeGrantResponseBody = get_badge_grant_response_body
+    def __init__(self) -> None:
+        self._get_badge_grant_response_body = GetBadgeGrantResponseBody()
 
     def grant(self, grant: Grant) -> "GetBadgeGrantResponseBodyBuilder":
         self._get_badge_grant_response_body.grant = grant

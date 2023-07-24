@@ -78,7 +78,7 @@ class Group(object):
         "org_change_auto_adjust": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_id: Optional[str] = None
         self.group_name: Optional[str] = None
         self.time_zone: Optional[str] = None
@@ -149,8 +149,8 @@ class Group(object):
 
 
 class GroupBuilder(object):
-    def __init__(self, group: Group = Group({})) -> None:
-        self._group: Group = group
+    def __init__(self) -> None:
+        self._group = Group()
 
     def group_id(self, group_id: str) -> "GroupBuilder":
         self._group.group_id = group_id

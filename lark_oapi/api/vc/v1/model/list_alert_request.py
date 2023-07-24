@@ -23,7 +23,8 @@ class ListAlertRequest(BaseRequest):
 
 class ListAlertRequestBuilder(object):
 
-    def __init__(self, list_alert_request: ListAlertRequest = ListAlertRequest()) -> None:
+    def __init__(self) -> None:
+        list_alert_request = ListAlertRequest()
         list_alert_request.http_method = HttpMethod.GET
         list_alert_request.uri = "/open-apis/vc/v1/alerts"
         list_alert_request.token_types = {AccessTokenType.TENANT}

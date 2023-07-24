@@ -12,7 +12,7 @@ class JobCustomizedOption(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class JobCustomizedOption(object):
 
 
 class JobCustomizedOptionBuilder(object):
-    def __init__(self, job_customized_option: JobCustomizedOption = JobCustomizedOption({})) -> None:
-        self._job_customized_option: JobCustomizedOption = job_customized_option
+    def __init__(self) -> None:
+        self._job_customized_option = JobCustomizedOption()
 
     def key(self, key: str) -> "JobCustomizedOptionBuilder":
         self._job_customized_option.key = key

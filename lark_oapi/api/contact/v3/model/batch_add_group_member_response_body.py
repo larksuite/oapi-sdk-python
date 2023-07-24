@@ -11,7 +11,7 @@ class BatchAddGroupMemberResponseBody(object):
         "results": List[MemberResult],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.results: Optional[List[MemberResult]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchAddGroupMemberResponseBody(object):
 
 
 class BatchAddGroupMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_add_group_member_response_body: BatchAddGroupMemberResponseBody = BatchAddGroupMemberResponseBody(
-                     {})) -> None:
-        self._batch_add_group_member_response_body: BatchAddGroupMemberResponseBody = batch_add_group_member_response_body
+    def __init__(self) -> None:
+        self._batch_add_group_member_response_body = BatchAddGroupMemberResponseBody()
 
     def results(self, results: List[MemberResult]) -> "BatchAddGroupMemberResponseBodyBuilder":
         self._batch_add_group_member_response_body.results = results

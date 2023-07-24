@@ -7,7 +7,7 @@ class ChatAnnouncement(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class ChatAnnouncement(object):
 
 
 class ChatAnnouncementBuilder(object):
-    def __init__(self, chat_announcement: ChatAnnouncement = ChatAnnouncement({})) -> None:
-        self._chat_announcement: ChatAnnouncement = chat_announcement
+    def __init__(self) -> None:
+        self._chat_announcement = ChatAnnouncement()
 
     def build(self) -> "ChatAnnouncement":
         return self._chat_announcement

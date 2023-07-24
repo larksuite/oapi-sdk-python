@@ -3,14 +3,14 @@
 import io
 from typing import *
 
-from lark_oapi.api.acs.v1.model.get_access_record_access_photo_request import GetAccessRecordAccessPhotoRequest
-from lark_oapi.api.acs.v1.model.get_access_record_access_photo_response import GetAccessRecordAccessPhotoResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.get_access_record_access_photo_request import GetAccessRecordAccessPhotoRequest
+from ..model.get_access_record_access_photo_response import GetAccessRecordAccessPhotoResponse
 
 
 class AccessRecordAccessPhoto(object):
@@ -18,7 +18,10 @@ class AccessRecordAccessPhoto(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetAccessRecordAccessPhotoRequest,
-            option: RequestOption = RequestOption()) -> GetAccessRecordAccessPhotoResponse:
+            option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

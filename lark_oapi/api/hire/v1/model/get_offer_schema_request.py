@@ -18,7 +18,8 @@ class GetOfferSchemaRequest(BaseRequest):
 
 class GetOfferSchemaRequestBuilder(object):
 
-    def __init__(self, get_offer_schema_request: GetOfferSchemaRequest = GetOfferSchemaRequest()) -> None:
+    def __init__(self) -> None:
+        get_offer_schema_request = GetOfferSchemaRequest()
         get_offer_schema_request.http_method = HttpMethod.GET
         get_offer_schema_request.uri = "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
         get_offer_schema_request.token_types = {AccessTokenType.TENANT}

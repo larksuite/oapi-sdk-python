@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.create_chat_menu_tree_request import CreateChatMenuTreeRequest
-from lark_oapi.api.im.v1.model.create_chat_menu_tree_response import CreateChatMenuTreeResponse
-from lark_oapi.api.im.v1.model.delete_chat_menu_tree_request import DeleteChatMenuTreeRequest
-from lark_oapi.api.im.v1.model.delete_chat_menu_tree_response import DeleteChatMenuTreeResponse
-from lark_oapi.api.im.v1.model.get_chat_menu_tree_request import GetChatMenuTreeRequest
-from lark_oapi.api.im.v1.model.get_chat_menu_tree_response import GetChatMenuTreeResponse
-from lark_oapi.api.im.v1.model.sort_chat_menu_tree_request import SortChatMenuTreeRequest
-from lark_oapi.api.im.v1.model.sort_chat_menu_tree_response import SortChatMenuTreeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_chat_menu_tree_request import CreateChatMenuTreeRequest
+from ..model.create_chat_menu_tree_response import CreateChatMenuTreeResponse
+from ..model.delete_chat_menu_tree_request import DeleteChatMenuTreeRequest
+from ..model.delete_chat_menu_tree_response import DeleteChatMenuTreeResponse
+from ..model.get_chat_menu_tree_request import GetChatMenuTreeRequest
+from ..model.get_chat_menu_tree_response import GetChatMenuTreeResponse
+from ..model.sort_chat_menu_tree_request import SortChatMenuTreeRequest
+from ..model.sort_chat_menu_tree_response import SortChatMenuTreeResponse
 
 
 class ChatMenuTree(object):
@@ -22,7 +22,10 @@ class ChatMenuTree(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateChatMenuTreeRequest,
-               option: RequestOption = RequestOption()) -> CreateChatMenuTreeResponse:
+               option: Optional[RequestOption] = None) -> CreateChatMenuTreeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class ChatMenuTree(object):
         return response
 
     def delete(self, request: DeleteChatMenuTreeRequest,
-               option: RequestOption = RequestOption()) -> DeleteChatMenuTreeResponse:
+               option: Optional[RequestOption] = None) -> DeleteChatMenuTreeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class ChatMenuTree(object):
 
         return response
 
-    def get(self, request: GetChatMenuTreeRequest, option: RequestOption = RequestOption()) -> GetChatMenuTreeResponse:
+    def get(self, request: GetChatMenuTreeRequest, option: Optional[RequestOption] = None) -> GetChatMenuTreeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -63,7 +72,10 @@ class ChatMenuTree(object):
         return response
 
     def sort(self, request: SortChatMenuTreeRequest,
-             option: RequestOption = RequestOption()) -> SortChatMenuTreeResponse:
+             option: Optional[RequestOption] = None) -> SortChatMenuTreeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

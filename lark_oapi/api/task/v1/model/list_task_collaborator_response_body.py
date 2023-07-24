@@ -13,7 +13,7 @@ class ListTaskCollaboratorResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Collaborator]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class ListTaskCollaboratorResponseBody(object):
 
 
 class ListTaskCollaboratorResponseBodyBuilder(object):
-    def __init__(self,
-                 list_task_collaborator_response_body: ListTaskCollaboratorResponseBody = ListTaskCollaboratorResponseBody(
-                     {})) -> None:
-        self._list_task_collaborator_response_body: ListTaskCollaboratorResponseBody = list_task_collaborator_response_body
+    def __init__(self) -> None:
+        self._list_task_collaborator_response_body = ListTaskCollaboratorResponseBody()
 
     def items(self, items: List[Collaborator]) -> "ListTaskCollaboratorResponseBodyBuilder":
         self._list_task_collaborator_response_body.items = items

@@ -11,7 +11,7 @@ class UnsubscribeEventRequestBody(object):
         "events": List[Event],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.events: Optional[List[Event]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class UnsubscribeEventRequestBody(object):
 
 
 class UnsubscribeEventRequestBodyBuilder(object):
-    def __init__(self,
-                 unsubscribe_event_request_body: UnsubscribeEventRequestBody = UnsubscribeEventRequestBody({})) -> None:
-        self._unsubscribe_event_request_body: UnsubscribeEventRequestBody = unsubscribe_event_request_body
+    def __init__(self) -> None:
+        self._unsubscribe_event_request_body = UnsubscribeEventRequestBody()
 
     def events(self, events: List[Event]) -> "UnsubscribeEventRequestBodyBuilder":
         self._unsubscribe_event_request_body.events = events

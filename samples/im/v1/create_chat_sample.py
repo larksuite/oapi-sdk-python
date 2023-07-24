@@ -27,7 +27,6 @@ def main():
                       .bot_id_list([])
                       .chat_mode("group")
                       .chat_type("private")
-                      .external(False)
                       .join_message_visibility("all_members")
                       .leave_message_visibility("all_members")
                       .membership_approval("no_approval_required")

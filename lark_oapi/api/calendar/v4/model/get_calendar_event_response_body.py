@@ -11,7 +11,7 @@ class GetCalendarEventResponseBody(object):
         "event": CalendarEvent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.event: Optional[CalendarEvent] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetCalendarEventResponseBody(object):
 
 
 class GetCalendarEventResponseBodyBuilder(object):
-    def __init__(self, get_calendar_event_response_body: GetCalendarEventResponseBody = GetCalendarEventResponseBody(
-        {})) -> None:
-        self._get_calendar_event_response_body: GetCalendarEventResponseBody = get_calendar_event_response_body
+    def __init__(self) -> None:
+        self._get_calendar_event_response_body = GetCalendarEventResponseBody()
 
     def event(self, event: CalendarEvent) -> "GetCalendarEventResponseBodyBuilder":
         self._get_calendar_event_response_body.event = event

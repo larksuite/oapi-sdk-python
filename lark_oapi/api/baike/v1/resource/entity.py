@@ -2,34 +2,37 @@
 
 from typing import *
 
-from lark_oapi.api.baike.v1.model.create_entity_request import CreateEntityRequest
-from lark_oapi.api.baike.v1.model.create_entity_response import CreateEntityResponse
-from lark_oapi.api.baike.v1.model.extract_entity_request import ExtractEntityRequest
-from lark_oapi.api.baike.v1.model.extract_entity_response import ExtractEntityResponse
-from lark_oapi.api.baike.v1.model.get_entity_request import GetEntityRequest
-from lark_oapi.api.baike.v1.model.get_entity_response import GetEntityResponse
-from lark_oapi.api.baike.v1.model.highlight_entity_request import HighlightEntityRequest
-from lark_oapi.api.baike.v1.model.highlight_entity_response import HighlightEntityResponse
-from lark_oapi.api.baike.v1.model.list_entity_request import ListEntityRequest
-from lark_oapi.api.baike.v1.model.list_entity_response import ListEntityResponse
-from lark_oapi.api.baike.v1.model.match_entity_request import MatchEntityRequest
-from lark_oapi.api.baike.v1.model.match_entity_response import MatchEntityResponse
-from lark_oapi.api.baike.v1.model.search_entity_request import SearchEntityRequest
-from lark_oapi.api.baike.v1.model.search_entity_response import SearchEntityResponse
-from lark_oapi.api.baike.v1.model.update_entity_request import UpdateEntityRequest
-from lark_oapi.api.baike.v1.model.update_entity_response import UpdateEntityResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_entity_request import CreateEntityRequest
+from ..model.create_entity_response import CreateEntityResponse
+from ..model.extract_entity_request import ExtractEntityRequest
+from ..model.extract_entity_response import ExtractEntityResponse
+from ..model.get_entity_request import GetEntityRequest
+from ..model.get_entity_response import GetEntityResponse
+from ..model.highlight_entity_request import HighlightEntityRequest
+from ..model.highlight_entity_response import HighlightEntityResponse
+from ..model.list_entity_request import ListEntityRequest
+from ..model.list_entity_response import ListEntityResponse
+from ..model.match_entity_request import MatchEntityRequest
+from ..model.match_entity_response import MatchEntityResponse
+from ..model.search_entity_request import SearchEntityRequest
+from ..model.search_entity_response import SearchEntityResponse
+from ..model.update_entity_request import UpdateEntityRequest
+from ..model.update_entity_response import UpdateEntityResponse
 
 
 class Entity(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateEntityRequest, option: RequestOption = RequestOption()) -> CreateEntityResponse:
+    def create(self, request: CreateEntityRequest, option: Optional[RequestOption] = None) -> CreateEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -42,7 +45,10 @@ class Entity(object):
 
         return response
 
-    def extract(self, request: ExtractEntityRequest, option: RequestOption = RequestOption()) -> ExtractEntityResponse:
+    def extract(self, request: ExtractEntityRequest, option: Optional[RequestOption] = None) -> ExtractEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -55,7 +61,10 @@ class Entity(object):
 
         return response
 
-    def get(self, request: GetEntityRequest, option: RequestOption = RequestOption()) -> GetEntityResponse:
+    def get(self, request: GetEntityRequest, option: Optional[RequestOption] = None) -> GetEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -69,7 +78,10 @@ class Entity(object):
         return response
 
     def highlight(self, request: HighlightEntityRequest,
-                  option: RequestOption = RequestOption()) -> HighlightEntityResponse:
+                  option: Optional[RequestOption] = None) -> HighlightEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -82,7 +94,10 @@ class Entity(object):
 
         return response
 
-    def list(self, request: ListEntityRequest, option: RequestOption = RequestOption()) -> ListEntityResponse:
+    def list(self, request: ListEntityRequest, option: Optional[RequestOption] = None) -> ListEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -95,7 +110,10 @@ class Entity(object):
 
         return response
 
-    def match(self, request: MatchEntityRequest, option: RequestOption = RequestOption()) -> MatchEntityResponse:
+    def match(self, request: MatchEntityRequest, option: Optional[RequestOption] = None) -> MatchEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -108,7 +126,10 @@ class Entity(object):
 
         return response
 
-    def search(self, request: SearchEntityRequest, option: RequestOption = RequestOption()) -> SearchEntityResponse:
+    def search(self, request: SearchEntityRequest, option: Optional[RequestOption] = None) -> SearchEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -121,7 +142,10 @@ class Entity(object):
 
         return response
 
-    def update(self, request: UpdateEntityRequest, option: RequestOption = RequestOption()) -> UpdateEntityResponse:
+    def update(self, request: UpdateEntityRequest, option: Optional[RequestOption] = None) -> UpdateEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

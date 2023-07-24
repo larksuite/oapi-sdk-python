@@ -11,7 +11,7 @@ class UploadFinishMediaRequestBody(object):
         "block_num": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.upload_id: Optional[str] = None
         self.block_num: Optional[int] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class UploadFinishMediaRequestBody(object):
 
 
 class UploadFinishMediaRequestBodyBuilder(object):
-    def __init__(self, upload_finish_media_request_body: UploadFinishMediaRequestBody = UploadFinishMediaRequestBody(
-        {})) -> None:
-        self._upload_finish_media_request_body: UploadFinishMediaRequestBody = upload_finish_media_request_body
+    def __init__(self) -> None:
+        self._upload_finish_media_request_body = UploadFinishMediaRequestBody()
 
     def upload_id(self, upload_id: str) -> "UploadFinishMediaRequestBodyBuilder":
         self._upload_finish_media_request_body.upload_id = upload_id

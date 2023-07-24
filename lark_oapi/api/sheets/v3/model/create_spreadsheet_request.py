@@ -19,7 +19,8 @@ class CreateSpreadsheetRequest(BaseRequest):
 
 class CreateSpreadsheetRequestBuilder(object):
 
-    def __init__(self, create_spreadsheet_request: CreateSpreadsheetRequest = CreateSpreadsheetRequest()) -> None:
+    def __init__(self) -> None:
+        create_spreadsheet_request = CreateSpreadsheetRequest()
         create_spreadsheet_request.http_method = HttpMethod.POST
         create_spreadsheet_request.uri = "/open-apis/sheets/v3/spreadsheets"
         create_spreadsheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

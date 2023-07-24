@@ -21,7 +21,7 @@ class BackgroundCheckTarget(object):
         "offer_hr_department_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.first_name: Optional[str] = None
         self.last_name: Optional[str] = None
@@ -40,8 +40,8 @@ class BackgroundCheckTarget(object):
 
 
 class BackgroundCheckTargetBuilder(object):
-    def __init__(self, background_check_target: BackgroundCheckTarget = BackgroundCheckTarget({})) -> None:
-        self._background_check_target: BackgroundCheckTarget = background_check_target
+    def __init__(self) -> None:
+        self._background_check_target = BackgroundCheckTarget()
 
     def id(self, id: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.id = id

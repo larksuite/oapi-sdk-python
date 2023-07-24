@@ -21,7 +21,8 @@ class PatchJobFamilyRequest(BaseRequest):
 
 class PatchJobFamilyRequestBuilder(object):
 
-    def __init__(self, patch_job_family_request: PatchJobFamilyRequest = PatchJobFamilyRequest()) -> None:
+    def __init__(self) -> None:
+        patch_job_family_request = PatchJobFamilyRequest()
         patch_job_family_request.http_method = HttpMethod.PATCH
         patch_job_family_request.uri = "/open-apis/corehr/v1/job_families/:job_family_id"
         patch_job_family_request.token_types = {AccessTokenType.TENANT}

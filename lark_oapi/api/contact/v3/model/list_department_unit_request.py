@@ -21,7 +21,8 @@ class ListDepartmentUnitRequest(BaseRequest):
 
 class ListDepartmentUnitRequestBuilder(object):
 
-    def __init__(self, list_department_unit_request: ListDepartmentUnitRequest = ListDepartmentUnitRequest()) -> None:
+    def __init__(self) -> None:
+        list_department_unit_request = ListDepartmentUnitRequest()
         list_department_unit_request.http_method = HttpMethod.GET
         list_department_unit_request.uri = "/open-apis/contact/v3/unit/list_department"
         list_department_unit_request.token_types = {AccessTokenType.TENANT}

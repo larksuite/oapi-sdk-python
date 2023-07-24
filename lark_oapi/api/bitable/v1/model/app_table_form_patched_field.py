@@ -14,7 +14,7 @@ class AppTableFormPatchedField(object):
         "visible": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pre_field_id: Optional[str] = None
         self.title: Optional[str] = None
         self.description: Optional[str] = None
@@ -28,8 +28,8 @@ class AppTableFormPatchedField(object):
 
 
 class AppTableFormPatchedFieldBuilder(object):
-    def __init__(self, app_table_form_patched_field: AppTableFormPatchedField = AppTableFormPatchedField({})) -> None:
-        self._app_table_form_patched_field: AppTableFormPatchedField = app_table_form_patched_field
+    def __init__(self) -> None:
+        self._app_table_form_patched_field = AppTableFormPatchedField()
 
     def pre_field_id(self, pre_field_id: str) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.pre_field_id = pre_field_id

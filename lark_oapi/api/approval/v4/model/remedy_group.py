@@ -17,7 +17,7 @@ class RemedyGroup(object):
         "status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.employee_id: Optional[str] = None
@@ -34,8 +34,8 @@ class RemedyGroup(object):
 
 
 class RemedyGroupBuilder(object):
-    def __init__(self, remedy_group: RemedyGroup = RemedyGroup({})) -> None:
-        self._remedy_group: RemedyGroup = remedy_group
+    def __init__(self) -> None:
+        self._remedy_group = RemedyGroup()
 
     def type(self, type: str) -> "RemedyGroupBuilder":
         self._remedy_group.type = type

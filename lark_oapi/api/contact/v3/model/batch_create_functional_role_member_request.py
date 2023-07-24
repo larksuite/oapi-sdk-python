@@ -21,8 +21,8 @@ class BatchCreateFunctionalRoleMemberRequest(BaseRequest):
 
 class BatchCreateFunctionalRoleMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_create_functional_role_member_request: BatchCreateFunctionalRoleMemberRequest = BatchCreateFunctionalRoleMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_create_functional_role_member_request = BatchCreateFunctionalRoleMemberRequest()
         batch_create_functional_role_member_request.http_method = HttpMethod.POST
         batch_create_functional_role_member_request.uri = "/open-apis/contact/v3/functional_roles/:role_id/members/batch_create"
         batch_create_functional_role_member_request.token_types = {AccessTokenType.TENANT}

@@ -10,7 +10,7 @@ class PatchFileCommentRequestBody(object):
         "is_solved": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_solved: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class PatchFileCommentRequestBody(object):
 
 
 class PatchFileCommentRequestBodyBuilder(object):
-    def __init__(self, patch_file_comment_request_body: PatchFileCommentRequestBody = PatchFileCommentRequestBody(
-        {})) -> None:
-        self._patch_file_comment_request_body: PatchFileCommentRequestBody = patch_file_comment_request_body
+    def __init__(self) -> None:
+        self._patch_file_comment_request_body = PatchFileCommentRequestBody()
 
     def is_solved(self, is_solved: bool) -> "PatchFileCommentRequestBodyBuilder":
         self._patch_file_comment_request_body.is_solved = is_solved

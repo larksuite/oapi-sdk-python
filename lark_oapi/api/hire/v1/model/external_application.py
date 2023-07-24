@@ -20,7 +20,7 @@ class ExternalApplication(object):
         "termination_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.external_id: Optional[str] = None
         self.job_recruitment_type: Optional[int] = None
@@ -40,8 +40,8 @@ class ExternalApplication(object):
 
 
 class ExternalApplicationBuilder(object):
-    def __init__(self, external_application: ExternalApplication = ExternalApplication({})) -> None:
-        self._external_application: ExternalApplication = external_application
+    def __init__(self) -> None:
+        self._external_application = ExternalApplication()
 
     def id(self, id: str) -> "ExternalApplicationBuilder":
         self._external_application.id = id

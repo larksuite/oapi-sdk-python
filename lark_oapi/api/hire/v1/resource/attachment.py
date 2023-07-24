@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.get_attachment_request import GetAttachmentRequest
-from lark_oapi.api.hire.v1.model.get_attachment_response import GetAttachmentResponse
-from lark_oapi.api.hire.v1.model.preview_attachment_request import PreviewAttachmentRequest
-from lark_oapi.api.hire.v1.model.preview_attachment_response import PreviewAttachmentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_attachment_request import GetAttachmentRequest
+from ..model.get_attachment_response import GetAttachmentResponse
+from ..model.preview_attachment_request import PreviewAttachmentRequest
+from ..model.preview_attachment_response import PreviewAttachmentResponse
 
 
 class Attachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetAttachmentRequest, option: RequestOption = RequestOption()) -> GetAttachmentResponse:
+    def get(self, request: GetAttachmentRequest, option: Optional[RequestOption] = None) -> GetAttachmentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -31,7 +34,10 @@ class Attachment(object):
         return response
 
     def preview(self, request: PreviewAttachmentRequest,
-                option: RequestOption = RequestOption()) -> PreviewAttachmentResponse:
+                option: Optional[RequestOption] = None) -> PreviewAttachmentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

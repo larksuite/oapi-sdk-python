@@ -14,7 +14,7 @@ class ChatMenuTopLevel(object):
         "children": List[ChatMenuSecondLevel],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_menu_top_level_id: Optional[int] = None
         self.chat_menu_item: Optional[ChatMenuItem] = None
         self.children: Optional[List[ChatMenuSecondLevel]] = None
@@ -26,8 +26,8 @@ class ChatMenuTopLevel(object):
 
 
 class ChatMenuTopLevelBuilder(object):
-    def __init__(self, chat_menu_top_level: ChatMenuTopLevel = ChatMenuTopLevel({})) -> None:
-        self._chat_menu_top_level: ChatMenuTopLevel = chat_menu_top_level
+    def __init__(self) -> None:
+        self._chat_menu_top_level = ChatMenuTopLevel()
 
     def chat_menu_top_level_id(self, chat_menu_top_level_id: int) -> "ChatMenuTopLevelBuilder":
         self._chat_menu_top_level.chat_menu_top_level_id = chat_menu_top_level_id

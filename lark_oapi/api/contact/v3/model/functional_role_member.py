@@ -12,7 +12,7 @@ class FunctionalRoleMember(object):
         "department_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.scope_type: Optional[str] = None
         self.department_ids: Optional[List[str]] = None
@@ -24,8 +24,8 @@ class FunctionalRoleMember(object):
 
 
 class FunctionalRoleMemberBuilder(object):
-    def __init__(self, functional_role_member: FunctionalRoleMember = FunctionalRoleMember({})) -> None:
-        self._functional_role_member: FunctionalRoleMember = functional_role_member
+    def __init__(self) -> None:
+        self._functional_role_member = FunctionalRoleMember()
 
     def user_id(self, user_id: str) -> "FunctionalRoleMemberBuilder":
         self._functional_role_member.user_id = user_id

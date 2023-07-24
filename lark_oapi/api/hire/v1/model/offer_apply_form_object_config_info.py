@@ -15,7 +15,7 @@ class OfferApplyFormObjectConfigInfo(object):
         "object_display_config": OfferApplyFormObjectDisplayConfigInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.options: Optional[List[OfferApplyFormConfigOptionInfo]] = None
         self.formula: Optional[OfferApplyFormConfigFormulaInfo] = None
         self.object_display_config: Optional[OfferApplyFormObjectDisplayConfigInfo] = None
@@ -27,10 +27,8 @@ class OfferApplyFormObjectConfigInfo(object):
 
 
 class OfferApplyFormObjectConfigInfoBuilder(object):
-    def __init__(self,
-                 offer_apply_form_object_config_info: OfferApplyFormObjectConfigInfo = OfferApplyFormObjectConfigInfo(
-                     {})) -> None:
-        self._offer_apply_form_object_config_info: OfferApplyFormObjectConfigInfo = offer_apply_form_object_config_info
+    def __init__(self) -> None:
+        self._offer_apply_form_object_config_info = OfferApplyFormObjectConfigInfo()
 
     def options(self, options: List[OfferApplyFormConfigOptionInfo]) -> "OfferApplyFormObjectConfigInfoBuilder":
         self._offer_apply_form_object_config_info.options = options

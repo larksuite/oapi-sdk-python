@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.get_by_application_referral_request import GetByApplicationReferralRequest
-from lark_oapi.api.hire.v1.model.get_by_application_referral_response import GetByApplicationReferralResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_by_application_referral_request import GetByApplicationReferralRequest
+from ..model.get_by_application_referral_response import GetByApplicationReferralResponse
 
 
 class Referral(object):
@@ -16,7 +16,10 @@ class Referral(object):
         self.config: Optional[Config] = config
 
     def get_by_application(self, request: GetByApplicationReferralRequest,
-                           option: RequestOption = RequestOption()) -> GetByApplicationReferralResponse:
+                           option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

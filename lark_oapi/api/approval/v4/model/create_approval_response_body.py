@@ -11,7 +11,7 @@ class CreateApprovalResponseBody(object):
         "approval_id": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.approval_id: Optional[int] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class CreateApprovalResponseBody(object):
 
 
 class CreateApprovalResponseBodyBuilder(object):
-    def __init__(self,
-                 create_approval_response_body: CreateApprovalResponseBody = CreateApprovalResponseBody({})) -> None:
-        self._create_approval_response_body: CreateApprovalResponseBody = create_approval_response_body
+    def __init__(self) -> None:
+        self._create_approval_response_body = CreateApprovalResponseBody()
 
     def approval_code(self, approval_code: str) -> "CreateApprovalResponseBodyBuilder":
         self._create_approval_response_body.approval_code = approval_code

@@ -12,7 +12,7 @@ class SiteResumeAward(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.award_time: Optional[str] = None
         self.description: Optional[str] = None
@@ -24,8 +24,8 @@ class SiteResumeAward(object):
 
 
 class SiteResumeAwardBuilder(object):
-    def __init__(self, site_resume_award: SiteResumeAward = SiteResumeAward({})) -> None:
-        self._site_resume_award: SiteResumeAward = site_resume_award
+    def __init__(self) -> None:
+        self._site_resume_award = SiteResumeAward()
 
     def title(self, title: str) -> "SiteResumeAwardBuilder":
         self._site_resume_award.title = title

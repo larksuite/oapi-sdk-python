@@ -12,7 +12,7 @@ class UpdateReserveRequestBody(object):
         "meeting_settings": ReserveMeetingSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.end_time: Optional[int] = None
         self.meeting_settings: Optional[ReserveMeetingSetting] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class UpdateReserveRequestBody(object):
 
 
 class UpdateReserveRequestBodyBuilder(object):
-    def __init__(self, update_reserve_request_body: UpdateReserveRequestBody = UpdateReserveRequestBody({})) -> None:
-        self._update_reserve_request_body: UpdateReserveRequestBody = update_reserve_request_body
+    def __init__(self) -> None:
+        self._update_reserve_request_body = UpdateReserveRequestBody()
 
     def end_time(self, end_time: int) -> "UpdateReserveRequestBodyBuilder":
         self._update_reserve_request_body.end_time = end_time

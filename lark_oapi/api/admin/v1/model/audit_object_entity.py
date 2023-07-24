@@ -15,7 +15,7 @@ class AuditObjectEntity(object):
         "object_detail": AuditObjectDetail,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_type: Optional[str] = None
         self.object_value: Optional[str] = None
         self.object_name: Optional[str] = None
@@ -29,8 +29,8 @@ class AuditObjectEntity(object):
 
 
 class AuditObjectEntityBuilder(object):
-    def __init__(self, audit_object_entity: AuditObjectEntity = AuditObjectEntity({})) -> None:
-        self._audit_object_entity: AuditObjectEntity = audit_object_entity
+    def __init__(self) -> None:
+        self._audit_object_entity = AuditObjectEntity()
 
     def object_type(self, object_type: str) -> "AuditObjectEntityBuilder":
         self._audit_object_entity.object_type = object_type

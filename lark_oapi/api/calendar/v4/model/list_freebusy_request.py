@@ -20,7 +20,8 @@ class ListFreebusyRequest(BaseRequest):
 
 class ListFreebusyRequestBuilder(object):
 
-    def __init__(self, list_freebusy_request: ListFreebusyRequest = ListFreebusyRequest()) -> None:
+    def __init__(self) -> None:
+        list_freebusy_request = ListFreebusyRequest()
         list_freebusy_request.http_method = HttpMethod.POST
         list_freebusy_request.uri = "/open-apis/calendar/v4/freebusy/list"
         list_freebusy_request.token_types = {AccessTokenType.TENANT}

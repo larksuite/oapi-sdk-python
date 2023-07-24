@@ -11,7 +11,7 @@ class I18nContent(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.locale: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class I18nContent(object):
 
 
 class I18nContentBuilder(object):
-    def __init__(self, i18n_content: I18nContent = I18nContent({})) -> None:
-        self._i18n_content: I18nContent = i18n_content
+    def __init__(self) -> None:
+        self._i18n_content = I18nContent()
 
     def locale(self, locale: str) -> "I18nContentBuilder":
         self._i18n_content.locale = locale

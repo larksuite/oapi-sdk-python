@@ -21,8 +21,8 @@ class SetPermissionMeetingRecordingRequest(BaseRequest):
 
 class SetPermissionMeetingRecordingRequestBuilder(object):
 
-    def __init__(self,
-                 set_permission_meeting_recording_request: SetPermissionMeetingRecordingRequest = SetPermissionMeetingRecordingRequest()) -> None:
+    def __init__(self) -> None:
+        set_permission_meeting_recording_request = SetPermissionMeetingRecordingRequest()
         set_permission_meeting_recording_request.http_method = HttpMethod.PATCH
         set_permission_meeting_recording_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/recording/set_permission"
         set_permission_meeting_recording_request.token_types = {AccessTokenType.USER}

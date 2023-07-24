@@ -12,7 +12,7 @@ class UpdateTextStyleRequest(object):
         "fields": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.style: Optional[TextStyle] = None
         self.fields: Optional[List[int]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class UpdateTextStyleRequest(object):
 
 
 class UpdateTextStyleRequestBuilder(object):
-    def __init__(self, update_text_style_request: UpdateTextStyleRequest = UpdateTextStyleRequest({})) -> None:
-        self._update_text_style_request: UpdateTextStyleRequest = update_text_style_request
+    def __init__(self) -> None:
+        self._update_text_style_request = UpdateTextStyleRequest()
 
     def style(self, style: TextStyle) -> "UpdateTextStyleRequestBuilder":
         self._update_text_style_request.style = style

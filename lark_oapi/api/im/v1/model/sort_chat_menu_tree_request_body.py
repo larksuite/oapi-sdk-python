@@ -10,7 +10,7 @@ class SortChatMenuTreeRequestBody(object):
         "chat_menu_top_level_ids": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_menu_top_level_ids: Optional[List[int]] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class SortChatMenuTreeRequestBody(object):
 
 
 class SortChatMenuTreeRequestBodyBuilder(object):
-    def __init__(self, sort_chat_menu_tree_request_body: SortChatMenuTreeRequestBody = SortChatMenuTreeRequestBody(
-        {})) -> None:
-        self._sort_chat_menu_tree_request_body: SortChatMenuTreeRequestBody = sort_chat_menu_tree_request_body
+    def __init__(self) -> None:
+        self._sort_chat_menu_tree_request_body = SortChatMenuTreeRequestBody()
 
     def chat_menu_top_level_ids(self, chat_menu_top_level_ids: List[int]) -> "SortChatMenuTreeRequestBodyBuilder":
         self._sort_chat_menu_tree_request_body.chat_menu_top_level_ids = chat_menu_top_level_ids

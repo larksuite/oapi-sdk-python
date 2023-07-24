@@ -11,7 +11,7 @@ class Follower(object):
         "id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.id_list: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Follower(object):
 
 
 class FollowerBuilder(object):
-    def __init__(self, follower: Follower = Follower({})) -> None:
-        self._follower: Follower = follower
+    def __init__(self) -> None:
+        self._follower = Follower()
 
     def id(self, id: str) -> "FollowerBuilder":
         self._follower.id = id

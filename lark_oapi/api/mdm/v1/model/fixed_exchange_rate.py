@@ -14,7 +14,7 @@ class FixedExchangeRate(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.source_currency: Optional[str] = None
         self.target_currency: Optional[str] = None
         self.effective_date: Optional[str] = None
@@ -28,8 +28,8 @@ class FixedExchangeRate(object):
 
 
 class FixedExchangeRateBuilder(object):
-    def __init__(self, fixed_exchange_rate: FixedExchangeRate = FixedExchangeRate({})) -> None:
-        self._fixed_exchange_rate: FixedExchangeRate = fixed_exchange_rate
+    def __init__(self) -> None:
+        self._fixed_exchange_rate = FixedExchangeRate()
 
     def source_currency(self, source_currency: str) -> "FixedExchangeRateBuilder":
         self._fixed_exchange_rate.source_currency = source_currency

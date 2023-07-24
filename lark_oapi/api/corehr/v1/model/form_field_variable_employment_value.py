@@ -11,7 +11,7 @@ class FormFieldVariableEmploymentValue(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[str] = None
         self.user_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class FormFieldVariableEmploymentValue(object):
 
 
 class FormFieldVariableEmploymentValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_employment_value: FormFieldVariableEmploymentValue = FormFieldVariableEmploymentValue(
-                     {})) -> None:
-        self._form_field_variable_employment_value: FormFieldVariableEmploymentValue = form_field_variable_employment_value
+    def __init__(self) -> None:
+        self._form_field_variable_employment_value = FormFieldVariableEmploymentValue()
 
     def value(self, value: str) -> "FormFieldVariableEmploymentValueBuilder":
         self._form_field_variable_employment_value.value = value

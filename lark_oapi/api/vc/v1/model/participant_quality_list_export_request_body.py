@@ -15,7 +15,7 @@ class ParticipantQualityListExportRequestBody(object):
         "room_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.meeting_start_time: Optional[int] = None
         self.meeting_end_time: Optional[int] = None
         self.meeting_no: Optional[str] = None
@@ -30,10 +30,8 @@ class ParticipantQualityListExportRequestBody(object):
 
 
 class ParticipantQualityListExportRequestBodyBuilder(object):
-    def __init__(self,
-                 participant_quality_list_export_request_body: ParticipantQualityListExportRequestBody = ParticipantQualityListExportRequestBody(
-                     {})) -> None:
-        self._participant_quality_list_export_request_body: ParticipantQualityListExportRequestBody = participant_quality_list_export_request_body
+    def __init__(self) -> None:
+        self._participant_quality_list_export_request_body = ParticipantQualityListExportRequestBody()
 
     def meeting_start_time(self, meeting_start_time: int) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.meeting_start_time = meeting_start_time

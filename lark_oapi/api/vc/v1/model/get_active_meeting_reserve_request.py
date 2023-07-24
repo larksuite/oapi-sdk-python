@@ -20,8 +20,8 @@ class GetActiveMeetingReserveRequest(BaseRequest):
 
 class GetActiveMeetingReserveRequestBuilder(object):
 
-    def __init__(self,
-                 get_active_meeting_reserve_request: GetActiveMeetingReserveRequest = GetActiveMeetingReserveRequest()) -> None:
+    def __init__(self) -> None:
+        get_active_meeting_reserve_request = GetActiveMeetingReserveRequest()
         get_active_meeting_reserve_request.http_method = HttpMethod.GET
         get_active_meeting_reserve_request.uri = "/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting"
         get_active_meeting_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

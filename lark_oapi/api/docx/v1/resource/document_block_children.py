@@ -2,19 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.docx.v1.model.batch_delete_document_block_children_request import \
-    BatchDeleteDocumentBlockChildrenRequest
-from lark_oapi.api.docx.v1.model.batch_delete_document_block_children_response import \
-    BatchDeleteDocumentBlockChildrenResponse
-from lark_oapi.api.docx.v1.model.create_document_block_children_request import CreateDocumentBlockChildrenRequest
-from lark_oapi.api.docx.v1.model.create_document_block_children_response import CreateDocumentBlockChildrenResponse
-from lark_oapi.api.docx.v1.model.get_document_block_children_request import GetDocumentBlockChildrenRequest
-from lark_oapi.api.docx.v1.model.get_document_block_children_response import GetDocumentBlockChildrenResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_delete_document_block_children_request import BatchDeleteDocumentBlockChildrenRequest
+from ..model.batch_delete_document_block_children_response import BatchDeleteDocumentBlockChildrenResponse
+from ..model.create_document_block_children_request import CreateDocumentBlockChildrenRequest
+from ..model.create_document_block_children_response import CreateDocumentBlockChildrenResponse
+from ..model.get_document_block_children_request import GetDocumentBlockChildrenRequest
+from ..model.get_document_block_children_response import GetDocumentBlockChildrenResponse
 
 
 class DocumentBlockChildren(object):
@@ -22,7 +20,10 @@ class DocumentBlockChildren(object):
         self.config: Optional[Config] = config
 
     def batch_delete(self, request: BatchDeleteDocumentBlockChildrenRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteDocumentBlockChildrenResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteDocumentBlockChildrenResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -37,7 +38,10 @@ class DocumentBlockChildren(object):
         return response
 
     def create(self, request: CreateDocumentBlockChildrenRequest,
-               option: RequestOption = RequestOption()) -> CreateDocumentBlockChildrenResponse:
+               option: Optional[RequestOption] = None) -> CreateDocumentBlockChildrenResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +56,10 @@ class DocumentBlockChildren(object):
         return response
 
     def get(self, request: GetDocumentBlockChildrenRequest,
-            option: RequestOption = RequestOption()) -> GetDocumentBlockChildrenResponse:
+            option: Optional[RequestOption] = None) -> GetDocumentBlockChildrenResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -13,7 +13,7 @@ class ListUnitResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.unitlist: Optional[List[Unit]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListUnitResponseBody(object):
 
 
 class ListUnitResponseBodyBuilder(object):
-    def __init__(self, list_unit_response_body: ListUnitResponseBody = ListUnitResponseBody({})) -> None:
-        self._list_unit_response_body: ListUnitResponseBody = list_unit_response_body
+    def __init__(self) -> None:
+        self._list_unit_response_body = ListUnitResponseBody()
 
     def unitlist(self, unitlist: List[Unit]) -> "ListUnitResponseBodyBuilder":
         self._list_unit_response_body.unitlist = unitlist

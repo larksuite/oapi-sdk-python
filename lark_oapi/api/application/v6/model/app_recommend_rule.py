@@ -17,7 +17,7 @@ class AppRecommendRule(object):
         "distributed_recommend_item_infos": List[AppRecommendRuleItemInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.status: Optional[str] = None
@@ -32,8 +32,8 @@ class AppRecommendRule(object):
 
 
 class AppRecommendRuleBuilder(object):
-    def __init__(self, app_recommend_rule: AppRecommendRule = AppRecommendRule({})) -> None:
-        self._app_recommend_rule: AppRecommendRule = app_recommend_rule
+    def __init__(self) -> None:
+        self._app_recommend_rule = AppRecommendRule()
 
     def id(self, id: str) -> "AppRecommendRuleBuilder":
         self._app_recommend_rule.id = id

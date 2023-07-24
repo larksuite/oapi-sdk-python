@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.tenant.v2.model.query_tenant_product_assign_info_request import QueryTenantProductAssignInfoRequest
-from lark_oapi.api.tenant.v2.model.query_tenant_product_assign_info_response import QueryTenantProductAssignInfoResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_tenant_product_assign_info_request import QueryTenantProductAssignInfoRequest
+from ..model.query_tenant_product_assign_info_response import QueryTenantProductAssignInfoResponse
 
 
 class TenantProductAssignInfo(object):
@@ -16,7 +16,10 @@ class TenantProductAssignInfo(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryTenantProductAssignInfoRequest,
-              option: RequestOption = RequestOption()) -> QueryTenantProductAssignInfoResponse:
+              option: Optional[RequestOption] = None) -> QueryTenantProductAssignInfoResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -2,15 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_external_interview_assessment_request import \
-    CreateExternalInterviewAssessmentRequest
-from lark_oapi.api.hire.v1.model.create_external_interview_assessment_response import \
-    CreateExternalInterviewAssessmentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_external_interview_assessment_request import CreateExternalInterviewAssessmentRequest
+from ..model.create_external_interview_assessment_response import CreateExternalInterviewAssessmentResponse
 
 
 class ExternalInterviewAssessment(object):
@@ -18,7 +16,10 @@ class ExternalInterviewAssessment(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateExternalInterviewAssessmentRequest,
-               option: RequestOption = RequestOption()) -> CreateExternalInterviewAssessmentResponse:
+               option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

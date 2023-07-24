@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.create_ticket_message_request import CreateTicketMessageRequest
-from lark_oapi.api.helpdesk.v1.model.create_ticket_message_response import CreateTicketMessageResponse
-from lark_oapi.api.helpdesk.v1.model.list_ticket_message_request import ListTicketMessageRequest
-from lark_oapi.api.helpdesk.v1.model.list_ticket_message_response import ListTicketMessageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_ticket_message_request import CreateTicketMessageRequest
+from ..model.create_ticket_message_response import CreateTicketMessageResponse
+from ..model.list_ticket_message_request import ListTicketMessageRequest
+from ..model.list_ticket_message_response import ListTicketMessageResponse
 
 
 class TicketMessage(object):
@@ -18,7 +18,10 @@ class TicketMessage(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateTicketMessageRequest,
-               option: RequestOption = RequestOption()) -> CreateTicketMessageResponse:
+               option: Optional[RequestOption] = None) -> CreateTicketMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class TicketMessage(object):
         return response
 
     def list(self, request: ListTicketMessageRequest,
-             option: RequestOption = RequestOption()) -> ListTicketMessageResponse:
+             option: Optional[RequestOption] = None) -> ListTicketMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

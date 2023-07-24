@@ -11,7 +11,7 @@ class ApplyMemberRequest(object):
         "remark": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.perm: Optional[str] = None
         self.remark: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ApplyMemberRequest(object):
 
 
 class ApplyMemberRequestBuilder(object):
-    def __init__(self, apply_member_request: ApplyMemberRequest = ApplyMemberRequest({})) -> None:
-        self._apply_member_request: ApplyMemberRequest = apply_member_request
+    def __init__(self) -> None:
+        self._apply_member_request = ApplyMemberRequest()
 
     def perm(self, perm: str) -> "ApplyMemberRequestBuilder":
         self._apply_member_request.perm = perm

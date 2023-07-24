@@ -15,7 +15,7 @@ class ReserveScopeReserveConfigResponseBody(object):
         "reserve_scope_config": ReserveScopeConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approve_config: Optional[ApprovalConfig] = None
         self.time_config: Optional[TimeConfig] = None
         self.reserve_scope_config: Optional[ReserveScopeConfig] = None
@@ -27,10 +27,8 @@ class ReserveScopeReserveConfigResponseBody(object):
 
 
 class ReserveScopeReserveConfigResponseBodyBuilder(object):
-    def __init__(self,
-                 reserve_scope_reserve_config_response_body: ReserveScopeReserveConfigResponseBody = ReserveScopeReserveConfigResponseBody(
-                     {})) -> None:
-        self._reserve_scope_reserve_config_response_body: ReserveScopeReserveConfigResponseBody = reserve_scope_reserve_config_response_body
+    def __init__(self) -> None:
+        self._reserve_scope_reserve_config_response_body = ReserveScopeReserveConfigResponseBody()
 
     def approve_config(self, approve_config: ApprovalConfig) -> "ReserveScopeReserveConfigResponseBodyBuilder":
         self._reserve_scope_reserve_config_response_body.approve_config = approve_config

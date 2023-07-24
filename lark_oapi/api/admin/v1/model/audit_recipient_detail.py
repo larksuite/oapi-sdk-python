@@ -10,7 +10,7 @@ class AuditRecipientDetail(object):
         "permission_action_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission_action_type: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class AuditRecipientDetail(object):
 
 
 class AuditRecipientDetailBuilder(object):
-    def __init__(self, audit_recipient_detail: AuditRecipientDetail = AuditRecipientDetail({})) -> None:
-        self._audit_recipient_detail: AuditRecipientDetail = audit_recipient_detail
+    def __init__(self) -> None:
+        self._audit_recipient_detail = AuditRecipientDetail()
 
     def permission_action_type(self, permission_action_type: str) -> "AuditRecipientDetailBuilder":
         self._audit_recipient_detail.permission_action_type = permission_action_type

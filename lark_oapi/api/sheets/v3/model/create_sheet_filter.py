@@ -13,7 +13,7 @@ class CreateSheetFilter(object):
         "condition": Condition,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.col: Optional[str] = None
         self.condition: Optional[Condition] = None
@@ -25,8 +25,8 @@ class CreateSheetFilter(object):
 
 
 class CreateSheetFilterBuilder(object):
-    def __init__(self, create_sheet_filter: CreateSheetFilter = CreateSheetFilter({})) -> None:
-        self._create_sheet_filter: CreateSheetFilter = create_sheet_filter
+    def __init__(self) -> None:
+        self._create_sheet_filter = CreateSheetFilter()
 
     def range(self, range: str) -> "CreateSheetFilterBuilder":
         self._create_sheet_filter.range = range

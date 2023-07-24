@@ -11,7 +11,7 @@ class CreateExternalInstanceResponseBody(object):
         "data": ExternalInstance,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data: Optional[ExternalInstance] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateExternalInstanceResponseBody(object):
 
 
 class CreateExternalInstanceResponseBodyBuilder(object):
-    def __init__(self,
-                 create_external_instance_response_body: CreateExternalInstanceResponseBody = CreateExternalInstanceResponseBody(
-                     {})) -> None:
-        self._create_external_instance_response_body: CreateExternalInstanceResponseBody = create_external_instance_response_body
+    def __init__(self) -> None:
+        self._create_external_instance_response_body = CreateExternalInstanceResponseBody()
 
     def data(self, data: ExternalInstance) -> "CreateExternalInstanceResponseBodyBuilder":
         self._create_external_instance_response_body.data = data

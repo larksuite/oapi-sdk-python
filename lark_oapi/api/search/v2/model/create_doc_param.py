@@ -14,7 +14,7 @@ class CreateDocParam(object):
         "overlength_handle_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.doc_id: Optional[str] = None
         self.filter_data: Optional[str] = None
         self.content: Optional[str] = None
@@ -28,8 +28,8 @@ class CreateDocParam(object):
 
 
 class CreateDocParamBuilder(object):
-    def __init__(self, create_doc_param: CreateDocParam = CreateDocParam({})) -> None:
-        self._create_doc_param: CreateDocParam = create_doc_param
+    def __init__(self) -> None:
+        self._create_doc_param = CreateDocParam()
 
     def doc_id(self, doc_id: str) -> "CreateDocParamBuilder":
         self._create_doc_param.doc_id = doc_id

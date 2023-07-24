@@ -11,7 +11,7 @@ class CreateSpreadsheetResponseBody(object):
         "spreadsheet": Spreadsheet,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.spreadsheet: Optional[Spreadsheet] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateSpreadsheetResponseBody(object):
 
 
 class CreateSpreadsheetResponseBodyBuilder(object):
-    def __init__(self, create_spreadsheet_response_body: CreateSpreadsheetResponseBody = CreateSpreadsheetResponseBody(
-        {})) -> None:
-        self._create_spreadsheet_response_body: CreateSpreadsheetResponseBody = create_spreadsheet_response_body
+    def __init__(self) -> None:
+        self._create_spreadsheet_response_body = CreateSpreadsheetResponseBody()
 
     def spreadsheet(self, spreadsheet: Spreadsheet) -> "CreateSpreadsheetResponseBodyBuilder":
         self._create_spreadsheet_response_body.spreadsheet = spreadsheet

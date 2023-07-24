@@ -13,7 +13,7 @@ class EcoBackgroundCheckCreateEventCandidateInfo(object):
         "email": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.mobile: Optional[EcoBackgroundCheckCreateEventMobile] = None
         self.email: Optional[str] = None
@@ -25,10 +25,8 @@ class EcoBackgroundCheckCreateEventCandidateInfo(object):
 
 
 class EcoBackgroundCheckCreateEventCandidateInfoBuilder(object):
-    def __init__(self,
-                 eco_background_check_create_event_candidate_info: EcoBackgroundCheckCreateEventCandidateInfo = EcoBackgroundCheckCreateEventCandidateInfo(
-                     {})) -> None:
-        self._eco_background_check_create_event_candidate_info: EcoBackgroundCheckCreateEventCandidateInfo = eco_background_check_create_event_candidate_info
+    def __init__(self) -> None:
+        self._eco_background_check_create_event_candidate_info = EcoBackgroundCheckCreateEventCandidateInfo()
 
     def name(self, name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.name = name

@@ -17,7 +17,7 @@ class Questionnaire(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.questionnaire_id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.interview_id: Optional[str] = None
@@ -33,8 +33,8 @@ class Questionnaire(object):
 
 
 class QuestionnaireBuilder(object):
-    def __init__(self, questionnaire: Questionnaire = Questionnaire({})) -> None:
-        self._questionnaire: Questionnaire = questionnaire
+    def __init__(self) -> None:
+        self._questionnaire = Questionnaire()
 
     def questionnaire_id(self, questionnaire_id: str) -> "QuestionnaireBuilder":
         self._questionnaire.questionnaire_id = questionnaire_id

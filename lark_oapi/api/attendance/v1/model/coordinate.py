@@ -12,7 +12,7 @@ class Coordinate(object):
         "accuracy": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.longitude: Optional[float] = None
         self.latitude: Optional[float] = None
         self.accuracy: Optional[float] = None
@@ -24,8 +24,8 @@ class Coordinate(object):
 
 
 class CoordinateBuilder(object):
-    def __init__(self, coordinate: Coordinate = Coordinate({})) -> None:
-        self._coordinate: Coordinate = coordinate
+    def __init__(self) -> None:
+        self._coordinate = Coordinate()
 
     def longitude(self, longitude: float) -> "CoordinateBuilder":
         self._coordinate.longitude = longitude

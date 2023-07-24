@@ -20,7 +20,8 @@ class DeleteChatMenuTreeRequest(BaseRequest):
 
 class DeleteChatMenuTreeRequestBuilder(object):
 
-    def __init__(self, delete_chat_menu_tree_request: DeleteChatMenuTreeRequest = DeleteChatMenuTreeRequest()) -> None:
+    def __init__(self) -> None:
+        delete_chat_menu_tree_request = DeleteChatMenuTreeRequest()
         delete_chat_menu_tree_request.http_method = HttpMethod.DELETE
         delete_chat_menu_tree_request.uri = "/open-apis/im/v1/chats/:chat_id/menu_tree"
         delete_chat_menu_tree_request.token_types = {AccessTokenType.TENANT}

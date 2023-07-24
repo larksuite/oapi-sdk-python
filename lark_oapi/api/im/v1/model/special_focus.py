@@ -11,7 +11,7 @@ class SpecialFocus(object):
         "id_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.id_type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SpecialFocus(object):
 
 
 class SpecialFocusBuilder(object):
-    def __init__(self, special_focus: SpecialFocus = SpecialFocus({})) -> None:
-        self._special_focus: SpecialFocus = special_focus
+    def __init__(self) -> None:
+        self._special_focus = SpecialFocus()
 
     def id(self, id: str) -> "SpecialFocusBuilder":
         self._special_focus.id = id

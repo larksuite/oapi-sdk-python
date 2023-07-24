@@ -20,7 +20,8 @@ class UpdateAppRequest(BaseRequest):
 
 class UpdateAppRequestBuilder(object):
 
-    def __init__(self, update_app_request: UpdateAppRequest = UpdateAppRequest()) -> None:
+    def __init__(self) -> None:
+        update_app_request = UpdateAppRequest()
         update_app_request.http_method = HttpMethod.PUT
         update_app_request.uri = "/open-apis/bitable/v1/apps/:app_token"
         update_app_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

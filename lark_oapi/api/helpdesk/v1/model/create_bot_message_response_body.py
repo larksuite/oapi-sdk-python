@@ -10,7 +10,7 @@ class CreateBotMessageResponseBody(object):
         "message_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class CreateBotMessageResponseBody(object):
 
 
 class CreateBotMessageResponseBodyBuilder(object):
-    def __init__(self, create_bot_message_response_body: CreateBotMessageResponseBody = CreateBotMessageResponseBody(
-        {})) -> None:
-        self._create_bot_message_response_body: CreateBotMessageResponseBody = create_bot_message_response_body
+    def __init__(self) -> None:
+        self._create_bot_message_response_body = CreateBotMessageResponseBody()
 
     def message_id(self, message_id: str) -> "CreateBotMessageResponseBodyBuilder":
         self._create_bot_message_response_body.message_id = message_id

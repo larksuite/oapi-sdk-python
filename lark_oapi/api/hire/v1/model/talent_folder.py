@@ -15,7 +15,7 @@ class TalentFolder(object):
         "owner_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_id: Optional[str] = None
         self.name: Optional[str] = None
         self.parent_id: Optional[str] = None
@@ -30,8 +30,8 @@ class TalentFolder(object):
 
 
 class TalentFolderBuilder(object):
-    def __init__(self, talent_folder: TalentFolder = TalentFolder({})) -> None:
-        self._talent_folder: TalentFolder = talent_folder
+    def __init__(self) -> None:
+        self._talent_folder = TalentFolder()
 
     def external_id(self, external_id: str) -> "TalentFolderBuilder":
         self._talent_folder.external_id = external_id

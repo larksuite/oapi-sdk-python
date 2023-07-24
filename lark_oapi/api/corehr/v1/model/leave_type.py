@@ -19,7 +19,7 @@ class LeaveType(object):
         "updated_by": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_type_id: Optional[str] = None
         self.leave_type_name: Optional[List[I18n]] = None
         self.status: Optional[int] = None
@@ -36,8 +36,8 @@ class LeaveType(object):
 
 
 class LeaveTypeBuilder(object):
-    def __init__(self, leave_type: LeaveType = LeaveType({})) -> None:
-        self._leave_type: LeaveType = leave_type
+    def __init__(self) -> None:
+        self._leave_type = LeaveType()
 
     def leave_type_id(self, leave_type_id: str) -> "LeaveTypeBuilder":
         self._leave_type.leave_type_id = leave_type_id

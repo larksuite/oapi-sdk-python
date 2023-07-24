@@ -22,7 +22,8 @@ class ListFileVersionRequest(BaseRequest):
 
 class ListFileVersionRequestBuilder(object):
 
-    def __init__(self, list_file_version_request: ListFileVersionRequest = ListFileVersionRequest()) -> None:
+    def __init__(self) -> None:
+        list_file_version_request = ListFileVersionRequest()
         list_file_version_request.http_method = HttpMethod.GET
         list_file_version_request.uri = "/open-apis/drive/v1/files/:file_token/versions"
         list_file_version_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

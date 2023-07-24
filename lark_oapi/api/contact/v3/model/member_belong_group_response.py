@@ -12,7 +12,7 @@ class MemberBelongGroupResponse(BaseResponse):
         "data": MemberBelongGroupResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[MemberBelongGroupResponseBody] = None
         init(self, d, self._types)

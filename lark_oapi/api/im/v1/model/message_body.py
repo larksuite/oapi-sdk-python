@@ -10,7 +10,7 @@ class MessageBody(object):
         "content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class MessageBody(object):
 
 
 class MessageBodyBuilder(object):
-    def __init__(self, message_body: MessageBody = MessageBody({})) -> None:
-        self._message_body: MessageBody = message_body
+    def __init__(self) -> None:
+        self._message_body = MessageBody()
 
     def content(self, content: str) -> "MessageBodyBuilder":
         self._message_body.content = content

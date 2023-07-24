@@ -21,7 +21,7 @@ class Chat(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_id: Optional[str] = None
         self.avatar: Optional[str] = None
         self.name: Optional[str] = None
@@ -42,8 +42,8 @@ class Chat(object):
 
 
 class ChatBuilder(object):
-    def __init__(self, chat: Chat = Chat({})) -> None:
-        self._chat: Chat = chat
+    def __init__(self) -> None:
+        self._chat = Chat()
 
     def chat_id(self, chat_id: str) -> "ChatBuilder":
         self._chat.chat_id = chat_id

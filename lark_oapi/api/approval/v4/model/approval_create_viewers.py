@@ -12,7 +12,7 @@ class ApprovalCreateViewers(object):
         "viewer_department_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.viewer_type: Optional[str] = None
         self.viewer_user_id: Optional[str] = None
         self.viewer_department_id: Optional[str] = None
@@ -24,8 +24,8 @@ class ApprovalCreateViewers(object):
 
 
 class ApprovalCreateViewersBuilder(object):
-    def __init__(self, approval_create_viewers: ApprovalCreateViewers = ApprovalCreateViewers({})) -> None:
-        self._approval_create_viewers: ApprovalCreateViewers = approval_create_viewers
+    def __init__(self) -> None:
+        self._approval_create_viewers = ApprovalCreateViewers()
 
     def viewer_type(self, viewer_type: str) -> "ApprovalCreateViewersBuilder":
         self._approval_create_viewers.viewer_type = viewer_type

@@ -26,7 +26,7 @@ class AppliOfferOnboardProfile(object):
         "contract_year": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_id: Optional[str] = None
         self.department: Optional[Department] = None
         self.recruitment_type: Optional[RecruitmentType] = None
@@ -46,8 +46,8 @@ class AppliOfferOnboardProfile(object):
 
 
 class AppliOfferOnboardProfileBuilder(object):
-    def __init__(self, appli_offer_onboard_profile: AppliOfferOnboardProfile = AppliOfferOnboardProfile({})) -> None:
-        self._appli_offer_onboard_profile: AppliOfferOnboardProfile = appli_offer_onboard_profile
+    def __init__(self) -> None:
+        self._appli_offer_onboard_profile = AppliOfferOnboardProfile()
 
     def offer_id(self, offer_id: str) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.offer_id = offer_id

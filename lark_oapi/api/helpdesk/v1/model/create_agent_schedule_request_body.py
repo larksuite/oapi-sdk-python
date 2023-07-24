@@ -11,7 +11,7 @@ class CreateAgentScheduleRequestBody(object):
         "agent_schedules": List[AgentScheduleUpdateInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_schedules: Optional[List[AgentScheduleUpdateInfo]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateAgentScheduleRequestBody(object):
 
 
 class CreateAgentScheduleRequestBodyBuilder(object):
-    def __init__(self,
-                 create_agent_schedule_request_body: CreateAgentScheduleRequestBody = CreateAgentScheduleRequestBody(
-                     {})) -> None:
-        self._create_agent_schedule_request_body: CreateAgentScheduleRequestBody = create_agent_schedule_request_body
+    def __init__(self) -> None:
+        self._create_agent_schedule_request_body = CreateAgentScheduleRequestBody()
 
     def agent_schedules(self,
                         agent_schedules: List[AgentScheduleUpdateInfo]) -> "CreateAgentScheduleRequestBodyBuilder":

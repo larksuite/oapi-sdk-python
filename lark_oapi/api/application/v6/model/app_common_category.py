@@ -11,7 +11,7 @@ class AppCommonCategory(object):
         "category": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.i18n_key: Optional[str] = None
         self.category: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppCommonCategory(object):
 
 
 class AppCommonCategoryBuilder(object):
-    def __init__(self, app_common_category: AppCommonCategory = AppCommonCategory({})) -> None:
-        self._app_common_category: AppCommonCategory = app_common_category
+    def __init__(self) -> None:
+        self._app_common_category = AppCommonCategory()
 
     def i18n_key(self, i18n_key: str) -> "AppCommonCategoryBuilder":
         self._app_common_category.i18n_key = i18n_key

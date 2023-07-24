@@ -10,7 +10,7 @@ class MatchEntityRequestBody(object):
         "word": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.word: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class MatchEntityRequestBody(object):
 
 
 class MatchEntityRequestBodyBuilder(object):
-    def __init__(self, match_entity_request_body: MatchEntityRequestBody = MatchEntityRequestBody({})) -> None:
-        self._match_entity_request_body: MatchEntityRequestBody = match_entity_request_body
+    def __init__(self) -> None:
+        self._match_entity_request_body = MatchEntityRequestBody()
 
     def word(self, word: str) -> "MatchEntityRequestBodyBuilder":
         self._match_entity_request_body.word = word

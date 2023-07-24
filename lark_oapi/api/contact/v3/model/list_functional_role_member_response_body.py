@@ -13,7 +13,7 @@ class ListFunctionalRoleMemberResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.members: Optional[List[FunctionalRoleMember]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class ListFunctionalRoleMemberResponseBody(object):
 
 
 class ListFunctionalRoleMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 list_functional_role_member_response_body: ListFunctionalRoleMemberResponseBody = ListFunctionalRoleMemberResponseBody(
-                     {})) -> None:
-        self._list_functional_role_member_response_body: ListFunctionalRoleMemberResponseBody = list_functional_role_member_response_body
+    def __init__(self) -> None:
+        self._list_functional_role_member_response_body = ListFunctionalRoleMemberResponseBody()
 
     def members(self, members: List[FunctionalRoleMember]) -> "ListFunctionalRoleMemberResponseBodyBuilder":
         self._list_functional_role_member_response_body.members = members

@@ -15,7 +15,7 @@ class PermissionDetail(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role: Optional[SecurityGroup] = None
         self.assigned_organization_list: Optional[List[list]] = None
         self.grantor_rule_list: Optional[List[PermissionSecurityGroup]] = None
@@ -28,8 +28,8 @@ class PermissionDetail(object):
 
 
 class PermissionDetailBuilder(object):
-    def __init__(self, permission_detail: PermissionDetail = PermissionDetail({})) -> None:
-        self._permission_detail: PermissionDetail = permission_detail
+    def __init__(self) -> None:
+        self._permission_detail = PermissionDetail()
 
     def role(self, role: SecurityGroup) -> "PermissionDetailBuilder":
         self._permission_detail.role = role

@@ -17,7 +17,7 @@ class CellStyle(object):
         "format": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.font_style: Optional[CellFontStyle] = None
         self.border_style: Optional[BorderStyle] = None
         self.alignment_style: Optional[AlignmentStyle] = None
@@ -31,8 +31,8 @@ class CellStyle(object):
 
 
 class CellStyleBuilder(object):
-    def __init__(self, cell_style: CellStyle = CellStyle({})) -> None:
-        self._cell_style: CellStyle = cell_style
+    def __init__(self) -> None:
+        self._cell_style = CellStyle()
 
     def font_style(self, font_style: CellFontStyle) -> "CellStyleBuilder":
         self._cell_style.font_style = font_style

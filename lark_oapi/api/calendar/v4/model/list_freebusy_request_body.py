@@ -13,7 +13,7 @@ class ListFreebusyRequestBody(object):
         "room_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time_min: Optional[str] = None
         self.time_max: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -26,8 +26,8 @@ class ListFreebusyRequestBody(object):
 
 
 class ListFreebusyRequestBodyBuilder(object):
-    def __init__(self, list_freebusy_request_body: ListFreebusyRequestBody = ListFreebusyRequestBody({})) -> None:
-        self._list_freebusy_request_body: ListFreebusyRequestBody = list_freebusy_request_body
+    def __init__(self) -> None:
+        self._list_freebusy_request_body = ListFreebusyRequestBody()
 
     def time_min(self, time_min: str) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.time_min = time_min

@@ -21,8 +21,8 @@ class BatchCreateMailgroupManagerRequest(BaseRequest):
 
 class BatchCreateMailgroupManagerRequestBuilder(object):
 
-    def __init__(self,
-                 batch_create_mailgroup_manager_request: BatchCreateMailgroupManagerRequest = BatchCreateMailgroupManagerRequest()) -> None:
+    def __init__(self) -> None:
+        batch_create_mailgroup_manager_request = BatchCreateMailgroupManagerRequest()
         batch_create_mailgroup_manager_request.http_method = HttpMethod.POST
         batch_create_mailgroup_manager_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/managers/batch_create"
         batch_create_mailgroup_manager_request.token_types = {AccessTokenType.TENANT}

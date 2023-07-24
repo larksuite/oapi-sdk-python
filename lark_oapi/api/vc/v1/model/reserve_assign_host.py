@@ -11,7 +11,7 @@ class ReserveAssignHost(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_type: Optional[int] = None
         self.id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ReserveAssignHost(object):
 
 
 class ReserveAssignHostBuilder(object):
-    def __init__(self, reserve_assign_host: ReserveAssignHost = ReserveAssignHost({})) -> None:
-        self._reserve_assign_host: ReserveAssignHost = reserve_assign_host
+    def __init__(self) -> None:
+        self._reserve_assign_host = ReserveAssignHost()
 
     def user_type(self, user_type: int) -> "ReserveAssignHostBuilder":
         self._reserve_assign_host.user_type = user_type

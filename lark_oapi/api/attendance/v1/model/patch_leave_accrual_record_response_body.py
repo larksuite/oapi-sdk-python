@@ -11,7 +11,7 @@ class PatchLeaveAccrualRecordResponseBody(object):
         "record": LeaveAccrualRecord,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.record: Optional[LeaveAccrualRecord] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchLeaveAccrualRecordResponseBody(object):
 
 
 class PatchLeaveAccrualRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_leave_accrual_record_response_body: PatchLeaveAccrualRecordResponseBody = PatchLeaveAccrualRecordResponseBody(
-                     {})) -> None:
-        self._patch_leave_accrual_record_response_body: PatchLeaveAccrualRecordResponseBody = patch_leave_accrual_record_response_body
+    def __init__(self) -> None:
+        self._patch_leave_accrual_record_response_body = PatchLeaveAccrualRecordResponseBody()
 
     def record(self, record: LeaveAccrualRecord) -> "PatchLeaveAccrualRecordResponseBodyBuilder":
         self._patch_leave_accrual_record_response_body.record = record

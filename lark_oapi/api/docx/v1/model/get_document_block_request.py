@@ -21,7 +21,8 @@ class GetDocumentBlockRequest(BaseRequest):
 
 class GetDocumentBlockRequestBuilder(object):
 
-    def __init__(self, get_document_block_request: GetDocumentBlockRequest = GetDocumentBlockRequest()) -> None:
+    def __init__(self) -> None:
+        get_document_block_request = GetDocumentBlockRequest()
         get_document_block_request.http_method = HttpMethod.GET
         get_document_block_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id"
         get_document_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

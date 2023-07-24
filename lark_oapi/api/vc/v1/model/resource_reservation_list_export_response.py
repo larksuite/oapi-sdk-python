@@ -12,7 +12,7 @@ class ResourceReservationListExportResponse(BaseResponse):
         "data": ResourceReservationListExportResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ResourceReservationListExportResponseBody] = None
         init(self, d, self._types)

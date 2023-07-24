@@ -20,8 +20,8 @@ class QueryUserTaskRemedyRequest(BaseRequest):
 
 class QueryUserTaskRemedyRequestBuilder(object):
 
-    def __init__(self,
-                 query_user_task_remedy_request: QueryUserTaskRemedyRequest = QueryUserTaskRemedyRequest()) -> None:
+    def __init__(self) -> None:
+        query_user_task_remedy_request = QueryUserTaskRemedyRequest()
         query_user_task_remedy_request.http_method = HttpMethod.POST
         query_user_task_remedy_request.uri = "/open-apis/attendance/v1/user_task_remedys/query"
         query_user_task_remedy_request.token_types = {AccessTokenType.TENANT}

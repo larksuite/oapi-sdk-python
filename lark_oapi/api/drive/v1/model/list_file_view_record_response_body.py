@@ -13,7 +13,7 @@ class ListFileViewRecordResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[FileViewRecord]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class ListFileViewRecordResponseBody(object):
 
 
 class ListFileViewRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 list_file_view_record_response_body: ListFileViewRecordResponseBody = ListFileViewRecordResponseBody(
-                     {})) -> None:
-        self._list_file_view_record_response_body: ListFileViewRecordResponseBody = list_file_view_record_response_body
+    def __init__(self) -> None:
+        self._list_file_view_record_response_body = ListFileViewRecordResponseBody()
 
     def items(self, items: List[FileViewRecord]) -> "ListFileViewRecordResponseBodyBuilder":
         self._list_file_view_record_response_body.items = items

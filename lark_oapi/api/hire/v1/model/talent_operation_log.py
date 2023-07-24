@@ -16,7 +16,7 @@ class TalentOperationLog(object):
         "operator_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.application_id: Optional[str] = None
         self.talent_id: Optional[str] = None
         self.operator: Optional[IdNameObject] = None
@@ -31,8 +31,8 @@ class TalentOperationLog(object):
 
 
 class TalentOperationLogBuilder(object):
-    def __init__(self, talent_operation_log: TalentOperationLog = TalentOperationLog({})) -> None:
-        self._talent_operation_log: TalentOperationLog = talent_operation_log
+    def __init__(self) -> None:
+        self._talent_operation_log = TalentOperationLog()
 
     def application_id(self, application_id: str) -> "TalentOperationLogBuilder":
         self._talent_operation_log.application_id = application_id

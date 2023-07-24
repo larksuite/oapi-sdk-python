@@ -11,7 +11,7 @@ class Bp(object):
         "hrbp_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.hrbp_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Bp(object):
 
 
 class BpBuilder(object):
-    def __init__(self, bp: Bp = Bp({})) -> None:
-        self._bp: Bp = bp
+    def __init__(self) -> None:
+        self._bp = Bp()
 
     def department_id(self, department_id: str) -> "BpBuilder":
         self._bp.department_id = department_id

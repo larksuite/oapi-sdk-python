@@ -16,7 +16,7 @@ class AgentSchedule(object):
         "agent_skills": List[AgentSkillLessInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[int] = None
         self.agent: Optional[AgentUser] = None
         self.schedule: Optional[List[WeekdaySchedule]] = None
@@ -29,8 +29,8 @@ class AgentSchedule(object):
 
 
 class AgentScheduleBuilder(object):
-    def __init__(self, agent_schedule: AgentSchedule = AgentSchedule({})) -> None:
-        self._agent_schedule: AgentSchedule = agent_schedule
+    def __init__(self) -> None:
+        self._agent_schedule = AgentSchedule()
 
     def status(self, status: int) -> "AgentScheduleBuilder":
         self._agent_schedule.status = status

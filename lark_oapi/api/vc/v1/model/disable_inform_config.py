@@ -14,7 +14,7 @@ class DisableInformConfig(object):
         "informed_depts": List[SubscribeDepartment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.if_inform: Optional[bool] = None
         self.informed_users: Optional[List[SubscribeUser]] = None
         self.informed_depts: Optional[List[SubscribeDepartment]] = None
@@ -26,8 +26,8 @@ class DisableInformConfig(object):
 
 
 class DisableInformConfigBuilder(object):
-    def __init__(self, disable_inform_config: DisableInformConfig = DisableInformConfig({})) -> None:
-        self._disable_inform_config: DisableInformConfig = disable_inform_config
+    def __init__(self) -> None:
+        self._disable_inform_config = DisableInformConfig()
 
     def if_inform(self, if_inform: bool) -> "DisableInformConfigBuilder":
         self._disable_inform_config.if_inform = if_inform

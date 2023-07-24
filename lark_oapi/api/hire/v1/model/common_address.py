@@ -17,7 +17,7 @@ class CommonAddress(object):
         "country": CodeNameObject,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.district: Optional[CodeNameObject] = None
@@ -32,8 +32,8 @@ class CommonAddress(object):
 
 
 class CommonAddressBuilder(object):
-    def __init__(self, common_address: CommonAddress = CommonAddress({})) -> None:
-        self._common_address: CommonAddress = common_address
+    def __init__(self) -> None:
+        self._common_address = CommonAddress()
 
     def id(self, id: str) -> "CommonAddressBuilder":
         self._common_address.id = id

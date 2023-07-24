@@ -13,7 +13,7 @@ class ListByNoMeetingResponseBody(object):
         "meeting_briefs": List[Meeting],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.meeting_briefs: Optional[List[Meeting]] = None
@@ -25,9 +25,8 @@ class ListByNoMeetingResponseBody(object):
 
 
 class ListByNoMeetingResponseBodyBuilder(object):
-    def __init__(self, list_by_no_meeting_response_body: ListByNoMeetingResponseBody = ListByNoMeetingResponseBody(
-        {})) -> None:
-        self._list_by_no_meeting_response_body: ListByNoMeetingResponseBody = list_by_no_meeting_response_body
+    def __init__(self) -> None:
+        self._list_by_no_meeting_response_body = ListByNoMeetingResponseBody()
 
     def has_more(self, has_more: bool) -> "ListByNoMeetingResponseBodyBuilder":
         self._list_by_no_meeting_response_body.has_more = has_more

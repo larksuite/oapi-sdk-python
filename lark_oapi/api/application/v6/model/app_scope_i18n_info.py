@@ -11,7 +11,7 @@ class AppScopeI18nInfo(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.i18n_key: Optional[str] = None
         self.description: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppScopeI18nInfo(object):
 
 
 class AppScopeI18nInfoBuilder(object):
-    def __init__(self, app_scope_i18n_info: AppScopeI18nInfo = AppScopeI18nInfo({})) -> None:
-        self._app_scope_i18n_info: AppScopeI18nInfo = app_scope_i18n_info
+    def __init__(self) -> None:
+        self._app_scope_i18n_info = AppScopeI18nInfo()
 
     def i18n_key(self, i18n_key: str) -> "AppScopeI18nInfoBuilder":
         self._app_scope_i18n_info.i18n_key = i18n_key

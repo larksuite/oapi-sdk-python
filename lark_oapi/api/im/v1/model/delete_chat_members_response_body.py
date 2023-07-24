@@ -10,7 +10,7 @@ class DeleteChatMembersResponseBody(object):
         "invalid_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.invalid_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class DeleteChatMembersResponseBody(object):
 
 
 class DeleteChatMembersResponseBodyBuilder(object):
-    def __init__(self, delete_chat_members_response_body: DeleteChatMembersResponseBody = DeleteChatMembersResponseBody(
-        {})) -> None:
-        self._delete_chat_members_response_body: DeleteChatMembersResponseBody = delete_chat_members_response_body
+    def __init__(self) -> None:
+        self._delete_chat_members_response_body = DeleteChatMembersResponseBody()
 
     def invalid_id_list(self, invalid_id_list: List[str]) -> "DeleteChatMembersResponseBodyBuilder":
         self._delete_chat_members_response_body.invalid_id_list = invalid_id_list

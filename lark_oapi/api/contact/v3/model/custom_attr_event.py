@@ -11,7 +11,7 @@ class CustomAttrEvent(object):
         "allow_open_query": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.contact_field_key: Optional[List[str]] = None
         self.allow_open_query: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CustomAttrEvent(object):
 
 
 class CustomAttrEventBuilder(object):
-    def __init__(self, custom_attr_event: CustomAttrEvent = CustomAttrEvent({})) -> None:
-        self._custom_attr_event: CustomAttrEvent = custom_attr_event
+    def __init__(self) -> None:
+        self._custom_attr_event = CustomAttrEvent()
 
     def contact_field_key(self, contact_field_key: List[str]) -> "CustomAttrEventBuilder":
         self._custom_attr_event.contact_field_key = contact_field_key

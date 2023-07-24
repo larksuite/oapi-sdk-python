@@ -13,7 +13,7 @@ class GlAccountCompanyRelationship(object):
         "valid_to": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.gl_account_code: Optional[str] = None
         self.company_code: Optional[str] = None
         self.gl_account_company_relationship_uid: Optional[str] = None
@@ -26,9 +26,8 @@ class GlAccountCompanyRelationship(object):
 
 
 class GlAccountCompanyRelationshipBuilder(object):
-    def __init__(self, gl_account_company_relationship: GlAccountCompanyRelationship = GlAccountCompanyRelationship(
-        {})) -> None:
-        self._gl_account_company_relationship: GlAccountCompanyRelationship = gl_account_company_relationship
+    def __init__(self) -> None:
+        self._gl_account_company_relationship = GlAccountCompanyRelationship()
 
     def gl_account_code(self, gl_account_code: str) -> "GlAccountCompanyRelationshipBuilder":
         self._gl_account_company_relationship.gl_account_code = gl_account_code

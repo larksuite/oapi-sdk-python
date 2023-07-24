@@ -25,7 +25,7 @@ class Company(object):
         "custom_fields": List[CustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.company_id: Optional[str] = None
         self.hiberarchy_common: Optional[HiberarchyCommon] = None
         self.type: Optional[Enum] = None
@@ -46,8 +46,8 @@ class Company(object):
 
 
 class CompanyBuilder(object):
-    def __init__(self, company: Company = Company({})) -> None:
-        self._company: Company = company
+    def __init__(self) -> None:
+        self._company = Company()
 
     def company_id(self, company_id: str) -> "CompanyBuilder":
         self._company.company_id = company_id

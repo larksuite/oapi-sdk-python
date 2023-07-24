@@ -11,7 +11,7 @@ class DimensionValue(object):
         "value_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.api_name: Optional[str] = None
         self.value_list: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DimensionValue(object):
 
 
 class DimensionValueBuilder(object):
-    def __init__(self, dimension_value: DimensionValue = DimensionValue({})) -> None:
-        self._dimension_value: DimensionValue = dimension_value
+    def __init__(self) -> None:
+        self._dimension_value = DimensionValue()
 
     def api_name(self, api_name: str) -> "DimensionValueBuilder":
         self._dimension_value.api_name = api_name

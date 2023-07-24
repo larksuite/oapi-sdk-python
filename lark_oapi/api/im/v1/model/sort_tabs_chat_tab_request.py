@@ -20,7 +20,8 @@ class SortTabsChatTabRequest(BaseRequest):
 
 class SortTabsChatTabRequestBuilder(object):
 
-    def __init__(self, sort_tabs_chat_tab_request: SortTabsChatTabRequest = SortTabsChatTabRequest()) -> None:
+    def __init__(self) -> None:
+        sort_tabs_chat_tab_request = SortTabsChatTabRequest()
         sort_tabs_chat_tab_request.http_method = HttpMethod.POST
         sort_tabs_chat_tab_request.uri = "/open-apis/im/v1/chats/:chat_id/chat_tabs/sort_tabs"
         sort_tabs_chat_tab_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

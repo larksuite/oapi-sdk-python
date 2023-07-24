@@ -12,7 +12,7 @@ class JobCity(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.city_code: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class JobCity(object):
 
 
 class JobCityBuilder(object):
-    def __init__(self, job_city: JobCity = JobCity({})) -> None:
-        self._job_city: JobCity = job_city
+    def __init__(self) -> None:
+        self._job_city = JobCity()
 
     def city_code(self, city_code: str) -> "JobCityBuilder":
         self._job_city.city_code = city_code

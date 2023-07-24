@@ -21,7 +21,7 @@ class CostCenter(object):
         "company_code_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.cost_center_uid: Optional[str] = None
         self.cost_center_code: Optional[str] = None
         self.i18n_cost_center_name: Optional[List[I18nStruct]] = None
@@ -42,8 +42,8 @@ class CostCenter(object):
 
 
 class CostCenterBuilder(object):
-    def __init__(self, cost_center: CostCenter = CostCenter({})) -> None:
-        self._cost_center: CostCenter = cost_center
+    def __init__(self) -> None:
+        self._cost_center = CostCenter()
 
     def cost_center_uid(self, cost_center_uid: str) -> "CostCenterBuilder":
         self._cost_center.cost_center_uid = cost_center_uid

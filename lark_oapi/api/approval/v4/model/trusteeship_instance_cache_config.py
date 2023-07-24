@@ -12,7 +12,7 @@ class TrusteeshipInstanceCacheConfig(object):
         "form_version": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.form_policy: Optional[str] = None
         self.form_vary_with_locale: Optional[bool] = None
         self.form_version: Optional[int] = None
@@ -24,10 +24,8 @@ class TrusteeshipInstanceCacheConfig(object):
 
 
 class TrusteeshipInstanceCacheConfigBuilder(object):
-    def __init__(self,
-                 trusteeship_instance_cache_config: TrusteeshipInstanceCacheConfig = TrusteeshipInstanceCacheConfig(
-                     {})) -> None:
-        self._trusteeship_instance_cache_config: TrusteeshipInstanceCacheConfig = trusteeship_instance_cache_config
+    def __init__(self) -> None:
+        self._trusteeship_instance_cache_config = TrusteeshipInstanceCacheConfig()
 
     def form_policy(self, form_policy: str) -> "TrusteeshipInstanceCacheConfigBuilder":
         self._trusteeship_instance_cache_config.form_policy = form_policy

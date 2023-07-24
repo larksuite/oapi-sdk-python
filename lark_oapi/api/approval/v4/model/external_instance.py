@@ -40,7 +40,7 @@ class ExternalInstance(object):
         "trusteeship_cache_config": TrusteeshipInstanceCacheConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.status: Optional[str] = None
         self.extra: Optional[str] = None
@@ -73,8 +73,8 @@ class ExternalInstance(object):
 
 
 class ExternalInstanceBuilder(object):
-    def __init__(self, external_instance: ExternalInstance = ExternalInstance({})) -> None:
-        self._external_instance: ExternalInstance = external_instance
+    def __init__(self) -> None:
+        self._external_instance = ExternalInstance()
 
     def approval_code(self, approval_code: str) -> "ExternalInstanceBuilder":
         self._external_instance.approval_code = approval_code

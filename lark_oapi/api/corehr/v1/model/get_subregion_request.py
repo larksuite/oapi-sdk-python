@@ -18,7 +18,8 @@ class GetSubregionRequest(BaseRequest):
 
 class GetSubregionRequestBuilder(object):
 
-    def __init__(self, get_subregion_request: GetSubregionRequest = GetSubregionRequest()) -> None:
+    def __init__(self) -> None:
+        get_subregion_request = GetSubregionRequest()
         get_subregion_request.http_method = HttpMethod.GET
         get_subregion_request.uri = "/open-apis/corehr/v1/subregions/:subregion_id"
         get_subregion_request.token_types = {AccessTokenType.TENANT}

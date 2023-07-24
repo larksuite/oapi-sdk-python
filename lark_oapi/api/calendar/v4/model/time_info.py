@@ -12,7 +12,7 @@ class TimeInfo(object):
         "timezone": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date: Optional[str] = None
         self.timestamp: Optional[str] = None
         self.timezone: Optional[str] = None
@@ -24,8 +24,8 @@ class TimeInfo(object):
 
 
 class TimeInfoBuilder(object):
-    def __init__(self, time_info: TimeInfo = TimeInfo({})) -> None:
-        self._time_info: TimeInfo = time_info
+    def __init__(self) -> None:
+        self._time_info = TimeInfo()
 
     def date(self, date: str) -> "TimeInfoBuilder":
         self._time_info.date = date

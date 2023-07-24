@@ -18,7 +18,8 @@ class GetFaqRequest(BaseRequest):
 
 class GetFaqRequestBuilder(object):
 
-    def __init__(self, get_faq_request: GetFaqRequest = GetFaqRequest()) -> None:
+    def __init__(self) -> None:
+        get_faq_request = GetFaqRequest()
         get_faq_request.http_method = HttpMethod.GET
         get_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id"
         get_faq_request.token_types = {AccessTokenType.TENANT}

@@ -14,7 +14,7 @@ class MetricSource(object):
         "metric_unit": MetricUnit,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_source_id: Optional[str] = None
         self.metric_source_name: Optional[str] = None
         self.metric_name: Optional[str] = None
@@ -27,8 +27,8 @@ class MetricSource(object):
 
 
 class MetricSourceBuilder(object):
-    def __init__(self, metric_source: MetricSource = MetricSource({})) -> None:
-        self._metric_source: MetricSource = metric_source
+    def __init__(self) -> None:
+        self._metric_source = MetricSource()
 
     def metric_source_id(self, metric_source_id: str) -> "MetricSourceBuilder":
         self._metric_source.metric_source_id = metric_source_id

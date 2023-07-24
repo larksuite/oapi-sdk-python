@@ -12,7 +12,7 @@ class CreateDocumentBlockChildrenRequestBody(object):
         "index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.children: Optional[List[Block]] = None
         self.index: Optional[int] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class CreateDocumentBlockChildrenRequestBody(object):
 
 
 class CreateDocumentBlockChildrenRequestBodyBuilder(object):
-    def __init__(self,
-                 create_document_block_children_request_body: CreateDocumentBlockChildrenRequestBody = CreateDocumentBlockChildrenRequestBody(
-                     {})) -> None:
-        self._create_document_block_children_request_body: CreateDocumentBlockChildrenRequestBody = create_document_block_children_request_body
+    def __init__(self) -> None:
+        self._create_document_block_children_request_body = CreateDocumentBlockChildrenRequestBody()
 
     def children(self, children: List[Block]) -> "CreateDocumentBlockChildrenRequestBodyBuilder":
         self._create_document_block_children_request_body.children = children

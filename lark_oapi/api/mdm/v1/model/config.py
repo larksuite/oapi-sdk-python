@@ -18,7 +18,7 @@ class Config(object):
         "field_version": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_code: Optional[str] = None
         self.field_name: Optional[str] = None
         self.module: Optional[int] = None
@@ -36,8 +36,8 @@ class Config(object):
 
 
 class ConfigBuilder(object):
-    def __init__(self, config: Config = Config({})) -> None:
-        self._config: Config = config
+    def __init__(self) -> None:
+        self._config = Config()
 
     def field_code(self, field_code: str) -> "ConfigBuilder":
         self._config.field_code = field_code

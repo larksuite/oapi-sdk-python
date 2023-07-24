@@ -20,8 +20,8 @@ class UpdatePublicMailboxRequest(BaseRequest):
 
 class UpdatePublicMailboxRequestBuilder(object):
 
-    def __init__(self,
-                 update_public_mailbox_request: UpdatePublicMailboxRequest = UpdatePublicMailboxRequest()) -> None:
+    def __init__(self) -> None:
+        update_public_mailbox_request = UpdatePublicMailboxRequest()
         update_public_mailbox_request.http_method = HttpMethod.PUT
         update_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id"
         update_public_mailbox_request.token_types = {AccessTokenType.TENANT}

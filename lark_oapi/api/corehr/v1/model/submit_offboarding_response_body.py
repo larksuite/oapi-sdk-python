@@ -18,7 +18,7 @@ class SubmitOffboardingResponseBody(object):
         "created_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offboarding_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.offboarding_reason_unique_identifier: Optional[str] = None
@@ -36,9 +36,8 @@ class SubmitOffboardingResponseBody(object):
 
 
 class SubmitOffboardingResponseBodyBuilder(object):
-    def __init__(self, submit_offboarding_response_body: SubmitOffboardingResponseBody = SubmitOffboardingResponseBody(
-        {})) -> None:
-        self._submit_offboarding_response_body: SubmitOffboardingResponseBody = submit_offboarding_response_body
+    def __init__(self) -> None:
+        self._submit_offboarding_response_body = SubmitOffboardingResponseBody()
 
     def offboarding_id(self, offboarding_id: str) -> "SubmitOffboardingResponseBodyBuilder":
         self._submit_offboarding_response_body.offboarding_id = offboarding_id

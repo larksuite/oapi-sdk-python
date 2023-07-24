@@ -13,7 +13,7 @@ class MergeRange(object):
         "end_column_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start_row_index: Optional[int] = None
         self.end_row_index: Optional[int] = None
         self.start_column_index: Optional[int] = None
@@ -26,8 +26,8 @@ class MergeRange(object):
 
 
 class MergeRangeBuilder(object):
-    def __init__(self, merge_range: MergeRange = MergeRange({})) -> None:
-        self._merge_range: MergeRange = merge_range
+    def __init__(self) -> None:
+        self._merge_range = MergeRange()
 
     def start_row_index(self, start_row_index: int) -> "MergeRangeBuilder":
         self._merge_range.start_row_index = start_row_index

@@ -11,7 +11,7 @@ class InviteMeetingRequestBody(object):
         "invitees": List[MeetingUser],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.invitees: Optional[List[MeetingUser]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class InviteMeetingRequestBody(object):
 
 
 class InviteMeetingRequestBodyBuilder(object):
-    def __init__(self, invite_meeting_request_body: InviteMeetingRequestBody = InviteMeetingRequestBody({})) -> None:
-        self._invite_meeting_request_body: InviteMeetingRequestBody = invite_meeting_request_body
+    def __init__(self) -> None:
+        self._invite_meeting_request_body = InviteMeetingRequestBody()
 
     def invitees(self, invitees: List[MeetingUser]) -> "InviteMeetingRequestBodyBuilder":
         self._invite_meeting_request_body.invitees = invitees

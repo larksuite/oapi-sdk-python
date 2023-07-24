@@ -7,7 +7,7 @@ class File(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class File(object):
 
 
 class FileBuilder(object):
-    def __init__(self, file: File = File({})) -> None:
-        self._file: File = file
+    def __init__(self) -> None:
+        self._file = File()
 
     def build(self) -> "File":
         return self._file

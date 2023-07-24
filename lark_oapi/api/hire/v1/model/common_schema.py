@@ -21,7 +21,7 @@ class CommonSchema(object):
         "children_list": List[CommonSchemaChild],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
@@ -39,8 +39,8 @@ class CommonSchema(object):
 
 
 class CommonSchemaBuilder(object):
-    def __init__(self, common_schema: CommonSchema = CommonSchema({})) -> None:
-        self._common_schema: CommonSchema = common_schema
+    def __init__(self) -> None:
+        self._common_schema = CommonSchema()
 
     def id(self, id: str) -> "CommonSchemaBuilder":
         self._common_schema.id = id

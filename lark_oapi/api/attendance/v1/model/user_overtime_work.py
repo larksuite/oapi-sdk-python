@@ -16,7 +16,7 @@ class UserOvertimeWork(object):
         "end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_id: Optional[str] = None
         self.duration: Optional[float] = None
         self.unit: Optional[int] = None
@@ -32,8 +32,8 @@ class UserOvertimeWork(object):
 
 
 class UserOvertimeWorkBuilder(object):
-    def __init__(self, user_overtime_work: UserOvertimeWork = UserOvertimeWork({})) -> None:
-        self._user_overtime_work: UserOvertimeWork = user_overtime_work
+    def __init__(self) -> None:
+        self._user_overtime_work = UserOvertimeWork()
 
     def approval_id(self, approval_id: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.approval_id = approval_id

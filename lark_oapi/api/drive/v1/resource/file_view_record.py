@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.list_file_view_record_request import ListFileViewRecordRequest
-from lark_oapi.api.drive.v1.model.list_file_view_record_response import ListFileViewRecordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_file_view_record_request import ListFileViewRecordRequest
+from ..model.list_file_view_record_response import ListFileViewRecordResponse
 
 
 class FileViewRecord(object):
@@ -16,7 +16,10 @@ class FileViewRecord(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListFileViewRecordRequest,
-             option: RequestOption = RequestOption()) -> ListFileViewRecordResponse:
+             option: Optional[RequestOption] = None) -> ListFileViewRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

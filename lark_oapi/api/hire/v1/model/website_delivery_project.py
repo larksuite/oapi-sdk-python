@@ -17,7 +17,7 @@ class WebsiteDeliveryProject(object):
         "start_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.customized_data: Optional[List[WebsiteDeliveryCustomizedData]] = None
         self.desc: Optional[str] = None
         self.end_time: Optional[int] = None
@@ -33,8 +33,8 @@ class WebsiteDeliveryProject(object):
 
 
 class WebsiteDeliveryProjectBuilder(object):
-    def __init__(self, website_delivery_project: WebsiteDeliveryProject = WebsiteDeliveryProject({})) -> None:
-        self._website_delivery_project: WebsiteDeliveryProject = website_delivery_project
+    def __init__(self) -> None:
+        self._website_delivery_project = WebsiteDeliveryProject()
 
     def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryProjectBuilder":
         self._website_delivery_project.customized_data = customized_data

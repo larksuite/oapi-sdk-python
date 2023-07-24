@@ -14,7 +14,7 @@ class UserDailyShift(object):
         "day_no": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_id: Optional[str] = None
         self.shift_id: Optional[str] = None
         self.month: Optional[int] = None
@@ -28,8 +28,8 @@ class UserDailyShift(object):
 
 
 class UserDailyShiftBuilder(object):
-    def __init__(self, user_daily_shift: UserDailyShift = UserDailyShift({})) -> None:
-        self._user_daily_shift: UserDailyShift = user_daily_shift
+    def __init__(self) -> None:
+        self._user_daily_shift = UserDailyShift()
 
     def group_id(self, group_id: str) -> "UserDailyShiftBuilder":
         self._user_daily_shift.group_id = group_id

@@ -24,7 +24,8 @@ class ListFileCommentRequest(BaseRequest):
 
 class ListFileCommentRequestBuilder(object):
 
-    def __init__(self, list_file_comment_request: ListFileCommentRequest = ListFileCommentRequest()) -> None:
+    def __init__(self) -> None:
+        list_file_comment_request = ListFileCommentRequest()
         list_file_comment_request.http_method = HttpMethod.GET
         list_file_comment_request.uri = "/open-apis/drive/v1/files/:file_token/comments"
         list_file_comment_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

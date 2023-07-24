@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.create_bot_message_request import CreateBotMessageRequest
-from lark_oapi.api.helpdesk.v1.model.create_bot_message_response import CreateBotMessageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_bot_message_request import CreateBotMessageRequest
+from ..model.create_bot_message_response import CreateBotMessageResponse
 
 
 class BotMessage(object):
@@ -16,7 +16,10 @@ class BotMessage(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateBotMessageRequest,
-               option: RequestOption = RequestOption()) -> CreateBotMessageResponse:
+               option: Optional[RequestOption] = None) -> CreateBotMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

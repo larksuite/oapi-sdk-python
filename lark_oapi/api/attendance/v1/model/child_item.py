@@ -16,7 +16,7 @@ class ChildItem(object):
         "max_value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.value: Optional[str] = None
         self.title: Optional[str] = None
@@ -32,8 +32,8 @@ class ChildItem(object):
 
 
 class ChildItemBuilder(object):
-    def __init__(self, child_item: ChildItem = ChildItem({})) -> None:
-        self._child_item: ChildItem = child_item
+    def __init__(self) -> None:
+        self._child_item = ChildItem()
 
     def code(self, code: str) -> "ChildItemBuilder":
         self._child_item.code = code

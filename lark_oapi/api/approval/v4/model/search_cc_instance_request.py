@@ -22,7 +22,8 @@ class SearchCcInstanceRequest(BaseRequest):
 
 class SearchCcInstanceRequestBuilder(object):
 
-    def __init__(self, search_cc_instance_request: SearchCcInstanceRequest = SearchCcInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        search_cc_instance_request = SearchCcInstanceRequest()
         search_cc_instance_request.http_method = HttpMethod.POST
         search_cc_instance_request.uri = "/open-apis/approval/v4/instances/search_cc"
         search_cc_instance_request.token_types = {AccessTokenType.TENANT}

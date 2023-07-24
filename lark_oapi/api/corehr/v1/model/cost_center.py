@@ -26,7 +26,7 @@ class CostCenter(object):
         "support_cost_center": List[SupportCostCenterItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_autogenerate: Optional[bool] = None
         self.id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
@@ -49,8 +49,8 @@ class CostCenter(object):
 
 
 class CostCenterBuilder(object):
-    def __init__(self, cost_center: CostCenter = CostCenter({})) -> None:
-        self._cost_center: CostCenter = cost_center
+    def __init__(self) -> None:
+        self._cost_center = CostCenter()
 
     def is_autogenerate(self, is_autogenerate: bool) -> "CostCenterBuilder":
         self._cost_center.is_autogenerate = is_autogenerate

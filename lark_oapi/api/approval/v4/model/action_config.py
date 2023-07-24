@@ -14,7 +14,7 @@ class ActionConfig(object):
         "is_need_attachment": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.action_type: Optional[str] = None
         self.action_name: Optional[str] = None
         self.is_need_reason: Optional[bool] = None
@@ -28,8 +28,8 @@ class ActionConfig(object):
 
 
 class ActionConfigBuilder(object):
-    def __init__(self, action_config: ActionConfig = ActionConfig({})) -> None:
-        self._action_config: ActionConfig = action_config
+    def __init__(self) -> None:
+        self._action_config = ActionConfig()
 
     def action_type(self, action_type: str) -> "ActionConfigBuilder":
         self._action_config.action_type = action_type

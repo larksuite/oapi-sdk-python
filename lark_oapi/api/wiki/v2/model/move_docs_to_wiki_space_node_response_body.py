@@ -12,7 +12,7 @@ class MoveDocsToWikiSpaceNodeResponseBody(object):
         "applied": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.wiki_token: Optional[str] = None
         self.task_id: Optional[str] = None
         self.applied: Optional[bool] = None
@@ -24,10 +24,8 @@ class MoveDocsToWikiSpaceNodeResponseBody(object):
 
 
 class MoveDocsToWikiSpaceNodeResponseBodyBuilder(object):
-    def __init__(self,
-                 move_docs_to_wiki_space_node_response_body: MoveDocsToWikiSpaceNodeResponseBody = MoveDocsToWikiSpaceNodeResponseBody(
-                     {})) -> None:
-        self._move_docs_to_wiki_space_node_response_body: MoveDocsToWikiSpaceNodeResponseBody = move_docs_to_wiki_space_node_response_body
+    def __init__(self) -> None:
+        self._move_docs_to_wiki_space_node_response_body = MoveDocsToWikiSpaceNodeResponseBody()
 
     def wiki_token(self, wiki_token: str) -> "MoveDocsToWikiSpaceNodeResponseBodyBuilder":
         self._move_docs_to_wiki_space_node_response_body.wiki_token = wiki_token

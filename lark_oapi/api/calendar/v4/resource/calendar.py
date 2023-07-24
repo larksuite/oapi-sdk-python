@@ -2,40 +2,43 @@
 
 from typing import *
 
-from lark_oapi.api.calendar.v4.model.create_calendar_request import CreateCalendarRequest
-from lark_oapi.api.calendar.v4.model.create_calendar_response import CreateCalendarResponse
-from lark_oapi.api.calendar.v4.model.delete_calendar_request import DeleteCalendarRequest
-from lark_oapi.api.calendar.v4.model.delete_calendar_response import DeleteCalendarResponse
-from lark_oapi.api.calendar.v4.model.get_calendar_request import GetCalendarRequest
-from lark_oapi.api.calendar.v4.model.get_calendar_response import GetCalendarResponse
-from lark_oapi.api.calendar.v4.model.list_calendar_request import ListCalendarRequest
-from lark_oapi.api.calendar.v4.model.list_calendar_response import ListCalendarResponse
-from lark_oapi.api.calendar.v4.model.patch_calendar_request import PatchCalendarRequest
-from lark_oapi.api.calendar.v4.model.patch_calendar_response import PatchCalendarResponse
-from lark_oapi.api.calendar.v4.model.primary_calendar_request import PrimaryCalendarRequest
-from lark_oapi.api.calendar.v4.model.primary_calendar_response import PrimaryCalendarResponse
-from lark_oapi.api.calendar.v4.model.search_calendar_request import SearchCalendarRequest
-from lark_oapi.api.calendar.v4.model.search_calendar_response import SearchCalendarResponse
-from lark_oapi.api.calendar.v4.model.subscribe_calendar_request import SubscribeCalendarRequest
-from lark_oapi.api.calendar.v4.model.subscribe_calendar_response import SubscribeCalendarResponse
-from lark_oapi.api.calendar.v4.model.subscription_calendar_request import SubscriptionCalendarRequest
-from lark_oapi.api.calendar.v4.model.subscription_calendar_response import SubscriptionCalendarResponse
-from lark_oapi.api.calendar.v4.model.unsubscribe_calendar_request import UnsubscribeCalendarRequest
-from lark_oapi.api.calendar.v4.model.unsubscribe_calendar_response import UnsubscribeCalendarResponse
-from lark_oapi.api.calendar.v4.model.unsubscription_calendar_request import UnsubscriptionCalendarRequest
-from lark_oapi.api.calendar.v4.model.unsubscription_calendar_response import UnsubscriptionCalendarResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_calendar_request import CreateCalendarRequest
+from ..model.create_calendar_response import CreateCalendarResponse
+from ..model.delete_calendar_request import DeleteCalendarRequest
+from ..model.delete_calendar_response import DeleteCalendarResponse
+from ..model.get_calendar_request import GetCalendarRequest
+from ..model.get_calendar_response import GetCalendarResponse
+from ..model.list_calendar_request import ListCalendarRequest
+from ..model.list_calendar_response import ListCalendarResponse
+from ..model.patch_calendar_request import PatchCalendarRequest
+from ..model.patch_calendar_response import PatchCalendarResponse
+from ..model.primary_calendar_request import PrimaryCalendarRequest
+from ..model.primary_calendar_response import PrimaryCalendarResponse
+from ..model.search_calendar_request import SearchCalendarRequest
+from ..model.search_calendar_response import SearchCalendarResponse
+from ..model.subscribe_calendar_request import SubscribeCalendarRequest
+from ..model.subscribe_calendar_response import SubscribeCalendarResponse
+from ..model.subscription_calendar_request import SubscriptionCalendarRequest
+from ..model.subscription_calendar_response import SubscriptionCalendarResponse
+from ..model.unsubscribe_calendar_request import UnsubscribeCalendarRequest
+from ..model.unsubscribe_calendar_response import UnsubscribeCalendarResponse
+from ..model.unsubscription_calendar_request import UnsubscriptionCalendarRequest
+from ..model.unsubscription_calendar_response import UnsubscriptionCalendarResponse
 
 
 class Calendar(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateCalendarRequest, option: RequestOption = RequestOption()) -> CreateCalendarResponse:
+    def create(self, request: CreateCalendarRequest, option: Optional[RequestOption] = None) -> CreateCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +51,10 @@ class Calendar(object):
 
         return response
 
-    def delete(self, request: DeleteCalendarRequest, option: RequestOption = RequestOption()) -> DeleteCalendarResponse:
+    def delete(self, request: DeleteCalendarRequest, option: Optional[RequestOption] = None) -> DeleteCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -61,7 +67,10 @@ class Calendar(object):
 
         return response
 
-    def get(self, request: GetCalendarRequest, option: RequestOption = RequestOption()) -> GetCalendarResponse:
+    def get(self, request: GetCalendarRequest, option: Optional[RequestOption] = None) -> GetCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -74,7 +83,10 @@ class Calendar(object):
 
         return response
 
-    def list(self, request: ListCalendarRequest, option: RequestOption = RequestOption()) -> ListCalendarResponse:
+    def list(self, request: ListCalendarRequest, option: Optional[RequestOption] = None) -> ListCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -87,7 +99,10 @@ class Calendar(object):
 
         return response
 
-    def patch(self, request: PatchCalendarRequest, option: RequestOption = RequestOption()) -> PatchCalendarResponse:
+    def patch(self, request: PatchCalendarRequest, option: Optional[RequestOption] = None) -> PatchCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -101,7 +116,10 @@ class Calendar(object):
         return response
 
     def primary(self, request: PrimaryCalendarRequest,
-                option: RequestOption = RequestOption()) -> PrimaryCalendarResponse:
+                option: Optional[RequestOption] = None) -> PrimaryCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -114,7 +132,10 @@ class Calendar(object):
 
         return response
 
-    def search(self, request: SearchCalendarRequest, option: RequestOption = RequestOption()) -> SearchCalendarResponse:
+    def search(self, request: SearchCalendarRequest, option: Optional[RequestOption] = None) -> SearchCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -128,7 +149,10 @@ class Calendar(object):
         return response
 
     def subscribe(self, request: SubscribeCalendarRequest,
-                  option: RequestOption = RequestOption()) -> SubscribeCalendarResponse:
+                  option: Optional[RequestOption] = None) -> SubscribeCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -142,7 +166,10 @@ class Calendar(object):
         return response
 
     def subscription(self, request: SubscriptionCalendarRequest,
-                     option: RequestOption = RequestOption()) -> SubscriptionCalendarResponse:
+                     option: Optional[RequestOption] = None) -> SubscriptionCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -156,7 +183,10 @@ class Calendar(object):
         return response
 
     def unsubscribe(self, request: UnsubscribeCalendarRequest,
-                    option: RequestOption = RequestOption()) -> UnsubscribeCalendarResponse:
+                    option: Optional[RequestOption] = None) -> UnsubscribeCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -170,7 +200,10 @@ class Calendar(object):
         return response
 
     def unsubscription(self, request: UnsubscriptionCalendarRequest,
-                       option: RequestOption = RequestOption()) -> UnsubscriptionCalendarResponse:
+                       option: Optional[RequestOption] = None) -> UnsubscriptionCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

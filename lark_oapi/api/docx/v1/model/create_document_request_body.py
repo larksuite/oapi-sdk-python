@@ -11,7 +11,7 @@ class CreateDocumentRequestBody(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.folder_token: Optional[str] = None
         self.title: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CreateDocumentRequestBody(object):
 
 
 class CreateDocumentRequestBodyBuilder(object):
-    def __init__(self, create_document_request_body: CreateDocumentRequestBody = CreateDocumentRequestBody({})) -> None:
-        self._create_document_request_body: CreateDocumentRequestBody = create_document_request_body
+    def __init__(self) -> None:
+        self._create_document_request_body = CreateDocumentRequestBody()
 
     def folder_token(self, folder_token: str) -> "CreateDocumentRequestBodyBuilder":
         self._create_document_request_body.folder_token = folder_token

@@ -13,7 +13,7 @@ class Callout(object):
         "emoji_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.background_color: Optional[int] = None
         self.border_color: Optional[int] = None
         self.text_color: Optional[int] = None
@@ -26,8 +26,8 @@ class Callout(object):
 
 
 class CalloutBuilder(object):
-    def __init__(self, callout: Callout = Callout({})) -> None:
-        self._callout: Callout = callout
+    def __init__(self) -> None:
+        self._callout = Callout()
 
     def background_color(self, background_color: int) -> "CalloutBuilder":
         self._callout.background_color = background_color

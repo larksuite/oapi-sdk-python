@@ -17,7 +17,7 @@ class Phone(object):
         "is_public": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.international_area_code: Optional[Enum] = None
         self.phone_number: Optional[str] = None
         self.formatted_phone_number: Optional[str] = None
@@ -33,8 +33,8 @@ class Phone(object):
 
 
 class PhoneBuilder(object):
-    def __init__(self, phone: Phone = Phone({})) -> None:
-        self._phone: Phone = phone
+    def __init__(self) -> None:
+        self._phone = Phone()
 
     def international_area_code(self, international_area_code: Enum) -> "PhoneBuilder":
         self._phone.international_area_code = international_area_code

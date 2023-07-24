@@ -18,8 +18,8 @@ class GetMeetingRecordingRequest(BaseRequest):
 
 class GetMeetingRecordingRequestBuilder(object):
 
-    def __init__(self,
-                 get_meeting_recording_request: GetMeetingRecordingRequest = GetMeetingRecordingRequest()) -> None:
+    def __init__(self) -> None:
+        get_meeting_recording_request = GetMeetingRecordingRequest()
         get_meeting_recording_request.http_method = HttpMethod.GET
         get_meeting_recording_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/recording"
         get_meeting_recording_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

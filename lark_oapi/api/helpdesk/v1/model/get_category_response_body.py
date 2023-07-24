@@ -14,7 +14,7 @@ class GetCategoryResponseBody(object):
         "language": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.category_id: Optional[str] = None
         self.id: Optional[str] = None
         self.name: Optional[str] = None
@@ -28,8 +28,8 @@ class GetCategoryResponseBody(object):
 
 
 class GetCategoryResponseBodyBuilder(object):
-    def __init__(self, get_category_response_body: GetCategoryResponseBody = GetCategoryResponseBody({})) -> None:
-        self._get_category_response_body: GetCategoryResponseBody = get_category_response_body
+    def __init__(self) -> None:
+        self._get_category_response_body = GetCategoryResponseBody()
 
     def category_id(self, category_id: str) -> "GetCategoryResponseBodyBuilder":
         self._get_category_response_body.category_id = category_id

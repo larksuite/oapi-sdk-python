@@ -12,7 +12,7 @@ class ListSubregionResponse(BaseResponse):
         "data": ListSubregionResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListSubregionResponseBody] = None
         init(self, d, self._types)

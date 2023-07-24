@@ -13,7 +13,7 @@ class SearchFaqResponseBody(object):
         "items": List[Faq],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[Faq]] = None
@@ -25,8 +25,8 @@ class SearchFaqResponseBody(object):
 
 
 class SearchFaqResponseBodyBuilder(object):
-    def __init__(self, search_faq_response_body: SearchFaqResponseBody = SearchFaqResponseBody({})) -> None:
-        self._search_faq_response_body: SearchFaqResponseBody = search_faq_response_body
+    def __init__(self) -> None:
+        self._search_faq_response_body = SearchFaqResponseBody()
 
     def has_more(self, has_more: bool) -> "SearchFaqResponseBodyBuilder":
         self._search_faq_response_body.has_more = has_more

@@ -11,7 +11,7 @@ class PlainTextValueRange(object):
         "values": List[list],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.values: Optional[List[list]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class PlainTextValueRange(object):
 
 
 class PlainTextValueRangeBuilder(object):
-    def __init__(self, plain_text_value_range: PlainTextValueRange = PlainTextValueRange({})) -> None:
-        self._plain_text_value_range: PlainTextValueRange = plain_text_value_range
+    def __init__(self) -> None:
+        self._plain_text_value_range = PlainTextValueRange()
 
     def range(self, range: str) -> "PlainTextValueRangeBuilder":
         self._plain_text_value_range.range = range

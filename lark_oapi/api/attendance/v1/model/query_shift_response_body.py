@@ -25,7 +25,7 @@ class QueryShiftResponseBody(object):
         "overtime_rule": List[OvertimeRule],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.shift_id: Optional[str] = None
         self.shift_name: Optional[str] = None
         self.punch_times: Optional[int] = None
@@ -45,8 +45,8 @@ class QueryShiftResponseBody(object):
 
 
 class QueryShiftResponseBodyBuilder(object):
-    def __init__(self, query_shift_response_body: QueryShiftResponseBody = QueryShiftResponseBody({})) -> None:
-        self._query_shift_response_body: QueryShiftResponseBody = query_shift_response_body
+    def __init__(self) -> None:
+        self._query_shift_response_body = QueryShiftResponseBody()
 
     def shift_id(self, shift_id: str) -> "QueryShiftResponseBodyBuilder":
         self._query_shift_response_body.shift_id = shift_id

@@ -13,7 +13,7 @@ class BoolRuleValue(object):
         "time_period": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.number: Optional[str] = None
         self.text: Optional[str] = None
@@ -26,8 +26,8 @@ class BoolRuleValue(object):
 
 
 class BoolRuleValueBuilder(object):
-    def __init__(self, bool_rule_value: BoolRuleValue = BoolRuleValue({})) -> None:
-        self._bool_rule_value: BoolRuleValue = bool_rule_value
+    def __init__(self) -> None:
+        self._bool_rule_value = BoolRuleValue()
 
     def type(self, type: str) -> "BoolRuleValueBuilder":
         self._bool_rule_value.type = type

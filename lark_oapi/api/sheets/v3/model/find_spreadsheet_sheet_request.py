@@ -21,8 +21,8 @@ class FindSpreadsheetSheetRequest(BaseRequest):
 
 class FindSpreadsheetSheetRequestBuilder(object):
 
-    def __init__(self,
-                 find_spreadsheet_sheet_request: FindSpreadsheetSheetRequest = FindSpreadsheetSheetRequest()) -> None:
+    def __init__(self) -> None:
+        find_spreadsheet_sheet_request = FindSpreadsheetSheetRequest()
         find_spreadsheet_sheet_request.http_method = HttpMethod.POST
         find_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
         find_spreadsheet_sheet_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -11,7 +11,7 @@ class User(object):
         "user_id": UserId,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[UserId] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class User(object):
 
 
 class UserBuilder(object):
-    def __init__(self, user: User = User({})) -> None:
-        self._user: User = user
+    def __init__(self) -> None:
+        self._user = User()
 
     def user_id(self, user_id: UserId) -> "UserBuilder":
         self._user.user_id = user_id

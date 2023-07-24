@@ -19,7 +19,7 @@ class TalentCustomizedValue(object):
         "customized_attachment": List[TalentCustomizedAttachment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.option: Optional[TalentCustomizedOption] = None
         self.option_list: Optional[List[TalentCustomizedOption]] = None
@@ -35,8 +35,8 @@ class TalentCustomizedValue(object):
 
 
 class TalentCustomizedValueBuilder(object):
-    def __init__(self, talent_customized_value: TalentCustomizedValue = TalentCustomizedValue({})) -> None:
-        self._talent_customized_value: TalentCustomizedValue = talent_customized_value
+    def __init__(self) -> None:
+        self._talent_customized_value = TalentCustomizedValue()
 
     def content(self, content: str) -> "TalentCustomizedValueBuilder":
         self._talent_customized_value.content = content

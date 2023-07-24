@@ -20,8 +20,8 @@ class PutTopNoticeChatTopNoticeRequest(BaseRequest):
 
 class PutTopNoticeChatTopNoticeRequestBuilder(object):
 
-    def __init__(self,
-                 put_top_notice_chat_top_notice_request: PutTopNoticeChatTopNoticeRequest = PutTopNoticeChatTopNoticeRequest()) -> None:
+    def __init__(self) -> None:
+        put_top_notice_chat_top_notice_request = PutTopNoticeChatTopNoticeRequest()
         put_top_notice_chat_top_notice_request.http_method = HttpMethod.POST
         put_top_notice_chat_top_notice_request.uri = "/open-apis/im/v1/chats/:chat_id/top_notice/put_top_notice"
         put_top_notice_chat_top_notice_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

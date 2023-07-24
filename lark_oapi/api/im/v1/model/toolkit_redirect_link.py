@@ -10,7 +10,7 @@ class ToolkitRedirectLink(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ToolkitRedirectLink(object):
 
 
 class ToolkitRedirectLinkBuilder(object):
-    def __init__(self, toolkit_redirect_link: ToolkitRedirectLink = ToolkitRedirectLink({})) -> None:
-        self._toolkit_redirect_link: ToolkitRedirectLink = toolkit_redirect_link
+    def __init__(self) -> None:
+        self._toolkit_redirect_link = ToolkitRedirectLink()
 
     def url(self, url: str) -> "ToolkitRedirectLinkBuilder":
         self._toolkit_redirect_link.url = url

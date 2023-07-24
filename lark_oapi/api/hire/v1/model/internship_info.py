@@ -15,7 +15,7 @@ class InternshipInfo(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.career_type: Optional[int] = None
         self.company: Optional[str] = None
         self.desc: Optional[str] = None
@@ -30,8 +30,8 @@ class InternshipInfo(object):
 
 
 class InternshipInfoBuilder(object):
-    def __init__(self, internship_info: InternshipInfo = InternshipInfo({})) -> None:
-        self._internship_info: InternshipInfo = internship_info
+    def __init__(self) -> None:
+        self._internship_info = InternshipInfo()
 
     def career_type(self, career_type: int) -> "InternshipInfoBuilder":
         self._internship_info.career_type = career_type

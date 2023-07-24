@@ -13,7 +13,7 @@ class GenerateCaldavConfSettingResponseBody(object):
         "device_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.password: Optional[str] = None
         self.user_name: Optional[str] = None
         self.server_address: Optional[str] = None
@@ -26,10 +26,8 @@ class GenerateCaldavConfSettingResponseBody(object):
 
 
 class GenerateCaldavConfSettingResponseBodyBuilder(object):
-    def __init__(self,
-                 generate_caldav_conf_setting_response_body: GenerateCaldavConfSettingResponseBody = GenerateCaldavConfSettingResponseBody(
-                     {})) -> None:
-        self._generate_caldav_conf_setting_response_body: GenerateCaldavConfSettingResponseBody = generate_caldav_conf_setting_response_body
+    def __init__(self) -> None:
+        self._generate_caldav_conf_setting_response_body = GenerateCaldavConfSettingResponseBody()
 
     def password(self, password: str) -> "GenerateCaldavConfSettingResponseBodyBuilder":
         self._generate_caldav_conf_setting_response_body.password = password

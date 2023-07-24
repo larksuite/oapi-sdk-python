@@ -18,8 +18,8 @@ class IsInChatChatMembersRequest(BaseRequest):
 
 class IsInChatChatMembersRequestBuilder(object):
 
-    def __init__(self,
-                 is_in_chat_chat_members_request: IsInChatChatMembersRequest = IsInChatChatMembersRequest()) -> None:
+    def __init__(self) -> None:
+        is_in_chat_chat_members_request = IsInChatChatMembersRequest()
         is_in_chat_chat_members_request.http_method = HttpMethod.GET
         is_in_chat_chat_members_request.uri = "/open-apis/im/v1/chats/:chat_id/members/is_in_chat"
         is_in_chat_chat_members_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

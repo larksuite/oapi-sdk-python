@@ -14,7 +14,7 @@ class Message(object):
         "open_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.body: Optional[str] = None
         self.version: Optional[int] = None
         self.block_id: Optional[str] = None
@@ -28,8 +28,8 @@ class Message(object):
 
 
 class MessageBuilder(object):
-    def __init__(self, message: Message = Message({})) -> None:
-        self._message: Message = message
+    def __init__(self) -> None:
+        self._message = Message()
 
     def body(self, body: str) -> "MessageBuilder":
         self._message.body = body

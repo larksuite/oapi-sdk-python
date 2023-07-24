@@ -13,7 +13,7 @@ class AuditRecipientEntity(object):
         "recipient_detail": AuditRecipientDetail,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.recipient_type: Optional[str] = None
         self.recipient_value: Optional[str] = None
         self.recipient_detail: Optional[AuditRecipientDetail] = None
@@ -25,8 +25,8 @@ class AuditRecipientEntity(object):
 
 
 class AuditRecipientEntityBuilder(object):
-    def __init__(self, audit_recipient_entity: AuditRecipientEntity = AuditRecipientEntity({})) -> None:
-        self._audit_recipient_entity: AuditRecipientEntity = audit_recipient_entity
+    def __init__(self) -> None:
+        self._audit_recipient_entity = AuditRecipientEntity()
 
     def recipient_type(self, recipient_type: str) -> "AuditRecipientEntityBuilder":
         self._audit_recipient_entity.recipient_type = recipient_type

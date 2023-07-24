@@ -21,8 +21,8 @@ class DeleteManagersChatManagersRequest(BaseRequest):
 
 class DeleteManagersChatManagersRequestBuilder(object):
 
-    def __init__(self,
-                 delete_managers_chat_managers_request: DeleteManagersChatManagersRequest = DeleteManagersChatManagersRequest()) -> None:
+    def __init__(self) -> None:
+        delete_managers_chat_managers_request = DeleteManagersChatManagersRequest()
         delete_managers_chat_managers_request.http_method = HttpMethod.POST
         delete_managers_chat_managers_request.uri = "/open-apis/im/v1/chats/:chat_id/managers/delete_managers"
         delete_managers_chat_managers_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

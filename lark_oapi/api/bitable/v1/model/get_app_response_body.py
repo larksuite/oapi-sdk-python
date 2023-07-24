@@ -11,7 +11,7 @@ class GetAppResponseBody(object):
         "app": DisplayApp,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app: Optional[DisplayApp] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetAppResponseBody(object):
 
 
 class GetAppResponseBodyBuilder(object):
-    def __init__(self, get_app_response_body: GetAppResponseBody = GetAppResponseBody({})) -> None:
-        self._get_app_response_body: GetAppResponseBody = get_app_response_body
+    def __init__(self) -> None:
+        self._get_app_response_body = GetAppResponseBody()
 
     def app(self, app: DisplayApp) -> "GetAppResponseBodyBuilder":
         self._get_app_response_body.app = app

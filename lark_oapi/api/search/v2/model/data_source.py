@@ -24,7 +24,7 @@ class DataSource(object):
         "app_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         self.state: Optional[int] = None
@@ -47,8 +47,8 @@ class DataSource(object):
 
 
 class DataSourceBuilder(object):
-    def __init__(self, data_source: DataSource = DataSource({})) -> None:
-        self._data_source: DataSource = data_source
+    def __init__(self) -> None:
+        self._data_source = DataSource()
 
     def id(self, id: int) -> "DataSourceBuilder":
         self._data_source.id = id

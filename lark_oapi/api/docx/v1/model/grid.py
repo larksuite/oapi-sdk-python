@@ -10,7 +10,7 @@ class Grid(object):
         "column_size": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.column_size: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Grid(object):
 
 
 class GridBuilder(object):
-    def __init__(self, grid: Grid = Grid({})) -> None:
-        self._grid: Grid = grid
+    def __init__(self) -> None:
+        self._grid = Grid()
 
     def column_size(self, column_size: int) -> "GridBuilder":
         self._grid.column_size = column_size

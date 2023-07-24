@@ -15,7 +15,7 @@ class TalentCustomizedDataChild(object):
         "value": TalentCustomizedValue,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.object_type: Optional[int] = None
@@ -28,8 +28,8 @@ class TalentCustomizedDataChild(object):
 
 
 class TalentCustomizedDataChildBuilder(object):
-    def __init__(self, talent_customized_data_child: TalentCustomizedDataChild = TalentCustomizedDataChild({})) -> None:
-        self._talent_customized_data_child: TalentCustomizedDataChild = talent_customized_data_child
+    def __init__(self) -> None:
+        self._talent_customized_data_child = TalentCustomizedDataChild()
 
     def object_id(self, object_id: str) -> "TalentCustomizedDataChildBuilder":
         self._talent_customized_data_child.object_id = object_id

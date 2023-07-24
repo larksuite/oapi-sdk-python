@@ -20,8 +20,8 @@ class CancelSendNotificationRequest(BaseRequest):
 
 class CancelSendNotificationRequestBuilder(object):
 
-    def __init__(self,
-                 cancel_send_notification_request: CancelSendNotificationRequest = CancelSendNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        cancel_send_notification_request = CancelSendNotificationRequest()
         cancel_send_notification_request.http_method = HttpMethod.POST
         cancel_send_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id/cancel_send"
         cancel_send_notification_request.token_types = {AccessTokenType.USER}

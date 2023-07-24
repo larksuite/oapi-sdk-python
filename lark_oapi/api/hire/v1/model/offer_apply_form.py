@@ -13,7 +13,7 @@ class OfferApplyForm(object):
         "create_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.create_time: Optional[str] = None
@@ -25,8 +25,8 @@ class OfferApplyForm(object):
 
 
 class OfferApplyFormBuilder(object):
-    def __init__(self, offer_apply_form: OfferApplyForm = OfferApplyForm({})) -> None:
-        self._offer_apply_form: OfferApplyForm = offer_apply_form
+    def __init__(self) -> None:
+        self._offer_apply_form = OfferApplyForm()
 
     def id(self, id: str) -> "OfferApplyFormBuilder":
         self._offer_apply_form.id = id

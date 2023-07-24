@@ -15,7 +15,7 @@ class Currency(object):
         "currency_alpha_3_code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.country_region_id: Optional[str] = None
         self.currency_name: Optional[List[I18n]] = None
@@ -29,8 +29,8 @@ class Currency(object):
 
 
 class CurrencyBuilder(object):
-    def __init__(self, currency: Currency = Currency({})) -> None:
-        self._currency: Currency = currency
+    def __init__(self) -> None:
+        self._currency = Currency()
 
     def id(self, id: str) -> "CurrencyBuilder":
         self._currency.id = id

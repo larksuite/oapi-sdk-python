@@ -12,7 +12,7 @@ class UserContactInfo(object):
         "email": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.mobile: Optional[str] = None
         self.email: Optional[str] = None
@@ -24,8 +24,8 @@ class UserContactInfo(object):
 
 
 class UserContactInfoBuilder(object):
-    def __init__(self, user_contact_info: UserContactInfo = UserContactInfo({})) -> None:
-        self._user_contact_info: UserContactInfo = user_contact_info
+    def __init__(self) -> None:
+        self._user_contact_info = UserContactInfo()
 
     def user_id(self, user_id: str) -> "UserContactInfoBuilder":
         self._user_contact_info.user_id = user_id

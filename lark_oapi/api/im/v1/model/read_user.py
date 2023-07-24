@@ -13,7 +13,7 @@ class ReadUser(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id_type: Optional[str] = None
         self.user_id: Optional[str] = None
         self.timestamp: Optional[str] = None
@@ -26,8 +26,8 @@ class ReadUser(object):
 
 
 class ReadUserBuilder(object):
-    def __init__(self, read_user: ReadUser = ReadUser({})) -> None:
-        self._read_user: ReadUser = read_user
+    def __init__(self) -> None:
+        self._read_user = ReadUser()
 
     def user_id_type(self, user_id_type: str) -> "ReadUserBuilder":
         self._read_user.user_id_type = user_id_type

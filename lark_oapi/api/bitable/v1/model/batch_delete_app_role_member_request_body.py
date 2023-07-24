@@ -11,7 +11,7 @@ class BatchDeleteAppRoleMemberRequestBody(object):
         "member_list": List[AppRoleMemberId],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_list: Optional[List[AppRoleMemberId]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchDeleteAppRoleMemberRequestBody(object):
 
 
 class BatchDeleteAppRoleMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_app_role_member_request_body: BatchDeleteAppRoleMemberRequestBody = BatchDeleteAppRoleMemberRequestBody(
-                     {})) -> None:
-        self._batch_delete_app_role_member_request_body: BatchDeleteAppRoleMemberRequestBody = batch_delete_app_role_member_request_body
+    def __init__(self) -> None:
+        self._batch_delete_app_role_member_request_body = BatchDeleteAppRoleMemberRequestBody()
 
     def member_list(self, member_list: List[AppRoleMemberId]) -> "BatchDeleteAppRoleMemberRequestBodyBuilder":
         self._batch_delete_app_role_member_request_body.member_list = member_list

@@ -12,7 +12,7 @@ class OfferApplyFormFormulaExtraMapInfo(object):
         "value": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.value: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class OfferApplyFormFormulaExtraMapInfo(object):
 
 
 class OfferApplyFormFormulaExtraMapInfoBuilder(object):
-    def __init__(self,
-                 offer_apply_form_formula_extra_map_info: OfferApplyFormFormulaExtraMapInfo = OfferApplyFormFormulaExtraMapInfo(
-                     {})) -> None:
-        self._offer_apply_form_formula_extra_map_info: OfferApplyFormFormulaExtraMapInfo = offer_apply_form_formula_extra_map_info
+    def __init__(self) -> None:
+        self._offer_apply_form_formula_extra_map_info = OfferApplyFormFormulaExtraMapInfo()
 
     def key(self, key: str) -> "OfferApplyFormFormulaExtraMapInfoBuilder":
         self._offer_apply_form_formula_extra_map_info.key = key

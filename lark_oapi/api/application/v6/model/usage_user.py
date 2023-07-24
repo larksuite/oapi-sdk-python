@@ -10,7 +10,7 @@ class UsageUser(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class UsageUser(object):
 
 
 class UsageUserBuilder(object):
-    def __init__(self, usage_user: UsageUser = UsageUser({})) -> None:
-        self._usage_user: UsageUser = usage_user
+    def __init__(self) -> None:
+        self._usage_user = UsageUser()
 
     def user_id(self, user_id: str) -> "UsageUserBuilder":
         self._usage_user.user_id = user_id

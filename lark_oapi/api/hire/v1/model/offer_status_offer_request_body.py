@@ -13,7 +13,7 @@ class OfferStatusOfferRequestBody(object):
         "termination_reason_note": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_status: Optional[int] = None
         self.expiration_date: Optional[str] = None
         self.termination_reason_id_list: Optional[List[str]] = None
@@ -26,9 +26,8 @@ class OfferStatusOfferRequestBody(object):
 
 
 class OfferStatusOfferRequestBodyBuilder(object):
-    def __init__(self, offer_status_offer_request_body: OfferStatusOfferRequestBody = OfferStatusOfferRequestBody(
-        {})) -> None:
-        self._offer_status_offer_request_body: OfferStatusOfferRequestBody = offer_status_offer_request_body
+    def __init__(self) -> None:
+        self._offer_status_offer_request_body = OfferStatusOfferRequestBody()
 
     def offer_status(self, offer_status: int) -> "OfferStatusOfferRequestBodyBuilder":
         self._offer_status_offer_request_body.offer_status = offer_status

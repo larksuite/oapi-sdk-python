@@ -2,32 +2,35 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.create_chat_request import CreateChatRequest
-from lark_oapi.api.im.v1.model.create_chat_response import CreateChatResponse
-from lark_oapi.api.im.v1.model.delete_chat_request import DeleteChatRequest
-from lark_oapi.api.im.v1.model.delete_chat_response import DeleteChatResponse
-from lark_oapi.api.im.v1.model.get_chat_request import GetChatRequest
-from lark_oapi.api.im.v1.model.get_chat_response import GetChatResponse
-from lark_oapi.api.im.v1.model.link_chat_request import LinkChatRequest
-from lark_oapi.api.im.v1.model.link_chat_response import LinkChatResponse
-from lark_oapi.api.im.v1.model.list_chat_request import ListChatRequest
-from lark_oapi.api.im.v1.model.list_chat_response import ListChatResponse
-from lark_oapi.api.im.v1.model.search_chat_request import SearchChatRequest
-from lark_oapi.api.im.v1.model.search_chat_response import SearchChatResponse
-from lark_oapi.api.im.v1.model.update_chat_request import UpdateChatRequest
-from lark_oapi.api.im.v1.model.update_chat_response import UpdateChatResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_chat_request import CreateChatRequest
+from ..model.create_chat_response import CreateChatResponse
+from ..model.delete_chat_request import DeleteChatRequest
+from ..model.delete_chat_response import DeleteChatResponse
+from ..model.get_chat_request import GetChatRequest
+from ..model.get_chat_response import GetChatResponse
+from ..model.link_chat_request import LinkChatRequest
+from ..model.link_chat_response import LinkChatResponse
+from ..model.list_chat_request import ListChatRequest
+from ..model.list_chat_response import ListChatResponse
+from ..model.search_chat_request import SearchChatRequest
+from ..model.search_chat_response import SearchChatResponse
+from ..model.update_chat_request import UpdateChatRequest
+from ..model.update_chat_response import UpdateChatResponse
 
 
 class Chat(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateChatRequest, option: RequestOption = RequestOption()) -> CreateChatResponse:
+    def create(self, request: CreateChatRequest, option: Optional[RequestOption] = None) -> CreateChatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class Chat(object):
 
         return response
 
-    def delete(self, request: DeleteChatRequest, option: RequestOption = RequestOption()) -> DeleteChatResponse:
+    def delete(self, request: DeleteChatRequest, option: Optional[RequestOption] = None) -> DeleteChatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -53,7 +59,10 @@ class Chat(object):
 
         return response
 
-    def get(self, request: GetChatRequest, option: RequestOption = RequestOption()) -> GetChatResponse:
+    def get(self, request: GetChatRequest, option: Optional[RequestOption] = None) -> GetChatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class Chat(object):
 
         return response
 
-    def link(self, request: LinkChatRequest, option: RequestOption = RequestOption()) -> LinkChatResponse:
+    def link(self, request: LinkChatRequest, option: Optional[RequestOption] = None) -> LinkChatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class Chat(object):
 
         return response
 
-    def list(self, request: ListChatRequest, option: RequestOption = RequestOption()) -> ListChatResponse:
+    def list(self, request: ListChatRequest, option: Optional[RequestOption] = None) -> ListChatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -92,7 +107,10 @@ class Chat(object):
 
         return response
 
-    def search(self, request: SearchChatRequest, option: RequestOption = RequestOption()) -> SearchChatResponse:
+    def search(self, request: SearchChatRequest, option: Optional[RequestOption] = None) -> SearchChatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -105,7 +123,10 @@ class Chat(object):
 
         return response
 
-    def update(self, request: UpdateChatRequest, option: RequestOption = RequestOption()) -> UpdateChatResponse:
+    def update(self, request: UpdateChatRequest, option: Optional[RequestOption] = None) -> UpdateChatResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

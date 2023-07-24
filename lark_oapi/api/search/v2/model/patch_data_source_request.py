@@ -20,7 +20,8 @@ class PatchDataSourceRequest(BaseRequest):
 
 class PatchDataSourceRequestBuilder(object):
 
-    def __init__(self, patch_data_source_request: PatchDataSourceRequest = PatchDataSourceRequest()) -> None:
+    def __init__(self) -> None:
+        patch_data_source_request = PatchDataSourceRequest()
         patch_data_source_request.http_method = HttpMethod.PATCH
         patch_data_source_request.uri = "/open-apis/search/v2/data_sources/:data_source_id"
         patch_data_source_request.token_types = {AccessTokenType.TENANT}

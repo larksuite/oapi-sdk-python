@@ -12,7 +12,7 @@ class MaskSession(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.create_time: Optional[int] = None
         self.terminal_type: Optional[int] = None
         self.user_id: Optional[str] = None
@@ -24,8 +24,8 @@ class MaskSession(object):
 
 
 class MaskSessionBuilder(object):
-    def __init__(self, mask_session: MaskSession = MaskSession({})) -> None:
-        self._mask_session: MaskSession = mask_session
+    def __init__(self) -> None:
+        self._mask_session = MaskSession()
 
     def create_time(self, create_time: int) -> "MaskSessionBuilder":
         self._mask_session.create_time = create_time

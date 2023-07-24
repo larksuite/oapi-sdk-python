@@ -32,7 +32,7 @@ class AuditInfo(object):
         "audit_detail": AuditDetail,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.event_id: Optional[str] = None
         self.unique_id: Optional[str] = None
         self.event_name: Optional[str] = None
@@ -58,8 +58,8 @@ class AuditInfo(object):
 
 
 class AuditInfoBuilder(object):
-    def __init__(self, audit_info: AuditInfo = AuditInfo({})) -> None:
-        self._audit_info: AuditInfo = audit_info
+    def __init__(self) -> None:
+        self._audit_info = AuditInfo()
 
     def event_id(self, event_id: str) -> "AuditInfoBuilder":
         self._audit_info.event_id = event_id

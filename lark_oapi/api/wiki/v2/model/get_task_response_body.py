@@ -11,7 +11,7 @@ class GetTaskResponseBody(object):
         "task": TaskResult,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task: Optional[TaskResult] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetTaskResponseBody(object):
 
 
 class GetTaskResponseBodyBuilder(object):
-    def __init__(self, get_task_response_body: GetTaskResponseBody = GetTaskResponseBody({})) -> None:
-        self._get_task_response_body: GetTaskResponseBody = get_task_response_body
+    def __init__(self) -> None:
+        self._get_task_response_body = GetTaskResponseBody()
 
     def task(self, task: TaskResult) -> "GetTaskResponseBodyBuilder":
         self._get_task_response_body.task = task

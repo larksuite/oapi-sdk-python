@@ -11,7 +11,7 @@ class Collaborator(object):
         "id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.id_list: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Collaborator(object):
 
 
 class CollaboratorBuilder(object):
-    def __init__(self, collaborator: Collaborator = Collaborator({})) -> None:
-        self._collaborator: Collaborator = collaborator
+    def __init__(self) -> None:
+        self._collaborator = Collaborator()
 
     def id(self, id: str) -> "CollaboratorBuilder":
         self._collaborator.id = id

@@ -11,7 +11,7 @@ class ApproverRange(object):
         "id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.id_list: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ApproverRange(object):
 
 
 class ApproverRangeBuilder(object):
-    def __init__(self, approver_range: ApproverRange = ApproverRange({})) -> None:
-        self._approver_range: ApproverRange = approver_range
+    def __init__(self) -> None:
+        self._approver_range = ApproverRange()
 
     def type(self, type: str) -> "ApproverRangeBuilder":
         self._approver_range.type = type

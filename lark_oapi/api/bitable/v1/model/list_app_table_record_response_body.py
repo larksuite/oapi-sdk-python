@@ -14,7 +14,7 @@ class ListAppTableRecordResponseBody(object):
         "items": List[AppTableRecord],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.total: Optional[int] = None
@@ -27,10 +27,8 @@ class ListAppTableRecordResponseBody(object):
 
 
 class ListAppTableRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 list_app_table_record_response_body: ListAppTableRecordResponseBody = ListAppTableRecordResponseBody(
-                     {})) -> None:
-        self._list_app_table_record_response_body: ListAppTableRecordResponseBody = list_app_table_record_response_body
+    def __init__(self) -> None:
+        self._list_app_table_record_response_body = ListAppTableRecordResponseBody()
 
     def has_more(self, has_more: bool) -> "ListAppTableRecordResponseBodyBuilder":
         self._list_app_table_record_response_body.has_more = has_more

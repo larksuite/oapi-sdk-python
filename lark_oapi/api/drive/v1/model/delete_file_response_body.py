@@ -10,7 +10,7 @@ class DeleteFileResponseBody(object):
         "task_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class DeleteFileResponseBody(object):
 
 
 class DeleteFileResponseBodyBuilder(object):
-    def __init__(self, delete_file_response_body: DeleteFileResponseBody = DeleteFileResponseBody({})) -> None:
-        self._delete_file_response_body: DeleteFileResponseBody = delete_file_response_body
+    def __init__(self) -> None:
+        self._delete_file_response_body = DeleteFileResponseBody()
 
     def task_id(self, task_id: str) -> "DeleteFileResponseBodyBuilder":
         self._delete_file_response_body.task_id = task_id

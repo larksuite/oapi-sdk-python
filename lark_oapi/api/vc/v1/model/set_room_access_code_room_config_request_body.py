@@ -16,7 +16,7 @@ class SetRoomAccessCodeRoomConfigRequestBody(object):
         "valid_day": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope: Optional[int] = None
         self.country_id: Optional[str] = None
         self.district_id: Optional[str] = None
@@ -32,10 +32,8 @@ class SetRoomAccessCodeRoomConfigRequestBody(object):
 
 
 class SetRoomAccessCodeRoomConfigRequestBodyBuilder(object):
-    def __init__(self,
-                 set_room_access_code_room_config_request_body: SetRoomAccessCodeRoomConfigRequestBody = SetRoomAccessCodeRoomConfigRequestBody(
-                     {})) -> None:
-        self._set_room_access_code_room_config_request_body: SetRoomAccessCodeRoomConfigRequestBody = set_room_access_code_room_config_request_body
+    def __init__(self) -> None:
+        self._set_room_access_code_room_config_request_body = SetRoomAccessCodeRoomConfigRequestBody()
 
     def scope(self, scope: int) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.scope = scope

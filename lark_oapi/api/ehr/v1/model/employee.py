@@ -14,7 +14,7 @@ class Employee(object):
         "custom_fields": List[CustomFields],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.system_fields: Optional[SystemFields] = None
         self.custom_fields: Optional[List[CustomFields]] = None
@@ -26,8 +26,8 @@ class Employee(object):
 
 
 class EmployeeBuilder(object):
-    def __init__(self, employee: Employee = Employee({})) -> None:
-        self._employee: Employee = employee
+    def __init__(self) -> None:
+        self._employee = Employee()
 
     def user_id(self, user_id: str) -> "EmployeeBuilder":
         self._employee.user_id = user_id

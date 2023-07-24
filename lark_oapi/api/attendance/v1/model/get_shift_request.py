@@ -18,7 +18,8 @@ class GetShiftRequest(BaseRequest):
 
 class GetShiftRequestBuilder(object):
 
-    def __init__(self, get_shift_request: GetShiftRequest = GetShiftRequest()) -> None:
+    def __init__(self) -> None:
+        get_shift_request = GetShiftRequest()
         get_shift_request.http_method = HttpMethod.GET
         get_shift_request.uri = "/open-apis/attendance/v1/shifts/:shift_id"
         get_shift_request.token_types = {AccessTokenType.TENANT}

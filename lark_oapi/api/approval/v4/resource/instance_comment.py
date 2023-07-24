@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.approval.v4.model.create_instance_comment_request import CreateInstanceCommentRequest
-from lark_oapi.api.approval.v4.model.create_instance_comment_response import CreateInstanceCommentResponse
-from lark_oapi.api.approval.v4.model.delete_instance_comment_request import DeleteInstanceCommentRequest
-from lark_oapi.api.approval.v4.model.delete_instance_comment_response import DeleteInstanceCommentResponse
-from lark_oapi.api.approval.v4.model.list_instance_comment_request import ListInstanceCommentRequest
-from lark_oapi.api.approval.v4.model.list_instance_comment_response import ListInstanceCommentResponse
-from lark_oapi.api.approval.v4.model.remove_instance_comment_request import RemoveInstanceCommentRequest
-from lark_oapi.api.approval.v4.model.remove_instance_comment_response import RemoveInstanceCommentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_instance_comment_request import CreateInstanceCommentRequest
+from ..model.create_instance_comment_response import CreateInstanceCommentResponse
+from ..model.delete_instance_comment_request import DeleteInstanceCommentRequest
+from ..model.delete_instance_comment_response import DeleteInstanceCommentResponse
+from ..model.list_instance_comment_request import ListInstanceCommentRequest
+from ..model.list_instance_comment_response import ListInstanceCommentResponse
+from ..model.remove_instance_comment_request import RemoveInstanceCommentRequest
+from ..model.remove_instance_comment_response import RemoveInstanceCommentResponse
 
 
 class InstanceComment(object):
@@ -22,7 +22,10 @@ class InstanceComment(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateInstanceCommentRequest,
-               option: RequestOption = RequestOption()) -> CreateInstanceCommentResponse:
+               option: Optional[RequestOption] = None) -> CreateInstanceCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -37,7 +40,10 @@ class InstanceComment(object):
         return response
 
     def delete(self, request: DeleteInstanceCommentRequest,
-               option: RequestOption = RequestOption()) -> DeleteInstanceCommentResponse:
+               option: Optional[RequestOption] = None) -> DeleteInstanceCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class InstanceComment(object):
         return response
 
     def list(self, request: ListInstanceCommentRequest,
-             option: RequestOption = RequestOption()) -> ListInstanceCommentResponse:
+             option: Optional[RequestOption] = None) -> ListInstanceCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class InstanceComment(object):
         return response
 
     def remove(self, request: RemoveInstanceCommentRequest,
-               option: RequestOption = RequestOption()) -> RemoveInstanceCommentResponse:
+               option: Optional[RequestOption] = None) -> RemoveInstanceCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

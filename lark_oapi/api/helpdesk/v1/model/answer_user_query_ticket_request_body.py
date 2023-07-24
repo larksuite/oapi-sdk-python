@@ -12,7 +12,7 @@ class AnswerUserQueryTicketRequestBody(object):
         "faqs": List[UserQueryFaqInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.event_id: Optional[str] = None
         self.faqs: Optional[List[UserQueryFaqInfo]] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class AnswerUserQueryTicketRequestBody(object):
 
 
 class AnswerUserQueryTicketRequestBodyBuilder(object):
-    def __init__(self,
-                 answer_user_query_ticket_request_body: AnswerUserQueryTicketRequestBody = AnswerUserQueryTicketRequestBody(
-                     {})) -> None:
-        self._answer_user_query_ticket_request_body: AnswerUserQueryTicketRequestBody = answer_user_query_ticket_request_body
+    def __init__(self) -> None:
+        self._answer_user_query_ticket_request_body = AnswerUserQueryTicketRequestBody()
 
     def event_id(self, event_id: str) -> "AnswerUserQueryTicketRequestBodyBuilder":
         self._answer_user_query_ticket_request_body.event_id = event_id

@@ -14,7 +14,7 @@ class TicketUserEvent(object):
         "email": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[UserId] = None
         self.avatar_url: Optional[str] = None
         self.name: Optional[str] = None
@@ -27,8 +27,8 @@ class TicketUserEvent(object):
 
 
 class TicketUserEventBuilder(object):
-    def __init__(self, ticket_user_event: TicketUserEvent = TicketUserEvent({})) -> None:
-        self._ticket_user_event: TicketUserEvent = ticket_user_event
+    def __init__(self) -> None:
+        self._ticket_user_event = TicketUserEvent()
 
     def id(self, id: UserId) -> "TicketUserEventBuilder":
         self._ticket_user_event.id = id

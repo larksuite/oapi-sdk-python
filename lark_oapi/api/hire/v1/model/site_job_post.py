@@ -20,7 +20,7 @@ class SiteJobPost(object):
         "publish_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.title: Optional[str] = None
         self.description: Optional[str] = None
@@ -37,8 +37,8 @@ class SiteJobPost(object):
 
 
 class SiteJobPostBuilder(object):
-    def __init__(self, site_job_post: SiteJobPost = SiteJobPost({})) -> None:
-        self._site_job_post: SiteJobPost = site_job_post
+    def __init__(self) -> None:
+        self._site_job_post = SiteJobPost()
 
     def id(self, id: str) -> "SiteJobPostBuilder":
         self._site_job_post.id = id

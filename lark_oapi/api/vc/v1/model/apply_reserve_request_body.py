@@ -13,7 +13,7 @@ class ApplyReserveRequestBody(object):
         "meeting_settings": ReserveMeetingSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.end_time: Optional[int] = None
         self.owner_id: Optional[str] = None
         self.meeting_settings: Optional[ReserveMeetingSetting] = None
@@ -25,8 +25,8 @@ class ApplyReserveRequestBody(object):
 
 
 class ApplyReserveRequestBodyBuilder(object):
-    def __init__(self, apply_reserve_request_body: ApplyReserveRequestBody = ApplyReserveRequestBody({})) -> None:
-        self._apply_reserve_request_body: ApplyReserveRequestBody = apply_reserve_request_body
+    def __init__(self) -> None:
+        self._apply_reserve_request_body = ApplyReserveRequestBody()
 
     def end_time(self, end_time: int) -> "ApplyReserveRequestBodyBuilder":
         self._apply_reserve_request_body.end_time = end_time

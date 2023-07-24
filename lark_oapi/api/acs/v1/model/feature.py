@@ -11,7 +11,7 @@ class Feature(object):
         "face_uploaded": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.card: Optional[int] = None
         self.face_uploaded: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Feature(object):
 
 
 class FeatureBuilder(object):
-    def __init__(self, feature: Feature = Feature({})) -> None:
-        self._feature: Feature = feature
+    def __init__(self) -> None:
+        self._feature = Feature()
 
     def card(self, card: int) -> "FeatureBuilder":
         self._feature.card = card

@@ -18,7 +18,7 @@ class TenantAssignInfo(object):
         "end_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subscription_id: Optional[int] = None
         self.license_plan_key: Optional[str] = None
         self.product_name: Optional[str] = None
@@ -35,8 +35,8 @@ class TenantAssignInfo(object):
 
 
 class TenantAssignInfoBuilder(object):
-    def __init__(self, tenant_assign_info: TenantAssignInfo = TenantAssignInfo({})) -> None:
-        self._tenant_assign_info: TenantAssignInfo = tenant_assign_info
+    def __init__(self) -> None:
+        self._tenant_assign_info = TenantAssignInfo()
 
     def subscription_id(self, subscription_id: int) -> "TenantAssignInfoBuilder":
         self._tenant_assign_info.subscription_id = subscription_id

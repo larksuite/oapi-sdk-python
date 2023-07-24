@@ -21,8 +21,8 @@ class DeleteSpreadsheetSheetFilterViewConditionRequest(BaseRequest):
 
 class DeleteSpreadsheetSheetFilterViewConditionRequestBuilder(object):
 
-    def __init__(self,
-                 delete_spreadsheet_sheet_filter_view_condition_request: DeleteSpreadsheetSheetFilterViewConditionRequest = DeleteSpreadsheetSheetFilterViewConditionRequest()) -> None:
+    def __init__(self) -> None:
+        delete_spreadsheet_sheet_filter_view_condition_request = DeleteSpreadsheetSheetFilterViewConditionRequest()
         delete_spreadsheet_sheet_filter_view_condition_request.http_method = HttpMethod.DELETE
         delete_spreadsheet_sheet_filter_view_condition_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
         delete_spreadsheet_sheet_filter_view_condition_request.token_types = {AccessTokenType.TENANT,

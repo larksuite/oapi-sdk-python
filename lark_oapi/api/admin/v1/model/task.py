@@ -17,7 +17,7 @@ class Task(object):
         "target_owner_email": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.original_user_id: Optional[str] = None
         self.target_owner_id: Optional[str] = None
         self.file_list: Optional[List[File]] = None
@@ -33,8 +33,8 @@ class Task(object):
 
 
 class TaskBuilder(object):
-    def __init__(self, task: Task = Task({})) -> None:
-        self._task: Task = task
+    def __init__(self) -> None:
+        self._task = Task()
 
     def original_user_id(self, original_user_id: str) -> "TaskBuilder":
         self._task.original_user_id = original_user_id

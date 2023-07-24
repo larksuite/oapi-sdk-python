@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.create_file_subscription_request import CreateFileSubscriptionRequest
-from lark_oapi.api.drive.v1.model.create_file_subscription_response import CreateFileSubscriptionResponse
-from lark_oapi.api.drive.v1.model.get_file_subscription_request import GetFileSubscriptionRequest
-from lark_oapi.api.drive.v1.model.get_file_subscription_response import GetFileSubscriptionResponse
-from lark_oapi.api.drive.v1.model.patch_file_subscription_request import PatchFileSubscriptionRequest
-from lark_oapi.api.drive.v1.model.patch_file_subscription_response import PatchFileSubscriptionResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_file_subscription_request import CreateFileSubscriptionRequest
+from ..model.create_file_subscription_response import CreateFileSubscriptionResponse
+from ..model.get_file_subscription_request import GetFileSubscriptionRequest
+from ..model.get_file_subscription_response import GetFileSubscriptionResponse
+from ..model.patch_file_subscription_request import PatchFileSubscriptionRequest
+from ..model.patch_file_subscription_response import PatchFileSubscriptionResponse
 
 
 class FileSubscription(object):
@@ -20,7 +20,10 @@ class FileSubscription(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateFileSubscriptionRequest,
-               option: RequestOption = RequestOption()) -> CreateFileSubscriptionResponse:
+               option: Optional[RequestOption] = None) -> CreateFileSubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class FileSubscription(object):
         return response
 
     def get(self, request: GetFileSubscriptionRequest,
-            option: RequestOption = RequestOption()) -> GetFileSubscriptionResponse:
+            option: Optional[RequestOption] = None) -> GetFileSubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class FileSubscription(object):
         return response
 
     def patch(self, request: PatchFileSubscriptionRequest,
-              option: RequestOption = RequestOption()) -> PatchFileSubscriptionResponse:
+              option: Optional[RequestOption] = None) -> PatchFileSubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

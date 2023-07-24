@@ -18,8 +18,8 @@ class ReadUserBatchMessageRequest(BaseRequest):
 
 class ReadUserBatchMessageRequestBuilder(object):
 
-    def __init__(self,
-                 read_user_batch_message_request: ReadUserBatchMessageRequest = ReadUserBatchMessageRequest()) -> None:
+    def __init__(self) -> None:
+        read_user_batch_message_request = ReadUserBatchMessageRequest()
         read_user_batch_message_request.http_method = HttpMethod.GET
         read_user_batch_message_request.uri = "/open-apis/im/v1/batch_messages/:batch_message_id/read_user"
         read_user_batch_message_request.token_types = {AccessTokenType.TENANT}

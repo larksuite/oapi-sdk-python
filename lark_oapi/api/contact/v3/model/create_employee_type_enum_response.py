@@ -12,7 +12,7 @@ class CreateEmployeeTypeEnumResponse(BaseResponse):
         "data": CreateEmployeeTypeEnumResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateEmployeeTypeEnumResponseBody] = None
         init(self, d, self._types)

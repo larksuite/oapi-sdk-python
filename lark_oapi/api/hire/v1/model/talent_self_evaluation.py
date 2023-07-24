@@ -13,7 +13,7 @@ class TalentSelfEvaluation(object):
         "customized_data": List[TalentCustomizedDataObjectValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.content: Optional[str] = None
         self.customized_data: Optional[List[TalentCustomizedDataObjectValue]] = None
@@ -25,8 +25,8 @@ class TalentSelfEvaluation(object):
 
 
 class TalentSelfEvaluationBuilder(object):
-    def __init__(self, talent_self_evaluation: TalentSelfEvaluation = TalentSelfEvaluation({})) -> None:
-        self._talent_self_evaluation: TalentSelfEvaluation = talent_self_evaluation
+    def __init__(self) -> None:
+        self._talent_self_evaluation = TalentSelfEvaluation()
 
     def id(self, id: str) -> "TalentSelfEvaluationBuilder":
         self._talent_self_evaluation.id = id

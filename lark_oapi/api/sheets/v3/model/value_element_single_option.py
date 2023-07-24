@@ -11,7 +11,7 @@ class ValueElementSingleOption(object):
         "data_validiton_value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data_validation_id: Optional[int] = None
         self.data_validiton_value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ValueElementSingleOption(object):
 
 
 class ValueElementSingleOptionBuilder(object):
-    def __init__(self, value_element_single_option: ValueElementSingleOption = ValueElementSingleOption({})) -> None:
-        self._value_element_single_option: ValueElementSingleOption = value_element_single_option
+    def __init__(self) -> None:
+        self._value_element_single_option = ValueElementSingleOption()
 
     def data_validation_id(self, data_validation_id: int) -> "ValueElementSingleOptionBuilder":
         self._value_element_single_option.data_validation_id = data_validation_id

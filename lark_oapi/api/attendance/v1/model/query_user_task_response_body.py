@@ -13,7 +13,7 @@ class QueryUserTaskResponseBody(object):
         "unauthorized_user_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_task_results: Optional[List[UserTask]] = None
         self.invalid_user_ids: Optional[List[str]] = None
         self.unauthorized_user_ids: Optional[List[str]] = None
@@ -25,9 +25,8 @@ class QueryUserTaskResponseBody(object):
 
 
 class QueryUserTaskResponseBodyBuilder(object):
-    def __init__(self,
-                 query_user_task_response_body: QueryUserTaskResponseBody = QueryUserTaskResponseBody({})) -> None:
-        self._query_user_task_response_body: QueryUserTaskResponseBody = query_user_task_response_body
+    def __init__(self) -> None:
+        self._query_user_task_response_body = QueryUserTaskResponseBody()
 
     def user_task_results(self, user_task_results: List[UserTask]) -> "QueryUserTaskResponseBodyBuilder":
         self._query_user_task_response_body.user_task_results = user_task_results

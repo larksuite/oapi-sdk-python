@@ -11,7 +11,7 @@ class ShortcutInfo(object):
         "target_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.target_type: Optional[str] = None
         self.target_token: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ShortcutInfo(object):
 
 
 class ShortcutInfoBuilder(object):
-    def __init__(self, shortcut_info: ShortcutInfo = ShortcutInfo({})) -> None:
-        self._shortcut_info: ShortcutInfo = shortcut_info
+    def __init__(self) -> None:
+        self._shortcut_info = ShortcutInfo()
 
     def target_type(self, target_type: str) -> "ShortcutInfoBuilder":
         self._shortcut_info.target_type = target_type

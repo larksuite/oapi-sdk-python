@@ -12,7 +12,7 @@ class Device(object):
         "device_sn": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.device_id: Optional[int] = None
         self.device_name: Optional[str] = None
         self.device_sn: Optional[str] = None
@@ -24,8 +24,8 @@ class Device(object):
 
 
 class DeviceBuilder(object):
-    def __init__(self, device: Device = Device({})) -> None:
-        self._device: Device = device
+    def __init__(self) -> None:
+        self._device = Device()
 
     def device_id(self, device_id: int) -> "DeviceBuilder":
         self._device.device_id = device_id

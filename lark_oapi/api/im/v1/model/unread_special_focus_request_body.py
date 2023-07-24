@@ -11,7 +11,7 @@ class UnreadSpecialFocusRequestBody(object):
         "chat_mode": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id_list: Optional[List[str]] = None
         self.chat_mode: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class UnreadSpecialFocusRequestBody(object):
 
 
 class UnreadSpecialFocusRequestBodyBuilder(object):
-    def __init__(self, unread_special_focus_request_body: UnreadSpecialFocusRequestBody = UnreadSpecialFocusRequestBody(
-        {})) -> None:
-        self._unread_special_focus_request_body: UnreadSpecialFocusRequestBody = unread_special_focus_request_body
+    def __init__(self) -> None:
+        self._unread_special_focus_request_body = UnreadSpecialFocusRequestBody()
 
     def id_list(self, id_list: List[str]) -> "UnreadSpecialFocusRequestBodyBuilder":
         self._unread_special_focus_request_body.id_list = id_list

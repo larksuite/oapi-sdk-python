@@ -10,7 +10,7 @@ class SearchGroupRequestBody(object):
         "group_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_name: Optional[str] = None
         self.exactly_matched: Optional[bool] = None
         init(self, d, self._types)
@@ -21,8 +21,8 @@ class SearchGroupRequestBody(object):
 
 
 class SearchGroupRequestBodyBuilder(object):
-    def __init__(self, search_group_request_body: SearchGroupRequestBody = SearchGroupRequestBody({})) -> None:
-        self._search_group_request_body: SearchGroupRequestBody = search_group_request_body
+    def __init__(self) -> None:
+        self._search_group_request_body = SearchGroupRequestBody()
 
     def group_name(self, group_name: str) -> "SearchGroupRequestBodyBuilder":
         self._search_group_request_body.group_name = group_name

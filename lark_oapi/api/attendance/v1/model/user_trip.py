@@ -15,7 +15,7 @@ class UserTrip(object):
         "approve_apply_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_id: Optional[str] = None
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
@@ -30,8 +30,8 @@ class UserTrip(object):
 
 
 class UserTripBuilder(object):
-    def __init__(self, user_trip: UserTrip = UserTrip({})) -> None:
-        self._user_trip: UserTrip = user_trip
+    def __init__(self) -> None:
+        self._user_trip = UserTrip()
 
     def approval_id(self, approval_id: str) -> "UserTripBuilder":
         self._user_trip.approval_id = approval_id

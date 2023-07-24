@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_working_hours_type_request import CreateWorkingHoursTypeRequest
-from lark_oapi.api.corehr.v1.model.create_working_hours_type_response import CreateWorkingHoursTypeResponse
-from lark_oapi.api.corehr.v1.model.delete_working_hours_type_request import DeleteWorkingHoursTypeRequest
-from lark_oapi.api.corehr.v1.model.delete_working_hours_type_response import DeleteWorkingHoursTypeResponse
-from lark_oapi.api.corehr.v1.model.get_working_hours_type_request import GetWorkingHoursTypeRequest
-from lark_oapi.api.corehr.v1.model.get_working_hours_type_response import GetWorkingHoursTypeResponse
-from lark_oapi.api.corehr.v1.model.list_working_hours_type_request import ListWorkingHoursTypeRequest
-from lark_oapi.api.corehr.v1.model.list_working_hours_type_response import ListWorkingHoursTypeResponse
-from lark_oapi.api.corehr.v1.model.patch_working_hours_type_request import PatchWorkingHoursTypeRequest
-from lark_oapi.api.corehr.v1.model.patch_working_hours_type_response import PatchWorkingHoursTypeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_working_hours_type_request import CreateWorkingHoursTypeRequest
+from ..model.create_working_hours_type_response import CreateWorkingHoursTypeResponse
+from ..model.delete_working_hours_type_request import DeleteWorkingHoursTypeRequest
+from ..model.delete_working_hours_type_response import DeleteWorkingHoursTypeResponse
+from ..model.get_working_hours_type_request import GetWorkingHoursTypeRequest
+from ..model.get_working_hours_type_response import GetWorkingHoursTypeResponse
+from ..model.list_working_hours_type_request import ListWorkingHoursTypeRequest
+from ..model.list_working_hours_type_response import ListWorkingHoursTypeResponse
+from ..model.patch_working_hours_type_request import PatchWorkingHoursTypeRequest
+from ..model.patch_working_hours_type_response import PatchWorkingHoursTypeResponse
 
 
 class WorkingHoursType(object):
@@ -24,7 +24,10 @@ class WorkingHoursType(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateWorkingHoursTypeRequest,
-               option: RequestOption = RequestOption()) -> CreateWorkingHoursTypeResponse:
+               option: Optional[RequestOption] = None) -> CreateWorkingHoursTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +42,10 @@ class WorkingHoursType(object):
         return response
 
     def delete(self, request: DeleteWorkingHoursTypeRequest,
-               option: RequestOption = RequestOption()) -> DeleteWorkingHoursTypeResponse:
+               option: Optional[RequestOption] = None) -> DeleteWorkingHoursTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -54,7 +60,10 @@ class WorkingHoursType(object):
         return response
 
     def get(self, request: GetWorkingHoursTypeRequest,
-            option: RequestOption = RequestOption()) -> GetWorkingHoursTypeResponse:
+            option: Optional[RequestOption] = None) -> GetWorkingHoursTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -68,7 +77,10 @@ class WorkingHoursType(object):
         return response
 
     def list(self, request: ListWorkingHoursTypeRequest,
-             option: RequestOption = RequestOption()) -> ListWorkingHoursTypeResponse:
+             option: Optional[RequestOption] = None) -> ListWorkingHoursTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -82,7 +94,10 @@ class WorkingHoursType(object):
         return response
 
     def patch(self, request: PatchWorkingHoursTypeRequest,
-              option: RequestOption = RequestOption()) -> PatchWorkingHoursTypeResponse:
+              option: Optional[RequestOption] = None) -> PatchWorkingHoursTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -12,7 +12,7 @@ class EcoExamPaper(object):
         "paper_list": List[EcoExamPaperData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.account_id: Optional[str] = None
         self.paper_list: Optional[List[EcoExamPaperData]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class EcoExamPaper(object):
 
 
 class EcoExamPaperBuilder(object):
-    def __init__(self, eco_exam_paper: EcoExamPaper = EcoExamPaper({})) -> None:
-        self._eco_exam_paper: EcoExamPaper = eco_exam_paper
+    def __init__(self) -> None:
+        self._eco_exam_paper = EcoExamPaper()
 
     def account_id(self, account_id: str) -> "EcoExamPaperBuilder":
         self._eco_exam_paper.account_id = account_id

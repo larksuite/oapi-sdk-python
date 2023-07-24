@@ -13,7 +13,7 @@ class ApprovalSetting(object):
         "quick_approval_option": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.revert_interval: Optional[int] = None
         self.revert_option: Optional[int] = None
         self.reject_option: Optional[int] = None
@@ -26,8 +26,8 @@ class ApprovalSetting(object):
 
 
 class ApprovalSettingBuilder(object):
-    def __init__(self, approval_setting: ApprovalSetting = ApprovalSetting({})) -> None:
-        self._approval_setting: ApprovalSetting = approval_setting
+    def __init__(self) -> None:
+        self._approval_setting = ApprovalSetting()
 
     def revert_interval(self, revert_interval: int) -> "ApprovalSettingBuilder":
         self._approval_setting.revert_interval = revert_interval

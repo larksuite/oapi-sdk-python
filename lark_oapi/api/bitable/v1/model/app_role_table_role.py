@@ -18,7 +18,7 @@ class AppRoleTableRole(object):
         "allow_delete_record": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.table_name: Optional[str] = None
         self.table_id: Optional[str] = None
         self.table_perm: Optional[int] = None
@@ -34,8 +34,8 @@ class AppRoleTableRole(object):
 
 
 class AppRoleTableRoleBuilder(object):
-    def __init__(self, app_role_table_role: AppRoleTableRole = AppRoleTableRole({})) -> None:
-        self._app_role_table_role: AppRoleTableRole = app_role_table_role
+    def __init__(self) -> None:
+        self._app_role_table_role = AppRoleTableRole()
 
     def table_name(self, table_name: str) -> "AppRoleTableRoleBuilder":
         self._app_role_table_role.table_name = table_name

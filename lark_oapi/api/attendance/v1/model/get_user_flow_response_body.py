@@ -22,7 +22,7 @@ class GetUserFlowResponseBody(object):
         "check_result": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.creator_id: Optional[str] = None
         self.location_name: Optional[str] = None
@@ -47,8 +47,8 @@ class GetUserFlowResponseBody(object):
 
 
 class GetUserFlowResponseBodyBuilder(object):
-    def __init__(self, get_user_flow_response_body: GetUserFlowResponseBody = GetUserFlowResponseBody({})) -> None:
-        self._get_user_flow_response_body: GetUserFlowResponseBody = get_user_flow_response_body
+    def __init__(self) -> None:
+        self._get_user_flow_response_body = GetUserFlowResponseBody()
 
     def user_id(self, user_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.user_id = user_id

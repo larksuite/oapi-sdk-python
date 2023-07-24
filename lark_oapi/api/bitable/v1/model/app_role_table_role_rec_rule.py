@@ -13,7 +13,7 @@ class AppRoleTableRoleRecRule(object):
         "other_perm": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.conditions: Optional[List[AppRoleTableRoleRecRuleCondition]] = None
         self.conjunction: Optional[str] = None
         self.other_perm: Optional[int] = None
@@ -25,8 +25,8 @@ class AppRoleTableRoleRecRule(object):
 
 
 class AppRoleTableRoleRecRuleBuilder(object):
-    def __init__(self, app_role_table_role_rec_rule: AppRoleTableRoleRecRule = AppRoleTableRoleRecRule({})) -> None:
-        self._app_role_table_role_rec_rule: AppRoleTableRoleRecRule = app_role_table_role_rec_rule
+    def __init__(self) -> None:
+        self._app_role_table_role_rec_rule = AppRoleTableRoleRecRule()
 
     def conditions(self, conditions: List[AppRoleTableRoleRecRuleCondition]) -> "AppRoleTableRoleRecRuleBuilder":
         self._app_role_table_role_rec_rule.conditions = conditions

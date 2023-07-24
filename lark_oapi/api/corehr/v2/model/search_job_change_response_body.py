@@ -13,7 +13,7 @@ class SearchJobChangeResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[JobChange]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,9 +25,8 @@ class SearchJobChangeResponseBody(object):
 
 
 class SearchJobChangeResponseBodyBuilder(object):
-    def __init__(self, search_job_change_response_body: SearchJobChangeResponseBody = SearchJobChangeResponseBody(
-        {})) -> None:
-        self._search_job_change_response_body: SearchJobChangeResponseBody = search_job_change_response_body
+    def __init__(self) -> None:
+        self._search_job_change_response_body = SearchJobChangeResponseBody()
 
     def items(self, items: List[JobChange]) -> "SearchJobChangeResponseBodyBuilder":
         self._search_job_change_response_body.items = items

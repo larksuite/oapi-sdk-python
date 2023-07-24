@@ -16,7 +16,7 @@ class WebsiteDeliveryDto(object):
         "talent_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.application_id: Optional[str] = None
         self.id: Optional[str] = None
         self.job_id: Optional[str] = None
@@ -32,8 +32,8 @@ class WebsiteDeliveryDto(object):
 
 
 class WebsiteDeliveryDtoBuilder(object):
-    def __init__(self, website_delivery_dto: WebsiteDeliveryDto = WebsiteDeliveryDto({})) -> None:
-        self._website_delivery_dto: WebsiteDeliveryDto = website_delivery_dto
+    def __init__(self) -> None:
+        self._website_delivery_dto = WebsiteDeliveryDto()
 
     def application_id(self, application_id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.application_id = application_id

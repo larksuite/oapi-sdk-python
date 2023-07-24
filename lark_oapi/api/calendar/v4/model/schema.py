@@ -12,7 +12,7 @@ class Schema(object):
         "app_link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ui_name: Optional[str] = None
         self.ui_status: Optional[str] = None
         self.app_link: Optional[str] = None
@@ -24,8 +24,8 @@ class Schema(object):
 
 
 class SchemaBuilder(object):
-    def __init__(self, schema: Schema = Schema({})) -> None:
-        self._schema: Schema = schema
+    def __init__(self) -> None:
+        self._schema = Schema()
 
     def ui_name(self, ui_name: str) -> "SchemaBuilder":
         self._schema.ui_name = ui_name

@@ -13,7 +13,7 @@ class Doc(object):
         "chunks": List[Chunk],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.doc_id: Optional[str] = None
         self.filter_data: Optional[str] = None
         self.chunks: Optional[List[Chunk]] = None
@@ -25,8 +25,8 @@ class Doc(object):
 
 
 class DocBuilder(object):
-    def __init__(self, doc: Doc = Doc({})) -> None:
-        self._doc: Doc = doc
+    def __init__(self) -> None:
+        self._doc = Doc()
 
     def doc_id(self, doc_id: str) -> "DocBuilder":
         self._doc.doc_id = doc_id

@@ -11,7 +11,7 @@ class ToolkitCallback(object):
         "action_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.webhook: Optional[str] = None
         self.action_key: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ToolkitCallback(object):
 
 
 class ToolkitCallbackBuilder(object):
-    def __init__(self, toolkit_callback: ToolkitCallback = ToolkitCallback({})) -> None:
-        self._toolkit_callback: ToolkitCallback = toolkit_callback
+    def __init__(self) -> None:
+        self._toolkit_callback = ToolkitCallback()
 
     def webhook(self, webhook: str) -> "ToolkitCallbackBuilder":
         self._toolkit_callback.webhook = webhook

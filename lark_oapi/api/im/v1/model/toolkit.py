@@ -19,7 +19,7 @@ class Toolkit(object):
         "callback": ToolkitCallback,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.toolkit_id: Optional[int] = None
         self.image_key: Optional[str] = None
         self.toolkit_name: Optional[str] = None
@@ -35,8 +35,8 @@ class Toolkit(object):
 
 
 class ToolkitBuilder(object):
-    def __init__(self, toolkit: Toolkit = Toolkit({})) -> None:
-        self._toolkit: Toolkit = toolkit
+    def __init__(self) -> None:
+        self._toolkit = Toolkit()
 
     def toolkit_id(self, toolkit_id: int) -> "ToolkitBuilder":
         self._toolkit.toolkit_id = toolkit_id

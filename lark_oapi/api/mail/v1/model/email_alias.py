@@ -11,7 +11,7 @@ class EmailAlias(object):
         "email_alias": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.primary_email: Optional[str] = None
         self.email_alias: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class EmailAlias(object):
 
 
 class EmailAliasBuilder(object):
-    def __init__(self, email_alias: EmailAlias = EmailAlias({})) -> None:
-        self._email_alias: EmailAlias = email_alias
+    def __init__(self) -> None:
+        self._email_alias = EmailAlias()
 
     def primary_email(self, primary_email: str) -> "EmailAliasBuilder":
         self._email_alias.primary_email = primary_email

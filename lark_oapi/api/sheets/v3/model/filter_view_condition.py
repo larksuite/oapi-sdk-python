@@ -13,7 +13,7 @@ class FilterViewCondition(object):
         "expected": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.condition_id: Optional[str] = None
         self.filter_type: Optional[str] = None
         self.compare_type: Optional[str] = None
@@ -26,8 +26,8 @@ class FilterViewCondition(object):
 
 
 class FilterViewConditionBuilder(object):
-    def __init__(self, filter_view_condition: FilterViewCondition = FilterViewCondition({})) -> None:
-        self._filter_view_condition: FilterViewCondition = filter_view_condition
+    def __init__(self) -> None:
+        self._filter_view_condition = FilterViewCondition()
 
     def condition_id(self, condition_id: str) -> "FilterViewConditionBuilder":
         self._filter_view_condition.condition_id = condition_id

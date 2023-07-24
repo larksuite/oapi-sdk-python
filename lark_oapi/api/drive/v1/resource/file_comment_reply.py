@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.delete_file_comment_reply_request import DeleteFileCommentReplyRequest
-from lark_oapi.api.drive.v1.model.delete_file_comment_reply_response import DeleteFileCommentReplyResponse
-from lark_oapi.api.drive.v1.model.update_file_comment_reply_request import UpdateFileCommentReplyRequest
-from lark_oapi.api.drive.v1.model.update_file_comment_reply_response import UpdateFileCommentReplyResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.delete_file_comment_reply_request import DeleteFileCommentReplyRequest
+from ..model.delete_file_comment_reply_response import DeleteFileCommentReplyResponse
+from ..model.update_file_comment_reply_request import UpdateFileCommentReplyRequest
+from ..model.update_file_comment_reply_response import UpdateFileCommentReplyResponse
 
 
 class FileCommentReply(object):
@@ -18,7 +18,10 @@ class FileCommentReply(object):
         self.config: Optional[Config] = config
 
     def delete(self, request: DeleteFileCommentReplyRequest,
-               option: RequestOption = RequestOption()) -> DeleteFileCommentReplyResponse:
+               option: Optional[RequestOption] = None) -> DeleteFileCommentReplyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class FileCommentReply(object):
         return response
 
     def update(self, request: UpdateFileCommentReplyRequest,
-               option: RequestOption = RequestOption()) -> UpdateFileCommentReplyResponse:
+               option: Optional[RequestOption] = None) -> UpdateFileCommentReplyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

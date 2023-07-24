@@ -13,7 +13,7 @@ class QueryUserTaskRequestBody(object):
         "need_overtime_result": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_ids: Optional[List[str]] = None
         self.check_date_from: Optional[int] = None
         self.check_date_to: Optional[int] = None
@@ -26,8 +26,8 @@ class QueryUserTaskRequestBody(object):
 
 
 class QueryUserTaskRequestBodyBuilder(object):
-    def __init__(self, query_user_task_request_body: QueryUserTaskRequestBody = QueryUserTaskRequestBody({})) -> None:
-        self._query_user_task_request_body: QueryUserTaskRequestBody = query_user_task_request_body
+    def __init__(self) -> None:
+        self._query_user_task_request_body = QueryUserTaskRequestBody()
 
     def user_ids(self, user_ids: List[str]) -> "QueryUserTaskRequestBodyBuilder":
         self._query_user_task_request_body.user_ids = user_ids

@@ -15,7 +15,7 @@ class SearchDepartmentRequestBody(object):
         "fields": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.get_all_children: Optional[bool] = None
         self.manager_list: Optional[List[str]] = None
         self.department_id_list: Optional[List[str]] = None
@@ -32,9 +32,8 @@ class SearchDepartmentRequestBody(object):
 
 
 class SearchDepartmentRequestBodyBuilder(object):
-    def __init__(self,
-                 search_department_request_body: SearchDepartmentRequestBody = SearchDepartmentRequestBody({})) -> None:
-        self._search_department_request_body: SearchDepartmentRequestBody = search_department_request_body
+    def __init__(self) -> None:
+        self._search_department_request_body = SearchDepartmentRequestBody()
 
     def manager_list(self, manager_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.manager_list = manager_list

@@ -10,7 +10,7 @@ class WikiCatalog(object):
         "wiki_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.wiki_token: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class WikiCatalog(object):
 
 
 class WikiCatalogBuilder(object):
-    def __init__(self, wiki_catalog: WikiCatalog = WikiCatalog({})) -> None:
-        self._wiki_catalog: WikiCatalog = wiki_catalog
+    def __init__(self) -> None:
+        self._wiki_catalog = WikiCatalog()
 
     def wiki_token(self, wiki_token: str) -> "WikiCatalogBuilder":
         self._wiki_catalog.wiki_token = wiki_token

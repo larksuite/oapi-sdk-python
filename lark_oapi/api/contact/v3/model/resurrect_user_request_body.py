@@ -12,7 +12,7 @@ class ResurrectUserRequestBody(object):
         "subscription_ids": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.departments: Optional[List[UserDepartmentInfo]] = None
         self.subscription_ids: Optional[List[int]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ResurrectUserRequestBody(object):
 
 
 class ResurrectUserRequestBodyBuilder(object):
-    def __init__(self, resurrect_user_request_body: ResurrectUserRequestBody = ResurrectUserRequestBody({})) -> None:
-        self._resurrect_user_request_body: ResurrectUserRequestBody = resurrect_user_request_body
+    def __init__(self) -> None:
+        self._resurrect_user_request_body = ResurrectUserRequestBody()
 
     def departments(self, departments: List[UserDepartmentInfo]) -> "ResurrectUserRequestBodyBuilder":
         self._resurrect_user_request_body.departments = departments

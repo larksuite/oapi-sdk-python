@@ -11,7 +11,7 @@ class NativeRegion(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.iso_code: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class NativeRegion(object):
 
 
 class NativeRegionBuilder(object):
-    def __init__(self, native_region: NativeRegion = NativeRegion({})) -> None:
-        self._native_region: NativeRegion = native_region
+    def __init__(self) -> None:
+        self._native_region = NativeRegion()
 
     def iso_code(self, iso_code: str) -> "NativeRegionBuilder":
         self._native_region.iso_code = iso_code

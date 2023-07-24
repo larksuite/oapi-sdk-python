@@ -11,7 +11,7 @@ class AddSheet(object):
         "index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.index: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AddSheet(object):
 
 
 class AddSheetBuilder(object):
-    def __init__(self, add_sheet: AddSheet = AddSheet({})) -> None:
-        self._add_sheet: AddSheet = add_sheet
+    def __init__(self) -> None:
+        self._add_sheet = AddSheet()
 
     def title(self, title: str) -> "AddSheetBuilder":
         self._add_sheet.title = title

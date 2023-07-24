@@ -15,7 +15,7 @@ class LocationBaseInfo(object):
         "py_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -30,8 +30,8 @@ class LocationBaseInfo(object):
 
 
 class LocationBaseInfoBuilder(object):
-    def __init__(self, location_base_info: LocationBaseInfo = LocationBaseInfo({})) -> None:
-        self._location_base_info: LocationBaseInfo = location_base_info
+    def __init__(self) -> None:
+        self._location_base_info = LocationBaseInfo()
 
     def code(self, code: str) -> "LocationBaseInfoBuilder":
         self._location_base_info.code = code

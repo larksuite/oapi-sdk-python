@@ -15,7 +15,7 @@ class ApplicationPrehireOffer(object):
         "attachment_list": List[ApplicationOfferAttachment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.basic_info: Optional[ApplicationPrehireOfferBasic] = None
         self.offer_onboard_profile: Optional[AppliOfferOnboardProfile] = None
         self.attachment_list: Optional[List[ApplicationOfferAttachment]] = None
@@ -27,8 +27,8 @@ class ApplicationPrehireOffer(object):
 
 
 class ApplicationPrehireOfferBuilder(object):
-    def __init__(self, application_prehire_offer: ApplicationPrehireOffer = ApplicationPrehireOffer({})) -> None:
-        self._application_prehire_offer: ApplicationPrehireOffer = application_prehire_offer
+    def __init__(self) -> None:
+        self._application_prehire_offer = ApplicationPrehireOffer()
 
     def basic_info(self, basic_info: ApplicationPrehireOfferBasic) -> "ApplicationPrehireOfferBuilder":
         self._application_prehire_offer.basic_info = basic_info

@@ -14,7 +14,7 @@ class ListAppTableFormFieldResponseBody(object):
         "total": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[AppTableFormField]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -27,10 +27,8 @@ class ListAppTableFormFieldResponseBody(object):
 
 
 class ListAppTableFormFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 list_app_table_form_field_response_body: ListAppTableFormFieldResponseBody = ListAppTableFormFieldResponseBody(
-                     {})) -> None:
-        self._list_app_table_form_field_response_body: ListAppTableFormFieldResponseBody = list_app_table_form_field_response_body
+    def __init__(self) -> None:
+        self._list_app_table_form_field_response_body = ListAppTableFormFieldResponseBody()
 
     def items(self, items: List[AppTableFormField]) -> "ListAppTableFormFieldResponseBodyBuilder":
         self._list_app_table_form_field_response_body.items = items

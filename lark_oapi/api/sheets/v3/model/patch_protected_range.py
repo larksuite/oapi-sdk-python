@@ -14,7 +14,7 @@ class PatchProtectedRange(object):
         "protected_columns": ProtectedColumns,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.description: Optional[str] = None
         self.protected_rows: Optional[ProtectedRows] = None
         self.protected_columns: Optional[ProtectedColumns] = None
@@ -26,8 +26,8 @@ class PatchProtectedRange(object):
 
 
 class PatchProtectedRangeBuilder(object):
-    def __init__(self, patch_protected_range: PatchProtectedRange = PatchProtectedRange({})) -> None:
-        self._patch_protected_range: PatchProtectedRange = patch_protected_range
+    def __init__(self) -> None:
+        self._patch_protected_range = PatchProtectedRange()
 
     def description(self, description: str) -> "PatchProtectedRangeBuilder":
         self._patch_protected_range.description = description

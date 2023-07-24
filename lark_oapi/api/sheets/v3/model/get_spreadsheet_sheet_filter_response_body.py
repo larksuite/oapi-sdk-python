@@ -11,7 +11,7 @@ class GetSpreadsheetSheetFilterResponseBody(object):
         "sheet_filter_info": SheetFilterInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sheet_filter_info: Optional[SheetFilterInfo] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetSpreadsheetSheetFilterResponseBody(object):
 
 
 class GetSpreadsheetSheetFilterResponseBodyBuilder(object):
-    def __init__(self,
-                 get_spreadsheet_sheet_filter_response_body: GetSpreadsheetSheetFilterResponseBody = GetSpreadsheetSheetFilterResponseBody(
-                     {})) -> None:
-        self._get_spreadsheet_sheet_filter_response_body: GetSpreadsheetSheetFilterResponseBody = get_spreadsheet_sheet_filter_response_body
+    def __init__(self) -> None:
+        self._get_spreadsheet_sheet_filter_response_body = GetSpreadsheetSheetFilterResponseBody()
 
     def sheet_filter_info(self, sheet_filter_info: SheetFilterInfo) -> "GetSpreadsheetSheetFilterResponseBodyBuilder":
         self._get_spreadsheet_sheet_filter_response_body.sheet_filter_info = sheet_filter_info

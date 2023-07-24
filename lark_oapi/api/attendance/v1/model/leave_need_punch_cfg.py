@@ -13,7 +13,7 @@ class LeaveNeedPunchCfg(object):
         "early_minutes_as_lack": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.late_minutes_as_late: Optional[int] = None
         self.late_minutes_as_lack: Optional[int] = None
         self.early_minutes_as_early: Optional[int] = None
@@ -26,8 +26,8 @@ class LeaveNeedPunchCfg(object):
 
 
 class LeaveNeedPunchCfgBuilder(object):
-    def __init__(self, leave_need_punch_cfg: LeaveNeedPunchCfg = LeaveNeedPunchCfg({})) -> None:
-        self._leave_need_punch_cfg: LeaveNeedPunchCfg = leave_need_punch_cfg
+    def __init__(self) -> None:
+        self._leave_need_punch_cfg = LeaveNeedPunchCfg()
 
     def late_minutes_as_late(self, late_minutes_as_late: int) -> "LeaveNeedPunchCfgBuilder":
         self._leave_need_punch_cfg.late_minutes_as_late = late_minutes_as_late

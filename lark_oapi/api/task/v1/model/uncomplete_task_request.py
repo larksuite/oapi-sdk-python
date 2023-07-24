@@ -18,7 +18,8 @@ class UncompleteTaskRequest(BaseRequest):
 
 class UncompleteTaskRequestBuilder(object):
 
-    def __init__(self, uncomplete_task_request: UncompleteTaskRequest = UncompleteTaskRequest()) -> None:
+    def __init__(self) -> None:
+        uncomplete_task_request = UncompleteTaskRequest()
         uncomplete_task_request.http_method = HttpMethod.POST
         uncomplete_task_request.uri = "/open-apis/task/v1/tasks/:task_id/uncomplete"
         uncomplete_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -15,7 +15,7 @@ class MentionDoc(object):
         "text_element_style": TextElementStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.obj_type: Optional[int] = None
         self.url: Optional[str] = None
@@ -29,8 +29,8 @@ class MentionDoc(object):
 
 
 class MentionDocBuilder(object):
-    def __init__(self, mention_doc: MentionDoc = MentionDoc({})) -> None:
-        self._mention_doc: MentionDoc = mention_doc
+    def __init__(self) -> None:
+        self._mention_doc = MentionDoc()
 
     def token(self, token: str) -> "MentionDocBuilder":
         self._mention_doc.token = token

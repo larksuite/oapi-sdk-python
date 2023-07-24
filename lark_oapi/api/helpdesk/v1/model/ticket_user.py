@@ -16,7 +16,7 @@ class TicketUser(object):
         "country": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.avatar_url: Optional[str] = None
         self.name: Optional[str] = None
@@ -32,8 +32,8 @@ class TicketUser(object):
 
 
 class TicketUserBuilder(object):
-    def __init__(self, ticket_user: TicketUser = TicketUser({})) -> None:
-        self._ticket_user: TicketUser = ticket_user
+    def __init__(self) -> None:
+        self._ticket_user = TicketUser()
 
     def id(self, id: str) -> "TicketUserBuilder":
         self._ticket_user.id = id

@@ -12,7 +12,7 @@ class ListChatResponse(BaseResponse):
         "data": ListChatResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListChatResponseBody] = None
         init(self, d, self._types)

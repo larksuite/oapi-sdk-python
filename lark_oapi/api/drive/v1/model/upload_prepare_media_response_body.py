@@ -12,7 +12,7 @@ class UploadPrepareMediaResponseBody(object):
         "block_num": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.upload_id: Optional[str] = None
         self.block_size: Optional[int] = None
         self.block_num: Optional[int] = None
@@ -24,10 +24,8 @@ class UploadPrepareMediaResponseBody(object):
 
 
 class UploadPrepareMediaResponseBodyBuilder(object):
-    def __init__(self,
-                 upload_prepare_media_response_body: UploadPrepareMediaResponseBody = UploadPrepareMediaResponseBody(
-                     {})) -> None:
-        self._upload_prepare_media_response_body: UploadPrepareMediaResponseBody = upload_prepare_media_response_body
+    def __init__(self) -> None:
+        self._upload_prepare_media_response_body = UploadPrepareMediaResponseBody()
 
     def upload_id(self, upload_id: str) -> "UploadPrepareMediaResponseBodyBuilder":
         self._upload_prepare_media_response_body.upload_id = upload_id

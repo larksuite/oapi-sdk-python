@@ -10,7 +10,7 @@ class View(object):
         "view_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view_type: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class View(object):
 
 
 class ViewBuilder(object):
-    def __init__(self, view: View = View({})) -> None:
-        self._view: View = view
+    def __init__(self) -> None:
+        self._view = View()
 
     def view_type(self, view_type: int) -> "ViewBuilder":
         self._view.view_type = view_type

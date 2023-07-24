@@ -20,8 +20,8 @@ class BindUserAuthDataRelationRequest(BaseRequest):
 
 class BindUserAuthDataRelationRequestBuilder(object):
 
-    def __init__(self,
-                 bind_user_auth_data_relation_request: BindUserAuthDataRelationRequest = BindUserAuthDataRelationRequest()) -> None:
+    def __init__(self) -> None:
+        bind_user_auth_data_relation_request = BindUserAuthDataRelationRequest()
         bind_user_auth_data_relation_request.http_method = HttpMethod.POST
         bind_user_auth_data_relation_request.uri = "/open-apis/mdm/v1/user_auth_data_relations/bind"
         bind_user_auth_data_relation_request.token_types = {AccessTokenType.TENANT}

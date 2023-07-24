@@ -18,7 +18,8 @@ class GetLocationRequest(BaseRequest):
 
 class GetLocationRequestBuilder(object):
 
-    def __init__(self, get_location_request: GetLocationRequest = GetLocationRequest()) -> None:
+    def __init__(self) -> None:
+        get_location_request = GetLocationRequest()
         get_location_request.http_method = HttpMethod.GET
         get_location_request.uri = "/open-apis/corehr/v1/locations/:location_id"
         get_location_request.token_types = {AccessTokenType.TENANT}

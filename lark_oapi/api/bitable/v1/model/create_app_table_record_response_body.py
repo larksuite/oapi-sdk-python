@@ -11,7 +11,7 @@ class CreateAppTableRecordResponseBody(object):
         "record": AppTableRecord,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.record: Optional[AppTableRecord] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateAppTableRecordResponseBody(object):
 
 
 class CreateAppTableRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 create_app_table_record_response_body: CreateAppTableRecordResponseBody = CreateAppTableRecordResponseBody(
-                     {})) -> None:
-        self._create_app_table_record_response_body: CreateAppTableRecordResponseBody = create_app_table_record_response_body
+    def __init__(self) -> None:
+        self._create_app_table_record_response_body = CreateAppTableRecordResponseBody()
 
     def record(self, record: AppTableRecord) -> "CreateAppTableRecordResponseBodyBuilder":
         self._create_app_table_record_response_body.record = record

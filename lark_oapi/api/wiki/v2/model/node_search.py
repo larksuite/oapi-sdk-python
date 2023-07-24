@@ -20,7 +20,7 @@ class NodeSearch(object):
         "obj_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node_id: Optional[str] = None
         self.space_id: Optional[str] = None
         self.parent_id: Optional[str] = None
@@ -40,8 +40,8 @@ class NodeSearch(object):
 
 
 class NodeSearchBuilder(object):
-    def __init__(self, node_search: NodeSearch = NodeSearch({})) -> None:
-        self._node_search: NodeSearch = node_search
+    def __init__(self) -> None:
+        self._node_search = NodeSearch()
 
     def node_id(self, node_id: str) -> "NodeSearchBuilder":
         self._node_search.node_id = node_id

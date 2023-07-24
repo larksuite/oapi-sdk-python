@@ -12,7 +12,7 @@ class Term(object):
         "display_status": DisplayStatus,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.display_status: Optional[DisplayStatus] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Term(object):
 
 
 class TermBuilder(object):
-    def __init__(self, term: Term = Term({})) -> None:
-        self._term: Term = term
+    def __init__(self) -> None:
+        self._term = Term()
 
     def key(self, key: str) -> "TermBuilder":
         self._term.key = key

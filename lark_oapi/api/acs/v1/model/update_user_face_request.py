@@ -21,7 +21,8 @@ class UpdateUserFaceRequest(BaseRequest):
 
 class UpdateUserFaceRequestBuilder(object):
 
-    def __init__(self, update_user_face_request: UpdateUserFaceRequest = UpdateUserFaceRequest()) -> None:
+    def __init__(self) -> None:
+        update_user_face_request = UpdateUserFaceRequest()
         update_user_face_request.http_method = HttpMethod.PUT
         update_user_face_request.uri = "/open-apis/acs/v1/users/:user_id/face"
         update_user_face_request.token_types = {AccessTokenType.TENANT}

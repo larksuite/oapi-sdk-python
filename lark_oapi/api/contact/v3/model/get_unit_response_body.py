@@ -11,7 +11,7 @@ class GetUnitResponseBody(object):
         "unit": Unit,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.unit: Optional[Unit] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetUnitResponseBody(object):
 
 
 class GetUnitResponseBodyBuilder(object):
-    def __init__(self, get_unit_response_body: GetUnitResponseBody = GetUnitResponseBody({})) -> None:
-        self._get_unit_response_body: GetUnitResponseBody = get_unit_response_body
+    def __init__(self) -> None:
+        self._get_unit_response_body = GetUnitResponseBody()
 
     def unit(self, unit: Unit) -> "GetUnitResponseBodyBuilder":
         self._get_unit_response_body.unit = unit

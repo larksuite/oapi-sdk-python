@@ -10,7 +10,7 @@ class ListByIdJobRequirementRequestBody(object):
         "id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class ListByIdJobRequirementRequestBody(object):
 
 
 class ListByIdJobRequirementRequestBodyBuilder(object):
-    def __init__(self,
-                 list_by_id_job_requirement_request_body: ListByIdJobRequirementRequestBody = ListByIdJobRequirementRequestBody(
-                     {})) -> None:
-        self._list_by_id_job_requirement_request_body: ListByIdJobRequirementRequestBody = list_by_id_job_requirement_request_body
+    def __init__(self) -> None:
+        self._list_by_id_job_requirement_request_body = ListByIdJobRequirementRequestBody()
 
     def id_list(self, id_list: List[str]) -> "ListByIdJobRequirementRequestBodyBuilder":
         self._list_by_id_job_requirement_request_body.id_list = id_list

@@ -11,7 +11,7 @@ class UpdateUserStatsViewRequestBody(object):
         "view": UserStatsView,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view: Optional[UserStatsView] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class UpdateUserStatsViewRequestBody(object):
 
 
 class UpdateUserStatsViewRequestBodyBuilder(object):
-    def __init__(self,
-                 update_user_stats_view_request_body: UpdateUserStatsViewRequestBody = UpdateUserStatsViewRequestBody(
-                     {})) -> None:
-        self._update_user_stats_view_request_body: UpdateUserStatsViewRequestBody = update_user_stats_view_request_body
+    def __init__(self) -> None:
+        self._update_user_stats_view_request_body = UpdateUserStatsViewRequestBody()
 
     def view(self, view: UserStatsView) -> "UpdateUserStatsViewRequestBodyBuilder":
         self._update_user_stats_view_request_body.view = view

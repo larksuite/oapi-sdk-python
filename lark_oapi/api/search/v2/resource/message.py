@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.search.v2.model.create_message_request import CreateMessageRequest
-from lark_oapi.api.search.v2.model.create_message_response import CreateMessageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_message_request import CreateMessageRequest
+from ..model.create_message_response import CreateMessageResponse
 
 
 class Message(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateMessageRequest, option: RequestOption = RequestOption()) -> CreateMessageResponse:
+    def create(self, request: CreateMessageRequest, option: Optional[RequestOption] = None) -> CreateMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

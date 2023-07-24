@@ -11,7 +11,7 @@ class ApplicationAppUsage(object):
         "metric_value": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_name: Optional[str] = None
         self.metric_value: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ApplicationAppUsage(object):
 
 
 class ApplicationAppUsageBuilder(object):
-    def __init__(self, application_app_usage: ApplicationAppUsage = ApplicationAppUsage({})) -> None:
-        self._application_app_usage: ApplicationAppUsage = application_app_usage
+    def __init__(self) -> None:
+        self._application_app_usage = ApplicationAppUsage()
 
     def metric_name(self, metric_name: str) -> "ApplicationAppUsageBuilder":
         self._application_app_usage.metric_name = metric_name

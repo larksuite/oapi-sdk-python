@@ -20,7 +20,7 @@ class SubmitOffboardingRequestBody(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offboarding_mode: Optional[int] = None
         self.employment_id: Optional[str] = None
         self.offboarding_date: Optional[str] = None
@@ -39,9 +39,8 @@ class SubmitOffboardingRequestBody(object):
 
 
 class SubmitOffboardingRequestBodyBuilder(object):
-    def __init__(self, submit_offboarding_request_body: SubmitOffboardingRequestBody = SubmitOffboardingRequestBody(
-        {})) -> None:
-        self._submit_offboarding_request_body: SubmitOffboardingRequestBody = submit_offboarding_request_body
+    def __init__(self) -> None:
+        self._submit_offboarding_request_body = SubmitOffboardingRequestBody()
 
     def offboarding_mode(self, offboarding_mode: int) -> "SubmitOffboardingRequestBodyBuilder":
         self._submit_offboarding_request_body.offboarding_mode = offboarding_mode

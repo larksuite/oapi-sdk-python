@@ -19,7 +19,8 @@ class ListEmployeeTypeRequest(BaseRequest):
 
 class ListEmployeeTypeRequestBuilder(object):
 
-    def __init__(self, list_employee_type_request: ListEmployeeTypeRequest = ListEmployeeTypeRequest()) -> None:
+    def __init__(self) -> None:
+        list_employee_type_request = ListEmployeeTypeRequest()
         list_employee_type_request.http_method = HttpMethod.GET
         list_employee_type_request.uri = "/open-apis/corehr/v1/employee_types"
         list_employee_type_request.token_types = {AccessTokenType.TENANT}

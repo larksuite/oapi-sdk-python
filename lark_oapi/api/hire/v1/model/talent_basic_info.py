@@ -33,7 +33,7 @@ class TalentBasicInfo(object):
         "modify_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.mobile: Optional[str] = None
         self.mobile_code: Optional[str] = None
@@ -63,8 +63,8 @@ class TalentBasicInfo(object):
 
 
 class TalentBasicInfoBuilder(object):
-    def __init__(self, talent_basic_info: TalentBasicInfo = TalentBasicInfo({})) -> None:
-        self._talent_basic_info: TalentBasicInfo = talent_basic_info
+    def __init__(self) -> None:
+        self._talent_basic_info = TalentBasicInfo()
 
     def name(self, name: str) -> "TalentBasicInfoBuilder":
         self._talent_basic_info.name = name

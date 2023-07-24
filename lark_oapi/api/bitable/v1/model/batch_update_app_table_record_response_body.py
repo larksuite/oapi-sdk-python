@@ -11,7 +11,7 @@ class BatchUpdateAppTableRecordResponseBody(object):
         "records": List[AppTableRecord],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.records: Optional[List[AppTableRecord]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchUpdateAppTableRecordResponseBody(object):
 
 
 class BatchUpdateAppTableRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_update_app_table_record_response_body: BatchUpdateAppTableRecordResponseBody = BatchUpdateAppTableRecordResponseBody(
-                     {})) -> None:
-        self._batch_update_app_table_record_response_body: BatchUpdateAppTableRecordResponseBody = batch_update_app_table_record_response_body
+    def __init__(self) -> None:
+        self._batch_update_app_table_record_response_body = BatchUpdateAppTableRecordResponseBody()
 
     def records(self, records: List[AppTableRecord]) -> "BatchUpdateAppTableRecordResponseBodyBuilder":
         self._batch_update_app_table_record_response_body.records = records

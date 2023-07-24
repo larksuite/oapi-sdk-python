@@ -10,7 +10,7 @@ class SearchCalendarRequestBody(object):
         "query": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.query: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class SearchCalendarRequestBody(object):
 
 
 class SearchCalendarRequestBodyBuilder(object):
-    def __init__(self, search_calendar_request_body: SearchCalendarRequestBody = SearchCalendarRequestBody({})) -> None:
-        self._search_calendar_request_body: SearchCalendarRequestBody = search_calendar_request_body
+    def __init__(self) -> None:
+        self._search_calendar_request_body = SearchCalendarRequestBody()
 
     def query(self, query: str) -> "SearchCalendarRequestBodyBuilder":
         self._search_calendar_request_body.query = query

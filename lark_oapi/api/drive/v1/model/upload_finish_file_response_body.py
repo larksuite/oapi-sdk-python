@@ -10,7 +10,7 @@ class UploadFinishFileResponseBody(object):
         "file_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class UploadFinishFileResponseBody(object):
 
 
 class UploadFinishFileResponseBodyBuilder(object):
-    def __init__(self, upload_finish_file_response_body: UploadFinishFileResponseBody = UploadFinishFileResponseBody(
-        {})) -> None:
-        self._upload_finish_file_response_body: UploadFinishFileResponseBody = upload_finish_file_response_body
+    def __init__(self) -> None:
+        self._upload_finish_file_response_body = UploadFinishFileResponseBody()
 
     def file_token(self, file_token: str) -> "UploadFinishFileResponseBodyBuilder":
         self._upload_finish_file_response_body.file_token = file_token

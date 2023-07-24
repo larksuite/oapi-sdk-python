@@ -17,7 +17,7 @@ class CreateLeaveGrantingRecordRequestBody(object):
         "external_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_type_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.granting_quantity: Optional[str] = None
@@ -33,10 +33,8 @@ class CreateLeaveGrantingRecordRequestBody(object):
 
 
 class CreateLeaveGrantingRecordRequestBodyBuilder(object):
-    def __init__(self,
-                 create_leave_granting_record_request_body: CreateLeaveGrantingRecordRequestBody = CreateLeaveGrantingRecordRequestBody(
-                     {})) -> None:
-        self._create_leave_granting_record_request_body: CreateLeaveGrantingRecordRequestBody = create_leave_granting_record_request_body
+    def __init__(self) -> None:
+        self._create_leave_granting_record_request_body = CreateLeaveGrantingRecordRequestBody()
 
     def leave_type_id(self, leave_type_id: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.leave_type_id = leave_type_id

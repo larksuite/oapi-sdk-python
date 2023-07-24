@@ -18,7 +18,8 @@ class DeleteContractRequest(BaseRequest):
 
 class DeleteContractRequestBuilder(object):
 
-    def __init__(self, delete_contract_request: DeleteContractRequest = DeleteContractRequest()) -> None:
+    def __init__(self) -> None:
+        delete_contract_request = DeleteContractRequest()
         delete_contract_request.http_method = HttpMethod.DELETE
         delete_contract_request.uri = "/open-apis/corehr/v1/contracts/:contract_id"
         delete_contract_request.token_types = {AccessTokenType.TENANT}

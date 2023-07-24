@@ -20,7 +20,8 @@ class BatchUserRequest(BaseRequest):
 
 class BatchUserRequestBuilder(object):
 
-    def __init__(self, batch_user_request: BatchUserRequest = BatchUserRequest()) -> None:
+    def __init__(self) -> None:
+        batch_user_request = BatchUserRequest()
         batch_user_request.http_method = HttpMethod.GET
         batch_user_request.uri = "/open-apis/contact/v3/users/batch"
         batch_user_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

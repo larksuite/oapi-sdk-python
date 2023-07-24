@@ -21,8 +21,8 @@ class UpdateChatModerationRequest(BaseRequest):
 
 class UpdateChatModerationRequestBuilder(object):
 
-    def __init__(self,
-                 update_chat_moderation_request: UpdateChatModerationRequest = UpdateChatModerationRequest()) -> None:
+    def __init__(self) -> None:
+        update_chat_moderation_request = UpdateChatModerationRequest()
         update_chat_moderation_request.http_method = HttpMethod.PUT
         update_chat_moderation_request.uri = "/open-apis/im/v1/chats/:chat_id/moderation"
         update_chat_moderation_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

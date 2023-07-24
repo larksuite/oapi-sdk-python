@@ -18,7 +18,7 @@ class ApplicationTalentEducationInfo(object):
         "tag_list": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.degree: Optional[int] = None
         self.school: Optional[str] = None
@@ -36,10 +36,8 @@ class ApplicationTalentEducationInfo(object):
 
 
 class ApplicationTalentEducationInfoBuilder(object):
-    def __init__(self,
-                 application_talent_education_info: ApplicationTalentEducationInfo = ApplicationTalentEducationInfo(
-                     {})) -> None:
-        self._application_talent_education_info: ApplicationTalentEducationInfo = application_talent_education_info
+    def __init__(self) -> None:
+        self._application_talent_education_info = ApplicationTalentEducationInfo()
 
     def id(self, id: str) -> "ApplicationTalentEducationInfoBuilder":
         self._application_talent_education_info.id = id

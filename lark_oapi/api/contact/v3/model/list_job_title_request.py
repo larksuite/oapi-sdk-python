@@ -19,7 +19,8 @@ class ListJobTitleRequest(BaseRequest):
 
 class ListJobTitleRequestBuilder(object):
 
-    def __init__(self, list_job_title_request: ListJobTitleRequest = ListJobTitleRequest()) -> None:
+    def __init__(self) -> None:
+        list_job_title_request = ListJobTitleRequest()
         list_job_title_request.http_method = HttpMethod.GET
         list_job_title_request.uri = "/open-apis/contact/v3/job_titles"
         list_job_title_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

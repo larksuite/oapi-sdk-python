@@ -13,7 +13,7 @@ class EventLocation(object):
         "longitude": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.address: Optional[str] = None
         self.latitude: Optional[float] = None
@@ -26,8 +26,8 @@ class EventLocation(object):
 
 
 class EventLocationBuilder(object):
-    def __init__(self, event_location: EventLocation = EventLocation({})) -> None:
-        self._event_location: EventLocation = event_location
+    def __init__(self) -> None:
+        self._event_location = EventLocation()
 
     def name(self, name: str) -> "EventLocationBuilder":
         self._event_location.name = name

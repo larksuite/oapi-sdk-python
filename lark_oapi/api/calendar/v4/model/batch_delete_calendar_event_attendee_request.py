@@ -22,8 +22,8 @@ class BatchDeleteCalendarEventAttendeeRequest(BaseRequest):
 
 class BatchDeleteCalendarEventAttendeeRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_calendar_event_attendee_request: BatchDeleteCalendarEventAttendeeRequest = BatchDeleteCalendarEventAttendeeRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_calendar_event_attendee_request = BatchDeleteCalendarEventAttendeeRequest()
         batch_delete_calendar_event_attendee_request.http_method = HttpMethod.POST
         batch_delete_calendar_event_attendee_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
         batch_delete_calendar_event_attendee_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

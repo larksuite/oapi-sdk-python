@@ -19,8 +19,8 @@ class DeleteSpreadsheetSheetFilterRequest(BaseRequest):
 
 class DeleteSpreadsheetSheetFilterRequestBuilder(object):
 
-    def __init__(self,
-                 delete_spreadsheet_sheet_filter_request: DeleteSpreadsheetSheetFilterRequest = DeleteSpreadsheetSheetFilterRequest()) -> None:
+    def __init__(self) -> None:
+        delete_spreadsheet_sheet_filter_request = DeleteSpreadsheetSheetFilterRequest()
         delete_spreadsheet_sheet_filter_request.http_method = HttpMethod.DELETE
         delete_spreadsheet_sheet_filter_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
         delete_spreadsheet_sheet_filter_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

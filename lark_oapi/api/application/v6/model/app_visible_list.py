@@ -12,7 +12,7 @@ class AppVisibleList(object):
         "group_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.open_ids: Optional[List[int]] = None
         self.department_ids: Optional[List[int]] = None
         self.group_ids: Optional[List[str]] = None
@@ -24,8 +24,8 @@ class AppVisibleList(object):
 
 
 class AppVisibleListBuilder(object):
-    def __init__(self, app_visible_list: AppVisibleList = AppVisibleList({})) -> None:
-        self._app_visible_list: AppVisibleList = app_visible_list
+    def __init__(self) -> None:
+        self._app_visible_list = AppVisibleList()
 
     def open_ids(self, open_ids: List[int]) -> "AppVisibleListBuilder":
         self._app_visible_list.open_ids = open_ids

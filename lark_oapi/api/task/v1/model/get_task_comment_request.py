@@ -20,7 +20,8 @@ class GetTaskCommentRequest(BaseRequest):
 
 class GetTaskCommentRequestBuilder(object):
 
-    def __init__(self, get_task_comment_request: GetTaskCommentRequest = GetTaskCommentRequest()) -> None:
+    def __init__(self) -> None:
+        get_task_comment_request = GetTaskCommentRequest()
         get_task_comment_request.http_method = HttpMethod.GET
         get_task_comment_request.uri = "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
         get_task_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -13,7 +13,7 @@ class PatchDocumentBlockResponseBody(object):
         "client_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block: Optional[Block] = None
         self.document_revision_id: Optional[int] = None
         self.client_token: Optional[str] = None
@@ -25,10 +25,8 @@ class PatchDocumentBlockResponseBody(object):
 
 
 class PatchDocumentBlockResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_document_block_response_body: PatchDocumentBlockResponseBody = PatchDocumentBlockResponseBody(
-                     {})) -> None:
-        self._patch_document_block_response_body: PatchDocumentBlockResponseBody = patch_document_block_response_body
+    def __init__(self) -> None:
+        self._patch_document_block_response_body = PatchDocumentBlockResponseBody()
 
     def block(self, block: Block) -> "PatchDocumentBlockResponseBodyBuilder":
         self._patch_document_block_response_body.block = block

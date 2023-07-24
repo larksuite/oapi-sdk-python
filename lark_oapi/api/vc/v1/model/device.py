@@ -10,7 +10,7 @@ class Device(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Device(object):
 
 
 class DeviceBuilder(object):
-    def __init__(self, device: Device = Device({})) -> None:
-        self._device: Device = device
+    def __init__(self) -> None:
+        self._device = Device()
 
     def name(self, name: str) -> "DeviceBuilder":
         self._device.name = name

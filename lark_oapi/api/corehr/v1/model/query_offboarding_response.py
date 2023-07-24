@@ -12,7 +12,7 @@ class QueryOffboardingResponse(BaseResponse):
         "data": QueryOffboardingResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[QueryOffboardingResponseBody] = None
         init(self, d, self._types)

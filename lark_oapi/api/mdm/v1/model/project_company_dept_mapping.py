@@ -13,7 +13,7 @@ class ProjectCompanyDeptMapping(object):
         "department_union_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.project_union_id: Optional[str] = None
         self.company_union_id: Optional[str] = None
         self.is_all_department: Optional[bool] = None
@@ -26,8 +26,8 @@ class ProjectCompanyDeptMapping(object):
 
 
 class ProjectCompanyDeptMappingBuilder(object):
-    def __init__(self, project_company_dept_mapping: ProjectCompanyDeptMapping = ProjectCompanyDeptMapping({})) -> None:
-        self._project_company_dept_mapping: ProjectCompanyDeptMapping = project_company_dept_mapping
+    def __init__(self) -> None:
+        self._project_company_dept_mapping = ProjectCompanyDeptMapping()
 
     def project_union_id(self, project_union_id: str) -> "ProjectCompanyDeptMappingBuilder":
         self._project_company_dept_mapping.project_union_id = project_union_id

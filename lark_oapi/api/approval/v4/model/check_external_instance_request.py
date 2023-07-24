@@ -19,8 +19,8 @@ class CheckExternalInstanceRequest(BaseRequest):
 
 class CheckExternalInstanceRequestBuilder(object):
 
-    def __init__(self,
-                 check_external_instance_request: CheckExternalInstanceRequest = CheckExternalInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        check_external_instance_request = CheckExternalInstanceRequest()
         check_external_instance_request.http_method = HttpMethod.POST
         check_external_instance_request.uri = "/open-apis/approval/v4/external_instances/check"
         check_external_instance_request.token_types = {AccessTokenType.TENANT}

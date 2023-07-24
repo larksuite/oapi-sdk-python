@@ -14,7 +14,7 @@ class CardPresent(object):
         "callback_info": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.body: Optional[str] = None
         self.interactable: Optional[bool] = None
         self.type: Optional[str] = None
@@ -28,8 +28,8 @@ class CardPresent(object):
 
 
 class CardPresentBuilder(object):
-    def __init__(self, card_present: CardPresent = CardPresent({})) -> None:
-        self._card_present: CardPresent = card_present
+    def __init__(self) -> None:
+        self._card_present = CardPresent()
 
     def body(self, body: str) -> "CardPresentBuilder":
         self._card_present.body = body

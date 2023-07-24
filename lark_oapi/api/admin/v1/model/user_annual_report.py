@@ -13,7 +13,7 @@ class UserAnnualReport(object):
         "year_2022": UserReport2022,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.year_2021: Optional[UserReport2021] = None
         self.year_2022: Optional[UserReport2022] = None
         init(self, d, self._types)
@@ -24,8 +24,8 @@ class UserAnnualReport(object):
 
 
 class UserAnnualReportBuilder(object):
-    def __init__(self, user_annual_report: UserAnnualReport = UserAnnualReport({})) -> None:
-        self._user_annual_report: UserAnnualReport = user_annual_report
+    def __init__(self) -> None:
+        self._user_annual_report = UserAnnualReport()
 
     def year_2021(self, year_2021: UserReport2021) -> "UserAnnualReportBuilder":
         self._user_annual_report.year_2021 = year_2021

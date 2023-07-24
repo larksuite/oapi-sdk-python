@@ -19,7 +19,8 @@ class CreateInstanceRequest(BaseRequest):
 
 class CreateInstanceRequestBuilder(object):
 
-    def __init__(self, create_instance_request: CreateInstanceRequest = CreateInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        create_instance_request = CreateInstanceRequest()
         create_instance_request.http_method = HttpMethod.POST
         create_instance_request.uri = "/open-apis/approval/v4/instances"
         create_instance_request.token_types = {AccessTokenType.TENANT}

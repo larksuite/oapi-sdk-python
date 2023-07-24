@@ -23,7 +23,8 @@ class SearchDepartmentRequest(BaseRequest):
 
 class SearchDepartmentRequestBuilder(object):
 
-    def __init__(self, search_department_request: SearchDepartmentRequest = SearchDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        search_department_request = SearchDepartmentRequest()
         search_department_request.http_method = HttpMethod.POST
         search_department_request.uri = "/open-apis/corehr/v2/departments/search"
         search_department_request.token_types = {AccessTokenType.TENANT}

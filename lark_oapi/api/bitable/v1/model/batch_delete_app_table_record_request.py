@@ -21,8 +21,8 @@ class BatchDeleteAppTableRecordRequest(BaseRequest):
 
 class BatchDeleteAppTableRecordRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_app_table_record_request: BatchDeleteAppTableRecordRequest = BatchDeleteAppTableRecordRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_app_table_record_request = BatchDeleteAppTableRecordRequest()
         batch_delete_app_table_record_request.http_method = HttpMethod.POST
         batch_delete_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
         batch_delete_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -18,7 +18,8 @@ class ListMailgroupAliasRequest(BaseRequest):
 
 class ListMailgroupAliasRequestBuilder(object):
 
-    def __init__(self, list_mailgroup_alias_request: ListMailgroupAliasRequest = ListMailgroupAliasRequest()) -> None:
+    def __init__(self) -> None:
+        list_mailgroup_alias_request = ListMailgroupAliasRequest()
         list_mailgroup_alias_request.http_method = HttpMethod.GET
         list_mailgroup_alias_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/aliases"
         list_mailgroup_alias_request.token_types = {AccessTokenType.TENANT}

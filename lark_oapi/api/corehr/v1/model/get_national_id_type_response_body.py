@@ -11,7 +11,7 @@ class GetNationalIdTypeResponseBody(object):
         "national_id_type": NationalIdType,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.national_id_type: Optional[NationalIdType] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetNationalIdTypeResponseBody(object):
 
 
 class GetNationalIdTypeResponseBodyBuilder(object):
-    def __init__(self,
-                 get_national_id_type_response_body: GetNationalIdTypeResponseBody = GetNationalIdTypeResponseBody(
-                     {})) -> None:
-        self._get_national_id_type_response_body: GetNationalIdTypeResponseBody = get_national_id_type_response_body
+    def __init__(self) -> None:
+        self._get_national_id_type_response_body = GetNationalIdTypeResponseBody()
 
     def national_id_type(self, national_id_type: NationalIdType) -> "GetNationalIdTypeResponseBodyBuilder":
         self._get_national_id_type_response_body.national_id_type = national_id_type

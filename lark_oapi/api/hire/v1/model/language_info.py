@@ -11,7 +11,7 @@ class LanguageInfo(object):
         "proficiency": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.language: Optional[int] = None
         self.proficiency: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class LanguageInfo(object):
 
 
 class LanguageInfoBuilder(object):
-    def __init__(self, language_info: LanguageInfo = LanguageInfo({})) -> None:
-        self._language_info: LanguageInfo = language_info
+    def __init__(self) -> None:
+        self._language_info = LanguageInfo()
 
     def language(self, language: int) -> "LanguageInfoBuilder":
         self._language_info.language = language

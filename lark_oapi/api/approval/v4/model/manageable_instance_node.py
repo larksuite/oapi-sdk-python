@@ -21,7 +21,7 @@ class ManageableInstanceNode(object):
         "status_display": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.start_user_id: Optional[str] = None
         self.current_user_ids: Optional[List[str]] = None
@@ -42,8 +42,8 @@ class ManageableInstanceNode(object):
 
 
 class ManageableInstanceNodeBuilder(object):
-    def __init__(self, manageable_instance_node: ManageableInstanceNode = ManageableInstanceNode({})) -> None:
-        self._manageable_instance_node: ManageableInstanceNode = manageable_instance_node
+    def __init__(self) -> None:
+        self._manageable_instance_node = ManageableInstanceNode()
 
     def code(self, code: str) -> "ManageableInstanceNodeBuilder":
         self._manageable_instance_node.code = code

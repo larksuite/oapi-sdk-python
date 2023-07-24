@@ -34,7 +34,7 @@ class CalendarEvent(object):
         "schemas": List[Schema],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.event_id: Optional[str] = None
         self.organizer_calendar_id: Optional[str] = None
         self.summary: Optional[str] = None
@@ -63,8 +63,8 @@ class CalendarEvent(object):
 
 
 class CalendarEventBuilder(object):
-    def __init__(self, calendar_event: CalendarEvent = CalendarEvent({})) -> None:
-        self._calendar_event: CalendarEvent = calendar_event
+    def __init__(self) -> None:
+        self._calendar_event = CalendarEvent()
 
     def event_id(self, event_id: str) -> "CalendarEventBuilder":
         self._calendar_event.event_id = event_id

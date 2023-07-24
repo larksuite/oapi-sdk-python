@@ -15,7 +15,7 @@ class InternOfferStatusOfferResponseBody(object):
         "offboarding_info": InternOfferOffboardingInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_id: Optional[str] = None
         self.operation: Optional[str] = None
         self.onboarding_info: Optional[InternOfferOnboardingInfo] = None
@@ -28,10 +28,8 @@ class InternOfferStatusOfferResponseBody(object):
 
 
 class InternOfferStatusOfferResponseBodyBuilder(object):
-    def __init__(self,
-                 intern_offer_status_offer_response_body: InternOfferStatusOfferResponseBody = InternOfferStatusOfferResponseBody(
-                     {})) -> None:
-        self._intern_offer_status_offer_response_body: InternOfferStatusOfferResponseBody = intern_offer_status_offer_response_body
+    def __init__(self) -> None:
+        self._intern_offer_status_offer_response_body = InternOfferStatusOfferResponseBody()
 
     def offer_id(self, offer_id: str) -> "InternOfferStatusOfferResponseBodyBuilder":
         self._intern_offer_status_offer_response_body.offer_id = offer_id

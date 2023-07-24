@@ -21,7 +21,7 @@ class Question(object):
         "description_result": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.question_id: Optional[str] = None
         self.question_name: Optional[str] = None
         self.question_en_name: Optional[str] = None
@@ -40,8 +40,8 @@ class Question(object):
 
 
 class QuestionBuilder(object):
-    def __init__(self, question: Question = Question({})) -> None:
-        self._question: Question = question
+    def __init__(self) -> None:
+        self._question = Question()
 
     def question_id(self, question_id: str) -> "QuestionBuilder":
         self._question.question_id = question_id

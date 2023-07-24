@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.delete_agent_schedules_request import DeleteAgentSchedulesRequest
-from lark_oapi.api.helpdesk.v1.model.delete_agent_schedules_response import DeleteAgentSchedulesResponse
-from lark_oapi.api.helpdesk.v1.model.get_agent_schedules_request import GetAgentSchedulesRequest
-from lark_oapi.api.helpdesk.v1.model.get_agent_schedules_response import GetAgentSchedulesResponse
-from lark_oapi.api.helpdesk.v1.model.patch_agent_schedules_request import PatchAgentSchedulesRequest
-from lark_oapi.api.helpdesk.v1.model.patch_agent_schedules_response import PatchAgentSchedulesResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.delete_agent_schedules_request import DeleteAgentSchedulesRequest
+from ..model.delete_agent_schedules_response import DeleteAgentSchedulesResponse
+from ..model.get_agent_schedules_request import GetAgentSchedulesRequest
+from ..model.get_agent_schedules_response import GetAgentSchedulesResponse
+from ..model.patch_agent_schedules_request import PatchAgentSchedulesRequest
+from ..model.patch_agent_schedules_response import PatchAgentSchedulesResponse
 
 
 class AgentSchedules(object):
@@ -20,7 +20,10 @@ class AgentSchedules(object):
         self.config: Optional[Config] = config
 
     def delete(self, request: DeleteAgentSchedulesRequest,
-               option: RequestOption = RequestOption()) -> DeleteAgentSchedulesResponse:
+               option: Optional[RequestOption] = None) -> DeleteAgentSchedulesResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class AgentSchedules(object):
         return response
 
     def get(self, request: GetAgentSchedulesRequest,
-            option: RequestOption = RequestOption()) -> GetAgentSchedulesResponse:
+            option: Optional[RequestOption] = None) -> GetAgentSchedulesResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class AgentSchedules(object):
         return response
 
     def patch(self, request: PatchAgentSchedulesRequest,
-              option: RequestOption = RequestOption()) -> PatchAgentSchedulesResponse:
+              option: Optional[RequestOption] = None) -> PatchAgentSchedulesResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

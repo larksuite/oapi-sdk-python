@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.okr.v1.model.list_period_request import ListPeriodRequest
-from lark_oapi.api.okr.v1.model.list_period_response import ListPeriodResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_period_request import ListPeriodRequest
+from ..model.list_period_response import ListPeriodResponse
 
 
 class Period(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListPeriodRequest, option: RequestOption = RequestOption()) -> ListPeriodResponse:
+    def list(self, request: ListPeriodRequest, option: Optional[RequestOption] = None) -> ListPeriodResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

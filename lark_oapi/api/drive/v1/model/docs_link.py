@@ -10,7 +10,7 @@ class DocsLink(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class DocsLink(object):
 
 
 class DocsLinkBuilder(object):
-    def __init__(self, docs_link: DocsLink = DocsLink({})) -> None:
-        self._docs_link: DocsLink = docs_link
+    def __init__(self) -> None:
+        self._docs_link = DocsLink()
 
     def url(self, url: str) -> "DocsLinkBuilder":
         self._docs_link.url = url

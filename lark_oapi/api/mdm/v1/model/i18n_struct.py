@@ -12,7 +12,7 @@ class I18nStruct(object):
         "valid_to": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.lang_locale: Optional[str] = None
         self.value: Optional[str] = None
         self.valid_to: Optional[str] = None
@@ -24,8 +24,8 @@ class I18nStruct(object):
 
 
 class I18nStructBuilder(object):
-    def __init__(self, i18n_struct: I18nStruct = I18nStruct({})) -> None:
-        self._i18n_struct: I18nStruct = i18n_struct
+    def __init__(self) -> None:
+        self._i18n_struct = I18nStruct()
 
     def lang_locale(self, lang_locale: str) -> "I18nStructBuilder":
         self._i18n_struct.lang_locale = lang_locale

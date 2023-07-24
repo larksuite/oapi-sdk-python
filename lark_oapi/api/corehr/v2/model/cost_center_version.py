@@ -21,7 +21,7 @@ class CostCenterVersion(object):
         "operation_reason": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.cost_center_id: Optional[str] = None
         self.version_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
@@ -41,8 +41,8 @@ class CostCenterVersion(object):
 
 
 class CostCenterVersionBuilder(object):
-    def __init__(self, cost_center_version: CostCenterVersion = CostCenterVersion({})) -> None:
-        self._cost_center_version: CostCenterVersion = cost_center_version
+    def __init__(self) -> None:
+        self._cost_center_version = CostCenterVersion()
 
     def cost_center_id(self, cost_center_id: str) -> "CostCenterVersionBuilder":
         self._cost_center_version.cost_center_id = cost_center_id

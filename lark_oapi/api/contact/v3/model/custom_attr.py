@@ -15,7 +15,7 @@ class CustomAttr(object):
         "i18n_name": List[I18nContent],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.type: Optional[str] = None
         self.options: Optional[CustomAttrOptions] = None
@@ -28,8 +28,8 @@ class CustomAttr(object):
 
 
 class CustomAttrBuilder(object):
-    def __init__(self, custom_attr: CustomAttr = CustomAttr({})) -> None:
-        self._custom_attr: CustomAttr = custom_attr
+    def __init__(self) -> None:
+        self._custom_attr = CustomAttr()
 
     def id(self, id: str) -> "CustomAttrBuilder":
         self._custom_attr.id = id

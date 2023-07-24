@@ -15,7 +15,7 @@ class ApplicationDepartmentAppUsage(object):
         "bot": List[ApplicationAppUsage],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.app: Optional[List[ApplicationAppUsage]] = None
         self.gadget: Optional[List[ApplicationAppUsage]] = None
@@ -29,9 +29,8 @@ class ApplicationDepartmentAppUsage(object):
 
 
 class ApplicationDepartmentAppUsageBuilder(object):
-    def __init__(self, application_department_app_usage: ApplicationDepartmentAppUsage = ApplicationDepartmentAppUsage(
-        {})) -> None:
-        self._application_department_app_usage: ApplicationDepartmentAppUsage = application_department_app_usage
+    def __init__(self) -> None:
+        self._application_department_app_usage = ApplicationDepartmentAppUsage()
 
     def department_id(self, department_id: str) -> "ApplicationDepartmentAppUsageBuilder":
         self._application_department_app_usage.department_id = department_id

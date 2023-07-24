@@ -21,7 +21,7 @@ class ApprovalNode(object):
         "starter_assignee": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.node_type: Optional[str] = None
@@ -39,8 +39,8 @@ class ApprovalNode(object):
 
 
 class ApprovalNodeBuilder(object):
-    def __init__(self, approval_node: ApprovalNode = ApprovalNode({})) -> None:
-        self._approval_node: ApprovalNode = approval_node
+    def __init__(self) -> None:
+        self._approval_node = ApprovalNode()
 
     def id(self, id: str) -> "ApprovalNodeBuilder":
         self._approval_node.id = id

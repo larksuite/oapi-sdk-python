@@ -11,7 +11,7 @@ class FormFieldVariableDatetimeValue(object):
         "zone": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[int] = None
         self.zone: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class FormFieldVariableDatetimeValue(object):
 
 
 class FormFieldVariableDatetimeValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_datetime_value: FormFieldVariableDatetimeValue = FormFieldVariableDatetimeValue(
-                     {})) -> None:
-        self._form_field_variable_datetime_value: FormFieldVariableDatetimeValue = form_field_variable_datetime_value
+    def __init__(self) -> None:
+        self._form_field_variable_datetime_value = FormFieldVariableDatetimeValue()
 
     def value(self, value: int) -> "FormFieldVariableDatetimeValueBuilder":
         self._form_field_variable_datetime_value.value = value

@@ -12,7 +12,7 @@ class CreateAppTableResponseBody(object):
         "field_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.table_id: Optional[str] = None
         self.default_view_id: Optional[str] = None
         self.field_id_list: Optional[List[str]] = None
@@ -24,9 +24,8 @@ class CreateAppTableResponseBody(object):
 
 
 class CreateAppTableResponseBodyBuilder(object):
-    def __init__(self,
-                 create_app_table_response_body: CreateAppTableResponseBody = CreateAppTableResponseBody({})) -> None:
-        self._create_app_table_response_body: CreateAppTableResponseBody = create_app_table_response_body
+    def __init__(self) -> None:
+        self._create_app_table_response_body = CreateAppTableResponseBody()
 
     def table_id(self, table_id: str) -> "CreateAppTableResponseBodyBuilder":
         self._create_app_table_response_body.table_id = table_id

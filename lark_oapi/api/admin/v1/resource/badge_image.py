@@ -4,14 +4,14 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.admin.v1.model.create_badge_image_request import CreateBadgeImageRequest
-from lark_oapi.api.admin.v1.model.create_badge_image_response import CreateBadgeImageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.create_badge_image_request import CreateBadgeImageRequest
+from ..model.create_badge_image_response import CreateBadgeImageResponse
 
 
 class BadgeImage(object):
@@ -19,7 +19,10 @@ class BadgeImage(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateBadgeImageRequest,
-               option: RequestOption = RequestOption()) -> CreateBadgeImageResponse:
+               option: Optional[RequestOption] = None) -> CreateBadgeImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -14,7 +14,7 @@ class QualityCpuUsage(object):
         "system_max_cpu_usage": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time: Optional[str] = None
         self.client_avg_cpu_usage: Optional[str] = None
         self.client_max_cpu_usage: Optional[str] = None
@@ -28,8 +28,8 @@ class QualityCpuUsage(object):
 
 
 class QualityCpuUsageBuilder(object):
-    def __init__(self, quality_cpu_usage: QualityCpuUsage = QualityCpuUsage({})) -> None:
-        self._quality_cpu_usage: QualityCpuUsage = quality_cpu_usage
+    def __init__(self) -> None:
+        self._quality_cpu_usage = QualityCpuUsage()
 
     def time(self, time: str) -> "QualityCpuUsageBuilder":
         self._quality_cpu_usage.time = time

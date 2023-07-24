@@ -24,7 +24,8 @@ class QueryRoomConfigRequest(BaseRequest):
 
 class QueryRoomConfigRequestBuilder(object):
 
-    def __init__(self, query_room_config_request: QueryRoomConfigRequest = QueryRoomConfigRequest()) -> None:
+    def __init__(self) -> None:
+        query_room_config_request = QueryRoomConfigRequest()
         query_room_config_request.http_method = HttpMethod.GET
         query_room_config_request.uri = "/open-apis/vc/v1/room_configs/query"
         query_room_config_request.token_types = {AccessTokenType.TENANT}

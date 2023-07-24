@@ -12,7 +12,7 @@ class SiteResumeWork(object):
         "site_attachment_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.link: Optional[str] = None
         self.description: Optional[str] = None
         self.site_attachment_id: Optional[str] = None
@@ -24,8 +24,8 @@ class SiteResumeWork(object):
 
 
 class SiteResumeWorkBuilder(object):
-    def __init__(self, site_resume_work: SiteResumeWork = SiteResumeWork({})) -> None:
-        self._site_resume_work: SiteResumeWork = site_resume_work
+    def __init__(self) -> None:
+        self._site_resume_work = SiteResumeWork()
 
     def link(self, link: str) -> "SiteResumeWorkBuilder":
         self._site_resume_work.link = link

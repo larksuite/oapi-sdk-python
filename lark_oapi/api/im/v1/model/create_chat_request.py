@@ -22,7 +22,8 @@ class CreateChatRequest(BaseRequest):
 
 class CreateChatRequestBuilder(object):
 
-    def __init__(self, create_chat_request: CreateChatRequest = CreateChatRequest()) -> None:
+    def __init__(self) -> None:
+        create_chat_request = CreateChatRequest()
         create_chat_request.http_method = HttpMethod.POST
         create_chat_request.uri = "/open-apis/im/v1/chats"
         create_chat_request.token_types = {AccessTokenType.TENANT}

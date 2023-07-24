@@ -11,7 +11,7 @@ class DeleteChatMenuTreeResponseBody(object):
         "menu_tree": ChatMenuTree,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.menu_tree: Optional[ChatMenuTree] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class DeleteChatMenuTreeResponseBody(object):
 
 
 class DeleteChatMenuTreeResponseBodyBuilder(object):
-    def __init__(self,
-                 delete_chat_menu_tree_response_body: DeleteChatMenuTreeResponseBody = DeleteChatMenuTreeResponseBody(
-                     {})) -> None:
-        self._delete_chat_menu_tree_response_body: DeleteChatMenuTreeResponseBody = delete_chat_menu_tree_response_body
+    def __init__(self) -> None:
+        self._delete_chat_menu_tree_response_body = DeleteChatMenuTreeResponseBody()
 
     def menu_tree(self, menu_tree: ChatMenuTree) -> "DeleteChatMenuTreeResponseBodyBuilder":
         self._delete_chat_menu_tree_response_body.menu_tree = menu_tree

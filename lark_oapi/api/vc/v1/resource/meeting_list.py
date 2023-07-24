@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.get_meeting_list_request import GetMeetingListRequest
-from lark_oapi.api.vc.v1.model.get_meeting_list_response import GetMeetingListResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_meeting_list_request import GetMeetingListRequest
+from ..model.get_meeting_list_response import GetMeetingListResponse
 
 
 class MeetingList(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetMeetingListRequest, option: RequestOption = RequestOption()) -> GetMeetingListResponse:
+    def get(self, request: GetMeetingListRequest, option: Optional[RequestOption] = None) -> GetMeetingListResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -20,7 +20,8 @@ class PatchSpreadsheetRequest(BaseRequest):
 
 class PatchSpreadsheetRequestBuilder(object):
 
-    def __init__(self, patch_spreadsheet_request: PatchSpreadsheetRequest = PatchSpreadsheetRequest()) -> None:
+    def __init__(self) -> None:
+        patch_spreadsheet_request = PatchSpreadsheetRequest()
         patch_spreadsheet_request.http_method = HttpMethod.PATCH
         patch_spreadsheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
         patch_spreadsheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

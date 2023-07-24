@@ -12,7 +12,7 @@ class QueryUserFlowRequestBody(object):
         "check_time_to": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_ids: Optional[List[str]] = None
         self.check_time_from: Optional[str] = None
         self.check_time_to: Optional[str] = None
@@ -24,8 +24,8 @@ class QueryUserFlowRequestBody(object):
 
 
 class QueryUserFlowRequestBodyBuilder(object):
-    def __init__(self, query_user_flow_request_body: QueryUserFlowRequestBody = QueryUserFlowRequestBody({})) -> None:
-        self._query_user_flow_request_body: QueryUserFlowRequestBody = query_user_flow_request_body
+    def __init__(self) -> None:
+        self._query_user_flow_request_body = QueryUserFlowRequestBody()
 
     def user_ids(self, user_ids: List[str]) -> "QueryUserFlowRequestBodyBuilder":
         self._query_user_flow_request_body.user_ids = user_ids

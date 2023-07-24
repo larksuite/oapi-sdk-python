@@ -14,7 +14,7 @@ class TrusteeshipUrls(object):
         "pull_business_data_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.form_detail_url: Optional[str] = None
         self.action_definition_url: Optional[str] = None
         self.approval_node_url: Optional[str] = None
@@ -28,8 +28,8 @@ class TrusteeshipUrls(object):
 
 
 class TrusteeshipUrlsBuilder(object):
-    def __init__(self, trusteeship_urls: TrusteeshipUrls = TrusteeshipUrls({})) -> None:
-        self._trusteeship_urls: TrusteeshipUrls = trusteeship_urls
+    def __init__(self) -> None:
+        self._trusteeship_urls = TrusteeshipUrls()
 
     def form_detail_url(self, form_detail_url: str) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.form_detail_url = form_detail_url

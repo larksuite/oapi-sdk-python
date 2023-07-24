@@ -22,7 +22,8 @@ class ListTicketMessageRequest(BaseRequest):
 
 class ListTicketMessageRequestBuilder(object):
 
-    def __init__(self, list_ticket_message_request: ListTicketMessageRequest = ListTicketMessageRequest()) -> None:
+    def __init__(self) -> None:
+        list_ticket_message_request = ListTicketMessageRequest()
         list_ticket_message_request.http_method = HttpMethod.GET
         list_ticket_message_request.uri = "/open-apis/helpdesk/v1/tickets/:ticket_id/messages"
         list_ticket_message_request.token_types = {AccessTokenType.TENANT}

@@ -10,7 +10,7 @@ class UpdateSpreadsheetProperties(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class UpdateSpreadsheetProperties(object):
 
 
 class UpdateSpreadsheetPropertiesBuilder(object):
-    def __init__(self,
-                 update_spreadsheet_properties: UpdateSpreadsheetProperties = UpdateSpreadsheetProperties({})) -> None:
-        self._update_spreadsheet_properties: UpdateSpreadsheetProperties = update_spreadsheet_properties
+    def __init__(self) -> None:
+        self._update_spreadsheet_properties = UpdateSpreadsheetProperties()
 
     def title(self, title: str) -> "UpdateSpreadsheetPropertiesBuilder":
         self._update_spreadsheet_properties.title = title

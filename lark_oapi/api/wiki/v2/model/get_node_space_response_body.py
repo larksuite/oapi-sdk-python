@@ -11,7 +11,7 @@ class GetNodeSpaceResponseBody(object):
         "node": Node,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node: Optional[Node] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetNodeSpaceResponseBody(object):
 
 
 class GetNodeSpaceResponseBodyBuilder(object):
-    def __init__(self, get_node_space_response_body: GetNodeSpaceResponseBody = GetNodeSpaceResponseBody({})) -> None:
-        self._get_node_space_response_body: GetNodeSpaceResponseBody = get_node_space_response_body
+    def __init__(self) -> None:
+        self._get_node_space_response_body = GetNodeSpaceResponseBody()
 
     def node(self, node: Node) -> "GetNodeSpaceResponseBodyBuilder":
         self._get_node_space_response_body.node = node

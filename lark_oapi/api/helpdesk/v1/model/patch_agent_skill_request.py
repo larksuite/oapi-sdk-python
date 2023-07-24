@@ -20,7 +20,8 @@ class PatchAgentSkillRequest(BaseRequest):
 
 class PatchAgentSkillRequestBuilder(object):
 
-    def __init__(self, patch_agent_skill_request: PatchAgentSkillRequest = PatchAgentSkillRequest()) -> None:
+    def __init__(self) -> None:
+        patch_agent_skill_request = PatchAgentSkillRequest()
         patch_agent_skill_request.http_method = HttpMethod.PATCH
         patch_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
         patch_agent_skill_request.token_types = {AccessTokenType.USER}

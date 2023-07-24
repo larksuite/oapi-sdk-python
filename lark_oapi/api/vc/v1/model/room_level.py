@@ -15,7 +15,7 @@ class RoomLevel(object):
         "custom_group_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_level_id: Optional[str] = None
         self.name: Optional[str] = None
         self.parent_id: Optional[str] = None
@@ -30,8 +30,8 @@ class RoomLevel(object):
 
 
 class RoomLevelBuilder(object):
-    def __init__(self, room_level: RoomLevel = RoomLevel({})) -> None:
-        self._room_level: RoomLevel = room_level
+    def __init__(self) -> None:
+        self._room_level = RoomLevel()
 
     def room_level_id(self, room_level_id: str) -> "RoomLevelBuilder":
         self._room_level.room_level_id = room_level_id

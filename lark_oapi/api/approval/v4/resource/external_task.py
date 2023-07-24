@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.approval.v4.model.list_external_task_request import ListExternalTaskRequest
-from lark_oapi.api.approval.v4.model.list_external_task_response import ListExternalTaskResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_external_task_request import ListExternalTaskRequest
+from ..model.list_external_task_response import ListExternalTaskResponse
 
 
 class ExternalTask(object):
@@ -16,7 +16,10 @@ class ExternalTask(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListExternalTaskRequest,
-             option: RequestOption = RequestOption()) -> ListExternalTaskResponse:
+             option: Optional[RequestOption] = None) -> ListExternalTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

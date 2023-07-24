@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.add_group_member_request import AddGroupMemberRequest
-from lark_oapi.api.contact.v3.model.add_group_member_response import AddGroupMemberResponse
-from lark_oapi.api.contact.v3.model.batch_add_group_member_request import BatchAddGroupMemberRequest
-from lark_oapi.api.contact.v3.model.batch_add_group_member_response import BatchAddGroupMemberResponse
-from lark_oapi.api.contact.v3.model.batch_remove_group_member_request import BatchRemoveGroupMemberRequest
-from lark_oapi.api.contact.v3.model.batch_remove_group_member_response import BatchRemoveGroupMemberResponse
-from lark_oapi.api.contact.v3.model.remove_group_member_request import RemoveGroupMemberRequest
-from lark_oapi.api.contact.v3.model.remove_group_member_response import RemoveGroupMemberResponse
-from lark_oapi.api.contact.v3.model.simplelist_group_member_request import SimplelistGroupMemberRequest
-from lark_oapi.api.contact.v3.model.simplelist_group_member_response import SimplelistGroupMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.add_group_member_request import AddGroupMemberRequest
+from ..model.add_group_member_response import AddGroupMemberResponse
+from ..model.batch_add_group_member_request import BatchAddGroupMemberRequest
+from ..model.batch_add_group_member_response import BatchAddGroupMemberResponse
+from ..model.batch_remove_group_member_request import BatchRemoveGroupMemberRequest
+from ..model.batch_remove_group_member_response import BatchRemoveGroupMemberResponse
+from ..model.remove_group_member_request import RemoveGroupMemberRequest
+from ..model.remove_group_member_response import RemoveGroupMemberResponse
+from ..model.simplelist_group_member_request import SimplelistGroupMemberRequest
+from ..model.simplelist_group_member_response import SimplelistGroupMemberResponse
 
 
 class GroupMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def add(self, request: AddGroupMemberRequest, option: RequestOption = RequestOption()) -> AddGroupMemberResponse:
+    def add(self, request: AddGroupMemberRequest, option: Optional[RequestOption] = None) -> AddGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -37,7 +40,10 @@ class GroupMember(object):
         return response
 
     def batch_add(self, request: BatchAddGroupMemberRequest,
-                  option: RequestOption = RequestOption()) -> BatchAddGroupMemberResponse:
+                  option: Optional[RequestOption] = None) -> BatchAddGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class GroupMember(object):
         return response
 
     def batch_remove(self, request: BatchRemoveGroupMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchRemoveGroupMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchRemoveGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class GroupMember(object):
         return response
 
     def remove(self, request: RemoveGroupMemberRequest,
-               option: RequestOption = RequestOption()) -> RemoveGroupMemberResponse:
+               option: Optional[RequestOption] = None) -> RemoveGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -80,7 +92,10 @@ class GroupMember(object):
         return response
 
     def simplelist(self, request: SimplelistGroupMemberRequest,
-                   option: RequestOption = RequestOption()) -> SimplelistGroupMemberResponse:
+                   option: Optional[RequestOption] = None) -> SimplelistGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

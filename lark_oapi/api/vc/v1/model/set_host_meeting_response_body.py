@@ -11,7 +11,7 @@ class SetHostMeetingResponseBody(object):
         "host_user": MeetingUser,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.host_user: Optional[MeetingUser] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class SetHostMeetingResponseBody(object):
 
 
 class SetHostMeetingResponseBodyBuilder(object):
-    def __init__(self,
-                 set_host_meeting_response_body: SetHostMeetingResponseBody = SetHostMeetingResponseBody({})) -> None:
-        self._set_host_meeting_response_body: SetHostMeetingResponseBody = set_host_meeting_response_body
+    def __init__(self) -> None:
+        self._set_host_meeting_response_body = SetHostMeetingResponseBody()
 
     def host_user(self, host_user: MeetingUser) -> "SetHostMeetingResponseBodyBuilder":
         self._set_host_meeting_response_body.host_user = host_user

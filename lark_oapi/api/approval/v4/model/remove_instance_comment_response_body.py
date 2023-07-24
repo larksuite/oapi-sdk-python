@@ -11,7 +11,7 @@ class RemoveInstanceCommentResponseBody(object):
         "external_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instance_id: Optional[str] = None
         self.external_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class RemoveInstanceCommentResponseBody(object):
 
 
 class RemoveInstanceCommentResponseBodyBuilder(object):
-    def __init__(self,
-                 remove_instance_comment_response_body: RemoveInstanceCommentResponseBody = RemoveInstanceCommentResponseBody(
-                     {})) -> None:
-        self._remove_instance_comment_response_body: RemoveInstanceCommentResponseBody = remove_instance_comment_response_body
+    def __init__(self) -> None:
+        self._remove_instance_comment_response_body = RemoveInstanceCommentResponseBody()
 
     def instance_id(self, instance_id: str) -> "RemoveInstanceCommentResponseBodyBuilder":
         self._remove_instance_comment_response_body.instance_id = instance_id

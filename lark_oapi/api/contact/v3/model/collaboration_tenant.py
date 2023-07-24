@@ -16,7 +16,7 @@ class CollaborationTenant(object):
         "brand": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tenant_key: Optional[str] = None
         self.name: Optional[str] = None
         self.nickname: Optional[str] = None
@@ -31,8 +31,8 @@ class CollaborationTenant(object):
 
 
 class CollaborationTenantBuilder(object):
-    def __init__(self, collaboration_tenant: CollaborationTenant = CollaborationTenant({})) -> None:
-        self._collaboration_tenant: CollaborationTenant = collaboration_tenant
+    def __init__(self) -> None:
+        self._collaboration_tenant = CollaborationTenant()
 
     def tenant_key(self, tenant_key: str) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.tenant_key = tenant_key

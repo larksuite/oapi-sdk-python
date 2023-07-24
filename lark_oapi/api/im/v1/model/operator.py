@@ -11,7 +11,7 @@ class Operator(object):
         "operator_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.operator_id: Optional[str] = None
         self.operator_type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Operator(object):
 
 
 class OperatorBuilder(object):
-    def __init__(self, operator: Operator = Operator({})) -> None:
-        self._operator: Operator = operator
+    def __init__(self) -> None:
+        self._operator = Operator()
 
     def operator_id(self, operator_id: str) -> "OperatorBuilder":
         self._operator.operator_id = operator_id

@@ -22,7 +22,8 @@ class MemberBelongGroupRequest(BaseRequest):
 
 class MemberBelongGroupRequestBuilder(object):
 
-    def __init__(self, member_belong_group_request: MemberBelongGroupRequest = MemberBelongGroupRequest()) -> None:
+    def __init__(self) -> None:
+        member_belong_group_request = MemberBelongGroupRequest()
         member_belong_group_request.http_method = HttpMethod.GET
         member_belong_group_request.uri = "/open-apis/contact/v3/group/member_belong"
         member_belong_group_request.token_types = {AccessTokenType.TENANT}

@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.create_agent_schedule_request import CreateAgentScheduleRequest
-from lark_oapi.api.helpdesk.v1.model.create_agent_schedule_response import CreateAgentScheduleResponse
-from lark_oapi.api.helpdesk.v1.model.list_agent_schedule_request import ListAgentScheduleRequest
-from lark_oapi.api.helpdesk.v1.model.list_agent_schedule_response import ListAgentScheduleResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_agent_schedule_request import CreateAgentScheduleRequest
+from ..model.create_agent_schedule_response import CreateAgentScheduleResponse
+from ..model.list_agent_schedule_request import ListAgentScheduleRequest
+from ..model.list_agent_schedule_response import ListAgentScheduleResponse
 
 
 class AgentSchedule(object):
@@ -18,7 +18,10 @@ class AgentSchedule(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateAgentScheduleRequest,
-               option: RequestOption = RequestOption()) -> CreateAgentScheduleResponse:
+               option: Optional[RequestOption] = None) -> CreateAgentScheduleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class AgentSchedule(object):
         return response
 
     def list(self, request: ListAgentScheduleRequest,
-             option: RequestOption = RequestOption()) -> ListAgentScheduleResponse:
+             option: Optional[RequestOption] = None) -> ListAgentScheduleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

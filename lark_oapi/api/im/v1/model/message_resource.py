@@ -7,7 +7,7 @@ class MessageResource(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class MessageResource(object):
 
 
 class MessageResourceBuilder(object):
-    def __init__(self, message_resource: MessageResource = MessageResource({})) -> None:
-        self._message_resource: MessageResource = message_resource
+    def __init__(self) -> None:
+        self._message_resource = MessageResource()
 
     def build(self) -> "MessageResource":
         return self._message_resource

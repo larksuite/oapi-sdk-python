@@ -21,8 +21,8 @@ class PatchLeaveAccrualRecordRequest(BaseRequest):
 
 class PatchLeaveAccrualRecordRequestBuilder(object):
 
-    def __init__(self,
-                 patch_leave_accrual_record_request: PatchLeaveAccrualRecordRequest = PatchLeaveAccrualRecordRequest()) -> None:
+    def __init__(self) -> None:
+        patch_leave_accrual_record_request = PatchLeaveAccrualRecordRequest()
         patch_leave_accrual_record_request.http_method = HttpMethod.PATCH
         patch_leave_accrual_record_request.uri = "/open-apis/attendance/v1/leave_accrual_record/:leave_id"
         patch_leave_accrual_record_request.token_types = {AccessTokenType.TENANT}

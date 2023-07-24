@@ -11,7 +11,7 @@ class OfferCustomizedInfo(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OfferCustomizedInfo(object):
 
 
 class OfferCustomizedInfoBuilder(object):
-    def __init__(self, offer_customized_info: OfferCustomizedInfo = OfferCustomizedInfo({})) -> None:
-        self._offer_customized_info: OfferCustomizedInfo = offer_customized_info
+    def __init__(self) -> None:
+        self._offer_customized_info = OfferCustomizedInfo()
 
     def id(self, id: str) -> "OfferCustomizedInfoBuilder":
         self._offer_customized_info.id = id

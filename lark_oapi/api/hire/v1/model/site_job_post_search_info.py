@@ -12,7 +12,7 @@ class SiteJobPostSearchInfo(object):
         "count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_post_info: Optional[List[SiteJobPost]] = None
         self.count: Optional[int] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class SiteJobPostSearchInfo(object):
 
 
 class SiteJobPostSearchInfoBuilder(object):
-    def __init__(self, site_job_post_search_info: SiteJobPostSearchInfo = SiteJobPostSearchInfo({})) -> None:
-        self._site_job_post_search_info: SiteJobPostSearchInfo = site_job_post_search_info
+    def __init__(self) -> None:
+        self._site_job_post_search_info = SiteJobPostSearchInfo()
 
     def job_post_info(self, job_post_info: List[SiteJobPost]) -> "SiteJobPostSearchInfoBuilder":
         self._site_job_post_search_info.job_post_info = job_post_info

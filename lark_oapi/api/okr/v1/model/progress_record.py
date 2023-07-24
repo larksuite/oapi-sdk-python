@@ -13,7 +13,7 @@ class ProgressRecord(object):
         "content": ContentBlock,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.progress_id: Optional[int] = None
         self.modify_time: Optional[int] = None
         self.content: Optional[ContentBlock] = None
@@ -25,8 +25,8 @@ class ProgressRecord(object):
 
 
 class ProgressRecordBuilder(object):
-    def __init__(self, progress_record: ProgressRecord = ProgressRecord({})) -> None:
-        self._progress_record: ProgressRecord = progress_record
+    def __init__(self) -> None:
+        self._progress_record = ProgressRecord()
 
     def progress_id(self, progress_id: int) -> "ProgressRecordBuilder":
         self._progress_record.progress_id = progress_id

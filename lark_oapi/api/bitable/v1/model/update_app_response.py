@@ -12,7 +12,7 @@ class UpdateAppResponse(BaseResponse):
         "data": UpdateAppResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UpdateAppResponseBody] = None
         init(self, d, self._types)

@@ -17,7 +17,7 @@ class ListChat(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_id: Optional[str] = None
         self.avatar: Optional[str] = None
         self.name: Optional[str] = None
@@ -35,8 +35,8 @@ class ListChat(object):
 
 
 class ListChatBuilder(object):
-    def __init__(self, list_chat: ListChat = ListChat({})) -> None:
-        self._list_chat: ListChat = list_chat
+    def __init__(self) -> None:
+        self._list_chat = ListChat()
 
     def chat_id(self, chat_id: str) -> "ListChatBuilder":
         self._list_chat.chat_id = chat_id

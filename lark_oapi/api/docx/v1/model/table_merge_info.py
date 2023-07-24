@@ -11,7 +11,7 @@ class TableMergeInfo(object):
         "col_span": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.row_span: Optional[int] = None
         self.col_span: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TableMergeInfo(object):
 
 
 class TableMergeInfoBuilder(object):
-    def __init__(self, table_merge_info: TableMergeInfo = TableMergeInfo({})) -> None:
-        self._table_merge_info: TableMergeInfo = table_merge_info
+    def __init__(self) -> None:
+        self._table_merge_info = TableMergeInfo()
 
     def row_span(self, row_span: int) -> "TableMergeInfoBuilder":
         self._table_merge_info.row_span = row_span

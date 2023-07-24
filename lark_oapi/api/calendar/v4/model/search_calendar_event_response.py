@@ -12,7 +12,7 @@ class SearchCalendarEventResponse(BaseResponse):
         "data": SearchCalendarEventResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[SearchCalendarEventResponseBody] = None
         init(self, d, self._types)

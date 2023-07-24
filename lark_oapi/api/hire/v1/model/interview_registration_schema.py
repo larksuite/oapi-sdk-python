@@ -14,7 +14,7 @@ class InterviewRegistrationSchema(object):
         "object_list": List[CommonSchema],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.is_used_as_interview: Optional[bool] = None
@@ -27,9 +27,8 @@ class InterviewRegistrationSchema(object):
 
 
 class InterviewRegistrationSchemaBuilder(object):
-    def __init__(self,
-                 interview_registration_schema: InterviewRegistrationSchema = InterviewRegistrationSchema({})) -> None:
-        self._interview_registration_schema: InterviewRegistrationSchema = interview_registration_schema
+    def __init__(self) -> None:
+        self._interview_registration_schema = InterviewRegistrationSchema()
 
     def id(self, id: str) -> "InterviewRegistrationSchemaBuilder":
         self._interview_registration_schema.id = id

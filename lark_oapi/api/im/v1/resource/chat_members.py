@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.create_chat_members_request import CreateChatMembersRequest
-from lark_oapi.api.im.v1.model.create_chat_members_response import CreateChatMembersResponse
-from lark_oapi.api.im.v1.model.delete_chat_members_request import DeleteChatMembersRequest
-from lark_oapi.api.im.v1.model.delete_chat_members_response import DeleteChatMembersResponse
-from lark_oapi.api.im.v1.model.get_chat_members_request import GetChatMembersRequest
-from lark_oapi.api.im.v1.model.get_chat_members_response import GetChatMembersResponse
-from lark_oapi.api.im.v1.model.is_in_chat_chat_members_request import IsInChatChatMembersRequest
-from lark_oapi.api.im.v1.model.is_in_chat_chat_members_response import IsInChatChatMembersResponse
-from lark_oapi.api.im.v1.model.me_join_chat_members_request import MeJoinChatMembersRequest
-from lark_oapi.api.im.v1.model.me_join_chat_members_response import MeJoinChatMembersResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_chat_members_request import CreateChatMembersRequest
+from ..model.create_chat_members_response import CreateChatMembersResponse
+from ..model.delete_chat_members_request import DeleteChatMembersRequest
+from ..model.delete_chat_members_response import DeleteChatMembersResponse
+from ..model.get_chat_members_request import GetChatMembersRequest
+from ..model.get_chat_members_response import GetChatMembersResponse
+from ..model.is_in_chat_chat_members_request import IsInChatChatMembersRequest
+from ..model.is_in_chat_chat_members_response import IsInChatChatMembersResponse
+from ..model.me_join_chat_members_request import MeJoinChatMembersRequest
+from ..model.me_join_chat_members_response import MeJoinChatMembersResponse
 
 
 class ChatMembers(object):
@@ -24,7 +24,10 @@ class ChatMembers(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateChatMembersRequest,
-               option: RequestOption = RequestOption()) -> CreateChatMembersResponse:
+               option: Optional[RequestOption] = None) -> CreateChatMembersResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class ChatMembers(object):
         return response
 
     def delete(self, request: DeleteChatMembersRequest,
-               option: RequestOption = RequestOption()) -> DeleteChatMembersResponse:
+               option: Optional[RequestOption] = None) -> DeleteChatMembersResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class ChatMembers(object):
 
         return response
 
-    def get(self, request: GetChatMembersRequest, option: RequestOption = RequestOption()) -> GetChatMembersResponse:
+    def get(self, request: GetChatMembersRequest, option: Optional[RequestOption] = None) -> GetChatMembersResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +74,10 @@ class ChatMembers(object):
         return response
 
     def is_in_chat(self, request: IsInChatChatMembersRequest,
-                   option: RequestOption = RequestOption()) -> IsInChatChatMembersResponse:
+                   option: Optional[RequestOption] = None) -> IsInChatChatMembersResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class ChatMembers(object):
         return response
 
     def me_join(self, request: MeJoinChatMembersRequest,
-                option: RequestOption = RequestOption()) -> MeJoinChatMembersResponse:
+                option: Optional[RequestOption] = None) -> MeJoinChatMembersResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

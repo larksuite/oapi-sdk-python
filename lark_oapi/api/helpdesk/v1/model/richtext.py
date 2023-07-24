@@ -11,7 +11,7 @@ class Richtext(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Richtext(object):
 
 
 class RichtextBuilder(object):
-    def __init__(self, richtext: Richtext = Richtext({})) -> None:
-        self._richtext: Richtext = richtext
+    def __init__(self) -> None:
+        self._richtext = Richtext()
 
     def content(self, content: str) -> "RichtextBuilder":
         self._richtext.content = content

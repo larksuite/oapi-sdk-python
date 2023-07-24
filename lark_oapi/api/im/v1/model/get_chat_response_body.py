@@ -35,7 +35,7 @@ class GetChatResponseBody(object):
         "restricted_mode_setting": RestrictedModeSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.avatar: Optional[str] = None
         self.name: Optional[str] = None
         self.description: Optional[str] = None
@@ -70,8 +70,8 @@ class GetChatResponseBody(object):
 
 
 class GetChatResponseBodyBuilder(object):
-    def __init__(self, get_chat_response_body: GetChatResponseBody = GetChatResponseBody({})) -> None:
-        self._get_chat_response_body: GetChatResponseBody = get_chat_response_body
+    def __init__(self) -> None:
+        self._get_chat_response_body = GetChatResponseBody()
 
     def avatar(self, avatar: str) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.avatar = avatar

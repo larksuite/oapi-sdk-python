@@ -11,7 +11,7 @@ class ReferEntity(object):
         "refer_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.refer_token: Optional[str] = None
         self.refer_type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ReferEntity(object):
 
 
 class ReferEntityBuilder(object):
-    def __init__(self, refer_entity: ReferEntity = ReferEntity({})) -> None:
-        self._refer_entity: ReferEntity = refer_entity
+    def __init__(self) -> None:
+        self._refer_entity = ReferEntity()
 
     def refer_token(self, refer_token: str) -> "ReferEntityBuilder":
         self._refer_entity.refer_token = refer_token

@@ -10,7 +10,7 @@ class ForwardMessageRequestBody(object):
         "receive_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.receive_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ForwardMessageRequestBody(object):
 
 
 class ForwardMessageRequestBodyBuilder(object):
-    def __init__(self, forward_message_request_body: ForwardMessageRequestBody = ForwardMessageRequestBody({})) -> None:
-        self._forward_message_request_body: ForwardMessageRequestBody = forward_message_request_body
+    def __init__(self) -> None:
+        self._forward_message_request_body = ForwardMessageRequestBody()
 
     def receive_id(self, receive_id: str) -> "ForwardMessageRequestBodyBuilder":
         self._forward_message_request_body.receive_id = receive_id

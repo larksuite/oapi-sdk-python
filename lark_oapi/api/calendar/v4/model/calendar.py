@@ -19,7 +19,7 @@ class Calendar(object):
         "role": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.calendar_id: Optional[str] = None
         self.summary: Optional[str] = None
         self.description: Optional[str] = None
@@ -38,8 +38,8 @@ class Calendar(object):
 
 
 class CalendarBuilder(object):
-    def __init__(self, calendar: Calendar = Calendar({})) -> None:
-        self._calendar: Calendar = calendar
+    def __init__(self) -> None:
+        self._calendar = Calendar()
 
     def calendar_id(self, calendar_id: str) -> "CalendarBuilder":
         self._calendar.calendar_id = calendar_id

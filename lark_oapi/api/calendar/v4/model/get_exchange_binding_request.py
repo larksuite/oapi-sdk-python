@@ -19,7 +19,8 @@ class GetExchangeBindingRequest(BaseRequest):
 
 class GetExchangeBindingRequestBuilder(object):
 
-    def __init__(self, get_exchange_binding_request: GetExchangeBindingRequest = GetExchangeBindingRequest()) -> None:
+    def __init__(self) -> None:
+        get_exchange_binding_request = GetExchangeBindingRequest()
         get_exchange_binding_request.http_method = HttpMethod.GET
         get_exchange_binding_request.uri = "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
         get_exchange_binding_request.token_types = {AccessTokenType.USER}

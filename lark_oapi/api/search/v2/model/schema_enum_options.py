@@ -10,7 +10,7 @@ class SchemaEnumOptions(object):
         "possible_values": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.possible_values: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class SchemaEnumOptions(object):
 
 
 class SchemaEnumOptionsBuilder(object):
-    def __init__(self, schema_enum_options: SchemaEnumOptions = SchemaEnumOptions({})) -> None:
-        self._schema_enum_options: SchemaEnumOptions = schema_enum_options
+    def __init__(self) -> None:
+        self._schema_enum_options = SchemaEnumOptions()
 
     def possible_values(self, possible_values: List[str]) -> "SchemaEnumOptionsBuilder":
         self._schema_enum_options.possible_values = possible_values

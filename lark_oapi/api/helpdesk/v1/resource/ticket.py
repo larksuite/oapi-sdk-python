@@ -3,26 +3,26 @@
 import io
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.answer_user_query_ticket_request import AnswerUserQueryTicketRequest
-from lark_oapi.api.helpdesk.v1.model.answer_user_query_ticket_response import AnswerUserQueryTicketResponse
-from lark_oapi.api.helpdesk.v1.model.customized_fields_ticket_request import CustomizedFieldsTicketRequest
-from lark_oapi.api.helpdesk.v1.model.customized_fields_ticket_response import CustomizedFieldsTicketResponse
-from lark_oapi.api.helpdesk.v1.model.get_ticket_request import GetTicketRequest
-from lark_oapi.api.helpdesk.v1.model.get_ticket_response import GetTicketResponse
-from lark_oapi.api.helpdesk.v1.model.list_ticket_request import ListTicketRequest
-from lark_oapi.api.helpdesk.v1.model.list_ticket_response import ListTicketResponse
-from lark_oapi.api.helpdesk.v1.model.start_service_ticket_request import StartServiceTicketRequest
-from lark_oapi.api.helpdesk.v1.model.start_service_ticket_response import StartServiceTicketResponse
-from lark_oapi.api.helpdesk.v1.model.ticket_image_ticket_request import TicketImageTicketRequest
-from lark_oapi.api.helpdesk.v1.model.ticket_image_ticket_response import TicketImageTicketResponse
-from lark_oapi.api.helpdesk.v1.model.update_ticket_request import UpdateTicketRequest
-from lark_oapi.api.helpdesk.v1.model.update_ticket_response import UpdateTicketResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.answer_user_query_ticket_request import AnswerUserQueryTicketRequest
+from ..model.answer_user_query_ticket_response import AnswerUserQueryTicketResponse
+from ..model.customized_fields_ticket_request import CustomizedFieldsTicketRequest
+from ..model.customized_fields_ticket_response import CustomizedFieldsTicketResponse
+from ..model.get_ticket_request import GetTicketRequest
+from ..model.get_ticket_response import GetTicketResponse
+from ..model.list_ticket_request import ListTicketRequest
+from ..model.list_ticket_response import ListTicketResponse
+from ..model.start_service_ticket_request import StartServiceTicketRequest
+from ..model.start_service_ticket_response import StartServiceTicketResponse
+from ..model.ticket_image_ticket_request import TicketImageTicketRequest
+from ..model.ticket_image_ticket_response import TicketImageTicketResponse
+from ..model.update_ticket_request import UpdateTicketRequest
+from ..model.update_ticket_response import UpdateTicketResponse
 
 
 class Ticket(object):
@@ -30,7 +30,10 @@ class Ticket(object):
         self.config: Optional[Config] = config
 
     def answer_user_query(self, request: AnswerUserQueryTicketRequest,
-                          option: RequestOption = RequestOption()) -> AnswerUserQueryTicketResponse:
+                          option: Optional[RequestOption] = None) -> AnswerUserQueryTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -45,7 +48,10 @@ class Ticket(object):
         return response
 
     def customized_fields(self, request: CustomizedFieldsTicketRequest,
-                          option: RequestOption = RequestOption()) -> CustomizedFieldsTicketResponse:
+                          option: Optional[RequestOption] = None) -> CustomizedFieldsTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -59,7 +65,10 @@ class Ticket(object):
 
         return response
 
-    def get(self, request: GetTicketRequest, option: RequestOption = RequestOption()) -> GetTicketResponse:
+    def get(self, request: GetTicketRequest, option: Optional[RequestOption] = None) -> GetTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -72,7 +81,10 @@ class Ticket(object):
 
         return response
 
-    def list(self, request: ListTicketRequest, option: RequestOption = RequestOption()) -> ListTicketResponse:
+    def list(self, request: ListTicketRequest, option: Optional[RequestOption] = None) -> ListTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -86,7 +98,10 @@ class Ticket(object):
         return response
 
     def start_service(self, request: StartServiceTicketRequest,
-                      option: RequestOption = RequestOption()) -> StartServiceTicketResponse:
+                      option: Optional[RequestOption] = None) -> StartServiceTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -100,7 +115,10 @@ class Ticket(object):
         return response
 
     def ticket_image(self, request: TicketImageTicketRequest,
-                     option: RequestOption = RequestOption()) -> TicketImageTicketResponse:
+                     option: Optional[RequestOption] = None) -> TicketImageTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -122,7 +140,10 @@ class Ticket(object):
 
         return response
 
-    def update(self, request: UpdateTicketRequest, option: RequestOption = RequestOption()) -> UpdateTicketResponse:
+    def update(self, request: UpdateTicketRequest, option: Optional[RequestOption] = None) -> UpdateTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -14,7 +14,7 @@ class ListAppTableViewResponseBody(object):
         "total": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[AppTableView]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -27,9 +27,8 @@ class ListAppTableViewResponseBody(object):
 
 
 class ListAppTableViewResponseBodyBuilder(object):
-    def __init__(self, list_app_table_view_response_body: ListAppTableViewResponseBody = ListAppTableViewResponseBody(
-        {})) -> None:
-        self._list_app_table_view_response_body: ListAppTableViewResponseBody = list_app_table_view_response_body
+    def __init__(self) -> None:
+        self._list_app_table_view_response_body = ListAppTableViewResponseBody()
 
     def items(self, items: List[AppTableView]) -> "ListAppTableViewResponseBodyBuilder":
         self._list_app_table_view_response_body.items = items

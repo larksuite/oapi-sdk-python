@@ -26,7 +26,7 @@ class MeetingInfo(object):
         "telephone": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.meeting_id: Optional[str] = None
         self.meeting_topic: Optional[str] = None
         self.organizer: Optional[str] = None
@@ -52,8 +52,8 @@ class MeetingInfo(object):
 
 
 class MeetingInfoBuilder(object):
-    def __init__(self, meeting_info: MeetingInfo = MeetingInfo({})) -> None:
-        self._meeting_info: MeetingInfo = meeting_info
+    def __init__(self) -> None:
+        self._meeting_info = MeetingInfo()
 
     def meeting_id(self, meeting_id: str) -> "MeetingInfoBuilder":
         self._meeting_info.meeting_id = meeting_id

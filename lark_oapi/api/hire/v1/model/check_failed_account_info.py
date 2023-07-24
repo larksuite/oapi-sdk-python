@@ -13,7 +13,7 @@ class CheckFailedAccountInfo(object):
         "total_recharge_reward_info": BonusAmount,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.account_id: Optional[str] = None
         self.total_withdraw_reward_info: Optional[BonusAmount] = None
         self.total_recharge_reward_info: Optional[BonusAmount] = None
@@ -25,8 +25,8 @@ class CheckFailedAccountInfo(object):
 
 
 class CheckFailedAccountInfoBuilder(object):
-    def __init__(self, check_failed_account_info: CheckFailedAccountInfo = CheckFailedAccountInfo({})) -> None:
-        self._check_failed_account_info: CheckFailedAccountInfo = check_failed_account_info
+    def __init__(self) -> None:
+        self._check_failed_account_info = CheckFailedAccountInfo()
 
     def account_id(self, account_id: str) -> "CheckFailedAccountInfoBuilder":
         self._check_failed_account_info.account_id = account_id

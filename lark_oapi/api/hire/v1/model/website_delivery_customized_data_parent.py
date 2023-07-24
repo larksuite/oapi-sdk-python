@@ -12,7 +12,7 @@ class WebsiteDeliveryCustomizedDataParent(object):
         "children": List[WebsiteDeliveryCustomizedData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.children: Optional[List[WebsiteDeliveryCustomizedData]] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class WebsiteDeliveryCustomizedDataParent(object):
 
 
 class WebsiteDeliveryCustomizedDataParentBuilder(object):
-    def __init__(self,
-                 website_delivery_customized_data_parent: WebsiteDeliveryCustomizedDataParent = WebsiteDeliveryCustomizedDataParent(
-                     {})) -> None:
-        self._website_delivery_customized_data_parent: WebsiteDeliveryCustomizedDataParent = website_delivery_customized_data_parent
+    def __init__(self) -> None:
+        self._website_delivery_customized_data_parent = WebsiteDeliveryCustomizedDataParent()
 
     def object_id(self, object_id: str) -> "WebsiteDeliveryCustomizedDataParentBuilder":
         self._website_delivery_customized_data_parent.object_id = object_id

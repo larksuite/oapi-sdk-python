@@ -11,7 +11,7 @@ class ResendAppTicketRequestBody(object):
         "app_secret": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_id: Optional[str] = None
         self.app_secret: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class ResendAppTicketRequestBody(object):
 
 
 class ResendAppTicketRequestBodyBuilder(object):
-    def __init__(self,
-                 resend_app_ticket_request_body: ResendAppTicketRequestBody = ResendAppTicketRequestBody({})) -> None:
-        self._resend_app_ticket_request_body: ResendAppTicketRequestBody = resend_app_ticket_request_body
+    def __init__(self) -> None:
+        self._resend_app_ticket_request_body = ResendAppTicketRequestBody()
 
     def app_id(self, app_id: str) -> "ResendAppTicketRequestBodyBuilder":
         self._resend_app_ticket_request_body.app_id = app_id

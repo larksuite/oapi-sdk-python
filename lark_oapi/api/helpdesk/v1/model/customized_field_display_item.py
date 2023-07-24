@@ -16,7 +16,7 @@ class CustomizedFieldDisplayItem(object):
         "editable": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.value: Optional[str] = None
         self.key_name: Optional[str] = None
@@ -32,9 +32,8 @@ class CustomizedFieldDisplayItem(object):
 
 
 class CustomizedFieldDisplayItemBuilder(object):
-    def __init__(self,
-                 customized_field_display_item: CustomizedFieldDisplayItem = CustomizedFieldDisplayItem({})) -> None:
-        self._customized_field_display_item: CustomizedFieldDisplayItem = customized_field_display_item
+    def __init__(self) -> None:
+        self._customized_field_display_item = CustomizedFieldDisplayItem()
 
     def id(self, id: str) -> "CustomizedFieldDisplayItemBuilder":
         self._customized_field_display_item.id = id

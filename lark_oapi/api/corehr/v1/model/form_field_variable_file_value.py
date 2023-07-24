@@ -14,7 +14,7 @@ class FormFieldVariableFileValue(object):
         "mime_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.source_type: Optional[int] = None
         self.file_id: Optional[str] = None
         self.file_name: Optional[str] = None
@@ -28,9 +28,8 @@ class FormFieldVariableFileValue(object):
 
 
 class FormFieldVariableFileValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_file_value: FormFieldVariableFileValue = FormFieldVariableFileValue({})) -> None:
-        self._form_field_variable_file_value: FormFieldVariableFileValue = form_field_variable_file_value
+    def __init__(self) -> None:
+        self._form_field_variable_file_value = FormFieldVariableFileValue()
 
     def source_type(self, source_type: int) -> "FormFieldVariableFileValueBuilder":
         self._form_field_variable_file_value.source_type = source_type

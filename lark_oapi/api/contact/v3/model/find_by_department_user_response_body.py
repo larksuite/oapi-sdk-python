@@ -13,7 +13,7 @@ class FindByDepartmentUserResponseBody(object):
         "items": List[User],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[User]] = None
@@ -25,10 +25,8 @@ class FindByDepartmentUserResponseBody(object):
 
 
 class FindByDepartmentUserResponseBodyBuilder(object):
-    def __init__(self,
-                 find_by_department_user_response_body: FindByDepartmentUserResponseBody = FindByDepartmentUserResponseBody(
-                     {})) -> None:
-        self._find_by_department_user_response_body: FindByDepartmentUserResponseBody = find_by_department_user_response_body
+    def __init__(self) -> None:
+        self._find_by_department_user_response_body = FindByDepartmentUserResponseBody()
 
     def has_more(self, has_more: bool) -> "FindByDepartmentUserResponseBodyBuilder":
         self._find_by_department_user_response_body.has_more = has_more

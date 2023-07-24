@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_job_change_request import CreateJobChangeRequest
-from lark_oapi.api.corehr.v1.model.create_job_change_response import CreateJobChangeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_job_change_request import CreateJobChangeRequest
+from ..model.create_job_change_response import CreateJobChangeResponse
 
 
 class JobChange(object):
@@ -16,7 +16,10 @@ class JobChange(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateJobChangeRequest,
-               option: RequestOption = RequestOption()) -> CreateJobChangeResponse:
+               option: Optional[RequestOption] = None) -> CreateJobChangeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

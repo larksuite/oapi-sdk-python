@@ -11,7 +11,7 @@ class TestSchedule(object):
         "end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TestSchedule(object):
 
 
 class TestScheduleBuilder(object):
-    def __init__(self, test_schedule: TestSchedule = TestSchedule({})) -> None:
-        self._test_schedule: TestSchedule = test_schedule
+    def __init__(self) -> None:
+        self._test_schedule = TestSchedule()
 
     def start_time(self, start_time: str) -> "TestScheduleBuilder":
         self._test_schedule.start_time = start_time

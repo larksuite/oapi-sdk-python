@@ -27,7 +27,7 @@ class LegalEntityBank(object):
         "account_attribute_desc": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.company_code: Optional[str] = None
         self.bank_id: Optional[str] = None
@@ -53,8 +53,8 @@ class LegalEntityBank(object):
 
 
 class LegalEntityBankBuilder(object):
-    def __init__(self, legal_entity_bank: LegalEntityBank = LegalEntityBank({})) -> None:
-        self._legal_entity_bank: LegalEntityBank = legal_entity_bank
+    def __init__(self) -> None:
+        self._legal_entity_bank = LegalEntityBank()
 
     def id(self, id: int) -> "LegalEntityBankBuilder":
         self._legal_entity_bank.id = id

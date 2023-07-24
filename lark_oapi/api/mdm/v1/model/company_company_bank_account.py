@@ -22,7 +22,7 @@ class CompanyCompanyBankAccount(object):
         "i18n_account_attri_desc": List[I18nStruct],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.company_bank_account_uid: Optional[str] = None
         self.company_uid: Optional[str] = None
         self.account: Optional[str] = None
@@ -43,8 +43,8 @@ class CompanyCompanyBankAccount(object):
 
 
 class CompanyCompanyBankAccountBuilder(object):
-    def __init__(self, company_company_bank_account: CompanyCompanyBankAccount = CompanyCompanyBankAccount({})) -> None:
-        self._company_company_bank_account: CompanyCompanyBankAccount = company_company_bank_account
+    def __init__(self) -> None:
+        self._company_company_bank_account = CompanyCompanyBankAccount()
 
     def company_bank_account_uid(self, company_bank_account_uid: str) -> "CompanyCompanyBankAccountBuilder":
         self._company_company_bank_account.company_bank_account_uid = company_bank_account_uid

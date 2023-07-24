@@ -12,7 +12,7 @@ class ListDepartmentUnitResponse(BaseResponse):
         "data": ListDepartmentUnitResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListDepartmentUnitResponseBody] = None
         init(self, d, self._types)

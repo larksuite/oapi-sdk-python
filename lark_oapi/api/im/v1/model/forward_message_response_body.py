@@ -25,7 +25,7 @@ class ForwardMessageResponseBody(object):
         "upper_message_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[str] = None
         self.root_id: Optional[str] = None
         self.parent_id: Optional[str] = None
@@ -47,9 +47,8 @@ class ForwardMessageResponseBody(object):
 
 
 class ForwardMessageResponseBodyBuilder(object):
-    def __init__(self,
-                 forward_message_response_body: ForwardMessageResponseBody = ForwardMessageResponseBody({})) -> None:
-        self._forward_message_response_body: ForwardMessageResponseBody = forward_message_response_body
+    def __init__(self) -> None:
+        self._forward_message_response_body = ForwardMessageResponseBody()
 
     def message_id(self, message_id: str) -> "ForwardMessageResponseBodyBuilder":
         self._forward_message_response_body.message_id = message_id

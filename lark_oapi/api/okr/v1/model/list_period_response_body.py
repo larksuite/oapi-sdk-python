@@ -13,7 +13,7 @@ class ListPeriodResponseBody(object):
         "items": List[Period],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
         self.items: Optional[List[Period]] = None
@@ -25,8 +25,8 @@ class ListPeriodResponseBody(object):
 
 
 class ListPeriodResponseBodyBuilder(object):
-    def __init__(self, list_period_response_body: ListPeriodResponseBody = ListPeriodResponseBody({})) -> None:
-        self._list_period_response_body: ListPeriodResponseBody = list_period_response_body
+    def __init__(self) -> None:
+        self._list_period_response_body = ListPeriodResponseBody()
 
     def page_token(self, page_token: str) -> "ListPeriodResponseBodyBuilder":
         self._list_period_response_body.page_token = page_token

@@ -15,7 +15,7 @@ class Attachment(object):
         "tmp_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.name: Optional[str] = None
         self.type: Optional[str] = None
@@ -30,8 +30,8 @@ class Attachment(object):
 
 
 class AttachmentBuilder(object):
-    def __init__(self, attachment: Attachment = Attachment({})) -> None:
-        self._attachment: Attachment = attachment
+    def __init__(self) -> None:
+        self._attachment = Attachment()
 
     def file_token(self, file_token: str) -> "AttachmentBuilder":
         self._attachment.file_token = file_token

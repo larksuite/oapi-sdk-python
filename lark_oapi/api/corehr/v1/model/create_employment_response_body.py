@@ -11,7 +11,7 @@ class CreateEmploymentResponseBody(object):
         "employment": EmploymentCreate,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment: Optional[EmploymentCreate] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateEmploymentResponseBody(object):
 
 
 class CreateEmploymentResponseBodyBuilder(object):
-    def __init__(self, create_employment_response_body: CreateEmploymentResponseBody = CreateEmploymentResponseBody(
-        {})) -> None:
-        self._create_employment_response_body: CreateEmploymentResponseBody = create_employment_response_body
+    def __init__(self) -> None:
+        self._create_employment_response_body = CreateEmploymentResponseBody()
 
     def employment(self, employment: EmploymentCreate) -> "CreateEmploymentResponseBodyBuilder":
         self._create_employment_response_body.employment = employment

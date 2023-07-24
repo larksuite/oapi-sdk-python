@@ -20,7 +20,8 @@ class UpdateTicketRequest(BaseRequest):
 
 class UpdateTicketRequestBuilder(object):
 
-    def __init__(self, update_ticket_request: UpdateTicketRequest = UpdateTicketRequest()) -> None:
+    def __init__(self) -> None:
+        update_ticket_request = UpdateTicketRequest()
         update_ticket_request.http_method = HttpMethod.PUT
         update_ticket_request.uri = "/open-apis/helpdesk/v1/tickets/:ticket_id"
         update_ticket_request.token_types = {AccessTokenType.USER}

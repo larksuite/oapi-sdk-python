@@ -15,7 +15,7 @@ class Comment(object):
         "creator_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.parent_id: Optional[int] = None
         self.id: Optional[int] = None
@@ -30,8 +30,8 @@ class Comment(object):
 
 
 class CommentBuilder(object):
-    def __init__(self, comment: Comment = Comment({})) -> None:
-        self._comment: Comment = comment
+    def __init__(self) -> None:
+        self._comment = Comment()
 
     def content(self, content: str) -> "CommentBuilder":
         self._comment.content = content

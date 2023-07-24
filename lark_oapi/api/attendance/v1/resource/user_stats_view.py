@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.query_user_stats_view_request import QueryUserStatsViewRequest
-from lark_oapi.api.attendance.v1.model.query_user_stats_view_response import QueryUserStatsViewResponse
-from lark_oapi.api.attendance.v1.model.update_user_stats_view_request import UpdateUserStatsViewRequest
-from lark_oapi.api.attendance.v1.model.update_user_stats_view_response import UpdateUserStatsViewResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_user_stats_view_request import QueryUserStatsViewRequest
+from ..model.query_user_stats_view_response import QueryUserStatsViewResponse
+from ..model.update_user_stats_view_request import UpdateUserStatsViewRequest
+from ..model.update_user_stats_view_response import UpdateUserStatsViewResponse
 
 
 class UserStatsView(object):
@@ -18,7 +18,10 @@ class UserStatsView(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryUserStatsViewRequest,
-              option: RequestOption = RequestOption()) -> QueryUserStatsViewResponse:
+              option: Optional[RequestOption] = None) -> QueryUserStatsViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class UserStatsView(object):
         return response
 
     def update(self, request: UpdateUserStatsViewRequest,
-               option: RequestOption = RequestOption()) -> UpdateUserStatsViewResponse:
+               option: Optional[RequestOption] = None) -> UpdateUserStatsViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

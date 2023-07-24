@@ -13,7 +13,7 @@ class SearchRoomResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rooms: Optional[List[Room]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class SearchRoomResponseBody(object):
 
 
 class SearchRoomResponseBodyBuilder(object):
-    def __init__(self, search_room_response_body: SearchRoomResponseBody = SearchRoomResponseBody({})) -> None:
-        self._search_room_response_body: SearchRoomResponseBody = search_room_response_body
+    def __init__(self) -> None:
+        self._search_room_response_body = SearchRoomResponseBody()
 
     def rooms(self, rooms: List[Room]) -> "SearchRoomResponseBodyBuilder":
         self._search_room_response_body.rooms = rooms

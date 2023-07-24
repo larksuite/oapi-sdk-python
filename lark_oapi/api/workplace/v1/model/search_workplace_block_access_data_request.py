@@ -22,8 +22,8 @@ class SearchWorkplaceBlockAccessDataRequest(BaseRequest):
 
 class SearchWorkplaceBlockAccessDataRequestBuilder(object):
 
-    def __init__(self,
-                 search_workplace_block_access_data_request: SearchWorkplaceBlockAccessDataRequest = SearchWorkplaceBlockAccessDataRequest()) -> None:
+    def __init__(self) -> None:
+        search_workplace_block_access_data_request = SearchWorkplaceBlockAccessDataRequest()
         search_workplace_block_access_data_request.http_method = HttpMethod.POST
         search_workplace_block_access_data_request.uri = "/open-apis/workplace/v1/workplace_block_access_data/search"
         search_workplace_block_access_data_request.token_types = {AccessTokenType.TENANT}

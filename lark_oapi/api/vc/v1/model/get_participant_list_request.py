@@ -25,7 +25,8 @@ class GetParticipantListRequest(BaseRequest):
 
 class GetParticipantListRequestBuilder(object):
 
-    def __init__(self, get_participant_list_request: GetParticipantListRequest = GetParticipantListRequest()) -> None:
+    def __init__(self) -> None:
+        get_participant_list_request = GetParticipantListRequest()
         get_participant_list_request.http_method = HttpMethod.GET
         get_participant_list_request.uri = "/open-apis/vc/v1/participant_list"
         get_participant_list_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

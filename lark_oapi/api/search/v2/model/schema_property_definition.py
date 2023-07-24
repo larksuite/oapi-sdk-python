@@ -18,7 +18,7 @@ class SchemaPropertyDefinition(object):
         "display_options": SchemaDisplayOption,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.is_returnable: Optional[bool] = None
         self.is_repeatable: Optional[bool] = None
@@ -35,8 +35,8 @@ class SchemaPropertyDefinition(object):
 
 
 class SchemaPropertyDefinitionBuilder(object):
-    def __init__(self, schema_property_definition: SchemaPropertyDefinition = SchemaPropertyDefinition({})) -> None:
-        self._schema_property_definition: SchemaPropertyDefinition = schema_property_definition
+    def __init__(self) -> None:
+        self._schema_property_definition = SchemaPropertyDefinition()
 
     def name(self, name: str) -> "SchemaPropertyDefinitionBuilder":
         self._schema_property_definition.name = name

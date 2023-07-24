@@ -12,7 +12,7 @@ class AppScope(object):
         "level": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope: Optional[str] = None
         self.description: Optional[str] = None
         self.level: Optional[int] = None
@@ -24,8 +24,8 @@ class AppScope(object):
 
 
 class AppScopeBuilder(object):
-    def __init__(self, app_scope: AppScope = AppScope({})) -> None:
-        self._app_scope: AppScope = app_scope
+    def __init__(self) -> None:
+        self._app_scope = AppScope()
 
     def scope(self, scope: str) -> "AppScopeBuilder":
         self._app_scope.scope = scope

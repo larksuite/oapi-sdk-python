@@ -14,7 +14,7 @@ class PatchConditionalFormat(object):
         "index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ranges: Optional[List[ConditionalFormatRange]] = None
         self.conditional_format_rule: Optional[ConditionalFormatRule] = None
         self.index: Optional[int] = None
@@ -26,8 +26,8 @@ class PatchConditionalFormat(object):
 
 
 class PatchConditionalFormatBuilder(object):
-    def __init__(self, patch_conditional_format: PatchConditionalFormat = PatchConditionalFormat({})) -> None:
-        self._patch_conditional_format: PatchConditionalFormat = patch_conditional_format
+    def __init__(self) -> None:
+        self._patch_conditional_format = PatchConditionalFormat()
 
     def ranges(self, ranges: List[ConditionalFormatRange]) -> "PatchConditionalFormatBuilder":
         self._patch_conditional_format.ranges = ranges

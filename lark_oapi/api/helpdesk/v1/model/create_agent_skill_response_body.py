@@ -10,7 +10,7 @@ class CreateAgentSkillResponseBody(object):
         "agent_skill_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_skill_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class CreateAgentSkillResponseBody(object):
 
 
 class CreateAgentSkillResponseBodyBuilder(object):
-    def __init__(self, create_agent_skill_response_body: CreateAgentSkillResponseBody = CreateAgentSkillResponseBody(
-        {})) -> None:
-        self._create_agent_skill_response_body: CreateAgentSkillResponseBody = create_agent_skill_response_body
+    def __init__(self) -> None:
+        self._create_agent_skill_response_body = CreateAgentSkillResponseBody()
 
     def agent_skill_id(self, agent_skill_id: str) -> "CreateAgentSkillResponseBodyBuilder":
         self._create_agent_skill_response_body.agent_skill_id = agent_skill_id

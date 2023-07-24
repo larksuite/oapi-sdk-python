@@ -11,7 +11,7 @@ class PatchUserResponseBody(object):
         "user": User,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user: Optional[User] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchUserResponseBody(object):
 
 
 class PatchUserResponseBodyBuilder(object):
-    def __init__(self, patch_user_response_body: PatchUserResponseBody = PatchUserResponseBody({})) -> None:
-        self._patch_user_response_body: PatchUserResponseBody = patch_user_response_body
+    def __init__(self) -> None:
+        self._patch_user_response_body = PatchUserResponseBody()
 
     def user(self, user: User) -> "PatchUserResponseBodyBuilder":
         self._patch_user_response_body.user = user

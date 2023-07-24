@@ -19,7 +19,7 @@ class ApplicationOfferSalaryPlan(object):
         "customize_info_list": List[ApplicationOfferCustomValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.currency: Optional[str] = None
         self.basic_salary: Optional[str] = None
         self.probation_salary_percentage: Optional[str] = None
@@ -37,9 +37,8 @@ class ApplicationOfferSalaryPlan(object):
 
 
 class ApplicationOfferSalaryPlanBuilder(object):
-    def __init__(self,
-                 application_offer_salary_plan: ApplicationOfferSalaryPlan = ApplicationOfferSalaryPlan({})) -> None:
-        self._application_offer_salary_plan: ApplicationOfferSalaryPlan = application_offer_salary_plan
+    def __init__(self) -> None:
+        self._application_offer_salary_plan = ApplicationOfferSalaryPlan()
 
     def currency(self, currency: str) -> "ApplicationOfferSalaryPlanBuilder":
         self._application_offer_salary_plan.currency = currency

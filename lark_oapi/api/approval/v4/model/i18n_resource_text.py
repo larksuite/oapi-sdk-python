@@ -11,7 +11,7 @@ class I18nResourceText(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class I18nResourceText(object):
 
 
 class I18nResourceTextBuilder(object):
-    def __init__(self, i18n_resource_text: I18nResourceText = I18nResourceText({})) -> None:
-        self._i18n_resource_text: I18nResourceText = i18n_resource_text
+    def __init__(self) -> None:
+        self._i18n_resource_text = I18nResourceText()
 
     def key(self, key: str) -> "I18nResourceTextBuilder":
         self._i18n_resource_text.key = key

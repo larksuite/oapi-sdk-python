@@ -20,7 +20,8 @@ class CopyAppRequest(BaseRequest):
 
 class CopyAppRequestBuilder(object):
 
-    def __init__(self, copy_app_request: CopyAppRequest = CopyAppRequest()) -> None:
+    def __init__(self) -> None:
+        copy_app_request = CopyAppRequest()
         copy_app_request.http_method = HttpMethod.POST
         copy_app_request.uri = "/open-apis/bitable/v1/apps/:app_token/copy"
         copy_app_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

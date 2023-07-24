@@ -28,7 +28,7 @@ class Task(object):
         "definition_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.topic: Optional[int] = None
         self.user_id: Optional[int] = None
         self.title: Optional[str] = None
@@ -55,8 +55,8 @@ class Task(object):
 
 
 class TaskBuilder(object):
-    def __init__(self, task: Task = Task({})) -> None:
-        self._task: Task = task
+    def __init__(self) -> None:
+        self._task = Task()
 
     def topic(self, topic: int) -> "TaskBuilder":
         self._task.topic = topic

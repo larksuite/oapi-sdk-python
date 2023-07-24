@@ -15,7 +15,7 @@ class FreePunchCfg(object):
         "work_hours": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.free_start_time: Optional[str] = None
         self.free_end_time: Optional[str] = None
         self.punch_day: Optional[int] = None
@@ -30,8 +30,8 @@ class FreePunchCfg(object):
 
 
 class FreePunchCfgBuilder(object):
-    def __init__(self, free_punch_cfg: FreePunchCfg = FreePunchCfg({})) -> None:
-        self._free_punch_cfg: FreePunchCfg = free_punch_cfg
+    def __init__(self) -> None:
+        self._free_punch_cfg = FreePunchCfg()
 
     def free_start_time(self, free_start_time: str) -> "FreePunchCfgBuilder":
         self._free_punch_cfg.free_start_time = free_start_time

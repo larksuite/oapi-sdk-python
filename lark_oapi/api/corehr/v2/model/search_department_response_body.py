@@ -13,7 +13,7 @@ class SearchDepartmentResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Department]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class SearchDepartmentResponseBody(object):
 
 
 class SearchDepartmentResponseBodyBuilder(object):
-    def __init__(self, search_department_response_body: SearchDepartmentResponseBody = SearchDepartmentResponseBody(
-        {})) -> None:
-        self._search_department_response_body: SearchDepartmentResponseBody = search_department_response_body
+    def __init__(self) -> None:
+        self._search_department_response_body = SearchDepartmentResponseBody()
 
     def items(self, items: List[Department]) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.items = items

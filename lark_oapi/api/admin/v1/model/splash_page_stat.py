@@ -17,7 +17,7 @@ class SplashPageStat(object):
         "skip_count_accumulate": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date: Optional[str] = None
         self.splash_id: Optional[str] = None
         self.impression_count: Optional[int] = None
@@ -34,8 +34,8 @@ class SplashPageStat(object):
 
 
 class SplashPageStatBuilder(object):
-    def __init__(self, splash_page_stat: SplashPageStat = SplashPageStat({})) -> None:
-        self._splash_page_stat: SplashPageStat = splash_page_stat
+    def __init__(self) -> None:
+        self._splash_page_stat = SplashPageStat()
 
     def date(self, date: str) -> "SplashPageStatBuilder":
         self._splash_page_stat.date = date

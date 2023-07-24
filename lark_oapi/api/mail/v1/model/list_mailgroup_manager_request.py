@@ -21,8 +21,8 @@ class ListMailgroupManagerRequest(BaseRequest):
 
 class ListMailgroupManagerRequestBuilder(object):
 
-    def __init__(self,
-                 list_mailgroup_manager_request: ListMailgroupManagerRequest = ListMailgroupManagerRequest()) -> None:
+    def __init__(self) -> None:
+        list_mailgroup_manager_request = ListMailgroupManagerRequest()
         list_mailgroup_manager_request.http_method = HttpMethod.GET
         list_mailgroup_manager_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/managers"
         list_mailgroup_manager_request.token_types = {AccessTokenType.TENANT}

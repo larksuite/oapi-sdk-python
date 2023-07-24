@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.query_offboarding_request import QueryOffboardingRequest
-from lark_oapi.api.corehr.v1.model.query_offboarding_response import QueryOffboardingResponse
-from lark_oapi.api.corehr.v1.model.search_offboarding_request import SearchOffboardingRequest
-from lark_oapi.api.corehr.v1.model.search_offboarding_response import SearchOffboardingResponse
-from lark_oapi.api.corehr.v1.model.submit_offboarding_request import SubmitOffboardingRequest
-from lark_oapi.api.corehr.v1.model.submit_offboarding_response import SubmitOffboardingResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_offboarding_request import QueryOffboardingRequest
+from ..model.query_offboarding_response import QueryOffboardingResponse
+from ..model.search_offboarding_request import SearchOffboardingRequest
+from ..model.search_offboarding_response import SearchOffboardingResponse
+from ..model.submit_offboarding_request import SubmitOffboardingRequest
+from ..model.submit_offboarding_response import SubmitOffboardingResponse
 
 
 class Offboarding(object):
@@ -20,7 +20,10 @@ class Offboarding(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryOffboardingRequest,
-              option: RequestOption = RequestOption()) -> QueryOffboardingResponse:
+              option: Optional[RequestOption] = None) -> QueryOffboardingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Offboarding(object):
         return response
 
     def search(self, request: SearchOffboardingRequest,
-               option: RequestOption = RequestOption()) -> SearchOffboardingResponse:
+               option: Optional[RequestOption] = None) -> SearchOffboardingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class Offboarding(object):
         return response
 
     def submit(self, request: SubmitOffboardingRequest,
-               option: RequestOption = RequestOption()) -> SubmitOffboardingResponse:
+               option: Optional[RequestOption] = None) -> SubmitOffboardingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

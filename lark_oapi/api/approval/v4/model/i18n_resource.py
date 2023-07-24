@@ -13,7 +13,7 @@ class I18nResource(object):
         "is_default": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.locale: Optional[str] = None
         self.texts: Optional[List[I18nResourceText]] = None
         self.is_default: Optional[bool] = None
@@ -25,8 +25,8 @@ class I18nResource(object):
 
 
 class I18nResourceBuilder(object):
-    def __init__(self, i18n_resource: I18nResource = I18nResource({})) -> None:
-        self._i18n_resource: I18nResource = i18n_resource
+    def __init__(self) -> None:
+        self._i18n_resource = I18nResource()
 
     def locale(self, locale: str) -> "I18nResourceBuilder":
         self._i18n_resource.locale = locale

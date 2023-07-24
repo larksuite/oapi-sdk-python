@@ -15,7 +15,7 @@ class TalentCombinedAwardInfo(object):
         "customized_data": List[TalentCustomizedDataObjectValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.title: Optional[str] = None
         self.award_time: Optional[str] = None
@@ -29,8 +29,8 @@ class TalentCombinedAwardInfo(object):
 
 
 class TalentCombinedAwardInfoBuilder(object):
-    def __init__(self, talent_combined_award_info: TalentCombinedAwardInfo = TalentCombinedAwardInfo({})) -> None:
-        self._talent_combined_award_info: TalentCombinedAwardInfo = talent_combined_award_info
+    def __init__(self) -> None:
+        self._talent_combined_award_info = TalentCombinedAwardInfo()
 
     def id(self, id: str) -> "TalentCombinedAwardInfoBuilder":
         self._talent_combined_award_info.id = id

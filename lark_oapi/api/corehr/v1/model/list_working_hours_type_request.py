@@ -19,8 +19,8 @@ class ListWorkingHoursTypeRequest(BaseRequest):
 
 class ListWorkingHoursTypeRequestBuilder(object):
 
-    def __init__(self,
-                 list_working_hours_type_request: ListWorkingHoursTypeRequest = ListWorkingHoursTypeRequest()) -> None:
+    def __init__(self) -> None:
+        list_working_hours_type_request = ListWorkingHoursTypeRequest()
         list_working_hours_type_request.http_method = HttpMethod.GET
         list_working_hours_type_request.uri = "/open-apis/corehr/v1/working_hours_types"
         list_working_hours_type_request.token_types = {AccessTokenType.TENANT}

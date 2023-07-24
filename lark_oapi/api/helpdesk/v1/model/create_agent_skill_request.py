@@ -19,7 +19,8 @@ class CreateAgentSkillRequest(BaseRequest):
 
 class CreateAgentSkillRequestBuilder(object):
 
-    def __init__(self, create_agent_skill_request: CreateAgentSkillRequest = CreateAgentSkillRequest()) -> None:
+    def __init__(self) -> None:
+        create_agent_skill_request = CreateAgentSkillRequest()
         create_agent_skill_request.http_method = HttpMethod.POST
         create_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills"
         create_agent_skill_request.token_types = {AccessTokenType.USER}

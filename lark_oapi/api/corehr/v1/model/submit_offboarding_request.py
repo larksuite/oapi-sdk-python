@@ -20,7 +20,8 @@ class SubmitOffboardingRequest(BaseRequest):
 
 class SubmitOffboardingRequestBuilder(object):
 
-    def __init__(self, submit_offboarding_request: SubmitOffboardingRequest = SubmitOffboardingRequest()) -> None:
+    def __init__(self) -> None:
+        submit_offboarding_request = SubmitOffboardingRequest()
         submit_offboarding_request.http_method = HttpMethod.POST
         submit_offboarding_request.uri = "/open-apis/corehr/v1/offboardings/submit"
         submit_offboarding_request.token_types = {AccessTokenType.TENANT}

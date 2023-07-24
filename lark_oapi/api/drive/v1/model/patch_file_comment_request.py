@@ -22,7 +22,8 @@ class PatchFileCommentRequest(BaseRequest):
 
 class PatchFileCommentRequestBuilder(object):
 
-    def __init__(self, patch_file_comment_request: PatchFileCommentRequest = PatchFileCommentRequest()) -> None:
+    def __init__(self) -> None:
+        patch_file_comment_request = PatchFileCommentRequest()
         patch_file_comment_request.http_method = HttpMethod.PATCH
         patch_file_comment_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id"
         patch_file_comment_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

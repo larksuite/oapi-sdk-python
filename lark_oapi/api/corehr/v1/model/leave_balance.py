@@ -17,7 +17,7 @@ class LeaveBalance(object):
         "leave_duration_unit": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_type_id: Optional[str] = None
         self.leave_type_name: Optional[List[I18n]] = None
         self.historical_cycles_left: Optional[str] = None
@@ -33,8 +33,8 @@ class LeaveBalance(object):
 
 
 class LeaveBalanceBuilder(object):
-    def __init__(self, leave_balance: LeaveBalance = LeaveBalance({})) -> None:
-        self._leave_balance: LeaveBalance = leave_balance
+    def __init__(self) -> None:
+        self._leave_balance = LeaveBalance()
 
     def leave_type_id(self, leave_type_id: str) -> "LeaveBalanceBuilder":
         self._leave_balance.leave_type_id = leave_type_id

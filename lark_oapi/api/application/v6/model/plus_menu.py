@@ -11,7 +11,7 @@ class PlusMenu(object):
         "mobile_app_link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pc_app_link: Optional[str] = None
         self.mobile_app_link: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class PlusMenu(object):
 
 
 class PlusMenuBuilder(object):
-    def __init__(self, plus_menu: PlusMenu = PlusMenu({})) -> None:
-        self._plus_menu: PlusMenu = plus_menu
+    def __init__(self) -> None:
+        self._plus_menu = PlusMenu()
 
     def pc_app_link(self, pc_app_link: str) -> "PlusMenuBuilder":
         self._plus_menu.pc_app_link = pc_app_link

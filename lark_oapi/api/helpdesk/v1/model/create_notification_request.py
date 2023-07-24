@@ -20,7 +20,8 @@ class CreateNotificationRequest(BaseRequest):
 
 class CreateNotificationRequestBuilder(object):
 
-    def __init__(self, create_notification_request: CreateNotificationRequest = CreateNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        create_notification_request = CreateNotificationRequest()
         create_notification_request.http_method = HttpMethod.POST
         create_notification_request.uri = "/open-apis/helpdesk/v1/notifications"
         create_notification_request.token_types = {AccessTokenType.USER}

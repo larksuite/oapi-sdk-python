@@ -16,7 +16,7 @@ class TableProperty(object):
         "header_column": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.row_size: Optional[int] = None
         self.column_size: Optional[int] = None
         self.column_width: Optional[List[int]] = None
@@ -31,8 +31,8 @@ class TableProperty(object):
 
 
 class TablePropertyBuilder(object):
-    def __init__(self, table_property: TableProperty = TableProperty({})) -> None:
-        self._table_property: TableProperty = table_property
+    def __init__(self) -> None:
+        self._table_property = TableProperty()
 
     def row_size(self, row_size: int) -> "TablePropertyBuilder":
         self._table_property.row_size = row_size

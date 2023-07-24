@@ -18,7 +18,7 @@ class CombinedCreateJobResponseBody(object):
         "onboard_registration_schema_info": RegistrationSchemaInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.default_job_post: Optional[CombinedJobResultDefaultJobPost] = None
         self.job: Optional[Job] = None
         self.job_manager: Optional[JobManager] = None
@@ -32,9 +32,8 @@ class CombinedCreateJobResponseBody(object):
 
 
 class CombinedCreateJobResponseBodyBuilder(object):
-    def __init__(self, combined_create_job_response_body: CombinedCreateJobResponseBody = CombinedCreateJobResponseBody(
-        {})) -> None:
-        self._combined_create_job_response_body: CombinedCreateJobResponseBody = combined_create_job_response_body
+    def __init__(self) -> None:
+        self._combined_create_job_response_body = CombinedCreateJobResponseBody()
 
     def default_job_post(self,
                          default_job_post: CombinedJobResultDefaultJobPost) -> "CombinedCreateJobResponseBodyBuilder":

@@ -11,7 +11,7 @@ class AppAdminUser(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.admin_type: Optional[List[str]] = None
         self.user_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppAdminUser(object):
 
 
 class AppAdminUserBuilder(object):
-    def __init__(self, app_admin_user: AppAdminUser = AppAdminUser({})) -> None:
-        self._app_admin_user: AppAdminUser = app_admin_user
+    def __init__(self) -> None:
+        self._app_admin_user = AppAdminUser()
 
     def admin_type(self, admin_type: List[str]) -> "AppAdminUserBuilder":
         self._app_admin_user.admin_type = admin_type

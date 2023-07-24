@@ -12,7 +12,7 @@ class User(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.avatar: Optional[str] = None
         self.id: Optional[str] = None
@@ -24,8 +24,8 @@ class User(object):
 
 
 class UserBuilder(object):
-    def __init__(self, user: User = User({})) -> None:
-        self._user: User = user
+    def __init__(self) -> None:
+        self._user = User()
 
     def name(self, name: str) -> "UserBuilder":
         self._user.name = name

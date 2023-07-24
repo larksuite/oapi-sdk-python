@@ -18,8 +18,8 @@ class SubscriptionCalendarEventRequest(BaseRequest):
 
 class SubscriptionCalendarEventRequestBuilder(object):
 
-    def __init__(self,
-                 subscription_calendar_event_request: SubscriptionCalendarEventRequest = SubscriptionCalendarEventRequest()) -> None:
+    def __init__(self) -> None:
+        subscription_calendar_event_request = SubscriptionCalendarEventRequest()
         subscription_calendar_event_request.http_method = HttpMethod.POST
         subscription_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
         subscription_calendar_event_request.token_types = {AccessTokenType.USER}

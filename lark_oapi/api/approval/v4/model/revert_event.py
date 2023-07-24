@@ -13,7 +13,7 @@ class RevertEvent(object):
         "status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.operate_time: Optional[int] = None
@@ -26,8 +26,8 @@ class RevertEvent(object):
 
 
 class RevertEventBuilder(object):
-    def __init__(self, revert_event: RevertEvent = RevertEvent({})) -> None:
-        self._revert_event: RevertEvent = revert_event
+    def __init__(self) -> None:
+        self._revert_event = RevertEvent()
 
     def type(self, type: str) -> "RevertEventBuilder":
         self._revert_event.type = type

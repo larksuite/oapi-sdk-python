@@ -13,7 +13,7 @@ class InlineFile(object):
         "text_element_style": TextElementStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.source_block_id: Optional[str] = None
         self.text_element_style: Optional[TextElementStyle] = None
@@ -25,8 +25,8 @@ class InlineFile(object):
 
 
 class InlineFileBuilder(object):
-    def __init__(self, inline_file: InlineFile = InlineFile({})) -> None:
-        self._inline_file: InlineFile = inline_file
+    def __init__(self) -> None:
+        self._inline_file = InlineFile()
 
     def file_token(self, file_token: str) -> "InlineFileBuilder":
         self._inline_file.file_token = file_token

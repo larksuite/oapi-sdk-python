@@ -11,7 +11,7 @@ class CopyAppResponseBody(object):
         "app": App,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app: Optional[App] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CopyAppResponseBody(object):
 
 
 class CopyAppResponseBodyBuilder(object):
-    def __init__(self, copy_app_response_body: CopyAppResponseBody = CopyAppResponseBody({})) -> None:
-        self._copy_app_response_body: CopyAppResponseBody = copy_app_response_body
+    def __init__(self) -> None:
+        self._copy_app_response_body = CopyAppResponseBody()
 
     def app(self, app: App) -> "CopyAppResponseBodyBuilder":
         self._copy_app_response_body.app = app

@@ -14,7 +14,7 @@ class ExamMarkingTask(object):
         "activity_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.talent_id: Optional[str] = None
@@ -28,8 +28,8 @@ class ExamMarkingTask(object):
 
 
 class ExamMarkingTaskBuilder(object):
-    def __init__(self, exam_marking_task: ExamMarkingTask = ExamMarkingTask({})) -> None:
-        self._exam_marking_task: ExamMarkingTask = exam_marking_task
+    def __init__(self) -> None:
+        self._exam_marking_task = ExamMarkingTask()
 
     def id(self, id: str) -> "ExamMarkingTaskBuilder":
         self._exam_marking_task.id = id

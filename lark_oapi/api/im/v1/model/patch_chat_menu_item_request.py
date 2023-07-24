@@ -21,7 +21,8 @@ class PatchChatMenuItemRequest(BaseRequest):
 
 class PatchChatMenuItemRequestBuilder(object):
 
-    def __init__(self, patch_chat_menu_item_request: PatchChatMenuItemRequest = PatchChatMenuItemRequest()) -> None:
+    def __init__(self) -> None:
+        patch_chat_menu_item_request = PatchChatMenuItemRequest()
         patch_chat_menu_item_request.http_method = HttpMethod.PATCH
         patch_chat_menu_item_request.uri = "/open-apis/im/v1/chats/:chat_id/menu_items/:menu_item_id"
         patch_chat_menu_item_request.token_types = {AccessTokenType.TENANT}

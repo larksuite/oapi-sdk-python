@@ -18,7 +18,7 @@ class PunchTimeRule(object):
         "late_minutes_as_serious_late": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.on_time: Optional[str] = None
         self.off_time: Optional[str] = None
         self.late_minutes_as_late: Optional[int] = None
@@ -36,8 +36,8 @@ class PunchTimeRule(object):
 
 
 class PunchTimeRuleBuilder(object):
-    def __init__(self, punch_time_rule: PunchTimeRule = PunchTimeRule({})) -> None:
-        self._punch_time_rule: PunchTimeRule = punch_time_rule
+    def __init__(self) -> None:
+        self._punch_time_rule = PunchTimeRule()
 
     def on_time(self, on_time: str) -> "PunchTimeRuleBuilder":
         self._punch_time_rule.on_time = on_time

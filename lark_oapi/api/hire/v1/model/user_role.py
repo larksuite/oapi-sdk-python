@@ -12,7 +12,7 @@ class UserRole(object):
         "modify_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.role_id: Optional[str] = None
         self.modify_time: Optional[str] = None
@@ -24,8 +24,8 @@ class UserRole(object):
 
 
 class UserRoleBuilder(object):
-    def __init__(self, user_role: UserRole = UserRole({})) -> None:
-        self._user_role: UserRole = user_role
+    def __init__(self) -> None:
+        self._user_role = UserRole()
 
     def user_id(self, user_id: str) -> "UserRoleBuilder":
         self._user_role.user_id = user_id

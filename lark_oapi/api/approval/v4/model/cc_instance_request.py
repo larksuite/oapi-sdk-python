@@ -20,7 +20,8 @@ class CcInstanceRequest(BaseRequest):
 
 class CcInstanceRequestBuilder(object):
 
-    def __init__(self, cc_instance_request: CcInstanceRequest = CcInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        cc_instance_request = CcInstanceRequest()
         cc_instance_request.http_method = HttpMethod.POST
         cc_instance_request.uri = "/open-apis/approval/v4/instances/cc"
         cc_instance_request.token_types = {AccessTokenType.TENANT}

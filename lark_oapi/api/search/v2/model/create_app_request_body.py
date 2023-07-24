@@ -10,7 +10,7 @@ class CreateAppRequestBody(object):
         "query": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.query: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class CreateAppRequestBody(object):
 
 
 class CreateAppRequestBodyBuilder(object):
-    def __init__(self, create_app_request_body: CreateAppRequestBody = CreateAppRequestBody({})) -> None:
-        self._create_app_request_body: CreateAppRequestBody = create_app_request_body
+    def __init__(self) -> None:
+        self._create_app_request_body = CreateAppRequestBody()
 
     def query(self, query: str) -> "CreateAppRequestBodyBuilder":
         self._create_app_request_body.query = query

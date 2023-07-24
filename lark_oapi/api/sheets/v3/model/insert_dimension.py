@@ -12,7 +12,7 @@ class InsertDimension(object):
         "inherit_from": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.dimension_range: Optional[Dimension] = None
         self.inherit_from: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class InsertDimension(object):
 
 
 class InsertDimensionBuilder(object):
-    def __init__(self, insert_dimension: InsertDimension = InsertDimension({})) -> None:
-        self._insert_dimension: InsertDimension = insert_dimension
+    def __init__(self) -> None:
+        self._insert_dimension = InsertDimension()
 
     def dimension_range(self, dimension_range: Dimension) -> "InsertDimensionBuilder":
         self._insert_dimension.dimension_range = dimension_range

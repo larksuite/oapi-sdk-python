@@ -13,7 +13,7 @@ class Account(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.account_id: Optional[str] = None
         self.assets: Optional[Assets] = None
         self.status: Optional[int] = None
@@ -25,8 +25,8 @@ class Account(object):
 
 
 class AccountBuilder(object):
-    def __init__(self, account: Account = Account({})) -> None:
-        self._account: Account = account
+    def __init__(self) -> None:
+        self._account = Account()
 
     def account_id(self, account_id: str) -> "AccountBuilder":
         self._account.account_id = account_id

@@ -18,7 +18,7 @@ class CreateJobChangeRequestBody(object):
         "initiator_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.transfer_mode: Optional[int] = None
         self.employment_id: Optional[str] = None
         self.transfer_type_unique_identifier: Optional[str] = None
@@ -35,9 +35,8 @@ class CreateJobChangeRequestBody(object):
 
 
 class CreateJobChangeRequestBodyBuilder(object):
-    def __init__(self,
-                 create_job_change_request_body: CreateJobChangeRequestBody = CreateJobChangeRequestBody({})) -> None:
-        self._create_job_change_request_body: CreateJobChangeRequestBody = create_job_change_request_body
+    def __init__(self) -> None:
+        self._create_job_change_request_body = CreateJobChangeRequestBody()
 
     def transfer_mode(self, transfer_mode: int) -> "CreateJobChangeRequestBodyBuilder":
         self._create_job_change_request_body.transfer_mode = transfer_mode

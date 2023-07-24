@@ -15,7 +15,7 @@ class WebsiteDeliveryWorks(object):
         "customized_data": List[WebsiteDeliveryCustomizedData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.desc: Optional[str] = None
         self.link: Optional[str] = None
         self.attachment: Optional[WebsiteDeliveryWorksAttachment] = None
@@ -28,8 +28,8 @@ class WebsiteDeliveryWorks(object):
 
 
 class WebsiteDeliveryWorksBuilder(object):
-    def __init__(self, website_delivery_works: WebsiteDeliveryWorks = WebsiteDeliveryWorks({})) -> None:
-        self._website_delivery_works: WebsiteDeliveryWorks = website_delivery_works
+    def __init__(self) -> None:
+        self._website_delivery_works = WebsiteDeliveryWorks()
 
     def desc(self, desc: str) -> "WebsiteDeliveryWorksBuilder":
         self._website_delivery_works.desc = desc

@@ -10,7 +10,7 @@ class CreatePreHireResponseBody(object):
         "pre_hire_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pre_hire_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class CreatePreHireResponseBody(object):
 
 
 class CreatePreHireResponseBodyBuilder(object):
-    def __init__(self,
-                 create_pre_hire_response_body: CreatePreHireResponseBody = CreatePreHireResponseBody({})) -> None:
-        self._create_pre_hire_response_body: CreatePreHireResponseBody = create_pre_hire_response_body
+    def __init__(self) -> None:
+        self._create_pre_hire_response_body = CreatePreHireResponseBody()
 
     def pre_hire_id(self, pre_hire_id: str) -> "CreatePreHireResponseBodyBuilder":
         self._create_pre_hire_response_body.pre_hire_id = pre_hire_id

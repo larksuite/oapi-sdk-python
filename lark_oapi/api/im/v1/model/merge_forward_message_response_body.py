@@ -12,7 +12,7 @@ class MergeForwardMessageResponseBody(object):
         "invalid_message_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message: Optional[Message] = None
         self.invalid_message_id_list: Optional[List[str]] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class MergeForwardMessageResponseBody(object):
 
 
 class MergeForwardMessageResponseBodyBuilder(object):
-    def __init__(self,
-                 merge_forward_message_response_body: MergeForwardMessageResponseBody = MergeForwardMessageResponseBody(
-                     {})) -> None:
-        self._merge_forward_message_response_body: MergeForwardMessageResponseBody = merge_forward_message_response_body
+    def __init__(self) -> None:
+        self._merge_forward_message_response_body = MergeForwardMessageResponseBody()
 
     def message(self, message: Message) -> "MergeForwardMessageResponseBodyBuilder":
         self._merge_forward_message_response_body.message = message

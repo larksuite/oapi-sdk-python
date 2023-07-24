@@ -12,7 +12,7 @@ class SchemaTagOptions(object):
         "text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.color: Optional[str] = None
         self.text: Optional[str] = None
@@ -24,8 +24,8 @@ class SchemaTagOptions(object):
 
 
 class SchemaTagOptionsBuilder(object):
-    def __init__(self, schema_tag_options: SchemaTagOptions = SchemaTagOptions({})) -> None:
-        self._schema_tag_options: SchemaTagOptions = schema_tag_options
+    def __init__(self) -> None:
+        self._schema_tag_options = SchemaTagOptions()
 
     def name(self, name: str) -> "SchemaTagOptionsBuilder":
         self._schema_tag_options.name = name

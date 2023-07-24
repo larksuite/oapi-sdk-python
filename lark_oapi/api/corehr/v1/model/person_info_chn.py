@@ -19,7 +19,7 @@ class PersonInfoChn(object):
         "working_years": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.native_region: Optional[str] = None
         self.political_affiliation_list: Optional[List[Enum]] = None
@@ -36,8 +36,8 @@ class PersonInfoChn(object):
 
 
 class PersonInfoChnBuilder(object):
-    def __init__(self, person_info_chn: PersonInfoChn = PersonInfoChn({})) -> None:
-        self._person_info_chn: PersonInfoChn = person_info_chn
+    def __init__(self) -> None:
+        self._person_info_chn = PersonInfoChn()
 
     def id(self, id: str) -> "PersonInfoChnBuilder":
         self._person_info_chn.id = id

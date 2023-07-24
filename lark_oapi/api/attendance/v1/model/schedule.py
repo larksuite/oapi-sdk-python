@@ -11,7 +11,7 @@ class Schedule(object):
         "shifts": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_id: Optional[str] = None
         self.shifts: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Schedule(object):
 
 
 class ScheduleBuilder(object):
-    def __init__(self, schedule: Schedule = Schedule({})) -> None:
-        self._schedule: Schedule = schedule
+    def __init__(self) -> None:
+        self._schedule = Schedule()
 
     def group_id(self, group_id: str) -> "ScheduleBuilder":
         self._schedule.group_id = group_id

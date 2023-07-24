@@ -12,7 +12,7 @@ class Find(object):
         "find": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.find_condition: Optional[FindCondition] = None
         self.find: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Find(object):
 
 
 class FindBuilder(object):
-    def __init__(self, find: Find = Find({})) -> None:
-        self._find: Find = find
+    def __init__(self) -> None:
+        self._find = Find()
 
     def find_condition(self, find_condition: FindCondition) -> "FindBuilder":
         self._find.find_condition = find_condition

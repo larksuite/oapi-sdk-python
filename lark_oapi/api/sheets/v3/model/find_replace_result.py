@@ -12,7 +12,7 @@ class FindReplaceResult(object):
         "rows_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.matched_cells: Optional[List[str]] = None
         self.matched_formula_cells: Optional[List[str]] = None
         self.rows_count: Optional[int] = None
@@ -24,8 +24,8 @@ class FindReplaceResult(object):
 
 
 class FindReplaceResultBuilder(object):
-    def __init__(self, find_replace_result: FindReplaceResult = FindReplaceResult({})) -> None:
-        self._find_replace_result: FindReplaceResult = find_replace_result
+    def __init__(self) -> None:
+        self._find_replace_result = FindReplaceResult()
 
     def matched_cells(self, matched_cells: List[str]) -> "FindReplaceResultBuilder":
         self._find_replace_result.matched_cells = matched_cells

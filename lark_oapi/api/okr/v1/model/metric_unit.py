@@ -12,7 +12,7 @@ class MetricUnit(object):
         "ja_jp": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         self.ja_jp: Optional[str] = None
@@ -24,8 +24,8 @@ class MetricUnit(object):
 
 
 class MetricUnitBuilder(object):
-    def __init__(self, metric_unit: MetricUnit = MetricUnit({})) -> None:
-        self._metric_unit: MetricUnit = metric_unit
+    def __init__(self) -> None:
+        self._metric_unit = MetricUnit()
 
     def zh_cn(self, zh_cn: str) -> "MetricUnitBuilder":
         self._metric_unit.zh_cn = zh_cn

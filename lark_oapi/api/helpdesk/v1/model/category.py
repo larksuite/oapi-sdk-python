@@ -15,7 +15,7 @@ class Category(object):
         "language": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.category_id: Optional[str] = None
         self.id: Optional[str] = None
         self.name: Optional[str] = None
@@ -30,8 +30,8 @@ class Category(object):
 
 
 class CategoryBuilder(object):
-    def __init__(self, category: Category = Category({})) -> None:
-        self._category: Category = category
+    def __init__(self) -> None:
+        self._category = Category()
 
     def category_id(self, category_id: str) -> "CategoryBuilder":
         self._category.category_id = category_id

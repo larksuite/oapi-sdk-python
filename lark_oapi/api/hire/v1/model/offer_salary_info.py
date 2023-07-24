@@ -16,7 +16,7 @@ class OfferSalaryInfo(object):
         "half_year_bonus": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.currency: Optional[str] = None
         self.basic_salary: Optional[str] = None
         self.probation_salary_percentage: Optional[str] = None
@@ -32,8 +32,8 @@ class OfferSalaryInfo(object):
 
 
 class OfferSalaryInfoBuilder(object):
-    def __init__(self, offer_salary_info: OfferSalaryInfo = OfferSalaryInfo({})) -> None:
-        self._offer_salary_info: OfferSalaryInfo = offer_salary_info
+    def __init__(self) -> None:
+        self._offer_salary_info = OfferSalaryInfo()
 
     def currency(self, currency: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.currency = currency

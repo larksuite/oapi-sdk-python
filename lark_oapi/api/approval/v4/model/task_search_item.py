@@ -17,7 +17,7 @@ class TaskSearchItem(object):
         "task": TaskSearchNode,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval: Optional[InstanceSearchApproval] = None
         self.group: Optional[InstanceSearchGroup] = None
         self.instance: Optional[InstanceSearchNode] = None
@@ -30,8 +30,8 @@ class TaskSearchItem(object):
 
 
 class TaskSearchItemBuilder(object):
-    def __init__(self, task_search_item: TaskSearchItem = TaskSearchItem({})) -> None:
-        self._task_search_item: TaskSearchItem = task_search_item
+    def __init__(self) -> None:
+        self._task_search_item = TaskSearchItem()
 
     def approval(self, approval: InstanceSearchApproval) -> "TaskSearchItemBuilder":
         self._task_search_item.approval = approval

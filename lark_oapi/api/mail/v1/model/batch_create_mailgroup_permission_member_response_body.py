@@ -11,7 +11,7 @@ class BatchCreateMailgroupPermissionMemberResponseBody(object):
         "items": List[MailgroupPermissionMember],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[MailgroupPermissionMember]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateMailgroupPermissionMemberResponseBody(object):
 
 
 class BatchCreateMailgroupPermissionMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_create_mailgroup_permission_member_response_body: BatchCreateMailgroupPermissionMemberResponseBody = BatchCreateMailgroupPermissionMemberResponseBody(
-                     {})) -> None:
-        self._batch_create_mailgroup_permission_member_response_body: BatchCreateMailgroupPermissionMemberResponseBody = batch_create_mailgroup_permission_member_response_body
+    def __init__(self) -> None:
+        self._batch_create_mailgroup_permission_member_response_body = BatchCreateMailgroupPermissionMemberResponseBody()
 
     def items(self,
               items: List[MailgroupPermissionMember]) -> "BatchCreateMailgroupPermissionMemberResponseBodyBuilder":

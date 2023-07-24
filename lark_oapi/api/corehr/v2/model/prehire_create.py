@@ -18,7 +18,7 @@ class PrehireCreate(object):
         "ats_application_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.basic_info: Optional[BasicInfo] = None
         self.offer_info: Optional[OfferInfo] = None
         self.education_info: Optional[List[EducationInfo]] = None
@@ -32,8 +32,8 @@ class PrehireCreate(object):
 
 
 class PrehireCreateBuilder(object):
-    def __init__(self, prehire_create: PrehireCreate = PrehireCreate({})) -> None:
-        self._prehire_create: PrehireCreate = prehire_create
+    def __init__(self) -> None:
+        self._prehire_create = PrehireCreate()
 
     def basic_info(self, basic_info: BasicInfo) -> "PrehireCreateBuilder":
         self._prehire_create.basic_info = basic_info

@@ -19,7 +19,8 @@ class QueryUserRequest(BaseRequest):
 
 class QueryUserRequestBuilder(object):
 
-    def __init__(self, query_user_request: QueryUserRequest = QueryUserRequest()) -> None:
+    def __init__(self) -> None:
+        query_user_request = QueryUserRequest()
         query_user_request.http_method = HttpMethod.POST
         query_user_request.uri = "/open-apis/mail/v1/users/query"
         query_user_request.token_types = {AccessTokenType.TENANT}

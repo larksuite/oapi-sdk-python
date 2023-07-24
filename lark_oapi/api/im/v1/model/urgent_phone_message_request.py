@@ -21,7 +21,8 @@ class UrgentPhoneMessageRequest(BaseRequest):
 
 class UrgentPhoneMessageRequestBuilder(object):
 
-    def __init__(self, urgent_phone_message_request: UrgentPhoneMessageRequest = UrgentPhoneMessageRequest()) -> None:
+    def __init__(self) -> None:
+        urgent_phone_message_request = UrgentPhoneMessageRequest()
         urgent_phone_message_request.http_method = HttpMethod.PATCH
         urgent_phone_message_request.uri = "/open-apis/im/v1/messages/:message_id/urgent_phone"
         urgent_phone_message_request.token_types = {AccessTokenType.TENANT}

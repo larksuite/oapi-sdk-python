@@ -18,7 +18,8 @@ class UnsubscribeApprovalRequest(BaseRequest):
 
 class UnsubscribeApprovalRequestBuilder(object):
 
-    def __init__(self, unsubscribe_approval_request: UnsubscribeApprovalRequest = UnsubscribeApprovalRequest()) -> None:
+    def __init__(self) -> None:
+        unsubscribe_approval_request = UnsubscribeApprovalRequest()
         unsubscribe_approval_request.http_method = HttpMethod.POST
         unsubscribe_approval_request.uri = "/open-apis/approval/v4/approvals/:approval_code/unsubscribe"
         unsubscribe_approval_request.token_types = {AccessTokenType.TENANT}

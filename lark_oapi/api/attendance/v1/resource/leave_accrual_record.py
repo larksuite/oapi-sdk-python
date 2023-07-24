@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.patch_leave_accrual_record_request import PatchLeaveAccrualRecordRequest
-from lark_oapi.api.attendance.v1.model.patch_leave_accrual_record_response import PatchLeaveAccrualRecordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.patch_leave_accrual_record_request import PatchLeaveAccrualRecordRequest
+from ..model.patch_leave_accrual_record_response import PatchLeaveAccrualRecordResponse
 
 
 class LeaveAccrualRecord(object):
@@ -16,7 +16,10 @@ class LeaveAccrualRecord(object):
         self.config: Optional[Config] = config
 
     def patch(self, request: PatchLeaveAccrualRecordRequest,
-              option: RequestOption = RequestOption()) -> PatchLeaveAccrualRecordResponse:
+              option: Optional[RequestOption] = None) -> PatchLeaveAccrualRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

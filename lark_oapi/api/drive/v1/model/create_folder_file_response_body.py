@@ -11,7 +11,7 @@ class CreateFolderFileResponseBody(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.url: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class CreateFolderFileResponseBody(object):
 
 
 class CreateFolderFileResponseBodyBuilder(object):
-    def __init__(self, create_folder_file_response_body: CreateFolderFileResponseBody = CreateFolderFileResponseBody(
-        {})) -> None:
-        self._create_folder_file_response_body: CreateFolderFileResponseBody = create_folder_file_response_body
+    def __init__(self) -> None:
+        self._create_folder_file_response_body = CreateFolderFileResponseBody()
 
     def token(self, token: str) -> "CreateFolderFileResponseBodyBuilder":
         self._create_folder_file_response_body.token = token

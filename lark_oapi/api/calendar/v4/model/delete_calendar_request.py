@@ -18,7 +18,8 @@ class DeleteCalendarRequest(BaseRequest):
 
 class DeleteCalendarRequestBuilder(object):
 
-    def __init__(self, delete_calendar_request: DeleteCalendarRequest = DeleteCalendarRequest()) -> None:
+    def __init__(self) -> None:
+        delete_calendar_request = DeleteCalendarRequest()
         delete_calendar_request.http_method = HttpMethod.DELETE
         delete_calendar_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id"
         delete_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

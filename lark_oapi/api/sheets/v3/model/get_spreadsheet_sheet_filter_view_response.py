@@ -12,7 +12,7 @@ class GetSpreadsheetSheetFilterViewResponse(BaseResponse):
         "data": GetSpreadsheetSheetFilterViewResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetSpreadsheetSheetFilterViewResponseBody] = None
         init(self, d, self._types)

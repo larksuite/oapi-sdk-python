@@ -19,7 +19,8 @@ class BatchGetIdTalentRequest(BaseRequest):
 
 class BatchGetIdTalentRequestBuilder(object):
 
-    def __init__(self, batch_get_id_talent_request: BatchGetIdTalentRequest = BatchGetIdTalentRequest()) -> None:
+    def __init__(self) -> None:
+        batch_get_id_talent_request = BatchGetIdTalentRequest()
         batch_get_id_talent_request.http_method = HttpMethod.POST
         batch_get_id_talent_request.uri = "/open-apis/hire/v1/talents/batch_get_id"
         batch_get_id_talent_request.token_types = {AccessTokenType.TENANT}

@@ -12,7 +12,7 @@ class ProtectedRangeEditors(object):
         "chats": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.users: Optional[List[str]] = None
         self.departments: Optional[List[str]] = None
         self.chats: Optional[List[str]] = None
@@ -24,8 +24,8 @@ class ProtectedRangeEditors(object):
 
 
 class ProtectedRangeEditorsBuilder(object):
-    def __init__(self, protected_range_editors: ProtectedRangeEditors = ProtectedRangeEditors({})) -> None:
-        self._protected_range_editors: ProtectedRangeEditors = protected_range_editors
+    def __init__(self) -> None:
+        self._protected_range_editors = ProtectedRangeEditors()
 
     def users(self, users: List[str]) -> "ProtectedRangeEditorsBuilder":
         self._protected_range_editors.users = users

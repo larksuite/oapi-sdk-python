@@ -11,7 +11,7 @@ class EcoExamResultReport(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class EcoExamResultReport(object):
 
 
 class EcoExamResultReportBuilder(object):
-    def __init__(self, eco_exam_result_report: EcoExamResultReport = EcoExamResultReport({})) -> None:
-        self._eco_exam_result_report: EcoExamResultReport = eco_exam_result_report
+    def __init__(self) -> None:
+        self._eco_exam_result_report = EcoExamResultReport()
 
     def name(self, name: str) -> "EcoExamResultReportBuilder":
         self._eco_exam_result_report.name = name

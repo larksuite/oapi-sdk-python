@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.list_app_table_form_field_request import ListAppTableFormFieldRequest
-from lark_oapi.api.bitable.v1.model.list_app_table_form_field_response import ListAppTableFormFieldResponse
-from lark_oapi.api.bitable.v1.model.patch_app_table_form_field_request import PatchAppTableFormFieldRequest
-from lark_oapi.api.bitable.v1.model.patch_app_table_form_field_response import PatchAppTableFormFieldResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_app_table_form_field_request import ListAppTableFormFieldRequest
+from ..model.list_app_table_form_field_response import ListAppTableFormFieldResponse
+from ..model.patch_app_table_form_field_request import PatchAppTableFormFieldRequest
+from ..model.patch_app_table_form_field_response import PatchAppTableFormFieldResponse
 
 
 class AppTableFormField(object):
@@ -18,7 +18,10 @@ class AppTableFormField(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListAppTableFormFieldRequest,
-             option: RequestOption = RequestOption()) -> ListAppTableFormFieldResponse:
+             option: Optional[RequestOption] = None) -> ListAppTableFormFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class AppTableFormField(object):
         return response
 
     def patch(self, request: PatchAppTableFormFieldRequest,
-              option: RequestOption = RequestOption()) -> PatchAppTableFormFieldResponse:
+              option: Optional[RequestOption] = None) -> PatchAppTableFormFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

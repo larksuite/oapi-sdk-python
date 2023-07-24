@@ -17,7 +17,7 @@ class AuditPcContext(object):
         "i_p": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.udid: Optional[str] = None
         self.did: Optional[str] = None
         self.app_ver: Optional[str] = None
@@ -34,8 +34,8 @@ class AuditPcContext(object):
 
 
 class AuditPcContextBuilder(object):
-    def __init__(self, audit_pc_context: AuditPcContext = AuditPcContext({})) -> None:
-        self._audit_pc_context: AuditPcContext = audit_pc_context
+    def __init__(self) -> None:
+        self._audit_pc_context = AuditPcContext()
 
     def udid(self, udid: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.udid = udid

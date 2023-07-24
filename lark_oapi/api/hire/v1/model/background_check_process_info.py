@@ -11,7 +11,7 @@ class BackgroundCheckProcessInfo(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.process: Optional[str] = None
         self.update_time: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class BackgroundCheckProcessInfo(object):
 
 
 class BackgroundCheckProcessInfoBuilder(object):
-    def __init__(self,
-                 background_check_process_info: BackgroundCheckProcessInfo = BackgroundCheckProcessInfo({})) -> None:
-        self._background_check_process_info: BackgroundCheckProcessInfo = background_check_process_info
+    def __init__(self) -> None:
+        self._background_check_process_info = BackgroundCheckProcessInfo()
 
     def process(self, process: str) -> "BackgroundCheckProcessInfoBuilder":
         self._background_check_process_info.process = process

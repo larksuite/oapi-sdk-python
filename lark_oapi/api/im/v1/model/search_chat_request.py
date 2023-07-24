@@ -21,7 +21,8 @@ class SearchChatRequest(BaseRequest):
 
 class SearchChatRequestBuilder(object):
 
-    def __init__(self, search_chat_request: SearchChatRequest = SearchChatRequest()) -> None:
+    def __init__(self) -> None:
+        search_chat_request = SearchChatRequest()
         search_chat_request.http_method = HttpMethod.GET
         search_chat_request.uri = "/open-apis/im/v1/chats/search"
         search_chat_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

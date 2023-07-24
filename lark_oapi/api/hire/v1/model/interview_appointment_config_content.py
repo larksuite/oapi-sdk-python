@@ -21,7 +21,7 @@ class InterviewAppointmentConfigContent(object):
         "cancel_interview_notification_template_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.interview_type: Optional[int] = None
         self.talent_timezone_code: Optional[str] = None
         self.contact_user_id: Optional[str] = None
@@ -42,10 +42,8 @@ class InterviewAppointmentConfigContent(object):
 
 
 class InterviewAppointmentConfigContentBuilder(object):
-    def __init__(self,
-                 interview_appointment_config_content: InterviewAppointmentConfigContent = InterviewAppointmentConfigContent(
-                     {})) -> None:
-        self._interview_appointment_config_content: InterviewAppointmentConfigContent = interview_appointment_config_content
+    def __init__(self) -> None:
+        self._interview_appointment_config_content = InterviewAppointmentConfigContent()
 
     def interview_type(self, interview_type: int) -> "InterviewAppointmentConfigContentBuilder":
         self._interview_appointment_config_content.interview_type = interview_type

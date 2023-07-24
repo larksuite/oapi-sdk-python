@@ -23,7 +23,7 @@ class GetUserInfoResponseBody(object):
         "employee_no": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
         self.avatar_url: Optional[str] = None
@@ -46,8 +46,8 @@ class GetUserInfoResponseBody(object):
 
 
 class GetUserInfoResponseBodyBuilder(object):
-    def __init__(self, get_user_info_response_body: GetUserInfoResponseBody = GetUserInfoResponseBody({})) -> None:
-        self._get_user_info_response_body: GetUserInfoResponseBody = get_user_info_response_body
+    def __init__(self) -> None:
+        self._get_user_info_response_body = GetUserInfoResponseBody()
 
     def name(self, name: str) -> "GetUserInfoResponseBodyBuilder":
         self._get_user_info_response_body.name = name

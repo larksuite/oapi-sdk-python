@@ -10,7 +10,7 @@ class PatchNoteRequestBody(object):
         "content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class PatchNoteRequestBody(object):
 
 
 class PatchNoteRequestBodyBuilder(object):
-    def __init__(self, patch_note_request_body: PatchNoteRequestBody = PatchNoteRequestBody({})) -> None:
-        self._patch_note_request_body: PatchNoteRequestBody = patch_note_request_body
+    def __init__(self) -> None:
+        self._patch_note_request_body = PatchNoteRequestBody()
 
     def content(self, content: str) -> "PatchNoteRequestBodyBuilder":
         self._patch_note_request_body.content = content

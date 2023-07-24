@@ -11,7 +11,7 @@ class ScopeValue(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ScopeValue(object):
 
 
 class ScopeValueBuilder(object):
-    def __init__(self, scope_value: ScopeValue = ScopeValue({})) -> None:
-        self._scope_value: ScopeValue = scope_value
+    def __init__(self) -> None:
+        self._scope_value = ScopeValue()
 
     def key(self, key: str) -> "ScopeValueBuilder":
         self._scope_value.key = key

@@ -13,7 +13,7 @@ class ListPreHireResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[PreHireQuery]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListPreHireResponseBody(object):
 
 
 class ListPreHireResponseBodyBuilder(object):
-    def __init__(self, list_pre_hire_response_body: ListPreHireResponseBody = ListPreHireResponseBody({})) -> None:
-        self._list_pre_hire_response_body: ListPreHireResponseBody = list_pre_hire_response_body
+    def __init__(self) -> None:
+        self._list_pre_hire_response_body = ListPreHireResponseBody()
 
     def items(self, items: List[PreHireQuery]) -> "ListPreHireResponseBodyBuilder":
         self._list_pre_hire_response_body.items = items

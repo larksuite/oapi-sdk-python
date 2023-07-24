@@ -15,7 +15,7 @@ class TimeConfig(object):
         "max_duration": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time_switch: Optional[int] = None
         self.days_in_advance: Optional[int] = None
         self.opening_hour: Optional[int] = None
@@ -30,8 +30,8 @@ class TimeConfig(object):
 
 
 class TimeConfigBuilder(object):
-    def __init__(self, time_config: TimeConfig = TimeConfig({})) -> None:
-        self._time_config: TimeConfig = time_config
+    def __init__(self) -> None:
+        self._time_config = TimeConfig()
 
     def time_switch(self, time_switch: int) -> "TimeConfigBuilder":
         self._time_config.time_switch = time_switch

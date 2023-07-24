@@ -10,7 +10,7 @@ class UploadAllMediaResponseBody(object):
         "file_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class UploadAllMediaResponseBody(object):
 
 
 class UploadAllMediaResponseBodyBuilder(object):
-    def __init__(self,
-                 upload_all_media_response_body: UploadAllMediaResponseBody = UploadAllMediaResponseBody({})) -> None:
-        self._upload_all_media_response_body: UploadAllMediaResponseBody = upload_all_media_response_body
+    def __init__(self) -> None:
+        self._upload_all_media_response_body = UploadAllMediaResponseBody()
 
     def file_token(self, file_token: str) -> "UploadAllMediaResponseBodyBuilder":
         self._upload_all_media_response_body.file_token = file_token

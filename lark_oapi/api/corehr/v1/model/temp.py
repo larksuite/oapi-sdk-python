@@ -10,7 +10,7 @@ class Temp(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Temp(object):
 
 
 class TempBuilder(object):
-    def __init__(self, temp: Temp = Temp({})) -> None:
-        self._temp: Temp = temp
+    def __init__(self) -> None:
+        self._temp = Temp()
 
     def id(self, id: str) -> "TempBuilder":
         self._temp.id = id

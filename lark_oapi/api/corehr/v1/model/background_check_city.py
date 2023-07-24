@@ -11,7 +11,7 @@ class BackgroundCheckCity(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BackgroundCheckCity(object):
 
 
 class BackgroundCheckCityBuilder(object):
-    def __init__(self, background_check_city: BackgroundCheckCity = BackgroundCheckCity({})) -> None:
-        self._background_check_city: BackgroundCheckCity = background_check_city
+    def __init__(self) -> None:
+        self._background_check_city = BackgroundCheckCity()
 
     def zh_cn(self, zh_cn: str) -> "BackgroundCheckCityBuilder":
         self._background_check_city.zh_cn = zh_cn

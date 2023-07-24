@@ -10,7 +10,7 @@ class InsertTableColumnRequest(object):
         "column_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.column_index: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class InsertTableColumnRequest(object):
 
 
 class InsertTableColumnRequestBuilder(object):
-    def __init__(self, insert_table_column_request: InsertTableColumnRequest = InsertTableColumnRequest({})) -> None:
-        self._insert_table_column_request: InsertTableColumnRequest = insert_table_column_request
+    def __init__(self) -> None:
+        self._insert_table_column_request = InsertTableColumnRequest()
 
     def column_index(self, column_index: int) -> "InsertTableColumnRequestBuilder":
         self._insert_table_column_request.column_index = column_index

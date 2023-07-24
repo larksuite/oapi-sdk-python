@@ -12,7 +12,7 @@ class InterviewDimensionScore(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class InterviewDimensionScore(object):
 
 
 class InterviewDimensionScoreBuilder(object):
-    def __init__(self, interview_dimension_score: InterviewDimensionScore = InterviewDimensionScore({})) -> None:
-        self._interview_dimension_score: InterviewDimensionScore = interview_dimension_score
+    def __init__(self) -> None:
+        self._interview_dimension_score = InterviewDimensionScore()
 
     def id(self, id: str) -> "InterviewDimensionScoreBuilder":
         self._interview_dimension_score.id = id

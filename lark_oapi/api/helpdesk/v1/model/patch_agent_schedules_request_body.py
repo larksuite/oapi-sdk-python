@@ -11,7 +11,7 @@ class PatchAgentSchedulesRequestBody(object):
         "agent_schedule": AgentScheduleUpdateInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_schedule: Optional[AgentScheduleUpdateInfo] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchAgentSchedulesRequestBody(object):
 
 
 class PatchAgentSchedulesRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_agent_schedules_request_body: PatchAgentSchedulesRequestBody = PatchAgentSchedulesRequestBody(
-                     {})) -> None:
-        self._patch_agent_schedules_request_body: PatchAgentSchedulesRequestBody = patch_agent_schedules_request_body
+    def __init__(self) -> None:
+        self._patch_agent_schedules_request_body = PatchAgentSchedulesRequestBody()
 
     def agent_schedule(self, agent_schedule: AgentScheduleUpdateInfo) -> "PatchAgentSchedulesRequestBodyBuilder":
         self._patch_agent_schedules_request_body.agent_schedule = agent_schedule

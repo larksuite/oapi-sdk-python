@@ -2,18 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.get_by_param_custom_field_request import GetByParamCustomFieldRequest
-from lark_oapi.api.corehr.v1.model.get_by_param_custom_field_response import GetByParamCustomFieldResponse
-from lark_oapi.api.corehr.v1.model.list_object_api_name_custom_field_request import ListObjectApiNameCustomFieldRequest
-from lark_oapi.api.corehr.v1.model.list_object_api_name_custom_field_response import \
-    ListObjectApiNameCustomFieldResponse
-from lark_oapi.api.corehr.v1.model.query_custom_field_request import QueryCustomFieldRequest
-from lark_oapi.api.corehr.v1.model.query_custom_field_response import QueryCustomFieldResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_by_param_custom_field_request import GetByParamCustomFieldRequest
+from ..model.get_by_param_custom_field_response import GetByParamCustomFieldResponse
+from ..model.list_object_api_name_custom_field_request import ListObjectApiNameCustomFieldRequest
+from ..model.list_object_api_name_custom_field_response import ListObjectApiNameCustomFieldResponse
+from ..model.query_custom_field_request import QueryCustomFieldRequest
+from ..model.query_custom_field_response import QueryCustomFieldResponse
 
 
 class CustomField(object):
@@ -21,7 +20,10 @@ class CustomField(object):
         self.config: Optional[Config] = config
 
     def get_by_param(self, request: GetByParamCustomFieldRequest,
-                     option: RequestOption = RequestOption()) -> GetByParamCustomFieldResponse:
+                     option: Optional[RequestOption] = None) -> GetByParamCustomFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +38,10 @@ class CustomField(object):
         return response
 
     def list_object_api_name(self, request: ListObjectApiNameCustomFieldRequest,
-                             option: RequestOption = RequestOption()) -> ListObjectApiNameCustomFieldResponse:
+                             option: Optional[RequestOption] = None) -> ListObjectApiNameCustomFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +56,10 @@ class CustomField(object):
         return response
 
     def query(self, request: QueryCustomFieldRequest,
-              option: RequestOption = RequestOption()) -> QueryCustomFieldResponse:
+              option: Optional[RequestOption] = None) -> QueryCustomFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

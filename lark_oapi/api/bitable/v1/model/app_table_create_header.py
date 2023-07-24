@@ -16,7 +16,7 @@ class AppTableCreateHeader(object):
         "description": AppTableFieldDescription,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_id: Optional[str] = None
         self.field_name: Optional[str] = None
         self.type: Optional[int] = None
@@ -30,8 +30,8 @@ class AppTableCreateHeader(object):
 
 
 class AppTableCreateHeaderBuilder(object):
-    def __init__(self, app_table_create_header: AppTableCreateHeader = AppTableCreateHeader({})) -> None:
-        self._app_table_create_header: AppTableCreateHeader = app_table_create_header
+    def __init__(self) -> None:
+        self._app_table_create_header = AppTableCreateHeader()
 
     def field_id(self, field_id: str) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.field_id = field_id

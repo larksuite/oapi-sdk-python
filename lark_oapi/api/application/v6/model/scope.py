@@ -11,7 +11,7 @@ class Scope(object):
         "grant_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope_name: Optional[str] = None
         self.grant_status: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Scope(object):
 
 
 class ScopeBuilder(object):
-    def __init__(self, scope: Scope = Scope({})) -> None:
-        self._scope: Scope = scope
+    def __init__(self) -> None:
+        self._scope = Scope()
 
     def scope_name(self, scope_name: str) -> "ScopeBuilder":
         self._scope.scope_name = scope_name

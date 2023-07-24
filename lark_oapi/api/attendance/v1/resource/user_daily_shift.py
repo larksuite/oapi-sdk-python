@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.batch_create_user_daily_shift_request import BatchCreateUserDailyShiftRequest
-from lark_oapi.api.attendance.v1.model.batch_create_user_daily_shift_response import BatchCreateUserDailyShiftResponse
-from lark_oapi.api.attendance.v1.model.query_user_daily_shift_request import QueryUserDailyShiftRequest
-from lark_oapi.api.attendance.v1.model.query_user_daily_shift_response import QueryUserDailyShiftResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_user_daily_shift_request import BatchCreateUserDailyShiftRequest
+from ..model.batch_create_user_daily_shift_response import BatchCreateUserDailyShiftResponse
+from ..model.query_user_daily_shift_request import QueryUserDailyShiftRequest
+from ..model.query_user_daily_shift_response import QueryUserDailyShiftResponse
 
 
 class UserDailyShift(object):
@@ -18,7 +18,10 @@ class UserDailyShift(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateUserDailyShiftRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateUserDailyShiftResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateUserDailyShiftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class UserDailyShift(object):
         return response
 
     def query(self, request: QueryUserDailyShiftRequest,
-              option: RequestOption = RequestOption()) -> QueryUserDailyShiftResponse:
+              option: Optional[RequestOption] = None) -> QueryUserDailyShiftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

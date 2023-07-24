@@ -24,7 +24,7 @@ class Location(object):
         "display_language_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.hiberarchy_common: Optional[HiberarchyCommon] = None
         self.location_usage_list: Optional[List[Enum]] = None
@@ -44,8 +44,8 @@ class Location(object):
 
 
 class LocationBuilder(object):
-    def __init__(self, location: Location = Location({})) -> None:
-        self._location: Location = location
+    def __init__(self) -> None:
+        self._location = Location()
 
     def id(self, id: str) -> "LocationBuilder":
         self._location.id = id

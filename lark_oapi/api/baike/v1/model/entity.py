@@ -26,7 +26,7 @@ class Entity(object):
         "source": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.main_keys: Optional[List[Term]] = None
         self.full_names: Optional[List[Term]] = None
@@ -49,8 +49,8 @@ class Entity(object):
 
 
 class EntityBuilder(object):
-    def __init__(self, entity: Entity = Entity({})) -> None:
-        self._entity: Entity = entity
+    def __init__(self) -> None:
+        self._entity = Entity()
 
     def id(self, id: str) -> "EntityBuilder":
         self._entity.id = id

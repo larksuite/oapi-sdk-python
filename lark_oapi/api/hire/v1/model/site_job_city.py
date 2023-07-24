@@ -12,7 +12,7 @@ class SiteJobCity(object):
         "name": SiteName,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.city_code: Optional[str] = None
         self.name: Optional[SiteName] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class SiteJobCity(object):
 
 
 class SiteJobCityBuilder(object):
-    def __init__(self, site_job_city: SiteJobCity = SiteJobCity({})) -> None:
-        self._site_job_city: SiteJobCity = site_job_city
+    def __init__(self) -> None:
+        self._site_job_city = SiteJobCity()
 
     def city_code(self, city_code: str) -> "SiteJobCityBuilder":
         self._site_job_city.city_code = city_code

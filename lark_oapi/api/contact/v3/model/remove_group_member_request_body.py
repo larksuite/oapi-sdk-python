@@ -12,7 +12,7 @@ class RemoveGroupMemberRequestBody(object):
         "member_id_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_type: Optional[str] = None
         self.member_id: Optional[str] = None
         self.member_id_type: Optional[str] = None
@@ -24,9 +24,8 @@ class RemoveGroupMemberRequestBody(object):
 
 
 class RemoveGroupMemberRequestBodyBuilder(object):
-    def __init__(self, remove_group_member_request_body: RemoveGroupMemberRequestBody = RemoveGroupMemberRequestBody(
-        {})) -> None:
-        self._remove_group_member_request_body: RemoveGroupMemberRequestBody = remove_group_member_request_body
+    def __init__(self) -> None:
+        self._remove_group_member_request_body = RemoveGroupMemberRequestBody()
 
     def member_type(self, member_type: str) -> "RemoveGroupMemberRequestBodyBuilder":
         self._remove_group_member_request_body.member_type = member_type

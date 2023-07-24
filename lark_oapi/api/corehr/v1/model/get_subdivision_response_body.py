@@ -11,7 +11,7 @@ class GetSubdivisionResponseBody(object):
         "subdivision": Subdivision,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subdivision: Optional[Subdivision] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetSubdivisionResponseBody(object):
 
 
 class GetSubdivisionResponseBodyBuilder(object):
-    def __init__(self,
-                 get_subdivision_response_body: GetSubdivisionResponseBody = GetSubdivisionResponseBody({})) -> None:
-        self._get_subdivision_response_body: GetSubdivisionResponseBody = get_subdivision_response_body
+    def __init__(self) -> None:
+        self._get_subdivision_response_body = GetSubdivisionResponseBody()
 
     def subdivision(self, subdivision: Subdivision) -> "GetSubdivisionResponseBodyBuilder":
         self._get_subdivision_response_body.subdivision = subdivision

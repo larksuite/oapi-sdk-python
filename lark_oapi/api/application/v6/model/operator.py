@@ -12,7 +12,7 @@ class Operator(object):
         "operator_id": UserId,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.operator_name: Optional[str] = None
         self.operator_id: Optional[UserId] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Operator(object):
 
 
 class OperatorBuilder(object):
-    def __init__(self, operator: Operator = Operator({})) -> None:
-        self._operator: Operator = operator
+    def __init__(self) -> None:
+        self._operator = Operator()
 
     def operator_name(self, operator_name: str) -> "OperatorBuilder":
         self._operator.operator_name = operator_name

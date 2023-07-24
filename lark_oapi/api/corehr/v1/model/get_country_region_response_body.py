@@ -11,7 +11,7 @@ class GetCountryRegionResponseBody(object):
         "country_region": CountryRegion,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.country_region: Optional[CountryRegion] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetCountryRegionResponseBody(object):
 
 
 class GetCountryRegionResponseBodyBuilder(object):
-    def __init__(self, get_country_region_response_body: GetCountryRegionResponseBody = GetCountryRegionResponseBody(
-        {})) -> None:
-        self._get_country_region_response_body: GetCountryRegionResponseBody = get_country_region_response_body
+    def __init__(self) -> None:
+        self._get_country_region_response_body = GetCountryRegionResponseBody()
 
     def country_region(self, country_region: CountryRegion) -> "GetCountryRegionResponseBodyBuilder":
         self._get_country_region_response_body.country_region = country_region

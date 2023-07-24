@@ -15,7 +15,7 @@ class ExternalInterview(object):
         "end_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_id: Optional[str] = None
         self.external_application_id: Optional[str] = None
         self.id: Optional[str] = None
@@ -30,8 +30,8 @@ class ExternalInterview(object):
 
 
 class ExternalInterviewBuilder(object):
-    def __init__(self, external_interview: ExternalInterview = ExternalInterview({})) -> None:
-        self._external_interview: ExternalInterview = external_interview
+    def __init__(self) -> None:
+        self._external_interview = ExternalInterview()
 
     def external_id(self, external_id: str) -> "ExternalInterviewBuilder":
         self._external_interview.external_id = external_id

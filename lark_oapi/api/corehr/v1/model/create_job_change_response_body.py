@@ -19,7 +19,7 @@ class CreateJobChangeResponseBody(object):
         "transfer_info": TransferInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_change_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.status: Optional[str] = None
@@ -37,9 +37,8 @@ class CreateJobChangeResponseBody(object):
 
 
 class CreateJobChangeResponseBodyBuilder(object):
-    def __init__(self, create_job_change_response_body: CreateJobChangeResponseBody = CreateJobChangeResponseBody(
-        {})) -> None:
-        self._create_job_change_response_body: CreateJobChangeResponseBody = create_job_change_response_body
+    def __init__(self) -> None:
+        self._create_job_change_response_body = CreateJobChangeResponseBody()
 
     def job_change_id(self, job_change_id: str) -> "CreateJobChangeResponseBodyBuilder":
         self._create_job_change_response_body.job_change_id = job_change_id

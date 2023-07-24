@@ -11,7 +11,7 @@ class SiteResumeIdentification(object):
         "code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.identification_type: Optional[str] = None
         self.code: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SiteResumeIdentification(object):
 
 
 class SiteResumeIdentificationBuilder(object):
-    def __init__(self, site_resume_identification: SiteResumeIdentification = SiteResumeIdentification({})) -> None:
-        self._site_resume_identification: SiteResumeIdentification = site_resume_identification
+    def __init__(self) -> None:
+        self._site_resume_identification = SiteResumeIdentification()
 
     def identification_type(self, identification_type: str) -> "SiteResumeIdentificationBuilder":
         self._site_resume_identification.identification_type = identification_type

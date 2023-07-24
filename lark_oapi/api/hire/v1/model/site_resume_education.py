@@ -16,7 +16,7 @@ class SiteResumeEducation(object):
         "academic_ranking": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.degree: Optional[str] = None
         self.school: Optional[str] = None
         self.major: Optional[str] = None
@@ -32,8 +32,8 @@ class SiteResumeEducation(object):
 
 
 class SiteResumeEducationBuilder(object):
-    def __init__(self, site_resume_education: SiteResumeEducation = SiteResumeEducation({})) -> None:
-        self._site_resume_education: SiteResumeEducation = site_resume_education
+    def __init__(self) -> None:
+        self._site_resume_education = SiteResumeEducation()
 
     def degree(self, degree: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.degree = degree

@@ -13,7 +13,7 @@ class WebsiteDeliverySns(object):
         "link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sns_type: Optional[int] = None
         self.customized_data: Optional[List[WebsiteDeliveryCustomizedData]] = None
         self.link: Optional[str] = None
@@ -25,8 +25,8 @@ class WebsiteDeliverySns(object):
 
 
 class WebsiteDeliverySnsBuilder(object):
-    def __init__(self, website_delivery_sns: WebsiteDeliverySns = WebsiteDeliverySns({})) -> None:
-        self._website_delivery_sns: WebsiteDeliverySns = website_delivery_sns
+    def __init__(self) -> None:
+        self._website_delivery_sns = WebsiteDeliverySns()
 
     def sns_type(self, sns_type: int) -> "WebsiteDeliverySnsBuilder":
         self._website_delivery_sns.sns_type = sns_type

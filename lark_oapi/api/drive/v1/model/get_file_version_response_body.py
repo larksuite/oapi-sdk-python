@@ -19,7 +19,7 @@ class GetFileVersionResponseBody(object):
         "parent_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.version: Optional[str] = None
         self.parent_token: Optional[str] = None
@@ -38,9 +38,8 @@ class GetFileVersionResponseBody(object):
 
 
 class GetFileVersionResponseBodyBuilder(object):
-    def __init__(self,
-                 get_file_version_response_body: GetFileVersionResponseBody = GetFileVersionResponseBody({})) -> None:
-        self._get_file_version_response_body: GetFileVersionResponseBody = get_file_version_response_body
+    def __init__(self) -> None:
+        self._get_file_version_response_body = GetFileVersionResponseBody()
 
     def name(self, name: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.name = name

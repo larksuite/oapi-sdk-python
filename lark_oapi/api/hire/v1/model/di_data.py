@@ -12,7 +12,7 @@ class DiData(object):
         "object_attribute": ObjectAttribute,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[str] = None
         self.object_attribute: Optional[ObjectAttribute] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class DiData(object):
 
 
 class DiDataBuilder(object):
-    def __init__(self, di_data: DiData = DiData({})) -> None:
-        self._di_data: DiData = di_data
+    def __init__(self) -> None:
+        self._di_data = DiData()
 
     def value(self, value: str) -> "DiDataBuilder":
         self._di_data.value = value

@@ -19,8 +19,8 @@ class UnbindDepartmentUnitRequest(BaseRequest):
 
 class UnbindDepartmentUnitRequestBuilder(object):
 
-    def __init__(self,
-                 unbind_department_unit_request: UnbindDepartmentUnitRequest = UnbindDepartmentUnitRequest()) -> None:
+    def __init__(self) -> None:
+        unbind_department_unit_request = UnbindDepartmentUnitRequest()
         unbind_department_unit_request.http_method = HttpMethod.POST
         unbind_department_unit_request.uri = "/open-apis/contact/v3/unit/unbind_department"
         unbind_department_unit_request.token_types = {AccessTokenType.TENANT}

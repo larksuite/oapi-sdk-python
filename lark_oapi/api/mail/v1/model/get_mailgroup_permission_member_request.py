@@ -21,8 +21,8 @@ class GetMailgroupPermissionMemberRequest(BaseRequest):
 
 class GetMailgroupPermissionMemberRequestBuilder(object):
 
-    def __init__(self,
-                 get_mailgroup_permission_member_request: GetMailgroupPermissionMemberRequest = GetMailgroupPermissionMemberRequest()) -> None:
+    def __init__(self) -> None:
+        get_mailgroup_permission_member_request = GetMailgroupPermissionMemberRequest()
         get_mailgroup_permission_member_request.http_method = HttpMethod.GET
         get_mailgroup_permission_member_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id"
         get_mailgroup_permission_member_request.token_types = {AccessTokenType.TENANT}

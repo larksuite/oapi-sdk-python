@@ -20,7 +20,8 @@ class MeetingListExportRequest(BaseRequest):
 
 class MeetingListExportRequestBuilder(object):
 
-    def __init__(self, meeting_list_export_request: MeetingListExportRequest = MeetingListExportRequest()) -> None:
+    def __init__(self) -> None:
+        meeting_list_export_request = MeetingListExportRequest()
         meeting_list_export_request.http_method = HttpMethod.POST
         meeting_list_export_request.uri = "/open-apis/vc/v1/exports/meeting_list"
         meeting_list_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

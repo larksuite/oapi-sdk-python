@@ -11,7 +11,7 @@ class SortTabsChatTabResponseBody(object):
         "chat_tabs": List[ChatTab],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_tabs: Optional[List[ChatTab]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class SortTabsChatTabResponseBody(object):
 
 
 class SortTabsChatTabResponseBodyBuilder(object):
-    def __init__(self, sort_tabs_chat_tab_response_body: SortTabsChatTabResponseBody = SortTabsChatTabResponseBody(
-        {})) -> None:
-        self._sort_tabs_chat_tab_response_body: SortTabsChatTabResponseBody = sort_tabs_chat_tab_response_body
+    def __init__(self) -> None:
+        self._sort_tabs_chat_tab_response_body = SortTabsChatTabResponseBody()
 
     def chat_tabs(self, chat_tabs: List[ChatTab]) -> "SortTabsChatTabResponseBodyBuilder":
         self._sort_tabs_chat_tab_response_body.chat_tabs = chat_tabs

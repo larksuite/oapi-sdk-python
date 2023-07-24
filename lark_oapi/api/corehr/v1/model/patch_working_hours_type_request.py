@@ -21,8 +21,8 @@ class PatchWorkingHoursTypeRequest(BaseRequest):
 
 class PatchWorkingHoursTypeRequestBuilder(object):
 
-    def __init__(self,
-                 patch_working_hours_type_request: PatchWorkingHoursTypeRequest = PatchWorkingHoursTypeRequest()) -> None:
+    def __init__(self) -> None:
+        patch_working_hours_type_request = PatchWorkingHoursTypeRequest()
         patch_working_hours_type_request.http_method = HttpMethod.PATCH
         patch_working_hours_type_request.uri = "/open-apis/corehr/v1/working_hours_types/:working_hours_type_id"
         patch_working_hours_type_request.token_types = {AccessTokenType.TENANT}

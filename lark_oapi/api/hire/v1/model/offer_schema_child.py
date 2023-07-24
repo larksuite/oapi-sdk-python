@@ -14,7 +14,7 @@ class OfferSchemaChild(object):
         "object_list": List[OfferSchemaDetail],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.scenario: Optional[int] = None
         self.version: Optional[int] = None
@@ -27,8 +27,8 @@ class OfferSchemaChild(object):
 
 
 class OfferSchemaChildBuilder(object):
-    def __init__(self, offer_schema_child: OfferSchemaChild = OfferSchemaChild({})) -> None:
-        self._offer_schema_child: OfferSchemaChild = offer_schema_child
+    def __init__(self) -> None:
+        self._offer_schema_child = OfferSchemaChild()
 
     def id(self, id: str) -> "OfferSchemaChildBuilder":
         self._offer_schema_child.id = id

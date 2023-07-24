@@ -14,7 +14,7 @@ class InterviewAssessmentDimensionArgsScore(object):
         "enabled": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
@@ -27,10 +27,8 @@ class InterviewAssessmentDimensionArgsScore(object):
 
 
 class InterviewAssessmentDimensionArgsScoreBuilder(object):
-    def __init__(self,
-                 interview_assessment_dimension_args_score: InterviewAssessmentDimensionArgsScore = InterviewAssessmentDimensionArgsScore(
-                     {})) -> None:
-        self._interview_assessment_dimension_args_score: InterviewAssessmentDimensionArgsScore = interview_assessment_dimension_args_score
+    def __init__(self) -> None:
+        self._interview_assessment_dimension_args_score = InterviewAssessmentDimensionArgsScore()
 
     def id(self, id: str) -> "InterviewAssessmentDimensionArgsScoreBuilder":
         self._interview_assessment_dimension_args_score.id = id

@@ -19,7 +19,8 @@ class GetUserFlowRequest(BaseRequest):
 
 class GetUserFlowRequestBuilder(object):
 
-    def __init__(self, get_user_flow_request: GetUserFlowRequest = GetUserFlowRequest()) -> None:
+    def __init__(self) -> None:
+        get_user_flow_request = GetUserFlowRequest()
         get_user_flow_request.http_method = HttpMethod.GET
         get_user_flow_request.uri = "/open-apis/attendance/v1/user_flows/:user_flow_id"
         get_user_flow_request.token_types = {AccessTokenType.TENANT}

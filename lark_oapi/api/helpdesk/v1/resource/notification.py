@@ -2,27 +2,27 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.cancel_approve_notification_request import CancelApproveNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.cancel_approve_notification_response import CancelApproveNotificationResponse
-from lark_oapi.api.helpdesk.v1.model.cancel_send_notification_request import CancelSendNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.cancel_send_notification_response import CancelSendNotificationResponse
-from lark_oapi.api.helpdesk.v1.model.create_notification_request import CreateNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.create_notification_response import CreateNotificationResponse
-from lark_oapi.api.helpdesk.v1.model.execute_send_notification_request import ExecuteSendNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.execute_send_notification_response import ExecuteSendNotificationResponse
-from lark_oapi.api.helpdesk.v1.model.get_notification_request import GetNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.get_notification_response import GetNotificationResponse
-from lark_oapi.api.helpdesk.v1.model.patch_notification_request import PatchNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.patch_notification_response import PatchNotificationResponse
-from lark_oapi.api.helpdesk.v1.model.preview_notification_request import PreviewNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.preview_notification_response import PreviewNotificationResponse
-from lark_oapi.api.helpdesk.v1.model.submit_approve_notification_request import SubmitApproveNotificationRequest
-from lark_oapi.api.helpdesk.v1.model.submit_approve_notification_response import SubmitApproveNotificationResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.cancel_approve_notification_request import CancelApproveNotificationRequest
+from ..model.cancel_approve_notification_response import CancelApproveNotificationResponse
+from ..model.cancel_send_notification_request import CancelSendNotificationRequest
+from ..model.cancel_send_notification_response import CancelSendNotificationResponse
+from ..model.create_notification_request import CreateNotificationRequest
+from ..model.create_notification_response import CreateNotificationResponse
+from ..model.execute_send_notification_request import ExecuteSendNotificationRequest
+from ..model.execute_send_notification_response import ExecuteSendNotificationResponse
+from ..model.get_notification_request import GetNotificationRequest
+from ..model.get_notification_response import GetNotificationResponse
+from ..model.patch_notification_request import PatchNotificationRequest
+from ..model.patch_notification_response import PatchNotificationResponse
+from ..model.preview_notification_request import PreviewNotificationRequest
+from ..model.preview_notification_response import PreviewNotificationResponse
+from ..model.submit_approve_notification_request import SubmitApproveNotificationRequest
+from ..model.submit_approve_notification_response import SubmitApproveNotificationResponse
 
 
 class Notification(object):
@@ -30,7 +30,10 @@ class Notification(object):
         self.config: Optional[Config] = config
 
     def cancel_approve(self, request: CancelApproveNotificationRequest,
-                       option: RequestOption = RequestOption()) -> CancelApproveNotificationResponse:
+                       option: Optional[RequestOption] = None) -> CancelApproveNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -45,7 +48,10 @@ class Notification(object):
         return response
 
     def cancel_send(self, request: CancelSendNotificationRequest,
-                    option: RequestOption = RequestOption()) -> CancelSendNotificationResponse:
+                    option: Optional[RequestOption] = None) -> CancelSendNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +66,10 @@ class Notification(object):
         return response
 
     def create(self, request: CreateNotificationRequest,
-               option: RequestOption = RequestOption()) -> CreateNotificationResponse:
+               option: Optional[RequestOption] = None) -> CreateNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -74,7 +83,10 @@ class Notification(object):
         return response
 
     def execute_send(self, request: ExecuteSendNotificationRequest,
-                     option: RequestOption = RequestOption()) -> ExecuteSendNotificationResponse:
+                     option: Optional[RequestOption] = None) -> ExecuteSendNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -88,7 +100,10 @@ class Notification(object):
 
         return response
 
-    def get(self, request: GetNotificationRequest, option: RequestOption = RequestOption()) -> GetNotificationResponse:
+    def get(self, request: GetNotificationRequest, option: Optional[RequestOption] = None) -> GetNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -102,7 +117,10 @@ class Notification(object):
         return response
 
     def patch(self, request: PatchNotificationRequest,
-              option: RequestOption = RequestOption()) -> PatchNotificationResponse:
+              option: Optional[RequestOption] = None) -> PatchNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -116,7 +134,10 @@ class Notification(object):
         return response
 
     def preview(self, request: PreviewNotificationRequest,
-                option: RequestOption = RequestOption()) -> PreviewNotificationResponse:
+                option: Optional[RequestOption] = None) -> PreviewNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -130,7 +151,10 @@ class Notification(object):
         return response
 
     def submit_approve(self, request: SubmitApproveNotificationRequest,
-                       option: RequestOption = RequestOption()) -> SubmitApproveNotificationResponse:
+                       option: Optional[RequestOption] = None) -> SubmitApproveNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

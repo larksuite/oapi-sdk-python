@@ -3,24 +3,24 @@
 import io
 from typing import *
 
-from lark_oapi.api.vc.v1.model.download_export_request import DownloadExportRequest
-from lark_oapi.api.vc.v1.model.download_export_response import DownloadExportResponse
-from lark_oapi.api.vc.v1.model.get_export_request import GetExportRequest
-from lark_oapi.api.vc.v1.model.get_export_response import GetExportResponse
-from lark_oapi.api.vc.v1.model.meeting_list_export_request import MeetingListExportRequest
-from lark_oapi.api.vc.v1.model.meeting_list_export_response import MeetingListExportResponse
-from lark_oapi.api.vc.v1.model.participant_list_export_request import ParticipantListExportRequest
-from lark_oapi.api.vc.v1.model.participant_list_export_response import ParticipantListExportResponse
-from lark_oapi.api.vc.v1.model.participant_quality_list_export_request import ParticipantQualityListExportRequest
-from lark_oapi.api.vc.v1.model.participant_quality_list_export_response import ParticipantQualityListExportResponse
-from lark_oapi.api.vc.v1.model.resource_reservation_list_export_request import ResourceReservationListExportRequest
-from lark_oapi.api.vc.v1.model.resource_reservation_list_export_response import ResourceReservationListExportResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.download_export_request import DownloadExportRequest
+from ..model.download_export_response import DownloadExportResponse
+from ..model.get_export_request import GetExportRequest
+from ..model.get_export_response import GetExportResponse
+from ..model.meeting_list_export_request import MeetingListExportRequest
+from ..model.meeting_list_export_response import MeetingListExportResponse
+from ..model.participant_list_export_request import ParticipantListExportRequest
+from ..model.participant_list_export_response import ParticipantListExportResponse
+from ..model.participant_quality_list_export_request import ParticipantQualityListExportRequest
+from ..model.participant_quality_list_export_response import ParticipantQualityListExportResponse
+from ..model.resource_reservation_list_export_request import ResourceReservationListExportRequest
+from ..model.resource_reservation_list_export_response import ResourceReservationListExportResponse
 
 
 class Export(object):
@@ -28,7 +28,10 @@ class Export(object):
         self.config: Optional[Config] = config
 
     def download(self, request: DownloadExportRequest,
-                 option: RequestOption = RequestOption()) -> DownloadExportResponse:
+                 option: Optional[RequestOption] = None) -> DownloadExportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +53,10 @@ class Export(object):
 
         return response
 
-    def get(self, request: GetExportRequest, option: RequestOption = RequestOption()) -> GetExportResponse:
+    def get(self, request: GetExportRequest, option: Optional[RequestOption] = None) -> GetExportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +70,10 @@ class Export(object):
         return response
 
     def meeting_list(self, request: MeetingListExportRequest,
-                     option: RequestOption = RequestOption()) -> MeetingListExportResponse:
+                     option: Optional[RequestOption] = None) -> MeetingListExportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -78,7 +87,10 @@ class Export(object):
         return response
 
     def participant_list(self, request: ParticipantListExportRequest,
-                         option: RequestOption = RequestOption()) -> ParticipantListExportResponse:
+                         option: Optional[RequestOption] = None) -> ParticipantListExportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -93,7 +105,10 @@ class Export(object):
         return response
 
     def participant_quality_list(self, request: ParticipantQualityListExportRequest,
-                                 option: RequestOption = RequestOption()) -> ParticipantQualityListExportResponse:
+                                 option: Optional[RequestOption] = None) -> ParticipantQualityListExportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -108,7 +123,10 @@ class Export(object):
         return response
 
     def resource_reservation_list(self, request: ResourceReservationListExportRequest,
-                                  option: RequestOption = RequestOption()) -> ResourceReservationListExportResponse:
+                                  option: Optional[RequestOption] = None) -> ResourceReservationListExportResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

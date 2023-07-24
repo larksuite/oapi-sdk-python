@@ -13,7 +13,7 @@ class GetResourceReservationListResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_reservation_list: Optional[List[RoomMeetingReservation]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class GetResourceReservationListResponseBody(object):
 
 
 class GetResourceReservationListResponseBodyBuilder(object):
-    def __init__(self,
-                 get_resource_reservation_list_response_body: GetResourceReservationListResponseBody = GetResourceReservationListResponseBody(
-                     {})) -> None:
-        self._get_resource_reservation_list_response_body: GetResourceReservationListResponseBody = get_resource_reservation_list_response_body
+    def __init__(self) -> None:
+        self._get_resource_reservation_list_response_body = GetResourceReservationListResponseBody()
 
     def room_reservation_list(self, room_reservation_list: List[
         RoomMeetingReservation]) -> "GetResourceReservationListResponseBodyBuilder":

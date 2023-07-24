@@ -15,7 +15,7 @@ class SearchAssignedUserRequestBody(object):
         "page_size": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role_id: Optional[str] = None
         self.management_scope_list: Optional[List[ManagementScope]] = None
         self.search_method: Optional[str] = None
@@ -29,9 +29,8 @@ class SearchAssignedUserRequestBody(object):
 
 
 class SearchAssignedUserRequestBodyBuilder(object):
-    def __init__(self, search_assigned_user_request_body: SearchAssignedUserRequestBody = SearchAssignedUserRequestBody(
-        {})) -> None:
-        self._search_assigned_user_request_body: SearchAssignedUserRequestBody = search_assigned_user_request_body
+    def __init__(self) -> None:
+        self._search_assigned_user_request_body = SearchAssignedUserRequestBody()
 
     def role_id(self, role_id: str) -> "SearchAssignedUserRequestBodyBuilder":
         self._search_assigned_user_request_body.role_id = role_id

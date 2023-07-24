@@ -20,7 +20,8 @@ class ListAppRoleRequest(BaseRequest):
 
 class ListAppRoleRequestBuilder(object):
 
-    def __init__(self, list_app_role_request: ListAppRoleRequest = ListAppRoleRequest()) -> None:
+    def __init__(self) -> None:
+        list_app_role_request = ListAppRoleRequest()
         list_app_role_request.http_method = HttpMethod.GET
         list_app_role_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles"
         list_app_role_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -11,7 +11,7 @@ class ImageInfo(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ImageInfo(object):
 
 
 class ImageInfoBuilder(object):
-    def __init__(self, image_info: ImageInfo = ImageInfo({})) -> None:
-        self._image_info: ImageInfo = image_info
+    def __init__(self) -> None:
+        self._image_info = ImageInfo()
 
     def file_token(self, file_token: str) -> "ImageInfoBuilder":
         self._image_info.file_token = file_token

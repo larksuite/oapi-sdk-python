@@ -14,7 +14,7 @@ class ApplicationEventOwner(object):
         "phone": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[int] = None
         self.name: Optional[str] = None
         self.help_desk: Optional[str] = None
@@ -28,8 +28,8 @@ class ApplicationEventOwner(object):
 
 
 class ApplicationEventOwnerBuilder(object):
-    def __init__(self, application_event_owner: ApplicationEventOwner = ApplicationEventOwner({})) -> None:
-        self._application_event_owner: ApplicationEventOwner = application_event_owner
+    def __init__(self) -> None:
+        self._application_event_owner = ApplicationEventOwner()
 
     def type(self, type: int) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.type = type

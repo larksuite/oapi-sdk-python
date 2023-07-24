@@ -19,7 +19,8 @@ class StartServiceTicketRequest(BaseRequest):
 
 class StartServiceTicketRequestBuilder(object):
 
-    def __init__(self, start_service_ticket_request: StartServiceTicketRequest = StartServiceTicketRequest()) -> None:
+    def __init__(self) -> None:
+        start_service_ticket_request = StartServiceTicketRequest()
         start_service_ticket_request.http_method = HttpMethod.POST
         start_service_ticket_request.uri = "/open-apis/helpdesk/v1/start_service"
         start_service_ticket_request.token_types = {AccessTokenType.TENANT}

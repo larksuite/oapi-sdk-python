@@ -13,7 +13,7 @@ class GetExportResponseBody(object):
         "fail_msg": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[int] = None
         self.url: Optional[str] = None
         self.file_token: Optional[str] = None
@@ -26,8 +26,8 @@ class GetExportResponseBody(object):
 
 
 class GetExportResponseBodyBuilder(object):
-    def __init__(self, get_export_response_body: GetExportResponseBody = GetExportResponseBody({})) -> None:
-        self._get_export_response_body: GetExportResponseBody = get_export_response_body
+    def __init__(self) -> None:
+        self._get_export_response_body = GetExportResponseBody()
 
     def status(self, status: int) -> "GetExportResponseBodyBuilder":
         self._get_export_response_body.status = status

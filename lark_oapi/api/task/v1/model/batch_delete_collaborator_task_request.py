@@ -21,8 +21,8 @@ class BatchDeleteCollaboratorTaskRequest(BaseRequest):
 
 class BatchDeleteCollaboratorTaskRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_collaborator_task_request: BatchDeleteCollaboratorTaskRequest = BatchDeleteCollaboratorTaskRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_collaborator_task_request = BatchDeleteCollaboratorTaskRequest()
         batch_delete_collaborator_task_request.http_method = HttpMethod.POST
         batch_delete_collaborator_task_request.uri = "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
         batch_delete_collaborator_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

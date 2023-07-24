@@ -19,7 +19,8 @@ class ListWorkCityRequest(BaseRequest):
 
 class ListWorkCityRequestBuilder(object):
 
-    def __init__(self, list_work_city_request: ListWorkCityRequest = ListWorkCityRequest()) -> None:
+    def __init__(self) -> None:
+        list_work_city_request = ListWorkCityRequest()
         list_work_city_request.http_method = HttpMethod.GET
         list_work_city_request.uri = "/open-apis/contact/v3/work_cities"
         list_work_city_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

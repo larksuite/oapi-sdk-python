@@ -18,7 +18,8 @@ class GetAppRequest(BaseRequest):
 
 class GetAppRequestBuilder(object):
 
-    def __init__(self, get_app_request: GetAppRequest = GetAppRequest()) -> None:
+    def __init__(self) -> None:
+        get_app_request = GetAppRequest()
         get_app_request.http_method = HttpMethod.GET
         get_app_request.uri = "/open-apis/bitable/v1/apps/:app_token"
         get_app_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

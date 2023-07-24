@@ -19,7 +19,7 @@ class OfferInfo(object):
         "customized_info_list": List[OfferCustomizedInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.schema_id: Optional[str] = None
@@ -35,8 +35,8 @@ class OfferInfo(object):
 
 
 class OfferInfoBuilder(object):
-    def __init__(self, offer_info: OfferInfo = OfferInfo({})) -> None:
-        self._offer_info: OfferInfo = offer_info
+    def __init__(self) -> None:
+        self._offer_info = OfferInfo()
 
     def offer_id(self, offer_id: str) -> "OfferInfoBuilder":
         self._offer_info.offer_id = offer_id

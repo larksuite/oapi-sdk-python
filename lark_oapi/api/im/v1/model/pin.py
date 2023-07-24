@@ -14,7 +14,7 @@ class Pin(object):
         "create_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[str] = None
         self.chat_id: Optional[str] = None
         self.operator_id: Optional[str] = None
@@ -28,8 +28,8 @@ class Pin(object):
 
 
 class PinBuilder(object):
-    def __init__(self, pin: Pin = Pin({})) -> None:
-        self._pin: Pin = pin
+    def __init__(self) -> None:
+        self._pin = Pin()
 
     def message_id(self, message_id: str) -> "PinBuilder":
         self._pin.message_id = message_id

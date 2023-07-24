@@ -11,7 +11,7 @@ class Job(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Job(object):
 
 
 class JobBuilder(object):
-    def __init__(self, job: Job = Job({})) -> None:
-        self._job: Job = job
+    def __init__(self) -> None:
+        self._job = Job()
 
     def id(self, id: int) -> "JobBuilder":
         self._job.id = id

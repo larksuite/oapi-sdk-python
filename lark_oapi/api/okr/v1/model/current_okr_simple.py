@@ -11,7 +11,7 @@ class CurrentOkrSimple(object):
         "period_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.okr_id: Optional[str] = None
         self.period_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CurrentOkrSimple(object):
 
 
 class CurrentOkrSimpleBuilder(object):
-    def __init__(self, current_okr_simple: CurrentOkrSimple = CurrentOkrSimple({})) -> None:
-        self._current_okr_simple: CurrentOkrSimple = current_okr_simple
+    def __init__(self) -> None:
+        self._current_okr_simple = CurrentOkrSimple()
 
     def okr_id(self, okr_id: str) -> "CurrentOkrSimpleBuilder":
         self._current_okr_simple.okr_id = okr_id

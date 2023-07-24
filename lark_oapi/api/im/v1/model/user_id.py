@@ -12,7 +12,7 @@ class UserId(object):
         "union_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
         self.union_id: Optional[str] = None
@@ -24,8 +24,8 @@ class UserId(object):
 
 
 class UserIdBuilder(object):
-    def __init__(self, user_id: UserId = UserId({})) -> None:
-        self._user_id: UserId = user_id
+    def __init__(self) -> None:
+        self._user_id = UserId()
 
     def user_id(self, user_id: str) -> "UserIdBuilder":
         self._user_id.user_id = user_id

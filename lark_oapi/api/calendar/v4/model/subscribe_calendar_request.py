@@ -18,7 +18,8 @@ class SubscribeCalendarRequest(BaseRequest):
 
 class SubscribeCalendarRequestBuilder(object):
 
-    def __init__(self, subscribe_calendar_request: SubscribeCalendarRequest = SubscribeCalendarRequest()) -> None:
+    def __init__(self) -> None:
+        subscribe_calendar_request = SubscribeCalendarRequest()
         subscribe_calendar_request.http_method = HttpMethod.POST
         subscribe_calendar_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
         subscribe_calendar_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

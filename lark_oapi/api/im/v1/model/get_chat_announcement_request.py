@@ -19,8 +19,8 @@ class GetChatAnnouncementRequest(BaseRequest):
 
 class GetChatAnnouncementRequestBuilder(object):
 
-    def __init__(self,
-                 get_chat_announcement_request: GetChatAnnouncementRequest = GetChatAnnouncementRequest()) -> None:
+    def __init__(self) -> None:
+        get_chat_announcement_request = GetChatAnnouncementRequest()
         get_chat_announcement_request.http_method = HttpMethod.GET
         get_chat_announcement_request.uri = "/open-apis/im/v1/chats/:chat_id/announcement"
         get_chat_announcement_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -20,8 +20,8 @@ class DeleteTaskCollaboratorRequest(BaseRequest):
 
 class DeleteTaskCollaboratorRequestBuilder(object):
 
-    def __init__(self,
-                 delete_task_collaborator_request: DeleteTaskCollaboratorRequest = DeleteTaskCollaboratorRequest()) -> None:
+    def __init__(self) -> None:
+        delete_task_collaborator_request = DeleteTaskCollaboratorRequest()
         delete_task_collaborator_request.http_method = HttpMethod.DELETE
         delete_task_collaborator_request.uri = "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
         delete_task_collaborator_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -16,7 +16,7 @@ class ObjectAttribute(object):
         "is_di_data": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[I18n] = None
         self.description: Optional[I18n] = None
         self.data_type: Optional[int] = None
@@ -31,8 +31,8 @@ class ObjectAttribute(object):
 
 
 class ObjectAttributeBuilder(object):
-    def __init__(self, object_attribute: ObjectAttribute = ObjectAttribute({})) -> None:
-        self._object_attribute: ObjectAttribute = object_attribute
+    def __init__(self) -> None:
+        self._object_attribute = ObjectAttribute()
 
     def title(self, title: I18n) -> "ObjectAttributeBuilder":
         self._object_attribute.title = title

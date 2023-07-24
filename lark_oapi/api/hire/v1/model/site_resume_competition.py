@@ -11,7 +11,7 @@ class SiteResumeCompetition(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SiteResumeCompetition(object):
 
 
 class SiteResumeCompetitionBuilder(object):
-    def __init__(self, site_resume_competition: SiteResumeCompetition = SiteResumeCompetition({})) -> None:
-        self._site_resume_competition: SiteResumeCompetition = site_resume_competition
+    def __init__(self) -> None:
+        self._site_resume_competition = SiteResumeCompetition()
 
     def name(self, name: str) -> "SiteResumeCompetitionBuilder":
         self._site_resume_competition.name = name

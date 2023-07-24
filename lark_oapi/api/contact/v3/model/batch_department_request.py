@@ -20,7 +20,8 @@ class BatchDepartmentRequest(BaseRequest):
 
 class BatchDepartmentRequestBuilder(object):
 
-    def __init__(self, batch_department_request: BatchDepartmentRequest = BatchDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        batch_department_request = BatchDepartmentRequest()
         batch_department_request.http_method = HttpMethod.GET
         batch_department_request.uri = "/open-apis/contact/v3/departments/batch"
         batch_department_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

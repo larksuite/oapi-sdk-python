@@ -13,7 +13,7 @@ class GroupVisibleScope(object):
         "scene_types": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.visible_scope_type: Optional[str] = None
         self.visible_users: Optional[List[str]] = None
         self.visible_departments: Optional[List[str]] = None
@@ -26,8 +26,8 @@ class GroupVisibleScope(object):
 
 
 class GroupVisibleScopeBuilder(object):
-    def __init__(self, group_visible_scope: GroupVisibleScope = GroupVisibleScope({})) -> None:
-        self._group_visible_scope: GroupVisibleScope = group_visible_scope
+    def __init__(self) -> None:
+        self._group_visible_scope = GroupVisibleScope()
 
     def visible_scope_type(self, visible_scope_type: str) -> "GroupVisibleScopeBuilder":
         self._group_visible_scope.visible_scope_type = visible_scope_type

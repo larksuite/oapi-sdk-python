@@ -14,7 +14,7 @@ class SpecifiedRollback(object):
         "task_def_key_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.task_id: Optional[int] = None
         self.reason: Optional[str] = None
@@ -28,8 +28,8 @@ class SpecifiedRollback(object):
 
 
 class SpecifiedRollbackBuilder(object):
-    def __init__(self, specified_rollback: SpecifiedRollback = SpecifiedRollback({})) -> None:
-        self._specified_rollback: SpecifiedRollback = specified_rollback
+    def __init__(self) -> None:
+        self._specified_rollback = SpecifiedRollback()
 
     def user_id(self, user_id: str) -> "SpecifiedRollbackBuilder":
         self._specified_rollback.user_id = user_id

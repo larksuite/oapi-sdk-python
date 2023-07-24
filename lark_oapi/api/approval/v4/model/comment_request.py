@@ -16,7 +16,7 @@ class CommentRequest(object):
         "extra": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.at_info_list: Optional[List[CommentAtInfo]] = None
         self.parent_comment_id: Optional[int] = None
@@ -31,8 +31,8 @@ class CommentRequest(object):
 
 
 class CommentRequestBuilder(object):
-    def __init__(self, comment_request: CommentRequest = CommentRequest({})) -> None:
-        self._comment_request: CommentRequest = comment_request
+    def __init__(self) -> None:
+        self._comment_request = CommentRequest()
 
     def content(self, content: str) -> "CommentRequestBuilder":
         self._comment_request.content = content

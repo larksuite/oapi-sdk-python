@@ -16,7 +16,7 @@ class Vchat(object):
         "meeting_settings": MeetingSettings,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.vc_type: Optional[str] = None
         self.icon_type: Optional[str] = None
         self.description: Optional[str] = None
@@ -32,8 +32,8 @@ class Vchat(object):
 
 
 class VchatBuilder(object):
-    def __init__(self, vchat: Vchat = Vchat({})) -> None:
-        self._vchat: Vchat = vchat
+    def __init__(self) -> None:
+        self._vchat = Vchat()
 
     def vc_type(self, vc_type: str) -> "VchatBuilder":
         self._vchat.vc_type = vc_type

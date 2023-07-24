@@ -18,7 +18,7 @@ class ExternalBackgroundCheck(object):
         "attachment_list": List[ExternalBackgroundCheckAttachment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.external_id: Optional[str] = None
         self.external_application_id: Optional[str] = None
@@ -35,8 +35,8 @@ class ExternalBackgroundCheck(object):
 
 
 class ExternalBackgroundCheckBuilder(object):
-    def __init__(self, external_background_check: ExternalBackgroundCheck = ExternalBackgroundCheck({})) -> None:
-        self._external_background_check: ExternalBackgroundCheck = external_background_check
+    def __init__(self) -> None:
+        self._external_background_check = ExternalBackgroundCheck()
 
     def id(self, id: str) -> "ExternalBackgroundCheckBuilder":
         self._external_background_check.id = id

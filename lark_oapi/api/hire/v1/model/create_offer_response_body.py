@@ -19,7 +19,7 @@ class CreateOfferResponseBody(object):
         "customized_info_list": List[OfferCustomizedInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.schema_id: Optional[str] = None
@@ -35,8 +35,8 @@ class CreateOfferResponseBody(object):
 
 
 class CreateOfferResponseBodyBuilder(object):
-    def __init__(self, create_offer_response_body: CreateOfferResponseBody = CreateOfferResponseBody({})) -> None:
-        self._create_offer_response_body: CreateOfferResponseBody = create_offer_response_body
+    def __init__(self) -> None:
+        self._create_offer_response_body = CreateOfferResponseBody()
 
     def offer_id(self, offer_id: str) -> "CreateOfferResponseBodyBuilder":
         self._create_offer_response_body.offer_id = offer_id

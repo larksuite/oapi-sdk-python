@@ -13,7 +13,7 @@ class MergeTableCellsRequest(object):
         "column_end_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.row_start_index: Optional[int] = None
         self.row_end_index: Optional[int] = None
         self.column_start_index: Optional[int] = None
@@ -26,8 +26,8 @@ class MergeTableCellsRequest(object):
 
 
 class MergeTableCellsRequestBuilder(object):
-    def __init__(self, merge_table_cells_request: MergeTableCellsRequest = MergeTableCellsRequest({})) -> None:
-        self._merge_table_cells_request: MergeTableCellsRequest = merge_table_cells_request
+    def __init__(self) -> None:
+        self._merge_table_cells_request = MergeTableCellsRequest()
 
     def row_start_index(self, row_start_index: int) -> "MergeTableCellsRequestBuilder":
         self._merge_table_cells_request.row_start_index = row_start_index

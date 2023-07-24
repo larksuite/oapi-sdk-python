@@ -11,7 +11,7 @@ class MergeForwardMessageRequestBody(object):
         "message_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.receive_id: Optional[str] = None
         self.message_id_list: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class MergeForwardMessageRequestBody(object):
 
 
 class MergeForwardMessageRequestBodyBuilder(object):
-    def __init__(self,
-                 merge_forward_message_request_body: MergeForwardMessageRequestBody = MergeForwardMessageRequestBody(
-                     {})) -> None:
-        self._merge_forward_message_request_body: MergeForwardMessageRequestBody = merge_forward_message_request_body
+    def __init__(self) -> None:
+        self._merge_forward_message_request_body = MergeForwardMessageRequestBody()
 
     def receive_id(self, receive_id: str) -> "MergeForwardMessageRequestBodyBuilder":
         self._merge_forward_message_request_body.receive_id = receive_id

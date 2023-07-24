@@ -12,7 +12,7 @@ class InstanceCancel(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -24,8 +24,8 @@ class InstanceCancel(object):
 
 
 class InstanceCancelBuilder(object):
-    def __init__(self, instance_cancel: InstanceCancel = InstanceCancel({})) -> None:
-        self._instance_cancel: InstanceCancel = instance_cancel
+    def __init__(self) -> None:
+        self._instance_cancel = InstanceCancel()
 
     def approval_code(self, approval_code: str) -> "InstanceCancelBuilder":
         self._instance_cancel.approval_code = approval_code

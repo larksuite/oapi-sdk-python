@@ -10,7 +10,7 @@ class InsertGridColumnRequest(object):
         "column_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.column_index: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class InsertGridColumnRequest(object):
 
 
 class InsertGridColumnRequestBuilder(object):
-    def __init__(self, insert_grid_column_request: InsertGridColumnRequest = InsertGridColumnRequest({})) -> None:
-        self._insert_grid_column_request: InsertGridColumnRequest = insert_grid_column_request
+    def __init__(self) -> None:
+        self._insert_grid_column_request = InsertGridColumnRequest()
 
     def column_index(self, column_index: int) -> "InsertGridColumnRequestBuilder":
         self._insert_grid_column_request.column_index = column_index

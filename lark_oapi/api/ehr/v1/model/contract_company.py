@@ -11,7 +11,7 @@ class ContractCompany(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ContractCompany(object):
 
 
 class ContractCompanyBuilder(object):
-    def __init__(self, contract_company: ContractCompany = ContractCompany({})) -> None:
-        self._contract_company: ContractCompany = contract_company
+    def __init__(self) -> None:
+        self._contract_company = ContractCompany()
 
     def id(self, id: int) -> "ContractCompanyBuilder":
         self._contract_company.id = id

@@ -16,7 +16,7 @@ class Name(object):
         "local_primary": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.full_name: Optional[str] = None
         self.first_name: Optional[str] = None
         self.middle_name: Optional[str] = None
@@ -32,8 +32,8 @@ class Name(object):
 
 
 class NameBuilder(object):
-    def __init__(self, name: Name = Name({})) -> None:
-        self._name: Name = name
+    def __init__(self) -> None:
+        self._name = Name()
 
     def full_name(self, full_name: str) -> "NameBuilder":
         self._name.full_name = full_name

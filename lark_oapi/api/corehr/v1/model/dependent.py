@@ -32,7 +32,7 @@ class Dependent(object):
         "birth_certificate_of_child": List[File],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[PersonName] = None
         self.relationship: Optional[Enum] = None
         self.gender: Optional[Enum] = None
@@ -57,8 +57,8 @@ class Dependent(object):
 
 
 class DependentBuilder(object):
-    def __init__(self, dependent: Dependent = Dependent({})) -> None:
-        self._dependent: Dependent = dependent
+    def __init__(self) -> None:
+        self._dependent = Dependent()
 
     def name(self, name: PersonName) -> "DependentBuilder":
         self._dependent.name = name

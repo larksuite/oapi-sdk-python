@@ -19,7 +19,8 @@ class CreateFaqRequest(BaseRequest):
 
 class CreateFaqRequestBuilder(object):
 
-    def __init__(self, create_faq_request: CreateFaqRequest = CreateFaqRequest()) -> None:
+    def __init__(self) -> None:
+        create_faq_request = CreateFaqRequest()
         create_faq_request.http_method = HttpMethod.POST
         create_faq_request.uri = "/open-apis/helpdesk/v1/faqs"
         create_faq_request.token_types = {AccessTokenType.USER}

@@ -18,8 +18,8 @@ class GetTicketCustomizedFieldRequest(BaseRequest):
 
 class GetTicketCustomizedFieldRequestBuilder(object):
 
-    def __init__(self,
-                 get_ticket_customized_field_request: GetTicketCustomizedFieldRequest = GetTicketCustomizedFieldRequest()) -> None:
+    def __init__(self) -> None:
+        get_ticket_customized_field_request = GetTicketCustomizedFieldRequest()
         get_ticket_customized_field_request.http_method = HttpMethod.GET
         get_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
         get_ticket_customized_field_request.token_types = {AccessTokenType.TENANT}

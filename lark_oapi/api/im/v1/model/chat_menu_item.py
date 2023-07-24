@@ -16,7 +16,7 @@ class ChatMenuItem(object):
         "i18n_names": I18nNames,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.action_type: Optional[str] = None
         self.redirect_link: Optional[ChatMenuItemRedirectLink] = None
         self.image_key: Optional[str] = None
@@ -30,8 +30,8 @@ class ChatMenuItem(object):
 
 
 class ChatMenuItemBuilder(object):
-    def __init__(self, chat_menu_item: ChatMenuItem = ChatMenuItem({})) -> None:
-        self._chat_menu_item: ChatMenuItem = chat_menu_item
+    def __init__(self) -> None:
+        self._chat_menu_item = ChatMenuItem()
 
     def action_type(self, action_type: str) -> "ChatMenuItemBuilder":
         self._chat_menu_item.action_type = action_type

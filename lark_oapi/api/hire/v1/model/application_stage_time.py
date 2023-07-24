@@ -12,7 +12,7 @@ class ApplicationStageTime(object):
         "exit_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.stage_id: Optional[str] = None
         self.enter_time: Optional[str] = None
         self.exit_time: Optional[str] = None
@@ -24,8 +24,8 @@ class ApplicationStageTime(object):
 
 
 class ApplicationStageTimeBuilder(object):
-    def __init__(self, application_stage_time: ApplicationStageTime = ApplicationStageTime({})) -> None:
-        self._application_stage_time: ApplicationStageTime = application_stage_time
+    def __init__(self) -> None:
+        self._application_stage_time = ApplicationStageTime()
 
     def stage_id(self, stage_id: str) -> "ApplicationStageTimeBuilder":
         self._application_stage_time.stage_id = stage_id

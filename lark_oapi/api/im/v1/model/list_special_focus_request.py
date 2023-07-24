@@ -20,7 +20,8 @@ class ListSpecialFocusRequest(BaseRequest):
 
 class ListSpecialFocusRequestBuilder(object):
 
-    def __init__(self, list_special_focus_request: ListSpecialFocusRequest = ListSpecialFocusRequest()) -> None:
+    def __init__(self) -> None:
+        list_special_focus_request = ListSpecialFocusRequest()
         list_special_focus_request.http_method = HttpMethod.GET
         list_special_focus_request.uri = "/open-apis/im/v1/special_focus"
         list_special_focus_request.token_types = {AccessTokenType.USER}

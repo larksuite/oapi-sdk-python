@@ -12,7 +12,7 @@ class EmployeeJobData(object):
         "job_datas": List[JobData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.job_datas: Optional[List[JobData]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class EmployeeJobData(object):
 
 
 class EmployeeJobDataBuilder(object):
-    def __init__(self, employee_job_data: EmployeeJobData = EmployeeJobData({})) -> None:
-        self._employee_job_data: EmployeeJobData = employee_job_data
+    def __init__(self) -> None:
+        self._employee_job_data = EmployeeJobData()
 
     def employment_id(self, employment_id: str) -> "EmployeeJobDataBuilder":
         self._employee_job_data.employment_id = employment_id

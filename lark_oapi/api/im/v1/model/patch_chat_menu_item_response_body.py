@@ -11,7 +11,7 @@ class PatchChatMenuItemResponseBody(object):
         "chat_menu_item": ChatMenuItem,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_menu_item: Optional[ChatMenuItem] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchChatMenuItemResponseBody(object):
 
 
 class PatchChatMenuItemResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_chat_menu_item_response_body: PatchChatMenuItemResponseBody = PatchChatMenuItemResponseBody(
-                     {})) -> None:
-        self._patch_chat_menu_item_response_body: PatchChatMenuItemResponseBody = patch_chat_menu_item_response_body
+    def __init__(self) -> None:
+        self._patch_chat_menu_item_response_body = PatchChatMenuItemResponseBody()
 
     def chat_menu_item(self, chat_menu_item: ChatMenuItem) -> "PatchChatMenuItemResponseBodyBuilder":
         self._patch_chat_menu_item_response_body.chat_menu_item = chat_menu_item

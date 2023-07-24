@@ -19,8 +19,8 @@ class CreateExternalInterviewRequest(BaseRequest):
 
 class CreateExternalInterviewRequestBuilder(object):
 
-    def __init__(self,
-                 create_external_interview_request: CreateExternalInterviewRequest = CreateExternalInterviewRequest()) -> None:
+    def __init__(self) -> None:
+        create_external_interview_request = CreateExternalInterviewRequest()
         create_external_interview_request.http_method = HttpMethod.POST
         create_external_interview_request.uri = "/open-apis/hire/v1/external_interviews"
         create_external_interview_request.token_types = {AccessTokenType.TENANT}

@@ -11,7 +11,7 @@ class ApplicationOfferCustomValue(object):
         "customize_value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.customize_value: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class ApplicationOfferCustomValue(object):
 
 
 class ApplicationOfferCustomValueBuilder(object):
-    def __init__(self,
-                 application_offer_custom_value: ApplicationOfferCustomValue = ApplicationOfferCustomValue({})) -> None:
-        self._application_offer_custom_value: ApplicationOfferCustomValue = application_offer_custom_value
+    def __init__(self) -> None:
+        self._application_offer_custom_value = ApplicationOfferCustomValue()
 
     def object_id(self, object_id: str) -> "ApplicationOfferCustomValueBuilder":
         self._application_offer_custom_value.object_id = object_id

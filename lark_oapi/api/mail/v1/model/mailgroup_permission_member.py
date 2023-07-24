@@ -14,7 +14,7 @@ class MailgroupPermissionMember(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission_member_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.department_id: Optional[str] = None
@@ -28,8 +28,8 @@ class MailgroupPermissionMember(object):
 
 
 class MailgroupPermissionMemberBuilder(object):
-    def __init__(self, mailgroup_permission_member: MailgroupPermissionMember = MailgroupPermissionMember({})) -> None:
-        self._mailgroup_permission_member: MailgroupPermissionMember = mailgroup_permission_member
+    def __init__(self) -> None:
+        self._mailgroup_permission_member = MailgroupPermissionMember()
 
     def permission_member_id(self, permission_member_id: str) -> "MailgroupPermissionMemberBuilder":
         self._mailgroup_permission_member.permission_member_id = permission_member_id

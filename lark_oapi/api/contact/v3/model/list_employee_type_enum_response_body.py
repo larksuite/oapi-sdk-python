@@ -13,7 +13,7 @@ class ListEmployeeTypeEnumResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[EmployeeTypeEnum]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListEmployeeTypeEnumResponseBody(object):
 
 
 class ListEmployeeTypeEnumResponseBodyBuilder(object):
-    def __init__(self,
-                 list_employee_type_enum_response_body: ListEmployeeTypeEnumResponseBody = ListEmployeeTypeEnumResponseBody(
-                     {})) -> None:
-        self._list_employee_type_enum_response_body: ListEmployeeTypeEnumResponseBody = list_employee_type_enum_response_body
+    def __init__(self) -> None:
+        self._list_employee_type_enum_response_body = ListEmployeeTypeEnumResponseBody()
 
     def items(self, items: List[EmployeeTypeEnum]) -> "ListEmployeeTypeEnumResponseBodyBuilder":
         self._list_employee_type_enum_response_body.items = items

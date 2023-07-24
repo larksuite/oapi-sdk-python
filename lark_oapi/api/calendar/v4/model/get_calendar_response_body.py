@@ -19,7 +19,7 @@ class GetCalendarResponseBody(object):
         "role": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.calendar_id: Optional[str] = None
         self.summary: Optional[str] = None
         self.description: Optional[str] = None
@@ -38,8 +38,8 @@ class GetCalendarResponseBody(object):
 
 
 class GetCalendarResponseBodyBuilder(object):
-    def __init__(self, get_calendar_response_body: GetCalendarResponseBody = GetCalendarResponseBody({})) -> None:
-        self._get_calendar_response_body: GetCalendarResponseBody = get_calendar_response_body
+    def __init__(self) -> None:
+        self._get_calendar_response_body = GetCalendarResponseBody()
 
     def calendar_id(self, calendar_id: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.calendar_id = calendar_id

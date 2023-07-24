@@ -18,7 +18,8 @@ class PreviewAttachmentRequest(BaseRequest):
 
 class PreviewAttachmentRequestBuilder(object):
 
-    def __init__(self, preview_attachment_request: PreviewAttachmentRequest = PreviewAttachmentRequest()) -> None:
+    def __init__(self) -> None:
+        preview_attachment_request = PreviewAttachmentRequest()
         preview_attachment_request.http_method = HttpMethod.GET
         preview_attachment_request.uri = "/open-apis/hire/v1/attachments/:attachment_id/preview"
         preview_attachment_request.token_types = {AccessTokenType.TENANT}

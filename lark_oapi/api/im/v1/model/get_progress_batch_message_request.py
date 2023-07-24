@@ -18,8 +18,8 @@ class GetProgressBatchMessageRequest(BaseRequest):
 
 class GetProgressBatchMessageRequestBuilder(object):
 
-    def __init__(self,
-                 get_progress_batch_message_request: GetProgressBatchMessageRequest = GetProgressBatchMessageRequest()) -> None:
+    def __init__(self) -> None:
+        get_progress_batch_message_request = GetProgressBatchMessageRequest()
         get_progress_batch_message_request.http_method = HttpMethod.GET
         get_progress_batch_message_request.uri = "/open-apis/im/v1/batch_messages/:batch_message_id/get_progress"
         get_progress_batch_message_request.token_types = {AccessTokenType.TENANT}

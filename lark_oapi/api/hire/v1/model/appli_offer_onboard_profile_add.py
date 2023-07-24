@@ -19,7 +19,7 @@ class AppliOfferOnboardProfileAdd(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -37,9 +37,8 @@ class AppliOfferOnboardProfileAdd(object):
 
 
 class AppliOfferOnboardProfileAddBuilder(object):
-    def __init__(self, appli_offer_onboard_profile_add: AppliOfferOnboardProfileAdd = AppliOfferOnboardProfileAdd(
-        {})) -> None:
-        self._appli_offer_onboard_profile_add: AppliOfferOnboardProfileAdd = appli_offer_onboard_profile_add
+    def __init__(self) -> None:
+        self._appli_offer_onboard_profile_add = AppliOfferOnboardProfileAdd()
 
     def id(self, id: str) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.id = id

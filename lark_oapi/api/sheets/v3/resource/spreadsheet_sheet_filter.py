@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_filter_request import CreateSpreadsheetSheetFilterRequest
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_filter_response import CreateSpreadsheetSheetFilterResponse
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_filter_request import DeleteSpreadsheetSheetFilterRequest
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_filter_response import DeleteSpreadsheetSheetFilterResponse
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_filter_request import GetSpreadsheetSheetFilterRequest
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_filter_response import GetSpreadsheetSheetFilterResponse
-from lark_oapi.api.sheets.v3.model.update_spreadsheet_sheet_filter_request import UpdateSpreadsheetSheetFilterRequest
-from lark_oapi.api.sheets.v3.model.update_spreadsheet_sheet_filter_response import UpdateSpreadsheetSheetFilterResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_spreadsheet_sheet_filter_request import CreateSpreadsheetSheetFilterRequest
+from ..model.create_spreadsheet_sheet_filter_response import CreateSpreadsheetSheetFilterResponse
+from ..model.delete_spreadsheet_sheet_filter_request import DeleteSpreadsheetSheetFilterRequest
+from ..model.delete_spreadsheet_sheet_filter_response import DeleteSpreadsheetSheetFilterResponse
+from ..model.get_spreadsheet_sheet_filter_request import GetSpreadsheetSheetFilterRequest
+from ..model.get_spreadsheet_sheet_filter_response import GetSpreadsheetSheetFilterResponse
+from ..model.update_spreadsheet_sheet_filter_request import UpdateSpreadsheetSheetFilterRequest
+from ..model.update_spreadsheet_sheet_filter_response import UpdateSpreadsheetSheetFilterResponse
 
 
 class SpreadsheetSheetFilter(object):
@@ -22,7 +22,10 @@ class SpreadsheetSheetFilter(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateSpreadsheetSheetFilterRequest,
-               option: RequestOption = RequestOption()) -> CreateSpreadsheetSheetFilterResponse:
+               option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -37,7 +40,10 @@ class SpreadsheetSheetFilter(object):
         return response
 
     def delete(self, request: DeleteSpreadsheetSheetFilterRequest,
-               option: RequestOption = RequestOption()) -> DeleteSpreadsheetSheetFilterResponse:
+               option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class SpreadsheetSheetFilter(object):
         return response
 
     def get(self, request: GetSpreadsheetSheetFilterRequest,
-            option: RequestOption = RequestOption()) -> GetSpreadsheetSheetFilterResponse:
+            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -67,7 +76,10 @@ class SpreadsheetSheetFilter(object):
         return response
 
     def update(self, request: UpdateSpreadsheetSheetFilterRequest,
-               option: RequestOption = RequestOption()) -> UpdateSpreadsheetSheetFilterResponse:
+               option: Optional[RequestOption] = None) -> UpdateSpreadsheetSheetFilterResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

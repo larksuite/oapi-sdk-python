@@ -21,7 +21,7 @@ class GetExternalApprovalResponseBody(object):
         "managers": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_name: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.group_code: Optional[str] = None
@@ -39,10 +39,8 @@ class GetExternalApprovalResponseBody(object):
 
 
 class GetExternalApprovalResponseBodyBuilder(object):
-    def __init__(self,
-                 get_external_approval_response_body: GetExternalApprovalResponseBody = GetExternalApprovalResponseBody(
-                     {})) -> None:
-        self._get_external_approval_response_body: GetExternalApprovalResponseBody = get_external_approval_response_body
+    def __init__(self) -> None:
+        self._get_external_approval_response_body = GetExternalApprovalResponseBody()
 
     def approval_name(self, approval_name: str) -> "GetExternalApprovalResponseBodyBuilder":
         self._get_external_approval_response_body.approval_name = approval_name

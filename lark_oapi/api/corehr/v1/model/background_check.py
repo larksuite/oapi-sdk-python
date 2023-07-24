@@ -18,7 +18,7 @@ class BackgroundCheck(object):
         "report": BackgroundCheckReportObject,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.package: Optional[int] = None
         self.status: Optional[int] = None
@@ -35,8 +35,8 @@ class BackgroundCheck(object):
 
 
 class BackgroundCheckBuilder(object):
-    def __init__(self, background_check: BackgroundCheck = BackgroundCheck({})) -> None:
-        self._background_check: BackgroundCheck = background_check
+    def __init__(self) -> None:
+        self._background_check = BackgroundCheck()
 
     def id(self, id: str) -> "BackgroundCheckBuilder":
         self._background_check.id = id

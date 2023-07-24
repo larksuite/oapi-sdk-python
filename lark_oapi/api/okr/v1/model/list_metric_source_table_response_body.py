@@ -14,7 +14,7 @@ class ListMetricSourceTableResponseBody(object):
         "items": List[MetricTable],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.total: Optional[int] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -27,10 +27,8 @@ class ListMetricSourceTableResponseBody(object):
 
 
 class ListMetricSourceTableResponseBodyBuilder(object):
-    def __init__(self,
-                 list_metric_source_table_response_body: ListMetricSourceTableResponseBody = ListMetricSourceTableResponseBody(
-                     {})) -> None:
-        self._list_metric_source_table_response_body: ListMetricSourceTableResponseBody = list_metric_source_table_response_body
+    def __init__(self) -> None:
+        self._list_metric_source_table_response_body = ListMetricSourceTableResponseBody()
 
     def total(self, total: int) -> "ListMetricSourceTableResponseBodyBuilder":
         self._list_metric_source_table_response_body.total = total

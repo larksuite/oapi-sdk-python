@@ -11,7 +11,7 @@ class OkrName(object):
         "en": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh: Optional[str] = None
         self.en: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OkrName(object):
 
 
 class OkrNameBuilder(object):
-    def __init__(self, okr_name: OkrName = OkrName({})) -> None:
-        self._okr_name: OkrName = okr_name
+    def __init__(self) -> None:
+        self._okr_name = OkrName()
 
     def zh(self, zh: str) -> "OkrNameBuilder":
         self._okr_name.zh = zh

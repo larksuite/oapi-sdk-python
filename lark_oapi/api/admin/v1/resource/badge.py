@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.admin.v1.model.create_badge_request import CreateBadgeRequest
-from lark_oapi.api.admin.v1.model.create_badge_response import CreateBadgeResponse
-from lark_oapi.api.admin.v1.model.get_badge_request import GetBadgeRequest
-from lark_oapi.api.admin.v1.model.get_badge_response import GetBadgeResponse
-from lark_oapi.api.admin.v1.model.list_badge_request import ListBadgeRequest
-from lark_oapi.api.admin.v1.model.list_badge_response import ListBadgeResponse
-from lark_oapi.api.admin.v1.model.update_badge_request import UpdateBadgeRequest
-from lark_oapi.api.admin.v1.model.update_badge_response import UpdateBadgeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_badge_request import CreateBadgeRequest
+from ..model.create_badge_response import CreateBadgeResponse
+from ..model.get_badge_request import GetBadgeRequest
+from ..model.get_badge_response import GetBadgeResponse
+from ..model.list_badge_request import ListBadgeRequest
+from ..model.list_badge_response import ListBadgeResponse
+from ..model.update_badge_request import UpdateBadgeRequest
+from ..model.update_badge_response import UpdateBadgeResponse
 
 
 class Badge(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateBadgeRequest, option: RequestOption = RequestOption()) -> CreateBadgeResponse:
+    def create(self, request: CreateBadgeRequest, option: Optional[RequestOption] = None) -> CreateBadgeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Badge(object):
 
         return response
 
-    def get(self, request: GetBadgeRequest, option: RequestOption = RequestOption()) -> GetBadgeResponse:
+    def get(self, request: GetBadgeRequest, option: Optional[RequestOption] = None) -> GetBadgeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Badge(object):
 
         return response
 
-    def list(self, request: ListBadgeRequest, option: RequestOption = RequestOption()) -> ListBadgeResponse:
+    def list(self, request: ListBadgeRequest, option: Optional[RequestOption] = None) -> ListBadgeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +69,10 @@ class Badge(object):
 
         return response
 
-    def update(self, request: UpdateBadgeRequest, option: RequestOption = RequestOption()) -> UpdateBadgeResponse:
+    def update(self, request: UpdateBadgeRequest, option: Optional[RequestOption] = None) -> UpdateBadgeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

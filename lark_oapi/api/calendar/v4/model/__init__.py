@@ -4,6 +4,7 @@ from .attendee_chat_member import *
 from .batch_delete_calendar_event_attendee_request import *
 from .batch_delete_calendar_event_attendee_request_body import *
 from .batch_delete_calendar_event_attendee_response import *
+from .book_meeting_room_data import *
 from .calendar import *
 from .calendar_acl import *
 from .calendar_acl_event import *
@@ -53,6 +54,7 @@ from .event_location import *
 from .event_search_filter import *
 from .event_time import *
 from .exchange_binding import *
+from .free_time import *
 from .freebusy import *
 from .generate_caldav_conf_setting_request import *
 from .generate_caldav_conf_setting_request_body import *
@@ -90,6 +92,7 @@ from .meeting_chat import *
 from .meeting_minute import *
 from .meeting_settings import *
 from .myai_card_status import *
+from .myai_reply import *
 from .operate_card_data import *
 from .patch_calendar_event_request import *
 from .patch_calendar_event_response import *

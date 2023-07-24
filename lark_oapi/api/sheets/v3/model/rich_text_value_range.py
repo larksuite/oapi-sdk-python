@@ -11,7 +11,7 @@ class RichTextValueRange(object):
         "values": List[list],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.values: Optional[List[list]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class RichTextValueRange(object):
 
 
 class RichTextValueRangeBuilder(object):
-    def __init__(self, rich_text_value_range: RichTextValueRange = RichTextValueRange({})) -> None:
-        self._rich_text_value_range: RichTextValueRange = rich_text_value_range
+    def __init__(self) -> None:
+        self._rich_text_value_range = RichTextValueRange()
 
     def range(self, range: str) -> "RichTextValueRangeBuilder":
         self._rich_text_value_range.range = range

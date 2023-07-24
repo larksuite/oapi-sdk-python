@@ -20,7 +20,8 @@ class CreateContractRequest(BaseRequest):
 
 class CreateContractRequestBuilder(object):
 
-    def __init__(self, create_contract_request: CreateContractRequest = CreateContractRequest()) -> None:
+    def __init__(self) -> None:
+        create_contract_request = CreateContractRequest()
         create_contract_request.http_method = HttpMethod.POST
         create_contract_request.uri = "/open-apis/corehr/v1/contracts"
         create_contract_request.token_types = {AccessTokenType.TENANT}

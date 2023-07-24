@@ -15,7 +15,8 @@ class QueryTalentObjectRequest(BaseRequest):
 
 class QueryTalentObjectRequestBuilder(object):
 
-    def __init__(self, query_talent_object_request: QueryTalentObjectRequest = QueryTalentObjectRequest()) -> None:
+    def __init__(self) -> None:
+        query_talent_object_request = QueryTalentObjectRequest()
         query_talent_object_request.http_method = HttpMethod.GET
         query_talent_object_request.uri = "/open-apis/hire/v1/talent_objects/query"
         query_talent_object_request.token_types = {AccessTokenType.TENANT}

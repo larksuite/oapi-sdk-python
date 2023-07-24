@@ -11,7 +11,7 @@ class CommonSchemaConfig(object):
         "options": List[CommonSchemaOption],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.options: Optional[List[CommonSchemaOption]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CommonSchemaConfig(object):
 
 
 class CommonSchemaConfigBuilder(object):
-    def __init__(self, common_schema_config: CommonSchemaConfig = CommonSchemaConfig({})) -> None:
-        self._common_schema_config: CommonSchemaConfig = common_schema_config
+    def __init__(self) -> None:
+        self._common_schema_config = CommonSchemaConfig()
 
     def options(self, options: List[CommonSchemaOption]) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.options = options

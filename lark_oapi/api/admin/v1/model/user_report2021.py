@@ -34,7 +34,7 @@ class UserReport2021(object):
         "create_read_user_count": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.active_day_count: Optional[int] = None
         self.busy_week: Optional[str] = None
         self.p2p_chat_count: Optional[str] = None
@@ -68,8 +68,8 @@ class UserReport2021(object):
 
 
 class UserReport2021Builder(object):
-    def __init__(self, user_report2021: UserReport2021 = UserReport2021({})) -> None:
-        self._user_report2021: UserReport2021 = user_report2021
+    def __init__(self) -> None:
+        self._user_report2021 = UserReport2021()
 
     def active_day_count(self, active_day_count: int) -> "UserReport2021Builder":
         self._user_report2021.active_day_count = active_day_count

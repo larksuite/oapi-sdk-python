@@ -11,7 +11,7 @@ class Identification(object):
         "identification_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.identification_number: Optional[str] = None
         self.identification_type: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Identification(object):
 
 
 class IdentificationBuilder(object):
-    def __init__(self, identification: Identification = Identification({})) -> None:
-        self._identification: Identification = identification
+    def __init__(self) -> None:
+        self._identification = Identification()
 
     def identification_number(self, identification_number: str) -> "IdentificationBuilder":
         self._identification.identification_number = identification_number

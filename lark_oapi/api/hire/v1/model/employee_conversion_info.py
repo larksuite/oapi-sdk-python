@@ -10,7 +10,7 @@ class EmployeeConversionInfo(object):
         "actual_conversion_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.actual_conversion_time: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class EmployeeConversionInfo(object):
 
 
 class EmployeeConversionInfoBuilder(object):
-    def __init__(self, employee_conversion_info: EmployeeConversionInfo = EmployeeConversionInfo({})) -> None:
-        self._employee_conversion_info: EmployeeConversionInfo = employee_conversion_info
+    def __init__(self) -> None:
+        self._employee_conversion_info = EmployeeConversionInfo()
 
     def actual_conversion_time(self, actual_conversion_time: int) -> "EmployeeConversionInfoBuilder":
         self._employee_conversion_info.actual_conversion_time = actual_conversion_time

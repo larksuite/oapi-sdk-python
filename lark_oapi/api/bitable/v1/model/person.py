@@ -14,7 +14,7 @@ class Person(object):
         "avatar_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -28,8 +28,8 @@ class Person(object):
 
 
 class PersonBuilder(object):
-    def __init__(self, person: Person = Person({})) -> None:
-        self._person: Person = person
+    def __init__(self) -> None:
+        self._person = Person()
 
     def id(self, id: str) -> "PersonBuilder":
         self._person.id = id

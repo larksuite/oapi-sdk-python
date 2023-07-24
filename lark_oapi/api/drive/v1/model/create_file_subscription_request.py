@@ -20,8 +20,8 @@ class CreateFileSubscriptionRequest(BaseRequest):
 
 class CreateFileSubscriptionRequestBuilder(object):
 
-    def __init__(self,
-                 create_file_subscription_request: CreateFileSubscriptionRequest = CreateFileSubscriptionRequest()) -> None:
+    def __init__(self) -> None:
+        create_file_subscription_request = CreateFileSubscriptionRequest()
         create_file_subscription_request.http_method = HttpMethod.POST
         create_file_subscription_request.uri = "/open-apis/drive/v1/files/:file_token/subscriptions"
         create_file_subscription_request.token_types = {AccessTokenType.USER}

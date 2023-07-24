@@ -12,7 +12,7 @@ class PatchAppTableViewResponse(BaseResponse):
         "data": PatchAppTableViewResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[PatchAppTableViewResponseBody] = None
         init(self, d, self._types)

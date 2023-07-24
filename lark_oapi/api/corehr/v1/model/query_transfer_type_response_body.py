@@ -11,7 +11,7 @@ class QueryTransferTypeResponseBody(object):
         "items": List[TransferType],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[TransferType]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class QueryTransferTypeResponseBody(object):
 
 
 class QueryTransferTypeResponseBodyBuilder(object):
-    def __init__(self, query_transfer_type_response_body: QueryTransferTypeResponseBody = QueryTransferTypeResponseBody(
-        {})) -> None:
-        self._query_transfer_type_response_body: QueryTransferTypeResponseBody = query_transfer_type_response_body
+    def __init__(self) -> None:
+        self._query_transfer_type_response_body = QueryTransferTypeResponseBody()
 
     def items(self, items: List[TransferType]) -> "QueryTransferTypeResponseBodyBuilder":
         self._query_transfer_type_response_body.items = items

@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.modify_user_setting_request import ModifyUserSettingRequest
-from lark_oapi.api.attendance.v1.model.modify_user_setting_response import ModifyUserSettingResponse
-from lark_oapi.api.attendance.v1.model.query_user_setting_request import QueryUserSettingRequest
-from lark_oapi.api.attendance.v1.model.query_user_setting_response import QueryUserSettingResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.modify_user_setting_request import ModifyUserSettingRequest
+from ..model.modify_user_setting_response import ModifyUserSettingResponse
+from ..model.query_user_setting_request import QueryUserSettingRequest
+from ..model.query_user_setting_response import QueryUserSettingResponse
 
 
 class UserSetting(object):
@@ -18,7 +18,10 @@ class UserSetting(object):
         self.config: Optional[Config] = config
 
     def modify(self, request: ModifyUserSettingRequest,
-               option: RequestOption = RequestOption()) -> ModifyUserSettingResponse:
+               option: Optional[RequestOption] = None) -> ModifyUserSettingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class UserSetting(object):
         return response
 
     def query(self, request: QueryUserSettingRequest,
-              option: RequestOption = RequestOption()) -> QueryUserSettingResponse:
+              option: Optional[RequestOption] = None) -> QueryUserSettingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class EcoBackgroundCheckCreateEventMobile(object):
         "number": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.number: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class EcoBackgroundCheckCreateEventMobile(object):
 
 
 class EcoBackgroundCheckCreateEventMobileBuilder(object):
-    def __init__(self,
-                 eco_background_check_create_event_mobile: EcoBackgroundCheckCreateEventMobile = EcoBackgroundCheckCreateEventMobile(
-                     {})) -> None:
-        self._eco_background_check_create_event_mobile: EcoBackgroundCheckCreateEventMobile = eco_background_check_create_event_mobile
+    def __init__(self) -> None:
+        self._eco_background_check_create_event_mobile = EcoBackgroundCheckCreateEventMobile()
 
     def code(self, code: str) -> "EcoBackgroundCheckCreateEventMobileBuilder":
         self._eco_background_check_create_event_mobile.code = code

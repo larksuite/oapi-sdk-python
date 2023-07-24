@@ -13,7 +13,7 @@ class TalentSchemaOption(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.active_status: Optional[int] = None
         self.value: Optional[str] = None
         self.name: Optional[I18n] = None
@@ -25,8 +25,8 @@ class TalentSchemaOption(object):
 
 
 class TalentSchemaOptionBuilder(object):
-    def __init__(self, talent_schema_option: TalentSchemaOption = TalentSchemaOption({})) -> None:
-        self._talent_schema_option: TalentSchemaOption = talent_schema_option
+    def __init__(self) -> None:
+        self._talent_schema_option = TalentSchemaOption()
 
     def active_status(self, active_status: int) -> "TalentSchemaOptionBuilder":
         self._talent_schema_option.active_status = active_status

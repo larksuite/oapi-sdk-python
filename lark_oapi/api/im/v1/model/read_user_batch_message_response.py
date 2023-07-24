@@ -12,7 +12,7 @@ class ReadUserBatchMessageResponse(BaseResponse):
         "data": ReadUserBatchMessageResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ReadUserBatchMessageResponseBody] = None
         init(self, d, self._types)

@@ -21,7 +21,8 @@ class PatchAppTableRequest(BaseRequest):
 
 class PatchAppTableRequestBuilder(object):
 
-    def __init__(self, patch_app_table_request: PatchAppTableRequest = PatchAppTableRequest()) -> None:
+    def __init__(self) -> None:
+        patch_app_table_request = PatchAppTableRequest()
         patch_app_table_request.http_method = HttpMethod.PATCH
         patch_app_table_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id"
         patch_app_table_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

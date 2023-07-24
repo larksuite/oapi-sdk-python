@@ -11,7 +11,7 @@ class UpdateMessageRequestBody(object):
         "content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.msg_type: Optional[str] = None
         self.content: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class UpdateMessageRequestBody(object):
 
 
 class UpdateMessageRequestBodyBuilder(object):
-    def __init__(self, update_message_request_body: UpdateMessageRequestBody = UpdateMessageRequestBody({})) -> None:
-        self._update_message_request_body: UpdateMessageRequestBody = update_message_request_body
+    def __init__(self) -> None:
+        self._update_message_request_body = UpdateMessageRequestBody()
 
     def msg_type(self, msg_type: str) -> "UpdateMessageRequestBodyBuilder":
         self._update_message_request_body.msg_type = msg_type

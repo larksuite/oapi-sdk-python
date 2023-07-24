@@ -21,8 +21,8 @@ class UpdateSpreadsheetSheetFilterRequest(BaseRequest):
 
 class UpdateSpreadsheetSheetFilterRequestBuilder(object):
 
-    def __init__(self,
-                 update_spreadsheet_sheet_filter_request: UpdateSpreadsheetSheetFilterRequest = UpdateSpreadsheetSheetFilterRequest()) -> None:
+    def __init__(self) -> None:
+        update_spreadsheet_sheet_filter_request = UpdateSpreadsheetSheetFilterRequest()
         update_spreadsheet_sheet_filter_request.http_method = HttpMethod.PUT
         update_spreadsheet_sheet_filter_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
         update_spreadsheet_sheet_filter_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

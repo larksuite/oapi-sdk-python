@@ -11,7 +11,7 @@ class CreateTaskCollaboratorResponseBody(object):
         "collaborator": Collaborator,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.collaborator: Optional[Collaborator] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateTaskCollaboratorResponseBody(object):
 
 
 class CreateTaskCollaboratorResponseBodyBuilder(object):
-    def __init__(self,
-                 create_task_collaborator_response_body: CreateTaskCollaboratorResponseBody = CreateTaskCollaboratorResponseBody(
-                     {})) -> None:
-        self._create_task_collaborator_response_body: CreateTaskCollaboratorResponseBody = create_task_collaborator_response_body
+    def __init__(self) -> None:
+        self._create_task_collaborator_response_body = CreateTaskCollaboratorResponseBody()
 
     def collaborator(self, collaborator: Collaborator) -> "CreateTaskCollaboratorResponseBodyBuilder":
         self._create_task_collaborator_response_body.collaborator = collaborator

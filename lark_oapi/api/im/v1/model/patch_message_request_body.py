@@ -10,7 +10,7 @@ class PatchMessageRequestBody(object):
         "content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class PatchMessageRequestBody(object):
 
 
 class PatchMessageRequestBodyBuilder(object):
-    def __init__(self, patch_message_request_body: PatchMessageRequestBody = PatchMessageRequestBody({})) -> None:
-        self._patch_message_request_body: PatchMessageRequestBody = patch_message_request_body
+    def __init__(self) -> None:
+        self._patch_message_request_body = PatchMessageRequestBody()
 
     def content(self, content: str) -> "PatchMessageRequestBodyBuilder":
         self._patch_message_request_body.content = content

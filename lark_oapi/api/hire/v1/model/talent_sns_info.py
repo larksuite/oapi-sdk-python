@@ -14,7 +14,7 @@ class TalentSnsInfo(object):
         "customized_data_list": List[TalentCustomizedDataChild],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.sns_type: Optional[int] = None
         self.link: Optional[str] = None
@@ -27,8 +27,8 @@ class TalentSnsInfo(object):
 
 
 class TalentSnsInfoBuilder(object):
-    def __init__(self, talent_sns_info: TalentSnsInfo = TalentSnsInfo({})) -> None:
-        self._talent_sns_info: TalentSnsInfo = talent_sns_info
+    def __init__(self) -> None:
+        self._talent_sns_info = TalentSnsInfo()
 
     def id(self, id: str) -> "TalentSnsInfoBuilder":
         self._talent_sns_info.id = id

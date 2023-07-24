@@ -17,7 +17,7 @@ class ApprovalEvent(object):
         "extra": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_id: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.version_id: Optional[str] = None
@@ -34,8 +34,8 @@ class ApprovalEvent(object):
 
 
 class ApprovalEventBuilder(object):
-    def __init__(self, approval_event: ApprovalEvent = ApprovalEvent({})) -> None:
-        self._approval_event: ApprovalEvent = approval_event
+    def __init__(self) -> None:
+        self._approval_event = ApprovalEvent()
 
     def approval_id(self, approval_id: str) -> "ApprovalEventBuilder":
         self._approval_event.approval_id = approval_id

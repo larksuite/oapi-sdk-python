@@ -21,7 +21,7 @@ class TaskResult(object):
         "task_shift_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.check_in_record_id: Optional[str] = None
         self.check_in_record: Optional[UserFlow] = None
         self.check_out_record_id: Optional[str] = None
@@ -41,8 +41,8 @@ class TaskResult(object):
 
 
 class TaskResultBuilder(object):
-    def __init__(self, task_result: TaskResult = TaskResult({})) -> None:
-        self._task_result: TaskResult = task_result
+    def __init__(self) -> None:
+        self._task_result = TaskResult()
 
     def check_in_record_id(self, check_in_record_id: str) -> "TaskResultBuilder":
         self._task_result.check_in_record_id = check_in_record_id

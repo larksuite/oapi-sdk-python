@@ -13,7 +13,7 @@ class ReserveCallee(object):
         "pstn_sip_info": PstnSipInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.user_type: Optional[int] = None
         self.pstn_sip_info: Optional[PstnSipInfo] = None
@@ -25,8 +25,8 @@ class ReserveCallee(object):
 
 
 class ReserveCalleeBuilder(object):
-    def __init__(self, reserve_callee: ReserveCallee = ReserveCallee({})) -> None:
-        self._reserve_callee: ReserveCallee = reserve_callee
+    def __init__(self) -> None:
+        self._reserve_callee = ReserveCallee()
 
     def id(self, id: str) -> "ReserveCalleeBuilder":
         self._reserve_callee.id = id

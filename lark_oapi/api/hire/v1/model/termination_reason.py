@@ -16,7 +16,7 @@ class TerminationReason(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.referral_name: Optional[I18n] = None
@@ -31,8 +31,8 @@ class TerminationReason(object):
 
 
 class TerminationReasonBuilder(object):
-    def __init__(self, termination_reason: TerminationReason = TerminationReason({})) -> None:
-        self._termination_reason: TerminationReason = termination_reason
+    def __init__(self) -> None:
+        self._termination_reason = TerminationReason()
 
     def id(self, id: str) -> "TerminationReasonBuilder":
         self._termination_reason.id = id

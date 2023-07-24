@@ -34,7 +34,7 @@ class CalendarEventResp(object):
         "schemas": List[Schema],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.event_id: Optional[str] = None
         self.organizer_calendar_id: Optional[str] = None
         self.summary: Optional[str] = None
@@ -63,8 +63,8 @@ class CalendarEventResp(object):
 
 
 class CalendarEventRespBuilder(object):
-    def __init__(self, calendar_event_resp: CalendarEventResp = CalendarEventResp({})) -> None:
-        self._calendar_event_resp: CalendarEventResp = calendar_event_resp
+    def __init__(self) -> None:
+        self._calendar_event_resp = CalendarEventResp()
 
     def event_id(self, event_id: str) -> "CalendarEventRespBuilder":
         self._calendar_event_resp.event_id = event_id

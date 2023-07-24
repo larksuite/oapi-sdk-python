@@ -12,7 +12,7 @@ class RecordingPermissionObject(object):
         "permission": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.type: Optional[int] = None
         self.permission: Optional[int] = None
@@ -24,8 +24,8 @@ class RecordingPermissionObject(object):
 
 
 class RecordingPermissionObjectBuilder(object):
-    def __init__(self, recording_permission_object: RecordingPermissionObject = RecordingPermissionObject({})) -> None:
-        self._recording_permission_object: RecordingPermissionObject = recording_permission_object
+    def __init__(self) -> None:
+        self._recording_permission_object = RecordingPermissionObject()
 
     def id(self, id: str) -> "RecordingPermissionObjectBuilder":
         self._recording_permission_object.id = id

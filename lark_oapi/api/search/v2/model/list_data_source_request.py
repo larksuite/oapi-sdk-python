@@ -20,7 +20,8 @@ class ListDataSourceRequest(BaseRequest):
 
 class ListDataSourceRequestBuilder(object):
 
-    def __init__(self, list_data_source_request: ListDataSourceRequest = ListDataSourceRequest()) -> None:
+    def __init__(self) -> None:
+        list_data_source_request = ListDataSourceRequest()
         list_data_source_request.http_method = HttpMethod.GET
         list_data_source_request.uri = "/open-apis/search/v2/data_sources"
         list_data_source_request.token_types = {AccessTokenType.TENANT}

@@ -11,7 +11,7 @@ class GetCurrencyResponseBody(object):
         "currency": Currency,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.currency: Optional[Currency] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetCurrencyResponseBody(object):
 
 
 class GetCurrencyResponseBodyBuilder(object):
-    def __init__(self, get_currency_response_body: GetCurrencyResponseBody = GetCurrencyResponseBody({})) -> None:
-        self._get_currency_response_body: GetCurrencyResponseBody = get_currency_response_body
+    def __init__(self) -> None:
+        self._get_currency_response_body = GetCurrencyResponseBody()
 
     def currency(self, currency: Currency) -> "GetCurrencyResponseBodyBuilder":
         self._get_currency_response_body.currency = currency

@@ -12,7 +12,7 @@ class JobConfigInterviewRound(object):
         "round": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.interviewer_list: Optional[List[IdNameObject]] = None
         self.round: Optional[int] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class JobConfigInterviewRound(object):
 
 
 class JobConfigInterviewRoundBuilder(object):
-    def __init__(self, job_config_interview_round: JobConfigInterviewRound = JobConfigInterviewRound({})) -> None:
-        self._job_config_interview_round: JobConfigInterviewRound = job_config_interview_round
+    def __init__(self) -> None:
+        self._job_config_interview_round = JobConfigInterviewRound()
 
     def interviewer_list(self, interviewer_list: List[IdNameObject]) -> "JobConfigInterviewRoundBuilder":
         self._job_config_interview_round.interviewer_list = interviewer_list

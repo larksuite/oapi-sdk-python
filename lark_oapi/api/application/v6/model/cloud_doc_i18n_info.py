@@ -13,7 +13,7 @@ class CloudDocI18nInfo(object):
         "write_description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.i18n_key: Optional[str] = None
         self.name: Optional[str] = None
         self.read_description: Optional[str] = None
@@ -26,8 +26,8 @@ class CloudDocI18nInfo(object):
 
 
 class CloudDocI18nInfoBuilder(object):
-    def __init__(self, cloud_doc_i18n_info: CloudDocI18nInfo = CloudDocI18nInfo({})) -> None:
-        self._cloud_doc_i18n_info: CloudDocI18nInfo = cloud_doc_i18n_info
+    def __init__(self) -> None:
+        self._cloud_doc_i18n_info = CloudDocI18nInfo()
 
     def i18n_key(self, i18n_key: str) -> "CloudDocI18nInfoBuilder":
         self._cloud_doc_i18n_info.i18n_key = i18n_key

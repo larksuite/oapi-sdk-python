@@ -11,7 +11,7 @@ class GetMessageResponseBody(object):
         "items": List[Message],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Message]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetMessageResponseBody(object):
 
 
 class GetMessageResponseBodyBuilder(object):
-    def __init__(self, get_message_response_body: GetMessageResponseBody = GetMessageResponseBody({})) -> None:
-        self._get_message_response_body: GetMessageResponseBody = get_message_response_body
+    def __init__(self) -> None:
+        self._get_message_response_body = GetMessageResponseBody()
 
     def items(self, items: List[Message]) -> "GetMessageResponseBodyBuilder":
         self._get_message_response_body.items = items

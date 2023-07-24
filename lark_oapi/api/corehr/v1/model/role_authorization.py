@@ -14,7 +14,7 @@ class RoleAuthorization(object):
         "management_scope_list": List[ManagementScope],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.permission_detail_list: Optional[List[PermissionDetail]] = None
         self.management_scope_list: Optional[List[ManagementScope]] = None
@@ -26,8 +26,8 @@ class RoleAuthorization(object):
 
 
 class RoleAuthorizationBuilder(object):
-    def __init__(self, role_authorization: RoleAuthorization = RoleAuthorization({})) -> None:
-        self._role_authorization: RoleAuthorization = role_authorization
+    def __init__(self) -> None:
+        self._role_authorization = RoleAuthorization()
 
     def employment_id(self, employment_id: str) -> "RoleAuthorizationBuilder":
         self._role_authorization.employment_id = employment_id

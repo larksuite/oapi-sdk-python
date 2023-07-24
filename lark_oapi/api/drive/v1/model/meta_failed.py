@@ -11,7 +11,7 @@ class MetaFailed(object):
         "code": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.code: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MetaFailed(object):
 
 
 class MetaFailedBuilder(object):
-    def __init__(self, meta_failed: MetaFailed = MetaFailed({})) -> None:
-        self._meta_failed: MetaFailed = meta_failed
+    def __init__(self) -> None:
+        self._meta_failed = MetaFailed()
 
     def token(self, token: str) -> "MetaFailedBuilder":
         self._meta_failed.token = token

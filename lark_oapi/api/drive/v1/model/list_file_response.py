@@ -12,7 +12,7 @@ class ListFileResponse(BaseResponse):
         "data": ListFileResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListFileResponseBody] = None
         init(self, d, self._types)

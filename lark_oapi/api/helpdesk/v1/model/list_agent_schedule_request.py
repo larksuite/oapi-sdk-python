@@ -18,7 +18,8 @@ class ListAgentScheduleRequest(BaseRequest):
 
 class ListAgentScheduleRequestBuilder(object):
 
-    def __init__(self, list_agent_schedule_request: ListAgentScheduleRequest = ListAgentScheduleRequest()) -> None:
+    def __init__(self) -> None:
+        list_agent_schedule_request = ListAgentScheduleRequest()
         list_agent_schedule_request.http_method = HttpMethod.GET
         list_agent_schedule_request.uri = "/open-apis/helpdesk/v1/agent_schedules"
         list_agent_schedule_request.token_types = {AccessTokenType.TENANT}

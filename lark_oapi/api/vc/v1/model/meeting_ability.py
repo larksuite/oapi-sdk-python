@@ -15,7 +15,7 @@ class MeetingAbility(object):
         "use_pstn": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.use_video: Optional[bool] = None
         self.use_audio: Optional[bool] = None
         self.use_share_screen: Optional[bool] = None
@@ -30,8 +30,8 @@ class MeetingAbility(object):
 
 
 class MeetingAbilityBuilder(object):
-    def __init__(self, meeting_ability: MeetingAbility = MeetingAbility({})) -> None:
-        self._meeting_ability: MeetingAbility = meeting_ability
+    def __init__(self) -> None:
+        self._meeting_ability = MeetingAbility()
 
     def use_video(self, use_video: bool) -> "MeetingAbilityBuilder":
         self._meeting_ability.use_video = use_video

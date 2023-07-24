@@ -17,7 +17,7 @@ class ExternalInterviewAssessment(object):
         "external_interview_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.external_id: Optional[str] = None
         self.username: Optional[str] = None
@@ -33,9 +33,8 @@ class ExternalInterviewAssessment(object):
 
 
 class ExternalInterviewAssessmentBuilder(object):
-    def __init__(self,
-                 external_interview_assessment: ExternalInterviewAssessment = ExternalInterviewAssessment({})) -> None:
-        self._external_interview_assessment: ExternalInterviewAssessment = external_interview_assessment
+    def __init__(self) -> None:
+        self._external_interview_assessment = ExternalInterviewAssessment()
 
     def id(self, id: str) -> "ExternalInterviewAssessmentBuilder":
         self._external_interview_assessment.id = id

@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.create_group_request import CreateGroupRequest
-from lark_oapi.api.attendance.v1.model.create_group_response import CreateGroupResponse
-from lark_oapi.api.attendance.v1.model.delete_group_request import DeleteGroupRequest
-from lark_oapi.api.attendance.v1.model.delete_group_response import DeleteGroupResponse
-from lark_oapi.api.attendance.v1.model.get_group_request import GetGroupRequest
-from lark_oapi.api.attendance.v1.model.get_group_response import GetGroupResponse
-from lark_oapi.api.attendance.v1.model.list_group_request import ListGroupRequest
-from lark_oapi.api.attendance.v1.model.list_group_response import ListGroupResponse
-from lark_oapi.api.attendance.v1.model.search_group_request import SearchGroupRequest
-from lark_oapi.api.attendance.v1.model.search_group_response import SearchGroupResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_group_request import CreateGroupRequest
+from ..model.create_group_response import CreateGroupResponse
+from ..model.delete_group_request import DeleteGroupRequest
+from ..model.delete_group_response import DeleteGroupResponse
+from ..model.get_group_request import GetGroupRequest
+from ..model.get_group_response import GetGroupResponse
+from ..model.list_group_request import ListGroupRequest
+from ..model.list_group_response import ListGroupResponse
+from ..model.search_group_request import SearchGroupRequest
+from ..model.search_group_response import SearchGroupResponse
 
 
 class Group(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateGroupRequest, option: RequestOption = RequestOption()) -> CreateGroupResponse:
+    def create(self, request: CreateGroupRequest, option: Optional[RequestOption] = None) -> CreateGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class Group(object):
 
         return response
 
-    def delete(self, request: DeleteGroupRequest, option: RequestOption = RequestOption()) -> DeleteGroupResponse:
+    def delete(self, request: DeleteGroupRequest, option: Optional[RequestOption] = None) -> DeleteGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class Group(object):
 
         return response
 
-    def get(self, request: GetGroupRequest, option: RequestOption = RequestOption()) -> GetGroupResponse:
+    def get(self, request: GetGroupRequest, option: Optional[RequestOption] = None) -> GetGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class Group(object):
 
         return response
 
-    def list(self, request: ListGroupRequest, option: RequestOption = RequestOption()) -> ListGroupResponse:
+    def list(self, request: ListGroupRequest, option: Optional[RequestOption] = None) -> ListGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +87,10 @@ class Group(object):
 
         return response
 
-    def search(self, request: SearchGroupRequest, option: RequestOption = RequestOption()) -> SearchGroupResponse:
+    def search(self, request: SearchGroupRequest, option: Optional[RequestOption] = None) -> SearchGroupResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

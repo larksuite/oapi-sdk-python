@@ -11,7 +11,7 @@ class BatchMessageReadUser(object):
         "total_count": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.read_count: Optional[str] = None
         self.total_count: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BatchMessageReadUser(object):
 
 
 class BatchMessageReadUserBuilder(object):
-    def __init__(self, batch_message_read_user: BatchMessageReadUser = BatchMessageReadUser({})) -> None:
-        self._batch_message_read_user: BatchMessageReadUser = batch_message_read_user
+    def __init__(self) -> None:
+        self._batch_message_read_user = BatchMessageReadUser()
 
     def read_count(self, read_count: str) -> "BatchMessageReadUserBuilder":
         self._batch_message_read_user.read_count = read_count

@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.create_user_approval_request import CreateUserApprovalRequest
-from lark_oapi.api.attendance.v1.model.create_user_approval_response import CreateUserApprovalResponse
-from lark_oapi.api.attendance.v1.model.query_user_approval_request import QueryUserApprovalRequest
-from lark_oapi.api.attendance.v1.model.query_user_approval_response import QueryUserApprovalResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_user_approval_request import CreateUserApprovalRequest
+from ..model.create_user_approval_response import CreateUserApprovalResponse
+from ..model.query_user_approval_request import QueryUserApprovalRequest
+from ..model.query_user_approval_response import QueryUserApprovalResponse
 
 
 class UserApproval(object):
@@ -18,7 +18,10 @@ class UserApproval(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateUserApprovalRequest,
-               option: RequestOption = RequestOption()) -> CreateUserApprovalResponse:
+               option: Optional[RequestOption] = None) -> CreateUserApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class UserApproval(object):
         return response
 
     def query(self, request: QueryUserApprovalRequest,
-              option: RequestOption = RequestOption()) -> QueryUserApprovalResponse:
+              option: Optional[RequestOption] = None) -> QueryUserApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

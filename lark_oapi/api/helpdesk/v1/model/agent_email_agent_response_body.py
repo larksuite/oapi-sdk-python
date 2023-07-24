@@ -10,7 +10,7 @@ class AgentEmailAgentResponseBody(object):
         "agents": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agents: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class AgentEmailAgentResponseBody(object):
 
 
 class AgentEmailAgentResponseBodyBuilder(object):
-    def __init__(self, agent_email_agent_response_body: AgentEmailAgentResponseBody = AgentEmailAgentResponseBody(
-        {})) -> None:
-        self._agent_email_agent_response_body: AgentEmailAgentResponseBody = agent_email_agent_response_body
+    def __init__(self) -> None:
+        self._agent_email_agent_response_body = AgentEmailAgentResponseBody()
 
     def agents(self, agents: str) -> "AgentEmailAgentResponseBodyBuilder":
         self._agent_email_agent_response_body.agents = agents

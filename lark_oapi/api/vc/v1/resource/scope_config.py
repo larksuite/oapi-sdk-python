@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.create_scope_config_request import CreateScopeConfigRequest
-from lark_oapi.api.vc.v1.model.create_scope_config_response import CreateScopeConfigResponse
-from lark_oapi.api.vc.v1.model.get_scope_config_request import GetScopeConfigRequest
-from lark_oapi.api.vc.v1.model.get_scope_config_response import GetScopeConfigResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_scope_config_request import CreateScopeConfigRequest
+from ..model.create_scope_config_response import CreateScopeConfigResponse
+from ..model.get_scope_config_request import GetScopeConfigRequest
+from ..model.get_scope_config_response import GetScopeConfigResponse
 
 
 class ScopeConfig(object):
@@ -18,7 +18,10 @@ class ScopeConfig(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateScopeConfigRequest,
-               option: RequestOption = RequestOption()) -> CreateScopeConfigResponse:
+               option: Optional[RequestOption] = None) -> CreateScopeConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -31,7 +34,10 @@ class ScopeConfig(object):
 
         return response
 
-    def get(self, request: GetScopeConfigRequest, option: RequestOption = RequestOption()) -> GetScopeConfigResponse:
+    def get(self, request: GetScopeConfigRequest, option: Optional[RequestOption] = None) -> GetScopeConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

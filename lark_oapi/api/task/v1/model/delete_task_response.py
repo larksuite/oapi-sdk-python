@@ -9,7 +9,7 @@ class DeleteTaskResponse(BaseResponse):
 
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
 
         init(self, d, self._types)

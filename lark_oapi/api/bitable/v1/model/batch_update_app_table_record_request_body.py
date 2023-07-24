@@ -11,7 +11,7 @@ class BatchUpdateAppTableRecordRequestBody(object):
         "records": List[AppTableRecord],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.records: Optional[List[AppTableRecord]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchUpdateAppTableRecordRequestBody(object):
 
 
 class BatchUpdateAppTableRecordRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_update_app_table_record_request_body: BatchUpdateAppTableRecordRequestBody = BatchUpdateAppTableRecordRequestBody(
-                     {})) -> None:
-        self._batch_update_app_table_record_request_body: BatchUpdateAppTableRecordRequestBody = batch_update_app_table_record_request_body
+    def __init__(self) -> None:
+        self._batch_update_app_table_record_request_body = BatchUpdateAppTableRecordRequestBody()
 
     def records(self, records: List[AppTableRecord]) -> "BatchUpdateAppTableRecordRequestBodyBuilder":
         self._batch_update_app_table_record_request_body.records = records

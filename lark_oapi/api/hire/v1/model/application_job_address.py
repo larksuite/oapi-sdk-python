@@ -12,7 +12,7 @@ class ApplicationJobAddress(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class ApplicationJobAddress(object):
 
 
 class ApplicationJobAddressBuilder(object):
-    def __init__(self, application_job_address: ApplicationJobAddress = ApplicationJobAddress({})) -> None:
-        self._application_job_address: ApplicationJobAddress = application_job_address
+    def __init__(self) -> None:
+        self._application_job_address = ApplicationJobAddress()
 
     def id(self, id: str) -> "ApplicationJobAddressBuilder":
         self._application_job_address.id = id

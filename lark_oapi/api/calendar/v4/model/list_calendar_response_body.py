@@ -14,7 +14,7 @@ class ListCalendarResponseBody(object):
         "calendar_list": List[Calendar],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.sync_token: Optional[str] = None
@@ -27,8 +27,8 @@ class ListCalendarResponseBody(object):
 
 
 class ListCalendarResponseBodyBuilder(object):
-    def __init__(self, list_calendar_response_body: ListCalendarResponseBody = ListCalendarResponseBody({})) -> None:
-        self._list_calendar_response_body: ListCalendarResponseBody = list_calendar_response_body
+    def __init__(self) -> None:
+        self._list_calendar_response_body = ListCalendarResponseBody()
 
     def has_more(self, has_more: bool) -> "ListCalendarResponseBodyBuilder":
         self._list_calendar_response_body.has_more = has_more

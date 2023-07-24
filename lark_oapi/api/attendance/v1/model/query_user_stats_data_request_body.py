@@ -17,7 +17,7 @@ class QueryUserStatsDataRequestBody(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.locale: Optional[str] = None
         self.stats_type: Optional[str] = None
         self.start_date: Optional[int] = None
@@ -34,10 +34,8 @@ class QueryUserStatsDataRequestBody(object):
 
 
 class QueryUserStatsDataRequestBodyBuilder(object):
-    def __init__(self,
-                 query_user_stats_data_request_body: QueryUserStatsDataRequestBody = QueryUserStatsDataRequestBody(
-                     {})) -> None:
-        self._query_user_stats_data_request_body: QueryUserStatsDataRequestBody = query_user_stats_data_request_body
+    def __init__(self) -> None:
+        self._query_user_stats_data_request_body = QueryUserStatsDataRequestBody()
 
     def locale(self, locale: str) -> "QueryUserStatsDataRequestBodyBuilder":
         self._query_user_stats_data_request_body.locale = locale

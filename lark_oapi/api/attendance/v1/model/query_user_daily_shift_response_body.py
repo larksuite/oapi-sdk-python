@@ -11,7 +11,7 @@ class QueryUserDailyShiftResponseBody(object):
         "user_daily_shifts": List[UserDailyShift],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_daily_shifts: Optional[List[UserDailyShift]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QueryUserDailyShiftResponseBody(object):
 
 
 class QueryUserDailyShiftResponseBodyBuilder(object):
-    def __init__(self,
-                 query_user_daily_shift_response_body: QueryUserDailyShiftResponseBody = QueryUserDailyShiftResponseBody(
-                     {})) -> None:
-        self._query_user_daily_shift_response_body: QueryUserDailyShiftResponseBody = query_user_daily_shift_response_body
+    def __init__(self) -> None:
+        self._query_user_daily_shift_response_body = QueryUserDailyShiftResponseBody()
 
     def user_daily_shifts(self, user_daily_shifts: List[UserDailyShift]) -> "QueryUserDailyShiftResponseBodyBuilder":
         self._query_user_daily_shift_response_body.user_daily_shifts = user_daily_shifts

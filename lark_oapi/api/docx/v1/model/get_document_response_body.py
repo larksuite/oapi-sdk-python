@@ -11,7 +11,7 @@ class GetDocumentResponseBody(object):
         "document": Document,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.document: Optional[Document] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetDocumentResponseBody(object):
 
 
 class GetDocumentResponseBodyBuilder(object):
-    def __init__(self, get_document_response_body: GetDocumentResponseBody = GetDocumentResponseBody({})) -> None:
-        self._get_document_response_body: GetDocumentResponseBody = get_document_response_body
+    def __init__(self) -> None:
+        self._get_document_response_body = GetDocumentResponseBody()
 
     def document(self, document: Document) -> "GetDocumentResponseBodyBuilder":
         self._get_document_response_body.document = document

@@ -22,8 +22,8 @@ class ListMetricSourceTableItemRequest(BaseRequest):
 
 class ListMetricSourceTableItemRequestBuilder(object):
 
-    def __init__(self,
-                 list_metric_source_table_item_request: ListMetricSourceTableItemRequest = ListMetricSourceTableItemRequest()) -> None:
+    def __init__(self) -> None:
+        list_metric_source_table_item_request = ListMetricSourceTableItemRequest()
         list_metric_source_table_item_request.http_method = HttpMethod.GET
         list_metric_source_table_item_request.uri = "/open-apis/okr/v1/metric_sources/:metric_source_id/tables/:metric_table_id/items"
         list_metric_source_table_item_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -11,7 +11,7 @@ class MyaiCardStatus(object):
         "to_status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.from_status: Optional[str] = None
         self.to_status: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MyaiCardStatus(object):
 
 
 class MyaiCardStatusBuilder(object):
-    def __init__(self, myai_card_status: MyaiCardStatus = MyaiCardStatus({})) -> None:
-        self._myai_card_status: MyaiCardStatus = myai_card_status
+    def __init__(self) -> None:
+        self._myai_card_status = MyaiCardStatus()
 
     def from_status(self, from_status: str) -> "MyaiCardStatusBuilder":
         self._myai_card_status.from_status = from_status

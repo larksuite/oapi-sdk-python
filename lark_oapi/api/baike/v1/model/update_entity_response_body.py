@@ -11,7 +11,7 @@ class UpdateEntityResponseBody(object):
         "entity": Entity,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.entity: Optional[Entity] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class UpdateEntityResponseBody(object):
 
 
 class UpdateEntityResponseBodyBuilder(object):
-    def __init__(self, update_entity_response_body: UpdateEntityResponseBody = UpdateEntityResponseBody({})) -> None:
-        self._update_entity_response_body: UpdateEntityResponseBody = update_entity_response_body
+    def __init__(self) -> None:
+        self._update_entity_response_body = UpdateEntityResponseBody()
 
     def entity(self, entity: Entity) -> "UpdateEntityResponseBodyBuilder":
         self._update_entity_response_body.entity = entity

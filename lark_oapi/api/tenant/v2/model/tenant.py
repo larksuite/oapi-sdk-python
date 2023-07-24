@@ -15,7 +15,7 @@ class Tenant(object):
         "avatar": Avatar,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.display_id: Optional[str] = None
         self.tenant_tag: Optional[int] = None
@@ -29,8 +29,8 @@ class Tenant(object):
 
 
 class TenantBuilder(object):
-    def __init__(self, tenant: Tenant = Tenant({})) -> None:
-        self._tenant: Tenant = tenant
+    def __init__(self) -> None:
+        self._tenant = Tenant()
 
     def name(self, name: str) -> "TenantBuilder":
         self._tenant.name = name

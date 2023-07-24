@@ -19,7 +19,7 @@ class ResidentTax(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.year_resident_tax: Optional[str] = None
         self.tax_address: Optional[Address] = None
@@ -35,8 +35,8 @@ class ResidentTax(object):
 
 
 class ResidentTaxBuilder(object):
-    def __init__(self, resident_tax: ResidentTax = ResidentTax({})) -> None:
-        self._resident_tax: ResidentTax = resident_tax
+    def __init__(self) -> None:
+        self._resident_tax = ResidentTax()
 
     def id(self, id: str) -> "ResidentTaxBuilder":
         self._resident_tax.id = id

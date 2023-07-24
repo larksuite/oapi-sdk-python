@@ -32,7 +32,7 @@ class OkrObjective(object):
         "mentioned_user_list": List[OkrObjectiveAlignedObjectiveOwner],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.permission: Optional[int] = None
         self.content: Optional[str] = None
@@ -59,8 +59,8 @@ class OkrObjective(object):
 
 
 class OkrObjectiveBuilder(object):
-    def __init__(self, okr_objective: OkrObjective = OkrObjective({})) -> None:
-        self._okr_objective: OkrObjective = okr_objective
+    def __init__(self) -> None:
+        self._okr_objective = OkrObjective()
 
     def id(self, id: int) -> "OkrObjectiveBuilder":
         self._okr_objective.id = id

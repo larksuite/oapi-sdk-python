@@ -16,7 +16,7 @@ class ContentTextStyle(object):
         "link": ContentLink,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bold: Optional[bool] = None
         self.strike_through: Optional[bool] = None
         self.back_color: Optional[ContentColor] = None
@@ -30,8 +30,8 @@ class ContentTextStyle(object):
 
 
 class ContentTextStyleBuilder(object):
-    def __init__(self, content_text_style: ContentTextStyle = ContentTextStyle({})) -> None:
-        self._content_text_style: ContentTextStyle = content_text_style
+    def __init__(self) -> None:
+        self._content_text_style = ContentTextStyle()
 
     def bold(self, bold: bool) -> "ContentTextStyleBuilder":
         self._content_text_style.bold = bold

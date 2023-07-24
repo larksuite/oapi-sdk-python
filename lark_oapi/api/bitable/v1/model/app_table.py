@@ -12,7 +12,7 @@ class AppTable(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.table_id: Optional[str] = None
         self.revision: Optional[int] = None
         self.name: Optional[str] = None
@@ -24,8 +24,8 @@ class AppTable(object):
 
 
 class AppTableBuilder(object):
-    def __init__(self, app_table: AppTable = AppTable({})) -> None:
-        self._app_table: AppTable = app_table
+    def __init__(self) -> None:
+        self._app_table = AppTable()
 
     def table_id(self, table_id: str) -> "AppTableBuilder":
         self._app_table.table_id = table_id

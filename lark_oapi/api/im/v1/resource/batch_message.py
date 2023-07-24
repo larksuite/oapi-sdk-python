@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.delete_batch_message_request import DeleteBatchMessageRequest
-from lark_oapi.api.im.v1.model.delete_batch_message_response import DeleteBatchMessageResponse
-from lark_oapi.api.im.v1.model.get_progress_batch_message_request import GetProgressBatchMessageRequest
-from lark_oapi.api.im.v1.model.get_progress_batch_message_response import GetProgressBatchMessageResponse
-from lark_oapi.api.im.v1.model.read_user_batch_message_request import ReadUserBatchMessageRequest
-from lark_oapi.api.im.v1.model.read_user_batch_message_response import ReadUserBatchMessageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.delete_batch_message_request import DeleteBatchMessageRequest
+from ..model.delete_batch_message_response import DeleteBatchMessageResponse
+from ..model.get_progress_batch_message_request import GetProgressBatchMessageRequest
+from ..model.get_progress_batch_message_response import GetProgressBatchMessageResponse
+from ..model.read_user_batch_message_request import ReadUserBatchMessageRequest
+from ..model.read_user_batch_message_response import ReadUserBatchMessageResponse
 
 
 class BatchMessage(object):
@@ -20,7 +20,10 @@ class BatchMessage(object):
         self.config: Optional[Config] = config
 
     def delete(self, request: DeleteBatchMessageRequest,
-               option: RequestOption = RequestOption()) -> DeleteBatchMessageResponse:
+               option: Optional[RequestOption] = None) -> DeleteBatchMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class BatchMessage(object):
         return response
 
     def get_progress(self, request: GetProgressBatchMessageRequest,
-                     option: RequestOption = RequestOption()) -> GetProgressBatchMessageResponse:
+                     option: Optional[RequestOption] = None) -> GetProgressBatchMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class BatchMessage(object):
         return response
 
     def read_user(self, request: ReadUserBatchMessageRequest,
-                  option: RequestOption = RequestOption()) -> ReadUserBatchMessageResponse:
+                  option: Optional[RequestOption] = None) -> ReadUserBatchMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

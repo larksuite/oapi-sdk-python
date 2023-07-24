@@ -17,7 +17,7 @@ class FileCommentReply(object):
         "extra": ReplyExtra,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reply_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.create_time: Optional[int] = None
@@ -32,8 +32,8 @@ class FileCommentReply(object):
 
 
 class FileCommentReplyBuilder(object):
-    def __init__(self, file_comment_reply: FileCommentReply = FileCommentReply({})) -> None:
-        self._file_comment_reply: FileCommentReply = file_comment_reply
+    def __init__(self) -> None:
+        self._file_comment_reply = FileCommentReply()
 
     def reply_id(self, reply_id: str) -> "FileCommentReplyBuilder":
         self._file_comment_reply.reply_id = reply_id

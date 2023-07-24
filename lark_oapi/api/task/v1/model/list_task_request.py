@@ -23,7 +23,8 @@ class ListTaskRequest(BaseRequest):
 
 class ListTaskRequestBuilder(object):
 
-    def __init__(self, list_task_request: ListTaskRequest = ListTaskRequest()) -> None:
+    def __init__(self) -> None:
+        list_task_request = ListTaskRequest()
         list_task_request.http_method = HttpMethod.GET
         list_task_request.uri = "/open-apis/task/v1/tasks"
         list_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -11,7 +11,7 @@ class Span(object):
         "end": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start: Optional[int] = None
         self.end: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Span(object):
 
 
 class SpanBuilder(object):
-    def __init__(self, span: Span = Span({})) -> None:
-        self._span: Span = span
+    def __init__(self) -> None:
+        self._span = Span()
 
     def start(self, start: int) -> "SpanBuilder":
         self._span.start = start

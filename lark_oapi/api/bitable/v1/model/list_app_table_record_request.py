@@ -29,7 +29,8 @@ class ListAppTableRecordRequest(BaseRequest):
 
 class ListAppTableRecordRequestBuilder(object):
 
-    def __init__(self, list_app_table_record_request: ListAppTableRecordRequest = ListAppTableRecordRequest()) -> None:
+    def __init__(self) -> None:
+        list_app_table_record_request = ListAppTableRecordRequest()
         list_app_table_record_request.http_method = HttpMethod.GET
         list_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
         list_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

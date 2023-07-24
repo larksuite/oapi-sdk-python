@@ -20,7 +20,8 @@ class ApplyReserveRequest(BaseRequest):
 
 class ApplyReserveRequestBuilder(object):
 
-    def __init__(self, apply_reserve_request: ApplyReserveRequest = ApplyReserveRequest()) -> None:
+    def __init__(self) -> None:
+        apply_reserve_request = ApplyReserveRequest()
         apply_reserve_request.http_method = HttpMethod.POST
         apply_reserve_request.uri = "/open-apis/vc/v1/reserves/apply"
         apply_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

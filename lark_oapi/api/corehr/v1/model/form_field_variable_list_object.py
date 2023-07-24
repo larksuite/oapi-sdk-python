@@ -33,7 +33,7 @@ class FormFieldVariableListObject(object):
         "object_value": FormFieldVariableObjectValue,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text_value: Optional[FormFieldVariableTextValue] = None
         self.number_value: Optional[FormFieldVariableNumberValue] = None
         self.date_value: Optional[FormFieldVariableDateValue] = None
@@ -54,9 +54,8 @@ class FormFieldVariableListObject(object):
 
 
 class FormFieldVariableListObjectBuilder(object):
-    def __init__(self, form_field_variable_list_object: FormFieldVariableListObject = FormFieldVariableListObject(
-        {})) -> None:
-        self._form_field_variable_list_object: FormFieldVariableListObject = form_field_variable_list_object
+    def __init__(self) -> None:
+        self._form_field_variable_list_object = FormFieldVariableListObject()
 
     def text_value(self, text_value: FormFieldVariableTextValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.text_value = text_value

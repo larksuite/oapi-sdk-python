@@ -19,7 +19,8 @@ class UploadFinishFileRequest(BaseRequest):
 
 class UploadFinishFileRequestBuilder(object):
 
-    def __init__(self, upload_finish_file_request: UploadFinishFileRequest = UploadFinishFileRequest()) -> None:
+    def __init__(self) -> None:
+        upload_finish_file_request = UploadFinishFileRequest()
         upload_finish_file_request.http_method = HttpMethod.POST
         upload_finish_file_request.uri = "/open-apis/drive/v1/files/upload_finish"
         upload_finish_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

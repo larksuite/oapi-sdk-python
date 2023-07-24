@@ -11,7 +11,7 @@ class AllowedEditModes(object):
         "scan": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.manual: Optional[bool] = None
         self.scan: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AllowedEditModes(object):
 
 
 class AllowedEditModesBuilder(object):
-    def __init__(self, allowed_edit_modes: AllowedEditModes = AllowedEditModes({})) -> None:
-        self._allowed_edit_modes: AllowedEditModes = allowed_edit_modes
+    def __init__(self) -> None:
+        self._allowed_edit_modes = AllowedEditModes()
 
     def manual(self, manual: bool) -> "AllowedEditModesBuilder":
         self._allowed_edit_modes.manual = manual

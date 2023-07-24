@@ -32,7 +32,7 @@ class JobRequirement(object):
         "customized_data_list": List[JobRequirementCustomizedData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.short_code: Optional[str] = None
         self.name: Optional[str] = None
         self.display_progress: Optional[int] = None
@@ -63,8 +63,8 @@ class JobRequirement(object):
 
 
 class JobRequirementBuilder(object):
-    def __init__(self, job_requirement: JobRequirement = JobRequirement({})) -> None:
-        self._job_requirement: JobRequirement = job_requirement
+    def __init__(self) -> None:
+        self._job_requirement = JobRequirement()
 
     def short_code(self, short_code: str) -> "JobRequirementBuilder":
         self._job_requirement.short_code = short_code

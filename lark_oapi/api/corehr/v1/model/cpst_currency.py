@@ -13,7 +13,7 @@ class CpstCurrency(object):
         "name": CpstI18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.currency_id: Optional[str] = None
         self.code: Optional[str] = None
         self.name: Optional[CpstI18n] = None
@@ -25,8 +25,8 @@ class CpstCurrency(object):
 
 
 class CpstCurrencyBuilder(object):
-    def __init__(self, cpst_currency: CpstCurrency = CpstCurrency({})) -> None:
-        self._cpst_currency: CpstCurrency = cpst_currency
+    def __init__(self) -> None:
+        self._cpst_currency = CpstCurrency()
 
     def currency_id(self, currency_id: str) -> "CpstCurrencyBuilder":
         self._cpst_currency.currency_id = currency_id

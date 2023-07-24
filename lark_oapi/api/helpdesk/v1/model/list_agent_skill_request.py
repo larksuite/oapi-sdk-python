@@ -15,7 +15,8 @@ class ListAgentSkillRequest(BaseRequest):
 
 class ListAgentSkillRequestBuilder(object):
 
-    def __init__(self, list_agent_skill_request: ListAgentSkillRequest = ListAgentSkillRequest()) -> None:
+    def __init__(self) -> None:
+        list_agent_skill_request = ListAgentSkillRequest()
         list_agent_skill_request.http_method = HttpMethod.GET
         list_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills"
         list_agent_skill_request.token_types = {AccessTokenType.TENANT}

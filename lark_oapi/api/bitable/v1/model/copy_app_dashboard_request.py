@@ -21,7 +21,8 @@ class CopyAppDashboardRequest(BaseRequest):
 
 class CopyAppDashboardRequestBuilder(object):
 
-    def __init__(self, copy_app_dashboard_request: CopyAppDashboardRequest = CopyAppDashboardRequest()) -> None:
+    def __init__(self) -> None:
+        copy_app_dashboard_request = CopyAppDashboardRequest()
         copy_app_dashboard_request.http_method = HttpMethod.POST
         copy_app_dashboard_request.uri = "/open-apis/bitable/v1/apps/:app_token/dashboards/:block_id/copy"
         copy_app_dashboard_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

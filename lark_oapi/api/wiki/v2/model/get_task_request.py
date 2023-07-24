@@ -19,7 +19,8 @@ class GetTaskRequest(BaseRequest):
 
 class GetTaskRequestBuilder(object):
 
-    def __init__(self, get_task_request: GetTaskRequest = GetTaskRequest()) -> None:
+    def __init__(self) -> None:
+        get_task_request = GetTaskRequest()
         get_task_request.http_method = HttpMethod.GET
         get_task_request.uri = "/open-apis/wiki/v2/tasks/:task_id"
         get_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

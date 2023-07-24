@@ -13,7 +13,7 @@ class ListAccessRecordResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[AccessRecord]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListAccessRecordResponseBody(object):
 
 
 class ListAccessRecordResponseBodyBuilder(object):
-    def __init__(self, list_access_record_response_body: ListAccessRecordResponseBody = ListAccessRecordResponseBody(
-        {})) -> None:
-        self._list_access_record_response_body: ListAccessRecordResponseBody = list_access_record_response_body
+    def __init__(self) -> None:
+        self._list_access_record_response_body = ListAccessRecordResponseBody()
 
     def items(self, items: List[AccessRecord]) -> "ListAccessRecordResponseBodyBuilder":
         self._list_access_record_response_body.items = items

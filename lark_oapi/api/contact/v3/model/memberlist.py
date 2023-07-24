@@ -12,7 +12,7 @@ class Memberlist(object):
         "member_id_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id: Optional[str] = None
         self.member_type: Optional[str] = None
         self.member_id_type: Optional[str] = None
@@ -24,8 +24,8 @@ class Memberlist(object):
 
 
 class MemberlistBuilder(object):
-    def __init__(self, memberlist: Memberlist = Memberlist({})) -> None:
-        self._memberlist: Memberlist = memberlist
+    def __init__(self) -> None:
+        self._memberlist = Memberlist()
 
     def member_id(self, member_id: str) -> "MemberlistBuilder":
         self._memberlist.member_id = member_id

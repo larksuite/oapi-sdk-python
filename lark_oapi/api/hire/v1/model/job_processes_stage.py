@@ -13,7 +13,7 @@ class JobProcessesStage(object):
         "type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -26,8 +26,8 @@ class JobProcessesStage(object):
 
 
 class JobProcessesStageBuilder(object):
-    def __init__(self, job_processes_stage: JobProcessesStage = JobProcessesStage({})) -> None:
-        self._job_processes_stage: JobProcessesStage = job_processes_stage
+    def __init__(self) -> None:
+        self._job_processes_stage = JobProcessesStage()
 
     def id(self, id: str) -> "JobProcessesStageBuilder":
         self._job_processes_stage.id = id

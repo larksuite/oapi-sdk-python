@@ -14,7 +14,7 @@ class ApprovalConfig(object):
         "approvers": List[SubscribeUser],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_switch: Optional[int] = None
         self.approval_condition: Optional[int] = None
         self.meeting_duration: Optional[float] = None
@@ -27,8 +27,8 @@ class ApprovalConfig(object):
 
 
 class ApprovalConfigBuilder(object):
-    def __init__(self, approval_config: ApprovalConfig = ApprovalConfig({})) -> None:
-        self._approval_config: ApprovalConfig = approval_config
+    def __init__(self) -> None:
+        self._approval_config = ApprovalConfig()
 
     def approval_switch(self, approval_switch: int) -> "ApprovalConfigBuilder":
         self._approval_config.approval_switch = approval_switch

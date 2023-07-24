@@ -13,7 +13,7 @@ class ApprovalViewer(object):
         "union_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.open_id: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -26,8 +26,8 @@ class ApprovalViewer(object):
 
 
 class ApprovalViewerBuilder(object):
-    def __init__(self, approval_viewer: ApprovalViewer = ApprovalViewer({})) -> None:
-        self._approval_viewer: ApprovalViewer = approval_viewer
+    def __init__(self) -> None:
+        self._approval_viewer = ApprovalViewer()
 
     def type(self, type: str) -> "ApprovalViewerBuilder":
         self._approval_viewer.type = type

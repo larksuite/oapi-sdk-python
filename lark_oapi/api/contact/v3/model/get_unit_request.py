@@ -18,7 +18,8 @@ class GetUnitRequest(BaseRequest):
 
 class GetUnitRequestBuilder(object):
 
-    def __init__(self, get_unit_request: GetUnitRequest = GetUnitRequest()) -> None:
+    def __init__(self) -> None:
+        get_unit_request = GetUnitRequest()
         get_unit_request.http_method = HttpMethod.GET
         get_unit_request.uri = "/open-apis/contact/v3/unit/:unit_id"
         get_unit_request.token_types = {AccessTokenType.TENANT}

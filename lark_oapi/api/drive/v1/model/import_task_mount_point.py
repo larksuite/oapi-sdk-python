@@ -11,7 +11,7 @@ class ImportTaskMountPoint(object):
         "mount_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.mount_type: Optional[int] = None
         self.mount_key: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ImportTaskMountPoint(object):
 
 
 class ImportTaskMountPointBuilder(object):
-    def __init__(self, import_task_mount_point: ImportTaskMountPoint = ImportTaskMountPoint({})) -> None:
-        self._import_task_mount_point: ImportTaskMountPoint = import_task_mount_point
+    def __init__(self) -> None:
+        self._import_task_mount_point = ImportTaskMountPoint()
 
     def mount_type(self, mount_type: int) -> "ImportTaskMountPointBuilder":
         self._import_task_mount_point.mount_type = mount_type

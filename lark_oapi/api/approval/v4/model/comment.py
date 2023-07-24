@@ -20,7 +20,7 @@ class Comment(object):
         "extra": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.content: Optional[str] = None
         self.create_time: Optional[int] = None
@@ -38,8 +38,8 @@ class Comment(object):
 
 
 class CommentBuilder(object):
-    def __init__(self, comment: Comment = Comment({})) -> None:
-        self._comment: Comment = comment
+    def __init__(self) -> None:
+        self._comment = Comment()
 
     def id(self, id: int) -> "CommentBuilder":
         self._comment.id = id

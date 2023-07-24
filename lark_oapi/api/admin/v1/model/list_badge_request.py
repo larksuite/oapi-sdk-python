@@ -20,7 +20,8 @@ class ListBadgeRequest(BaseRequest):
 
 class ListBadgeRequestBuilder(object):
 
-    def __init__(self, list_badge_request: ListBadgeRequest = ListBadgeRequest()) -> None:
+    def __init__(self) -> None:
+        list_badge_request = ListBadgeRequest()
         list_badge_request.http_method = HttpMethod.GET
         list_badge_request.uri = "/open-apis/admin/v1/badges"
         list_badge_request.token_types = {AccessTokenType.TENANT}

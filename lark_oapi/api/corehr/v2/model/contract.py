@@ -21,7 +21,7 @@ class Contract(object):
         "signing_type": Enum,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.effective_time: Optional[str] = None
         self.contract_end_date: Optional[str] = None
@@ -41,8 +41,8 @@ class Contract(object):
 
 
 class ContractBuilder(object):
-    def __init__(self, contract: Contract = Contract({})) -> None:
-        self._contract: Contract = contract
+    def __init__(self) -> None:
+        self._contract = Contract()
 
     def id(self, id: str) -> "ContractBuilder":
         self._contract.id = id

@@ -11,7 +11,7 @@ class CreatePinResponseBody(object):
         "pin": Pin,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pin: Optional[Pin] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CreatePinResponseBody(object):
 
 
 class CreatePinResponseBodyBuilder(object):
-    def __init__(self, create_pin_response_body: CreatePinResponseBody = CreatePinResponseBody({})) -> None:
-        self._create_pin_response_body: CreatePinResponseBody = create_pin_response_body
+    def __init__(self) -> None:
+        self._create_pin_response_body = CreatePinResponseBody()
 
     def pin(self, pin: Pin) -> "CreatePinResponseBodyBuilder":
         self._create_pin_response_body.pin = pin

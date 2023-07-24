@@ -24,7 +24,7 @@ class ApplicationJob(object):
         "country": Country,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.title: Optional[str] = None
         self.city: Optional[City] = None
@@ -43,8 +43,8 @@ class ApplicationJob(object):
 
 
 class ApplicationJobBuilder(object):
-    def __init__(self, application_job: ApplicationJob = ApplicationJob({})) -> None:
-        self._application_job: ApplicationJob = application_job
+    def __init__(self) -> None:
+        self._application_job = ApplicationJob()
 
     def id(self, id: str) -> "ApplicationJobBuilder":
         self._application_job.id = id

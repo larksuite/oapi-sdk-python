@@ -11,7 +11,7 @@ class ExternalInstanceForm(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ExternalInstanceForm(object):
 
 
 class ExternalInstanceFormBuilder(object):
-    def __init__(self, external_instance_form: ExternalInstanceForm = ExternalInstanceForm({})) -> None:
-        self._external_instance_form: ExternalInstanceForm = external_instance_form
+    def __init__(self) -> None:
+        self._external_instance_form = ExternalInstanceForm()
 
     def name(self, name: str) -> "ExternalInstanceFormBuilder":
         self._external_instance_form.name = name

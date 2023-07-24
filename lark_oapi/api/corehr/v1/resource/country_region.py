@@ -2,23 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.get_country_region_request import GetCountryRegionRequest
-from lark_oapi.api.corehr.v1.model.get_country_region_response import GetCountryRegionResponse
-from lark_oapi.api.corehr.v1.model.list_country_region_request import ListCountryRegionRequest
-from lark_oapi.api.corehr.v1.model.list_country_region_response import ListCountryRegionResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_country_region_request import GetCountryRegionRequest
+from ..model.get_country_region_response import GetCountryRegionResponse
+from ..model.list_country_region_request import ListCountryRegionRequest
+from ..model.list_country_region_response import ListCountryRegionResponse
 
 
 class CountryRegion(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetCountryRegionRequest,
-            option: RequestOption = RequestOption()) -> GetCountryRegionResponse:
+    def get(self, request: GetCountryRegionRequest, option: Optional[RequestOption] = None) -> GetCountryRegionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +34,10 @@ class CountryRegion(object):
         return response
 
     def list(self, request: ListCountryRegionRequest,
-             option: RequestOption = RequestOption()) -> ListCountryRegionResponse:
+             option: Optional[RequestOption] = None) -> ListCountryRegionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -10,7 +10,7 @@ class CreateExportTaskResponseBody(object):
         "ticket": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class CreateExportTaskResponseBody(object):
 
 
 class CreateExportTaskResponseBodyBuilder(object):
-    def __init__(self, create_export_task_response_body: CreateExportTaskResponseBody = CreateExportTaskResponseBody(
-        {})) -> None:
-        self._create_export_task_response_body: CreateExportTaskResponseBody = create_export_task_response_body
+    def __init__(self) -> None:
+        self._create_export_task_response_body = CreateExportTaskResponseBody()
 
     def ticket(self, ticket: str) -> "CreateExportTaskResponseBodyBuilder":
         self._create_export_task_response_body.ticket = ticket

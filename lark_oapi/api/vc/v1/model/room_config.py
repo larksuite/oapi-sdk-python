@@ -16,7 +16,7 @@ class RoomConfig(object):
         "room_status": RoomStatus,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_background: Optional[str] = None
         self.display_background: Optional[str] = None
         self.digital_signage: Optional[RoomDigitalSignage] = None
@@ -30,8 +30,8 @@ class RoomConfig(object):
 
 
 class RoomConfigBuilder(object):
-    def __init__(self, room_config: RoomConfig = RoomConfig({})) -> None:
-        self._room_config: RoomConfig = room_config
+    def __init__(self) -> None:
+        self._room_config = RoomConfig()
 
     def room_background(self, room_background: str) -> "RoomConfigBuilder":
         self._room_config.room_background = room_background

@@ -12,7 +12,7 @@ class MoveFileResponse(BaseResponse):
         "data": MoveFileResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[MoveFileResponseBody] = None
         init(self, d, self._types)

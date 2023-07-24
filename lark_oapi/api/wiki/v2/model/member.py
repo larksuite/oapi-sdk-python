@@ -12,7 +12,7 @@ class Member(object):
         "member_role": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_type: Optional[str] = None
         self.member_id: Optional[str] = None
         self.member_role: Optional[str] = None
@@ -24,8 +24,8 @@ class Member(object):
 
 
 class MemberBuilder(object):
-    def __init__(self, member: Member = Member({})) -> None:
-        self._member: Member = member
+    def __init__(self) -> None:
+        self._member = Member()
 
     def member_type(self, member_type: str) -> "MemberBuilder":
         self._member.member_type = member_type

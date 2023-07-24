@@ -21,7 +21,8 @@ class PatchNoteRequest(BaseRequest):
 
 class PatchNoteRequestBuilder(object):
 
-    def __init__(self, patch_note_request: PatchNoteRequest = PatchNoteRequest()) -> None:
+    def __init__(self) -> None:
+        patch_note_request = PatchNoteRequest()
         patch_note_request.http_method = HttpMethod.PATCH
         patch_note_request.uri = "/open-apis/hire/v1/notes/:note_id"
         patch_note_request.token_types = {AccessTokenType.TENANT}

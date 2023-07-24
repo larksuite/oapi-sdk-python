@@ -17,7 +17,7 @@ class PatchLeaveAccrualRecordRequestBody(object):
         "quantity": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_granting_record_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.leave_type_id: Optional[str] = None
@@ -33,10 +33,8 @@ class PatchLeaveAccrualRecordRequestBody(object):
 
 
 class PatchLeaveAccrualRecordRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_leave_accrual_record_request_body: PatchLeaveAccrualRecordRequestBody = PatchLeaveAccrualRecordRequestBody(
-                     {})) -> None:
-        self._patch_leave_accrual_record_request_body: PatchLeaveAccrualRecordRequestBody = patch_leave_accrual_record_request_body
+    def __init__(self) -> None:
+        self._patch_leave_accrual_record_request_body = PatchLeaveAccrualRecordRequestBody()
 
     def leave_granting_record_id(self, leave_granting_record_id: str) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.leave_granting_record_id = leave_granting_record_id

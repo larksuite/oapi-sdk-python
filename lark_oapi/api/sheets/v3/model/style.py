@@ -11,7 +11,7 @@ class Style(object):
         "styles": List[list],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.styles: Optional[List[list]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Style(object):
 
 
 class StyleBuilder(object):
-    def __init__(self, style: Style = Style({})) -> None:
-        self._style: Style = style
+    def __init__(self) -> None:
+        self._style = Style()
 
     def range(self, range: str) -> "StyleBuilder":
         self._style.range = range

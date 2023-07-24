@@ -14,7 +14,7 @@ class ResumeSource(object):
         "resume_source_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -28,8 +28,8 @@ class ResumeSource(object):
 
 
 class ResumeSourceBuilder(object):
-    def __init__(self, resume_source: ResumeSource = ResumeSource({})) -> None:
-        self._resume_source: ResumeSource = resume_source
+    def __init__(self) -> None:
+        self._resume_source = ResumeSource()
 
     def id(self, id: str) -> "ResumeSourceBuilder":
         self._resume_source.id = id

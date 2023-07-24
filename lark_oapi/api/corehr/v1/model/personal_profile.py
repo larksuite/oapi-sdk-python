@@ -14,7 +14,7 @@ class PersonalProfile(object):
         "files": List[File],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.personal_profile_id: Optional[str] = None
         self.personal_profile_type: Optional[Enum] = None
         self.files: Optional[List[File]] = None
@@ -26,8 +26,8 @@ class PersonalProfile(object):
 
 
 class PersonalProfileBuilder(object):
-    def __init__(self, personal_profile: PersonalProfile = PersonalProfile({})) -> None:
-        self._personal_profile: PersonalProfile = personal_profile
+    def __init__(self) -> None:
+        self._personal_profile = PersonalProfile()
 
     def personal_profile_id(self, personal_profile_id: str) -> "PersonalProfileBuilder":
         self._personal_profile.personal_profile_id = personal_profile_id

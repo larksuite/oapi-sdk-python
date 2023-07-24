@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.get_currency_request import GetCurrencyRequest
-from lark_oapi.api.corehr.v1.model.get_currency_response import GetCurrencyResponse
-from lark_oapi.api.corehr.v1.model.list_currency_request import ListCurrencyRequest
-from lark_oapi.api.corehr.v1.model.list_currency_response import ListCurrencyResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_currency_request import GetCurrencyRequest
+from ..model.get_currency_response import GetCurrencyResponse
+from ..model.list_currency_request import ListCurrencyRequest
+from ..model.list_currency_response import ListCurrencyResponse
 
 
 class Currency(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetCurrencyRequest, option: RequestOption = RequestOption()) -> GetCurrencyResponse:
+    def get(self, request: GetCurrencyRequest, option: Optional[RequestOption] = None) -> GetCurrencyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -30,7 +33,10 @@ class Currency(object):
 
         return response
 
-    def list(self, request: ListCurrencyRequest, option: RequestOption = RequestOption()) -> ListCurrencyResponse:
+    def list(self, request: ListCurrencyRequest, option: Optional[RequestOption] = None) -> ListCurrencyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

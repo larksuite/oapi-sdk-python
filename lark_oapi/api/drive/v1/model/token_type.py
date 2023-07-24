@@ -11,7 +11,7 @@ class TokenType(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TokenType(object):
 
 
 class TokenTypeBuilder(object):
-    def __init__(self, token_type: TokenType = TokenType({})) -> None:
-        self._token_type: TokenType = token_type
+    def __init__(self) -> None:
+        self._token_type = TokenType()
 
     def token(self, token: str) -> "TokenTypeBuilder":
         self._token_type.token = token

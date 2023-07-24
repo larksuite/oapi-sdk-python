@@ -7,7 +7,7 @@ class TenantAccessToken(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class TenantAccessToken(object):
 
 
 class TenantAccessTokenBuilder(object):
-    def __init__(self, tenant_access_token: TenantAccessToken = TenantAccessToken({})) -> None:
-        self._tenant_access_token: TenantAccessToken = tenant_access_token
+    def __init__(self) -> None:
+        self._tenant_access_token = TenantAccessToken()
 
     def build(self) -> "TenantAccessToken":
         return self._tenant_access_token

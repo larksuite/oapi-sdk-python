@@ -20,8 +20,8 @@ class BatchRemoveGroupMemberRequest(BaseRequest):
 
 class BatchRemoveGroupMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_remove_group_member_request: BatchRemoveGroupMemberRequest = BatchRemoveGroupMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_remove_group_member_request = BatchRemoveGroupMemberRequest()
         batch_remove_group_member_request.http_method = HttpMethod.POST
         batch_remove_group_member_request.uri = "/open-apis/contact/v3/group/:group_id/member/batch_remove"
         batch_remove_group_member_request.token_types = {AccessTokenType.TENANT}

@@ -2,29 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.query_room_config_request import QueryRoomConfigRequest
-from lark_oapi.api.vc.v1.model.query_room_config_response import QueryRoomConfigResponse
-from lark_oapi.api.vc.v1.model.set_checkboard_access_code_room_config_request import \
-    SetCheckboardAccessCodeRoomConfigRequest
-from lark_oapi.api.vc.v1.model.set_checkboard_access_code_room_config_response import \
-    SetCheckboardAccessCodeRoomConfigResponse
-from lark_oapi.api.vc.v1.model.set_room_access_code_room_config_request import SetRoomAccessCodeRoomConfigRequest
-from lark_oapi.api.vc.v1.model.set_room_access_code_room_config_response import SetRoomAccessCodeRoomConfigResponse
-from lark_oapi.api.vc.v1.model.set_room_config_request import SetRoomConfigRequest
-from lark_oapi.api.vc.v1.model.set_room_config_response import SetRoomConfigResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_room_config_request import QueryRoomConfigRequest
+from ..model.query_room_config_response import QueryRoomConfigResponse
+from ..model.set_checkboard_access_code_room_config_request import SetCheckboardAccessCodeRoomConfigRequest
+from ..model.set_checkboard_access_code_room_config_response import SetCheckboardAccessCodeRoomConfigResponse
+from ..model.set_room_access_code_room_config_request import SetRoomAccessCodeRoomConfigRequest
+from ..model.set_room_access_code_room_config_response import SetRoomAccessCodeRoomConfigResponse
+from ..model.set_room_config_request import SetRoomConfigRequest
+from ..model.set_room_config_response import SetRoomConfigResponse
 
 
 class RoomConfig(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def query(self, request: QueryRoomConfigRequest,
-              option: RequestOption = RequestOption()) -> QueryRoomConfigResponse:
+    def query(self, request: QueryRoomConfigRequest, option: Optional[RequestOption] = None) -> QueryRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -37,7 +37,10 @@ class RoomConfig(object):
 
         return response
 
-    def set(self, request: SetRoomConfigRequest, option: RequestOption = RequestOption()) -> SetRoomConfigResponse:
+    def set(self, request: SetRoomConfigRequest, option: Optional[RequestOption] = None) -> SetRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +54,10 @@ class RoomConfig(object):
         return response
 
     def set_checkboard_access_code(self, request: SetCheckboardAccessCodeRoomConfigRequest,
-                                   option: RequestOption = RequestOption()) -> SetCheckboardAccessCodeRoomConfigResponse:
+                                   option: Optional[RequestOption] = None) -> SetCheckboardAccessCodeRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +72,10 @@ class RoomConfig(object):
         return response
 
     def set_room_access_code(self, request: SetRoomAccessCodeRoomConfigRequest,
-                             option: RequestOption = RequestOption()) -> SetRoomAccessCodeRoomConfigResponse:
+                             option: Optional[RequestOption] = None) -> SetRoomAccessCodeRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

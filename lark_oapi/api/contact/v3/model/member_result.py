@@ -11,7 +11,7 @@ class MemberResult(object):
         "code": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id: Optional[str] = None
         self.code: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MemberResult(object):
 
 
 class MemberResultBuilder(object):
-    def __init__(self, member_result: MemberResult = MemberResult({})) -> None:
-        self._member_result: MemberResult = member_result
+    def __init__(self) -> None:
+        self._member_result = MemberResult()
 
     def member_id(self, member_id: str) -> "MemberResultBuilder":
         self._member_result.member_id = member_id

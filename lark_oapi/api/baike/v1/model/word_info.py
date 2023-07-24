@@ -25,7 +25,7 @@ class WordInfo(object):
         "send_eng_words_ring_growth": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.input_total: Optional[int] = None
         self.dedup_input_total: Optional[int] = None
         self.eachday_input: Optional[List[int]] = None
@@ -50,8 +50,8 @@ class WordInfo(object):
 
 
 class WordInfoBuilder(object):
-    def __init__(self, word_info: WordInfo = WordInfo({})) -> None:
-        self._word_info: WordInfo = word_info
+    def __init__(self) -> None:
+        self._word_info = WordInfo()
 
     def input_total(self, input_total: int) -> "WordInfoBuilder":
         self._word_info.input_total = input_total

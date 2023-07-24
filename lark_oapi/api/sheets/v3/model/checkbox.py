@@ -11,7 +11,7 @@ class Checkbox(object):
         "data_validiton_value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data_validation_id: Optional[int] = None
         self.data_validiton_value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Checkbox(object):
 
 
 class CheckboxBuilder(object):
-    def __init__(self, checkbox: Checkbox = Checkbox({})) -> None:
-        self._checkbox: Checkbox = checkbox
+    def __init__(self) -> None:
+        self._checkbox = Checkbox()
 
     def data_validation_id(self, data_validation_id: int) -> "CheckboxBuilder":
         self._checkbox.data_validation_id = data_validation_id

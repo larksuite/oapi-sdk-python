@@ -11,7 +11,7 @@ class InternalTenantAccessTokenRequestBody(object):
         "app_secret": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_id: Optional[str] = None
         self.app_secret: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class InternalTenantAccessTokenRequestBody(object):
 
 
 class InternalTenantAccessTokenRequestBodyBuilder(object):
-    def __init__(self,
-                 internal_tenant_access_token_request_body: InternalTenantAccessTokenRequestBody = InternalTenantAccessTokenRequestBody(
-                     {})) -> None:
-        self._internal_tenant_access_token_request_body: InternalTenantAccessTokenRequestBody = internal_tenant_access_token_request_body
+    def __init__(self) -> None:
+        self._internal_tenant_access_token_request_body = InternalTenantAccessTokenRequestBody()
 
     def app_id(self, app_id: str) -> "InternalTenantAccessTokenRequestBodyBuilder":
         self._internal_tenant_access_token_request_body.app_id = app_id

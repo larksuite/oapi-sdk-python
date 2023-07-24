@@ -17,7 +17,7 @@ class Item(object):
         "content": ItemContent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.acl: Optional[List[Acl]] = None
         self.metadata: Optional[ItemMetadata] = None
@@ -31,8 +31,8 @@ class Item(object):
 
 
 class ItemBuilder(object):
-    def __init__(self, item: Item = Item({})) -> None:
-        self._item: Item = item
+    def __init__(self) -> None:
+        self._item = Item()
 
     def id(self, id: str) -> "ItemBuilder":
         self._item.id = id

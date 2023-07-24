@@ -11,7 +11,7 @@ class OfferSchemaListInfo(object):
         "schema_list": List[OfferSchemaChild],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.schema_list: Optional[List[OfferSchemaChild]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class OfferSchemaListInfo(object):
 
 
 class OfferSchemaListInfoBuilder(object):
-    def __init__(self, offer_schema_list_info: OfferSchemaListInfo = OfferSchemaListInfo({})) -> None:
-        self._offer_schema_list_info: OfferSchemaListInfo = offer_schema_list_info
+    def __init__(self) -> None:
+        self._offer_schema_list_info = OfferSchemaListInfo()
 
     def schema_list(self, schema_list: List[OfferSchemaChild]) -> "OfferSchemaListInfoBuilder":
         self._offer_schema_list_info.schema_list = schema_list

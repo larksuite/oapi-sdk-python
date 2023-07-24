@@ -11,7 +11,7 @@ class DelRoomLevelRequestBody(object):
         "delete_child": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_level_id: Optional[str] = None
         self.delete_child: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DelRoomLevelRequestBody(object):
 
 
 class DelRoomLevelRequestBodyBuilder(object):
-    def __init__(self, del_room_level_request_body: DelRoomLevelRequestBody = DelRoomLevelRequestBody({})) -> None:
-        self._del_room_level_request_body: DelRoomLevelRequestBody = del_room_level_request_body
+    def __init__(self) -> None:
+        self._del_room_level_request_body = DelRoomLevelRequestBody()
 
     def room_level_id(self, room_level_id: str) -> "DelRoomLevelRequestBodyBuilder":
         self._del_room_level_request_body.room_level_id = room_level_id

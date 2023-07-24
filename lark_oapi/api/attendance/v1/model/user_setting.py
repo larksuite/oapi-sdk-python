@@ -12,7 +12,7 @@ class UserSetting(object):
         "face_key_update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.face_key: Optional[str] = None
         self.face_key_update_time: Optional[str] = None
@@ -24,8 +24,8 @@ class UserSetting(object):
 
 
 class UserSettingBuilder(object):
-    def __init__(self, user_setting: UserSetting = UserSetting({})) -> None:
-        self._user_setting: UserSetting = user_setting
+    def __init__(self) -> None:
+        self._user_setting = UserSetting()
 
     def user_id(self, user_id: str) -> "UserSettingBuilder":
         self._user_setting.user_id = user_id

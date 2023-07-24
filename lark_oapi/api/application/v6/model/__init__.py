@@ -51,6 +51,10 @@ from .contacts_range_configuration_application_response_body import *
 from .contacts_range_suggest_application_app_version_request import *
 from .contacts_range_suggest_application_app_version_response import *
 from .contacts_range_suggest_application_app_version_response_body import *
+from .department_overview_application_app_usage_request import *
+from .department_overview_application_app_usage_request_body import *
+from .department_overview_application_app_usage_response import *
+from .department_overview_application_app_usage_response_body import *
 from .docs_block import *
 from .gadget import *
 from .get_application_app_version_request import *

@@ -12,7 +12,7 @@ class AppUsageTrendItems(object):
         "trend": List[UsageTrendItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.trend: Optional[List[UsageTrendItem]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class AppUsageTrendItems(object):
 
 
 class AppUsageTrendItemsBuilder(object):
-    def __init__(self, app_usage_trend_items: AppUsageTrendItems = AppUsageTrendItems({})) -> None:
-        self._app_usage_trend_items: AppUsageTrendItems = app_usage_trend_items
+    def __init__(self) -> None:
+        self._app_usage_trend_items = AppUsageTrendItems()
 
     def id(self, id: str) -> "AppUsageTrendItemsBuilder":
         self._app_usage_trend_items.id = id

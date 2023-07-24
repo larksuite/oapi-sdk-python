@@ -3,18 +3,18 @@
 import io
 from typing import *
 
-from lark_oapi.api.drive.v1.model.create_export_task_request import CreateExportTaskRequest
-from lark_oapi.api.drive.v1.model.create_export_task_response import CreateExportTaskResponse
-from lark_oapi.api.drive.v1.model.download_export_task_request import DownloadExportTaskRequest
-from lark_oapi.api.drive.v1.model.download_export_task_response import DownloadExportTaskResponse
-from lark_oapi.api.drive.v1.model.get_export_task_request import GetExportTaskRequest
-from lark_oapi.api.drive.v1.model.get_export_task_response import GetExportTaskResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.create_export_task_request import CreateExportTaskRequest
+from ..model.create_export_task_response import CreateExportTaskResponse
+from ..model.download_export_task_request import DownloadExportTaskRequest
+from ..model.download_export_task_response import DownloadExportTaskResponse
+from ..model.get_export_task_request import GetExportTaskRequest
+from ..model.get_export_task_response import GetExportTaskResponse
 
 
 class ExportTask(object):
@@ -22,7 +22,10 @@ class ExportTask(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateExportTaskRequest,
-               option: RequestOption = RequestOption()) -> CreateExportTaskResponse:
+               option: Optional[RequestOption] = None) -> CreateExportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class ExportTask(object):
         return response
 
     def download(self, request: DownloadExportTaskRequest,
-                 option: RequestOption = RequestOption()) -> DownloadExportTaskResponse:
+                 option: Optional[RequestOption] = None) -> DownloadExportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -58,7 +64,10 @@ class ExportTask(object):
 
         return response
 
-    def get(self, request: GetExportTaskRequest, option: RequestOption = RequestOption()) -> GetExportTaskResponse:
+    def get(self, request: GetExportTaskRequest, option: Optional[RequestOption] = None) -> GetExportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -17,7 +17,7 @@ class ConnectDataSource(object):
         "tenant_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.service_url: Optional[str] = None
         self.project_name: Optional[str] = None
         self.display_name: Optional[str] = None
@@ -34,8 +34,8 @@ class ConnectDataSource(object):
 
 
 class ConnectDataSourceBuilder(object):
-    def __init__(self, connect_data_source: ConnectDataSource = ConnectDataSource({})) -> None:
-        self._connect_data_source: ConnectDataSource = connect_data_source
+    def __init__(self) -> None:
+        self._connect_data_source = ConnectDataSource()
 
     def service_url(self, service_url: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.service_url = service_url

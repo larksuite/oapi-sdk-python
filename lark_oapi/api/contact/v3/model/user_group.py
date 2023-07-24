@@ -14,7 +14,7 @@ class UserGroup(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_group_id: Optional[str] = None
         self.name: Optional[str] = None
         self.type: Optional[int] = None
@@ -28,8 +28,8 @@ class UserGroup(object):
 
 
 class UserGroupBuilder(object):
-    def __init__(self, user_group: UserGroup = UserGroup({})) -> None:
-        self._user_group: UserGroup = user_group
+    def __init__(self) -> None:
+        self._user_group = UserGroup()
 
     def user_group_id(self, user_group_id: str) -> "UserGroupBuilder":
         self._user_group.user_group_id = user_group_id

@@ -19,7 +19,8 @@ class ExtractEntityRequest(BaseRequest):
 
 class ExtractEntityRequestBuilder(object):
 
-    def __init__(self, extract_entity_request: ExtractEntityRequest = ExtractEntityRequest()) -> None:
+    def __init__(self) -> None:
+        extract_entity_request = ExtractEntityRequest()
         extract_entity_request.http_method = HttpMethod.POST
         extract_entity_request.uri = "/open-apis/baike/v1/entities/extract"
         extract_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -20,7 +20,8 @@ class GetUserFaceRequest(BaseRequest):
 
 class GetUserFaceRequestBuilder(object):
 
-    def __init__(self, get_user_face_request: GetUserFaceRequest = GetUserFaceRequest()) -> None:
+    def __init__(self) -> None:
+        get_user_face_request = GetUserFaceRequest()
         get_user_face_request.http_method = HttpMethod.GET
         get_user_face_request.uri = "/open-apis/acs/v1/users/:user_id/face"
         get_user_face_request.token_types = {AccessTokenType.TENANT}

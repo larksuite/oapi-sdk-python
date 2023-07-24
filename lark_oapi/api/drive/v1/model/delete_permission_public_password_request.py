@@ -19,8 +19,8 @@ class DeletePermissionPublicPasswordRequest(BaseRequest):
 
 class DeletePermissionPublicPasswordRequestBuilder(object):
 
-    def __init__(self,
-                 delete_permission_public_password_request: DeletePermissionPublicPasswordRequest = DeletePermissionPublicPasswordRequest()) -> None:
+    def __init__(self) -> None:
+        delete_permission_public_password_request = DeletePermissionPublicPasswordRequest()
         delete_permission_public_password_request.http_method = HttpMethod.DELETE
         delete_permission_public_password_request.uri = "/open-apis/drive/v1/permissions/:token/public/password"
         delete_permission_public_password_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

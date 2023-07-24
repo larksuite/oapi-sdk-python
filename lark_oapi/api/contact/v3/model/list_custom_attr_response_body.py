@@ -13,7 +13,7 @@ class ListCustomAttrResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[CustomAttr]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListCustomAttrResponseBody(object):
 
 
 class ListCustomAttrResponseBodyBuilder(object):
-    def __init__(self,
-                 list_custom_attr_response_body: ListCustomAttrResponseBody = ListCustomAttrResponseBody({})) -> None:
-        self._list_custom_attr_response_body: ListCustomAttrResponseBody = list_custom_attr_response_body
+    def __init__(self) -> None:
+        self._list_custom_attr_response_body = ListCustomAttrResponseBody()
 
     def items(self, items: List[CustomAttr]) -> "ListCustomAttrResponseBodyBuilder":
         self._list_custom_attr_response_body.items = items

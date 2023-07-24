@@ -4,21 +4,24 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.okr.v1.model.upload_image_request import UploadImageRequest
-from lark_oapi.api.okr.v1.model.upload_image_response import UploadImageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.upload_image_request import UploadImageRequest
+from ..model.upload_image_response import UploadImageResponse
 
 
 class Image(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def upload(self, request: UploadImageRequest, option: RequestOption = RequestOption()) -> UploadImageResponse:
+    def upload(self, request: UploadImageRequest, option: Optional[RequestOption] = None) -> UploadImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

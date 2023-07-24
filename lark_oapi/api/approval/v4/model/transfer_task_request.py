@@ -20,7 +20,8 @@ class TransferTaskRequest(BaseRequest):
 
 class TransferTaskRequestBuilder(object):
 
-    def __init__(self, transfer_task_request: TransferTaskRequest = TransferTaskRequest()) -> None:
+    def __init__(self) -> None:
+        transfer_task_request = TransferTaskRequest()
         transfer_task_request.http_method = HttpMethod.POST
         transfer_task_request.uri = "/open-apis/approval/v4/tasks/transfer"
         transfer_task_request.token_types = {AccessTokenType.TENANT}

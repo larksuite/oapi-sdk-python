@@ -19,7 +19,7 @@ class CompanyAsset(object):
         "asset_no": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.asset_uid: Optional[str] = None
         self.asset_sub_no: Optional[str] = None
         self.asset_type: Optional[str] = None
@@ -38,8 +38,8 @@ class CompanyAsset(object):
 
 
 class CompanyAssetBuilder(object):
-    def __init__(self, company_asset: CompanyAsset = CompanyAsset({})) -> None:
-        self._company_asset: CompanyAsset = company_asset
+    def __init__(self) -> None:
+        self._company_asset = CompanyAsset()
 
     def asset_uid(self, asset_uid: str) -> "CompanyAssetBuilder":
         self._company_asset.asset_uid = asset_uid

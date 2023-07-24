@@ -14,7 +14,7 @@ class DepartmentDetail(object):
         "department_path": DepartmentPath,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[int] = None
         self.department_name: Optional[DepartmentPathName] = None
         self.department_path: Optional[DepartmentPath] = None
@@ -26,8 +26,8 @@ class DepartmentDetail(object):
 
 
 class DepartmentDetailBuilder(object):
-    def __init__(self, department_detail: DepartmentDetail = DepartmentDetail({})) -> None:
-        self._department_detail: DepartmentDetail = department_detail
+    def __init__(self) -> None:
+        self._department_detail = DepartmentDetail()
 
     def department_id(self, department_id: int) -> "DepartmentDetailBuilder":
         self._department_detail.department_id = department_id

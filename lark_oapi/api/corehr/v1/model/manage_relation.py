@@ -16,7 +16,7 @@ class ManageRelation(object):
         "effective_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subordinate_department_id: Optional[str] = None
         self.subordinate_employee_id: Optional[str] = None
         self.manager_type: Optional[Enum] = None
@@ -31,8 +31,8 @@ class ManageRelation(object):
 
 
 class ManageRelationBuilder(object):
-    def __init__(self, manage_relation: ManageRelation = ManageRelation({})) -> None:
-        self._manage_relation: ManageRelation = manage_relation
+    def __init__(self) -> None:
+        self._manage_relation = ManageRelation()
 
     def subordinate_department_id(self, subordinate_department_id: str) -> "ManageRelationBuilder":
         self._manage_relation.subordinate_department_id = subordinate_department_id

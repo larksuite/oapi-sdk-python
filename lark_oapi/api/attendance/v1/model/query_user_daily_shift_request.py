@@ -20,8 +20,8 @@ class QueryUserDailyShiftRequest(BaseRequest):
 
 class QueryUserDailyShiftRequestBuilder(object):
 
-    def __init__(self,
-                 query_user_daily_shift_request: QueryUserDailyShiftRequest = QueryUserDailyShiftRequest()) -> None:
+    def __init__(self) -> None:
+        query_user_daily_shift_request = QueryUserDailyShiftRequest()
         query_user_daily_shift_request.http_method = HttpMethod.POST
         query_user_daily_shift_request.uri = "/open-apis/attendance/v1/user_daily_shifts/query"
         query_user_daily_shift_request.token_types = {AccessTokenType.TENANT}

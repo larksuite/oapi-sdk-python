@@ -15,7 +15,7 @@ class StatusChange(object):
         "work_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.index: Optional[int] = None
         self.before_status: Optional[str] = None
         self.current_status: Optional[str] = None
@@ -30,8 +30,8 @@ class StatusChange(object):
 
 
 class StatusChangeBuilder(object):
-    def __init__(self, status_change: StatusChange = StatusChange({})) -> None:
-        self._status_change: StatusChange = status_change
+    def __init__(self) -> None:
+        self._status_change = StatusChange()
 
     def index(self, index: int) -> "StatusChangeBuilder":
         self._status_change.index = index

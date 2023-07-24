@@ -13,7 +13,7 @@ class ApplicationTalentAwardInfo(object):
         "desc": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.title: Optional[str] = None
         self.award_time: Optional[int] = None
@@ -26,9 +26,8 @@ class ApplicationTalentAwardInfo(object):
 
 
 class ApplicationTalentAwardInfoBuilder(object):
-    def __init__(self,
-                 application_talent_award_info: ApplicationTalentAwardInfo = ApplicationTalentAwardInfo({})) -> None:
-        self._application_talent_award_info: ApplicationTalentAwardInfo = application_talent_award_info
+    def __init__(self) -> None:
+        self._application_talent_award_info = ApplicationTalentAwardInfo()
 
     def id(self, id: str) -> "ApplicationTalentAwardInfoBuilder":
         self._application_talent_award_info.id = id

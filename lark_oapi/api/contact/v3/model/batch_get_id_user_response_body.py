@@ -11,7 +11,7 @@ class BatchGetIdUserResponseBody(object):
         "user_list": List[UserContactInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_list: Optional[List[UserContactInfo]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class BatchGetIdUserResponseBody(object):
 
 
 class BatchGetIdUserResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_get_id_user_response_body: BatchGetIdUserResponseBody = BatchGetIdUserResponseBody({})) -> None:
-        self._batch_get_id_user_response_body: BatchGetIdUserResponseBody = batch_get_id_user_response_body
+    def __init__(self) -> None:
+        self._batch_get_id_user_response_body = BatchGetIdUserResponseBody()
 
     def user_list(self, user_list: List[UserContactInfo]) -> "BatchGetIdUserResponseBodyBuilder":
         self._batch_get_id_user_response_body.user_list = user_list

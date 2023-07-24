@@ -11,7 +11,7 @@ class NotificationOption(object):
         "language": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.channels: Optional[List[str]] = None
         self.language: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class NotificationOption(object):
 
 
 class NotificationOptionBuilder(object):
-    def __init__(self, notification_option: NotificationOption = NotificationOption({})) -> None:
-        self._notification_option: NotificationOption = notification_option
+    def __init__(self) -> None:
+        self._notification_option = NotificationOption()
 
     def channels(self, channels: List[str]) -> "NotificationOptionBuilder":
         self._notification_option.channels = channels

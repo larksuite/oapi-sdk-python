@@ -28,7 +28,7 @@ class UserAccessTokenInfo(object):
         "sid": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.access_token: Optional[str] = None
         self.token_type: Optional[str] = None
         self.expires_in: Optional[int] = None
@@ -56,8 +56,8 @@ class UserAccessTokenInfo(object):
 
 
 class UserAccessTokenInfoBuilder(object):
-    def __init__(self, user_access_token_info: UserAccessTokenInfo = UserAccessTokenInfo({})) -> None:
-        self._user_access_token_info: UserAccessTokenInfo = user_access_token_info
+    def __init__(self) -> None:
+        self._user_access_token_info = UserAccessTokenInfo()
 
     def access_token(self, access_token: str) -> "UserAccessTokenInfoBuilder":
         self._user_access_token_info.access_token = access_token

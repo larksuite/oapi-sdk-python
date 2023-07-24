@@ -18,7 +18,8 @@ class GetImageRequest(BaseRequest):
 
 class GetImageRequestBuilder(object):
 
-    def __init__(self, get_image_request: GetImageRequest = GetImageRequest()) -> None:
+    def __init__(self) -> None:
+        get_image_request = GetImageRequest()
         get_image_request.http_method = HttpMethod.GET
         get_image_request.uri = "/open-apis/im/v1/images/:image_key"
         get_image_request.token_types = {AccessTokenType.TENANT}

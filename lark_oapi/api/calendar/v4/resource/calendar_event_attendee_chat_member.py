@@ -2,15 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.calendar.v4.model.list_calendar_event_attendee_chat_member_request import \
-    ListCalendarEventAttendeeChatMemberRequest
-from lark_oapi.api.calendar.v4.model.list_calendar_event_attendee_chat_member_response import \
-    ListCalendarEventAttendeeChatMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_calendar_event_attendee_chat_member_request import ListCalendarEventAttendeeChatMemberRequest
+from ..model.list_calendar_event_attendee_chat_member_response import ListCalendarEventAttendeeChatMemberResponse
 
 
 class CalendarEventAttendeeChatMember(object):
@@ -18,7 +16,10 @@ class CalendarEventAttendeeChatMember(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListCalendarEventAttendeeChatMemberRequest,
-             option: RequestOption = RequestOption()) -> ListCalendarEventAttendeeChatMemberResponse:
+             option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

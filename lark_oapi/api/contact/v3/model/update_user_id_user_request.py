@@ -21,7 +21,8 @@ class UpdateUserIdUserRequest(BaseRequest):
 
 class UpdateUserIdUserRequestBuilder(object):
 
-    def __init__(self, update_user_id_user_request: UpdateUserIdUserRequest = UpdateUserIdUserRequest()) -> None:
+    def __init__(self) -> None:
+        update_user_id_user_request = UpdateUserIdUserRequest()
         update_user_id_user_request.http_method = HttpMethod.PATCH
         update_user_id_user_request.uri = "/open-apis/contact/v3/users/:user_id/update_user_id"
         update_user_id_user_request.token_types = {AccessTokenType.TENANT}

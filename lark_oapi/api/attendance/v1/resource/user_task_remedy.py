@@ -2,19 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.create_user_task_remedy_request import CreateUserTaskRemedyRequest
-from lark_oapi.api.attendance.v1.model.create_user_task_remedy_response import CreateUserTaskRemedyResponse
-from lark_oapi.api.attendance.v1.model.query_user_allowed_remedys_user_task_remedy_request import \
-    QueryUserAllowedRemedysUserTaskRemedyRequest
-from lark_oapi.api.attendance.v1.model.query_user_allowed_remedys_user_task_remedy_response import \
-    QueryUserAllowedRemedysUserTaskRemedyResponse
-from lark_oapi.api.attendance.v1.model.query_user_task_remedy_request import QueryUserTaskRemedyRequest
-from lark_oapi.api.attendance.v1.model.query_user_task_remedy_response import QueryUserTaskRemedyResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_user_task_remedy_request import CreateUserTaskRemedyRequest
+from ..model.create_user_task_remedy_response import CreateUserTaskRemedyResponse
+from ..model.query_user_allowed_remedys_user_task_remedy_request import QueryUserAllowedRemedysUserTaskRemedyRequest
+from ..model.query_user_allowed_remedys_user_task_remedy_response import QueryUserAllowedRemedysUserTaskRemedyResponse
+from ..model.query_user_task_remedy_request import QueryUserTaskRemedyRequest
+from ..model.query_user_task_remedy_response import QueryUserTaskRemedyResponse
 
 
 class UserTaskRemedy(object):
@@ -22,7 +20,10 @@ class UserTaskRemedy(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateUserTaskRemedyRequest,
-               option: RequestOption = RequestOption()) -> CreateUserTaskRemedyResponse:
+               option: Optional[RequestOption] = None) -> CreateUserTaskRemedyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +37,10 @@ class UserTaskRemedy(object):
         return response
 
     def query(self, request: QueryUserTaskRemedyRequest,
-              option: RequestOption = RequestOption()) -> QueryUserTaskRemedyResponse:
+              option: Optional[RequestOption] = None) -> QueryUserTaskRemedyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,8 +53,11 @@ class UserTaskRemedy(object):
 
         return response
 
-    def query_user_allowed_remedys(self, request: QueryUserAllowedRemedysUserTaskRemedyRequest,
-                                   option: RequestOption = RequestOption()) -> QueryUserAllowedRemedysUserTaskRemedyResponse:
+    def query_user_allowed_remedys(self, request: QueryUserAllowedRemedysUserTaskRemedyRequest, option: Optional[
+        RequestOption] = None) -> QueryUserAllowedRemedysUserTaskRemedyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -2,44 +2,47 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.create_message_request import CreateMessageRequest
-from lark_oapi.api.im.v1.model.create_message_response import CreateMessageResponse
-from lark_oapi.api.im.v1.model.delete_message_request import DeleteMessageRequest
-from lark_oapi.api.im.v1.model.delete_message_response import DeleteMessageResponse
-from lark_oapi.api.im.v1.model.forward_message_request import ForwardMessageRequest
-from lark_oapi.api.im.v1.model.forward_message_response import ForwardMessageResponse
-from lark_oapi.api.im.v1.model.get_message_request import GetMessageRequest
-from lark_oapi.api.im.v1.model.get_message_response import GetMessageResponse
-from lark_oapi.api.im.v1.model.list_message_request import ListMessageRequest
-from lark_oapi.api.im.v1.model.list_message_response import ListMessageResponse
-from lark_oapi.api.im.v1.model.merge_forward_message_request import MergeForwardMessageRequest
-from lark_oapi.api.im.v1.model.merge_forward_message_response import MergeForwardMessageResponse
-from lark_oapi.api.im.v1.model.patch_message_request import PatchMessageRequest
-from lark_oapi.api.im.v1.model.patch_message_response import PatchMessageResponse
-from lark_oapi.api.im.v1.model.read_users_message_request import ReadUsersMessageRequest
-from lark_oapi.api.im.v1.model.read_users_message_response import ReadUsersMessageResponse
-from lark_oapi.api.im.v1.model.reply_message_request import ReplyMessageRequest
-from lark_oapi.api.im.v1.model.reply_message_response import ReplyMessageResponse
-from lark_oapi.api.im.v1.model.update_message_request import UpdateMessageRequest
-from lark_oapi.api.im.v1.model.update_message_response import UpdateMessageResponse
-from lark_oapi.api.im.v1.model.urgent_app_message_request import UrgentAppMessageRequest
-from lark_oapi.api.im.v1.model.urgent_app_message_response import UrgentAppMessageResponse
-from lark_oapi.api.im.v1.model.urgent_phone_message_request import UrgentPhoneMessageRequest
-from lark_oapi.api.im.v1.model.urgent_phone_message_response import UrgentPhoneMessageResponse
-from lark_oapi.api.im.v1.model.urgent_sms_message_request import UrgentSmsMessageRequest
-from lark_oapi.api.im.v1.model.urgent_sms_message_response import UrgentSmsMessageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_message_request import CreateMessageRequest
+from ..model.create_message_response import CreateMessageResponse
+from ..model.delete_message_request import DeleteMessageRequest
+from ..model.delete_message_response import DeleteMessageResponse
+from ..model.forward_message_request import ForwardMessageRequest
+from ..model.forward_message_response import ForwardMessageResponse
+from ..model.get_message_request import GetMessageRequest
+from ..model.get_message_response import GetMessageResponse
+from ..model.list_message_request import ListMessageRequest
+from ..model.list_message_response import ListMessageResponse
+from ..model.merge_forward_message_request import MergeForwardMessageRequest
+from ..model.merge_forward_message_response import MergeForwardMessageResponse
+from ..model.patch_message_request import PatchMessageRequest
+from ..model.patch_message_response import PatchMessageResponse
+from ..model.read_users_message_request import ReadUsersMessageRequest
+from ..model.read_users_message_response import ReadUsersMessageResponse
+from ..model.reply_message_request import ReplyMessageRequest
+from ..model.reply_message_response import ReplyMessageResponse
+from ..model.update_message_request import UpdateMessageRequest
+from ..model.update_message_response import UpdateMessageResponse
+from ..model.urgent_app_message_request import UrgentAppMessageRequest
+from ..model.urgent_app_message_response import UrgentAppMessageResponse
+from ..model.urgent_phone_message_request import UrgentPhoneMessageRequest
+from ..model.urgent_phone_message_response import UrgentPhoneMessageResponse
+from ..model.urgent_sms_message_request import UrgentSmsMessageRequest
+from ..model.urgent_sms_message_response import UrgentSmsMessageResponse
 
 
 class Message(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateMessageRequest, option: RequestOption = RequestOption()) -> CreateMessageResponse:
+    def create(self, request: CreateMessageRequest, option: Optional[RequestOption] = None) -> CreateMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +55,10 @@ class Message(object):
 
         return response
 
-    def delete(self, request: DeleteMessageRequest, option: RequestOption = RequestOption()) -> DeleteMessageResponse:
+    def delete(self, request: DeleteMessageRequest, option: Optional[RequestOption] = None) -> DeleteMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,8 +71,10 @@ class Message(object):
 
         return response
 
-    def forward(self, request: ForwardMessageRequest,
-                option: RequestOption = RequestOption()) -> ForwardMessageResponse:
+    def forward(self, request: ForwardMessageRequest, option: Optional[RequestOption] = None) -> ForwardMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +87,10 @@ class Message(object):
 
         return response
 
-    def get(self, request: GetMessageRequest, option: RequestOption = RequestOption()) -> GetMessageResponse:
+    def get(self, request: GetMessageRequest, option: Optional[RequestOption] = None) -> GetMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -92,7 +103,10 @@ class Message(object):
 
         return response
 
-    def list(self, request: ListMessageRequest, option: RequestOption = RequestOption()) -> ListMessageResponse:
+    def list(self, request: ListMessageRequest, option: Optional[RequestOption] = None) -> ListMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -106,7 +120,10 @@ class Message(object):
         return response
 
     def merge_forward(self, request: MergeForwardMessageRequest,
-                      option: RequestOption = RequestOption()) -> MergeForwardMessageResponse:
+                      option: Optional[RequestOption] = None) -> MergeForwardMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -119,7 +136,10 @@ class Message(object):
 
         return response
 
-    def patch(self, request: PatchMessageRequest, option: RequestOption = RequestOption()) -> PatchMessageResponse:
+    def patch(self, request: PatchMessageRequest, option: Optional[RequestOption] = None) -> PatchMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -133,7 +153,10 @@ class Message(object):
         return response
 
     def read_users(self, request: ReadUsersMessageRequest,
-                   option: RequestOption = RequestOption()) -> ReadUsersMessageResponse:
+                   option: Optional[RequestOption] = None) -> ReadUsersMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -146,7 +169,10 @@ class Message(object):
 
         return response
 
-    def reply(self, request: ReplyMessageRequest, option: RequestOption = RequestOption()) -> ReplyMessageResponse:
+    def reply(self, request: ReplyMessageRequest, option: Optional[RequestOption] = None) -> ReplyMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -159,7 +185,10 @@ class Message(object):
 
         return response
 
-    def update(self, request: UpdateMessageRequest, option: RequestOption = RequestOption()) -> UpdateMessageResponse:
+    def update(self, request: UpdateMessageRequest, option: Optional[RequestOption] = None) -> UpdateMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -173,7 +202,10 @@ class Message(object):
         return response
 
     def urgent_app(self, request: UrgentAppMessageRequest,
-                   option: RequestOption = RequestOption()) -> UrgentAppMessageResponse:
+                   option: Optional[RequestOption] = None) -> UrgentAppMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -187,7 +219,10 @@ class Message(object):
         return response
 
     def urgent_phone(self, request: UrgentPhoneMessageRequest,
-                     option: RequestOption = RequestOption()) -> UrgentPhoneMessageResponse:
+                     option: Optional[RequestOption] = None) -> UrgentPhoneMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -201,7 +236,10 @@ class Message(object):
         return response
 
     def urgent_sms(self, request: UrgentSmsMessageRequest,
-                   option: RequestOption = RequestOption()) -> UrgentSmsMessageResponse:
+                   option: Optional[RequestOption] = None) -> UrgentSmsMessageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

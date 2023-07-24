@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.create_app_role_request import CreateAppRoleRequest
-from lark_oapi.api.bitable.v1.model.create_app_role_response import CreateAppRoleResponse
-from lark_oapi.api.bitable.v1.model.delete_app_role_request import DeleteAppRoleRequest
-from lark_oapi.api.bitable.v1.model.delete_app_role_response import DeleteAppRoleResponse
-from lark_oapi.api.bitable.v1.model.list_app_role_request import ListAppRoleRequest
-from lark_oapi.api.bitable.v1.model.list_app_role_response import ListAppRoleResponse
-from lark_oapi.api.bitable.v1.model.update_app_role_request import UpdateAppRoleRequest
-from lark_oapi.api.bitable.v1.model.update_app_role_response import UpdateAppRoleResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_app_role_request import CreateAppRoleRequest
+from ..model.create_app_role_response import CreateAppRoleResponse
+from ..model.delete_app_role_request import DeleteAppRoleRequest
+from ..model.delete_app_role_response import DeleteAppRoleResponse
+from ..model.list_app_role_request import ListAppRoleRequest
+from ..model.list_app_role_response import ListAppRoleResponse
+from ..model.update_app_role_request import UpdateAppRoleRequest
+from ..model.update_app_role_response import UpdateAppRoleResponse
 
 
 class AppRole(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateAppRoleRequest, option: RequestOption = RequestOption()) -> CreateAppRoleResponse:
+    def create(self, request: CreateAppRoleRequest, option: Optional[RequestOption] = None) -> CreateAppRoleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class AppRole(object):
 
         return response
 
-    def delete(self, request: DeleteAppRoleRequest, option: RequestOption = RequestOption()) -> DeleteAppRoleResponse:
+    def delete(self, request: DeleteAppRoleRequest, option: Optional[RequestOption] = None) -> DeleteAppRoleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class AppRole(object):
 
         return response
 
-    def list(self, request: ListAppRoleRequest, option: RequestOption = RequestOption()) -> ListAppRoleResponse:
+    def list(self, request: ListAppRoleRequest, option: Optional[RequestOption] = None) -> ListAppRoleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +69,10 @@ class AppRole(object):
 
         return response
 
-    def update(self, request: UpdateAppRoleRequest, option: RequestOption = RequestOption()) -> UpdateAppRoleResponse:
+    def update(self, request: UpdateAppRoleRequest, option: Optional[RequestOption] = None) -> UpdateAppRoleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

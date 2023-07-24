@@ -11,7 +11,7 @@ class FunctionalRole(object):
         "role_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role_id: Optional[str] = None
         self.role_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class FunctionalRole(object):
 
 
 class FunctionalRoleBuilder(object):
-    def __init__(self, functional_role: FunctionalRole = FunctionalRole({})) -> None:
-        self._functional_role: FunctionalRole = functional_role
+    def __init__(self) -> None:
+        self._functional_role = FunctionalRole()
 
     def role_id(self, role_id: str) -> "FunctionalRoleBuilder":
         self._functional_role.role_id = role_id

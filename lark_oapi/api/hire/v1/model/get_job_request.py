@@ -20,7 +20,8 @@ class GetJobRequest(BaseRequest):
 
 class GetJobRequestBuilder(object):
 
-    def __init__(self, get_job_request: GetJobRequest = GetJobRequest()) -> None:
+    def __init__(self) -> None:
+        get_job_request = GetJobRequest()
         get_job_request.http_method = HttpMethod.GET
         get_job_request.uri = "/open-apis/hire/v1/jobs/:job_id"
         get_job_request.token_types = {AccessTokenType.TENANT}

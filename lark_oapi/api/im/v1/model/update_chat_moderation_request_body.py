@@ -12,7 +12,7 @@ class UpdateChatModerationRequestBody(object):
         "moderator_removed_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.moderation_setting: Optional[str] = None
         self.moderator_added_list: Optional[List[str]] = None
         self.moderator_removed_list: Optional[List[str]] = None
@@ -24,10 +24,8 @@ class UpdateChatModerationRequestBody(object):
 
 
 class UpdateChatModerationRequestBodyBuilder(object):
-    def __init__(self,
-                 update_chat_moderation_request_body: UpdateChatModerationRequestBody = UpdateChatModerationRequestBody(
-                     {})) -> None:
-        self._update_chat_moderation_request_body: UpdateChatModerationRequestBody = update_chat_moderation_request_body
+    def __init__(self) -> None:
+        self._update_chat_moderation_request_body = UpdateChatModerationRequestBody()
 
     def moderation_setting(self, moderation_setting: str) -> "UpdateChatModerationRequestBodyBuilder":
         self._update_chat_moderation_request_body.moderation_setting = moderation_setting

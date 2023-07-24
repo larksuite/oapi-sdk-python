@@ -14,7 +14,7 @@ class BasicEmployee(object):
         "person_info": BasicPersonInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.employee_number: Optional[str] = None
         self.email_address: Optional[str] = None
@@ -27,8 +27,8 @@ class BasicEmployee(object):
 
 
 class BasicEmployeeBuilder(object):
-    def __init__(self, basic_employee: BasicEmployee = BasicEmployee({})) -> None:
-        self._basic_employee: BasicEmployee = basic_employee
+    def __init__(self) -> None:
+        self._basic_employee = BasicEmployee()
 
     def employment_id(self, employment_id: str) -> "BasicEmployeeBuilder":
         self._basic_employee.employment_id = employment_id

@@ -16,7 +16,7 @@ class AppliOfferBasicCustObj(object):
         "option_value_list": List[AppliOfferBasicCustObjOpV],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[OfferSchemaName] = None
         self.type: Optional[str] = None
@@ -30,8 +30,8 @@ class AppliOfferBasicCustObj(object):
 
 
 class AppliOfferBasicCustObjBuilder(object):
-    def __init__(self, appli_offer_basic_cust_obj: AppliOfferBasicCustObj = AppliOfferBasicCustObj({})) -> None:
-        self._appli_offer_basic_cust_obj: AppliOfferBasicCustObj = appli_offer_basic_cust_obj
+    def __init__(self) -> None:
+        self._appli_offer_basic_cust_obj = AppliOfferBasicCustObj()
 
     def id(self, id: str) -> "AppliOfferBasicCustObjBuilder":
         self._appli_offer_basic_cust_obj.id = id

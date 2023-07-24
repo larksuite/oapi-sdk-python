@@ -77,7 +77,7 @@ class GetGroupResponseBody(object):
         "org_change_auto_adjust": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_id: Optional[str] = None
         self.group_name: Optional[str] = None
         self.time_zone: Optional[str] = None
@@ -147,8 +147,8 @@ class GetGroupResponseBody(object):
 
 
 class GetGroupResponseBodyBuilder(object):
-    def __init__(self, get_group_response_body: GetGroupResponseBody = GetGroupResponseBody({})) -> None:
-        self._get_group_response_body: GetGroupResponseBody = get_group_response_body
+    def __init__(self) -> None:
+        self._get_group_response_body = GetGroupResponseBody()
 
     def group_id(self, group_id: str) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.group_id = group_id

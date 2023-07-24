@@ -18,7 +18,7 @@ class Meta(object):
         "sec_label_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.doc_token: Optional[str] = None
         self.doc_type: Optional[str] = None
         self.title: Optional[str] = None
@@ -36,8 +36,8 @@ class Meta(object):
 
 
 class MetaBuilder(object):
-    def __init__(self, meta: Meta = Meta({})) -> None:
-        self._meta: Meta = meta
+    def __init__(self) -> None:
+        self._meta = Meta()
 
     def doc_token(self, doc_token: str) -> "MetaBuilder":
         self._meta.doc_token = doc_token

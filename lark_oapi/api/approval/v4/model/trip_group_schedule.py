@@ -19,7 +19,7 @@ class TripGroupSchedule(object):
         "destination_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.trip_start_time: Optional[str] = None
         self.trip_end_time: Optional[str] = None
         self.trip_interval: Optional[str] = None
@@ -38,8 +38,8 @@ class TripGroupSchedule(object):
 
 
 class TripGroupScheduleBuilder(object):
-    def __init__(self, trip_group_schedule: TripGroupSchedule = TripGroupSchedule({})) -> None:
-        self._trip_group_schedule: TripGroupSchedule = trip_group_schedule
+    def __init__(self) -> None:
+        self._trip_group_schedule = TripGroupSchedule()
 
     def trip_start_time(self, trip_start_time: str) -> "TripGroupScheduleBuilder":
         self._trip_group_schedule.trip_start_time = trip_start_time

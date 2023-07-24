@@ -11,7 +11,7 @@ class CreateShortcutFileResponseBody(object):
         "succ_shortcut_node": File,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.succ_shortcut_node: Optional[File] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateShortcutFileResponseBody(object):
 
 
 class CreateShortcutFileResponseBodyBuilder(object):
-    def __init__(self,
-                 create_shortcut_file_response_body: CreateShortcutFileResponseBody = CreateShortcutFileResponseBody(
-                     {})) -> None:
-        self._create_shortcut_file_response_body: CreateShortcutFileResponseBody = create_shortcut_file_response_body
+    def __init__(self) -> None:
+        self._create_shortcut_file_response_body = CreateShortcutFileResponseBody()
 
     def succ_shortcut_node(self, succ_shortcut_node: File) -> "CreateShortcutFileResponseBodyBuilder":
         self._create_shortcut_file_response_body.succ_shortcut_node = succ_shortcut_node

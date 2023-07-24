@@ -10,7 +10,7 @@ class CreateImageResponseBody(object):
         "image_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_key: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class CreateImageResponseBody(object):
 
 
 class CreateImageResponseBodyBuilder(object):
-    def __init__(self, create_image_response_body: CreateImageResponseBody = CreateImageResponseBody({})) -> None:
-        self._create_image_response_body: CreateImageResponseBody = create_image_response_body
+    def __init__(self) -> None:
+        self._create_image_response_body = CreateImageResponseBody()
 
     def image_key(self, image_key: str) -> "CreateImageResponseBodyBuilder":
         self._create_image_response_body.image_key = image_key

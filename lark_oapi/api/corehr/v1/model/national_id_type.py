@@ -21,7 +21,7 @@ class NationalIdType(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.country_region_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
@@ -39,8 +39,8 @@ class NationalIdType(object):
 
 
 class NationalIdTypeBuilder(object):
-    def __init__(self, national_id_type: NationalIdType = NationalIdType({})) -> None:
-        self._national_id_type: NationalIdType = national_id_type
+    def __init__(self) -> None:
+        self._national_id_type = NationalIdType()
 
     def id(self, id: str) -> "NationalIdTypeBuilder":
         self._national_id_type.id = id

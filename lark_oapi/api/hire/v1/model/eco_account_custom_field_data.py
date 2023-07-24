@@ -14,7 +14,7 @@ class EcoAccountCustomFieldData(object):
         "description": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.name: Optional[I18n] = None
         self.is_required: Optional[bool] = None
@@ -27,9 +27,8 @@ class EcoAccountCustomFieldData(object):
 
 
 class EcoAccountCustomFieldDataBuilder(object):
-    def __init__(self,
-                 eco_account_custom_field_data: EcoAccountCustomFieldData = EcoAccountCustomFieldData({})) -> None:
-        self._eco_account_custom_field_data: EcoAccountCustomFieldData = eco_account_custom_field_data
+    def __init__(self) -> None:
+        self._eco_account_custom_field_data = EcoAccountCustomFieldData()
 
     def key(self, key: str) -> "EcoAccountCustomFieldDataBuilder":
         self._eco_account_custom_field_data.key = key

@@ -12,7 +12,7 @@ class ListOfferResponse(BaseResponse):
         "data": ListOfferResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListOfferResponseBody] = None
         init(self, d, self._types)

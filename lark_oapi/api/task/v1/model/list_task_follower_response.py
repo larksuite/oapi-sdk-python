@@ -12,7 +12,7 @@ class ListTaskFollowerResponse(BaseResponse):
         "data": ListTaskFollowerResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListTaskFollowerResponseBody] = None
         init(self, d, self._types)

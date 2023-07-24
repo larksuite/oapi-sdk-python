@@ -13,7 +13,7 @@ class BaseDistrict(object):
         "location_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
         self.code: Optional[str] = None
@@ -26,8 +26,8 @@ class BaseDistrict(object):
 
 
 class BaseDistrictBuilder(object):
-    def __init__(self, base_district: BaseDistrict = BaseDistrict({})) -> None:
-        self._base_district: BaseDistrict = base_district
+    def __init__(self) -> None:
+        self._base_district = BaseDistrict()
 
     def zh_name(self, zh_name: str) -> "BaseDistrictBuilder":
         self._base_district.zh_name = zh_name

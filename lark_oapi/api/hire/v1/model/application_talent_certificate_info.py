@@ -12,7 +12,7 @@ class ApplicationTalentCertificateInfo(object):
         "desc": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.desc: Optional[str] = None
@@ -24,10 +24,8 @@ class ApplicationTalentCertificateInfo(object):
 
 
 class ApplicationTalentCertificateInfoBuilder(object):
-    def __init__(self,
-                 application_talent_certificate_info: ApplicationTalentCertificateInfo = ApplicationTalentCertificateInfo(
-                     {})) -> None:
-        self._application_talent_certificate_info: ApplicationTalentCertificateInfo = application_talent_certificate_info
+    def __init__(self) -> None:
+        self._application_talent_certificate_info = ApplicationTalentCertificateInfo()
 
     def id(self, id: str) -> "ApplicationTalentCertificateInfoBuilder":
         self._application_talent_certificate_info.id = id

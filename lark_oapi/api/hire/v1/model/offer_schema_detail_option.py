@@ -13,7 +13,7 @@ class OfferSchemaDetailOption(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[OfferSchemaName] = None
         self.index: Optional[int] = None
         self.active_status: Optional[int] = None
@@ -25,8 +25,8 @@ class OfferSchemaDetailOption(object):
 
 
 class OfferSchemaDetailOptionBuilder(object):
-    def __init__(self, offer_schema_detail_option: OfferSchemaDetailOption = OfferSchemaDetailOption({})) -> None:
-        self._offer_schema_detail_option: OfferSchemaDetailOption = offer_schema_detail_option
+    def __init__(self) -> None:
+        self._offer_schema_detail_option = OfferSchemaDetailOption()
 
     def name(self, name: OfferSchemaName) -> "OfferSchemaDetailOptionBuilder":
         self._offer_schema_detail_option.name = name

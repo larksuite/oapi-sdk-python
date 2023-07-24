@@ -19,8 +19,8 @@ class BatchGetTmpDownloadUrlMediaRequest(BaseRequest):
 
 class BatchGetTmpDownloadUrlMediaRequestBuilder(object):
 
-    def __init__(self,
-                 batch_get_tmp_download_url_media_request: BatchGetTmpDownloadUrlMediaRequest = BatchGetTmpDownloadUrlMediaRequest()) -> None:
+    def __init__(self) -> None:
+        batch_get_tmp_download_url_media_request = BatchGetTmpDownloadUrlMediaRequest()
         batch_get_tmp_download_url_media_request.http_method = HttpMethod.GET
         batch_get_tmp_download_url_media_request.uri = "/open-apis/drive/v1/medias/batch_get_tmp_download_url"
         batch_get_tmp_download_url_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -21,7 +21,8 @@ class PatchReserveConfigRequest(BaseRequest):
 
 class PatchReserveConfigRequestBuilder(object):
 
-    def __init__(self, patch_reserve_config_request: PatchReserveConfigRequest = PatchReserveConfigRequest()) -> None:
+    def __init__(self) -> None:
+        patch_reserve_config_request = PatchReserveConfigRequest()
         patch_reserve_config_request.http_method = HttpMethod.PATCH
         patch_reserve_config_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id"
         patch_reserve_config_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

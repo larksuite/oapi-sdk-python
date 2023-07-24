@@ -12,7 +12,7 @@ class Reason(object):
         "files": List[File],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         self.files: Optional[List[File]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Reason(object):
 
 
 class ReasonBuilder(object):
-    def __init__(self, reason: Reason = Reason({})) -> None:
-        self._reason: Reason = reason
+    def __init__(self) -> None:
+        self._reason = Reason()
 
     def text(self, text: str) -> "ReasonBuilder":
         self._reason.text = text

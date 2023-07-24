@@ -16,7 +16,7 @@ class Reminder(object):
         "text_element_style": TextElementStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.create_user_id: Optional[str] = None
         self.is_notify: Optional[bool] = None
         self.is_whole_day: Optional[bool] = None
@@ -31,8 +31,8 @@ class Reminder(object):
 
 
 class ReminderBuilder(object):
-    def __init__(self, reminder: Reminder = Reminder({})) -> None:
-        self._reminder: Reminder = reminder
+    def __init__(self) -> None:
+        self._reminder = Reminder()
 
     def create_user_id(self, create_user_id: str) -> "ReminderBuilder":
         self._reminder.create_user_id = create_user_id

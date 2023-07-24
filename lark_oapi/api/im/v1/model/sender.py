@@ -13,7 +13,7 @@ class Sender(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.id_type: Optional[str] = None
         self.sender_type: Optional[str] = None
@@ -26,8 +26,8 @@ class Sender(object):
 
 
 class SenderBuilder(object):
-    def __init__(self, sender: Sender = Sender({})) -> None:
-        self._sender: Sender = sender
+    def __init__(self) -> None:
+        self._sender = Sender()
 
     def id(self, id: str) -> "SenderBuilder":
         self._sender.id = id

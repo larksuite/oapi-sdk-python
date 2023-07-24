@@ -11,7 +11,7 @@ class ReqApp(object):
         "folder_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.folder_token: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ReqApp(object):
 
 
 class ReqAppBuilder(object):
-    def __init__(self, req_app: ReqApp = ReqApp({})) -> None:
-        self._req_app: ReqApp = req_app
+    def __init__(self) -> None:
+        self._req_app = ReqApp()
 
     def name(self, name: str) -> "ReqAppBuilder":
         self._req_app.name = name

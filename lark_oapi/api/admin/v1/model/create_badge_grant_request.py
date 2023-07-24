@@ -22,7 +22,8 @@ class CreateBadgeGrantRequest(BaseRequest):
 
 class CreateBadgeGrantRequestBuilder(object):
 
-    def __init__(self, create_badge_grant_request: CreateBadgeGrantRequest = CreateBadgeGrantRequest()) -> None:
+    def __init__(self) -> None:
+        create_badge_grant_request = CreateBadgeGrantRequest()
         create_badge_grant_request.http_method = HttpMethod.POST
         create_badge_grant_request.uri = "/open-apis/admin/v1/badges/:badge_id/grants"
         create_badge_grant_request.token_types = {AccessTokenType.TENANT}

@@ -5,23 +5,26 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.baike.v1.model.download_file_request import DownloadFileRequest
-from lark_oapi.api.baike.v1.model.download_file_response import DownloadFileResponse
-from lark_oapi.api.baike.v1.model.upload_file_request import UploadFileRequest
-from lark_oapi.api.baike.v1.model.upload_file_response import UploadFileResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.download_file_request import DownloadFileRequest
+from ..model.download_file_response import DownloadFileResponse
+from ..model.upload_file_request import UploadFileRequest
+from ..model.upload_file_response import UploadFileResponse
 
 
 class File(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def download(self, request: DownloadFileRequest, option: RequestOption = RequestOption()) -> DownloadFileResponse:
+    def download(self, request: DownloadFileRequest, option: Optional[RequestOption] = None) -> DownloadFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -43,7 +46,10 @@ class File(object):
 
         return response
 
-    def upload(self, request: UploadFileRequest, option: RequestOption = RequestOption()) -> UploadFileResponse:
+    def upload(self, request: UploadFileRequest, option: Optional[RequestOption] = None) -> UploadFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

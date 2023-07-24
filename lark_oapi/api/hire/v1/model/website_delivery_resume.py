@@ -32,7 +32,7 @@ class WebsiteDeliveryResume(object):
         "language_list": List[WebsiteDeliveryLanguage],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.internship_list: Optional[List[WebsiteDeliveryInternship]] = None
         self.basic_info: Optional[WebsiteDeliveryBasicInfo] = None
         self.education_list: Optional[List[WebsiteDeliveryEducation]] = None
@@ -53,8 +53,8 @@ class WebsiteDeliveryResume(object):
 
 
 class WebsiteDeliveryResumeBuilder(object):
-    def __init__(self, website_delivery_resume: WebsiteDeliveryResume = WebsiteDeliveryResume({})) -> None:
-        self._website_delivery_resume: WebsiteDeliveryResume = website_delivery_resume
+    def __init__(self) -> None:
+        self._website_delivery_resume = WebsiteDeliveryResume()
 
     def internship_list(self, internship_list: List[WebsiteDeliveryInternship]) -> "WebsiteDeliveryResumeBuilder":
         self._website_delivery_resume.internship_list = internship_list

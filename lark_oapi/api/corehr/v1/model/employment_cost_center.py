@@ -12,7 +12,7 @@ class EmploymentCostCenter(object):
         "cost_center": List[CostCenter],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.cost_center: Optional[List[CostCenter]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class EmploymentCostCenter(object):
 
 
 class EmploymentCostCenterBuilder(object):
-    def __init__(self, employment_cost_center: EmploymentCostCenter = EmploymentCostCenter({})) -> None:
-        self._employment_cost_center: EmploymentCostCenter = employment_cost_center
+    def __init__(self) -> None:
+        self._employment_cost_center = EmploymentCostCenter()
 
     def employment_id(self, employment_id: str) -> "EmploymentCostCenterBuilder":
         self._employment_cost_center.employment_id = employment_id

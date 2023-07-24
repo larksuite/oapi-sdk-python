@@ -20,8 +20,8 @@ class UnbindUserAuthDataRelationRequest(BaseRequest):
 
 class UnbindUserAuthDataRelationRequestBuilder(object):
 
-    def __init__(self,
-                 unbind_user_auth_data_relation_request: UnbindUserAuthDataRelationRequest = UnbindUserAuthDataRelationRequest()) -> None:
+    def __init__(self) -> None:
+        unbind_user_auth_data_relation_request = UnbindUserAuthDataRelationRequest()
         unbind_user_auth_data_relation_request.http_method = HttpMethod.POST
         unbind_user_auth_data_relation_request.uri = "/open-apis/mdm/v1/user_auth_data_relations/unbind"
         unbind_user_auth_data_relation_request.token_types = {AccessTokenType.TENANT}

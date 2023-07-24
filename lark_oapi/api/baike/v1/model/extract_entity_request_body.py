@@ -10,7 +10,7 @@ class ExtractEntityRequestBody(object):
         "text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ExtractEntityRequestBody(object):
 
 
 class ExtractEntityRequestBodyBuilder(object):
-    def __init__(self, extract_entity_request_body: ExtractEntityRequestBody = ExtractEntityRequestBody({})) -> None:
-        self._extract_entity_request_body: ExtractEntityRequestBody = extract_entity_request_body
+    def __init__(self) -> None:
+        self._extract_entity_request_body = ExtractEntityRequestBody()
 
     def text(self, text: str) -> "ExtractEntityRequestBodyBuilder":
         self._extract_entity_request_body.text = text

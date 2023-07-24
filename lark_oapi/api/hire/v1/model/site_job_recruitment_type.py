@@ -12,7 +12,7 @@ class SiteJobRecruitmentType(object):
         "name": SiteName,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[SiteName] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class SiteJobRecruitmentType(object):
 
 
 class SiteJobRecruitmentTypeBuilder(object):
-    def __init__(self, site_job_recruitment_type: SiteJobRecruitmentType = SiteJobRecruitmentType({})) -> None:
-        self._site_job_recruitment_type: SiteJobRecruitmentType = site_job_recruitment_type
+    def __init__(self) -> None:
+        self._site_job_recruitment_type = SiteJobRecruitmentType()
 
     def id(self, id: str) -> "SiteJobRecruitmentTypeBuilder":
         self._site_job_recruitment_type.id = id

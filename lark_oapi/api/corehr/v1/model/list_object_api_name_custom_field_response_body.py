@@ -13,7 +13,7 @@ class ListObjectApiNameCustomFieldResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Object]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListObjectApiNameCustomFieldResponseBody(object):
 
 
 class ListObjectApiNameCustomFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 list_object_api_name_custom_field_response_body: ListObjectApiNameCustomFieldResponseBody = ListObjectApiNameCustomFieldResponseBody(
-                     {})) -> None:
-        self._list_object_api_name_custom_field_response_body: ListObjectApiNameCustomFieldResponseBody = list_object_api_name_custom_field_response_body
+    def __init__(self) -> None:
+        self._list_object_api_name_custom_field_response_body = ListObjectApiNameCustomFieldResponseBody()
 
     def items(self, items: List[Object]) -> "ListObjectApiNameCustomFieldResponseBodyBuilder":
         self._list_object_api_name_custom_field_response_body.items = items

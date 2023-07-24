@@ -20,7 +20,7 @@ class QualityVideoSharing(object):
         "framerate_sent": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time: Optional[str] = None
         self.bitrate_received: Optional[str] = None
         self.latency_received: Optional[str] = None
@@ -40,8 +40,8 @@ class QualityVideoSharing(object):
 
 
 class QualityVideoSharingBuilder(object):
-    def __init__(self, quality_video_sharing: QualityVideoSharing = QualityVideoSharing({})) -> None:
-        self._quality_video_sharing: QualityVideoSharing = quality_video_sharing
+    def __init__(self) -> None:
+        self._quality_video_sharing = QualityVideoSharing()
 
     def time(self, time: str) -> "QualityVideoSharingBuilder":
         self._quality_video_sharing.time = time

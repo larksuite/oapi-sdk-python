@@ -12,7 +12,7 @@ class CalendarFreebusy(object):
         "calendar_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         self.calendar_id: Optional[str] = None
@@ -24,8 +24,8 @@ class CalendarFreebusy(object):
 
 
 class CalendarFreebusyBuilder(object):
-    def __init__(self, calendar_freebusy: CalendarFreebusy = CalendarFreebusy({})) -> None:
-        self._calendar_freebusy: CalendarFreebusy = calendar_freebusy
+    def __init__(self) -> None:
+        self._calendar_freebusy = CalendarFreebusy()
 
     def start_time(self, start_time: str) -> "CalendarFreebusyBuilder":
         self._calendar_freebusy.start_time = start_time

@@ -10,7 +10,7 @@ class JobProcess(object):
         "your_property_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.your_property_name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class JobProcess(object):
 
 
 class JobProcessBuilder(object):
-    def __init__(self, job_process: JobProcess = JobProcess({})) -> None:
-        self._job_process: JobProcess = job_process
+    def __init__(self) -> None:
+        self._job_process = JobProcess()
 
     def your_property_name(self, your_property_name: str) -> "JobProcessBuilder":
         self._job_process.your_property_name = your_property_name

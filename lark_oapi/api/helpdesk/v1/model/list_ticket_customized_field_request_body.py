@@ -10,7 +10,7 @@ class ListTicketCustomizedFieldRequestBody(object):
         "visible": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.visible: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class ListTicketCustomizedFieldRequestBody(object):
 
 
 class ListTicketCustomizedFieldRequestBodyBuilder(object):
-    def __init__(self,
-                 list_ticket_customized_field_request_body: ListTicketCustomizedFieldRequestBody = ListTicketCustomizedFieldRequestBody(
-                     {})) -> None:
-        self._list_ticket_customized_field_request_body: ListTicketCustomizedFieldRequestBody = list_ticket_customized_field_request_body
+    def __init__(self) -> None:
+        self._list_ticket_customized_field_request_body = ListTicketCustomizedFieldRequestBody()
 
     def visible(self, visible: bool) -> "ListTicketCustomizedFieldRequestBodyBuilder":
         self._list_ticket_customized_field_request_body.visible = visible

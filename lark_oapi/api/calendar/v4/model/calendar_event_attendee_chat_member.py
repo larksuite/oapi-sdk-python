@@ -15,7 +15,7 @@ class CalendarEventAttendeeChatMember(object):
         "is_external": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rsvp_status: Optional[str] = None
         self.is_optional: Optional[bool] = None
         self.display_name: Optional[str] = None
@@ -30,10 +30,8 @@ class CalendarEventAttendeeChatMember(object):
 
 
 class CalendarEventAttendeeChatMemberBuilder(object):
-    def __init__(self,
-                 calendar_event_attendee_chat_member: CalendarEventAttendeeChatMember = CalendarEventAttendeeChatMember(
-                     {})) -> None:
-        self._calendar_event_attendee_chat_member: CalendarEventAttendeeChatMember = calendar_event_attendee_chat_member
+    def __init__(self) -> None:
+        self._calendar_event_attendee_chat_member = CalendarEventAttendeeChatMember()
 
     def rsvp_status(self, rsvp_status: str) -> "CalendarEventAttendeeChatMemberBuilder":
         self._calendar_event_attendee_chat_member.rsvp_status = rsvp_status

@@ -10,7 +10,7 @@ class BatchDeleteAppTableRequestBody(object):
         "table_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.table_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class BatchDeleteAppTableRequestBody(object):
 
 
 class BatchDeleteAppTableRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_app_table_request_body: BatchDeleteAppTableRequestBody = BatchDeleteAppTableRequestBody(
-                     {})) -> None:
-        self._batch_delete_app_table_request_body: BatchDeleteAppTableRequestBody = batch_delete_app_table_request_body
+    def __init__(self) -> None:
+        self._batch_delete_app_table_request_body = BatchDeleteAppTableRequestBody()
 
     def table_ids(self, table_ids: List[str]) -> "BatchDeleteAppTableRequestBodyBuilder":
         self._batch_delete_app_table_request_body.table_ids = table_ids

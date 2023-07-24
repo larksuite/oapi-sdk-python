@@ -13,7 +13,7 @@ class ListWorkingHoursTypeResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[WorkingHoursType]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListWorkingHoursTypeResponseBody(object):
 
 
 class ListWorkingHoursTypeResponseBodyBuilder(object):
-    def __init__(self,
-                 list_working_hours_type_response_body: ListWorkingHoursTypeResponseBody = ListWorkingHoursTypeResponseBody(
-                     {})) -> None:
-        self._list_working_hours_type_response_body: ListWorkingHoursTypeResponseBody = list_working_hours_type_response_body
+    def __init__(self) -> None:
+        self._list_working_hours_type_response_body = ListWorkingHoursTypeResponseBody()
 
     def items(self, items: List[WorkingHoursType]) -> "ListWorkingHoursTypeResponseBodyBuilder":
         self._list_working_hours_type_response_body.items = items

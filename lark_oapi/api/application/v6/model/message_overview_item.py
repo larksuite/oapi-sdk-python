@@ -14,7 +14,7 @@ class MessageOverviewItem(object):
         "event_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.page_view: Optional[int] = None
         self.unique_visitor: Optional[int] = None
         self.chat_type: Optional[str] = None
@@ -28,8 +28,8 @@ class MessageOverviewItem(object):
 
 
 class MessageOverviewItemBuilder(object):
-    def __init__(self, message_overview_item: MessageOverviewItem = MessageOverviewItem({})) -> None:
-        self._message_overview_item: MessageOverviewItem = message_overview_item
+    def __init__(self) -> None:
+        self._message_overview_item = MessageOverviewItem()
 
     def page_view(self, page_view: int) -> "MessageOverviewItemBuilder":
         self._message_overview_item.page_view = page_view

@@ -12,7 +12,7 @@ class ReserveActionPermission(object):
         "permission_checkers": List[ReservePermissionChecker],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission: Optional[int] = None
         self.permission_checkers: Optional[List[ReservePermissionChecker]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ReserveActionPermission(object):
 
 
 class ReserveActionPermissionBuilder(object):
-    def __init__(self, reserve_action_permission: ReserveActionPermission = ReserveActionPermission({})) -> None:
-        self._reserve_action_permission: ReserveActionPermission = reserve_action_permission
+    def __init__(self) -> None:
+        self._reserve_action_permission = ReserveActionPermission()
 
     def permission(self, permission: int) -> "ReserveActionPermissionBuilder":
         self._reserve_action_permission.permission = permission

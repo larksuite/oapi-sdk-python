@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.task.v1.model.create_task_collaborator_request import CreateTaskCollaboratorRequest
-from lark_oapi.api.task.v1.model.create_task_collaborator_response import CreateTaskCollaboratorResponse
-from lark_oapi.api.task.v1.model.delete_task_collaborator_request import DeleteTaskCollaboratorRequest
-from lark_oapi.api.task.v1.model.delete_task_collaborator_response import DeleteTaskCollaboratorResponse
-from lark_oapi.api.task.v1.model.list_task_collaborator_request import ListTaskCollaboratorRequest
-from lark_oapi.api.task.v1.model.list_task_collaborator_response import ListTaskCollaboratorResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_task_collaborator_request import CreateTaskCollaboratorRequest
+from ..model.create_task_collaborator_response import CreateTaskCollaboratorResponse
+from ..model.delete_task_collaborator_request import DeleteTaskCollaboratorRequest
+from ..model.delete_task_collaborator_response import DeleteTaskCollaboratorResponse
+from ..model.list_task_collaborator_request import ListTaskCollaboratorRequest
+from ..model.list_task_collaborator_response import ListTaskCollaboratorResponse
 
 
 class TaskCollaborator(object):
@@ -20,7 +20,10 @@ class TaskCollaborator(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateTaskCollaboratorRequest,
-               option: RequestOption = RequestOption()) -> CreateTaskCollaboratorResponse:
+               option: Optional[RequestOption] = None) -> CreateTaskCollaboratorResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class TaskCollaborator(object):
         return response
 
     def delete(self, request: DeleteTaskCollaboratorRequest,
-               option: RequestOption = RequestOption()) -> DeleteTaskCollaboratorResponse:
+               option: Optional[RequestOption] = None) -> DeleteTaskCollaboratorResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class TaskCollaborator(object):
         return response
 
     def list(self, request: ListTaskCollaboratorRequest,
-             option: RequestOption = RequestOption()) -> ListTaskCollaboratorResponse:
+             option: Optional[RequestOption] = None) -> ListTaskCollaboratorResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

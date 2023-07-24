@@ -13,7 +13,7 @@ class ListUserResponseBody(object):
         "items": List[User],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[User]] = None
@@ -25,8 +25,8 @@ class ListUserResponseBody(object):
 
 
 class ListUserResponseBodyBuilder(object):
-    def __init__(self, list_user_response_body: ListUserResponseBody = ListUserResponseBody({})) -> None:
-        self._list_user_response_body: ListUserResponseBody = list_user_response_body
+    def __init__(self) -> None:
+        self._list_user_response_body = ListUserResponseBody()
 
     def has_more(self, has_more: bool) -> "ListUserResponseBodyBuilder":
         self._list_user_response_body.has_more = has_more

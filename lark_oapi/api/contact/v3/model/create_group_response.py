@@ -12,7 +12,7 @@ class CreateGroupResponse(BaseResponse):
         "data": CreateGroupResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateGroupResponseBody] = None
         init(self, d, self._types)

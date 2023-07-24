@@ -11,7 +11,7 @@ class DeleteManagersChatManagersResponseBody(object):
         "chat_bot_managers": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_managers: Optional[List[str]] = None
         self.chat_bot_managers: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class DeleteManagersChatManagersResponseBody(object):
 
 
 class DeleteManagersChatManagersResponseBodyBuilder(object):
-    def __init__(self,
-                 delete_managers_chat_managers_response_body: DeleteManagersChatManagersResponseBody = DeleteManagersChatManagersResponseBody(
-                     {})) -> None:
-        self._delete_managers_chat_managers_response_body: DeleteManagersChatManagersResponseBody = delete_managers_chat_managers_response_body
+    def __init__(self) -> None:
+        self._delete_managers_chat_managers_response_body = DeleteManagersChatManagersResponseBody()
 
     def chat_managers(self, chat_managers: List[str]) -> "DeleteManagersChatManagersResponseBodyBuilder":
         self._delete_managers_chat_managers_response_body.chat_managers = chat_managers

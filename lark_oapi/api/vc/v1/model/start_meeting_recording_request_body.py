@@ -10,7 +10,7 @@ class StartMeetingRecordingRequestBody(object):
         "timezone": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.timezone: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class StartMeetingRecordingRequestBody(object):
 
 
 class StartMeetingRecordingRequestBodyBuilder(object):
-    def __init__(self,
-                 start_meeting_recording_request_body: StartMeetingRecordingRequestBody = StartMeetingRecordingRequestBody(
-                     {})) -> None:
-        self._start_meeting_recording_request_body: StartMeetingRecordingRequestBody = start_meeting_recording_request_body
+    def __init__(self) -> None:
+        self._start_meeting_recording_request_body = StartMeetingRecordingRequestBody()
 
     def timezone(self, timezone: int) -> "StartMeetingRecordingRequestBodyBuilder":
         self._start_meeting_recording_request_body.timezone = timezone

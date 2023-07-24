@@ -11,7 +11,7 @@ class RequestDoc(object):
         "doc_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.doc_token: Optional[str] = None
         self.doc_type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class RequestDoc(object):
 
 
 class RequestDocBuilder(object):
-    def __init__(self, request_doc: RequestDoc = RequestDoc({})) -> None:
-        self._request_doc: RequestDoc = request_doc
+    def __init__(self) -> None:
+        self._request_doc = RequestDoc()
 
     def doc_token(self, doc_token: str) -> "RequestDocBuilder":
         self._request_doc.doc_token = doc_token

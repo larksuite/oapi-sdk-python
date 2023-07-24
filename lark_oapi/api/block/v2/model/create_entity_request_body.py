@@ -21,7 +21,7 @@ class CreateEntityRequestBody(object):
         "preview": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.block_type_id: Optional[str] = None
         self.source_data: Optional[str] = None
@@ -42,8 +42,8 @@ class CreateEntityRequestBody(object):
 
 
 class CreateEntityRequestBodyBuilder(object):
-    def __init__(self, create_entity_request_body: CreateEntityRequestBody = CreateEntityRequestBody({})) -> None:
-        self._create_entity_request_body: CreateEntityRequestBody = create_entity_request_body
+    def __init__(self) -> None:
+        self._create_entity_request_body = CreateEntityRequestBody()
 
     def title(self, title: str) -> "CreateEntityRequestBodyBuilder":
         self._create_entity_request_body.title = title

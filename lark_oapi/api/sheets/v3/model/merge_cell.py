@@ -12,7 +12,7 @@ class MergeCell(object):
         "merge_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[MergeRange] = None
         self.merge_type: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class MergeCell(object):
 
 
 class MergeCellBuilder(object):
-    def __init__(self, merge_cell: MergeCell = MergeCell({})) -> None:
-        self._merge_cell: MergeCell = merge_cell
+    def __init__(self) -> None:
+        self._merge_cell = MergeCell()
 
     def range(self, range: MergeRange) -> "MergeCellBuilder":
         self._merge_cell.range = range

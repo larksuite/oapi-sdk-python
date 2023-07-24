@@ -11,7 +11,7 @@ class CreateAppTableFieldResponseBody(object):
         "field": AppTableField,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field: Optional[AppTableField] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateAppTableFieldResponseBody(object):
 
 
 class CreateAppTableFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 create_app_table_field_response_body: CreateAppTableFieldResponseBody = CreateAppTableFieldResponseBody(
-                     {})) -> None:
-        self._create_app_table_field_response_body: CreateAppTableFieldResponseBody = create_app_table_field_response_body
+    def __init__(self) -> None:
+        self._create_app_table_field_response_body = CreateAppTableFieldResponseBody()
 
     def field(self, field: AppTableField) -> "CreateAppTableFieldResponseBodyBuilder":
         self._create_app_table_field_response_body.field = field

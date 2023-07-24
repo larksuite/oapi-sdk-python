@@ -13,7 +13,7 @@ class TodoCommon(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.talent_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.application_id: Optional[str] = None
@@ -26,8 +26,8 @@ class TodoCommon(object):
 
 
 class TodoCommonBuilder(object):
-    def __init__(self, todo_common: TodoCommon = TodoCommon({})) -> None:
-        self._todo_common: TodoCommon = todo_common
+    def __init__(self) -> None:
+        self._todo_common = TodoCommon()
 
     def talent_id(self, talent_id: str) -> "TodoCommonBuilder":
         self._todo_common.talent_id = talent_id

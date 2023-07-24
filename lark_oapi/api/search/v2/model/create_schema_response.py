@@ -12,7 +12,7 @@ class CreateSchemaResponse(BaseResponse):
         "data": CreateSchemaResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateSchemaResponseBody] = None
         init(self, d, self._types)

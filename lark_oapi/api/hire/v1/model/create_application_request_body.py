@@ -13,7 +13,7 @@ class CreateApplicationRequestBody(object):
         "application_preferred_city_code_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.talent_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.resume_source_id: Optional[str] = None
@@ -26,9 +26,8 @@ class CreateApplicationRequestBody(object):
 
 
 class CreateApplicationRequestBodyBuilder(object):
-    def __init__(self, create_application_request_body: CreateApplicationRequestBody = CreateApplicationRequestBody(
-        {})) -> None:
-        self._create_application_request_body: CreateApplicationRequestBody = create_application_request_body
+    def __init__(self) -> None:
+        self._create_application_request_body = CreateApplicationRequestBody()
 
     def talent_id(self, talent_id: str) -> "CreateApplicationRequestBodyBuilder":
         self._create_application_request_body.talent_id = talent_id

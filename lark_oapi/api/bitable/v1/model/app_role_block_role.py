@@ -12,7 +12,7 @@ class AppRoleBlockRole(object):
         "block_perm": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block_id: Optional[str] = None
         self.block_type: Optional[str] = None
         self.block_perm: Optional[int] = None
@@ -24,8 +24,8 @@ class AppRoleBlockRole(object):
 
 
 class AppRoleBlockRoleBuilder(object):
-    def __init__(self, app_role_block_role: AppRoleBlockRole = AppRoleBlockRole({})) -> None:
-        self._app_role_block_role: AppRoleBlockRole = app_role_block_role
+    def __init__(self) -> None:
+        self._app_role_block_role = AppRoleBlockRole()
 
     def block_id(self, block_id: str) -> "AppRoleBlockRoleBuilder":
         self._app_role_block_role.block_id = block_id

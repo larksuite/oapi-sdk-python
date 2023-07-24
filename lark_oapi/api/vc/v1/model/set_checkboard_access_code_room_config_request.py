@@ -19,8 +19,8 @@ class SetCheckboardAccessCodeRoomConfigRequest(BaseRequest):
 
 class SetCheckboardAccessCodeRoomConfigRequestBuilder(object):
 
-    def __init__(self,
-                 set_checkboard_access_code_room_config_request: SetCheckboardAccessCodeRoomConfigRequest = SetCheckboardAccessCodeRoomConfigRequest()) -> None:
+    def __init__(self) -> None:
+        set_checkboard_access_code_room_config_request = SetCheckboardAccessCodeRoomConfigRequest()
         set_checkboard_access_code_room_config_request.http_method = HttpMethod.POST
         set_checkboard_access_code_room_config_request.uri = "/open-apis/vc/v1/room_configs/set_checkboard_access_code"
         set_checkboard_access_code_room_config_request.token_types = {AccessTokenType.TENANT}

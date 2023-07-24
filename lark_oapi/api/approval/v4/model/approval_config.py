@@ -14,7 +14,7 @@ class ApprovalConfig(object):
         "help_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.can_update_viewer: Optional[bool] = None
         self.can_update_form: Optional[bool] = None
         self.can_update_process: Optional[bool] = None
@@ -28,8 +28,8 @@ class ApprovalConfig(object):
 
 
 class ApprovalConfigBuilder(object):
-    def __init__(self, approval_config: ApprovalConfig = ApprovalConfig({})) -> None:
-        self._approval_config: ApprovalConfig = approval_config
+    def __init__(self) -> None:
+        self._approval_config = ApprovalConfig()
 
     def can_update_viewer(self, can_update_viewer: bool) -> "ApprovalConfigBuilder":
         self._approval_config.can_update_viewer = can_update_viewer

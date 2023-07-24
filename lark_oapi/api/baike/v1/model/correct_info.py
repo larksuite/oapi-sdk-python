@@ -16,7 +16,7 @@ class CorrectInfo(object):
         "verb_tense_error": CorrectError,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.correct_total: Optional[int] = None
         self.eachday_correct: Optional[List[int]] = None
         self.grammar_error: Optional[CorrectError] = None
@@ -31,8 +31,8 @@ class CorrectInfo(object):
 
 
 class CorrectInfoBuilder(object):
-    def __init__(self, correct_info: CorrectInfo = CorrectInfo({})) -> None:
-        self._correct_info: CorrectInfo = correct_info
+    def __init__(self) -> None:
+        self._correct_info = CorrectInfo()
 
     def correct_total(self, correct_total: int) -> "CorrectInfoBuilder":
         self._correct_info.correct_total = correct_total

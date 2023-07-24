@@ -12,7 +12,7 @@ class Due(object):
         "is_all_day": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time: Optional[int] = None
         self.timezone: Optional[str] = None
         self.is_all_day: Optional[bool] = None
@@ -24,8 +24,8 @@ class Due(object):
 
 
 class DueBuilder(object):
-    def __init__(self, due: Due = Due({})) -> None:
-        self._due: Due = due
+    def __init__(self) -> None:
+        self._due = Due()
 
     def time(self, time: int) -> "DueBuilder":
         self._due.time = time

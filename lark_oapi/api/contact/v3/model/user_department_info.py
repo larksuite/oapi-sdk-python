@@ -12,7 +12,7 @@ class UserDepartmentInfo(object):
         "department_order": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[int] = None
         self.user_order: Optional[int] = None
         self.department_order: Optional[int] = None
@@ -24,8 +24,8 @@ class UserDepartmentInfo(object):
 
 
 class UserDepartmentInfoBuilder(object):
-    def __init__(self, user_department_info: UserDepartmentInfo = UserDepartmentInfo({})) -> None:
-        self._user_department_info: UserDepartmentInfo = user_department_info
+    def __init__(self) -> None:
+        self._user_department_info = UserDepartmentInfo()
 
     def department_id(self, department_id: int) -> "UserDepartmentInfoBuilder":
         self._user_department_info.department_id = department_id

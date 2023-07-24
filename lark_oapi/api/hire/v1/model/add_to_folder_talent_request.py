@@ -19,7 +19,8 @@ class AddToFolderTalentRequest(BaseRequest):
 
 class AddToFolderTalentRequestBuilder(object):
 
-    def __init__(self, add_to_folder_talent_request: AddToFolderTalentRequest = AddToFolderTalentRequest()) -> None:
+    def __init__(self) -> None:
+        add_to_folder_talent_request = AddToFolderTalentRequest()
         add_to_folder_talent_request.http_method = HttpMethod.POST
         add_to_folder_talent_request.uri = "/open-apis/hire/v1/talents/add_to_folder"
         add_to_folder_talent_request.token_types = {AccessTokenType.TENANT}

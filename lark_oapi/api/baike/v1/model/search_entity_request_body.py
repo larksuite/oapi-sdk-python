@@ -14,7 +14,7 @@ class SearchEntityRequestBody(object):
         "creators": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.query: Optional[str] = None
         self.classification_filter: Optional[ClassificationFilter] = None
         self.sources: Optional[List[int]] = None
@@ -27,8 +27,8 @@ class SearchEntityRequestBody(object):
 
 
 class SearchEntityRequestBodyBuilder(object):
-    def __init__(self, search_entity_request_body: SearchEntityRequestBody = SearchEntityRequestBody({})) -> None:
-        self._search_entity_request_body: SearchEntityRequestBody = search_entity_request_body
+    def __init__(self) -> None:
+        self._search_entity_request_body = SearchEntityRequestBody()
 
     def query(self, query: str) -> "SearchEntityRequestBodyBuilder":
         self._search_entity_request_body.query = query

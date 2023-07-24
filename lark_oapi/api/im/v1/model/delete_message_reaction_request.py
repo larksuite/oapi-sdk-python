@@ -19,8 +19,8 @@ class DeleteMessageReactionRequest(BaseRequest):
 
 class DeleteMessageReactionRequestBuilder(object):
 
-    def __init__(self,
-                 delete_message_reaction_request: DeleteMessageReactionRequest = DeleteMessageReactionRequest()) -> None:
+    def __init__(self) -> None:
+        delete_message_reaction_request = DeleteMessageReactionRequest()
         delete_message_reaction_request.http_method = HttpMethod.DELETE
         delete_message_reaction_request.uri = "/open-apis/im/v1/messages/:message_id/reactions/:reaction_id"
         delete_message_reaction_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

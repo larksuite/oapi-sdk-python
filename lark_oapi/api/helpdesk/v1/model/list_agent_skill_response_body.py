@@ -11,7 +11,7 @@ class ListAgentSkillResponseBody(object):
         "agent_skills": List[AgentSkill],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_skills: Optional[List[AgentSkill]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class ListAgentSkillResponseBody(object):
 
 
 class ListAgentSkillResponseBodyBuilder(object):
-    def __init__(self,
-                 list_agent_skill_response_body: ListAgentSkillResponseBody = ListAgentSkillResponseBody({})) -> None:
-        self._list_agent_skill_response_body: ListAgentSkillResponseBody = list_agent_skill_response_body
+    def __init__(self) -> None:
+        self._list_agent_skill_response_body = ListAgentSkillResponseBody()
 
     def agent_skills(self, agent_skills: List[AgentSkill]) -> "ListAgentSkillResponseBodyBuilder":
         self._list_agent_skill_response_body.agent_skills = agent_skills

@@ -14,7 +14,7 @@ class JobTitle(object):
         "status": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_title_id: Optional[str] = None
         self.name: Optional[str] = None
         self.i18n_name: Optional[List[I18nContent]] = None
@@ -27,8 +27,8 @@ class JobTitle(object):
 
 
 class JobTitleBuilder(object):
-    def __init__(self, job_title: JobTitle = JobTitle({})) -> None:
-        self._job_title: JobTitle = job_title
+    def __init__(self) -> None:
+        self._job_title = JobTitle()
 
     def job_title_id(self, job_title_id: str) -> "JobTitleBuilder":
         self._job_title.job_title_id = job_title_id

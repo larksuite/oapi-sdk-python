@@ -20,7 +20,8 @@ class QuerySecurityGroupRequest(BaseRequest):
 
 class QuerySecurityGroupRequestBuilder(object):
 
-    def __init__(self, query_security_group_request: QuerySecurityGroupRequest = QuerySecurityGroupRequest()) -> None:
+    def __init__(self) -> None:
+        query_security_group_request = QuerySecurityGroupRequest()
         query_security_group_request.http_method = HttpMethod.POST
         query_security_group_request.uri = "/open-apis/corehr/v1/security_groups/query"
         query_security_group_request.token_types = {AccessTokenType.TENANT}

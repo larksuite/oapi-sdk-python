@@ -14,7 +14,7 @@ class TalentCompetitionInfo(object):
         "customized_data_list": List[TalentCustomizedDataChild],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.desc: Optional[str] = None
@@ -27,8 +27,8 @@ class TalentCompetitionInfo(object):
 
 
 class TalentCompetitionInfoBuilder(object):
-    def __init__(self, talent_competition_info: TalentCompetitionInfo = TalentCompetitionInfo({})) -> None:
-        self._talent_competition_info: TalentCompetitionInfo = talent_competition_info
+    def __init__(self) -> None:
+        self._talent_competition_info = TalentCompetitionInfo()
 
     def id(self, id: str) -> "TalentCompetitionInfoBuilder":
         self._talent_competition_info.id = id

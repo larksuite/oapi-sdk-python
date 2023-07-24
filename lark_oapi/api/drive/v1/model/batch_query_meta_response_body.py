@@ -13,7 +13,7 @@ class BatchQueryMetaResponseBody(object):
         "failed_list": List[MetaFailed],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metas: Optional[List[Meta]] = None
         self.failed_list: Optional[List[MetaFailed]] = None
         init(self, d, self._types)
@@ -24,9 +24,8 @@ class BatchQueryMetaResponseBody(object):
 
 
 class BatchQueryMetaResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_query_meta_response_body: BatchQueryMetaResponseBody = BatchQueryMetaResponseBody({})) -> None:
-        self._batch_query_meta_response_body: BatchQueryMetaResponseBody = batch_query_meta_response_body
+    def __init__(self) -> None:
+        self._batch_query_meta_response_body = BatchQueryMetaResponseBody()
 
     def metas(self, metas: List[Meta]) -> "BatchQueryMetaResponseBodyBuilder":
         self._batch_query_meta_response_body.metas = metas

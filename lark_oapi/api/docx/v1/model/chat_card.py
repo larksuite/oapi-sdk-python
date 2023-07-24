@@ -11,7 +11,7 @@ class ChatCard(object):
         "align": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_id: Optional[int] = None
         self.align: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ChatCard(object):
 
 
 class ChatCardBuilder(object):
-    def __init__(self, chat_card: ChatCard = ChatCard({})) -> None:
-        self._chat_card: ChatCard = chat_card
+    def __init__(self) -> None:
+        self._chat_card = ChatCard()
 
     def chat_id(self, chat_id: int) -> "ChatCardBuilder":
         self._chat_card.chat_id = chat_id

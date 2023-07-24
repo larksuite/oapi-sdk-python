@@ -15,7 +15,7 @@ class UserOkrObjectiveKr(object):
         "progress_rate": UserOkrObjectiveProgressRate,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.content: Optional[str] = None
         self.score: Optional[int] = None
@@ -29,8 +29,8 @@ class UserOkrObjectiveKr(object):
 
 
 class UserOkrObjectiveKrBuilder(object):
-    def __init__(self, user_okr_objective_kr: UserOkrObjectiveKr = UserOkrObjectiveKr({})) -> None:
-        self._user_okr_objective_kr: UserOkrObjectiveKr = user_okr_objective_kr
+    def __init__(self) -> None:
+        self._user_okr_objective_kr = UserOkrObjectiveKr()
 
     def id(self, id: str) -> "UserOkrObjectiveKrBuilder":
         self._user_okr_objective_kr.id = id

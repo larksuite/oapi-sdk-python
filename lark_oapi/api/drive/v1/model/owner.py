@@ -11,7 +11,7 @@ class Owner(object):
         "member_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_type: Optional[str] = None
         self.member_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Owner(object):
 
 
 class OwnerBuilder(object):
-    def __init__(self, owner: Owner = Owner({})) -> None:
-        self._owner: Owner = owner
+    def __init__(self) -> None:
+        self._owner = Owner()
 
     def member_type(self, member_type: str) -> "OwnerBuilder":
         self._owner.member_type = member_type

@@ -11,7 +11,7 @@ class SubscribeDepartment(object):
         "department_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[int] = None
         self.department_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SubscribeDepartment(object):
 
 
 class SubscribeDepartmentBuilder(object):
-    def __init__(self, subscribe_department: SubscribeDepartment = SubscribeDepartment({})) -> None:
-        self._subscribe_department: SubscribeDepartment = subscribe_department
+    def __init__(self) -> None:
+        self._subscribe_department = SubscribeDepartment()
 
     def department_id(self, department_id: int) -> "SubscribeDepartmentBuilder":
         self._subscribe_department.department_id = department_id

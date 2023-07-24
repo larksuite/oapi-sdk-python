@@ -11,7 +11,7 @@ class ExternalInstanceTask(object):
         "update_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         self.update_time: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ExternalInstanceTask(object):
 
 
 class ExternalInstanceTaskBuilder(object):
-    def __init__(self, external_instance_task: ExternalInstanceTask = ExternalInstanceTask({})) -> None:
-        self._external_instance_task: ExternalInstanceTask = external_instance_task
+    def __init__(self) -> None:
+        self._external_instance_task = ExternalInstanceTask()
 
     def task_id(self, task_id: str) -> "ExternalInstanceTaskBuilder":
         self._external_instance_task.task_id = task_id

@@ -12,7 +12,7 @@ class ListEventModerator(object):
         "user_id": UserId,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tenant_key: Optional[str] = None
         self.user_id: Optional[UserId] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ListEventModerator(object):
 
 
 class ListEventModeratorBuilder(object):
-    def __init__(self, list_event_moderator: ListEventModerator = ListEventModerator({})) -> None:
-        self._list_event_moderator: ListEventModerator = list_event_moderator
+    def __init__(self) -> None:
+        self._list_event_moderator = ListEventModerator()
 
     def tenant_key(self, tenant_key: str) -> "ListEventModeratorBuilder":
         self._list_event_moderator.tenant_key = tenant_key

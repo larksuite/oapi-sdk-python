@@ -13,7 +13,7 @@ class GetProgressRecordResponseBody(object):
         "content": ContentBlock,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.progress_id: Optional[int] = None
         self.modify_time: Optional[int] = None
         self.content: Optional[ContentBlock] = None
@@ -25,9 +25,8 @@ class GetProgressRecordResponseBody(object):
 
 
 class GetProgressRecordResponseBodyBuilder(object):
-    def __init__(self, get_progress_record_response_body: GetProgressRecordResponseBody = GetProgressRecordResponseBody(
-        {})) -> None:
-        self._get_progress_record_response_body: GetProgressRecordResponseBody = get_progress_record_response_body
+    def __init__(self) -> None:
+        self._get_progress_record_response_body = GetProgressRecordResponseBody()
 
     def progress_id(self, progress_id: int) -> "GetProgressRecordResponseBodyBuilder":
         self._get_progress_record_response_body.progress_id = progress_id

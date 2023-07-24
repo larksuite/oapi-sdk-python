@@ -13,7 +13,7 @@ class ListSubregionResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Subregion]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListSubregionResponseBody(object):
 
 
 class ListSubregionResponseBodyBuilder(object):
-    def __init__(self, list_subregion_response_body: ListSubregionResponseBody = ListSubregionResponseBody({})) -> None:
-        self._list_subregion_response_body: ListSubregionResponseBody = list_subregion_response_body
+    def __init__(self) -> None:
+        self._list_subregion_response_body = ListSubregionResponseBody()
 
     def items(self, items: List[Subregion]) -> "ListSubregionResponseBodyBuilder":
         self._list_subregion_response_body.items = items

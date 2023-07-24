@@ -12,7 +12,7 @@ class BatchCreateMailgroupPermissionMemberResponse(BaseResponse):
         "data": BatchCreateMailgroupPermissionMemberResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[BatchCreateMailgroupPermissionMemberResponseBody] = None
         init(self, d, self._types)

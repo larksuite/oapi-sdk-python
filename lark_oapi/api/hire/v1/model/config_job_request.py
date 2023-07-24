@@ -19,7 +19,8 @@ class ConfigJobRequest(BaseRequest):
 
 class ConfigJobRequestBuilder(object):
 
-    def __init__(self, config_job_request: ConfigJobRequest = ConfigJobRequest()) -> None:
+    def __init__(self) -> None:
+        config_job_request = ConfigJobRequest()
         config_job_request.http_method = HttpMethod.GET
         config_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/config"
         config_job_request.token_types = {AccessTokenType.TENANT}

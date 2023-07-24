@@ -19,7 +19,8 @@ class SubscribeFileRequest(BaseRequest):
 
 class SubscribeFileRequestBuilder(object):
 
-    def __init__(self, subscribe_file_request: SubscribeFileRequest = SubscribeFileRequest()) -> None:
+    def __init__(self) -> None:
+        subscribe_file_request = SubscribeFileRequest()
         subscribe_file_request.http_method = HttpMethod.POST
         subscribe_file_request.uri = "/open-apis/drive/v1/files/:file_token/subscribe"
         subscribe_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

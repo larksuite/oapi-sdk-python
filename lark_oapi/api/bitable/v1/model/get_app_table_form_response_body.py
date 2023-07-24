@@ -11,7 +11,7 @@ class GetAppTableFormResponseBody(object):
         "form": AppTableForm,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.form: Optional[AppTableForm] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetAppTableFormResponseBody(object):
 
 
 class GetAppTableFormResponseBodyBuilder(object):
-    def __init__(self, get_app_table_form_response_body: GetAppTableFormResponseBody = GetAppTableFormResponseBody(
-        {})) -> None:
-        self._get_app_table_form_response_body: GetAppTableFormResponseBody = get_app_table_form_response_body
+    def __init__(self) -> None:
+        self._get_app_table_form_response_body = GetAppTableFormResponseBody()
 
     def form(self, form: AppTableForm) -> "GetAppTableFormResponseBodyBuilder":
         self._get_app_table_form_response_body.form = form

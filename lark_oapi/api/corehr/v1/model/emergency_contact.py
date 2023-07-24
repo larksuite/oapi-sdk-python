@@ -18,7 +18,7 @@ class EmergencyContact(object):
         "legal_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[PersonName] = None
         self.relationship: Optional[Enum] = None
         self.phone_ist: Optional[List[Phone]] = None
@@ -32,8 +32,8 @@ class EmergencyContact(object):
 
 
 class EmergencyContactBuilder(object):
-    def __init__(self, emergency_contact: EmergencyContact = EmergencyContact({})) -> None:
-        self._emergency_contact: EmergencyContact = emergency_contact
+    def __init__(self) -> None:
+        self._emergency_contact = EmergencyContact()
 
     def name(self, name: PersonName) -> "EmergencyContactBuilder":
         self._emergency_contact.name = name

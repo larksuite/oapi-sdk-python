@@ -22,7 +22,8 @@ class ResurrectUserRequest(BaseRequest):
 
 class ResurrectUserRequestBuilder(object):
 
-    def __init__(self, resurrect_user_request: ResurrectUserRequest = ResurrectUserRequest()) -> None:
+    def __init__(self) -> None:
+        resurrect_user_request = ResurrectUserRequest()
         resurrect_user_request.http_method = HttpMethod.POST
         resurrect_user_request.uri = "/open-apis/contact/v3/users/:user_id/resurrect"
         resurrect_user_request.token_types = {AccessTokenType.TENANT}

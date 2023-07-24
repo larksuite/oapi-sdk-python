@@ -12,7 +12,7 @@ class InlineBlock(object):
         "text_element_style": TextElementStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block_id: Optional[str] = None
         self.text_element_style: Optional[TextElementStyle] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class InlineBlock(object):
 
 
 class InlineBlockBuilder(object):
-    def __init__(self, inline_block: InlineBlock = InlineBlock({})) -> None:
-        self._inline_block: InlineBlock = inline_block
+    def __init__(self) -> None:
+        self._inline_block = InlineBlock()
 
     def block_id(self, block_id: str) -> "InlineBlockBuilder":
         self._inline_block.block_id = block_id

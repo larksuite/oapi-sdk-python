@@ -11,7 +11,7 @@ class GetEntityResponseBody(object):
         "entity": Entity,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.entity: Optional[Entity] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetEntityResponseBody(object):
 
 
 class GetEntityResponseBodyBuilder(object):
-    def __init__(self, get_entity_response_body: GetEntityResponseBody = GetEntityResponseBody({})) -> None:
-        self._get_entity_response_body: GetEntityResponseBody = get_entity_response_body
+    def __init__(self) -> None:
+        self._get_entity_response_body = GetEntityResponseBody()
 
     def entity(self, entity: Entity) -> "GetEntityResponseBodyBuilder":
         self._get_entity_response_body.entity = entity

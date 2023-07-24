@@ -20,7 +20,8 @@ class RejectTaskRequest(BaseRequest):
 
 class RejectTaskRequestBuilder(object):
 
-    def __init__(self, reject_task_request: RejectTaskRequest = RejectTaskRequest()) -> None:
+    def __init__(self) -> None:
+        reject_task_request = RejectTaskRequest()
         reject_task_request.http_method = HttpMethod.POST
         reject_task_request.uri = "/open-apis/approval/v4/tasks/reject"
         reject_task_request.token_types = {AccessTokenType.TENANT}

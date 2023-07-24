@@ -12,7 +12,7 @@ class IdNameObject(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class IdNameObject(object):
 
 
 class IdNameObjectBuilder(object):
-    def __init__(self, id_name_object: IdNameObject = IdNameObject({})) -> None:
-        self._id_name_object: IdNameObject = id_name_object
+    def __init__(self) -> None:
+        self._id_name_object = IdNameObject()
 
     def id(self, id: str) -> "IdNameObjectBuilder":
         self._id_name_object.id = id

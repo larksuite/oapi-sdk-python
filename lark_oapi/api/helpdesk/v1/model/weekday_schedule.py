@@ -12,7 +12,7 @@ class WeekdaySchedule(object):
         "weekday": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         self.weekday: Optional[int] = None
@@ -24,8 +24,8 @@ class WeekdaySchedule(object):
 
 
 class WeekdayScheduleBuilder(object):
-    def __init__(self, weekday_schedule: WeekdaySchedule = WeekdaySchedule({})) -> None:
-        self._weekday_schedule: WeekdaySchedule = weekday_schedule
+    def __init__(self) -> None:
+        self._weekday_schedule = WeekdaySchedule()
 
     def start_time(self, start_time: str) -> "WeekdayScheduleBuilder":
         self._weekday_schedule.start_time = start_time

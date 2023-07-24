@@ -10,7 +10,7 @@ class FormFieldVariableTextValue(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class FormFieldVariableTextValue(object):
 
 
 class FormFieldVariableTextValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_text_value: FormFieldVariableTextValue = FormFieldVariableTextValue({})) -> None:
-        self._form_field_variable_text_value: FormFieldVariableTextValue = form_field_variable_text_value
+    def __init__(self) -> None:
+        self._form_field_variable_text_value = FormFieldVariableTextValue()
 
     def value(self, value: str) -> "FormFieldVariableTextValueBuilder":
         self._form_field_variable_text_value.value = value

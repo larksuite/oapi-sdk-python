@@ -16,7 +16,7 @@ class CcSearchNode(object):
         "link": InstanceSearchLink,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.create_time: Optional[int] = None
         self.read_status: Optional[str] = None
@@ -31,8 +31,8 @@ class CcSearchNode(object):
 
 
 class CcSearchNodeBuilder(object):
-    def __init__(self, cc_search_node: CcSearchNode = CcSearchNode({})) -> None:
-        self._cc_search_node: CcSearchNode = cc_search_node
+    def __init__(self) -> None:
+        self._cc_search_node = CcSearchNode()
 
     def user_id(self, user_id: str) -> "CcSearchNodeBuilder":
         self._cc_search_node.user_id = user_id

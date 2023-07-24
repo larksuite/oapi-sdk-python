@@ -22,7 +22,8 @@ class SearchTaskRequest(BaseRequest):
 
 class SearchTaskRequestBuilder(object):
 
-    def __init__(self, search_task_request: SearchTaskRequest = SearchTaskRequest()) -> None:
+    def __init__(self) -> None:
+        search_task_request = SearchTaskRequest()
         search_task_request.http_method = HttpMethod.POST
         search_task_request.uri = "/open-apis/approval/v4/tasks/search"
         search_task_request.token_types = {AccessTokenType.TENANT}

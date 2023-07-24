@@ -15,7 +15,7 @@ class CalendarEventAttendeeId(object):
         "third_party_email": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.attendee_id: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -30,8 +30,8 @@ class CalendarEventAttendeeId(object):
 
 
 class CalendarEventAttendeeIdBuilder(object):
-    def __init__(self, calendar_event_attendee_id: CalendarEventAttendeeId = CalendarEventAttendeeId({})) -> None:
-        self._calendar_event_attendee_id: CalendarEventAttendeeId = calendar_event_attendee_id
+    def __init__(self) -> None:
+        self._calendar_event_attendee_id = CalendarEventAttendeeId()
 
     def type(self, type: str) -> "CalendarEventAttendeeIdBuilder":
         self._calendar_event_attendee_id.type = type

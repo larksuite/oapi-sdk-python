@@ -11,7 +11,7 @@ class JobRequirementCustomizedData(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class JobRequirementCustomizedData(object):
 
 
 class JobRequirementCustomizedDataBuilder(object):
-    def __init__(self, job_requirement_customized_data: JobRequirementCustomizedData = JobRequirementCustomizedData(
-        {})) -> None:
-        self._job_requirement_customized_data: JobRequirementCustomizedData = job_requirement_customized_data
+    def __init__(self) -> None:
+        self._job_requirement_customized_data = JobRequirementCustomizedData()
 
     def object_id(self, object_id: str) -> "JobRequirementCustomizedDataBuilder":
         self._job_requirement_customized_data.object_id = object_id

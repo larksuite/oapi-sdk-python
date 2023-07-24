@@ -11,7 +11,7 @@ class CombinedJobObjectValueMap(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class CombinedJobObjectValueMap(object):
 
 
 class CombinedJobObjectValueMapBuilder(object):
-    def __init__(self,
-                 combined_job_object_value_map: CombinedJobObjectValueMap = CombinedJobObjectValueMap({})) -> None:
-        self._combined_job_object_value_map: CombinedJobObjectValueMap = combined_job_object_value_map
+    def __init__(self) -> None:
+        self._combined_job_object_value_map = CombinedJobObjectValueMap()
 
     def object_id(self, object_id: str) -> "CombinedJobObjectValueMapBuilder":
         self._combined_job_object_value_map.object_id = object_id

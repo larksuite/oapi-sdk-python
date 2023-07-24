@@ -27,7 +27,7 @@ class ExternalInstanceTaskNode(object):
         "node_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
@@ -52,8 +52,8 @@ class ExternalInstanceTaskNode(object):
 
 
 class ExternalInstanceTaskNodeBuilder(object):
-    def __init__(self, external_instance_task_node: ExternalInstanceTaskNode = ExternalInstanceTaskNode({})) -> None:
-        self._external_instance_task_node: ExternalInstanceTaskNode = external_instance_task_node
+    def __init__(self) -> None:
+        self._external_instance_task_node = ExternalInstanceTaskNode()
 
     def task_id(self, task_id: str) -> "ExternalInstanceTaskNodeBuilder":
         self._external_instance_task_node.task_id = task_id

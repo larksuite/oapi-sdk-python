@@ -19,7 +19,8 @@ class UploadAllFileRequest(BaseRequest):
 
 class UploadAllFileRequestBuilder(object):
 
-    def __init__(self, upload_all_file_request: UploadAllFileRequest = UploadAllFileRequest()) -> None:
+    def __init__(self) -> None:
+        upload_all_file_request = UploadAllFileRequest()
         upload_all_file_request.http_method = HttpMethod.POST
         upload_all_file_request.uri = "/open-apis/drive/v1/files/upload_all"
         upload_all_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

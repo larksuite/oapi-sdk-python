@@ -14,7 +14,7 @@ class SearchTaskResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.count: Optional[int] = None
         self.task_list: Optional[List[TaskSearchItem]] = None
         self.page_token: Optional[str] = None
@@ -27,8 +27,8 @@ class SearchTaskResponseBody(object):
 
 
 class SearchTaskResponseBodyBuilder(object):
-    def __init__(self, search_task_response_body: SearchTaskResponseBody = SearchTaskResponseBody({})) -> None:
-        self._search_task_response_body: SearchTaskResponseBody = search_task_response_body
+    def __init__(self) -> None:
+        self._search_task_response_body = SearchTaskResponseBody()
 
     def count(self, count: int) -> "SearchTaskResponseBodyBuilder":
         self._search_task_response_body.count = count

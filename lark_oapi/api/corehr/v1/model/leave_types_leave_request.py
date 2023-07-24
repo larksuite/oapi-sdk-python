@@ -21,7 +21,8 @@ class LeaveTypesLeaveRequest(BaseRequest):
 
 class LeaveTypesLeaveRequestBuilder(object):
 
-    def __init__(self, leave_types_leave_request: LeaveTypesLeaveRequest = LeaveTypesLeaveRequest()) -> None:
+    def __init__(self) -> None:
+        leave_types_leave_request = LeaveTypesLeaveRequest()
         leave_types_leave_request.http_method = HttpMethod.GET
         leave_types_leave_request.uri = "/open-apis/corehr/v1/leaves/leave_types"
         leave_types_leave_request.token_types = {AccessTokenType.TENANT}

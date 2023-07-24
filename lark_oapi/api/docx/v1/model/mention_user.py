@@ -12,7 +12,7 @@ class MentionUser(object):
         "text_element_style": TextElementStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.text_element_style: Optional[TextElementStyle] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class MentionUser(object):
 
 
 class MentionUserBuilder(object):
-    def __init__(self, mention_user: MentionUser = MentionUser({})) -> None:
-        self._mention_user: MentionUser = mention_user
+    def __init__(self) -> None:
+        self._mention_user = MentionUser()
 
     def user_id(self, user_id: str) -> "MentionUserBuilder":
         self._mention_user.user_id = user_id

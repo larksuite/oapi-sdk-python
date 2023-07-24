@@ -18,8 +18,8 @@ class CancelApproveNotificationRequest(BaseRequest):
 
 class CancelApproveNotificationRequestBuilder(object):
 
-    def __init__(self,
-                 cancel_approve_notification_request: CancelApproveNotificationRequest = CancelApproveNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        cancel_approve_notification_request = CancelApproveNotificationRequest()
         cancel_approve_notification_request.http_method = HttpMethod.POST
         cancel_approve_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id/cancel_approve"
         cancel_approve_notification_request.token_types = {AccessTokenType.USER}

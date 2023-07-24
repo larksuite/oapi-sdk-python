@@ -16,7 +16,7 @@ class ApplicationBasicInfo(object):
         "biz_modify_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.stage: Optional[ApplicationStage] = None
         self.referral: Optional[ApplicationReferral] = None
         self.active_status: Optional[int] = None
@@ -30,8 +30,8 @@ class ApplicationBasicInfo(object):
 
 
 class ApplicationBasicInfoBuilder(object):
-    def __init__(self, application_basic_info: ApplicationBasicInfo = ApplicationBasicInfo({})) -> None:
-        self._application_basic_info: ApplicationBasicInfo = application_basic_info
+    def __init__(self) -> None:
+        self._application_basic_info = ApplicationBasicInfo()
 
     def stage(self, stage: ApplicationStage) -> "ApplicationBasicInfoBuilder":
         self._application_basic_info.stage = stage

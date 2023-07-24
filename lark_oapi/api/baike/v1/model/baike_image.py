@@ -10,7 +10,7 @@ class BaikeImage(object):
         "token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class BaikeImage(object):
 
 
 class BaikeImageBuilder(object):
-    def __init__(self, baike_image: BaikeImage = BaikeImage({})) -> None:
-        self._baike_image: BaikeImage = baike_image
+    def __init__(self) -> None:
+        self._baike_image = BaikeImage()
 
     def token(self, token: str) -> "BaikeImageBuilder":
         self._baike_image.token = token

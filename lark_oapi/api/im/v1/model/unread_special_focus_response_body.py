@@ -11,7 +11,7 @@ class UnreadSpecialFocusResponseBody(object):
         "special_focus_unread": List[SpecialFocusUnread],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.special_focus_unread: Optional[List[SpecialFocusUnread]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class UnreadSpecialFocusResponseBody(object):
 
 
 class UnreadSpecialFocusResponseBodyBuilder(object):
-    def __init__(self,
-                 unread_special_focus_response_body: UnreadSpecialFocusResponseBody = UnreadSpecialFocusResponseBody(
-                     {})) -> None:
-        self._unread_special_focus_response_body: UnreadSpecialFocusResponseBody = unread_special_focus_response_body
+    def __init__(self) -> None:
+        self._unread_special_focus_response_body = UnreadSpecialFocusResponseBody()
 
     def special_focus_unread(self,
                              special_focus_unread: List[SpecialFocusUnread]) -> "UnreadSpecialFocusResponseBodyBuilder":

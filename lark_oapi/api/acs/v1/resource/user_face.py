@@ -5,23 +5,26 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.acs.v1.model.get_user_face_request import GetUserFaceRequest
-from lark_oapi.api.acs.v1.model.get_user_face_response import GetUserFaceResponse
-from lark_oapi.api.acs.v1.model.update_user_face_request import UpdateUserFaceRequest
-from lark_oapi.api.acs.v1.model.update_user_face_response import UpdateUserFaceResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.get_user_face_request import GetUserFaceRequest
+from ..model.get_user_face_response import GetUserFaceResponse
+from ..model.update_user_face_request import UpdateUserFaceRequest
+from ..model.update_user_face_response import UpdateUserFaceResponse
 
 
 class UserFace(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetUserFaceRequest, option: RequestOption = RequestOption()) -> GetUserFaceResponse:
+    def get(self, request: GetUserFaceRequest, option: Optional[RequestOption] = None) -> GetUserFaceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -43,7 +46,10 @@ class UserFace(object):
 
         return response
 
-    def update(self, request: UpdateUserFaceRequest, option: RequestOption = RequestOption()) -> UpdateUserFaceResponse:
+    def update(self, request: UpdateUserFaceRequest, option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

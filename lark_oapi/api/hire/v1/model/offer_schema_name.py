@@ -11,7 +11,7 @@ class OfferSchemaName(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OfferSchemaName(object):
 
 
 class OfferSchemaNameBuilder(object):
-    def __init__(self, offer_schema_name: OfferSchemaName = OfferSchemaName({})) -> None:
-        self._offer_schema_name: OfferSchemaName = offer_schema_name
+    def __init__(self) -> None:
+        self._offer_schema_name = OfferSchemaName()
 
     def zh_cn(self, zh_cn: str) -> "OfferSchemaNameBuilder":
         self._offer_schema_name.zh_cn = zh_cn

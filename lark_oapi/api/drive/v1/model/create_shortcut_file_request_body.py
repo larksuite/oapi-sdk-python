@@ -12,7 +12,7 @@ class CreateShortcutFileRequestBody(object):
         "refer_entity": ReferEntity,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.parent_token: Optional[str] = None
         self.refer_entity: Optional[ReferEntity] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class CreateShortcutFileRequestBody(object):
 
 
 class CreateShortcutFileRequestBodyBuilder(object):
-    def __init__(self, create_shortcut_file_request_body: CreateShortcutFileRequestBody = CreateShortcutFileRequestBody(
-        {})) -> None:
-        self._create_shortcut_file_request_body: CreateShortcutFileRequestBody = create_shortcut_file_request_body
+    def __init__(self) -> None:
+        self._create_shortcut_file_request_body = CreateShortcutFileRequestBody()
 
     def parent_token(self, parent_token: str) -> "CreateShortcutFileRequestBodyBuilder":
         self._create_shortcut_file_request_body.parent_token = parent_token

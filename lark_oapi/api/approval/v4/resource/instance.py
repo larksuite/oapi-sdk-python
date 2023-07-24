@@ -2,31 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.approval.v4.model.add_sign_instance_request import AddSignInstanceRequest
-from lark_oapi.api.approval.v4.model.add_sign_instance_response import AddSignInstanceResponse
-from lark_oapi.api.approval.v4.model.cancel_instance_request import CancelInstanceRequest
-from lark_oapi.api.approval.v4.model.cancel_instance_response import CancelInstanceResponse
-from lark_oapi.api.approval.v4.model.cc_instance_request import CcInstanceRequest
-from lark_oapi.api.approval.v4.model.cc_instance_response import CcInstanceResponse
-from lark_oapi.api.approval.v4.model.create_instance_request import CreateInstanceRequest
-from lark_oapi.api.approval.v4.model.create_instance_response import CreateInstanceResponse
-from lark_oapi.api.approval.v4.model.get_instance_request import GetInstanceRequest
-from lark_oapi.api.approval.v4.model.get_instance_response import GetInstanceResponse
-from lark_oapi.api.approval.v4.model.list_instance_request import ListInstanceRequest
-from lark_oapi.api.approval.v4.model.list_instance_response import ListInstanceResponse
-from lark_oapi.api.approval.v4.model.preview_instance_request import PreviewInstanceRequest
-from lark_oapi.api.approval.v4.model.preview_instance_response import PreviewInstanceResponse
-from lark_oapi.api.approval.v4.model.query_instance_request import QueryInstanceRequest
-from lark_oapi.api.approval.v4.model.query_instance_response import QueryInstanceResponse
-from lark_oapi.api.approval.v4.model.search_cc_instance_request import SearchCcInstanceRequest
-from lark_oapi.api.approval.v4.model.search_cc_instance_response import SearchCcInstanceResponse
-from lark_oapi.api.approval.v4.model.specified_rollback_instance_request import SpecifiedRollbackInstanceRequest
-from lark_oapi.api.approval.v4.model.specified_rollback_instance_response import SpecifiedRollbackInstanceResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.add_sign_instance_request import AddSignInstanceRequest
+from ..model.add_sign_instance_response import AddSignInstanceResponse
+from ..model.cancel_instance_request import CancelInstanceRequest
+from ..model.cancel_instance_response import CancelInstanceResponse
+from ..model.cc_instance_request import CcInstanceRequest
+from ..model.cc_instance_response import CcInstanceResponse
+from ..model.create_instance_request import CreateInstanceRequest
+from ..model.create_instance_response import CreateInstanceResponse
+from ..model.get_instance_request import GetInstanceRequest
+from ..model.get_instance_response import GetInstanceResponse
+from ..model.list_instance_request import ListInstanceRequest
+from ..model.list_instance_response import ListInstanceResponse
+from ..model.preview_instance_request import PreviewInstanceRequest
+from ..model.preview_instance_response import PreviewInstanceResponse
+from ..model.query_instance_request import QueryInstanceRequest
+from ..model.query_instance_response import QueryInstanceResponse
+from ..model.search_cc_instance_request import SearchCcInstanceRequest
+from ..model.search_cc_instance_response import SearchCcInstanceResponse
+from ..model.specified_rollback_instance_request import SpecifiedRollbackInstanceRequest
+from ..model.specified_rollback_instance_response import SpecifiedRollbackInstanceResponse
 
 
 class Instance(object):
@@ -34,7 +34,10 @@ class Instance(object):
         self.config: Optional[Config] = config
 
     def add_sign(self, request: AddSignInstanceRequest,
-                 option: RequestOption = RequestOption()) -> AddSignInstanceResponse:
+                 option: Optional[RequestOption] = None) -> AddSignInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +50,10 @@ class Instance(object):
 
         return response
 
-    def cancel(self, request: CancelInstanceRequest, option: RequestOption = RequestOption()) -> CancelInstanceResponse:
+    def cancel(self, request: CancelInstanceRequest, option: Optional[RequestOption] = None) -> CancelInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +66,10 @@ class Instance(object):
 
         return response
 
-    def cc(self, request: CcInstanceRequest, option: RequestOption = RequestOption()) -> CcInstanceResponse:
+    def cc(self, request: CcInstanceRequest, option: Optional[RequestOption] = None) -> CcInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -73,7 +82,10 @@ class Instance(object):
 
         return response
 
-    def create(self, request: CreateInstanceRequest, option: RequestOption = RequestOption()) -> CreateInstanceResponse:
+    def create(self, request: CreateInstanceRequest, option: Optional[RequestOption] = None) -> CreateInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -86,7 +98,10 @@ class Instance(object):
 
         return response
 
-    def get(self, request: GetInstanceRequest, option: RequestOption = RequestOption()) -> GetInstanceResponse:
+    def get(self, request: GetInstanceRequest, option: Optional[RequestOption] = None) -> GetInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -99,7 +114,10 @@ class Instance(object):
 
         return response
 
-    def list(self, request: ListInstanceRequest, option: RequestOption = RequestOption()) -> ListInstanceResponse:
+    def list(self, request: ListInstanceRequest, option: Optional[RequestOption] = None) -> ListInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -113,7 +131,10 @@ class Instance(object):
         return response
 
     def preview(self, request: PreviewInstanceRequest,
-                option: RequestOption = RequestOption()) -> PreviewInstanceResponse:
+                option: Optional[RequestOption] = None) -> PreviewInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -126,7 +147,10 @@ class Instance(object):
 
         return response
 
-    def query(self, request: QueryInstanceRequest, option: RequestOption = RequestOption()) -> QueryInstanceResponse:
+    def query(self, request: QueryInstanceRequest, option: Optional[RequestOption] = None) -> QueryInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -140,7 +164,10 @@ class Instance(object):
         return response
 
     def search_cc(self, request: SearchCcInstanceRequest,
-                  option: RequestOption = RequestOption()) -> SearchCcInstanceResponse:
+                  option: Optional[RequestOption] = None) -> SearchCcInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -154,7 +181,10 @@ class Instance(object):
         return response
 
     def specified_rollback(self, request: SpecifiedRollbackInstanceRequest,
-                           option: RequestOption = RequestOption()) -> SpecifiedRollbackInstanceResponse:
+                           option: Optional[RequestOption] = None) -> SpecifiedRollbackInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

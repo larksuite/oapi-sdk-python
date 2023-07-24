@@ -20,8 +20,8 @@ class UnbindDepartmentChatDepartmentRequest(BaseRequest):
 
 class UnbindDepartmentChatDepartmentRequestBuilder(object):
 
-    def __init__(self,
-                 unbind_department_chat_department_request: UnbindDepartmentChatDepartmentRequest = UnbindDepartmentChatDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        unbind_department_chat_department_request = UnbindDepartmentChatDepartmentRequest()
         unbind_department_chat_department_request.http_method = HttpMethod.POST
         unbind_department_chat_department_request.uri = "/open-apis/contact/v3/departments/unbind_department_chat"
         unbind_department_chat_department_request.token_types = {AccessTokenType.TENANT}

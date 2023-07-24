@@ -29,7 +29,7 @@ class AuditAndroidContext(object):
         "i_p": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.udid: Optional[str] = None
         self.did: Optional[str] = None
         self.app_ver: Optional[str] = None
@@ -58,8 +58,8 @@ class AuditAndroidContext(object):
 
 
 class AuditAndroidContextBuilder(object):
-    def __init__(self, audit_android_context: AuditAndroidContext = AuditAndroidContext({})) -> None:
-        self._audit_android_context: AuditAndroidContext = audit_android_context
+    def __init__(self) -> None:
+        self._audit_android_context = AuditAndroidContext()
 
     def udid(self, udid: str) -> "AuditAndroidContextBuilder":
         self._audit_android_context.udid = udid

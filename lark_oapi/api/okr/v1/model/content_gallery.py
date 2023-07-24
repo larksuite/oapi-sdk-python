@@ -11,7 +11,7 @@ class ContentGallery(object):
         "image_list": List[ContentImageItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_list: Optional[List[ContentImageItem]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ContentGallery(object):
 
 
 class ContentGalleryBuilder(object):
-    def __init__(self, content_gallery: ContentGallery = ContentGallery({})) -> None:
-        self._content_gallery: ContentGallery = content_gallery
+    def __init__(self) -> None:
+        self._content_gallery = ContentGallery()
 
     def image_list(self, image_list: List[ContentImageItem]) -> "ContentGalleryBuilder":
         self._content_gallery.image_list = image_list

@@ -20,7 +20,8 @@ class GetAppTableViewRequest(BaseRequest):
 
 class GetAppTableViewRequestBuilder(object):
 
-    def __init__(self, get_app_table_view_request: GetAppTableViewRequest = GetAppTableViewRequest()) -> None:
+    def __init__(self) -> None:
+        get_app_table_view_request = GetAppTableViewRequest()
         get_app_table_view_request.http_method = HttpMethod.GET
         get_app_table_view_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
         get_app_table_view_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

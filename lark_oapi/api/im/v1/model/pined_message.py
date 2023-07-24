@@ -13,7 +13,7 @@ class PinedMessage(object):
         "message": Message,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pin: Optional[Pin] = None
         self.message: Optional[Message] = None
         init(self, d, self._types)
@@ -24,8 +24,8 @@ class PinedMessage(object):
 
 
 class PinedMessageBuilder(object):
-    def __init__(self, pined_message: PinedMessage = PinedMessage({})) -> None:
-        self._pined_message: PinedMessage = pined_message
+    def __init__(self) -> None:
+        self._pined_message = PinedMessage()
 
     def pin(self, pin: Pin) -> "PinedMessageBuilder":
         self._pined_message.pin = pin

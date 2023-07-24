@@ -21,7 +21,8 @@ class UpdateConfigJobRequest(BaseRequest):
 
 class UpdateConfigJobRequestBuilder(object):
 
-    def __init__(self, update_config_job_request: UpdateConfigJobRequest = UpdateConfigJobRequest()) -> None:
+    def __init__(self) -> None:
+        update_config_job_request = UpdateConfigJobRequest()
         update_config_job_request.http_method = HttpMethod.POST
         update_config_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/update_config"
         update_config_job_request.token_types = {AccessTokenType.TENANT}

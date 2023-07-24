@@ -11,7 +11,7 @@ class ReferenceObject(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.api_name: Optional[str] = None
         self.id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ReferenceObject(object):
 
 
 class ReferenceObjectBuilder(object):
-    def __init__(self, reference_object: ReferenceObject = ReferenceObject({})) -> None:
-        self._reference_object: ReferenceObject = reference_object
+    def __init__(self) -> None:
+        self._reference_object = ReferenceObject()
 
     def api_name(self, api_name: str) -> "ReferenceObjectBuilder":
         self._reference_object.api_name = api_name

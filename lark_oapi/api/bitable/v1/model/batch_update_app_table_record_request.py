@@ -22,8 +22,8 @@ class BatchUpdateAppTableRecordRequest(BaseRequest):
 
 class BatchUpdateAppTableRecordRequestBuilder(object):
 
-    def __init__(self,
-                 batch_update_app_table_record_request: BatchUpdateAppTableRecordRequest = BatchUpdateAppTableRecordRequest()) -> None:
+    def __init__(self) -> None:
+        batch_update_app_table_record_request = BatchUpdateAppTableRecordRequest()
         batch_update_app_table_record_request.http_method = HttpMethod.POST
         batch_update_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
         batch_update_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

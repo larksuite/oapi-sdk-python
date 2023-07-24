@@ -12,7 +12,7 @@ class EmergencyContact(object):
         "mobile": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.relationship: Optional[int] = None
         self.mobile: Optional[str] = None
@@ -24,8 +24,8 @@ class EmergencyContact(object):
 
 
 class EmergencyContactBuilder(object):
-    def __init__(self, emergency_contact: EmergencyContact = EmergencyContact({})) -> None:
-        self._emergency_contact: EmergencyContact = emergency_contact
+    def __init__(self) -> None:
+        self._emergency_contact = EmergencyContact()
 
     def name(self, name: str) -> "EmergencyContactBuilder":
         self._emergency_contact.name = name

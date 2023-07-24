@@ -2,31 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_filter_view_condition_request import \
-    CreateSpreadsheetSheetFilterViewConditionRequest
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_filter_view_condition_response import \
-    CreateSpreadsheetSheetFilterViewConditionResponse
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_filter_view_condition_request import \
-    DeleteSpreadsheetSheetFilterViewConditionRequest
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_filter_view_condition_response import \
-    DeleteSpreadsheetSheetFilterViewConditionResponse
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_filter_view_condition_request import \
-    GetSpreadsheetSheetFilterViewConditionRequest
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_filter_view_condition_response import \
-    GetSpreadsheetSheetFilterViewConditionResponse
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_filter_view_condition_request import \
-    QuerySpreadsheetSheetFilterViewConditionRequest
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_filter_view_condition_response import \
-    QuerySpreadsheetSheetFilterViewConditionResponse
-from lark_oapi.api.sheets.v3.model.update_spreadsheet_sheet_filter_view_condition_request import \
-    UpdateSpreadsheetSheetFilterViewConditionRequest
-from lark_oapi.api.sheets.v3.model.update_spreadsheet_sheet_filter_view_condition_response import \
-    UpdateSpreadsheetSheetFilterViewConditionResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_spreadsheet_sheet_filter_view_condition_request import \
+    CreateSpreadsheetSheetFilterViewConditionRequest
+from ..model.create_spreadsheet_sheet_filter_view_condition_response import \
+    CreateSpreadsheetSheetFilterViewConditionResponse
+from ..model.delete_spreadsheet_sheet_filter_view_condition_request import \
+    DeleteSpreadsheetSheetFilterViewConditionRequest
+from ..model.delete_spreadsheet_sheet_filter_view_condition_response import \
+    DeleteSpreadsheetSheetFilterViewConditionResponse
+from ..model.get_spreadsheet_sheet_filter_view_condition_request import GetSpreadsheetSheetFilterViewConditionRequest
+from ..model.get_spreadsheet_sheet_filter_view_condition_response import GetSpreadsheetSheetFilterViewConditionResponse
+from ..model.query_spreadsheet_sheet_filter_view_condition_request import \
+    QuerySpreadsheetSheetFilterViewConditionRequest
+from ..model.query_spreadsheet_sheet_filter_view_condition_response import \
+    QuerySpreadsheetSheetFilterViewConditionResponse
+from ..model.update_spreadsheet_sheet_filter_view_condition_request import \
+    UpdateSpreadsheetSheetFilterViewConditionRequest
+from ..model.update_spreadsheet_sheet_filter_view_condition_response import \
+    UpdateSpreadsheetSheetFilterViewConditionResponse
 
 
 class SpreadsheetSheetFilterViewCondition(object):
@@ -34,7 +32,10 @@ class SpreadsheetSheetFilterViewCondition(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateSpreadsheetSheetFilterViewConditionRequest,
-               option: RequestOption = RequestOption()) -> CreateSpreadsheetSheetFilterViewConditionResponse:
+               option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterViewConditionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +50,10 @@ class SpreadsheetSheetFilterViewCondition(object):
         return response
 
     def delete(self, request: DeleteSpreadsheetSheetFilterViewConditionRequest,
-               option: RequestOption = RequestOption()) -> DeleteSpreadsheetSheetFilterViewConditionResponse:
+               option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterViewConditionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +68,10 @@ class SpreadsheetSheetFilterViewCondition(object):
         return response
 
     def get(self, request: GetSpreadsheetSheetFilterViewConditionRequest,
-            option: RequestOption = RequestOption()) -> GetSpreadsheetSheetFilterViewConditionResponse:
+            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterViewConditionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +86,10 @@ class SpreadsheetSheetFilterViewCondition(object):
         return response
 
     def query(self, request: QuerySpreadsheetSheetFilterViewConditionRequest,
-              option: RequestOption = RequestOption()) -> QuerySpreadsheetSheetFilterViewConditionResponse:
+              option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFilterViewConditionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -94,7 +104,10 @@ class SpreadsheetSheetFilterViewCondition(object):
         return response
 
     def update(self, request: UpdateSpreadsheetSheetFilterViewConditionRequest,
-               option: RequestOption = RequestOption()) -> UpdateSpreadsheetSheetFilterViewConditionResponse:
+               option: Optional[RequestOption] = None) -> UpdateSpreadsheetSheetFilterViewConditionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

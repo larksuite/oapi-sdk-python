@@ -12,7 +12,7 @@ class NavigateMeta(object):
         "hover_image_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.version: Optional[str] = None
         self.image_url: Optional[str] = None
         self.hover_image_url: Optional[str] = None
@@ -24,8 +24,8 @@ class NavigateMeta(object):
 
 
 class NavigateMetaBuilder(object):
-    def __init__(self, navigate_meta: NavigateMeta = NavigateMeta({})) -> None:
-        self._navigate_meta: NavigateMeta = navigate_meta
+    def __init__(self) -> None:
+        self._navigate_meta = NavigateMeta()
 
     def version(self, version: str) -> "NavigateMetaBuilder":
         self._navigate_meta.version = version

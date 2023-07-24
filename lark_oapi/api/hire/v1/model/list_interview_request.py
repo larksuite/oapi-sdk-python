@@ -24,7 +24,8 @@ class ListInterviewRequest(BaseRequest):
 
 class ListInterviewRequestBuilder(object):
 
-    def __init__(self, list_interview_request: ListInterviewRequest = ListInterviewRequest()) -> None:
+    def __init__(self) -> None:
+        list_interview_request = ListInterviewRequest()
         list_interview_request.http_method = HttpMethod.GET
         list_interview_request.uri = "/open-apis/hire/v1/interviews"
         list_interview_request.token_types = {AccessTokenType.TENANT}

@@ -16,7 +16,7 @@ class OkrBatch(object):
         "confirm_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.permission: Optional[int] = None
         self.period_id: Optional[int] = None
@@ -31,8 +31,8 @@ class OkrBatch(object):
 
 
 class OkrBatchBuilder(object):
-    def __init__(self, okr_batch: OkrBatch = OkrBatch({})) -> None:
-        self._okr_batch: OkrBatch = okr_batch
+    def __init__(self) -> None:
+        self._okr_batch = OkrBatch()
 
     def id(self, id: int) -> "OkrBatchBuilder":
         self._okr_batch.id = id

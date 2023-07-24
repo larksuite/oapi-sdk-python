@@ -20,7 +20,7 @@ class JobChange(object):
         "transfer_info": TransferInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_change_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.status: Optional[str] = None
@@ -39,8 +39,8 @@ class JobChange(object):
 
 
 class JobChangeBuilder(object):
-    def __init__(self, job_change: JobChange = JobChange({})) -> None:
-        self._job_change: JobChange = job_change
+    def __init__(self) -> None:
+        self._job_change = JobChange()
 
     def job_change_id(self, job_change_id: str) -> "JobChangeBuilder":
         self._job_change.job_change_id = job_change_id

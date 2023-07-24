@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.get_leave_employ_expire_record_request import GetLeaveEmployExpireRecordRequest
-from lark_oapi.api.attendance.v1.model.get_leave_employ_expire_record_response import GetLeaveEmployExpireRecordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_leave_employ_expire_record_request import GetLeaveEmployExpireRecordRequest
+from ..model.get_leave_employ_expire_record_response import GetLeaveEmployExpireRecordResponse
 
 
 class LeaveEmployExpireRecord(object):
@@ -16,7 +16,10 @@ class LeaveEmployExpireRecord(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetLeaveEmployExpireRecordRequest,
-            option: RequestOption = RequestOption()) -> GetLeaveEmployExpireRecordResponse:
+            option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

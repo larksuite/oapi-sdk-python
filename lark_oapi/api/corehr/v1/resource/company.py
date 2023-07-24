@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_company_request import CreateCompanyRequest
-from lark_oapi.api.corehr.v1.model.create_company_response import CreateCompanyResponse
-from lark_oapi.api.corehr.v1.model.delete_company_request import DeleteCompanyRequest
-from lark_oapi.api.corehr.v1.model.delete_company_response import DeleteCompanyResponse
-from lark_oapi.api.corehr.v1.model.get_company_request import GetCompanyRequest
-from lark_oapi.api.corehr.v1.model.get_company_response import GetCompanyResponse
-from lark_oapi.api.corehr.v1.model.list_company_request import ListCompanyRequest
-from lark_oapi.api.corehr.v1.model.list_company_response import ListCompanyResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_company_request import CreateCompanyRequest
+from ..model.create_company_response import CreateCompanyResponse
+from ..model.delete_company_request import DeleteCompanyRequest
+from ..model.delete_company_response import DeleteCompanyResponse
+from ..model.get_company_request import GetCompanyRequest
+from ..model.get_company_response import GetCompanyResponse
+from ..model.list_company_request import ListCompanyRequest
+from ..model.list_company_response import ListCompanyResponse
 
 
 class Company(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateCompanyRequest, option: RequestOption = RequestOption()) -> CreateCompanyResponse:
+    def create(self, request: CreateCompanyRequest, option: Optional[RequestOption] = None) -> CreateCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Company(object):
 
         return response
 
-    def delete(self, request: DeleteCompanyRequest, option: RequestOption = RequestOption()) -> DeleteCompanyResponse:
+    def delete(self, request: DeleteCompanyRequest, option: Optional[RequestOption] = None) -> DeleteCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Company(object):
 
         return response
 
-    def get(self, request: GetCompanyRequest, option: RequestOption = RequestOption()) -> GetCompanyResponse:
+    def get(self, request: GetCompanyRequest, option: Optional[RequestOption] = None) -> GetCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +69,10 @@ class Company(object):
 
         return response
 
-    def list(self, request: ListCompanyRequest, option: RequestOption = RequestOption()) -> ListCompanyResponse:
+    def list(self, request: ListCompanyRequest, option: Optional[RequestOption] = None) -> ListCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

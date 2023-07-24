@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.search.v2.model.create_app_request import CreateAppRequest
-from lark_oapi.api.search.v2.model.create_app_response import CreateAppResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_app_request import CreateAppRequest
+from ..model.create_app_response import CreateAppResponse
 
 
 class App(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateAppRequest, option: RequestOption = RequestOption()) -> CreateAppResponse:
+    def create(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

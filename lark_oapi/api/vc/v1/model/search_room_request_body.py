@@ -15,7 +15,7 @@ class SearchRoomRequestBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.custom_room_ids: Optional[List[str]] = None
         self.keyword: Optional[str] = None
         self.room_level_id: Optional[str] = None
@@ -30,8 +30,8 @@ class SearchRoomRequestBody(object):
 
 
 class SearchRoomRequestBodyBuilder(object):
-    def __init__(self, search_room_request_body: SearchRoomRequestBody = SearchRoomRequestBody({})) -> None:
-        self._search_room_request_body: SearchRoomRequestBody = search_room_request_body
+    def __init__(self) -> None:
+        self._search_room_request_body = SearchRoomRequestBody()
 
     def custom_room_ids(self, custom_room_ids: List[str]) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.custom_room_ids = custom_room_ids

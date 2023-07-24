@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.apply_reserve_request import ApplyReserveRequest
-from lark_oapi.api.vc.v1.model.apply_reserve_response import ApplyReserveResponse
-from lark_oapi.api.vc.v1.model.delete_reserve_request import DeleteReserveRequest
-from lark_oapi.api.vc.v1.model.delete_reserve_response import DeleteReserveResponse
-from lark_oapi.api.vc.v1.model.get_active_meeting_reserve_request import GetActiveMeetingReserveRequest
-from lark_oapi.api.vc.v1.model.get_active_meeting_reserve_response import GetActiveMeetingReserveResponse
-from lark_oapi.api.vc.v1.model.get_reserve_request import GetReserveRequest
-from lark_oapi.api.vc.v1.model.get_reserve_response import GetReserveResponse
-from lark_oapi.api.vc.v1.model.update_reserve_request import UpdateReserveRequest
-from lark_oapi.api.vc.v1.model.update_reserve_response import UpdateReserveResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.apply_reserve_request import ApplyReserveRequest
+from ..model.apply_reserve_response import ApplyReserveResponse
+from ..model.delete_reserve_request import DeleteReserveRequest
+from ..model.delete_reserve_response import DeleteReserveResponse
+from ..model.get_active_meeting_reserve_request import GetActiveMeetingReserveRequest
+from ..model.get_active_meeting_reserve_response import GetActiveMeetingReserveResponse
+from ..model.get_reserve_request import GetReserveRequest
+from ..model.get_reserve_response import GetReserveResponse
+from ..model.update_reserve_request import UpdateReserveRequest
+from ..model.update_reserve_response import UpdateReserveResponse
 
 
 class Reserve(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def apply(self, request: ApplyReserveRequest, option: RequestOption = RequestOption()) -> ApplyReserveResponse:
+    def apply(self, request: ApplyReserveRequest, option: Optional[RequestOption] = None) -> ApplyReserveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class Reserve(object):
 
         return response
 
-    def delete(self, request: DeleteReserveRequest, option: RequestOption = RequestOption()) -> DeleteReserveResponse:
+    def delete(self, request: DeleteReserveRequest, option: Optional[RequestOption] = None) -> DeleteReserveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class Reserve(object):
 
         return response
 
-    def get(self, request: GetReserveRequest, option: RequestOption = RequestOption()) -> GetReserveResponse:
+    def get(self, request: GetReserveRequest, option: Optional[RequestOption] = None) -> GetReserveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -63,7 +72,10 @@ class Reserve(object):
         return response
 
     def get_active_meeting(self, request: GetActiveMeetingReserveRequest,
-                           option: RequestOption = RequestOption()) -> GetActiveMeetingReserveResponse:
+                           option: Optional[RequestOption] = None) -> GetActiveMeetingReserveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -77,7 +89,10 @@ class Reserve(object):
 
         return response
 
-    def update(self, request: UpdateReserveRequest, option: RequestOption = RequestOption()) -> UpdateReserveResponse:
+    def update(self, request: UpdateReserveRequest, option: Optional[RequestOption] = None) -> UpdateReserveResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

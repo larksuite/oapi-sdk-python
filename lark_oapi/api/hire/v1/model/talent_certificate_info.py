@@ -14,7 +14,7 @@ class TalentCertificateInfo(object):
         "customized_data_list": List[TalentCustomizedDataChild],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.desc: Optional[str] = None
@@ -27,8 +27,8 @@ class TalentCertificateInfo(object):
 
 
 class TalentCertificateInfoBuilder(object):
-    def __init__(self, talent_certificate_info: TalentCertificateInfo = TalentCertificateInfo({})) -> None:
-        self._talent_certificate_info: TalentCertificateInfo = talent_certificate_info
+    def __init__(self) -> None:
+        self._talent_certificate_info = TalentCertificateInfo()
 
     def id(self, id: str) -> "TalentCertificateInfoBuilder":
         self._talent_certificate_info.id = id

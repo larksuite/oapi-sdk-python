@@ -31,7 +31,7 @@ class ProbationInfoForSubmit(object):
         "final_assessment_detail": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.probation_id: Optional[str] = None
         self.probation_start_date: Optional[str] = None
@@ -60,8 +60,8 @@ class ProbationInfoForSubmit(object):
 
 
 class ProbationInfoForSubmitBuilder(object):
-    def __init__(self, probation_info_for_submit: ProbationInfoForSubmit = ProbationInfoForSubmit({})) -> None:
-        self._probation_info_for_submit: ProbationInfoForSubmit = probation_info_for_submit
+    def __init__(self) -> None:
+        self._probation_info_for_submit = ProbationInfoForSubmit()
 
     def employment_id(self, employment_id: str) -> "ProbationInfoForSubmitBuilder":
         self._probation_info_for_submit.employment_id = employment_id

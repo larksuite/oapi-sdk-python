@@ -20,8 +20,8 @@ class BatchDeleteMailgroupPermissionMemberRequest(BaseRequest):
 
 class BatchDeleteMailgroupPermissionMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_mailgroup_permission_member_request: BatchDeleteMailgroupPermissionMemberRequest = BatchDeleteMailgroupPermissionMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_mailgroup_permission_member_request = BatchDeleteMailgroupPermissionMemberRequest()
         batch_delete_mailgroup_permission_member_request.http_method = HttpMethod.DELETE
         batch_delete_mailgroup_permission_member_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/batch_delete"
         batch_delete_mailgroup_permission_member_request.token_types = {AccessTokenType.TENANT}

@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.event.v1.model.list_outbound_ip_request import ListOutboundIpRequest
-from lark_oapi.api.event.v1.model.list_outbound_ip_response import ListOutboundIpResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_outbound_ip_request import ListOutboundIpRequest
+from ..model.list_outbound_ip_response import ListOutboundIpResponse
 
 
 class OutboundIp(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListOutboundIpRequest, option: RequestOption = RequestOption()) -> ListOutboundIpResponse:
+    def list(self, request: ListOutboundIpRequest, option: Optional[RequestOption] = None) -> ListOutboundIpResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

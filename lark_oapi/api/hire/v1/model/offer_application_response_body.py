@@ -11,7 +11,7 @@ class OfferApplicationResponseBody(object):
         "offer": ApplicationOffer,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer: Optional[ApplicationOffer] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class OfferApplicationResponseBody(object):
 
 
 class OfferApplicationResponseBodyBuilder(object):
-    def __init__(self, offer_application_response_body: OfferApplicationResponseBody = OfferApplicationResponseBody(
-        {})) -> None:
-        self._offer_application_response_body: OfferApplicationResponseBody = offer_application_response_body
+    def __init__(self) -> None:
+        self._offer_application_response_body = OfferApplicationResponseBody()
 
     def offer(self, offer: ApplicationOffer) -> "OfferApplicationResponseBodyBuilder":
         self._offer_application_response_body.offer = offer

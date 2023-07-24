@@ -5,23 +5,26 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.im.v1.model.create_file_request import CreateFileRequest
-from lark_oapi.api.im.v1.model.create_file_response import CreateFileResponse
-from lark_oapi.api.im.v1.model.get_file_request import GetFileRequest
-from lark_oapi.api.im.v1.model.get_file_response import GetFileResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.create_file_request import CreateFileRequest
+from ..model.create_file_response import CreateFileResponse
+from ..model.get_file_request import GetFileRequest
+from ..model.get_file_response import GetFileResponse
 
 
 class File(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateFileRequest, option: RequestOption = RequestOption()) -> CreateFileResponse:
+    def create(self, request: CreateFileRequest, option: Optional[RequestOption] = None) -> CreateFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class File(object):
 
         return response
 
-    def get(self, request: GetFileRequest, option: RequestOption = RequestOption()) -> GetFileResponse:
+    def get(self, request: GetFileRequest, option: Optional[RequestOption] = None) -> GetFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

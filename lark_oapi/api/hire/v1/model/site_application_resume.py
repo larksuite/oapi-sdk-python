@@ -39,7 +39,7 @@ class SiteApplicationResume(object):
         "certificate_list": List[SiteResumeCertificate],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.mobile_number: Optional[str] = None
         self.moblie_code: Optional[str] = None
@@ -67,8 +67,8 @@ class SiteApplicationResume(object):
 
 
 class SiteApplicationResumeBuilder(object):
-    def __init__(self, site_application_resume: SiteApplicationResume = SiteApplicationResume({})) -> None:
-        self._site_application_resume: SiteApplicationResume = site_application_resume
+    def __init__(self) -> None:
+        self._site_application_resume = SiteApplicationResume()
 
     def name(self, name: str) -> "SiteApplicationResumeBuilder":
         self._site_application_resume.name = name

@@ -11,7 +11,7 @@ class ScopesFunctionalRoleMemberResponseBody(object):
         "results": List[FunctionalRoleMemberResult],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.results: Optional[List[FunctionalRoleMemberResult]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ScopesFunctionalRoleMemberResponseBody(object):
 
 
 class ScopesFunctionalRoleMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 scopes_functional_role_member_response_body: ScopesFunctionalRoleMemberResponseBody = ScopesFunctionalRoleMemberResponseBody(
-                     {})) -> None:
-        self._scopes_functional_role_member_response_body: ScopesFunctionalRoleMemberResponseBody = scopes_functional_role_member_response_body
+    def __init__(self) -> None:
+        self._scopes_functional_role_member_response_body = ScopesFunctionalRoleMemberResponseBody()
 
     def results(self, results: List[FunctionalRoleMemberResult]) -> "ScopesFunctionalRoleMemberResponseBodyBuilder":
         self._scopes_functional_role_member_response_body.results = results

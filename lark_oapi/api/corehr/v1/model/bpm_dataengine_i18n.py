@@ -11,7 +11,7 @@ class BpmDataengineI18n(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BpmDataengineI18n(object):
 
 
 class BpmDataengineI18nBuilder(object):
-    def __init__(self, bpm_dataengine_i18n: BpmDataengineI18n = BpmDataengineI18n({})) -> None:
-        self._bpm_dataengine_i18n: BpmDataengineI18n = bpm_dataengine_i18n
+    def __init__(self) -> None:
+        self._bpm_dataengine_i18n = BpmDataengineI18n()
 
     def zh_cn(self, zh_cn: str) -> "BpmDataengineI18nBuilder":
         self._bpm_dataengine_i18n.zh_cn = zh_cn

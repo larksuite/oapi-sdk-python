@@ -13,7 +13,7 @@ class ListInterviewResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[InterviewExtend]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListInterviewResponseBody(object):
 
 
 class ListInterviewResponseBodyBuilder(object):
-    def __init__(self, list_interview_response_body: ListInterviewResponseBody = ListInterviewResponseBody({})) -> None:
-        self._list_interview_response_body: ListInterviewResponseBody = list_interview_response_body
+    def __init__(self) -> None:
+        self._list_interview_response_body = ListInterviewResponseBody()
 
     def items(self, items: List[InterviewExtend]) -> "ListInterviewResponseBodyBuilder":
         self._list_interview_response_body.items = items

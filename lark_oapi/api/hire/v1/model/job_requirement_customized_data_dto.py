@@ -15,7 +15,7 @@ class JobRequirementCustomizedDataDto(object):
         "value": JobRequirementCustomizedValue,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.object_type: Optional[int] = None
@@ -28,10 +28,8 @@ class JobRequirementCustomizedDataDto(object):
 
 
 class JobRequirementCustomizedDataDtoBuilder(object):
-    def __init__(self,
-                 job_requirement_customized_data_dto: JobRequirementCustomizedDataDto = JobRequirementCustomizedDataDto(
-                     {})) -> None:
-        self._job_requirement_customized_data_dto: JobRequirementCustomizedDataDto = job_requirement_customized_data_dto
+    def __init__(self) -> None:
+        self._job_requirement_customized_data_dto = JobRequirementCustomizedDataDto()
 
     def object_id(self, object_id: str) -> "JobRequirementCustomizedDataDtoBuilder":
         self._job_requirement_customized_data_dto.object_id = object_id

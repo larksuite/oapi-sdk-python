@@ -16,7 +16,7 @@ class Message(object):
         "uuid": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.receive_id: Optional[str] = None
         self.content: Optional[str] = None
@@ -32,8 +32,8 @@ class Message(object):
 
 
 class MessageBuilder(object):
-    def __init__(self, message: Message = Message({})) -> None:
-        self._message: Message = message
+    def __init__(self) -> None:
+        self._message = Message()
 
     def id(self, id: str) -> "MessageBuilder":
         self._message.id = id

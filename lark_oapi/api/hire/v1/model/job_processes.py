@@ -15,7 +15,7 @@ class JobProcesses(object):
         "stage_list": List[JobProcessesStage],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -29,8 +29,8 @@ class JobProcesses(object):
 
 
 class JobProcessesBuilder(object):
-    def __init__(self, job_processes: JobProcesses = JobProcesses({})) -> None:
-        self._job_processes: JobProcesses = job_processes
+    def __init__(self) -> None:
+        self._job_processes = JobProcesses()
 
     def id(self, id: str) -> "JobProcessesBuilder":
         self._job_processes.id = id

@@ -11,7 +11,7 @@ class MultiLanguage(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.language: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MultiLanguage(object):
 
 
 class MultiLanguageBuilder(object):
-    def __init__(self, multi_language: MultiLanguage = MultiLanguage({})) -> None:
-        self._multi_language: MultiLanguage = multi_language
+    def __init__(self) -> None:
+        self._multi_language = MultiLanguage()
 
     def language(self, language: str) -> "MultiLanguageBuilder":
         self._multi_language.language = language

@@ -12,7 +12,7 @@ class ReplyMessageRequestBody(object):
         "uuid": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.msg_type: Optional[str] = None
         self.uuid: Optional[str] = None
@@ -24,8 +24,8 @@ class ReplyMessageRequestBody(object):
 
 
 class ReplyMessageRequestBodyBuilder(object):
-    def __init__(self, reply_message_request_body: ReplyMessageRequestBody = ReplyMessageRequestBody({})) -> None:
-        self._reply_message_request_body: ReplyMessageRequestBody = reply_message_request_body
+    def __init__(self) -> None:
+        self._reply_message_request_body = ReplyMessageRequestBody()
 
     def content(self, content: str) -> "ReplyMessageRequestBodyBuilder":
         self._reply_message_request_body.content = content

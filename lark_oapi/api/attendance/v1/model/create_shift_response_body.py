@@ -11,7 +11,7 @@ class CreateShiftResponseBody(object):
         "shift": Shift,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.shift: Optional[Shift] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CreateShiftResponseBody(object):
 
 
 class CreateShiftResponseBodyBuilder(object):
-    def __init__(self, create_shift_response_body: CreateShiftResponseBody = CreateShiftResponseBody({})) -> None:
-        self._create_shift_response_body: CreateShiftResponseBody = create_shift_response_body
+    def __init__(self) -> None:
+        self._create_shift_response_body = CreateShiftResponseBody()
 
     def shift(self, shift: Shift) -> "CreateShiftResponseBodyBuilder":
         self._create_shift_response_body.shift = shift

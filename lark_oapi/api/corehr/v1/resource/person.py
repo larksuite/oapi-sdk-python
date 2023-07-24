@@ -4,25 +4,28 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.corehr.v1.model.delete_person_request import DeletePersonRequest
-from lark_oapi.api.corehr.v1.model.delete_person_response import DeletePersonResponse
-from lark_oapi.api.corehr.v1.model.get_person_request import GetPersonRequest
-from lark_oapi.api.corehr.v1.model.get_person_response import GetPersonResponse
-from lark_oapi.api.corehr.v1.model.upload_person_request import UploadPersonRequest
-from lark_oapi.api.corehr.v1.model.upload_person_response import UploadPersonResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.delete_person_request import DeletePersonRequest
+from ..model.delete_person_response import DeletePersonResponse
+from ..model.get_person_request import GetPersonRequest
+from ..model.get_person_response import GetPersonResponse
+from ..model.upload_person_request import UploadPersonRequest
+from ..model.upload_person_response import UploadPersonResponse
 
 
 class Person(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def delete(self, request: DeletePersonRequest, option: RequestOption = RequestOption()) -> DeletePersonResponse:
+    def delete(self, request: DeletePersonRequest, option: Optional[RequestOption] = None) -> DeletePersonResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class Person(object):
 
         return response
 
-    def get(self, request: GetPersonRequest, option: RequestOption = RequestOption()) -> GetPersonResponse:
+    def get(self, request: GetPersonRequest, option: Optional[RequestOption] = None) -> GetPersonResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class Person(object):
 
         return response
 
-    def upload(self, request: UploadPersonRequest, option: RequestOption = RequestOption()) -> UploadPersonResponse:
+    def upload(self, request: UploadPersonRequest, option: Optional[RequestOption] = None) -> UploadPersonResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

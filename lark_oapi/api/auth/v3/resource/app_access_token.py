@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.auth.v3.model.create_app_access_token_request import CreateAppAccessTokenRequest
-from lark_oapi.api.auth.v3.model.create_app_access_token_response import CreateAppAccessTokenResponse
-from lark_oapi.api.auth.v3.model.internal_app_access_token_request import InternalAppAccessTokenRequest
-from lark_oapi.api.auth.v3.model.internal_app_access_token_response import InternalAppAccessTokenResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_app_access_token_request import CreateAppAccessTokenRequest
+from ..model.create_app_access_token_response import CreateAppAccessTokenResponse
+from ..model.internal_app_access_token_request import InternalAppAccessTokenRequest
+from ..model.internal_app_access_token_response import InternalAppAccessTokenResponse
 
 
 class AppAccessToken(object):
@@ -18,7 +18,10 @@ class AppAccessToken(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateAppAccessTokenRequest,
-               option: RequestOption = RequestOption()) -> CreateAppAccessTokenResponse:
+               option: Optional[RequestOption] = None) -> CreateAppAccessTokenResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class AppAccessToken(object):
         return response
 
     def internal(self, request: InternalAppAccessTokenRequest,
-                 option: RequestOption = RequestOption()) -> InternalAppAccessTokenResponse:
+                 option: Optional[RequestOption] = None) -> InternalAppAccessTokenResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

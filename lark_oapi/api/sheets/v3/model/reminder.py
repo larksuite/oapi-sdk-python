@@ -13,7 +13,7 @@ class Reminder(object):
         "notify_strategy": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.notify_date_time: Optional[str] = None
         self.notify_user_id: Optional[List[str]] = None
         self.notify_text: Optional[str] = None
@@ -26,8 +26,8 @@ class Reminder(object):
 
 
 class ReminderBuilder(object):
-    def __init__(self, reminder: Reminder = Reminder({})) -> None:
-        self._reminder: Reminder = reminder
+    def __init__(self) -> None:
+        self._reminder = Reminder()
 
     def notify_date_time(self, notify_date_time: str) -> "ReminderBuilder":
         self._reminder.notify_date_time = notify_date_time

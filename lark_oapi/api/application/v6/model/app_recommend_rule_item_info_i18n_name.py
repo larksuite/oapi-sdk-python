@@ -14,7 +14,7 @@ class AppRecommendRuleItemInfoI18nName(object):
         "ja_jp": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.zh_hk: Optional[str] = None
         self.zh_tw: Optional[str] = None
@@ -28,10 +28,8 @@ class AppRecommendRuleItemInfoI18nName(object):
 
 
 class AppRecommendRuleItemInfoI18nNameBuilder(object):
-    def __init__(self,
-                 app_recommend_rule_item_info_i18n_name: AppRecommendRuleItemInfoI18nName = AppRecommendRuleItemInfoI18nName(
-                     {})) -> None:
-        self._app_recommend_rule_item_info_i18n_name: AppRecommendRuleItemInfoI18nName = app_recommend_rule_item_info_i18n_name
+    def __init__(self) -> None:
+        self._app_recommend_rule_item_info_i18n_name = AppRecommendRuleItemInfoI18nName()
 
     def zh_cn(self, zh_cn: str) -> "AppRecommendRuleItemInfoI18nNameBuilder":
         self._app_recommend_rule_item_info_i18n_name.zh_cn = zh_cn

@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.admin.v1.model.reset_password_request import ResetPasswordRequest
-from lark_oapi.api.admin.v1.model.reset_password_response import ResetPasswordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.reset_password_request import ResetPasswordRequest
+from ..model.reset_password_response import ResetPasswordResponse
 
 
 class Password(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def reset(self, request: ResetPasswordRequest, option: RequestOption = RequestOption()) -> ResetPasswordResponse:
+    def reset(self, request: ResetPasswordRequest, option: Optional[RequestOption] = None) -> ResetPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

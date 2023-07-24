@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.get_offer_schema_request import GetOfferSchemaRequest
-from lark_oapi.api.hire.v1.model.get_offer_schema_response import GetOfferSchemaResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_offer_schema_request import GetOfferSchemaRequest
+from ..model.get_offer_schema_response import GetOfferSchemaResponse
 
 
 class OfferSchema(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetOfferSchemaRequest, option: RequestOption = RequestOption()) -> GetOfferSchemaResponse:
+    def get(self, request: GetOfferSchemaRequest, option: Optional[RequestOption] = None) -> GetOfferSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -23,7 +23,8 @@ class PatchEmploymentRequest(BaseRequest):
 
 class PatchEmploymentRequestBuilder(object):
 
-    def __init__(self, patch_employment_request: PatchEmploymentRequest = PatchEmploymentRequest()) -> None:
+    def __init__(self) -> None:
+        patch_employment_request = PatchEmploymentRequest()
         patch_employment_request.http_method = HttpMethod.PATCH
         patch_employment_request.uri = "/open-apis/corehr/v1/employments/:employment_id"
         patch_employment_request.token_types = {AccessTokenType.TENANT}

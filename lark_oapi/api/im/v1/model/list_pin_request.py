@@ -22,7 +22,8 @@ class ListPinRequest(BaseRequest):
 
 class ListPinRequestBuilder(object):
 
-    def __init__(self, list_pin_request: ListPinRequest = ListPinRequest()) -> None:
+    def __init__(self) -> None:
+        list_pin_request = ListPinRequest()
         list_pin_request.http_method = HttpMethod.GET
         list_pin_request.uri = "/open-apis/im/v1/pins"
         list_pin_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

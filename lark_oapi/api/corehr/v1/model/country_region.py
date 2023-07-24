@@ -14,7 +14,7 @@ class CountryRegion(object):
         "alpha_2_code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.alpha_3_code: Optional[str] = None
@@ -27,8 +27,8 @@ class CountryRegion(object):
 
 
 class CountryRegionBuilder(object):
-    def __init__(self, country_region: CountryRegion = CountryRegion({})) -> None:
-        self._country_region: CountryRegion = country_region
+    def __init__(self) -> None:
+        self._country_region = CountryRegion()
 
     def id(self, id: str) -> "CountryRegionBuilder":
         self._country_region.id = id

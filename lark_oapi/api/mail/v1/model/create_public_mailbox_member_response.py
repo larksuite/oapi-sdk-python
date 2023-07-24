@@ -12,7 +12,7 @@ class CreatePublicMailboxMemberResponse(BaseResponse):
         "data": CreatePublicMailboxMemberResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreatePublicMailboxMemberResponseBody] = None
         init(self, d, self._types)

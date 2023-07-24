@@ -14,7 +14,7 @@ class WorkCity(object):
         "status": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.work_city_id: Optional[str] = None
         self.name: Optional[str] = None
         self.i18n_name: Optional[List[I18nContent]] = None
@@ -27,8 +27,8 @@ class WorkCity(object):
 
 
 class WorkCityBuilder(object):
-    def __init__(self, work_city: WorkCity = WorkCity({})) -> None:
-        self._work_city: WorkCity = work_city
+    def __init__(self) -> None:
+        self._work_city = WorkCity()
 
     def work_city_id(self, work_city_id: str) -> "WorkCityBuilder":
         self._work_city.work_city_id = work_city_id

@@ -21,7 +21,8 @@ class GetInstanceRequest(BaseRequest):
 
 class GetInstanceRequestBuilder(object):
 
-    def __init__(self, get_instance_request: GetInstanceRequest = GetInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        get_instance_request = GetInstanceRequest()
         get_instance_request.http_method = HttpMethod.GET
         get_instance_request.uri = "/open-apis/approval/v4/instances/:instance_id"
         get_instance_request.token_types = {AccessTokenType.TENANT}

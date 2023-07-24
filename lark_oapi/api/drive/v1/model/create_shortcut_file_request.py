@@ -19,7 +19,8 @@ class CreateShortcutFileRequest(BaseRequest):
 
 class CreateShortcutFileRequestBuilder(object):
 
-    def __init__(self, create_shortcut_file_request: CreateShortcutFileRequest = CreateShortcutFileRequest()) -> None:
+    def __init__(self) -> None:
+        create_shortcut_file_request = CreateShortcutFileRequest()
         create_shortcut_file_request.http_method = HttpMethod.POST
         create_shortcut_file_request.uri = "/open-apis/drive/v1/files/create_shortcut"
         create_shortcut_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

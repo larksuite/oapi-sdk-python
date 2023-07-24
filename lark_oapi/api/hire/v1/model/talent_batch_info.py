@@ -15,7 +15,7 @@ class TalentBatchInfo(object):
         "identification_number": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.talent_id: Optional[str] = None
         self.mobile_code: Optional[str] = None
         self.mobile_number: Optional[str] = None
@@ -30,8 +30,8 @@ class TalentBatchInfo(object):
 
 
 class TalentBatchInfoBuilder(object):
-    def __init__(self, talent_batch_info: TalentBatchInfo = TalentBatchInfo({})) -> None:
-        self._talent_batch_info: TalentBatchInfo = talent_batch_info
+    def __init__(self) -> None:
+        self._talent_batch_info = TalentBatchInfo()
 
     def talent_id(self, talent_id: str) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.talent_id = talent_id

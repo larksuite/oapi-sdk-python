@@ -20,7 +20,8 @@ class DeleteAppTableViewRequest(BaseRequest):
 
 class DeleteAppTableViewRequestBuilder(object):
 
-    def __init__(self, delete_app_table_view_request: DeleteAppTableViewRequest = DeleteAppTableViewRequest()) -> None:
+    def __init__(self) -> None:
+        delete_app_table_view_request = DeleteAppTableViewRequest()
         delete_app_table_view_request.http_method = HttpMethod.DELETE
         delete_app_table_view_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
         delete_app_table_view_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

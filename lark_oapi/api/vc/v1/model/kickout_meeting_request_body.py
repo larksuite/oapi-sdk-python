@@ -11,7 +11,7 @@ class KickoutMeetingRequestBody(object):
         "kickout_users": List[MeetingUser],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.kickout_users: Optional[List[MeetingUser]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class KickoutMeetingRequestBody(object):
 
 
 class KickoutMeetingRequestBodyBuilder(object):
-    def __init__(self, kickout_meeting_request_body: KickoutMeetingRequestBody = KickoutMeetingRequestBody({})) -> None:
-        self._kickout_meeting_request_body: KickoutMeetingRequestBody = kickout_meeting_request_body
+    def __init__(self) -> None:
+        self._kickout_meeting_request_body = KickoutMeetingRequestBody()
 
     def kickout_users(self, kickout_users: List[MeetingUser]) -> "KickoutMeetingRequestBodyBuilder":
         self._kickout_meeting_request_body.kickout_users = kickout_users

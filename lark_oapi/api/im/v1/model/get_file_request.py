@@ -18,7 +18,8 @@ class GetFileRequest(BaseRequest):
 
 class GetFileRequestBuilder(object):
 
-    def __init__(self, get_file_request: GetFileRequest = GetFileRequest()) -> None:
+    def __init__(self) -> None:
+        get_file_request = GetFileRequest()
         get_file_request.http_method = HttpMethod.GET
         get_file_request.uri = "/open-apis/im/v1/files/:file_key"
         get_file_request.token_types = {AccessTokenType.TENANT}

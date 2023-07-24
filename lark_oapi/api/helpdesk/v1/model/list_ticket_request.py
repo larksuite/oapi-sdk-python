@@ -34,7 +34,8 @@ class ListTicketRequest(BaseRequest):
 
 class ListTicketRequestBuilder(object):
 
-    def __init__(self, list_ticket_request: ListTicketRequest = ListTicketRequest()) -> None:
+    def __init__(self) -> None:
+        list_ticket_request = ListTicketRequest()
         list_ticket_request.http_method = HttpMethod.GET
         list_ticket_request.uri = "/open-apis/helpdesk/v1/tickets"
         list_ticket_request.token_types = {AccessTokenType.TENANT}

@@ -14,7 +14,7 @@ class GetChatModerationResponseBody(object):
         "items": List[ListModerator],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.moderation_setting: Optional[str] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -27,9 +27,8 @@ class GetChatModerationResponseBody(object):
 
 
 class GetChatModerationResponseBodyBuilder(object):
-    def __init__(self, get_chat_moderation_response_body: GetChatModerationResponseBody = GetChatModerationResponseBody(
-        {})) -> None:
-        self._get_chat_moderation_response_body: GetChatModerationResponseBody = get_chat_moderation_response_body
+    def __init__(self) -> None:
+        self._get_chat_moderation_response_body = GetChatModerationResponseBody()
 
     def moderation_setting(self, moderation_setting: str) -> "GetChatModerationResponseBodyBuilder":
         self._get_chat_moderation_response_body.moderation_setting = moderation_setting

@@ -2,31 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.batch_create_mailgroup_permission_member_request import \
-    BatchCreateMailgroupPermissionMemberRequest
-from lark_oapi.api.mail.v1.model.batch_create_mailgroup_permission_member_response import \
-    BatchCreateMailgroupPermissionMemberResponse
-from lark_oapi.api.mail.v1.model.batch_delete_mailgroup_permission_member_request import \
-    BatchDeleteMailgroupPermissionMemberRequest
-from lark_oapi.api.mail.v1.model.batch_delete_mailgroup_permission_member_response import \
-    BatchDeleteMailgroupPermissionMemberResponse
-from lark_oapi.api.mail.v1.model.create_mailgroup_permission_member_request import \
-    CreateMailgroupPermissionMemberRequest
-from lark_oapi.api.mail.v1.model.create_mailgroup_permission_member_response import \
-    CreateMailgroupPermissionMemberResponse
-from lark_oapi.api.mail.v1.model.delete_mailgroup_permission_member_request import \
-    DeleteMailgroupPermissionMemberRequest
-from lark_oapi.api.mail.v1.model.delete_mailgroup_permission_member_response import \
-    DeleteMailgroupPermissionMemberResponse
-from lark_oapi.api.mail.v1.model.get_mailgroup_permission_member_request import GetMailgroupPermissionMemberRequest
-from lark_oapi.api.mail.v1.model.get_mailgroup_permission_member_response import GetMailgroupPermissionMemberResponse
-from lark_oapi.api.mail.v1.model.list_mailgroup_permission_member_request import ListMailgroupPermissionMemberRequest
-from lark_oapi.api.mail.v1.model.list_mailgroup_permission_member_response import ListMailgroupPermissionMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_mailgroup_permission_member_request import BatchCreateMailgroupPermissionMemberRequest
+from ..model.batch_create_mailgroup_permission_member_response import BatchCreateMailgroupPermissionMemberResponse
+from ..model.batch_delete_mailgroup_permission_member_request import BatchDeleteMailgroupPermissionMemberRequest
+from ..model.batch_delete_mailgroup_permission_member_response import BatchDeleteMailgroupPermissionMemberResponse
+from ..model.create_mailgroup_permission_member_request import CreateMailgroupPermissionMemberRequest
+from ..model.create_mailgroup_permission_member_response import CreateMailgroupPermissionMemberResponse
+from ..model.delete_mailgroup_permission_member_request import DeleteMailgroupPermissionMemberRequest
+from ..model.delete_mailgroup_permission_member_response import DeleteMailgroupPermissionMemberResponse
+from ..model.get_mailgroup_permission_member_request import GetMailgroupPermissionMemberRequest
+from ..model.get_mailgroup_permission_member_response import GetMailgroupPermissionMemberResponse
+from ..model.list_mailgroup_permission_member_request import ListMailgroupPermissionMemberRequest
+from ..model.list_mailgroup_permission_member_response import ListMailgroupPermissionMemberResponse
 
 
 class MailgroupPermissionMember(object):
@@ -34,7 +26,10 @@ class MailgroupPermissionMember(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateMailgroupPermissionMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateMailgroupPermissionMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateMailgroupPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +44,10 @@ class MailgroupPermissionMember(object):
         return response
 
     def batch_delete(self, request: BatchDeleteMailgroupPermissionMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteMailgroupPermissionMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteMailgroupPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +62,10 @@ class MailgroupPermissionMember(object):
         return response
 
     def create(self, request: CreateMailgroupPermissionMemberRequest,
-               option: RequestOption = RequestOption()) -> CreateMailgroupPermissionMemberResponse:
+               option: Optional[RequestOption] = None) -> CreateMailgroupPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +80,10 @@ class MailgroupPermissionMember(object):
         return response
 
     def delete(self, request: DeleteMailgroupPermissionMemberRequest,
-               option: RequestOption = RequestOption()) -> DeleteMailgroupPermissionMemberResponse:
+               option: Optional[RequestOption] = None) -> DeleteMailgroupPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -94,7 +98,10 @@ class MailgroupPermissionMember(object):
         return response
 
     def get(self, request: GetMailgroupPermissionMemberRequest,
-            option: RequestOption = RequestOption()) -> GetMailgroupPermissionMemberResponse:
+            option: Optional[RequestOption] = None) -> GetMailgroupPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -109,7 +116,10 @@ class MailgroupPermissionMember(object):
         return response
 
     def list(self, request: ListMailgroupPermissionMemberRequest,
-             option: RequestOption = RequestOption()) -> ListMailgroupPermissionMemberResponse:
+             option: Optional[RequestOption] = None) -> ListMailgroupPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

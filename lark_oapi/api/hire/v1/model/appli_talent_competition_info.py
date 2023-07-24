@@ -12,7 +12,7 @@ class AppliTalentCompetitionInfo(object):
         "desc": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.desc: Optional[str] = None
@@ -24,9 +24,8 @@ class AppliTalentCompetitionInfo(object):
 
 
 class AppliTalentCompetitionInfoBuilder(object):
-    def __init__(self,
-                 appli_talent_competition_info: AppliTalentCompetitionInfo = AppliTalentCompetitionInfo({})) -> None:
-        self._appli_talent_competition_info: AppliTalentCompetitionInfo = appli_talent_competition_info
+    def __init__(self) -> None:
+        self._appli_talent_competition_info = AppliTalentCompetitionInfo()
 
     def id(self, id: str) -> "AppliTalentCompetitionInfoBuilder":
         self._appli_talent_competition_info.id = id

@@ -10,7 +10,7 @@ class IdpCredentialId(object):
         "idp_credential_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.idp_credential_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class IdpCredentialId(object):
 
 
 class IdpCredentialIdBuilder(object):
-    def __init__(self, idp_credential_id: IdpCredentialId = IdpCredentialId({})) -> None:
-        self._idp_credential_id: IdpCredentialId = idp_credential_id
+    def __init__(self) -> None:
+        self._idp_credential_id = IdpCredentialId()
 
     def idp_credential_id(self, idp_credential_id: str) -> "IdpCredentialIdBuilder":
         self._idp_credential_id.idp_credential_id = idp_credential_id

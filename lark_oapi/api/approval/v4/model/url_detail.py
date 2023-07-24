@@ -13,7 +13,7 @@ class UrlDetail(object):
         "message": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.origin_url: Optional[str] = None
         self.url: Optional[str] = None
         self.code: Optional[str] = None
@@ -26,8 +26,8 @@ class UrlDetail(object):
 
 
 class UrlDetailBuilder(object):
-    def __init__(self, url_detail: UrlDetail = UrlDetail({})) -> None:
-        self._url_detail: UrlDetail = url_detail
+    def __init__(self) -> None:
+        self._url_detail = UrlDetail()
 
     def origin_url(self, origin_url: str) -> "UrlDetailBuilder":
         self._url_detail.origin_url = origin_url

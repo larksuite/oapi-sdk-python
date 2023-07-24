@@ -14,7 +14,7 @@ class App(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_token: Optional[str] = None
         self.name: Optional[str] = None
         self.revision: Optional[int] = None
@@ -28,8 +28,8 @@ class App(object):
 
 
 class AppBuilder(object):
-    def __init__(self, app: App = App({})) -> None:
-        self._app: App = app
+    def __init__(self) -> None:
+        self._app = App()
 
     def app_token(self, app_token: str) -> "AppBuilder":
         self._app.app_token = app_token

@@ -19,7 +19,8 @@ class CreateExportTaskRequest(BaseRequest):
 
 class CreateExportTaskRequestBuilder(object):
 
-    def __init__(self, create_export_task_request: CreateExportTaskRequest = CreateExportTaskRequest()) -> None:
+    def __init__(self) -> None:
+        create_export_task_request = CreateExportTaskRequest()
         create_export_task_request.http_method = HttpMethod.POST
         create_export_task_request.uri = "/open-apis/drive/v1/export_tasks"
         create_export_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -11,7 +11,7 @@ class BaseResp(object):
         "status_code": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status_message: Optional[str] = None
         self.status_code: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BaseResp(object):
 
 
 class BaseRespBuilder(object):
-    def __init__(self, base_resp: BaseResp = BaseResp({})) -> None:
-        self._base_resp: BaseResp = base_resp
+    def __init__(self) -> None:
+        self._base_resp = BaseResp()
 
     def status_message(self, status_message: str) -> "BaseRespBuilder":
         self._base_resp.status_message = status_message

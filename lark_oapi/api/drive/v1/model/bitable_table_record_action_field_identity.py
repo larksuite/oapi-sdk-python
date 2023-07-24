@@ -11,7 +11,7 @@ class BitableTableRecordActionFieldIdentity(object):
         "users": List[BitableTableRecordActionFieldIdentityUser],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.users: Optional[List[BitableTableRecordActionFieldIdentityUser]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BitableTableRecordActionFieldIdentity(object):
 
 
 class BitableTableRecordActionFieldIdentityBuilder(object):
-    def __init__(self,
-                 bitable_table_record_action_field_identity: BitableTableRecordActionFieldIdentity = BitableTableRecordActionFieldIdentity(
-                     {})) -> None:
-        self._bitable_table_record_action_field_identity: BitableTableRecordActionFieldIdentity = bitable_table_record_action_field_identity
+    def __init__(self) -> None:
+        self._bitable_table_record_action_field_identity = BitableTableRecordActionFieldIdentity()
 
     def users(self,
               users: List[BitableTableRecordActionFieldIdentityUser]) -> "BitableTableRecordActionFieldIdentityBuilder":

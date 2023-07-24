@@ -22,7 +22,7 @@ class AuditObjectDetail(object):
         "current_page": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.clone_source: Optional[str] = None
         self.text_detail: Optional[str] = None
         self.file_name: Optional[str] = None
@@ -44,8 +44,8 @@ class AuditObjectDetail(object):
 
 
 class AuditObjectDetailBuilder(object):
-    def __init__(self, audit_object_detail: AuditObjectDetail = AuditObjectDetail({})) -> None:
-        self._audit_object_detail: AuditObjectDetail = audit_object_detail
+    def __init__(self) -> None:
+        self._audit_object_detail = AuditObjectDetail()
 
     def clone_source(self, clone_source: str) -> "AuditObjectDetailBuilder":
         self._audit_object_detail.clone_source = clone_source

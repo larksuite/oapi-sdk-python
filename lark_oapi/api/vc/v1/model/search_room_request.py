@@ -20,7 +20,8 @@ class SearchRoomRequest(BaseRequest):
 
 class SearchRoomRequestBuilder(object):
 
-    def __init__(self, search_room_request: SearchRoomRequest = SearchRoomRequest()) -> None:
+    def __init__(self) -> None:
+        search_room_request = SearchRoomRequest()
         search_room_request.http_method = HttpMethod.POST
         search_room_request.uri = "/open-apis/vc/v1/rooms/search"
         search_room_request.token_types = {AccessTokenType.USER}

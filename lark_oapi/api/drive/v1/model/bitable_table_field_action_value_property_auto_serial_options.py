@@ -11,7 +11,7 @@ class BitableTableFieldActionValuePropertyAutoSerialOptions(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class BitableTableFieldActionValuePropertyAutoSerialOptions(object):
 
 
 class BitableTableFieldActionValuePropertyAutoSerialOptionsBuilder(object):
-    def __init__(self,
-                 bitable_table_field_action_value_property_auto_serial_options: BitableTableFieldActionValuePropertyAutoSerialOptions = BitableTableFieldActionValuePropertyAutoSerialOptions(
-                     {})) -> None:
-        self._bitable_table_field_action_value_property_auto_serial_options: BitableTableFieldActionValuePropertyAutoSerialOptions = bitable_table_field_action_value_property_auto_serial_options
+    def __init__(self) -> None:
+        self._bitable_table_field_action_value_property_auto_serial_options = BitableTableFieldActionValuePropertyAutoSerialOptions()
 
     def type(self, type: str) -> "BitableTableFieldActionValuePropertyAutoSerialOptionsBuilder":
         self._bitable_table_field_action_value_property_auto_serial_options.type = type

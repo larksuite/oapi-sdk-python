@@ -14,7 +14,7 @@ class TextStyle(object):
         "wrap": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.align: Optional[int] = None
         self.done: Optional[bool] = None
         self.folded: Optional[bool] = None
@@ -28,8 +28,8 @@ class TextStyle(object):
 
 
 class TextStyleBuilder(object):
-    def __init__(self, text_style: TextStyle = TextStyle({})) -> None:
-        self._text_style: TextStyle = text_style
+    def __init__(self) -> None:
+        self._text_style = TextStyle()
 
     def align(self, align: int) -> "TextStyleBuilder":
         self._text_style.align = align

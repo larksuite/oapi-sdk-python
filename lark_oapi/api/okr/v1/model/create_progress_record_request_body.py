@@ -17,7 +17,7 @@ class CreateProgressRecordRequestBody(object):
         "source_url_mobile": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.source_title: Optional[str] = None
         self.source_url: Optional[str] = None
         self.target_id: Optional[int] = None
@@ -33,10 +33,8 @@ class CreateProgressRecordRequestBody(object):
 
 
 class CreateProgressRecordRequestBodyBuilder(object):
-    def __init__(self,
-                 create_progress_record_request_body: CreateProgressRecordRequestBody = CreateProgressRecordRequestBody(
-                     {})) -> None:
-        self._create_progress_record_request_body: CreateProgressRecordRequestBody = create_progress_record_request_body
+    def __init__(self) -> None:
+        self._create_progress_record_request_body = CreateProgressRecordRequestBody()
 
     def source_title(self, source_title: str) -> "CreateProgressRecordRequestBodyBuilder":
         self._create_progress_record_request_body.source_title = source_title

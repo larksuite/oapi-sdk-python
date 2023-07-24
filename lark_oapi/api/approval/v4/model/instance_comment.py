@@ -16,7 +16,7 @@ class InstanceComment(object):
         "files": List[File],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
@@ -31,8 +31,8 @@ class InstanceComment(object):
 
 
 class InstanceCommentBuilder(object):
-    def __init__(self, instance_comment: InstanceComment = InstanceComment({})) -> None:
-        self._instance_comment: InstanceComment = instance_comment
+    def __init__(self) -> None:
+        self._instance_comment = InstanceComment()
 
     def id(self, id: str) -> "InstanceCommentBuilder":
         self._instance_comment.id = id

@@ -13,7 +13,7 @@ class ApplicationTalentWorksInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.link: Optional[str] = None
         self.desc: Optional[str] = None
@@ -26,9 +26,8 @@ class ApplicationTalentWorksInfo(object):
 
 
 class ApplicationTalentWorksInfoBuilder(object):
-    def __init__(self,
-                 application_talent_works_info: ApplicationTalentWorksInfo = ApplicationTalentWorksInfo({})) -> None:
-        self._application_talent_works_info: ApplicationTalentWorksInfo = application_talent_works_info
+    def __init__(self) -> None:
+        self._application_talent_works_info = ApplicationTalentWorksInfo()
 
     def id(self, id: str) -> "ApplicationTalentWorksInfoBuilder":
         self._application_talent_works_info.id = id

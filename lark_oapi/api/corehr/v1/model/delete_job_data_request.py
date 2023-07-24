@@ -18,7 +18,8 @@ class DeleteJobDataRequest(BaseRequest):
 
 class DeleteJobDataRequestBuilder(object):
 
-    def __init__(self, delete_job_data_request: DeleteJobDataRequest = DeleteJobDataRequest()) -> None:
+    def __init__(self) -> None:
+        delete_job_data_request = DeleteJobDataRequest()
         delete_job_data_request.http_method = HttpMethod.DELETE
         delete_job_data_request.uri = "/open-apis/corehr/v1/job_datas/:job_data_id"
         delete_job_data_request.token_types = {AccessTokenType.TENANT}

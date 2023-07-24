@@ -18,7 +18,7 @@ class TalentSchemaObject(object):
         "children": List[TalentSchemaChildObject],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.active_status: Optional[int] = None
         self.is_customized: Optional[bool] = None
@@ -33,8 +33,8 @@ class TalentSchemaObject(object):
 
 
 class TalentSchemaObjectBuilder(object):
-    def __init__(self, talent_schema_object: TalentSchemaObject = TalentSchemaObject({})) -> None:
-        self._talent_schema_object: TalentSchemaObject = talent_schema_object
+    def __init__(self) -> None:
+        self._talent_schema_object = TalentSchemaObject()
 
     def id(self, id: str) -> "TalentSchemaObjectBuilder":
         self._talent_schema_object.id = id

@@ -21,7 +21,8 @@ class ListSpaceNodeRequest(BaseRequest):
 
 class ListSpaceNodeRequestBuilder(object):
 
-    def __init__(self, list_space_node_request: ListSpaceNodeRequest = ListSpaceNodeRequest()) -> None:
+    def __init__(self) -> None:
+        list_space_node_request = ListSpaceNodeRequest()
         list_space_node_request.http_method = HttpMethod.GET
         list_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes"
         list_space_node_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

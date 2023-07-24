@@ -14,7 +14,7 @@ class GetOfferSchemaResponseBody(object):
         "object_list": List[OfferSchemaDetail],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.scenario: Optional[int] = None
         self.version: Optional[int] = None
@@ -27,9 +27,8 @@ class GetOfferSchemaResponseBody(object):
 
 
 class GetOfferSchemaResponseBodyBuilder(object):
-    def __init__(self,
-                 get_offer_schema_response_body: GetOfferSchemaResponseBody = GetOfferSchemaResponseBody({})) -> None:
-        self._get_offer_schema_response_body: GetOfferSchemaResponseBody = get_offer_schema_response_body
+    def __init__(self) -> None:
+        self._get_offer_schema_response_body = GetOfferSchemaResponseBody()
 
     def id(self, id: str) -> "GetOfferSchemaResponseBodyBuilder":
         self._get_offer_schema_response_body.id = id

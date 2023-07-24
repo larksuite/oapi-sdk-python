@@ -15,7 +15,7 @@ class Bank(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bank_id: Optional[str] = None
         self.bank_name: Optional[List[I18n]] = None
         self.bank_code: Optional[str] = None
@@ -29,8 +29,8 @@ class Bank(object):
 
 
 class BankBuilder(object):
-    def __init__(self, bank: Bank = Bank({})) -> None:
-        self._bank: Bank = bank
+    def __init__(self) -> None:
+        self._bank = Bank()
 
     def bank_id(self, bank_id: str) -> "BankBuilder":
         self._bank.bank_id = bank_id

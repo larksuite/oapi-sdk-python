@@ -19,7 +19,7 @@ class Okr(object):
         "okr_score": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.okr_id: Optional[int] = None
         self.period_id: Optional[int] = None
         self.period_type: Optional[str] = None
@@ -36,8 +36,8 @@ class Okr(object):
 
 
 class OkrBuilder(object):
-    def __init__(self, okr: Okr = Okr({})) -> None:
-        self._okr: Okr = okr
+    def __init__(self) -> None:
+        self._okr = Okr()
 
     def okr_id(self, okr_id: int) -> "OkrBuilder":
         self._okr.okr_id = okr_id

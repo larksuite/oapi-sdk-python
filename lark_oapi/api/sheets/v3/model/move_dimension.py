@@ -12,7 +12,7 @@ class MoveDimension(object):
         "destination_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.source: Optional[Dimension] = None
         self.destination_index: Optional[int] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class MoveDimension(object):
 
 
 class MoveDimensionBuilder(object):
-    def __init__(self, move_dimension: MoveDimension = MoveDimension({})) -> None:
-        self._move_dimension: MoveDimension = move_dimension
+    def __init__(self) -> None:
+        self._move_dimension = MoveDimension()
 
     def source(self, source: Dimension) -> "MoveDimensionBuilder":
         self._move_dimension.source = source

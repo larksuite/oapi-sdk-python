@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.create_mailgroup_alias_request import CreateMailgroupAliasRequest
-from lark_oapi.api.mail.v1.model.create_mailgroup_alias_response import CreateMailgroupAliasResponse
-from lark_oapi.api.mail.v1.model.delete_mailgroup_alias_request import DeleteMailgroupAliasRequest
-from lark_oapi.api.mail.v1.model.delete_mailgroup_alias_response import DeleteMailgroupAliasResponse
-from lark_oapi.api.mail.v1.model.list_mailgroup_alias_request import ListMailgroupAliasRequest
-from lark_oapi.api.mail.v1.model.list_mailgroup_alias_response import ListMailgroupAliasResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_mailgroup_alias_request import CreateMailgroupAliasRequest
+from ..model.create_mailgroup_alias_response import CreateMailgroupAliasResponse
+from ..model.delete_mailgroup_alias_request import DeleteMailgroupAliasRequest
+from ..model.delete_mailgroup_alias_response import DeleteMailgroupAliasResponse
+from ..model.list_mailgroup_alias_request import ListMailgroupAliasRequest
+from ..model.list_mailgroup_alias_response import ListMailgroupAliasResponse
 
 
 class MailgroupAlias(object):
@@ -20,7 +20,10 @@ class MailgroupAlias(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateMailgroupAliasRequest,
-               option: RequestOption = RequestOption()) -> CreateMailgroupAliasResponse:
+               option: Optional[RequestOption] = None) -> CreateMailgroupAliasResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class MailgroupAlias(object):
         return response
 
     def delete(self, request: DeleteMailgroupAliasRequest,
-               option: RequestOption = RequestOption()) -> DeleteMailgroupAliasResponse:
+               option: Optional[RequestOption] = None) -> DeleteMailgroupAliasResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class MailgroupAlias(object):
         return response
 
     def list(self, request: ListMailgroupAliasRequest,
-             option: RequestOption = RequestOption()) -> ListMailgroupAliasResponse:
+             option: Optional[RequestOption] = None) -> ListMailgroupAliasResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class CopySpaceNodeResponseBody(object):
         "node": Node,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node: Optional[Node] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CopySpaceNodeResponseBody(object):
 
 
 class CopySpaceNodeResponseBodyBuilder(object):
-    def __init__(self,
-                 copy_space_node_response_body: CopySpaceNodeResponseBody = CopySpaceNodeResponseBody({})) -> None:
-        self._copy_space_node_response_body: CopySpaceNodeResponseBody = copy_space_node_response_body
+    def __init__(self) -> None:
+        self._copy_space_node_response_body = CopySpaceNodeResponseBody()
 
     def node(self, node: Node) -> "CopySpaceNodeResponseBodyBuilder":
         self._copy_space_node_response_body.node = node

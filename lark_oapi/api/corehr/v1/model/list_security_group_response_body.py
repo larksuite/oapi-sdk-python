@@ -13,7 +13,7 @@ class ListSecurityGroupResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[SecurityGroup]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,9 +25,8 @@ class ListSecurityGroupResponseBody(object):
 
 
 class ListSecurityGroupResponseBodyBuilder(object):
-    def __init__(self, list_security_group_response_body: ListSecurityGroupResponseBody = ListSecurityGroupResponseBody(
-        {})) -> None:
-        self._list_security_group_response_body: ListSecurityGroupResponseBody = list_security_group_response_body
+    def __init__(self) -> None:
+        self._list_security_group_response_body = ListSecurityGroupResponseBody()
 
     def items(self, items: List[SecurityGroup]) -> "ListSecurityGroupResponseBodyBuilder":
         self._list_security_group_response_body.items = items

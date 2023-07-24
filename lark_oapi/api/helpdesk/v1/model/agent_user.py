@@ -15,7 +15,7 @@ class AgentUser(object):
         "company_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.avatar_url: Optional[str] = None
         self.name: Optional[str] = None
@@ -30,8 +30,8 @@ class AgentUser(object):
 
 
 class AgentUserBuilder(object):
-    def __init__(self, agent_user: AgentUser = AgentUser({})) -> None:
-        self._agent_user: AgentUser = agent_user
+    def __init__(self) -> None:
+        self._agent_user = AgentUser()
 
     def id(self, id: str) -> "AgentUserBuilder":
         self._agent_user.id = id

@@ -7,7 +7,7 @@ class Section(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class Section(object):
 
 
 class SectionBuilder(object):
-    def __init__(self, section: Section = Section({})) -> None:
-        self._section: Section = section
+    def __init__(self) -> None:
+        self._section = Section()
 
     def build(self) -> "Section":
         return self._section

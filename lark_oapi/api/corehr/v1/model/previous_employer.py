@@ -15,7 +15,7 @@ class PreviousEmployer(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.employer_name: Optional[str] = None
         self.employer_reference_number: Optional[str] = None
@@ -29,8 +29,8 @@ class PreviousEmployer(object):
 
 
 class PreviousEmployerBuilder(object):
-    def __init__(self, previous_employer: PreviousEmployer = PreviousEmployer({})) -> None:
-        self._previous_employer: PreviousEmployer = previous_employer
+    def __init__(self) -> None:
+        self._previous_employer = PreviousEmployer()
 
     def id(self, id: str) -> "PreviousEmployerBuilder":
         self._previous_employer.id = id

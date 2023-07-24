@@ -11,7 +11,7 @@ class ImageFieldSetting(object):
         "display_style": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_type: Optional[int] = None
         self.display_style: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ImageFieldSetting(object):
 
 
 class ImageFieldSettingBuilder(object):
-    def __init__(self, image_field_setting: ImageFieldSetting = ImageFieldSetting({})) -> None:
-        self._image_field_setting: ImageFieldSetting = image_field_setting
+    def __init__(self) -> None:
+        self._image_field_setting = ImageFieldSetting()
 
     def image_type(self, image_type: int) -> "ImageFieldSettingBuilder":
         self._image_field_setting.image_type = image_type

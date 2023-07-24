@@ -16,7 +16,7 @@ class SetCheckboardAccessCodeRoomConfigRequestBody(object):
         "valid_day": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope: Optional[int] = None
         self.country_id: Optional[str] = None
         self.district_id: Optional[str] = None
@@ -32,10 +32,8 @@ class SetCheckboardAccessCodeRoomConfigRequestBody(object):
 
 
 class SetCheckboardAccessCodeRoomConfigRequestBodyBuilder(object):
-    def __init__(self,
-                 set_checkboard_access_code_room_config_request_body: SetCheckboardAccessCodeRoomConfigRequestBody = SetCheckboardAccessCodeRoomConfigRequestBody(
-                     {})) -> None:
-        self._set_checkboard_access_code_room_config_request_body: SetCheckboardAccessCodeRoomConfigRequestBody = set_checkboard_access_code_room_config_request_body
+    def __init__(self) -> None:
+        self._set_checkboard_access_code_room_config_request_body = SetCheckboardAccessCodeRoomConfigRequestBody()
 
     def scope(self, scope: int) -> "SetCheckboardAccessCodeRoomConfigRequestBodyBuilder":
         self._set_checkboard_access_code_room_config_request_body.scope = scope

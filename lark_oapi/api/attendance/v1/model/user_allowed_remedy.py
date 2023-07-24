@@ -18,7 +18,7 @@ class UserAllowedRemedy(object):
         "remedy_end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.remedy_date: Optional[int] = None
         self.is_free_punch: Optional[bool] = None
@@ -36,8 +36,8 @@ class UserAllowedRemedy(object):
 
 
 class UserAllowedRemedyBuilder(object):
-    def __init__(self, user_allowed_remedy: UserAllowedRemedy = UserAllowedRemedy({})) -> None:
-        self._user_allowed_remedy: UserAllowedRemedy = user_allowed_remedy
+    def __init__(self) -> None:
+        self._user_allowed_remedy = UserAllowedRemedy()
 
     def user_id(self, user_id: str) -> "UserAllowedRemedyBuilder":
         self._user_allowed_remedy.user_id = user_id

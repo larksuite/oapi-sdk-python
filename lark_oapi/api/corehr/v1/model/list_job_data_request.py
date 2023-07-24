@@ -26,7 +26,8 @@ class ListJobDataRequest(BaseRequest):
 
 class ListJobDataRequestBuilder(object):
 
-    def __init__(self, list_job_data_request: ListJobDataRequest = ListJobDataRequest()) -> None:
+    def __init__(self) -> None:
+        list_job_data_request = ListJobDataRequest()
         list_job_data_request.http_method = HttpMethod.GET
         list_job_data_request.uri = "/open-apis/corehr/v1/job_datas"
         list_job_data_request.token_types = {AccessTokenType.TENANT}

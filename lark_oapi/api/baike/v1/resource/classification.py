@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.baike.v1.model.list_classification_request import ListClassificationRequest
-from lark_oapi.api.baike.v1.model.list_classification_response import ListClassificationResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_classification_request import ListClassificationRequest
+from ..model.list_classification_response import ListClassificationResponse
 
 
 class Classification(object):
@@ -16,7 +16,10 @@ class Classification(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListClassificationRequest,
-             option: RequestOption = RequestOption()) -> ListClassificationResponse:
+             option: Optional[RequestOption] = None) -> ListClassificationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -19,7 +19,8 @@ class QueryTransferTypeRequest(BaseRequest):
 
 class QueryTransferTypeRequestBuilder(object):
 
-    def __init__(self, query_transfer_type_request: QueryTransferTypeRequest = QueryTransferTypeRequest()) -> None:
+    def __init__(self) -> None:
+        query_transfer_type_request = QueryTransferTypeRequest()
         query_transfer_type_request.http_method = HttpMethod.GET
         query_transfer_type_request.uri = "/open-apis/corehr/v1/transfer_types/query"
         query_transfer_type_request.token_types = {AccessTokenType.TENANT}

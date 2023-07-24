@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_request import CreateSpreadsheetRequest
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_response import CreateSpreadsheetResponse
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_request import GetSpreadsheetRequest
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_response import GetSpreadsheetResponse
-from lark_oapi.api.sheets.v3.model.patch_spreadsheet_request import PatchSpreadsheetRequest
-from lark_oapi.api.sheets.v3.model.patch_spreadsheet_response import PatchSpreadsheetResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_spreadsheet_request import CreateSpreadsheetRequest
+from ..model.create_spreadsheet_response import CreateSpreadsheetResponse
+from ..model.get_spreadsheet_request import GetSpreadsheetRequest
+from ..model.get_spreadsheet_response import GetSpreadsheetResponse
+from ..model.patch_spreadsheet_request import PatchSpreadsheetRequest
+from ..model.patch_spreadsheet_response import PatchSpreadsheetResponse
 
 
 class Spreadsheet(object):
@@ -20,7 +20,10 @@ class Spreadsheet(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateSpreadsheetRequest,
-               option: RequestOption = RequestOption()) -> CreateSpreadsheetResponse:
+               option: Optional[RequestOption] = None) -> CreateSpreadsheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class Spreadsheet(object):
 
         return response
 
-    def get(self, request: GetSpreadsheetRequest, option: RequestOption = RequestOption()) -> GetSpreadsheetResponse:
+    def get(self, request: GetSpreadsheetRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Spreadsheet(object):
         return response
 
     def patch(self, request: PatchSpreadsheetRequest,
-              option: RequestOption = RequestOption()) -> PatchSpreadsheetResponse:
+              option: Optional[RequestOption] = None) -> PatchSpreadsheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

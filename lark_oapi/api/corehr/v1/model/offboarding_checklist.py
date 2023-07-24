@@ -13,7 +13,7 @@ class OffboardingChecklist(object):
         "checklist_process_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.checklist_status: Optional[str] = None
         self.checklist_start_time: Optional[str] = None
         self.checklist_finish_time: Optional[str] = None
@@ -26,8 +26,8 @@ class OffboardingChecklist(object):
 
 
 class OffboardingChecklistBuilder(object):
-    def __init__(self, offboarding_checklist: OffboardingChecklist = OffboardingChecklist({})) -> None:
-        self._offboarding_checklist: OffboardingChecklist = offboarding_checklist
+    def __init__(self) -> None:
+        self._offboarding_checklist = OffboardingChecklist()
 
     def checklist_status(self, checklist_status: str) -> "OffboardingChecklistBuilder":
         self._offboarding_checklist.checklist_status = checklist_status

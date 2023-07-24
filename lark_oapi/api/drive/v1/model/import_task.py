@@ -21,7 +21,7 @@ class ImportTask(object):
         "extra": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket: Optional[str] = None
         self.file_extension: Optional[str] = None
         self.file_token: Optional[str] = None
@@ -41,8 +41,8 @@ class ImportTask(object):
 
 
 class ImportTaskBuilder(object):
-    def __init__(self, import_task: ImportTask = ImportTask({})) -> None:
-        self._import_task: ImportTask = import_task
+    def __init__(self) -> None:
+        self._import_task = ImportTask()
 
     def ticket(self, ticket: str) -> "ImportTaskBuilder":
         self._import_task.ticket = ticket

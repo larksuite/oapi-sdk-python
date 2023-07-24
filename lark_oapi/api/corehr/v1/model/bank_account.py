@@ -21,7 +21,7 @@ class BankAccount(object):
         "currency_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bank_name: Optional[str] = None
         self.bank_account_number: Optional[str] = None
         self.account_holder: Optional[str] = None
@@ -43,8 +43,8 @@ class BankAccount(object):
 
 
 class BankAccountBuilder(object):
-    def __init__(self, bank_account: BankAccount = BankAccount({})) -> None:
-        self._bank_account: BankAccount = bank_account
+    def __init__(self) -> None:
+        self._bank_account = BankAccount()
 
     def bank_name(self, bank_name: str) -> "BankAccountBuilder":
         self._bank_account.bank_name = bank_name

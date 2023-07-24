@@ -19,7 +19,7 @@ class TextElementStyle(object):
         "comment_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bold: Optional[bool] = None
         self.italic: Optional[bool] = None
         self.strikethrough: Optional[bool] = None
@@ -37,8 +37,8 @@ class TextElementStyle(object):
 
 
 class TextElementStyleBuilder(object):
-    def __init__(self, text_element_style: TextElementStyle = TextElementStyle({})) -> None:
-        self._text_element_style: TextElementStyle = text_element_style
+    def __init__(self) -> None:
+        self._text_element_style = TextElementStyle()
 
     def bold(self, bold: bool) -> "TextElementStyleBuilder":
         self._text_element_style.bold = bold

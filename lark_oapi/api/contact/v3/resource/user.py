@@ -2,40 +2,43 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.batch_get_id_user_request import BatchGetIdUserRequest
-from lark_oapi.api.contact.v3.model.batch_get_id_user_response import BatchGetIdUserResponse
-from lark_oapi.api.contact.v3.model.batch_user_request import BatchUserRequest
-from lark_oapi.api.contact.v3.model.batch_user_response import BatchUserResponse
-from lark_oapi.api.contact.v3.model.create_user_request import CreateUserRequest
-from lark_oapi.api.contact.v3.model.create_user_response import CreateUserResponse
-from lark_oapi.api.contact.v3.model.delete_user_request import DeleteUserRequest
-from lark_oapi.api.contact.v3.model.delete_user_response import DeleteUserResponse
-from lark_oapi.api.contact.v3.model.find_by_department_user_request import FindByDepartmentUserRequest
-from lark_oapi.api.contact.v3.model.find_by_department_user_response import FindByDepartmentUserResponse
-from lark_oapi.api.contact.v3.model.get_user_request import GetUserRequest
-from lark_oapi.api.contact.v3.model.get_user_response import GetUserResponse
-from lark_oapi.api.contact.v3.model.list_user_request import ListUserRequest
-from lark_oapi.api.contact.v3.model.list_user_response import ListUserResponse
-from lark_oapi.api.contact.v3.model.patch_user_request import PatchUserRequest
-from lark_oapi.api.contact.v3.model.patch_user_response import PatchUserResponse
-from lark_oapi.api.contact.v3.model.resurrect_user_request import ResurrectUserRequest
-from lark_oapi.api.contact.v3.model.resurrect_user_response import ResurrectUserResponse
-from lark_oapi.api.contact.v3.model.update_user_id_user_request import UpdateUserIdUserRequest
-from lark_oapi.api.contact.v3.model.update_user_id_user_response import UpdateUserIdUserResponse
-from lark_oapi.api.contact.v3.model.update_user_request import UpdateUserRequest
-from lark_oapi.api.contact.v3.model.update_user_response import UpdateUserResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_get_id_user_request import BatchGetIdUserRequest
+from ..model.batch_get_id_user_response import BatchGetIdUserResponse
+from ..model.batch_user_request import BatchUserRequest
+from ..model.batch_user_response import BatchUserResponse
+from ..model.create_user_request import CreateUserRequest
+from ..model.create_user_response import CreateUserResponse
+from ..model.delete_user_request import DeleteUserRequest
+from ..model.delete_user_response import DeleteUserResponse
+from ..model.find_by_department_user_request import FindByDepartmentUserRequest
+from ..model.find_by_department_user_response import FindByDepartmentUserResponse
+from ..model.get_user_request import GetUserRequest
+from ..model.get_user_response import GetUserResponse
+from ..model.list_user_request import ListUserRequest
+from ..model.list_user_response import ListUserResponse
+from ..model.patch_user_request import PatchUserRequest
+from ..model.patch_user_response import PatchUserResponse
+from ..model.resurrect_user_request import ResurrectUserRequest
+from ..model.resurrect_user_response import ResurrectUserResponse
+from ..model.update_user_id_user_request import UpdateUserIdUserRequest
+from ..model.update_user_id_user_response import UpdateUserIdUserResponse
+from ..model.update_user_request import UpdateUserRequest
+from ..model.update_user_response import UpdateUserResponse
 
 
 class User(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def batch(self, request: BatchUserRequest, option: RequestOption = RequestOption()) -> BatchUserResponse:
+    def batch(self, request: BatchUserRequest, option: Optional[RequestOption] = None) -> BatchUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +52,10 @@ class User(object):
         return response
 
     def batch_get_id(self, request: BatchGetIdUserRequest,
-                     option: RequestOption = RequestOption()) -> BatchGetIdUserResponse:
+                     option: Optional[RequestOption] = None) -> BatchGetIdUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +68,10 @@ class User(object):
 
         return response
 
-    def create(self, request: CreateUserRequest, option: RequestOption = RequestOption()) -> CreateUserResponse:
+    def create(self, request: CreateUserRequest, option: Optional[RequestOption] = None) -> CreateUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +84,10 @@ class User(object):
 
         return response
 
-    def delete(self, request: DeleteUserRequest, option: RequestOption = RequestOption()) -> DeleteUserResponse:
+    def delete(self, request: DeleteUserRequest, option: Optional[RequestOption] = None) -> DeleteUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -89,7 +101,10 @@ class User(object):
         return response
 
     def find_by_department(self, request: FindByDepartmentUserRequest,
-                           option: RequestOption = RequestOption()) -> FindByDepartmentUserResponse:
+                           option: Optional[RequestOption] = None) -> FindByDepartmentUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -102,7 +117,10 @@ class User(object):
 
         return response
 
-    def get(self, request: GetUserRequest, option: RequestOption = RequestOption()) -> GetUserResponse:
+    def get(self, request: GetUserRequest, option: Optional[RequestOption] = None) -> GetUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -115,7 +133,10 @@ class User(object):
 
         return response
 
-    def list(self, request: ListUserRequest, option: RequestOption = RequestOption()) -> ListUserResponse:
+    def list(self, request: ListUserRequest, option: Optional[RequestOption] = None) -> ListUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -128,7 +149,10 @@ class User(object):
 
         return response
 
-    def patch(self, request: PatchUserRequest, option: RequestOption = RequestOption()) -> PatchUserResponse:
+    def patch(self, request: PatchUserRequest, option: Optional[RequestOption] = None) -> PatchUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -141,8 +165,10 @@ class User(object):
 
         return response
 
-    def resurrect(self, request: ResurrectUserRequest,
-                  option: RequestOption = RequestOption()) -> ResurrectUserResponse:
+    def resurrect(self, request: ResurrectUserRequest, option: Optional[RequestOption] = None) -> ResurrectUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -155,7 +181,10 @@ class User(object):
 
         return response
 
-    def update(self, request: UpdateUserRequest, option: RequestOption = RequestOption()) -> UpdateUserResponse:
+    def update(self, request: UpdateUserRequest, option: Optional[RequestOption] = None) -> UpdateUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -169,7 +198,10 @@ class User(object):
         return response
 
     def update_user_id(self, request: UpdateUserIdUserRequest,
-                       option: RequestOption = RequestOption()) -> UpdateUserIdUserResponse:
+                       option: Optional[RequestOption] = None) -> UpdateUserIdUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

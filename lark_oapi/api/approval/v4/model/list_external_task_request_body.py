@@ -13,7 +13,7 @@ class ListExternalTaskRequestBody(object):
         "status": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_codes: Optional[List[str]] = None
         self.instance_ids: Optional[List[str]] = None
         self.user_ids: Optional[List[str]] = None
@@ -26,9 +26,8 @@ class ListExternalTaskRequestBody(object):
 
 
 class ListExternalTaskRequestBodyBuilder(object):
-    def __init__(self, list_external_task_request_body: ListExternalTaskRequestBody = ListExternalTaskRequestBody(
-        {})) -> None:
-        self._list_external_task_request_body: ListExternalTaskRequestBody = list_external_task_request_body
+    def __init__(self) -> None:
+        self._list_external_task_request_body = ListExternalTaskRequestBody()
 
     def approval_codes(self, approval_codes: List[str]) -> "ListExternalTaskRequestBodyBuilder":
         self._list_external_task_request_body.approval_codes = approval_codes

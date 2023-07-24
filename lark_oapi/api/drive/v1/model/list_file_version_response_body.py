@@ -13,7 +13,7 @@ class ListFileVersionResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Version]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListFileVersionResponseBody(object):
 
 
 class ListFileVersionResponseBodyBuilder(object):
-    def __init__(self, list_file_version_response_body: ListFileVersionResponseBody = ListFileVersionResponseBody(
-        {})) -> None:
-        self._list_file_version_response_body: ListFileVersionResponseBody = list_file_version_response_body
+    def __init__(self) -> None:
+        self._list_file_version_response_body = ListFileVersionResponseBody()
 
     def items(self, items: List[Version]) -> "ListFileVersionResponseBodyBuilder":
         self._list_file_version_response_body.items = items

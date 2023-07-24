@@ -20,8 +20,8 @@ class AnswerUserQueryTicketRequest(BaseRequest):
 
 class AnswerUserQueryTicketRequestBuilder(object):
 
-    def __init__(self,
-                 answer_user_query_ticket_request: AnswerUserQueryTicketRequest = AnswerUserQueryTicketRequest()) -> None:
+    def __init__(self) -> None:
+        answer_user_query_ticket_request = AnswerUserQueryTicketRequest()
         answer_user_query_ticket_request.http_method = HttpMethod.POST
         answer_user_query_ticket_request.uri = "/open-apis/helpdesk/v1/tickets/:ticket_id/answer_user_query"
         answer_user_query_ticket_request.token_types = {AccessTokenType.TENANT}

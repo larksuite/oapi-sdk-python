@@ -13,7 +13,7 @@ class JobRecruitmentType(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -26,8 +26,8 @@ class JobRecruitmentType(object):
 
 
 class JobRecruitmentTypeBuilder(object):
-    def __init__(self, job_recruitment_type: JobRecruitmentType = JobRecruitmentType({})) -> None:
-        self._job_recruitment_type: JobRecruitmentType = job_recruitment_type
+    def __init__(self) -> None:
+        self._job_recruitment_type = JobRecruitmentType()
 
     def id(self, id: str) -> "JobRecruitmentTypeBuilder":
         self._job_recruitment_type.id = id

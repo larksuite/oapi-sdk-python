@@ -14,7 +14,7 @@ class InterviewAssessmentTemplateArgs(object):
         "custom_dimension_list": List[InterviewAssessmentDimension],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.conclusion_dimension: Optional[InterviewAssessmentDimension] = None
         self.score_dimension: Optional[InterviewAssessmentDimension] = None
         self.content_dimension: Optional[InterviewAssessmentDimension] = None
@@ -27,10 +27,8 @@ class InterviewAssessmentTemplateArgs(object):
 
 
 class InterviewAssessmentTemplateArgsBuilder(object):
-    def __init__(self,
-                 interview_assessment_template_args: InterviewAssessmentTemplateArgs = InterviewAssessmentTemplateArgs(
-                     {})) -> None:
-        self._interview_assessment_template_args: InterviewAssessmentTemplateArgs = interview_assessment_template_args
+    def __init__(self) -> None:
+        self._interview_assessment_template_args = InterviewAssessmentTemplateArgs()
 
     def conclusion_dimension(self,
                              conclusion_dimension: InterviewAssessmentDimension) -> "InterviewAssessmentTemplateArgsBuilder":

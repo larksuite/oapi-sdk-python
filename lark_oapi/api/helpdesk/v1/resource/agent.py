@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.agent_email_agent_request import AgentEmailAgentRequest
-from lark_oapi.api.helpdesk.v1.model.agent_email_agent_response import AgentEmailAgentResponse
-from lark_oapi.api.helpdesk.v1.model.patch_agent_request import PatchAgentRequest
-from lark_oapi.api.helpdesk.v1.model.patch_agent_response import PatchAgentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.agent_email_agent_request import AgentEmailAgentRequest
+from ..model.agent_email_agent_response import AgentEmailAgentResponse
+from ..model.patch_agent_request import PatchAgentRequest
+from ..model.patch_agent_response import PatchAgentResponse
 
 
 class Agent(object):
@@ -18,7 +18,10 @@ class Agent(object):
         self.config: Optional[Config] = config
 
     def agent_email(self, request: AgentEmailAgentRequest,
-                    option: RequestOption = RequestOption()) -> AgentEmailAgentResponse:
+                    option: Optional[RequestOption] = None) -> AgentEmailAgentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -31,7 +34,10 @@ class Agent(object):
 
         return response
 
-    def patch(self, request: PatchAgentRequest, option: RequestOption = RequestOption()) -> PatchAgentResponse:
+    def patch(self, request: PatchAgentRequest, option: Optional[RequestOption] = None) -> PatchAgentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

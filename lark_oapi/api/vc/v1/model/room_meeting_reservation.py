@@ -25,7 +25,7 @@ class RoomMeetingReservation(object):
         "releasing_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_name: Optional[str] = None
         self.event_title: Optional[str] = None
         self.reserver: Optional[str] = None
@@ -50,8 +50,8 @@ class RoomMeetingReservation(object):
 
 
 class RoomMeetingReservationBuilder(object):
-    def __init__(self, room_meeting_reservation: RoomMeetingReservation = RoomMeetingReservation({})) -> None:
-        self._room_meeting_reservation: RoomMeetingReservation = room_meeting_reservation
+    def __init__(self) -> None:
+        self._room_meeting_reservation = RoomMeetingReservation()
 
     def room_name(self, room_name: str) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.room_name = room_name

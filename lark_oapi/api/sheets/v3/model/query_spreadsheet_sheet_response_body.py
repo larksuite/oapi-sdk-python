@@ -11,7 +11,7 @@ class QuerySpreadsheetSheetResponseBody(object):
         "sheets": List[Sheet],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sheets: Optional[List[Sheet]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QuerySpreadsheetSheetResponseBody(object):
 
 
 class QuerySpreadsheetSheetResponseBodyBuilder(object):
-    def __init__(self,
-                 query_spreadsheet_sheet_response_body: QuerySpreadsheetSheetResponseBody = QuerySpreadsheetSheetResponseBody(
-                     {})) -> None:
-        self._query_spreadsheet_sheet_response_body: QuerySpreadsheetSheetResponseBody = query_spreadsheet_sheet_response_body
+    def __init__(self) -> None:
+        self._query_spreadsheet_sheet_response_body = QuerySpreadsheetSheetResponseBody()
 
     def sheets(self, sheets: List[Sheet]) -> "QuerySpreadsheetSheetResponseBodyBuilder":
         self._query_spreadsheet_sheet_response_body.sheets = sheets

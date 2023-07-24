@@ -18,7 +18,8 @@ class DeleteRoomRequest(BaseRequest):
 
 class DeleteRoomRequestBuilder(object):
 
-    def __init__(self, delete_room_request: DeleteRoomRequest = DeleteRoomRequest()) -> None:
+    def __init__(self) -> None:
+        delete_room_request = DeleteRoomRequest()
         delete_room_request.http_method = HttpMethod.DELETE
         delete_room_request.uri = "/open-apis/vc/v1/rooms/:room_id"
         delete_room_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

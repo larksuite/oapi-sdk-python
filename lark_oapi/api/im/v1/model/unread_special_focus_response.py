@@ -12,7 +12,7 @@ class UnreadSpecialFocusResponse(BaseResponse):
         "data": UnreadSpecialFocusResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UnreadSpecialFocusResponseBody] = None
         init(self, d, self._types)

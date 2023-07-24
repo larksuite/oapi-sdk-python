@@ -14,7 +14,7 @@ class SiteResumeInternship(object):
         "end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.company: Optional[str] = None
         self.position: Optional[str] = None
         self.description: Optional[str] = None
@@ -28,8 +28,8 @@ class SiteResumeInternship(object):
 
 
 class SiteResumeInternshipBuilder(object):
-    def __init__(self, site_resume_internship: SiteResumeInternship = SiteResumeInternship({})) -> None:
-        self._site_resume_internship: SiteResumeInternship = site_resume_internship
+    def __init__(self) -> None:
+        self._site_resume_internship = SiteResumeInternship()
 
     def company(self, company: str) -> "SiteResumeInternshipBuilder":
         self._site_resume_internship.company = company

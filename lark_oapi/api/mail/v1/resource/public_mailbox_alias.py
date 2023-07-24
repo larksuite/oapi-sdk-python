@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.create_public_mailbox_alias_request import CreatePublicMailboxAliasRequest
-from lark_oapi.api.mail.v1.model.create_public_mailbox_alias_response import CreatePublicMailboxAliasResponse
-from lark_oapi.api.mail.v1.model.delete_public_mailbox_alias_request import DeletePublicMailboxAliasRequest
-from lark_oapi.api.mail.v1.model.delete_public_mailbox_alias_response import DeletePublicMailboxAliasResponse
-from lark_oapi.api.mail.v1.model.list_public_mailbox_alias_request import ListPublicMailboxAliasRequest
-from lark_oapi.api.mail.v1.model.list_public_mailbox_alias_response import ListPublicMailboxAliasResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_public_mailbox_alias_request import CreatePublicMailboxAliasRequest
+from ..model.create_public_mailbox_alias_response import CreatePublicMailboxAliasResponse
+from ..model.delete_public_mailbox_alias_request import DeletePublicMailboxAliasRequest
+from ..model.delete_public_mailbox_alias_response import DeletePublicMailboxAliasResponse
+from ..model.list_public_mailbox_alias_request import ListPublicMailboxAliasRequest
+from ..model.list_public_mailbox_alias_response import ListPublicMailboxAliasResponse
 
 
 class PublicMailboxAlias(object):
@@ -20,7 +20,10 @@ class PublicMailboxAlias(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreatePublicMailboxAliasRequest,
-               option: RequestOption = RequestOption()) -> CreatePublicMailboxAliasResponse:
+               option: Optional[RequestOption] = None) -> CreatePublicMailboxAliasResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class PublicMailboxAlias(object):
         return response
 
     def delete(self, request: DeletePublicMailboxAliasRequest,
-               option: RequestOption = RequestOption()) -> DeletePublicMailboxAliasResponse:
+               option: Optional[RequestOption] = None) -> DeletePublicMailboxAliasResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class PublicMailboxAlias(object):
         return response
 
     def list(self, request: ListPublicMailboxAliasRequest,
-             option: RequestOption = RequestOption()) -> ListPublicMailboxAliasResponse:
+             option: Optional[RequestOption] = None) -> ListPublicMailboxAliasResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

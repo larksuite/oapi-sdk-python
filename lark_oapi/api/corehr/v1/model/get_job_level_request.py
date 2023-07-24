@@ -18,7 +18,8 @@ class GetJobLevelRequest(BaseRequest):
 
 class GetJobLevelRequestBuilder(object):
 
-    def __init__(self, get_job_level_request: GetJobLevelRequest = GetJobLevelRequest()) -> None:
+    def __init__(self) -> None:
+        get_job_level_request = GetJobLevelRequest()
         get_job_level_request.http_method = HttpMethod.GET
         get_job_level_request.uri = "/open-apis/corehr/v1/job_levels/:job_level_id"
         get_job_level_request.token_types = {AccessTokenType.TENANT}

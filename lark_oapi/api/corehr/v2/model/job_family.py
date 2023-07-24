@@ -19,7 +19,7 @@ class JobFamily(object):
         "custom_fields": List[CustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_family_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.active: Optional[bool] = None
@@ -36,8 +36,8 @@ class JobFamily(object):
 
 
 class JobFamilyBuilder(object):
-    def __init__(self, job_family: JobFamily = JobFamily({})) -> None:
-        self._job_family: JobFamily = job_family
+    def __init__(self) -> None:
+        self._job_family = JobFamily()
 
     def job_family_id(self, job_family_id: str) -> "JobFamilyBuilder":
         self._job_family.job_family_id = job_family_id

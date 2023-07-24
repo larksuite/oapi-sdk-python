@@ -11,7 +11,7 @@ class ObjectiveName(object):
         "en": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh: Optional[str] = None
         self.en: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ObjectiveName(object):
 
 
 class ObjectiveNameBuilder(object):
-    def __init__(self, objective_name: ObjectiveName = ObjectiveName({})) -> None:
-        self._objective_name: ObjectiveName = objective_name
+    def __init__(self) -> None:
+        self._objective_name = ObjectiveName()
 
     def zh(self, zh: str) -> "ObjectiveNameBuilder":
         self._objective_name.zh = zh

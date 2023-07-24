@@ -31,7 +31,7 @@ class AppTableFieldProperty(object):
         "rating": Rating,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.options: Optional[List[AppTableFieldPropertyOption]] = None
         self.formatter: Optional[str] = None
         self.date_formatter: Optional[str] = None
@@ -57,8 +57,8 @@ class AppTableFieldProperty(object):
 
 
 class AppTableFieldPropertyBuilder(object):
-    def __init__(self, app_table_field_property: AppTableFieldProperty = AppTableFieldProperty({})) -> None:
-        self._app_table_field_property: AppTableFieldProperty = app_table_field_property
+    def __init__(self) -> None:
+        self._app_table_field_property = AppTableFieldProperty()
 
     def options(self, options: List[AppTableFieldPropertyOption]) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.options = options

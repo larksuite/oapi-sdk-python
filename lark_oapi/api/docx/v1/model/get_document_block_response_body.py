@@ -11,7 +11,7 @@ class GetDocumentBlockResponseBody(object):
         "block": Block,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block: Optional[Block] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetDocumentBlockResponseBody(object):
 
 
 class GetDocumentBlockResponseBodyBuilder(object):
-    def __init__(self, get_document_block_response_body: GetDocumentBlockResponseBody = GetDocumentBlockResponseBody(
-        {})) -> None:
-        self._get_document_block_response_body: GetDocumentBlockResponseBody = get_document_block_response_body
+    def __init__(self) -> None:
+        self._get_document_block_response_body = GetDocumentBlockResponseBody()
 
     def block(self, block: Block) -> "GetDocumentBlockResponseBodyBuilder":
         self._get_document_block_response_body.block = block

@@ -11,7 +11,7 @@ class GetWorkCityResponseBody(object):
         "work_city": WorkCity,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.work_city: Optional[WorkCity] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetWorkCityResponseBody(object):
 
 
 class GetWorkCityResponseBodyBuilder(object):
-    def __init__(self, get_work_city_response_body: GetWorkCityResponseBody = GetWorkCityResponseBody({})) -> None:
-        self._get_work_city_response_body: GetWorkCityResponseBody = get_work_city_response_body
+    def __init__(self) -> None:
+        self._get_work_city_response_body = GetWorkCityResponseBody()
 
     def work_city(self, work_city: WorkCity) -> "GetWorkCityResponseBodyBuilder":
         self._get_work_city_response_body.work_city = work_city

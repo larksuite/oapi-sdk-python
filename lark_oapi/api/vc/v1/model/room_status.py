@@ -17,7 +17,7 @@ class RoomStatus(object):
         "resume_notice": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[bool] = None
         self.schedule_status: Optional[bool] = None
         self.disable_start_time: Optional[int] = None
@@ -34,8 +34,8 @@ class RoomStatus(object):
 
 
 class RoomStatusBuilder(object):
-    def __init__(self, room_status: RoomStatus = RoomStatus({})) -> None:
-        self._room_status: RoomStatus = room_status
+    def __init__(self) -> None:
+        self._room_status = RoomStatus()
 
     def status(self, status: bool) -> "RoomStatusBuilder":
         self._room_status.status = status

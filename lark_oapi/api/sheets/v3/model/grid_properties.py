@@ -13,7 +13,7 @@ class GridProperties(object):
         "column_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.frozen_row_count: Optional[int] = None
         self.frozen_column_count: Optional[int] = None
         self.row_count: Optional[int] = None
@@ -26,8 +26,8 @@ class GridProperties(object):
 
 
 class GridPropertiesBuilder(object):
-    def __init__(self, grid_properties: GridProperties = GridProperties({})) -> None:
-        self._grid_properties: GridProperties = grid_properties
+    def __init__(self) -> None:
+        self._grid_properties = GridProperties()
 
     def frozen_row_count(self, frozen_row_count: int) -> "GridPropertiesBuilder":
         self._grid_properties.frozen_row_count = frozen_row_count

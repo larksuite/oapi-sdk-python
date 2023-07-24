@@ -12,7 +12,7 @@ class Formula(object):
         "affected_range": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.formula: Optional[str] = None
         self.formula_value: Optional[str] = None
         self.affected_range: Optional[str] = None
@@ -24,8 +24,8 @@ class Formula(object):
 
 
 class FormulaBuilder(object):
-    def __init__(self, formula: Formula = Formula({})) -> None:
-        self._formula: Formula = formula
+    def __init__(self) -> None:
+        self._formula = Formula()
 
     def formula(self, formula: str) -> "FormulaBuilder":
         self._formula.formula = formula

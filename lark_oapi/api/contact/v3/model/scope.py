@@ -15,7 +15,7 @@ class Scope(object):
         "user_groups": List[UserGroup],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.departments: Optional[List[Department]] = None
         self.users: Optional[List[User]] = None
         self.user_groups: Optional[List[UserGroup]] = None
@@ -27,8 +27,8 @@ class Scope(object):
 
 
 class ScopeBuilder(object):
-    def __init__(self, scope: Scope = Scope({})) -> None:
-        self._scope: Scope = scope
+    def __init__(self) -> None:
+        self._scope = Scope()
 
     def departments(self, departments: List[Department]) -> "ScopeBuilder":
         self._scope.departments = departments

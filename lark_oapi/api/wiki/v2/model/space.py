@@ -14,7 +14,7 @@ class Space(object):
         "visibility": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         self.space_id: Optional[str] = None
@@ -28,8 +28,8 @@ class Space(object):
 
 
 class SpaceBuilder(object):
-    def __init__(self, space: Space = Space({})) -> None:
-        self._space: Space = space
+    def __init__(self) -> None:
+        self._space = Space()
 
     def name(self, name: str) -> "SpaceBuilder":
         self._space.name = name

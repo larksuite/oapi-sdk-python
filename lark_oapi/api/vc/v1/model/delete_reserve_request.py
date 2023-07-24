@@ -18,7 +18,8 @@ class DeleteReserveRequest(BaseRequest):
 
 class DeleteReserveRequestBuilder(object):
 
-    def __init__(self, delete_reserve_request: DeleteReserveRequest = DeleteReserveRequest()) -> None:
+    def __init__(self) -> None:
+        delete_reserve_request = DeleteReserveRequest()
         delete_reserve_request.http_method = HttpMethod.DELETE
         delete_reserve_request.uri = "/open-apis/vc/v1/reserves/:reserve_id"
         delete_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

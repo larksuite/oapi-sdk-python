@@ -12,7 +12,7 @@ class Equation(object):
         "text_element_style": TextElementStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.text_element_style: Optional[TextElementStyle] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Equation(object):
 
 
 class EquationBuilder(object):
-    def __init__(self, equation: Equation = Equation({})) -> None:
-        self._equation: Equation = equation
+    def __init__(self) -> None:
+        self._equation = Equation()
 
     def content(self, content: str) -> "EquationBuilder":
         self._equation.content = content

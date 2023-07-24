@@ -25,7 +25,7 @@ class OkrDetailObjective(object):
         "weight": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.okr_id: Optional[int] = None
         self.user_id: Optional[str] = None
@@ -47,8 +47,8 @@ class OkrDetailObjective(object):
 
 
 class OkrDetailObjectiveBuilder(object):
-    def __init__(self, okr_detail_objective: OkrDetailObjective = OkrDetailObjective({})) -> None:
-        self._okr_detail_objective: OkrDetailObjective = okr_detail_objective
+    def __init__(self) -> None:
+        self._okr_detail_objective = OkrDetailObjective()
 
     def id(self, id: int) -> "OkrDetailObjectiveBuilder":
         self._okr_detail_objective.id = id

@@ -10,7 +10,7 @@ class UnbindDepartmentChatDepartmentRequestBody(object):
         "department_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class UnbindDepartmentChatDepartmentRequestBody(object):
 
 
 class UnbindDepartmentChatDepartmentRequestBodyBuilder(object):
-    def __init__(self,
-                 unbind_department_chat_department_request_body: UnbindDepartmentChatDepartmentRequestBody = UnbindDepartmentChatDepartmentRequestBody(
-                     {})) -> None:
-        self._unbind_department_chat_department_request_body: UnbindDepartmentChatDepartmentRequestBody = unbind_department_chat_department_request_body
+    def __init__(self) -> None:
+        self._unbind_department_chat_department_request_body = UnbindDepartmentChatDepartmentRequestBody()
 
     def department_id(self, department_id: str) -> "UnbindDepartmentChatDepartmentRequestBodyBuilder":
         self._unbind_department_chat_department_request_body.department_id = department_id

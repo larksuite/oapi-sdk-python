@@ -10,7 +10,7 @@ class ChatManagers(object):
         "manager_id": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.manager_id: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ChatManagers(object):
 
 
 class ChatManagersBuilder(object):
-    def __init__(self, chat_managers: ChatManagers = ChatManagers({})) -> None:
-        self._chat_managers: ChatManagers = chat_managers
+    def __init__(self) -> None:
+        self._chat_managers = ChatManagers()
 
     def manager_id(self, manager_id: int) -> "ChatManagersBuilder":
         self._chat_managers.manager_id = manager_id

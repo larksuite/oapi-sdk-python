@@ -15,7 +15,7 @@ class EmploymentLeaveBalance(object):
         "leave_balance_list": List[LeaveBalance],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.employment_name: Optional[List[I18n]] = None
         self.as_of_date: Optional[str] = None
@@ -28,8 +28,8 @@ class EmploymentLeaveBalance(object):
 
 
 class EmploymentLeaveBalanceBuilder(object):
-    def __init__(self, employment_leave_balance: EmploymentLeaveBalance = EmploymentLeaveBalance({})) -> None:
-        self._employment_leave_balance: EmploymentLeaveBalance = employment_leave_balance
+    def __init__(self) -> None:
+        self._employment_leave_balance = EmploymentLeaveBalance()
 
     def employment_id(self, employment_id: str) -> "EmploymentLeaveBalanceBuilder":
         self._employment_leave_balance.employment_id = employment_id

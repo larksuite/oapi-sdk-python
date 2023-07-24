@@ -20,7 +20,8 @@ class GetMessageResourceRequest(BaseRequest):
 
 class GetMessageResourceRequestBuilder(object):
 
-    def __init__(self, get_message_resource_request: GetMessageResourceRequest = GetMessageResourceRequest()) -> None:
+    def __init__(self) -> None:
+        get_message_resource_request = GetMessageResourceRequest()
         get_message_resource_request.http_method = HttpMethod.GET
         get_message_resource_request.uri = "/open-apis/im/v1/messages/:message_id/resources/:file_key"
         get_message_resource_request.token_types = {AccessTokenType.TENANT}

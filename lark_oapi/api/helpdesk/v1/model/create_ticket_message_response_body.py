@@ -10,7 +10,7 @@ class CreateTicketMessageResponseBody(object):
         "message_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class CreateTicketMessageResponseBody(object):
 
 
 class CreateTicketMessageResponseBodyBuilder(object):
-    def __init__(self,
-                 create_ticket_message_response_body: CreateTicketMessageResponseBody = CreateTicketMessageResponseBody(
-                     {})) -> None:
-        self._create_ticket_message_response_body: CreateTicketMessageResponseBody = create_ticket_message_response_body
+    def __init__(self) -> None:
+        self._create_ticket_message_response_body = CreateTicketMessageResponseBody()
 
     def message_id(self, message_id: str) -> "CreateTicketMessageResponseBodyBuilder":
         self._create_ticket_message_response_body.message_id = message_id

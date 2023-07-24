@@ -21,7 +21,7 @@ class MetricItem(object):
         "updated_by": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_item_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.period_id: Optional[str] = None
@@ -41,8 +41,8 @@ class MetricItem(object):
 
 
 class MetricItemBuilder(object):
-    def __init__(self, metric_item: MetricItem = MetricItem({})) -> None:
-        self._metric_item: MetricItem = metric_item
+    def __init__(self) -> None:
+        self._metric_item = MetricItem()
 
     def metric_item_id(self, metric_item_id: str) -> "MetricItemBuilder":
         self._metric_item.metric_item_id = metric_item_id

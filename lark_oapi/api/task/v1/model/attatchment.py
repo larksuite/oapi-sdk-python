@@ -10,7 +10,7 @@ class Attatchment(object):
         "guid": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.guid: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Attatchment(object):
 
 
 class AttatchmentBuilder(object):
-    def __init__(self, attatchment: Attatchment = Attatchment({})) -> None:
-        self._attatchment: Attatchment = attatchment
+    def __init__(self) -> None:
+        self._attatchment = Attatchment()
 
     def guid(self, guid: str) -> "AttatchmentBuilder":
         self._attatchment.guid = guid

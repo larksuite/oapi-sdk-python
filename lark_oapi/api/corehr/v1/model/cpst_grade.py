@@ -17,7 +17,7 @@ class CpstGrade(object):
         "description": CpstI18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.grade_id: Optional[str] = None
         self.grade_tid: Optional[str] = None
         self.grade_standard_value: Optional[CpstGradeStandardValue] = None
@@ -31,8 +31,8 @@ class CpstGrade(object):
 
 
 class CpstGradeBuilder(object):
-    def __init__(self, cpst_grade: CpstGrade = CpstGrade({})) -> None:
-        self._cpst_grade: CpstGrade = cpst_grade
+    def __init__(self) -> None:
+        self._cpst_grade = CpstGrade()
 
     def grade_id(self, grade_id: str) -> "CpstGradeBuilder":
         self._cpst_grade.grade_id = grade_id

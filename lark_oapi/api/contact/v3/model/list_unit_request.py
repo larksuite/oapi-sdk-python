@@ -19,7 +19,8 @@ class ListUnitRequest(BaseRequest):
 
 class ListUnitRequestBuilder(object):
 
-    def __init__(self, list_unit_request: ListUnitRequest = ListUnitRequest()) -> None:
+    def __init__(self) -> None:
+        list_unit_request = ListUnitRequest()
         list_unit_request.http_method = HttpMethod.GET
         list_unit_request.uri = "/open-apis/contact/v3/unit"
         list_unit_request.token_types = {AccessTokenType.TENANT}

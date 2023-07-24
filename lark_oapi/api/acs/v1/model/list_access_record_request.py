@@ -23,7 +23,8 @@ class ListAccessRecordRequest(BaseRequest):
 
 class ListAccessRecordRequestBuilder(object):
 
-    def __init__(self, list_access_record_request: ListAccessRecordRequest = ListAccessRecordRequest()) -> None:
+    def __init__(self) -> None:
+        list_access_record_request = ListAccessRecordRequest()
         list_access_record_request.http_method = HttpMethod.GET
         list_access_record_request.uri = "/open-apis/acs/v1/access_records"
         list_access_record_request.token_types = {AccessTokenType.TENANT}

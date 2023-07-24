@@ -25,7 +25,7 @@ class Meeting(object):
         "ability": MeetingAbility,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.topic: Optional[str] = None
         self.url: Optional[str] = None
@@ -47,8 +47,8 @@ class Meeting(object):
 
 
 class MeetingBuilder(object):
-    def __init__(self, meeting: Meeting = Meeting({})) -> None:
-        self._meeting: Meeting = meeting
+    def __init__(self) -> None:
+        self._meeting = Meeting()
 
     def id(self, id: int) -> "MeetingBuilder":
         self._meeting.id = id

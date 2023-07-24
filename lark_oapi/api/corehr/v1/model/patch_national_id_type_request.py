@@ -21,8 +21,8 @@ class PatchNationalIdTypeRequest(BaseRequest):
 
 class PatchNationalIdTypeRequestBuilder(object):
 
-    def __init__(self,
-                 patch_national_id_type_request: PatchNationalIdTypeRequest = PatchNationalIdTypeRequest()) -> None:
+    def __init__(self) -> None:
+        patch_national_id_type_request = PatchNationalIdTypeRequest()
         patch_national_id_type_request.http_method = HttpMethod.PATCH
         patch_national_id_type_request.uri = "/open-apis/corehr/v1/national_id_types/:national_id_type_id"
         patch_national_id_type_request.token_types = {AccessTokenType.TENANT}

@@ -14,7 +14,7 @@ class ApiAuditDrawerInfo(object):
         "val_i18n_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.info_key: Optional[str] = None
         self.info_val: Optional[str] = None
         self.key_i18n_key: Optional[str] = None
@@ -28,8 +28,8 @@ class ApiAuditDrawerInfo(object):
 
 
 class ApiAuditDrawerInfoBuilder(object):
-    def __init__(self, api_audit_drawer_info: ApiAuditDrawerInfo = ApiAuditDrawerInfo({})) -> None:
-        self._api_audit_drawer_info: ApiAuditDrawerInfo = api_audit_drawer_info
+    def __init__(self) -> None:
+        self._api_audit_drawer_info = ApiAuditDrawerInfo()
 
     def info_key(self, info_key: str) -> "ApiAuditDrawerInfoBuilder":
         self._api_audit_drawer_info.info_key = info_key

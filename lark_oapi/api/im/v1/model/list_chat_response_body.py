@@ -13,7 +13,7 @@ class ListChatResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[ListChat]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListChatResponseBody(object):
 
 
 class ListChatResponseBodyBuilder(object):
-    def __init__(self, list_chat_response_body: ListChatResponseBody = ListChatResponseBody({})) -> None:
-        self._list_chat_response_body: ListChatResponseBody = list_chat_response_body
+    def __init__(self) -> None:
+        self._list_chat_response_body = ListChatResponseBody()
 
     def items(self, items: List[ListChat]) -> "ListChatResponseBodyBuilder":
         self._list_chat_response_body.items = items

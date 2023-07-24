@@ -15,7 +15,7 @@ class Period(object):
         "period_end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -30,8 +30,8 @@ class Period(object):
 
 
 class PeriodBuilder(object):
-    def __init__(self, period: Period = Period({})) -> None:
-        self._period: Period = period
+    def __init__(self) -> None:
+        self._period = Period()
 
     def id(self, id: int) -> "PeriodBuilder":
         self._period.id = id

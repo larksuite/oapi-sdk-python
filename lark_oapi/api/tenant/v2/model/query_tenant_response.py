@@ -12,7 +12,7 @@ class QueryTenantResponse(BaseResponse):
         "data": QueryTenantResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[QueryTenantResponseBody] = None
         init(self, d, self._types)

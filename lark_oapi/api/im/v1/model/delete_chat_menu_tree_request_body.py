@@ -10,7 +10,7 @@ class DeleteChatMenuTreeRequestBody(object):
         "chat_menu_top_level_ids": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_menu_top_level_ids: Optional[List[int]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class DeleteChatMenuTreeRequestBody(object):
 
 
 class DeleteChatMenuTreeRequestBodyBuilder(object):
-    def __init__(self,
-                 delete_chat_menu_tree_request_body: DeleteChatMenuTreeRequestBody = DeleteChatMenuTreeRequestBody(
-                     {})) -> None:
-        self._delete_chat_menu_tree_request_body: DeleteChatMenuTreeRequestBody = delete_chat_menu_tree_request_body
+    def __init__(self) -> None:
+        self._delete_chat_menu_tree_request_body = DeleteChatMenuTreeRequestBody()
 
     def chat_menu_top_level_ids(self, chat_menu_top_level_ids: List[int]) -> "DeleteChatMenuTreeRequestBodyBuilder":
         self._delete_chat_menu_tree_request_body.chat_menu_top_level_ids = chat_menu_top_level_ids

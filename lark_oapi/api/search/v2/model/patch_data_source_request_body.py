@@ -16,7 +16,7 @@ class PatchDataSourceRequestBody(object):
         "i18n_description": I18nMeta,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.state: Optional[int] = None
         self.description: Optional[str] = None
@@ -31,9 +31,8 @@ class PatchDataSourceRequestBody(object):
 
 
 class PatchDataSourceRequestBodyBuilder(object):
-    def __init__(self,
-                 patch_data_source_request_body: PatchDataSourceRequestBody = PatchDataSourceRequestBody({})) -> None:
-        self._patch_data_source_request_body: PatchDataSourceRequestBody = patch_data_source_request_body
+    def __init__(self) -> None:
+        self._patch_data_source_request_body = PatchDataSourceRequestBody()
 
     def name(self, name: str) -> "PatchDataSourceRequestBodyBuilder":
         self._patch_data_source_request_body.name = name

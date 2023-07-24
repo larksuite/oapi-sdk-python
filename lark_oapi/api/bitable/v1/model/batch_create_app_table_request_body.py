@@ -11,7 +11,7 @@ class BatchCreateAppTableRequestBody(object):
         "tables": List[ReqTable],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tables: Optional[List[ReqTable]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateAppTableRequestBody(object):
 
 
 class BatchCreateAppTableRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_create_app_table_request_body: BatchCreateAppTableRequestBody = BatchCreateAppTableRequestBody(
-                     {})) -> None:
-        self._batch_create_app_table_request_body: BatchCreateAppTableRequestBody = batch_create_app_table_request_body
+    def __init__(self) -> None:
+        self._batch_create_app_table_request_body = BatchCreateAppTableRequestBody()
 
     def tables(self, tables: List[ReqTable]) -> "BatchCreateAppTableRequestBodyBuilder":
         self._batch_create_app_table_request_body.tables = tables

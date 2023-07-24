@@ -12,7 +12,7 @@ class DisplayAppV2(object):
         "is_advanced": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_token: Optional[str] = None
         self.name: Optional[str] = None
         self.is_advanced: Optional[bool] = None
@@ -24,8 +24,8 @@ class DisplayAppV2(object):
 
 
 class DisplayAppV2Builder(object):
-    def __init__(self, display_app_v2: DisplayAppV2 = DisplayAppV2({})) -> None:
-        self._display_app_v2: DisplayAppV2 = display_app_v2
+    def __init__(self) -> None:
+        self._display_app_v2 = DisplayAppV2()
 
     def app_token(self, app_token: str) -> "DisplayAppV2Builder":
         self._display_app_v2.app_token = app_token

@@ -15,7 +15,7 @@ class Passage(object):
         "score": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.passage_id: Optional[str] = None
         self.passage_source: Optional[int] = None
         self.content: Optional[str] = None
@@ -30,8 +30,8 @@ class Passage(object):
 
 
 class PassageBuilder(object):
-    def __init__(self, passage: Passage = Passage({})) -> None:
-        self._passage: Passage = passage
+    def __init__(self) -> None:
+        self._passage = Passage()
 
     def passage_id(self, passage_id: str) -> "PassageBuilder":
         self._passage.passage_id = passage_id

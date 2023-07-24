@@ -11,7 +11,7 @@ class CreateDataSourceResponseBody(object):
         "data_source": DataSource,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data_source: Optional[DataSource] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateDataSourceResponseBody(object):
 
 
 class CreateDataSourceResponseBodyBuilder(object):
-    def __init__(self, create_data_source_response_body: CreateDataSourceResponseBody = CreateDataSourceResponseBody(
-        {})) -> None:
-        self._create_data_source_response_body: CreateDataSourceResponseBody = create_data_source_response_body
+    def __init__(self) -> None:
+        self._create_data_source_response_body = CreateDataSourceResponseBody()
 
     def data_source(self, data_source: DataSource) -> "CreateDataSourceResponseBodyBuilder":
         self._create_data_source_response_body.data_source = data_source

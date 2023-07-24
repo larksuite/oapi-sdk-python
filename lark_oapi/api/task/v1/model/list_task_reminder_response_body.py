@@ -13,7 +13,7 @@ class ListTaskReminderResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Reminder]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListTaskReminderResponseBody(object):
 
 
 class ListTaskReminderResponseBodyBuilder(object):
-    def __init__(self, list_task_reminder_response_body: ListTaskReminderResponseBody = ListTaskReminderResponseBody(
-        {})) -> None:
-        self._list_task_reminder_response_body: ListTaskReminderResponseBody = list_task_reminder_response_body
+    def __init__(self) -> None:
+        self._list_task_reminder_response_body = ListTaskReminderResponseBody()
 
     def items(self, items: List[Reminder]) -> "ListTaskReminderResponseBodyBuilder":
         self._list_task_reminder_response_body.items = items

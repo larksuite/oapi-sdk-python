@@ -5,24 +5,24 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.drive.v1.model.batch_get_tmp_download_url_media_request import BatchGetTmpDownloadUrlMediaRequest
-from lark_oapi.api.drive.v1.model.batch_get_tmp_download_url_media_response import BatchGetTmpDownloadUrlMediaResponse
-from lark_oapi.api.drive.v1.model.download_media_request import DownloadMediaRequest
-from lark_oapi.api.drive.v1.model.download_media_response import DownloadMediaResponse
-from lark_oapi.api.drive.v1.model.upload_all_media_request import UploadAllMediaRequest
-from lark_oapi.api.drive.v1.model.upload_all_media_response import UploadAllMediaResponse
-from lark_oapi.api.drive.v1.model.upload_finish_media_request import UploadFinishMediaRequest
-from lark_oapi.api.drive.v1.model.upload_finish_media_response import UploadFinishMediaResponse
-from lark_oapi.api.drive.v1.model.upload_part_media_request import UploadPartMediaRequest
-from lark_oapi.api.drive.v1.model.upload_part_media_response import UploadPartMediaResponse
-from lark_oapi.api.drive.v1.model.upload_prepare_media_request import UploadPrepareMediaRequest
-from lark_oapi.api.drive.v1.model.upload_prepare_media_response import UploadPrepareMediaResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.batch_get_tmp_download_url_media_request import BatchGetTmpDownloadUrlMediaRequest
+from ..model.batch_get_tmp_download_url_media_response import BatchGetTmpDownloadUrlMediaResponse
+from ..model.download_media_request import DownloadMediaRequest
+from ..model.download_media_response import DownloadMediaResponse
+from ..model.upload_all_media_request import UploadAllMediaRequest
+from ..model.upload_all_media_response import UploadAllMediaResponse
+from ..model.upload_finish_media_request import UploadFinishMediaRequest
+from ..model.upload_finish_media_response import UploadFinishMediaResponse
+from ..model.upload_part_media_request import UploadPartMediaRequest
+from ..model.upload_part_media_response import UploadPartMediaResponse
+from ..model.upload_prepare_media_request import UploadPrepareMediaRequest
+from ..model.upload_prepare_media_response import UploadPrepareMediaResponse
 
 
 class Media(object):
@@ -30,7 +30,10 @@ class Media(object):
         self.config: Optional[Config] = config
 
     def batch_get_tmp_download_url(self, request: BatchGetTmpDownloadUrlMediaRequest,
-                                   option: RequestOption = RequestOption()) -> BatchGetTmpDownloadUrlMediaResponse:
+                                   option: Optional[RequestOption] = None) -> BatchGetTmpDownloadUrlMediaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -44,7 +47,10 @@ class Media(object):
 
         return response
 
-    def download(self, request: DownloadMediaRequest, option: RequestOption = RequestOption()) -> DownloadMediaResponse:
+    def download(self, request: DownloadMediaRequest, option: Optional[RequestOption] = None) -> DownloadMediaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -67,7 +73,10 @@ class Media(object):
         return response
 
     def upload_all(self, request: UploadAllMediaRequest,
-                   option: RequestOption = RequestOption()) -> UploadAllMediaResponse:
+                   option: Optional[RequestOption] = None) -> UploadAllMediaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -87,7 +96,10 @@ class Media(object):
         return response
 
     def upload_finish(self, request: UploadFinishMediaRequest,
-                      option: RequestOption = RequestOption()) -> UploadFinishMediaResponse:
+                      option: Optional[RequestOption] = None) -> UploadFinishMediaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -101,7 +113,10 @@ class Media(object):
         return response
 
     def upload_part(self, request: UploadPartMediaRequest,
-                    option: RequestOption = RequestOption()) -> UploadPartMediaResponse:
+                    option: Optional[RequestOption] = None) -> UploadPartMediaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -121,7 +136,10 @@ class Media(object):
         return response
 
     def upload_prepare(self, request: UploadPrepareMediaRequest,
-                       option: RequestOption = RequestOption()) -> UploadPrepareMediaResponse:
+                       option: Optional[RequestOption] = None) -> UploadPrepareMediaResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class BatchDepartmentResponseBody(object):
         "items": List[Department],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Department]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class BatchDepartmentResponseBody(object):
 
 
 class BatchDepartmentResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_department_response_body: BatchDepartmentResponseBody = BatchDepartmentResponseBody({})) -> None:
-        self._batch_department_response_body: BatchDepartmentResponseBody = batch_department_response_body
+    def __init__(self) -> None:
+        self._batch_department_response_body = BatchDepartmentResponseBody()
 
     def items(self, items: List[Department]) -> "BatchDepartmentResponseBodyBuilder":
         self._batch_department_response_body.items = items

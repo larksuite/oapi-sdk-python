@@ -19,7 +19,7 @@ class AppTableField(object):
         "is_hidden": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_id: Optional[str] = None
         self.field_name: Optional[str] = None
         self.type: Optional[int] = None
@@ -36,8 +36,8 @@ class AppTableField(object):
 
 
 class AppTableFieldBuilder(object):
-    def __init__(self, app_table_field: AppTableField = AppTableField({})) -> None:
-        self._app_table_field: AppTableField = app_table_field
+    def __init__(self) -> None:
+        self._app_table_field = AppTableField()
 
     def field_id(self, field_id: str) -> "AppTableFieldBuilder":
         self._app_table_field.field_id = field_id

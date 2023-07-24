@@ -18,7 +18,7 @@ class Assessment(object):
         "is_final_asssessment": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.assessment_id: Optional[str] = None
         self.assessment_status: Optional[Enum] = None
         self.assessment_result: Optional[Enum] = None
@@ -35,8 +35,8 @@ class Assessment(object):
 
 
 class AssessmentBuilder(object):
-    def __init__(self, assessment: Assessment = Assessment({})) -> None:
-        self._assessment: Assessment = assessment
+    def __init__(self) -> None:
+        self._assessment = Assessment()
 
     def assessment_id(self, assessment_id: str) -> "AssessmentBuilder":
         self._assessment.assessment_id = assessment_id

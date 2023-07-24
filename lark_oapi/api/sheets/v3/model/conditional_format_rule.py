@@ -12,7 +12,7 @@ class ConditionalFormatRule(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.boolean_rule: Optional[BooleanRuleCondition] = None
         self.type: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ConditionalFormatRule(object):
 
 
 class ConditionalFormatRuleBuilder(object):
-    def __init__(self, conditional_format_rule: ConditionalFormatRule = ConditionalFormatRule({})) -> None:
-        self._conditional_format_rule: ConditionalFormatRule = conditional_format_rule
+    def __init__(self) -> None:
+        self._conditional_format_rule = ConditionalFormatRule()
 
     def boolean_rule(self, boolean_rule: BooleanRuleCondition) -> "ConditionalFormatRuleBuilder":
         self._conditional_format_rule.boolean_rule = boolean_rule

@@ -20,7 +20,7 @@ class CostCenter(object):
         "operation_reason": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.cost_center_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.code: Optional[str] = None
@@ -39,8 +39,8 @@ class CostCenter(object):
 
 
 class CostCenterBuilder(object):
-    def __init__(self, cost_center: CostCenter = CostCenter({})) -> None:
-        self._cost_center: CostCenter = cost_center
+    def __init__(self) -> None:
+        self._cost_center = CostCenter()
 
     def cost_center_id(self, cost_center_id: str) -> "CostCenterBuilder":
         self._cost_center.cost_center_id = cost_center_id

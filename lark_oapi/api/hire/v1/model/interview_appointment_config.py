@@ -12,7 +12,7 @@ class InterviewAppointmentConfig(object):
         "config": InterviewAppointmentConfigContent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.enable_interview_appointment_by_interviewer: Optional[bool] = None
         self.config: Optional[InterviewAppointmentConfigContent] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class InterviewAppointmentConfig(object):
 
 
 class InterviewAppointmentConfigBuilder(object):
-    def __init__(self,
-                 interview_appointment_config: InterviewAppointmentConfig = InterviewAppointmentConfig({})) -> None:
-        self._interview_appointment_config: InterviewAppointmentConfig = interview_appointment_config
+    def __init__(self) -> None:
+        self._interview_appointment_config = InterviewAppointmentConfig()
 
     def enable_interview_appointment_by_interviewer(self,
                                                     enable_interview_appointment_by_interviewer: bool) -> "InterviewAppointmentConfigBuilder":

@@ -21,7 +21,8 @@ class ListEntityRequest(BaseRequest):
 
 class ListEntityRequestBuilder(object):
 
-    def __init__(self, list_entity_request: ListEntityRequest = ListEntityRequest()) -> None:
+    def __init__(self) -> None:
+        list_entity_request = ListEntityRequest()
         list_entity_request.http_method = HttpMethod.GET
         list_entity_request.uri = "/open-apis/baike/v1/entities"
         list_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

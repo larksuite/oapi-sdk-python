@@ -23,8 +23,8 @@ class BatchUpdateDocumentBlockRequest(BaseRequest):
 
 class BatchUpdateDocumentBlockRequestBuilder(object):
 
-    def __init__(self,
-                 batch_update_document_block_request: BatchUpdateDocumentBlockRequest = BatchUpdateDocumentBlockRequest()) -> None:
+    def __init__(self) -> None:
+        batch_update_document_block_request = BatchUpdateDocumentBlockRequest()
         batch_update_document_block_request.http_method = HttpMethod.PATCH
         batch_update_document_block_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/batch_update"
         batch_update_document_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

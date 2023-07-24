@@ -11,7 +11,7 @@ class BatchUserResponseBody(object):
         "items": List[User],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[User]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class BatchUserResponseBody(object):
 
 
 class BatchUserResponseBodyBuilder(object):
-    def __init__(self, batch_user_response_body: BatchUserResponseBody = BatchUserResponseBody({})) -> None:
-        self._batch_user_response_body: BatchUserResponseBody = batch_user_response_body
+    def __init__(self) -> None:
+        self._batch_user_response_body = BatchUserResponseBody()
 
     def items(self, items: List[User]) -> "BatchUserResponseBodyBuilder":
         self._batch_user_response_body.items = items

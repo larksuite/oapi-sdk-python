@@ -11,7 +11,7 @@ class GetReserveConfigAdminResponseBody(object):
         "reserve_admin_config": ReserveAdminConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reserve_admin_config: Optional[ReserveAdminConfig] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetReserveConfigAdminResponseBody(object):
 
 
 class GetReserveConfigAdminResponseBodyBuilder(object):
-    def __init__(self,
-                 get_reserve_config_admin_response_body: GetReserveConfigAdminResponseBody = GetReserveConfigAdminResponseBody(
-                     {})) -> None:
-        self._get_reserve_config_admin_response_body: GetReserveConfigAdminResponseBody = get_reserve_config_admin_response_body
+    def __init__(self) -> None:
+        self._get_reserve_config_admin_response_body = GetReserveConfigAdminResponseBody()
 
     def reserve_admin_config(self,
                              reserve_admin_config: ReserveAdminConfig) -> "GetReserveConfigAdminResponseBodyBuilder":

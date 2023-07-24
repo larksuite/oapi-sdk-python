@@ -11,7 +11,7 @@ class ObjectiveProgress(object):
         "en": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh: Optional[str] = None
         self.en: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ObjectiveProgress(object):
 
 
 class ObjectiveProgressBuilder(object):
-    def __init__(self, objective_progress: ObjectiveProgress = ObjectiveProgress({})) -> None:
-        self._objective_progress: ObjectiveProgress = objective_progress
+    def __init__(self) -> None:
+        self._objective_progress = ObjectiveProgress()
 
     def zh(self, zh: str) -> "ObjectiveProgressBuilder":
         self._objective_progress.zh = zh

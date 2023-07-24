@@ -11,7 +11,7 @@ class AclScope(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.user_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AclScope(object):
 
 
 class AclScopeBuilder(object):
-    def __init__(self, acl_scope: AclScope = AclScope({})) -> None:
-        self._acl_scope: AclScope = acl_scope
+    def __init__(self) -> None:
+        self._acl_scope = AclScope()
 
     def type(self, type: str) -> "AclScopeBuilder":
         self._acl_scope.type = type

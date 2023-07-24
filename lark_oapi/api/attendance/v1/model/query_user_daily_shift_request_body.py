@@ -12,7 +12,7 @@ class QueryUserDailyShiftRequestBody(object):
         "check_date_to": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_ids: Optional[List[str]] = None
         self.check_date_from: Optional[int] = None
         self.check_date_to: Optional[int] = None
@@ -24,10 +24,8 @@ class QueryUserDailyShiftRequestBody(object):
 
 
 class QueryUserDailyShiftRequestBodyBuilder(object):
-    def __init__(self,
-                 query_user_daily_shift_request_body: QueryUserDailyShiftRequestBody = QueryUserDailyShiftRequestBody(
-                     {})) -> None:
-        self._query_user_daily_shift_request_body: QueryUserDailyShiftRequestBody = query_user_daily_shift_request_body
+    def __init__(self) -> None:
+        self._query_user_daily_shift_request_body = QueryUserDailyShiftRequestBody()
 
     def user_ids(self, user_ids: List[str]) -> "QueryUserDailyShiftRequestBodyBuilder":
         self._query_user_daily_shift_request_body.user_ids = user_ids

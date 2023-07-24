@@ -15,7 +15,7 @@ class BatchDeleteCalendarEventAttendeeRequestBody(object):
         "is_enable_admin": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.attendee_ids: Optional[List[str]] = None
         self.delete_ids: Optional[List[CalendarEventAttendeeId]] = None
         self.need_notification: Optional[bool] = None
@@ -29,10 +29,8 @@ class BatchDeleteCalendarEventAttendeeRequestBody(object):
 
 
 class BatchDeleteCalendarEventAttendeeRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_calendar_event_attendee_request_body: BatchDeleteCalendarEventAttendeeRequestBody = BatchDeleteCalendarEventAttendeeRequestBody(
-                     {})) -> None:
-        self._batch_delete_calendar_event_attendee_request_body: BatchDeleteCalendarEventAttendeeRequestBody = batch_delete_calendar_event_attendee_request_body
+    def __init__(self) -> None:
+        self._batch_delete_calendar_event_attendee_request_body = BatchDeleteCalendarEventAttendeeRequestBody()
 
     def attendee_ids(self, attendee_ids: List[str]) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
         self._batch_delete_calendar_event_attendee_request_body.attendee_ids = attendee_ids

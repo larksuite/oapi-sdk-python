@@ -10,7 +10,7 @@ class BatchQueryFileCommentRequestBody(object):
         "comment_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.comment_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class BatchQueryFileCommentRequestBody(object):
 
 
 class BatchQueryFileCommentRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_query_file_comment_request_body: BatchQueryFileCommentRequestBody = BatchQueryFileCommentRequestBody(
-                     {})) -> None:
-        self._batch_query_file_comment_request_body: BatchQueryFileCommentRequestBody = batch_query_file_comment_request_body
+    def __init__(self) -> None:
+        self._batch_query_file_comment_request_body = BatchQueryFileCommentRequestBody()
 
     def comment_ids(self, comment_ids: List[str]) -> "BatchQueryFileCommentRequestBodyBuilder":
         self._batch_query_file_comment_request_body.comment_ids = comment_ids

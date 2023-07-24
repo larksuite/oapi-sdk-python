@@ -10,7 +10,7 @@ class HighlightEntityRequestBody(object):
         "text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class HighlightEntityRequestBody(object):
 
 
 class HighlightEntityRequestBodyBuilder(object):
-    def __init__(self,
-                 highlight_entity_request_body: HighlightEntityRequestBody = HighlightEntityRequestBody({})) -> None:
-        self._highlight_entity_request_body: HighlightEntityRequestBody = highlight_entity_request_body
+    def __init__(self) -> None:
+        self._highlight_entity_request_body = HighlightEntityRequestBody()
 
     def text(self, text: str) -> "HighlightEntityRequestBodyBuilder":
         self._highlight_entity_request_body.text = text

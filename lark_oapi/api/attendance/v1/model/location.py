@@ -21,7 +21,7 @@ class Location(object):
         "gps_range": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.location_id: Optional[str] = None
         self.location_name: Optional[str] = None
         self.location_type: Optional[int] = None
@@ -42,8 +42,8 @@ class Location(object):
 
 
 class LocationBuilder(object):
-    def __init__(self, location: Location = Location({})) -> None:
-        self._location: Location = location
+    def __init__(self) -> None:
+        self._location = Location()
 
     def location_id(self, location_id: str) -> "LocationBuilder":
         self._location.location_id = location_id

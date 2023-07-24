@@ -12,7 +12,7 @@ class GetExternalApprovalResponse(BaseResponse):
         "data": GetExternalApprovalResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetExternalApprovalResponseBody] = None
         init(self, d, self._types)

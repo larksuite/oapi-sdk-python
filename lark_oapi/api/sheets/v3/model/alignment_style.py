@@ -11,7 +11,7 @@ class AlignmentStyle(object):
         "vertical_alignment": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.horizontal_alignment: Optional[str] = None
         self.vertical_alignment: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AlignmentStyle(object):
 
 
 class AlignmentStyleBuilder(object):
-    def __init__(self, alignment_style: AlignmentStyle = AlignmentStyle({})) -> None:
-        self._alignment_style: AlignmentStyle = alignment_style
+    def __init__(self) -> None:
+        self._alignment_style = AlignmentStyle()
 
     def horizontal_alignment(self, horizontal_alignment: str) -> "AlignmentStyleBuilder":
         self._alignment_style.horizontal_alignment = horizontal_alignment

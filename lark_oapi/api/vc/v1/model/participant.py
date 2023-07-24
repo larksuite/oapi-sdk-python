@@ -33,7 +33,7 @@ class Participant(object):
         "leave_reason": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.participant_name: Optional[str] = None
         self.department: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -66,8 +66,8 @@ class Participant(object):
 
 
 class ParticipantBuilder(object):
-    def __init__(self, participant: Participant = Participant({})) -> None:
-        self._participant: Participant = participant
+    def __init__(self) -> None:
+        self._participant = Participant()
 
     def participant_name(self, participant_name: str) -> "ParticipantBuilder":
         self._participant.participant_name = participant_name

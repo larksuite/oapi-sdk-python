@@ -14,7 +14,7 @@ class OkrSimple(object):
         "period_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[OkrName] = None
         self.okr_id: Optional[str] = None
         self.period_id: Optional[str] = None
@@ -27,8 +27,8 @@ class OkrSimple(object):
 
 
 class OkrSimpleBuilder(object):
-    def __init__(self, okr_simple: OkrSimple = OkrSimple({})) -> None:
-        self._okr_simple: OkrSimple = okr_simple
+    def __init__(self) -> None:
+        self._okr_simple = OkrSimple()
 
     def name(self, name: OkrName) -> "OkrSimpleBuilder":
         self._okr_simple.name = name

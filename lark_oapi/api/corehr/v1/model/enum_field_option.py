@@ -13,7 +13,7 @@ class EnumFieldOption(object):
         "name": Name,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.option_api_name: Optional[str] = None
         self.active: Optional[bool] = None
         self.name: Optional[Name] = None
@@ -25,8 +25,8 @@ class EnumFieldOption(object):
 
 
 class EnumFieldOptionBuilder(object):
-    def __init__(self, enum_field_option: EnumFieldOption = EnumFieldOption({})) -> None:
-        self._enum_field_option: EnumFieldOption = enum_field_option
+    def __init__(self) -> None:
+        self._enum_field_option = EnumFieldOption()
 
     def option_api_name(self, option_api_name: str) -> "EnumFieldOptionBuilder":
         self._enum_field_option.option_api_name = option_api_name

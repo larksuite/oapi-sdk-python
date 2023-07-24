@@ -11,7 +11,7 @@ class IframeComponent(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.iframe_type: Optional[int] = None
         self.url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class IframeComponent(object):
 
 
 class IframeComponentBuilder(object):
-    def __init__(self, iframe_component: IframeComponent = IframeComponent({})) -> None:
-        self._iframe_component: IframeComponent = iframe_component
+    def __init__(self) -> None:
+        self._iframe_component = IframeComponent()
 
     def iframe_type(self, iframe_type: int) -> "IframeComponentBuilder":
         self._iframe_component.iframe_type = iframe_type

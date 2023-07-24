@@ -11,7 +11,7 @@ class UserIdList(object):
         "user_id_list": List[UserId],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id_list: Optional[List[UserId]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class UserIdList(object):
 
 
 class UserIdListBuilder(object):
-    def __init__(self, user_id_list: UserIdList = UserIdList({})) -> None:
-        self._user_id_list: UserIdList = user_id_list
+    def __init__(self) -> None:
+        self._user_id_list = UserIdList()
 
     def user_id_list(self, user_id_list: List[UserId]) -> "UserIdListBuilder":
         self._user_id_list.user_id_list = user_id_list

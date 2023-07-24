@@ -12,7 +12,7 @@ class ApprovalApproverCcer(object):
         "level": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.user_id: Optional[str] = None
         self.level: Optional[str] = None
@@ -24,8 +24,8 @@ class ApprovalApproverCcer(object):
 
 
 class ApprovalApproverCcerBuilder(object):
-    def __init__(self, approval_approver_ccer: ApprovalApproverCcer = ApprovalApproverCcer({})) -> None:
-        self._approval_approver_ccer: ApprovalApproverCcer = approval_approver_ccer
+    def __init__(self) -> None:
+        self._approval_approver_ccer = ApprovalApproverCcer()
 
     def type(self, type: str) -> "ApprovalApproverCcerBuilder":
         self._approval_approver_ccer.type = type

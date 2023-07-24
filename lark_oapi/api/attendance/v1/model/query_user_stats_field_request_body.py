@@ -13,7 +13,7 @@ class QueryUserStatsFieldRequestBody(object):
         "end_date": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.locale: Optional[str] = None
         self.stats_type: Optional[str] = None
         self.start_date: Optional[int] = None
@@ -26,10 +26,8 @@ class QueryUserStatsFieldRequestBody(object):
 
 
 class QueryUserStatsFieldRequestBodyBuilder(object):
-    def __init__(self,
-                 query_user_stats_field_request_body: QueryUserStatsFieldRequestBody = QueryUserStatsFieldRequestBody(
-                     {})) -> None:
-        self._query_user_stats_field_request_body: QueryUserStatsFieldRequestBody = query_user_stats_field_request_body
+    def __init__(self) -> None:
+        self._query_user_stats_field_request_body = QueryUserStatsFieldRequestBody()
 
     def locale(self, locale: str) -> "QueryUserStatsFieldRequestBodyBuilder":
         self._query_user_stats_field_request_body.locale = locale

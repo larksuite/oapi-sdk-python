@@ -19,7 +19,8 @@ class FaqImageFaqRequest(BaseRequest):
 
 class FaqImageFaqRequestBuilder(object):
 
-    def __init__(self, faq_image_faq_request: FaqImageFaqRequest = FaqImageFaqRequest()) -> None:
+    def __init__(self) -> None:
+        faq_image_faq_request = FaqImageFaqRequest()
         faq_image_faq_request.http_method = HttpMethod.GET
         faq_image_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id/image/:image_key"
         faq_image_faq_request.token_types = {AccessTokenType.TENANT}

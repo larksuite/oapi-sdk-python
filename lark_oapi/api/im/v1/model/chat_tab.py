@@ -16,7 +16,7 @@ class ChatTab(object):
         "tab_config": ChatTabConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tab_id: Optional[str] = None
         self.tab_name: Optional[str] = None
         self.tab_type: Optional[str] = None
@@ -30,8 +30,8 @@ class ChatTab(object):
 
 
 class ChatTabBuilder(object):
-    def __init__(self, chat_tab: ChatTab = ChatTab({})) -> None:
-        self._chat_tab: ChatTab = chat_tab
+    def __init__(self) -> None:
+        self._chat_tab = ChatTab()
 
     def tab_id(self, tab_id: str) -> "ChatTabBuilder":
         self._chat_tab.tab_id = tab_id

@@ -22,7 +22,8 @@ class UpdateOfferRequest(BaseRequest):
 
 class UpdateOfferRequestBuilder(object):
 
-    def __init__(self, update_offer_request: UpdateOfferRequest = UpdateOfferRequest()) -> None:
+    def __init__(self) -> None:
+        update_offer_request = UpdateOfferRequest()
         update_offer_request.http_method = HttpMethod.PUT
         update_offer_request.uri = "/open-apis/hire/v1/offers/:offer_id"
         update_offer_request.token_types = {AccessTokenType.TENANT}

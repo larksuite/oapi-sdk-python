@@ -21,8 +21,8 @@ class ReplaceSpreadsheetSheetRequest(BaseRequest):
 
 class ReplaceSpreadsheetSheetRequestBuilder(object):
 
-    def __init__(self,
-                 replace_spreadsheet_sheet_request: ReplaceSpreadsheetSheetRequest = ReplaceSpreadsheetSheetRequest()) -> None:
+    def __init__(self) -> None:
+        replace_spreadsheet_sheet_request = ReplaceSpreadsheetSheetRequest()
         replace_spreadsheet_sheet_request.http_method = HttpMethod.POST
         replace_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
         replace_spreadsheet_sheet_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -19,8 +19,8 @@ class GenerateCaldavConfSettingRequest(BaseRequest):
 
 class GenerateCaldavConfSettingRequestBuilder(object):
 
-    def __init__(self,
-                 generate_caldav_conf_setting_request: GenerateCaldavConfSettingRequest = GenerateCaldavConfSettingRequest()) -> None:
+    def __init__(self) -> None:
+        generate_caldav_conf_setting_request = GenerateCaldavConfSettingRequest()
         generate_caldav_conf_setting_request.http_method = HttpMethod.POST
         generate_caldav_conf_setting_request.uri = "/open-apis/calendar/v4/settings/generate_caldav_conf"
         generate_caldav_conf_setting_request.token_types = {AccessTokenType.USER}

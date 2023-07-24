@@ -20,8 +20,8 @@ class GetReserveConfigDisableInformRequest(BaseRequest):
 
 class GetReserveConfigDisableInformRequestBuilder(object):
 
-    def __init__(self,
-                 get_reserve_config_disable_inform_request: GetReserveConfigDisableInformRequest = GetReserveConfigDisableInformRequest()) -> None:
+    def __init__(self) -> None:
+        get_reserve_config_disable_inform_request = GetReserveConfigDisableInformRequest()
         get_reserve_config_disable_inform_request.http_method = HttpMethod.GET
         get_reserve_config_disable_inform_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/disable_inform"
         get_reserve_config_disable_inform_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -16,7 +16,7 @@ class TalentInternshipInfo(object):
         "tag_list": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.company: Optional[str] = None
         self.desc: Optional[str] = None
@@ -32,8 +32,8 @@ class TalentInternshipInfo(object):
 
 
 class TalentInternshipInfoBuilder(object):
-    def __init__(self, talent_internship_info: TalentInternshipInfo = TalentInternshipInfo({})) -> None:
-        self._talent_internship_info: TalentInternshipInfo = talent_internship_info
+    def __init__(self) -> None:
+        self._talent_internship_info = TalentInternshipInfo()
 
     def id(self, id: str) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.id = id

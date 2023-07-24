@@ -12,7 +12,7 @@ class ApprovalViewerInfo(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.id: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -24,8 +24,8 @@ class ApprovalViewerInfo(object):
 
 
 class ApprovalViewerInfoBuilder(object):
-    def __init__(self, approval_viewer_info: ApprovalViewerInfo = ApprovalViewerInfo({})) -> None:
-        self._approval_viewer_info: ApprovalViewerInfo = approval_viewer_info
+    def __init__(self) -> None:
+        self._approval_viewer_info = ApprovalViewerInfo()
 
     def type(self, type: str) -> "ApprovalViewerInfoBuilder":
         self._approval_viewer_info.type = type

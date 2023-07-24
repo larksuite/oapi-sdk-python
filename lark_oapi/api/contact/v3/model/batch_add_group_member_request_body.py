@@ -11,7 +11,7 @@ class BatchAddGroupMemberRequestBody(object):
         "members": List[Memberlist],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.members: Optional[List[Memberlist]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchAddGroupMemberRequestBody(object):
 
 
 class BatchAddGroupMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_add_group_member_request_body: BatchAddGroupMemberRequestBody = BatchAddGroupMemberRequestBody(
-                     {})) -> None:
-        self._batch_add_group_member_request_body: BatchAddGroupMemberRequestBody = batch_add_group_member_request_body
+    def __init__(self) -> None:
+        self._batch_add_group_member_request_body = BatchAddGroupMemberRequestBody()
 
     def members(self, members: List[Memberlist]) -> "BatchAddGroupMemberRequestBodyBuilder":
         self._batch_add_group_member_request_body.members = members

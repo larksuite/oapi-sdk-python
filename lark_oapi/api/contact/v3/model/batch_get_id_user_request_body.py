@@ -11,7 +11,7 @@ class BatchGetIdUserRequestBody(object):
         "mobiles": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.emails: Optional[List[str]] = None
         self.mobiles: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class BatchGetIdUserRequestBody(object):
 
 
 class BatchGetIdUserRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_get_id_user_request_body: BatchGetIdUserRequestBody = BatchGetIdUserRequestBody({})) -> None:
-        self._batch_get_id_user_request_body: BatchGetIdUserRequestBody = batch_get_id_user_request_body
+    def __init__(self) -> None:
+        self._batch_get_id_user_request_body = BatchGetIdUserRequestBody()
 
     def emails(self, emails: List[str]) -> "BatchGetIdUserRequestBodyBuilder":
         self._batch_get_id_user_request_body.emails = emails

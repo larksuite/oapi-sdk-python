@@ -18,7 +18,7 @@ class Chunk(object):
         "overlength": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chunk_id: Optional[str] = None
         self.doc_id: Optional[str] = None
         self.dataset_id: Optional[str] = None
@@ -36,8 +36,8 @@ class Chunk(object):
 
 
 class ChunkBuilder(object):
-    def __init__(self, chunk: Chunk = Chunk({})) -> None:
-        self._chunk: Chunk = chunk
+    def __init__(self) -> None:
+        self._chunk = Chunk()
 
     def chunk_id(self, chunk_id: str) -> "ChunkBuilder":
         self._chunk.chunk_id = chunk_id

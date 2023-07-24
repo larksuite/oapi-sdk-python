@@ -21,8 +21,8 @@ class BatchDeleteAppRoleMemberRequest(BaseRequest):
 
 class BatchDeleteAppRoleMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_app_role_member_request: BatchDeleteAppRoleMemberRequest = BatchDeleteAppRoleMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_app_role_member_request = BatchDeleteAppRoleMemberRequest()
         batch_delete_app_role_member_request.http_method = HttpMethod.POST
         batch_delete_app_role_member_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_delete"
         batch_delete_app_role_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

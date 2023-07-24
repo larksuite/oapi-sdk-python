@@ -13,7 +13,7 @@ class CustomFields(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.label: Optional[str] = None
         self.type: Optional[str] = None
@@ -26,8 +26,8 @@ class CustomFields(object):
 
 
 class CustomFieldsBuilder(object):
-    def __init__(self, custom_fields: CustomFields = CustomFields({})) -> None:
-        self._custom_fields: CustomFields = custom_fields
+    def __init__(self) -> None:
+        self._custom_fields = CustomFields()
 
     def key(self, key: str) -> "CustomFieldsBuilder":
         self._custom_fields.key = key

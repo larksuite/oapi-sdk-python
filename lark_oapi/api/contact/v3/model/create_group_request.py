@@ -21,7 +21,8 @@ class CreateGroupRequest(BaseRequest):
 
 class CreateGroupRequestBuilder(object):
 
-    def __init__(self, create_group_request: CreateGroupRequest = CreateGroupRequest()) -> None:
+    def __init__(self) -> None:
+        create_group_request = CreateGroupRequest()
         create_group_request.http_method = HttpMethod.POST
         create_group_request.uri = "/open-apis/contact/v3/group"
         create_group_request.token_types = {AccessTokenType.TENANT}

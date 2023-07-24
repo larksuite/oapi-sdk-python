@@ -11,7 +11,7 @@ class CreateTicketMessageRequestBody(object):
         "content": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.msg_type: Optional[str] = None
         self.content: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class CreateTicketMessageRequestBody(object):
 
 
 class CreateTicketMessageRequestBodyBuilder(object):
-    def __init__(self,
-                 create_ticket_message_request_body: CreateTicketMessageRequestBody = CreateTicketMessageRequestBody(
-                     {})) -> None:
-        self._create_ticket_message_request_body: CreateTicketMessageRequestBody = create_ticket_message_request_body
+    def __init__(self) -> None:
+        self._create_ticket_message_request_body = CreateTicketMessageRequestBody()
 
     def msg_type(self, msg_type: str) -> "CreateTicketMessageRequestBodyBuilder":
         self._create_ticket_message_request_body.msg_type = msg_type

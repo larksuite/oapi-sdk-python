@@ -13,7 +13,7 @@ class TicketMessageContent(object):
         "image_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.msg_type: Optional[str] = None
         self.image_keys: Optional[List[str]] = None
@@ -26,8 +26,8 @@ class TicketMessageContent(object):
 
 
 class TicketMessageContentBuilder(object):
-    def __init__(self, ticket_message_content: TicketMessageContent = TicketMessageContent({})) -> None:
-        self._ticket_message_content: TicketMessageContent = ticket_message_content
+    def __init__(self) -> None:
+        self._ticket_message_content = TicketMessageContent()
 
     def content(self, content: str) -> "TicketMessageContentBuilder":
         self._ticket_message_content.content = content

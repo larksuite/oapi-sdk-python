@@ -13,7 +13,7 @@ class MemberStatusChange(object):
         "offboarding_off_no_need_punch": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.onboarding_on_no_need_punch: Optional[bool] = None
         self.onboarding_off_no_need_punch: Optional[bool] = None
         self.offboarding_on_no_need_punch: Optional[bool] = None
@@ -26,8 +26,8 @@ class MemberStatusChange(object):
 
 
 class MemberStatusChangeBuilder(object):
-    def __init__(self, member_status_change: MemberStatusChange = MemberStatusChange({})) -> None:
-        self._member_status_change: MemberStatusChange = member_status_change
+    def __init__(self) -> None:
+        self._member_status_change = MemberStatusChange()
 
     def onboarding_on_no_need_punch(self, onboarding_on_no_need_punch: bool) -> "MemberStatusChangeBuilder":
         self._member_status_change.onboarding_on_no_need_punch = onboarding_on_no_need_punch

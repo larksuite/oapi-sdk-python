@@ -13,7 +13,7 @@ class SearchAssignedUserResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[RoleAuthorization]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class SearchAssignedUserResponseBody(object):
 
 
 class SearchAssignedUserResponseBodyBuilder(object):
-    def __init__(self,
-                 search_assigned_user_response_body: SearchAssignedUserResponseBody = SearchAssignedUserResponseBody(
-                     {})) -> None:
-        self._search_assigned_user_response_body: SearchAssignedUserResponseBody = search_assigned_user_response_body
+    def __init__(self) -> None:
+        self._search_assigned_user_response_body = SearchAssignedUserResponseBody()
 
     def items(self, items: List[RoleAuthorization]) -> "SearchAssignedUserResponseBodyBuilder":
         self._search_assigned_user_response_body.items = items

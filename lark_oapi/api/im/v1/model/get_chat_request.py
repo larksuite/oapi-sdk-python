@@ -19,7 +19,8 @@ class GetChatRequest(BaseRequest):
 
 class GetChatRequestBuilder(object):
 
-    def __init__(self, get_chat_request: GetChatRequest = GetChatRequest()) -> None:
+    def __init__(self) -> None:
+        get_chat_request = GetChatRequest()
         get_chat_request.http_method = HttpMethod.GET
         get_chat_request.uri = "/open-apis/im/v1/chats/:chat_id"
         get_chat_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

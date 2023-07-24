@@ -11,7 +11,7 @@ class CheckExternalInstanceRequestBody(object):
         "instances": List[ExteranlInstanceCheck],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instances: Optional[List[ExteranlInstanceCheck]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CheckExternalInstanceRequestBody(object):
 
 
 class CheckExternalInstanceRequestBodyBuilder(object):
-    def __init__(self,
-                 check_external_instance_request_body: CheckExternalInstanceRequestBody = CheckExternalInstanceRequestBody(
-                     {})) -> None:
-        self._check_external_instance_request_body: CheckExternalInstanceRequestBody = check_external_instance_request_body
+    def __init__(self) -> None:
+        self._check_external_instance_request_body = CheckExternalInstanceRequestBody()
 
     def instances(self, instances: List[ExteranlInstanceCheck]) -> "CheckExternalInstanceRequestBodyBuilder":
         self._check_external_instance_request_body.instances = instances

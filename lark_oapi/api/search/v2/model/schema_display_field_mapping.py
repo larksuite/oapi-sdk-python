@@ -11,7 +11,7 @@ class SchemaDisplayFieldMapping(object):
         "data_field": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.display_field: Optional[str] = None
         self.data_field: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SchemaDisplayFieldMapping(object):
 
 
 class SchemaDisplayFieldMappingBuilder(object):
-    def __init__(self, schema_display_field_mapping: SchemaDisplayFieldMapping = SchemaDisplayFieldMapping({})) -> None:
-        self._schema_display_field_mapping: SchemaDisplayFieldMapping = schema_display_field_mapping
+    def __init__(self) -> None:
+        self._schema_display_field_mapping = SchemaDisplayFieldMapping()
 
     def display_field(self, display_field: str) -> "SchemaDisplayFieldMappingBuilder":
         self._schema_display_field_mapping.display_field = display_field

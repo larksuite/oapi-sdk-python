@@ -23,7 +23,8 @@ class PatchDepartmentRequest(BaseRequest):
 
 class PatchDepartmentRequestBuilder(object):
 
-    def __init__(self, patch_department_request: PatchDepartmentRequest = PatchDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        patch_department_request = PatchDepartmentRequest()
         patch_department_request.http_method = HttpMethod.PATCH
         patch_department_request.uri = "/open-apis/corehr/v1/departments/:department_id"
         patch_department_request.token_types = {AccessTokenType.TENANT}

@@ -13,7 +13,7 @@ class ApplicationInfo(object):
         "process_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.apply_initiator_id: Optional[str] = None
         self.apply_initiating_time: Optional[str] = None
         self.apply_finish_time: Optional[str] = None
@@ -26,8 +26,8 @@ class ApplicationInfo(object):
 
 
 class ApplicationInfoBuilder(object):
-    def __init__(self, application_info: ApplicationInfo = ApplicationInfo({})) -> None:
-        self._application_info: ApplicationInfo = application_info
+    def __init__(self) -> None:
+        self._application_info = ApplicationInfo()
 
     def apply_initiator_id(self, apply_initiator_id: str) -> "ApplicationInfoBuilder":
         self._application_info.apply_initiator_id = apply_initiator_id

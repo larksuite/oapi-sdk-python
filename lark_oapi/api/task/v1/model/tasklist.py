@@ -7,7 +7,7 @@ class Tasklist(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class Tasklist(object):
 
 
 class TasklistBuilder(object):
-    def __init__(self, tasklist: Tasklist = Tasklist({})) -> None:
-        self._tasklist: Tasklist = tasklist
+    def __init__(self) -> None:
+        self._tasklist = Tasklist()
 
     def build(self) -> "Tasklist":
         return self._tasklist

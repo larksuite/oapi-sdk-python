@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.block.v2.model.create_entity_request import CreateEntityRequest
-from lark_oapi.api.block.v2.model.create_entity_response import CreateEntityResponse
-from lark_oapi.api.block.v2.model.update_entity_request import UpdateEntityRequest
-from lark_oapi.api.block.v2.model.update_entity_response import UpdateEntityResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_entity_request import CreateEntityRequest
+from ..model.create_entity_response import CreateEntityResponse
+from ..model.update_entity_request import UpdateEntityRequest
+from ..model.update_entity_response import UpdateEntityResponse
 
 
 class Entity(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateEntityRequest, option: RequestOption = RequestOption()) -> CreateEntityResponse:
+    def create(self, request: CreateEntityRequest, option: Optional[RequestOption] = None) -> CreateEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -30,7 +33,10 @@ class Entity(object):
 
         return response
 
-    def update(self, request: UpdateEntityRequest, option: RequestOption = RequestOption()) -> UpdateEntityResponse:
+    def update(self, request: UpdateEntityRequest, option: Optional[RequestOption] = None) -> UpdateEntityResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

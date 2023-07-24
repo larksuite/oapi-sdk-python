@@ -13,7 +13,7 @@ class BlockAccessData(object):
         "access_data": AccessData,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date: Optional[str] = None
         self.block_id: Optional[str] = None
         self.access_data: Optional[AccessData] = None
@@ -25,8 +25,8 @@ class BlockAccessData(object):
 
 
 class BlockAccessDataBuilder(object):
-    def __init__(self, block_access_data: BlockAccessData = BlockAccessData({})) -> None:
-        self._block_access_data: BlockAccessData = block_access_data
+    def __init__(self) -> None:
+        self._block_access_data = BlockAccessData()
 
     def date(self, date: str) -> "BlockAccessDataBuilder":
         self._block_access_data.date = date

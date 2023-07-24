@@ -13,7 +13,7 @@ class Collaborator(object):
         "perm": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_type: Optional[str] = None
         self.member_open_id: Optional[str] = None
         self.member_user_id: Optional[str] = None
@@ -26,8 +26,8 @@ class Collaborator(object):
 
 
 class CollaboratorBuilder(object):
-    def __init__(self, collaborator: Collaborator = Collaborator({})) -> None:
-        self._collaborator: Collaborator = collaborator
+    def __init__(self) -> None:
+        self._collaborator = Collaborator()
 
     def member_type(self, member_type: str) -> "CollaboratorBuilder":
         self._collaborator.member_type = member_type

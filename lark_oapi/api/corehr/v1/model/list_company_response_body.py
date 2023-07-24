@@ -13,7 +13,7 @@ class ListCompanyResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Company]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListCompanyResponseBody(object):
 
 
 class ListCompanyResponseBodyBuilder(object):
-    def __init__(self, list_company_response_body: ListCompanyResponseBody = ListCompanyResponseBody({})) -> None:
-        self._list_company_response_body: ListCompanyResponseBody = list_company_response_body
+    def __init__(self) -> None:
+        self._list_company_response_body = ListCompanyResponseBody()
 
     def items(self, items: List[Company]) -> "ListCompanyResponseBodyBuilder":
         self._list_company_response_body.items = items

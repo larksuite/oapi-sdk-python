@@ -22,7 +22,8 @@ class CreateDepartmentRequest(BaseRequest):
 
 class CreateDepartmentRequestBuilder(object):
 
-    def __init__(self, create_department_request: CreateDepartmentRequest = CreateDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        create_department_request = CreateDepartmentRequest()
         create_department_request.http_method = HttpMethod.POST
         create_department_request.uri = "/open-apis/contact/v3/departments"
         create_department_request.token_types = {AccessTokenType.TENANT}

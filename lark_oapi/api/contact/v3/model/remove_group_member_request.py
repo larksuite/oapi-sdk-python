@@ -20,7 +20,8 @@ class RemoveGroupMemberRequest(BaseRequest):
 
 class RemoveGroupMemberRequestBuilder(object):
 
-    def __init__(self, remove_group_member_request: RemoveGroupMemberRequest = RemoveGroupMemberRequest()) -> None:
+    def __init__(self) -> None:
+        remove_group_member_request = RemoveGroupMemberRequest()
         remove_group_member_request.http_method = HttpMethod.POST
         remove_group_member_request.uri = "/open-apis/contact/v3/group/:group_id/member/remove"
         remove_group_member_request.token_types = {AccessTokenType.TENANT}

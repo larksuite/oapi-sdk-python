@@ -18,7 +18,8 @@ class GetDocumentRequest(BaseRequest):
 
 class GetDocumentRequestBuilder(object):
 
-    def __init__(self, get_document_request: GetDocumentRequest = GetDocumentRequest()) -> None:
+    def __init__(self) -> None:
+        get_document_request = GetDocumentRequest()
         get_document_request.http_method = HttpMethod.GET
         get_document_request.uri = "/open-apis/docx/v1/documents/:document_id"
         get_document_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

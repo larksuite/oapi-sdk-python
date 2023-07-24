@@ -21,8 +21,8 @@ class PatchFileSubscriptionRequest(BaseRequest):
 
 class PatchFileSubscriptionRequestBuilder(object):
 
-    def __init__(self,
-                 patch_file_subscription_request: PatchFileSubscriptionRequest = PatchFileSubscriptionRequest()) -> None:
+    def __init__(self) -> None:
+        patch_file_subscription_request = PatchFileSubscriptionRequest()
         patch_file_subscription_request.http_method = HttpMethod.PATCH
         patch_file_subscription_request.uri = "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
         patch_file_subscription_request.token_types = {AccessTokenType.USER}

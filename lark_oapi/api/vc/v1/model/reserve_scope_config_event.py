@@ -14,7 +14,7 @@ class ReserveScopeConfigEvent(object):
         "allow_depts": List[SubscribeDepartment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.allow_all_users: Optional[int] = None
         self.allow_users: Optional[List[SubscribeUserEvent]] = None
         self.allow_depts: Optional[List[SubscribeDepartment]] = None
@@ -26,8 +26,8 @@ class ReserveScopeConfigEvent(object):
 
 
 class ReserveScopeConfigEventBuilder(object):
-    def __init__(self, reserve_scope_config_event: ReserveScopeConfigEvent = ReserveScopeConfigEvent({})) -> None:
-        self._reserve_scope_config_event: ReserveScopeConfigEvent = reserve_scope_config_event
+    def __init__(self) -> None:
+        self._reserve_scope_config_event = ReserveScopeConfigEvent()
 
     def allow_all_users(self, allow_all_users: int) -> "ReserveScopeConfigEventBuilder":
         self._reserve_scope_config_event.allow_all_users = allow_all_users

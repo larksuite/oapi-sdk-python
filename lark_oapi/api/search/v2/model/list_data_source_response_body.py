@@ -13,7 +13,7 @@ class ListDataSourceResponseBody(object):
         "items": List[DataSource],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[DataSource]] = None
@@ -25,9 +25,8 @@ class ListDataSourceResponseBody(object):
 
 
 class ListDataSourceResponseBodyBuilder(object):
-    def __init__(self,
-                 list_data_source_response_body: ListDataSourceResponseBody = ListDataSourceResponseBody({})) -> None:
-        self._list_data_source_response_body: ListDataSourceResponseBody = list_data_source_response_body
+    def __init__(self) -> None:
+        self._list_data_source_response_body = ListDataSourceResponseBody()
 
     def has_more(self, has_more: bool) -> "ListDataSourceResponseBodyBuilder":
         self._list_data_source_response_body.has_more = has_more

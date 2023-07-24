@@ -16,7 +16,7 @@ class SecurityGroup(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.code: Optional[str] = None
         self.name: Optional[Name] = None
@@ -31,8 +31,8 @@ class SecurityGroup(object):
 
 
 class SecurityGroupBuilder(object):
-    def __init__(self, security_group: SecurityGroup = SecurityGroup({})) -> None:
-        self._security_group: SecurityGroup = security_group
+    def __init__(self) -> None:
+        self._security_group = SecurityGroup()
 
     def id(self, id: str) -> "SecurityGroupBuilder":
         self._security_group.id = id

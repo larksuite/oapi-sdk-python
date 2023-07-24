@@ -11,7 +11,7 @@ class CpstBandWidth(object):
         "lower_limit": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.upper_limit: Optional[str] = None
         self.lower_limit: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CpstBandWidth(object):
 
 
 class CpstBandWidthBuilder(object):
-    def __init__(self, cpst_band_width: CpstBandWidth = CpstBandWidth({})) -> None:
-        self._cpst_band_width: CpstBandWidth = cpst_band_width
+    def __init__(self) -> None:
+        self._cpst_band_width = CpstBandWidth()
 
     def upper_limit(self, upper_limit: str) -> "CpstBandWidthBuilder":
         self._cpst_band_width.upper_limit = upper_limit

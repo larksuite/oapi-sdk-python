@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.query_user_stats_field_request import QueryUserStatsFieldRequest
-from lark_oapi.api.attendance.v1.model.query_user_stats_field_response import QueryUserStatsFieldResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_user_stats_field_request import QueryUserStatsFieldRequest
+from ..model.query_user_stats_field_response import QueryUserStatsFieldResponse
 
 
 class UserStatsField(object):
@@ -16,7 +16,10 @@ class UserStatsField(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryUserStatsFieldRequest,
-              option: RequestOption = RequestOption()) -> QueryUserStatsFieldResponse:
+              option: Optional[RequestOption] = None) -> QueryUserStatsFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -19,7 +19,8 @@ class CreateUnitRequest(BaseRequest):
 
 class CreateUnitRequestBuilder(object):
 
-    def __init__(self, create_unit_request: CreateUnitRequest = CreateUnitRequest()) -> None:
+    def __init__(self) -> None:
+        create_unit_request = CreateUnitRequest()
         create_unit_request.http_method = HttpMethod.POST
         create_unit_request.uri = "/open-apis/contact/v3/unit"
         create_unit_request.token_types = {AccessTokenType.TENANT}

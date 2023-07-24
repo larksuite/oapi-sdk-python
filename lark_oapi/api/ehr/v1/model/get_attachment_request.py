@@ -18,7 +18,8 @@ class GetAttachmentRequest(BaseRequest):
 
 class GetAttachmentRequestBuilder(object):
 
-    def __init__(self, get_attachment_request: GetAttachmentRequest = GetAttachmentRequest()) -> None:
+    def __init__(self) -> None:
+        get_attachment_request = GetAttachmentRequest()
         get_attachment_request.http_method = HttpMethod.GET
         get_attachment_request.uri = "/open-apis/ehr/v1/attachments/:token"
         get_attachment_request.token_types = {AccessTokenType.TENANT}

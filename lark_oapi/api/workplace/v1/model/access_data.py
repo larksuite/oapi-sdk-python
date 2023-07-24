@@ -11,7 +11,7 @@ class AccessData(object):
         "uv": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pv: Optional[int] = None
         self.uv: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AccessData(object):
 
 
 class AccessDataBuilder(object):
-    def __init__(self, access_data: AccessData = AccessData({})) -> None:
-        self._access_data: AccessData = access_data
+    def __init__(self) -> None:
+        self._access_data = AccessData()
 
     def pv(self, pv: int) -> "AccessDataBuilder":
         self._access_data.pv = pv

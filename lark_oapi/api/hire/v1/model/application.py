@@ -31,7 +31,7 @@ class Application(object):
         "application_preferred_city_list": List[CodeNameObject],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.talent_id: Optional[str] = None
@@ -57,8 +57,8 @@ class Application(object):
 
 
 class ApplicationBuilder(object):
-    def __init__(self, application: Application = Application({})) -> None:
-        self._application: Application = application
+    def __init__(self) -> None:
+        self._application = Application()
 
     def id(self, id: str) -> "ApplicationBuilder":
         self._application.id = id

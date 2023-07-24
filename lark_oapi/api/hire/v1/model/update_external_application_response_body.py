@@ -11,7 +11,7 @@ class UpdateExternalApplicationResponseBody(object):
         "external_application": ExternalApplication,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_application: Optional[ExternalApplication] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class UpdateExternalApplicationResponseBody(object):
 
 
 class UpdateExternalApplicationResponseBodyBuilder(object):
-    def __init__(self,
-                 update_external_application_response_body: UpdateExternalApplicationResponseBody = UpdateExternalApplicationResponseBody(
-                     {})) -> None:
-        self._update_external_application_response_body: UpdateExternalApplicationResponseBody = update_external_application_response_body
+    def __init__(self) -> None:
+        self._update_external_application_response_body = UpdateExternalApplicationResponseBody()
 
     def external_application(self,
                              external_application: ExternalApplication) -> "UpdateExternalApplicationResponseBodyBuilder":

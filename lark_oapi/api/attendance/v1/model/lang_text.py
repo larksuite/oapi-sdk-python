@@ -11,7 +11,7 @@ class LangText(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.lang: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class LangText(object):
 
 
 class LangTextBuilder(object):
-    def __init__(self, lang_text: LangText = LangText({})) -> None:
-        self._lang_text: LangText = lang_text
+    def __init__(self) -> None:
+        self._lang_text = LangText()
 
     def lang(self, lang: str) -> "LangTextBuilder":
         self._lang_text.lang = lang

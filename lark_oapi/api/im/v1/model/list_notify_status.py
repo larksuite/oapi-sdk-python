@@ -12,7 +12,7 @@ class ListNotifyStatus(object):
         "notify_status_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[UserId] = None
         self.notify_status_type: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ListNotifyStatus(object):
 
 
 class ListNotifyStatusBuilder(object):
-    def __init__(self, list_notify_status: ListNotifyStatus = ListNotifyStatus({})) -> None:
-        self._list_notify_status: ListNotifyStatus = list_notify_status
+    def __init__(self) -> None:
+        self._list_notify_status = ListNotifyStatus()
 
     def user_id(self, user_id: UserId) -> "ListNotifyStatusBuilder":
         self._list_notify_status.user_id = user_id

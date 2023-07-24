@@ -12,7 +12,7 @@ class CreateUnitRequestBody(object):
         "unit_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.unit_id: Optional[str] = None
         self.name: Optional[str] = None
         self.unit_type: Optional[str] = None
@@ -24,8 +24,8 @@ class CreateUnitRequestBody(object):
 
 
 class CreateUnitRequestBodyBuilder(object):
-    def __init__(self, create_unit_request_body: CreateUnitRequestBody = CreateUnitRequestBody({})) -> None:
-        self._create_unit_request_body: CreateUnitRequestBody = create_unit_request_body
+    def __init__(self) -> None:
+        self._create_unit_request_body = CreateUnitRequestBody()
 
     def unit_id(self, unit_id: str) -> "CreateUnitRequestBodyBuilder":
         self._create_unit_request_body.unit_id = unit_id

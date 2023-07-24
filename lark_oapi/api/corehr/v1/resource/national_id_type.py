@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_national_id_type_request import CreateNationalIdTypeRequest
-from lark_oapi.api.corehr.v1.model.create_national_id_type_response import CreateNationalIdTypeResponse
-from lark_oapi.api.corehr.v1.model.delete_national_id_type_request import DeleteNationalIdTypeRequest
-from lark_oapi.api.corehr.v1.model.delete_national_id_type_response import DeleteNationalIdTypeResponse
-from lark_oapi.api.corehr.v1.model.get_national_id_type_request import GetNationalIdTypeRequest
-from lark_oapi.api.corehr.v1.model.get_national_id_type_response import GetNationalIdTypeResponse
-from lark_oapi.api.corehr.v1.model.list_national_id_type_request import ListNationalIdTypeRequest
-from lark_oapi.api.corehr.v1.model.list_national_id_type_response import ListNationalIdTypeResponse
-from lark_oapi.api.corehr.v1.model.patch_national_id_type_request import PatchNationalIdTypeRequest
-from lark_oapi.api.corehr.v1.model.patch_national_id_type_response import PatchNationalIdTypeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_national_id_type_request import CreateNationalIdTypeRequest
+from ..model.create_national_id_type_response import CreateNationalIdTypeResponse
+from ..model.delete_national_id_type_request import DeleteNationalIdTypeRequest
+from ..model.delete_national_id_type_response import DeleteNationalIdTypeResponse
+from ..model.get_national_id_type_request import GetNationalIdTypeRequest
+from ..model.get_national_id_type_response import GetNationalIdTypeResponse
+from ..model.list_national_id_type_request import ListNationalIdTypeRequest
+from ..model.list_national_id_type_response import ListNationalIdTypeResponse
+from ..model.patch_national_id_type_request import PatchNationalIdTypeRequest
+from ..model.patch_national_id_type_response import PatchNationalIdTypeResponse
 
 
 class NationalIdType(object):
@@ -24,7 +24,10 @@ class NationalIdType(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateNationalIdTypeRequest,
-               option: RequestOption = RequestOption()) -> CreateNationalIdTypeResponse:
+               option: Optional[RequestOption] = None) -> CreateNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class NationalIdType(object):
         return response
 
     def delete(self, request: DeleteNationalIdTypeRequest,
-               option: RequestOption = RequestOption()) -> DeleteNationalIdTypeResponse:
+               option: Optional[RequestOption] = None) -> DeleteNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class NationalIdType(object):
         return response
 
     def get(self, request: GetNationalIdTypeRequest,
-            option: RequestOption = RequestOption()) -> GetNationalIdTypeResponse:
+            option: Optional[RequestOption] = None) -> GetNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class NationalIdType(object):
         return response
 
     def list(self, request: ListNationalIdTypeRequest,
-             option: RequestOption = RequestOption()) -> ListNationalIdTypeResponse:
+             option: Optional[RequestOption] = None) -> ListNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -80,7 +92,10 @@ class NationalIdType(object):
         return response
 
     def patch(self, request: PatchNationalIdTypeRequest,
-              option: RequestOption = RequestOption()) -> PatchNationalIdTypeResponse:
+              option: Optional[RequestOption] = None) -> PatchNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

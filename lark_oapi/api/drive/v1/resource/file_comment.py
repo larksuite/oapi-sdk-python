@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.batch_query_file_comment_request import BatchQueryFileCommentRequest
-from lark_oapi.api.drive.v1.model.batch_query_file_comment_response import BatchQueryFileCommentResponse
-from lark_oapi.api.drive.v1.model.create_file_comment_request import CreateFileCommentRequest
-from lark_oapi.api.drive.v1.model.create_file_comment_response import CreateFileCommentResponse
-from lark_oapi.api.drive.v1.model.get_file_comment_request import GetFileCommentRequest
-from lark_oapi.api.drive.v1.model.get_file_comment_response import GetFileCommentResponse
-from lark_oapi.api.drive.v1.model.list_file_comment_request import ListFileCommentRequest
-from lark_oapi.api.drive.v1.model.list_file_comment_response import ListFileCommentResponse
-from lark_oapi.api.drive.v1.model.patch_file_comment_request import PatchFileCommentRequest
-from lark_oapi.api.drive.v1.model.patch_file_comment_response import PatchFileCommentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_query_file_comment_request import BatchQueryFileCommentRequest
+from ..model.batch_query_file_comment_response import BatchQueryFileCommentResponse
+from ..model.create_file_comment_request import CreateFileCommentRequest
+from ..model.create_file_comment_response import CreateFileCommentResponse
+from ..model.get_file_comment_request import GetFileCommentRequest
+from ..model.get_file_comment_response import GetFileCommentResponse
+from ..model.list_file_comment_request import ListFileCommentRequest
+from ..model.list_file_comment_response import ListFileCommentResponse
+from ..model.patch_file_comment_request import PatchFileCommentRequest
+from ..model.patch_file_comment_response import PatchFileCommentResponse
 
 
 class FileComment(object):
@@ -24,7 +24,10 @@ class FileComment(object):
         self.config: Optional[Config] = config
 
     def batch_query(self, request: BatchQueryFileCommentRequest,
-                    option: RequestOption = RequestOption()) -> BatchQueryFileCommentResponse:
+                    option: Optional[RequestOption] = None) -> BatchQueryFileCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +42,10 @@ class FileComment(object):
         return response
 
     def create(self, request: CreateFileCommentRequest,
-               option: RequestOption = RequestOption()) -> CreateFileCommentResponse:
+               option: Optional[RequestOption] = None) -> CreateFileCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class FileComment(object):
 
         return response
 
-    def get(self, request: GetFileCommentRequest, option: RequestOption = RequestOption()) -> GetFileCommentResponse:
+    def get(self, request: GetFileCommentRequest, option: Optional[RequestOption] = None) -> GetFileCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +74,10 @@ class FileComment(object):
 
         return response
 
-    def list(self, request: ListFileCommentRequest, option: RequestOption = RequestOption()) -> ListFileCommentResponse:
+    def list(self, request: ListFileCommentRequest, option: Optional[RequestOption] = None) -> ListFileCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class FileComment(object):
         return response
 
     def patch(self, request: PatchFileCommentRequest,
-              option: RequestOption = RequestOption()) -> PatchFileCommentResponse:
+              option: Optional[RequestOption] = None) -> PatchFileCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

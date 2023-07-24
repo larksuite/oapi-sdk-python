@@ -14,7 +14,7 @@ class UserOkr(object):
         "objective_list": List[UserOkrObjective],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         self.permission: Optional[int] = None
@@ -27,8 +27,8 @@ class UserOkr(object):
 
 
 class UserOkrBuilder(object):
-    def __init__(self, user_okr: UserOkr = UserOkr({})) -> None:
-        self._user_okr: UserOkr = user_okr
+    def __init__(self) -> None:
+        self._user_okr = UserOkr()
 
     def id(self, id: int) -> "UserOkrBuilder":
         self._user_okr.id = id

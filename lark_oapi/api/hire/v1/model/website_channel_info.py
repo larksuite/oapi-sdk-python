@@ -13,7 +13,7 @@ class WebsiteChannelInfo(object):
         "code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.link: Optional[str] = None
@@ -26,8 +26,8 @@ class WebsiteChannelInfo(object):
 
 
 class WebsiteChannelInfoBuilder(object):
-    def __init__(self, website_channel_info: WebsiteChannelInfo = WebsiteChannelInfo({})) -> None:
-        self._website_channel_info: WebsiteChannelInfo = website_channel_info
+    def __init__(self) -> None:
+        self._website_channel_info = WebsiteChannelInfo()
 
     def id(self, id: str) -> "WebsiteChannelInfoBuilder":
         self._website_channel_info.id = id

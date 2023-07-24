@@ -23,7 +23,7 @@ class ApprovalCreateExternal(object):
         "exclude_efficiency_statistics": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.biz_name: Optional[str] = None
         self.biz_type: Optional[str] = None
         self.create_link_mobile: Optional[str] = None
@@ -46,8 +46,8 @@ class ApprovalCreateExternal(object):
 
 
 class ApprovalCreateExternalBuilder(object):
-    def __init__(self, approval_create_external: ApprovalCreateExternal = ApprovalCreateExternal({})) -> None:
-        self._approval_create_external: ApprovalCreateExternal = approval_create_external
+    def __init__(self) -> None:
+        self._approval_create_external = ApprovalCreateExternal()
 
     def biz_name(self, biz_name: str) -> "ApprovalCreateExternalBuilder":
         self._approval_create_external.biz_name = biz_name

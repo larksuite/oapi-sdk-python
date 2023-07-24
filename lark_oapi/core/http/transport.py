@@ -3,14 +3,16 @@ from requests_toolbelt import MultipartEncoder
 
 from lark_oapi.core import JSON, logger
 from lark_oapi.core.const import *
-from lark_oapi.core.enum import *
 from lark_oapi.core.model import *
 
 
 class Transport(object):
 
     @staticmethod
-    def execute(conf: Config, req: BaseRequest, option: RequestOption = RequestOption()) -> RawResponse:
+    def execute(conf: Config, req: BaseRequest, option: Optional[RequestOption] = None) -> RawResponse:
+        if option is None:
+            option = RequestOption()
+
         # 拼接url
         url: str = _build_url(conf.domain, req.uri, req.paths)
 

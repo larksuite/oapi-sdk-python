@@ -13,7 +13,7 @@ class ListTaskResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Task]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListTaskResponseBody(object):
 
 
 class ListTaskResponseBodyBuilder(object):
-    def __init__(self, list_task_response_body: ListTaskResponseBody = ListTaskResponseBody({})) -> None:
-        self._list_task_response_body: ListTaskResponseBody = list_task_response_body
+    def __init__(self) -> None:
+        self._list_task_response_body = ListTaskResponseBody()
 
     def items(self, items: List[Task]) -> "ListTaskResponseBodyBuilder":
         self._list_task_response_body.items = items

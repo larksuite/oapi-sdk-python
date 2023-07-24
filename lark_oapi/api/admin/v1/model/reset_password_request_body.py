@@ -12,7 +12,7 @@ class ResetPasswordRequestBody(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.password: Optional[Password] = None
         self.user_id: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ResetPasswordRequestBody(object):
 
 
 class ResetPasswordRequestBodyBuilder(object):
-    def __init__(self, reset_password_request_body: ResetPasswordRequestBody = ResetPasswordRequestBody({})) -> None:
-        self._reset_password_request_body: ResetPasswordRequestBody = reset_password_request_body
+    def __init__(self) -> None:
+        self._reset_password_request_body = ResetPasswordRequestBody()
 
     def password(self, password: Password) -> "ResetPasswordRequestBodyBuilder":
         self._reset_password_request_body.password = password

@@ -12,7 +12,7 @@ class Department(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class Department(object):
 
 
 class DepartmentBuilder(object):
-    def __init__(self, department: Department = Department({})) -> None:
-        self._department: Department = department
+    def __init__(self) -> None:
+        self._department = Department()
 
     def id(self, id: str) -> "DepartmentBuilder":
         self._department.id = id

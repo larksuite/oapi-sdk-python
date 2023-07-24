@@ -12,7 +12,7 @@ class ContentList(object):
         "number": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.indent_level: Optional[int] = None
         self.number: Optional[int] = None
@@ -24,8 +24,8 @@ class ContentList(object):
 
 
 class ContentListBuilder(object):
-    def __init__(self, content_list: ContentList = ContentList({})) -> None:
-        self._content_list: ContentList = content_list
+    def __init__(self) -> None:
+        self._content_list = ContentList()
 
     def type(self, type: str) -> "ContentListBuilder":
         self._content_list.type = type

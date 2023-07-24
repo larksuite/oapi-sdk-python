@@ -11,7 +11,7 @@ class GetBadgeResponseBody(object):
         "badge": Badge,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.badge: Optional[Badge] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetBadgeResponseBody(object):
 
 
 class GetBadgeResponseBodyBuilder(object):
-    def __init__(self, get_badge_response_body: GetBadgeResponseBody = GetBadgeResponseBody({})) -> None:
-        self._get_badge_response_body: GetBadgeResponseBody = get_badge_response_body
+    def __init__(self) -> None:
+        self._get_badge_response_body = GetBadgeResponseBody()
 
     def badge(self, badge: Badge) -> "GetBadgeResponseBodyBuilder":
         self._get_badge_response_body.badge = badge

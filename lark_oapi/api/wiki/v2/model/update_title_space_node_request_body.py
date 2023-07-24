@@ -10,7 +10,7 @@ class UpdateTitleSpaceNodeRequestBody(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class UpdateTitleSpaceNodeRequestBody(object):
 
 
 class UpdateTitleSpaceNodeRequestBodyBuilder(object):
-    def __init__(self,
-                 update_title_space_node_request_body: UpdateTitleSpaceNodeRequestBody = UpdateTitleSpaceNodeRequestBody(
-                     {})) -> None:
-        self._update_title_space_node_request_body: UpdateTitleSpaceNodeRequestBody = update_title_space_node_request_body
+    def __init__(self) -> None:
+        self._update_title_space_node_request_body = UpdateTitleSpaceNodeRequestBody()
 
     def title(self, title: str) -> "UpdateTitleSpaceNodeRequestBodyBuilder":
         self._update_title_space_node_request_body.title = title

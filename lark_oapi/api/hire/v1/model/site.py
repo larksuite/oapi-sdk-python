@@ -12,7 +12,7 @@ class Site(object):
         "name": SiteName,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[SiteName] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Site(object):
 
 
 class SiteBuilder(object):
-    def __init__(self, site: Site = Site({})) -> None:
-        self._site: Site = site
+    def __init__(self) -> None:
+        self._site = Site()
 
     def id(self, id: str) -> "SiteBuilder":
         self._site.id = id

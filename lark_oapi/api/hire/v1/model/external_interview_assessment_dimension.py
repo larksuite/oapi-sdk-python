@@ -16,7 +16,7 @@ class ExternalInterviewAssessmentDimension(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.score: Optional[int] = None
         self.option: Optional[str] = None
         self.options: Optional[List[str]] = None
@@ -32,10 +32,8 @@ class ExternalInterviewAssessmentDimension(object):
 
 
 class ExternalInterviewAssessmentDimensionBuilder(object):
-    def __init__(self,
-                 external_interview_assessment_dimension: ExternalInterviewAssessmentDimension = ExternalInterviewAssessmentDimension(
-                     {})) -> None:
-        self._external_interview_assessment_dimension: ExternalInterviewAssessmentDimension = external_interview_assessment_dimension
+    def __init__(self) -> None:
+        self._external_interview_assessment_dimension = ExternalInterviewAssessmentDimension()
 
     def score(self, score: int) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.score = score

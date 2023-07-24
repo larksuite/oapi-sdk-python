@@ -15,7 +15,7 @@ class EcoExamPaperData(object):
         "end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.duration: Optional[int] = None
@@ -30,8 +30,8 @@ class EcoExamPaperData(object):
 
 
 class EcoExamPaperDataBuilder(object):
-    def __init__(self, eco_exam_paper_data: EcoExamPaperData = EcoExamPaperData({})) -> None:
-        self._eco_exam_paper_data: EcoExamPaperData = eco_exam_paper_data
+    def __init__(self) -> None:
+        self._eco_exam_paper_data = EcoExamPaperData()
 
     def id(self, id: str) -> "EcoExamPaperDataBuilder":
         self._eco_exam_paper_data.id = id

@@ -2,30 +2,33 @@
 
 from typing import *
 
-from lark_oapi.api.wiki.v2.model.copy_space_node_request import CopySpaceNodeRequest
-from lark_oapi.api.wiki.v2.model.copy_space_node_response import CopySpaceNodeResponse
-from lark_oapi.api.wiki.v2.model.create_space_node_request import CreateSpaceNodeRequest
-from lark_oapi.api.wiki.v2.model.create_space_node_response import CreateSpaceNodeResponse
-from lark_oapi.api.wiki.v2.model.list_space_node_request import ListSpaceNodeRequest
-from lark_oapi.api.wiki.v2.model.list_space_node_response import ListSpaceNodeResponse
-from lark_oapi.api.wiki.v2.model.move_docs_to_wiki_space_node_request import MoveDocsToWikiSpaceNodeRequest
-from lark_oapi.api.wiki.v2.model.move_docs_to_wiki_space_node_response import MoveDocsToWikiSpaceNodeResponse
-from lark_oapi.api.wiki.v2.model.move_space_node_request import MoveSpaceNodeRequest
-from lark_oapi.api.wiki.v2.model.move_space_node_response import MoveSpaceNodeResponse
-from lark_oapi.api.wiki.v2.model.update_title_space_node_request import UpdateTitleSpaceNodeRequest
-from lark_oapi.api.wiki.v2.model.update_title_space_node_response import UpdateTitleSpaceNodeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.copy_space_node_request import CopySpaceNodeRequest
+from ..model.copy_space_node_response import CopySpaceNodeResponse
+from ..model.create_space_node_request import CreateSpaceNodeRequest
+from ..model.create_space_node_response import CreateSpaceNodeResponse
+from ..model.list_space_node_request import ListSpaceNodeRequest
+from ..model.list_space_node_response import ListSpaceNodeResponse
+from ..model.move_docs_to_wiki_space_node_request import MoveDocsToWikiSpaceNodeRequest
+from ..model.move_docs_to_wiki_space_node_response import MoveDocsToWikiSpaceNodeResponse
+from ..model.move_space_node_request import MoveSpaceNodeRequest
+from ..model.move_space_node_response import MoveSpaceNodeResponse
+from ..model.update_title_space_node_request import UpdateTitleSpaceNodeRequest
+from ..model.update_title_space_node_response import UpdateTitleSpaceNodeResponse
 
 
 class SpaceNode(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def copy(self, request: CopySpaceNodeRequest, option: RequestOption = RequestOption()) -> CopySpaceNodeResponse:
+    def copy(self, request: CopySpaceNodeRequest, option: Optional[RequestOption] = None) -> CopySpaceNodeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +42,10 @@ class SpaceNode(object):
         return response
 
     def create(self, request: CreateSpaceNodeRequest,
-               option: RequestOption = RequestOption()) -> CreateSpaceNodeResponse:
+               option: Optional[RequestOption] = None) -> CreateSpaceNodeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class SpaceNode(object):
 
         return response
 
-    def list(self, request: ListSpaceNodeRequest, option: RequestOption = RequestOption()) -> ListSpaceNodeResponse:
+    def list(self, request: ListSpaceNodeRequest, option: Optional[RequestOption] = None) -> ListSpaceNodeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +74,10 @@ class SpaceNode(object):
 
         return response
 
-    def move(self, request: MoveSpaceNodeRequest, option: RequestOption = RequestOption()) -> MoveSpaceNodeResponse:
+    def move(self, request: MoveSpaceNodeRequest, option: Optional[RequestOption] = None) -> MoveSpaceNodeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class SpaceNode(object):
         return response
 
     def move_docs_to_wiki(self, request: MoveDocsToWikiSpaceNodeRequest,
-                          option: RequestOption = RequestOption()) -> MoveDocsToWikiSpaceNodeResponse:
+                          option: Optional[RequestOption] = None) -> MoveDocsToWikiSpaceNodeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -94,7 +109,10 @@ class SpaceNode(object):
         return response
 
     def update_title(self, request: UpdateTitleSpaceNodeRequest,
-                     option: RequestOption = RequestOption()) -> UpdateTitleSpaceNodeResponse:
+                     option: Optional[RequestOption] = None) -> UpdateTitleSpaceNodeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

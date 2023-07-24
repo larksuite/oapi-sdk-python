@@ -10,7 +10,7 @@ class CreateBadgeImageResponseBody(object):
         "image_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_key: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class CreateBadgeImageResponseBody(object):
 
 
 class CreateBadgeImageResponseBodyBuilder(object):
-    def __init__(self, create_badge_image_response_body: CreateBadgeImageResponseBody = CreateBadgeImageResponseBody(
-        {})) -> None:
-        self._create_badge_image_response_body: CreateBadgeImageResponseBody = create_badge_image_response_body
+    def __init__(self) -> None:
+        self._create_badge_image_response_body = CreateBadgeImageResponseBody()
 
     def image_key(self, image_key: str) -> "CreateBadgeImageResponseBodyBuilder":
         self._create_badge_image_response_body.image_key = image_key

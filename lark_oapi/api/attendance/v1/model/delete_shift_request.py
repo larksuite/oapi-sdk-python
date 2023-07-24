@@ -18,7 +18,8 @@ class DeleteShiftRequest(BaseRequest):
 
 class DeleteShiftRequestBuilder(object):
 
-    def __init__(self, delete_shift_request: DeleteShiftRequest = DeleteShiftRequest()) -> None:
+    def __init__(self) -> None:
+        delete_shift_request = DeleteShiftRequest()
         delete_shift_request.http_method = HttpMethod.DELETE
         delete_shift_request.uri = "/open-apis/attendance/v1/shifts/:shift_id"
         delete_shift_request.token_types = {AccessTokenType.TENANT}

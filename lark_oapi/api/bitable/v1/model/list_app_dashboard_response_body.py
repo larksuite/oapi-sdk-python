@@ -13,7 +13,7 @@ class ListAppDashboardResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.dashboards: Optional[List[AppDashboard]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListAppDashboardResponseBody(object):
 
 
 class ListAppDashboardResponseBodyBuilder(object):
-    def __init__(self, list_app_dashboard_response_body: ListAppDashboardResponseBody = ListAppDashboardResponseBody(
-        {})) -> None:
-        self._list_app_dashboard_response_body: ListAppDashboardResponseBody = list_app_dashboard_response_body
+    def __init__(self) -> None:
+        self._list_app_dashboard_response_body = ListAppDashboardResponseBody()
 
     def dashboards(self, dashboards: List[AppDashboard]) -> "ListAppDashboardResponseBodyBuilder":
         self._list_app_dashboard_response_body.dashboards = dashboards

@@ -13,7 +13,7 @@ class ListExternalTaskResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data: Optional[List[ExternalTaskList]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListExternalTaskResponseBody(object):
 
 
 class ListExternalTaskResponseBodyBuilder(object):
-    def __init__(self, list_external_task_response_body: ListExternalTaskResponseBody = ListExternalTaskResponseBody(
-        {})) -> None:
-        self._list_external_task_response_body: ListExternalTaskResponseBody = list_external_task_response_body
+    def __init__(self) -> None:
+        self._list_external_task_response_body = ListExternalTaskResponseBody()
 
     def data(self, data: List[ExternalTaskList]) -> "ListExternalTaskResponseBodyBuilder":
         self._list_external_task_response_body.data = data

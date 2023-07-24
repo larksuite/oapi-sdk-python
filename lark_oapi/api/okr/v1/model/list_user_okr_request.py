@@ -23,7 +23,8 @@ class ListUserOkrRequest(BaseRequest):
 
 class ListUserOkrRequestBuilder(object):
 
-    def __init__(self, list_user_okr_request: ListUserOkrRequest = ListUserOkrRequest()) -> None:
+    def __init__(self) -> None:
+        list_user_okr_request = ListUserOkrRequest()
         list_user_okr_request.http_method = HttpMethod.GET
         list_user_okr_request.uri = "/open-apis/okr/v1/users/:user_id/okrs"
         list_user_okr_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

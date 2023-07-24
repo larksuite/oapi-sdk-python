@@ -17,7 +17,7 @@ class EcoBackgroundCheckCustomFieldData(object):
         "options": List[EcoBackgroundCheckCustomFieldDataOption],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.key: Optional[str] = None
         self.name: Optional[I18n] = None
@@ -32,10 +32,8 @@ class EcoBackgroundCheckCustomFieldData(object):
 
 
 class EcoBackgroundCheckCustomFieldDataBuilder(object):
-    def __init__(self,
-                 eco_background_check_custom_field_data: EcoBackgroundCheckCustomFieldData = EcoBackgroundCheckCustomFieldData(
-                     {})) -> None:
-        self._eco_background_check_custom_field_data: EcoBackgroundCheckCustomFieldData = eco_background_check_custom_field_data
+    def __init__(self) -> None:
+        self._eco_background_check_custom_field_data = EcoBackgroundCheckCustomFieldData()
 
     def type(self, type: str) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.type = type

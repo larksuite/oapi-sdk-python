@@ -11,7 +11,7 @@ class TmpDownloadUrl(object):
         "tmp_download_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.tmp_download_url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TmpDownloadUrl(object):
 
 
 class TmpDownloadUrlBuilder(object):
-    def __init__(self, tmp_download_url: TmpDownloadUrl = TmpDownloadUrl({})) -> None:
-        self._tmp_download_url: TmpDownloadUrl = tmp_download_url
+    def __init__(self) -> None:
+        self._tmp_download_url = TmpDownloadUrl()
 
     def file_token(self, file_token: str) -> "TmpDownloadUrlBuilder":
         self._tmp_download_url.file_token = file_token

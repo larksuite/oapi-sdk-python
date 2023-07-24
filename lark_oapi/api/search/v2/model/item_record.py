@@ -14,7 +14,7 @@ class ItemRecord(object):
         "updated_at": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.item_id: Optional[str] = None
         self.data_source_id: Optional[str] = None
         self.version: Optional[str] = None
@@ -28,8 +28,8 @@ class ItemRecord(object):
 
 
 class ItemRecordBuilder(object):
-    def __init__(self, item_record: ItemRecord = ItemRecord({})) -> None:
-        self._item_record: ItemRecord = item_record
+    def __init__(self) -> None:
+        self._item_record = ItemRecord()
 
     def item_id(self, item_id: str) -> "ItemRecordBuilder":
         self._item_record.item_id = item_id

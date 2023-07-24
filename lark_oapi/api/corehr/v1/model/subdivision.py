@@ -15,7 +15,7 @@ class Subdivision(object):
         "subdivision_type": Enum,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.country_region_id: Optional[str] = None
@@ -28,8 +28,8 @@ class Subdivision(object):
 
 
 class SubdivisionBuilder(object):
-    def __init__(self, subdivision: Subdivision = Subdivision({})) -> None:
-        self._subdivision: Subdivision = subdivision
+    def __init__(self) -> None:
+        self._subdivision = Subdivision()
 
     def id(self, id: str) -> "SubdivisionBuilder":
         self._subdivision.id = id

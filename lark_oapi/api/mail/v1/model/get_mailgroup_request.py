@@ -18,7 +18,8 @@ class GetMailgroupRequest(BaseRequest):
 
 class GetMailgroupRequestBuilder(object):
 
-    def __init__(self, get_mailgroup_request: GetMailgroupRequest = GetMailgroupRequest()) -> None:
+    def __init__(self) -> None:
+        get_mailgroup_request = GetMailgroupRequest()
         get_mailgroup_request.http_method = HttpMethod.GET
         get_mailgroup_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id"
         get_mailgroup_request.token_types = {AccessTokenType.TENANT}

@@ -11,7 +11,7 @@ class BatchCreateUserDailyShiftResponseBody(object):
         "user_daily_shifts": List[UserDailyShift],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_daily_shifts: Optional[List[UserDailyShift]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateUserDailyShiftResponseBody(object):
 
 
 class BatchCreateUserDailyShiftResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_create_user_daily_shift_response_body: BatchCreateUserDailyShiftResponseBody = BatchCreateUserDailyShiftResponseBody(
-                     {})) -> None:
-        self._batch_create_user_daily_shift_response_body: BatchCreateUserDailyShiftResponseBody = batch_create_user_daily_shift_response_body
+    def __init__(self) -> None:
+        self._batch_create_user_daily_shift_response_body = BatchCreateUserDailyShiftResponseBody()
 
     def user_daily_shifts(self,
                           user_daily_shifts: List[UserDailyShift]) -> "BatchCreateUserDailyShiftResponseBodyBuilder":

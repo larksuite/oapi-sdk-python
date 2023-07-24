@@ -20,7 +20,8 @@ class CreateSpaceNodeRequest(BaseRequest):
 
 class CreateSpaceNodeRequestBuilder(object):
 
-    def __init__(self, create_space_node_request: CreateSpaceNodeRequest = CreateSpaceNodeRequest()) -> None:
+    def __init__(self) -> None:
+        create_space_node_request = CreateSpaceNodeRequest()
         create_space_node_request.http_method = HttpMethod.POST
         create_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes"
         create_space_node_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

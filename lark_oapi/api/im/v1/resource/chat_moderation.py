@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.get_chat_moderation_request import GetChatModerationRequest
-from lark_oapi.api.im.v1.model.get_chat_moderation_response import GetChatModerationResponse
-from lark_oapi.api.im.v1.model.update_chat_moderation_request import UpdateChatModerationRequest
-from lark_oapi.api.im.v1.model.update_chat_moderation_response import UpdateChatModerationResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_chat_moderation_request import GetChatModerationRequest
+from ..model.get_chat_moderation_response import GetChatModerationResponse
+from ..model.update_chat_moderation_request import UpdateChatModerationRequest
+from ..model.update_chat_moderation_response import UpdateChatModerationResponse
 
 
 class ChatModeration(object):
@@ -18,7 +18,10 @@ class ChatModeration(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetChatModerationRequest,
-            option: RequestOption = RequestOption()) -> GetChatModerationResponse:
+            option: Optional[RequestOption] = None) -> GetChatModerationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class ChatModeration(object):
         return response
 
     def update(self, request: UpdateChatModerationRequest,
-               option: RequestOption = RequestOption()) -> UpdateChatModerationResponse:
+               option: Optional[RequestOption] = None) -> UpdateChatModerationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class ConnectorLog(object):
         "log_data": List[ConnectorLogData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.log_data: Optional[List[ConnectorLogData]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ConnectorLog(object):
 
 
 class ConnectorLogBuilder(object):
-    def __init__(self, connector_log: ConnectorLog = ConnectorLog({})) -> None:
-        self._connector_log: ConnectorLog = connector_log
+    def __init__(self) -> None:
+        self._connector_log = ConnectorLog()
 
     def log_data(self, log_data: List[ConnectorLogData]) -> "ConnectorLogBuilder":
         self._connector_log.log_data = log_data

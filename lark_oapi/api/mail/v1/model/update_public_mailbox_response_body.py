@@ -12,7 +12,7 @@ class UpdatePublicMailboxResponseBody(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.public_mailbox_id: Optional[str] = None
         self.email: Optional[str] = None
         self.name: Optional[str] = None
@@ -24,10 +24,8 @@ class UpdatePublicMailboxResponseBody(object):
 
 
 class UpdatePublicMailboxResponseBodyBuilder(object):
-    def __init__(self,
-                 update_public_mailbox_response_body: UpdatePublicMailboxResponseBody = UpdatePublicMailboxResponseBody(
-                     {})) -> None:
-        self._update_public_mailbox_response_body: UpdatePublicMailboxResponseBody = update_public_mailbox_response_body
+    def __init__(self) -> None:
+        self._update_public_mailbox_response_body = UpdatePublicMailboxResponseBody()
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "UpdatePublicMailboxResponseBodyBuilder":
         self._update_public_mailbox_response_body.public_mailbox_id = public_mailbox_id

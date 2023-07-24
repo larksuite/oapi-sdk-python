@@ -20,8 +20,8 @@ class BatchDeletePublicMailboxMemberRequest(BaseRequest):
 
 class BatchDeletePublicMailboxMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_public_mailbox_member_request: BatchDeletePublicMailboxMemberRequest = BatchDeletePublicMailboxMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_public_mailbox_member_request = BatchDeletePublicMailboxMemberRequest()
         batch_delete_public_mailbox_member_request.http_method = HttpMethod.DELETE
         batch_delete_public_mailbox_member_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/batch_delete"
         batch_delete_public_mailbox_member_request.token_types = {AccessTokenType.TENANT}

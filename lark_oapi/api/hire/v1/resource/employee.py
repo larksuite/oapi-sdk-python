@@ -2,24 +2,27 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.get_by_application_employee_request import GetByApplicationEmployeeRequest
-from lark_oapi.api.hire.v1.model.get_by_application_employee_response import GetByApplicationEmployeeResponse
-from lark_oapi.api.hire.v1.model.get_employee_request import GetEmployeeRequest
-from lark_oapi.api.hire.v1.model.get_employee_response import GetEmployeeResponse
-from lark_oapi.api.hire.v1.model.patch_employee_request import PatchEmployeeRequest
-from lark_oapi.api.hire.v1.model.patch_employee_response import PatchEmployeeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_by_application_employee_request import GetByApplicationEmployeeRequest
+from ..model.get_by_application_employee_response import GetByApplicationEmployeeResponse
+from ..model.get_employee_request import GetEmployeeRequest
+from ..model.get_employee_response import GetEmployeeResponse
+from ..model.patch_employee_request import PatchEmployeeRequest
+from ..model.patch_employee_response import PatchEmployeeResponse
 
 
 class Employee(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetEmployeeRequest, option: RequestOption = RequestOption()) -> GetEmployeeResponse:
+    def get(self, request: GetEmployeeRequest, option: Optional[RequestOption] = None) -> GetEmployeeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class Employee(object):
         return response
 
     def get_by_application(self, request: GetByApplicationEmployeeRequest,
-                           option: RequestOption = RequestOption()) -> GetByApplicationEmployeeResponse:
+                           option: Optional[RequestOption] = None) -> GetByApplicationEmployeeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Employee(object):
 
         return response
 
-    def patch(self, request: PatchEmployeeRequest, option: RequestOption = RequestOption()) -> PatchEmployeeResponse:
+    def patch(self, request: PatchEmployeeRequest, option: Optional[RequestOption] = None) -> PatchEmployeeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

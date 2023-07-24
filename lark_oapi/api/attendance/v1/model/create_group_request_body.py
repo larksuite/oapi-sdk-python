@@ -12,7 +12,7 @@ class CreateGroupRequestBody(object):
         "operator_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group: Optional[Group] = None
         self.operator_id: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class CreateGroupRequestBody(object):
 
 
 class CreateGroupRequestBodyBuilder(object):
-    def __init__(self, create_group_request_body: CreateGroupRequestBody = CreateGroupRequestBody({})) -> None:
-        self._create_group_request_body: CreateGroupRequestBody = create_group_request_body
+    def __init__(self) -> None:
+        self._create_group_request_body = CreateGroupRequestBody()
 
     def group(self, group: Group) -> "CreateGroupRequestBodyBuilder":
         self._create_group_request_body.group = group

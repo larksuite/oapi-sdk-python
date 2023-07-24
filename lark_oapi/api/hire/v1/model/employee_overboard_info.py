@@ -11,7 +11,7 @@ class EmployeeOverboardInfo(object):
         "overboard_note": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.actual_overboard_time: Optional[int] = None
         self.overboard_note: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class EmployeeOverboardInfo(object):
 
 
 class EmployeeOverboardInfoBuilder(object):
-    def __init__(self, employee_overboard_info: EmployeeOverboardInfo = EmployeeOverboardInfo({})) -> None:
-        self._employee_overboard_info: EmployeeOverboardInfo = employee_overboard_info
+    def __init__(self) -> None:
+        self._employee_overboard_info = EmployeeOverboardInfo()
 
     def actual_overboard_time(self, actual_overboard_time: int) -> "EmployeeOverboardInfoBuilder":
         self._employee_overboard_info.actual_overboard_time = actual_overboard_time

@@ -13,7 +13,7 @@ class AppRecommendRuleVisibilityInfo(object):
         "group_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_all: Optional[bool] = None
         self.department_ids: Optional[List[str]] = None
         self.user_ids: Optional[List[str]] = None
@@ -26,10 +26,8 @@ class AppRecommendRuleVisibilityInfo(object):
 
 
 class AppRecommendRuleVisibilityInfoBuilder(object):
-    def __init__(self,
-                 app_recommend_rule_visibility_info: AppRecommendRuleVisibilityInfo = AppRecommendRuleVisibilityInfo(
-                     {})) -> None:
-        self._app_recommend_rule_visibility_info: AppRecommendRuleVisibilityInfo = app_recommend_rule_visibility_info
+    def __init__(self) -> None:
+        self._app_recommend_rule_visibility_info = AppRecommendRuleVisibilityInfo()
 
     def is_all(self, is_all: bool) -> "AppRecommendRuleVisibilityInfoBuilder":
         self._app_recommend_rule_visibility_info.is_all = is_all

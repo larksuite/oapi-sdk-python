@@ -12,7 +12,7 @@ class PatchNationalIdTypeResponse(BaseResponse):
         "data": PatchNationalIdTypeResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[PatchNationalIdTypeResponseBody] = None
         init(self, d, self._types)

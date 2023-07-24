@@ -11,7 +11,7 @@ class SchemaDisplayOption(object):
         "display_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.display_label: Optional[str] = None
         self.display_type: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SchemaDisplayOption(object):
 
 
 class SchemaDisplayOptionBuilder(object):
-    def __init__(self, schema_display_option: SchemaDisplayOption = SchemaDisplayOption({})) -> None:
-        self._schema_display_option: SchemaDisplayOption = schema_display_option
+    def __init__(self) -> None:
+        self._schema_display_option = SchemaDisplayOption()
 
     def display_label(self, display_label: str) -> "SchemaDisplayOptionBuilder":
         self._schema_display_option.display_label = display_label

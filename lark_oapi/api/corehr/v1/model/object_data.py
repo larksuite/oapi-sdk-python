@@ -13,7 +13,7 @@ class ObjectData(object):
         "field_list": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_name: Optional[str] = None
         self.id: Optional[str] = None
         self.field_list: Optional[List[ObjectFieldData]] = None
@@ -25,8 +25,8 @@ class ObjectData(object):
 
 
 class ObjectDataBuilder(object):
-    def __init__(self, object_data: ObjectData = ObjectData({})) -> None:
-        self._object_data: ObjectData = object_data
+    def __init__(self) -> None:
+        self._object_data = ObjectData()
 
     def object_name(self, object_name: str) -> "ObjectDataBuilder":
         self._object_data.object_name = object_name

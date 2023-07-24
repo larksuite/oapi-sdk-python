@@ -18,7 +18,8 @@ class GetCountryRegionRequest(BaseRequest):
 
 class GetCountryRegionRequestBuilder(object):
 
-    def __init__(self, get_country_region_request: GetCountryRegionRequest = GetCountryRegionRequest()) -> None:
+    def __init__(self) -> None:
+        get_country_region_request = GetCountryRegionRequest()
         get_country_region_request.http_method = HttpMethod.GET
         get_country_region_request.uri = "/open-apis/corehr/v1/country_regions/:country_region_id"
         get_country_region_request.token_types = {AccessTokenType.TENANT}

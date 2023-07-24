@@ -12,7 +12,7 @@ class CreateSpaceMemberResponse(BaseResponse):
         "data": CreateSpaceMemberResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateSpaceMemberResponseBody] = None
         init(self, d, self._types)

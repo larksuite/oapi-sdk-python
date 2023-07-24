@@ -18,7 +18,8 @@ class DeleteFaqRequest(BaseRequest):
 
 class DeleteFaqRequestBuilder(object):
 
-    def __init__(self, delete_faq_request: DeleteFaqRequest = DeleteFaqRequest()) -> None:
+    def __init__(self) -> None:
+        delete_faq_request = DeleteFaqRequest()
         delete_faq_request.http_method = HttpMethod.DELETE
         delete_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id"
         delete_faq_request.token_types = {AccessTokenType.USER}

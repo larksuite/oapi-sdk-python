@@ -21,7 +21,7 @@ class UserOkrObjective(object):
         "aligning_objective_list": List[UserOkrObjectiveAlignedObjective],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.permission: Optional[int] = None
         self.content: Optional[str] = None
@@ -39,8 +39,8 @@ class UserOkrObjective(object):
 
 
 class UserOkrObjectiveBuilder(object):
-    def __init__(self, user_okr_objective: UserOkrObjective = UserOkrObjective({})) -> None:
-        self._user_okr_objective: UserOkrObjective = user_okr_objective
+    def __init__(self) -> None:
+        self._user_okr_objective = UserOkrObjective()
 
     def id(self, id: str) -> "UserOkrObjectiveBuilder":
         self._user_okr_objective.id = id

@@ -13,7 +13,7 @@ class CreateCalendarAclResponseBody(object):
         "scope": AclScope,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.acl_id: Optional[str] = None
         self.role: Optional[str] = None
         self.scope: Optional[AclScope] = None
@@ -25,9 +25,8 @@ class CreateCalendarAclResponseBody(object):
 
 
 class CreateCalendarAclResponseBodyBuilder(object):
-    def __init__(self, create_calendar_acl_response_body: CreateCalendarAclResponseBody = CreateCalendarAclResponseBody(
-        {})) -> None:
-        self._create_calendar_acl_response_body: CreateCalendarAclResponseBody = create_calendar_acl_response_body
+    def __init__(self) -> None:
+        self._create_calendar_acl_response_body = CreateCalendarAclResponseBody()
 
     def acl_id(self, acl_id: str) -> "CreateCalendarAclResponseBodyBuilder":
         self._create_calendar_acl_response_body.acl_id = acl_id

@@ -12,7 +12,7 @@ class BatchItemResult(object):
         "err": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.item_id: Optional[str] = None
         self.is_success: Optional[bool] = None
         self.err: Optional[str] = None
@@ -24,8 +24,8 @@ class BatchItemResult(object):
 
 
 class BatchItemResultBuilder(object):
-    def __init__(self, batch_item_result: BatchItemResult = BatchItemResult({})) -> None:
-        self._batch_item_result: BatchItemResult = batch_item_result
+    def __init__(self) -> None:
+        self._batch_item_result = BatchItemResult()
 
     def item_id(self, item_id: str) -> "BatchItemResultBuilder":
         self._batch_item_result.item_id = item_id

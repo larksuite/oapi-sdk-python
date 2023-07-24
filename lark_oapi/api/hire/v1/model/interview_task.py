@@ -14,7 +14,7 @@ class InterviewTask(object):
         "activity_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.talent_id: Optional[str] = None
@@ -28,8 +28,8 @@ class InterviewTask(object):
 
 
 class InterviewTaskBuilder(object):
-    def __init__(self, interview_task: InterviewTask = InterviewTask({})) -> None:
-        self._interview_task: InterviewTask = interview_task
+    def __init__(self) -> None:
+        self._interview_task = InterviewTask()
 
     def id(self, id: str) -> "InterviewTaskBuilder":
         self._interview_task.id = id

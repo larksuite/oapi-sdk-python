@@ -10,7 +10,7 @@ class CombinedJobResultDefaultJobPost(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class CombinedJobResultDefaultJobPost(object):
 
 
 class CombinedJobResultDefaultJobPostBuilder(object):
-    def __init__(self,
-                 combined_job_result_default_job_post: CombinedJobResultDefaultJobPost = CombinedJobResultDefaultJobPost(
-                     {})) -> None:
-        self._combined_job_result_default_job_post: CombinedJobResultDefaultJobPost = combined_job_result_default_job_post
+    def __init__(self) -> None:
+        self._combined_job_result_default_job_post = CombinedJobResultDefaultJobPost()
 
     def id(self, id: str) -> "CombinedJobResultDefaultJobPostBuilder":
         self._combined_job_result_default_job_post.id = id

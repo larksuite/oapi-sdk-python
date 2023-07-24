@@ -13,7 +13,7 @@ class Item(object):
         "child_items": List[ChildItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.title: Optional[str] = None
         self.child_items: Optional[List[ChildItem]] = None
@@ -25,8 +25,8 @@ class Item(object):
 
 
 class ItemBuilder(object):
-    def __init__(self, item: Item = Item({})) -> None:
-        self._item: Item = item
+    def __init__(self) -> None:
+        self._item = Item()
 
     def code(self, code: str) -> "ItemBuilder":
         self._item.code = code

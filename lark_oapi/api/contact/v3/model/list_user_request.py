@@ -22,7 +22,8 @@ class ListUserRequest(BaseRequest):
 
 class ListUserRequestBuilder(object):
 
-    def __init__(self, list_user_request: ListUserRequest = ListUserRequest()) -> None:
+    def __init__(self) -> None:
+        list_user_request = ListUserRequest()
         list_user_request.http_method = HttpMethod.GET
         list_user_request.uri = "/open-apis/contact/v3/users"
         list_user_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

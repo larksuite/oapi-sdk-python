@@ -11,7 +11,7 @@ class Value(object):
         "values": List[list],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.values: Optional[List[list]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Value(object):
 
 
 class ValueBuilder(object):
-    def __init__(self, value: Value = Value({})) -> None:
-        self._value: Value = value
+    def __init__(self) -> None:
+        self._value = Value()
 
     def range(self, range: str) -> "ValueBuilder":
         self._value.range = range

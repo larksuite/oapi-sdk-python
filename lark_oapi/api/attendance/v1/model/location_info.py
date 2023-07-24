@@ -12,7 +12,7 @@ class LocationInfo(object):
         "geofences": List[Area],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[int] = None
         self.geofences: Optional[List[Area]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class LocationInfo(object):
 
 
 class LocationInfoBuilder(object):
-    def __init__(self, location_info: LocationInfo = LocationInfo({})) -> None:
-        self._location_info: LocationInfo = location_info
+    def __init__(self) -> None:
+        self._location_info = LocationInfo()
 
     def status(self, status: int) -> "LocationInfoBuilder":
         self._location_info.status = status

@@ -12,7 +12,7 @@ class Country(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.country_code: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class Country(object):
 
 
 class CountryBuilder(object):
-    def __init__(self, country: Country = Country({})) -> None:
-        self._country: Country = country
+    def __init__(self) -> None:
+        self._country = Country()
 
     def country_code(self, country_code: str) -> "CountryBuilder":
         self._country.country_code = country_code

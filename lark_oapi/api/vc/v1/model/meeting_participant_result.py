@@ -12,7 +12,7 @@ class MeetingParticipantResult(object):
         "result": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.user_type: Optional[int] = None
         self.result: Optional[int] = None
@@ -24,8 +24,8 @@ class MeetingParticipantResult(object):
 
 
 class MeetingParticipantResultBuilder(object):
-    def __init__(self, meeting_participant_result: MeetingParticipantResult = MeetingParticipantResult({})) -> None:
-        self._meeting_participant_result: MeetingParticipantResult = meeting_participant_result
+    def __init__(self) -> None:
+        self._meeting_participant_result = MeetingParticipantResult()
 
     def id(self, id: str) -> "MeetingParticipantResultBuilder":
         self._meeting_participant_result.id = id

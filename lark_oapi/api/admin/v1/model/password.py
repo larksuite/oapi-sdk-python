@@ -10,7 +10,7 @@ class Password(object):
         "ent_email_password": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ent_email_password: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Password(object):
 
 
 class PasswordBuilder(object):
-    def __init__(self, password: Password = Password({})) -> None:
-        self._password: Password = password
+    def __init__(self) -> None:
+        self._password = Password()
 
     def ent_email_password(self, ent_email_password: str) -> "PasswordBuilder":
         self._password.ent_email_password = ent_email_password

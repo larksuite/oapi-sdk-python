@@ -11,7 +11,7 @@ class PatchSchemaRequestBody(object):
         "display": SchemaDisplay,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.display: Optional[SchemaDisplay] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchSchemaRequestBody(object):
 
 
 class PatchSchemaRequestBodyBuilder(object):
-    def __init__(self, patch_schema_request_body: PatchSchemaRequestBody = PatchSchemaRequestBody({})) -> None:
-        self._patch_schema_request_body: PatchSchemaRequestBody = patch_schema_request_body
+    def __init__(self) -> None:
+        self._patch_schema_request_body = PatchSchemaRequestBody()
 
     def display(self, display: SchemaDisplay) -> "PatchSchemaRequestBodyBuilder":
         self._patch_schema_request_body.display = display

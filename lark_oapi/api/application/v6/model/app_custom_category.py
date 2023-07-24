@@ -12,7 +12,7 @@ class AppCustomCategory(object):
         "app_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.i18n_key: Optional[str] = None
         self.description: Optional[str] = None
         self.app_ids: Optional[List[str]] = None
@@ -24,8 +24,8 @@ class AppCustomCategory(object):
 
 
 class AppCustomCategoryBuilder(object):
-    def __init__(self, app_custom_category: AppCustomCategory = AppCustomCategory({})) -> None:
-        self._app_custom_category: AppCustomCategory = app_custom_category
+    def __init__(self) -> None:
+        self._app_custom_category = AppCustomCategory()
 
     def i18n_key(self, i18n_key: str) -> "AppCustomCategoryBuilder":
         self._app_custom_category.i18n_key = i18n_key

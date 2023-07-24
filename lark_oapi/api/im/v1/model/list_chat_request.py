@@ -21,7 +21,8 @@ class ListChatRequest(BaseRequest):
 
 class ListChatRequestBuilder(object):
 
-    def __init__(self, list_chat_request: ListChatRequest = ListChatRequest()) -> None:
+    def __init__(self) -> None:
+        list_chat_request = ListChatRequest()
         list_chat_request.http_method = HttpMethod.GET
         list_chat_request.uri = "/open-apis/im/v1/chats"
         list_chat_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

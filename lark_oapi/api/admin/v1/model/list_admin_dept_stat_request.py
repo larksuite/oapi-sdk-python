@@ -24,7 +24,8 @@ class ListAdminDeptStatRequest(BaseRequest):
 
 class ListAdminDeptStatRequestBuilder(object):
 
-    def __init__(self, list_admin_dept_stat_request: ListAdminDeptStatRequest = ListAdminDeptStatRequest()) -> None:
+    def __init__(self) -> None:
+        list_admin_dept_stat_request = ListAdminDeptStatRequest()
         list_admin_dept_stat_request.http_method = HttpMethod.GET
         list_admin_dept_stat_request.uri = "/open-apis/admin/v1/admin_dept_stats"
         list_admin_dept_stat_request.token_types = {AccessTokenType.TENANT}

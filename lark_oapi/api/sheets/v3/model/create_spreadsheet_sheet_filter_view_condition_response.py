@@ -13,7 +13,7 @@ class CreateSpreadsheetSheetFilterViewConditionResponse(BaseResponse):
         "data": CreateSpreadsheetSheetFilterViewConditionResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateSpreadsheetSheetFilterViewConditionResponseBody] = None
         init(self, d, self._types)

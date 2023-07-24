@@ -13,7 +13,7 @@ class StartServiceTicketRequestBody(object):
         "customized_info": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.human_service: Optional[bool] = None
         self.appointed_agents: Optional[List[str]] = None
         self.open_id: Optional[str] = None
@@ -26,9 +26,8 @@ class StartServiceTicketRequestBody(object):
 
 
 class StartServiceTicketRequestBodyBuilder(object):
-    def __init__(self, start_service_ticket_request_body: StartServiceTicketRequestBody = StartServiceTicketRequestBody(
-        {})) -> None:
-        self._start_service_ticket_request_body: StartServiceTicketRequestBody = start_service_ticket_request_body
+    def __init__(self) -> None:
+        self._start_service_ticket_request_body = StartServiceTicketRequestBody()
 
     def human_service(self, human_service: bool) -> "StartServiceTicketRequestBodyBuilder":
         self._start_service_ticket_request_body.human_service = human_service

@@ -26,8 +26,8 @@ class GetParticipantQualityListRequest(BaseRequest):
 
 class GetParticipantQualityListRequestBuilder(object):
 
-    def __init__(self,
-                 get_participant_quality_list_request: GetParticipantQualityListRequest = GetParticipantQualityListRequest()) -> None:
+    def __init__(self) -> None:
+        get_participant_quality_list_request = GetParticipantQualityListRequest()
         get_participant_quality_list_request.http_method = HttpMethod.GET
         get_participant_quality_list_request.uri = "/open-apis/vc/v1/participant_quality_list"
         get_participant_quality_list_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

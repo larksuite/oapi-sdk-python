@@ -18,7 +18,8 @@ class DeleteSchemaRequest(BaseRequest):
 
 class DeleteSchemaRequestBuilder(object):
 
-    def __init__(self, delete_schema_request: DeleteSchemaRequest = DeleteSchemaRequest()) -> None:
+    def __init__(self) -> None:
+        delete_schema_request = DeleteSchemaRequest()
         delete_schema_request.http_method = HttpMethod.DELETE
         delete_schema_request.uri = "/open-apis/search/v2/schemas/:schema_id"
         delete_schema_request.token_types = {AccessTokenType.TENANT}

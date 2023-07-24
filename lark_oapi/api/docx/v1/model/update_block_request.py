@@ -40,7 +40,7 @@ class UpdateBlockRequest(object):
         "update_text": UpdateTextRequest,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.update_text_elements: Optional[UpdateTextElementsRequest] = None
         self.update_text_style: Optional[UpdateTextStyleRequest] = None
         self.update_table_property: Optional[UpdateTablePropertyRequest] = None
@@ -65,8 +65,8 @@ class UpdateBlockRequest(object):
 
 
 class UpdateBlockRequestBuilder(object):
-    def __init__(self, update_block_request: UpdateBlockRequest = UpdateBlockRequest({})) -> None:
-        self._update_block_request: UpdateBlockRequest = update_block_request
+    def __init__(self) -> None:
+        self._update_block_request = UpdateBlockRequest()
 
     def update_text_elements(self, update_text_elements: UpdateTextElementsRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_text_elements = update_text_elements

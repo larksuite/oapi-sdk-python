@@ -15,7 +15,7 @@ class OffboardingData(object):
         "created_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offboarding_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.offboarding_reason_unique_identifier: Optional[str] = None
@@ -30,8 +30,8 @@ class OffboardingData(object):
 
 
 class OffboardingDataBuilder(object):
-    def __init__(self, offboarding_data: OffboardingData = OffboardingData({})) -> None:
-        self._offboarding_data: OffboardingData = offboarding_data
+    def __init__(self) -> None:
+        self._offboarding_data = OffboardingData()
 
     def offboarding_id(self, offboarding_id: str) -> "OffboardingDataBuilder":
         self._offboarding_data.offboarding_id = offboarding_id

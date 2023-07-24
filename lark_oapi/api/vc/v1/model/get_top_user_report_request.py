@@ -22,7 +22,8 @@ class GetTopUserReportRequest(BaseRequest):
 
 class GetTopUserReportRequestBuilder(object):
 
-    def __init__(self, get_top_user_report_request: GetTopUserReportRequest = GetTopUserReportRequest()) -> None:
+    def __init__(self) -> None:
+        get_top_user_report_request = GetTopUserReportRequest()
         get_top_user_report_request.http_method = HttpMethod.GET
         get_top_user_report_request.uri = "/open-apis/vc/v1/reports/get_top_user"
         get_top_user_report_request.token_types = {AccessTokenType.TENANT}

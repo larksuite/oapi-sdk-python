@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.okr.v1.model.batch_get_okr_request import BatchGetOkrRequest
-from lark_oapi.api.okr.v1.model.batch_get_okr_response import BatchGetOkrResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_get_okr_request import BatchGetOkrRequest
+from ..model.batch_get_okr_response import BatchGetOkrResponse
 
 
 class Okr(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def batch_get(self, request: BatchGetOkrRequest, option: RequestOption = RequestOption()) -> BatchGetOkrResponse:
+    def batch_get(self, request: BatchGetOkrRequest, option: Optional[RequestOption] = None) -> BatchGetOkrResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

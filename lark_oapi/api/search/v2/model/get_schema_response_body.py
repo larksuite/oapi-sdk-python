@@ -11,7 +11,7 @@ class GetSchemaResponseBody(object):
         "schema": Schema,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.schema: Optional[Schema] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetSchemaResponseBody(object):
 
 
 class GetSchemaResponseBodyBuilder(object):
-    def __init__(self, get_schema_response_body: GetSchemaResponseBody = GetSchemaResponseBody({})) -> None:
-        self._get_schema_response_body: GetSchemaResponseBody = get_schema_response_body
+    def __init__(self) -> None:
+        self._get_schema_response_body = GetSchemaResponseBody()
 
     def schema(self, schema: Schema) -> "GetSchemaResponseBodyBuilder":
         self._get_schema_response_body.schema = schema

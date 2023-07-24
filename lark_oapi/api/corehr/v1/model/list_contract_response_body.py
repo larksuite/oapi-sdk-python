@@ -13,7 +13,7 @@ class ListContractResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Contract]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListContractResponseBody(object):
 
 
 class ListContractResponseBodyBuilder(object):
-    def __init__(self, list_contract_response_body: ListContractResponseBody = ListContractResponseBody({})) -> None:
-        self._list_contract_response_body: ListContractResponseBody = list_contract_response_body
+    def __init__(self) -> None:
+        self._list_contract_response_body = ListContractResponseBody()
 
     def items(self, items: List[Contract]) -> "ListContractResponseBodyBuilder":
         self._list_contract_response_body.items = items

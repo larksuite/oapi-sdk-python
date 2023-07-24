@@ -22,7 +22,7 @@ class PreHire(object):
         "onboarding_status": Enum,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ats_application_id: Optional[str] = None
         self.id: Optional[str] = None
         self.hire_date: Optional[str] = None
@@ -41,8 +41,8 @@ class PreHire(object):
 
 
 class PreHireBuilder(object):
-    def __init__(self, pre_hire: PreHire = PreHire({})) -> None:
-        self._pre_hire: PreHire = pre_hire
+    def __init__(self) -> None:
+        self._pre_hire = PreHire()
 
     def ats_application_id(self, ats_application_id: str) -> "PreHireBuilder":
         self._pre_hire.ats_application_id = ats_application_id

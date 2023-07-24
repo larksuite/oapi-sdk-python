@@ -11,7 +11,7 @@ class DeleteRecord(object):
         "record_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.deleted: Optional[bool] = None
         self.record_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DeleteRecord(object):
 
 
 class DeleteRecordBuilder(object):
-    def __init__(self, delete_record: DeleteRecord = DeleteRecord({})) -> None:
-        self._delete_record: DeleteRecord = delete_record
+    def __init__(self) -> None:
+        self._delete_record = DeleteRecord()
 
     def deleted(self, deleted: bool) -> "DeleteRecordBuilder":
         self._delete_record.deleted = deleted

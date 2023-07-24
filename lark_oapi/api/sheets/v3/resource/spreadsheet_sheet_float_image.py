@@ -2,30 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_float_image_request import \
-    CreateSpreadsheetSheetFloatImageRequest
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_float_image_response import \
-    CreateSpreadsheetSheetFloatImageResponse
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_float_image_request import \
-    DeleteSpreadsheetSheetFloatImageRequest
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_float_image_response import \
-    DeleteSpreadsheetSheetFloatImageResponse
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_float_image_request import GetSpreadsheetSheetFloatImageRequest
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_float_image_response import \
-    GetSpreadsheetSheetFloatImageResponse
-from lark_oapi.api.sheets.v3.model.patch_spreadsheet_sheet_float_image_request import \
-    PatchSpreadsheetSheetFloatImageRequest
-from lark_oapi.api.sheets.v3.model.patch_spreadsheet_sheet_float_image_response import \
-    PatchSpreadsheetSheetFloatImageResponse
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_float_image_request import \
-    QuerySpreadsheetSheetFloatImageRequest
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_float_image_response import \
-    QuerySpreadsheetSheetFloatImageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_spreadsheet_sheet_float_image_request import CreateSpreadsheetSheetFloatImageRequest
+from ..model.create_spreadsheet_sheet_float_image_response import CreateSpreadsheetSheetFloatImageResponse
+from ..model.delete_spreadsheet_sheet_float_image_request import DeleteSpreadsheetSheetFloatImageRequest
+from ..model.delete_spreadsheet_sheet_float_image_response import DeleteSpreadsheetSheetFloatImageResponse
+from ..model.get_spreadsheet_sheet_float_image_request import GetSpreadsheetSheetFloatImageRequest
+from ..model.get_spreadsheet_sheet_float_image_response import GetSpreadsheetSheetFloatImageResponse
+from ..model.patch_spreadsheet_sheet_float_image_request import PatchSpreadsheetSheetFloatImageRequest
+from ..model.patch_spreadsheet_sheet_float_image_response import PatchSpreadsheetSheetFloatImageResponse
+from ..model.query_spreadsheet_sheet_float_image_request import QuerySpreadsheetSheetFloatImageRequest
+from ..model.query_spreadsheet_sheet_float_image_response import QuerySpreadsheetSheetFloatImageResponse
 
 
 class SpreadsheetSheetFloatImage(object):
@@ -33,7 +24,10 @@ class SpreadsheetSheetFloatImage(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateSpreadsheetSheetFloatImageRequest,
-               option: RequestOption = RequestOption()) -> CreateSpreadsheetSheetFloatImageResponse:
+               option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFloatImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +42,10 @@ class SpreadsheetSheetFloatImage(object):
         return response
 
     def delete(self, request: DeleteSpreadsheetSheetFloatImageRequest,
-               option: RequestOption = RequestOption()) -> DeleteSpreadsheetSheetFloatImageResponse:
+               option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFloatImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -63,7 +60,10 @@ class SpreadsheetSheetFloatImage(object):
         return response
 
     def get(self, request: GetSpreadsheetSheetFloatImageRequest,
-            option: RequestOption = RequestOption()) -> GetSpreadsheetSheetFloatImageResponse:
+            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFloatImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -78,7 +78,10 @@ class SpreadsheetSheetFloatImage(object):
         return response
 
     def patch(self, request: PatchSpreadsheetSheetFloatImageRequest,
-              option: RequestOption = RequestOption()) -> PatchSpreadsheetSheetFloatImageResponse:
+              option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFloatImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -93,7 +96,10 @@ class SpreadsheetSheetFloatImage(object):
         return response
 
     def query(self, request: QuerySpreadsheetSheetFloatImageRequest,
-              option: RequestOption = RequestOption()) -> QuerySpreadsheetSheetFloatImageResponse:
+              option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFloatImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

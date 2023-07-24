@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.add_to_folder_talent_request import AddToFolderTalentRequest
-from lark_oapi.api.hire.v1.model.add_to_folder_talent_response import AddToFolderTalentResponse
-from lark_oapi.api.hire.v1.model.batch_get_id_talent_request import BatchGetIdTalentRequest
-from lark_oapi.api.hire.v1.model.batch_get_id_talent_response import BatchGetIdTalentResponse
-from lark_oapi.api.hire.v1.model.get_talent_request import GetTalentRequest
-from lark_oapi.api.hire.v1.model.get_talent_response import GetTalentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.add_to_folder_talent_request import AddToFolderTalentRequest
+from ..model.add_to_folder_talent_response import AddToFolderTalentResponse
+from ..model.batch_get_id_talent_request import BatchGetIdTalentRequest
+from ..model.batch_get_id_talent_response import BatchGetIdTalentResponse
+from ..model.get_talent_request import GetTalentRequest
+from ..model.get_talent_response import GetTalentResponse
 
 
 class Talent(object):
@@ -20,7 +20,10 @@ class Talent(object):
         self.config: Optional[Config] = config
 
     def add_to_folder(self, request: AddToFolderTalentRequest,
-                      option: RequestOption = RequestOption()) -> AddToFolderTalentResponse:
+                      option: Optional[RequestOption] = None) -> AddToFolderTalentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Talent(object):
         return response
 
     def batch_get_id(self, request: BatchGetIdTalentRequest,
-                     option: RequestOption = RequestOption()) -> BatchGetIdTalentResponse:
+                     option: Optional[RequestOption] = None) -> BatchGetIdTalentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Talent(object):
 
         return response
 
-    def get(self, request: GetTalentRequest, option: RequestOption = RequestOption()) -> GetTalentResponse:
+    def get(self, request: GetTalentRequest, option: Optional[RequestOption] = None) -> GetTalentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

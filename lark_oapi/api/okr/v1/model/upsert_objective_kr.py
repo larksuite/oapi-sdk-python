@@ -17,7 +17,7 @@ class UpsertObjectiveKr(object):
         "weight": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.mention_list: Optional[List[str]] = None
         self.score: Optional[int] = None
@@ -32,8 +32,8 @@ class UpsertObjectiveKr(object):
 
 
 class UpsertObjectiveKrBuilder(object):
-    def __init__(self, upsert_objective_kr: UpsertObjectiveKr = UpsertObjectiveKr({})) -> None:
-        self._upsert_objective_kr: UpsertObjectiveKr = upsert_objective_kr
+    def __init__(self) -> None:
+        self._upsert_objective_kr = UpsertObjectiveKr()
 
     def content(self, content: str) -> "UpsertObjectiveKrBuilder":
         self._upsert_objective_kr.content = content

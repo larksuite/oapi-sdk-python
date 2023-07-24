@@ -12,7 +12,7 @@ class BaseMember(object):
         "perm": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_type: Optional[str] = None
         self.member_id: Optional[str] = None
         self.perm: Optional[str] = None
@@ -24,8 +24,8 @@ class BaseMember(object):
 
 
 class BaseMemberBuilder(object):
-    def __init__(self, base_member: BaseMember = BaseMember({})) -> None:
-        self._base_member: BaseMember = base_member
+    def __init__(self) -> None:
+        self._base_member = BaseMember()
 
     def member_type(self, member_type: str) -> "BaseMemberBuilder":
         self._base_member.member_type = member_type

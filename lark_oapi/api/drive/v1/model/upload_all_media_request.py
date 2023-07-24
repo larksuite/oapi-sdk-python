@@ -19,7 +19,8 @@ class UploadAllMediaRequest(BaseRequest):
 
 class UploadAllMediaRequestBuilder(object):
 
-    def __init__(self, upload_all_media_request: UploadAllMediaRequest = UploadAllMediaRequest()) -> None:
+    def __init__(self) -> None:
+        upload_all_media_request = UploadAllMediaRequest()
         upload_all_media_request.http_method = HttpMethod.POST
         upload_all_media_request.uri = "/open-apis/drive/v1/medias/upload_all"
         upload_all_media_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -12,7 +12,7 @@ class TerminateApplicationRequestBody(object):
         "termination_reason_note": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.termination_type: Optional[int] = None
         self.termination_reason_list: Optional[List[str]] = None
         self.termination_reason_note: Optional[str] = None
@@ -24,10 +24,8 @@ class TerminateApplicationRequestBody(object):
 
 
 class TerminateApplicationRequestBodyBuilder(object):
-    def __init__(self,
-                 terminate_application_request_body: TerminateApplicationRequestBody = TerminateApplicationRequestBody(
-                     {})) -> None:
-        self._terminate_application_request_body: TerminateApplicationRequestBody = terminate_application_request_body
+    def __init__(self) -> None:
+        self._terminate_application_request_body = TerminateApplicationRequestBody()
 
     def termination_type(self, termination_type: int) -> "TerminateApplicationRequestBodyBuilder":
         self._terminate_application_request_body.termination_type = termination_type

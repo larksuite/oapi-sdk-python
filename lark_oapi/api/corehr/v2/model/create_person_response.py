@@ -12,7 +12,7 @@ class CreatePersonResponse(BaseResponse):
         "data": CreatePersonResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreatePersonResponseBody] = None
         init(self, d, self._types)

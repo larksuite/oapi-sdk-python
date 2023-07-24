@@ -23,7 +23,7 @@ class OffboardingInfo(object):
         "custom_fields": List[CustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.hrbp_id: Optional[List[str]] = None
         self.expected_offboarding_date: Optional[str] = None
@@ -44,8 +44,8 @@ class OffboardingInfo(object):
 
 
 class OffboardingInfoBuilder(object):
-    def __init__(self, offboarding_info: OffboardingInfo = OffboardingInfo({})) -> None:
-        self._offboarding_info: OffboardingInfo = offboarding_info
+    def __init__(self) -> None:
+        self._offboarding_info = OffboardingInfo()
 
     def employment_id(self, employment_id: str) -> "OffboardingInfoBuilder":
         self._offboarding_info.employment_id = employment_id

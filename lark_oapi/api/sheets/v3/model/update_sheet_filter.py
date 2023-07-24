@@ -12,7 +12,7 @@ class UpdateSheetFilter(object):
         "condition": Condition,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.col: Optional[str] = None
         self.condition: Optional[Condition] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class UpdateSheetFilter(object):
 
 
 class UpdateSheetFilterBuilder(object):
-    def __init__(self, update_sheet_filter: UpdateSheetFilter = UpdateSheetFilter({})) -> None:
-        self._update_sheet_filter: UpdateSheetFilter = update_sheet_filter
+    def __init__(self) -> None:
+        self._update_sheet_filter = UpdateSheetFilter()
 
     def col(self, col: str) -> "UpdateSheetFilterBuilder":
         self._update_sheet_filter.col = col

@@ -18,7 +18,8 @@ class GetSpaceRequest(BaseRequest):
 
 class GetSpaceRequestBuilder(object):
 
-    def __init__(self, get_space_request: GetSpaceRequest = GetSpaceRequest()) -> None:
+    def __init__(self) -> None:
+        get_space_request = GetSpaceRequest()
         get_space_request.http_method = HttpMethod.GET
         get_space_request.uri = "/open-apis/wiki/v2/spaces/:space_id"
         get_space_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

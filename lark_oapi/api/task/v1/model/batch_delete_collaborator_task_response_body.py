@@ -10,7 +10,7 @@ class BatchDeleteCollaboratorTaskResponseBody(object):
         "collaborators": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.collaborators: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class BatchDeleteCollaboratorTaskResponseBody(object):
 
 
 class BatchDeleteCollaboratorTaskResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_collaborator_task_response_body: BatchDeleteCollaboratorTaskResponseBody = BatchDeleteCollaboratorTaskResponseBody(
-                     {})) -> None:
-        self._batch_delete_collaborator_task_response_body: BatchDeleteCollaboratorTaskResponseBody = batch_delete_collaborator_task_response_body
+    def __init__(self) -> None:
+        self._batch_delete_collaborator_task_response_body = BatchDeleteCollaboratorTaskResponseBody()
 
     def collaborators(self, collaborators: List[str]) -> "BatchDeleteCollaboratorTaskResponseBodyBuilder":
         self._batch_delete_collaborator_task_response_body.collaborators = collaborators

@@ -19,8 +19,8 @@ class ListEmployeeTypeEnumRequest(BaseRequest):
 
 class ListEmployeeTypeEnumRequestBuilder(object):
 
-    def __init__(self,
-                 list_employee_type_enum_request: ListEmployeeTypeEnumRequest = ListEmployeeTypeEnumRequest()) -> None:
+    def __init__(self) -> None:
+        list_employee_type_enum_request = ListEmployeeTypeEnumRequest()
         list_employee_type_enum_request.http_method = HttpMethod.GET
         list_employee_type_enum_request.uri = "/open-apis/contact/v3/employee_type_enums"
         list_employee_type_enum_request.token_types = {AccessTokenType.TENANT}

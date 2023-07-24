@@ -10,7 +10,7 @@ class WifiInfo(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class WifiInfo(object):
 
 
 class WifiInfoBuilder(object):
-    def __init__(self, wifi_info: WifiInfo = WifiInfo({})) -> None:
-        self._wifi_info: WifiInfo = wifi_info
+    def __init__(self) -> None:
+        self._wifi_info = WifiInfo()
 
     def status(self, status: int) -> "WifiInfoBuilder":
         self._wifi_info.status = status

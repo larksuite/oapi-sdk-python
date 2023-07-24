@@ -11,7 +11,7 @@ class BatchGetOkrResponseBody(object):
         "okr_list": List[OkrBatch],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.okr_list: Optional[List[OkrBatch]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class BatchGetOkrResponseBody(object):
 
 
 class BatchGetOkrResponseBodyBuilder(object):
-    def __init__(self, batch_get_okr_response_body: BatchGetOkrResponseBody = BatchGetOkrResponseBody({})) -> None:
-        self._batch_get_okr_response_body: BatchGetOkrResponseBody = batch_get_okr_response_body
+    def __init__(self) -> None:
+        self._batch_get_okr_response_body = BatchGetOkrResponseBody()
 
     def okr_list(self, okr_list: List[OkrBatch]) -> "BatchGetOkrResponseBodyBuilder":
         self._batch_get_okr_response_body.okr_list = okr_list

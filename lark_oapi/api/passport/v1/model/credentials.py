@@ -12,7 +12,7 @@ class Credentials(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.email: Optional[str] = None
         self.mobile: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -24,8 +24,8 @@ class Credentials(object):
 
 
 class CredentialsBuilder(object):
-    def __init__(self, credentials: Credentials = Credentials({})) -> None:
-        self._credentials: Credentials = credentials
+    def __init__(self) -> None:
+        self._credentials = Credentials()
 
     def email(self, email: str) -> "CredentialsBuilder":
         self._credentials.email = email

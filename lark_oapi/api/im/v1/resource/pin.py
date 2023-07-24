@@ -2,24 +2,27 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.create_pin_request import CreatePinRequest
-from lark_oapi.api.im.v1.model.create_pin_response import CreatePinResponse
-from lark_oapi.api.im.v1.model.delete_pin_request import DeletePinRequest
-from lark_oapi.api.im.v1.model.delete_pin_response import DeletePinResponse
-from lark_oapi.api.im.v1.model.list_pin_request import ListPinRequest
-from lark_oapi.api.im.v1.model.list_pin_response import ListPinResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_pin_request import CreatePinRequest
+from ..model.create_pin_response import CreatePinResponse
+from ..model.delete_pin_request import DeletePinRequest
+from ..model.delete_pin_response import DeletePinResponse
+from ..model.list_pin_request import ListPinRequest
+from ..model.list_pin_response import ListPinResponse
 
 
 class Pin(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreatePinRequest, option: RequestOption = RequestOption()) -> CreatePinResponse:
+    def create(self, request: CreatePinRequest, option: Optional[RequestOption] = None) -> CreatePinResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class Pin(object):
 
         return response
 
-    def delete(self, request: DeletePinRequest, option: RequestOption = RequestOption()) -> DeletePinResponse:
+    def delete(self, request: DeletePinRequest, option: Optional[RequestOption] = None) -> DeletePinResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -45,7 +51,10 @@ class Pin(object):
 
         return response
 
-    def list(self, request: ListPinRequest, option: RequestOption = RequestOption()) -> ListPinResponse:
+    def list(self, request: ListPinRequest, option: Optional[RequestOption] = None) -> ListPinResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

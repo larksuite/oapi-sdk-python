@@ -18,7 +18,7 @@ class Sheet(object):
         "merges": List[MergeRange],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sheet_id: Optional[str] = None
         self.title: Optional[str] = None
         self.index: Optional[int] = None
@@ -34,8 +34,8 @@ class Sheet(object):
 
 
 class SheetBuilder(object):
-    def __init__(self, sheet: Sheet = Sheet({})) -> None:
-        self._sheet: Sheet = sheet
+    def __init__(self) -> None:
+        self._sheet = Sheet()
 
     def sheet_id(self, sheet_id: str) -> "SheetBuilder":
         self._sheet.sheet_id = sheet_id

@@ -13,7 +13,7 @@ class UserOrder(object):
         "is_primary_dept": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.user_order: Optional[int] = None
         self.department_order: Optional[int] = None
@@ -26,8 +26,8 @@ class UserOrder(object):
 
 
 class UserOrderBuilder(object):
-    def __init__(self, user_order: UserOrder = UserOrder({})) -> None:
-        self._user_order: UserOrder = user_order
+    def __init__(self) -> None:
+        self._user_order = UserOrder()
 
     def department_id(self, department_id: str) -> "UserOrderBuilder":
         self._user_order.department_id = department_id

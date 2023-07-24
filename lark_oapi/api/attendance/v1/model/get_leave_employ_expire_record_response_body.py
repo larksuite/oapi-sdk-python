@@ -11,7 +11,7 @@ class GetLeaveEmployExpireRecordResponseBody(object):
         "records": List[LeaveEmployExpireRecord],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.records: Optional[List[LeaveEmployExpireRecord]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetLeaveEmployExpireRecordResponseBody(object):
 
 
 class GetLeaveEmployExpireRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 get_leave_employ_expire_record_response_body: GetLeaveEmployExpireRecordResponseBody = GetLeaveEmployExpireRecordResponseBody(
-                     {})) -> None:
-        self._get_leave_employ_expire_record_response_body: GetLeaveEmployExpireRecordResponseBody = get_leave_employ_expire_record_response_body
+    def __init__(self) -> None:
+        self._get_leave_employ_expire_record_response_body = GetLeaveEmployExpireRecordResponseBody()
 
     def records(self, records: List[LeaveEmployExpireRecord]) -> "GetLeaveEmployExpireRecordResponseBodyBuilder":
         self._get_leave_employ_expire_record_response_body.records = records

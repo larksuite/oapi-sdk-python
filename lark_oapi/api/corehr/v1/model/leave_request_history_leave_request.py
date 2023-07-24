@@ -32,8 +32,8 @@ class LeaveRequestHistoryLeaveRequest(BaseRequest):
 
 class LeaveRequestHistoryLeaveRequestBuilder(object):
 
-    def __init__(self,
-                 leave_request_history_leave_request: LeaveRequestHistoryLeaveRequest = LeaveRequestHistoryLeaveRequest()) -> None:
+    def __init__(self) -> None:
+        leave_request_history_leave_request = LeaveRequestHistoryLeaveRequest()
         leave_request_history_leave_request.http_method = HttpMethod.GET
         leave_request_history_leave_request.uri = "/open-apis/corehr/v1/leaves/leave_request_history"
         leave_request_history_leave_request.token_types = {AccessTokenType.TENANT}

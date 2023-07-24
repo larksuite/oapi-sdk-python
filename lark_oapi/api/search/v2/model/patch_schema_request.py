@@ -20,7 +20,8 @@ class PatchSchemaRequest(BaseRequest):
 
 class PatchSchemaRequestBuilder(object):
 
-    def __init__(self, patch_schema_request: PatchSchemaRequest = PatchSchemaRequest()) -> None:
+    def __init__(self) -> None:
+        patch_schema_request = PatchSchemaRequest()
         patch_schema_request.http_method = HttpMethod.PATCH
         patch_schema_request.uri = "/open-apis/search/v2/schemas/:schema_id"
         patch_schema_request.token_types = {AccessTokenType.TENANT}

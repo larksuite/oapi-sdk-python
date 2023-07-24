@@ -21,8 +21,8 @@ class CreateJobRequirementRequest(BaseRequest):
 
 class CreateJobRequirementRequestBuilder(object):
 
-    def __init__(self,
-                 create_job_requirement_request: CreateJobRequirementRequest = CreateJobRequirementRequest()) -> None:
+    def __init__(self) -> None:
+        create_job_requirement_request = CreateJobRequirementRequest()
         create_job_requirement_request.http_method = HttpMethod.POST
         create_job_requirement_request.uri = "/open-apis/hire/v1/job_requirements"
         create_job_requirement_request.token_types = {AccessTokenType.TENANT}

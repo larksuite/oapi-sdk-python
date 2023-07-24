@@ -7,7 +7,7 @@ class TableCell(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class TableCell(object):
 
 
 class TableCellBuilder(object):
-    def __init__(self, table_cell: TableCell = TableCell({})) -> None:
-        self._table_cell: TableCell = table_cell
+    def __init__(self) -> None:
+        self._table_cell = TableCell()
 
     def build(self) -> "TableCell":
         return self._table_cell

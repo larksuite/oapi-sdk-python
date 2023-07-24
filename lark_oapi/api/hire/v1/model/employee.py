@@ -24,7 +24,7 @@ class Employee(object):
         "employee_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.onboard_status: Optional[int] = None
@@ -48,8 +48,8 @@ class Employee(object):
 
 
 class EmployeeBuilder(object):
-    def __init__(self, employee: Employee = Employee({})) -> None:
-        self._employee: Employee = employee
+    def __init__(self) -> None:
+        self._employee = Employee()
 
     def id(self, id: str) -> "EmployeeBuilder":
         self._employee.id = id

@@ -21,8 +21,8 @@ class BatchCreateAppTableRequest(BaseRequest):
 
 class BatchCreateAppTableRequestBuilder(object):
 
-    def __init__(self,
-                 batch_create_app_table_request: BatchCreateAppTableRequest = BatchCreateAppTableRequest()) -> None:
+    def __init__(self) -> None:
+        batch_create_app_table_request = BatchCreateAppTableRequest()
         batch_create_app_table_request.http_method = HttpMethod.POST
         batch_create_app_table_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/batch_create"
         batch_create_app_table_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

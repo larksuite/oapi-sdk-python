@@ -11,7 +11,7 @@ class GetAppTableViewResponseBody(object):
         "view": AppTableView,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view: Optional[AppTableView] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetAppTableViewResponseBody(object):
 
 
 class GetAppTableViewResponseBodyBuilder(object):
-    def __init__(self, get_app_table_view_response_body: GetAppTableViewResponseBody = GetAppTableViewResponseBody(
-        {})) -> None:
-        self._get_app_table_view_response_body: GetAppTableViewResponseBody = get_app_table_view_response_body
+    def __init__(self) -> None:
+        self._get_app_table_view_response_body = GetAppTableViewResponseBody()
 
     def view(self, view: AppTableView) -> "GetAppTableViewResponseBodyBuilder":
         self._get_app_table_view_response_body.view = view

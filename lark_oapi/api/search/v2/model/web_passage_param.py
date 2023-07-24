@@ -11,7 +11,7 @@ class WebPassageParam(object):
         "domains": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.searchable: Optional[bool] = None
         self.domains: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class WebPassageParam(object):
 
 
 class WebPassageParamBuilder(object):
-    def __init__(self, web_passage_param: WebPassageParam = WebPassageParam({})) -> None:
-        self._web_passage_param: WebPassageParam = web_passage_param
+    def __init__(self) -> None:
+        self._web_passage_param = WebPassageParam()
 
     def searchable(self, searchable: bool) -> "WebPassageParamBuilder":
         self._web_passage_param.searchable = searchable

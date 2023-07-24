@@ -20,7 +20,8 @@ class AddGroupMemberRequest(BaseRequest):
 
 class AddGroupMemberRequestBuilder(object):
 
-    def __init__(self, add_group_member_request: AddGroupMemberRequest = AddGroupMemberRequest()) -> None:
+    def __init__(self) -> None:
+        add_group_member_request = AddGroupMemberRequest()
         add_group_member_request.http_method = HttpMethod.POST
         add_group_member_request.uri = "/open-apis/contact/v3/group/:group_id/member/add"
         add_group_member_request.token_types = {AccessTokenType.TENANT}

@@ -21,7 +21,7 @@ class Room(object):
         "device": List[Device],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_id: Optional[str] = None
         self.name: Optional[str] = None
         self.capacity: Optional[int] = None
@@ -40,8 +40,8 @@ class Room(object):
 
 
 class RoomBuilder(object):
-    def __init__(self, room: Room = Room({})) -> None:
-        self._room: Room = room
+    def __init__(self) -> None:
+        self._room = Room()
 
     def room_id(self, room_id: str) -> "RoomBuilder":
         self._room.room_id = room_id

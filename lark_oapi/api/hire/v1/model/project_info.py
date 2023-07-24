@@ -15,7 +15,7 @@ class ProjectInfo(object):
         "start_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.desc: Optional[str] = None
         self.end_time: Optional[int] = None
         self.link: Optional[str] = None
@@ -30,8 +30,8 @@ class ProjectInfo(object):
 
 
 class ProjectInfoBuilder(object):
-    def __init__(self, project_info: ProjectInfo = ProjectInfo({})) -> None:
-        self._project_info: ProjectInfo = project_info
+    def __init__(self) -> None:
+        self._project_info = ProjectInfo()
 
     def desc(self, desc: str) -> "ProjectInfoBuilder":
         self._project_info.desc = desc

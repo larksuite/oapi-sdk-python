@@ -11,7 +11,7 @@ class PstnSipInfo(object):
         "main_address": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.nickname: Optional[str] = None
         self.main_address: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class PstnSipInfo(object):
 
 
 class PstnSipInfoBuilder(object):
-    def __init__(self, pstn_sip_info: PstnSipInfo = PstnSipInfo({})) -> None:
-        self._pstn_sip_info: PstnSipInfo = pstn_sip_info
+    def __init__(self) -> None:
+        self._pstn_sip_info = PstnSipInfo()
 
     def nickname(self, nickname: str) -> "PstnSipInfoBuilder":
         self._pstn_sip_info.nickname = nickname

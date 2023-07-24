@@ -18,7 +18,8 @@ class DeleteJobFamilyRequest(BaseRequest):
 
 class DeleteJobFamilyRequestBuilder(object):
 
-    def __init__(self, delete_job_family_request: DeleteJobFamilyRequest = DeleteJobFamilyRequest()) -> None:
+    def __init__(self) -> None:
+        delete_job_family_request = DeleteJobFamilyRequest()
         delete_job_family_request.http_method = HttpMethod.DELETE
         delete_job_family_request.uri = "/open-apis/corehr/v1/job_families/:job_family_id"
         delete_job_family_request.token_types = {AccessTokenType.TENANT}

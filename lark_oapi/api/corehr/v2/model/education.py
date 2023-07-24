@@ -23,7 +23,7 @@ class Education(object):
         "custom_fields": List[CustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.school: Optional[List[I18n]] = None
         self.level_of_education: Optional[Enum] = None
         self.start_date: Optional[str] = None
@@ -43,8 +43,8 @@ class Education(object):
 
 
 class EducationBuilder(object):
-    def __init__(self, education: Education = Education({})) -> None:
-        self._education: Education = education
+    def __init__(self) -> None:
+        self._education = Education()
 
     def school(self, school: List[I18n]) -> "EducationBuilder":
         self._education.school = school

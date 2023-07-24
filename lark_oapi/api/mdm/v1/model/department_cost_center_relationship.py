@@ -14,7 +14,7 @@ class DepartmentCostCenterRelationship(object):
         "department_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_cost_center_relationship_uid: Optional[str] = None
         self.company_code: Optional[str] = None
         self.open_department_id: Optional[str] = None
@@ -28,10 +28,8 @@ class DepartmentCostCenterRelationship(object):
 
 
 class DepartmentCostCenterRelationshipBuilder(object):
-    def __init__(self,
-                 department_cost_center_relationship: DepartmentCostCenterRelationship = DepartmentCostCenterRelationship(
-                     {})) -> None:
-        self._department_cost_center_relationship: DepartmentCostCenterRelationship = department_cost_center_relationship
+    def __init__(self) -> None:
+        self._department_cost_center_relationship = DepartmentCostCenterRelationship()
 
     def department_cost_center_relationship_uid(self,
                                                 department_cost_center_relationship_uid: str) -> "DepartmentCostCenterRelationshipBuilder":

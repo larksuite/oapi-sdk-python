@@ -17,7 +17,7 @@ class PassageParam(object):
         "helpdesk_param": HelpdeskPassageParam,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.doc_param: Optional[DocPassageParam] = None
         self.wiki_param: Optional[WikiPassageParam] = None
         self.web_param: Optional[WebPassageParam] = None
@@ -30,8 +30,8 @@ class PassageParam(object):
 
 
 class PassageParamBuilder(object):
-    def __init__(self, passage_param: PassageParam = PassageParam({})) -> None:
-        self._passage_param: PassageParam = passage_param
+    def __init__(self) -> None:
+        self._passage_param = PassageParam()
 
     def doc_param(self, doc_param: DocPassageParam) -> "PassageParamBuilder":
         self._passage_param.doc_param = doc_param

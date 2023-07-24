@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.mdm.v1.model.bind_user_auth_data_relation_request import BindUserAuthDataRelationRequest
-from lark_oapi.api.mdm.v1.model.bind_user_auth_data_relation_response import BindUserAuthDataRelationResponse
-from lark_oapi.api.mdm.v1.model.unbind_user_auth_data_relation_request import UnbindUserAuthDataRelationRequest
-from lark_oapi.api.mdm.v1.model.unbind_user_auth_data_relation_response import UnbindUserAuthDataRelationResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.bind_user_auth_data_relation_request import BindUserAuthDataRelationRequest
+from ..model.bind_user_auth_data_relation_response import BindUserAuthDataRelationResponse
+from ..model.unbind_user_auth_data_relation_request import UnbindUserAuthDataRelationRequest
+from ..model.unbind_user_auth_data_relation_response import UnbindUserAuthDataRelationResponse
 
 
 class UserAuthDataRelation(object):
@@ -18,7 +18,10 @@ class UserAuthDataRelation(object):
         self.config: Optional[Config] = config
 
     def bind(self, request: BindUserAuthDataRelationRequest,
-             option: RequestOption = RequestOption()) -> BindUserAuthDataRelationResponse:
+             option: Optional[RequestOption] = None) -> BindUserAuthDataRelationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class UserAuthDataRelation(object):
         return response
 
     def unbind(self, request: UnbindUserAuthDataRelationRequest,
-               option: RequestOption = RequestOption()) -> UnbindUserAuthDataRelationResponse:
+               option: Optional[RequestOption] = None) -> UnbindUserAuthDataRelationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

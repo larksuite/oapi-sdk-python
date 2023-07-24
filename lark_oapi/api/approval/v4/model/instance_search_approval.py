@@ -16,7 +16,7 @@ class InstanceSearchApproval(object):
         "icon": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.name: Optional[str] = None
         self.is_external: Optional[bool] = None
@@ -31,8 +31,8 @@ class InstanceSearchApproval(object):
 
 
 class InstanceSearchApprovalBuilder(object):
-    def __init__(self, instance_search_approval: InstanceSearchApproval = InstanceSearchApproval({})) -> None:
-        self._instance_search_approval: InstanceSearchApproval = instance_search_approval
+    def __init__(self) -> None:
+        self._instance_search_approval = InstanceSearchApproval()
 
     def code(self, code: str) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.code = code

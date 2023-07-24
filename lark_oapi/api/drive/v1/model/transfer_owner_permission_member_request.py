@@ -23,8 +23,8 @@ class TransferOwnerPermissionMemberRequest(BaseRequest):
 
 class TransferOwnerPermissionMemberRequestBuilder(object):
 
-    def __init__(self,
-                 transfer_owner_permission_member_request: TransferOwnerPermissionMemberRequest = TransferOwnerPermissionMemberRequest()) -> None:
+    def __init__(self) -> None:
+        transfer_owner_permission_member_request = TransferOwnerPermissionMemberRequest()
         transfer_owner_permission_member_request.http_method = HttpMethod.POST
         transfer_owner_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/transfer_owner"
         transfer_owner_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

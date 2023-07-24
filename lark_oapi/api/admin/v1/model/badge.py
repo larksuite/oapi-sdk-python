@@ -17,7 +17,7 @@ class Badge(object):
         "i18n_explanation": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.explanation: Optional[str] = None
@@ -33,8 +33,8 @@ class Badge(object):
 
 
 class BadgeBuilder(object):
-    def __init__(self, badge: Badge = Badge({})) -> None:
-        self._badge: Badge = badge
+    def __init__(self) -> None:
+        self._badge = Badge()
 
     def id(self, id: str) -> "BadgeBuilder":
         self._badge.id = id

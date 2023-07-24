@@ -12,7 +12,7 @@ class JobConfigRoundTypeResult(object):
         "assessment_template": IdNameObject,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.assessment_round: Optional[IdNameObject] = None
         self.assessment_template: Optional[IdNameObject] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class JobConfigRoundTypeResult(object):
 
 
 class JobConfigRoundTypeResultBuilder(object):
-    def __init__(self, job_config_round_type_result: JobConfigRoundTypeResult = JobConfigRoundTypeResult({})) -> None:
-        self._job_config_round_type_result: JobConfigRoundTypeResult = job_config_round_type_result
+    def __init__(self) -> None:
+        self._job_config_round_type_result = JobConfigRoundTypeResult()
 
     def assessment_round(self, assessment_round: IdNameObject) -> "JobConfigRoundTypeResultBuilder":
         self._job_config_round_type_result.assessment_round = assessment_round

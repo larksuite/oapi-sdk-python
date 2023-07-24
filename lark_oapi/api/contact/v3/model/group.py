@@ -21,7 +21,7 @@ class Group(object):
         "group_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.description: Optional[str] = None
@@ -40,8 +40,8 @@ class Group(object):
 
 
 class GroupBuilder(object):
-    def __init__(self, group: Group = Group({})) -> None:
-        self._group: Group = group
+    def __init__(self) -> None:
+        self._group = Group()
 
     def id(self, id: str) -> "GroupBuilder":
         self._group.id = id

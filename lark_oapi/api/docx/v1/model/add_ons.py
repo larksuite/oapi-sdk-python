@@ -12,7 +12,7 @@ class AddOns(object):
         "record": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.component_id: Optional[str] = None
         self.component_type_id: Optional[str] = None
         self.record: Optional[str] = None
@@ -24,8 +24,8 @@ class AddOns(object):
 
 
 class AddOnsBuilder(object):
-    def __init__(self, add_ons: AddOns = AddOns({})) -> None:
-        self._add_ons: AddOns = add_ons
+    def __init__(self) -> None:
+        self._add_ons = AddOns()
 
     def component_id(self, component_id: str) -> "AddOnsBuilder":
         self._add_ons.component_id = component_id

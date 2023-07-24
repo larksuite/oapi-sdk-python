@@ -11,7 +11,7 @@ class ListPermissionMemberResponseBody(object):
         "items": List[Member],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Member]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ListPermissionMemberResponseBody(object):
 
 
 class ListPermissionMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 list_permission_member_response_body: ListPermissionMemberResponseBody = ListPermissionMemberResponseBody(
-                     {})) -> None:
-        self._list_permission_member_response_body: ListPermissionMemberResponseBody = list_permission_member_response_body
+    def __init__(self) -> None:
+        self._list_permission_member_response_body = ListPermissionMemberResponseBody()
 
     def items(self, items: List[Member]) -> "ListPermissionMemberResponseBodyBuilder":
         self._list_permission_member_response_body.items = items

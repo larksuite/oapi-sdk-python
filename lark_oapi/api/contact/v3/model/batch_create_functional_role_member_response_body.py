@@ -11,7 +11,7 @@ class BatchCreateFunctionalRoleMemberResponseBody(object):
         "results": List[FunctionalRoleMemberResult],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.results: Optional[List[FunctionalRoleMemberResult]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateFunctionalRoleMemberResponseBody(object):
 
 
 class BatchCreateFunctionalRoleMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_create_functional_role_member_response_body: BatchCreateFunctionalRoleMemberResponseBody = BatchCreateFunctionalRoleMemberResponseBody(
-                     {})) -> None:
-        self._batch_create_functional_role_member_response_body: BatchCreateFunctionalRoleMemberResponseBody = batch_create_functional_role_member_response_body
+    def __init__(self) -> None:
+        self._batch_create_functional_role_member_response_body = BatchCreateFunctionalRoleMemberResponseBody()
 
     def results(self,
                 results: List[FunctionalRoleMemberResult]) -> "BatchCreateFunctionalRoleMemberResponseBodyBuilder":

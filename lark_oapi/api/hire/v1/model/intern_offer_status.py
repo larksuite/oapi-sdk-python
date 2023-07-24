@@ -15,7 +15,7 @@ class InternOfferStatus(object):
         "offboarding_info": InternOfferOffboardingInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_id: Optional[str] = None
         self.operation: Optional[str] = None
         self.onboarding_info: Optional[InternOfferOnboardingInfo] = None
@@ -28,8 +28,8 @@ class InternOfferStatus(object):
 
 
 class InternOfferStatusBuilder(object):
-    def __init__(self, intern_offer_status: InternOfferStatus = InternOfferStatus({})) -> None:
-        self._intern_offer_status: InternOfferStatus = intern_offer_status
+    def __init__(self) -> None:
+        self._intern_offer_status = InternOfferStatus()
 
     def offer_id(self, offer_id: str) -> "InternOfferStatusBuilder":
         self._intern_offer_status.offer_id = offer_id

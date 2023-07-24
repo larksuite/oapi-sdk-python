@@ -13,7 +13,7 @@ class PeriodRule(object):
         "first_month": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.period_rule_id: Optional[str] = None
         self.type: Optional[str] = None
         self.length: Optional[int] = None
@@ -26,8 +26,8 @@ class PeriodRule(object):
 
 
 class PeriodRuleBuilder(object):
-    def __init__(self, period_rule: PeriodRule = PeriodRule({})) -> None:
-        self._period_rule: PeriodRule = period_rule
+    def __init__(self) -> None:
+        self._period_rule = PeriodRule()
 
     def period_rule_id(self, period_rule_id: str) -> "PeriodRuleBuilder":
         self._period_rule.period_rule_id = period_rule_id

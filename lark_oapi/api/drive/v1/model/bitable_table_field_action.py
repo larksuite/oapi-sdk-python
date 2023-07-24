@@ -14,7 +14,7 @@ class BitableTableFieldAction(object):
         "after_value": BitableTableFieldActionValue,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.action: Optional[str] = None
         self.field_id: Optional[str] = None
         self.before_value: Optional[BitableTableFieldActionValue] = None
@@ -27,8 +27,8 @@ class BitableTableFieldAction(object):
 
 
 class BitableTableFieldActionBuilder(object):
-    def __init__(self, bitable_table_field_action: BitableTableFieldAction = BitableTableFieldAction({})) -> None:
-        self._bitable_table_field_action: BitableTableFieldAction = bitable_table_field_action
+    def __init__(self) -> None:
+        self._bitable_table_field_action = BitableTableFieldAction()
 
     def action(self, action: str) -> "BitableTableFieldActionBuilder":
         self._bitable_table_field_action.action = action

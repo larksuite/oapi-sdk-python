@@ -10,7 +10,7 @@ class UpdateGridColumnWidthRatioRequest(object):
         "width_ratios": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.width_ratios: Optional[List[int]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class UpdateGridColumnWidthRatioRequest(object):
 
 
 class UpdateGridColumnWidthRatioRequestBuilder(object):
-    def __init__(self,
-                 update_grid_column_width_ratio_request: UpdateGridColumnWidthRatioRequest = UpdateGridColumnWidthRatioRequest(
-                     {})) -> None:
-        self._update_grid_column_width_ratio_request: UpdateGridColumnWidthRatioRequest = update_grid_column_width_ratio_request
+    def __init__(self) -> None:
+        self._update_grid_column_width_ratio_request = UpdateGridColumnWidthRatioRequest()
 
     def width_ratios(self, width_ratios: List[int]) -> "UpdateGridColumnWidthRatioRequestBuilder":
         self._update_grid_column_width_ratio_request.width_ratios = width_ratios

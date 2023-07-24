@@ -18,7 +18,8 @@ class DeletePreHireRequest(BaseRequest):
 
 class DeletePreHireRequestBuilder(object):
 
-    def __init__(self, delete_pre_hire_request: DeletePreHireRequest = DeletePreHireRequest()) -> None:
+    def __init__(self) -> None:
+        delete_pre_hire_request = DeletePreHireRequest()
         delete_pre_hire_request.http_method = HttpMethod.DELETE
         delete_pre_hire_request.uri = "/open-apis/corehr/v1/pre_hires/:pre_hire_id"
         delete_pre_hire_request.token_types = {AccessTokenType.TENANT}

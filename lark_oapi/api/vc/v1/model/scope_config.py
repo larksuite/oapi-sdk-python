@@ -13,7 +13,7 @@ class ScopeConfig(object):
         "scope_config": RoomConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope_type: Optional[int] = None
         self.scope_id: Optional[str] = None
         self.scope_config: Optional[RoomConfig] = None
@@ -25,8 +25,8 @@ class ScopeConfig(object):
 
 
 class ScopeConfigBuilder(object):
-    def __init__(self, scope_config: ScopeConfig = ScopeConfig({})) -> None:
-        self._scope_config: ScopeConfig = scope_config
+    def __init__(self) -> None:
+        self._scope_config = ScopeConfig()
 
     def scope_type(self, scope_type: int) -> "ScopeConfigBuilder":
         self._scope_config.scope_type = scope_type

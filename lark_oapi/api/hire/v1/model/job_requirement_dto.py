@@ -35,7 +35,7 @@ class JobRequirementDto(object):
         "job_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.short_code: Optional[str] = None
         self.name: Optional[str] = None
@@ -68,8 +68,8 @@ class JobRequirementDto(object):
 
 
 class JobRequirementDtoBuilder(object):
-    def __init__(self, job_requirement_dto: JobRequirementDto = JobRequirementDto({})) -> None:
-        self._job_requirement_dto: JobRequirementDto = job_requirement_dto
+    def __init__(self) -> None:
+        self._job_requirement_dto = JobRequirementDto()
 
     def id(self, id: str) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.id = id

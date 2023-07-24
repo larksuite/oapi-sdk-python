@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.task.v1.model.create_task_comment_request import CreateTaskCommentRequest
-from lark_oapi.api.task.v1.model.create_task_comment_response import CreateTaskCommentResponse
-from lark_oapi.api.task.v1.model.delete_task_comment_request import DeleteTaskCommentRequest
-from lark_oapi.api.task.v1.model.delete_task_comment_response import DeleteTaskCommentResponse
-from lark_oapi.api.task.v1.model.get_task_comment_request import GetTaskCommentRequest
-from lark_oapi.api.task.v1.model.get_task_comment_response import GetTaskCommentResponse
-from lark_oapi.api.task.v1.model.list_task_comment_request import ListTaskCommentRequest
-from lark_oapi.api.task.v1.model.list_task_comment_response import ListTaskCommentResponse
-from lark_oapi.api.task.v1.model.update_task_comment_request import UpdateTaskCommentRequest
-from lark_oapi.api.task.v1.model.update_task_comment_response import UpdateTaskCommentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_task_comment_request import CreateTaskCommentRequest
+from ..model.create_task_comment_response import CreateTaskCommentResponse
+from ..model.delete_task_comment_request import DeleteTaskCommentRequest
+from ..model.delete_task_comment_response import DeleteTaskCommentResponse
+from ..model.get_task_comment_request import GetTaskCommentRequest
+from ..model.get_task_comment_response import GetTaskCommentResponse
+from ..model.list_task_comment_request import ListTaskCommentRequest
+from ..model.list_task_comment_response import ListTaskCommentResponse
+from ..model.update_task_comment_request import UpdateTaskCommentRequest
+from ..model.update_task_comment_response import UpdateTaskCommentResponse
 
 
 class TaskComment(object):
@@ -24,7 +24,10 @@ class TaskComment(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateTaskCommentRequest,
-               option: RequestOption = RequestOption()) -> CreateTaskCommentResponse:
+               option: Optional[RequestOption] = None) -> CreateTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class TaskComment(object):
         return response
 
     def delete(self, request: DeleteTaskCommentRequest,
-               option: RequestOption = RequestOption()) -> DeleteTaskCommentResponse:
+               option: Optional[RequestOption] = None) -> DeleteTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class TaskComment(object):
 
         return response
 
-    def get(self, request: GetTaskCommentRequest, option: RequestOption = RequestOption()) -> GetTaskCommentResponse:
+    def get(self, request: GetTaskCommentRequest, option: Optional[RequestOption] = None) -> GetTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class TaskComment(object):
 
         return response
 
-    def list(self, request: ListTaskCommentRequest, option: RequestOption = RequestOption()) -> ListTaskCommentResponse:
+    def list(self, request: ListTaskCommentRequest, option: Optional[RequestOption] = None) -> ListTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -78,7 +90,10 @@ class TaskComment(object):
         return response
 
     def update(self, request: UpdateTaskCommentRequest,
-               option: RequestOption = RequestOption()) -> UpdateTaskCommentResponse:
+               option: Optional[RequestOption] = None) -> UpdateTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

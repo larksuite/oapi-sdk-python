@@ -11,7 +11,7 @@ class MoveSpaceNodeResponseBody(object):
         "node": Node,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node: Optional[Node] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class MoveSpaceNodeResponseBody(object):
 
 
 class MoveSpaceNodeResponseBodyBuilder(object):
-    def __init__(self,
-                 move_space_node_response_body: MoveSpaceNodeResponseBody = MoveSpaceNodeResponseBody({})) -> None:
-        self._move_space_node_response_body: MoveSpaceNodeResponseBody = move_space_node_response_body
+    def __init__(self) -> None:
+        self._move_space_node_response_body = MoveSpaceNodeResponseBody()
 
     def node(self, node: Node) -> "MoveSpaceNodeResponseBodyBuilder":
         self._move_space_node_response_body.node = node

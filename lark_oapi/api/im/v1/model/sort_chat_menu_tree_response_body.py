@@ -11,7 +11,7 @@ class SortChatMenuTreeResponseBody(object):
         "menu_tree": ChatMenuTree,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.menu_tree: Optional[ChatMenuTree] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class SortChatMenuTreeResponseBody(object):
 
 
 class SortChatMenuTreeResponseBodyBuilder(object):
-    def __init__(self, sort_chat_menu_tree_response_body: SortChatMenuTreeResponseBody = SortChatMenuTreeResponseBody(
-        {})) -> None:
-        self._sort_chat_menu_tree_response_body: SortChatMenuTreeResponseBody = sort_chat_menu_tree_response_body
+    def __init__(self) -> None:
+        self._sort_chat_menu_tree_response_body = SortChatMenuTreeResponseBody()
 
     def menu_tree(self, menu_tree: ChatMenuTree) -> "SortChatMenuTreeResponseBodyBuilder":
         self._sort_chat_menu_tree_response_body.menu_tree = menu_tree

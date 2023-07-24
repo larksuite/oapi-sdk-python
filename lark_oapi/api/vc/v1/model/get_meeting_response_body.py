@@ -11,7 +11,7 @@ class GetMeetingResponseBody(object):
         "meeting": Meeting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.meeting: Optional[Meeting] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetMeetingResponseBody(object):
 
 
 class GetMeetingResponseBodyBuilder(object):
-    def __init__(self, get_meeting_response_body: GetMeetingResponseBody = GetMeetingResponseBody({})) -> None:
-        self._get_meeting_response_body: GetMeetingResponseBody = get_meeting_response_body
+    def __init__(self) -> None:
+        self._get_meeting_response_body = GetMeetingResponseBody()
 
     def meeting(self, meeting: Meeting) -> "GetMeetingResponseBodyBuilder":
         self._get_meeting_response_body.meeting = meeting

@@ -26,7 +26,7 @@ class PersonInfoMys(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.person_id: Optional[str] = None
         self.previous_income_in_the_current_year: Optional[bool] = None
@@ -50,8 +50,8 @@ class PersonInfoMys(object):
 
 
 class PersonInfoMysBuilder(object):
-    def __init__(self, person_info_mys: PersonInfoMys = PersonInfoMys({})) -> None:
-        self._person_info_mys: PersonInfoMys = person_info_mys
+    def __init__(self) -> None:
+        self._person_info_mys = PersonInfoMys()
 
     def id(self, id: str) -> "PersonInfoMysBuilder":
         self._person_info_mys.id = id

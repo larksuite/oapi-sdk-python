@@ -10,7 +10,7 @@ class UrgentReceivers(object):
         "user_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class UrgentReceivers(object):
 
 
 class UrgentReceiversBuilder(object):
-    def __init__(self, urgent_receivers: UrgentReceivers = UrgentReceivers({})) -> None:
-        self._urgent_receivers: UrgentReceivers = urgent_receivers
+    def __init__(self) -> None:
+        self._urgent_receivers = UrgentReceivers()
 
     def user_id_list(self, user_id_list: List[str]) -> "UrgentReceiversBuilder":
         self._urgent_receivers.user_id_list = user_id_list

@@ -20,7 +20,8 @@ class ResetPasswordRequest(BaseRequest):
 
 class ResetPasswordRequestBuilder(object):
 
-    def __init__(self, reset_password_request: ResetPasswordRequest = ResetPasswordRequest()) -> None:
+    def __init__(self) -> None:
+        reset_password_request = ResetPasswordRequest()
         reset_password_request.http_method = HttpMethod.POST
         reset_password_request.uri = "/open-apis/admin/v1/password/reset"
         reset_password_request.token_types = {AccessTokenType.TENANT}

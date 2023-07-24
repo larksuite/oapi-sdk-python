@@ -11,7 +11,7 @@ class ListPublicMailboxAliasResponseBody(object):
         "items": List[EmailAlias],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[EmailAlias]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ListPublicMailboxAliasResponseBody(object):
 
 
 class ListPublicMailboxAliasResponseBodyBuilder(object):
-    def __init__(self,
-                 list_public_mailbox_alias_response_body: ListPublicMailboxAliasResponseBody = ListPublicMailboxAliasResponseBody(
-                     {})) -> None:
-        self._list_public_mailbox_alias_response_body: ListPublicMailboxAliasResponseBody = list_public_mailbox_alias_response_body
+    def __init__(self) -> None:
+        self._list_public_mailbox_alias_response_body = ListPublicMailboxAliasResponseBody()
 
     def items(self, items: List[EmailAlias]) -> "ListPublicMailboxAliasResponseBodyBuilder":
         self._list_public_mailbox_alias_response_body.items = items

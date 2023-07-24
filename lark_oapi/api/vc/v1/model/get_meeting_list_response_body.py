@@ -13,7 +13,7 @@ class GetMeetingListResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.meeting_list: Optional[List[MeetingInfo]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class GetMeetingListResponseBody(object):
 
 
 class GetMeetingListResponseBodyBuilder(object):
-    def __init__(self,
-                 get_meeting_list_response_body: GetMeetingListResponseBody = GetMeetingListResponseBody({})) -> None:
-        self._get_meeting_list_response_body: GetMeetingListResponseBody = get_meeting_list_response_body
+    def __init__(self) -> None:
+        self._get_meeting_list_response_body = GetMeetingListResponseBody()
 
     def meeting_list(self, meeting_list: List[MeetingInfo]) -> "GetMeetingListResponseBodyBuilder":
         self._get_meeting_list_response_body.meeting_list = meeting_list

@@ -19,7 +19,8 @@ class ListPeriodRequest(BaseRequest):
 
 class ListPeriodRequestBuilder(object):
 
-    def __init__(self, list_period_request: ListPeriodRequest = ListPeriodRequest()) -> None:
+    def __init__(self) -> None:
+        list_period_request = ListPeriodRequest()
         list_period_request.http_method = HttpMethod.GET
         list_period_request.uri = "/open-apis/okr/v1/periods"
         list_period_request.token_types = {AccessTokenType.TENANT}

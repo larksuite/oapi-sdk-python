@@ -20,7 +20,8 @@ class PatchUnitRequest(BaseRequest):
 
 class PatchUnitRequestBuilder(object):
 
-    def __init__(self, patch_unit_request: PatchUnitRequest = PatchUnitRequest()) -> None:
+    def __init__(self) -> None:
+        patch_unit_request = PatchUnitRequest()
         patch_unit_request.http_method = HttpMethod.PATCH
         patch_unit_request.uri = "/open-apis/contact/v3/unit/:unit_id"
         patch_unit_request.token_types = {AccessTokenType.TENANT}

@@ -11,7 +11,7 @@ class GetPermissionPublicResponseBody(object):
         "permission_public": PermissionPublic,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission_public: Optional[PermissionPublic] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetPermissionPublicResponseBody(object):
 
 
 class GetPermissionPublicResponseBodyBuilder(object):
-    def __init__(self,
-                 get_permission_public_response_body: GetPermissionPublicResponseBody = GetPermissionPublicResponseBody(
-                     {})) -> None:
-        self._get_permission_public_response_body: GetPermissionPublicResponseBody = get_permission_public_response_body
+    def __init__(self) -> None:
+        self._get_permission_public_response_body = GetPermissionPublicResponseBody()
 
     def permission_public(self, permission_public: PermissionPublic) -> "GetPermissionPublicResponseBodyBuilder":
         self._get_permission_public_response_body.permission_public = permission_public

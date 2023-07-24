@@ -39,7 +39,7 @@ class Ticket(object):
         "agent_owner": TicketUser,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket_id: Optional[str] = None
         self.helpdesk_id: Optional[str] = None
         self.guest: Optional[TicketUser] = None
@@ -74,8 +74,8 @@ class Ticket(object):
 
 
 class TicketBuilder(object):
-    def __init__(self, ticket: Ticket = Ticket({})) -> None:
-        self._ticket: Ticket = ticket
+    def __init__(self) -> None:
+        self._ticket = Ticket()
 
     def ticket_id(self, ticket_id: str) -> "TicketBuilder":
         self._ticket.ticket_id = ticket_id

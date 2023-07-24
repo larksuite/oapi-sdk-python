@@ -19,7 +19,8 @@ class ListCompanyRequest(BaseRequest):
 
 class ListCompanyRequestBuilder(object):
 
-    def __init__(self, list_company_request: ListCompanyRequest = ListCompanyRequest()) -> None:
+    def __init__(self) -> None:
+        list_company_request = ListCompanyRequest()
         list_company_request.http_method = HttpMethod.GET
         list_company_request.uri = "/open-apis/corehr/v1/companies"
         list_company_request.token_types = {AccessTokenType.TENANT}

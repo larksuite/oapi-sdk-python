@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.okr.v1.model.list_user_okr_request import ListUserOkrRequest
-from lark_oapi.api.okr.v1.model.list_user_okr_response import ListUserOkrResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_user_okr_request import ListUserOkrRequest
+from ..model.list_user_okr_response import ListUserOkrResponse
 
 
 class UserOkr(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListUserOkrRequest, option: RequestOption = RequestOption()) -> ListUserOkrResponse:
+    def list(self, request: ListUserOkrRequest, option: Optional[RequestOption] = None) -> ListUserOkrResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

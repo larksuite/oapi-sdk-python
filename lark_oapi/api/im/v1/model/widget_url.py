@@ -10,7 +10,7 @@ class WidgetUrl(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class WidgetUrl(object):
 
 
 class WidgetUrlBuilder(object):
-    def __init__(self, widget_url: WidgetUrl = WidgetUrl({})) -> None:
-        self._widget_url: WidgetUrl = widget_url
+    def __init__(self) -> None:
+        self._widget_url = WidgetUrl()
 
     def url(self, url: str) -> "WidgetUrlBuilder":
         self._widget_url.url = url

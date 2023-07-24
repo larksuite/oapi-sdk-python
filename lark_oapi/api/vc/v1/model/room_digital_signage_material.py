@@ -18,7 +18,7 @@ class RoomDigitalSignageMaterial(object):
         "size": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.material_type: Optional[int] = None
@@ -36,9 +36,8 @@ class RoomDigitalSignageMaterial(object):
 
 
 class RoomDigitalSignageMaterialBuilder(object):
-    def __init__(self,
-                 room_digital_signage_material: RoomDigitalSignageMaterial = RoomDigitalSignageMaterial({})) -> None:
-        self._room_digital_signage_material: RoomDigitalSignageMaterial = room_digital_signage_material
+    def __init__(self) -> None:
+        self._room_digital_signage_material = RoomDigitalSignageMaterial()
 
     def id(self, id: str) -> "RoomDigitalSignageMaterialBuilder":
         self._room_digital_signage_material.id = id

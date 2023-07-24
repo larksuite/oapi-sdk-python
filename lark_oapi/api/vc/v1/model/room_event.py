@@ -21,7 +21,7 @@ class RoomEvent(object):
         "device": List[Device],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_id: Optional[str] = None
         self.name: Optional[str] = None
         self.capacity: Optional[int] = None
@@ -40,8 +40,8 @@ class RoomEvent(object):
 
 
 class RoomEventBuilder(object):
-    def __init__(self, room_event: RoomEvent = RoomEvent({})) -> None:
-        self._room_event: RoomEvent = room_event
+    def __init__(self) -> None:
+        self._room_event = RoomEvent()
 
     def room_id(self, room_id: str) -> "RoomEventBuilder":
         self._room_event.room_id = room_id

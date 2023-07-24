@@ -10,7 +10,7 @@ class PatchAppTableResponseBody(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class PatchAppTableResponseBody(object):
 
 
 class PatchAppTableResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_app_table_response_body: PatchAppTableResponseBody = PatchAppTableResponseBody({})) -> None:
-        self._patch_app_table_response_body: PatchAppTableResponseBody = patch_app_table_response_body
+    def __init__(self) -> None:
+        self._patch_app_table_response_body = PatchAppTableResponseBody()
 
     def name(self, name: str) -> "PatchAppTableResponseBodyBuilder":
         self._patch_app_table_response_body.name = name

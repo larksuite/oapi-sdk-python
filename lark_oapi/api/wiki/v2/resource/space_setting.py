@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.wiki.v2.model.update_space_setting_request import UpdateSpaceSettingRequest
-from lark_oapi.api.wiki.v2.model.update_space_setting_response import UpdateSpaceSettingResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.update_space_setting_request import UpdateSpaceSettingRequest
+from ..model.update_space_setting_response import UpdateSpaceSettingResponse
 
 
 class SpaceSetting(object):
@@ -16,7 +16,10 @@ class SpaceSetting(object):
         self.config: Optional[Config] = config
 
     def update(self, request: UpdateSpaceSettingRequest,
-               option: RequestOption = RequestOption()) -> UpdateSpaceSettingResponse:
+               option: Optional[RequestOption] = None) -> UpdateSpaceSettingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

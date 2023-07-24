@@ -11,7 +11,7 @@ class KrContent(object):
         "en": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh: Optional[str] = None
         self.en: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class KrContent(object):
 
 
 class KrContentBuilder(object):
-    def __init__(self, kr_content: KrContent = KrContent({})) -> None:
-        self._kr_content: KrContent = kr_content
+    def __init__(self) -> None:
+        self._kr_content = KrContent()
 
     def zh(self, zh: str) -> "KrContentBuilder":
         self._kr_content.zh = zh

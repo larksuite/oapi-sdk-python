@@ -30,7 +30,7 @@ class ImDepthData(object):
         "post_send_msg_rate": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.p_date: Optional[str] = None
         self.department_id: Optional[str] = None
         self.department_path: Optional[str] = None
@@ -60,8 +60,8 @@ class ImDepthData(object):
 
 
 class ImDepthDataBuilder(object):
-    def __init__(self, im_depth_data: ImDepthData = ImDepthData({})) -> None:
-        self._im_depth_data: ImDepthData = im_depth_data
+    def __init__(self) -> None:
+        self._im_depth_data = ImDepthData()
 
     def p_date(self, p_date: str) -> "ImDepthDataBuilder":
         self._im_depth_data.p_date = p_date

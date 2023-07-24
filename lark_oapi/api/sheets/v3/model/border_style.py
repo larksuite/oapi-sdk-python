@@ -17,7 +17,7 @@ class BorderStyle(object):
         "bottom": BottomBorderStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.top: Optional[TopBorderStyle] = None
         self.left: Optional[LeftBorderStyle] = None
         self.right: Optional[RightBorderStyle] = None
@@ -30,8 +30,8 @@ class BorderStyle(object):
 
 
 class BorderStyleBuilder(object):
-    def __init__(self, border_style: BorderStyle = BorderStyle({})) -> None:
-        self._border_style: BorderStyle = border_style
+    def __init__(self) -> None:
+        self._border_style = BorderStyle()
 
     def top(self, top: TopBorderStyle) -> "BorderStyleBuilder":
         self._border_style.top = top

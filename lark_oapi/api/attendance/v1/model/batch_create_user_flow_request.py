@@ -20,8 +20,8 @@ class BatchCreateUserFlowRequest(BaseRequest):
 
 class BatchCreateUserFlowRequestBuilder(object):
 
-    def __init__(self,
-                 batch_create_user_flow_request: BatchCreateUserFlowRequest = BatchCreateUserFlowRequest()) -> None:
+    def __init__(self) -> None:
+        batch_create_user_flow_request = BatchCreateUserFlowRequest()
         batch_create_user_flow_request.http_method = HttpMethod.POST
         batch_create_user_flow_request.uri = "/open-apis/attendance/v1/user_flows/batch_create"
         batch_create_user_flow_request.token_types = {AccessTokenType.TENANT}

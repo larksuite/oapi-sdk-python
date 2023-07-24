@@ -11,7 +11,7 @@ class AuditWebContext(object):
         "i_p": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_agent: Optional[str] = None
         self.i_p: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AuditWebContext(object):
 
 
 class AuditWebContextBuilder(object):
-    def __init__(self, audit_web_context: AuditWebContext = AuditWebContext({})) -> None:
-        self._audit_web_context: AuditWebContext = audit_web_context
+    def __init__(self) -> None:
+        self._audit_web_context = AuditWebContext()
 
     def user_agent(self, user_agent: str) -> "AuditWebContextBuilder":
         self._audit_web_context.user_agent = user_agent

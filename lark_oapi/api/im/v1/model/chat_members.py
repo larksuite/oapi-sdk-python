@@ -10,7 +10,7 @@ class ChatMembers(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ChatMembers(object):
 
 
 class ChatMembersBuilder(object):
-    def __init__(self, chat_members: ChatMembers = ChatMembers({})) -> None:
-        self._chat_members: ChatMembers = chat_members
+    def __init__(self) -> None:
+        self._chat_members = ChatMembers()
 
     def user_id(self, user_id: str) -> "ChatMembersBuilder":
         self._chat_members.user_id = user_id

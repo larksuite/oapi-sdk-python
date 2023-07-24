@@ -18,7 +18,7 @@ class CustomList(object):
         "conditions": List[Conditions],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.custom_type: Optional[int] = None
         self.key: Optional[str] = None
         self.need_fill: Optional[bool] = None
@@ -34,8 +34,8 @@ class CustomList(object):
 
 
 class CustomListBuilder(object):
-    def __init__(self, custom_list: CustomList = CustomList({})) -> None:
-        self._custom_list: CustomList = custom_list
+    def __init__(self) -> None:
+        self._custom_list = CustomList()
 
     def custom_type(self, custom_type: int) -> "CustomListBuilder":
         self._custom_list.custom_type = custom_type

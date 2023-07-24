@@ -19,7 +19,8 @@ class GetNotificationRequest(BaseRequest):
 
 class GetNotificationRequestBuilder(object):
 
-    def __init__(self, get_notification_request: GetNotificationRequest = GetNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        get_notification_request = GetNotificationRequest()
         get_notification_request.http_method = HttpMethod.GET
         get_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id"
         get_notification_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

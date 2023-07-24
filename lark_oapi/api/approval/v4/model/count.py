@@ -11,7 +11,7 @@ class Count(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.total: Optional[int] = None
         self.has_more: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Count(object):
 
 
 class CountBuilder(object):
-    def __init__(self, count: Count = Count({})) -> None:
-        self._count: Count = count
+    def __init__(self) -> None:
+        self._count = Count()
 
     def total(self, total: int) -> "CountBuilder":
         self._count.total = total

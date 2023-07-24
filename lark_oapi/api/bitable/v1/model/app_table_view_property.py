@@ -14,7 +14,7 @@ class AppTableViewProperty(object):
         "hierarchy_config": AppTableViewPropertyHierarchyConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.filter_info: Optional[AppTableViewPropertyFilterInfo] = None
         self.hidden_fields: Optional[List[str]] = None
         self.hierarchy_config: Optional[AppTableViewPropertyHierarchyConfig] = None
@@ -26,8 +26,8 @@ class AppTableViewProperty(object):
 
 
 class AppTableViewPropertyBuilder(object):
-    def __init__(self, app_table_view_property: AppTableViewProperty = AppTableViewProperty({})) -> None:
-        self._app_table_view_property: AppTableViewProperty = app_table_view_property
+    def __init__(self) -> None:
+        self._app_table_view_property = AppTableViewProperty()
 
     def filter_info(self, filter_info: AppTableViewPropertyFilterInfo) -> "AppTableViewPropertyBuilder":
         self._app_table_view_property.filter_info = filter_info

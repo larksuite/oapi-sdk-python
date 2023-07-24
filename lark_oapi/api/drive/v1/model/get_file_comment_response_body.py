@@ -22,7 +22,7 @@ class GetFileCommentResponseBody(object):
         "reply_list": ReplyList,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.comment_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.create_time: Optional[int] = None
@@ -43,9 +43,8 @@ class GetFileCommentResponseBody(object):
 
 
 class GetFileCommentResponseBodyBuilder(object):
-    def __init__(self,
-                 get_file_comment_response_body: GetFileCommentResponseBody = GetFileCommentResponseBody({})) -> None:
-        self._get_file_comment_response_body: GetFileCommentResponseBody = get_file_comment_response_body
+    def __init__(self) -> None:
+        self._get_file_comment_response_body = GetFileCommentResponseBody()
 
     def comment_id(self, comment_id: str) -> "GetFileCommentResponseBodyBuilder":
         self._get_file_comment_response_body.comment_id = comment_id

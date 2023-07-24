@@ -10,7 +10,7 @@ class PatchAppTableRequestBody(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class PatchAppTableRequestBody(object):
 
 
 class PatchAppTableRequestBodyBuilder(object):
-    def __init__(self, patch_app_table_request_body: PatchAppTableRequestBody = PatchAppTableRequestBody({})) -> None:
-        self._patch_app_table_request_body: PatchAppTableRequestBody = patch_app_table_request_body
+    def __init__(self) -> None:
+        self._patch_app_table_request_body = PatchAppTableRequestBody()
 
     def name(self, name: str) -> "PatchAppTableRequestBodyBuilder":
         self._patch_app_table_request_body.name = name

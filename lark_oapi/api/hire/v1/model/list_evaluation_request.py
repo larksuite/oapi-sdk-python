@@ -23,7 +23,8 @@ class ListEvaluationRequest(BaseRequest):
 
 class ListEvaluationRequestBuilder(object):
 
-    def __init__(self, list_evaluation_request: ListEvaluationRequest = ListEvaluationRequest()) -> None:
+    def __init__(self) -> None:
+        list_evaluation_request = ListEvaluationRequest()
         list_evaluation_request.http_method = HttpMethod.GET
         list_evaluation_request.uri = "/open-apis/hire/v1/evaluations"
         list_evaluation_request.token_types = {AccessTokenType.TENANT}

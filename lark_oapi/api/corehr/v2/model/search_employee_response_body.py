@@ -13,7 +13,7 @@ class SearchEmployeeResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Employee]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class SearchEmployeeResponseBody(object):
 
 
 class SearchEmployeeResponseBodyBuilder(object):
-    def __init__(self,
-                 search_employee_response_body: SearchEmployeeResponseBody = SearchEmployeeResponseBody({})) -> None:
-        self._search_employee_response_body: SearchEmployeeResponseBody = search_employee_response_body
+    def __init__(self) -> None:
+        self._search_employee_response_body = SearchEmployeeResponseBody()
 
     def items(self, items: List[Employee]) -> "SearchEmployeeResponseBodyBuilder":
         self._search_employee_response_body.items = items

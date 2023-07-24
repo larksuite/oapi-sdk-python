@@ -16,7 +16,7 @@ class ReplyElement(object):
         "person": Person,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.text_run: Optional[TextRun] = None
         self.docs_link: Optional[DocsLink] = None
@@ -29,8 +29,8 @@ class ReplyElement(object):
 
 
 class ReplyElementBuilder(object):
-    def __init__(self, reply_element: ReplyElement = ReplyElement({})) -> None:
-        self._reply_element: ReplyElement = reply_element
+    def __init__(self) -> None:
+        self._reply_element = ReplyElement()
 
     def type(self, type: str) -> "ReplyElementBuilder":
         self._reply_element.type = type

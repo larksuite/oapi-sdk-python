@@ -19,7 +19,8 @@ class RawContentDocumentRequest(BaseRequest):
 
 class RawContentDocumentRequestBuilder(object):
 
-    def __init__(self, raw_content_document_request: RawContentDocumentRequest = RawContentDocumentRequest()) -> None:
+    def __init__(self) -> None:
+        raw_content_document_request = RawContentDocumentRequest()
         raw_content_document_request.http_method = HttpMethod.GET
         raw_content_document_request.uri = "/open-apis/docx/v1/documents/:document_id/raw_content"
         raw_content_document_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

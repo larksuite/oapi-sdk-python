@@ -21,7 +21,7 @@ class Department(object):
         "cost_center_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.sub_type: Optional[Enum] = None
         self.manager: Optional[str] = None
@@ -39,8 +39,8 @@ class Department(object):
 
 
 class DepartmentBuilder(object):
-    def __init__(self, department: Department = Department({})) -> None:
-        self._department: Department = department
+    def __init__(self) -> None:
+        self._department = Department()
 
     def id(self, id: str) -> "DepartmentBuilder":
         self._department.id = id

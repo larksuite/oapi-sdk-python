@@ -18,7 +18,7 @@ class Definition(object):
         "create_link_mobile": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.approval_name: Optional[str] = None
         self.group_name: Optional[str] = None
@@ -36,8 +36,8 @@ class Definition(object):
 
 
 class DefinitionBuilder(object):
-    def __init__(self, definition: Definition = Definition({})) -> None:
-        self._definition: Definition = definition
+    def __init__(self) -> None:
+        self._definition = Definition()
 
     def approval_code(self, approval_code: str) -> "DefinitionBuilder":
         self._definition.approval_code = approval_code

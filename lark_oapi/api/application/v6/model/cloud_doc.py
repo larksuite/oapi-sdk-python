@@ -14,7 +14,7 @@ class CloudDoc(object):
         "mode": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.space_url: Optional[str] = None
         self.i18n: Optional[List[CloudDocI18nInfo]] = None
         self.icon_url: Optional[str] = None
@@ -27,8 +27,8 @@ class CloudDoc(object):
 
 
 class CloudDocBuilder(object):
-    def __init__(self, cloud_doc: CloudDoc = CloudDoc({})) -> None:
-        self._cloud_doc: CloudDoc = cloud_doc
+    def __init__(self) -> None:
+        self._cloud_doc = CloudDoc()
 
     def space_url(self, space_url: str) -> "CloudDocBuilder":
         self._cloud_doc.space_url = space_url

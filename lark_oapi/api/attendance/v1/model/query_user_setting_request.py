@@ -20,7 +20,8 @@ class QueryUserSettingRequest(BaseRequest):
 
 class QueryUserSettingRequestBuilder(object):
 
-    def __init__(self, query_user_setting_request: QueryUserSettingRequest = QueryUserSettingRequest()) -> None:
+    def __init__(self) -> None:
+        query_user_setting_request = QueryUserSettingRequest()
         query_user_setting_request.http_method = HttpMethod.GET
         query_user_setting_request.uri = "/open-apis/attendance/v1/user_settings/query"
         query_user_setting_request.token_types = {AccessTokenType.TENANT}

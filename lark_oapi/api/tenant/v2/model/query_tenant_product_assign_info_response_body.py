@@ -11,7 +11,7 @@ class QueryTenantProductAssignInfoResponseBody(object):
         "assign_info_list": List[TenantAssignInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.assign_info_list: Optional[List[TenantAssignInfo]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QueryTenantProductAssignInfoResponseBody(object):
 
 
 class QueryTenantProductAssignInfoResponseBodyBuilder(object):
-    def __init__(self,
-                 query_tenant_product_assign_info_response_body: QueryTenantProductAssignInfoResponseBody = QueryTenantProductAssignInfoResponseBody(
-                     {})) -> None:
-        self._query_tenant_product_assign_info_response_body: QueryTenantProductAssignInfoResponseBody = query_tenant_product_assign_info_response_body
+    def __init__(self) -> None:
+        self._query_tenant_product_assign_info_response_body = QueryTenantProductAssignInfoResponseBody()
 
     def assign_info_list(self,
                          assign_info_list: List[TenantAssignInfo]) -> "QueryTenantProductAssignInfoResponseBodyBuilder":

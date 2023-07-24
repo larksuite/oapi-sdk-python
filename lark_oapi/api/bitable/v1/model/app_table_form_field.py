@@ -14,7 +14,7 @@ class AppTableFormField(object):
         "visible": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_id: Optional[str] = None
         self.title: Optional[str] = None
         self.description: Optional[str] = None
@@ -28,8 +28,8 @@ class AppTableFormField(object):
 
 
 class AppTableFormFieldBuilder(object):
-    def __init__(self, app_table_form_field: AppTableFormField = AppTableFormField({})) -> None:
-        self._app_table_form_field: AppTableFormField = app_table_form_field
+    def __init__(self) -> None:
+        self._app_table_form_field = AppTableFormField()
 
     def field_id(self, field_id: str) -> "AppTableFormFieldBuilder":
         self._app_table_form_field.field_id = field_id

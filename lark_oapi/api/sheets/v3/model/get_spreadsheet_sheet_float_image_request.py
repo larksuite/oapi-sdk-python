@@ -20,8 +20,8 @@ class GetSpreadsheetSheetFloatImageRequest(BaseRequest):
 
 class GetSpreadsheetSheetFloatImageRequestBuilder(object):
 
-    def __init__(self,
-                 get_spreadsheet_sheet_float_image_request: GetSpreadsheetSheetFloatImageRequest = GetSpreadsheetSheetFloatImageRequest()) -> None:
+    def __init__(self) -> None:
+        get_spreadsheet_sheet_float_image_request = GetSpreadsheetSheetFloatImageRequest()
         get_spreadsheet_sheet_float_image_request.http_method = HttpMethod.GET
         get_spreadsheet_sheet_float_image_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
         get_spreadsheet_sheet_float_image_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

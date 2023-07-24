@@ -18,8 +18,8 @@ class DeleteTopNoticeChatTopNoticeRequest(BaseRequest):
 
 class DeleteTopNoticeChatTopNoticeRequestBuilder(object):
 
-    def __init__(self,
-                 delete_top_notice_chat_top_notice_request: DeleteTopNoticeChatTopNoticeRequest = DeleteTopNoticeChatTopNoticeRequest()) -> None:
+    def __init__(self) -> None:
+        delete_top_notice_chat_top_notice_request = DeleteTopNoticeChatTopNoticeRequest()
         delete_top_notice_chat_top_notice_request.http_method = HttpMethod.POST
         delete_top_notice_chat_top_notice_request.uri = "/open-apis/im/v1/chats/:chat_id/top_notice/delete_top_notice"
         delete_top_notice_chat_top_notice_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

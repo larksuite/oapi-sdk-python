@@ -19,7 +19,7 @@ class AppRoleMember(object):
         "member_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id: Optional[str] = None
         self.open_id: Optional[str] = None
         self.union_id: Optional[str] = None
@@ -38,8 +38,8 @@ class AppRoleMember(object):
 
 
 class AppRoleMemberBuilder(object):
-    def __init__(self, app_role_member: AppRoleMember = AppRoleMember({})) -> None:
-        self._app_role_member: AppRoleMember = app_role_member
+    def __init__(self) -> None:
+        self._app_role_member = AppRoleMember()
 
     def member_id(self, member_id: str) -> "AppRoleMemberBuilder":
         self._app_role_member.member_id = member_id

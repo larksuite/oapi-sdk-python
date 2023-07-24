@@ -11,7 +11,7 @@ class Url(object):
         "link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         self.link: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Url(object):
 
 
 class UrlBuilder(object):
-    def __init__(self, url: Url = Url({})) -> None:
-        self._url: Url = url
+    def __init__(self) -> None:
+        self._url = Url()
 
     def text(self, text: str) -> "UrlBuilder":
         self._url.text = text

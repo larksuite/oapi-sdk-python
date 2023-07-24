@@ -11,7 +11,7 @@ class AppCustomCategoryI18nInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.i18n_key: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class AppCustomCategoryI18nInfo(object):
 
 
 class AppCustomCategoryI18nInfoBuilder(object):
-    def __init__(self,
-                 app_custom_category_i18n_info: AppCustomCategoryI18nInfo = AppCustomCategoryI18nInfo({})) -> None:
-        self._app_custom_category_i18n_info: AppCustomCategoryI18nInfo = app_custom_category_i18n_info
+    def __init__(self) -> None:
+        self._app_custom_category_i18n_info = AppCustomCategoryI18nInfo()
 
     def i18n_key(self, i18n_key: str) -> "AppCustomCategoryI18nInfoBuilder":
         self._app_custom_category_i18n_info.i18n_key = i18n_key

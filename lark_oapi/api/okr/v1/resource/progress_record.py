@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.okr.v1.model.create_progress_record_request import CreateProgressRecordRequest
-from lark_oapi.api.okr.v1.model.create_progress_record_response import CreateProgressRecordResponse
-from lark_oapi.api.okr.v1.model.delete_progress_record_request import DeleteProgressRecordRequest
-from lark_oapi.api.okr.v1.model.delete_progress_record_response import DeleteProgressRecordResponse
-from lark_oapi.api.okr.v1.model.get_progress_record_request import GetProgressRecordRequest
-from lark_oapi.api.okr.v1.model.get_progress_record_response import GetProgressRecordResponse
-from lark_oapi.api.okr.v1.model.update_progress_record_request import UpdateProgressRecordRequest
-from lark_oapi.api.okr.v1.model.update_progress_record_response import UpdateProgressRecordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_progress_record_request import CreateProgressRecordRequest
+from ..model.create_progress_record_response import CreateProgressRecordResponse
+from ..model.delete_progress_record_request import DeleteProgressRecordRequest
+from ..model.delete_progress_record_response import DeleteProgressRecordResponse
+from ..model.get_progress_record_request import GetProgressRecordRequest
+from ..model.get_progress_record_response import GetProgressRecordResponse
+from ..model.update_progress_record_request import UpdateProgressRecordRequest
+from ..model.update_progress_record_response import UpdateProgressRecordResponse
 
 
 class ProgressRecord(object):
@@ -22,7 +22,10 @@ class ProgressRecord(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateProgressRecordRequest,
-               option: RequestOption = RequestOption()) -> CreateProgressRecordResponse:
+               option: Optional[RequestOption] = None) -> CreateProgressRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class ProgressRecord(object):
         return response
 
     def delete(self, request: DeleteProgressRecordRequest,
-               option: RequestOption = RequestOption()) -> DeleteProgressRecordResponse:
+               option: Optional[RequestOption] = None) -> DeleteProgressRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class ProgressRecord(object):
         return response
 
     def get(self, request: GetProgressRecordRequest,
-            option: RequestOption = RequestOption()) -> GetProgressRecordResponse:
+            option: Optional[RequestOption] = None) -> GetProgressRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class ProgressRecord(object):
         return response
 
     def update(self, request: UpdateProgressRecordRequest,
-               option: RequestOption = RequestOption()) -> UpdateProgressRecordResponse:
+               option: Optional[RequestOption] = None) -> UpdateProgressRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

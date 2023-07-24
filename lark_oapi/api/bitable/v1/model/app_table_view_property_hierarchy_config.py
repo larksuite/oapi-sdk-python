@@ -10,7 +10,7 @@ class AppTableViewPropertyHierarchyConfig(object):
         "field_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class AppTableViewPropertyHierarchyConfig(object):
 
 
 class AppTableViewPropertyHierarchyConfigBuilder(object):
-    def __init__(self,
-                 app_table_view_property_hierarchy_config: AppTableViewPropertyHierarchyConfig = AppTableViewPropertyHierarchyConfig(
-                     {})) -> None:
-        self._app_table_view_property_hierarchy_config: AppTableViewPropertyHierarchyConfig = app_table_view_property_hierarchy_config
+    def __init__(self) -> None:
+        self._app_table_view_property_hierarchy_config = AppTableViewPropertyHierarchyConfig()
 
     def field_id(self, field_id: str) -> "AppTableViewPropertyHierarchyConfigBuilder":
         self._app_table_view_property_hierarchy_config.field_id = field_id

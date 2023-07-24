@@ -12,7 +12,7 @@ class LinkChatResponseBody(object):
         "is_permanent": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.share_link: Optional[str] = None
         self.expire_time: Optional[str] = None
         self.is_permanent: Optional[bool] = None
@@ -24,8 +24,8 @@ class LinkChatResponseBody(object):
 
 
 class LinkChatResponseBodyBuilder(object):
-    def __init__(self, link_chat_response_body: LinkChatResponseBody = LinkChatResponseBody({})) -> None:
-        self._link_chat_response_body: LinkChatResponseBody = link_chat_response_body
+    def __init__(self) -> None:
+        self._link_chat_response_body = LinkChatResponseBody()
 
     def share_link(self, share_link: str) -> "LinkChatResponseBodyBuilder":
         self._link_chat_response_body.share_link = share_link

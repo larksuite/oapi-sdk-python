@@ -11,7 +11,7 @@ class GetReferralWebsiteJobPostResponseBody(object):
         "job_post": PortalJobPost,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_post: Optional[PortalJobPost] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetReferralWebsiteJobPostResponseBody(object):
 
 
 class GetReferralWebsiteJobPostResponseBodyBuilder(object):
-    def __init__(self,
-                 get_referral_website_job_post_response_body: GetReferralWebsiteJobPostResponseBody = GetReferralWebsiteJobPostResponseBody(
-                     {})) -> None:
-        self._get_referral_website_job_post_response_body: GetReferralWebsiteJobPostResponseBody = get_referral_website_job_post_response_body
+    def __init__(self) -> None:
+        self._get_referral_website_job_post_response_body = GetReferralWebsiteJobPostResponseBody()
 
     def job_post(self, job_post: PortalJobPost) -> "GetReferralWebsiteJobPostResponseBodyBuilder":
         self._get_referral_website_job_post_response_body.job_post = job_post

@@ -19,7 +19,8 @@ class CreateImageRequest(BaseRequest):
 
 class CreateImageRequestBuilder(object):
 
-    def __init__(self, create_image_request: CreateImageRequest = CreateImageRequest()) -> None:
+    def __init__(self) -> None:
+        create_image_request = CreateImageRequest()
         create_image_request.http_method = HttpMethod.POST
         create_image_request.uri = "/open-apis/im/v1/images"
         create_image_request.token_types = {AccessTokenType.TENANT}

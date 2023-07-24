@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.add_managers_chat_managers_request import AddManagersChatManagersRequest
-from lark_oapi.api.im.v1.model.add_managers_chat_managers_response import AddManagersChatManagersResponse
-from lark_oapi.api.im.v1.model.delete_managers_chat_managers_request import DeleteManagersChatManagersRequest
-from lark_oapi.api.im.v1.model.delete_managers_chat_managers_response import DeleteManagersChatManagersResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.add_managers_chat_managers_request import AddManagersChatManagersRequest
+from ..model.add_managers_chat_managers_response import AddManagersChatManagersResponse
+from ..model.delete_managers_chat_managers_request import DeleteManagersChatManagersRequest
+from ..model.delete_managers_chat_managers_response import DeleteManagersChatManagersResponse
 
 
 class ChatManagers(object):
@@ -18,7 +18,10 @@ class ChatManagers(object):
         self.config: Optional[Config] = config
 
     def add_managers(self, request: AddManagersChatManagersRequest,
-                     option: RequestOption = RequestOption()) -> AddManagersChatManagersResponse:
+                     option: Optional[RequestOption] = None) -> AddManagersChatManagersResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class ChatManagers(object):
         return response
 
     def delete_managers(self, request: DeleteManagersChatManagersRequest,
-                        option: RequestOption = RequestOption()) -> DeleteManagersChatManagersResponse:
+                        option: Optional[RequestOption] = None) -> DeleteManagersChatManagersResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

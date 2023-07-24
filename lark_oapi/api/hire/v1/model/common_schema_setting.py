@@ -12,7 +12,7 @@ class CommonSchemaSetting(object):
         "config": CommonSchemaConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_type: Optional[int] = None
         self.config: Optional[CommonSchemaConfig] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class CommonSchemaSetting(object):
 
 
 class CommonSchemaSettingBuilder(object):
-    def __init__(self, common_schema_setting: CommonSchemaSetting = CommonSchemaSetting({})) -> None:
-        self._common_schema_setting: CommonSchemaSetting = common_schema_setting
+    def __init__(self) -> None:
+        self._common_schema_setting = CommonSchemaSetting()
 
     def object_type(self, object_type: int) -> "CommonSchemaSettingBuilder":
         self._common_schema_setting.object_type = object_type

@@ -14,7 +14,7 @@ class TaskRollback(object):
         "task_def_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.task_id: Optional[int] = None
         self.reason: Optional[str] = None
@@ -28,8 +28,8 @@ class TaskRollback(object):
 
 
 class TaskRollbackBuilder(object):
-    def __init__(self, task_rollback: TaskRollback = TaskRollback({})) -> None:
-        self._task_rollback: TaskRollback = task_rollback
+    def __init__(self) -> None:
+        self._task_rollback = TaskRollback()
 
     def user_id(self, user_id: str) -> "TaskRollbackBuilder":
         self._task_rollback.user_id = user_id

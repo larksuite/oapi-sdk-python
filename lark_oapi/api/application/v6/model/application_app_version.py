@@ -29,7 +29,7 @@ class ApplicationAppVersion(object):
         "remark": AppVersionRemark,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_id: Optional[str] = None
         self.version: Optional[str] = None
         self.version_id: Optional[int] = None
@@ -54,8 +54,8 @@ class ApplicationAppVersion(object):
 
 
 class ApplicationAppVersionBuilder(object):
-    def __init__(self, application_app_version: ApplicationAppVersion = ApplicationAppVersion({})) -> None:
-        self._application_app_version: ApplicationAppVersion = application_app_version
+    def __init__(self) -> None:
+        self._application_app_version = ApplicationAppVersion()
 
     def app_id(self, app_id: str) -> "ApplicationAppVersionBuilder":
         self._application_app_version.app_id = app_id

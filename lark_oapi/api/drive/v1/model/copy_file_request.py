@@ -20,7 +20,8 @@ class CopyFileRequest(BaseRequest):
 
 class CopyFileRequestBuilder(object):
 
-    def __init__(self, copy_file_request: CopyFileRequest = CopyFileRequest()) -> None:
+    def __init__(self) -> None:
+        copy_file_request = CopyFileRequest()
         copy_file_request.http_method = HttpMethod.POST
         copy_file_request.uri = "/open-apis/drive/v1/files/:file_token/copy"
         copy_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -13,7 +13,7 @@ class ListGroupResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_list: Optional[List[GroupMeta]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListGroupResponseBody(object):
 
 
 class ListGroupResponseBodyBuilder(object):
-    def __init__(self, list_group_response_body: ListGroupResponseBody = ListGroupResponseBody({})) -> None:
-        self._list_group_response_body: ListGroupResponseBody = list_group_response_body
+    def __init__(self) -> None:
+        self._list_group_response_body = ListGroupResponseBody()
 
     def group_list(self, group_list: List[GroupMeta]) -> "ListGroupResponseBodyBuilder":
         self._list_group_response_body.group_list = group_list

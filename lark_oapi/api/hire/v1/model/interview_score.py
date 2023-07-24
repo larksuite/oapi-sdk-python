@@ -15,7 +15,7 @@ class InterviewScore(object):
         "en_description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.level: Optional[int] = None
         self.zh_name: Optional[str] = None
@@ -30,8 +30,8 @@ class InterviewScore(object):
 
 
 class InterviewScoreBuilder(object):
-    def __init__(self, interview_score: InterviewScore = InterviewScore({})) -> None:
-        self._interview_score: InterviewScore = interview_score
+    def __init__(self) -> None:
+        self._interview_score = InterviewScore()
 
     def id(self, id: str) -> "InterviewScoreBuilder":
         self._interview_score.id = id

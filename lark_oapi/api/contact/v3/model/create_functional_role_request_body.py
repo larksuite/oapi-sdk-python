@@ -10,7 +10,7 @@ class CreateFunctionalRoleRequestBody(object):
         "role_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role_name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class CreateFunctionalRoleRequestBody(object):
 
 
 class CreateFunctionalRoleRequestBodyBuilder(object):
-    def __init__(self,
-                 create_functional_role_request_body: CreateFunctionalRoleRequestBody = CreateFunctionalRoleRequestBody(
-                     {})) -> None:
-        self._create_functional_role_request_body: CreateFunctionalRoleRequestBody = create_functional_role_request_body
+    def __init__(self) -> None:
+        self._create_functional_role_request_body = CreateFunctionalRoleRequestBody()
 
     def role_name(self, role_name: str) -> "CreateFunctionalRoleRequestBodyBuilder":
         self._create_functional_role_request_body.role_name = role_name

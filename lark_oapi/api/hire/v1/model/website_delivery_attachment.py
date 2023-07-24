@@ -19,7 +19,7 @@ class WebsiteDeliveryAttachment(object):
         "identification": WebsiteDeliveryAttachmentIndentification,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_post_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.resume_file_id: Optional[str] = None
@@ -37,8 +37,8 @@ class WebsiteDeliveryAttachment(object):
 
 
 class WebsiteDeliveryAttachmentBuilder(object):
-    def __init__(self, website_delivery_attachment: WebsiteDeliveryAttachment = WebsiteDeliveryAttachment({})) -> None:
-        self._website_delivery_attachment: WebsiteDeliveryAttachment = website_delivery_attachment
+    def __init__(self) -> None:
+        self._website_delivery_attachment = WebsiteDeliveryAttachment()
 
     def job_post_id(self, job_post_id: str) -> "WebsiteDeliveryAttachmentBuilder":
         self._website_delivery_attachment.job_post_id = job_post_id

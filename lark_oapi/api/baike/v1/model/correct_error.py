@@ -13,7 +13,7 @@ class CorrectError(object):
         "correct_pairs": List[CorrectPair],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[int] = None
         self.total: Optional[int] = None
         self.correct_pairs: Optional[List[CorrectPair]] = None
@@ -25,8 +25,8 @@ class CorrectError(object):
 
 
 class CorrectErrorBuilder(object):
-    def __init__(self, correct_error: CorrectError = CorrectError({})) -> None:
-        self._correct_error: CorrectError = correct_error
+    def __init__(self) -> None:
+        self._correct_error = CorrectError()
 
     def type(self, type: int) -> "CorrectErrorBuilder":
         self._correct_error.type = type

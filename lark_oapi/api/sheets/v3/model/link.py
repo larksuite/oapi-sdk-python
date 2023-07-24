@@ -13,7 +13,7 @@ class Link(object):
         "segment_styles": List[SegmentStyle],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         self.link: Optional[str] = None
         self.segment_styles: Optional[List[SegmentStyle]] = None
@@ -25,8 +25,8 @@ class Link(object):
 
 
 class LinkBuilder(object):
-    def __init__(self, link: Link = Link({})) -> None:
-        self._link: Link = link
+    def __init__(self) -> None:
+        self._link = Link()
 
     def text(self, text: str) -> "LinkBuilder":
         self._link.text = text

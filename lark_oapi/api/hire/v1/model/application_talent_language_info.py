@@ -12,7 +12,7 @@ class ApplicationTalentLanguageInfo(object):
         "proficiency": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.language: Optional[int] = None
         self.proficiency: Optional[int] = None
@@ -24,9 +24,8 @@ class ApplicationTalentLanguageInfo(object):
 
 
 class ApplicationTalentLanguageInfoBuilder(object):
-    def __init__(self, application_talent_language_info: ApplicationTalentLanguageInfo = ApplicationTalentLanguageInfo(
-        {})) -> None:
-        self._application_talent_language_info: ApplicationTalentLanguageInfo = application_talent_language_info
+    def __init__(self) -> None:
+        self._application_talent_language_info = ApplicationTalentLanguageInfo()
 
     def id(self, id: str) -> "ApplicationTalentLanguageInfoBuilder":
         self._application_talent_language_info.id = id

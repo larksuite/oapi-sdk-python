@@ -12,7 +12,7 @@ class BatchCreateUserDailyShiftRequestBody(object):
         "operator_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_daily_shifts: Optional[List[UserDailyShift]] = None
         self.operator_id: Optional[str] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class BatchCreateUserDailyShiftRequestBody(object):
 
 
 class BatchCreateUserDailyShiftRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_create_user_daily_shift_request_body: BatchCreateUserDailyShiftRequestBody = BatchCreateUserDailyShiftRequestBody(
-                     {})) -> None:
-        self._batch_create_user_daily_shift_request_body: BatchCreateUserDailyShiftRequestBody = batch_create_user_daily_shift_request_body
+    def __init__(self) -> None:
+        self._batch_create_user_daily_shift_request_body = BatchCreateUserDailyShiftRequestBody()
 
     def user_daily_shifts(self,
                           user_daily_shifts: List[UserDailyShift]) -> "BatchCreateUserDailyShiftRequestBodyBuilder":

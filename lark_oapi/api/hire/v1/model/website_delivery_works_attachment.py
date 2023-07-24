@@ -10,7 +10,7 @@ class WebsiteDeliveryWorksAttachment(object):
         "file_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class WebsiteDeliveryWorksAttachment(object):
 
 
 class WebsiteDeliveryWorksAttachmentBuilder(object):
-    def __init__(self,
-                 website_delivery_works_attachment: WebsiteDeliveryWorksAttachment = WebsiteDeliveryWorksAttachment(
-                     {})) -> None:
-        self._website_delivery_works_attachment: WebsiteDeliveryWorksAttachment = website_delivery_works_attachment
+    def __init__(self) -> None:
+        self._website_delivery_works_attachment = WebsiteDeliveryWorksAttachment()
 
     def file_id(self, file_id: str) -> "WebsiteDeliveryWorksAttachmentBuilder":
         self._website_delivery_works_attachment.file_id = file_id

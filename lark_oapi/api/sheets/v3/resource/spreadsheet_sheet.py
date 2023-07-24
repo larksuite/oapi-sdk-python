@@ -2,22 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.sheets.v3.model.find_spreadsheet_sheet_request import FindSpreadsheetSheetRequest
-from lark_oapi.api.sheets.v3.model.find_spreadsheet_sheet_response import FindSpreadsheetSheetResponse
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_request import GetSpreadsheetSheetRequest
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_response import GetSpreadsheetSheetResponse
-from lark_oapi.api.sheets.v3.model.move_dimension_spreadsheet_sheet_request import MoveDimensionSpreadsheetSheetRequest
-from lark_oapi.api.sheets.v3.model.move_dimension_spreadsheet_sheet_response import \
-    MoveDimensionSpreadsheetSheetResponse
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_request import QuerySpreadsheetSheetRequest
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_response import QuerySpreadsheetSheetResponse
-from lark_oapi.api.sheets.v3.model.replace_spreadsheet_sheet_request import ReplaceSpreadsheetSheetRequest
-from lark_oapi.api.sheets.v3.model.replace_spreadsheet_sheet_response import ReplaceSpreadsheetSheetResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.find_spreadsheet_sheet_request import FindSpreadsheetSheetRequest
+from ..model.find_spreadsheet_sheet_response import FindSpreadsheetSheetResponse
+from ..model.get_spreadsheet_sheet_request import GetSpreadsheetSheetRequest
+from ..model.get_spreadsheet_sheet_response import GetSpreadsheetSheetResponse
+from ..model.move_dimension_spreadsheet_sheet_request import MoveDimensionSpreadsheetSheetRequest
+from ..model.move_dimension_spreadsheet_sheet_response import MoveDimensionSpreadsheetSheetResponse
+from ..model.query_spreadsheet_sheet_request import QuerySpreadsheetSheetRequest
+from ..model.query_spreadsheet_sheet_response import QuerySpreadsheetSheetResponse
+from ..model.replace_spreadsheet_sheet_request import ReplaceSpreadsheetSheetRequest
+from ..model.replace_spreadsheet_sheet_response import ReplaceSpreadsheetSheetResponse
 
 
 class SpreadsheetSheet(object):
@@ -25,7 +24,10 @@ class SpreadsheetSheet(object):
         self.config: Optional[Config] = config
 
     def find(self, request: FindSpreadsheetSheetRequest,
-             option: RequestOption = RequestOption()) -> FindSpreadsheetSheetResponse:
+             option: Optional[RequestOption] = None) -> FindSpreadsheetSheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +41,10 @@ class SpreadsheetSheet(object):
         return response
 
     def get(self, request: GetSpreadsheetSheetRequest,
-            option: RequestOption = RequestOption()) -> GetSpreadsheetSheetResponse:
+            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -53,7 +58,10 @@ class SpreadsheetSheet(object):
         return response
 
     def move_dimension(self, request: MoveDimensionSpreadsheetSheetRequest,
-                       option: RequestOption = RequestOption()) -> MoveDimensionSpreadsheetSheetResponse:
+                       option: Optional[RequestOption] = None) -> MoveDimensionSpreadsheetSheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -68,7 +76,10 @@ class SpreadsheetSheet(object):
         return response
 
     def query(self, request: QuerySpreadsheetSheetRequest,
-              option: RequestOption = RequestOption()) -> QuerySpreadsheetSheetResponse:
+              option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -83,7 +94,10 @@ class SpreadsheetSheet(object):
         return response
 
     def replace(self, request: ReplaceSpreadsheetSheetRequest,
-                option: RequestOption = RequestOption()) -> ReplaceSpreadsheetSheetResponse:
+                option: Optional[RequestOption] = None) -> ReplaceSpreadsheetSheetResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

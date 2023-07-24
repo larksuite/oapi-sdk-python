@@ -12,7 +12,7 @@ class GetResourceReservationListResponse(BaseResponse):
         "data": GetResourceReservationListResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetResourceReservationListResponseBody] = None
         init(self, d, self._types)

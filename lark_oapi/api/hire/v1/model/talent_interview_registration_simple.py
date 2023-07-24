@@ -12,7 +12,7 @@ class TalentInterviewRegistrationSimple(object):
         "download_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.registration_time: Optional[int] = None
         self.download_url: Optional[str] = None
@@ -24,10 +24,8 @@ class TalentInterviewRegistrationSimple(object):
 
 
 class TalentInterviewRegistrationSimpleBuilder(object):
-    def __init__(self,
-                 talent_interview_registration_simple: TalentInterviewRegistrationSimple = TalentInterviewRegistrationSimple(
-                     {})) -> None:
-        self._talent_interview_registration_simple: TalentInterviewRegistrationSimple = talent_interview_registration_simple
+    def __init__(self) -> None:
+        self._talent_interview_registration_simple = TalentInterviewRegistrationSimple()
 
     def id(self, id: str) -> "TalentInterviewRegistrationSimpleBuilder":
         self._talent_interview_registration_simple.id = id

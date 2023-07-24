@@ -12,7 +12,7 @@ class PatchPermissionPublicResponse(BaseResponse):
         "data": PatchPermissionPublicResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[PatchPermissionPublicResponseBody] = None
         init(self, d, self._types)

@@ -20,7 +20,8 @@ class GetApplicationRequest(BaseRequest):
 
 class GetApplicationRequestBuilder(object):
 
-    def __init__(self, get_application_request: GetApplicationRequest = GetApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        get_application_request = GetApplicationRequest()
         get_application_request.http_method = HttpMethod.GET
         get_application_request.uri = "/open-apis/application/v6/applications/:app_id"
         get_application_request.token_types = {AccessTokenType.TENANT}

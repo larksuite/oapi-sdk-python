@@ -11,7 +11,7 @@ class PatchPermissionPublicResponseBody(object):
         "permission_public": PermissionPublic,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission_public: Optional[PermissionPublic] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchPermissionPublicResponseBody(object):
 
 
 class PatchPermissionPublicResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_permission_public_response_body: PatchPermissionPublicResponseBody = PatchPermissionPublicResponseBody(
-                     {})) -> None:
-        self._patch_permission_public_response_body: PatchPermissionPublicResponseBody = patch_permission_public_response_body
+    def __init__(self) -> None:
+        self._patch_permission_public_response_body = PatchPermissionPublicResponseBody()
 
     def permission_public(self, permission_public: PermissionPublic) -> "PatchPermissionPublicResponseBodyBuilder":
         self._patch_permission_public_response_body.permission_public = permission_public

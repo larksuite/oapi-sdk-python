@@ -22,7 +22,8 @@ class ListDocumentBlockRequest(BaseRequest):
 
 class ListDocumentBlockRequestBuilder(object):
 
-    def __init__(self, list_document_block_request: ListDocumentBlockRequest = ListDocumentBlockRequest()) -> None:
+    def __init__(self) -> None:
+        list_document_block_request = ListDocumentBlockRequest()
         list_document_block_request.http_method = HttpMethod.GET
         list_document_block_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks"
         list_document_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

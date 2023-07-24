@@ -13,7 +13,7 @@ class MeetingRecording(object):
         "duration": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.meeting_id: Optional[int] = None
         self.url: Optional[str] = None
@@ -26,8 +26,8 @@ class MeetingRecording(object):
 
 
 class MeetingRecordingBuilder(object):
-    def __init__(self, meeting_recording: MeetingRecording = MeetingRecording({})) -> None:
-        self._meeting_recording: MeetingRecording = meeting_recording
+    def __init__(self) -> None:
+        self._meeting_recording = MeetingRecording()
 
     def id(self, id: int) -> "MeetingRecordingBuilder":
         self._meeting_recording.id = id

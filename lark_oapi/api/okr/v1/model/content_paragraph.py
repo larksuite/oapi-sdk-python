@@ -13,7 +13,7 @@ class ContentParagraph(object):
         "elements": List[ContentParagraphElement],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.style: Optional[ContentParagraphStyle] = None
         self.elements: Optional[List[ContentParagraphElement]] = None
         init(self, d, self._types)
@@ -24,8 +24,8 @@ class ContentParagraph(object):
 
 
 class ContentParagraphBuilder(object):
-    def __init__(self, content_paragraph: ContentParagraph = ContentParagraph({})) -> None:
-        self._content_paragraph: ContentParagraph = content_paragraph
+    def __init__(self) -> None:
+        self._content_paragraph = ContentParagraph()
 
     def style(self, style: ContentParagraphStyle) -> "ContentParagraphBuilder":
         self._content_paragraph.style = style

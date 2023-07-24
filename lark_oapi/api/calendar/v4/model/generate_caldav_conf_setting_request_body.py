@@ -10,7 +10,7 @@ class GenerateCaldavConfSettingRequestBody(object):
         "device_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.device_name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class GenerateCaldavConfSettingRequestBody(object):
 
 
 class GenerateCaldavConfSettingRequestBodyBuilder(object):
-    def __init__(self,
-                 generate_caldav_conf_setting_request_body: GenerateCaldavConfSettingRequestBody = GenerateCaldavConfSettingRequestBody(
-                     {})) -> None:
-        self._generate_caldav_conf_setting_request_body: GenerateCaldavConfSettingRequestBody = generate_caldav_conf_setting_request_body
+    def __init__(self) -> None:
+        self._generate_caldav_conf_setting_request_body = GenerateCaldavConfSettingRequestBody()
 
     def device_name(self, device_name: str) -> "GenerateCaldavConfSettingRequestBodyBuilder":
         self._generate_caldav_conf_setting_request_body.device_name = device_name

@@ -18,7 +18,7 @@ class AgentSkill(object):
         "agents": List[Agent],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.helpdesk_id: Optional[str] = None
         self.name: Optional[str] = None
@@ -34,8 +34,8 @@ class AgentSkill(object):
 
 
 class AgentSkillBuilder(object):
-    def __init__(self, agent_skill: AgentSkill = AgentSkill({})) -> None:
-        self._agent_skill: AgentSkill = agent_skill
+    def __init__(self) -> None:
+        self._agent_skill = AgentSkill()
 
     def id(self, id: str) -> "AgentSkillBuilder":
         self._agent_skill.id = id

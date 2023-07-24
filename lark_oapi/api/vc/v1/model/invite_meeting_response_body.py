@@ -11,7 +11,7 @@ class InviteMeetingResponseBody(object):
         "invite_results": List[MeetingInviteStatus],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.invite_results: Optional[List[MeetingInviteStatus]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class InviteMeetingResponseBody(object):
 
 
 class InviteMeetingResponseBodyBuilder(object):
-    def __init__(self, invite_meeting_response_body: InviteMeetingResponseBody = InviteMeetingResponseBody({})) -> None:
-        self._invite_meeting_response_body: InviteMeetingResponseBody = invite_meeting_response_body
+    def __init__(self) -> None:
+        self._invite_meeting_response_body = InviteMeetingResponseBody()
 
     def invite_results(self, invite_results: List[MeetingInviteStatus]) -> "InviteMeetingResponseBodyBuilder":
         self._invite_meeting_response_body.invite_results = invite_results

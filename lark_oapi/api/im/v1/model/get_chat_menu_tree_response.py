@@ -12,7 +12,7 @@ class GetChatMenuTreeResponse(BaseResponse):
         "data": GetChatMenuTreeResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetChatMenuTreeResponseBody] = None
         init(self, d, self._types)

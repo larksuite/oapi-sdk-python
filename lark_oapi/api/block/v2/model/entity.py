@@ -22,7 +22,7 @@ class Entity(object):
         "extra": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block_id: Optional[str] = None
         self.title: Optional[str] = None
         self.block_type_id: Optional[str] = None
@@ -44,8 +44,8 @@ class Entity(object):
 
 
 class EntityBuilder(object):
-    def __init__(self, entity: Entity = Entity({})) -> None:
-        self._entity: Entity = entity
+    def __init__(self) -> None:
+        self._entity = Entity()
 
     def block_id(self, block_id: str) -> "EntityBuilder":
         self._entity.block_id = block_id

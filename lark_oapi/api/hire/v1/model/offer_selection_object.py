@@ -12,7 +12,7 @@ class OfferSelectionObject(object):
         "option_list": List[OfferSchemaDetailOption],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.schema_version: Optional[int] = None
         self.option_list: Optional[List[OfferSchemaDetailOption]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class OfferSelectionObject(object):
 
 
 class OfferSelectionObjectBuilder(object):
-    def __init__(self, offer_selection_object: OfferSelectionObject = OfferSelectionObject({})) -> None:
-        self._offer_selection_object: OfferSelectionObject = offer_selection_object
+    def __init__(self) -> None:
+        self._offer_selection_object = OfferSelectionObject()
 
     def schema_version(self, schema_version: int) -> "OfferSelectionObjectBuilder":
         self._offer_selection_object.schema_version = schema_version

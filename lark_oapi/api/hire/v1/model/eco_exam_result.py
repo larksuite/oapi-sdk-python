@@ -15,7 +15,7 @@ class EcoExamResult(object):
         "detail_list": List[EcoExamResultDetail],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.result: Optional[str] = None
         self.result_time: Optional[str] = None
         self.report_list: Optional[List[EcoExamResultReport]] = None
@@ -28,8 +28,8 @@ class EcoExamResult(object):
 
 
 class EcoExamResultBuilder(object):
-    def __init__(self, eco_exam_result: EcoExamResult = EcoExamResult({})) -> None:
-        self._eco_exam_result: EcoExamResult = eco_exam_result
+    def __init__(self) -> None:
+        self._eco_exam_result = EcoExamResult()
 
     def result(self, result: str) -> "EcoExamResultBuilder":
         self._eco_exam_result.result = result

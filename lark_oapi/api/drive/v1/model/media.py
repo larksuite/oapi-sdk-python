@@ -13,7 +13,7 @@ class Media(object):
         "mime_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.file_name: Optional[str] = None
         self.size: Optional[int] = None
@@ -26,8 +26,8 @@ class Media(object):
 
 
 class MediaBuilder(object):
-    def __init__(self, media: Media = Media({})) -> None:
-        self._media: Media = media
+    def __init__(self) -> None:
+        self._media = Media()
 
     def file_token(self, file_token: str) -> "MediaBuilder":
         self._media.file_token = file_token

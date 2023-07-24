@@ -10,7 +10,7 @@ class CpstStandardType(object):
         "api_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.api_name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class CpstStandardType(object):
 
 
 class CpstStandardTypeBuilder(object):
-    def __init__(self, cpst_standard_type: CpstStandardType = CpstStandardType({})) -> None:
-        self._cpst_standard_type: CpstStandardType = cpst_standard_type
+    def __init__(self) -> None:
+        self._cpst_standard_type = CpstStandardType()
 
     def api_name(self, api_name: str) -> "CpstStandardTypeBuilder":
         self._cpst_standard_type.api_name = api_name

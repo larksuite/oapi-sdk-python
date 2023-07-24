@@ -12,7 +12,7 @@ class SearchGroupResponse(BaseResponse):
         "data": SearchGroupResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[SearchGroupResponseBody] = None
         init(self, d, self._types)

@@ -11,7 +11,7 @@ class CopyAppDashboardResponseBody(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block_id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class CopyAppDashboardResponseBody(object):
 
 
 class CopyAppDashboardResponseBodyBuilder(object):
-    def __init__(self, copy_app_dashboard_response_body: CopyAppDashboardResponseBody = CopyAppDashboardResponseBody(
-        {})) -> None:
-        self._copy_app_dashboard_response_body: CopyAppDashboardResponseBody = copy_app_dashboard_response_body
+    def __init__(self) -> None:
+        self._copy_app_dashboard_response_body = CopyAppDashboardResponseBody()
 
     def block_id(self, block_id: str) -> "CopyAppDashboardResponseBodyBuilder":
         self._copy_app_dashboard_response_body.block_id = block_id

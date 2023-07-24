@@ -13,7 +13,7 @@ class Avatar(object):
         "avatar_640": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.avatar_origin: Optional[str] = None
         self.avatar_72: Optional[str] = None
         self.avatar_240: Optional[str] = None
@@ -26,8 +26,8 @@ class Avatar(object):
 
 
 class AvatarBuilder(object):
-    def __init__(self, avatar: Avatar = Avatar({})) -> None:
-        self._avatar: Avatar = avatar
+    def __init__(self) -> None:
+        self._avatar = Avatar()
 
     def avatar_origin(self, avatar_origin: str) -> "AvatarBuilder":
         self._avatar.avatar_origin = avatar_origin

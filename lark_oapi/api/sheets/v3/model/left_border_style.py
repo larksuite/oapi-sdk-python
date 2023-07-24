@@ -11,7 +11,7 @@ class LeftBorderStyle(object):
         "color": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.style: Optional[str] = None
         self.color: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class LeftBorderStyle(object):
 
 
 class LeftBorderStyleBuilder(object):
-    def __init__(self, left_border_style: LeftBorderStyle = LeftBorderStyle({})) -> None:
-        self._left_border_style: LeftBorderStyle = left_border_style
+    def __init__(self) -> None:
+        self._left_border_style = LeftBorderStyle()
 
     def style(self, style: str) -> "LeftBorderStyleBuilder":
         self._left_border_style.style = style

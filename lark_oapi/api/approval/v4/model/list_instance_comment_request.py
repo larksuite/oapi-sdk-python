@@ -22,8 +22,8 @@ class ListInstanceCommentRequest(BaseRequest):
 
 class ListInstanceCommentRequestBuilder(object):
 
-    def __init__(self,
-                 list_instance_comment_request: ListInstanceCommentRequest = ListInstanceCommentRequest()) -> None:
+    def __init__(self) -> None:
+        list_instance_comment_request = ListInstanceCommentRequest()
         list_instance_comment_request.http_method = HttpMethod.GET
         list_instance_comment_request.uri = "/open-apis/approval/v4/instances/:instance_id/comments"
         list_instance_comment_request.token_types = {AccessTokenType.TENANT}

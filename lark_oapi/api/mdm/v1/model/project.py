@@ -27,7 +27,7 @@ class Project(object):
         "multi_language_name": List[MultiLanguage],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.project_uid: Optional[str] = None
         self.code: Optional[str] = None
         self.name: Optional[str] = None
@@ -51,8 +51,8 @@ class Project(object):
 
 
 class ProjectBuilder(object):
-    def __init__(self, project: Project = Project({})) -> None:
-        self._project: Project = project
+    def __init__(self) -> None:
+        self._project = Project()
 
     def project_uid(self, project_uid: str) -> "ProjectBuilder":
         self._project.project_uid = project_uid

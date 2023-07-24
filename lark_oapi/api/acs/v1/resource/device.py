@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.acs.v1.model.list_device_request import ListDeviceRequest
-from lark_oapi.api.acs.v1.model.list_device_response import ListDeviceResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_device_request import ListDeviceRequest
+from ..model.list_device_response import ListDeviceResponse
 
 
 class Device(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListDeviceRequest, option: RequestOption = RequestOption()) -> ListDeviceResponse:
+    def list(self, request: ListDeviceRequest, option: Optional[RequestOption] = None) -> ListDeviceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

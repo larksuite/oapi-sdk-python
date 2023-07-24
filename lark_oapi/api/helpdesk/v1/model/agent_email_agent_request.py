@@ -15,7 +15,8 @@ class AgentEmailAgentRequest(BaseRequest):
 
 class AgentEmailAgentRequestBuilder(object):
 
-    def __init__(self, agent_email_agent_request: AgentEmailAgentRequest = AgentEmailAgentRequest()) -> None:
+    def __init__(self) -> None:
+        agent_email_agent_request = AgentEmailAgentRequest()
         agent_email_agent_request.http_method = HttpMethod.GET
         agent_email_agent_request.uri = "/open-apis/helpdesk/v1/agent_emails"
         agent_email_agent_request.token_types = {AccessTokenType.TENANT}

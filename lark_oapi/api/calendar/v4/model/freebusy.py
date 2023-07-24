@@ -11,7 +11,7 @@ class Freebusy(object):
         "end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Freebusy(object):
 
 
 class FreebusyBuilder(object):
-    def __init__(self, freebusy: Freebusy = Freebusy({})) -> None:
-        self._freebusy: Freebusy = freebusy
+    def __init__(self) -> None:
+        self._freebusy = Freebusy()
 
     def start_time(self, start_time: str) -> "FreebusyBuilder":
         self._freebusy.start_time = start_time

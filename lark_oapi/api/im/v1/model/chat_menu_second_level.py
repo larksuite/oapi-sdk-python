@@ -12,7 +12,7 @@ class ChatMenuSecondLevel(object):
         "chat_menu_item": ChatMenuItem,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_menu_second_level_id: Optional[int] = None
         self.chat_menu_item: Optional[ChatMenuItem] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ChatMenuSecondLevel(object):
 
 
 class ChatMenuSecondLevelBuilder(object):
-    def __init__(self, chat_menu_second_level: ChatMenuSecondLevel = ChatMenuSecondLevel({})) -> None:
-        self._chat_menu_second_level: ChatMenuSecondLevel = chat_menu_second_level
+    def __init__(self) -> None:
+        self._chat_menu_second_level = ChatMenuSecondLevel()
 
     def chat_menu_second_level_id(self, chat_menu_second_level_id: int) -> "ChatMenuSecondLevelBuilder":
         self._chat_menu_second_level.chat_menu_second_level_id = chat_menu_second_level_id

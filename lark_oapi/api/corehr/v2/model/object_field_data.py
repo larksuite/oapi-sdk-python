@@ -11,7 +11,7 @@ class ObjectFieldData(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_name: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ObjectFieldData(object):
 
 
 class ObjectFieldDataBuilder(object):
-    def __init__(self, object_field_data: ObjectFieldData = ObjectFieldData({})) -> None:
-        self._object_field_data: ObjectFieldData = object_field_data
+    def __init__(self) -> None:
+        self._object_field_data = ObjectFieldData()
 
     def field_name(self, field_name: str) -> "ObjectFieldDataBuilder":
         self._object_field_data.field_name = field_name

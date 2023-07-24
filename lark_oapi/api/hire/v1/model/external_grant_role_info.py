@@ -10,7 +10,7 @@ class ExternalGrantRoleInfo(object):
         "role_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ExternalGrantRoleInfo(object):
 
 
 class ExternalGrantRoleInfoBuilder(object):
-    def __init__(self, external_grant_role_info: ExternalGrantRoleInfo = ExternalGrantRoleInfo({})) -> None:
-        self._external_grant_role_info: ExternalGrantRoleInfo = external_grant_role_info
+    def __init__(self) -> None:
+        self._external_grant_role_info = ExternalGrantRoleInfo()
 
     def role_id(self, role_id: str) -> "ExternalGrantRoleInfoBuilder":
         self._external_grant_role_info.role_id = role_id

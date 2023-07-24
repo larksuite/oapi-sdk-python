@@ -16,7 +16,7 @@ class EducationInfo(object):
         "academic_ranking": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.degree: Optional[int] = None
         self.end_time: Optional[int] = None
         self.field_of_study: Optional[str] = None
@@ -32,8 +32,8 @@ class EducationInfo(object):
 
 
 class EducationInfoBuilder(object):
-    def __init__(self, education_info: EducationInfo = EducationInfo({})) -> None:
-        self._education_info: EducationInfo = education_info
+    def __init__(self) -> None:
+        self._education_info = EducationInfo()
 
     def degree(self, degree: int) -> "EducationInfoBuilder":
         self._education_info.degree = degree

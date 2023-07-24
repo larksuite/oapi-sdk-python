@@ -24,7 +24,7 @@ class JobConfig(object):
         "interview_appointment_config": InterviewAppointmentConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_apply_schema_id: Optional[str] = None
         self.offer_process_conf: Optional[str] = None
         self.recommended_evaluator_id_list: Optional[List[str]] = None
@@ -45,8 +45,8 @@ class JobConfig(object):
 
 
 class JobConfigBuilder(object):
-    def __init__(self, job_config: JobConfig = JobConfig({})) -> None:
-        self._job_config: JobConfig = job_config
+    def __init__(self) -> None:
+        self._job_config = JobConfig()
 
     def offer_apply_schema_id(self, offer_apply_schema_id: str) -> "JobConfigBuilder":
         self._job_config.offer_apply_schema_id = offer_apply_schema_id

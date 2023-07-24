@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.process_approval_info_request import ProcessApprovalInfoRequest
-from lark_oapi.api.attendance.v1.model.process_approval_info_response import ProcessApprovalInfoResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.process_approval_info_request import ProcessApprovalInfoRequest
+from ..model.process_approval_info_response import ProcessApprovalInfoResponse
 
 
 class ApprovalInfo(object):
@@ -16,7 +16,10 @@ class ApprovalInfo(object):
         self.config: Optional[Config] = config
 
     def process(self, request: ProcessApprovalInfoRequest,
-                option: RequestOption = RequestOption()) -> ProcessApprovalInfoResponse:
+                option: Optional[RequestOption] = None) -> ProcessApprovalInfoResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class LocationInfoEvent(object):
         "coord": Coordinate,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.coord: Optional[Coordinate] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class LocationInfoEvent(object):
 
 
 class LocationInfoEventBuilder(object):
-    def __init__(self, location_info_event: LocationInfoEvent = LocationInfoEvent({})) -> None:
-        self._location_info_event: LocationInfoEvent = location_info_event
+    def __init__(self) -> None:
+        self._location_info_event = LocationInfoEvent()
 
     def coord(self, coord: Coordinate) -> "LocationInfoEventBuilder":
         self._location_info_event.coord = coord

@@ -12,7 +12,7 @@ class TextRun(object):
         "text_element_style": TextElementStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.text_element_style: Optional[TextElementStyle] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class TextRun(object):
 
 
 class TextRunBuilder(object):
-    def __init__(self, text_run: TextRun = TextRun({})) -> None:
-        self._text_run: TextRun = text_run
+    def __init__(self) -> None:
+        self._text_run = TextRun()
 
     def content(self, content: str) -> "TextRunBuilder":
         self._text_run.content = content

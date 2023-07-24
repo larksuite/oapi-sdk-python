@@ -2,23 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.create_public_mailbox_request import CreatePublicMailboxRequest
-from lark_oapi.api.mail.v1.model.create_public_mailbox_response import CreatePublicMailboxResponse
-from lark_oapi.api.mail.v1.model.delete_public_mailbox_request import DeletePublicMailboxRequest
-from lark_oapi.api.mail.v1.model.delete_public_mailbox_response import DeletePublicMailboxResponse
-from lark_oapi.api.mail.v1.model.get_public_mailbox_request import GetPublicMailboxRequest
-from lark_oapi.api.mail.v1.model.get_public_mailbox_response import GetPublicMailboxResponse
-from lark_oapi.api.mail.v1.model.list_public_mailbox_request import ListPublicMailboxRequest
-from lark_oapi.api.mail.v1.model.list_public_mailbox_response import ListPublicMailboxResponse
-from lark_oapi.api.mail.v1.model.patch_public_mailbox_request import PatchPublicMailboxRequest
-from lark_oapi.api.mail.v1.model.patch_public_mailbox_response import PatchPublicMailboxResponse
-from lark_oapi.api.mail.v1.model.update_public_mailbox_request import UpdatePublicMailboxRequest
-from lark_oapi.api.mail.v1.model.update_public_mailbox_response import UpdatePublicMailboxResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_public_mailbox_request import CreatePublicMailboxRequest
+from ..model.create_public_mailbox_response import CreatePublicMailboxResponse
+from ..model.delete_public_mailbox_request import DeletePublicMailboxRequest
+from ..model.delete_public_mailbox_response import DeletePublicMailboxResponse
+from ..model.get_public_mailbox_request import GetPublicMailboxRequest
+from ..model.get_public_mailbox_response import GetPublicMailboxResponse
+from ..model.list_public_mailbox_request import ListPublicMailboxRequest
+from ..model.list_public_mailbox_response import ListPublicMailboxResponse
+from ..model.patch_public_mailbox_request import PatchPublicMailboxRequest
+from ..model.patch_public_mailbox_response import PatchPublicMailboxResponse
+from ..model.update_public_mailbox_request import UpdatePublicMailboxRequest
+from ..model.update_public_mailbox_response import UpdatePublicMailboxResponse
 
 
 class PublicMailbox(object):
@@ -26,7 +26,10 @@ class PublicMailbox(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreatePublicMailboxRequest,
-               option: RequestOption = RequestOption()) -> CreatePublicMailboxResponse:
+               option: Optional[RequestOption] = None) -> CreatePublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class PublicMailbox(object):
         return response
 
     def delete(self, request: DeletePublicMailboxRequest,
-               option: RequestOption = RequestOption()) -> DeletePublicMailboxResponse:
+               option: Optional[RequestOption] = None) -> DeletePublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -53,8 +59,10 @@ class PublicMailbox(object):
 
         return response
 
-    def get(self, request: GetPublicMailboxRequest,
-            option: RequestOption = RequestOption()) -> GetPublicMailboxResponse:
+    def get(self, request: GetPublicMailboxRequest, option: Optional[RequestOption] = None) -> GetPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -68,7 +76,10 @@ class PublicMailbox(object):
         return response
 
     def list(self, request: ListPublicMailboxRequest,
-             option: RequestOption = RequestOption()) -> ListPublicMailboxResponse:
+             option: Optional[RequestOption] = None) -> ListPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -82,7 +93,10 @@ class PublicMailbox(object):
         return response
 
     def patch(self, request: PatchPublicMailboxRequest,
-              option: RequestOption = RequestOption()) -> PatchPublicMailboxResponse:
+              option: Optional[RequestOption] = None) -> PatchPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -96,7 +110,10 @@ class PublicMailbox(object):
         return response
 
     def update(self, request: UpdatePublicMailboxRequest,
-               option: RequestOption = RequestOption()) -> UpdatePublicMailboxResponse:
+               option: Optional[RequestOption] = None) -> UpdatePublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

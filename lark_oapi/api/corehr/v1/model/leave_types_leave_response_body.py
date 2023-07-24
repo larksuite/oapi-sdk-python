@@ -13,7 +13,7 @@ class LeaveTypesLeaveResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_type_list: Optional[List[LeaveType]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,9 +25,8 @@ class LeaveTypesLeaveResponseBody(object):
 
 
 class LeaveTypesLeaveResponseBodyBuilder(object):
-    def __init__(self, leave_types_leave_response_body: LeaveTypesLeaveResponseBody = LeaveTypesLeaveResponseBody(
-        {})) -> None:
-        self._leave_types_leave_response_body: LeaveTypesLeaveResponseBody = leave_types_leave_response_body
+    def __init__(self) -> None:
+        self._leave_types_leave_response_body = LeaveTypesLeaveResponseBody()
 
     def leave_type_list(self, leave_type_list: List[LeaveType]) -> "LeaveTypesLeaveResponseBodyBuilder":
         self._leave_types_leave_response_body.leave_type_list = leave_type_list

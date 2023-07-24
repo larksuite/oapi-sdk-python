@@ -26,7 +26,7 @@ class OkrObjectiveKr(object):
         "mentioned_user_list": List[OkrObjectiveAlignedObjectiveOwner],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.content: Optional[str] = None
         self.score: Optional[int] = None
@@ -49,8 +49,8 @@ class OkrObjectiveKr(object):
 
 
 class OkrObjectiveKrBuilder(object):
-    def __init__(self, okr_objective_kr: OkrObjectiveKr = OkrObjectiveKr({})) -> None:
-        self._okr_objective_kr: OkrObjectiveKr = okr_objective_kr
+    def __init__(self) -> None:
+        self._okr_objective_kr = OkrObjectiveKr()
 
     def id(self, id: int) -> "OkrObjectiveKrBuilder":
         self._okr_objective_kr.id = id

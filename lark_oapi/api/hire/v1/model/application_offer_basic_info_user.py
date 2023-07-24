@@ -19,7 +19,7 @@ class ApplicationOfferBasicInfoUser(object):
         "in_app_scope": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -37,9 +37,8 @@ class ApplicationOfferBasicInfoUser(object):
 
 
 class ApplicationOfferBasicInfoUserBuilder(object):
-    def __init__(self, application_offer_basic_info_user: ApplicationOfferBasicInfoUser = ApplicationOfferBasicInfoUser(
-        {})) -> None:
-        self._application_offer_basic_info_user: ApplicationOfferBasicInfoUser = application_offer_basic_info_user
+    def __init__(self) -> None:
+        self._application_offer_basic_info_user = ApplicationOfferBasicInfoUser()
 
     def id(self, id: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.id = id

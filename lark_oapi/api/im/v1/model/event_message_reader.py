@@ -13,7 +13,7 @@ class EventMessageReader(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reader_id: Optional[UserId] = None
         self.read_time: Optional[str] = None
         self.tenant_key: Optional[str] = None
@@ -25,8 +25,8 @@ class EventMessageReader(object):
 
 
 class EventMessageReaderBuilder(object):
-    def __init__(self, event_message_reader: EventMessageReader = EventMessageReader({})) -> None:
-        self._event_message_reader: EventMessageReader = event_message_reader
+    def __init__(self) -> None:
+        self._event_message_reader = EventMessageReader()
 
     def reader_id(self, reader_id: UserId) -> "EventMessageReaderBuilder":
         self._event_message_reader.reader_id = reader_id

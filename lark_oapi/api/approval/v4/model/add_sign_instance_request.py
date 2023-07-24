@@ -19,7 +19,8 @@ class AddSignInstanceRequest(BaseRequest):
 
 class AddSignInstanceRequestBuilder(object):
 
-    def __init__(self, add_sign_instance_request: AddSignInstanceRequest = AddSignInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        add_sign_instance_request = AddSignInstanceRequest()
         add_sign_instance_request.http_method = HttpMethod.POST
         add_sign_instance_request.uri = "/open-apis/approval/v4/instances/add_sign"
         add_sign_instance_request.token_types = {AccessTokenType.TENANT}

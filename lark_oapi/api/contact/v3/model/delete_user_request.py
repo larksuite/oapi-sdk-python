@@ -21,7 +21,8 @@ class DeleteUserRequest(BaseRequest):
 
 class DeleteUserRequestBuilder(object):
 
-    def __init__(self, delete_user_request: DeleteUserRequest = DeleteUserRequest()) -> None:
+    def __init__(self) -> None:
+        delete_user_request = DeleteUserRequest()
         delete_user_request.http_method = HttpMethod.DELETE
         delete_user_request.uri = "/open-apis/contact/v3/users/:user_id"
         delete_user_request.token_types = {AccessTokenType.TENANT}

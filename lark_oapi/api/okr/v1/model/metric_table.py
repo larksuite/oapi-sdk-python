@@ -12,7 +12,7 @@ class MetricTable(object):
         "period_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_table_id: Optional[str] = None
         self.metric_table_name: Optional[str] = None
         self.period_id: Optional[str] = None
@@ -24,8 +24,8 @@ class MetricTable(object):
 
 
 class MetricTableBuilder(object):
-    def __init__(self, metric_table: MetricTable = MetricTable({})) -> None:
-        self._metric_table: MetricTable = metric_table
+    def __init__(self) -> None:
+        self._metric_table = MetricTable()
 
     def metric_table_id(self, metric_table_id: str) -> "MetricTableBuilder":
         self._metric_table.metric_table_id = metric_table_id

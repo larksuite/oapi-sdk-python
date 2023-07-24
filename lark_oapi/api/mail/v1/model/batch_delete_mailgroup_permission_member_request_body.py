@@ -10,7 +10,7 @@ class BatchDeleteMailgroupPermissionMemberRequestBody(object):
         "permission_member_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission_member_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class BatchDeleteMailgroupPermissionMemberRequestBody(object):
 
 
 class BatchDeleteMailgroupPermissionMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_delete_mailgroup_permission_member_request_body: BatchDeleteMailgroupPermissionMemberRequestBody = BatchDeleteMailgroupPermissionMemberRequestBody(
-                     {})) -> None:
-        self._batch_delete_mailgroup_permission_member_request_body: BatchDeleteMailgroupPermissionMemberRequestBody = batch_delete_mailgroup_permission_member_request_body
+    def __init__(self) -> None:
+        self._batch_delete_mailgroup_permission_member_request_body = BatchDeleteMailgroupPermissionMemberRequestBody()
 
     def permission_member_id_list(self, permission_member_id_list: List[
         str]) -> "BatchDeleteMailgroupPermissionMemberRequestBodyBuilder":

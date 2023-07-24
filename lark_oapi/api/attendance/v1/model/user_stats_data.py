@@ -13,7 +13,7 @@ class UserStatsData(object):
         "datas": List[UserStatsDataCell],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.user_id: Optional[str] = None
         self.datas: Optional[List[UserStatsDataCell]] = None
@@ -25,8 +25,8 @@ class UserStatsData(object):
 
 
 class UserStatsDataBuilder(object):
-    def __init__(self, user_stats_data: UserStatsData = UserStatsData({})) -> None:
-        self._user_stats_data: UserStatsData = user_stats_data
+    def __init__(self) -> None:
+        self._user_stats_data = UserStatsData()
 
     def name(self, name: str) -> "UserStatsDataBuilder":
         self._user_stats_data.name = name

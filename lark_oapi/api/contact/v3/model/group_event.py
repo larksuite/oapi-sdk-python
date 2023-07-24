@@ -11,7 +11,7 @@ class GroupEvent(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_group_id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class GroupEvent(object):
 
 
 class GroupEventBuilder(object):
-    def __init__(self, group_event: GroupEvent = GroupEvent({})) -> None:
-        self._group_event: GroupEvent = group_event
+    def __init__(self) -> None:
+        self._group_event = GroupEvent()
 
     def user_group_id(self, user_group_id: str) -> "GroupEventBuilder":
         self._group_event.user_group_id = user_group_id

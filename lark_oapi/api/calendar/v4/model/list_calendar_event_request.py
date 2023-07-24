@@ -24,7 +24,8 @@ class ListCalendarEventRequest(BaseRequest):
 
 class ListCalendarEventRequestBuilder(object):
 
-    def __init__(self, list_calendar_event_request: ListCalendarEventRequest = ListCalendarEventRequest()) -> None:
+    def __init__(self) -> None:
+        list_calendar_event_request = ListCalendarEventRequest()
         list_calendar_event_request.http_method = HttpMethod.GET
         list_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events"
         list_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -11,7 +11,7 @@ class UploadImageResponseBody(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class UploadImageResponseBody(object):
 
 
 class UploadImageResponseBodyBuilder(object):
-    def __init__(self, upload_image_response_body: UploadImageResponseBody = UploadImageResponseBody({})) -> None:
-        self._upload_image_response_body: UploadImageResponseBody = upload_image_response_body
+    def __init__(self) -> None:
+        self._upload_image_response_body = UploadImageResponseBody()
 
     def file_token(self, file_token: str) -> "UploadImageResponseBodyBuilder":
         self._upload_image_response_body.file_token = file_token

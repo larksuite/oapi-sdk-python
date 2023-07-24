@@ -20,7 +20,7 @@ class Offer(object):
         "job_info": OfferJobInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.basic_info: Optional[ApplicationOfferBasicInfo] = None
@@ -37,8 +37,8 @@ class Offer(object):
 
 
 class OfferBuilder(object):
-    def __init__(self, offer: Offer = Offer({})) -> None:
-        self._offer: Offer = offer
+    def __init__(self) -> None:
+        self._offer = Offer()
 
     def id(self, id: str) -> "OfferBuilder":
         self._offer.id = id

@@ -11,7 +11,7 @@ class ChatMenuTree(object):
         "chat_menu_top_levels": List[ChatMenuTopLevel],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_menu_top_levels: Optional[List[ChatMenuTopLevel]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ChatMenuTree(object):
 
 
 class ChatMenuTreeBuilder(object):
-    def __init__(self, chat_menu_tree: ChatMenuTree = ChatMenuTree({})) -> None:
-        self._chat_menu_tree: ChatMenuTree = chat_menu_tree
+    def __init__(self) -> None:
+        self._chat_menu_tree = ChatMenuTree()
 
     def chat_menu_top_levels(self, chat_menu_top_levels: List[ChatMenuTopLevel]) -> "ChatMenuTreeBuilder":
         self._chat_menu_tree.chat_menu_top_levels = chat_menu_top_levels

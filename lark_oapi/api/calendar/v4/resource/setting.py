@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.calendar.v4.model.generate_caldav_conf_setting_request import GenerateCaldavConfSettingRequest
-from lark_oapi.api.calendar.v4.model.generate_caldav_conf_setting_response import GenerateCaldavConfSettingResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.generate_caldav_conf_setting_request import GenerateCaldavConfSettingRequest
+from ..model.generate_caldav_conf_setting_response import GenerateCaldavConfSettingResponse
 
 
 class Setting(object):
@@ -16,7 +16,10 @@ class Setting(object):
         self.config: Optional[Config] = config
 
     def generate_caldav_conf(self, request: GenerateCaldavConfSettingRequest,
-                             option: RequestOption = RequestOption()) -> GenerateCaldavConfSettingResponse:
+                             option: Optional[RequestOption] = None) -> GenerateCaldavConfSettingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

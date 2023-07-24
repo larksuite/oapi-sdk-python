@@ -18,7 +18,7 @@ class WorkingHoursType(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.code: Optional[str] = None
         self.name: Optional[List[I18n]] = None
@@ -34,8 +34,8 @@ class WorkingHoursType(object):
 
 
 class WorkingHoursTypeBuilder(object):
-    def __init__(self, working_hours_type: WorkingHoursType = WorkingHoursType({})) -> None:
-        self._working_hours_type: WorkingHoursType = working_hours_type
+    def __init__(self) -> None:
+        self._working_hours_type = WorkingHoursType()
 
     def id(self, id: str) -> "WorkingHoursTypeBuilder":
         self._working_hours_type.id = id

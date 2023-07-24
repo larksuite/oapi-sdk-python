@@ -20,7 +20,7 @@ class CommonSchemaChild(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
@@ -38,8 +38,8 @@ class CommonSchemaChild(object):
 
 
 class CommonSchemaChildBuilder(object):
-    def __init__(self, common_schema_child: CommonSchemaChild = CommonSchemaChild({})) -> None:
-        self._common_schema_child: CommonSchemaChild = common_schema_child
+    def __init__(self) -> None:
+        self._common_schema_child = CommonSchemaChild()
 
     def id(self, id: str) -> "CommonSchemaChildBuilder":
         self._common_schema_child.id = id

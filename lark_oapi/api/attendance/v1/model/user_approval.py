@@ -20,7 +20,7 @@ class UserApproval(object):
         "time_zone": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.date: Optional[str] = None
         self.outs: Optional[List[UserOut]] = None
@@ -36,8 +36,8 @@ class UserApproval(object):
 
 
 class UserApprovalBuilder(object):
-    def __init__(self, user_approval: UserApproval = UserApproval({})) -> None:
-        self._user_approval: UserApproval = user_approval
+    def __init__(self) -> None:
+        self._user_approval = UserApproval()
 
     def user_id(self, user_id: str) -> "UserApprovalBuilder":
         self._user_approval.user_id = user_id

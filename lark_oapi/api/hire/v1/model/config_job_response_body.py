@@ -11,7 +11,7 @@ class ConfigJobResponseBody(object):
         "job_config": JobConfigResult,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_config: Optional[JobConfigResult] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ConfigJobResponseBody(object):
 
 
 class ConfigJobResponseBodyBuilder(object):
-    def __init__(self, config_job_response_body: ConfigJobResponseBody = ConfigJobResponseBody({})) -> None:
-        self._config_job_response_body: ConfigJobResponseBody = config_job_response_body
+    def __init__(self) -> None:
+        self._config_job_response_body = ConfigJobResponseBody()
 
     def job_config(self, job_config: JobConfigResult) -> "ConfigJobResponseBodyBuilder":
         self._config_job_response_body.job_config = job_config

@@ -11,7 +11,7 @@ class ContentDocsLink(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         self.title: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ContentDocsLink(object):
 
 
 class ContentDocsLinkBuilder(object):
-    def __init__(self, content_docs_link: ContentDocsLink = ContentDocsLink({})) -> None:
-        self._content_docs_link: ContentDocsLink = content_docs_link
+    def __init__(self) -> None:
+        self._content_docs_link = ContentDocsLink()
 
     def url(self, url: str) -> "ContentDocsLinkBuilder":
         self._content_docs_link.url = url

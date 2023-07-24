@@ -14,7 +14,7 @@ class SiteResumeProject(object):
         "end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.role: Optional[str] = None
         self.description: Optional[str] = None
@@ -28,8 +28,8 @@ class SiteResumeProject(object):
 
 
 class SiteResumeProjectBuilder(object):
-    def __init__(self, site_resume_project: SiteResumeProject = SiteResumeProject({})) -> None:
-        self._site_resume_project: SiteResumeProject = site_resume_project
+    def __init__(self) -> None:
+        self._site_resume_project = SiteResumeProject()
 
     def name(self, name: str) -> "SiteResumeProjectBuilder":
         self._site_resume_project.name = name

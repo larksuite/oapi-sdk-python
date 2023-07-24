@@ -10,7 +10,7 @@ class CreateImportTaskResponseBody(object):
         "ticket": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class CreateImportTaskResponseBody(object):
 
 
 class CreateImportTaskResponseBodyBuilder(object):
-    def __init__(self, create_import_task_response_body: CreateImportTaskResponseBody = CreateImportTaskResponseBody(
-        {})) -> None:
-        self._create_import_task_response_body: CreateImportTaskResponseBody = create_import_task_response_body
+    def __init__(self) -> None:
+        self._create_import_task_response_body = CreateImportTaskResponseBody()
 
     def ticket(self, ticket: str) -> "CreateImportTaskResponseBodyBuilder":
         self._create_import_task_response_body.ticket = ticket

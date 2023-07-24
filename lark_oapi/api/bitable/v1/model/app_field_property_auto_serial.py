@@ -12,7 +12,7 @@ class AppFieldPropertyAutoSerial(object):
         "options": List[AppFieldPropertyAutoSerialOptions],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.options: Optional[List[AppFieldPropertyAutoSerialOptions]] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class AppFieldPropertyAutoSerial(object):
 
 
 class AppFieldPropertyAutoSerialBuilder(object):
-    def __init__(self,
-                 app_field_property_auto_serial: AppFieldPropertyAutoSerial = AppFieldPropertyAutoSerial({})) -> None:
-        self._app_field_property_auto_serial: AppFieldPropertyAutoSerial = app_field_property_auto_serial
+    def __init__(self) -> None:
+        self._app_field_property_auto_serial = AppFieldPropertyAutoSerial()
 
     def type(self, type: str) -> "AppFieldPropertyAutoSerialBuilder":
         self._app_field_property_auto_serial.type = type

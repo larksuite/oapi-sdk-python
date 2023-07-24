@@ -19,8 +19,8 @@ class CreateExternalInstanceRequest(BaseRequest):
 
 class CreateExternalInstanceRequestBuilder(object):
 
-    def __init__(self,
-                 create_external_instance_request: CreateExternalInstanceRequest = CreateExternalInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        create_external_instance_request = CreateExternalInstanceRequest()
         create_external_instance_request.http_method = HttpMethod.POST
         create_external_instance_request.uri = "/open-apis/approval/v4/external_instances"
         create_external_instance_request.token_types = {AccessTokenType.TENANT}

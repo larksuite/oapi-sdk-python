@@ -33,7 +33,7 @@ class Task(object):
         "rich_description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.summary: Optional[str] = None
         self.description: Optional[str] = None
@@ -62,8 +62,8 @@ class Task(object):
 
 
 class TaskBuilder(object):
-    def __init__(self, task: Task = Task({})) -> None:
-        self._task: Task = task
+    def __init__(self) -> None:
+        self._task = Task()
 
     def id(self, id: str) -> "TaskBuilder":
         self._task.id = id

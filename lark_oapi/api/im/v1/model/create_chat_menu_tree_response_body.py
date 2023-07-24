@@ -11,7 +11,7 @@ class CreateChatMenuTreeResponseBody(object):
         "menu_tree": ChatMenuTree,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.menu_tree: Optional[ChatMenuTree] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateChatMenuTreeResponseBody(object):
 
 
 class CreateChatMenuTreeResponseBodyBuilder(object):
-    def __init__(self,
-                 create_chat_menu_tree_response_body: CreateChatMenuTreeResponseBody = CreateChatMenuTreeResponseBody(
-                     {})) -> None:
-        self._create_chat_menu_tree_response_body: CreateChatMenuTreeResponseBody = create_chat_menu_tree_response_body
+    def __init__(self) -> None:
+        self._create_chat_menu_tree_response_body = CreateChatMenuTreeResponseBody()
 
     def menu_tree(self, menu_tree: ChatMenuTree) -> "CreateChatMenuTreeResponseBodyBuilder":
         self._create_chat_menu_tree_response_body.menu_tree = menu_tree

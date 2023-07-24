@@ -11,7 +11,7 @@ class UpdateAppTableRecordResponseBody(object):
         "record": AppTableRecord,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.record: Optional[AppTableRecord] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class UpdateAppTableRecordResponseBody(object):
 
 
 class UpdateAppTableRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 update_app_table_record_response_body: UpdateAppTableRecordResponseBody = UpdateAppTableRecordResponseBody(
-                     {})) -> None:
-        self._update_app_table_record_response_body: UpdateAppTableRecordResponseBody = update_app_table_record_response_body
+    def __init__(self) -> None:
+        self._update_app_table_record_response_body = UpdateAppTableRecordResponseBody()
 
     def record(self, record: AppTableRecord) -> "UpdateAppTableRecordResponseBodyBuilder":
         self._update_app_table_record_response_body.record = record

@@ -19,7 +19,8 @@ class CreatePreHireRequest(BaseRequest):
 
 class CreatePreHireRequestBuilder(object):
 
-    def __init__(self, create_pre_hire_request: CreatePreHireRequest = CreatePreHireRequest()) -> None:
+    def __init__(self) -> None:
+        create_pre_hire_request = CreatePreHireRequest()
         create_pre_hire_request.http_method = HttpMethod.POST
         create_pre_hire_request.uri = "/open-apis/corehr/v2/pre_hires"
         create_pre_hire_request.token_types = {AccessTokenType.TENANT}

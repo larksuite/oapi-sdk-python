@@ -15,7 +15,7 @@ class SiteJobPostSearchRequest(object):
         "site_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.keyword: Optional[str] = None
         self.offset: Optional[int] = None
         self.limit: Optional[int] = None
@@ -30,8 +30,8 @@ class SiteJobPostSearchRequest(object):
 
 
 class SiteJobPostSearchRequestBuilder(object):
-    def __init__(self, site_job_post_search_request: SiteJobPostSearchRequest = SiteJobPostSearchRequest({})) -> None:
-        self._site_job_post_search_request: SiteJobPostSearchRequest = site_job_post_search_request
+    def __init__(self) -> None:
+        self._site_job_post_search_request = SiteJobPostSearchRequest()
 
     def keyword(self, keyword: str) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.keyword = keyword

@@ -10,7 +10,7 @@ class InsertTableRowRequest(object):
         "row_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.row_index: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class InsertTableRowRequest(object):
 
 
 class InsertTableRowRequestBuilder(object):
-    def __init__(self, insert_table_row_request: InsertTableRowRequest = InsertTableRowRequest({})) -> None:
-        self._insert_table_row_request: InsertTableRowRequest = insert_table_row_request
+    def __init__(self) -> None:
+        self._insert_table_row_request = InsertTableRowRequest()
 
     def row_index(self, row_index: int) -> "InsertTableRowRequestBuilder":
         self._insert_table_row_request.row_index = row_index

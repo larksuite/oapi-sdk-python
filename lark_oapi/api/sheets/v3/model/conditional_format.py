@@ -15,7 +15,7 @@ class ConditionalFormat(object):
         "ranges": ConditionalFormatRange,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.conditional_format_id: Optional[str] = None
         self.conditional_format_rule: Optional[ConditionalFormatRule] = None
         self.index: Optional[int] = None
@@ -28,8 +28,8 @@ class ConditionalFormat(object):
 
 
 class ConditionalFormatBuilder(object):
-    def __init__(self, conditional_format: ConditionalFormat = ConditionalFormat({})) -> None:
-        self._conditional_format: ConditionalFormat = conditional_format
+    def __init__(self) -> None:
+        self._conditional_format = ConditionalFormat()
 
     def conditional_format_id(self, conditional_format_id: str) -> "ConditionalFormatBuilder":
         self._conditional_format.conditional_format_id = conditional_format_id

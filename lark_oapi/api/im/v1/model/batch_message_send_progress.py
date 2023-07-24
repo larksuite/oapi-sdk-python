@@ -12,7 +12,7 @@ class BatchMessageSendProgress(object):
         "read_user_ids_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.valid_user_ids_count: Optional[int] = None
         self.success_user_ids_count: Optional[int] = None
         self.read_user_ids_count: Optional[int] = None
@@ -24,8 +24,8 @@ class BatchMessageSendProgress(object):
 
 
 class BatchMessageSendProgressBuilder(object):
-    def __init__(self, batch_message_send_progress: BatchMessageSendProgress = BatchMessageSendProgress({})) -> None:
-        self._batch_message_send_progress: BatchMessageSendProgress = batch_message_send_progress
+    def __init__(self) -> None:
+        self._batch_message_send_progress = BatchMessageSendProgress()
 
     def valid_user_ids_count(self, valid_user_ids_count: int) -> "BatchMessageSendProgressBuilder":
         self._batch_message_send_progress.valid_user_ids_count = valid_user_ids_count

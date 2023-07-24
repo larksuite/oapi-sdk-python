@@ -18,7 +18,7 @@ class Location(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.district: Optional[CodeNameObject] = None
@@ -34,8 +34,8 @@ class Location(object):
 
 
 class LocationBuilder(object):
-    def __init__(self, location: Location = Location({})) -> None:
-        self._location: Location = location
+    def __init__(self) -> None:
+        self._location = Location()
 
     def id(self, id: str) -> "LocationBuilder":
         self._location.id = id

@@ -13,7 +13,7 @@ class FaqImageFaqResponse(BaseResponse):
         "file_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.file: Optional[IO[Any]] = None
         self.file_name: Optional[str] = None

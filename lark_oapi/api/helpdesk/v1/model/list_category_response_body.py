@@ -11,7 +11,7 @@ class ListCategoryResponseBody(object):
         "categories": List[Category],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.categories: Optional[List[Category]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ListCategoryResponseBody(object):
 
 
 class ListCategoryResponseBodyBuilder(object):
-    def __init__(self, list_category_response_body: ListCategoryResponseBody = ListCategoryResponseBody({})) -> None:
-        self._list_category_response_body: ListCategoryResponseBody = list_category_response_body
+    def __init__(self) -> None:
+        self._list_category_response_body = ListCategoryResponseBody()
 
     def categories(self, categories: List[Category]) -> "ListCategoryResponseBodyBuilder":
         self._list_category_response_body.categories = categories

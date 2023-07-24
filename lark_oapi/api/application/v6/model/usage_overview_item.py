@@ -12,7 +12,7 @@ class UsageOverviewItem(object):
         "department_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.page_view: Optional[int] = None
         self.unique_visitor: Optional[int] = None
         self.department_id: Optional[str] = None
@@ -24,8 +24,8 @@ class UsageOverviewItem(object):
 
 
 class UsageOverviewItemBuilder(object):
-    def __init__(self, usage_overview_item: UsageOverviewItem = UsageOverviewItem({})) -> None:
-        self._usage_overview_item: UsageOverviewItem = usage_overview_item
+    def __init__(self) -> None:
+        self._usage_overview_item = UsageOverviewItem()
 
     def page_view(self, page_view: int) -> "UsageOverviewItemBuilder":
         self._usage_overview_item.page_view = page_view

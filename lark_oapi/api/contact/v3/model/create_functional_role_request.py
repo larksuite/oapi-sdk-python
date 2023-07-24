@@ -19,8 +19,8 @@ class CreateFunctionalRoleRequest(BaseRequest):
 
 class CreateFunctionalRoleRequestBuilder(object):
 
-    def __init__(self,
-                 create_functional_role_request: CreateFunctionalRoleRequest = CreateFunctionalRoleRequest()) -> None:
+    def __init__(self) -> None:
+        create_functional_role_request = CreateFunctionalRoleRequest()
         create_functional_role_request.http_method = HttpMethod.POST
         create_functional_role_request.uri = "/open-apis/contact/v3/functional_roles"
         create_functional_role_request.token_types = {AccessTokenType.TENANT}

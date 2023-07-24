@@ -11,7 +11,7 @@ class UpdateAppResponseBody(object):
         "app": DisplayAppV2,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app: Optional[DisplayAppV2] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class UpdateAppResponseBody(object):
 
 
 class UpdateAppResponseBodyBuilder(object):
-    def __init__(self, update_app_response_body: UpdateAppResponseBody = UpdateAppResponseBody({})) -> None:
-        self._update_app_response_body: UpdateAppResponseBody = update_app_response_body
+    def __init__(self) -> None:
+        self._update_app_response_body = UpdateAppResponseBody()
 
     def app(self, app: DisplayAppV2) -> "UpdateAppResponseBodyBuilder":
         self._update_app_response_body.app = app

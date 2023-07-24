@@ -29,7 +29,7 @@ class Application(object):
         "owner": ApplicationOwner,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_id: Optional[str] = None
         self.creator_id: Optional[int] = None
         self.status: Optional[int] = None
@@ -55,8 +55,8 @@ class Application(object):
 
 
 class ApplicationBuilder(object):
-    def __init__(self, application: Application = Application({})) -> None:
-        self._application: Application = application
+    def __init__(self) -> None:
+        self._application = Application()
 
     def app_id(self, app_id: str) -> "ApplicationBuilder":
         self._application.app_id = app_id

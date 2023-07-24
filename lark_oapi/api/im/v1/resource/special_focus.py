@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.list_special_focus_request import ListSpecialFocusRequest
-from lark_oapi.api.im.v1.model.list_special_focus_response import ListSpecialFocusResponse
-from lark_oapi.api.im.v1.model.unread_special_focus_request import UnreadSpecialFocusRequest
-from lark_oapi.api.im.v1.model.unread_special_focus_response import UnreadSpecialFocusResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_special_focus_request import ListSpecialFocusRequest
+from ..model.list_special_focus_response import ListSpecialFocusResponse
+from ..model.unread_special_focus_request import UnreadSpecialFocusRequest
+from ..model.unread_special_focus_response import UnreadSpecialFocusResponse
 
 
 class SpecialFocus(object):
@@ -18,7 +18,10 @@ class SpecialFocus(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListSpecialFocusRequest,
-             option: RequestOption = RequestOption()) -> ListSpecialFocusResponse:
+             option: Optional[RequestOption] = None) -> ListSpecialFocusResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class SpecialFocus(object):
         return response
 
     def unread(self, request: UnreadSpecialFocusRequest,
-               option: RequestOption = RequestOption()) -> UnreadSpecialFocusResponse:
+               option: Optional[RequestOption] = None) -> UnreadSpecialFocusResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

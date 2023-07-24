@@ -10,7 +10,7 @@ class ReplyExtra(object):
         "image_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ReplyExtra(object):
 
 
 class ReplyExtraBuilder(object):
-    def __init__(self, reply_extra: ReplyExtra = ReplyExtra({})) -> None:
-        self._reply_extra: ReplyExtra = reply_extra
+    def __init__(self) -> None:
+        self._reply_extra = ReplyExtra()
 
     def image_list(self, image_list: List[str]) -> "ReplyExtraBuilder":
         self._reply_extra.image_list = image_list

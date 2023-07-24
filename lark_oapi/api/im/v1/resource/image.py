@@ -5,23 +5,26 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.im.v1.model.create_image_request import CreateImageRequest
-from lark_oapi.api.im.v1.model.create_image_response import CreateImageResponse
-from lark_oapi.api.im.v1.model.get_image_request import GetImageRequest
-from lark_oapi.api.im.v1.model.get_image_response import GetImageResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.create_image_request import CreateImageRequest
+from ..model.create_image_response import CreateImageResponse
+from ..model.get_image_request import GetImageRequest
+from ..model.get_image_response import GetImageResponse
 
 
 class Image(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateImageRequest, option: RequestOption = RequestOption()) -> CreateImageResponse:
+    def create(self, request: CreateImageRequest, option: Optional[RequestOption] = None) -> CreateImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class Image(object):
 
         return response
 
-    def get(self, request: GetImageRequest, option: RequestOption = RequestOption()) -> GetImageResponse:
+    def get(self, request: GetImageRequest, option: Optional[RequestOption] = None) -> GetImageResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

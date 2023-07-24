@@ -11,7 +11,7 @@ class GetDepartmentResponseBody(object):
         "department": Department,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department: Optional[Department] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetDepartmentResponseBody(object):
 
 
 class GetDepartmentResponseBodyBuilder(object):
-    def __init__(self, get_department_response_body: GetDepartmentResponseBody = GetDepartmentResponseBody({})) -> None:
-        self._get_department_response_body: GetDepartmentResponseBody = get_department_response_body
+    def __init__(self) -> None:
+        self._get_department_response_body = GetDepartmentResponseBody()
 
     def department(self, department: Department) -> "GetDepartmentResponseBodyBuilder":
         self._get_department_response_body.department = department

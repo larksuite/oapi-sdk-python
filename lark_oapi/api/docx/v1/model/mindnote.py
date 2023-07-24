@@ -10,7 +10,7 @@ class Mindnote(object):
         "token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Mindnote(object):
 
 
 class MindnoteBuilder(object):
-    def __init__(self, mindnote: Mindnote = Mindnote({})) -> None:
-        self._mindnote: Mindnote = mindnote
+    def __init__(self) -> None:
+        self._mindnote = Mindnote()
 
     def token(self, token: str) -> "MindnoteBuilder":
         self._mindnote.token = token

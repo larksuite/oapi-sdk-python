@@ -17,7 +17,7 @@ class InterviewRoundType(object):
         "interview_assessment_template_info": InterviewRoundTypeAssessmentTemplate,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.biz_id: Optional[str] = None
         self.name: Optional[I18n] = None
@@ -32,8 +32,8 @@ class InterviewRoundType(object):
 
 
 class InterviewRoundTypeBuilder(object):
-    def __init__(self, interview_round_type: InterviewRoundType = InterviewRoundType({})) -> None:
-        self._interview_round_type: InterviewRoundType = interview_round_type
+    def __init__(self) -> None:
+        self._interview_round_type = InterviewRoundType()
 
     def id(self, id: str) -> "InterviewRoundTypeBuilder":
         self._interview_round_type.id = id

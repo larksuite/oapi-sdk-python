@@ -11,7 +11,7 @@ class ItemContent(object):
         "content_data": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.format: Optional[str] = None
         self.content_data: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ItemContent(object):
 
 
 class ItemContentBuilder(object):
-    def __init__(self, item_content: ItemContent = ItemContent({})) -> None:
-        self._item_content: ItemContent = item_content
+    def __init__(self) -> None:
+        self._item_content = ItemContent()
 
     def format(self, format: str) -> "ItemContentBuilder":
         self._item_content.format = format

@@ -19,7 +19,7 @@ class Version(object):
         "parent_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.version: Optional[str] = None
         self.parent_token: Optional[str] = None
@@ -38,8 +38,8 @@ class Version(object):
 
 
 class VersionBuilder(object):
-    def __init__(self, version: Version = Version({})) -> None:
-        self._version: Version = version
+    def __init__(self) -> None:
+        self._version = Version()
 
     def name(self, name: str) -> "VersionBuilder":
         self._version.name = name

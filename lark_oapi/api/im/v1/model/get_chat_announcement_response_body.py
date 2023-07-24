@@ -17,7 +17,7 @@ class GetChatAnnouncementResponseBody(object):
         "modifier_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.revision: Optional[str] = None
         self.create_time: Optional[str] = None
@@ -34,10 +34,8 @@ class GetChatAnnouncementResponseBody(object):
 
 
 class GetChatAnnouncementResponseBodyBuilder(object):
-    def __init__(self,
-                 get_chat_announcement_response_body: GetChatAnnouncementResponseBody = GetChatAnnouncementResponseBody(
-                     {})) -> None:
-        self._get_chat_announcement_response_body: GetChatAnnouncementResponseBody = get_chat_announcement_response_body
+    def __init__(self) -> None:
+        self._get_chat_announcement_response_body = GetChatAnnouncementResponseBody()
 
     def content(self, content: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.content = content

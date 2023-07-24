@@ -20,7 +20,8 @@ class CreateEntityRequest(BaseRequest):
 
 class CreateEntityRequestBuilder(object):
 
-    def __init__(self, create_entity_request: CreateEntityRequest = CreateEntityRequest()) -> None:
+    def __init__(self) -> None:
+        create_entity_request = CreateEntityRequest()
         create_entity_request.http_method = HttpMethod.POST
         create_entity_request.uri = "/open-apis/baike/v1/entities"
         create_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

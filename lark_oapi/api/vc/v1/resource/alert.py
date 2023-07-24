@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.list_alert_request import ListAlertRequest
-from lark_oapi.api.vc.v1.model.list_alert_response import ListAlertResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_alert_request import ListAlertRequest
+from ..model.list_alert_response import ListAlertResponse
 
 
 class Alert(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListAlertRequest, option: RequestOption = RequestOption()) -> ListAlertResponse:
+    def list(self, request: ListAlertRequest, option: Optional[RequestOption] = None) -> ListAlertResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

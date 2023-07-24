@@ -13,7 +13,7 @@ class ReportMeetingDaily(object):
         "participant_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date: Optional[int] = None
         self.meeting_count: Optional[int] = None
         self.meeting_duration: Optional[int] = None
@@ -26,8 +26,8 @@ class ReportMeetingDaily(object):
 
 
 class ReportMeetingDailyBuilder(object):
-    def __init__(self, report_meeting_daily: ReportMeetingDaily = ReportMeetingDaily({})) -> None:
-        self._report_meeting_daily: ReportMeetingDaily = report_meeting_daily
+    def __init__(self) -> None:
+        self._report_meeting_daily = ReportMeetingDaily()
 
     def date(self, date: int) -> "ReportMeetingDailyBuilder":
         self._report_meeting_daily.date = date

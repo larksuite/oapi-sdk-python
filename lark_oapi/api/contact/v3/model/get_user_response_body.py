@@ -11,7 +11,7 @@ class GetUserResponseBody(object):
         "user": User,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user: Optional[User] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetUserResponseBody(object):
 
 
 class GetUserResponseBodyBuilder(object):
-    def __init__(self, get_user_response_body: GetUserResponseBody = GetUserResponseBody({})) -> None:
-        self._get_user_response_body: GetUserResponseBody = get_user_response_body
+    def __init__(self) -> None:
+        self._get_user_response_body = GetUserResponseBody()
 
     def user(self, user: User) -> "GetUserResponseBodyBuilder":
         self._get_user_response_body.user = user

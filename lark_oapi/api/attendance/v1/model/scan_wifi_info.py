@@ -11,7 +11,7 @@ class ScanWifiInfo(object):
         "bssid": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ssid: Optional[str] = None
         self.bssid: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ScanWifiInfo(object):
 
 
 class ScanWifiInfoBuilder(object):
-    def __init__(self, scan_wifi_info: ScanWifiInfo = ScanWifiInfo({})) -> None:
-        self._scan_wifi_info: ScanWifiInfo = scan_wifi_info
+    def __init__(self) -> None:
+        self._scan_wifi_info = ScanWifiInfo()
 
     def ssid(self, ssid: str) -> "ScanWifiInfoBuilder":
         self._scan_wifi_info.ssid = ssid

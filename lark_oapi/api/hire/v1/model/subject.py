@@ -17,7 +17,7 @@ class Subject(object):
         "creator": IdNameObject,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.create_time: Optional[str] = None
@@ -32,8 +32,8 @@ class Subject(object):
 
 
 class SubjectBuilder(object):
-    def __init__(self, subject: Subject = Subject({})) -> None:
-        self._subject: Subject = subject
+    def __init__(self) -> None:
+        self._subject = Subject()
 
     def id(self, id: str) -> "SubjectBuilder":
         self._subject.id = id

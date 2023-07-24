@@ -13,7 +13,7 @@ class AppVersionRemarkEvent(object):
         "visibility": AppVisibilityEvent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.remark: Optional[str] = None
         self.update_remark: Optional[str] = None
         self.visibility: Optional[AppVisibilityEvent] = None
@@ -25,8 +25,8 @@ class AppVersionRemarkEvent(object):
 
 
 class AppVersionRemarkEventBuilder(object):
-    def __init__(self, app_version_remark_event: AppVersionRemarkEvent = AppVersionRemarkEvent({})) -> None:
-        self._app_version_remark_event: AppVersionRemarkEvent = app_version_remark_event
+    def __init__(self) -> None:
+        self._app_version_remark_event = AppVersionRemarkEvent()
 
     def remark(self, remark: str) -> "AppVersionRemarkEventBuilder":
         self._app_version_remark_event.remark = remark

@@ -19,7 +19,7 @@ class TransferOnboardApplicationRequestBody(object):
         "employee_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.actual_onboard_time: Optional[int] = None
         self.expected_conversion_time: Optional[int] = None
         self.job_requirement_id: Optional[str] = None
@@ -38,10 +38,8 @@ class TransferOnboardApplicationRequestBody(object):
 
 
 class TransferOnboardApplicationRequestBodyBuilder(object):
-    def __init__(self,
-                 transfer_onboard_application_request_body: TransferOnboardApplicationRequestBody = TransferOnboardApplicationRequestBody(
-                     {})) -> None:
-        self._transfer_onboard_application_request_body: TransferOnboardApplicationRequestBody = transfer_onboard_application_request_body
+    def __init__(self) -> None:
+        self._transfer_onboard_application_request_body = TransferOnboardApplicationRequestBody()
 
     def actual_onboard_time(self, actual_onboard_time: int) -> "TransferOnboardApplicationRequestBodyBuilder":
         self._transfer_onboard_application_request_body.actual_onboard_time = actual_onboard_time

@@ -11,7 +11,7 @@ class QueryUserResponseBody(object):
         "user_list": List[User],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_list: Optional[List[User]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class QueryUserResponseBody(object):
 
 
 class QueryUserResponseBodyBuilder(object):
-    def __init__(self, query_user_response_body: QueryUserResponseBody = QueryUserResponseBody({})) -> None:
-        self._query_user_response_body: QueryUserResponseBody = query_user_response_body
+    def __init__(self) -> None:
+        self._query_user_response_body = QueryUserResponseBody()
 
     def user_list(self, user_list: List[User]) -> "QueryUserResponseBodyBuilder":
         self._query_user_response_body.user_list = user_list

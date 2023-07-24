@@ -28,7 +28,7 @@ class Department(object):
         "primary_member_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.i18n_name: Optional[DepartmentI18nName] = None
         self.parent_department_id: Optional[str] = None
@@ -53,8 +53,8 @@ class Department(object):
 
 
 class DepartmentBuilder(object):
-    def __init__(self, department: Department = Department({})) -> None:
-        self._department: Department = department
+    def __init__(self) -> None:
+        self._department = Department()
 
     def name(self, name: str) -> "DepartmentBuilder":
         self._department.name = name

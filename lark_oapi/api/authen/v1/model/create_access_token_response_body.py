@@ -28,7 +28,7 @@ class CreateAccessTokenResponseBody(object):
         "sid": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.access_token: Optional[str] = None
         self.token_type: Optional[str] = None
         self.expires_in: Optional[int] = None
@@ -56,9 +56,8 @@ class CreateAccessTokenResponseBody(object):
 
 
 class CreateAccessTokenResponseBodyBuilder(object):
-    def __init__(self, create_access_token_response_body: CreateAccessTokenResponseBody = CreateAccessTokenResponseBody(
-        {})) -> None:
-        self._create_access_token_response_body: CreateAccessTokenResponseBody = create_access_token_response_body
+    def __init__(self) -> None:
+        self._create_access_token_response_body = CreateAccessTokenResponseBody()
 
     def access_token(self, access_token: str) -> "CreateAccessTokenResponseBodyBuilder":
         self._create_access_token_response_body.access_token = access_token

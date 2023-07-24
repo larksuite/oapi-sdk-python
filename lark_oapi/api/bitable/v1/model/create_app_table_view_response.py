@@ -12,7 +12,7 @@ class CreateAppTableViewResponse(BaseResponse):
         "data": CreateAppTableViewResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateAppTableViewResponseBody] = None
         init(self, d, self._types)

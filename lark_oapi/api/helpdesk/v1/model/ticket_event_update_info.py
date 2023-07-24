@@ -12,7 +12,7 @@ class TicketEventUpdateInfo(object):
         "updated_at": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.stage: Optional[int] = None
         self.status: Optional[int] = None
         self.updated_at: Optional[int] = None
@@ -24,8 +24,8 @@ class TicketEventUpdateInfo(object):
 
 
 class TicketEventUpdateInfoBuilder(object):
-    def __init__(self, ticket_event_update_info: TicketEventUpdateInfo = TicketEventUpdateInfo({})) -> None:
-        self._ticket_event_update_info: TicketEventUpdateInfo = ticket_event_update_info
+    def __init__(self) -> None:
+        self._ticket_event_update_info = TicketEventUpdateInfo()
 
     def stage(self, stage: int) -> "TicketEventUpdateInfoBuilder":
         self._ticket_event_update_info.stage = stage

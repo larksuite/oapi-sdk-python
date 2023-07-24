@@ -22,7 +22,7 @@ class Dataset(object):
         "viewer_app_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.dataset_id: Optional[str] = None
         self.app_id: Optional[str] = None
         self.create_time: Optional[str] = None
@@ -42,8 +42,8 @@ class Dataset(object):
 
 
 class DatasetBuilder(object):
-    def __init__(self, dataset: Dataset = Dataset({})) -> None:
-        self._dataset: Dataset = dataset
+    def __init__(self) -> None:
+        self._dataset = Dataset()
 
     def dataset_id(self, dataset_id: str) -> "DatasetBuilder":
         self._dataset.dataset_id = dataset_id

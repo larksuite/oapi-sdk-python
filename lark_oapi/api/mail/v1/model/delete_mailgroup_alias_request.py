@@ -19,8 +19,8 @@ class DeleteMailgroupAliasRequest(BaseRequest):
 
 class DeleteMailgroupAliasRequestBuilder(object):
 
-    def __init__(self,
-                 delete_mailgroup_alias_request: DeleteMailgroupAliasRequest = DeleteMailgroupAliasRequest()) -> None:
+    def __init__(self) -> None:
+        delete_mailgroup_alias_request = DeleteMailgroupAliasRequest()
         delete_mailgroup_alias_request.http_method = HttpMethod.DELETE
         delete_mailgroup_alias_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/aliases/:alias_id"
         delete_mailgroup_alias_request.token_types = {AccessTokenType.TENANT}

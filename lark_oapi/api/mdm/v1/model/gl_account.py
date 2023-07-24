@@ -16,7 +16,7 @@ class GlAccount(object):
         "valid_to": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.gl_account_uid: Optional[str] = None
         self.gl_account: Optional[str] = None
         self.gl_account_name: Optional[str] = None
@@ -31,8 +31,8 @@ class GlAccount(object):
 
 
 class GlAccountBuilder(object):
-    def __init__(self, gl_account: GlAccount = GlAccount({})) -> None:
-        self._gl_account: GlAccount = gl_account
+    def __init__(self) -> None:
+        self._gl_account = GlAccount()
 
     def gl_account_uid(self, gl_account_uid: str) -> "GlAccountBuilder":
         self._gl_account.gl_account_uid = gl_account_uid

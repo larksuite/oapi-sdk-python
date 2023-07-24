@@ -11,7 +11,7 @@ class BatchGetIdTalentResponseBody(object):
         "talent_list": List[TalentBatchInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.talent_list: Optional[List[TalentBatchInfo]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class BatchGetIdTalentResponseBody(object):
 
 
 class BatchGetIdTalentResponseBodyBuilder(object):
-    def __init__(self, batch_get_id_talent_response_body: BatchGetIdTalentResponseBody = BatchGetIdTalentResponseBody(
-        {})) -> None:
-        self._batch_get_id_talent_response_body: BatchGetIdTalentResponseBody = batch_get_id_talent_response_body
+    def __init__(self) -> None:
+        self._batch_get_id_talent_response_body = BatchGetIdTalentResponseBody()
 
     def talent_list(self, talent_list: List[TalentBatchInfo]) -> "BatchGetIdTalentResponseBodyBuilder":
         self._batch_get_id_talent_response_body.talent_list = talent_list

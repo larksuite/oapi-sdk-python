@@ -19,7 +19,8 @@ class ListLocationRequest(BaseRequest):
 
 class ListLocationRequestBuilder(object):
 
-    def __init__(self, list_location_request: ListLocationRequest = ListLocationRequest()) -> None:
+    def __init__(self) -> None:
+        list_location_request = ListLocationRequest()
         list_location_request.http_method = HttpMethod.GET
         list_location_request.uri = "/open-apis/corehr/v1/locations"
         list_location_request.token_types = {AccessTokenType.TENANT}

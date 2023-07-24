@@ -25,7 +25,7 @@ class Objective(object):
         "aligned_objective_list": List[AlignObjective],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.okr_id: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -46,8 +46,8 @@ class Objective(object):
 
 
 class ObjectiveBuilder(object):
-    def __init__(self, objective: Objective = Objective({})) -> None:
-        self._objective: Objective = objective
+    def __init__(self) -> None:
+        self._objective = Objective()
 
     def id(self, id: str) -> "ObjectiveBuilder":
         self._objective.id = id

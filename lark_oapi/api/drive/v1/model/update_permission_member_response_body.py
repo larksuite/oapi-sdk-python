@@ -11,7 +11,7 @@ class UpdatePermissionMemberResponseBody(object):
         "member": BaseMember,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member: Optional[BaseMember] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class UpdatePermissionMemberResponseBody(object):
 
 
 class UpdatePermissionMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 update_permission_member_response_body: UpdatePermissionMemberResponseBody = UpdatePermissionMemberResponseBody(
-                     {})) -> None:
-        self._update_permission_member_response_body: UpdatePermissionMemberResponseBody = update_permission_member_response_body
+    def __init__(self) -> None:
+        self._update_permission_member_response_body = UpdatePermissionMemberResponseBody()
 
     def member(self, member: BaseMember) -> "UpdatePermissionMemberResponseBodyBuilder":
         self._update_permission_member_response_body.member = member

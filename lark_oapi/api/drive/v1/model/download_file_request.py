@@ -18,7 +18,8 @@ class DownloadFileRequest(BaseRequest):
 
 class DownloadFileRequestBuilder(object):
 
-    def __init__(self, download_file_request: DownloadFileRequest = DownloadFileRequest()) -> None:
+    def __init__(self) -> None:
+        download_file_request = DownloadFileRequest()
         download_file_request.http_method = HttpMethod.GET
         download_file_request.uri = "/open-apis/drive/v1/files/:file_token/download"
         download_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

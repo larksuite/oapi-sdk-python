@@ -19,7 +19,8 @@ class GetUserRequest(BaseRequest):
 
 class GetUserRequestBuilder(object):
 
-    def __init__(self, get_user_request: GetUserRequest = GetUserRequest()) -> None:
+    def __init__(self) -> None:
+        get_user_request = GetUserRequest()
         get_user_request.http_method = HttpMethod.GET
         get_user_request.uri = "/open-apis/acs/v1/users/:user_id"
         get_user_request.token_types = {AccessTokenType.TENANT}

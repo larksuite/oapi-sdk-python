@@ -13,7 +13,7 @@ class ReadUsersMessageResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[ReadUser]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,9 +25,8 @@ class ReadUsersMessageResponseBody(object):
 
 
 class ReadUsersMessageResponseBodyBuilder(object):
-    def __init__(self, read_users_message_response_body: ReadUsersMessageResponseBody = ReadUsersMessageResponseBody(
-        {})) -> None:
-        self._read_users_message_response_body: ReadUsersMessageResponseBody = read_users_message_response_body
+    def __init__(self) -> None:
+        self._read_users_message_response_body = ReadUsersMessageResponseBody()
 
     def items(self, items: List[ReadUser]) -> "ReadUsersMessageResponseBodyBuilder":
         self._read_users_message_response_body.items = items

@@ -17,7 +17,7 @@ class DiInfo(object):
         "di_data": List[DiData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.talent_id: Optional[str] = None
@@ -33,8 +33,8 @@ class DiInfo(object):
 
 
 class DiInfoBuilder(object):
-    def __init__(self, di_info: DiInfo = DiInfo({})) -> None:
-        self._di_info: DiInfo = di_info
+    def __init__(self) -> None:
+        self._di_info = DiInfo()
 
     def id(self, id: str) -> "DiInfoBuilder":
         self._di_info.id = id

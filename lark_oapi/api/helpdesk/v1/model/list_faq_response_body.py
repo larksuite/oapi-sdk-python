@@ -15,7 +15,7 @@ class ListFaqResponseBody(object):
         "items": List[Faq],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
@@ -29,8 +29,8 @@ class ListFaqResponseBody(object):
 
 
 class ListFaqResponseBodyBuilder(object):
-    def __init__(self, list_faq_response_body: ListFaqResponseBody = ListFaqResponseBody({})) -> None:
-        self._list_faq_response_body: ListFaqResponseBody = list_faq_response_body
+    def __init__(self) -> None:
+        self._list_faq_response_body = ListFaqResponseBody()
 
     def has_more(self, has_more: bool) -> "ListFaqResponseBodyBuilder":
         self._list_faq_response_body.has_more = has_more

@@ -12,7 +12,7 @@ class QueryUserStatsDataResponseBody(object):
         "invalid_user_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_datas: Optional[List[UserStatsData]] = None
         self.invalid_user_list: Optional[List[str]] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class QueryUserStatsDataResponseBody(object):
 
 
 class QueryUserStatsDataResponseBodyBuilder(object):
-    def __init__(self,
-                 query_user_stats_data_response_body: QueryUserStatsDataResponseBody = QueryUserStatsDataResponseBody(
-                     {})) -> None:
-        self._query_user_stats_data_response_body: QueryUserStatsDataResponseBody = query_user_stats_data_response_body
+    def __init__(self) -> None:
+        self._query_user_stats_data_response_body = QueryUserStatsDataResponseBody()
 
     def user_datas(self, user_datas: List[UserStatsData]) -> "QueryUserStatsDataResponseBodyBuilder":
         self._query_user_stats_data_response_body.user_datas = user_datas

@@ -23,8 +23,8 @@ class ListApplicationAppVersionRequest(BaseRequest):
 
 class ListApplicationAppVersionRequestBuilder(object):
 
-    def __init__(self,
-                 list_application_app_version_request: ListApplicationAppVersionRequest = ListApplicationAppVersionRequest()) -> None:
+    def __init__(self) -> None:
+        list_application_app_version_request = ListApplicationAppVersionRequest()
         list_application_app_version_request.http_method = HttpMethod.GET
         list_application_app_version_request.uri = "/open-apis/application/v6/applications/:app_id/app_versions"
         list_application_app_version_request.token_types = {AccessTokenType.TENANT}

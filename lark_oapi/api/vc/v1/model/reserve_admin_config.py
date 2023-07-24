@@ -13,7 +13,7 @@ class ReserveAdminConfig(object):
         "users": List[SubscribeUser],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.depts: Optional[List[SubscribeDepartment]] = None
         self.users: Optional[List[SubscribeUser]] = None
         init(self, d, self._types)
@@ -24,8 +24,8 @@ class ReserveAdminConfig(object):
 
 
 class ReserveAdminConfigBuilder(object):
-    def __init__(self, reserve_admin_config: ReserveAdminConfig = ReserveAdminConfig({})) -> None:
-        self._reserve_admin_config: ReserveAdminConfig = reserve_admin_config
+    def __init__(self) -> None:
+        self._reserve_admin_config = ReserveAdminConfig()
 
     def depts(self, depts: List[SubscribeDepartment]) -> "ReserveAdminConfigBuilder":
         self._reserve_admin_config.depts = depts

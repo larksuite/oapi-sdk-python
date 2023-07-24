@@ -13,7 +13,7 @@ class BatchUpdateMetricSourceTableItemResponseBody(object):
         "failed_items": List[FailedMetricItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[MetricItem]] = None
         self.failed_items: Optional[List[FailedMetricItem]] = None
         init(self, d, self._types)
@@ -24,10 +24,8 @@ class BatchUpdateMetricSourceTableItemResponseBody(object):
 
 
 class BatchUpdateMetricSourceTableItemResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_update_metric_source_table_item_response_body: BatchUpdateMetricSourceTableItemResponseBody = BatchUpdateMetricSourceTableItemResponseBody(
-                     {})) -> None:
-        self._batch_update_metric_source_table_item_response_body: BatchUpdateMetricSourceTableItemResponseBody = batch_update_metric_source_table_item_response_body
+    def __init__(self) -> None:
+        self._batch_update_metric_source_table_item_response_body = BatchUpdateMetricSourceTableItemResponseBody()
 
     def items(self, items: List[MetricItem]) -> "BatchUpdateMetricSourceTableItemResponseBodyBuilder":
         self._batch_update_metric_source_table_item_response_body.items = items

@@ -19,7 +19,8 @@ class CreateDataSourceRequest(BaseRequest):
 
 class CreateDataSourceRequestBuilder(object):
 
-    def __init__(self, create_data_source_request: CreateDataSourceRequest = CreateDataSourceRequest()) -> None:
+    def __init__(self) -> None:
+        create_data_source_request = CreateDataSourceRequest()
         create_data_source_request.http_method = HttpMethod.POST
         create_data_source_request.uri = "/open-apis/search/v2/data_sources"
         create_data_source_request.token_types = {AccessTokenType.TENANT}

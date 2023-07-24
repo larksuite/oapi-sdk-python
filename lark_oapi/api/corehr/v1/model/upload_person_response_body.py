@@ -10,7 +10,7 @@ class UploadPersonResponseBody(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class UploadPersonResponseBody(object):
 
 
 class UploadPersonResponseBodyBuilder(object):
-    def __init__(self, upload_person_response_body: UploadPersonResponseBody = UploadPersonResponseBody({})) -> None:
-        self._upload_person_response_body: UploadPersonResponseBody = upload_person_response_body
+    def __init__(self) -> None:
+        self._upload_person_response_body = UploadPersonResponseBody()
 
     def id(self, id: str) -> "UploadPersonResponseBodyBuilder":
         self._upload_person_response_body.id = id

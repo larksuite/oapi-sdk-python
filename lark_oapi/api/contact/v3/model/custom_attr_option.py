@@ -12,7 +12,7 @@ class CustomAttrOption(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.value: Optional[str] = None
         self.name: Optional[str] = None
@@ -24,8 +24,8 @@ class CustomAttrOption(object):
 
 
 class CustomAttrOptionBuilder(object):
-    def __init__(self, custom_attr_option: CustomAttrOption = CustomAttrOption({})) -> None:
-        self._custom_attr_option: CustomAttrOption = custom_attr_option
+    def __init__(self) -> None:
+        self._custom_attr_option = CustomAttrOption()
 
     def id(self, id: str) -> "CustomAttrOptionBuilder":
         self._custom_attr_option.id = id

@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.get_permission_public_request import GetPermissionPublicRequest
-from lark_oapi.api.drive.v1.model.get_permission_public_response import GetPermissionPublicResponse
-from lark_oapi.api.drive.v1.model.patch_permission_public_request import PatchPermissionPublicRequest
-from lark_oapi.api.drive.v1.model.patch_permission_public_response import PatchPermissionPublicResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_permission_public_request import GetPermissionPublicRequest
+from ..model.get_permission_public_response import GetPermissionPublicResponse
+from ..model.patch_permission_public_request import PatchPermissionPublicRequest
+from ..model.patch_permission_public_response import PatchPermissionPublicResponse
 
 
 class PermissionPublic(object):
@@ -18,7 +18,10 @@ class PermissionPublic(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetPermissionPublicRequest,
-            option: RequestOption = RequestOption()) -> GetPermissionPublicResponse:
+            option: Optional[RequestOption] = None) -> GetPermissionPublicResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class PermissionPublic(object):
         return response
 
     def patch(self, request: PatchPermissionPublicRequest,
-              option: RequestOption = RequestOption()) -> PatchPermissionPublicResponse:
+              option: Optional[RequestOption] = None) -> PatchPermissionPublicResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

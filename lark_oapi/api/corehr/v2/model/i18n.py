@@ -11,7 +11,7 @@ class I18n(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.lang: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class I18n(object):
 
 
 class I18nBuilder(object):
-    def __init__(self, i18n: I18n = I18n({})) -> None:
-        self._i18n: I18n = i18n
+    def __init__(self) -> None:
+        self._i18n = I18n()
 
     def lang(self, lang: str) -> "I18nBuilder":
         self._i18n.lang = lang

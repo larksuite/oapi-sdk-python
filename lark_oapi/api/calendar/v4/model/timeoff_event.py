@@ -16,7 +16,7 @@ class TimeoffEvent(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.timeoff_event_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.timezone: Optional[str] = None
@@ -32,8 +32,8 @@ class TimeoffEvent(object):
 
 
 class TimeoffEventBuilder(object):
-    def __init__(self, timeoff_event: TimeoffEvent = TimeoffEvent({})) -> None:
-        self._timeoff_event: TimeoffEvent = timeoff_event
+    def __init__(self) -> None:
+        self._timeoff_event = TimeoffEvent()
 
     def timeoff_event_id(self, timeoff_event_id: str) -> "TimeoffEventBuilder":
         self._timeoff_event.timeoff_event_id = timeoff_event_id

@@ -20,7 +20,8 @@ class CreateBotMessageRequest(BaseRequest):
 
 class CreateBotMessageRequestBuilder(object):
 
-    def __init__(self, create_bot_message_request: CreateBotMessageRequest = CreateBotMessageRequest()) -> None:
+    def __init__(self) -> None:
+        create_bot_message_request = CreateBotMessageRequest()
         create_bot_message_request.http_method = HttpMethod.POST
         create_bot_message_request.uri = "/open-apis/helpdesk/v1/message"
         create_bot_message_request.token_types = {AccessTokenType.TENANT}

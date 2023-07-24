@@ -17,7 +17,7 @@ class ApplicationOfferBasicInfoCustomizedObject(object):
         "option_value_list": List[ApplicationOfferBasicInfoCustomizedObjectOptionValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[OfferSchemaName] = None
         self.type: Optional[str] = None
@@ -31,10 +31,8 @@ class ApplicationOfferBasicInfoCustomizedObject(object):
 
 
 class ApplicationOfferBasicInfoCustomizedObjectBuilder(object):
-    def __init__(self,
-                 application_offer_basic_info_customized_object: ApplicationOfferBasicInfoCustomizedObject = ApplicationOfferBasicInfoCustomizedObject(
-                     {})) -> None:
-        self._application_offer_basic_info_customized_object: ApplicationOfferBasicInfoCustomizedObject = application_offer_basic_info_customized_object
+    def __init__(self) -> None:
+        self._application_offer_basic_info_customized_object = ApplicationOfferBasicInfoCustomizedObject()
 
     def id(self, id: str) -> "ApplicationOfferBasicInfoCustomizedObjectBuilder":
         self._application_offer_basic_info_customized_object.id = id

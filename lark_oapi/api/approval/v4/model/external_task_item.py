@@ -12,7 +12,7 @@ class ExternalTaskItem(object):
         "update_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.status: Optional[str] = None
         self.update_time: Optional[int] = None
@@ -24,8 +24,8 @@ class ExternalTaskItem(object):
 
 
 class ExternalTaskItemBuilder(object):
-    def __init__(self, external_task_item: ExternalTaskItem = ExternalTaskItem({})) -> None:
-        self._external_task_item: ExternalTaskItem = external_task_item
+    def __init__(self) -> None:
+        self._external_task_item = ExternalTaskItem()
 
     def id(self, id: str) -> "ExternalTaskItemBuilder":
         self._external_task_item.id = id

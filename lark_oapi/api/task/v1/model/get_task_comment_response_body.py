@@ -11,7 +11,7 @@ class GetTaskCommentResponseBody(object):
         "comment": Comment,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.comment: Optional[Comment] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetTaskCommentResponseBody(object):
 
 
 class GetTaskCommentResponseBodyBuilder(object):
-    def __init__(self,
-                 get_task_comment_response_body: GetTaskCommentResponseBody = GetTaskCommentResponseBody({})) -> None:
-        self._get_task_comment_response_body: GetTaskCommentResponseBody = get_task_comment_response_body
+    def __init__(self) -> None:
+        self._get_task_comment_response_body = GetTaskCommentResponseBody()
 
     def comment(self, comment: Comment) -> "GetTaskCommentResponseBodyBuilder":
         self._get_task_comment_response_body.comment = comment

@@ -11,7 +11,7 @@ class ManagementScope(object):
         "obj_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.management_dimension: Optional[str] = None
         self.obj_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ManagementScope(object):
 
 
 class ManagementScopeBuilder(object):
-    def __init__(self, management_scope: ManagementScope = ManagementScope({})) -> None:
-        self._management_scope: ManagementScope = management_scope
+    def __init__(self) -> None:
+        self._management_scope = ManagementScope()
 
     def management_dimension(self, management_dimension: str) -> "ManagementScopeBuilder":
         self._management_scope.management_dimension = management_dimension

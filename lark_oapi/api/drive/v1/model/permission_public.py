@@ -16,7 +16,7 @@ class PermissionPublic(object):
         "lock_switch": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_access: Optional[bool] = None
         self.security_entity: Optional[str] = None
         self.comment_entity: Optional[str] = None
@@ -32,8 +32,8 @@ class PermissionPublic(object):
 
 
 class PermissionPublicBuilder(object):
-    def __init__(self, permission_public: PermissionPublic = PermissionPublic({})) -> None:
-        self._permission_public: PermissionPublic = permission_public
+    def __init__(self) -> None:
+        self._permission_public = PermissionPublic()
 
     def external_access(self, external_access: bool) -> "PermissionPublicBuilder":
         self._permission_public.external_access = external_access

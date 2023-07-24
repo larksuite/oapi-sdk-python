@@ -19,8 +19,8 @@ class CreateRefreshAccessTokenRequest(BaseRequest):
 
 class CreateRefreshAccessTokenRequestBuilder(object):
 
-    def __init__(self,
-                 create_refresh_access_token_request: CreateRefreshAccessTokenRequest = CreateRefreshAccessTokenRequest()) -> None:
+    def __init__(self) -> None:
+        create_refresh_access_token_request = CreateRefreshAccessTokenRequest()
         create_refresh_access_token_request.http_method = HttpMethod.POST
         create_refresh_access_token_request.uri = "/open-apis/authen/v1/refresh_access_token"
         create_refresh_access_token_request.token_types = {AccessTokenType.APP}

@@ -21,8 +21,8 @@ class UpdateTitleSpaceNodeRequest(BaseRequest):
 
 class UpdateTitleSpaceNodeRequestBuilder(object):
 
-    def __init__(self,
-                 update_title_space_node_request: UpdateTitleSpaceNodeRequest = UpdateTitleSpaceNodeRequest()) -> None:
+    def __init__(self) -> None:
+        update_title_space_node_request = UpdateTitleSpaceNodeRequest()
         update_title_space_node_request.http_method = HttpMethod.POST
         update_title_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title"
         update_title_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

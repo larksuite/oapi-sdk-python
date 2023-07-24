@@ -15,8 +15,8 @@ class QueryTenantProductAssignInfoRequest(BaseRequest):
 
 class QueryTenantProductAssignInfoRequestBuilder(object):
 
-    def __init__(self,
-                 query_tenant_product_assign_info_request: QueryTenantProductAssignInfoRequest = QueryTenantProductAssignInfoRequest()) -> None:
+    def __init__(self) -> None:
+        query_tenant_product_assign_info_request = QueryTenantProductAssignInfoRequest()
         query_tenant_product_assign_info_request.http_method = HttpMethod.GET
         query_tenant_product_assign_info_request.uri = "/open-apis/tenant/v2/tenant/assign_info_list/query"
         query_tenant_product_assign_info_request.token_types = {AccessTokenType.TENANT}

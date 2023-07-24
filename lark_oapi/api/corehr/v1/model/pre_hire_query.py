@@ -25,7 +25,7 @@ class PreHireQuery(object):
         "department_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ats_application_id: Optional[str] = None
         self.id: Optional[str] = None
         self.hire_date: Optional[str] = None
@@ -46,8 +46,8 @@ class PreHireQuery(object):
 
 
 class PreHireQueryBuilder(object):
-    def __init__(self, pre_hire_query: PreHireQuery = PreHireQuery({})) -> None:
-        self._pre_hire_query: PreHireQuery = pre_hire_query
+    def __init__(self) -> None:
+        self._pre_hire_query = PreHireQuery()
 
     def ats_application_id(self, ats_application_id: str) -> "PreHireQueryBuilder":
         self._pre_hire_query.ats_application_id = ats_application_id

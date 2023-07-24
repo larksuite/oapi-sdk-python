@@ -11,7 +11,7 @@ class AppRoleMemberId(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppRoleMemberId(object):
 
 
 class AppRoleMemberIdBuilder(object):
-    def __init__(self, app_role_member_id: AppRoleMemberId = AppRoleMemberId({})) -> None:
-        self._app_role_member_id: AppRoleMemberId = app_role_member_id
+    def __init__(self) -> None:
+        self._app_role_member_id = AppRoleMemberId()
 
     def type(self, type: str) -> "AppRoleMemberIdBuilder":
         self._app_role_member_id.type = type

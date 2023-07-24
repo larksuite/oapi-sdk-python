@@ -14,7 +14,7 @@ class ShareDepartment(object):
         "order": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.open_id: Optional[str] = None
         self.name: Optional[str] = None
         self.i18n_name: Optional[DepartmentI18nName] = None
@@ -27,8 +27,8 @@ class ShareDepartment(object):
 
 
 class ShareDepartmentBuilder(object):
-    def __init__(self, share_department: ShareDepartment = ShareDepartment({})) -> None:
-        self._share_department: ShareDepartment = share_department
+    def __init__(self) -> None:
+        self._share_department = ShareDepartment()
 
     def open_id(self, open_id: str) -> "ShareDepartmentBuilder":
         self._share_department.open_id = open_id

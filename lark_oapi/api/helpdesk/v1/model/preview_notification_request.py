@@ -18,7 +18,8 @@ class PreviewNotificationRequest(BaseRequest):
 
 class PreviewNotificationRequestBuilder(object):
 
-    def __init__(self, preview_notification_request: PreviewNotificationRequest = PreviewNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        preview_notification_request = PreviewNotificationRequest()
         preview_notification_request.http_method = HttpMethod.POST
         preview_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id/preview"
         preview_notification_request.token_types = {AccessTokenType.USER}

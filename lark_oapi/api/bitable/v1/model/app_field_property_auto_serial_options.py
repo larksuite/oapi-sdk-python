@@ -11,7 +11,7 @@ class AppFieldPropertyAutoSerialOptions(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class AppFieldPropertyAutoSerialOptions(object):
 
 
 class AppFieldPropertyAutoSerialOptionsBuilder(object):
-    def __init__(self,
-                 app_field_property_auto_serial_options: AppFieldPropertyAutoSerialOptions = AppFieldPropertyAutoSerialOptions(
-                     {})) -> None:
-        self._app_field_property_auto_serial_options: AppFieldPropertyAutoSerialOptions = app_field_property_auto_serial_options
+    def __init__(self) -> None:
+        self._app_field_property_auto_serial_options = AppFieldPropertyAutoSerialOptions()
 
     def type(self, type: str) -> "AppFieldPropertyAutoSerialOptionsBuilder":
         self._app_field_property_auto_serial_options.type = type

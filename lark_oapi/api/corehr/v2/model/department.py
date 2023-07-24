@@ -28,7 +28,7 @@ class Department(object):
         "custom_fields": List[CustomFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.version_id: Optional[str] = None
         self.department_name: Optional[List[I18n]] = None
@@ -53,8 +53,8 @@ class Department(object):
 
 
 class DepartmentBuilder(object):
-    def __init__(self, department: Department = Department({})) -> None:
-        self._department: Department = department
+    def __init__(self) -> None:
+        self._department = Department()
 
     def id(self, id: str) -> "DepartmentBuilder":
         self._department.id = id

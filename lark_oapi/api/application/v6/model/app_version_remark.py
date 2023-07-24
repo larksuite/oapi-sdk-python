@@ -13,7 +13,7 @@ class AppVersionRemark(object):
         "visibility": AppVisibility,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.remark: Optional[str] = None
         self.update_remark: Optional[str] = None
         self.visibility: Optional[AppVisibility] = None
@@ -25,8 +25,8 @@ class AppVersionRemark(object):
 
 
 class AppVersionRemarkBuilder(object):
-    def __init__(self, app_version_remark: AppVersionRemark = AppVersionRemark({})) -> None:
-        self._app_version_remark: AppVersionRemark = app_version_remark
+    def __init__(self) -> None:
+        self._app_version_remark = AppVersionRemark()
 
     def remark(self, remark: str) -> "AppVersionRemarkBuilder":
         self._app_version_remark.remark = remark

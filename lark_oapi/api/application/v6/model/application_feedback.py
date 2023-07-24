@@ -25,7 +25,7 @@ class ApplicationFeedback(object):
         "feedback_path": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.feedback_id: Optional[int] = None
         self.app_id: Optional[str] = None
         self.feedback_time: Optional[str] = None
@@ -50,8 +50,8 @@ class ApplicationFeedback(object):
 
 
 class ApplicationFeedbackBuilder(object):
-    def __init__(self, application_feedback: ApplicationFeedback = ApplicationFeedback({})) -> None:
-        self._application_feedback: ApplicationFeedback = application_feedback
+    def __init__(self) -> None:
+        self._application_feedback = ApplicationFeedback()
 
     def feedback_id(self, feedback_id: int) -> "ApplicationFeedbackBuilder":
         self._application_feedback.feedback_id = feedback_id

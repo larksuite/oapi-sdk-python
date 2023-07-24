@@ -21,8 +21,8 @@ class DeleteFileCommentReplyRequest(BaseRequest):
 
 class DeleteFileCommentReplyRequestBuilder(object):
 
-    def __init__(self,
-                 delete_file_comment_reply_request: DeleteFileCommentReplyRequest = DeleteFileCommentReplyRequest()) -> None:
+    def __init__(self) -> None:
+        delete_file_comment_reply_request = DeleteFileCommentReplyRequest()
         delete_file_comment_reply_request.http_method = HttpMethod.DELETE
         delete_file_comment_reply_request.uri = "/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
         delete_file_comment_reply_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -13,7 +13,7 @@ class WorkplaceAccessData(object):
         "default_workplace": AccessData,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date: Optional[str] = None
         self.all_workplace: Optional[AccessData] = None
         self.default_workplace: Optional[AccessData] = None
@@ -25,8 +25,8 @@ class WorkplaceAccessData(object):
 
 
 class WorkplaceAccessDataBuilder(object):
-    def __init__(self, workplace_access_data: WorkplaceAccessData = WorkplaceAccessData({})) -> None:
-        self._workplace_access_data: WorkplaceAccessData = workplace_access_data
+    def __init__(self) -> None:
+        self._workplace_access_data = WorkplaceAccessData()
 
     def date(self, date: str) -> "WorkplaceAccessDataBuilder":
         self._workplace_access_data.date = date

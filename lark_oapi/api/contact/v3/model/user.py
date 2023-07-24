@@ -49,7 +49,7 @@ class User(object):
         "department_path": List[DepartmentDetail],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.union_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
@@ -97,8 +97,8 @@ class User(object):
 
 
 class UserBuilder(object):
-    def __init__(self, user: User = User({})) -> None:
-        self._user: User = user
+    def __init__(self) -> None:
+        self._user = User()
 
     def union_id(self, union_id: str) -> "UserBuilder":
         self._user.union_id = union_id

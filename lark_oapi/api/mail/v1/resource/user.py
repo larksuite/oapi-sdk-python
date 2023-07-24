@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.query_user_request import QueryUserRequest
-from lark_oapi.api.mail.v1.model.query_user_response import QueryUserResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_user_request import QueryUserRequest
+from ..model.query_user_response import QueryUserResponse
 
 
 class User(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def query(self, request: QueryUserRequest, option: RequestOption = RequestOption()) -> QueryUserResponse:
+    def query(self, request: QueryUserRequest, option: Optional[RequestOption] = None) -> QueryUserResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

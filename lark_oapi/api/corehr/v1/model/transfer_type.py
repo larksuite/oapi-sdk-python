@@ -17,7 +17,7 @@ class TransferType(object):
         "updated_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.transfer_type_unique_identifier: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.active: Optional[bool] = None
@@ -33,8 +33,8 @@ class TransferType(object):
 
 
 class TransferTypeBuilder(object):
-    def __init__(self, transfer_type: TransferType = TransferType({})) -> None:
-        self._transfer_type: TransferType = transfer_type
+    def __init__(self) -> None:
+        self._transfer_type = TransferType()
 
     def transfer_type_unique_identifier(self, transfer_type_unique_identifier: str) -> "TransferTypeBuilder":
         self._transfer_type.transfer_type_unique_identifier = transfer_type_unique_identifier

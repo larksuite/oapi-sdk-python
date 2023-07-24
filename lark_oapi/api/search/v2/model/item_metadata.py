@@ -14,7 +14,7 @@ class ItemMetadata(object):
         "source_url_mobile": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.source_url: Optional[str] = None
         self.create_time: Optional[int] = None
@@ -28,8 +28,8 @@ class ItemMetadata(object):
 
 
 class ItemMetadataBuilder(object):
-    def __init__(self, item_metadata: ItemMetadata = ItemMetadata({})) -> None:
-        self._item_metadata: ItemMetadata = item_metadata
+    def __init__(self) -> None:
+        self._item_metadata = ItemMetadata()
 
     def title(self, title: str) -> "ItemMetadataBuilder":
         self._item_metadata.title = title

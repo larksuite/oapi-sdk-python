@@ -19,8 +19,8 @@ class CreateExternalBackgroundCheckRequest(BaseRequest):
 
 class CreateExternalBackgroundCheckRequestBuilder(object):
 
-    def __init__(self,
-                 create_external_background_check_request: CreateExternalBackgroundCheckRequest = CreateExternalBackgroundCheckRequest()) -> None:
+    def __init__(self) -> None:
+        create_external_background_check_request = CreateExternalBackgroundCheckRequest()
         create_external_background_check_request.http_method = HttpMethod.POST
         create_external_background_check_request.uri = "/open-apis/hire/v1/external_background_checks"
         create_external_background_check_request.token_types = {AccessTokenType.TENANT}

@@ -13,7 +13,7 @@ class AppliOfferOnboardProfileCity(object):
         "location_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -26,9 +26,8 @@ class AppliOfferOnboardProfileCity(object):
 
 
 class AppliOfferOnboardProfileCityBuilder(object):
-    def __init__(self, appli_offer_onboard_profile_city: AppliOfferOnboardProfileCity = AppliOfferOnboardProfileCity(
-        {})) -> None:
-        self._appli_offer_onboard_profile_city: AppliOfferOnboardProfileCity = appli_offer_onboard_profile_city
+    def __init__(self) -> None:
+        self._appli_offer_onboard_profile_city = AppliOfferOnboardProfileCity()
 
     def code(self, code: str) -> "AppliOfferOnboardProfileCityBuilder":
         self._appli_offer_onboard_profile_city.code = code

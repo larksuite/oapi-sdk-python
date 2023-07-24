@@ -22,8 +22,8 @@ class ListMessageReactionRequest(BaseRequest):
 
 class ListMessageReactionRequestBuilder(object):
 
-    def __init__(self,
-                 list_message_reaction_request: ListMessageReactionRequest = ListMessageReactionRequest()) -> None:
+    def __init__(self) -> None:
+        list_message_reaction_request = ListMessageReactionRequest()
         list_message_reaction_request.http_method = HttpMethod.GET
         list_message_reaction_request.uri = "/open-apis/im/v1/messages/:message_id/reactions"
         list_message_reaction_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

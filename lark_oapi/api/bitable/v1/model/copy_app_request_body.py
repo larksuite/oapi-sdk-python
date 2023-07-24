@@ -12,7 +12,7 @@ class CopyAppRequestBody(object):
         "without_content": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.folder_token: Optional[str] = None
         self.without_content: Optional[bool] = None
@@ -24,8 +24,8 @@ class CopyAppRequestBody(object):
 
 
 class CopyAppRequestBodyBuilder(object):
-    def __init__(self, copy_app_request_body: CopyAppRequestBody = CopyAppRequestBody({})) -> None:
-        self._copy_app_request_body: CopyAppRequestBody = copy_app_request_body
+    def __init__(self) -> None:
+        self._copy_app_request_body = CopyAppRequestBody()
 
     def name(self, name: str) -> "CopyAppRequestBodyBuilder":
         self._copy_app_request_body.name = name

@@ -13,7 +13,7 @@ class UserCustomAttr(object):
         "value": UserCustomAttrValue,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.id: Optional[str] = None
         self.value: Optional[UserCustomAttrValue] = None
@@ -25,8 +25,8 @@ class UserCustomAttr(object):
 
 
 class UserCustomAttrBuilder(object):
-    def __init__(self, user_custom_attr: UserCustomAttr = UserCustomAttr({})) -> None:
-        self._user_custom_attr: UserCustomAttr = user_custom_attr
+    def __init__(self) -> None:
+        self._user_custom_attr = UserCustomAttr()
 
     def type(self, type: str) -> "UserCustomAttrBuilder":
         self._user_custom_attr.type = type

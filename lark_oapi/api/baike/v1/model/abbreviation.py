@@ -10,7 +10,7 @@ class Abbreviation(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Abbreviation(object):
 
 
 class AbbreviationBuilder(object):
-    def __init__(self, abbreviation: Abbreviation = Abbreviation({})) -> None:
-        self._abbreviation: Abbreviation = abbreviation
+    def __init__(self) -> None:
+        self._abbreviation = Abbreviation()
 
     def id(self, id: str) -> "AbbreviationBuilder":
         self._abbreviation.id = id

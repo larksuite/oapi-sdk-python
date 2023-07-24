@@ -19,7 +19,7 @@ class Evaluation(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.stage_id: Optional[str] = None
@@ -38,8 +38,8 @@ class Evaluation(object):
 
 
 class EvaluationBuilder(object):
-    def __init__(self, evaluation: Evaluation = Evaluation({})) -> None:
-        self._evaluation: Evaluation = evaluation
+    def __init__(self) -> None:
+        self._evaluation = Evaluation()
 
     def id(self, id: str) -> "EvaluationBuilder":
         self._evaluation.id = id

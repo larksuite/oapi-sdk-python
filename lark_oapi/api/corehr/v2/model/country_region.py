@@ -17,7 +17,7 @@ class CountryRegion(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.country_region_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.full_name: Optional[List[I18n]] = None
@@ -33,8 +33,8 @@ class CountryRegion(object):
 
 
 class CountryRegionBuilder(object):
-    def __init__(self, country_region: CountryRegion = CountryRegion({})) -> None:
-        self._country_region: CountryRegion = country_region
+    def __init__(self) -> None:
+        self._country_region = CountryRegion()
 
     def country_region_id(self, country_region_id: str) -> "CountryRegionBuilder":
         self._country_region.country_region_id = country_region_id

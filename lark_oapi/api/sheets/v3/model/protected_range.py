@@ -20,7 +20,7 @@ class ProtectedRange(object):
         "editors": ProtectedRangeEditors,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.protected_id: Optional[str] = None
         self.description: Optional[str] = None
         self.protected_dimension: Optional[str] = None
@@ -36,8 +36,8 @@ class ProtectedRange(object):
 
 
 class ProtectedRangeBuilder(object):
-    def __init__(self, protected_range: ProtectedRange = ProtectedRange({})) -> None:
-        self._protected_range: ProtectedRange = protected_range
+    def __init__(self) -> None:
+        self._protected_range = ProtectedRange()
 
     def protected_id(self, protected_id: str) -> "ProtectedRangeBuilder":
         self._protected_range.protected_id = protected_id

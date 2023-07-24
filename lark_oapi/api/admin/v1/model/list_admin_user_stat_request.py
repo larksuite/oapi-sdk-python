@@ -25,7 +25,8 @@ class ListAdminUserStatRequest(BaseRequest):
 
 class ListAdminUserStatRequestBuilder(object):
 
-    def __init__(self, list_admin_user_stat_request: ListAdminUserStatRequest = ListAdminUserStatRequest()) -> None:
+    def __init__(self) -> None:
+        list_admin_user_stat_request = ListAdminUserStatRequest()
         list_admin_user_stat_request.http_method = HttpMethod.GET
         list_admin_user_stat_request.uri = "/open-apis/admin/v1/admin_user_stats"
         list_admin_user_stat_request.token_types = {AccessTokenType.TENANT}

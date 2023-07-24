@@ -17,7 +17,7 @@ class CountryRegionSubdivision(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.country_region_subdivision_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.country_region_id: Optional[str] = None
@@ -32,8 +32,8 @@ class CountryRegionSubdivision(object):
 
 
 class CountryRegionSubdivisionBuilder(object):
-    def __init__(self, country_region_subdivision: CountryRegionSubdivision = CountryRegionSubdivision({})) -> None:
-        self._country_region_subdivision: CountryRegionSubdivision = country_region_subdivision
+    def __init__(self) -> None:
+        self._country_region_subdivision = CountryRegionSubdivision()
 
     def country_region_subdivision_id(self, country_region_subdivision_id: str) -> "CountryRegionSubdivisionBuilder":
         self._country_region_subdivision.country_region_subdivision_id = country_region_subdivision_id

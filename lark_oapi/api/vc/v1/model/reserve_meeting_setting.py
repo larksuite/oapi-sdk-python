@@ -18,7 +18,7 @@ class ReserveMeetingSetting(object):
         "assign_host_list": List[ReserveAssignHost],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.topic: Optional[str] = None
         self.action_permissions: Optional[List[ReserveActionPermission]] = None
         self.meeting_initial_type: Optional[int] = None
@@ -33,8 +33,8 @@ class ReserveMeetingSetting(object):
 
 
 class ReserveMeetingSettingBuilder(object):
-    def __init__(self, reserve_meeting_setting: ReserveMeetingSetting = ReserveMeetingSetting({})) -> None:
-        self._reserve_meeting_setting: ReserveMeetingSetting = reserve_meeting_setting
+    def __init__(self) -> None:
+        self._reserve_meeting_setting = ReserveMeetingSetting()
 
     def topic(self, topic: str) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.topic = topic

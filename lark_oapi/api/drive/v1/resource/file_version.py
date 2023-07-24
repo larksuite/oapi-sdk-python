@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.create_file_version_request import CreateFileVersionRequest
-from lark_oapi.api.drive.v1.model.create_file_version_response import CreateFileVersionResponse
-from lark_oapi.api.drive.v1.model.delete_file_version_request import DeleteFileVersionRequest
-from lark_oapi.api.drive.v1.model.delete_file_version_response import DeleteFileVersionResponse
-from lark_oapi.api.drive.v1.model.get_file_version_request import GetFileVersionRequest
-from lark_oapi.api.drive.v1.model.get_file_version_response import GetFileVersionResponse
-from lark_oapi.api.drive.v1.model.list_file_version_request import ListFileVersionRequest
-from lark_oapi.api.drive.v1.model.list_file_version_response import ListFileVersionResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_file_version_request import CreateFileVersionRequest
+from ..model.create_file_version_response import CreateFileVersionResponse
+from ..model.delete_file_version_request import DeleteFileVersionRequest
+from ..model.delete_file_version_response import DeleteFileVersionResponse
+from ..model.get_file_version_request import GetFileVersionRequest
+from ..model.get_file_version_response import GetFileVersionResponse
+from ..model.list_file_version_request import ListFileVersionRequest
+from ..model.list_file_version_response import ListFileVersionResponse
 
 
 class FileVersion(object):
@@ -22,7 +22,10 @@ class FileVersion(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateFileVersionRequest,
-               option: RequestOption = RequestOption()) -> CreateFileVersionResponse:
+               option: Optional[RequestOption] = None) -> CreateFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class FileVersion(object):
         return response
 
     def delete(self, request: DeleteFileVersionRequest,
-               option: RequestOption = RequestOption()) -> DeleteFileVersionResponse:
+               option: Optional[RequestOption] = None) -> DeleteFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class FileVersion(object):
 
         return response
 
-    def get(self, request: GetFileVersionRequest, option: RequestOption = RequestOption()) -> GetFileVersionResponse:
+    def get(self, request: GetFileVersionRequest, option: Optional[RequestOption] = None) -> GetFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class FileVersion(object):
 
         return response
 
-    def list(self, request: ListFileVersionRequest, option: RequestOption = RequestOption()) -> ListFileVersionResponse:
+    def list(self, request: ListFileVersionRequest, option: Optional[RequestOption] = None) -> ListFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

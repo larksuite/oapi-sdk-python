@@ -11,7 +11,7 @@ class FormFieldVariableListValue(object):
         "values": List[FormFieldVariableListObject],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.values: Optional[List[FormFieldVariableListObject]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class FormFieldVariableListValue(object):
 
 
 class FormFieldVariableListValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_list_value: FormFieldVariableListValue = FormFieldVariableListValue({})) -> None:
-        self._form_field_variable_list_value: FormFieldVariableListValue = form_field_variable_list_value
+    def __init__(self) -> None:
+        self._form_field_variable_list_value = FormFieldVariableListValue()
 
     def values(self, values: List[FormFieldVariableListObject]) -> "FormFieldVariableListValueBuilder":
         self._form_field_variable_list_value.values = values

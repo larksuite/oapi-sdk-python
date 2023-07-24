@@ -20,7 +20,8 @@ class CreateScopeConfigRequest(BaseRequest):
 
 class CreateScopeConfigRequestBuilder(object):
 
-    def __init__(self, create_scope_config_request: CreateScopeConfigRequest = CreateScopeConfigRequest()) -> None:
+    def __init__(self) -> None:
+        create_scope_config_request = CreateScopeConfigRequest()
         create_scope_config_request.http_method = HttpMethod.POST
         create_scope_config_request.uri = "/open-apis/vc/v1/scope_config"
         create_scope_config_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

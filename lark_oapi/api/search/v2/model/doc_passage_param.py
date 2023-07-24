@@ -11,7 +11,7 @@ class DocPassageParam(object):
         "doc_tokens": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.searchable: Optional[bool] = None
         self.doc_tokens: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DocPassageParam(object):
 
 
 class DocPassageParamBuilder(object):
-    def __init__(self, doc_passage_param: DocPassageParam = DocPassageParam({})) -> None:
-        self._doc_passage_param: DocPassageParam = doc_passage_param
+    def __init__(self) -> None:
+        self._doc_passage_param = DocPassageParam()
 
     def searchable(self, searchable: bool) -> "DocPassageParamBuilder":
         self._doc_passage_param.searchable = searchable

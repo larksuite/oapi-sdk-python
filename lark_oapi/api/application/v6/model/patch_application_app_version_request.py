@@ -24,8 +24,8 @@ class PatchApplicationAppVersionRequest(BaseRequest):
 
 class PatchApplicationAppVersionRequestBuilder(object):
 
-    def __init__(self,
-                 patch_application_app_version_request: PatchApplicationAppVersionRequest = PatchApplicationAppVersionRequest()) -> None:
+    def __init__(self) -> None:
+        patch_application_app_version_request = PatchApplicationAppVersionRequest()
         patch_application_app_version_request.http_method = HttpMethod.PATCH
         patch_application_app_version_request.uri = "/open-apis/application/v6/applications/:app_id/app_versions/:version_id"
         patch_application_app_version_request.token_types = {AccessTokenType.TENANT}

@@ -13,7 +13,7 @@ class AssignedOrganization(object):
         "org_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.org_key: Optional[str] = None
         self.org_name: Optional[Name] = None
         self.org_id_list: Optional[List[str]] = None
@@ -25,8 +25,8 @@ class AssignedOrganization(object):
 
 
 class AssignedOrganizationBuilder(object):
-    def __init__(self, assigned_organization: AssignedOrganization = AssignedOrganization({})) -> None:
-        self._assigned_organization: AssignedOrganization = assigned_organization
+    def __init__(self) -> None:
+        self._assigned_organization = AssignedOrganization()
 
     def org_key(self, org_key: str) -> "AssignedOrganizationBuilder":
         self._assigned_organization.org_key = org_key

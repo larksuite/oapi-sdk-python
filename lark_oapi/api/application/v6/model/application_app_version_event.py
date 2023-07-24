@@ -29,7 +29,7 @@ class ApplicationAppVersionEvent(object):
         "remark": AppVersionRemarkEvent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_id: Optional[str] = None
         self.version: Optional[str] = None
         self.version_id: Optional[str] = None
@@ -54,9 +54,8 @@ class ApplicationAppVersionEvent(object):
 
 
 class ApplicationAppVersionEventBuilder(object):
-    def __init__(self,
-                 application_app_version_event: ApplicationAppVersionEvent = ApplicationAppVersionEvent({})) -> None:
-        self._application_app_version_event: ApplicationAppVersionEvent = application_app_version_event
+    def __init__(self) -> None:
+        self._application_app_version_event = ApplicationAppVersionEvent()
 
     def app_id(self, app_id: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.app_id = app_id

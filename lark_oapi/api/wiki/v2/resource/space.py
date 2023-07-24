@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.wiki.v2.model.create_space_request import CreateSpaceRequest
-from lark_oapi.api.wiki.v2.model.create_space_response import CreateSpaceResponse
-from lark_oapi.api.wiki.v2.model.get_node_space_request import GetNodeSpaceRequest
-from lark_oapi.api.wiki.v2.model.get_node_space_response import GetNodeSpaceResponse
-from lark_oapi.api.wiki.v2.model.get_space_request import GetSpaceRequest
-from lark_oapi.api.wiki.v2.model.get_space_response import GetSpaceResponse
-from lark_oapi.api.wiki.v2.model.list_space_request import ListSpaceRequest
-from lark_oapi.api.wiki.v2.model.list_space_response import ListSpaceResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_space_request import CreateSpaceRequest
+from ..model.create_space_response import CreateSpaceResponse
+from ..model.get_node_space_request import GetNodeSpaceRequest
+from ..model.get_node_space_response import GetNodeSpaceResponse
+from ..model.get_space_request import GetSpaceRequest
+from ..model.get_space_response import GetSpaceResponse
+from ..model.list_space_request import ListSpaceRequest
+from ..model.list_space_response import ListSpaceResponse
 
 
 class Space(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateSpaceRequest, option: RequestOption = RequestOption()) -> CreateSpaceResponse:
+    def create(self, request: CreateSpaceRequest, option: Optional[RequestOption] = None) -> CreateSpaceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Space(object):
 
         return response
 
-    def get(self, request: GetSpaceRequest, option: RequestOption = RequestOption()) -> GetSpaceResponse:
+    def get(self, request: GetSpaceRequest, option: Optional[RequestOption] = None) -> GetSpaceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class Space(object):
 
         return response
 
-    def get_node(self, request: GetNodeSpaceRequest, option: RequestOption = RequestOption()) -> GetNodeSpaceResponse:
+    def get_node(self, request: GetNodeSpaceRequest, option: Optional[RequestOption] = None) -> GetNodeSpaceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +69,10 @@ class Space(object):
 
         return response
 
-    def list(self, request: ListSpaceRequest, option: RequestOption = RequestOption()) -> ListSpaceResponse:
+    def list(self, request: ListSpaceRequest, option: Optional[RequestOption] = None) -> ListSpaceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

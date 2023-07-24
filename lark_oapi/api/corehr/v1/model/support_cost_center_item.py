@@ -11,7 +11,7 @@ class SupportCostCenterItem(object):
         "rate": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.cost_center_id: Optional[str] = None
         self.rate: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SupportCostCenterItem(object):
 
 
 class SupportCostCenterItemBuilder(object):
-    def __init__(self, support_cost_center_item: SupportCostCenterItem = SupportCostCenterItem({})) -> None:
-        self._support_cost_center_item: SupportCostCenterItem = support_cost_center_item
+    def __init__(self) -> None:
+        self._support_cost_center_item = SupportCostCenterItem()
 
     def cost_center_id(self, cost_center_id: str) -> "SupportCostCenterItemBuilder":
         self._support_cost_center_item.cost_center_id = cost_center_id

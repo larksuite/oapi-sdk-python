@@ -13,7 +13,7 @@ class GetProgressBatchMessageResponseBody(object):
         "batch_message_recall_progress": BatchMessageRecallProgress,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.batch_message_send_progress: Optional[BatchMessageSendProgress] = None
         self.batch_message_recall_progress: Optional[BatchMessageRecallProgress] = None
         init(self, d, self._types)
@@ -24,10 +24,8 @@ class GetProgressBatchMessageResponseBody(object):
 
 
 class GetProgressBatchMessageResponseBodyBuilder(object):
-    def __init__(self,
-                 get_progress_batch_message_response_body: GetProgressBatchMessageResponseBody = GetProgressBatchMessageResponseBody(
-                     {})) -> None:
-        self._get_progress_batch_message_response_body: GetProgressBatchMessageResponseBody = get_progress_batch_message_response_body
+    def __init__(self) -> None:
+        self._get_progress_batch_message_response_body = GetProgressBatchMessageResponseBody()
 
     def batch_message_send_progress(self,
                                     batch_message_send_progress: BatchMessageSendProgress) -> "GetProgressBatchMessageResponseBodyBuilder":

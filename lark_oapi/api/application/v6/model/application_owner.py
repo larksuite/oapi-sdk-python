@@ -15,7 +15,7 @@ class ApplicationOwner(object):
         "phone": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[int] = None
         self.owner_id: Optional[str] = None
         self.name: Optional[str] = None
@@ -30,8 +30,8 @@ class ApplicationOwner(object):
 
 
 class ApplicationOwnerBuilder(object):
-    def __init__(self, application_owner: ApplicationOwner = ApplicationOwner({})) -> None:
-        self._application_owner: ApplicationOwner = application_owner
+    def __init__(self) -> None:
+        self._application_owner = ApplicationOwner()
 
     def type(self, type: int) -> "ApplicationOwnerBuilder":
         self._application_owner.type = type

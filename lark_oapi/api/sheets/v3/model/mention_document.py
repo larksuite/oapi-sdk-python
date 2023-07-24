@@ -14,7 +14,7 @@ class MentionDocument(object):
         "segment_style": SegmentStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.object_type: Optional[str] = None
         self.token: Optional[str] = None
@@ -27,8 +27,8 @@ class MentionDocument(object):
 
 
 class MentionDocumentBuilder(object):
-    def __init__(self, mention_document: MentionDocument = MentionDocument({})) -> None:
-        self._mention_document: MentionDocument = mention_document
+    def __init__(self) -> None:
+        self._mention_document = MentionDocument()
 
     def title(self, title: str) -> "MentionDocumentBuilder":
         self._mention_document.title = title

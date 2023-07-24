@@ -22,8 +22,8 @@ class BatchQueryFileCommentRequest(BaseRequest):
 
 class BatchQueryFileCommentRequestBuilder(object):
 
-    def __init__(self,
-                 batch_query_file_comment_request: BatchQueryFileCommentRequest = BatchQueryFileCommentRequest()) -> None:
+    def __init__(self) -> None:
+        batch_query_file_comment_request = BatchQueryFileCommentRequest()
         batch_query_file_comment_request.http_method = HttpMethod.POST
         batch_query_file_comment_request.uri = "/open-apis/drive/v1/files/:file_token/comments/batch_query"
         batch_query_file_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

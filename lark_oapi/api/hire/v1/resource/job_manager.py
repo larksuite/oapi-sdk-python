@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.get_job_manager_request import GetJobManagerRequest
-from lark_oapi.api.hire.v1.model.get_job_manager_response import GetJobManagerResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_job_manager_request import GetJobManagerRequest
+from ..model.get_job_manager_response import GetJobManagerResponse
 
 
 class JobManager(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetJobManagerRequest, option: RequestOption = RequestOption()) -> GetJobManagerResponse:
+    def get(self, request: GetJobManagerRequest, option: Optional[RequestOption] = None) -> GetJobManagerResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -15,7 +15,7 @@ class Referral(object):
         "referral_user": IdNameObject,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.create_time: Optional[int] = None
@@ -29,8 +29,8 @@ class Referral(object):
 
 
 class ReferralBuilder(object):
-    def __init__(self, referral: Referral = Referral({})) -> None:
-        self._referral: Referral = referral
+    def __init__(self) -> None:
+        self._referral = Referral()
 
     def id(self, id: str) -> "ReferralBuilder":
         self._referral.id = id

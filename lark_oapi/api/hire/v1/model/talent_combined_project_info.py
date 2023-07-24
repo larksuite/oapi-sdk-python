@@ -18,7 +18,7 @@ class TalentCombinedProjectInfo(object):
         "customized_data": List[TalentCustomizedDataObjectValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.role: Optional[str] = None
@@ -35,8 +35,8 @@ class TalentCombinedProjectInfo(object):
 
 
 class TalentCombinedProjectInfoBuilder(object):
-    def __init__(self, talent_combined_project_info: TalentCombinedProjectInfo = TalentCombinedProjectInfo({})) -> None:
-        self._talent_combined_project_info: TalentCombinedProjectInfo = talent_combined_project_info
+    def __init__(self) -> None:
+        self._talent_combined_project_info = TalentCombinedProjectInfo()
 
     def id(self, id: str) -> "TalentCombinedProjectInfoBuilder":
         self._talent_combined_project_info.id = id

@@ -17,7 +17,7 @@ class InterviewAddress(object):
         "country": CodeNameObject,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.district: Optional[CodeNameObject] = None
@@ -32,8 +32,8 @@ class InterviewAddress(object):
 
 
 class InterviewAddressBuilder(object):
-    def __init__(self, interview_address: InterviewAddress = InterviewAddress({})) -> None:
-        self._interview_address: InterviewAddress = interview_address
+    def __init__(self) -> None:
+        self._interview_address = InterviewAddress()
 
     def id(self, id: str) -> "InterviewAddressBuilder":
         self._interview_address.id = id

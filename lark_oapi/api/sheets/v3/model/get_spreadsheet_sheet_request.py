@@ -19,8 +19,8 @@ class GetSpreadsheetSheetRequest(BaseRequest):
 
 class GetSpreadsheetSheetRequestBuilder(object):
 
-    def __init__(self,
-                 get_spreadsheet_sheet_request: GetSpreadsheetSheetRequest = GetSpreadsheetSheetRequest()) -> None:
+    def __init__(self) -> None:
+        get_spreadsheet_sheet_request = GetSpreadsheetSheetRequest()
         get_spreadsheet_sheet_request.http_method = HttpMethod.GET
         get_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
         get_spreadsheet_sheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

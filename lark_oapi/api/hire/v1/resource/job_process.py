@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.list_job_process_request import ListJobProcessRequest
-from lark_oapi.api.hire.v1.model.list_job_process_response import ListJobProcessResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_job_process_request import ListJobProcessRequest
+from ..model.list_job_process_response import ListJobProcessResponse
 
 
 class JobProcess(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListJobProcessRequest, option: RequestOption = RequestOption()) -> ListJobProcessResponse:
+    def list(self, request: ListJobProcessRequest, option: Optional[RequestOption] = None) -> ListJobProcessResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

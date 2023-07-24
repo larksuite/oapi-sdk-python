@@ -13,7 +13,7 @@ class CalendarAcl(object):
         "scope": AclScope,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.acl_id: Optional[str] = None
         self.role: Optional[str] = None
         self.scope: Optional[AclScope] = None
@@ -25,8 +25,8 @@ class CalendarAcl(object):
 
 
 class CalendarAclBuilder(object):
-    def __init__(self, calendar_acl: CalendarAcl = CalendarAcl({})) -> None:
-        self._calendar_acl: CalendarAcl = calendar_acl
+    def __init__(self) -> None:
+        self._calendar_acl = CalendarAcl()
 
     def acl_id(self, acl_id: str) -> "CalendarAclBuilder":
         self._calendar_acl.acl_id = acl_id

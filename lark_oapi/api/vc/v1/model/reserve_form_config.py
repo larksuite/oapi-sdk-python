@@ -15,7 +15,7 @@ class ReserveFormConfig(object):
         "time_unit": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reserve_form: Optional[bool] = None
         self.notified_users: Optional[List[SubscribeUser]] = None
         self.notified_time: Optional[int] = None
@@ -29,8 +29,8 @@ class ReserveFormConfig(object):
 
 
 class ReserveFormConfigBuilder(object):
-    def __init__(self, reserve_form_config: ReserveFormConfig = ReserveFormConfig({})) -> None:
-        self._reserve_form_config: ReserveFormConfig = reserve_form_config
+    def __init__(self) -> None:
+        self._reserve_form_config = ReserveFormConfig()
 
     def reserve_form(self, reserve_form: bool) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.reserve_form = reserve_form

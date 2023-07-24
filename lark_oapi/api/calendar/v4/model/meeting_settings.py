@@ -15,7 +15,7 @@ class MeetingSettings(object):
         "allow_attendees_start": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.owner_id: Optional[int] = None
         self.join_meeting_permission: Optional[str] = None
         self.assign_hosts: Optional[List[int]] = None
@@ -30,8 +30,8 @@ class MeetingSettings(object):
 
 
 class MeetingSettingsBuilder(object):
-    def __init__(self, meeting_settings: MeetingSettings = MeetingSettings({})) -> None:
-        self._meeting_settings: MeetingSettings = meeting_settings
+    def __init__(self) -> None:
+        self._meeting_settings = MeetingSettings()
 
     def owner_id(self, owner_id: int) -> "MeetingSettingsBuilder":
         self._meeting_settings.owner_id = owner_id

@@ -19,8 +19,8 @@ class DeleteDataSourceItemRequest(BaseRequest):
 
 class DeleteDataSourceItemRequestBuilder(object):
 
-    def __init__(self,
-                 delete_data_source_item_request: DeleteDataSourceItemRequest = DeleteDataSourceItemRequest()) -> None:
+    def __init__(self) -> None:
+        delete_data_source_item_request = DeleteDataSourceItemRequest()
         delete_data_source_item_request.http_method = HttpMethod.DELETE
         delete_data_source_item_request.uri = "/open-apis/search/v2/data_sources/:data_source_id/items/:item_id"
         delete_data_source_item_request.token_types = {AccessTokenType.TENANT}

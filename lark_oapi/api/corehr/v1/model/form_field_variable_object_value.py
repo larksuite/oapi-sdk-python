@@ -11,7 +11,7 @@ class FormFieldVariableObjectValue(object):
         "wk_api_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[str] = None
         self.wk_api_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class FormFieldVariableObjectValue(object):
 
 
 class FormFieldVariableObjectValueBuilder(object):
-    def __init__(self, form_field_variable_object_value: FormFieldVariableObjectValue = FormFieldVariableObjectValue(
-        {})) -> None:
-        self._form_field_variable_object_value: FormFieldVariableObjectValue = form_field_variable_object_value
+    def __init__(self) -> None:
+        self._form_field_variable_object_value = FormFieldVariableObjectValue()
 
     def value(self, value: str) -> "FormFieldVariableObjectValueBuilder":
         self._form_field_variable_object_value.value = value

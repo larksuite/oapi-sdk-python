@@ -21,8 +21,8 @@ class DeleteInstanceCommentRequest(BaseRequest):
 
 class DeleteInstanceCommentRequestBuilder(object):
 
-    def __init__(self,
-                 delete_instance_comment_request: DeleteInstanceCommentRequest = DeleteInstanceCommentRequest()) -> None:
+    def __init__(self) -> None:
+        delete_instance_comment_request = DeleteInstanceCommentRequest()
         delete_instance_comment_request.http_method = HttpMethod.DELETE
         delete_instance_comment_request.uri = "/open-apis/approval/v4/instances/:instance_id/comments/:comment_id"
         delete_instance_comment_request.token_types = {AccessTokenType.TENANT}

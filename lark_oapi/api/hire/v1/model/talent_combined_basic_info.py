@@ -25,7 +25,7 @@ class TalentCombinedBasicInfo(object):
         "customized_data": List[TalentCustomizedDataObjectValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.mobile: Optional[str] = None
         self.mobile_country_code: Optional[str] = None
@@ -48,8 +48,8 @@ class TalentCombinedBasicInfo(object):
 
 
 class TalentCombinedBasicInfoBuilder(object):
-    def __init__(self, talent_combined_basic_info: TalentCombinedBasicInfo = TalentCombinedBasicInfo({})) -> None:
-        self._talent_combined_basic_info: TalentCombinedBasicInfo = talent_combined_basic_info
+    def __init__(self) -> None:
+        self._talent_combined_basic_info = TalentCombinedBasicInfo()
 
     def name(self, name: str) -> "TalentCombinedBasicInfoBuilder":
         self._talent_combined_basic_info.name = name

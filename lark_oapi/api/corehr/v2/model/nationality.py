@@ -17,7 +17,7 @@ class Nationality(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.nationality_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.alpha_2_code: Optional[str] = None
@@ -33,8 +33,8 @@ class Nationality(object):
 
 
 class NationalityBuilder(object):
-    def __init__(self, nationality: Nationality = Nationality({})) -> None:
-        self._nationality: Nationality = nationality
+    def __init__(self) -> None:
+        self._nationality = Nationality()
 
     def nationality_id(self, nationality_id: str) -> "NationalityBuilder":
         self._nationality.nationality_id = nationality_id

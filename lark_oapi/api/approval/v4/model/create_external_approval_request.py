@@ -21,8 +21,8 @@ class CreateExternalApprovalRequest(BaseRequest):
 
 class CreateExternalApprovalRequestBuilder(object):
 
-    def __init__(self,
-                 create_external_approval_request: CreateExternalApprovalRequest = CreateExternalApprovalRequest()) -> None:
+    def __init__(self) -> None:
+        create_external_approval_request = CreateExternalApprovalRequest()
         create_external_approval_request.http_method = HttpMethod.POST
         create_external_approval_request.uri = "/open-apis/approval/v4/external_approvals"
         create_external_approval_request.token_types = {AccessTokenType.TENANT}

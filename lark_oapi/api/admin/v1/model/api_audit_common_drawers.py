@@ -11,7 +11,7 @@ class ApiAuditCommonDrawers(object):
         "common_draw_info_list": List[ApiAuditDrawerInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.common_draw_info_list: Optional[List[ApiAuditDrawerInfo]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ApiAuditCommonDrawers(object):
 
 
 class ApiAuditCommonDrawersBuilder(object):
-    def __init__(self, api_audit_common_drawers: ApiAuditCommonDrawers = ApiAuditCommonDrawers({})) -> None:
-        self._api_audit_common_drawers: ApiAuditCommonDrawers = api_audit_common_drawers
+    def __init__(self) -> None:
+        self._api_audit_common_drawers = ApiAuditCommonDrawers()
 
     def common_draw_info_list(self, common_draw_info_list: List[ApiAuditDrawerInfo]) -> "ApiAuditCommonDrawersBuilder":
         self._api_audit_common_drawers.common_draw_info_list = common_draw_info_list

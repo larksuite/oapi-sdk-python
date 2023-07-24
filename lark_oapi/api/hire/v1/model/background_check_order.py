@@ -20,7 +20,7 @@ class BackgroundCheckOrder(object):
         "upload_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.order_id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.order_status: Optional[int] = None
@@ -38,8 +38,8 @@ class BackgroundCheckOrder(object):
 
 
 class BackgroundCheckOrderBuilder(object):
-    def __init__(self, background_check_order: BackgroundCheckOrder = BackgroundCheckOrder({})) -> None:
-        self._background_check_order: BackgroundCheckOrder = background_check_order
+    def __init__(self) -> None:
+        self._background_check_order = BackgroundCheckOrder()
 
     def order_id(self, order_id: str) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.order_id = order_id

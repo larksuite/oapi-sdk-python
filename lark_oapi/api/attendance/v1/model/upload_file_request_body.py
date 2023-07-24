@@ -11,7 +11,7 @@ class UploadFileRequestBody(object):
         "file": IO[Any],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file: Optional[IO[Any]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class UploadFileRequestBody(object):
 
 
 class UploadFileRequestBodyBuilder(object):
-    def __init__(self, upload_file_request_body: UploadFileRequestBody = UploadFileRequestBody({})) -> None:
-        self._upload_file_request_body: UploadFileRequestBody = upload_file_request_body
+    def __init__(self) -> None:
+        self._upload_file_request_body = UploadFileRequestBody()
 
     def file(self, file: IO[Any]) -> "UploadFileRequestBodyBuilder":
         self._upload_file_request_body.file = file

@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.batch_create_mailgroup_manager_request import BatchCreateMailgroupManagerRequest
-from lark_oapi.api.mail.v1.model.batch_create_mailgroup_manager_response import BatchCreateMailgroupManagerResponse
-from lark_oapi.api.mail.v1.model.batch_delete_mailgroup_manager_request import BatchDeleteMailgroupManagerRequest
-from lark_oapi.api.mail.v1.model.batch_delete_mailgroup_manager_response import BatchDeleteMailgroupManagerResponse
-from lark_oapi.api.mail.v1.model.list_mailgroup_manager_request import ListMailgroupManagerRequest
-from lark_oapi.api.mail.v1.model.list_mailgroup_manager_response import ListMailgroupManagerResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_mailgroup_manager_request import BatchCreateMailgroupManagerRequest
+from ..model.batch_create_mailgroup_manager_response import BatchCreateMailgroupManagerResponse
+from ..model.batch_delete_mailgroup_manager_request import BatchDeleteMailgroupManagerRequest
+from ..model.batch_delete_mailgroup_manager_response import BatchDeleteMailgroupManagerResponse
+from ..model.list_mailgroup_manager_request import ListMailgroupManagerRequest
+from ..model.list_mailgroup_manager_response import ListMailgroupManagerResponse
 
 
 class MailgroupManager(object):
@@ -20,7 +20,10 @@ class MailgroupManager(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateMailgroupManagerRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateMailgroupManagerResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateMailgroupManagerResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class MailgroupManager(object):
         return response
 
     def batch_delete(self, request: BatchDeleteMailgroupManagerRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteMailgroupManagerResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteMailgroupManagerResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class MailgroupManager(object):
         return response
 
     def list(self, request: ListMailgroupManagerRequest,
-             option: RequestOption = RequestOption()) -> ListMailgroupManagerResponse:
+             option: Optional[RequestOption] = None) -> ListMailgroupManagerResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

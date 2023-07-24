@@ -20,7 +20,8 @@ class CreateSchemaRequest(BaseRequest):
 
 class CreateSchemaRequestBuilder(object):
 
-    def __init__(self, create_schema_request: CreateSchemaRequest = CreateSchemaRequest()) -> None:
+    def __init__(self) -> None:
+        create_schema_request = CreateSchemaRequest()
         create_schema_request.http_method = HttpMethod.POST
         create_schema_request.uri = "/open-apis/search/v2/schemas"
         create_schema_request.token_types = {AccessTokenType.TENANT}

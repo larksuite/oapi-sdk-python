@@ -12,7 +12,7 @@ class QueryUserDailyShiftResponse(BaseResponse):
         "data": QueryUserDailyShiftResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[QueryUserDailyShiftResponseBody] = None
         init(self, d, self._types)

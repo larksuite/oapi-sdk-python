@@ -19,8 +19,8 @@ class ListJobRequirementSchemaRequest(BaseRequest):
 
 class ListJobRequirementSchemaRequestBuilder(object):
 
-    def __init__(self,
-                 list_job_requirement_schema_request: ListJobRequirementSchemaRequest = ListJobRequirementSchemaRequest()) -> None:
+    def __init__(self) -> None:
+        list_job_requirement_schema_request = ListJobRequirementSchemaRequest()
         list_job_requirement_schema_request.http_method = HttpMethod.GET
         list_job_requirement_schema_request.uri = "/open-apis/hire/v1/job_requirement_schemas"
         list_job_requirement_schema_request.token_types = {AccessTokenType.TENANT}

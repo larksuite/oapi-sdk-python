@@ -11,7 +11,7 @@ class TalentIdentificationInfo(object):
         "identification_number": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.identification_type: Optional[int] = None
         self.identification_number: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TalentIdentificationInfo(object):
 
 
 class TalentIdentificationInfoBuilder(object):
-    def __init__(self, talent_identification_info: TalentIdentificationInfo = TalentIdentificationInfo({})) -> None:
-        self._talent_identification_info: TalentIdentificationInfo = talent_identification_info
+    def __init__(self) -> None:
+        self._talent_identification_info = TalentIdentificationInfo()
 
     def identification_type(self, identification_type: int) -> "TalentIdentificationInfoBuilder":
         self._talent_identification_info.identification_type = identification_type

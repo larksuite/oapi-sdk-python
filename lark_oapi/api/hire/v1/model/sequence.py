@@ -12,7 +12,7 @@ class Sequence(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class Sequence(object):
 
 
 class SequenceBuilder(object):
-    def __init__(self, sequence: Sequence = Sequence({})) -> None:
-        self._sequence: Sequence = sequence
+    def __init__(self) -> None:
+        self._sequence = Sequence()
 
     def id(self, id: str) -> "SequenceBuilder":
         self._sequence.id = id

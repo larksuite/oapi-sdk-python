@@ -19,8 +19,8 @@ class QuerySpreadsheetSheetFloatImageRequest(BaseRequest):
 
 class QuerySpreadsheetSheetFloatImageRequestBuilder(object):
 
-    def __init__(self,
-                 query_spreadsheet_sheet_float_image_request: QuerySpreadsheetSheetFloatImageRequest = QuerySpreadsheetSheetFloatImageRequest()) -> None:
+    def __init__(self) -> None:
+        query_spreadsheet_sheet_float_image_request = QuerySpreadsheetSheetFloatImageRequest()
         query_spreadsheet_sheet_float_image_request.http_method = HttpMethod.GET
         query_spreadsheet_sheet_float_image_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
         query_spreadsheet_sheet_float_image_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

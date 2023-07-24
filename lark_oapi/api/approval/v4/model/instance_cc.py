@@ -14,7 +14,7 @@ class InstanceCc(object):
         "comment": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -28,8 +28,8 @@ class InstanceCc(object):
 
 
 class InstanceCcBuilder(object):
-    def __init__(self, instance_cc: InstanceCc = InstanceCc({})) -> None:
-        self._instance_cc: InstanceCc = instance_cc
+    def __init__(self) -> None:
+        self._instance_cc = InstanceCc()
 
     def approval_code(self, approval_code: str) -> "InstanceCcBuilder":
         self._instance_cc.approval_code = approval_code

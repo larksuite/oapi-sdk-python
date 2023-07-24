@@ -19,8 +19,8 @@ class QuerySpreadsheetSheetFilterViewRequest(BaseRequest):
 
 class QuerySpreadsheetSheetFilterViewRequestBuilder(object):
 
-    def __init__(self,
-                 query_spreadsheet_sheet_filter_view_request: QuerySpreadsheetSheetFilterViewRequest = QuerySpreadsheetSheetFilterViewRequest()) -> None:
+    def __init__(self) -> None:
+        query_spreadsheet_sheet_filter_view_request = QuerySpreadsheetSheetFilterViewRequest()
         query_spreadsheet_sheet_filter_view_request.http_method = HttpMethod.GET
         query_spreadsheet_sheet_filter_view_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
         query_spreadsheet_sheet_filter_view_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

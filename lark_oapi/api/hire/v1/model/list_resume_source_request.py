@@ -19,7 +19,8 @@ class ListResumeSourceRequest(BaseRequest):
 
 class ListResumeSourceRequestBuilder(object):
 
-    def __init__(self, list_resume_source_request: ListResumeSourceRequest = ListResumeSourceRequest()) -> None:
+    def __init__(self) -> None:
+        list_resume_source_request = ListResumeSourceRequest()
         list_resume_source_request.http_method = HttpMethod.GET
         list_resume_source_request.uri = "/open-apis/hire/v1/resume_sources"
         list_resume_source_request.token_types = {AccessTokenType.TENANT}

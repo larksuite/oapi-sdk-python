@@ -19,7 +19,8 @@ class UploadPersonRequest(BaseRequest):
 
 class UploadPersonRequestBuilder(object):
 
-    def __init__(self, upload_person_request: UploadPersonRequest = UploadPersonRequest()) -> None:
+    def __init__(self) -> None:
+        upload_person_request = UploadPersonRequest()
         upload_person_request.http_method = HttpMethod.POST
         upload_person_request.uri = "/open-apis/corehr/v1/persons/upload"
         upload_person_request.token_types = {AccessTokenType.TENANT}

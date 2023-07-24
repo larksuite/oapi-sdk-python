@@ -16,7 +16,7 @@ class Email(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.email: Optional[str] = None
         self.is_primary: Optional[bool] = None
         self.is_public: Optional[bool] = None
@@ -30,8 +30,8 @@ class Email(object):
 
 
 class EmailBuilder(object):
-    def __init__(self, email: Email = Email({})) -> None:
-        self._email: Email = email
+    def __init__(self) -> None:
+        self._email = Email()
 
     def email(self, email: str) -> "EmailBuilder":
         self._email.email = email

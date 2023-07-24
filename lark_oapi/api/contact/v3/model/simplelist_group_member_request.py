@@ -22,8 +22,8 @@ class SimplelistGroupMemberRequest(BaseRequest):
 
 class SimplelistGroupMemberRequestBuilder(object):
 
-    def __init__(self,
-                 simplelist_group_member_request: SimplelistGroupMemberRequest = SimplelistGroupMemberRequest()) -> None:
+    def __init__(self) -> None:
+        simplelist_group_member_request = SimplelistGroupMemberRequest()
         simplelist_group_member_request.http_method = HttpMethod.GET
         simplelist_group_member_request.uri = "/open-apis/contact/v3/group/:group_id/member/simplelist"
         simplelist_group_member_request.token_types = {AccessTokenType.TENANT}

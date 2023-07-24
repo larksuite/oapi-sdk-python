@@ -11,7 +11,7 @@ class FilterRuleValue(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[int] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class FilterRuleValue(object):
 
 
 class FilterRuleValueBuilder(object):
-    def __init__(self, filter_rule_value: FilterRuleValue = FilterRuleValue({})) -> None:
-        self._filter_rule_value: FilterRuleValue = filter_rule_value
+    def __init__(self) -> None:
+        self._filter_rule_value = FilterRuleValue()
 
     def type(self, type: int) -> "FilterRuleValueBuilder":
         self._filter_rule_value.type = type

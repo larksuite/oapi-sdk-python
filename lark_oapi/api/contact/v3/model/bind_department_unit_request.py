@@ -19,7 +19,8 @@ class BindDepartmentUnitRequest(BaseRequest):
 
 class BindDepartmentUnitRequestBuilder(object):
 
-    def __init__(self, bind_department_unit_request: BindDepartmentUnitRequest = BindDepartmentUnitRequest()) -> None:
+    def __init__(self) -> None:
+        bind_department_unit_request = BindDepartmentUnitRequest()
         bind_department_unit_request.http_method = HttpMethod.POST
         bind_department_unit_request.uri = "/open-apis/contact/v3/unit/bind_department"
         bind_department_unit_request.token_types = {AccessTokenType.TENANT}

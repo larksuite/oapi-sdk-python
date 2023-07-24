@@ -14,7 +14,7 @@ class SchemaSearchOptions(object):
         "enable_camel_match": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.enable_semantic_match: Optional[bool] = None
         self.enable_exact_match: Optional[bool] = None
         self.enable_prefix_match: Optional[bool] = None
@@ -28,8 +28,8 @@ class SchemaSearchOptions(object):
 
 
 class SchemaSearchOptionsBuilder(object):
-    def __init__(self, schema_search_options: SchemaSearchOptions = SchemaSearchOptions({})) -> None:
-        self._schema_search_options: SchemaSearchOptions = schema_search_options
+    def __init__(self) -> None:
+        self._schema_search_options = SchemaSearchOptions()
 
     def enable_semantic_match(self, enable_semantic_match: bool) -> "SchemaSearchOptionsBuilder":
         self._schema_search_options.enable_semantic_match = enable_semantic_match

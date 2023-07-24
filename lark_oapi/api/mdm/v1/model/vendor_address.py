@@ -17,7 +17,7 @@ class VendorAddress(object):
         "extend_info": List[ExtendField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.country: Optional[str] = None
         self.province: Optional[str] = None
@@ -33,8 +33,8 @@ class VendorAddress(object):
 
 
 class VendorAddressBuilder(object):
-    def __init__(self, vendor_address: VendorAddress = VendorAddress({})) -> None:
-        self._vendor_address: VendorAddress = vendor_address
+    def __init__(self) -> None:
+        self._vendor_address = VendorAddress()
 
     def id(self, id: int) -> "VendorAddressBuilder":
         self._vendor_address.id = id

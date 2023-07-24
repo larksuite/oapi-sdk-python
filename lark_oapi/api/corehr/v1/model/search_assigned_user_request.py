@@ -20,7 +20,8 @@ class SearchAssignedUserRequest(BaseRequest):
 
 class SearchAssignedUserRequestBuilder(object):
 
-    def __init__(self, search_assigned_user_request: SearchAssignedUserRequest = SearchAssignedUserRequest()) -> None:
+    def __init__(self) -> None:
+        search_assigned_user_request = SearchAssignedUserRequest()
         search_assigned_user_request.http_method = HttpMethod.POST
         search_assigned_user_request.uri = "/open-apis/corehr/v1/assigned_users/search"
         search_assigned_user_request.token_types = {AccessTokenType.TENANT}

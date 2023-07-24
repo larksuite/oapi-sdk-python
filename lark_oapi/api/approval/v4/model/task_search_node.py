@@ -20,7 +20,7 @@ class TaskSearchNode(object):
         "task_external_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.start_time: Optional[int] = None
         self.end_time: Optional[int] = None
@@ -39,8 +39,8 @@ class TaskSearchNode(object):
 
 
 class TaskSearchNodeBuilder(object):
-    def __init__(self, task_search_node: TaskSearchNode = TaskSearchNode({})) -> None:
-        self._task_search_node: TaskSearchNode = task_search_node
+    def __init__(self) -> None:
+        self._task_search_node = TaskSearchNode()
 
     def user_id(self, user_id: str) -> "TaskSearchNodeBuilder":
         self._task_search_node.user_id = user_id

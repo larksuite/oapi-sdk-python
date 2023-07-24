@@ -11,7 +11,7 @@ class HighlightEntityResponseBody(object):
         "phrases": List[Phrase],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.phrases: Optional[List[Phrase]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class HighlightEntityResponseBody(object):
 
 
 class HighlightEntityResponseBodyBuilder(object):
-    def __init__(self,
-                 highlight_entity_response_body: HighlightEntityResponseBody = HighlightEntityResponseBody({})) -> None:
-        self._highlight_entity_response_body: HighlightEntityResponseBody = highlight_entity_response_body
+    def __init__(self) -> None:
+        self._highlight_entity_response_body = HighlightEntityResponseBody()
 
     def phrases(self, phrases: List[Phrase]) -> "HighlightEntityResponseBodyBuilder":
         self._highlight_entity_response_body.phrases = phrases

@@ -13,7 +13,7 @@ class SearchChatResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[ListChat]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class SearchChatResponseBody(object):
 
 
 class SearchChatResponseBodyBuilder(object):
-    def __init__(self, search_chat_response_body: SearchChatResponseBody = SearchChatResponseBody({})) -> None:
-        self._search_chat_response_body: SearchChatResponseBody = search_chat_response_body
+    def __init__(self) -> None:
+        self._search_chat_response_body = SearchChatResponseBody()
 
     def items(self, items: List[ListChat]) -> "SearchChatResponseBodyBuilder":
         self._search_chat_response_body.items = items

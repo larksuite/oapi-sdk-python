@@ -11,7 +11,7 @@ class CreateUserTaskRemedyResponseBody(object):
         "user_remedy": UserTaskRemedy,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_remedy: Optional[UserTaskRemedy] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateUserTaskRemedyResponseBody(object):
 
 
 class CreateUserTaskRemedyResponseBodyBuilder(object):
-    def __init__(self,
-                 create_user_task_remedy_response_body: CreateUserTaskRemedyResponseBody = CreateUserTaskRemedyResponseBody(
-                     {})) -> None:
-        self._create_user_task_remedy_response_body: CreateUserTaskRemedyResponseBody = create_user_task_remedy_response_body
+    def __init__(self) -> None:
+        self._create_user_task_remedy_response_body = CreateUserTaskRemedyResponseBody()
 
     def user_remedy(self, user_remedy: UserTaskRemedy) -> "CreateUserTaskRemedyResponseBodyBuilder":
         self._create_user_task_remedy_response_body.user_remedy = user_remedy

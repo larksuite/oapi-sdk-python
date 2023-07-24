@@ -12,7 +12,7 @@ class BasicDepartment(object):
         "department_name": List[I18n],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.department_name: Optional[List[I18n]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class BasicDepartment(object):
 
 
 class BasicDepartmentBuilder(object):
-    def __init__(self, basic_department: BasicDepartment = BasicDepartment({})) -> None:
-        self._basic_department: BasicDepartment = basic_department
+    def __init__(self) -> None:
+        self._basic_department = BasicDepartment()
 
     def id(self, id: str) -> "BasicDepartmentBuilder":
         self._basic_department.id = id

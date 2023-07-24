@@ -21,7 +21,8 @@ class PatchTaskRequest(BaseRequest):
 
 class PatchTaskRequestBuilder(object):
 
-    def __init__(self, patch_task_request: PatchTaskRequest = PatchTaskRequest()) -> None:
+    def __init__(self) -> None:
+        patch_task_request = PatchTaskRequest()
         patch_task_request.http_method = HttpMethod.PATCH
         patch_task_request.uri = "/open-apis/task/v1/tasks/:task_id"
         patch_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

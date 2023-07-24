@@ -10,7 +10,7 @@ class PatchUnitRequestBody(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class PatchUnitRequestBody(object):
 
 
 class PatchUnitRequestBodyBuilder(object):
-    def __init__(self, patch_unit_request_body: PatchUnitRequestBody = PatchUnitRequestBody({})) -> None:
-        self._patch_unit_request_body: PatchUnitRequestBody = patch_unit_request_body
+    def __init__(self) -> None:
+        self._patch_unit_request_body = PatchUnitRequestBody()
 
     def name(self, name: str) -> "PatchUnitRequestBodyBuilder":
         self._patch_unit_request_body.name = name

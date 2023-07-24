@@ -21,8 +21,8 @@ class UnderauditlistApplicationRequest(BaseRequest):
 
 class UnderauditlistApplicationRequestBuilder(object):
 
-    def __init__(self,
-                 underauditlist_application_request: UnderauditlistApplicationRequest = UnderauditlistApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        underauditlist_application_request = UnderauditlistApplicationRequest()
         underauditlist_application_request.http_method = HttpMethod.GET
         underauditlist_application_request.uri = "/open-apis/application/v6/applications/underauditlist"
         underauditlist_application_request.token_types = {AccessTokenType.TENANT}

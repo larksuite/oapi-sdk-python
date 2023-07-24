@@ -18,7 +18,7 @@ class ApplicationPrehire(object):
         "offer": ApplicationPrehireOffer,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.basic_info: Optional[ApplicationBasicInfo] = None
         self.talent: Optional[ApplicationTalent] = None
@@ -32,8 +32,8 @@ class ApplicationPrehire(object):
 
 
 class ApplicationPrehireBuilder(object):
-    def __init__(self, application_prehire: ApplicationPrehire = ApplicationPrehire({})) -> None:
-        self._application_prehire: ApplicationPrehire = application_prehire
+    def __init__(self) -> None:
+        self._application_prehire = ApplicationPrehire()
 
     def id(self, id: str) -> "ApplicationPrehireBuilder":
         self._application_prehire.id = id

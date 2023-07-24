@@ -7,7 +7,7 @@ class AppTicket(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class AppTicket(object):
 
 
 class AppTicketBuilder(object):
-    def __init__(self, app_ticket: AppTicket = AppTicket({})) -> None:
-        self._app_ticket: AppTicket = app_ticket
+    def __init__(self) -> None:
+        self._app_ticket = AppTicket()
 
     def build(self) -> "AppTicket":
         return self._app_ticket

@@ -10,7 +10,7 @@ class ValueElement(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ValueElement(object):
 
 
 class ValueElementBuilder(object):
-    def __init__(self, value_element: ValueElement = ValueElement({})) -> None:
-        self._value_element: ValueElement = value_element
+    def __init__(self) -> None:
+        self._value_element = ValueElement()
 
     def value(self, value: str) -> "ValueElementBuilder":
         self._value_element.value = value

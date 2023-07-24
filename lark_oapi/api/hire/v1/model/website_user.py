@@ -15,7 +15,7 @@ class WebsiteUser(object):
         "mobile_country_code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.name: Optional[str] = None
         self.email: Optional[str] = None
@@ -30,8 +30,8 @@ class WebsiteUser(object):
 
 
 class WebsiteUserBuilder(object):
-    def __init__(self, website_user: WebsiteUser = WebsiteUser({})) -> None:
-        self._website_user: WebsiteUser = website_user
+    def __init__(self) -> None:
+        self._website_user = WebsiteUser()
 
     def user_id(self, user_id: str) -> "WebsiteUserBuilder":
         self._website_user.user_id = user_id

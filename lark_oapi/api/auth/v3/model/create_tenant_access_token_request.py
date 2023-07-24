@@ -19,8 +19,8 @@ class CreateTenantAccessTokenRequest(BaseRequest):
 
 class CreateTenantAccessTokenRequestBuilder(object):
 
-    def __init__(self,
-                 create_tenant_access_token_request: CreateTenantAccessTokenRequest = CreateTenantAccessTokenRequest()) -> None:
+    def __init__(self) -> None:
+        create_tenant_access_token_request = CreateTenantAccessTokenRequest()
         create_tenant_access_token_request.http_method = HttpMethod.POST
         create_tenant_access_token_request.uri = "/open-apis/auth/v3/tenant_access_token"
         create_tenant_access_token_request.token_types = {}

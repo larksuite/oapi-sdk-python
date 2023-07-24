@@ -22,7 +22,8 @@ class PatchUserRequest(BaseRequest):
 
 class PatchUserRequestBuilder(object):
 
-    def __init__(self, patch_user_request: PatchUserRequest = PatchUserRequest()) -> None:
+    def __init__(self) -> None:
+        patch_user_request = PatchUserRequest()
         patch_user_request.http_method = HttpMethod.PATCH
         patch_user_request.uri = "/open-apis/contact/v3/users/:user_id"
         patch_user_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

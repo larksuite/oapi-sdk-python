@@ -20,8 +20,8 @@ class ExecuteSendNotificationRequest(BaseRequest):
 
 class ExecuteSendNotificationRequestBuilder(object):
 
-    def __init__(self,
-                 execute_send_notification_request: ExecuteSendNotificationRequest = ExecuteSendNotificationRequest()) -> None:
+    def __init__(self) -> None:
+        execute_send_notification_request = ExecuteSendNotificationRequest()
         execute_send_notification_request.http_method = HttpMethod.POST
         execute_send_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id/execute_send"
         execute_send_notification_request.token_types = {AccessTokenType.USER}

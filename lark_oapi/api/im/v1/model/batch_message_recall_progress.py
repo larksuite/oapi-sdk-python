@@ -11,7 +11,7 @@ class BatchMessageRecallProgress(object):
         "recall_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.recall: Optional[bool] = None
         self.recall_count: Optional[int] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class BatchMessageRecallProgress(object):
 
 
 class BatchMessageRecallProgressBuilder(object):
-    def __init__(self,
-                 batch_message_recall_progress: BatchMessageRecallProgress = BatchMessageRecallProgress({})) -> None:
-        self._batch_message_recall_progress: BatchMessageRecallProgress = batch_message_recall_progress
+    def __init__(self) -> None:
+        self._batch_message_recall_progress = BatchMessageRecallProgress()
 
     def recall(self, recall: bool) -> "BatchMessageRecallProgressBuilder":
         self._batch_message_recall_progress.recall = recall

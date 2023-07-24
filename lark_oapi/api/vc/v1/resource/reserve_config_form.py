@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.get_reserve_config_form_request import GetReserveConfigFormRequest
-from lark_oapi.api.vc.v1.model.get_reserve_config_form_response import GetReserveConfigFormResponse
-from lark_oapi.api.vc.v1.model.patch_reserve_config_form_request import PatchReserveConfigFormRequest
-from lark_oapi.api.vc.v1.model.patch_reserve_config_form_response import PatchReserveConfigFormResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_reserve_config_form_request import GetReserveConfigFormRequest
+from ..model.get_reserve_config_form_response import GetReserveConfigFormResponse
+from ..model.patch_reserve_config_form_request import PatchReserveConfigFormRequest
+from ..model.patch_reserve_config_form_response import PatchReserveConfigFormResponse
 
 
 class ReserveConfigForm(object):
@@ -18,7 +18,10 @@ class ReserveConfigForm(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetReserveConfigFormRequest,
-            option: RequestOption = RequestOption()) -> GetReserveConfigFormResponse:
+            option: Optional[RequestOption] = None) -> GetReserveConfigFormResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class ReserveConfigForm(object):
         return response
 
     def patch(self, request: PatchReserveConfigFormRequest,
-              option: RequestOption = RequestOption()) -> PatchReserveConfigFormResponse:
+              option: Optional[RequestOption] = None) -> PatchReserveConfigFormResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

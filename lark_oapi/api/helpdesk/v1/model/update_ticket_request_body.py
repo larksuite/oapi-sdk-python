@@ -17,7 +17,7 @@ class UpdateTicketRequestBody(object):
         "channel": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[int] = None
         self.tag_names: Optional[List[str]] = None
         self.comment: Optional[str] = None
@@ -33,8 +33,8 @@ class UpdateTicketRequestBody(object):
 
 
 class UpdateTicketRequestBodyBuilder(object):
-    def __init__(self, update_ticket_request_body: UpdateTicketRequestBody = UpdateTicketRequestBody({})) -> None:
-        self._update_ticket_request_body: UpdateTicketRequestBody = update_ticket_request_body
+    def __init__(self) -> None:
+        self._update_ticket_request_body = UpdateTicketRequestBody()
 
     def status(self, status: int) -> "UpdateTicketRequestBodyBuilder":
         self._update_ticket_request_body.status = status

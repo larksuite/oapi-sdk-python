@@ -11,7 +11,7 @@ class QuerySecurityGroupRequestBody(object):
         "item_list": List[BpRoleOrganization],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.item_list: Optional[List[BpRoleOrganization]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class QuerySecurityGroupRequestBody(object):
 
 
 class QuerySecurityGroupRequestBodyBuilder(object):
-    def __init__(self, query_security_group_request_body: QuerySecurityGroupRequestBody = QuerySecurityGroupRequestBody(
-        {})) -> None:
-        self._query_security_group_request_body: QuerySecurityGroupRequestBody = query_security_group_request_body
+    def __init__(self) -> None:
+        self._query_security_group_request_body = QuerySecurityGroupRequestBody()
 
     def item_list(self, item_list: List[BpRoleOrganization]) -> "QuerySecurityGroupRequestBodyBuilder":
         self._query_security_group_request_body.item_list = item_list

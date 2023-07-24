@@ -10,7 +10,7 @@ class UrgentPhoneMessageResponseBody(object):
         "invalid_user_id_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.invalid_user_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class UrgentPhoneMessageResponseBody(object):
 
 
 class UrgentPhoneMessageResponseBodyBuilder(object):
-    def __init__(self,
-                 urgent_phone_message_response_body: UrgentPhoneMessageResponseBody = UrgentPhoneMessageResponseBody(
-                     {})) -> None:
-        self._urgent_phone_message_response_body: UrgentPhoneMessageResponseBody = urgent_phone_message_response_body
+    def __init__(self) -> None:
+        self._urgent_phone_message_response_body = UrgentPhoneMessageResponseBody()
 
     def invalid_user_id_list(self, invalid_user_id_list: List[str]) -> "UrgentPhoneMessageResponseBodyBuilder":
         self._urgent_phone_message_response_body.invalid_user_id_list = invalid_user_id_list

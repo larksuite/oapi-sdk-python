@@ -12,7 +12,7 @@ class Text(object):
         "segment_style": SegmentStyle,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         self.segment_style: Optional[SegmentStyle] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Text(object):
 
 
 class TextBuilder(object):
-    def __init__(self, text: Text = Text({})) -> None:
-        self._text: Text = text
+    def __init__(self) -> None:
+        self._text = Text()
 
     def text(self, text: str) -> "TextBuilder":
         self._text.text = text

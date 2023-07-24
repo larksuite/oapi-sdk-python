@@ -19,7 +19,8 @@ class MatchEntityRequest(BaseRequest):
 
 class MatchEntityRequestBuilder(object):
 
-    def __init__(self, match_entity_request: MatchEntityRequest = MatchEntityRequest()) -> None:
+    def __init__(self) -> None:
+        match_entity_request = MatchEntityRequest()
         match_entity_request.http_method = HttpMethod.POST
         match_entity_request.uri = "/open-apis/baike/v1/entities/match"
         match_entity_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

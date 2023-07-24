@@ -12,7 +12,7 @@ class Auth(object):
         "name": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Auth(object):
 
 
 class AuthBuilder(object):
-    def __init__(self, auth: Auth = Auth({})) -> None:
-        self._auth: Auth = auth
+    def __init__(self) -> None:
+        self._auth = Auth()
 
     def id(self, id: str) -> "AuthBuilder":
         self._auth.id = id

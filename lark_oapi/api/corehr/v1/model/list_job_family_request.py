@@ -19,7 +19,8 @@ class ListJobFamilyRequest(BaseRequest):
 
 class ListJobFamilyRequestBuilder(object):
 
-    def __init__(self, list_job_family_request: ListJobFamilyRequest = ListJobFamilyRequest()) -> None:
+    def __init__(self) -> None:
+        list_job_family_request = ListJobFamilyRequest()
         list_job_family_request.http_method = HttpMethod.GET
         list_job_family_request.uri = "/open-apis/corehr/v1/job_families"
         list_job_family_request.token_types = {AccessTokenType.TENANT}

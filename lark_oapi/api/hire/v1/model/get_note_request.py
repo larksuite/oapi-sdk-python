@@ -19,7 +19,8 @@ class GetNoteRequest(BaseRequest):
 
 class GetNoteRequestBuilder(object):
 
-    def __init__(self, get_note_request: GetNoteRequest = GetNoteRequest()) -> None:
+    def __init__(self) -> None:
+        get_note_request = GetNoteRequest()
         get_note_request.http_method = HttpMethod.GET
         get_note_request.uri = "/open-apis/hire/v1/notes/:note_id"
         get_note_request.token_types = {AccessTokenType.TENANT}

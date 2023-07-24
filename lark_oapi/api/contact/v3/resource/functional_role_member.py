@@ -2,25 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.batch_create_functional_role_member_request import \
-    BatchCreateFunctionalRoleMemberRequest
-from lark_oapi.api.contact.v3.model.batch_create_functional_role_member_response import \
-    BatchCreateFunctionalRoleMemberResponse
-from lark_oapi.api.contact.v3.model.batch_delete_functional_role_member_request import \
-    BatchDeleteFunctionalRoleMemberRequest
-from lark_oapi.api.contact.v3.model.batch_delete_functional_role_member_response import \
-    BatchDeleteFunctionalRoleMemberResponse
-from lark_oapi.api.contact.v3.model.get_functional_role_member_request import GetFunctionalRoleMemberRequest
-from lark_oapi.api.contact.v3.model.get_functional_role_member_response import GetFunctionalRoleMemberResponse
-from lark_oapi.api.contact.v3.model.list_functional_role_member_request import ListFunctionalRoleMemberRequest
-from lark_oapi.api.contact.v3.model.list_functional_role_member_response import ListFunctionalRoleMemberResponse
-from lark_oapi.api.contact.v3.model.scopes_functional_role_member_request import ScopesFunctionalRoleMemberRequest
-from lark_oapi.api.contact.v3.model.scopes_functional_role_member_response import ScopesFunctionalRoleMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_functional_role_member_request import BatchCreateFunctionalRoleMemberRequest
+from ..model.batch_create_functional_role_member_response import BatchCreateFunctionalRoleMemberResponse
+from ..model.batch_delete_functional_role_member_request import BatchDeleteFunctionalRoleMemberRequest
+from ..model.batch_delete_functional_role_member_response import BatchDeleteFunctionalRoleMemberResponse
+from ..model.get_functional_role_member_request import GetFunctionalRoleMemberRequest
+from ..model.get_functional_role_member_response import GetFunctionalRoleMemberResponse
+from ..model.list_functional_role_member_request import ListFunctionalRoleMemberRequest
+from ..model.list_functional_role_member_response import ListFunctionalRoleMemberResponse
+from ..model.scopes_functional_role_member_request import ScopesFunctionalRoleMemberRequest
+from ..model.scopes_functional_role_member_response import ScopesFunctionalRoleMemberResponse
 
 
 class FunctionalRoleMember(object):
@@ -28,7 +24,10 @@ class FunctionalRoleMember(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateFunctionalRoleMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateFunctionalRoleMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -43,7 +42,10 @@ class FunctionalRoleMember(object):
         return response
 
     def batch_delete(self, request: BatchDeleteFunctionalRoleMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteFunctionalRoleMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -58,7 +60,10 @@ class FunctionalRoleMember(object):
         return response
 
     def get(self, request: GetFunctionalRoleMemberRequest,
-            option: RequestOption = RequestOption()) -> GetFunctionalRoleMemberResponse:
+            option: Optional[RequestOption] = None) -> GetFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -73,7 +78,10 @@ class FunctionalRoleMember(object):
         return response
 
     def list(self, request: ListFunctionalRoleMemberRequest,
-             option: RequestOption = RequestOption()) -> ListFunctionalRoleMemberResponse:
+             option: Optional[RequestOption] = None) -> ListFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -88,7 +96,10 @@ class FunctionalRoleMember(object):
         return response
 
     def scopes(self, request: ScopesFunctionalRoleMemberRequest,
-               option: RequestOption = RequestOption()) -> ScopesFunctionalRoleMemberResponse:
+               option: Optional[RequestOption] = None) -> ScopesFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

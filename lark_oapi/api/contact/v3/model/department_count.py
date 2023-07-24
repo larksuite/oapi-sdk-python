@@ -14,7 +14,7 @@ class DepartmentCount(object):
         "user_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[int] = None
         self.direct_department_count: Optional[int] = None
         self.direct_user_count: Optional[int] = None
@@ -28,8 +28,8 @@ class DepartmentCount(object):
 
 
 class DepartmentCountBuilder(object):
-    def __init__(self, department_count: DepartmentCount = DepartmentCount({})) -> None:
-        self._department_count: DepartmentCount = department_count
+    def __init__(self) -> None:
+        self._department_count = DepartmentCount()
 
     def department_id(self, department_id: int) -> "DepartmentCountBuilder":
         self._department_count.department_id = department_id

@@ -12,7 +12,7 @@ class PublicMailbox(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.public_mailbox_id: Optional[str] = None
         self.email: Optional[str] = None
         self.name: Optional[str] = None
@@ -24,8 +24,8 @@ class PublicMailbox(object):
 
 
 class PublicMailboxBuilder(object):
-    def __init__(self, public_mailbox: PublicMailbox = PublicMailbox({})) -> None:
-        self._public_mailbox: PublicMailbox = public_mailbox
+    def __init__(self) -> None:
+        self._public_mailbox = PublicMailbox()
 
     def public_mailbox_id(self, public_mailbox_id: str) -> "PublicMailboxBuilder":
         self._public_mailbox.public_mailbox_id = public_mailbox_id

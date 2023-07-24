@@ -11,7 +11,7 @@ class LookupFieldSetting(object):
         "is_multiple": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.lookup_obj_api_name: Optional[str] = None
         self.is_multiple: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class LookupFieldSetting(object):
 
 
 class LookupFieldSettingBuilder(object):
-    def __init__(self, lookup_field_setting: LookupFieldSetting = LookupFieldSetting({})) -> None:
-        self._lookup_field_setting: LookupFieldSetting = lookup_field_setting
+    def __init__(self) -> None:
+        self._lookup_field_setting = LookupFieldSetting()
 
     def lookup_obj_api_name(self, lookup_obj_api_name: str) -> "LookupFieldSettingBuilder":
         self._lookup_field_setting.lookup_obj_api_name = lookup_obj_api_name

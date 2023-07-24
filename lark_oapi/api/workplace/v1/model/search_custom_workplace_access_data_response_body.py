@@ -13,7 +13,7 @@ class SearchCustomWorkplaceAccessDataResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[CustomWorkplaceAccessData]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class SearchCustomWorkplaceAccessDataResponseBody(object):
 
 
 class SearchCustomWorkplaceAccessDataResponseBodyBuilder(object):
-    def __init__(self,
-                 search_custom_workplace_access_data_response_body: SearchCustomWorkplaceAccessDataResponseBody = SearchCustomWorkplaceAccessDataResponseBody(
-                     {})) -> None:
-        self._search_custom_workplace_access_data_response_body: SearchCustomWorkplaceAccessDataResponseBody = search_custom_workplace_access_data_response_body
+    def __init__(self) -> None:
+        self._search_custom_workplace_access_data_response_body = SearchCustomWorkplaceAccessDataResponseBody()
 
     def items(self, items: List[CustomWorkplaceAccessData]) -> "SearchCustomWorkplaceAccessDataResponseBodyBuilder":
         self._search_custom_workplace_access_data_response_body.items = items

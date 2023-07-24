@@ -11,7 +11,7 @@ class AppTableFieldDescription(object):
         "text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.disable_sync: Optional[bool] = None
         self.text: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppTableFieldDescription(object):
 
 
 class AppTableFieldDescriptionBuilder(object):
-    def __init__(self, app_table_field_description: AppTableFieldDescription = AppTableFieldDescription({})) -> None:
-        self._app_table_field_description: AppTableFieldDescription = app_table_field_description
+    def __init__(self) -> None:
+        self._app_table_field_description = AppTableFieldDescription()
 
     def disable_sync(self, disable_sync: bool) -> "AppTableFieldDescriptionBuilder":
         self._app_table_field_description.disable_sync = disable_sync

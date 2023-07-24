@@ -12,7 +12,7 @@ class UpdateMailgroupResponse(BaseResponse):
         "data": UpdateMailgroupResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UpdateMailgroupResponseBody] = None
         init(self, d, self._types)

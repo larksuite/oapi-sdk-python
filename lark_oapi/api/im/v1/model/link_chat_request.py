@@ -20,7 +20,8 @@ class LinkChatRequest(BaseRequest):
 
 class LinkChatRequestBuilder(object):
 
-    def __init__(self, link_chat_request: LinkChatRequest = LinkChatRequest()) -> None:
+    def __init__(self) -> None:
+        link_chat_request = LinkChatRequest()
         link_chat_request.http_method = HttpMethod.POST
         link_chat_request.uri = "/open-apis/im/v1/chats/:chat_id/link"
         link_chat_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

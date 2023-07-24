@@ -13,7 +13,7 @@ class ListReferralWebsiteJobPostResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[PortalJobPost]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListReferralWebsiteJobPostResponseBody(object):
 
 
 class ListReferralWebsiteJobPostResponseBodyBuilder(object):
-    def __init__(self,
-                 list_referral_website_job_post_response_body: ListReferralWebsiteJobPostResponseBody = ListReferralWebsiteJobPostResponseBody(
-                     {})) -> None:
-        self._list_referral_website_job_post_response_body: ListReferralWebsiteJobPostResponseBody = list_referral_website_job_post_response_body
+    def __init__(self) -> None:
+        self._list_referral_website_job_post_response_body = ListReferralWebsiteJobPostResponseBody()
 
     def items(self, items: List[PortalJobPost]) -> "ListReferralWebsiteJobPostResponseBodyBuilder":
         self._list_referral_website_job_post_response_body.items = items

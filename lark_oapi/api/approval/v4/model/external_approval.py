@@ -21,7 +21,7 @@ class ExternalApproval(object):
         "managers": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_name: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.group_code: Optional[str] = None
@@ -39,8 +39,8 @@ class ExternalApproval(object):
 
 
 class ExternalApprovalBuilder(object):
-    def __init__(self, external_approval: ExternalApproval = ExternalApproval({})) -> None:
-        self._external_approval: ExternalApproval = external_approval
+    def __init__(self) -> None:
+        self._external_approval = ExternalApproval()
 
     def approval_name(self, approval_name: str) -> "ExternalApprovalBuilder":
         self._external_approval.approval_name = approval_name

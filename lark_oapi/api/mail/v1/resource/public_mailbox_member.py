@@ -2,27 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.batch_create_public_mailbox_member_request import BatchCreatePublicMailboxMemberRequest
-from lark_oapi.api.mail.v1.model.batch_create_public_mailbox_member_response import \
-    BatchCreatePublicMailboxMemberResponse
-from lark_oapi.api.mail.v1.model.batch_delete_public_mailbox_member_request import BatchDeletePublicMailboxMemberRequest
-from lark_oapi.api.mail.v1.model.batch_delete_public_mailbox_member_response import \
-    BatchDeletePublicMailboxMemberResponse
-from lark_oapi.api.mail.v1.model.clear_public_mailbox_member_request import ClearPublicMailboxMemberRequest
-from lark_oapi.api.mail.v1.model.clear_public_mailbox_member_response import ClearPublicMailboxMemberResponse
-from lark_oapi.api.mail.v1.model.create_public_mailbox_member_request import CreatePublicMailboxMemberRequest
-from lark_oapi.api.mail.v1.model.create_public_mailbox_member_response import CreatePublicMailboxMemberResponse
-from lark_oapi.api.mail.v1.model.delete_public_mailbox_member_request import DeletePublicMailboxMemberRequest
-from lark_oapi.api.mail.v1.model.delete_public_mailbox_member_response import DeletePublicMailboxMemberResponse
-from lark_oapi.api.mail.v1.model.get_public_mailbox_member_request import GetPublicMailboxMemberRequest
-from lark_oapi.api.mail.v1.model.get_public_mailbox_member_response import GetPublicMailboxMemberResponse
-from lark_oapi.api.mail.v1.model.list_public_mailbox_member_request import ListPublicMailboxMemberRequest
-from lark_oapi.api.mail.v1.model.list_public_mailbox_member_response import ListPublicMailboxMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_public_mailbox_member_request import BatchCreatePublicMailboxMemberRequest
+from ..model.batch_create_public_mailbox_member_response import BatchCreatePublicMailboxMemberResponse
+from ..model.batch_delete_public_mailbox_member_request import BatchDeletePublicMailboxMemberRequest
+from ..model.batch_delete_public_mailbox_member_response import BatchDeletePublicMailboxMemberResponse
+from ..model.clear_public_mailbox_member_request import ClearPublicMailboxMemberRequest
+from ..model.clear_public_mailbox_member_response import ClearPublicMailboxMemberResponse
+from ..model.create_public_mailbox_member_request import CreatePublicMailboxMemberRequest
+from ..model.create_public_mailbox_member_response import CreatePublicMailboxMemberResponse
+from ..model.delete_public_mailbox_member_request import DeletePublicMailboxMemberRequest
+from ..model.delete_public_mailbox_member_response import DeletePublicMailboxMemberResponse
+from ..model.get_public_mailbox_member_request import GetPublicMailboxMemberRequest
+from ..model.get_public_mailbox_member_response import GetPublicMailboxMemberResponse
+from ..model.list_public_mailbox_member_request import ListPublicMailboxMemberRequest
+from ..model.list_public_mailbox_member_response import ListPublicMailboxMemberResponse
 
 
 class PublicMailboxMember(object):
@@ -30,7 +28,10 @@ class PublicMailboxMember(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreatePublicMailboxMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreatePublicMailboxMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreatePublicMailboxMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -45,7 +46,10 @@ class PublicMailboxMember(object):
         return response
 
     def batch_delete(self, request: BatchDeletePublicMailboxMemberRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeletePublicMailboxMemberResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeletePublicMailboxMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +64,10 @@ class PublicMailboxMember(object):
         return response
 
     def clear(self, request: ClearPublicMailboxMemberRequest,
-              option: RequestOption = RequestOption()) -> ClearPublicMailboxMemberResponse:
+              option: Optional[RequestOption] = None) -> ClearPublicMailboxMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +82,10 @@ class PublicMailboxMember(object):
         return response
 
     def create(self, request: CreatePublicMailboxMemberRequest,
-               option: RequestOption = RequestOption()) -> CreatePublicMailboxMemberResponse:
+               option: Optional[RequestOption] = None) -> CreatePublicMailboxMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -90,7 +100,10 @@ class PublicMailboxMember(object):
         return response
 
     def delete(self, request: DeletePublicMailboxMemberRequest,
-               option: RequestOption = RequestOption()) -> DeletePublicMailboxMemberResponse:
+               option: Optional[RequestOption] = None) -> DeletePublicMailboxMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -105,7 +118,10 @@ class PublicMailboxMember(object):
         return response
 
     def get(self, request: GetPublicMailboxMemberRequest,
-            option: RequestOption = RequestOption()) -> GetPublicMailboxMemberResponse:
+            option: Optional[RequestOption] = None) -> GetPublicMailboxMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -120,7 +136,10 @@ class PublicMailboxMember(object):
         return response
 
     def list(self, request: ListPublicMailboxMemberRequest,
-             option: RequestOption = RequestOption()) -> ListPublicMailboxMemberResponse:
+             option: Optional[RequestOption] = None) -> ListPublicMailboxMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -13,7 +13,7 @@ class SheetFilterInfo(object):
         "filter_infos": List[FilterInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.filtered_out_rows: Optional[List[int]] = None
         self.filter_infos: Optional[List[FilterInfo]] = None
@@ -25,8 +25,8 @@ class SheetFilterInfo(object):
 
 
 class SheetFilterInfoBuilder(object):
-    def __init__(self, sheet_filter_info: SheetFilterInfo = SheetFilterInfo({})) -> None:
-        self._sheet_filter_info: SheetFilterInfo = sheet_filter_info
+    def __init__(self) -> None:
+        self._sheet_filter_info = SheetFilterInfo()
 
     def range(self, range: str) -> "SheetFilterInfoBuilder":
         self._sheet_filter_info.range = range

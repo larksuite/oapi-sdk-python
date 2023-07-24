@@ -19,7 +19,7 @@ class PreviewNode(object):
         "has_cc_type_free": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node_id: Optional[str] = None
         self.node_name: Optional[str] = None
         self.node_type: Optional[str] = None
@@ -38,8 +38,8 @@ class PreviewNode(object):
 
 
 class PreviewNodeBuilder(object):
-    def __init__(self, preview_node: PreviewNode = PreviewNode({})) -> None:
-        self._preview_node: PreviewNode = preview_node
+    def __init__(self) -> None:
+        self._preview_node = PreviewNode()
 
     def node_id(self, node_id: str) -> "PreviewNodeBuilder":
         self._preview_node.node_id = node_id

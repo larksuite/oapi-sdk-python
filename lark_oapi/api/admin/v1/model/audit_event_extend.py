@@ -19,7 +19,7 @@ class AuditEventExtend(object):
         "external_people_num_in_doc_share": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.comment_type: Optional[str] = None
         self.app_detail: Optional[str] = None
         self.two_step_validation: Optional[bool] = None
@@ -38,8 +38,8 @@ class AuditEventExtend(object):
 
 
 class AuditEventExtendBuilder(object):
-    def __init__(self, audit_event_extend: AuditEventExtend = AuditEventExtend({})) -> None:
-        self._audit_event_extend: AuditEventExtend = audit_event_extend
+    def __init__(self) -> None:
+        self._audit_event_extend = AuditEventExtend()
 
     def comment_type(self, comment_type: str) -> "AuditEventExtendBuilder":
         self._audit_event_extend.comment_type = comment_type

@@ -32,7 +32,7 @@ class Address(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.full_address_local_script: Optional[str] = None
         self.full_address_western_script: Optional[str] = None
         self.id: Optional[str] = None
@@ -62,8 +62,8 @@ class Address(object):
 
 
 class AddressBuilder(object):
-    def __init__(self, address: Address = Address({})) -> None:
-        self._address: Address = address
+    def __init__(self) -> None:
+        self._address = Address()
 
     def full_address_local_script(self, full_address_local_script: str) -> "AddressBuilder":
         self._address.full_address_local_script = full_address_local_script

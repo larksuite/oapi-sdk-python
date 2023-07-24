@@ -11,7 +11,7 @@ class EcoExamCreateEventMobile(object):
         "number": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.number: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class EcoExamCreateEventMobile(object):
 
 
 class EcoExamCreateEventMobileBuilder(object):
-    def __init__(self, eco_exam_create_event_mobile: EcoExamCreateEventMobile = EcoExamCreateEventMobile({})) -> None:
-        self._eco_exam_create_event_mobile: EcoExamCreateEventMobile = eco_exam_create_event_mobile
+    def __init__(self) -> None:
+        self._eco_exam_create_event_mobile = EcoExamCreateEventMobile()
 
     def code(self, code: str) -> "EcoExamCreateEventMobileBuilder":
         self._eco_exam_create_event_mobile.code = code

@@ -25,8 +25,8 @@ class ListApplicationFeedbackRequest(BaseRequest):
 
 class ListApplicationFeedbackRequestBuilder(object):
 
-    def __init__(self,
-                 list_application_feedback_request: ListApplicationFeedbackRequest = ListApplicationFeedbackRequest()) -> None:
+    def __init__(self) -> None:
+        list_application_feedback_request = ListApplicationFeedbackRequest()
         list_application_feedback_request.http_method = HttpMethod.GET
         list_application_feedback_request.uri = "/open-apis/application/v6/applications/:app_id/feedbacks"
         list_application_feedback_request.token_types = {AccessTokenType.TENANT}

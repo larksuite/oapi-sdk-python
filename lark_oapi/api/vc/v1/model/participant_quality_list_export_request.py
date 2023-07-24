@@ -20,8 +20,8 @@ class ParticipantQualityListExportRequest(BaseRequest):
 
 class ParticipantQualityListExportRequestBuilder(object):
 
-    def __init__(self,
-                 participant_quality_list_export_request: ParticipantQualityListExportRequest = ParticipantQualityListExportRequest()) -> None:
+    def __init__(self) -> None:
+        participant_quality_list_export_request = ParticipantQualityListExportRequest()
         participant_quality_list_export_request.http_method = HttpMethod.POST
         participant_quality_list_export_request.uri = "/open-apis/vc/v1/exports/participant_quality_list"
         participant_quality_list_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

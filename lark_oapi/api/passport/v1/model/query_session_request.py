@@ -20,7 +20,8 @@ class QuerySessionRequest(BaseRequest):
 
 class QuerySessionRequestBuilder(object):
 
-    def __init__(self, query_session_request: QuerySessionRequest = QuerySessionRequest()) -> None:
+    def __init__(self) -> None:
+        query_session_request = QuerySessionRequest()
         query_session_request.http_method = HttpMethod.POST
         query_session_request.uri = "/open-apis/passport/v1/sessions/query"
         query_session_request.token_types = {AccessTokenType.TENANT}

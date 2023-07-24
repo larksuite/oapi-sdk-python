@@ -12,7 +12,7 @@ class BpRoleOrganization(object):
         "work_location_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role_key: Optional[str] = None
         self.department_id: Optional[str] = None
         self.work_location_id: Optional[str] = None
@@ -24,8 +24,8 @@ class BpRoleOrganization(object):
 
 
 class BpRoleOrganizationBuilder(object):
-    def __init__(self, bp_role_organization: BpRoleOrganization = BpRoleOrganization({})) -> None:
-        self._bp_role_organization: BpRoleOrganization = bp_role_organization
+    def __init__(self) -> None:
+        self._bp_role_organization = BpRoleOrganization()
 
     def role_key(self, role_key: str) -> "BpRoleOrganizationBuilder":
         self._bp_role_organization.role_key = role_key

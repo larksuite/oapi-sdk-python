@@ -13,7 +13,7 @@ class FileSubscription(object):
         "file_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subscription_id: Optional[str] = None
         self.subscription_type: Optional[str] = None
         self.is_subcribe: Optional[bool] = None
@@ -26,8 +26,8 @@ class FileSubscription(object):
 
 
 class FileSubscriptionBuilder(object):
-    def __init__(self, file_subscription: FileSubscription = FileSubscription({})) -> None:
-        self._file_subscription: FileSubscription = file_subscription
+    def __init__(self) -> None:
+        self._file_subscription = FileSubscription()
 
     def subscription_id(self, subscription_id: str) -> "FileSubscriptionBuilder":
         self._file_subscription.subscription_id = subscription_id

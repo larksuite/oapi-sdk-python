@@ -14,7 +14,7 @@ class OfferCustomField(object):
         "config": OfferCustomFieldConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.config: Optional[OfferCustomFieldConfig] = None
@@ -26,8 +26,8 @@ class OfferCustomField(object):
 
 
 class OfferCustomFieldBuilder(object):
-    def __init__(self, offer_custom_field: OfferCustomField = OfferCustomField({})) -> None:
-        self._offer_custom_field: OfferCustomField = offer_custom_field
+    def __init__(self) -> None:
+        self._offer_custom_field = OfferCustomField()
 
     def id(self, id: str) -> "OfferCustomFieldBuilder":
         self._offer_custom_field.id = id

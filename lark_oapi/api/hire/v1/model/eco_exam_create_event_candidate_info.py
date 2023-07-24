@@ -13,7 +13,7 @@ class EcoExamCreateEventCandidateInfo(object):
         "email": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.mobile: Optional[EcoExamCreateEventMobile] = None
         self.email: Optional[str] = None
@@ -25,10 +25,8 @@ class EcoExamCreateEventCandidateInfo(object):
 
 
 class EcoExamCreateEventCandidateInfoBuilder(object):
-    def __init__(self,
-                 eco_exam_create_event_candidate_info: EcoExamCreateEventCandidateInfo = EcoExamCreateEventCandidateInfo(
-                     {})) -> None:
-        self._eco_exam_create_event_candidate_info: EcoExamCreateEventCandidateInfo = eco_exam_create_event_candidate_info
+    def __init__(self) -> None:
+        self._eco_exam_create_event_candidate_info = EcoExamCreateEventCandidateInfo()
 
     def name(self, name: str) -> "EcoExamCreateEventCandidateInfoBuilder":
         self._eco_exam_create_event_candidate_info.name = name

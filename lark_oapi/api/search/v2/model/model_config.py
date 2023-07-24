@@ -10,7 +10,7 @@ class ModelConfig(object):
         "model_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.model_name: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ModelConfig(object):
 
 
 class ModelConfigBuilder(object):
-    def __init__(self, model_config: ModelConfig = ModelConfig({})) -> None:
-        self._model_config: ModelConfig = model_config
+    def __init__(self) -> None:
+        self._model_config = ModelConfig()
 
     def model_name(self, model_name: str) -> "ModelConfigBuilder":
         self._model_config.model_name = model_name

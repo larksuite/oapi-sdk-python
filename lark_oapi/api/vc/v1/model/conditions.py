@@ -11,7 +11,7 @@ class Conditions(object):
         "option_keys": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.custom_key: Optional[str] = None
         self.option_keys: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Conditions(object):
 
 
 class ConditionsBuilder(object):
-    def __init__(self, conditions: Conditions = Conditions({})) -> None:
-        self._conditions: Conditions = conditions
+    def __init__(self) -> None:
+        self._conditions = Conditions()
 
     def custom_key(self, custom_key: str) -> "ConditionsBuilder":
         self._conditions.custom_key = custom_key

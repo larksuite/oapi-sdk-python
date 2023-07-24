@@ -11,7 +11,7 @@ class SubscribeUser(object):
         "user_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[int] = None
         self.user_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SubscribeUser(object):
 
 
 class SubscribeUserBuilder(object):
-    def __init__(self, subscribe_user: SubscribeUser = SubscribeUser({})) -> None:
-        self._subscribe_user: SubscribeUser = subscribe_user
+    def __init__(self) -> None:
+        self._subscribe_user = SubscribeUser()
 
     def user_id(self, user_id: int) -> "SubscribeUserBuilder":
         self._subscribe_user.user_id = user_id

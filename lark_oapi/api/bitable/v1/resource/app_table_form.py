@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.get_app_table_form_request import GetAppTableFormRequest
-from lark_oapi.api.bitable.v1.model.get_app_table_form_response import GetAppTableFormResponse
-from lark_oapi.api.bitable.v1.model.patch_app_table_form_request import PatchAppTableFormRequest
-from lark_oapi.api.bitable.v1.model.patch_app_table_form_response import PatchAppTableFormResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_app_table_form_request import GetAppTableFormRequest
+from ..model.get_app_table_form_response import GetAppTableFormResponse
+from ..model.patch_app_table_form_request import PatchAppTableFormRequest
+from ..model.patch_app_table_form_response import PatchAppTableFormResponse
 
 
 class AppTableForm(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetAppTableFormRequest, option: RequestOption = RequestOption()) -> GetAppTableFormResponse:
+    def get(self, request: GetAppTableFormRequest, option: Optional[RequestOption] = None) -> GetAppTableFormResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -31,7 +34,10 @@ class AppTableForm(object):
         return response
 
     def patch(self, request: PatchAppTableFormRequest,
-              option: RequestOption = RequestOption()) -> PatchAppTableFormResponse:
+              option: Optional[RequestOption] = None) -> PatchAppTableFormResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

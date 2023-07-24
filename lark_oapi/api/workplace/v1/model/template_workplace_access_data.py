@@ -12,7 +12,7 @@ class TemplateWorkplaceAccessData(object):
         "access_data": AccessData,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tpl_id: Optional[str] = None
         self.access_data: Optional[AccessData] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class TemplateWorkplaceAccessData(object):
 
 
 class TemplateWorkplaceAccessDataBuilder(object):
-    def __init__(self,
-                 template_workplace_access_data: TemplateWorkplaceAccessData = TemplateWorkplaceAccessData({})) -> None:
-        self._template_workplace_access_data: TemplateWorkplaceAccessData = template_workplace_access_data
+    def __init__(self) -> None:
+        self._template_workplace_access_data = TemplateWorkplaceAccessData()
 
     def tpl_id(self, tpl_id: str) -> "TemplateWorkplaceAccessDataBuilder":
         self._template_workplace_access_data.tpl_id = tpl_id

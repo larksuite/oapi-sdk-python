@@ -13,7 +13,7 @@ class ListTaskCommentResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Comment]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListTaskCommentResponseBody(object):
 
 
 class ListTaskCommentResponseBodyBuilder(object):
-    def __init__(self, list_task_comment_response_body: ListTaskCommentResponseBody = ListTaskCommentResponseBody(
-        {})) -> None:
-        self._list_task_comment_response_body: ListTaskCommentResponseBody = list_task_comment_response_body
+    def __init__(self) -> None:
+        self._list_task_comment_response_body = ListTaskCommentResponseBody()
 
     def items(self, items: List[Comment]) -> "ListTaskCommentResponseBodyBuilder":
         self._list_task_comment_response_body.items = items

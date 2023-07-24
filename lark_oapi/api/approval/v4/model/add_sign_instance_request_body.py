@@ -17,7 +17,7 @@ class AddSignInstanceRequestBody(object):
         "approval_method": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
@@ -34,9 +34,8 @@ class AddSignInstanceRequestBody(object):
 
 
 class AddSignInstanceRequestBodyBuilder(object):
-    def __init__(self,
-                 add_sign_instance_request_body: AddSignInstanceRequestBody = AddSignInstanceRequestBody({})) -> None:
-        self._add_sign_instance_request_body: AddSignInstanceRequestBody = add_sign_instance_request_body
+    def __init__(self) -> None:
+        self._add_sign_instance_request_body = AddSignInstanceRequestBody()
 
     def user_id(self, user_id: str) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.user_id = user_id

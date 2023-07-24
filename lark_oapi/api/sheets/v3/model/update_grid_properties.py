@@ -11,7 +11,7 @@ class UpdateGridProperties(object):
         "frozen_column_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.frozen_row_count: Optional[int] = None
         self.frozen_column_count: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class UpdateGridProperties(object):
 
 
 class UpdateGridPropertiesBuilder(object):
-    def __init__(self, update_grid_properties: UpdateGridProperties = UpdateGridProperties({})) -> None:
-        self._update_grid_properties: UpdateGridProperties = update_grid_properties
+    def __init__(self) -> None:
+        self._update_grid_properties = UpdateGridProperties()
 
     def frozen_row_count(self, frozen_row_count: int) -> "UpdateGridPropertiesBuilder":
         self._update_grid_properties.frozen_row_count = frozen_row_count

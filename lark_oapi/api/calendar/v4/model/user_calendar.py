@@ -12,7 +12,7 @@ class UserCalendar(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.calendar: Optional[Calendar] = None
         self.user_id: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class UserCalendar(object):
 
 
 class UserCalendarBuilder(object):
-    def __init__(self, user_calendar: UserCalendar = UserCalendar({})) -> None:
-        self._user_calendar: UserCalendar = user_calendar
+    def __init__(self) -> None:
+        self._user_calendar = UserCalendar()
 
     def calendar(self, calendar: Calendar) -> "UserCalendarBuilder":
         self._user_calendar.calendar = calendar

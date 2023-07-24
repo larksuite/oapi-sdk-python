@@ -19,8 +19,8 @@ class GetByParamCustomFieldRequest(BaseRequest):
 
 class GetByParamCustomFieldRequestBuilder(object):
 
-    def __init__(self,
-                 get_by_param_custom_field_request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest()) -> None:
+    def __init__(self) -> None:
+        get_by_param_custom_field_request = GetByParamCustomFieldRequest()
         get_by_param_custom_field_request.http_method = HttpMethod.GET
         get_by_param_custom_field_request.uri = "/open-apis/corehr/v1/custom_fields/get_by_param"
         get_by_param_custom_field_request.token_types = {AccessTokenType.TENANT}

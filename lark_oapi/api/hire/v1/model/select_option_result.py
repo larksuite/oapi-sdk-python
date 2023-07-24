@@ -15,7 +15,7 @@ class SelectOptionResult(object):
         "is_selected": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.option_id: Optional[str] = None
         self.option_name: Optional[str] = None
         self.option_en_name: Optional[str] = None
@@ -30,8 +30,8 @@ class SelectOptionResult(object):
 
 
 class SelectOptionResultBuilder(object):
-    def __init__(self, select_option_result: SelectOptionResult = SelectOptionResult({})) -> None:
-        self._select_option_result: SelectOptionResult = select_option_result
+    def __init__(self) -> None:
+        self._select_option_result = SelectOptionResult()
 
     def option_id(self, option_id: str) -> "SelectOptionResultBuilder":
         self._select_option_result.option_id = option_id

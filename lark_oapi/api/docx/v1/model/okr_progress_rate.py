@@ -16,7 +16,7 @@ class OkrProgressRate(object):
         "target": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.mode: Optional[str] = None
         self.current: Optional[float] = None
         self.percent: Optional[float] = None
@@ -32,8 +32,8 @@ class OkrProgressRate(object):
 
 
 class OkrProgressRateBuilder(object):
-    def __init__(self, okr_progress_rate: OkrProgressRate = OkrProgressRate({})) -> None:
-        self._okr_progress_rate: OkrProgressRate = okr_progress_rate
+    def __init__(self) -> None:
+        self._okr_progress_rate = OkrProgressRate()
 
     def mode(self, mode: str) -> "OkrProgressRateBuilder":
         self._okr_progress_rate.mode = mode

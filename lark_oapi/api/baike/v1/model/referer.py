@@ -12,7 +12,7 @@ class Referer(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.title: Optional[str] = None
         self.url: Optional[str] = None
@@ -24,8 +24,8 @@ class Referer(object):
 
 
 class RefererBuilder(object):
-    def __init__(self, referer: Referer = Referer({})) -> None:
-        self._referer: Referer = referer
+    def __init__(self) -> None:
+        self._referer = Referer()
 
     def id(self, id: str) -> "RefererBuilder":
         self._referer.id = id

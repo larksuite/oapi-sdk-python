@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_employment_request import CreateEmploymentRequest
-from lark_oapi.api.corehr.v1.model.create_employment_response import CreateEmploymentResponse
-from lark_oapi.api.corehr.v1.model.delete_employment_request import DeleteEmploymentRequest
-from lark_oapi.api.corehr.v1.model.delete_employment_response import DeleteEmploymentResponse
-from lark_oapi.api.corehr.v1.model.patch_employment_request import PatchEmploymentRequest
-from lark_oapi.api.corehr.v1.model.patch_employment_response import PatchEmploymentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_employment_request import CreateEmploymentRequest
+from ..model.create_employment_response import CreateEmploymentResponse
+from ..model.delete_employment_request import DeleteEmploymentRequest
+from ..model.delete_employment_response import DeleteEmploymentResponse
+from ..model.patch_employment_request import PatchEmploymentRequest
+from ..model.patch_employment_response import PatchEmploymentResponse
 
 
 class Employment(object):
@@ -20,7 +20,10 @@ class Employment(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateEmploymentRequest,
-               option: RequestOption = RequestOption()) -> CreateEmploymentResponse:
+               option: Optional[RequestOption] = None) -> CreateEmploymentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Employment(object):
         return response
 
     def delete(self, request: DeleteEmploymentRequest,
-               option: RequestOption = RequestOption()) -> DeleteEmploymentResponse:
+               option: Optional[RequestOption] = None) -> DeleteEmploymentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,8 +53,10 @@ class Employment(object):
 
         return response
 
-    def patch(self, request: PatchEmploymentRequest,
-              option: RequestOption = RequestOption()) -> PatchEmploymentResponse:
+    def patch(self, request: PatchEmploymentRequest, option: Optional[RequestOption] = None) -> PatchEmploymentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

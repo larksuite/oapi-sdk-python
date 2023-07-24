@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.delete_top_notice_chat_top_notice_request import DeleteTopNoticeChatTopNoticeRequest
-from lark_oapi.api.im.v1.model.delete_top_notice_chat_top_notice_response import DeleteTopNoticeChatTopNoticeResponse
-from lark_oapi.api.im.v1.model.put_top_notice_chat_top_notice_request import PutTopNoticeChatTopNoticeRequest
-from lark_oapi.api.im.v1.model.put_top_notice_chat_top_notice_response import PutTopNoticeChatTopNoticeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.delete_top_notice_chat_top_notice_request import DeleteTopNoticeChatTopNoticeRequest
+from ..model.delete_top_notice_chat_top_notice_response import DeleteTopNoticeChatTopNoticeResponse
+from ..model.put_top_notice_chat_top_notice_request import PutTopNoticeChatTopNoticeRequest
+from ..model.put_top_notice_chat_top_notice_response import PutTopNoticeChatTopNoticeResponse
 
 
 class ChatTopNotice(object):
@@ -18,7 +18,10 @@ class ChatTopNotice(object):
         self.config: Optional[Config] = config
 
     def delete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest,
-                          option: RequestOption = RequestOption()) -> DeleteTopNoticeChatTopNoticeResponse:
+                          option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class ChatTopNotice(object):
         return response
 
     def put_top_notice(self, request: PutTopNoticeChatTopNoticeRequest,
-                       option: RequestOption = RequestOption()) -> PutTopNoticeChatTopNoticeResponse:
+                       option: Optional[RequestOption] = None) -> PutTopNoticeChatTopNoticeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

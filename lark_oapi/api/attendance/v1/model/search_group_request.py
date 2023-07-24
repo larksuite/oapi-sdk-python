@@ -19,7 +19,8 @@ class SearchGroupRequest(BaseRequest):
 
 class SearchGroupRequestBuilder(object):
 
-    def __init__(self, search_group_request: SearchGroupRequest = SearchGroupRequest()) -> None:
+    def __init__(self) -> None:
+        search_group_request = SearchGroupRequest()
         search_group_request.http_method = HttpMethod.POST
         search_group_request.uri = "/open-apis/attendance/v1/groups/search"
         search_group_request.token_types = {AccessTokenType.TENANT}

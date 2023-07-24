@@ -18,7 +18,8 @@ class DeletePinRequest(BaseRequest):
 
 class DeletePinRequestBuilder(object):
 
-    def __init__(self, delete_pin_request: DeletePinRequest = DeletePinRequest()) -> None:
+    def __init__(self) -> None:
+        delete_pin_request = DeletePinRequest()
         delete_pin_request.http_method = HttpMethod.DELETE
         delete_pin_request.uri = "/open-apis/im/v1/pins/:message_id"
         delete_pin_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

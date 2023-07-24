@@ -19,8 +19,8 @@ class ListObjectApiNameCustomFieldRequest(BaseRequest):
 
 class ListObjectApiNameCustomFieldRequestBuilder(object):
 
-    def __init__(self,
-                 list_object_api_name_custom_field_request: ListObjectApiNameCustomFieldRequest = ListObjectApiNameCustomFieldRequest()) -> None:
+    def __init__(self) -> None:
+        list_object_api_name_custom_field_request = ListObjectApiNameCustomFieldRequest()
         list_object_api_name_custom_field_request.http_method = HttpMethod.GET
         list_object_api_name_custom_field_request.uri = "/open-apis/corehr/v1/custom_fields/list_object_api_name"
         list_object_api_name_custom_field_request.token_types = {AccessTokenType.TENANT}

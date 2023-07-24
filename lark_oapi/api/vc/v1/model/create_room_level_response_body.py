@@ -11,7 +11,7 @@ class CreateRoomLevelResponseBody(object):
         "room_level": RoomLevel,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.room_level: Optional[RoomLevel] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateRoomLevelResponseBody(object):
 
 
 class CreateRoomLevelResponseBodyBuilder(object):
-    def __init__(self, create_room_level_response_body: CreateRoomLevelResponseBody = CreateRoomLevelResponseBody(
-        {})) -> None:
-        self._create_room_level_response_body: CreateRoomLevelResponseBody = create_room_level_response_body
+    def __init__(self) -> None:
+        self._create_room_level_response_body = CreateRoomLevelResponseBody()
 
     def room_level(self, room_level: RoomLevel) -> "CreateRoomLevelResponseBodyBuilder":
         self._create_room_level_response_body.room_level = room_level

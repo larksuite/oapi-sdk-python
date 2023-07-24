@@ -17,7 +17,7 @@ class AccessRecord(object):
         "is_door_open": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.access_record_id: Optional[int] = None
         self.user_id: Optional[str] = None
         self.device_id: Optional[int] = None
@@ -34,8 +34,8 @@ class AccessRecord(object):
 
 
 class AccessRecordBuilder(object):
-    def __init__(self, access_record: AccessRecord = AccessRecord({})) -> None:
-        self._access_record: AccessRecord = access_record
+    def __init__(self) -> None:
+        self._access_record = AccessRecord()
 
     def access_record_id(self, access_record_id: int) -> "AccessRecordBuilder":
         self._access_record.access_record_id = access_record_id

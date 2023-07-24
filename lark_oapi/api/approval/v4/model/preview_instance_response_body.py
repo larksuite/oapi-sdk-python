@@ -11,7 +11,7 @@ class PreviewInstanceResponseBody(object):
         "preview_nodes": List[PreviewNode],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.preview_nodes: Optional[List[PreviewNode]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class PreviewInstanceResponseBody(object):
 
 
 class PreviewInstanceResponseBodyBuilder(object):
-    def __init__(self,
-                 preview_instance_response_body: PreviewInstanceResponseBody = PreviewInstanceResponseBody({})) -> None:
-        self._preview_instance_response_body: PreviewInstanceResponseBody = preview_instance_response_body
+    def __init__(self) -> None:
+        self._preview_instance_response_body = PreviewInstanceResponseBody()
 
     def preview_nodes(self, preview_nodes: List[PreviewNode]) -> "PreviewInstanceResponseBodyBuilder":
         self._preview_instance_response_body.preview_nodes = preview_nodes

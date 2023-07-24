@@ -24,7 +24,7 @@ class Node(object):
         "owner": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.space_id: Optional[int] = None
         self.node_token: Optional[str] = None
         self.obj_token: Optional[str] = None
@@ -48,8 +48,8 @@ class Node(object):
 
 
 class NodeBuilder(object):
-    def __init__(self, node: Node = Node({})) -> None:
-        self._node: Node = node
+    def __init__(self) -> None:
+        self._node = Node()
 
     def space_id(self, space_id: int) -> "NodeBuilder":
         self._node.space_id = space_id

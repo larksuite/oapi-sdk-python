@@ -11,7 +11,7 @@ class MaterialReviewResult(object):
         "result": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.result: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MaterialReviewResult(object):
 
 
 class MaterialReviewResultBuilder(object):
-    def __init__(self, material_review_result: MaterialReviewResult = MaterialReviewResult({})) -> None:
-        self._material_review_result: MaterialReviewResult = material_review_result
+    def __init__(self) -> None:
+        self._material_review_result = MaterialReviewResult()
 
     def file_token(self, file_token: str) -> "MaterialReviewResultBuilder":
         self._material_review_result.file_token = file_token

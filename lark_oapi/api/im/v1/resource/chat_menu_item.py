@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.patch_chat_menu_item_request import PatchChatMenuItemRequest
-from lark_oapi.api.im.v1.model.patch_chat_menu_item_response import PatchChatMenuItemResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.patch_chat_menu_item_request import PatchChatMenuItemRequest
+from ..model.patch_chat_menu_item_response import PatchChatMenuItemResponse
 
 
 class ChatMenuItem(object):
@@ -16,7 +16,10 @@ class ChatMenuItem(object):
         self.config: Optional[Config] = config
 
     def patch(self, request: PatchChatMenuItemRequest,
-              option: RequestOption = RequestOption()) -> PatchChatMenuItemResponse:
+              option: Optional[RequestOption] = None) -> PatchChatMenuItemResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -11,7 +11,7 @@ class CreateAppResponseBody(object):
         "app": App,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app: Optional[App] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CreateAppResponseBody(object):
 
 
 class CreateAppResponseBodyBuilder(object):
-    def __init__(self, create_app_response_body: CreateAppResponseBody = CreateAppResponseBody({})) -> None:
-        self._create_app_response_body: CreateAppResponseBody = create_app_response_body
+    def __init__(self) -> None:
+        self._create_app_response_body = CreateAppResponseBody()
 
     def app(self, app: App) -> "CreateAppResponseBodyBuilder":
         self._create_app_response_body.app = app

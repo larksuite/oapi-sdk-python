@@ -12,7 +12,7 @@ class Condition(object):
         "expected": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.filter_type: Optional[str] = None
         self.compare_type: Optional[str] = None
         self.expected: Optional[List[str]] = None
@@ -24,8 +24,8 @@ class Condition(object):
 
 
 class ConditionBuilder(object):
-    def __init__(self, condition: Condition = Condition({})) -> None:
-        self._condition: Condition = condition
+    def __init__(self) -> None:
+        self._condition = Condition()
 
     def filter_type(self, filter_type: str) -> "ConditionBuilder":
         self._condition.filter_type = filter_type

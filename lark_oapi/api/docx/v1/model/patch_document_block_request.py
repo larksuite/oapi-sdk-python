@@ -24,7 +24,8 @@ class PatchDocumentBlockRequest(BaseRequest):
 
 class PatchDocumentBlockRequestBuilder(object):
 
-    def __init__(self, patch_document_block_request: PatchDocumentBlockRequest = PatchDocumentBlockRequest()) -> None:
+    def __init__(self) -> None:
+        patch_document_block_request = PatchDocumentBlockRequest()
         patch_document_block_request.http_method = HttpMethod.PATCH
         patch_document_block_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id"
         patch_document_block_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

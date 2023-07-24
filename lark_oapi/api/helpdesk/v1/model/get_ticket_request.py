@@ -18,7 +18,8 @@ class GetTicketRequest(BaseRequest):
 
 class GetTicketRequestBuilder(object):
 
-    def __init__(self, get_ticket_request: GetTicketRequest = GetTicketRequest()) -> None:
+    def __init__(self) -> None:
+        get_ticket_request = GetTicketRequest()
         get_ticket_request.http_method = HttpMethod.GET
         get_ticket_request.uri = "/open-apis/helpdesk/v1/tickets/:ticket_id"
         get_ticket_request.token_types = {AccessTokenType.TENANT}

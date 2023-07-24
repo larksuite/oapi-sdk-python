@@ -10,7 +10,7 @@ class MoveFileResponseBody(object):
         "task_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class MoveFileResponseBody(object):
 
 
 class MoveFileResponseBodyBuilder(object):
-    def __init__(self, move_file_response_body: MoveFileResponseBody = MoveFileResponseBody({})) -> None:
-        self._move_file_response_body: MoveFileResponseBody = move_file_response_body
+    def __init__(self) -> None:
+        self._move_file_response_body = MoveFileResponseBody()
 
     def task_id(self, task_id: str) -> "MoveFileResponseBodyBuilder":
         self._move_file_response_body.task_id = task_id

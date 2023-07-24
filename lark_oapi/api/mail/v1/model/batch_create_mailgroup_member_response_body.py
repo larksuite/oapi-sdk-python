@@ -11,7 +11,7 @@ class BatchCreateMailgroupMemberResponseBody(object):
         "items": List[MailgroupMember],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[MailgroupMember]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateMailgroupMemberResponseBody(object):
 
 
 class BatchCreateMailgroupMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_create_mailgroup_member_response_body: BatchCreateMailgroupMemberResponseBody = BatchCreateMailgroupMemberResponseBody(
-                     {})) -> None:
-        self._batch_create_mailgroup_member_response_body: BatchCreateMailgroupMemberResponseBody = batch_create_mailgroup_member_response_body
+    def __init__(self) -> None:
+        self._batch_create_mailgroup_member_response_body = BatchCreateMailgroupMemberResponseBody()
 
     def items(self, items: List[MailgroupMember]) -> "BatchCreateMailgroupMemberResponseBodyBuilder":
         self._batch_create_mailgroup_member_response_body.items = items

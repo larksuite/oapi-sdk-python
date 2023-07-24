@@ -11,7 +11,7 @@ class WebApp(object):
         "mobile_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pc_url: Optional[str] = None
         self.mobile_url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class WebApp(object):
 
 
 class WebAppBuilder(object):
-    def __init__(self, web_app: WebApp = WebApp({})) -> None:
-        self._web_app: WebApp = web_app
+    def __init__(self) -> None:
+        self._web_app = WebApp()
 
     def pc_url(self, pc_url: str) -> "WebAppBuilder":
         self._web_app.pc_url = pc_url

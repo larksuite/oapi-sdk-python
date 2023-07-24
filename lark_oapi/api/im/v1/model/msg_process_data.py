@@ -28,7 +28,7 @@ class MsgProcessData(object):
         "avg_receive_imp_msg_chat_cnt": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.p_date: Optional[str] = None
         self.department_id: Optional[str] = None
         self.department_path: Optional[str] = None
@@ -56,8 +56,8 @@ class MsgProcessData(object):
 
 
 class MsgProcessDataBuilder(object):
-    def __init__(self, msg_process_data: MsgProcessData = MsgProcessData({})) -> None:
-        self._msg_process_data: MsgProcessData = msg_process_data
+    def __init__(self) -> None:
+        self._msg_process_data = MsgProcessData()
 
     def p_date(self, p_date: str) -> "MsgProcessDataBuilder":
         self._msg_process_data.p_date = p_date

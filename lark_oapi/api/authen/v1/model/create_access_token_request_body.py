@@ -11,7 +11,7 @@ class CreateAccessTokenRequestBody(object):
         "code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.grant_type: Optional[str] = None
         self.code: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class CreateAccessTokenRequestBody(object):
 
 
 class CreateAccessTokenRequestBodyBuilder(object):
-    def __init__(self, create_access_token_request_body: CreateAccessTokenRequestBody = CreateAccessTokenRequestBody(
-        {})) -> None:
-        self._create_access_token_request_body: CreateAccessTokenRequestBody = create_access_token_request_body
+    def __init__(self) -> None:
+        self._create_access_token_request_body = CreateAccessTokenRequestBody()
 
     def grant_type(self, grant_type: str) -> "CreateAccessTokenRequestBodyBuilder":
         self._create_access_token_request_body.grant_type = grant_type

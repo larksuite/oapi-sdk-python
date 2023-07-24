@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.list_scope_request import ListScopeRequest
-from lark_oapi.api.contact.v3.model.list_scope_response import ListScopeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_scope_request import ListScopeRequest
+from ..model.list_scope_response import ListScopeResponse
 
 
 class Scope(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def list(self, request: ListScopeRequest, option: RequestOption = RequestOption()) -> ListScopeResponse:
+    def list(self, request: ListScopeRequest, option: Optional[RequestOption] = None) -> ListScopeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

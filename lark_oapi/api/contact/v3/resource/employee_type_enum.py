@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.create_employee_type_enum_request import CreateEmployeeTypeEnumRequest
-from lark_oapi.api.contact.v3.model.create_employee_type_enum_response import CreateEmployeeTypeEnumResponse
-from lark_oapi.api.contact.v3.model.delete_employee_type_enum_request import DeleteEmployeeTypeEnumRequest
-from lark_oapi.api.contact.v3.model.delete_employee_type_enum_response import DeleteEmployeeTypeEnumResponse
-from lark_oapi.api.contact.v3.model.list_employee_type_enum_request import ListEmployeeTypeEnumRequest
-from lark_oapi.api.contact.v3.model.list_employee_type_enum_response import ListEmployeeTypeEnumResponse
-from lark_oapi.api.contact.v3.model.update_employee_type_enum_request import UpdateEmployeeTypeEnumRequest
-from lark_oapi.api.contact.v3.model.update_employee_type_enum_response import UpdateEmployeeTypeEnumResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_employee_type_enum_request import CreateEmployeeTypeEnumRequest
+from ..model.create_employee_type_enum_response import CreateEmployeeTypeEnumResponse
+from ..model.delete_employee_type_enum_request import DeleteEmployeeTypeEnumRequest
+from ..model.delete_employee_type_enum_response import DeleteEmployeeTypeEnumResponse
+from ..model.list_employee_type_enum_request import ListEmployeeTypeEnumRequest
+from ..model.list_employee_type_enum_response import ListEmployeeTypeEnumResponse
+from ..model.update_employee_type_enum_request import UpdateEmployeeTypeEnumRequest
+from ..model.update_employee_type_enum_response import UpdateEmployeeTypeEnumResponse
 
 
 class EmployeeTypeEnum(object):
@@ -22,7 +22,10 @@ class EmployeeTypeEnum(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateEmployeeTypeEnumRequest,
-               option: RequestOption = RequestOption()) -> CreateEmployeeTypeEnumResponse:
+               option: Optional[RequestOption] = None) -> CreateEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -37,7 +40,10 @@ class EmployeeTypeEnum(object):
         return response
 
     def delete(self, request: DeleteEmployeeTypeEnumRequest,
-               option: RequestOption = RequestOption()) -> DeleteEmployeeTypeEnumResponse:
+               option: Optional[RequestOption] = None) -> DeleteEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class EmployeeTypeEnum(object):
         return response
 
     def list(self, request: ListEmployeeTypeEnumRequest,
-             option: RequestOption = RequestOption()) -> ListEmployeeTypeEnumResponse:
+             option: Optional[RequestOption] = None) -> ListEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class EmployeeTypeEnum(object):
         return response
 
     def update(self, request: UpdateEmployeeTypeEnumRequest,
-               option: RequestOption = RequestOption()) -> UpdateEmployeeTypeEnumResponse:
+               option: Optional[RequestOption] = None) -> UpdateEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

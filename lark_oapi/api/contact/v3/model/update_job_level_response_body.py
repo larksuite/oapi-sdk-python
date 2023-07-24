@@ -11,7 +11,7 @@ class UpdateJobLevelResponseBody(object):
         "job_level": JobLevel,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_level: Optional[JobLevel] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class UpdateJobLevelResponseBody(object):
 
 
 class UpdateJobLevelResponseBodyBuilder(object):
-    def __init__(self,
-                 update_job_level_response_body: UpdateJobLevelResponseBody = UpdateJobLevelResponseBody({})) -> None:
-        self._update_job_level_response_body: UpdateJobLevelResponseBody = update_job_level_response_body
+    def __init__(self) -> None:
+        self._update_job_level_response_body = UpdateJobLevelResponseBody()
 
     def job_level(self, job_level: JobLevel) -> "UpdateJobLevelResponseBodyBuilder":
         self._update_job_level_response_body.job_level = job_level

@@ -14,7 +14,7 @@ class ListAppTableFieldResponseBody(object):
         "items": List[AppTableField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.total: Optional[int] = None
@@ -27,10 +27,8 @@ class ListAppTableFieldResponseBody(object):
 
 
 class ListAppTableFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 list_app_table_field_response_body: ListAppTableFieldResponseBody = ListAppTableFieldResponseBody(
-                     {})) -> None:
-        self._list_app_table_field_response_body: ListAppTableFieldResponseBody = list_app_table_field_response_body
+    def __init__(self) -> None:
+        self._list_app_table_field_response_body = ListAppTableFieldResponseBody()
 
     def has_more(self, has_more: bool) -> "ListAppTableFieldResponseBodyBuilder":
         self._list_app_table_field_response_body.has_more = has_more

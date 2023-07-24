@@ -11,7 +11,7 @@ class ExternalInstanceLink(object):
         "mobile_link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pc_link: Optional[str] = None
         self.mobile_link: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ExternalInstanceLink(object):
 
 
 class ExternalInstanceLinkBuilder(object):
-    def __init__(self, external_instance_link: ExternalInstanceLink = ExternalInstanceLink({})) -> None:
-        self._external_instance_link: ExternalInstanceLink = external_instance_link
+    def __init__(self) -> None:
+        self._external_instance_link = ExternalInstanceLink()
 
     def pc_link(self, pc_link: str) -> "ExternalInstanceLinkBuilder":
         self._external_instance_link.pc_link = pc_link

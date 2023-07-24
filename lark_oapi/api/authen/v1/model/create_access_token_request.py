@@ -19,7 +19,8 @@ class CreateAccessTokenRequest(BaseRequest):
 
 class CreateAccessTokenRequestBuilder(object):
 
-    def __init__(self, create_access_token_request: CreateAccessTokenRequest = CreateAccessTokenRequest()) -> None:
+    def __init__(self) -> None:
+        create_access_token_request = CreateAccessTokenRequest()
         create_access_token_request.http_method = HttpMethod.POST
         create_access_token_request.uri = "/open-apis/authen/v1/access_token"
         create_access_token_request.token_types = {AccessTokenType.APP}

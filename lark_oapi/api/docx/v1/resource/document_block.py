@@ -2,19 +2,19 @@
 
 from typing import *
 
-from lark_oapi.api.docx.v1.model.batch_update_document_block_request import BatchUpdateDocumentBlockRequest
-from lark_oapi.api.docx.v1.model.batch_update_document_block_response import BatchUpdateDocumentBlockResponse
-from lark_oapi.api.docx.v1.model.get_document_block_request import GetDocumentBlockRequest
-from lark_oapi.api.docx.v1.model.get_document_block_response import GetDocumentBlockResponse
-from lark_oapi.api.docx.v1.model.list_document_block_request import ListDocumentBlockRequest
-from lark_oapi.api.docx.v1.model.list_document_block_response import ListDocumentBlockResponse
-from lark_oapi.api.docx.v1.model.patch_document_block_request import PatchDocumentBlockRequest
-from lark_oapi.api.docx.v1.model.patch_document_block_response import PatchDocumentBlockResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_update_document_block_request import BatchUpdateDocumentBlockRequest
+from ..model.batch_update_document_block_response import BatchUpdateDocumentBlockResponse
+from ..model.get_document_block_request import GetDocumentBlockRequest
+from ..model.get_document_block_response import GetDocumentBlockResponse
+from ..model.list_document_block_request import ListDocumentBlockRequest
+from ..model.list_document_block_response import ListDocumentBlockResponse
+from ..model.patch_document_block_request import PatchDocumentBlockRequest
+from ..model.patch_document_block_response import PatchDocumentBlockResponse
 
 
 class DocumentBlock(object):
@@ -22,7 +22,10 @@ class DocumentBlock(object):
         self.config: Optional[Config] = config
 
     def batch_update(self, request: BatchUpdateDocumentBlockRequest,
-                     option: RequestOption = RequestOption()) -> BatchUpdateDocumentBlockResponse:
+                     option: Optional[RequestOption] = None) -> BatchUpdateDocumentBlockResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,8 +39,10 @@ class DocumentBlock(object):
 
         return response
 
-    def get(self, request: GetDocumentBlockRequest,
-            option: RequestOption = RequestOption()) -> GetDocumentBlockResponse:
+    def get(self, request: GetDocumentBlockRequest, option: Optional[RequestOption] = None) -> GetDocumentBlockResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +56,10 @@ class DocumentBlock(object):
         return response
 
     def list(self, request: ListDocumentBlockRequest,
-             option: RequestOption = RequestOption()) -> ListDocumentBlockResponse:
+             option: Optional[RequestOption] = None) -> ListDocumentBlockResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -65,7 +73,10 @@ class DocumentBlock(object):
         return response
 
     def patch(self, request: PatchDocumentBlockRequest,
-              option: RequestOption = RequestOption()) -> PatchDocumentBlockResponse:
+              option: Optional[RequestOption] = None) -> PatchDocumentBlockResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

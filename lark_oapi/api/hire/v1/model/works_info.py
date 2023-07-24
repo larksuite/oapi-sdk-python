@@ -12,7 +12,7 @@ class WorksInfo(object):
         "link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.attachment_id: Optional[str] = None
         self.desc: Optional[str] = None
         self.link: Optional[str] = None
@@ -24,8 +24,8 @@ class WorksInfo(object):
 
 
 class WorksInfoBuilder(object):
-    def __init__(self, works_info: WorksInfo = WorksInfo({})) -> None:
-        self._works_info: WorksInfo = works_info
+    def __init__(self) -> None:
+        self._works_info = WorksInfo()
 
     def attachment_id(self, attachment_id: str) -> "WorksInfoBuilder":
         self._works_info.attachment_id = attachment_id

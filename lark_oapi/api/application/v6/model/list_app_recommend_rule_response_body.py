@@ -13,7 +13,7 @@ class ListAppRecommendRuleResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rules: Optional[List[AppRecommendRule]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class ListAppRecommendRuleResponseBody(object):
 
 
 class ListAppRecommendRuleResponseBodyBuilder(object):
-    def __init__(self,
-                 list_app_recommend_rule_response_body: ListAppRecommendRuleResponseBody = ListAppRecommendRuleResponseBody(
-                     {})) -> None:
-        self._list_app_recommend_rule_response_body: ListAppRecommendRuleResponseBody = list_app_recommend_rule_response_body
+    def __init__(self) -> None:
+        self._list_app_recommend_rule_response_body = ListAppRecommendRuleResponseBody()
 
     def rules(self, rules: List[AppRecommendRule]) -> "ListAppRecommendRuleResponseBodyBuilder":
         self._list_app_recommend_rule_response_body.rules = rules

@@ -12,7 +12,7 @@ class JobType(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class JobType(object):
 
 
 class JobTypeBuilder(object):
-    def __init__(self, job_type: JobType = JobType({})) -> None:
-        self._job_type: JobType = job_type
+    def __init__(self) -> None:
+        self._job_type = JobType()
 
     def id(self, id: str) -> "JobTypeBuilder":
         self._job_type.id = id

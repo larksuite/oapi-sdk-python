@@ -15,7 +15,7 @@ class InstanceSearchItem(object):
         "instance": InstanceSearchNode,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval: Optional[InstanceSearchApproval] = None
         self.group: Optional[InstanceSearchGroup] = None
         self.instance: Optional[InstanceSearchNode] = None
@@ -27,8 +27,8 @@ class InstanceSearchItem(object):
 
 
 class InstanceSearchItemBuilder(object):
-    def __init__(self, instance_search_item: InstanceSearchItem = InstanceSearchItem({})) -> None:
-        self._instance_search_item: InstanceSearchItem = instance_search_item
+    def __init__(self) -> None:
+        self._instance_search_item = InstanceSearchItem()
 
     def approval(self, approval: InstanceSearchApproval) -> "InstanceSearchItemBuilder":
         self._instance_search_item.approval = approval

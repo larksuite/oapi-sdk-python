@@ -13,7 +13,7 @@ class ListFileCommentResponseBody(object):
         "items": List[FileComment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[FileComment]] = None
@@ -25,9 +25,8 @@ class ListFileCommentResponseBody(object):
 
 
 class ListFileCommentResponseBodyBuilder(object):
-    def __init__(self, list_file_comment_response_body: ListFileCommentResponseBody = ListFileCommentResponseBody(
-        {})) -> None:
-        self._list_file_comment_response_body: ListFileCommentResponseBody = list_file_comment_response_body
+    def __init__(self) -> None:
+        self._list_file_comment_response_body = ListFileCommentResponseBody()
 
     def has_more(self, has_more: bool) -> "ListFileCommentResponseBodyBuilder":
         self._list_file_comment_response_body.has_more = has_more

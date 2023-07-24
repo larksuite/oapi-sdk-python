@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.calendar.v4.model.create_exchange_binding_request import CreateExchangeBindingRequest
-from lark_oapi.api.calendar.v4.model.create_exchange_binding_response import CreateExchangeBindingResponse
-from lark_oapi.api.calendar.v4.model.delete_exchange_binding_request import DeleteExchangeBindingRequest
-from lark_oapi.api.calendar.v4.model.delete_exchange_binding_response import DeleteExchangeBindingResponse
-from lark_oapi.api.calendar.v4.model.get_exchange_binding_request import GetExchangeBindingRequest
-from lark_oapi.api.calendar.v4.model.get_exchange_binding_response import GetExchangeBindingResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_exchange_binding_request import CreateExchangeBindingRequest
+from ..model.create_exchange_binding_response import CreateExchangeBindingResponse
+from ..model.delete_exchange_binding_request import DeleteExchangeBindingRequest
+from ..model.delete_exchange_binding_response import DeleteExchangeBindingResponse
+from ..model.get_exchange_binding_request import GetExchangeBindingRequest
+from ..model.get_exchange_binding_response import GetExchangeBindingResponse
 
 
 class ExchangeBinding(object):
@@ -20,7 +20,10 @@ class ExchangeBinding(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateExchangeBindingRequest,
-               option: RequestOption = RequestOption()) -> CreateExchangeBindingResponse:
+               option: Optional[RequestOption] = None) -> CreateExchangeBindingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class ExchangeBinding(object):
         return response
 
     def delete(self, request: DeleteExchangeBindingRequest,
-               option: RequestOption = RequestOption()) -> DeleteExchangeBindingResponse:
+               option: Optional[RequestOption] = None) -> DeleteExchangeBindingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class ExchangeBinding(object):
         return response
 
     def get(self, request: GetExchangeBindingRequest,
-            option: RequestOption = RequestOption()) -> GetExchangeBindingResponse:
+            option: Optional[RequestOption] = None) -> GetExchangeBindingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

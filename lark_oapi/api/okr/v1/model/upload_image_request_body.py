@@ -13,7 +13,7 @@ class UploadImageRequestBody(object):
         "target_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data: Optional[IO[Any]] = None
         self.target_id: Optional[int] = None
         self.target_type: Optional[int] = None
@@ -25,8 +25,8 @@ class UploadImageRequestBody(object):
 
 
 class UploadImageRequestBodyBuilder(object):
-    def __init__(self, upload_image_request_body: UploadImageRequestBody = UploadImageRequestBody({})) -> None:
-        self._upload_image_request_body: UploadImageRequestBody = upload_image_request_body
+    def __init__(self) -> None:
+        self._upload_image_request_body = UploadImageRequestBody()
 
     def data(self, data: IO[Any]) -> "UploadImageRequestBodyBuilder":
         self._upload_image_request_body.data = data

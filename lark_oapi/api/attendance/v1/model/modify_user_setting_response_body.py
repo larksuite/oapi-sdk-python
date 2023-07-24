@@ -11,7 +11,7 @@ class ModifyUserSettingResponseBody(object):
         "user_setting": UserSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_setting: Optional[UserSetting] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class ModifyUserSettingResponseBody(object):
 
 
 class ModifyUserSettingResponseBodyBuilder(object):
-    def __init__(self, modify_user_setting_response_body: ModifyUserSettingResponseBody = ModifyUserSettingResponseBody(
-        {})) -> None:
-        self._modify_user_setting_response_body: ModifyUserSettingResponseBody = modify_user_setting_response_body
+    def __init__(self) -> None:
+        self._modify_user_setting_response_body = ModifyUserSettingResponseBody()
 
     def user_setting(self, user_setting: UserSetting) -> "ModifyUserSettingResponseBodyBuilder":
         self._modify_user_setting_response_body.user_setting = user_setting

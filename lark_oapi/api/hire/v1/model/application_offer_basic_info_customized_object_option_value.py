@@ -11,7 +11,7 @@ class ApplicationOfferBasicInfoCustomizedObjectOptionValue(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class ApplicationOfferBasicInfoCustomizedObjectOptionValue(object):
 
 
 class ApplicationOfferBasicInfoCustomizedObjectOptionValueBuilder(object):
-    def __init__(self,
-                 application_offer_basic_info_customized_object_option_value: ApplicationOfferBasicInfoCustomizedObjectOptionValue = ApplicationOfferBasicInfoCustomizedObjectOptionValue(
-                     {})) -> None:
-        self._application_offer_basic_info_customized_object_option_value: ApplicationOfferBasicInfoCustomizedObjectOptionValue = application_offer_basic_info_customized_object_option_value
+    def __init__(self) -> None:
+        self._application_offer_basic_info_customized_object_option_value = ApplicationOfferBasicInfoCustomizedObjectOptionValue()
 
     def zh_cn(self, zh_cn: str) -> "ApplicationOfferBasicInfoCustomizedObjectOptionValueBuilder":
         self._application_offer_basic_info_customized_object_option_value.zh_cn = zh_cn

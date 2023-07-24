@@ -11,7 +11,7 @@ class CreatePersonResponseBody(object):
         "person": PersonInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.person: Optional[PersonInfo] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CreatePersonResponseBody(object):
 
 
 class CreatePersonResponseBodyBuilder(object):
-    def __init__(self, create_person_response_body: CreatePersonResponseBody = CreatePersonResponseBody({})) -> None:
-        self._create_person_response_body: CreatePersonResponseBody = create_person_response_body
+    def __init__(self) -> None:
+        self._create_person_response_body = CreatePersonResponseBody()
 
     def person(self, person: PersonInfo) -> "CreatePersonResponseBodyBuilder":
         self._create_person_response_body.person = person

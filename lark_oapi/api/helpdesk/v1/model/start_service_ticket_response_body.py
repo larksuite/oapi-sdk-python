@@ -10,7 +10,7 @@ class StartServiceTicketResponseBody(object):
         "chat_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.chat_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class StartServiceTicketResponseBody(object):
 
 
 class StartServiceTicketResponseBodyBuilder(object):
-    def __init__(self,
-                 start_service_ticket_response_body: StartServiceTicketResponseBody = StartServiceTicketResponseBody(
-                     {})) -> None:
-        self._start_service_ticket_response_body: StartServiceTicketResponseBody = start_service_ticket_response_body
+    def __init__(self) -> None:
+        self._start_service_ticket_response_body = StartServiceTicketResponseBody()
 
     def chat_id(self, chat_id: str) -> "StartServiceTicketResponseBodyBuilder":
         self._start_service_ticket_response_body.chat_id = chat_id

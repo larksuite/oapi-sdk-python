@@ -12,7 +12,7 @@ class SearchTaskResponse(BaseResponse):
         "data": SearchTaskResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[SearchTaskResponseBody] = None
         init(self, d, self._types)

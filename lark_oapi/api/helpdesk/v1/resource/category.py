@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.create_category_request import CreateCategoryRequest
-from lark_oapi.api.helpdesk.v1.model.create_category_response import CreateCategoryResponse
-from lark_oapi.api.helpdesk.v1.model.delete_category_request import DeleteCategoryRequest
-from lark_oapi.api.helpdesk.v1.model.delete_category_response import DeleteCategoryResponse
-from lark_oapi.api.helpdesk.v1.model.get_category_request import GetCategoryRequest
-from lark_oapi.api.helpdesk.v1.model.get_category_response import GetCategoryResponse
-from lark_oapi.api.helpdesk.v1.model.list_category_request import ListCategoryRequest
-from lark_oapi.api.helpdesk.v1.model.list_category_response import ListCategoryResponse
-from lark_oapi.api.helpdesk.v1.model.patch_category_request import PatchCategoryRequest
-from lark_oapi.api.helpdesk.v1.model.patch_category_response import PatchCategoryResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_category_request import CreateCategoryRequest
+from ..model.create_category_response import CreateCategoryResponse
+from ..model.delete_category_request import DeleteCategoryRequest
+from ..model.delete_category_response import DeleteCategoryResponse
+from ..model.get_category_request import GetCategoryRequest
+from ..model.get_category_response import GetCategoryResponse
+from ..model.list_category_request import ListCategoryRequest
+from ..model.list_category_response import ListCategoryResponse
+from ..model.patch_category_request import PatchCategoryRequest
+from ..model.patch_category_response import PatchCategoryResponse
 
 
 class Category(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateCategoryRequest, option: RequestOption = RequestOption()) -> CreateCategoryResponse:
+    def create(self, request: CreateCategoryRequest, option: Optional[RequestOption] = None) -> CreateCategoryResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class Category(object):
 
         return response
 
-    def delete(self, request: DeleteCategoryRequest, option: RequestOption = RequestOption()) -> DeleteCategoryResponse:
+    def delete(self, request: DeleteCategoryRequest, option: Optional[RequestOption] = None) -> DeleteCategoryResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class Category(object):
 
         return response
 
-    def get(self, request: GetCategoryRequest, option: RequestOption = RequestOption()) -> GetCategoryResponse:
+    def get(self, request: GetCategoryRequest, option: Optional[RequestOption] = None) -> GetCategoryResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class Category(object):
 
         return response
 
-    def list(self, request: ListCategoryRequest, option: RequestOption = RequestOption()) -> ListCategoryResponse:
+    def list(self, request: ListCategoryRequest, option: Optional[RequestOption] = None) -> ListCategoryResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +87,10 @@ class Category(object):
 
         return response
 
-    def patch(self, request: PatchCategoryRequest, option: RequestOption = RequestOption()) -> PatchCategoryResponse:
+    def patch(self, request: PatchCategoryRequest, option: Optional[RequestOption] = None) -> PatchCategoryResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

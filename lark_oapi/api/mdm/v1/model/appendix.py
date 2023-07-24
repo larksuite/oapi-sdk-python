@@ -14,7 +14,7 @@ class Appendix(object):
         "download_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_id: Optional[str] = None
         self.file_name: Optional[str] = None
         self.file_type: Optional[str] = None
@@ -28,8 +28,8 @@ class Appendix(object):
 
 
 class AppendixBuilder(object):
-    def __init__(self, appendix: Appendix = Appendix({})) -> None:
-        self._appendix: Appendix = appendix
+    def __init__(self) -> None:
+        self._appendix = Appendix()
 
     def file_id(self, file_id: str) -> "AppendixBuilder":
         self._appendix.file_id = file_id

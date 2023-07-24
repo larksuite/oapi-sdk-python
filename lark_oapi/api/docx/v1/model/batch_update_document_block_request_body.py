@@ -11,7 +11,7 @@ class BatchUpdateDocumentBlockRequestBody(object):
         "requests": List[UpdateBlockRequest],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.requests: Optional[List[UpdateBlockRequest]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchUpdateDocumentBlockRequestBody(object):
 
 
 class BatchUpdateDocumentBlockRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_update_document_block_request_body: BatchUpdateDocumentBlockRequestBody = BatchUpdateDocumentBlockRequestBody(
-                     {})) -> None:
-        self._batch_update_document_block_request_body: BatchUpdateDocumentBlockRequestBody = batch_update_document_block_request_body
+    def __init__(self) -> None:
+        self._batch_update_document_block_request_body = BatchUpdateDocumentBlockRequestBody()
 
     def requests(self, requests: List[UpdateBlockRequest]) -> "BatchUpdateDocumentBlockRequestBodyBuilder":
         self._batch_update_document_block_request_body.requests = requests

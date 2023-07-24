@@ -11,7 +11,7 @@ class QuerySpreadsheetSheetFilterViewConditionResponseBody(object):
         "items": List[FilterViewCondition],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[FilterViewCondition]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QuerySpreadsheetSheetFilterViewConditionResponseBody(object):
 
 
 class QuerySpreadsheetSheetFilterViewConditionResponseBodyBuilder(object):
-    def __init__(self,
-                 query_spreadsheet_sheet_filter_view_condition_response_body: QuerySpreadsheetSheetFilterViewConditionResponseBody = QuerySpreadsheetSheetFilterViewConditionResponseBody(
-                     {})) -> None:
-        self._query_spreadsheet_sheet_filter_view_condition_response_body: QuerySpreadsheetSheetFilterViewConditionResponseBody = query_spreadsheet_sheet_filter_view_condition_response_body
+    def __init__(self) -> None:
+        self._query_spreadsheet_sheet_filter_view_condition_response_body = QuerySpreadsheetSheetFilterViewConditionResponseBody()
 
     def items(self, items: List[FilterViewCondition]) -> "QuerySpreadsheetSheetFilterViewConditionResponseBodyBuilder":
         self._query_spreadsheet_sheet_filter_view_condition_response_body.items = items

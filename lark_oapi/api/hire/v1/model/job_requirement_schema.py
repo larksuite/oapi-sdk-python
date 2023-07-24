@@ -14,7 +14,7 @@ class JobRequirementSchema(object):
         "object_list": List[CommonSchema],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.object_list: Optional[List[CommonSchema]] = None
@@ -26,8 +26,8 @@ class JobRequirementSchema(object):
 
 
 class JobRequirementSchemaBuilder(object):
-    def __init__(self, job_requirement_schema: JobRequirementSchema = JobRequirementSchema({})) -> None:
-        self._job_requirement_schema: JobRequirementSchema = job_requirement_schema
+    def __init__(self) -> None:
+        self._job_requirement_schema = JobRequirementSchema()
 
     def id(self, id: str) -> "JobRequirementSchemaBuilder":
         self._job_requirement_schema.id = id

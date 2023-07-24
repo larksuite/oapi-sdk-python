@@ -10,7 +10,7 @@ class InstanceSearchApprovalExternal(object):
         "batch_cc_read": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.batch_cc_read: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class InstanceSearchApprovalExternal(object):
 
 
 class InstanceSearchApprovalExternalBuilder(object):
-    def __init__(self,
-                 instance_search_approval_external: InstanceSearchApprovalExternal = InstanceSearchApprovalExternal(
-                     {})) -> None:
-        self._instance_search_approval_external: InstanceSearchApprovalExternal = instance_search_approval_external
+    def __init__(self) -> None:
+        self._instance_search_approval_external = InstanceSearchApprovalExternal()
 
     def batch_cc_read(self, batch_cc_read: bool) -> "InstanceSearchApprovalExternalBuilder":
         self._instance_search_approval_external.batch_cc_read = batch_cc_read

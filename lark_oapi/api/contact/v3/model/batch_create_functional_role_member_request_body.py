@@ -10,7 +10,7 @@ class BatchCreateFunctionalRoleMemberRequestBody(object):
         "members": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.members: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class BatchCreateFunctionalRoleMemberRequestBody(object):
 
 
 class BatchCreateFunctionalRoleMemberRequestBodyBuilder(object):
-    def __init__(self,
-                 batch_create_functional_role_member_request_body: BatchCreateFunctionalRoleMemberRequestBody = BatchCreateFunctionalRoleMemberRequestBody(
-                     {})) -> None:
-        self._batch_create_functional_role_member_request_body: BatchCreateFunctionalRoleMemberRequestBody = batch_create_functional_role_member_request_body
+    def __init__(self) -> None:
+        self._batch_create_functional_role_member_request_body = BatchCreateFunctionalRoleMemberRequestBody()
 
     def members(self, members: List[str]) -> "BatchCreateFunctionalRoleMemberRequestBodyBuilder":
         self._batch_create_functional_role_member_request_body.members = members

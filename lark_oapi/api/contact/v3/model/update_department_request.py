@@ -22,7 +22,8 @@ class UpdateDepartmentRequest(BaseRequest):
 
 class UpdateDepartmentRequestBuilder(object):
 
-    def __init__(self, update_department_request: UpdateDepartmentRequest = UpdateDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        update_department_request = UpdateDepartmentRequest()
         update_department_request.http_method = HttpMethod.PUT
         update_department_request.uri = "/open-apis/contact/v3/departments/:department_id"
         update_department_request.token_types = {AccessTokenType.TENANT}

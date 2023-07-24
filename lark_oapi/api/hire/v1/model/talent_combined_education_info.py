@@ -19,7 +19,7 @@ class TalentCombinedEducationInfo(object):
         "customized_data": List[TalentCustomizedDataObjectValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.degree: Optional[int] = None
         self.school: Optional[str] = None
@@ -37,9 +37,8 @@ class TalentCombinedEducationInfo(object):
 
 
 class TalentCombinedEducationInfoBuilder(object):
-    def __init__(self,
-                 talent_combined_education_info: TalentCombinedEducationInfo = TalentCombinedEducationInfo({})) -> None:
-        self._talent_combined_education_info: TalentCombinedEducationInfo = talent_combined_education_info
+    def __init__(self) -> None:
+        self._talent_combined_education_info = TalentCombinedEducationInfo()
 
     def id(self, id: str) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.id = id

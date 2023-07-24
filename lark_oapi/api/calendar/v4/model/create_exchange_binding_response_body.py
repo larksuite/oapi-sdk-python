@@ -14,7 +14,7 @@ class CreateExchangeBindingResponseBody(object):
         "exchange_binding_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.admin_account: Optional[str] = None
         self.exchange_account: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -28,10 +28,8 @@ class CreateExchangeBindingResponseBody(object):
 
 
 class CreateExchangeBindingResponseBodyBuilder(object):
-    def __init__(self,
-                 create_exchange_binding_response_body: CreateExchangeBindingResponseBody = CreateExchangeBindingResponseBody(
-                     {})) -> None:
-        self._create_exchange_binding_response_body: CreateExchangeBindingResponseBody = create_exchange_binding_response_body
+    def __init__(self) -> None:
+        self._create_exchange_binding_response_body = CreateExchangeBindingResponseBody()
 
     def admin_account(self, admin_account: str) -> "CreateExchangeBindingResponseBodyBuilder":
         self._create_exchange_binding_response_body.admin_account = admin_account

@@ -17,7 +17,7 @@ class File(object):
         "token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.type: Optional[str] = None
         self.owner: Optional[User] = None
@@ -33,8 +33,8 @@ class File(object):
 
 
 class FileBuilder(object):
-    def __init__(self, file: File = File({})) -> None:
-        self._file: File = file
+    def __init__(self) -> None:
+        self._file = File()
 
     def title(self, title: str) -> "FileBuilder":
         self._file.title = title

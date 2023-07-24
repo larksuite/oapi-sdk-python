@@ -10,7 +10,7 @@ class Emoji(object):
         "emoji_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.emoji_type: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Emoji(object):
 
 
 class EmojiBuilder(object):
-    def __init__(self, emoji: Emoji = Emoji({})) -> None:
-        self._emoji: Emoji = emoji
+    def __init__(self) -> None:
+        self._emoji = Emoji()
 
     def emoji_type(self, emoji_type: str) -> "EmojiBuilder":
         self._emoji.emoji_type = emoji_type

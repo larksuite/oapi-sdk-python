@@ -19,7 +19,7 @@ class MeetingEventMeeting(object):
         "calendar_event_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.topic: Optional[str] = None
         self.meeting_no: Optional[str] = None
@@ -37,8 +37,8 @@ class MeetingEventMeeting(object):
 
 
 class MeetingEventMeetingBuilder(object):
-    def __init__(self, meeting_event_meeting: MeetingEventMeeting = MeetingEventMeeting({})) -> None:
-        self._meeting_event_meeting: MeetingEventMeeting = meeting_event_meeting
+    def __init__(self) -> None:
+        self._meeting_event_meeting = MeetingEventMeeting()
 
     def id(self, id: int) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.id = id

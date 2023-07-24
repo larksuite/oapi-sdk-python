@@ -18,7 +18,8 @@ class DeleteCategoryRequest(BaseRequest):
 
 class DeleteCategoryRequestBuilder(object):
 
-    def __init__(self, delete_category_request: DeleteCategoryRequest = DeleteCategoryRequest()) -> None:
+    def __init__(self) -> None:
+        delete_category_request = DeleteCategoryRequest()
         delete_category_request.http_method = HttpMethod.DELETE
         delete_category_request.uri = "/open-apis/helpdesk/v1/categories/:id"
         delete_category_request.token_types = {AccessTokenType.USER}

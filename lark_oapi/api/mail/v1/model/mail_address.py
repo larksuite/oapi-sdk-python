@@ -11,7 +11,7 @@ class MailAddress(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.mail_address: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MailAddress(object):
 
 
 class MailAddressBuilder(object):
-    def __init__(self, mail_address: MailAddress = MailAddress({})) -> None:
-        self._mail_address: MailAddress = mail_address
+    def __init__(self) -> None:
+        self._mail_address = MailAddress()
 
     def mail_address(self, mail_address: str) -> "MailAddressBuilder":
         self._mail_address.mail_address = mail_address

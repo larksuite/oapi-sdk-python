@@ -16,7 +16,7 @@ class File(object):
         "shortcut_info": ShortcutInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.name: Optional[str] = None
         self.type: Optional[str] = None
@@ -31,8 +31,8 @@ class File(object):
 
 
 class FileBuilder(object):
-    def __init__(self, file: File = File({})) -> None:
-        self._file: File = file
+    def __init__(self) -> None:
+        self._file = File()
 
     def token(self, token: str) -> "FileBuilder":
         self._file.token = token

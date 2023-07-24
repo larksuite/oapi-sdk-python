@@ -13,7 +13,7 @@ class ApplicationStageInfo(object):
         "type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -26,8 +26,8 @@ class ApplicationStageInfo(object):
 
 
 class ApplicationStageInfoBuilder(object):
-    def __init__(self, application_stage_info: ApplicationStageInfo = ApplicationStageInfo({})) -> None:
-        self._application_stage_info: ApplicationStageInfo = application_stage_info
+    def __init__(self) -> None:
+        self._application_stage_info = ApplicationStageInfo()
 
     def id(self, id: str) -> "ApplicationStageInfoBuilder":
         self._application_stage_info.id = id

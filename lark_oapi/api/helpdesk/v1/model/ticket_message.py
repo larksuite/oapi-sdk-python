@@ -17,7 +17,7 @@ class TicketMessage(object):
         "user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.message_id: Optional[str] = None
         self.message_type: Optional[str] = None
@@ -34,8 +34,8 @@ class TicketMessage(object):
 
 
 class TicketMessageBuilder(object):
-    def __init__(self, ticket_message: TicketMessage = TicketMessage({})) -> None:
-        self._ticket_message: TicketMessage = ticket_message
+    def __init__(self) -> None:
+        self._ticket_message = TicketMessage()
 
     def id(self, id: str) -> "TicketMessageBuilder":
         self._ticket_message.id = id

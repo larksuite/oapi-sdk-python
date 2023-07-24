@@ -12,7 +12,7 @@ class ListNationalIdTypeResponse(BaseResponse):
         "data": ListNationalIdTypeResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListNationalIdTypeResponseBody] = None
         init(self, d, self._types)

@@ -21,7 +21,8 @@ class CreateSpaceMemberRequest(BaseRequest):
 
 class CreateSpaceMemberRequestBuilder(object):
 
-    def __init__(self, create_space_member_request: CreateSpaceMemberRequest = CreateSpaceMemberRequest()) -> None:
+    def __init__(self) -> None:
+        create_space_member_request = CreateSpaceMemberRequest()
         create_space_member_request.http_method = HttpMethod.POST
         create_space_member_request.uri = "/open-apis/wiki/v2/spaces/:space_id/members"
         create_space_member_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

@@ -23,8 +23,8 @@ class UpdatePermissionMemberRequest(BaseRequest):
 
 class UpdatePermissionMemberRequestBuilder(object):
 
-    def __init__(self,
-                 update_permission_member_request: UpdatePermissionMemberRequest = UpdatePermissionMemberRequest()) -> None:
+    def __init__(self) -> None:
+        update_permission_member_request = UpdatePermissionMemberRequest()
         update_permission_member_request.http_method = HttpMethod.PUT
         update_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/:member_id"
         update_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

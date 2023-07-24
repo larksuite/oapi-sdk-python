@@ -11,7 +11,7 @@ class AppDashboard(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.block_id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class AppDashboard(object):
 
 
 class AppDashboardBuilder(object):
-    def __init__(self, app_dashboard: AppDashboard = AppDashboard({})) -> None:
-        self._app_dashboard: AppDashboard = app_dashboard
+    def __init__(self) -> None:
+        self._app_dashboard = AppDashboard()
 
     def block_id(self, block_id: str) -> "AppDashboardBuilder":
         self._app_dashboard.block_id = block_id

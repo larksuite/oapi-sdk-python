@@ -13,7 +13,7 @@ class BaseCountry(object):
         "location_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
         self.code: Optional[str] = None
@@ -26,8 +26,8 @@ class BaseCountry(object):
 
 
 class BaseCountryBuilder(object):
-    def __init__(self, base_country: BaseCountry = BaseCountry({})) -> None:
-        self._base_country: BaseCountry = base_country
+    def __init__(self) -> None:
+        self._base_country = BaseCountry()
 
     def zh_name(self, zh_name: str) -> "BaseCountryBuilder":
         self._base_country.zh_name = zh_name

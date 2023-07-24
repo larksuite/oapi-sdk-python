@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.tenant.v2.model.query_tenant_request import QueryTenantRequest
-from lark_oapi.api.tenant.v2.model.query_tenant_response import QueryTenantResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_tenant_request import QueryTenantRequest
+from ..model.query_tenant_response import QueryTenantResponse
 
 
 class Tenant(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def query(self, request: QueryTenantRequest, option: RequestOption = RequestOption()) -> QueryTenantResponse:
+    def query(self, request: QueryTenantRequest, option: Optional[RequestOption] = None) -> QueryTenantResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -12,7 +12,7 @@ class ListUserOkrResponseBody(object):
         "okr_list": List[OkrBatch],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.total: Optional[int] = None
         self.okr_list: Optional[List[OkrBatch]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ListUserOkrResponseBody(object):
 
 
 class ListUserOkrResponseBodyBuilder(object):
-    def __init__(self, list_user_okr_response_body: ListUserOkrResponseBody = ListUserOkrResponseBody({})) -> None:
-        self._list_user_okr_response_body: ListUserOkrResponseBody = list_user_okr_response_body
+    def __init__(self) -> None:
+        self._list_user_okr_response_body = ListUserOkrResponseBody()
 
     def total(self, total: int) -> "ListUserOkrResponseBodyBuilder":
         self._list_user_okr_response_body.total = total

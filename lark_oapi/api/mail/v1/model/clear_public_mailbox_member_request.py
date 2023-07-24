@@ -18,8 +18,8 @@ class ClearPublicMailboxMemberRequest(BaseRequest):
 
 class ClearPublicMailboxMemberRequestBuilder(object):
 
-    def __init__(self,
-                 clear_public_mailbox_member_request: ClearPublicMailboxMemberRequest = ClearPublicMailboxMemberRequest()) -> None:
+    def __init__(self) -> None:
+        clear_public_mailbox_member_request = ClearPublicMailboxMemberRequest()
         clear_public_mailbox_member_request.http_method = HttpMethod.POST
         clear_public_mailbox_member_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/clear"
         clear_public_mailbox_member_request.token_types = {AccessTokenType.TENANT}

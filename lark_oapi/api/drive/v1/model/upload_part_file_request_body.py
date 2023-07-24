@@ -15,7 +15,7 @@ class UploadPartFileRequestBody(object):
         "file": IO[Any],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.upload_id: Optional[str] = None
         self.seq: Optional[int] = None
         self.size: Optional[int] = None
@@ -29,9 +29,8 @@ class UploadPartFileRequestBody(object):
 
 
 class UploadPartFileRequestBodyBuilder(object):
-    def __init__(self,
-                 upload_part_file_request_body: UploadPartFileRequestBody = UploadPartFileRequestBody({})) -> None:
-        self._upload_part_file_request_body: UploadPartFileRequestBody = upload_part_file_request_body
+    def __init__(self) -> None:
+        self._upload_part_file_request_body = UploadPartFileRequestBody()
 
     def upload_id(self, upload_id: str) -> "UploadPartFileRequestBodyBuilder":
         self._upload_part_file_request_body.upload_id = upload_id

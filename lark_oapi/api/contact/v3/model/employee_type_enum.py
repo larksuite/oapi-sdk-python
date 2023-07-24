@@ -16,7 +16,7 @@ class EmployeeTypeEnum(object):
         "i18n_content": List[I18nContent],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.enum_id: Optional[str] = None
         self.enum_value: Optional[int] = None
         self.content: Optional[str] = None
@@ -31,8 +31,8 @@ class EmployeeTypeEnum(object):
 
 
 class EmployeeTypeEnumBuilder(object):
-    def __init__(self, employee_type_enum: EmployeeTypeEnum = EmployeeTypeEnum({})) -> None:
-        self._employee_type_enum: EmployeeTypeEnum = employee_type_enum
+    def __init__(self) -> None:
+        self._employee_type_enum = EmployeeTypeEnum()
 
     def enum_id(self, enum_id: str) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.enum_id = enum_id

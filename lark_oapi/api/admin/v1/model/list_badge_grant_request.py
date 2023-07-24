@@ -23,7 +23,8 @@ class ListBadgeGrantRequest(BaseRequest):
 
 class ListBadgeGrantRequestBuilder(object):
 
-    def __init__(self, list_badge_grant_request: ListBadgeGrantRequest = ListBadgeGrantRequest()) -> None:
+    def __init__(self) -> None:
+        list_badge_grant_request = ListBadgeGrantRequest()
         list_badge_grant_request.http_method = HttpMethod.GET
         list_badge_grant_request.uri = "/open-apis/admin/v1/badges/:badge_id/grants"
         list_badge_grant_request.token_types = {AccessTokenType.TENANT}

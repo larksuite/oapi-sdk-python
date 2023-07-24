@@ -19,7 +19,8 @@ class ListGroupRequest(BaseRequest):
 
 class ListGroupRequestBuilder(object):
 
-    def __init__(self, list_group_request: ListGroupRequest = ListGroupRequest()) -> None:
+    def __init__(self) -> None:
+        list_group_request = ListGroupRequest()
         list_group_request.http_method = HttpMethod.GET
         list_group_request.uri = "/open-apis/attendance/v1/groups"
         list_group_request.token_types = {AccessTokenType.TENANT}

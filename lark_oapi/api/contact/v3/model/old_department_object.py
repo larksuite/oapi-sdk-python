@@ -12,7 +12,7 @@ class OldDepartmentObject(object):
         "open_department_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[DepartmentStatus] = None
         self.open_department_id: Optional[str] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class OldDepartmentObject(object):
 
 
 class OldDepartmentObjectBuilder(object):
-    def __init__(self, old_department_object: OldDepartmentObject = OldDepartmentObject({})) -> None:
-        self._old_department_object: OldDepartmentObject = old_department_object
+    def __init__(self) -> None:
+        self._old_department_object = OldDepartmentObject()
 
     def status(self, status: DepartmentStatus) -> "OldDepartmentObjectBuilder":
         self._old_department_object.status = status

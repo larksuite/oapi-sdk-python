@@ -11,7 +11,7 @@ class MoveFileRequestBody(object):
         "folder_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.folder_token: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MoveFileRequestBody(object):
 
 
 class MoveFileRequestBodyBuilder(object):
-    def __init__(self, move_file_request_body: MoveFileRequestBody = MoveFileRequestBody({})) -> None:
-        self._move_file_request_body: MoveFileRequestBody = move_file_request_body
+    def __init__(self) -> None:
+        self._move_file_request_body = MoveFileRequestBody()
 
     def type(self, type: str) -> "MoveFileRequestBodyBuilder":
         self._move_file_request_body.type = type

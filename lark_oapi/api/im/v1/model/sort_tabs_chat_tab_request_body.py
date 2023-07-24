@@ -10,7 +10,7 @@ class SortTabsChatTabRequestBody(object):
         "tab_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.tab_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class SortTabsChatTabRequestBody(object):
 
 
 class SortTabsChatTabRequestBodyBuilder(object):
-    def __init__(self,
-                 sort_tabs_chat_tab_request_body: SortTabsChatTabRequestBody = SortTabsChatTabRequestBody({})) -> None:
-        self._sort_tabs_chat_tab_request_body: SortTabsChatTabRequestBody = sort_tabs_chat_tab_request_body
+    def __init__(self) -> None:
+        self._sort_tabs_chat_tab_request_body = SortTabsChatTabRequestBody()
 
     def tab_ids(self, tab_ids: List[str]) -> "SortTabsChatTabRequestBodyBuilder":
         self._sort_tabs_chat_tab_request_body.tab_ids = tab_ids

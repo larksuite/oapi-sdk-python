@@ -22,8 +22,8 @@ class ListAppTableFormFieldRequest(BaseRequest):
 
 class ListAppTableFormFieldRequestBuilder(object):
 
-    def __init__(self,
-                 list_app_table_form_field_request: ListAppTableFormFieldRequest = ListAppTableFormFieldRequest()) -> None:
+    def __init__(self) -> None:
+        list_app_table_form_field_request = ListAppTableFormFieldRequest()
         list_app_table_form_field_request.http_method = HttpMethod.GET
         list_app_table_form_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields"
         list_app_table_form_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

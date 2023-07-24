@@ -11,7 +11,7 @@ class CreateTenantAccessTokenRequestBody(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.app_access_token: Optional[str] = None
         self.tenant_key: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class CreateTenantAccessTokenRequestBody(object):
 
 
 class CreateTenantAccessTokenRequestBodyBuilder(object):
-    def __init__(self,
-                 create_tenant_access_token_request_body: CreateTenantAccessTokenRequestBody = CreateTenantAccessTokenRequestBody(
-                     {})) -> None:
-        self._create_tenant_access_token_request_body: CreateTenantAccessTokenRequestBody = create_tenant_access_token_request_body
+    def __init__(self) -> None:
+        self._create_tenant_access_token_request_body = CreateTenantAccessTokenRequestBody()
 
     def app_access_token(self, app_access_token: str) -> "CreateTenantAccessTokenRequestBodyBuilder":
         self._create_tenant_access_token_request_body.app_access_token = app_access_token

@@ -18,7 +18,7 @@ class CreateMessageRequestBody(object):
         "end_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.query: Optional[str] = None
         self.from_ids: Optional[List[int]] = None
         self.chat_ids: Optional[List[int]] = None
@@ -36,8 +36,8 @@ class CreateMessageRequestBody(object):
 
 
 class CreateMessageRequestBodyBuilder(object):
-    def __init__(self, create_message_request_body: CreateMessageRequestBody = CreateMessageRequestBody({})) -> None:
-        self._create_message_request_body: CreateMessageRequestBody = create_message_request_body
+    def __init__(self) -> None:
+        self._create_message_request_body = CreateMessageRequestBody()
 
     def query(self, query: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.query = query

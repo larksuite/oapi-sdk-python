@@ -20,7 +20,8 @@ class MoveFileRequest(BaseRequest):
 
 class MoveFileRequestBuilder(object):
 
-    def __init__(self, move_file_request: MoveFileRequest = MoveFileRequest()) -> None:
+    def __init__(self) -> None:
+        move_file_request = MoveFileRequest()
         move_file_request.http_method = HttpMethod.POST
         move_file_request.uri = "/open-apis/drive/v1/files/:file_token/move"
         move_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

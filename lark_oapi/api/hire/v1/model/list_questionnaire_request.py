@@ -23,7 +23,8 @@ class ListQuestionnaireRequest(BaseRequest):
 
 class ListQuestionnaireRequestBuilder(object):
 
-    def __init__(self, list_questionnaire_request: ListQuestionnaireRequest = ListQuestionnaireRequest()) -> None:
+    def __init__(self) -> None:
+        list_questionnaire_request = ListQuestionnaireRequest()
         list_questionnaire_request.http_method = HttpMethod.GET
         list_questionnaire_request.uri = "/open-apis/hire/v1/questionnaires"
         list_questionnaire_request.token_types = {AccessTokenType.TENANT}

@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.approval.v4.model.create_approval_request import CreateApprovalRequest
-from lark_oapi.api.approval.v4.model.create_approval_response import CreateApprovalResponse
-from lark_oapi.api.approval.v4.model.get_approval_request import GetApprovalRequest
-from lark_oapi.api.approval.v4.model.get_approval_response import GetApprovalResponse
-from lark_oapi.api.approval.v4.model.subscribe_approval_request import SubscribeApprovalRequest
-from lark_oapi.api.approval.v4.model.subscribe_approval_response import SubscribeApprovalResponse
-from lark_oapi.api.approval.v4.model.unsubscribe_approval_request import UnsubscribeApprovalRequest
-from lark_oapi.api.approval.v4.model.unsubscribe_approval_response import UnsubscribeApprovalResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_approval_request import CreateApprovalRequest
+from ..model.create_approval_response import CreateApprovalResponse
+from ..model.get_approval_request import GetApprovalRequest
+from ..model.get_approval_response import GetApprovalResponse
+from ..model.subscribe_approval_request import SubscribeApprovalRequest
+from ..model.subscribe_approval_response import SubscribeApprovalResponse
+from ..model.unsubscribe_approval_request import UnsubscribeApprovalRequest
+from ..model.unsubscribe_approval_response import UnsubscribeApprovalResponse
 
 
 class Approval(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateApprovalRequest, option: RequestOption = RequestOption()) -> CreateApprovalResponse:
+    def create(self, request: CreateApprovalRequest, option: Optional[RequestOption] = None) -> CreateApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class Approval(object):
 
         return response
 
-    def get(self, request: GetApprovalRequest, option: RequestOption = RequestOption()) -> GetApprovalResponse:
+    def get(self, request: GetApprovalRequest, option: Optional[RequestOption] = None) -> GetApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class Approval(object):
         return response
 
     def subscribe(self, request: SubscribeApprovalRequest,
-                  option: RequestOption = RequestOption()) -> SubscribeApprovalResponse:
+                  option: Optional[RequestOption] = None) -> SubscribeApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class Approval(object):
         return response
 
     def unsubscribe(self, request: UnsubscribeApprovalRequest,
-                    option: RequestOption = RequestOption()) -> UnsubscribeApprovalResponse:
+                    option: Optional[RequestOption] = None) -> UnsubscribeApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

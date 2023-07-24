@@ -12,7 +12,7 @@ class ChildField(object):
         "time_unit": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.title: Optional[str] = None
         self.time_unit: Optional[str] = None
@@ -24,8 +24,8 @@ class ChildField(object):
 
 
 class ChildFieldBuilder(object):
-    def __init__(self, child_field: ChildField = ChildField({})) -> None:
-        self._child_field: ChildField = child_field
+    def __init__(self) -> None:
+        self._child_field = ChildField()
 
     def code(self, code: str) -> "ChildFieldBuilder":
         self._child_field.code = code

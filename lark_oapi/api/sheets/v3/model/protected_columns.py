@@ -12,7 +12,7 @@ class ProtectedColumns(object):
         "end_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.sheet_id: Optional[str] = None
         self.start_index: Optional[int] = None
         self.end_index: Optional[int] = None
@@ -24,8 +24,8 @@ class ProtectedColumns(object):
 
 
 class ProtectedColumnsBuilder(object):
-    def __init__(self, protected_columns: ProtectedColumns = ProtectedColumns({})) -> None:
-        self._protected_columns: ProtectedColumns = protected_columns
+    def __init__(self) -> None:
+        self._protected_columns = ProtectedColumns()
 
     def sheet_id(self, sheet_id: str) -> "ProtectedColumnsBuilder":
         self._protected_columns.sheet_id = sheet_id

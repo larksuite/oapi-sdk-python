@@ -10,7 +10,7 @@ class UpdateUserIdUserRequestBody(object):
         "new_user_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.new_user_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class UpdateUserIdUserRequestBody(object):
 
 
 class UpdateUserIdUserRequestBodyBuilder(object):
-    def __init__(self, update_user_id_user_request_body: UpdateUserIdUserRequestBody = UpdateUserIdUserRequestBody(
-        {})) -> None:
-        self._update_user_id_user_request_body: UpdateUserIdUserRequestBody = update_user_id_user_request_body
+    def __init__(self) -> None:
+        self._update_user_id_user_request_body = UpdateUserIdUserRequestBody()
 
     def new_user_id(self, new_user_id: str) -> "UpdateUserIdUserRequestBodyBuilder":
         self._update_user_id_user_request_body.new_user_id = new_user_id

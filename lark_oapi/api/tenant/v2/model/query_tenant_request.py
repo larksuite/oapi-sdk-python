@@ -15,7 +15,8 @@ class QueryTenantRequest(BaseRequest):
 
 class QueryTenantRequestBuilder(object):
 
-    def __init__(self, query_tenant_request: QueryTenantRequest = QueryTenantRequest()) -> None:
+    def __init__(self) -> None:
+        query_tenant_request = QueryTenantRequest()
         query_tenant_request.http_method = HttpMethod.GET
         query_tenant_request.uri = "/open-apis/tenant/v2/tenant/query"
         query_tenant_request.token_types = {AccessTokenType.TENANT}

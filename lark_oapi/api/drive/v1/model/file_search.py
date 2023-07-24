@@ -13,7 +13,7 @@ class FileSearch(object):
         "owner_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.docs_token: Optional[str] = None
         self.docs_type: Optional[str] = None
         self.title: Optional[str] = None
@@ -26,8 +26,8 @@ class FileSearch(object):
 
 
 class FileSearchBuilder(object):
-    def __init__(self, file_search: FileSearch = FileSearch({})) -> None:
-        self._file_search: FileSearch = file_search
+    def __init__(self) -> None:
+        self._file_search = FileSearch()
 
     def docs_token(self, docs_token: str) -> "FileSearchBuilder":
         self._file_search.docs_token = docs_token

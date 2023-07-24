@@ -12,7 +12,7 @@ class CreateShortcutFileResponse(BaseResponse):
         "data": CreateShortcutFileResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[CreateShortcutFileResponseBody] = None
         init(self, d, self._types)

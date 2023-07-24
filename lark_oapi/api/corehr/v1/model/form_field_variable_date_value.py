@@ -10,7 +10,7 @@ class FormFieldVariableDateValue(object):
         "value": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.value: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class FormFieldVariableDateValue(object):
 
 
 class FormFieldVariableDateValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_date_value: FormFieldVariableDateValue = FormFieldVariableDateValue({})) -> None:
-        self._form_field_variable_date_value: FormFieldVariableDateValue = form_field_variable_date_value
+    def __init__(self) -> None:
+        self._form_field_variable_date_value = FormFieldVariableDateValue()
 
     def value(self, value: int) -> "FormFieldVariableDateValueBuilder":
         self._form_field_variable_date_value.value = value

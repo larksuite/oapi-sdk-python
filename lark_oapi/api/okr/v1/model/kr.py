@@ -17,7 +17,7 @@ class Kr(object):
         "modify_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.pos: Optional[str] = None
         self.score: Optional[str] = None
@@ -33,8 +33,8 @@ class Kr(object):
 
 
 class KrBuilder(object):
-    def __init__(self, kr: Kr = Kr({})) -> None:
-        self._kr: Kr = kr
+    def __init__(self) -> None:
+        self._kr = Kr()
 
     def id(self, id: int) -> "KrBuilder":
         self._kr.id = id

@@ -2,24 +2,27 @@
 
 from typing import *
 
-from lark_oapi.api.docx.v1.model.create_document_request import CreateDocumentRequest
-from lark_oapi.api.docx.v1.model.create_document_response import CreateDocumentResponse
-from lark_oapi.api.docx.v1.model.get_document_request import GetDocumentRequest
-from lark_oapi.api.docx.v1.model.get_document_response import GetDocumentResponse
-from lark_oapi.api.docx.v1.model.raw_content_document_request import RawContentDocumentRequest
-from lark_oapi.api.docx.v1.model.raw_content_document_response import RawContentDocumentResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_document_request import CreateDocumentRequest
+from ..model.create_document_response import CreateDocumentResponse
+from ..model.get_document_request import GetDocumentRequest
+from ..model.get_document_response import GetDocumentResponse
+from ..model.raw_content_document_request import RawContentDocumentRequest
+from ..model.raw_content_document_response import RawContentDocumentResponse
 
 
 class Document(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateDocumentRequest, option: RequestOption = RequestOption()) -> CreateDocumentResponse:
+    def create(self, request: CreateDocumentRequest, option: Optional[RequestOption] = None) -> CreateDocumentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class Document(object):
 
         return response
 
-    def get(self, request: GetDocumentRequest, option: RequestOption = RequestOption()) -> GetDocumentResponse:
+    def get(self, request: GetDocumentRequest, option: Optional[RequestOption] = None) -> GetDocumentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -46,7 +52,10 @@ class Document(object):
         return response
 
     def raw_content(self, request: RawContentDocumentRequest,
-                    option: RequestOption = RequestOption()) -> RawContentDocumentResponse:
+                    option: Optional[RequestOption] = None) -> RawContentDocumentResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

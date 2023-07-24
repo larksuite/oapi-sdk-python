@@ -3,33 +3,36 @@
 import io
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.create_faq_request import CreateFaqRequest
-from lark_oapi.api.helpdesk.v1.model.create_faq_response import CreateFaqResponse
-from lark_oapi.api.helpdesk.v1.model.delete_faq_request import DeleteFaqRequest
-from lark_oapi.api.helpdesk.v1.model.delete_faq_response import DeleteFaqResponse
-from lark_oapi.api.helpdesk.v1.model.faq_image_faq_request import FaqImageFaqRequest
-from lark_oapi.api.helpdesk.v1.model.faq_image_faq_response import FaqImageFaqResponse
-from lark_oapi.api.helpdesk.v1.model.get_faq_request import GetFaqRequest
-from lark_oapi.api.helpdesk.v1.model.get_faq_response import GetFaqResponse
-from lark_oapi.api.helpdesk.v1.model.list_faq_request import ListFaqRequest
-from lark_oapi.api.helpdesk.v1.model.list_faq_response import ListFaqResponse
-from lark_oapi.api.helpdesk.v1.model.patch_faq_request import PatchFaqRequest
-from lark_oapi.api.helpdesk.v1.model.patch_faq_response import PatchFaqResponse
-from lark_oapi.api.helpdesk.v1.model.search_faq_request import SearchFaqRequest
-from lark_oapi.api.helpdesk.v1.model.search_faq_response import SearchFaqResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.create_faq_request import CreateFaqRequest
+from ..model.create_faq_response import CreateFaqResponse
+from ..model.delete_faq_request import DeleteFaqRequest
+from ..model.delete_faq_response import DeleteFaqResponse
+from ..model.faq_image_faq_request import FaqImageFaqRequest
+from ..model.faq_image_faq_response import FaqImageFaqResponse
+from ..model.get_faq_request import GetFaqRequest
+from ..model.get_faq_response import GetFaqResponse
+from ..model.list_faq_request import ListFaqRequest
+from ..model.list_faq_response import ListFaqResponse
+from ..model.patch_faq_request import PatchFaqRequest
+from ..model.patch_faq_response import PatchFaqResponse
+from ..model.search_faq_request import SearchFaqRequest
+from ..model.search_faq_response import SearchFaqResponse
 
 
 class Faq(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateFaqRequest, option: RequestOption = RequestOption()) -> CreateFaqResponse:
+    def create(self, request: CreateFaqRequest, option: Optional[RequestOption] = None) -> CreateFaqResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -42,7 +45,10 @@ class Faq(object):
 
         return response
 
-    def delete(self, request: DeleteFaqRequest, option: RequestOption = RequestOption()) -> DeleteFaqResponse:
+    def delete(self, request: DeleteFaqRequest, option: Optional[RequestOption] = None) -> DeleteFaqResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -55,7 +61,10 @@ class Faq(object):
 
         return response
 
-    def faq_image(self, request: FaqImageFaqRequest, option: RequestOption = RequestOption()) -> FaqImageFaqResponse:
+    def faq_image(self, request: FaqImageFaqRequest, option: Optional[RequestOption] = None) -> FaqImageFaqResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -77,7 +86,10 @@ class Faq(object):
 
         return response
 
-    def get(self, request: GetFaqRequest, option: RequestOption = RequestOption()) -> GetFaqResponse:
+    def get(self, request: GetFaqRequest, option: Optional[RequestOption] = None) -> GetFaqResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -90,7 +102,10 @@ class Faq(object):
 
         return response
 
-    def list(self, request: ListFaqRequest, option: RequestOption = RequestOption()) -> ListFaqResponse:
+    def list(self, request: ListFaqRequest, option: Optional[RequestOption] = None) -> ListFaqResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -103,7 +118,10 @@ class Faq(object):
 
         return response
 
-    def patch(self, request: PatchFaqRequest, option: RequestOption = RequestOption()) -> PatchFaqResponse:
+    def patch(self, request: PatchFaqRequest, option: Optional[RequestOption] = None) -> PatchFaqResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -116,7 +134,10 @@ class Faq(object):
 
         return response
 
-    def search(self, request: SearchFaqRequest, option: RequestOption = RequestOption()) -> SearchFaqResponse:
+    def search(self, request: SearchFaqRequest, option: Optional[RequestOption] = None) -> SearchFaqResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

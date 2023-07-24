@@ -11,7 +11,7 @@ class CreateNotificationResponseBody(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.notification_id: Optional[str] = None
         self.status: Optional[int] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class CreateNotificationResponseBody(object):
 
 
 class CreateNotificationResponseBodyBuilder(object):
-    def __init__(self,
-                 create_notification_response_body: CreateNotificationResponseBody = CreateNotificationResponseBody(
-                     {})) -> None:
-        self._create_notification_response_body: CreateNotificationResponseBody = create_notification_response_body
+    def __init__(self) -> None:
+        self._create_notification_response_body = CreateNotificationResponseBody()
 
     def notification_id(self, notification_id: str) -> "CreateNotificationResponseBodyBuilder":
         self._create_notification_response_body.notification_id = notification_id

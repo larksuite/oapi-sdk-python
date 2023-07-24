@@ -23,7 +23,7 @@ class Job(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.code: Optional[str] = None
         self.name: Optional[List[I18n]] = None
@@ -44,8 +44,8 @@ class Job(object):
 
 
 class JobBuilder(object):
-    def __init__(self, job: Job = Job({})) -> None:
-        self._job: Job = job
+    def __init__(self) -> None:
+        self._job = Job()
 
     def id(self, id: str) -> "JobBuilder":
         self._job.id = id

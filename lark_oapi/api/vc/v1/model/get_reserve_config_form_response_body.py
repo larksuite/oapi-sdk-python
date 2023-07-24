@@ -11,7 +11,7 @@ class GetReserveConfigFormResponseBody(object):
         "reserve_form_config": ReserveFormConfig,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reserve_form_config: Optional[ReserveFormConfig] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetReserveConfigFormResponseBody(object):
 
 
 class GetReserveConfigFormResponseBodyBuilder(object):
-    def __init__(self,
-                 get_reserve_config_form_response_body: GetReserveConfigFormResponseBody = GetReserveConfigFormResponseBody(
-                     {})) -> None:
-        self._get_reserve_config_form_response_body: GetReserveConfigFormResponseBody = get_reserve_config_form_response_body
+    def __init__(self) -> None:
+        self._get_reserve_config_form_response_body = GetReserveConfigFormResponseBody()
 
     def reserve_form_config(self, reserve_form_config: ReserveFormConfig) -> "GetReserveConfigFormResponseBodyBuilder":
         self._get_reserve_config_form_response_body.reserve_form_config = reserve_form_config

@@ -22,8 +22,8 @@ class TransferOnboardApplicationRequest(BaseRequest):
 
 class TransferOnboardApplicationRequestBuilder(object):
 
-    def __init__(self,
-                 transfer_onboard_application_request: TransferOnboardApplicationRequest = TransferOnboardApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        transfer_onboard_application_request = TransferOnboardApplicationRequest()
         transfer_onboard_application_request.http_method = HttpMethod.POST
         transfer_onboard_application_request.uri = "/open-apis/hire/v1/applications/:application_id/transfer_onboard"
         transfer_onboard_application_request.token_types = {AccessTokenType.TENANT}

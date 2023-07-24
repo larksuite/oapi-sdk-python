@@ -11,7 +11,7 @@ class ClientBadgeNum(object):
         "gadget": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.web_app: Optional[int] = None
         self.gadget: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ClientBadgeNum(object):
 
 
 class ClientBadgeNumBuilder(object):
-    def __init__(self, client_badge_num: ClientBadgeNum = ClientBadgeNum({})) -> None:
-        self._client_badge_num: ClientBadgeNum = client_badge_num
+    def __init__(self) -> None:
+        self._client_badge_num = ClientBadgeNum()
 
     def web_app(self, web_app: int) -> "ClientBadgeNumBuilder":
         self._client_badge_num.web_app = web_app

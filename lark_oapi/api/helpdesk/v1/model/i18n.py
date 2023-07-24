@@ -12,7 +12,7 @@ class I18n(object):
         "ja_jp": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         self.ja_jp: Optional[str] = None
@@ -24,8 +24,8 @@ class I18n(object):
 
 
 class I18nBuilder(object):
-    def __init__(self, i18n: I18n = I18n({})) -> None:
-        self._i18n: I18n = i18n
+    def __init__(self) -> None:
+        self._i18n = I18n()
 
     def zh_cn(self, zh_cn: str) -> "I18nBuilder":
         self._i18n.zh_cn = zh_cn

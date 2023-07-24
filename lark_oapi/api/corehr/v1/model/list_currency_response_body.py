@@ -13,7 +13,7 @@ class ListCurrencyResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Currency]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListCurrencyResponseBody(object):
 
 
 class ListCurrencyResponseBodyBuilder(object):
-    def __init__(self, list_currency_response_body: ListCurrencyResponseBody = ListCurrencyResponseBody({})) -> None:
-        self._list_currency_response_body: ListCurrencyResponseBody = list_currency_response_body
+    def __init__(self) -> None:
+        self._list_currency_response_body = ListCurrencyResponseBody()
 
     def items(self, items: List[Currency]) -> "ListCurrencyResponseBodyBuilder":
         self._list_currency_response_body.items = items

@@ -26,7 +26,8 @@ class ListEmployeeRequest(BaseRequest):
 
 class ListEmployeeRequestBuilder(object):
 
-    def __init__(self, list_employee_request: ListEmployeeRequest = ListEmployeeRequest()) -> None:
+    def __init__(self) -> None:
+        list_employee_request = ListEmployeeRequest()
         list_employee_request.http_method = HttpMethod.GET
         list_employee_request.uri = "/open-apis/ehr/v1/employees"
         list_employee_request.token_types = {AccessTokenType.TENANT}

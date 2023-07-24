@@ -21,7 +21,8 @@ class SearchFaqRequest(BaseRequest):
 
 class SearchFaqRequestBuilder(object):
 
-    def __init__(self, search_faq_request: SearchFaqRequest = SearchFaqRequest()) -> None:
+    def __init__(self) -> None:
+        search_faq_request = SearchFaqRequest()
         search_faq_request.http_method = HttpMethod.GET
         search_faq_request.uri = "/open-apis/helpdesk/v1/faqs/search"
         search_faq_request.token_types = {AccessTokenType.TENANT}

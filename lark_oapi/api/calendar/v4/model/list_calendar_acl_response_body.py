@@ -13,7 +13,7 @@ class ListCalendarAclResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.acls: Optional[List[CalendarAcl]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,9 +25,8 @@ class ListCalendarAclResponseBody(object):
 
 
 class ListCalendarAclResponseBodyBuilder(object):
-    def __init__(self, list_calendar_acl_response_body: ListCalendarAclResponseBody = ListCalendarAclResponseBody(
-        {})) -> None:
-        self._list_calendar_acl_response_body: ListCalendarAclResponseBody = list_calendar_acl_response_body
+    def __init__(self) -> None:
+        self._list_calendar_acl_response_body = ListCalendarAclResponseBody()
 
     def acls(self, acls: List[CalendarAcl]) -> "ListCalendarAclResponseBodyBuilder":
         self._list_calendar_acl_response_body.acls = acls

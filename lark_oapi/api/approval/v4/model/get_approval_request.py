@@ -21,7 +21,8 @@ class GetApprovalRequest(BaseRequest):
 
 class GetApprovalRequestBuilder(object):
 
-    def __init__(self, get_approval_request: GetApprovalRequest = GetApprovalRequest()) -> None:
+    def __init__(self) -> None:
+        get_approval_request = GetApprovalRequest()
         get_approval_request.http_method = HttpMethod.GET
         get_approval_request.uri = "/open-apis/approval/v4/approvals/:approval_code"
         get_approval_request.token_types = {AccessTokenType.TENANT}

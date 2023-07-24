@@ -2,23 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_application_request import CreateApplicationRequest
-from lark_oapi.api.hire.v1.model.create_application_response import CreateApplicationResponse
-from lark_oapi.api.hire.v1.model.get_application_request import GetApplicationRequest
-from lark_oapi.api.hire.v1.model.get_application_response import GetApplicationResponse
-from lark_oapi.api.hire.v1.model.list_application_request import ListApplicationRequest
-from lark_oapi.api.hire.v1.model.list_application_response import ListApplicationResponse
-from lark_oapi.api.hire.v1.model.offer_application_request import OfferApplicationRequest
-from lark_oapi.api.hire.v1.model.offer_application_response import OfferApplicationResponse
-from lark_oapi.api.hire.v1.model.terminate_application_request import TerminateApplicationRequest
-from lark_oapi.api.hire.v1.model.terminate_application_response import TerminateApplicationResponse
-from lark_oapi.api.hire.v1.model.transfer_onboard_application_request import TransferOnboardApplicationRequest
-from lark_oapi.api.hire.v1.model.transfer_onboard_application_response import TransferOnboardApplicationResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_application_request import CreateApplicationRequest
+from ..model.create_application_response import CreateApplicationResponse
+from ..model.get_application_request import GetApplicationRequest
+from ..model.get_application_response import GetApplicationResponse
+from ..model.list_application_request import ListApplicationRequest
+from ..model.list_application_response import ListApplicationResponse
+from ..model.offer_application_request import OfferApplicationRequest
+from ..model.offer_application_response import OfferApplicationResponse
+from ..model.terminate_application_request import TerminateApplicationRequest
+from ..model.terminate_application_response import TerminateApplicationResponse
+from ..model.transfer_onboard_application_request import TransferOnboardApplicationRequest
+from ..model.transfer_onboard_application_response import TransferOnboardApplicationResponse
 
 
 class Application(object):
@@ -26,7 +26,10 @@ class Application(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateApplicationRequest,
-               option: RequestOption = RequestOption()) -> CreateApplicationResponse:
+               option: Optional[RequestOption] = None) -> CreateApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +42,10 @@ class Application(object):
 
         return response
 
-    def get(self, request: GetApplicationRequest, option: RequestOption = RequestOption()) -> GetApplicationResponse:
+    def get(self, request: GetApplicationRequest, option: Optional[RequestOption] = None) -> GetApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +58,10 @@ class Application(object):
 
         return response
 
-    def list(self, request: ListApplicationRequest, option: RequestOption = RequestOption()) -> ListApplicationResponse:
+    def list(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class Application(object):
         return response
 
     def offer(self, request: OfferApplicationRequest,
-              option: RequestOption = RequestOption()) -> OfferApplicationResponse:
+              option: Optional[RequestOption] = None) -> OfferApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -80,7 +92,10 @@ class Application(object):
         return response
 
     def terminate(self, request: TerminateApplicationRequest,
-                  option: RequestOption = RequestOption()) -> TerminateApplicationResponse:
+                  option: Optional[RequestOption] = None) -> TerminateApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -94,7 +109,10 @@ class Application(object):
         return response
 
     def transfer_onboard(self, request: TransferOnboardApplicationRequest,
-                         option: RequestOption = RequestOption()) -> TransferOnboardApplicationResponse:
+                         option: Optional[RequestOption] = None) -> TransferOnboardApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

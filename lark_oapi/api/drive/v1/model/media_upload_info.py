@@ -14,7 +14,7 @@ class MediaUploadInfo(object):
         "extra": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_name: Optional[str] = None
         self.parent_type: Optional[str] = None
         self.parent_node: Optional[str] = None
@@ -28,8 +28,8 @@ class MediaUploadInfo(object):
 
 
 class MediaUploadInfoBuilder(object):
-    def __init__(self, media_upload_info: MediaUploadInfo = MediaUploadInfo({})) -> None:
-        self._media_upload_info: MediaUploadInfo = media_upload_info
+    def __init__(self) -> None:
+        self._media_upload_info = MediaUploadInfo()
 
     def file_name(self, file_name: str) -> "MediaUploadInfoBuilder":
         self._media_upload_info.file_name = file_name

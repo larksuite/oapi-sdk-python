@@ -13,7 +13,7 @@ class AgentScheduleUpdateInfo(object):
         "agent_skill_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_id: Optional[str] = None
         self.schedule: Optional[List[WeekdaySchedule]] = None
         self.agent_skill_ids: Optional[List[str]] = None
@@ -25,8 +25,8 @@ class AgentScheduleUpdateInfo(object):
 
 
 class AgentScheduleUpdateInfoBuilder(object):
-    def __init__(self, agent_schedule_update_info: AgentScheduleUpdateInfo = AgentScheduleUpdateInfo({})) -> None:
-        self._agent_schedule_update_info: AgentScheduleUpdateInfo = agent_schedule_update_info
+    def __init__(self) -> None:
+        self._agent_schedule_update_info = AgentScheduleUpdateInfo()
 
     def agent_id(self, agent_id: str) -> "AgentScheduleUpdateInfoBuilder":
         self._agent_schedule_update_info.agent_id = agent_id

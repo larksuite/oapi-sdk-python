@@ -11,7 +11,7 @@ class FileUrl(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class FileUrl(object):
 
 
 class FileUrlBuilder(object):
-    def __init__(self, file_url: FileUrl = FileUrl({})) -> None:
-        self._file_url: FileUrl = file_url
+    def __init__(self) -> None:
+        self._file_url = FileUrl()
 
     def name(self, name: str) -> "FileUrlBuilder":
         self._file_url.name = name

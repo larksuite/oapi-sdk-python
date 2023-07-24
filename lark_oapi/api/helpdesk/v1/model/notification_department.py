@@ -11,7 +11,7 @@ class NotificationDepartment(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class NotificationDepartment(object):
 
 
 class NotificationDepartmentBuilder(object):
-    def __init__(self, notification_department: NotificationDepartment = NotificationDepartment({})) -> None:
-        self._notification_department: NotificationDepartment = notification_department
+    def __init__(self) -> None:
+        self._notification_department = NotificationDepartment()
 
     def department_id(self, department_id: str) -> "NotificationDepartmentBuilder":
         self._notification_department.department_id = department_id

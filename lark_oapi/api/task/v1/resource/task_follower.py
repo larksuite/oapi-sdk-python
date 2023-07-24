@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.task.v1.model.create_task_follower_request import CreateTaskFollowerRequest
-from lark_oapi.api.task.v1.model.create_task_follower_response import CreateTaskFollowerResponse
-from lark_oapi.api.task.v1.model.delete_task_follower_request import DeleteTaskFollowerRequest
-from lark_oapi.api.task.v1.model.delete_task_follower_response import DeleteTaskFollowerResponse
-from lark_oapi.api.task.v1.model.list_task_follower_request import ListTaskFollowerRequest
-from lark_oapi.api.task.v1.model.list_task_follower_response import ListTaskFollowerResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_task_follower_request import CreateTaskFollowerRequest
+from ..model.create_task_follower_response import CreateTaskFollowerResponse
+from ..model.delete_task_follower_request import DeleteTaskFollowerRequest
+from ..model.delete_task_follower_response import DeleteTaskFollowerResponse
+from ..model.list_task_follower_request import ListTaskFollowerRequest
+from ..model.list_task_follower_response import ListTaskFollowerResponse
 
 
 class TaskFollower(object):
@@ -20,7 +20,10 @@ class TaskFollower(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateTaskFollowerRequest,
-               option: RequestOption = RequestOption()) -> CreateTaskFollowerResponse:
+               option: Optional[RequestOption] = None) -> CreateTaskFollowerResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class TaskFollower(object):
         return response
 
     def delete(self, request: DeleteTaskFollowerRequest,
-               option: RequestOption = RequestOption()) -> DeleteTaskFollowerResponse:
+               option: Optional[RequestOption] = None) -> DeleteTaskFollowerResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +54,10 @@ class TaskFollower(object):
         return response
 
     def list(self, request: ListTaskFollowerRequest,
-             option: RequestOption = RequestOption()) -> ListTaskFollowerResponse:
+             option: Optional[RequestOption] = None) -> ListTaskFollowerResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

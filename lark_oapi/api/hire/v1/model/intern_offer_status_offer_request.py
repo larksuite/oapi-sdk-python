@@ -20,8 +20,8 @@ class InternOfferStatusOfferRequest(BaseRequest):
 
 class InternOfferStatusOfferRequestBuilder(object):
 
-    def __init__(self,
-                 intern_offer_status_offer_request: InternOfferStatusOfferRequest = InternOfferStatusOfferRequest()) -> None:
+    def __init__(self) -> None:
+        intern_offer_status_offer_request = InternOfferStatusOfferRequest()
         intern_offer_status_offer_request.http_method = HttpMethod.POST
         intern_offer_status_offer_request.uri = "/open-apis/hire/v1/offers/:offer_id/intern_offer_status"
         intern_offer_status_offer_request.token_types = {AccessTokenType.TENANT}

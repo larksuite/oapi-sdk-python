@@ -12,7 +12,7 @@ class ListTicketMessageResponseBody(object):
         "total": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.messages: Optional[List[TicketMessage]] = None
         self.total: Optional[int] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class ListTicketMessageResponseBody(object):
 
 
 class ListTicketMessageResponseBodyBuilder(object):
-    def __init__(self, list_ticket_message_response_body: ListTicketMessageResponseBody = ListTicketMessageResponseBody(
-        {})) -> None:
-        self._list_ticket_message_response_body: ListTicketMessageResponseBody = list_ticket_message_response_body
+    def __init__(self) -> None:
+        self._list_ticket_message_response_body = ListTicketMessageResponseBody()
 
     def messages(self, messages: List[TicketMessage]) -> "ListTicketMessageResponseBodyBuilder":
         self._list_ticket_message_response_body.messages = messages

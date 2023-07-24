@@ -13,7 +13,7 @@ class ReplaceImageRequest(object):
         "align": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.width: Optional[int] = None
         self.height: Optional[int] = None
@@ -26,8 +26,8 @@ class ReplaceImageRequest(object):
 
 
 class ReplaceImageRequestBuilder(object):
-    def __init__(self, replace_image_request: ReplaceImageRequest = ReplaceImageRequest({})) -> None:
-        self._replace_image_request: ReplaceImageRequest = replace_image_request
+    def __init__(self) -> None:
+        self._replace_image_request = ReplaceImageRequest()
 
     def token(self, token: str) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.token = token

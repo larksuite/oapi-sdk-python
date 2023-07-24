@@ -25,7 +25,7 @@ class Faq(object):
         "create_user": TicketUser,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.faq_id: Optional[str] = None
         self.id: Optional[str] = None
         self.helpdesk_id: Optional[str] = None
@@ -47,8 +47,8 @@ class Faq(object):
 
 
 class FaqBuilder(object):
-    def __init__(self, faq: Faq = Faq({})) -> None:
-        self._faq: Faq = faq
+    def __init__(self) -> None:
+        self._faq = Faq()
 
     def faq_id(self, faq_id: str) -> "FaqBuilder":
         self._faq.faq_id = faq_id

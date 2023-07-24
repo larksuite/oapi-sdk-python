@@ -13,7 +13,7 @@ class ListJobProcessResponseBody(object):
         "items": List[JobProcesses],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[JobProcesses]] = None
@@ -25,9 +25,8 @@ class ListJobProcessResponseBody(object):
 
 
 class ListJobProcessResponseBodyBuilder(object):
-    def __init__(self,
-                 list_job_process_response_body: ListJobProcessResponseBody = ListJobProcessResponseBody({})) -> None:
-        self._list_job_process_response_body: ListJobProcessResponseBody = list_job_process_response_body
+    def __init__(self) -> None:
+        self._list_job_process_response_body = ListJobProcessResponseBody()
 
     def has_more(self, has_more: bool) -> "ListJobProcessResponseBodyBuilder":
         self._list_job_process_response_body.has_more = has_more

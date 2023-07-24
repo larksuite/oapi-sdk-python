@@ -12,7 +12,7 @@ class AppendDimension(object):
         "inherit_from_before": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.major_dimension: Optional[str] = None
         self.length: Optional[int] = None
         self.inherit_from_before: Optional[bool] = None
@@ -24,8 +24,8 @@ class AppendDimension(object):
 
 
 class AppendDimensionBuilder(object):
-    def __init__(self, append_dimension: AppendDimension = AppendDimension({})) -> None:
-        self._append_dimension: AppendDimension = append_dimension
+    def __init__(self) -> None:
+        self._append_dimension = AppendDimension()
 
     def major_dimension(self, major_dimension: str) -> "AppendDimensionBuilder":
         self._append_dimension.major_dimension = major_dimension

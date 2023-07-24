@@ -11,7 +11,7 @@ class ListDeviceResponseBody(object):
         "items": List[Device],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Device]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ListDeviceResponseBody(object):
 
 
 class ListDeviceResponseBodyBuilder(object):
-    def __init__(self, list_device_response_body: ListDeviceResponseBody = ListDeviceResponseBody({})) -> None:
-        self._list_device_response_body: ListDeviceResponseBody = list_device_response_body
+    def __init__(self) -> None:
+        self._list_device_response_body = ListDeviceResponseBody()
 
     def items(self, items: List[Device]) -> "ListDeviceResponseBodyBuilder":
         self._list_device_response_body.items = items

@@ -11,7 +11,7 @@ class DeleteTableRowsRequest(object):
         "row_end_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.row_start_index: Optional[int] = None
         self.row_end_index: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DeleteTableRowsRequest(object):
 
 
 class DeleteTableRowsRequestBuilder(object):
-    def __init__(self, delete_table_rows_request: DeleteTableRowsRequest = DeleteTableRowsRequest({})) -> None:
-        self._delete_table_rows_request: DeleteTableRowsRequest = delete_table_rows_request
+    def __init__(self) -> None:
+        self._delete_table_rows_request = DeleteTableRowsRequest()
 
     def row_start_index(self, row_start_index: int) -> "DeleteTableRowsRequestBuilder":
         self._delete_table_rows_request.row_start_index = row_start_index

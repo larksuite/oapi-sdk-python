@@ -19,7 +19,8 @@ class GetDailyReportRequest(BaseRequest):
 
 class GetDailyReportRequestBuilder(object):
 
-    def __init__(self, get_daily_report_request: GetDailyReportRequest = GetDailyReportRequest()) -> None:
+    def __init__(self) -> None:
+        get_daily_report_request = GetDailyReportRequest()
         get_daily_report_request.http_method = HttpMethod.GET
         get_daily_report_request.uri = "/open-apis/vc/v1/reports/get_daily"
         get_daily_report_request.token_types = {AccessTokenType.TENANT}

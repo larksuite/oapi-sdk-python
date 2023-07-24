@@ -11,7 +11,7 @@ class QuerySpreadsheetSheetFilterViewResponseBody(object):
         "items": List[FilterView],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[FilterView]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QuerySpreadsheetSheetFilterViewResponseBody(object):
 
 
 class QuerySpreadsheetSheetFilterViewResponseBodyBuilder(object):
-    def __init__(self,
-                 query_spreadsheet_sheet_filter_view_response_body: QuerySpreadsheetSheetFilterViewResponseBody = QuerySpreadsheetSheetFilterViewResponseBody(
-                     {})) -> None:
-        self._query_spreadsheet_sheet_filter_view_response_body: QuerySpreadsheetSheetFilterViewResponseBody = query_spreadsheet_sheet_filter_view_response_body
+    def __init__(self) -> None:
+        self._query_spreadsheet_sheet_filter_view_response_body = QuerySpreadsheetSheetFilterViewResponseBody()
 
     def items(self, items: List[FilterView]) -> "QuerySpreadsheetSheetFilterViewResponseBodyBuilder":
         self._query_spreadsheet_sheet_filter_view_response_body.items = items

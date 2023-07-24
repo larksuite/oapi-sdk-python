@@ -11,7 +11,7 @@ class SearchGroupResponseBody(object):
         "group_list": List[GroupMeta],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.group_list: Optional[List[GroupMeta]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class SearchGroupResponseBody(object):
 
 
 class SearchGroupResponseBodyBuilder(object):
-    def __init__(self, search_group_response_body: SearchGroupResponseBody = SearchGroupResponseBody({})) -> None:
-        self._search_group_response_body: SearchGroupResponseBody = search_group_response_body
+    def __init__(self) -> None:
+        self._search_group_response_body = SearchGroupResponseBody()
 
     def group_list(self, group_list: List[GroupMeta]) -> "SearchGroupResponseBodyBuilder":
         self._search_group_response_body.group_list = group_list

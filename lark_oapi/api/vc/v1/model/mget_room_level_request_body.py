@@ -10,7 +10,7 @@ class MgetRoomLevelRequestBody(object):
         "level_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.level_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class MgetRoomLevelRequestBody(object):
 
 
 class MgetRoomLevelRequestBodyBuilder(object):
-    def __init__(self, mget_room_level_request_body: MgetRoomLevelRequestBody = MgetRoomLevelRequestBody({})) -> None:
-        self._mget_room_level_request_body: MgetRoomLevelRequestBody = mget_room_level_request_body
+    def __init__(self) -> None:
+        self._mget_room_level_request_body = MgetRoomLevelRequestBody()
 
     def level_ids(self, level_ids: List[str]) -> "MgetRoomLevelRequestBodyBuilder":
         self._mget_room_level_request_body.level_ids = level_ids

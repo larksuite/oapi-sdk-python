@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.calendar.v4.model.create_timeoff_event_request import CreateTimeoffEventRequest
-from lark_oapi.api.calendar.v4.model.create_timeoff_event_response import CreateTimeoffEventResponse
-from lark_oapi.api.calendar.v4.model.delete_timeoff_event_request import DeleteTimeoffEventRequest
-from lark_oapi.api.calendar.v4.model.delete_timeoff_event_response import DeleteTimeoffEventResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_timeoff_event_request import CreateTimeoffEventRequest
+from ..model.create_timeoff_event_response import CreateTimeoffEventResponse
+from ..model.delete_timeoff_event_request import DeleteTimeoffEventRequest
+from ..model.delete_timeoff_event_response import DeleteTimeoffEventResponse
 
 
 class TimeoffEvent(object):
@@ -18,7 +18,10 @@ class TimeoffEvent(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateTimeoffEventRequest,
-               option: RequestOption = RequestOption()) -> CreateTimeoffEventResponse:
+               option: Optional[RequestOption] = None) -> CreateTimeoffEventResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class TimeoffEvent(object):
         return response
 
     def delete(self, request: DeleteTimeoffEventRequest,
-               option: RequestOption = RequestOption()) -> DeleteTimeoffEventResponse:
+               option: Optional[RequestOption] = None) -> DeleteTimeoffEventResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

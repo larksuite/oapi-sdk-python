@@ -14,7 +14,7 @@ class OfferApplyFormInfo(object):
         "schema": OfferApplyFormSchema,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.schema: Optional[OfferApplyFormSchema] = None
@@ -26,8 +26,8 @@ class OfferApplyFormInfo(object):
 
 
 class OfferApplyFormInfoBuilder(object):
-    def __init__(self, offer_apply_form_info: OfferApplyFormInfo = OfferApplyFormInfo({})) -> None:
-        self._offer_apply_form_info: OfferApplyFormInfo = offer_apply_form_info
+    def __init__(self) -> None:
+        self._offer_apply_form_info = OfferApplyFormInfo()
 
     def id(self, id: str) -> "OfferApplyFormInfoBuilder":
         self._offer_apply_form_info.id = id

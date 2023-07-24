@@ -11,7 +11,7 @@ class SnsInfo(object):
         "sns_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.link: Optional[str] = None
         self.sns_type: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class SnsInfo(object):
 
 
 class SnsInfoBuilder(object):
-    def __init__(self, sns_info: SnsInfo = SnsInfo({})) -> None:
-        self._sns_info: SnsInfo = sns_info
+    def __init__(self) -> None:
+        self._sns_info = SnsInfo()
 
     def link(self, link: str) -> "SnsInfoBuilder":
         self._sns_info.link = link

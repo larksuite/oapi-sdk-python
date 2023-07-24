@@ -12,7 +12,7 @@ class ApplicationAppContactsRange(object):
         "visible_list": AppVisibleList,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.contacts_scope_type: Optional[str] = None
         self.visible_list: Optional[AppVisibleList] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class ApplicationAppContactsRange(object):
 
 
 class ApplicationAppContactsRangeBuilder(object):
-    def __init__(self,
-                 application_app_contacts_range: ApplicationAppContactsRange = ApplicationAppContactsRange({})) -> None:
-        self._application_app_contacts_range: ApplicationAppContactsRange = application_app_contacts_range
+    def __init__(self) -> None:
+        self._application_app_contacts_range = ApplicationAppContactsRange()
 
     def contacts_scope_type(self, contacts_scope_type: str) -> "ApplicationAppContactsRangeBuilder":
         self._application_app_contacts_range.contacts_scope_type = contacts_scope_type

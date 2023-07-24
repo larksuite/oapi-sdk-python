@@ -13,7 +13,7 @@ class CreateMessageRequestBody(object):
         "uuid": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.receive_id: Optional[str] = None
         self.msg_type: Optional[str] = None
         self.content: Optional[str] = None
@@ -26,8 +26,8 @@ class CreateMessageRequestBody(object):
 
 
 class CreateMessageRequestBodyBuilder(object):
-    def __init__(self, create_message_request_body: CreateMessageRequestBody = CreateMessageRequestBody({})) -> None:
-        self._create_message_request_body: CreateMessageRequestBody = create_message_request_body
+    def __init__(self) -> None:
+        self._create_message_request_body = CreateMessageRequestBody()
 
     def receive_id(self, receive_id: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.receive_id = receive_id

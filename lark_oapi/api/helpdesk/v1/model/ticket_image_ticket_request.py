@@ -20,7 +20,8 @@ class TicketImageTicketRequest(BaseRequest):
 
 class TicketImageTicketRequestBuilder(object):
 
-    def __init__(self, ticket_image_ticket_request: TicketImageTicketRequest = TicketImageTicketRequest()) -> None:
+    def __init__(self) -> None:
+        ticket_image_ticket_request = TicketImageTicketRequest()
         ticket_image_ticket_request.http_method = HttpMethod.GET
         ticket_image_ticket_request.uri = "/open-apis/helpdesk/v1/ticket_images"
         ticket_image_ticket_request.token_types = {AccessTokenType.TENANT}

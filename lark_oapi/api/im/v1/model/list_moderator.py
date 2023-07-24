@@ -12,7 +12,7 @@ class ListModerator(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id_type: Optional[str] = None
         self.user_id: Optional[str] = None
         self.tenant_key: Optional[str] = None
@@ -24,8 +24,8 @@ class ListModerator(object):
 
 
 class ListModeratorBuilder(object):
-    def __init__(self, list_moderator: ListModerator = ListModerator({})) -> None:
-        self._list_moderator: ListModerator = list_moderator
+    def __init__(self) -> None:
+        self._list_moderator = ListModerator()
 
     def user_id_type(self, user_id_type: str) -> "ListModeratorBuilder":
         self._list_moderator.user_id_type = user_id_type

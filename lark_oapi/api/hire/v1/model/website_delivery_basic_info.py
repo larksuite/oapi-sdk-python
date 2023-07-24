@@ -29,7 +29,7 @@ class WebsiteDeliveryBasicInfo(object):
         "email": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.nationality_id: Optional[str] = None
         self.start_work_time: Optional[int] = None
         self.current_home_address: Optional[str] = None
@@ -56,8 +56,8 @@ class WebsiteDeliveryBasicInfo(object):
 
 
 class WebsiteDeliveryBasicInfoBuilder(object):
-    def __init__(self, website_delivery_basic_info: WebsiteDeliveryBasicInfo = WebsiteDeliveryBasicInfo({})) -> None:
-        self._website_delivery_basic_info: WebsiteDeliveryBasicInfo = website_delivery_basic_info
+    def __init__(self) -> None:
+        self._website_delivery_basic_info = WebsiteDeliveryBasicInfo()
 
     def nationality_id(self, nationality_id: str) -> "WebsiteDeliveryBasicInfoBuilder":
         self._website_delivery_basic_info.nationality_id = nationality_id

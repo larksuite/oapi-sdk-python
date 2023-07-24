@@ -18,7 +18,7 @@ class GetApprovalResponseBody(object):
         "form_widget_relation": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_name: Optional[str] = None
         self.status: Optional[str] = None
         self.form: Optional[str] = None
@@ -34,8 +34,8 @@ class GetApprovalResponseBody(object):
 
 
 class GetApprovalResponseBodyBuilder(object):
-    def __init__(self, get_approval_response_body: GetApprovalResponseBody = GetApprovalResponseBody({})) -> None:
-        self._get_approval_response_body: GetApprovalResponseBody = get_approval_response_body
+    def __init__(self) -> None:
+        self._get_approval_response_body = GetApprovalResponseBody()
 
     def approval_name(self, approval_name: str) -> "GetApprovalResponseBodyBuilder":
         self._get_approval_response_body.approval_name = approval_name

@@ -20,8 +20,8 @@ class ListAppRecommendRuleRequest(BaseRequest):
 
 class ListAppRecommendRuleRequestBuilder(object):
 
-    def __init__(self,
-                 list_app_recommend_rule_request: ListAppRecommendRuleRequest = ListAppRecommendRuleRequest()) -> None:
+    def __init__(self) -> None:
+        list_app_recommend_rule_request = ListAppRecommendRuleRequest()
         list_app_recommend_rule_request.http_method = HttpMethod.GET
         list_app_recommend_rule_request.uri = "/open-apis/application/v6/app_recommend_rules"
         list_app_recommend_rule_request.token_types = {AccessTokenType.TENANT}

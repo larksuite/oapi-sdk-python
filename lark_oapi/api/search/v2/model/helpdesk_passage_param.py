@@ -11,7 +11,7 @@ class HelpdeskPassageParam(object):
         "helpdesk_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.searchable: Optional[bool] = None
         self.helpdesk_ids: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class HelpdeskPassageParam(object):
 
 
 class HelpdeskPassageParamBuilder(object):
-    def __init__(self, helpdesk_passage_param: HelpdeskPassageParam = HelpdeskPassageParam({})) -> None:
-        self._helpdesk_passage_param: HelpdeskPassageParam = helpdesk_passage_param
+    def __init__(self) -> None:
+        self._helpdesk_passage_param = HelpdeskPassageParam()
 
     def searchable(self, searchable: bool) -> "HelpdeskPassageParamBuilder":
         self._helpdesk_passage_param.searchable = searchable

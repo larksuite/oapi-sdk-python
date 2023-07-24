@@ -18,7 +18,8 @@ class CompleteTaskRequest(BaseRequest):
 
 class CompleteTaskRequestBuilder(object):
 
-    def __init__(self, complete_task_request: CompleteTaskRequest = CompleteTaskRequest()) -> None:
+    def __init__(self) -> None:
+        complete_task_request = CompleteTaskRequest()
         complete_task_request.http_method = HttpMethod.POST
         complete_task_request.uri = "/open-apis/task/v1/tasks/:task_id/complete"
         complete_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

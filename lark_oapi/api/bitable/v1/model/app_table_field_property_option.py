@@ -12,7 +12,7 @@ class AppTableFieldPropertyOption(object):
         "color": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.id: Optional[str] = None
         self.color: Optional[int] = None
@@ -24,9 +24,8 @@ class AppTableFieldPropertyOption(object):
 
 
 class AppTableFieldPropertyOptionBuilder(object):
-    def __init__(self, app_table_field_property_option: AppTableFieldPropertyOption = AppTableFieldPropertyOption(
-        {})) -> None:
-        self._app_table_field_property_option: AppTableFieldPropertyOption = app_table_field_property_option
+    def __init__(self) -> None:
+        self._app_table_field_property_option = AppTableFieldPropertyOption()
 
     def name(self, name: str) -> "AppTableFieldPropertyOptionBuilder":
         self._app_table_field_property_option.name = name

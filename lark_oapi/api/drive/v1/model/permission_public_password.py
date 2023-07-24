@@ -7,7 +7,7 @@ class PermissionPublicPassword(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class PermissionPublicPassword(object):
 
 
 class PermissionPublicPasswordBuilder(object):
-    def __init__(self, permission_public_password: PermissionPublicPassword = PermissionPublicPassword({})) -> None:
-        self._permission_public_password: PermissionPublicPassword = permission_public_password
+    def __init__(self) -> None:
+        self._permission_public_password = PermissionPublicPassword()
 
     def build(self) -> "PermissionPublicPassword":
         return self._permission_public_password

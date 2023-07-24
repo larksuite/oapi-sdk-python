@@ -14,7 +14,7 @@ class FindCondition(object):
         "include_formulas": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.match_case: Optional[bool] = None
         self.match_entire_cell: Optional[bool] = None
@@ -28,8 +28,8 @@ class FindCondition(object):
 
 
 class FindConditionBuilder(object):
-    def __init__(self, find_condition: FindCondition = FindCondition({})) -> None:
-        self._find_condition: FindCondition = find_condition
+    def __init__(self) -> None:
+        self._find_condition = FindCondition()
 
     def range(self, range: str) -> "FindConditionBuilder":
         self._find_condition.range = range

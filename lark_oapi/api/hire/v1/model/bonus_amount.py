@@ -10,7 +10,7 @@ class BonusAmount(object):
         "point_bonus": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.point_bonus: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class BonusAmount(object):
 
 
 class BonusAmountBuilder(object):
-    def __init__(self, bonus_amount: BonusAmount = BonusAmount({})) -> None:
-        self._bonus_amount: BonusAmount = bonus_amount
+    def __init__(self) -> None:
+        self._bonus_amount = BonusAmount()
 
     def point_bonus(self, point_bonus: int) -> "BonusAmountBuilder":
         self._bonus_amount.point_bonus = point_bonus

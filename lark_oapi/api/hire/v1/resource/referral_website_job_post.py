@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.get_referral_website_job_post_request import GetReferralWebsiteJobPostRequest
-from lark_oapi.api.hire.v1.model.get_referral_website_job_post_response import GetReferralWebsiteJobPostResponse
-from lark_oapi.api.hire.v1.model.list_referral_website_job_post_request import ListReferralWebsiteJobPostRequest
-from lark_oapi.api.hire.v1.model.list_referral_website_job_post_response import ListReferralWebsiteJobPostResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_referral_website_job_post_request import GetReferralWebsiteJobPostRequest
+from ..model.get_referral_website_job_post_response import GetReferralWebsiteJobPostResponse
+from ..model.list_referral_website_job_post_request import ListReferralWebsiteJobPostRequest
+from ..model.list_referral_website_job_post_response import ListReferralWebsiteJobPostResponse
 
 
 class ReferralWebsiteJobPost(object):
@@ -18,7 +18,10 @@ class ReferralWebsiteJobPost(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetReferralWebsiteJobPostRequest,
-            option: RequestOption = RequestOption()) -> GetReferralWebsiteJobPostResponse:
+            option: Optional[RequestOption] = None) -> GetReferralWebsiteJobPostResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class ReferralWebsiteJobPost(object):
         return response
 
     def list(self, request: ListReferralWebsiteJobPostRequest,
-             option: RequestOption = RequestOption()) -> ListReferralWebsiteJobPostResponse:
+             option: Optional[RequestOption] = None) -> ListReferralWebsiteJobPostResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

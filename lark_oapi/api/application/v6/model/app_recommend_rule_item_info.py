@@ -19,7 +19,7 @@ class AppRecommendRuleItemInfo(object):
         "i18n_name": AppRecommendRuleItemInfoI18nName,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.item_id: Optional[str] = None
         self.item_type: Optional[str] = None
         self.name: Optional[str] = None
@@ -37,8 +37,8 @@ class AppRecommendRuleItemInfo(object):
 
 
 class AppRecommendRuleItemInfoBuilder(object):
-    def __init__(self, app_recommend_rule_item_info: AppRecommendRuleItemInfo = AppRecommendRuleItemInfo({})) -> None:
-        self._app_recommend_rule_item_info: AppRecommendRuleItemInfo = app_recommend_rule_item_info
+    def __init__(self) -> None:
+        self._app_recommend_rule_item_info = AppRecommendRuleItemInfo()
 
     def item_id(self, item_id: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.item_id = item_id

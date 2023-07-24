@@ -15,7 +15,7 @@ class Instance(object):
         "serial_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instance_code: Optional[str] = None
         self.approval_name: Optional[str] = None
         self.start_time: Optional[int] = None
@@ -30,8 +30,8 @@ class Instance(object):
 
 
 class InstanceBuilder(object):
-    def __init__(self, instance: Instance = Instance({})) -> None:
-        self._instance: Instance = instance
+    def __init__(self) -> None:
+        self._instance = Instance()
 
     def instance_code(self, instance_code: str) -> "InstanceBuilder":
         self._instance.instance_code = instance_code

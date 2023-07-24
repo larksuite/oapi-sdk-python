@@ -18,7 +18,8 @@ class DeleteGroupRequest(BaseRequest):
 
 class DeleteGroupRequestBuilder(object):
 
-    def __init__(self, delete_group_request: DeleteGroupRequest = DeleteGroupRequest()) -> None:
+    def __init__(self) -> None:
+        delete_group_request = DeleteGroupRequest()
         delete_group_request.http_method = HttpMethod.DELETE
         delete_group_request.uri = "/open-apis/attendance/v1/groups/:group_id"
         delete_group_request.token_types = {AccessTokenType.TENANT}

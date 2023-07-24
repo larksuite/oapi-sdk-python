@@ -13,7 +13,7 @@ class CalendarAttendeeResourceCustomization(object):
         "options": List[CustomizationOption],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.index_key: Optional[str] = None
         self.input_content: Optional[str] = None
         self.options: Optional[List[CustomizationOption]] = None
@@ -25,10 +25,8 @@ class CalendarAttendeeResourceCustomization(object):
 
 
 class CalendarAttendeeResourceCustomizationBuilder(object):
-    def __init__(self,
-                 calendar_attendee_resource_customization: CalendarAttendeeResourceCustomization = CalendarAttendeeResourceCustomization(
-                     {})) -> None:
-        self._calendar_attendee_resource_customization: CalendarAttendeeResourceCustomization = calendar_attendee_resource_customization
+    def __init__(self) -> None:
+        self._calendar_attendee_resource_customization = CalendarAttendeeResourceCustomization()
 
     def index_key(self, index_key: str) -> "CalendarAttendeeResourceCustomizationBuilder":
         self._calendar_attendee_resource_customization.index_key = index_key

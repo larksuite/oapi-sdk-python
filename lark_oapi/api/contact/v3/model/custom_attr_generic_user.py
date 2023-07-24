@@ -11,7 +11,7 @@ class CustomAttrGenericUser(object):
         "type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.type: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CustomAttrGenericUser(object):
 
 
 class CustomAttrGenericUserBuilder(object):
-    def __init__(self, custom_attr_generic_user: CustomAttrGenericUser = CustomAttrGenericUser({})) -> None:
-        self._custom_attr_generic_user: CustomAttrGenericUser = custom_attr_generic_user
+    def __init__(self) -> None:
+        self._custom_attr_generic_user = CustomAttrGenericUser()
 
     def id(self, id: str) -> "CustomAttrGenericUserBuilder":
         self._custom_attr_generic_user.id = id

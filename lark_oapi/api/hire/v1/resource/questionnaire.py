@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.list_questionnaire_request import ListQuestionnaireRequest
-from lark_oapi.api.hire.v1.model.list_questionnaire_response import ListQuestionnaireResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_questionnaire_request import ListQuestionnaireRequest
+from ..model.list_questionnaire_response import ListQuestionnaireResponse
 
 
 class Questionnaire(object):
@@ -16,7 +16,10 @@ class Questionnaire(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListQuestionnaireRequest,
-             option: RequestOption = RequestOption()) -> ListQuestionnaireResponse:
+             option: Optional[RequestOption] = None) -> ListQuestionnaireResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

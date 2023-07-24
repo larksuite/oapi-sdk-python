@@ -17,7 +17,7 @@ class JobFamily(object):
         "job_family_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         self.parent_job_family_id: Optional[str] = None
@@ -33,8 +33,8 @@ class JobFamily(object):
 
 
 class JobFamilyBuilder(object):
-    def __init__(self, job_family: JobFamily = JobFamily({})) -> None:
-        self._job_family: JobFamily = job_family
+    def __init__(self) -> None:
+        self._job_family = JobFamily()
 
     def name(self, name: str) -> "JobFamilyBuilder":
         self._job_family.name = name

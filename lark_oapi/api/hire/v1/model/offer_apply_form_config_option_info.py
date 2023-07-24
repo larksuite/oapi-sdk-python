@@ -13,7 +13,7 @@ class OfferApplyFormConfigOptionInfo(object):
         "description": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
@@ -25,10 +25,8 @@ class OfferApplyFormConfigOptionInfo(object):
 
 
 class OfferApplyFormConfigOptionInfoBuilder(object):
-    def __init__(self,
-                 offer_apply_form_config_option_info: OfferApplyFormConfigOptionInfo = OfferApplyFormConfigOptionInfo(
-                     {})) -> None:
-        self._offer_apply_form_config_option_info: OfferApplyFormConfigOptionInfo = offer_apply_form_config_option_info
+    def __init__(self) -> None:
+        self._offer_apply_form_config_option_info = OfferApplyFormConfigOptionInfo()
 
     def id(self, id: str) -> "OfferApplyFormConfigOptionInfoBuilder":
         self._offer_apply_form_config_option_info.id = id

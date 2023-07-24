@@ -22,8 +22,8 @@ class ListReferralWebsiteJobPostRequest(BaseRequest):
 
 class ListReferralWebsiteJobPostRequestBuilder(object):
 
-    def __init__(self,
-                 list_referral_website_job_post_request: ListReferralWebsiteJobPostRequest = ListReferralWebsiteJobPostRequest()) -> None:
+    def __init__(self) -> None:
+        list_referral_website_job_post_request = ListReferralWebsiteJobPostRequest()
         list_referral_website_job_post_request.http_method = HttpMethod.GET
         list_referral_website_job_post_request.uri = "/open-apis/hire/v1/referral_websites/job_posts"
         list_referral_website_job_post_request.token_types = {AccessTokenType.TENANT}

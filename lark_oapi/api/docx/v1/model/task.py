@@ -10,7 +10,7 @@ class Task(object):
         "task_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Task(object):
 
 
 class TaskBuilder(object):
-    def __init__(self, task: Task = Task({})) -> None:
-        self._task: Task = task
+    def __init__(self) -> None:
+        self._task = Task()
 
     def task_id(self, task_id: str) -> "TaskBuilder":
         self._task.task_id = task_id

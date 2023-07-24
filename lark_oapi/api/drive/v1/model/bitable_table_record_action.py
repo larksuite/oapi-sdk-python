@@ -14,7 +14,7 @@ class BitableTableRecordAction(object):
         "after_value": List[BitableTableRecordActionField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.record_id: Optional[str] = None
         self.action: Optional[str] = None
         self.before_value: Optional[List[BitableTableRecordActionField]] = None
@@ -27,8 +27,8 @@ class BitableTableRecordAction(object):
 
 
 class BitableTableRecordActionBuilder(object):
-    def __init__(self, bitable_table_record_action: BitableTableRecordAction = BitableTableRecordAction({})) -> None:
-        self._bitable_table_record_action: BitableTableRecordAction = bitable_table_record_action
+    def __init__(self) -> None:
+        self._bitable_table_record_action = BitableTableRecordAction()
 
     def record_id(self, record_id: str) -> "BitableTableRecordActionBuilder":
         self._bitable_table_record_action.record_id = record_id

@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_job_data_request import CreateJobDataRequest
-from lark_oapi.api.corehr.v1.model.create_job_data_response import CreateJobDataResponse
-from lark_oapi.api.corehr.v1.model.delete_job_data_request import DeleteJobDataRequest
-from lark_oapi.api.corehr.v1.model.delete_job_data_response import DeleteJobDataResponse
-from lark_oapi.api.corehr.v1.model.get_job_data_request import GetJobDataRequest
-from lark_oapi.api.corehr.v1.model.get_job_data_response import GetJobDataResponse
-from lark_oapi.api.corehr.v1.model.list_job_data_request import ListJobDataRequest
-from lark_oapi.api.corehr.v1.model.list_job_data_response import ListJobDataResponse
-from lark_oapi.api.corehr.v1.model.patch_job_data_request import PatchJobDataRequest
-from lark_oapi.api.corehr.v1.model.patch_job_data_response import PatchJobDataResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_job_data_request import CreateJobDataRequest
+from ..model.create_job_data_response import CreateJobDataResponse
+from ..model.delete_job_data_request import DeleteJobDataRequest
+from ..model.delete_job_data_response import DeleteJobDataResponse
+from ..model.get_job_data_request import GetJobDataRequest
+from ..model.get_job_data_response import GetJobDataResponse
+from ..model.list_job_data_request import ListJobDataRequest
+from ..model.list_job_data_response import ListJobDataResponse
+from ..model.patch_job_data_request import PatchJobDataRequest
+from ..model.patch_job_data_response import PatchJobDataResponse
 
 
 class JobData(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateJobDataRequest, option: RequestOption = RequestOption()) -> CreateJobDataResponse:
+    def create(self, request: CreateJobDataRequest, option: Optional[RequestOption] = None) -> CreateJobDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class JobData(object):
 
         return response
 
-    def delete(self, request: DeleteJobDataRequest, option: RequestOption = RequestOption()) -> DeleteJobDataResponse:
+    def delete(self, request: DeleteJobDataRequest, option: Optional[RequestOption] = None) -> DeleteJobDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class JobData(object):
 
         return response
 
-    def get(self, request: GetJobDataRequest, option: RequestOption = RequestOption()) -> GetJobDataResponse:
+    def get(self, request: GetJobDataRequest, option: Optional[RequestOption] = None) -> GetJobDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class JobData(object):
 
         return response
 
-    def list(self, request: ListJobDataRequest, option: RequestOption = RequestOption()) -> ListJobDataResponse:
+    def list(self, request: ListJobDataRequest, option: Optional[RequestOption] = None) -> ListJobDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +87,10 @@ class JobData(object):
 
         return response
 
-    def patch(self, request: PatchJobDataRequest, option: RequestOption = RequestOption()) -> PatchJobDataResponse:
+    def patch(self, request: PatchJobDataRequest, option: Optional[RequestOption] = None) -> PatchJobDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

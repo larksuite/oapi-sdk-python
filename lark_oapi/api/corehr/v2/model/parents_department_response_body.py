@@ -11,7 +11,7 @@ class ParentsDepartmentResponseBody(object):
         "items": List[DepartmentParents],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[DepartmentParents]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class ParentsDepartmentResponseBody(object):
 
 
 class ParentsDepartmentResponseBodyBuilder(object):
-    def __init__(self, parents_department_response_body: ParentsDepartmentResponseBody = ParentsDepartmentResponseBody(
-        {})) -> None:
-        self._parents_department_response_body: ParentsDepartmentResponseBody = parents_department_response_body
+    def __init__(self) -> None:
+        self._parents_department_response_body = ParentsDepartmentResponseBody()
 
     def items(self, items: List[DepartmentParents]) -> "ParentsDepartmentResponseBodyBuilder":
         self._parents_department_response_body.items = items

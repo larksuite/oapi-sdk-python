@@ -18,7 +18,8 @@ class GetCurrencyRequest(BaseRequest):
 
 class GetCurrencyRequestBuilder(object):
 
-    def __init__(self, get_currency_request: GetCurrencyRequest = GetCurrencyRequest()) -> None:
+    def __init__(self) -> None:
+        get_currency_request = GetCurrencyRequest()
         get_currency_request.http_method = HttpMethod.GET
         get_currency_request.uri = "/open-apis/corehr/v1/currencies/:currency_id"
         get_currency_request.token_types = {AccessTokenType.TENANT}

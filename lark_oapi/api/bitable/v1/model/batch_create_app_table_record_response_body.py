@@ -11,7 +11,7 @@ class BatchCreateAppTableRecordResponseBody(object):
         "records": List[AppTableRecord],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.records: Optional[List[AppTableRecord]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchCreateAppTableRecordResponseBody(object):
 
 
 class BatchCreateAppTableRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_create_app_table_record_response_body: BatchCreateAppTableRecordResponseBody = BatchCreateAppTableRecordResponseBody(
-                     {})) -> None:
-        self._batch_create_app_table_record_response_body: BatchCreateAppTableRecordResponseBody = batch_create_app_table_record_response_body
+    def __init__(self) -> None:
+        self._batch_create_app_table_record_response_body = BatchCreateAppTableRecordResponseBody()
 
     def records(self, records: List[AppTableRecord]) -> "BatchCreateAppTableRecordResponseBodyBuilder":
         self._batch_create_app_table_record_response_body.records = records

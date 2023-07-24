@@ -20,8 +20,8 @@ class CreateWorkingHoursTypeRequest(BaseRequest):
 
 class CreateWorkingHoursTypeRequestBuilder(object):
 
-    def __init__(self,
-                 create_working_hours_type_request: CreateWorkingHoursTypeRequest = CreateWorkingHoursTypeRequest()) -> None:
+    def __init__(self) -> None:
+        create_working_hours_type_request = CreateWorkingHoursTypeRequest()
         create_working_hours_type_request.http_method = HttpMethod.POST
         create_working_hours_type_request.uri = "/open-apis/corehr/v1/working_hours_types"
         create_working_hours_type_request.token_types = {AccessTokenType.TENANT}

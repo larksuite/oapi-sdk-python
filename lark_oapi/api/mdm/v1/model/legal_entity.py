@@ -32,7 +32,7 @@ class LegalEntity(object):
         "appendix": List[Appendix],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.legal_entity: Optional[str] = None
         self.legal_entity_text: Optional[str] = None
@@ -61,8 +61,8 @@ class LegalEntity(object):
 
 
 class LegalEntityBuilder(object):
-    def __init__(self, legal_entity: LegalEntity = LegalEntity({})) -> None:
-        self._legal_entity: LegalEntity = legal_entity
+    def __init__(self) -> None:
+        self._legal_entity = LegalEntity()
 
     def id(self, id: int) -> "LegalEntityBuilder":
         self._legal_entity.id = id

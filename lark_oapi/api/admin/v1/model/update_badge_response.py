@@ -12,7 +12,7 @@ class UpdateBadgeResponse(BaseResponse):
         "data": UpdateBadgeResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[UpdateBadgeResponseBody] = None
         init(self, d, self._types)

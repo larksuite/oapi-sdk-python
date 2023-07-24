@@ -11,7 +11,7 @@ class Contact(object):
         "contact_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.contact_type: Optional[int] = None
         self.contact_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Contact(object):
 
 
 class ContactBuilder(object):
-    def __init__(self, contact: Contact = Contact({})) -> None:
-        self._contact: Contact = contact
+    def __init__(self) -> None:
+        self._contact = Contact()
 
     def contact_type(self, contact_type: int) -> "ContactBuilder":
         self._contact.contact_type = contact_type

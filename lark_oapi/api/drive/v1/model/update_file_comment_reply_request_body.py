@@ -11,7 +11,7 @@ class UpdateFileCommentReplyRequestBody(object):
         "content": ReplyContent,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[ReplyContent] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class UpdateFileCommentReplyRequestBody(object):
 
 
 class UpdateFileCommentReplyRequestBodyBuilder(object):
-    def __init__(self,
-                 update_file_comment_reply_request_body: UpdateFileCommentReplyRequestBody = UpdateFileCommentReplyRequestBody(
-                     {})) -> None:
-        self._update_file_comment_reply_request_body: UpdateFileCommentReplyRequestBody = update_file_comment_reply_request_body
+    def __init__(self) -> None:
+        self._update_file_comment_reply_request_body = UpdateFileCommentReplyRequestBody()
 
     def content(self, content: ReplyContent) -> "UpdateFileCommentReplyRequestBodyBuilder":
         self._update_file_comment_reply_request_body.content = content

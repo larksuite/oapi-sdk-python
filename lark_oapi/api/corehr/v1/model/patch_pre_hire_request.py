@@ -21,7 +21,8 @@ class PatchPreHireRequest(BaseRequest):
 
 class PatchPreHireRequestBuilder(object):
 
-    def __init__(self, patch_pre_hire_request: PatchPreHireRequest = PatchPreHireRequest()) -> None:
+    def __init__(self) -> None:
+        patch_pre_hire_request = PatchPreHireRequest()
         patch_pre_hire_request.http_method = HttpMethod.PATCH
         patch_pre_hire_request.uri = "/open-apis/corehr/v1/pre_hires/:pre_hire_id"
         patch_pre_hire_request.token_types = {AccessTokenType.TENANT}

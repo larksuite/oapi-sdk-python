@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.auth.v3.model.resend_app_ticket_request import ResendAppTicketRequest
-from lark_oapi.api.auth.v3.model.resend_app_ticket_response import ResendAppTicketResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.resend_app_ticket_request import ResendAppTicketRequest
+from ..model.resend_app_ticket_response import ResendAppTicketResponse
 
 
 class AppTicket(object):
@@ -16,7 +16,10 @@ class AppTicket(object):
         self.config: Optional[Config] = config
 
     def resend(self, request: ResendAppTicketRequest,
-               option: RequestOption = RequestOption()) -> ResendAppTicketResponse:
+               option: Optional[RequestOption] = None) -> ResendAppTicketResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

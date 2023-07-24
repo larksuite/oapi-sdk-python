@@ -13,7 +13,7 @@ class Role(object):
         "description": I18n,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
@@ -25,8 +25,8 @@ class Role(object):
 
 
 class RoleBuilder(object):
-    def __init__(self, role: Role = Role({})) -> None:
-        self._role: Role = role
+    def __init__(self) -> None:
+        self._role = Role()
 
     def id(self, id: str) -> "RoleBuilder":
         self._role.id = id

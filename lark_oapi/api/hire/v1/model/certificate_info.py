@@ -11,7 +11,7 @@ class CertificateInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.desc: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class CertificateInfo(object):
 
 
 class CertificateInfoBuilder(object):
-    def __init__(self, certificate_info: CertificateInfo = CertificateInfo({})) -> None:
-        self._certificate_info: CertificateInfo = certificate_info
+    def __init__(self) -> None:
+        self._certificate_info = CertificateInfo()
 
     def desc(self, desc: str) -> "CertificateInfoBuilder":
         self._certificate_info.desc = desc

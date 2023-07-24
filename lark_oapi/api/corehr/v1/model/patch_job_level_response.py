@@ -12,7 +12,7 @@ class PatchJobLevelResponse(BaseResponse):
         "data": PatchJobLevelResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[PatchJobLevelResponseBody] = None
         init(self, d, self._types)

@@ -2,26 +2,29 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.delete_pre_hire_request import DeletePreHireRequest
-from lark_oapi.api.corehr.v1.model.delete_pre_hire_response import DeletePreHireResponse
-from lark_oapi.api.corehr.v1.model.get_pre_hire_request import GetPreHireRequest
-from lark_oapi.api.corehr.v1.model.get_pre_hire_response import GetPreHireResponse
-from lark_oapi.api.corehr.v1.model.list_pre_hire_request import ListPreHireRequest
-from lark_oapi.api.corehr.v1.model.list_pre_hire_response import ListPreHireResponse
-from lark_oapi.api.corehr.v1.model.patch_pre_hire_request import PatchPreHireRequest
-from lark_oapi.api.corehr.v1.model.patch_pre_hire_response import PatchPreHireResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.delete_pre_hire_request import DeletePreHireRequest
+from ..model.delete_pre_hire_response import DeletePreHireResponse
+from ..model.get_pre_hire_request import GetPreHireRequest
+from ..model.get_pre_hire_response import GetPreHireResponse
+from ..model.list_pre_hire_request import ListPreHireRequest
+from ..model.list_pre_hire_response import ListPreHireResponse
+from ..model.patch_pre_hire_request import PatchPreHireRequest
+from ..model.patch_pre_hire_response import PatchPreHireResponse
 
 
 class PreHire(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def delete(self, request: DeletePreHireRequest, option: RequestOption = RequestOption()) -> DeletePreHireResponse:
+    def delete(self, request: DeletePreHireRequest, option: Optional[RequestOption] = None) -> DeletePreHireResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -34,7 +37,10 @@ class PreHire(object):
 
         return response
 
-    def get(self, request: GetPreHireRequest, option: RequestOption = RequestOption()) -> GetPreHireResponse:
+    def get(self, request: GetPreHireRequest, option: Optional[RequestOption] = None) -> GetPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -47,7 +53,10 @@ class PreHire(object):
 
         return response
 
-    def list(self, request: ListPreHireRequest, option: RequestOption = RequestOption()) -> ListPreHireResponse:
+    def list(self, request: ListPreHireRequest, option: Optional[RequestOption] = None) -> ListPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -60,7 +69,10 @@ class PreHire(object):
 
         return response
 
-    def patch(self, request: PatchPreHireRequest, option: RequestOption = RequestOption()) -> PatchPreHireResponse:
+    def patch(self, request: PatchPreHireRequest, option: Optional[RequestOption] = None) -> PatchPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

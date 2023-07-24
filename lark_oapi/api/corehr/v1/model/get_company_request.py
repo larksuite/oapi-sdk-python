@@ -18,7 +18,8 @@ class GetCompanyRequest(BaseRequest):
 
 class GetCompanyRequestBuilder(object):
 
-    def __init__(self, get_company_request: GetCompanyRequest = GetCompanyRequest()) -> None:
+    def __init__(self) -> None:
+        get_company_request = GetCompanyRequest()
         get_company_request.http_method = HttpMethod.GET
         get_company_request.uri = "/open-apis/corehr/v1/companies/:company_id"
         get_company_request.token_types = {AccessTokenType.TENANT}

@@ -13,7 +13,7 @@ class ListSubdivisionResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Subdivision]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,9 +25,8 @@ class ListSubdivisionResponseBody(object):
 
 
 class ListSubdivisionResponseBodyBuilder(object):
-    def __init__(self,
-                 list_subdivision_response_body: ListSubdivisionResponseBody = ListSubdivisionResponseBody({})) -> None:
-        self._list_subdivision_response_body: ListSubdivisionResponseBody = list_subdivision_response_body
+    def __init__(self) -> None:
+        self._list_subdivision_response_body = ListSubdivisionResponseBody()
 
     def items(self, items: List[Subdivision]) -> "ListSubdivisionResponseBodyBuilder":
         self._list_subdivision_response_body.items = items

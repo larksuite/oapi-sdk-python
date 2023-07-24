@@ -10,7 +10,7 @@ class ReplaceFileRequest(object):
         "token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class ReplaceFileRequest(object):
 
 
 class ReplaceFileRequestBuilder(object):
-    def __init__(self, replace_file_request: ReplaceFileRequest = ReplaceFileRequest({})) -> None:
-        self._replace_file_request: ReplaceFileRequest = replace_file_request
+    def __init__(self) -> None:
+        self._replace_file_request = ReplaceFileRequest()
 
     def token(self, token: str) -> "ReplaceFileRequestBuilder":
         self._replace_file_request.token = token

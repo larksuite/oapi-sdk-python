@@ -25,8 +25,8 @@ class GetResourceReservationListRequest(BaseRequest):
 
 class GetResourceReservationListRequestBuilder(object):
 
-    def __init__(self,
-                 get_resource_reservation_list_request: GetResourceReservationListRequest = GetResourceReservationListRequest()) -> None:
+    def __init__(self) -> None:
+        get_resource_reservation_list_request = GetResourceReservationListRequest()
         get_resource_reservation_list_request.http_method = HttpMethod.GET
         get_resource_reservation_list_request.uri = "/open-apis/vc/v1/resource_reservation_list"
         get_resource_reservation_list_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

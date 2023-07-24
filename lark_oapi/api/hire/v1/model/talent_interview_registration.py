@@ -7,7 +7,7 @@ class TalentInterviewRegistration(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,9 +16,8 @@ class TalentInterviewRegistration(object):
 
 
 class TalentInterviewRegistrationBuilder(object):
-    def __init__(self,
-                 talent_interview_registration: TalentInterviewRegistration = TalentInterviewRegistration({})) -> None:
-        self._talent_interview_registration: TalentInterviewRegistration = talent_interview_registration
+    def __init__(self) -> None:
+        self._talent_interview_registration = TalentInterviewRegistration()
 
     def build(self) -> "TalentInterviewRegistration":
         return self._talent_interview_registration

@@ -13,7 +13,7 @@ class ExteranlInstanceCheckResponse(object):
         "tasks": List[ExternalInstanceTask],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instance_id: Optional[str] = None
         self.update_time: Optional[int] = None
         self.tasks: Optional[List[ExternalInstanceTask]] = None
@@ -25,9 +25,8 @@ class ExteranlInstanceCheckResponse(object):
 
 
 class ExteranlInstanceCheckResponseBuilder(object):
-    def __init__(self, exteranl_instance_check_response: ExteranlInstanceCheckResponse = ExteranlInstanceCheckResponse(
-        {})) -> None:
-        self._exteranl_instance_check_response: ExteranlInstanceCheckResponse = exteranl_instance_check_response
+    def __init__(self) -> None:
+        self._exteranl_instance_check_response = ExteranlInstanceCheckResponse()
 
     def instance_id(self, instance_id: str) -> "ExteranlInstanceCheckResponseBuilder":
         self._exteranl_instance_check_response.instance_id = instance_id

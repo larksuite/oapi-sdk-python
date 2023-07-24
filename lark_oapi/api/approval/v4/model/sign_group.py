@@ -17,7 +17,7 @@ class SignGroup(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.instance_code: Optional[str] = None
         self.user_id: Optional[UserId] = None
         self.account_code: Optional[str] = None
@@ -33,8 +33,8 @@ class SignGroup(object):
 
 
 class SignGroupBuilder(object):
-    def __init__(self, sign_group: SignGroup = SignGroup({})) -> None:
-        self._sign_group: SignGroup = sign_group
+    def __init__(self) -> None:
+        self._sign_group = SignGroup()
 
     def instance_code(self, instance_code: str) -> "SignGroupBuilder":
         self._sign_group.instance_code = instance_code

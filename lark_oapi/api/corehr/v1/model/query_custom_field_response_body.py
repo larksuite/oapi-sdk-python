@@ -11,7 +11,7 @@ class QueryCustomFieldResponseBody(object):
         "items": List[CustomField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[CustomField]] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class QueryCustomFieldResponseBody(object):
 
 
 class QueryCustomFieldResponseBodyBuilder(object):
-    def __init__(self, query_custom_field_response_body: QueryCustomFieldResponseBody = QueryCustomFieldResponseBody(
-        {})) -> None:
-        self._query_custom_field_response_body: QueryCustomFieldResponseBody = query_custom_field_response_body
+    def __init__(self) -> None:
+        self._query_custom_field_response_body = QueryCustomFieldResponseBody()
 
     def items(self, items: List[CustomField]) -> "QueryCustomFieldResponseBodyBuilder":
         self._query_custom_field_response_body.items = items

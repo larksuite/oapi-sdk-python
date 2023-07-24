@@ -11,7 +11,7 @@ class UpdateAppRoleResponseBody(object):
         "role": AppRole,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role: Optional[AppRole] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class UpdateAppRoleResponseBody(object):
 
 
 class UpdateAppRoleResponseBodyBuilder(object):
-    def __init__(self,
-                 update_app_role_response_body: UpdateAppRoleResponseBody = UpdateAppRoleResponseBody({})) -> None:
-        self._update_app_role_response_body: UpdateAppRoleResponseBody = update_app_role_response_body
+    def __init__(self) -> None:
+        self._update_app_role_response_body = UpdateAppRoleResponseBody()
 
     def role(self, role: AppRole) -> "UpdateAppRoleResponseBodyBuilder":
         self._update_app_role_response_body.role = role

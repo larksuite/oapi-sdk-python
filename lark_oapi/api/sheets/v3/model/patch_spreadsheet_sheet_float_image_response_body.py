@@ -11,7 +11,7 @@ class PatchSpreadsheetSheetFloatImageResponseBody(object):
         "float_image": FloatImage,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.float_image: Optional[FloatImage] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class PatchSpreadsheetSheetFloatImageResponseBody(object):
 
 
 class PatchSpreadsheetSheetFloatImageResponseBodyBuilder(object):
-    def __init__(self,
-                 patch_spreadsheet_sheet_float_image_response_body: PatchSpreadsheetSheetFloatImageResponseBody = PatchSpreadsheetSheetFloatImageResponseBody(
-                     {})) -> None:
-        self._patch_spreadsheet_sheet_float_image_response_body: PatchSpreadsheetSheetFloatImageResponseBody = patch_spreadsheet_sheet_float_image_response_body
+    def __init__(self) -> None:
+        self._patch_spreadsheet_sheet_float_image_response_body = PatchSpreadsheetSheetFloatImageResponseBody()
 
     def float_image(self, float_image: FloatImage) -> "PatchSpreadsheetSheetFloatImageResponseBodyBuilder":
         self._patch_spreadsheet_sheet_float_image_response_body.float_image = float_image

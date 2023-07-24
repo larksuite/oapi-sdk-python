@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.create_leave_granting_record_request import CreateLeaveGrantingRecordRequest
-from lark_oapi.api.corehr.v1.model.create_leave_granting_record_response import CreateLeaveGrantingRecordResponse
-from lark_oapi.api.corehr.v1.model.delete_leave_granting_record_request import DeleteLeaveGrantingRecordRequest
-from lark_oapi.api.corehr.v1.model.delete_leave_granting_record_response import DeleteLeaveGrantingRecordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_leave_granting_record_request import CreateLeaveGrantingRecordRequest
+from ..model.create_leave_granting_record_response import CreateLeaveGrantingRecordResponse
+from ..model.delete_leave_granting_record_request import DeleteLeaveGrantingRecordRequest
+from ..model.delete_leave_granting_record_response import DeleteLeaveGrantingRecordResponse
 
 
 class LeaveGrantingRecord(object):
@@ -18,7 +18,10 @@ class LeaveGrantingRecord(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateLeaveGrantingRecordRequest,
-               option: RequestOption = RequestOption()) -> CreateLeaveGrantingRecordResponse:
+               option: Optional[RequestOption] = None) -> CreateLeaveGrantingRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class LeaveGrantingRecord(object):
         return response
 
     def delete(self, request: DeleteLeaveGrantingRecordRequest,
-               option: RequestOption = RequestOption()) -> DeleteLeaveGrantingRecordResponse:
+               option: Optional[RequestOption] = None) -> DeleteLeaveGrantingRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

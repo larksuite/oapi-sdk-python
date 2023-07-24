@@ -11,7 +11,7 @@ class InterviewAssessmentDimensionArgs(object):
         "score_list": List[InterviewAssessmentDimensionArgsScore],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.score_list: Optional[List[InterviewAssessmentDimensionArgsScore]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class InterviewAssessmentDimensionArgs(object):
 
 
 class InterviewAssessmentDimensionArgsBuilder(object):
-    def __init__(self,
-                 interview_assessment_dimension_args: InterviewAssessmentDimensionArgs = InterviewAssessmentDimensionArgs(
-                     {})) -> None:
-        self._interview_assessment_dimension_args: InterviewAssessmentDimensionArgs = interview_assessment_dimension_args
+    def __init__(self) -> None:
+        self._interview_assessment_dimension_args = InterviewAssessmentDimensionArgs()
 
     def score_list(self, score_list: List[
         InterviewAssessmentDimensionArgsScore]) -> "InterviewAssessmentDimensionArgsBuilder":

@@ -20,7 +20,7 @@ class InstanceSearchNode(object):
         "link": InstanceSearchLink,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.external_id: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -39,8 +39,8 @@ class InstanceSearchNode(object):
 
 
 class InstanceSearchNodeBuilder(object):
-    def __init__(self, instance_search_node: InstanceSearchNode = InstanceSearchNode({})) -> None:
-        self._instance_search_node: InstanceSearchNode = instance_search_node
+    def __init__(self) -> None:
+        self._instance_search_node = InstanceSearchNode()
 
     def code(self, code: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.code = code

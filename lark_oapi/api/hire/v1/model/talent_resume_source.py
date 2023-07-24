@@ -12,7 +12,7 @@ class TalentResumeSource(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class TalentResumeSource(object):
 
 
 class TalentResumeSourceBuilder(object):
-    def __init__(self, talent_resume_source: TalentResumeSource = TalentResumeSource({})) -> None:
-        self._talent_resume_source: TalentResumeSource = talent_resume_source
+    def __init__(self) -> None:
+        self._talent_resume_source = TalentResumeSource()
 
     def id(self, id: str) -> "TalentResumeSourceBuilder":
         self._talent_resume_source.id = id

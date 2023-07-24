@@ -11,7 +11,7 @@ class RegistrationInfo(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.schema_id: Optional[str] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class RegistrationInfo(object):
 
 
 class RegistrationInfoBuilder(object):
-    def __init__(self, registration_info: RegistrationInfo = RegistrationInfo({})) -> None:
-        self._registration_info: RegistrationInfo = registration_info
+    def __init__(self) -> None:
+        self._registration_info = RegistrationInfo()
 
     def schema_id(self, schema_id: str) -> "RegistrationInfoBuilder":
         self._registration_info.schema_id = schema_id

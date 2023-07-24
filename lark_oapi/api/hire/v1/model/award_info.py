@@ -12,7 +12,7 @@ class AwardInfo(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.award_time: Optional[int] = None
         self.desc: Optional[str] = None
         self.title: Optional[str] = None
@@ -24,8 +24,8 @@ class AwardInfo(object):
 
 
 class AwardInfoBuilder(object):
-    def __init__(self, award_info: AwardInfo = AwardInfo({})) -> None:
-        self._award_info: AwardInfo = award_info
+    def __init__(self) -> None:
+        self._award_info = AwardInfo()
 
     def award_time(self, award_time: int) -> "AwardInfoBuilder":
         self._award_info.award_time = award_time

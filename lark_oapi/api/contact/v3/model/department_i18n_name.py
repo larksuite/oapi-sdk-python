@@ -12,7 +12,7 @@ class DepartmentI18nName(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.ja_jp: Optional[str] = None
         self.en_us: Optional[str] = None
@@ -24,8 +24,8 @@ class DepartmentI18nName(object):
 
 
 class DepartmentI18nNameBuilder(object):
-    def __init__(self, department_i18n_name: DepartmentI18nName = DepartmentI18nName({})) -> None:
-        self._department_i18n_name: DepartmentI18nName = department_i18n_name
+    def __init__(self) -> None:
+        self._department_i18n_name = DepartmentI18nName()
 
     def zh_cn(self, zh_cn: str) -> "DepartmentI18nNameBuilder":
         self._department_i18n_name.zh_cn = zh_cn

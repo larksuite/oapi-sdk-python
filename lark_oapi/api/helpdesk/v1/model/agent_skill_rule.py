@@ -15,7 +15,7 @@ class AgentSkillRule(object):
         "display_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.selected_operator: Optional[int] = None
         self.operator_options: Optional[List[int]] = None
@@ -30,8 +30,8 @@ class AgentSkillRule(object):
 
 
 class AgentSkillRuleBuilder(object):
-    def __init__(self, agent_skill_rule: AgentSkillRule = AgentSkillRule({})) -> None:
-        self._agent_skill_rule: AgentSkillRule = agent_skill_rule
+    def __init__(self) -> None:
+        self._agent_skill_rule = AgentSkillRule()
 
     def id(self, id: str) -> "AgentSkillRuleBuilder":
         self._agent_skill_rule.id = id

@@ -11,7 +11,7 @@ class BitableProperties(object):
         "table_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bitable_token: Optional[str] = None
         self.table_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BitableProperties(object):
 
 
 class BitablePropertiesBuilder(object):
-    def __init__(self, bitable_properties: BitableProperties = BitableProperties({})) -> None:
-        self._bitable_properties: BitableProperties = bitable_properties
+    def __init__(self) -> None:
+        self._bitable_properties = BitableProperties()
 
     def bitable_token(self, bitable_token: str) -> "BitablePropertiesBuilder":
         self._bitable_properties.bitable_token = bitable_token

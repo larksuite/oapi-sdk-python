@@ -20,8 +20,8 @@ class PatchTicketCustomizedFieldRequest(BaseRequest):
 
 class PatchTicketCustomizedFieldRequestBuilder(object):
 
-    def __init__(self,
-                 patch_ticket_customized_field_request: PatchTicketCustomizedFieldRequest = PatchTicketCustomizedFieldRequest()) -> None:
+    def __init__(self) -> None:
+        patch_ticket_customized_field_request = PatchTicketCustomizedFieldRequest()
         patch_ticket_customized_field_request.http_method = HttpMethod.PATCH
         patch_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
         patch_ticket_customized_field_request.token_types = {AccessTokenType.USER}

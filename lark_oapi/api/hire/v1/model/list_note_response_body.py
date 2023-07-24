@@ -13,7 +13,7 @@ class ListNoteResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Note]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListNoteResponseBody(object):
 
 
 class ListNoteResponseBodyBuilder(object):
-    def __init__(self, list_note_response_body: ListNoteResponseBody = ListNoteResponseBody({})) -> None:
-        self._list_note_response_body: ListNoteResponseBody = list_note_response_body
+    def __init__(self) -> None:
+        self._list_note_response_body = ListNoteResponseBody()
 
     def items(self, items: List[Note]) -> "ListNoteResponseBodyBuilder":
         self._list_note_response_body.items = items

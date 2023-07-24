@@ -12,7 +12,7 @@ class CreateDataValidation(object):
         "rule": DataValidation,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.range: Optional[str] = None
         self.rule: Optional[DataValidation] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class CreateDataValidation(object):
 
 
 class CreateDataValidationBuilder(object):
-    def __init__(self, create_data_validation: CreateDataValidation = CreateDataValidation({})) -> None:
-        self._create_data_validation: CreateDataValidation = create_data_validation
+    def __init__(self) -> None:
+        self._create_data_validation = CreateDataValidation()
 
     def range(self, range: str) -> "CreateDataValidationBuilder":
         self._create_data_validation.range = range

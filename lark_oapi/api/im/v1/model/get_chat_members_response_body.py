@@ -14,7 +14,7 @@ class GetChatMembersResponseBody(object):
         "member_total": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[ListMember]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -27,9 +27,8 @@ class GetChatMembersResponseBody(object):
 
 
 class GetChatMembersResponseBodyBuilder(object):
-    def __init__(self,
-                 get_chat_members_response_body: GetChatMembersResponseBody = GetChatMembersResponseBody({})) -> None:
-        self._get_chat_members_response_body: GetChatMembersResponseBody = get_chat_members_response_body
+    def __init__(self) -> None:
+        self._get_chat_members_response_body = GetChatMembersResponseBody()
 
     def items(self, items: List[ListMember]) -> "GetChatMembersResponseBodyBuilder":
         self._get_chat_members_response_body.items = items

@@ -11,7 +11,7 @@ class PatchTaskResponseBody(object):
         "task": Task,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task: Optional[Task] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchTaskResponseBody(object):
 
 
 class PatchTaskResponseBodyBuilder(object):
-    def __init__(self, patch_task_response_body: PatchTaskResponseBody = PatchTaskResponseBody({})) -> None:
-        self._patch_task_response_body: PatchTaskResponseBody = patch_task_response_body
+    def __init__(self) -> None:
+        self._patch_task_response_body = PatchTaskResponseBody()
 
     def task(self, task: Task) -> "PatchTaskResponseBodyBuilder":
         self._patch_task_response_body.task = task

@@ -11,7 +11,7 @@ class DimensionProperties(object):
         "pixel_size": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.hidden: Optional[bool] = None
         self.pixel_size: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DimensionProperties(object):
 
 
 class DimensionPropertiesBuilder(object):
-    def __init__(self, dimension_properties: DimensionProperties = DimensionProperties({})) -> None:
-        self._dimension_properties: DimensionProperties = dimension_properties
+    def __init__(self) -> None:
+        self._dimension_properties = DimensionProperties()
 
     def hidden(self, hidden: bool) -> "DimensionPropertiesBuilder":
         self._dimension_properties.hidden = hidden

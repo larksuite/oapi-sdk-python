@@ -17,7 +17,7 @@ class JobLevel(object):
         "i18n_description": List[I18nContent],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.description: Optional[str] = None
         self.order: Optional[int] = None
@@ -33,8 +33,8 @@ class JobLevel(object):
 
 
 class JobLevelBuilder(object):
-    def __init__(self, job_level: JobLevel = JobLevel({})) -> None:
-        self._job_level: JobLevel = job_level
+    def __init__(self) -> None:
+        self._job_level = JobLevel()
 
     def name(self, name: str) -> "JobLevelBuilder":
         self._job_level.name = name

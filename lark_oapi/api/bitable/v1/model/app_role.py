@@ -15,7 +15,7 @@ class AppRole(object):
         "block_roles": List[AppRoleBlockRole],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role_name: Optional[str] = None
         self.role_id: Optional[str] = None
         self.table_roles: Optional[List[AppRoleTableRole]] = None
@@ -28,8 +28,8 @@ class AppRole(object):
 
 
 class AppRoleBuilder(object):
-    def __init__(self, app_role: AppRole = AppRole({})) -> None:
-        self._app_role: AppRole = app_role
+    def __init__(self) -> None:
+        self._app_role = AppRole()
 
     def role_name(self, role_name: str) -> "AppRoleBuilder":
         self._app_role.role_name = role_name

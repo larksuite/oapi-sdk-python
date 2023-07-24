@@ -10,7 +10,7 @@ class LinkChatRequestBody(object):
         "validity_period": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.validity_period: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class LinkChatRequestBody(object):
 
 
 class LinkChatRequestBodyBuilder(object):
-    def __init__(self, link_chat_request_body: LinkChatRequestBody = LinkChatRequestBody({})) -> None:
-        self._link_chat_request_body: LinkChatRequestBody = link_chat_request_body
+    def __init__(self) -> None:
+        self._link_chat_request_body = LinkChatRequestBody()
 
     def validity_period(self, validity_period: str) -> "LinkChatRequestBodyBuilder":
         self._link_chat_request_body.validity_period = validity_period

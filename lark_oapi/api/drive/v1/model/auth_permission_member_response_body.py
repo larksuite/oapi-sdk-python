@@ -10,7 +10,7 @@ class AuthPermissionMemberResponseBody(object):
         "auth_result": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.auth_result: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class AuthPermissionMemberResponseBody(object):
 
 
 class AuthPermissionMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 auth_permission_member_response_body: AuthPermissionMemberResponseBody = AuthPermissionMemberResponseBody(
-                     {})) -> None:
-        self._auth_permission_member_response_body: AuthPermissionMemberResponseBody = auth_permission_member_response_body
+    def __init__(self) -> None:
+        self._auth_permission_member_response_body = AuthPermissionMemberResponseBody()
 
     def auth_result(self, auth_result: bool) -> "AuthPermissionMemberResponseBodyBuilder":
         self._auth_permission_member_response_body.auth_result = auth_result

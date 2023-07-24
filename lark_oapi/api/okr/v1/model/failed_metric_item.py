@@ -11,7 +11,7 @@ class FailedMetricItem(object):
         "reason": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.metric_item_id: Optional[str] = None
         self.reason: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class FailedMetricItem(object):
 
 
 class FailedMetricItemBuilder(object):
-    def __init__(self, failed_metric_item: FailedMetricItem = FailedMetricItem({})) -> None:
-        self._failed_metric_item: FailedMetricItem = failed_metric_item
+    def __init__(self) -> None:
+        self._failed_metric_item = FailedMetricItem()
 
     def metric_item_id(self, metric_item_id: str) -> "FailedMetricItemBuilder":
         self._failed_metric_item.metric_item_id = metric_item_id

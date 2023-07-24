@@ -14,7 +14,7 @@ class UpdateTextRequest(object):
         "fields": List[int],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.elements: Optional[List[TextElement]] = None
         self.style: Optional[TextStyle] = None
         self.fields: Optional[List[int]] = None
@@ -26,8 +26,8 @@ class UpdateTextRequest(object):
 
 
 class UpdateTextRequestBuilder(object):
-    def __init__(self, update_text_request: UpdateTextRequest = UpdateTextRequest({})) -> None:
-        self._update_text_request: UpdateTextRequest = update_text_request
+    def __init__(self) -> None:
+        self._update_text_request = UpdateTextRequest()
 
     def elements(self, elements: List[TextElement]) -> "UpdateTextRequestBuilder":
         self._update_text_request.elements = elements

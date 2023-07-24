@@ -13,7 +13,7 @@ class TextFieldSetting(object):
         "is_url_type": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_multilingual: Optional[bool] = None
         self.is_multiline: Optional[bool] = None
         self.max_length: Optional[int] = None
@@ -26,8 +26,8 @@ class TextFieldSetting(object):
 
 
 class TextFieldSettingBuilder(object):
-    def __init__(self, text_field_setting: TextFieldSetting = TextFieldSetting({})) -> None:
-        self._text_field_setting: TextFieldSetting = text_field_setting
+    def __init__(self) -> None:
+        self._text_field_setting = TextFieldSetting()
 
     def is_multilingual(self, is_multilingual: bool) -> "TextFieldSettingBuilder":
         self._text_field_setting.is_multilingual = is_multilingual

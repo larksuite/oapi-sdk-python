@@ -22,8 +22,8 @@ class SearchCustomWorkplaceAccessDataRequest(BaseRequest):
 
 class SearchCustomWorkplaceAccessDataRequestBuilder(object):
 
-    def __init__(self,
-                 search_custom_workplace_access_data_request: SearchCustomWorkplaceAccessDataRequest = SearchCustomWorkplaceAccessDataRequest()) -> None:
+    def __init__(self) -> None:
+        search_custom_workplace_access_data_request = SearchCustomWorkplaceAccessDataRequest()
         search_custom_workplace_access_data_request.http_method = HttpMethod.POST
         search_custom_workplace_access_data_request.uri = "/open-apis/workplace/v1/custom_workplace_access_data/search"
         search_custom_workplace_access_data_request.token_types = {AccessTokenType.TENANT}

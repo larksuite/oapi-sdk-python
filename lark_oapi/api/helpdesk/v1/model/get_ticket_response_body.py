@@ -11,7 +11,7 @@ class GetTicketResponseBody(object):
         "ticket": Ticket,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket: Optional[Ticket] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetTicketResponseBody(object):
 
 
 class GetTicketResponseBodyBuilder(object):
-    def __init__(self, get_ticket_response_body: GetTicketResponseBody = GetTicketResponseBody({})) -> None:
-        self._get_ticket_response_body: GetTicketResponseBody = get_ticket_response_body
+    def __init__(self) -> None:
+        self._get_ticket_response_body = GetTicketResponseBody()
 
     def ticket(self, ticket: Ticket) -> "GetTicketResponseBodyBuilder":
         self._get_ticket_response_body.ticket = ticket

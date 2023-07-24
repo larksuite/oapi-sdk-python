@@ -10,7 +10,7 @@ class InternOfferOnboardingInfo(object):
         "actual_onboarding_date": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.actual_onboarding_date: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class InternOfferOnboardingInfo(object):
 
 
 class InternOfferOnboardingInfoBuilder(object):
-    def __init__(self, intern_offer_onboarding_info: InternOfferOnboardingInfo = InternOfferOnboardingInfo({})) -> None:
-        self._intern_offer_onboarding_info: InternOfferOnboardingInfo = intern_offer_onboarding_info
+    def __init__(self) -> None:
+        self._intern_offer_onboarding_info = InternOfferOnboardingInfo()
 
     def actual_onboarding_date(self, actual_onboarding_date: str) -> "InternOfferOnboardingInfoBuilder":
         self._intern_offer_onboarding_info.actual_onboarding_date = actual_onboarding_date

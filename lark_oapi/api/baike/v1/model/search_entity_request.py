@@ -22,7 +22,8 @@ class SearchEntityRequest(BaseRequest):
 
 class SearchEntityRequestBuilder(object):
 
-    def __init__(self, search_entity_request: SearchEntityRequest = SearchEntityRequest()) -> None:
+    def __init__(self) -> None:
+        search_entity_request = SearchEntityRequest()
         search_entity_request.http_method = HttpMethod.POST
         search_entity_request.uri = "/open-apis/baike/v1/entities/search"
         search_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

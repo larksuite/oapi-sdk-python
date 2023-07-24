@@ -20,7 +20,8 @@ class UpdateMessageRequest(BaseRequest):
 
 class UpdateMessageRequestBuilder(object):
 
-    def __init__(self, update_message_request: UpdateMessageRequest = UpdateMessageRequest()) -> None:
+    def __init__(self) -> None:
+        update_message_request = UpdateMessageRequest()
         update_message_request.http_method = HttpMethod.PUT
         update_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         update_message_request.token_types = {AccessTokenType.TENANT}

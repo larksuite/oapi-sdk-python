@@ -31,7 +31,7 @@ class SearchEmployeeRequestBody(object):
         "department_id_list_include_sub": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.fields: Optional[List[str]] = None
         self.employment_id_list: Optional[List[str]] = None
         self.employee_number_list: Optional[List[str]] = None
@@ -62,8 +62,8 @@ class SearchEmployeeRequestBody(object):
 
 
 class SearchEmployeeRequestBodyBuilder(object):
-    def __init__(self, search_employee_request_body: SearchEmployeeRequestBody = SearchEmployeeRequestBody({})) -> None:
-        self._search_employee_request_body: SearchEmployeeRequestBody = search_employee_request_body
+    def __init__(self) -> None:
+        self._search_employee_request_body = SearchEmployeeRequestBody()
 
     def fields(self, fields: List[str]) -> "SearchEmployeeRequestBodyBuilder":
         self._search_employee_request_body.fields = fields

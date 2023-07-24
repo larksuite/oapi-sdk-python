@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v2.model.search_job_change_request import SearchJobChangeRequest
-from lark_oapi.api.corehr.v2.model.search_job_change_response import SearchJobChangeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.search_job_change_request import SearchJobChangeRequest
+from ..model.search_job_change_response import SearchJobChangeResponse
 
 
 class JobChange(object):
@@ -16,7 +16,10 @@ class JobChange(object):
         self.config: Optional[Config] = config
 
     def search(self, request: SearchJobChangeRequest,
-               option: RequestOption = RequestOption()) -> SearchJobChangeResponse:
+               option: Optional[RequestOption] = None) -> SearchJobChangeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

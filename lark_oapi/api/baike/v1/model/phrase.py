@@ -13,7 +13,7 @@ class Phrase(object):
         "span": Span,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.entity_ids: Optional[List[str]] = None
         self.span: Optional[Span] = None
@@ -25,8 +25,8 @@ class Phrase(object):
 
 
 class PhraseBuilder(object):
-    def __init__(self, phrase: Phrase = Phrase({})) -> None:
-        self._phrase: Phrase = phrase
+    def __init__(self) -> None:
+        self._phrase = Phrase()
 
     def name(self, name: str) -> "PhraseBuilder":
         self._phrase.name = name

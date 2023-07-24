@@ -20,7 +20,8 @@ class CreateUserApprovalRequest(BaseRequest):
 
 class CreateUserApprovalRequestBuilder(object):
 
-    def __init__(self, create_user_approval_request: CreateUserApprovalRequest = CreateUserApprovalRequest()) -> None:
+    def __init__(self) -> None:
+        create_user_approval_request = CreateUserApprovalRequest()
         create_user_approval_request.http_method = HttpMethod.POST
         create_user_approval_request.uri = "/open-apis/attendance/v1/user_approvals"
         create_user_approval_request.token_types = {AccessTokenType.TENANT}

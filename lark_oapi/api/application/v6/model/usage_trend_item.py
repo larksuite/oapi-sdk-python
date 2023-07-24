@@ -12,7 +12,7 @@ class UsageTrendItem(object):
         "unique_visitor": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.timestamp: Optional[int] = None
         self.page_view: Optional[int] = None
         self.unique_visitor: Optional[int] = None
@@ -24,8 +24,8 @@ class UsageTrendItem(object):
 
 
 class UsageTrendItemBuilder(object):
-    def __init__(self, usage_trend_item: UsageTrendItem = UsageTrendItem({})) -> None:
-        self._usage_trend_item: UsageTrendItem = usage_trend_item
+    def __init__(self) -> None:
+        self._usage_trend_item = UsageTrendItem()
 
     def timestamp(self, timestamp: int) -> "UsageTrendItemBuilder":
         self._usage_trend_item.timestamp = timestamp

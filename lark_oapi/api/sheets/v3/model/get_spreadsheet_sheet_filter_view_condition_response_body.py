@@ -11,7 +11,7 @@ class GetSpreadsheetSheetFilterViewConditionResponseBody(object):
         "condition": FilterViewCondition,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.condition: Optional[FilterViewCondition] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetSpreadsheetSheetFilterViewConditionResponseBody(object):
 
 
 class GetSpreadsheetSheetFilterViewConditionResponseBodyBuilder(object):
-    def __init__(self,
-                 get_spreadsheet_sheet_filter_view_condition_response_body: GetSpreadsheetSheetFilterViewConditionResponseBody = GetSpreadsheetSheetFilterViewConditionResponseBody(
-                     {})) -> None:
-        self._get_spreadsheet_sheet_filter_view_condition_response_body: GetSpreadsheetSheetFilterViewConditionResponseBody = get_spreadsheet_sheet_filter_view_condition_response_body
+    def __init__(self) -> None:
+        self._get_spreadsheet_sheet_filter_view_condition_response_body = GetSpreadsheetSheetFilterViewConditionResponseBody()
 
     def condition(self, condition: FilterViewCondition) -> "GetSpreadsheetSheetFilterViewConditionResponseBodyBuilder":
         self._get_spreadsheet_sheet_filter_view_condition_response_body.condition = condition

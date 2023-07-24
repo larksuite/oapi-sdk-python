@@ -29,7 +29,7 @@ class Test(object):
         "created_at": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.test_id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.test_paper_id: Optional[str] = None
@@ -55,8 +55,8 @@ class Test(object):
 
 
 class TestBuilder(object):
-    def __init__(self, test: Test = Test({})) -> None:
-        self._test: Test = test
+    def __init__(self) -> None:
+        self._test = Test()
 
     def test_id(self, test_id: str) -> "TestBuilder":
         self._test.test_id = test_id

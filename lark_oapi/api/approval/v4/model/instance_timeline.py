@@ -23,7 +23,7 @@ class InstanceTimeline(object):
         "files": List[File],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.create_time: Optional[int] = None
         self.user_id: Optional[str] = None
@@ -44,8 +44,8 @@ class InstanceTimeline(object):
 
 
 class InstanceTimelineBuilder(object):
-    def __init__(self, instance_timeline: InstanceTimeline = InstanceTimeline({})) -> None:
-        self._instance_timeline: InstanceTimeline = instance_timeline
+    def __init__(self) -> None:
+        self._instance_timeline = InstanceTimeline()
 
     def type(self, type: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.type = type

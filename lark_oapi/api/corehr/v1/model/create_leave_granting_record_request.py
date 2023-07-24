@@ -20,8 +20,8 @@ class CreateLeaveGrantingRecordRequest(BaseRequest):
 
 class CreateLeaveGrantingRecordRequestBuilder(object):
 
-    def __init__(self,
-                 create_leave_granting_record_request: CreateLeaveGrantingRecordRequest = CreateLeaveGrantingRecordRequest()) -> None:
+    def __init__(self) -> None:
+        create_leave_granting_record_request = CreateLeaveGrantingRecordRequest()
         create_leave_granting_record_request.http_method = HttpMethod.POST
         create_leave_granting_record_request.uri = "/open-apis/corehr/v1/leave_granting_records"
         create_leave_granting_record_request.token_types = {AccessTokenType.TENANT}

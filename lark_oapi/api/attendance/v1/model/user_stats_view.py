@@ -14,7 +14,7 @@ class UserStatsView(object):
         "items": List[Item],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view_id: Optional[str] = None
         self.stats_type: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -27,8 +27,8 @@ class UserStatsView(object):
 
 
 class UserStatsViewBuilder(object):
-    def __init__(self, user_stats_view: UserStatsView = UserStatsView({})) -> None:
-        self._user_stats_view: UserStatsView = user_stats_view
+    def __init__(self) -> None:
+        self._user_stats_view = UserStatsView()
 
     def view_id(self, view_id: str) -> "UserStatsViewBuilder":
         self._user_stats_view.view_id = view_id

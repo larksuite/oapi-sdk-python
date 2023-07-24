@@ -13,7 +13,7 @@ class OkrReviewPeriod(object):
         "progress_report_list": List[OkrReviewPeriodUrl],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.period_id: Optional[int] = None
         self.cycle_review_list: Optional[List[OkrReviewPeriodUrl]] = None
         self.progress_report_list: Optional[List[OkrReviewPeriodUrl]] = None
@@ -25,8 +25,8 @@ class OkrReviewPeriod(object):
 
 
 class OkrReviewPeriodBuilder(object):
-    def __init__(self, okr_review_period: OkrReviewPeriod = OkrReviewPeriod({})) -> None:
-        self._okr_review_period: OkrReviewPeriod = okr_review_period
+    def __init__(self) -> None:
+        self._okr_review_period = OkrReviewPeriod()
 
     def period_id(self, period_id: int) -> "OkrReviewPeriodBuilder":
         self._okr_review_period.period_id = period_id

@@ -12,7 +12,7 @@ class ProductI18nName(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.ja_jp: Optional[str] = None
         self.en_us: Optional[str] = None
@@ -24,8 +24,8 @@ class ProductI18nName(object):
 
 
 class ProductI18nNameBuilder(object):
-    def __init__(self, product_i18n_name: ProductI18nName = ProductI18nName({})) -> None:
-        self._product_i18n_name: ProductI18nName = product_i18n_name
+    def __init__(self) -> None:
+        self._product_i18n_name = ProductI18nName()
 
     def zh_cn(self, zh_cn: str) -> "ProductI18nNameBuilder":
         self._product_i18n_name.zh_cn = zh_cn

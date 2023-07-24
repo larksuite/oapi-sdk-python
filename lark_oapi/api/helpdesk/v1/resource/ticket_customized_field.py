@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.create_ticket_customized_field_request import CreateTicketCustomizedFieldRequest
-from lark_oapi.api.helpdesk.v1.model.create_ticket_customized_field_response import CreateTicketCustomizedFieldResponse
-from lark_oapi.api.helpdesk.v1.model.delete_ticket_customized_field_request import DeleteTicketCustomizedFieldRequest
-from lark_oapi.api.helpdesk.v1.model.delete_ticket_customized_field_response import DeleteTicketCustomizedFieldResponse
-from lark_oapi.api.helpdesk.v1.model.get_ticket_customized_field_request import GetTicketCustomizedFieldRequest
-from lark_oapi.api.helpdesk.v1.model.get_ticket_customized_field_response import GetTicketCustomizedFieldResponse
-from lark_oapi.api.helpdesk.v1.model.list_ticket_customized_field_request import ListTicketCustomizedFieldRequest
-from lark_oapi.api.helpdesk.v1.model.list_ticket_customized_field_response import ListTicketCustomizedFieldResponse
-from lark_oapi.api.helpdesk.v1.model.patch_ticket_customized_field_request import PatchTicketCustomizedFieldRequest
-from lark_oapi.api.helpdesk.v1.model.patch_ticket_customized_field_response import PatchTicketCustomizedFieldResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_ticket_customized_field_request import CreateTicketCustomizedFieldRequest
+from ..model.create_ticket_customized_field_response import CreateTicketCustomizedFieldResponse
+from ..model.delete_ticket_customized_field_request import DeleteTicketCustomizedFieldRequest
+from ..model.delete_ticket_customized_field_response import DeleteTicketCustomizedFieldResponse
+from ..model.get_ticket_customized_field_request import GetTicketCustomizedFieldRequest
+from ..model.get_ticket_customized_field_response import GetTicketCustomizedFieldResponse
+from ..model.list_ticket_customized_field_request import ListTicketCustomizedFieldRequest
+from ..model.list_ticket_customized_field_response import ListTicketCustomizedFieldResponse
+from ..model.patch_ticket_customized_field_request import PatchTicketCustomizedFieldRequest
+from ..model.patch_ticket_customized_field_response import PatchTicketCustomizedFieldResponse
 
 
 class TicketCustomizedField(object):
@@ -24,7 +24,10 @@ class TicketCustomizedField(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateTicketCustomizedFieldRequest,
-               option: RequestOption = RequestOption()) -> CreateTicketCustomizedFieldResponse:
+               option: Optional[RequestOption] = None) -> CreateTicketCustomizedFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -39,7 +42,10 @@ class TicketCustomizedField(object):
         return response
 
     def delete(self, request: DeleteTicketCustomizedFieldRequest,
-               option: RequestOption = RequestOption()) -> DeleteTicketCustomizedFieldResponse:
+               option: Optional[RequestOption] = None) -> DeleteTicketCustomizedFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -54,7 +60,10 @@ class TicketCustomizedField(object):
         return response
 
     def get(self, request: GetTicketCustomizedFieldRequest,
-            option: RequestOption = RequestOption()) -> GetTicketCustomizedFieldResponse:
+            option: Optional[RequestOption] = None) -> GetTicketCustomizedFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -69,7 +78,10 @@ class TicketCustomizedField(object):
         return response
 
     def list(self, request: ListTicketCustomizedFieldRequest,
-             option: RequestOption = RequestOption()) -> ListTicketCustomizedFieldResponse:
+             option: Optional[RequestOption] = None) -> ListTicketCustomizedFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -84,7 +96,10 @@ class TicketCustomizedField(object):
         return response
 
     def patch(self, request: PatchTicketCustomizedFieldRequest,
-              option: RequestOption = RequestOption()) -> PatchTicketCustomizedFieldResponse:
+              option: Optional[RequestOption] = None) -> PatchTicketCustomizedFieldResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

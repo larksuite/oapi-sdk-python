@@ -10,7 +10,7 @@ class SearchRoomLevelResponseBody(object):
         "level_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.level_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class SearchRoomLevelResponseBody(object):
 
 
 class SearchRoomLevelResponseBodyBuilder(object):
-    def __init__(self, search_room_level_response_body: SearchRoomLevelResponseBody = SearchRoomLevelResponseBody(
-        {})) -> None:
-        self._search_room_level_response_body: SearchRoomLevelResponseBody = search_room_level_response_body
+    def __init__(self) -> None:
+        self._search_room_level_response_body = SearchRoomLevelResponseBody()
 
     def level_ids(self, level_ids: List[str]) -> "SearchRoomLevelResponseBodyBuilder":
         self._search_room_level_response_body.level_ids = level_ids

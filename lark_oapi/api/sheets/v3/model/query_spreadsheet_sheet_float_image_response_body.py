@@ -11,7 +11,7 @@ class QuerySpreadsheetSheetFloatImageResponseBody(object):
         "items": List[FloatImage],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[FloatImage]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QuerySpreadsheetSheetFloatImageResponseBody(object):
 
 
 class QuerySpreadsheetSheetFloatImageResponseBodyBuilder(object):
-    def __init__(self,
-                 query_spreadsheet_sheet_float_image_response_body: QuerySpreadsheetSheetFloatImageResponseBody = QuerySpreadsheetSheetFloatImageResponseBody(
-                     {})) -> None:
-        self._query_spreadsheet_sheet_float_image_response_body: QuerySpreadsheetSheetFloatImageResponseBody = query_spreadsheet_sheet_float_image_response_body
+    def __init__(self) -> None:
+        self._query_spreadsheet_sheet_float_image_response_body = QuerySpreadsheetSheetFloatImageResponseBody()
 
     def items(self, items: List[FloatImage]) -> "QuerySpreadsheetSheetFloatImageResponseBodyBuilder":
         self._query_spreadsheet_sheet_float_image_response_body.items = items

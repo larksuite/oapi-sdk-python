@@ -12,7 +12,7 @@ class AppVisibilityItem(object):
         "group_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.group_id: Optional[str] = None
@@ -24,8 +24,8 @@ class AppVisibilityItem(object):
 
 
 class AppVisibilityItemBuilder(object):
-    def __init__(self, app_visibility_item: AppVisibilityItem = AppVisibilityItem({})) -> None:
-        self._app_visibility_item: AppVisibilityItem = app_visibility_item
+    def __init__(self) -> None:
+        self._app_visibility_item = AppVisibilityItem()
 
     def user_id(self, user_id: str) -> "AppVisibilityItemBuilder":
         self._app_visibility_item.user_id = user_id

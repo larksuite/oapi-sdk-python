@@ -22,7 +22,7 @@ class CustomField(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.custom_api_name: Optional[str] = None
         self.name: Optional[Name] = None
         self.description: Optional[Name] = None
@@ -42,8 +42,8 @@ class CustomField(object):
 
 
 class CustomFieldBuilder(object):
-    def __init__(self, custom_field: CustomField = CustomField({})) -> None:
-        self._custom_field: CustomField = custom_field
+    def __init__(self) -> None:
+        self._custom_field = CustomField()
 
     def custom_api_name(self, custom_api_name: str) -> "CustomFieldBuilder":
         self._custom_field.custom_api_name = custom_api_name

@@ -11,7 +11,7 @@ class Statistics(object):
         "dislike_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.like_count: Optional[int] = None
         self.dislike_count: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Statistics(object):
 
 
 class StatisticsBuilder(object):
-    def __init__(self, statistics: Statistics = Statistics({})) -> None:
-        self._statistics: Statistics = statistics
+    def __init__(self) -> None:
+        self._statistics = Statistics()
 
     def like_count(self, like_count: int) -> "StatisticsBuilder":
         self._statistics.like_count = like_count

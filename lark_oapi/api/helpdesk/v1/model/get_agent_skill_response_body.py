@@ -11,7 +11,7 @@ class GetAgentSkillResponseBody(object):
         "agent_skill": AgentSkill,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.agent_skill: Optional[AgentSkill] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetAgentSkillResponseBody(object):
 
 
 class GetAgentSkillResponseBodyBuilder(object):
-    def __init__(self,
-                 get_agent_skill_response_body: GetAgentSkillResponseBody = GetAgentSkillResponseBody({})) -> None:
-        self._get_agent_skill_response_body: GetAgentSkillResponseBody = get_agent_skill_response_body
+    def __init__(self) -> None:
+        self._get_agent_skill_response_body = GetAgentSkillResponseBody()
 
     def agent_skill(self, agent_skill: AgentSkill) -> "GetAgentSkillResponseBodyBuilder":
         self._get_agent_skill_response_body.agent_skill = agent_skill

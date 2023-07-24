@@ -3,21 +3,24 @@
 import io
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.get_file_request import GetFileRequest
-from lark_oapi.api.corehr.v1.model.get_file_response import GetFileResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.get_file_request import GetFileRequest
+from ..model.get_file_response import GetFileResponse
 
 
 class File(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetFileRequest, option: RequestOption = RequestOption()) -> GetFileResponse:
+    def get(self, request: GetFileRequest, option: Optional[RequestOption] = None) -> GetFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

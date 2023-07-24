@@ -20,8 +20,8 @@ class ReserveScopeReserveConfigRequest(BaseRequest):
 
 class ReserveScopeReserveConfigRequestBuilder(object):
 
-    def __init__(self,
-                 reserve_scope_reserve_config_request: ReserveScopeReserveConfigRequest = ReserveScopeReserveConfigRequest()) -> None:
+    def __init__(self) -> None:
+        reserve_scope_reserve_config_request = ReserveScopeReserveConfigRequest()
         reserve_scope_reserve_config_request.http_method = HttpMethod.GET
         reserve_scope_reserve_config_request.uri = "/open-apis/vc/v1/reserve_configs/reserve_scope"
         reserve_scope_reserve_config_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

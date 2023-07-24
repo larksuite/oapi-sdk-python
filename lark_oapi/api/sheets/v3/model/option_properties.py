@@ -10,7 +10,7 @@ class OptionProperties(object):
         "show_dropdown_icon": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.show_dropdown_icon: Optional[bool] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class OptionProperties(object):
 
 
 class OptionPropertiesBuilder(object):
-    def __init__(self, option_properties: OptionProperties = OptionProperties({})) -> None:
-        self._option_properties: OptionProperties = option_properties
+    def __init__(self) -> None:
+        self._option_properties = OptionProperties()
 
     def show_dropdown_icon(self, show_dropdown_icon: bool) -> "OptionPropertiesBuilder":
         self._option_properties.show_dropdown_icon = show_dropdown_icon

@@ -13,7 +13,7 @@ class UpdateTablePropertyRequest(object):
         "header_column": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.column_width: Optional[int] = None
         self.column_index: Optional[int] = None
         self.header_row: Optional[bool] = None
@@ -26,9 +26,8 @@ class UpdateTablePropertyRequest(object):
 
 
 class UpdateTablePropertyRequestBuilder(object):
-    def __init__(self,
-                 update_table_property_request: UpdateTablePropertyRequest = UpdateTablePropertyRequest({})) -> None:
-        self._update_table_property_request: UpdateTablePropertyRequest = update_table_property_request
+    def __init__(self) -> None:
+        self._update_table_property_request = UpdateTablePropertyRequest()
 
     def column_width(self, column_width: int) -> "UpdateTablePropertyRequestBuilder":
         self._update_table_property_request.column_width = column_width

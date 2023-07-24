@@ -16,7 +16,7 @@ class AppTableRecord(object):
         "fields": Dict[str, Any],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.record_id: Optional[str] = None
         self.created_by: Optional[Person] = None
         self.created_time: Optional[int] = None
@@ -31,8 +31,8 @@ class AppTableRecord(object):
 
 
 class AppTableRecordBuilder(object):
-    def __init__(self, app_table_record: AppTableRecord = AppTableRecord({})) -> None:
-        self._app_table_record: AppTableRecord = app_table_record
+    def __init__(self) -> None:
+        self._app_table_record = AppTableRecord()
 
     def record_id(self, record_id: str) -> "AppTableRecordBuilder":
         self._app_table_record.record_id = record_id

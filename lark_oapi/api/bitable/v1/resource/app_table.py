@@ -2,23 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.batch_create_app_table_request import BatchCreateAppTableRequest
-from lark_oapi.api.bitable.v1.model.batch_create_app_table_response import BatchCreateAppTableResponse
-from lark_oapi.api.bitable.v1.model.batch_delete_app_table_request import BatchDeleteAppTableRequest
-from lark_oapi.api.bitable.v1.model.batch_delete_app_table_response import BatchDeleteAppTableResponse
-from lark_oapi.api.bitable.v1.model.create_app_table_request import CreateAppTableRequest
-from lark_oapi.api.bitable.v1.model.create_app_table_response import CreateAppTableResponse
-from lark_oapi.api.bitable.v1.model.delete_app_table_request import DeleteAppTableRequest
-from lark_oapi.api.bitable.v1.model.delete_app_table_response import DeleteAppTableResponse
-from lark_oapi.api.bitable.v1.model.list_app_table_request import ListAppTableRequest
-from lark_oapi.api.bitable.v1.model.list_app_table_response import ListAppTableResponse
-from lark_oapi.api.bitable.v1.model.patch_app_table_request import PatchAppTableRequest
-from lark_oapi.api.bitable.v1.model.patch_app_table_response import PatchAppTableResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_create_app_table_request import BatchCreateAppTableRequest
+from ..model.batch_create_app_table_response import BatchCreateAppTableResponse
+from ..model.batch_delete_app_table_request import BatchDeleteAppTableRequest
+from ..model.batch_delete_app_table_response import BatchDeleteAppTableResponse
+from ..model.create_app_table_request import CreateAppTableRequest
+from ..model.create_app_table_response import CreateAppTableResponse
+from ..model.delete_app_table_request import DeleteAppTableRequest
+from ..model.delete_app_table_response import DeleteAppTableResponse
+from ..model.list_app_table_request import ListAppTableRequest
+from ..model.list_app_table_response import ListAppTableResponse
+from ..model.patch_app_table_request import PatchAppTableRequest
+from ..model.patch_app_table_response import PatchAppTableResponse
 
 
 class AppTable(object):
@@ -26,7 +26,10 @@ class AppTable(object):
         self.config: Optional[Config] = config
 
     def batch_create(self, request: BatchCreateAppTableRequest,
-                     option: RequestOption = RequestOption()) -> BatchCreateAppTableResponse:
+                     option: Optional[RequestOption] = None) -> BatchCreateAppTableResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class AppTable(object):
         return response
 
     def batch_delete(self, request: BatchDeleteAppTableRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteAppTableResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteAppTableResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -53,7 +59,10 @@ class AppTable(object):
 
         return response
 
-    def create(self, request: CreateAppTableRequest, option: RequestOption = RequestOption()) -> CreateAppTableResponse:
+    def create(self, request: CreateAppTableRequest, option: Optional[RequestOption] = None) -> CreateAppTableResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -66,7 +75,10 @@ class AppTable(object):
 
         return response
 
-    def delete(self, request: DeleteAppTableRequest, option: RequestOption = RequestOption()) -> DeleteAppTableResponse:
+    def delete(self, request: DeleteAppTableRequest, option: Optional[RequestOption] = None) -> DeleteAppTableResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +91,10 @@ class AppTable(object):
 
         return response
 
-    def list(self, request: ListAppTableRequest, option: RequestOption = RequestOption()) -> ListAppTableResponse:
+    def list(self, request: ListAppTableRequest, option: Optional[RequestOption] = None) -> ListAppTableResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -92,7 +107,10 @@ class AppTable(object):
 
         return response
 
-    def patch(self, request: PatchAppTableRequest, option: RequestOption = RequestOption()) -> PatchAppTableResponse:
+    def patch(self, request: PatchAppTableRequest, option: Optional[RequestOption] = None) -> PatchAppTableResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

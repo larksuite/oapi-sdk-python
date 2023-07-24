@@ -12,7 +12,7 @@ class PermissionSecurityGroup(object):
         "rule_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rule_dimension: Optional[RuleDimension] = None
         self.rule_type: Optional[int] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class PermissionSecurityGroup(object):
 
 
 class PermissionSecurityGroupBuilder(object):
-    def __init__(self, permission_security_group: PermissionSecurityGroup = PermissionSecurityGroup({})) -> None:
-        self._permission_security_group: PermissionSecurityGroup = permission_security_group
+    def __init__(self) -> None:
+        self._permission_security_group = PermissionSecurityGroup()
 
     def rule_dimension(self, rule_dimension: RuleDimension) -> "PermissionSecurityGroupBuilder":
         self._permission_security_group.rule_dimension = rule_dimension

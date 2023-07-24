@@ -25,7 +25,7 @@ class GetTicketCustomizedFieldResponseBody(object):
         "dropdown_allow_multiple": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket_customized_field_id: Optional[str] = None
         self.helpdesk_id: Optional[str] = None
         self.key_name: Optional[str] = None
@@ -49,10 +49,8 @@ class GetTicketCustomizedFieldResponseBody(object):
 
 
 class GetTicketCustomizedFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 get_ticket_customized_field_response_body: GetTicketCustomizedFieldResponseBody = GetTicketCustomizedFieldResponseBody(
-                     {})) -> None:
-        self._get_ticket_customized_field_response_body: GetTicketCustomizedFieldResponseBody = get_ticket_customized_field_response_body
+    def __init__(self) -> None:
+        self._get_ticket_customized_field_response_body = GetTicketCustomizedFieldResponseBody()
 
     def ticket_customized_field_id(self,
                                    ticket_customized_field_id: str) -> "GetTicketCustomizedFieldResponseBodyBuilder":

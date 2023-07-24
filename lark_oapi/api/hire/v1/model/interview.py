@@ -16,7 +16,7 @@ class Interview(object):
         "interview_record_list": List[InterviewRecord],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.begin_time: Optional[int] = None
         self.end_time: Optional[int] = None
@@ -31,8 +31,8 @@ class Interview(object):
 
 
 class InterviewBuilder(object):
-    def __init__(self, interview: Interview = Interview({})) -> None:
-        self._interview: Interview = interview
+    def __init__(self) -> None:
+        self._interview = Interview()
 
     def id(self, id: str) -> "InterviewBuilder":
         self._interview.id = id

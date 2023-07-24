@@ -19,7 +19,7 @@ class ApplicationOfferOnboardProfileAddress(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -37,10 +37,8 @@ class ApplicationOfferOnboardProfileAddress(object):
 
 
 class ApplicationOfferOnboardProfileAddressBuilder(object):
-    def __init__(self,
-                 application_offer_onboard_profile_address: ApplicationOfferOnboardProfileAddress = ApplicationOfferOnboardProfileAddress(
-                     {})) -> None:
-        self._application_offer_onboard_profile_address: ApplicationOfferOnboardProfileAddress = application_offer_onboard_profile_address
+    def __init__(self) -> None:
+        self._application_offer_onboard_profile_address = ApplicationOfferOnboardProfileAddress()
 
     def id(self, id: str) -> "ApplicationOfferOnboardProfileAddressBuilder":
         self._application_offer_onboard_profile_address.id = id

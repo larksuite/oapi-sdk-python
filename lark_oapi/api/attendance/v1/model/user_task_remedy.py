@@ -21,7 +21,7 @@ class UserTaskRemedy(object):
         "update_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.remedy_date: Optional[int] = None
         self.punch_no: Optional[int] = None
@@ -42,8 +42,8 @@ class UserTaskRemedy(object):
 
 
 class UserTaskRemedyBuilder(object):
-    def __init__(self, user_task_remedy: UserTaskRemedy = UserTaskRemedy({})) -> None:
-        self._user_task_remedy: UserTaskRemedy = user_task_remedy
+    def __init__(self) -> None:
+        self._user_task_remedy = UserTaskRemedy()
 
     def user_id(self, user_id: str) -> "UserTaskRemedyBuilder":
         self._user_task_remedy.user_id = user_id

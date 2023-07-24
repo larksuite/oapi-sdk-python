@@ -10,7 +10,7 @@ class TextRun(object):
         "text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class TextRun(object):
 
 
 class TextRunBuilder(object):
-    def __init__(self, text_run: TextRun = TextRun({})) -> None:
-        self._text_run: TextRun = text_run
+    def __init__(self) -> None:
+        self._text_run = TextRun()
 
     def text(self, text: str) -> "TextRunBuilder":
         self._text_run.text = text

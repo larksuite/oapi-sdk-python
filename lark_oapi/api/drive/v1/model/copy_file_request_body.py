@@ -14,7 +14,7 @@ class CopyFileRequestBody(object):
         "extra": List[Property],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.type: Optional[str] = None
         self.folder_token: Optional[str] = None
@@ -27,8 +27,8 @@ class CopyFileRequestBody(object):
 
 
 class CopyFileRequestBodyBuilder(object):
-    def __init__(self, copy_file_request_body: CopyFileRequestBody = CopyFileRequestBody({})) -> None:
-        self._copy_file_request_body: CopyFileRequestBody = copy_file_request_body
+    def __init__(self) -> None:
+        self._copy_file_request_body = CopyFileRequestBody()
 
     def name(self, name: str) -> "CopyFileRequestBodyBuilder":
         self._copy_file_request_body.name = name

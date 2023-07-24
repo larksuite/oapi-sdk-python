@@ -14,7 +14,7 @@ class QueryInstanceResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.count: Optional[int] = None
         self.instance_list: Optional[List[InstanceSearchItem]] = None
         self.page_token: Optional[str] = None
@@ -27,8 +27,8 @@ class QueryInstanceResponseBody(object):
 
 
 class QueryInstanceResponseBodyBuilder(object):
-    def __init__(self, query_instance_response_body: QueryInstanceResponseBody = QueryInstanceResponseBody({})) -> None:
-        self._query_instance_response_body: QueryInstanceResponseBody = query_instance_response_body
+    def __init__(self) -> None:
+        self._query_instance_response_body = QueryInstanceResponseBody()
 
     def count(self, count: int) -> "QueryInstanceResponseBodyBuilder":
         self._query_instance_response_body.count = count

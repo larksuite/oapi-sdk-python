@@ -18,7 +18,8 @@ class DeleteTimeoffEventRequest(BaseRequest):
 
 class DeleteTimeoffEventRequestBuilder(object):
 
-    def __init__(self, delete_timeoff_event_request: DeleteTimeoffEventRequest = DeleteTimeoffEventRequest()) -> None:
+    def __init__(self) -> None:
+        delete_timeoff_event_request = DeleteTimeoffEventRequest()
         delete_timeoff_event_request.http_method = HttpMethod.DELETE
         delete_timeoff_event_request.uri = "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
         delete_timeoff_event_request.token_types = {AccessTokenType.TENANT}

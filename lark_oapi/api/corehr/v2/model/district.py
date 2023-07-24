@@ -14,7 +14,7 @@ class District(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.district_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.city_id: Optional[str] = None
@@ -27,8 +27,8 @@ class District(object):
 
 
 class DistrictBuilder(object):
-    def __init__(self, district: District = District({})) -> None:
-        self._district: District = district
+    def __init__(self) -> None:
+        self._district = District()
 
     def district_id(self, district_id: str) -> "DistrictBuilder":
         self._district.district_id = district_id

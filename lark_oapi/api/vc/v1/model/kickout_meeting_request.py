@@ -21,7 +21,8 @@ class KickoutMeetingRequest(BaseRequest):
 
 class KickoutMeetingRequestBuilder(object):
 
-    def __init__(self, kickout_meeting_request: KickoutMeetingRequest = KickoutMeetingRequest()) -> None:
+    def __init__(self) -> None:
+        kickout_meeting_request = KickoutMeetingRequest()
         kickout_meeting_request.http_method = HttpMethod.POST
         kickout_meeting_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/kickout"
         kickout_meeting_request.token_types = {AccessTokenType.TENANT}

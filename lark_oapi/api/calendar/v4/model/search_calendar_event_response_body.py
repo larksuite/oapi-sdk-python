@@ -12,7 +12,7 @@ class SearchCalendarEventResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[CalendarEvent]] = None
         self.page_token: Optional[str] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class SearchCalendarEventResponseBody(object):
 
 
 class SearchCalendarEventResponseBodyBuilder(object):
-    def __init__(self,
-                 search_calendar_event_response_body: SearchCalendarEventResponseBody = SearchCalendarEventResponseBody(
-                     {})) -> None:
-        self._search_calendar_event_response_body: SearchCalendarEventResponseBody = search_calendar_event_response_body
+    def __init__(self) -> None:
+        self._search_calendar_event_response_body = SearchCalendarEventResponseBody()
 
     def items(self, items: List[CalendarEvent]) -> "SearchCalendarEventResponseBodyBuilder":
         self._search_calendar_event_response_body.items = items

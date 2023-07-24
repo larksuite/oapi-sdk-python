@@ -22,7 +22,8 @@ class ListByNoMeetingRequest(BaseRequest):
 
 class ListByNoMeetingRequestBuilder(object):
 
-    def __init__(self, list_by_no_meeting_request: ListByNoMeetingRequest = ListByNoMeetingRequest()) -> None:
+    def __init__(self) -> None:
+        list_by_no_meeting_request = ListByNoMeetingRequest()
         list_by_no_meeting_request.http_method = HttpMethod.GET
         list_by_no_meeting_request.uri = "/open-apis/vc/v1/meetings/list_by_no"
         list_by_no_meeting_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

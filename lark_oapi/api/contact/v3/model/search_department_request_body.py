@@ -10,7 +10,7 @@ class SearchDepartmentRequestBody(object):
         "query": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.query: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class SearchDepartmentRequestBody(object):
 
 
 class SearchDepartmentRequestBodyBuilder(object):
-    def __init__(self,
-                 search_department_request_body: SearchDepartmentRequestBody = SearchDepartmentRequestBody({})) -> None:
-        self._search_department_request_body: SearchDepartmentRequestBody = search_department_request_body
+    def __init__(self) -> None:
+        self._search_department_request_body = SearchDepartmentRequestBody()
 
     def query(self, query: str) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.query = query

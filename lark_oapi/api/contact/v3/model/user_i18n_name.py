@@ -12,7 +12,7 @@ class UserI18nName(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.ja_jp: Optional[str] = None
         self.en_us: Optional[str] = None
@@ -24,8 +24,8 @@ class UserI18nName(object):
 
 
 class UserI18nNameBuilder(object):
-    def __init__(self, user_i18n_name: UserI18nName = UserI18nName({})) -> None:
-        self._user_i18n_name: UserI18nName = user_i18n_name
+    def __init__(self) -> None:
+        self._user_i18n_name = UserI18nName()
 
     def zh_cn(self, zh_cn: str) -> "UserI18nNameBuilder":
         self._user_i18n_name.zh_cn = zh_cn

@@ -21,7 +21,8 @@ class ListAppRoleMemberRequest(BaseRequest):
 
 class ListAppRoleMemberRequestBuilder(object):
 
-    def __init__(self, list_app_role_member_request: ListAppRoleMemberRequest = ListAppRoleMemberRequest()) -> None:
+    def __init__(self) -> None:
+        list_app_role_member_request = ListAppRoleMemberRequest()
         list_app_role_member_request.http_method = HttpMethod.GET
         list_app_role_member_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members"
         list_app_role_member_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

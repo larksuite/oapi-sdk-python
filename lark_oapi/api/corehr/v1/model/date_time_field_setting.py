@@ -10,7 +10,7 @@ class DateTimeFieldSetting(object):
         "date_time_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date_time_type: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class DateTimeFieldSetting(object):
 
 
 class DateTimeFieldSettingBuilder(object):
-    def __init__(self, date_time_field_setting: DateTimeFieldSetting = DateTimeFieldSetting({})) -> None:
-        self._date_time_field_setting: DateTimeFieldSetting = date_time_field_setting
+    def __init__(self) -> None:
+        self._date_time_field_setting = DateTimeFieldSetting()
 
     def date_time_type(self, date_time_type: int) -> "DateTimeFieldSettingBuilder":
         self._date_time_field_setting.date_time_type = date_time_type

@@ -20,7 +20,8 @@ class PatchFaqRequest(BaseRequest):
 
 class PatchFaqRequestBuilder(object):
 
-    def __init__(self, patch_faq_request: PatchFaqRequest = PatchFaqRequest()) -> None:
+    def __init__(self) -> None:
+        patch_faq_request = PatchFaqRequest()
         patch_faq_request.http_method = HttpMethod.PATCH
         patch_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id"
         patch_faq_request.token_types = {AccessTokenType.USER}

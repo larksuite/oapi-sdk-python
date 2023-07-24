@@ -22,7 +22,7 @@ class UserFlow(object):
         "check_result": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.creator_id: Optional[str] = None
         self.location_name: Optional[str] = None
@@ -47,8 +47,8 @@ class UserFlow(object):
 
 
 class UserFlowBuilder(object):
-    def __init__(self, user_flow: UserFlow = UserFlow({})) -> None:
-        self._user_flow: UserFlow = user_flow
+    def __init__(self) -> None:
+        self._user_flow = UserFlow()
 
     def user_id(self, user_id: str) -> "UserFlowBuilder":
         self._user_flow.user_id = user_id

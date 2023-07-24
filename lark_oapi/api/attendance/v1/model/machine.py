@@ -11,7 +11,7 @@ class Machine(object):
         "machine_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.machine_sn: Optional[str] = None
         self.machine_name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Machine(object):
 
 
 class MachineBuilder(object):
-    def __init__(self, machine: Machine = Machine({})) -> None:
-        self._machine: Machine = machine
+    def __init__(self) -> None:
+        self._machine = Machine()
 
     def machine_sn(self, machine_sn: str) -> "MachineBuilder":
         self._machine.machine_sn = machine_sn

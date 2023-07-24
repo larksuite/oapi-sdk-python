@@ -11,7 +11,7 @@ class GetDailyReportResponseBody(object):
         "meeting_report": Report,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.meeting_report: Optional[Report] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetDailyReportResponseBody(object):
 
 
 class GetDailyReportResponseBodyBuilder(object):
-    def __init__(self,
-                 get_daily_report_response_body: GetDailyReportResponseBody = GetDailyReportResponseBody({})) -> None:
-        self._get_daily_report_response_body: GetDailyReportResponseBody = get_daily_report_response_body
+    def __init__(self) -> None:
+        self._get_daily_report_response_body = GetDailyReportResponseBody()
 
     def meeting_report(self, meeting_report: Report) -> "GetDailyReportResponseBodyBuilder":
         self._get_daily_report_response_body.meeting_report = meeting_report

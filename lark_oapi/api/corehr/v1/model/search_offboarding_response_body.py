@@ -13,7 +13,7 @@ class SearchOffboardingResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Offboarding]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class SearchOffboardingResponseBody(object):
 
 
 class SearchOffboardingResponseBodyBuilder(object):
-    def __init__(self, search_offboarding_response_body: SearchOffboardingResponseBody = SearchOffboardingResponseBody(
-        {})) -> None:
-        self._search_offboarding_response_body: SearchOffboardingResponseBody = search_offboarding_response_body
+    def __init__(self) -> None:
+        self._search_offboarding_response_body = SearchOffboardingResponseBody()
 
     def items(self, items: List[Offboarding]) -> "SearchOffboardingResponseBodyBuilder":
         self._search_offboarding_response_body.items = items

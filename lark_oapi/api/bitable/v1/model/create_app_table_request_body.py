@@ -11,7 +11,7 @@ class CreateAppTableRequestBody(object):
         "table": ReqTable,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.table: Optional[ReqTable] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateAppTableRequestBody(object):
 
 
 class CreateAppTableRequestBodyBuilder(object):
-    def __init__(self,
-                 create_app_table_request_body: CreateAppTableRequestBody = CreateAppTableRequestBody({})) -> None:
-        self._create_app_table_request_body: CreateAppTableRequestBody = create_app_table_request_body
+    def __init__(self) -> None:
+        self._create_app_table_request_body = CreateAppTableRequestBody()
 
     def table(self, table: ReqTable) -> "CreateAppTableRequestBodyBuilder":
         self._create_app_table_request_body.table = table

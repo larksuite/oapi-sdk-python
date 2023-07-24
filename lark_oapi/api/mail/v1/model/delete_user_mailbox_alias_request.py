@@ -19,8 +19,8 @@ class DeleteUserMailboxAliasRequest(BaseRequest):
 
 class DeleteUserMailboxAliasRequestBuilder(object):
 
-    def __init__(self,
-                 delete_user_mailbox_alias_request: DeleteUserMailboxAliasRequest = DeleteUserMailboxAliasRequest()) -> None:
+    def __init__(self) -> None:
+        delete_user_mailbox_alias_request = DeleteUserMailboxAliasRequest()
         delete_user_mailbox_alias_request.http_method = HttpMethod.DELETE
         delete_user_mailbox_alias_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases/:alias_id"
         delete_user_mailbox_alias_request.token_types = {AccessTokenType.TENANT}

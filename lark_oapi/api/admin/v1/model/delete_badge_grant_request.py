@@ -19,7 +19,8 @@ class DeleteBadgeGrantRequest(BaseRequest):
 
 class DeleteBadgeGrantRequestBuilder(object):
 
-    def __init__(self, delete_badge_grant_request: DeleteBadgeGrantRequest = DeleteBadgeGrantRequest()) -> None:
+    def __init__(self) -> None:
+        delete_badge_grant_request = DeleteBadgeGrantRequest()
         delete_badge_grant_request.http_method = HttpMethod.DELETE
         delete_badge_grant_request.uri = "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
         delete_badge_grant_request.token_types = {AccessTokenType.TENANT}

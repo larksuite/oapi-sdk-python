@@ -21,8 +21,8 @@ class BatchDeleteFollowerTaskRequest(BaseRequest):
 
 class BatchDeleteFollowerTaskRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_follower_task_request: BatchDeleteFollowerTaskRequest = BatchDeleteFollowerTaskRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_follower_task_request = BatchDeleteFollowerTaskRequest()
         batch_delete_follower_task_request.http_method = HttpMethod.POST
         batch_delete_follower_task_request.uri = "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
         batch_delete_follower_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

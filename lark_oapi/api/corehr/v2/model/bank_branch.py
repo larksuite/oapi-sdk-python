@@ -16,7 +16,7 @@ class BankBranch(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.bank_branch_id: Optional[str] = None
         self.bank_branch_name: Optional[List[I18n]] = None
         self.bank_id: Optional[str] = None
@@ -31,8 +31,8 @@ class BankBranch(object):
 
 
 class BankBranchBuilder(object):
-    def __init__(self, bank_branch: BankBranch = BankBranch({})) -> None:
-        self._bank_branch: BankBranch = bank_branch
+    def __init__(self) -> None:
+        self._bank_branch = BankBranch()
 
     def bank_branch_id(self, bank_branch_id: str) -> "BankBranchBuilder":
         self._bank_branch.bank_branch_id = bank_branch_id

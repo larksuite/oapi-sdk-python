@@ -13,7 +13,7 @@ class CustomAttrOptions(object):
         "options": List[CustomAttrOption],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.default_option_id: Optional[str] = None
         self.option_type: Optional[str] = None
         self.options: Optional[List[CustomAttrOption]] = None
@@ -25,8 +25,8 @@ class CustomAttrOptions(object):
 
 
 class CustomAttrOptionsBuilder(object):
-    def __init__(self, custom_attr_options: CustomAttrOptions = CustomAttrOptions({})) -> None:
-        self._custom_attr_options: CustomAttrOptions = custom_attr_options
+    def __init__(self) -> None:
+        self._custom_attr_options = CustomAttrOptions()
 
     def default_option_id(self, default_option_id: str) -> "CustomAttrOptionsBuilder":
         self._custom_attr_options.default_option_id = default_option_id

@@ -14,7 +14,7 @@ class BitableTableRecordActionFieldIdentityUser(object):
         "avatar_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[UserId] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -27,10 +27,8 @@ class BitableTableRecordActionFieldIdentityUser(object):
 
 
 class BitableTableRecordActionFieldIdentityUserBuilder(object):
-    def __init__(self,
-                 bitable_table_record_action_field_identity_user: BitableTableRecordActionFieldIdentityUser = BitableTableRecordActionFieldIdentityUser(
-                     {})) -> None:
-        self._bitable_table_record_action_field_identity_user: BitableTableRecordActionFieldIdentityUser = bitable_table_record_action_field_identity_user
+    def __init__(self) -> None:
+        self._bitable_table_record_action_field_identity_user = BitableTableRecordActionFieldIdentityUser()
 
     def user_id(self, user_id: UserId) -> "BitableTableRecordActionFieldIdentityUserBuilder":
         self._bitable_table_record_action_field_identity_user.user_id = user_id

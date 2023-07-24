@@ -7,7 +7,7 @@ class FormFieldVariableNullValue(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,9 +16,8 @@ class FormFieldVariableNullValue(object):
 
 
 class FormFieldVariableNullValueBuilder(object):
-    def __init__(self,
-                 form_field_variable_null_value: FormFieldVariableNullValue = FormFieldVariableNullValue({})) -> None:
-        self._form_field_variable_null_value: FormFieldVariableNullValue = form_field_variable_null_value
+    def __init__(self) -> None:
+        self._form_field_variable_null_value = FormFieldVariableNullValue()
 
     def build(self) -> "FormFieldVariableNullValue":
         return self._form_field_variable_null_value

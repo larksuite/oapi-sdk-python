@@ -19,8 +19,8 @@ class InternalAppAccessTokenRequest(BaseRequest):
 
 class InternalAppAccessTokenRequestBuilder(object):
 
-    def __init__(self,
-                 internal_app_access_token_request: InternalAppAccessTokenRequest = InternalAppAccessTokenRequest()) -> None:
+    def __init__(self) -> None:
+        internal_app_access_token_request = InternalAppAccessTokenRequest()
         internal_app_access_token_request.http_method = HttpMethod.POST
         internal_app_access_token_request.uri = "/open-apis/auth/v3/app_access_token/internal"
         internal_app_access_token_request.token_types = {}

@@ -16,7 +16,7 @@ class ContentParagraphElement(object):
         "person": ContentPerson,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.text_run: Optional[ContentTextRun] = None
         self.docs_link: Optional[ContentDocsLink] = None
@@ -29,8 +29,8 @@ class ContentParagraphElement(object):
 
 
 class ContentParagraphElementBuilder(object):
-    def __init__(self, content_paragraph_element: ContentParagraphElement = ContentParagraphElement({})) -> None:
-        self._content_paragraph_element: ContentParagraphElement = content_paragraph_element
+    def __init__(self) -> None:
+        self._content_paragraph_element = ContentParagraphElement()
 
     def type(self, type: str) -> "ContentParagraphElementBuilder":
         self._content_paragraph_element.type = type

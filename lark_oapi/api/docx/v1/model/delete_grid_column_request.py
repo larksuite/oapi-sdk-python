@@ -10,7 +10,7 @@ class DeleteGridColumnRequest(object):
         "column_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.column_index: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class DeleteGridColumnRequest(object):
 
 
 class DeleteGridColumnRequestBuilder(object):
-    def __init__(self, delete_grid_column_request: DeleteGridColumnRequest = DeleteGridColumnRequest({})) -> None:
-        self._delete_grid_column_request: DeleteGridColumnRequest = delete_grid_column_request
+    def __init__(self) -> None:
+        self._delete_grid_column_request = DeleteGridColumnRequest()
 
     def column_index(self, column_index: int) -> "DeleteGridColumnRequestBuilder":
         self._delete_grid_column_request.column_index = column_index

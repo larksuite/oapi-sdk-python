@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.mail.v1.model.delete_user_mailbox_request import DeleteUserMailboxRequest
-from lark_oapi.api.mail.v1.model.delete_user_mailbox_response import DeleteUserMailboxResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.delete_user_mailbox_request import DeleteUserMailboxRequest
+from ..model.delete_user_mailbox_response import DeleteUserMailboxResponse
 
 
 class UserMailbox(object):
@@ -16,7 +16,10 @@ class UserMailbox(object):
         self.config: Optional[Config] = config
 
     def delete(self, request: DeleteUserMailboxRequest,
-               option: RequestOption = RequestOption()) -> DeleteUserMailboxResponse:
+               option: Optional[RequestOption] = None) -> DeleteUserMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

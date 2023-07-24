@@ -20,8 +20,8 @@ class SpecifiedRollbackInstanceRequest(BaseRequest):
 
 class SpecifiedRollbackInstanceRequestBuilder(object):
 
-    def __init__(self,
-                 specified_rollback_instance_request: SpecifiedRollbackInstanceRequest = SpecifiedRollbackInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        specified_rollback_instance_request = SpecifiedRollbackInstanceRequest()
         specified_rollback_instance_request.http_method = HttpMethod.POST
         specified_rollback_instance_request.uri = "/open-apis/approval/v4/instances/specified_rollback"
         specified_rollback_instance_request.token_types = {AccessTokenType.TENANT}

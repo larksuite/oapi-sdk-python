@@ -13,7 +13,7 @@ class PatchDataValidation(object):
         "help_text": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data_validation_rule: Optional[DataValidationRule] = None
         self.strict: Optional[bool] = None
         self.help_text: Optional[str] = None
@@ -25,8 +25,8 @@ class PatchDataValidation(object):
 
 
 class PatchDataValidationBuilder(object):
-    def __init__(self, patch_data_validation: PatchDataValidation = PatchDataValidation({})) -> None:
-        self._patch_data_validation: PatchDataValidation = patch_data_validation
+    def __init__(self) -> None:
+        self._patch_data_validation = PatchDataValidation()
 
     def data_validation_rule(self, data_validation_rule: DataValidationRule) -> "PatchDataValidationBuilder":
         self._patch_data_validation.data_validation_rule = data_validation_rule

@@ -18,7 +18,8 @@ class QueryShiftRequest(BaseRequest):
 
 class QueryShiftRequestBuilder(object):
 
-    def __init__(self, query_shift_request: QueryShiftRequest = QueryShiftRequest()) -> None:
+    def __init__(self) -> None:
+        query_shift_request = QueryShiftRequest()
         query_shift_request.http_method = HttpMethod.POST
         query_shift_request.uri = "/open-apis/attendance/v1/shifts/query"
         query_shift_request.token_types = {AccessTokenType.TENANT}

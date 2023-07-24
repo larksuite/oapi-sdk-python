@@ -11,7 +11,7 @@ class UserStatsDataFeature(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class UserStatsDataFeature(object):
 
 
 class UserStatsDataFeatureBuilder(object):
-    def __init__(self, user_stats_data_feature: UserStatsDataFeature = UserStatsDataFeature({})) -> None:
-        self._user_stats_data_feature: UserStatsDataFeature = user_stats_data_feature
+    def __init__(self) -> None:
+        self._user_stats_data_feature = UserStatsDataFeature()
 
     def key(self, key: str) -> "UserStatsDataFeatureBuilder":
         self._user_stats_data_feature.key = key

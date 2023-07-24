@@ -18,8 +18,8 @@ class DeleteWorkingHoursTypeRequest(BaseRequest):
 
 class DeleteWorkingHoursTypeRequestBuilder(object):
 
-    def __init__(self,
-                 delete_working_hours_type_request: DeleteWorkingHoursTypeRequest = DeleteWorkingHoursTypeRequest()) -> None:
+    def __init__(self) -> None:
+        delete_working_hours_type_request = DeleteWorkingHoursTypeRequest()
         delete_working_hours_type_request.http_method = HttpMethod.DELETE
         delete_working_hours_type_request.uri = "/open-apis/corehr/v1/working_hours_types/:working_hours_type_id"
         delete_working_hours_type_request.token_types = {AccessTokenType.TENANT}

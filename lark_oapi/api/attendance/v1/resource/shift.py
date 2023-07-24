@@ -2,28 +2,31 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.create_shift_request import CreateShiftRequest
-from lark_oapi.api.attendance.v1.model.create_shift_response import CreateShiftResponse
-from lark_oapi.api.attendance.v1.model.delete_shift_request import DeleteShiftRequest
-from lark_oapi.api.attendance.v1.model.delete_shift_response import DeleteShiftResponse
-from lark_oapi.api.attendance.v1.model.get_shift_request import GetShiftRequest
-from lark_oapi.api.attendance.v1.model.get_shift_response import GetShiftResponse
-from lark_oapi.api.attendance.v1.model.list_shift_request import ListShiftRequest
-from lark_oapi.api.attendance.v1.model.list_shift_response import ListShiftResponse
-from lark_oapi.api.attendance.v1.model.query_shift_request import QueryShiftRequest
-from lark_oapi.api.attendance.v1.model.query_shift_response import QueryShiftResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_shift_request import CreateShiftRequest
+from ..model.create_shift_response import CreateShiftResponse
+from ..model.delete_shift_request import DeleteShiftRequest
+from ..model.delete_shift_response import DeleteShiftResponse
+from ..model.get_shift_request import GetShiftRequest
+from ..model.get_shift_response import GetShiftResponse
+from ..model.list_shift_request import ListShiftRequest
+from ..model.list_shift_response import ListShiftResponse
+from ..model.query_shift_request import QueryShiftRequest
+from ..model.query_shift_response import QueryShiftResponse
 
 
 class Shift(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateShiftRequest, option: RequestOption = RequestOption()) -> CreateShiftResponse:
+    def create(self, request: CreateShiftRequest, option: Optional[RequestOption] = None) -> CreateShiftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -36,7 +39,10 @@ class Shift(object):
 
         return response
 
-    def delete(self, request: DeleteShiftRequest, option: RequestOption = RequestOption()) -> DeleteShiftResponse:
+    def delete(self, request: DeleteShiftRequest, option: Optional[RequestOption] = None) -> DeleteShiftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -49,7 +55,10 @@ class Shift(object):
 
         return response
 
-    def get(self, request: GetShiftRequest, option: RequestOption = RequestOption()) -> GetShiftResponse:
+    def get(self, request: GetShiftRequest, option: Optional[RequestOption] = None) -> GetShiftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -62,7 +71,10 @@ class Shift(object):
 
         return response
 
-    def list(self, request: ListShiftRequest, option: RequestOption = RequestOption()) -> ListShiftResponse:
+    def list(self, request: ListShiftRequest, option: Optional[RequestOption] = None) -> ListShiftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -75,7 +87,10 @@ class Shift(object):
 
         return response
 
-    def query(self, request: QueryShiftRequest, option: RequestOption = RequestOption()) -> QueryShiftResponse:
+    def query(self, request: QueryShiftRequest, option: Optional[RequestOption] = None) -> QueryShiftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

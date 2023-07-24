@@ -11,7 +11,7 @@ class CreateDocumentResponseBody(object):
         "document": Document,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.document: Optional[Document] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class CreateDocumentResponseBody(object):
 
 
 class CreateDocumentResponseBodyBuilder(object):
-    def __init__(self,
-                 create_document_response_body: CreateDocumentResponseBody = CreateDocumentResponseBody({})) -> None:
-        self._create_document_response_body: CreateDocumentResponseBody = create_document_response_body
+    def __init__(self) -> None:
+        self._create_document_response_body = CreateDocumentResponseBody()
 
     def document(self, document: Document) -> "CreateDocumentResponseBodyBuilder":
         self._create_document_response_body.document = document

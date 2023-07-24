@@ -20,8 +20,8 @@ class RemoveInstanceCommentRequest(BaseRequest):
 
 class RemoveInstanceCommentRequestBuilder(object):
 
-    def __init__(self,
-                 remove_instance_comment_request: RemoveInstanceCommentRequest = RemoveInstanceCommentRequest()) -> None:
+    def __init__(self) -> None:
+        remove_instance_comment_request = RemoveInstanceCommentRequest()
         remove_instance_comment_request.http_method = HttpMethod.POST
         remove_instance_comment_request.uri = "/open-apis/approval/v4/instances/:instance_id/comments/remove"
         remove_instance_comment_request.token_types = {AccessTokenType.TENANT}

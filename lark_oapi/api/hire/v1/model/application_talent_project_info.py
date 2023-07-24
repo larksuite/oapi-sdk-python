@@ -16,7 +16,7 @@ class ApplicationTalentProjectInfo(object):
         "end_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.role: Optional[str] = None
@@ -32,9 +32,8 @@ class ApplicationTalentProjectInfo(object):
 
 
 class ApplicationTalentProjectInfoBuilder(object):
-    def __init__(self, application_talent_project_info: ApplicationTalentProjectInfo = ApplicationTalentProjectInfo(
-        {})) -> None:
-        self._application_talent_project_info: ApplicationTalentProjectInfo = application_talent_project_info
+    def __init__(self) -> None:
+        self._application_talent_project_info = ApplicationTalentProjectInfo()
 
     def id(self, id: str) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.id = id

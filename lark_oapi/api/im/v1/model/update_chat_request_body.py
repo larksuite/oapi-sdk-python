@@ -25,7 +25,7 @@ class UpdateChatRequestBody(object):
         "chat_type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.avatar: Optional[str] = None
         self.name: Optional[str] = None
         self.description: Optional[str] = None
@@ -50,8 +50,8 @@ class UpdateChatRequestBody(object):
 
 
 class UpdateChatRequestBodyBuilder(object):
-    def __init__(self, update_chat_request_body: UpdateChatRequestBody = UpdateChatRequestBody({})) -> None:
-        self._update_chat_request_body: UpdateChatRequestBody = update_chat_request_body
+    def __init__(self) -> None:
+        self._update_chat_request_body = UpdateChatRequestBody()
 
     def avatar(self, avatar: str) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.avatar = avatar

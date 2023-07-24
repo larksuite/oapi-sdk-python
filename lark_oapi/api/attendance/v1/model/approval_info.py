@@ -12,7 +12,7 @@ class ApprovalInfo(object):
         "status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_id: Optional[str] = None
         self.approval_type: Optional[str] = None
         self.status: Optional[int] = None
@@ -24,8 +24,8 @@ class ApprovalInfo(object):
 
 
 class ApprovalInfoBuilder(object):
-    def __init__(self, approval_info: ApprovalInfo = ApprovalInfo({})) -> None:
-        self._approval_info: ApprovalInfo = approval_info
+    def __init__(self) -> None:
+        self._approval_info = ApprovalInfo()
 
     def approval_id(self, approval_id: str) -> "ApprovalInfoBuilder":
         self._approval_info.approval_id = approval_id

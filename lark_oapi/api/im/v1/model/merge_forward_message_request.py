@@ -21,8 +21,8 @@ class MergeForwardMessageRequest(BaseRequest):
 
 class MergeForwardMessageRequestBuilder(object):
 
-    def __init__(self,
-                 merge_forward_message_request: MergeForwardMessageRequest = MergeForwardMessageRequest()) -> None:
+    def __init__(self) -> None:
+        merge_forward_message_request = MergeForwardMessageRequest()
         merge_forward_message_request.http_method = HttpMethod.POST
         merge_forward_message_request.uri = "/open-apis/im/v1/messages/merge_forward"
         merge_forward_message_request.token_types = {AccessTokenType.TENANT}

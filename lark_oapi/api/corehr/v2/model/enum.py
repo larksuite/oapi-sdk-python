@@ -12,7 +12,7 @@ class Enum(object):
         "display": List[I18n],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.enum_name: Optional[str] = None
         self.display: Optional[List[I18n]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Enum(object):
 
 
 class EnumBuilder(object):
-    def __init__(self, enum: Enum = Enum({})) -> None:
-        self._enum: Enum = enum
+    def __init__(self) -> None:
+        self._enum = Enum()
 
     def enum_name(self, enum_name: str) -> "EnumBuilder":
         self._enum.enum_name = enum_name

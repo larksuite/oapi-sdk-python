@@ -20,7 +20,8 @@ class CancelInstanceRequest(BaseRequest):
 
 class CancelInstanceRequestBuilder(object):
 
-    def __init__(self, cancel_instance_request: CancelInstanceRequest = CancelInstanceRequest()) -> None:
+    def __init__(self) -> None:
+        cancel_instance_request = CancelInstanceRequest()
         cancel_instance_request.http_method = HttpMethod.POST
         cancel_instance_request.uri = "/open-apis/approval/v4/instances/cancel"
         cancel_instance_request.token_types = {AccessTokenType.TENANT}

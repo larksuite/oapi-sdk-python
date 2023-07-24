@@ -13,7 +13,7 @@ class ContentImageItem(object):
         "height": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_token: Optional[str] = None
         self.src: Optional[str] = None
         self.width: Optional[float] = None
@@ -26,8 +26,8 @@ class ContentImageItem(object):
 
 
 class ContentImageItemBuilder(object):
-    def __init__(self, content_image_item: ContentImageItem = ContentImageItem({})) -> None:
-        self._content_image_item: ContentImageItem = content_image_item
+    def __init__(self) -> None:
+        self._content_image_item = ContentImageItem()
 
     def file_token(self, file_token: str) -> "ContentImageItemBuilder":
         self._content_image_item.file_token = file_token

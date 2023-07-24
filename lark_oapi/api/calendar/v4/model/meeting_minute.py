@@ -11,7 +11,7 @@ class MeetingMinute(object):
         "doc_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.doc_token: Optional[str] = None
         self.doc_url: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MeetingMinute(object):
 
 
 class MeetingMinuteBuilder(object):
-    def __init__(self, meeting_minute: MeetingMinute = MeetingMinute({})) -> None:
-        self._meeting_minute: MeetingMinute = meeting_minute
+    def __init__(self) -> None:
+        self._meeting_minute = MeetingMinute()
 
     def doc_token(self, doc_token: str) -> "MeetingMinuteBuilder":
         self._meeting_minute.doc_token = doc_token

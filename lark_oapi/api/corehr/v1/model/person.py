@@ -50,7 +50,7 @@ class Person(object):
         "personal_profile": List[PersonalProfile],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.phone_number: Optional[str] = None
         self.legal_name: Optional[str] = None
         self.preferred_name: Optional[str] = None
@@ -87,8 +87,8 @@ class Person(object):
 
 
 class PersonBuilder(object):
-    def __init__(self, person: Person = Person({})) -> None:
-        self._person: Person = person
+    def __init__(self) -> None:
+        self._person = Person()
 
     def phone_number(self, phone_number: str) -> "PersonBuilder":
         self._person.phone_number = phone_number

@@ -22,7 +22,7 @@ class ApplicationPrehireOfferBasic(object):
         "offer_job_title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.offer_id: Optional[str] = None
         self.application_id: Optional[str] = None
         self.talent_id: Optional[str] = None
@@ -43,9 +43,8 @@ class ApplicationPrehireOfferBasic(object):
 
 
 class ApplicationPrehireOfferBasicBuilder(object):
-    def __init__(self, application_prehire_offer_basic: ApplicationPrehireOfferBasic = ApplicationPrehireOfferBasic(
-        {})) -> None:
-        self._application_prehire_offer_basic: ApplicationPrehireOfferBasic = application_prehire_offer_basic
+    def __init__(self) -> None:
+        self._application_prehire_offer_basic = ApplicationPrehireOfferBasic()
 
     def offer_id(self, offer_id: str) -> "ApplicationPrehireOfferBasicBuilder":
         self._application_prehire_offer_basic.offer_id = offer_id

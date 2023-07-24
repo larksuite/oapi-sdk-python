@@ -18,7 +18,7 @@ class UpsertObjective(object):
         "weight": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.mention_list: Optional[List[str]] = None
         self.kr_list: Optional[List[UpsertObjectiveKr]] = None
@@ -33,8 +33,8 @@ class UpsertObjective(object):
 
 
 class UpsertObjectiveBuilder(object):
-    def __init__(self, upsert_objective: UpsertObjective = UpsertObjective({})) -> None:
-        self._upsert_objective: UpsertObjective = upsert_objective
+    def __init__(self) -> None:
+        self._upsert_objective = UpsertObjective()
 
     def content(self, content: str) -> "UpsertObjectiveBuilder":
         self._upsert_objective.content = content

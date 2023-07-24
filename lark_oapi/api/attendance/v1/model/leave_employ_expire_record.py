@@ -22,7 +22,7 @@ class LeaveEmployExpireRecord(object):
         "leave_sub_type_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.leave_type_id: Optional[str] = None
@@ -43,8 +43,8 @@ class LeaveEmployExpireRecord(object):
 
 
 class LeaveEmployExpireRecordBuilder(object):
-    def __init__(self, leave_employ_expire_record: LeaveEmployExpireRecord = LeaveEmployExpireRecord({})) -> None:
-        self._leave_employ_expire_record: LeaveEmployExpireRecord = leave_employ_expire_record
+    def __init__(self) -> None:
+        self._leave_employ_expire_record = LeaveEmployExpireRecord()
 
     def id(self, id: str) -> "LeaveEmployExpireRecordBuilder":
         self._leave_employ_expire_record.id = id

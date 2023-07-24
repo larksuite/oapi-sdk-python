@@ -11,7 +11,7 @@ class WebsiteDeliveryIdentification(object):
         "identification_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.identification_number: Optional[str] = None
         self.identification_type: Optional[int] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class WebsiteDeliveryIdentification(object):
 
 
 class WebsiteDeliveryIdentificationBuilder(object):
-    def __init__(self, website_delivery_identification: WebsiteDeliveryIdentification = WebsiteDeliveryIdentification(
-        {})) -> None:
-        self._website_delivery_identification: WebsiteDeliveryIdentification = website_delivery_identification
+    def __init__(self) -> None:
+        self._website_delivery_identification = WebsiteDeliveryIdentification()
 
     def identification_number(self, identification_number: str) -> "WebsiteDeliveryIdentificationBuilder":
         self._website_delivery_identification.identification_number = identification_number

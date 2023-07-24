@@ -2,21 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.admin.v1.model.create_badge_grant_request import CreateBadgeGrantRequest
-from lark_oapi.api.admin.v1.model.create_badge_grant_response import CreateBadgeGrantResponse
-from lark_oapi.api.admin.v1.model.delete_badge_grant_request import DeleteBadgeGrantRequest
-from lark_oapi.api.admin.v1.model.delete_badge_grant_response import DeleteBadgeGrantResponse
-from lark_oapi.api.admin.v1.model.get_badge_grant_request import GetBadgeGrantRequest
-from lark_oapi.api.admin.v1.model.get_badge_grant_response import GetBadgeGrantResponse
-from lark_oapi.api.admin.v1.model.list_badge_grant_request import ListBadgeGrantRequest
-from lark_oapi.api.admin.v1.model.list_badge_grant_response import ListBadgeGrantResponse
-from lark_oapi.api.admin.v1.model.update_badge_grant_request import UpdateBadgeGrantRequest
-from lark_oapi.api.admin.v1.model.update_badge_grant_response import UpdateBadgeGrantResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_badge_grant_request import CreateBadgeGrantRequest
+from ..model.create_badge_grant_response import CreateBadgeGrantResponse
+from ..model.delete_badge_grant_request import DeleteBadgeGrantRequest
+from ..model.delete_badge_grant_response import DeleteBadgeGrantResponse
+from ..model.get_badge_grant_request import GetBadgeGrantRequest
+from ..model.get_badge_grant_response import GetBadgeGrantResponse
+from ..model.list_badge_grant_request import ListBadgeGrantRequest
+from ..model.list_badge_grant_response import ListBadgeGrantResponse
+from ..model.update_badge_grant_request import UpdateBadgeGrantRequest
+from ..model.update_badge_grant_response import UpdateBadgeGrantResponse
 
 
 class BadgeGrant(object):
@@ -24,7 +24,10 @@ class BadgeGrant(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateBadgeGrantRequest,
-               option: RequestOption = RequestOption()) -> CreateBadgeGrantResponse:
+               option: Optional[RequestOption] = None) -> CreateBadgeGrantResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class BadgeGrant(object):
         return response
 
     def delete(self, request: DeleteBadgeGrantRequest,
-               option: RequestOption = RequestOption()) -> DeleteBadgeGrantResponse:
+               option: Optional[RequestOption] = None) -> DeleteBadgeGrantResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class BadgeGrant(object):
 
         return response
 
-    def get(self, request: GetBadgeGrantRequest, option: RequestOption = RequestOption()) -> GetBadgeGrantResponse:
+    def get(self, request: GetBadgeGrantRequest, option: Optional[RequestOption] = None) -> GetBadgeGrantResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,7 +73,10 @@ class BadgeGrant(object):
 
         return response
 
-    def list(self, request: ListBadgeGrantRequest, option: RequestOption = RequestOption()) -> ListBadgeGrantResponse:
+    def list(self, request: ListBadgeGrantRequest, option: Optional[RequestOption] = None) -> ListBadgeGrantResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -78,7 +90,10 @@ class BadgeGrant(object):
         return response
 
     def update(self, request: UpdateBadgeGrantRequest,
-               option: RequestOption = RequestOption()) -> UpdateBadgeGrantResponse:
+               option: Optional[RequestOption] = None) -> UpdateBadgeGrantResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

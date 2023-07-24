@@ -13,7 +13,7 @@ class BitableTableRecordActionField(object):
         "field_identity_value": BitableTableRecordActionFieldIdentity,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_id: Optional[str] = None
         self.field_value: Optional[str] = None
         self.field_identity_value: Optional[BitableTableRecordActionFieldIdentity] = None
@@ -25,9 +25,8 @@ class BitableTableRecordActionField(object):
 
 
 class BitableTableRecordActionFieldBuilder(object):
-    def __init__(self, bitable_table_record_action_field: BitableTableRecordActionField = BitableTableRecordActionField(
-        {})) -> None:
-        self._bitable_table_record_action_field: BitableTableRecordActionField = bitable_table_record_action_field
+    def __init__(self) -> None:
+        self._bitable_table_record_action_field = BitableTableRecordActionField()
 
     def field_id(self, field_id: str) -> "BitableTableRecordActionFieldBuilder":
         self._bitable_table_record_action_field.field_id = field_id

@@ -19,7 +19,8 @@ class ListContractRequest(BaseRequest):
 
 class ListContractRequestBuilder(object):
 
-    def __init__(self, list_contract_request: ListContractRequest = ListContractRequest()) -> None:
+    def __init__(self) -> None:
+        list_contract_request = ListContractRequest()
         list_contract_request.http_method = HttpMethod.GET
         list_contract_request.uri = "/open-apis/corehr/v1/contracts"
         list_contract_request.token_types = {AccessTokenType.TENANT}

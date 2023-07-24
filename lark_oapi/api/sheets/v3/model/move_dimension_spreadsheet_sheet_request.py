@@ -21,8 +21,8 @@ class MoveDimensionSpreadsheetSheetRequest(BaseRequest):
 
 class MoveDimensionSpreadsheetSheetRequestBuilder(object):
 
-    def __init__(self,
-                 move_dimension_spreadsheet_sheet_request: MoveDimensionSpreadsheetSheetRequest = MoveDimensionSpreadsheetSheetRequest()) -> None:
+    def __init__(self) -> None:
+        move_dimension_spreadsheet_sheet_request = MoveDimensionSpreadsheetSheetRequest()
         move_dimension_spreadsheet_sheet_request.http_method = HttpMethod.POST
         move_dimension_spreadsheet_sheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
         move_dimension_spreadsheet_sheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

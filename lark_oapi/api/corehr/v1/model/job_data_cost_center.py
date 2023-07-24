@@ -13,7 +13,7 @@ class JobDataCostCenter(object):
         "custom_fields": List[ObjectFieldData],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.cost_center_id: Optional[str] = None
         self.rate: Optional[int] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
@@ -25,8 +25,8 @@ class JobDataCostCenter(object):
 
 
 class JobDataCostCenterBuilder(object):
-    def __init__(self, job_data_cost_center: JobDataCostCenter = JobDataCostCenter({})) -> None:
-        self._job_data_cost_center: JobDataCostCenter = job_data_cost_center
+    def __init__(self) -> None:
+        self._job_data_cost_center = JobDataCostCenter()
 
     def cost_center_id(self, cost_center_id: str) -> "JobDataCostCenterBuilder":
         self._job_data_cost_center.cost_center_id = cost_center_id

@@ -20,8 +20,8 @@ class GetReserveConfigFormRequest(BaseRequest):
 
 class GetReserveConfigFormRequestBuilder(object):
 
-    def __init__(self,
-                 get_reserve_config_form_request: GetReserveConfigFormRequest = GetReserveConfigFormRequest()) -> None:
+    def __init__(self) -> None:
+        get_reserve_config_form_request = GetReserveConfigFormRequest()
         get_reserve_config_form_request.http_method = HttpMethod.GET
         get_reserve_config_form_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/form"
         get_reserve_config_form_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

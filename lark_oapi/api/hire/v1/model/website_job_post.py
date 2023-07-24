@@ -39,7 +39,7 @@ class WebsiteJobPost(object):
         "address_list": List[CommonAddress],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.title: Optional[str] = None
         self.job_id: Optional[str] = None
@@ -75,8 +75,8 @@ class WebsiteJobPost(object):
 
 
 class WebsiteJobPostBuilder(object):
-    def __init__(self, website_job_post: WebsiteJobPost = WebsiteJobPost({})) -> None:
-        self._website_job_post: WebsiteJobPost = website_job_post
+    def __init__(self) -> None:
+        self._website_job_post = WebsiteJobPost()
 
     def id(self, id: str) -> "WebsiteJobPostBuilder":
         self._website_job_post.id = id

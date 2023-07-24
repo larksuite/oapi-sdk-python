@@ -14,7 +14,7 @@ class Mention(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.id: Optional[str] = None
         self.id_type: Optional[str] = None
@@ -28,8 +28,8 @@ class Mention(object):
 
 
 class MentionBuilder(object):
-    def __init__(self, mention: Mention = Mention({})) -> None:
-        self._mention: Mention = mention
+    def __init__(self) -> None:
+        self._mention = Mention()
 
     def key(self, key: str) -> "MentionBuilder":
         self._mention.key = key

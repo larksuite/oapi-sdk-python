@@ -12,7 +12,7 @@ class TaskUrls(object):
         "pc": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.helpdesk: Optional[str] = None
         self.mobile: Optional[str] = None
         self.pc: Optional[str] = None
@@ -24,8 +24,8 @@ class TaskUrls(object):
 
 
 class TaskUrlsBuilder(object):
-    def __init__(self, task_urls: TaskUrls = TaskUrls({})) -> None:
-        self._task_urls: TaskUrls = task_urls
+    def __init__(self) -> None:
+        self._task_urls = TaskUrls()
 
     def helpdesk(self, helpdesk: str) -> "TaskUrlsBuilder":
         self._task_urls.helpdesk = helpdesk

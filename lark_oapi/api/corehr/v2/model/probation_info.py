@@ -33,7 +33,7 @@ class ProbationInfo(object):
         "assessments": List[Assessment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_id: Optional[str] = None
         self.probation_id: Optional[str] = None
         self.probation_start_date: Optional[str] = None
@@ -63,8 +63,8 @@ class ProbationInfo(object):
 
 
 class ProbationInfoBuilder(object):
-    def __init__(self, probation_info: ProbationInfo = ProbationInfo({})) -> None:
-        self._probation_info: ProbationInfo = probation_info
+    def __init__(self) -> None:
+        self._probation_info = ProbationInfo()
 
     def employment_id(self, employment_id: str) -> "ProbationInfoBuilder":
         self._probation_info.employment_id = employment_id

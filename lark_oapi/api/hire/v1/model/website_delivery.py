@@ -15,7 +15,7 @@ class WebsiteDelivery(object):
         "channel_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_post_id: Optional[str] = None
         self.resume: Optional[WebsiteDeliveryResume] = None
         self.user_id: Optional[str] = None
@@ -29,8 +29,8 @@ class WebsiteDelivery(object):
 
 
 class WebsiteDeliveryBuilder(object):
-    def __init__(self, website_delivery: WebsiteDelivery = WebsiteDelivery({})) -> None:
-        self._website_delivery: WebsiteDelivery = website_delivery
+    def __init__(self) -> None:
+        self._website_delivery = WebsiteDelivery()
 
     def job_post_id(self, job_post_id: str) -> "WebsiteDeliveryBuilder":
         self._website_delivery.job_post_id = job_post_id

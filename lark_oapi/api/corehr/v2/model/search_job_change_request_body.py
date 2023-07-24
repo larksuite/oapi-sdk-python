@@ -12,7 +12,7 @@ class SearchJobChangeRequestBody(object):
         "statuses": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employment_ids: Optional[List[str]] = None
         self.job_change_ids: Optional[List[str]] = None
         self.statuses: Optional[List[str]] = None
@@ -24,9 +24,8 @@ class SearchJobChangeRequestBody(object):
 
 
 class SearchJobChangeRequestBodyBuilder(object):
-    def __init__(self,
-                 search_job_change_request_body: SearchJobChangeRequestBody = SearchJobChangeRequestBody({})) -> None:
-        self._search_job_change_request_body: SearchJobChangeRequestBody = search_job_change_request_body
+    def __init__(self) -> None:
+        self._search_job_change_request_body = SearchJobChangeRequestBody()
 
     def employment_ids(self, employment_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.employment_ids = employment_ids

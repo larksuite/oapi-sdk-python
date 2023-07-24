@@ -14,7 +14,7 @@ class ScopeGroup(object):
         "member_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.scope_value_type: Optional[int] = None
         self.operation_type: Optional[int] = None
         self.right: Optional[List[ScopeValue]] = None
@@ -27,8 +27,8 @@ class ScopeGroup(object):
 
 
 class ScopeGroupBuilder(object):
-    def __init__(self, scope_group: ScopeGroup = ScopeGroup({})) -> None:
-        self._scope_group: ScopeGroup = scope_group
+    def __init__(self) -> None:
+        self._scope_group = ScopeGroup()
 
     def scope_value_type(self, scope_value_type: int) -> "ScopeGroupBuilder":
         self._scope_group.scope_value_type = scope_value_type

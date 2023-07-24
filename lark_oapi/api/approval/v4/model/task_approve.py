@@ -15,7 +15,7 @@ class TaskApprove(object):
         "form": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -30,8 +30,8 @@ class TaskApprove(object):
 
 
 class TaskApproveBuilder(object):
-    def __init__(self, task_approve: TaskApprove = TaskApprove({})) -> None:
-        self._task_approve: TaskApprove = task_approve
+    def __init__(self) -> None:
+        self._task_approve = TaskApprove()
 
     def approval_code(self, approval_code: str) -> "TaskApproveBuilder":
         self._task_approve.approval_code = approval_code

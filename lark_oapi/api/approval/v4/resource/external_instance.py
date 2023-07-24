@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.approval.v4.model.check_external_instance_request import CheckExternalInstanceRequest
-from lark_oapi.api.approval.v4.model.check_external_instance_response import CheckExternalInstanceResponse
-from lark_oapi.api.approval.v4.model.create_external_instance_request import CreateExternalInstanceRequest
-from lark_oapi.api.approval.v4.model.create_external_instance_response import CreateExternalInstanceResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.check_external_instance_request import CheckExternalInstanceRequest
+from ..model.check_external_instance_response import CheckExternalInstanceResponse
+from ..model.create_external_instance_request import CreateExternalInstanceRequest
+from ..model.create_external_instance_response import CreateExternalInstanceResponse
 
 
 class ExternalInstance(object):
@@ -18,7 +18,10 @@ class ExternalInstance(object):
         self.config: Optional[Config] = config
 
     def check(self, request: CheckExternalInstanceRequest,
-              option: RequestOption = RequestOption()) -> CheckExternalInstanceResponse:
+              option: Optional[RequestOption] = None) -> CheckExternalInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class ExternalInstance(object):
         return response
 
     def create(self, request: CreateExternalInstanceRequest,
-               option: RequestOption = RequestOption()) -> CreateExternalInstanceResponse:
+               option: Optional[RequestOption] = None) -> CreateExternalInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

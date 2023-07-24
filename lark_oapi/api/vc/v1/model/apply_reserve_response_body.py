@@ -13,7 +13,7 @@ class ApplyReserveResponseBody(object):
         "reserve_correction_check_info": ReserveCorrectionCheckInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.reserve: Optional[Reserve] = None
         self.reserve_correction_check_info: Optional[ReserveCorrectionCheckInfo] = None
         init(self, d, self._types)
@@ -24,8 +24,8 @@ class ApplyReserveResponseBody(object):
 
 
 class ApplyReserveResponseBodyBuilder(object):
-    def __init__(self, apply_reserve_response_body: ApplyReserveResponseBody = ApplyReserveResponseBody({})) -> None:
-        self._apply_reserve_response_body: ApplyReserveResponseBody = apply_reserve_response_body
+    def __init__(self) -> None:
+        self._apply_reserve_response_body = ApplyReserveResponseBody()
 
     def reserve(self, reserve: Reserve) -> "ApplyReserveResponseBodyBuilder":
         self._apply_reserve_response_body.reserve = reserve

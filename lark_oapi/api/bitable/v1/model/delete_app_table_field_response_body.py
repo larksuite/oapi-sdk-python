@@ -11,7 +11,7 @@ class DeleteAppTableFieldResponseBody(object):
         "deleted": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.field_id: Optional[str] = None
         self.deleted: Optional[bool] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class DeleteAppTableFieldResponseBody(object):
 
 
 class DeleteAppTableFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 delete_app_table_field_response_body: DeleteAppTableFieldResponseBody = DeleteAppTableFieldResponseBody(
-                     {})) -> None:
-        self._delete_app_table_field_response_body: DeleteAppTableFieldResponseBody = delete_app_table_field_response_body
+    def __init__(self) -> None:
+        self._delete_app_table_field_response_body = DeleteAppTableFieldResponseBody()
 
     def field_id(self, field_id: str) -> "DeleteAppTableFieldResponseBodyBuilder":
         self._delete_app_table_field_response_body.field_id = field_id

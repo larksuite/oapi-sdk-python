@@ -14,7 +14,7 @@ class CustomFieldData(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.custom_api_name: Optional[str] = None
         self.name: Optional[CustomName] = None
         self.type: Optional[int] = None
@@ -27,8 +27,8 @@ class CustomFieldData(object):
 
 
 class CustomFieldDataBuilder(object):
-    def __init__(self, custom_field_data: CustomFieldData = CustomFieldData({})) -> None:
-        self._custom_field_data: CustomFieldData = custom_field_data
+    def __init__(self) -> None:
+        self._custom_field_data = CustomFieldData()
 
     def custom_api_name(self, custom_api_name: str) -> "CustomFieldDataBuilder":
         self._custom_field_data.custom_api_name = custom_api_name

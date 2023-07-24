@@ -11,7 +11,7 @@ class DepartmentHrbp(object):
         "hrbp_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.hrbp_ids: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DepartmentHrbp(object):
 
 
 class DepartmentHrbpBuilder(object):
-    def __init__(self, department_hrbp: DepartmentHrbp = DepartmentHrbp({})) -> None:
-        self._department_hrbp: DepartmentHrbp = department_hrbp
+    def __init__(self) -> None:
+        self._department_hrbp = DepartmentHrbp()
 
     def department_id(self, department_id: str) -> "DepartmentHrbpBuilder":
         self._department_hrbp.department_id = department_id

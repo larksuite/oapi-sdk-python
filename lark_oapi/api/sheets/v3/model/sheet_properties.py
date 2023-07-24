@@ -13,7 +13,7 @@ class SheetProperties(object):
         "frozen_column_count": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.row_count: Optional[int] = None
         self.column_count: Optional[int] = None
         self.frozen_row_count: Optional[int] = None
@@ -26,8 +26,8 @@ class SheetProperties(object):
 
 
 class SheetPropertiesBuilder(object):
-    def __init__(self, sheet_properties: SheetProperties = SheetProperties({})) -> None:
-        self._sheet_properties: SheetProperties = sheet_properties
+    def __init__(self) -> None:
+        self._sheet_properties = SheetProperties()
 
     def row_count(self, row_count: int) -> "SheetPropertiesBuilder":
         self._sheet_properties.row_count = row_count

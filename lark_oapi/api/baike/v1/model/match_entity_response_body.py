@@ -11,7 +11,7 @@ class MatchEntityResponseBody(object):
         "results": List[MatchInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.results: Optional[List[MatchInfo]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class MatchEntityResponseBody(object):
 
 
 class MatchEntityResponseBodyBuilder(object):
-    def __init__(self, match_entity_response_body: MatchEntityResponseBody = MatchEntityResponseBody({})) -> None:
-        self._match_entity_response_body: MatchEntityResponseBody = match_entity_response_body
+    def __init__(self) -> None:
+        self._match_entity_response_body = MatchEntityResponseBody()
 
     def results(self, results: List[MatchInfo]) -> "MatchEntityResponseBodyBuilder":
         self._match_entity_response_body.results = results

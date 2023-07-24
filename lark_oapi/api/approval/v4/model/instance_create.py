@@ -29,7 +29,7 @@ class InstanceCreate(object):
         "title_display_method": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
@@ -55,8 +55,8 @@ class InstanceCreate(object):
 
 
 class InstanceCreateBuilder(object):
-    def __init__(self, instance_create: InstanceCreate = InstanceCreate({})) -> None:
-        self._instance_create: InstanceCreate = instance_create
+    def __init__(self) -> None:
+        self._instance_create = InstanceCreate()
 
     def approval_code(self, approval_code: str) -> "InstanceCreateBuilder":
         self._instance_create.approval_code = approval_code

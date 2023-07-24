@@ -14,7 +14,7 @@ class AttachmentInfo(object):
         "create_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.url: Optional[str] = None
         self.name: Optional[str] = None
@@ -28,8 +28,8 @@ class AttachmentInfo(object):
 
 
 class AttachmentInfoBuilder(object):
-    def __init__(self, attachment_info: AttachmentInfo = AttachmentInfo({})) -> None:
-        self._attachment_info: AttachmentInfo = attachment_info
+    def __init__(self) -> None:
+        self._attachment_info = AttachmentInfo()
 
     def id(self, id: str) -> "AttachmentInfoBuilder":
         self._attachment_info.id = id

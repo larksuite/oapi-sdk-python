@@ -12,7 +12,7 @@ class Administrator(object):
         "is_administrator": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[int] = None
         self.is_super_administrator: Optional[bool] = None
         self.is_administrator: Optional[bool] = None
@@ -24,8 +24,8 @@ class Administrator(object):
 
 
 class AdministratorBuilder(object):
-    def __init__(self, administrator: Administrator = Administrator({})) -> None:
-        self._administrator: Administrator = administrator
+    def __init__(self) -> None:
+        self._administrator = Administrator()
 
     def user_id(self, user_id: int) -> "AdministratorBuilder":
         self._administrator.user_id = user_id

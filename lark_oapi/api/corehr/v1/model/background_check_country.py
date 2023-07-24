@@ -11,7 +11,7 @@ class BackgroundCheckCountry(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class BackgroundCheckCountry(object):
 
 
 class BackgroundCheckCountryBuilder(object):
-    def __init__(self, background_check_country: BackgroundCheckCountry = BackgroundCheckCountry({})) -> None:
-        self._background_check_country: BackgroundCheckCountry = background_check_country
+    def __init__(self) -> None:
+        self._background_check_country = BackgroundCheckCountry()
 
     def zh_cn(self, zh_cn: str) -> "BackgroundCheckCountryBuilder":
         self._background_check_country.zh_cn = zh_cn

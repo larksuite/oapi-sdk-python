@@ -19,7 +19,8 @@ class GetReserveRequest(BaseRequest):
 
 class GetReserveRequestBuilder(object):
 
-    def __init__(self, get_reserve_request: GetReserveRequest = GetReserveRequest()) -> None:
+    def __init__(self) -> None:
+        get_reserve_request = GetReserveRequest()
         get_reserve_request.http_method = HttpMethod.GET
         get_reserve_request.uri = "/open-apis/vc/v1/reserves/:reserve_id"
         get_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

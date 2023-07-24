@@ -19,7 +19,8 @@ class SubscribeEventRequest(BaseRequest):
 
 class SubscribeEventRequestBuilder(object):
 
-    def __init__(self, subscribe_event_request: SubscribeEventRequest = SubscribeEventRequest()) -> None:
+    def __init__(self) -> None:
+        subscribe_event_request = SubscribeEventRequest()
         subscribe_event_request.http_method = HttpMethod.POST
         subscribe_event_request.uri = "/open-apis/helpdesk/v1/events/subscribe"
         subscribe_event_request.token_types = {AccessTokenType.TENANT}

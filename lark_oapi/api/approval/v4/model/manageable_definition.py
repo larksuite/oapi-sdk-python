@@ -13,7 +13,7 @@ class ManageableDefinition(object):
         "approval_admin_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.approval_name: Optional[str] = None
         self.approval_status: Optional[str] = None
@@ -26,8 +26,8 @@ class ManageableDefinition(object):
 
 
 class ManageableDefinitionBuilder(object):
-    def __init__(self, manageable_definition: ManageableDefinition = ManageableDefinition({})) -> None:
-        self._manageable_definition: ManageableDefinition = manageable_definition
+    def __init__(self) -> None:
+        self._manageable_definition = ManageableDefinition()
 
     def approval_code(self, approval_code: str) -> "ManageableDefinitionBuilder":
         self._manageable_definition.approval_code = approval_code

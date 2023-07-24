@@ -14,7 +14,7 @@ class Todo(object):
         "interview": TodoCommon,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.evaluation: Optional[TodoCommon] = None
         self.offer: Optional[TodoCommon] = None
         self.exam: Optional[TodoCommon] = None
@@ -27,8 +27,8 @@ class Todo(object):
 
 
 class TodoBuilder(object):
-    def __init__(self, todo: Todo = Todo({})) -> None:
-        self._todo: Todo = todo
+    def __init__(self) -> None:
+        self._todo = Todo()
 
     def evaluation(self, evaluation: TodoCommon) -> "TodoBuilder":
         self._todo.evaluation = evaluation

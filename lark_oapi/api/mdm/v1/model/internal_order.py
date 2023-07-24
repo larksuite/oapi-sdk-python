@@ -16,7 +16,7 @@ class InternalOrder(object):
         "co_area_code": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.internal_order_uid: Optional[str] = None
         self.internal_order_code: Optional[str] = None
         self.internal_order_name: Optional[str] = None
@@ -32,8 +32,8 @@ class InternalOrder(object):
 
 
 class InternalOrderBuilder(object):
-    def __init__(self, internal_order: InternalOrder = InternalOrder({})) -> None:
-        self._internal_order: InternalOrder = internal_order
+    def __init__(self) -> None:
+        self._internal_order = InternalOrder()
 
     def internal_order_uid(self, internal_order_uid: str) -> "InternalOrderBuilder":
         self._internal_order.internal_order_uid = internal_order_uid

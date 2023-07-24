@@ -20,7 +20,7 @@ class SchemaProperty(object):
         "search_options": SchemaSearchOptions,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.type: Optional[str] = None
         self.is_searchable: Optional[bool] = None
@@ -37,8 +37,8 @@ class SchemaProperty(object):
 
 
 class SchemaPropertyBuilder(object):
-    def __init__(self, schema_property: SchemaProperty = SchemaProperty({})) -> None:
-        self._schema_property: SchemaProperty = schema_property
+    def __init__(self) -> None:
+        self._schema_property = SchemaProperty()
 
     def name(self, name: str) -> "SchemaPropertyBuilder":
         self._schema_property.name = name

@@ -20,8 +20,8 @@ class CreatePublicMailboxAliasRequest(BaseRequest):
 
 class CreatePublicMailboxAliasRequestBuilder(object):
 
-    def __init__(self,
-                 create_public_mailbox_alias_request: CreatePublicMailboxAliasRequest = CreatePublicMailboxAliasRequest()) -> None:
+    def __init__(self) -> None:
+        create_public_mailbox_alias_request = CreatePublicMailboxAliasRequest()
         create_public_mailbox_alias_request.http_method = HttpMethod.POST
         create_public_mailbox_alias_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/aliases"
         create_public_mailbox_alias_request.token_types = {AccessTokenType.TENANT}

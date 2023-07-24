@@ -13,7 +13,7 @@ class ListWorkCityResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[WorkCity]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListWorkCityResponseBody(object):
 
 
 class ListWorkCityResponseBodyBuilder(object):
-    def __init__(self, list_work_city_response_body: ListWorkCityResponseBody = ListWorkCityResponseBody({})) -> None:
-        self._list_work_city_response_body: ListWorkCityResponseBody = list_work_city_response_body
+    def __init__(self) -> None:
+        self._list_work_city_response_body = ListWorkCityResponseBody()
 
     def items(self, items: List[WorkCity]) -> "ListWorkCityResponseBodyBuilder":
         self._list_work_city_response_body.items = items

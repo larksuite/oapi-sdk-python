@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.baike.v1.model.create_draft_request import CreateDraftRequest
-from lark_oapi.api.baike.v1.model.create_draft_response import CreateDraftResponse
-from lark_oapi.api.baike.v1.model.update_draft_request import UpdateDraftRequest
-from lark_oapi.api.baike.v1.model.update_draft_response import UpdateDraftResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_draft_request import CreateDraftRequest
+from ..model.create_draft_response import CreateDraftResponse
+from ..model.update_draft_request import UpdateDraftRequest
+from ..model.update_draft_response import UpdateDraftResponse
 
 
 class Draft(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreateDraftRequest, option: RequestOption = RequestOption()) -> CreateDraftResponse:
+    def create(self, request: CreateDraftRequest, option: Optional[RequestOption] = None) -> CreateDraftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -30,7 +33,10 @@ class Draft(object):
 
         return response
 
-    def update(self, request: UpdateDraftRequest, option: RequestOption = RequestOption()) -> UpdateDraftResponse:
+    def update(self, request: UpdateDraftRequest, option: Optional[RequestOption] = None) -> UpdateDraftResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

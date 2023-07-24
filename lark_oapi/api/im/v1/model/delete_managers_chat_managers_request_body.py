@@ -10,7 +10,7 @@ class DeleteManagersChatManagersRequestBody(object):
         "manager_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.manager_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class DeleteManagersChatManagersRequestBody(object):
 
 
 class DeleteManagersChatManagersRequestBodyBuilder(object):
-    def __init__(self,
-                 delete_managers_chat_managers_request_body: DeleteManagersChatManagersRequestBody = DeleteManagersChatManagersRequestBody(
-                     {})) -> None:
-        self._delete_managers_chat_managers_request_body: DeleteManagersChatManagersRequestBody = delete_managers_chat_managers_request_body
+    def __init__(self) -> None:
+        self._delete_managers_chat_managers_request_body = DeleteManagersChatManagersRequestBody()
 
     def manager_ids(self, manager_ids: List[str]) -> "DeleteManagersChatManagersRequestBodyBuilder":
         self._delete_managers_chat_managers_request_body.manager_ids = manager_ids

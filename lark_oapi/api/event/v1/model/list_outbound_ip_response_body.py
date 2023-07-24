@@ -12,7 +12,7 @@ class ListOutboundIpResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ip_list: Optional[List[str]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -24,9 +24,8 @@ class ListOutboundIpResponseBody(object):
 
 
 class ListOutboundIpResponseBodyBuilder(object):
-    def __init__(self,
-                 list_outbound_ip_response_body: ListOutboundIpResponseBody = ListOutboundIpResponseBody({})) -> None:
-        self._list_outbound_ip_response_body: ListOutboundIpResponseBody = list_outbound_ip_response_body
+    def __init__(self) -> None:
+        self._list_outbound_ip_response_body = ListOutboundIpResponseBody()
 
     def ip_list(self, ip_list: List[str]) -> "ListOutboundIpResponseBodyBuilder":
         self._list_outbound_ip_response_body.ip_list = ip_list

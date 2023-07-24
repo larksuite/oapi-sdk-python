@@ -11,7 +11,7 @@ class Event(object):
         "subtype": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.subtype: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Event(object):
 
 
 class EventBuilder(object):
-    def __init__(self, event: Event = Event({})) -> None:
-        self._event: Event = event
+    def __init__(self) -> None:
+        self._event = Event()
 
     def type(self, type: str) -> "EventBuilder":
         self._event.type = type

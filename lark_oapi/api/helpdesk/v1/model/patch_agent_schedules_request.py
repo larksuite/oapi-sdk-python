@@ -20,8 +20,8 @@ class PatchAgentSchedulesRequest(BaseRequest):
 
 class PatchAgentSchedulesRequestBuilder(object):
 
-    def __init__(self,
-                 patch_agent_schedules_request: PatchAgentSchedulesRequest = PatchAgentSchedulesRequest()) -> None:
+    def __init__(self) -> None:
+        patch_agent_schedules_request = PatchAgentSchedulesRequest()
         patch_agent_schedules_request.http_method = HttpMethod.PATCH
         patch_agent_schedules_request.uri = "/open-apis/helpdesk/v1/agents/:agent_id/schedules"
         patch_agent_schedules_request.token_types = {AccessTokenType.USER}

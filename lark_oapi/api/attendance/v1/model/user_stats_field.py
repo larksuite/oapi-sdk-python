@@ -13,7 +13,7 @@ class UserStatsField(object):
         "fields": List[Field],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.stats_type: Optional[str] = None
         self.user_id: Optional[str] = None
         self.fields: Optional[List[Field]] = None
@@ -25,8 +25,8 @@ class UserStatsField(object):
 
 
 class UserStatsFieldBuilder(object):
-    def __init__(self, user_stats_field: UserStatsField = UserStatsField({})) -> None:
-        self._user_stats_field: UserStatsField = user_stats_field
+    def __init__(self) -> None:
+        self._user_stats_field = UserStatsField()
 
     def stats_type(self, stats_type: str) -> "UserStatsFieldBuilder":
         self._user_stats_field.stats_type = stats_type

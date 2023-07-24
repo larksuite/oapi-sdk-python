@@ -12,7 +12,7 @@ class ListWorkCityResponse(BaseResponse):
         "data": ListWorkCityResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListWorkCityResponseBody] = None
         init(self, d, self._types)

@@ -40,7 +40,7 @@ class InterviewExtend(object):
         "interview_round_type": IdNameObject,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.begin_time: Optional[int] = None
         self.end_time: Optional[int] = None
@@ -75,8 +75,8 @@ class InterviewExtend(object):
 
 
 class InterviewExtendBuilder(object):
-    def __init__(self, interview_extend: InterviewExtend = InterviewExtend({})) -> None:
-        self._interview_extend: InterviewExtend = interview_extend
+    def __init__(self) -> None:
+        self._interview_extend = InterviewExtend()
 
     def id(self, id: str) -> "InterviewExtendBuilder":
         self._interview_extend.id = id

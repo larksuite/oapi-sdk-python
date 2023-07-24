@@ -12,7 +12,7 @@ class TaskResult(object):
         "move_result": List[MoveResult],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.task_id: Optional[str] = None
         self.move_result: Optional[List[MoveResult]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class TaskResult(object):
 
 
 class TaskResultBuilder(object):
-    def __init__(self, task_result: TaskResult = TaskResult({})) -> None:
-        self._task_result: TaskResult = task_result
+    def __init__(self) -> None:
+        self._task_result = TaskResult()
 
     def task_id(self, task_id: str) -> "TaskResultBuilder":
         self._task_result.task_id = task_id

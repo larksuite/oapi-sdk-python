@@ -21,8 +21,8 @@ class GetLeaveEmployExpireRecordRequest(BaseRequest):
 
 class GetLeaveEmployExpireRecordRequestBuilder(object):
 
-    def __init__(self,
-                 get_leave_employ_expire_record_request: GetLeaveEmployExpireRecordRequest = GetLeaveEmployExpireRecordRequest()) -> None:
+    def __init__(self) -> None:
+        get_leave_employ_expire_record_request = GetLeaveEmployExpireRecordRequest()
         get_leave_employ_expire_record_request.http_method = HttpMethod.GET
         get_leave_employ_expire_record_request.uri = "/open-apis/attendance/v1/leave_employ_expire_records/:leave_id"
         get_leave_employ_expire_record_request.token_types = {AccessTokenType.TENANT}

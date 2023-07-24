@@ -21,8 +21,8 @@ class AddManagersChatManagersRequest(BaseRequest):
 
 class AddManagersChatManagersRequestBuilder(object):
 
-    def __init__(self,
-                 add_managers_chat_managers_request: AddManagersChatManagersRequest = AddManagersChatManagersRequest()) -> None:
+    def __init__(self) -> None:
+        add_managers_chat_managers_request = AddManagersChatManagersRequest()
         add_managers_chat_managers_request.http_method = HttpMethod.POST
         add_managers_chat_managers_request.uri = "/open-apis/im/v1/chats/:chat_id/managers/add_managers"
         add_managers_chat_managers_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

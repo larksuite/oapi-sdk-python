@@ -12,7 +12,7 @@ class Navigate(object):
         "mobile": NavigateMeta,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pc: Optional[NavigateMeta] = None
         self.mobile: Optional[NavigateMeta] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Navigate(object):
 
 
 class NavigateBuilder(object):
-    def __init__(self, navigate: Navigate = Navigate({})) -> None:
-        self._navigate: Navigate = navigate
+    def __init__(self) -> None:
+        self._navigate = Navigate()
 
     def pc(self, pc: NavigateMeta) -> "NavigateBuilder":
         self._navigate.pc = pc

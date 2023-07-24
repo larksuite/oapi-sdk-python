@@ -18,7 +18,7 @@ class Okr(object):
         "visible_setting": OkrVisibleSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.okr_id: Optional[int] = None
         self.objectives: Optional[List[ObjectiveIdWithKrId]] = None
         self.period_display_status: Optional[str] = None
@@ -34,8 +34,8 @@ class Okr(object):
 
 
 class OkrBuilder(object):
-    def __init__(self, okr: Okr = Okr({})) -> None:
-        self._okr: Okr = okr
+    def __init__(self) -> None:
+        self._okr = Okr()
 
     def okr_id(self, okr_id: int) -> "OkrBuilder":
         self._okr.okr_id = okr_id

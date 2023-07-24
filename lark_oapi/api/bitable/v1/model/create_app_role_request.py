@@ -20,7 +20,8 @@ class CreateAppRoleRequest(BaseRequest):
 
 class CreateAppRoleRequestBuilder(object):
 
-    def __init__(self, create_app_role_request: CreateAppRoleRequest = CreateAppRoleRequest()) -> None:
+    def __init__(self) -> None:
+        create_app_role_request = CreateAppRoleRequest()
         create_app_role_request.http_method = HttpMethod.POST
         create_app_role_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles"
         create_app_role_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

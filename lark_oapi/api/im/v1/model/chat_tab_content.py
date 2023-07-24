@@ -12,7 +12,7 @@ class ChatTabContent(object):
         "meeting_minute": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         self.doc: Optional[str] = None
         self.meeting_minute: Optional[str] = None
@@ -24,8 +24,8 @@ class ChatTabContent(object):
 
 
 class ChatTabContentBuilder(object):
-    def __init__(self, chat_tab_content: ChatTabContent = ChatTabContent({})) -> None:
-        self._chat_tab_content: ChatTabContent = chat_tab_content
+    def __init__(self) -> None:
+        self._chat_tab_content = ChatTabContent()
 
     def url(self, url: str) -> "ChatTabContentBuilder":
         self._chat_tab_content.url = url

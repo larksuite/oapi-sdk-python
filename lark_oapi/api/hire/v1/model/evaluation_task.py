@@ -14,7 +14,7 @@ class EvaluationTask(object):
         "activity_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.talent_id: Optional[str] = None
@@ -28,8 +28,8 @@ class EvaluationTask(object):
 
 
 class EvaluationTaskBuilder(object):
-    def __init__(self, evaluation_task: EvaluationTask = EvaluationTask({})) -> None:
-        self._evaluation_task: EvaluationTask = evaluation_task
+    def __init__(self) -> None:
+        self._evaluation_task = EvaluationTask()
 
     def id(self, id: str) -> "EvaluationTaskBuilder":
         self._evaluation_task.id = id

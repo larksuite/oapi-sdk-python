@@ -10,7 +10,7 @@ class CreatePinRequestBody(object):
         "message_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class CreatePinRequestBody(object):
 
 
 class CreatePinRequestBodyBuilder(object):
-    def __init__(self, create_pin_request_body: CreatePinRequestBody = CreatePinRequestBody({})) -> None:
-        self._create_pin_request_body: CreatePinRequestBody = create_pin_request_body
+    def __init__(self) -> None:
+        self._create_pin_request_body = CreatePinRequestBody()
 
     def message_id(self, message_id: str) -> "CreatePinRequestBodyBuilder":
         self._create_pin_request_body.message_id = message_id

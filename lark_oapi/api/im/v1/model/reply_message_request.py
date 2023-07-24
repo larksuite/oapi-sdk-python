@@ -20,7 +20,8 @@ class ReplyMessageRequest(BaseRequest):
 
 class ReplyMessageRequestBuilder(object):
 
-    def __init__(self, reply_message_request: ReplyMessageRequest = ReplyMessageRequest()) -> None:
+    def __init__(self) -> None:
+        reply_message_request = ReplyMessageRequest()
         reply_message_request.http_method = HttpMethod.POST
         reply_message_request.uri = "/open-apis/im/v1/messages/:message_id/reply"
         reply_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

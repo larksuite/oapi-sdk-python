@@ -21,8 +21,8 @@ class ListByIdJobRequirementRequest(BaseRequest):
 
 class ListByIdJobRequirementRequestBuilder(object):
 
-    def __init__(self,
-                 list_by_id_job_requirement_request: ListByIdJobRequirementRequest = ListByIdJobRequirementRequest()) -> None:
+    def __init__(self) -> None:
+        list_by_id_job_requirement_request = ListByIdJobRequirementRequest()
         list_by_id_job_requirement_request.http_method = HttpMethod.POST
         list_by_id_job_requirement_request.uri = "/open-apis/hire/v1/job_requirements/search"
         list_by_id_job_requirement_request.token_types = {AccessTokenType.TENANT}

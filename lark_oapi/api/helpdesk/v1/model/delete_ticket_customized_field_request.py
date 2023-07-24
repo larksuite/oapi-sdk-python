@@ -18,8 +18,8 @@ class DeleteTicketCustomizedFieldRequest(BaseRequest):
 
 class DeleteTicketCustomizedFieldRequestBuilder(object):
 
-    def __init__(self,
-                 delete_ticket_customized_field_request: DeleteTicketCustomizedFieldRequest = DeleteTicketCustomizedFieldRequest()) -> None:
+    def __init__(self) -> None:
+        delete_ticket_customized_field_request = DeleteTicketCustomizedFieldRequest()
         delete_ticket_customized_field_request.http_method = HttpMethod.DELETE
         delete_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
         delete_ticket_customized_field_request.token_types = {AccessTokenType.USER}

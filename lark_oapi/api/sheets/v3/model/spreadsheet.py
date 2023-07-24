@@ -13,7 +13,7 @@ class Spreadsheet(object):
         "spreadsheet_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.title: Optional[str] = None
         self.folder_token: Optional[str] = None
         self.url: Optional[str] = None
@@ -26,8 +26,8 @@ class Spreadsheet(object):
 
 
 class SpreadsheetBuilder(object):
-    def __init__(self, spreadsheet: Spreadsheet = Spreadsheet({})) -> None:
-        self._spreadsheet: Spreadsheet = spreadsheet
+    def __init__(self) -> None:
+        self._spreadsheet = Spreadsheet()
 
     def title(self, title: str) -> "SpreadsheetBuilder":
         self._spreadsheet.title = title

@@ -23,7 +23,7 @@ class LeaveGrantingRecord(object):
         "updated_by": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.leave_type_id: Optional[str] = None
@@ -45,8 +45,8 @@ class LeaveGrantingRecord(object):
 
 
 class LeaveGrantingRecordBuilder(object):
-    def __init__(self, leave_granting_record: LeaveGrantingRecord = LeaveGrantingRecord({})) -> None:
-        self._leave_granting_record: LeaveGrantingRecord = leave_granting_record
+    def __init__(self) -> None:
+        self._leave_granting_record = LeaveGrantingRecord()
 
     def id(self, id: str) -> "LeaveGrantingRecordBuilder":
         self._leave_granting_record.id = id

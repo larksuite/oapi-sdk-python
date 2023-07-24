@@ -12,7 +12,7 @@ class MetaRequest(object):
         "with_url": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.request_docs: Optional[List[RequestDoc]] = None
         self.with_url: Optional[bool] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class MetaRequest(object):
 
 
 class MetaRequestBuilder(object):
-    def __init__(self, meta_request: MetaRequest = MetaRequest({})) -> None:
-        self._meta_request: MetaRequest = meta_request
+    def __init__(self) -> None:
+        self._meta_request = MetaRequest()
 
     def request_docs(self, request_docs: List[RequestDoc]) -> "MetaRequestBuilder":
         self._meta_request.request_docs = request_docs

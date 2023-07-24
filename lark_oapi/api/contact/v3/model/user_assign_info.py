@@ -16,7 +16,7 @@ class UserAssignInfo(object):
         "end_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subscription_id: Optional[int] = None
         self.license_plan_key: Optional[str] = None
         self.product_name: Optional[str] = None
@@ -31,8 +31,8 @@ class UserAssignInfo(object):
 
 
 class UserAssignInfoBuilder(object):
-    def __init__(self, user_assign_info: UserAssignInfo = UserAssignInfo({})) -> None:
-        self._user_assign_info: UserAssignInfo = user_assign_info
+    def __init__(self) -> None:
+        self._user_assign_info = UserAssignInfo()
 
     def subscription_id(self, subscription_id: int) -> "UserAssignInfoBuilder":
         self._user_assign_info.subscription_id = subscription_id

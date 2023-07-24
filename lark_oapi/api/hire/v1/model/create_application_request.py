@@ -19,7 +19,8 @@ class CreateApplicationRequest(BaseRequest):
 
 class CreateApplicationRequestBuilder(object):
 
-    def __init__(self, create_application_request: CreateApplicationRequest = CreateApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        create_application_request = CreateApplicationRequest()
         create_application_request.http_method = HttpMethod.POST
         create_application_request.uri = "/open-apis/hire/v1/applications"
         create_application_request.token_types = {AccessTokenType.TENANT}

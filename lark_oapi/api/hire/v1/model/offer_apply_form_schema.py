@@ -12,7 +12,7 @@ class OfferApplyFormSchema(object):
         "module_list": List[OfferApplyFormModuleInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.module_list: Optional[List[OfferApplyFormModuleInfo]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class OfferApplyFormSchema(object):
 
 
 class OfferApplyFormSchemaBuilder(object):
-    def __init__(self, offer_apply_form_schema: OfferApplyFormSchema = OfferApplyFormSchema({})) -> None:
-        self._offer_apply_form_schema: OfferApplyFormSchema = offer_apply_form_schema
+    def __init__(self) -> None:
+        self._offer_apply_form_schema = OfferApplyFormSchema()
 
     def id(self, id: str) -> "OfferApplyFormSchemaBuilder":
         self._offer_apply_form_schema.id = id

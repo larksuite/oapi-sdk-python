@@ -2,23 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.drive.v1.model.auth_permission_member_request import AuthPermissionMemberRequest
-from lark_oapi.api.drive.v1.model.auth_permission_member_response import AuthPermissionMemberResponse
-from lark_oapi.api.drive.v1.model.create_permission_member_request import CreatePermissionMemberRequest
-from lark_oapi.api.drive.v1.model.create_permission_member_response import CreatePermissionMemberResponse
-from lark_oapi.api.drive.v1.model.delete_permission_member_request import DeletePermissionMemberRequest
-from lark_oapi.api.drive.v1.model.delete_permission_member_response import DeletePermissionMemberResponse
-from lark_oapi.api.drive.v1.model.list_permission_member_request import ListPermissionMemberRequest
-from lark_oapi.api.drive.v1.model.list_permission_member_response import ListPermissionMemberResponse
-from lark_oapi.api.drive.v1.model.transfer_owner_permission_member_request import TransferOwnerPermissionMemberRequest
-from lark_oapi.api.drive.v1.model.transfer_owner_permission_member_response import TransferOwnerPermissionMemberResponse
-from lark_oapi.api.drive.v1.model.update_permission_member_request import UpdatePermissionMemberRequest
-from lark_oapi.api.drive.v1.model.update_permission_member_response import UpdatePermissionMemberResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.auth_permission_member_request import AuthPermissionMemberRequest
+from ..model.auth_permission_member_response import AuthPermissionMemberResponse
+from ..model.create_permission_member_request import CreatePermissionMemberRequest
+from ..model.create_permission_member_response import CreatePermissionMemberResponse
+from ..model.delete_permission_member_request import DeletePermissionMemberRequest
+from ..model.delete_permission_member_response import DeletePermissionMemberResponse
+from ..model.list_permission_member_request import ListPermissionMemberRequest
+from ..model.list_permission_member_response import ListPermissionMemberResponse
+from ..model.transfer_owner_permission_member_request import TransferOwnerPermissionMemberRequest
+from ..model.transfer_owner_permission_member_response import TransferOwnerPermissionMemberResponse
+from ..model.update_permission_member_request import UpdatePermissionMemberRequest
+from ..model.update_permission_member_response import UpdatePermissionMemberResponse
 
 
 class PermissionMember(object):
@@ -26,7 +26,10 @@ class PermissionMember(object):
         self.config: Optional[Config] = config
 
     def auth(self, request: AuthPermissionMemberRequest,
-             option: RequestOption = RequestOption()) -> AuthPermissionMemberResponse:
+             option: Optional[RequestOption] = None) -> AuthPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -40,7 +43,10 @@ class PermissionMember(object):
         return response
 
     def create(self, request: CreatePermissionMemberRequest,
-               option: RequestOption = RequestOption()) -> CreatePermissionMemberResponse:
+               option: Optional[RequestOption] = None) -> CreatePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -55,7 +61,10 @@ class PermissionMember(object):
         return response
 
     def delete(self, request: DeletePermissionMemberRequest,
-               option: RequestOption = RequestOption()) -> DeletePermissionMemberResponse:
+               option: Optional[RequestOption] = None) -> DeletePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -70,7 +79,10 @@ class PermissionMember(object):
         return response
 
     def list(self, request: ListPermissionMemberRequest,
-             option: RequestOption = RequestOption()) -> ListPermissionMemberResponse:
+             option: Optional[RequestOption] = None) -> ListPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -84,7 +96,10 @@ class PermissionMember(object):
         return response
 
     def transfer_owner(self, request: TransferOwnerPermissionMemberRequest,
-                       option: RequestOption = RequestOption()) -> TransferOwnerPermissionMemberResponse:
+                       option: Optional[RequestOption] = None) -> TransferOwnerPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -99,7 +114,10 @@ class PermissionMember(object):
         return response
 
     def update(self, request: UpdatePermissionMemberRequest,
-               option: RequestOption = RequestOption()) -> UpdatePermissionMemberResponse:
+               option: Optional[RequestOption] = None) -> UpdatePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

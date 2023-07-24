@@ -38,7 +38,7 @@ class PortalJobPost(object):
         "address_list": List[CommonAddress],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.title: Optional[str] = None
         self.job_id: Optional[str] = None
@@ -73,8 +73,8 @@ class PortalJobPost(object):
 
 
 class PortalJobPostBuilder(object):
-    def __init__(self, portal_job_post: PortalJobPost = PortalJobPost({})) -> None:
-        self._portal_job_post: PortalJobPost = portal_job_post
+    def __init__(self) -> None:
+        self._portal_job_post = PortalJobPost()
 
     def id(self, id: str) -> "PortalJobPostBuilder":
         self._portal_job_post.id = id

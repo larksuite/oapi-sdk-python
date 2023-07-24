@@ -11,7 +11,7 @@ class DeleteAppTableRecordResponseBody(object):
         "record_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.deleted: Optional[bool] = None
         self.record_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class DeleteAppTableRecordResponseBody(object):
 
 
 class DeleteAppTableRecordResponseBodyBuilder(object):
-    def __init__(self,
-                 delete_app_table_record_response_body: DeleteAppTableRecordResponseBody = DeleteAppTableRecordResponseBody(
-                     {})) -> None:
-        self._delete_app_table_record_response_body: DeleteAppTableRecordResponseBody = delete_app_table_record_response_body
+    def __init__(self) -> None:
+        self._delete_app_table_record_response_body = DeleteAppTableRecordResponseBody()
 
     def deleted(self, deleted: bool) -> "DeleteAppTableRecordResponseBodyBuilder":
         self._delete_app_table_record_response_body.deleted = deleted

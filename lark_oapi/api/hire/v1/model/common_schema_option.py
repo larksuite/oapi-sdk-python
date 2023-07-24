@@ -14,7 +14,7 @@ class CommonSchemaOption(object):
         "active_status": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
@@ -27,8 +27,8 @@ class CommonSchemaOption(object):
 
 
 class CommonSchemaOptionBuilder(object):
-    def __init__(self, common_schema_option: CommonSchemaOption = CommonSchemaOption({})) -> None:
-        self._common_schema_option: CommonSchemaOption = common_schema_option
+    def __init__(self) -> None:
+        self._common_schema_option = CommonSchemaOption()
 
     def key(self, key: str) -> "CommonSchemaOptionBuilder":
         self._common_schema_option.key = key

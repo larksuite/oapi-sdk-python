@@ -12,7 +12,7 @@ class GetPublicMailboxMemberResponseBody(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.member_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.type: Optional[str] = None
@@ -24,10 +24,8 @@ class GetPublicMailboxMemberResponseBody(object):
 
 
 class GetPublicMailboxMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 get_public_mailbox_member_response_body: GetPublicMailboxMemberResponseBody = GetPublicMailboxMemberResponseBody(
-                     {})) -> None:
-        self._get_public_mailbox_member_response_body: GetPublicMailboxMemberResponseBody = get_public_mailbox_member_response_body
+    def __init__(self) -> None:
+        self._get_public_mailbox_member_response_body = GetPublicMailboxMemberResponseBody()
 
     def member_id(self, member_id: str) -> "GetPublicMailboxMemberResponseBodyBuilder":
         self._get_public_mailbox_member_response_body.member_id = member_id

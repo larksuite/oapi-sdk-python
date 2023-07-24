@@ -21,7 +21,8 @@ class CombinedCreateJobRequest(BaseRequest):
 
 class CombinedCreateJobRequestBuilder(object):
 
-    def __init__(self, combined_create_job_request: CombinedCreateJobRequest = CombinedCreateJobRequest()) -> None:
+    def __init__(self) -> None:
+        combined_create_job_request = CombinedCreateJobRequest()
         combined_create_job_request.http_method = HttpMethod.POST
         combined_create_job_request.uri = "/open-apis/hire/v1/jobs/combined_create"
         combined_create_job_request.token_types = {AccessTokenType.TENANT}

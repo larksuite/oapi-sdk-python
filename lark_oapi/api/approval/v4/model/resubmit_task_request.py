@@ -20,7 +20,8 @@ class ResubmitTaskRequest(BaseRequest):
 
 class ResubmitTaskRequestBuilder(object):
 
-    def __init__(self, resubmit_task_request: ResubmitTaskRequest = ResubmitTaskRequest()) -> None:
+    def __init__(self) -> None:
+        resubmit_task_request = ResubmitTaskRequest()
         resubmit_task_request.http_method = HttpMethod.POST
         resubmit_task_request.uri = "/open-apis/approval/v4/tasks/resubmit"
         resubmit_task_request.token_types = {AccessTokenType.TENANT}

@@ -13,7 +13,7 @@ class ListResumeSourceResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[ResumeSource]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,9 +25,8 @@ class ListResumeSourceResponseBody(object):
 
 
 class ListResumeSourceResponseBodyBuilder(object):
-    def __init__(self, list_resume_source_response_body: ListResumeSourceResponseBody = ListResumeSourceResponseBody(
-        {})) -> None:
-        self._list_resume_source_response_body: ListResumeSourceResponseBody = list_resume_source_response_body
+    def __init__(self) -> None:
+        self._list_resume_source_response_body = ListResumeSourceResponseBody()
 
     def items(self, items: List[ResumeSource]) -> "ListResumeSourceResponseBodyBuilder":
         self._list_resume_source_response_body.items = items

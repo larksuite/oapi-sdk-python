@@ -11,7 +11,7 @@ class CreateFileSubscriptionResponseBody(object):
         "subscription": FileSubscription,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subscription: Optional[FileSubscription] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateFileSubscriptionResponseBody(object):
 
 
 class CreateFileSubscriptionResponseBodyBuilder(object):
-    def __init__(self,
-                 create_file_subscription_response_body: CreateFileSubscriptionResponseBody = CreateFileSubscriptionResponseBody(
-                     {})) -> None:
-        self._create_file_subscription_response_body: CreateFileSubscriptionResponseBody = create_file_subscription_response_body
+    def __init__(self) -> None:
+        self._create_file_subscription_response_body = CreateFileSubscriptionResponseBody()
 
     def subscription(self, subscription: FileSubscription) -> "CreateFileSubscriptionResponseBodyBuilder":
         self._create_file_subscription_response_body.subscription = subscription

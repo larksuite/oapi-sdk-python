@@ -13,7 +13,7 @@ class ApplicationPrehireOptional(object):
         "with_offer": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.with_talent_basic: Optional[bool] = None
         self.with_talent_extend: Optional[bool] = None
         self.with_job: Optional[bool] = None
@@ -26,9 +26,8 @@ class ApplicationPrehireOptional(object):
 
 
 class ApplicationPrehireOptionalBuilder(object):
-    def __init__(self,
-                 application_prehire_optional: ApplicationPrehireOptional = ApplicationPrehireOptional({})) -> None:
-        self._application_prehire_optional: ApplicationPrehireOptional = application_prehire_optional
+    def __init__(self) -> None:
+        self._application_prehire_optional = ApplicationPrehireOptional()
 
     def with_talent_basic(self, with_talent_basic: bool) -> "ApplicationPrehireOptionalBuilder":
         self._application_prehire_optional.with_talent_basic = with_talent_basic

@@ -19,7 +19,8 @@ class CreateMailgroupRequest(BaseRequest):
 
 class CreateMailgroupRequestBuilder(object):
 
-    def __init__(self, create_mailgroup_request: CreateMailgroupRequest = CreateMailgroupRequest()) -> None:
+    def __init__(self) -> None:
+        create_mailgroup_request = CreateMailgroupRequest()
         create_mailgroup_request.http_method = HttpMethod.POST
         create_mailgroup_request.uri = "/open-apis/mail/v1/mailgroups"
         create_mailgroup_request.token_types = {AccessTokenType.TENANT}

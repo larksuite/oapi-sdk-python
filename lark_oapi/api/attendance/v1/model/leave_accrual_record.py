@@ -23,7 +23,7 @@ class LeaveAccrualRecord(object):
         "updated_by": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.leave_type_id: Optional[str] = None
@@ -45,8 +45,8 @@ class LeaveAccrualRecord(object):
 
 
 class LeaveAccrualRecordBuilder(object):
-    def __init__(self, leave_accrual_record: LeaveAccrualRecord = LeaveAccrualRecord({})) -> None:
-        self._leave_accrual_record: LeaveAccrualRecord = leave_accrual_record
+    def __init__(self) -> None:
+        self._leave_accrual_record = LeaveAccrualRecord()
 
     def id(self, id: str) -> "LeaveAccrualRecordBuilder":
         self._leave_accrual_record.id = id

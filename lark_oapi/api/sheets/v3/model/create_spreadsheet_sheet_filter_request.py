@@ -21,8 +21,8 @@ class CreateSpreadsheetSheetFilterRequest(BaseRequest):
 
 class CreateSpreadsheetSheetFilterRequestBuilder(object):
 
-    def __init__(self,
-                 create_spreadsheet_sheet_filter_request: CreateSpreadsheetSheetFilterRequest = CreateSpreadsheetSheetFilterRequest()) -> None:
+    def __init__(self) -> None:
+        create_spreadsheet_sheet_filter_request = CreateSpreadsheetSheetFilterRequest()
         create_spreadsheet_sheet_filter_request.http_method = HttpMethod.POST
         create_spreadsheet_sheet_filter_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
         create_spreadsheet_sheet_filter_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

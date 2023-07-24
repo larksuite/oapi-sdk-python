@@ -11,7 +11,7 @@ class ProcessApprovalInfoResponseBody(object):
         "approval_info": ApprovalInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_info: Optional[ApprovalInfo] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class ProcessApprovalInfoResponseBody(object):
 
 
 class ProcessApprovalInfoResponseBodyBuilder(object):
-    def __init__(self,
-                 process_approval_info_response_body: ProcessApprovalInfoResponseBody = ProcessApprovalInfoResponseBody(
-                     {})) -> None:
-        self._process_approval_info_response_body: ProcessApprovalInfoResponseBody = process_approval_info_response_body
+    def __init__(self) -> None:
+        self._process_approval_info_response_body = ProcessApprovalInfoResponseBody()
 
     def approval_info(self, approval_info: ApprovalInfo) -> "ProcessApprovalInfoResponseBodyBuilder":
         self._process_approval_info_response_body.approval_info = approval_info

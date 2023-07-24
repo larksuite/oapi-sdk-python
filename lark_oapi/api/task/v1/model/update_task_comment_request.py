@@ -22,7 +22,8 @@ class UpdateTaskCommentRequest(BaseRequest):
 
 class UpdateTaskCommentRequestBuilder(object):
 
-    def __init__(self, update_task_comment_request: UpdateTaskCommentRequest = UpdateTaskCommentRequest()) -> None:
+    def __init__(self) -> None:
+        update_task_comment_request = UpdateTaskCommentRequest()
         update_task_comment_request.http_method = HttpMethod.PUT
         update_task_comment_request.uri = "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
         update_task_comment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

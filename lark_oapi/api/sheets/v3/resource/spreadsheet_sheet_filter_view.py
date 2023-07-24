@@ -2,30 +2,21 @@
 
 from typing import *
 
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_filter_view_request import \
-    CreateSpreadsheetSheetFilterViewRequest
-from lark_oapi.api.sheets.v3.model.create_spreadsheet_sheet_filter_view_response import \
-    CreateSpreadsheetSheetFilterViewResponse
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_filter_view_request import \
-    DeleteSpreadsheetSheetFilterViewRequest
-from lark_oapi.api.sheets.v3.model.delete_spreadsheet_sheet_filter_view_response import \
-    DeleteSpreadsheetSheetFilterViewResponse
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_filter_view_request import GetSpreadsheetSheetFilterViewRequest
-from lark_oapi.api.sheets.v3.model.get_spreadsheet_sheet_filter_view_response import \
-    GetSpreadsheetSheetFilterViewResponse
-from lark_oapi.api.sheets.v3.model.patch_spreadsheet_sheet_filter_view_request import \
-    PatchSpreadsheetSheetFilterViewRequest
-from lark_oapi.api.sheets.v3.model.patch_spreadsheet_sheet_filter_view_response import \
-    PatchSpreadsheetSheetFilterViewResponse
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_filter_view_request import \
-    QuerySpreadsheetSheetFilterViewRequest
-from lark_oapi.api.sheets.v3.model.query_spreadsheet_sheet_filter_view_response import \
-    QuerySpreadsheetSheetFilterViewResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_spreadsheet_sheet_filter_view_request import CreateSpreadsheetSheetFilterViewRequest
+from ..model.create_spreadsheet_sheet_filter_view_response import CreateSpreadsheetSheetFilterViewResponse
+from ..model.delete_spreadsheet_sheet_filter_view_request import DeleteSpreadsheetSheetFilterViewRequest
+from ..model.delete_spreadsheet_sheet_filter_view_response import DeleteSpreadsheetSheetFilterViewResponse
+from ..model.get_spreadsheet_sheet_filter_view_request import GetSpreadsheetSheetFilterViewRequest
+from ..model.get_spreadsheet_sheet_filter_view_response import GetSpreadsheetSheetFilterViewResponse
+from ..model.patch_spreadsheet_sheet_filter_view_request import PatchSpreadsheetSheetFilterViewRequest
+from ..model.patch_spreadsheet_sheet_filter_view_response import PatchSpreadsheetSheetFilterViewResponse
+from ..model.query_spreadsheet_sheet_filter_view_request import QuerySpreadsheetSheetFilterViewRequest
+from ..model.query_spreadsheet_sheet_filter_view_response import QuerySpreadsheetSheetFilterViewResponse
 
 
 class SpreadsheetSheetFilterView(object):
@@ -33,7 +24,10 @@ class SpreadsheetSheetFilterView(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateSpreadsheetSheetFilterViewRequest,
-               option: RequestOption = RequestOption()) -> CreateSpreadsheetSheetFilterViewResponse:
+               option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -48,7 +42,10 @@ class SpreadsheetSheetFilterView(object):
         return response
 
     def delete(self, request: DeleteSpreadsheetSheetFilterViewRequest,
-               option: RequestOption = RequestOption()) -> DeleteSpreadsheetSheetFilterViewResponse:
+               option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -63,7 +60,10 @@ class SpreadsheetSheetFilterView(object):
         return response
 
     def get(self, request: GetSpreadsheetSheetFilterViewRequest,
-            option: RequestOption = RequestOption()) -> GetSpreadsheetSheetFilterViewResponse:
+            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -78,7 +78,10 @@ class SpreadsheetSheetFilterView(object):
         return response
 
     def patch(self, request: PatchSpreadsheetSheetFilterViewRequest,
-              option: RequestOption = RequestOption()) -> PatchSpreadsheetSheetFilterViewResponse:
+              option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFilterViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -93,7 +96,10 @@ class SpreadsheetSheetFilterView(object):
         return response
 
     def query(self, request: QuerySpreadsheetSheetFilterViewRequest,
-              option: RequestOption = RequestOption()) -> QuerySpreadsheetSheetFilterViewResponse:
+              option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFilterViewResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

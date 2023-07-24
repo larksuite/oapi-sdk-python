@@ -11,7 +11,7 @@ class BatchQueryFileCommentResponseBody(object):
         "items": List[FileComment],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[FileComment]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class BatchQueryFileCommentResponseBody(object):
 
 
 class BatchQueryFileCommentResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_query_file_comment_response_body: BatchQueryFileCommentResponseBody = BatchQueryFileCommentResponseBody(
-                     {})) -> None:
-        self._batch_query_file_comment_response_body: BatchQueryFileCommentResponseBody = batch_query_file_comment_response_body
+    def __init__(self) -> None:
+        self._batch_query_file_comment_response_body = BatchQueryFileCommentResponseBody()
 
     def items(self, items: List[FileComment]) -> "BatchQueryFileCommentResponseBodyBuilder":
         self._batch_query_file_comment_response_body.items = items

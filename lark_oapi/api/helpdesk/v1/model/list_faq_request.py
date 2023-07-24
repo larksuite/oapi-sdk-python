@@ -22,7 +22,8 @@ class ListFaqRequest(BaseRequest):
 
 class ListFaqRequestBuilder(object):
 
-    def __init__(self, list_faq_request: ListFaqRequest = ListFaqRequest()) -> None:
+    def __init__(self) -> None:
+        list_faq_request = ListFaqRequest()
         list_faq_request.http_method = HttpMethod.GET
         list_faq_request.uri = "/open-apis/helpdesk/v1/faqs"
         list_faq_request.token_types = {AccessTokenType.TENANT}

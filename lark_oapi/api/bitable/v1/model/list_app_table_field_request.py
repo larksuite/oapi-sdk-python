@@ -23,7 +23,8 @@ class ListAppTableFieldRequest(BaseRequest):
 
 class ListAppTableFieldRequestBuilder(object):
 
-    def __init__(self, list_app_table_field_request: ListAppTableFieldRequest = ListAppTableFieldRequest()) -> None:
+    def __init__(self) -> None:
+        list_app_table_field_request = ListAppTableFieldRequest()
         list_app_table_field_request.http_method = HttpMethod.GET
         list_app_table_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
         list_app_table_field_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

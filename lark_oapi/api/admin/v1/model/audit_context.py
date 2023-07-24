@@ -18,7 +18,7 @@ class AuditContext(object):
         "android_context": AuditAndroidContext,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.terminal_type: Optional[int] = None
         self.ios_context: Optional[AuditIosContext] = None
         self.pc_context: Optional[AuditPcContext] = None
@@ -32,8 +32,8 @@ class AuditContext(object):
 
 
 class AuditContextBuilder(object):
-    def __init__(self, audit_context: AuditContext = AuditContext({})) -> None:
-        self._audit_context: AuditContext = audit_context
+    def __init__(self) -> None:
+        self._audit_context = AuditContext()
 
     def terminal_type(self, terminal_type: int) -> "AuditContextBuilder":
         self._audit_context.terminal_type = terminal_type

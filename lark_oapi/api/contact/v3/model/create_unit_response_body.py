@@ -10,7 +10,7 @@ class CreateUnitResponseBody(object):
         "unit_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.unit_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class CreateUnitResponseBody(object):
 
 
 class CreateUnitResponseBodyBuilder(object):
-    def __init__(self, create_unit_response_body: CreateUnitResponseBody = CreateUnitResponseBody({})) -> None:
-        self._create_unit_response_body: CreateUnitResponseBody = create_unit_response_body
+    def __init__(self) -> None:
+        self._create_unit_response_body = CreateUnitResponseBody()
 
     def unit_id(self, unit_id: str) -> "CreateUnitResponseBodyBuilder":
         self._create_unit_response_body.unit_id = unit_id

@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.im.v1.model.get_chat_announcement_request import GetChatAnnouncementRequest
-from lark_oapi.api.im.v1.model.get_chat_announcement_response import GetChatAnnouncementResponse
-from lark_oapi.api.im.v1.model.patch_chat_announcement_request import PatchChatAnnouncementRequest
-from lark_oapi.api.im.v1.model.patch_chat_announcement_response import PatchChatAnnouncementResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_chat_announcement_request import GetChatAnnouncementRequest
+from ..model.get_chat_announcement_response import GetChatAnnouncementResponse
+from ..model.patch_chat_announcement_request import PatchChatAnnouncementRequest
+from ..model.patch_chat_announcement_response import PatchChatAnnouncementResponse
 
 
 class ChatAnnouncement(object):
@@ -18,7 +18,10 @@ class ChatAnnouncement(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetChatAnnouncementRequest,
-            option: RequestOption = RequestOption()) -> GetChatAnnouncementResponse:
+            option: Optional[RequestOption] = None) -> GetChatAnnouncementResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class ChatAnnouncement(object):
         return response
 
     def patch(self, request: PatchChatAnnouncementRequest,
-              option: RequestOption = RequestOption()) -> PatchChatAnnouncementResponse:
+              option: Optional[RequestOption] = None) -> PatchChatAnnouncementResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

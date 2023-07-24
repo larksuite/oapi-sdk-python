@@ -19,7 +19,8 @@ class GetTalentRequest(BaseRequest):
 
 class GetTalentRequestBuilder(object):
 
-    def __init__(self, get_talent_request: GetTalentRequest = GetTalentRequest()) -> None:
+    def __init__(self) -> None:
+        get_talent_request = GetTalentRequest()
         get_talent_request.http_method = HttpMethod.GET
         get_talent_request.uri = "/open-apis/hire/v1/talents/:talent_id"
         get_talent_request.token_types = {AccessTokenType.TENANT}

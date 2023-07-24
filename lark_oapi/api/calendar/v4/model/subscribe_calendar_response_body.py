@@ -11,7 +11,7 @@ class SubscribeCalendarResponseBody(object):
         "calendar": Calendar,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.calendar: Optional[Calendar] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class SubscribeCalendarResponseBody(object):
 
 
 class SubscribeCalendarResponseBodyBuilder(object):
-    def __init__(self, subscribe_calendar_response_body: SubscribeCalendarResponseBody = SubscribeCalendarResponseBody(
-        {})) -> None:
-        self._subscribe_calendar_response_body: SubscribeCalendarResponseBody = subscribe_calendar_response_body
+    def __init__(self) -> None:
+        self._subscribe_calendar_response_body = SubscribeCalendarResponseBody()
 
     def calendar(self, calendar: Calendar) -> "SubscribeCalendarResponseBodyBuilder":
         self._subscribe_calendar_response_body.calendar = calendar

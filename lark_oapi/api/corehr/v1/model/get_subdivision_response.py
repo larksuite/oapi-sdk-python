@@ -12,7 +12,7 @@ class GetSubdivisionResponse(BaseResponse):
         "data": GetSubdivisionResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetSubdivisionResponseBody] = None
         init(self, d, self._types)

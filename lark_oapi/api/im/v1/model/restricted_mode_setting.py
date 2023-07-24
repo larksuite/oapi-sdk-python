@@ -13,7 +13,7 @@ class RestrictedModeSetting(object):
         "message_has_permission_setting": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.status: Optional[bool] = None
         self.screenshot_has_permission_setting: Optional[str] = None
         self.download_has_permission_setting: Optional[str] = None
@@ -26,8 +26,8 @@ class RestrictedModeSetting(object):
 
 
 class RestrictedModeSettingBuilder(object):
-    def __init__(self, restricted_mode_setting: RestrictedModeSetting = RestrictedModeSetting({})) -> None:
-        self._restricted_mode_setting: RestrictedModeSetting = restricted_mode_setting
+    def __init__(self) -> None:
+        self._restricted_mode_setting = RestrictedModeSetting()
 
     def status(self, status: bool) -> "RestrictedModeSettingBuilder":
         self._restricted_mode_setting.status = status

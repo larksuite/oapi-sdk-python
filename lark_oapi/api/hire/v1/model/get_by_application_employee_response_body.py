@@ -11,7 +11,7 @@ class GetByApplicationEmployeeResponseBody(object):
         "employee": Employee,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employee: Optional[Employee] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetByApplicationEmployeeResponseBody(object):
 
 
 class GetByApplicationEmployeeResponseBodyBuilder(object):
-    def __init__(self,
-                 get_by_application_employee_response_body: GetByApplicationEmployeeResponseBody = GetByApplicationEmployeeResponseBody(
-                     {})) -> None:
-        self._get_by_application_employee_response_body: GetByApplicationEmployeeResponseBody = get_by_application_employee_response_body
+    def __init__(self) -> None:
+        self._get_by_application_employee_response_body = GetByApplicationEmployeeResponseBody()
 
     def employee(self, employee: Employee) -> "GetByApplicationEmployeeResponseBodyBuilder":
         self._get_by_application_employee_response_body.employee = employee

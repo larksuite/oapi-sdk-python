@@ -11,7 +11,7 @@ class GetSpreadsheetResponseBody(object):
         "spreadsheet": GetSpreadsheet,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.spreadsheet: Optional[GetSpreadsheet] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetSpreadsheetResponseBody(object):
 
 
 class GetSpreadsheetResponseBodyBuilder(object):
-    def __init__(self,
-                 get_spreadsheet_response_body: GetSpreadsheetResponseBody = GetSpreadsheetResponseBody({})) -> None:
-        self._get_spreadsheet_response_body: GetSpreadsheetResponseBody = get_spreadsheet_response_body
+    def __init__(self) -> None:
+        self._get_spreadsheet_response_body = GetSpreadsheetResponseBody()
 
     def spreadsheet(self, spreadsheet: GetSpreadsheet) -> "GetSpreadsheetResponseBodyBuilder":
         self._get_spreadsheet_response_body.spreadsheet = spreadsheet

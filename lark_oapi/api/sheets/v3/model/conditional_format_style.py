@@ -15,7 +15,7 @@ class ConditionalFormatStyle(object):
         "strikethrough": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.background_color: Optional[str] = None
         self.foreground_color: Optional[str] = None
         self.underline: Optional[bool] = None
@@ -30,8 +30,8 @@ class ConditionalFormatStyle(object):
 
 
 class ConditionalFormatStyleBuilder(object):
-    def __init__(self, conditional_format_style: ConditionalFormatStyle = ConditionalFormatStyle({})) -> None:
-        self._conditional_format_style: ConditionalFormatStyle = conditional_format_style
+    def __init__(self) -> None:
+        self._conditional_format_style = ConditionalFormatStyle()
 
     def background_color(self, background_color: str) -> "ConditionalFormatStyleBuilder":
         self._conditional_format_style.background_color = background_color

@@ -21,7 +21,8 @@ class PatchJobLevelRequest(BaseRequest):
 
 class PatchJobLevelRequestBuilder(object):
 
-    def __init__(self, patch_job_level_request: PatchJobLevelRequest = PatchJobLevelRequest()) -> None:
+    def __init__(self) -> None:
+        patch_job_level_request = PatchJobLevelRequest()
         patch_job_level_request.http_method = HttpMethod.PATCH
         patch_job_level_request.uri = "/open-apis/corehr/v1/job_levels/:job_level_id"
         patch_job_level_request.token_types = {AccessTokenType.TENANT}

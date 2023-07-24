@@ -16,7 +16,7 @@ class OfferApprovalTemplate(object):
         "department_list": List[Department],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.create_time: Optional[str] = None
@@ -30,8 +30,8 @@ class OfferApprovalTemplate(object):
 
 
 class OfferApprovalTemplateBuilder(object):
-    def __init__(self, offer_approval_template: OfferApprovalTemplate = OfferApprovalTemplate({})) -> None:
-        self._offer_approval_template: OfferApprovalTemplate = offer_approval_template
+    def __init__(self) -> None:
+        self._offer_approval_template = OfferApprovalTemplate()
 
     def id(self, id: str) -> "OfferApprovalTemplateBuilder":
         self._offer_approval_template.id = id

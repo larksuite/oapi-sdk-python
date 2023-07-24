@@ -16,7 +16,7 @@ class UploadAllFileRequestBody(object):
         "file": IO[Any],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file_name: Optional[str] = None
         self.parent_type: Optional[str] = None
         self.parent_node: Optional[str] = None
@@ -31,8 +31,8 @@ class UploadAllFileRequestBody(object):
 
 
 class UploadAllFileRequestBodyBuilder(object):
-    def __init__(self, upload_all_file_request_body: UploadAllFileRequestBody = UploadAllFileRequestBody({})) -> None:
-        self._upload_all_file_request_body: UploadAllFileRequestBody = upload_all_file_request_body
+    def __init__(self) -> None:
+        self._upload_all_file_request_body = UploadAllFileRequestBody()
 
     def file_name(self, file_name: str) -> "UploadAllFileRequestBodyBuilder":
         self._upload_all_file_request_body.file_name = file_name

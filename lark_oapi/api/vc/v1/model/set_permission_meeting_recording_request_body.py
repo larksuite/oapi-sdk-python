@@ -12,7 +12,7 @@ class SetPermissionMeetingRecordingRequestBody(object):
         "action_type": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission_objects: Optional[List[RecordingPermissionObject]] = None
         self.action_type: Optional[int] = None
         init(self, d, self._types)
@@ -23,10 +23,8 @@ class SetPermissionMeetingRecordingRequestBody(object):
 
 
 class SetPermissionMeetingRecordingRequestBodyBuilder(object):
-    def __init__(self,
-                 set_permission_meeting_recording_request_body: SetPermissionMeetingRecordingRequestBody = SetPermissionMeetingRecordingRequestBody(
-                     {})) -> None:
-        self._set_permission_meeting_recording_request_body: SetPermissionMeetingRecordingRequestBody = set_permission_meeting_recording_request_body
+    def __init__(self) -> None:
+        self._set_permission_meeting_recording_request_body = SetPermissionMeetingRecordingRequestBody()
 
     def permission_objects(self, permission_objects: List[
         RecordingPermissionObject]) -> "SetPermissionMeetingRecordingRequestBodyBuilder":

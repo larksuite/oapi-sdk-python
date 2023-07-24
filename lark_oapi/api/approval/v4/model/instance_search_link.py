@@ -11,7 +11,7 @@ class InstanceSearchLink(object):
         "mobile_link": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pc_link: Optional[str] = None
         self.mobile_link: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class InstanceSearchLink(object):
 
 
 class InstanceSearchLinkBuilder(object):
-    def __init__(self, instance_search_link: InstanceSearchLink = InstanceSearchLink({})) -> None:
-        self._instance_search_link: InstanceSearchLink = instance_search_link
+    def __init__(self) -> None:
+        self._instance_search_link = InstanceSearchLink()
 
     def pc_link(self, pc_link: str) -> "InstanceSearchLinkBuilder":
         self._instance_search_link.pc_link = pc_link

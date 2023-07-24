@@ -10,7 +10,7 @@ class Link(object):
         "url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.url: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Link(object):
 
 
 class LinkBuilder(object):
-    def __init__(self, link: Link = Link({})) -> None:
-        self._link: Link = link
+    def __init__(self) -> None:
+        self._link = Link()
 
     def url(self, url: str) -> "LinkBuilder":
         self._link.url = url

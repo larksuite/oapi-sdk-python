@@ -21,7 +21,8 @@ class MoveSpaceNodeRequest(BaseRequest):
 
 class MoveSpaceNodeRequestBuilder(object):
 
-    def __init__(self, move_space_node_request: MoveSpaceNodeRequest = MoveSpaceNodeRequest()) -> None:
+    def __init__(self) -> None:
+        move_space_node_request = MoveSpaceNodeRequest()
         move_space_node_request.http_method = HttpMethod.POST
         move_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
         move_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

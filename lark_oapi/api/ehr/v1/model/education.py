@@ -15,7 +15,7 @@ class Education(object):
         "end": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.level: Optional[int] = None
         self.school: Optional[str] = None
         self.major: Optional[str] = None
@@ -30,8 +30,8 @@ class Education(object):
 
 
 class EducationBuilder(object):
-    def __init__(self, education: Education = Education({})) -> None:
-        self._education: Education = education
+    def __init__(self) -> None:
+        self._education = Education()
 
     def level(self, level: int) -> "EducationBuilder":
         self._education.level = level

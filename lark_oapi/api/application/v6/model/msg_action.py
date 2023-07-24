@@ -13,7 +13,7 @@ class MsgAction(object):
         "i18n": List[MsgActionI18nInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.pc_app_link: Optional[str] = None
         self.mobile_app_link: Optional[str] = None
         self.i18n: Optional[List[MsgActionI18nInfo]] = None
@@ -25,8 +25,8 @@ class MsgAction(object):
 
 
 class MsgActionBuilder(object):
-    def __init__(self, msg_action: MsgAction = MsgAction({})) -> None:
-        self._msg_action: MsgAction = msg_action
+    def __init__(self) -> None:
+        self._msg_action = MsgAction()
 
     def pc_app_link(self, pc_app_link: str) -> "MsgActionBuilder":
         self._msg_action.pc_app_link = pc_app_link

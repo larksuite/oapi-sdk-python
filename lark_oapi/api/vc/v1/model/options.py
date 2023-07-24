@@ -12,7 +12,7 @@ class Options(object):
         "is_other": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.text: Optional[str] = None
         self.key: Optional[str] = None
         self.is_other: Optional[bool] = None
@@ -24,8 +24,8 @@ class Options(object):
 
 
 class OptionsBuilder(object):
-    def __init__(self, options: Options = Options({})) -> None:
-        self._options: Options = options
+    def __init__(self) -> None:
+        self._options = Options()
 
     def text(self, text: str) -> "OptionsBuilder":
         self._options.text = text

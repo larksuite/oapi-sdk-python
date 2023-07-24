@@ -14,7 +14,7 @@ class FaqUpdateInfo(object):
         "tags": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.category_id: Optional[str] = None
         self.question: Optional[str] = None
         self.answer: Optional[str] = None
@@ -28,8 +28,8 @@ class FaqUpdateInfo(object):
 
 
 class FaqUpdateInfoBuilder(object):
-    def __init__(self, faq_update_info: FaqUpdateInfo = FaqUpdateInfo({})) -> None:
-        self._faq_update_info: FaqUpdateInfo = faq_update_info
+    def __init__(self) -> None:
+        self._faq_update_info = FaqUpdateInfo()
 
     def category_id(self, category_id: str) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.category_id = category_id

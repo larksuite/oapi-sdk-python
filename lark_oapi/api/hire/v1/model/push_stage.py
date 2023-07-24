@@ -7,7 +7,7 @@ class PushStage(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class PushStage(object):
 
 
 class PushStageBuilder(object):
-    def __init__(self, push_stage: PushStage = PushStage({})) -> None:
-        self._push_stage: PushStage = push_stage
+    def __init__(self) -> None:
+        self._push_stage = PushStage()
 
     def build(self) -> "PushStage":
         return self._push_stage

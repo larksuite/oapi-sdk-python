@@ -10,7 +10,7 @@ class BatchCreateAppTableResponseBody(object):
         "table_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.table_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class BatchCreateAppTableResponseBody(object):
 
 
 class BatchCreateAppTableResponseBodyBuilder(object):
-    def __init__(self,
-                 batch_create_app_table_response_body: BatchCreateAppTableResponseBody = BatchCreateAppTableResponseBody(
-                     {})) -> None:
-        self._batch_create_app_table_response_body: BatchCreateAppTableResponseBody = batch_create_app_table_response_body
+    def __init__(self) -> None:
+        self._batch_create_app_table_response_body = BatchCreateAppTableResponseBody()
 
     def table_ids(self, table_ids: List[str]) -> "BatchCreateAppTableResponseBodyBuilder":
         self._batch_create_app_table_response_body.table_ids = table_ids

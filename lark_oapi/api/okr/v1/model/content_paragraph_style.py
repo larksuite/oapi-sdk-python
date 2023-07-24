@@ -11,7 +11,7 @@ class ContentParagraphStyle(object):
         "list": ContentList,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.list: Optional[ContentList] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ContentParagraphStyle(object):
 
 
 class ContentParagraphStyleBuilder(object):
-    def __init__(self, content_paragraph_style: ContentParagraphStyle = ContentParagraphStyle({})) -> None:
-        self._content_paragraph_style: ContentParagraphStyle = content_paragraph_style
+    def __init__(self) -> None:
+        self._content_paragraph_style = ContentParagraphStyle()
 
     def list(self, list: ContentList) -> "ContentParagraphStyleBuilder":
         self._content_paragraph_style.list = list

@@ -19,7 +19,7 @@ class InstanceTask(object):
         "end_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.open_id: Optional[str] = None
@@ -38,8 +38,8 @@ class InstanceTask(object):
 
 
 class InstanceTaskBuilder(object):
-    def __init__(self, instance_task: InstanceTask = InstanceTask({})) -> None:
-        self._instance_task: InstanceTask = instance_task
+    def __init__(self) -> None:
+        self._instance_task = InstanceTask()
 
     def id(self, id: str) -> "InstanceTaskBuilder":
         self._instance_task.id = id

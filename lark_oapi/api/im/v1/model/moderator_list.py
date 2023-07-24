@@ -12,7 +12,7 @@ class ModeratorList(object):
         "removed_member_list": List[ListEventModerator],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.added_member_list: Optional[List[ListEventModerator]] = None
         self.removed_member_list: Optional[List[ListEventModerator]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class ModeratorList(object):
 
 
 class ModeratorListBuilder(object):
-    def __init__(self, moderator_list: ModeratorList = ModeratorList({})) -> None:
-        self._moderator_list: ModeratorList = moderator_list
+    def __init__(self) -> None:
+        self._moderator_list = ModeratorList()
 
     def added_member_list(self, added_member_list: List[ListEventModerator]) -> "ModeratorListBuilder":
         self._moderator_list.added_member_list = added_member_list

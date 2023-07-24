@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.helpdesk.v1.model.list_agent_skill_rule_request import ListAgentSkillRuleRequest
-from lark_oapi.api.helpdesk.v1.model.list_agent_skill_rule_response import ListAgentSkillRuleResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_agent_skill_rule_request import ListAgentSkillRuleRequest
+from ..model.list_agent_skill_rule_response import ListAgentSkillRuleResponse
 
 
 class AgentSkillRule(object):
@@ -16,7 +16,10 @@ class AgentSkillRule(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListAgentSkillRuleRequest,
-             option: RequestOption = RequestOption()) -> ListAgentSkillRuleResponse:
+             option: Optional[RequestOption] = None) -> ListAgentSkillRuleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

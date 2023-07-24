@@ -11,7 +11,7 @@ class PatchJobResponseBody(object):
         "job": Job,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job: Optional[Job] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchJobResponseBody(object):
 
 
 class PatchJobResponseBodyBuilder(object):
-    def __init__(self, patch_job_response_body: PatchJobResponseBody = PatchJobResponseBody({})) -> None:
-        self._patch_job_response_body: PatchJobResponseBody = patch_job_response_body
+    def __init__(self) -> None:
+        self._patch_job_response_body = PatchJobResponseBody()
 
     def job(self, job: Job) -> "PatchJobResponseBodyBuilder":
         self._patch_job_response_body.job = job

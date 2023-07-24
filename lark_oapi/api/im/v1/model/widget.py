@@ -13,7 +13,7 @@ class Widget(object):
         "widget_url": WidgetUrl,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.widget_id: Optional[int] = None
         self.widget_type: Optional[str] = None
         self.widget_url: Optional[WidgetUrl] = None
@@ -25,8 +25,8 @@ class Widget(object):
 
 
 class WidgetBuilder(object):
-    def __init__(self, widget: Widget = Widget({})) -> None:
-        self._widget: Widget = widget
+    def __init__(self) -> None:
+        self._widget = Widget()
 
     def widget_id(self, widget_id: int) -> "WidgetBuilder":
         self._widget.widget_id = widget_id

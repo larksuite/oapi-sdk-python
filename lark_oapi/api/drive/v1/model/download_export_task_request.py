@@ -18,7 +18,8 @@ class DownloadExportTaskRequest(BaseRequest):
 
 class DownloadExportTaskRequestBuilder(object):
 
-    def __init__(self, download_export_task_request: DownloadExportTaskRequest = DownloadExportTaskRequest()) -> None:
+    def __init__(self) -> None:
+        download_export_task_request = DownloadExportTaskRequest()
         download_export_task_request.http_method = HttpMethod.GET
         download_export_task_request.uri = "/open-apis/drive/v1/export_tasks/file/:file_token/download"
         download_export_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

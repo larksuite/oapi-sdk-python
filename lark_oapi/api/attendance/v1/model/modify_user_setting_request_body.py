@@ -11,7 +11,7 @@ class ModifyUserSettingRequestBody(object):
         "user_setting": UserSetting,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_setting: Optional[UserSetting] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class ModifyUserSettingRequestBody(object):
 
 
 class ModifyUserSettingRequestBodyBuilder(object):
-    def __init__(self, modify_user_setting_request_body: ModifyUserSettingRequestBody = ModifyUserSettingRequestBody(
-        {})) -> None:
-        self._modify_user_setting_request_body: ModifyUserSettingRequestBody = modify_user_setting_request_body
+    def __init__(self) -> None:
+        self._modify_user_setting_request_body = ModifyUserSettingRequestBody()
 
     def user_setting(self, user_setting: UserSetting) -> "ModifyUserSettingRequestBodyBuilder":
         self._modify_user_setting_request_body.user_setting = user_setting

@@ -11,7 +11,7 @@ class DeleteTableColumnsRequest(object):
         "column_end_index": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.column_start_index: Optional[int] = None
         self.column_end_index: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DeleteTableColumnsRequest(object):
 
 
 class DeleteTableColumnsRequestBuilder(object):
-    def __init__(self, delete_table_columns_request: DeleteTableColumnsRequest = DeleteTableColumnsRequest({})) -> None:
-        self._delete_table_columns_request: DeleteTableColumnsRequest = delete_table_columns_request
+    def __init__(self) -> None:
+        self._delete_table_columns_request = DeleteTableColumnsRequest()
 
     def column_start_index(self, column_start_index: int) -> "DeleteTableColumnsRequestBuilder":
         self._delete_table_columns_request.column_start_index = column_start_index

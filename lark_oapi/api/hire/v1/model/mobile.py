@@ -11,7 +11,7 @@ class Mobile(object):
         "number": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.code: Optional[str] = None
         self.number: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Mobile(object):
 
 
 class MobileBuilder(object):
-    def __init__(self, mobile: Mobile = Mobile({})) -> None:
-        self._mobile: Mobile = mobile
+    def __init__(self) -> None:
+        self._mobile = Mobile()
 
     def code(self, code: str) -> "MobileBuilder":
         self._mobile.code = code

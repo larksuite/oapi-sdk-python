@@ -11,7 +11,7 @@ class QueryTransferReasonResponseBody(object):
         "items": List[TransferReason],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[TransferReason]] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QueryTransferReasonResponseBody(object):
 
 
 class QueryTransferReasonResponseBodyBuilder(object):
-    def __init__(self,
-                 query_transfer_reason_response_body: QueryTransferReasonResponseBody = QueryTransferReasonResponseBody(
-                     {})) -> None:
-        self._query_transfer_reason_response_body: QueryTransferReasonResponseBody = query_transfer_reason_response_body
+    def __init__(self) -> None:
+        self._query_transfer_reason_response_body = QueryTransferReasonResponseBody()
 
     def items(self, items: List[TransferReason]) -> "QueryTransferReasonResponseBodyBuilder":
         self._query_transfer_reason_response_body.items = items

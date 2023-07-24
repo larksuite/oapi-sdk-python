@@ -18,7 +18,7 @@ class ParticipantQuality(object):
         "cpu_usage": QualityCpuUsage,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.network: Optional[QualityNetwork] = None
         self.audio: Optional[QualityAudio] = None
         self.video: Optional[QualityVideoSharing] = None
@@ -32,8 +32,8 @@ class ParticipantQuality(object):
 
 
 class ParticipantQualityBuilder(object):
-    def __init__(self, participant_quality: ParticipantQuality = ParticipantQuality({})) -> None:
-        self._participant_quality: ParticipantQuality = participant_quality
+    def __init__(self) -> None:
+        self._participant_quality = ParticipantQuality()
 
     def network(self, network: QualityNetwork) -> "ParticipantQualityBuilder":
         self._participant_quality.network = network

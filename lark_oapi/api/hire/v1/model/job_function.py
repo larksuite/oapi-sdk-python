@@ -14,7 +14,7 @@ class JobFunction(object):
         "parent_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.active_status: Optional[int] = None
@@ -27,8 +27,8 @@ class JobFunction(object):
 
 
 class JobFunctionBuilder(object):
-    def __init__(self, job_function: JobFunction = JobFunction({})) -> None:
-        self._job_function: JobFunction = job_function
+    def __init__(self) -> None:
+        self._job_function = JobFunction()
 
     def id(self, id: str) -> "JobFunctionBuilder":
         self._job_function.id = id

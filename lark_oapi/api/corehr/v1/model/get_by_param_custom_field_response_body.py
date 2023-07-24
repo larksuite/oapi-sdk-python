@@ -11,7 +11,7 @@ class GetByParamCustomFieldResponseBody(object):
         "data": CustomField,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.data: Optional[CustomField] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class GetByParamCustomFieldResponseBody(object):
 
 
 class GetByParamCustomFieldResponseBodyBuilder(object):
-    def __init__(self,
-                 get_by_param_custom_field_response_body: GetByParamCustomFieldResponseBody = GetByParamCustomFieldResponseBody(
-                     {})) -> None:
-        self._get_by_param_custom_field_response_body: GetByParamCustomFieldResponseBody = get_by_param_custom_field_response_body
+    def __init__(self) -> None:
+        self._get_by_param_custom_field_response_body = GetByParamCustomFieldResponseBody()
 
     def data(self, data: CustomField) -> "GetByParamCustomFieldResponseBodyBuilder":
         self._get_by_param_custom_field_response_body.data = data

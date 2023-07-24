@@ -11,7 +11,7 @@ class MoveSpaceNodeRequestBody(object):
         "target_space_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.target_parent_token: Optional[str] = None
         self.target_space_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MoveSpaceNodeRequestBody(object):
 
 
 class MoveSpaceNodeRequestBodyBuilder(object):
-    def __init__(self, move_space_node_request_body: MoveSpaceNodeRequestBody = MoveSpaceNodeRequestBody({})) -> None:
-        self._move_space_node_request_body: MoveSpaceNodeRequestBody = move_space_node_request_body
+    def __init__(self) -> None:
+        self._move_space_node_request_body = MoveSpaceNodeRequestBody()
 
     def target_parent_token(self, target_parent_token: str) -> "MoveSpaceNodeRequestBodyBuilder":
         self._move_space_node_request_body.target_parent_token = target_parent_token

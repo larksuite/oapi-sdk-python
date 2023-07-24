@@ -15,7 +15,7 @@ class DepartmentParentInfo(object):
         "is_root": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.department_name: Optional[List[I18n]] = None
         self.parent_department_id: Optional[str] = None
@@ -29,8 +29,8 @@ class DepartmentParentInfo(object):
 
 
 class DepartmentParentInfoBuilder(object):
-    def __init__(self, department_parent_info: DepartmentParentInfo = DepartmentParentInfo({})) -> None:
-        self._department_parent_info: DepartmentParentInfo = department_parent_info
+    def __init__(self) -> None:
+        self._department_parent_info = DepartmentParentInfo()
 
     def department_id(self, department_id: str) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.department_id = department_id

@@ -18,8 +18,8 @@ class DeleteJobRequirementRequest(BaseRequest):
 
 class DeleteJobRequirementRequestBuilder(object):
 
-    def __init__(self,
-                 delete_job_requirement_request: DeleteJobRequirementRequest = DeleteJobRequirementRequest()) -> None:
+    def __init__(self) -> None:
+        delete_job_requirement_request = DeleteJobRequirementRequest()
         delete_job_requirement_request.http_method = HttpMethod.DELETE
         delete_job_requirement_request.uri = "/open-apis/hire/v1/job_requirements/:job_requirement_id"
         delete_job_requirement_request.token_types = {AccessTokenType.TENANT}

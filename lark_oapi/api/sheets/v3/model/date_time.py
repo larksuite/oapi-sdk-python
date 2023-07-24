@@ -10,7 +10,7 @@ class DateTime(object):
         "date_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date_time: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class DateTime(object):
 
 
 class DateTimeBuilder(object):
-    def __init__(self, date_time: DateTime = DateTime({})) -> None:
-        self._date_time: DateTime = date_time
+    def __init__(self) -> None:
+        self._date_time = DateTime()
 
     def date_time(self, date_time: str) -> "DateTimeBuilder":
         self._date_time.date_time = date_time

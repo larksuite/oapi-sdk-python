@@ -23,8 +23,8 @@ class UpdateAppTableRecordRequest(BaseRequest):
 
 class UpdateAppTableRecordRequestBuilder(object):
 
-    def __init__(self,
-                 update_app_table_record_request: UpdateAppTableRecordRequest = UpdateAppTableRecordRequest()) -> None:
+    def __init__(self) -> None:
+        update_app_table_record_request = UpdateAppTableRecordRequest()
         update_app_table_record_request.http_method = HttpMethod.PUT
         update_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
         update_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

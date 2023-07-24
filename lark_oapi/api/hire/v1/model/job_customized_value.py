@@ -17,7 +17,7 @@ class JobCustomizedValue(object):
         "number": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.option: Optional[JobCustomizedOption] = None
         self.option_list: Optional[List[JobCustomizedOption]] = None
@@ -32,8 +32,8 @@ class JobCustomizedValue(object):
 
 
 class JobCustomizedValueBuilder(object):
-    def __init__(self, job_customized_value: JobCustomizedValue = JobCustomizedValue({})) -> None:
-        self._job_customized_value: JobCustomizedValue = job_customized_value
+    def __init__(self) -> None:
+        self._job_customized_value = JobCustomizedValue()
 
     def content(self, content: str) -> "JobCustomizedValueBuilder":
         self._job_customized_value.content = content

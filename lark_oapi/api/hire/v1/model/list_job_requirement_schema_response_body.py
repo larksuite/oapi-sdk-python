@@ -13,7 +13,7 @@ class ListJobRequirementSchemaResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[JobRequirementSchema]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,10 +25,8 @@ class ListJobRequirementSchemaResponseBody(object):
 
 
 class ListJobRequirementSchemaResponseBodyBuilder(object):
-    def __init__(self,
-                 list_job_requirement_schema_response_body: ListJobRequirementSchemaResponseBody = ListJobRequirementSchemaResponseBody(
-                     {})) -> None:
-        self._list_job_requirement_schema_response_body: ListJobRequirementSchemaResponseBody = list_job_requirement_schema_response_body
+    def __init__(self) -> None:
+        self._list_job_requirement_schema_response_body = ListJobRequirementSchemaResponseBody()
 
     def items(self, items: List[JobRequirementSchema]) -> "ListJobRequirementSchemaResponseBodyBuilder":
         self._list_job_requirement_schema_response_body.items = items

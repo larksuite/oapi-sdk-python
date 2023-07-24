@@ -13,7 +13,7 @@ class CardCallback(object):
         "callback_info": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.message_id: Optional[int] = None
         self.status: Optional[MyaiCardStatus] = None
         self.callback_info: Optional[str] = None
@@ -25,8 +25,8 @@ class CardCallback(object):
 
 
 class CardCallbackBuilder(object):
-    def __init__(self, card_callback: CardCallback = CardCallback({})) -> None:
-        self._card_callback: CardCallback = card_callback
+    def __init__(self) -> None:
+        self._card_callback = CardCallback()
 
     def message_id(self, message_id: int) -> "CardCallbackBuilder":
         self._card_callback.message_id = message_id

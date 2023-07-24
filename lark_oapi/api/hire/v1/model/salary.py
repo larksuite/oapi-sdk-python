@@ -14,7 +14,7 @@ class Salary(object):
         "operator_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.operate_time: Optional[str] = None
         self.salary_status: Optional[int] = None
         self.offer_id: Optional[str] = None
@@ -28,8 +28,8 @@ class Salary(object):
 
 
 class SalaryBuilder(object):
-    def __init__(self, salary: Salary = Salary({})) -> None:
-        self._salary: Salary = salary
+    def __init__(self) -> None:
+        self._salary = Salary()
 
     def operate_time(self, operate_time: str) -> "SalaryBuilder":
         self._salary.operate_time = operate_time

@@ -12,7 +12,7 @@ class ListInstanceResponse(BaseResponse):
         "data": ListInstanceResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListInstanceResponseBody] = None
         init(self, d, self._types)

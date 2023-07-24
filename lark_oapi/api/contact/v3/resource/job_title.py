@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.contact.v3.model.get_job_title_request import GetJobTitleRequest
-from lark_oapi.api.contact.v3.model.get_job_title_response import GetJobTitleResponse
-from lark_oapi.api.contact.v3.model.list_job_title_request import ListJobTitleRequest
-from lark_oapi.api.contact.v3.model.list_job_title_response import ListJobTitleResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_job_title_request import GetJobTitleRequest
+from ..model.get_job_title_response import GetJobTitleResponse
+from ..model.list_job_title_request import ListJobTitleRequest
+from ..model.list_job_title_response import ListJobTitleResponse
 
 
 class JobTitle(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetJobTitleRequest, option: RequestOption = RequestOption()) -> GetJobTitleResponse:
+    def get(self, request: GetJobTitleRequest, option: Optional[RequestOption] = None) -> GetJobTitleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -30,7 +33,10 @@ class JobTitle(object):
 
         return response
 
-    def list(self, request: ListJobTitleRequest, option: RequestOption = RequestOption()) -> ListJobTitleResponse:
+    def list(self, request: ListJobTitleRequest, option: Optional[RequestOption] = None) -> ListJobTitleResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

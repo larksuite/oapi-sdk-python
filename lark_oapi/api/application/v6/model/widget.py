@@ -7,7 +7,7 @@ class Widget(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class Widget(object):
 
 
 class WidgetBuilder(object):
-    def __init__(self, widget: Widget = Widget({})) -> None:
-        self._widget: Widget = widget
+    def __init__(self) -> None:
+        self._widget = Widget()
 
     def build(self) -> "Widget":
         return self._widget

@@ -22,8 +22,8 @@ class CreatePermissionMemberRequest(BaseRequest):
 
 class CreatePermissionMemberRequestBuilder(object):
 
-    def __init__(self,
-                 create_permission_member_request: CreatePermissionMemberRequest = CreatePermissionMemberRequest()) -> None:
+    def __init__(self) -> None:
+        create_permission_member_request = CreatePermissionMemberRequest()
         create_permission_member_request.http_method = HttpMethod.POST
         create_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members"
         create_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

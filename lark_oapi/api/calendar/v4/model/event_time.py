@@ -10,7 +10,7 @@ class EventTime(object):
         "time_stamp": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.time_stamp: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class EventTime(object):
 
 
 class EventTimeBuilder(object):
-    def __init__(self, event_time: EventTime = EventTime({})) -> None:
-        self._event_time: EventTime = event_time
+    def __init__(self) -> None:
+        self._event_time = EventTime()
 
     def time_stamp(self, time_stamp: str) -> "EventTimeBuilder":
         self._event_time.time_stamp = time_stamp

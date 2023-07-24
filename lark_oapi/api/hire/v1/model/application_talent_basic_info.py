@@ -25,7 +25,7 @@ class ApplicationTalentBasicInfo(object):
         "identification_number": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.mobile: Optional[str] = None
         self.mobile_country_code: Optional[str] = None
@@ -48,9 +48,8 @@ class ApplicationTalentBasicInfo(object):
 
 
 class ApplicationTalentBasicInfoBuilder(object):
-    def __init__(self,
-                 application_talent_basic_info: ApplicationTalentBasicInfo = ApplicationTalentBasicInfo({})) -> None:
-        self._application_talent_basic_info: ApplicationTalentBasicInfo = application_talent_basic_info
+    def __init__(self) -> None:
+        self._application_talent_basic_info = ApplicationTalentBasicInfo()
 
     def name(self, name: str) -> "ApplicationTalentBasicInfoBuilder":
         self._application_talent_basic_info.name = name

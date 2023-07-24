@@ -15,7 +15,7 @@ class CreateCalendarEventAttendeeRequestBody(object):
         "add_operator_to_attendee": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.attendees: Optional[List[CalendarEventAttendee]] = None
         self.need_notification: Optional[bool] = None
         self.instance_start_time_admin: Optional[str] = None
@@ -29,10 +29,8 @@ class CreateCalendarEventAttendeeRequestBody(object):
 
 
 class CreateCalendarEventAttendeeRequestBodyBuilder(object):
-    def __init__(self,
-                 create_calendar_event_attendee_request_body: CreateCalendarEventAttendeeRequestBody = CreateCalendarEventAttendeeRequestBody(
-                     {})) -> None:
-        self._create_calendar_event_attendee_request_body: CreateCalendarEventAttendeeRequestBody = create_calendar_event_attendee_request_body
+    def __init__(self) -> None:
+        self._create_calendar_event_attendee_request_body = CreateCalendarEventAttendeeRequestBody()
 
     def attendees(self, attendees: List[CalendarEventAttendee]) -> "CreateCalendarEventAttendeeRequestBodyBuilder":
         self._create_calendar_event_attendee_request_body.attendees = attendees

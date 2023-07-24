@@ -13,7 +13,7 @@ class WebsiteDeliveryCertificate(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.customized_data: Optional[List[WebsiteDeliveryCustomizedData]] = None
         self.desc: Optional[str] = None
         self.name: Optional[str] = None
@@ -25,9 +25,8 @@ class WebsiteDeliveryCertificate(object):
 
 
 class WebsiteDeliveryCertificateBuilder(object):
-    def __init__(self,
-                 website_delivery_certificate: WebsiteDeliveryCertificate = WebsiteDeliveryCertificate({})) -> None:
-        self._website_delivery_certificate: WebsiteDeliveryCertificate = website_delivery_certificate
+    def __init__(self) -> None:
+        self._website_delivery_certificate = WebsiteDeliveryCertificate()
 
     def customized_data(self,
                         customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryCertificateBuilder":

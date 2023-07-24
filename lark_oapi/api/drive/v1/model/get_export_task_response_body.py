@@ -11,7 +11,7 @@ class GetExportTaskResponseBody(object):
         "result": ExportTask,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.result: Optional[ExportTask] = None
         init(self, d, self._types)
 
@@ -21,9 +21,8 @@ class GetExportTaskResponseBody(object):
 
 
 class GetExportTaskResponseBodyBuilder(object):
-    def __init__(self,
-                 get_export_task_response_body: GetExportTaskResponseBody = GetExportTaskResponseBody({})) -> None:
-        self._get_export_task_response_body: GetExportTaskResponseBody = get_export_task_response_body
+    def __init__(self) -> None:
+        self._get_export_task_response_body = GetExportTaskResponseBody()
 
     def result(self, result: ExportTask) -> "GetExportTaskResponseBodyBuilder":
         self._get_export_task_response_body.result = result

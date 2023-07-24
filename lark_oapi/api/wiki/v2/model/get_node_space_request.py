@@ -18,7 +18,8 @@ class GetNodeSpaceRequest(BaseRequest):
 
 class GetNodeSpaceRequestBuilder(object):
 
-    def __init__(self, get_node_space_request: GetNodeSpaceRequest = GetNodeSpaceRequest()) -> None:
+    def __init__(self) -> None:
+        get_node_space_request = GetNodeSpaceRequest()
         get_node_space_request.http_method = HttpMethod.GET
         get_node_space_request.uri = "/open-apis/wiki/v2/spaces/get_node"
         get_node_space_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

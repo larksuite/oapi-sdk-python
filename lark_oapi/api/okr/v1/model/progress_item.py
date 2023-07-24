@@ -12,7 +12,7 @@ class ProgressItem(object):
         "mention_list": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[str] = None
         self.timestamp: Optional[int] = None
         self.mention_list: Optional[List[str]] = None
@@ -24,8 +24,8 @@ class ProgressItem(object):
 
 
 class ProgressItemBuilder(object):
-    def __init__(self, progress_item: ProgressItem = ProgressItem({})) -> None:
-        self._progress_item: ProgressItem = progress_item
+    def __init__(self) -> None:
+        self._progress_item = ProgressItem()
 
     def content(self, content: str) -> "ProgressItemBuilder":
         self._progress_item.content = content

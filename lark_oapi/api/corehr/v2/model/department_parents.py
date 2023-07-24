@@ -12,7 +12,7 @@ class DepartmentParents(object):
         "parent_department_list": List[DepartmentParentInfo],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.department_id: Optional[str] = None
         self.parent_department_list: Optional[List[DepartmentParentInfo]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class DepartmentParents(object):
 
 
 class DepartmentParentsBuilder(object):
-    def __init__(self, department_parents: DepartmentParents = DepartmentParents({})) -> None:
-        self._department_parents: DepartmentParents = department_parents
+    def __init__(self) -> None:
+        self._department_parents = DepartmentParents()
 
     def department_id(self, department_id: str) -> "DepartmentParentsBuilder":
         self._department_parents.department_id = department_id

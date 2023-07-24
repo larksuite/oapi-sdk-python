@@ -22,8 +22,8 @@ class CreateInstanceCommentRequest(BaseRequest):
 
 class CreateInstanceCommentRequestBuilder(object):
 
-    def __init__(self,
-                 create_instance_comment_request: CreateInstanceCommentRequest = CreateInstanceCommentRequest()) -> None:
+    def __init__(self) -> None:
+        create_instance_comment_request = CreateInstanceCommentRequest()
         create_instance_comment_request.http_method = HttpMethod.POST
         create_instance_comment_request.uri = "/open-apis/approval/v4/instances/:instance_id/comments"
         create_instance_comment_request.token_types = {AccessTokenType.TENANT}

@@ -19,8 +19,8 @@ class CreateAgentScheduleRequest(BaseRequest):
 
 class CreateAgentScheduleRequestBuilder(object):
 
-    def __init__(self,
-                 create_agent_schedule_request: CreateAgentScheduleRequest = CreateAgentScheduleRequest()) -> None:
+    def __init__(self) -> None:
+        create_agent_schedule_request = CreateAgentScheduleRequest()
         create_agent_schedule_request.http_method = HttpMethod.POST
         create_agent_schedule_request.uri = "/open-apis/helpdesk/v1/agent_schedules"
         create_agent_schedule_request.token_types = {AccessTokenType.USER}

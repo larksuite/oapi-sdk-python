@@ -22,7 +22,7 @@ class UserCustomizedField(object):
         "updated_at": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_customized_field_id: Optional[str] = None
         self.id: Optional[str] = None
         self.helpdesk_id: Optional[str] = None
@@ -44,8 +44,8 @@ class UserCustomizedField(object):
 
 
 class UserCustomizedFieldBuilder(object):
-    def __init__(self, user_customized_field: UserCustomizedField = UserCustomizedField({})) -> None:
-        self._user_customized_field: UserCustomizedField = user_customized_field
+    def __init__(self) -> None:
+        self._user_customized_field = UserCustomizedField()
 
     def user_customized_field_id(self, user_customized_field_id: str) -> "UserCustomizedFieldBuilder":
         self._user_customized_field.user_customized_field_id = user_customized_field_id

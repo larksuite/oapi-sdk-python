@@ -14,7 +14,7 @@ class MentionEvent(object):
         "tenant_key": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.key: Optional[str] = None
         self.id: Optional[UserId] = None
         self.name: Optional[str] = None
@@ -27,8 +27,8 @@ class MentionEvent(object):
 
 
 class MentionEventBuilder(object):
-    def __init__(self, mention_event: MentionEvent = MentionEvent({})) -> None:
-        self._mention_event: MentionEvent = mention_event
+    def __init__(self) -> None:
+        self._mention_event = MentionEvent()
 
     def key(self, key: str) -> "MentionEventBuilder":
         self._mention_event.key = key

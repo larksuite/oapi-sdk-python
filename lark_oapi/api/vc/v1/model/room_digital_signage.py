@@ -15,7 +15,7 @@ class RoomDigitalSignage(object):
         "materials": List[RoomDigitalSignageMaterial],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.enable: Optional[bool] = None
         self.mute: Optional[bool] = None
         self.start_display: Optional[int] = None
@@ -29,8 +29,8 @@ class RoomDigitalSignage(object):
 
 
 class RoomDigitalSignageBuilder(object):
-    def __init__(self, room_digital_signage: RoomDigitalSignage = RoomDigitalSignage({})) -> None:
-        self._room_digital_signage: RoomDigitalSignage = room_digital_signage
+    def __init__(self) -> None:
+        self._room_digital_signage = RoomDigitalSignage()
 
     def enable(self, enable: bool) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.enable = enable

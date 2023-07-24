@@ -14,7 +14,7 @@ class RegistrationSchema(object):
         "objects": List[CommonSchema],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.scenarios: Optional[List[int]] = None
@@ -27,8 +27,8 @@ class RegistrationSchema(object):
 
 
 class RegistrationSchemaBuilder(object):
-    def __init__(self, registration_schema: RegistrationSchema = RegistrationSchema({})) -> None:
-        self._registration_schema: RegistrationSchema = registration_schema
+    def __init__(self) -> None:
+        self._registration_schema = RegistrationSchema()
 
     def id(self, id: str) -> "RegistrationSchemaBuilder":
         self._registration_schema.id = id

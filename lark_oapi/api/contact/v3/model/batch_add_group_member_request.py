@@ -20,8 +20,8 @@ class BatchAddGroupMemberRequest(BaseRequest):
 
 class BatchAddGroupMemberRequestBuilder(object):
 
-    def __init__(self,
-                 batch_add_group_member_request: BatchAddGroupMemberRequest = BatchAddGroupMemberRequest()) -> None:
+    def __init__(self) -> None:
+        batch_add_group_member_request = BatchAddGroupMemberRequest()
         batch_add_group_member_request.http_method = HttpMethod.POST
         batch_add_group_member_request.uri = "/open-apis/contact/v3/group/:group_id/member/batch_add"
         batch_add_group_member_request.token_types = {AccessTokenType.TENANT}

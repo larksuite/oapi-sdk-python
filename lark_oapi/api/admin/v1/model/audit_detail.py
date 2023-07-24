@@ -13,7 +13,7 @@ class AuditDetail(object):
         "city": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.mc: Optional[str] = None
         self.device_model: Optional[str] = None
         self.os: Optional[str] = None
@@ -26,8 +26,8 @@ class AuditDetail(object):
 
 
 class AuditDetailBuilder(object):
-    def __init__(self, audit_detail: AuditDetail = AuditDetail({})) -> None:
-        self._audit_detail: AuditDetail = audit_detail
+    def __init__(self) -> None:
+        self._audit_detail = AuditDetail()
 
     def mc(self, mc: str) -> "AuditDetailBuilder":
         self._audit_detail.mc = mc

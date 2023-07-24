@@ -23,8 +23,8 @@ class UpdateSpreadsheetSheetFilterViewConditionRequest(BaseRequest):
 
 class UpdateSpreadsheetSheetFilterViewConditionRequestBuilder(object):
 
-    def __init__(self,
-                 update_spreadsheet_sheet_filter_view_condition_request: UpdateSpreadsheetSheetFilterViewConditionRequest = UpdateSpreadsheetSheetFilterViewConditionRequest()) -> None:
+    def __init__(self) -> None:
+        update_spreadsheet_sheet_filter_view_condition_request = UpdateSpreadsheetSheetFilterViewConditionRequest()
         update_spreadsheet_sheet_filter_view_condition_request.http_method = HttpMethod.PUT
         update_spreadsheet_sheet_filter_view_condition_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
         update_spreadsheet_sheet_filter_view_condition_request.token_types = {AccessTokenType.TENANT,

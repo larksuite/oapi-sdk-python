@@ -20,8 +20,8 @@ class UpdateExternalApplicationRequest(BaseRequest):
 
 class UpdateExternalApplicationRequestBuilder(object):
 
-    def __init__(self,
-                 update_external_application_request: UpdateExternalApplicationRequest = UpdateExternalApplicationRequest()) -> None:
+    def __init__(self) -> None:
+        update_external_application_request = UpdateExternalApplicationRequest()
         update_external_application_request.http_method = HttpMethod.PUT
         update_external_application_request.uri = "/open-apis/hire/v1/external_applications/:external_application_id"
         update_external_application_request.token_types = {AccessTokenType.TENANT}

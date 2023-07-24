@@ -18,7 +18,8 @@ class MeJoinChatMembersRequest(BaseRequest):
 
 class MeJoinChatMembersRequestBuilder(object):
 
-    def __init__(self, me_join_chat_members_request: MeJoinChatMembersRequest = MeJoinChatMembersRequest()) -> None:
+    def __init__(self) -> None:
+        me_join_chat_members_request = MeJoinChatMembersRequest()
         me_join_chat_members_request.http_method = HttpMethod.PATCH
         me_join_chat_members_request.uri = "/open-apis/im/v1/chats/:chat_id/members/me_join"
         me_join_chat_members_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

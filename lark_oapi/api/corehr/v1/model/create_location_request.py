@@ -20,7 +20,8 @@ class CreateLocationRequest(BaseRequest):
 
 class CreateLocationRequestBuilder(object):
 
-    def __init__(self, create_location_request: CreateLocationRequest = CreateLocationRequest()) -> None:
+    def __init__(self) -> None:
+        create_location_request = CreateLocationRequest()
         create_location_request.http_method = HttpMethod.POST
         create_location_request.uri = "/open-apis/corehr/v1/locations"
         create_location_request.token_types = {AccessTokenType.TENANT}

@@ -12,7 +12,7 @@ class PunchMember(object):
         "scope_group_list": ScopeGroup,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rule_scope_type: Optional[int] = None
         self.scope_group_list: Optional[ScopeGroup] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class PunchMember(object):
 
 
 class PunchMemberBuilder(object):
-    def __init__(self, punch_member: PunchMember = PunchMember({})) -> None:
-        self._punch_member: PunchMember = punch_member
+    def __init__(self) -> None:
+        self._punch_member = PunchMember()
 
     def rule_scope_type(self, rule_scope_type: int) -> "PunchMemberBuilder":
         self._punch_member.rule_scope_type = rule_scope_type

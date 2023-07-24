@@ -23,7 +23,7 @@ class BitableTableFieldActionValueProperty(object):
         "formula_expression": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.formatter: Optional[str] = None
         self.date_formatter: Optional[str] = None
         self.auto_fill: Optional[bool] = None
@@ -44,10 +44,8 @@ class BitableTableFieldActionValueProperty(object):
 
 
 class BitableTableFieldActionValuePropertyBuilder(object):
-    def __init__(self,
-                 bitable_table_field_action_value_property: BitableTableFieldActionValueProperty = BitableTableFieldActionValueProperty(
-                     {})) -> None:
-        self._bitable_table_field_action_value_property: BitableTableFieldActionValueProperty = bitable_table_field_action_value_property
+    def __init__(self) -> None:
+        self._bitable_table_field_action_value_property = BitableTableFieldActionValueProperty()
 
     def formatter(self, formatter: str) -> "BitableTableFieldActionValuePropertyBuilder":
         self._bitable_table_field_action_value_property.formatter = formatter

@@ -13,7 +13,7 @@ class RegistrationBasicInfo(object):
         "scenario": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.registration_time: Optional[int] = None
         self.download_url: Optional[str] = None
@@ -26,8 +26,8 @@ class RegistrationBasicInfo(object):
 
 
 class RegistrationBasicInfoBuilder(object):
-    def __init__(self, registration_basic_info: RegistrationBasicInfo = RegistrationBasicInfo({})) -> None:
-        self._registration_basic_info: RegistrationBasicInfo = registration_basic_info
+    def __init__(self) -> None:
+        self._registration_basic_info = RegistrationBasicInfo()
 
     def id(self, id: str) -> "RegistrationBasicInfoBuilder":
         self._registration_basic_info.id = id

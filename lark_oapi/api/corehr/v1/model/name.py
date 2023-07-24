@@ -11,7 +11,7 @@ class Name(object):
         "en_us": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.zh_cn: Optional[str] = None
         self.en_us: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Name(object):
 
 
 class NameBuilder(object):
-    def __init__(self, name: Name = Name({})) -> None:
-        self._name: Name = name
+    def __init__(self) -> None:
+        self._name = Name()
 
     def zh_cn(self, zh_cn: str) -> "NameBuilder":
         self._name.zh_cn = zh_cn

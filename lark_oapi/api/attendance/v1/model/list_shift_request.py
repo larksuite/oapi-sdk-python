@@ -19,7 +19,8 @@ class ListShiftRequest(BaseRequest):
 
 class ListShiftRequestBuilder(object):
 
-    def __init__(self, list_shift_request: ListShiftRequest = ListShiftRequest()) -> None:
+    def __init__(self) -> None:
+        list_shift_request = ListShiftRequest()
         list_shift_request.http_method = HttpMethod.GET
         list_shift_request.uri = "/open-apis/attendance/v1/shifts"
         list_shift_request.token_types = {AccessTokenType.TENANT}

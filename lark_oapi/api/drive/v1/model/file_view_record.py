@@ -13,7 +13,7 @@ class FileViewRecord(object):
         "last_view_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.viewer_id: Optional[str] = None
         self.name: Optional[str] = None
         self.avatar_url: Optional[str] = None
@@ -26,8 +26,8 @@ class FileViewRecord(object):
 
 
 class FileViewRecordBuilder(object):
-    def __init__(self, file_view_record: FileViewRecord = FileViewRecord({})) -> None:
-        self._file_view_record: FileViewRecord = file_view_record
+    def __init__(self) -> None:
+        self._file_view_record = FileViewRecord()
 
     def viewer_id(self, viewer_id: str) -> "FileViewRecordBuilder":
         self._file_view_record.viewer_id = viewer_id

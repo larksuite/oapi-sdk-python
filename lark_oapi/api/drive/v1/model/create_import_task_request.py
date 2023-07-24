@@ -19,7 +19,8 @@ class CreateImportTaskRequest(BaseRequest):
 
 class CreateImportTaskRequestBuilder(object):
 
-    def __init__(self, create_import_task_request: CreateImportTaskRequest = CreateImportTaskRequest()) -> None:
+    def __init__(self) -> None:
+        create_import_task_request = CreateImportTaskRequest()
         create_import_task_request.http_method = HttpMethod.POST
         create_import_task_request.uri = "/open-apis/drive/v1/import_tasks"
         create_import_task_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

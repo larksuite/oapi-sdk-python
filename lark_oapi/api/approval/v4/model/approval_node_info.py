@@ -18,7 +18,7 @@ class ApprovalNodeInfo(object):
         "require_signature": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.need_approver: Optional[bool] = None
         self.node_id: Optional[str] = None
@@ -35,8 +35,8 @@ class ApprovalNodeInfo(object):
 
 
 class ApprovalNodeInfoBuilder(object):
-    def __init__(self, approval_node_info: ApprovalNodeInfo = ApprovalNodeInfo({})) -> None:
-        self._approval_node_info: ApprovalNodeInfo = approval_node_info
+    def __init__(self) -> None:
+        self._approval_node_info = ApprovalNodeInfo()
 
     def name(self, name: str) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.name = name

@@ -12,7 +12,7 @@ class GetApplicationResponse(BaseResponse):
         "data": GetApplicationResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[GetApplicationResponseBody] = None
         init(self, d, self._types)

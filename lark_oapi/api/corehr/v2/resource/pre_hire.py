@@ -2,20 +2,23 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v2.model.create_pre_hire_request import CreatePreHireRequest
-from lark_oapi.api.corehr.v2.model.create_pre_hire_response import CreatePreHireResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_pre_hire_request import CreatePreHireRequest
+from ..model.create_pre_hire_response import CreatePreHireResponse
 
 
 class PreHire(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def create(self, request: CreatePreHireRequest, option: RequestOption = RequestOption()) -> CreatePreHireResponse:
+    def create(self, request: CreatePreHireRequest, option: Optional[RequestOption] = None) -> CreatePreHireResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

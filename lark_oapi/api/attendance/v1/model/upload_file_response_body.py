@@ -11,7 +11,7 @@ class UploadFileResponseBody(object):
         "file": File,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file: Optional[File] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class UploadFileResponseBody(object):
 
 
 class UploadFileResponseBodyBuilder(object):
-    def __init__(self, upload_file_response_body: UploadFileResponseBody = UploadFileResponseBody({})) -> None:
-        self._upload_file_response_body: UploadFileResponseBody = upload_file_response_body
+    def __init__(self) -> None:
+        self._upload_file_response_body = UploadFileResponseBody()
 
     def file(self, file: File) -> "UploadFileResponseBodyBuilder":
         self._upload_file_response_body.file = file

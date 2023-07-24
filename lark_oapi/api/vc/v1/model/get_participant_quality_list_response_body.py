@@ -13,7 +13,7 @@ class GetParticipantQualityListResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.participant_quality_list: Optional[List[ParticipantQuality]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class GetParticipantQualityListResponseBody(object):
 
 
 class GetParticipantQualityListResponseBodyBuilder(object):
-    def __init__(self,
-                 get_participant_quality_list_response_body: GetParticipantQualityListResponseBody = GetParticipantQualityListResponseBody(
-                     {})) -> None:
-        self._get_participant_quality_list_response_body: GetParticipantQualityListResponseBody = get_participant_quality_list_response_body
+    def __init__(self) -> None:
+        self._get_participant_quality_list_response_body = GetParticipantQualityListResponseBody()
 
     def participant_quality_list(self, participant_quality_list: List[
         ParticipantQuality]) -> "GetParticipantQualityListResponseBodyBuilder":

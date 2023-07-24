@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.bitable.v1.model.copy_app_dashboard_request import CopyAppDashboardRequest
-from lark_oapi.api.bitable.v1.model.copy_app_dashboard_response import CopyAppDashboardResponse
-from lark_oapi.api.bitable.v1.model.list_app_dashboard_request import ListAppDashboardRequest
-from lark_oapi.api.bitable.v1.model.list_app_dashboard_response import ListAppDashboardResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.copy_app_dashboard_request import CopyAppDashboardRequest
+from ..model.copy_app_dashboard_response import CopyAppDashboardResponse
+from ..model.list_app_dashboard_request import ListAppDashboardRequest
+from ..model.list_app_dashboard_response import ListAppDashboardResponse
 
 
 class AppDashboard(object):
@@ -18,7 +18,10 @@ class AppDashboard(object):
         self.config: Optional[Config] = config
 
     def copy(self, request: CopyAppDashboardRequest,
-             option: RequestOption = RequestOption()) -> CopyAppDashboardResponse:
+             option: Optional[RequestOption] = None) -> CopyAppDashboardResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -32,7 +35,10 @@ class AppDashboard(object):
         return response
 
     def list(self, request: ListAppDashboardRequest,
-             option: RequestOption = RequestOption()) -> ListAppDashboardResponse:
+             option: Optional[RequestOption] = None) -> ListAppDashboardResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

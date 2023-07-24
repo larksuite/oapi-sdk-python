@@ -23,8 +23,8 @@ class BatchDeleteDocumentBlockChildrenRequest(BaseRequest):
 
 class BatchDeleteDocumentBlockChildrenRequestBuilder(object):
 
-    def __init__(self,
-                 batch_delete_document_block_children_request: BatchDeleteDocumentBlockChildrenRequest = BatchDeleteDocumentBlockChildrenRequest()) -> None:
+    def __init__(self) -> None:
+        batch_delete_document_block_children_request = BatchDeleteDocumentBlockChildrenRequest()
         batch_delete_document_block_children_request.http_method = HttpMethod.DELETE
         batch_delete_document_block_children_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id/children/batch_delete"
         batch_delete_document_block_children_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

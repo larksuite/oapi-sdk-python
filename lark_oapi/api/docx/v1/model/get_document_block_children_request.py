@@ -23,8 +23,8 @@ class GetDocumentBlockChildrenRequest(BaseRequest):
 
 class GetDocumentBlockChildrenRequestBuilder(object):
 
-    def __init__(self,
-                 get_document_block_children_request: GetDocumentBlockChildrenRequest = GetDocumentBlockChildrenRequest()) -> None:
+    def __init__(self) -> None:
+        get_document_block_children_request = GetDocumentBlockChildrenRequest()
         get_document_block_children_request.http_method = HttpMethod.GET
         get_document_block_children_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id/children"
         get_document_block_children_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

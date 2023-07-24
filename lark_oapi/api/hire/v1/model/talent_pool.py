@@ -17,7 +17,7 @@ class TalentPool(object):
         "modify_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.i18n_name: Optional[I18n] = None
         self.i18n_description: Optional[I18n] = None
@@ -33,8 +33,8 @@ class TalentPool(object):
 
 
 class TalentPoolBuilder(object):
-    def __init__(self, talent_pool: TalentPool = TalentPool({})) -> None:
-        self._talent_pool: TalentPool = talent_pool
+    def __init__(self) -> None:
+        self._talent_pool = TalentPool()
 
     def id(self, id: str) -> "TalentPoolBuilder":
         self._talent_pool.id = id

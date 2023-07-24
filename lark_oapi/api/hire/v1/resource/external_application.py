@@ -2,17 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.create_external_application_request import CreateExternalApplicationRequest
-from lark_oapi.api.hire.v1.model.create_external_application_response import CreateExternalApplicationResponse
-from lark_oapi.api.hire.v1.model.delete_external_application_request import DeleteExternalApplicationRequest
-from lark_oapi.api.hire.v1.model.delete_external_application_response import DeleteExternalApplicationResponse
-from lark_oapi.api.hire.v1.model.update_external_application_request import UpdateExternalApplicationRequest
-from lark_oapi.api.hire.v1.model.update_external_application_response import UpdateExternalApplicationResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_external_application_request import CreateExternalApplicationRequest
+from ..model.create_external_application_response import CreateExternalApplicationResponse
+from ..model.delete_external_application_request import DeleteExternalApplicationRequest
+from ..model.delete_external_application_response import DeleteExternalApplicationResponse
+from ..model.update_external_application_request import UpdateExternalApplicationRequest
+from ..model.update_external_application_response import UpdateExternalApplicationResponse
 
 
 class ExternalApplication(object):
@@ -20,7 +20,10 @@ class ExternalApplication(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateExternalApplicationRequest,
-               option: RequestOption = RequestOption()) -> CreateExternalApplicationResponse:
+               option: Optional[RequestOption] = None) -> CreateExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -35,7 +38,10 @@ class ExternalApplication(object):
         return response
 
     def delete(self, request: DeleteExternalApplicationRequest,
-               option: RequestOption = RequestOption()) -> DeleteExternalApplicationResponse:
+               option: Optional[RequestOption] = None) -> DeleteExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -50,7 +56,10 @@ class ExternalApplication(object):
         return response
 
     def update(self, request: UpdateExternalApplicationRequest,
-               option: RequestOption = RequestOption()) -> UpdateExternalApplicationResponse:
+               option: Optional[RequestOption] = None) -> UpdateExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

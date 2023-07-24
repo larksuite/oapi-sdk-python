@@ -11,7 +11,7 @@ class ConfidentialMember(object):
         "is_confidential": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[int] = None
         self.is_confidential: Optional[bool] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ConfidentialMember(object):
 
 
 class ConfidentialMemberBuilder(object):
-    def __init__(self, confidential_member: ConfidentialMember = ConfidentialMember({})) -> None:
-        self._confidential_member: ConfidentialMember = confidential_member
+    def __init__(self) -> None:
+        self._confidential_member = ConfidentialMember()
 
     def user_id(self, user_id: int) -> "ConfidentialMemberBuilder":
         self._confidential_member.user_id = user_id

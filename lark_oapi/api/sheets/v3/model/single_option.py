@@ -15,7 +15,7 @@ class SingleOption(object):
         "properties": OptionProperties,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.range: Optional[str] = None
         self.data_validation_values: Optional[List[DataValidationValue]] = None
@@ -28,8 +28,8 @@ class SingleOption(object):
 
 
 class SingleOptionBuilder(object):
-    def __init__(self, single_option: SingleOption = SingleOption({})) -> None:
-        self._single_option: SingleOption = single_option
+    def __init__(self) -> None:
+        self._single_option = SingleOption()
 
     def type(self, type: str) -> "SingleOptionBuilder":
         self._single_option.type = type

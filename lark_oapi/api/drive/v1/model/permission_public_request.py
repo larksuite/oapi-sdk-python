@@ -15,7 +15,7 @@ class PermissionPublicRequest(object):
         "invite_external": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.external_access: Optional[bool] = None
         self.security_entity: Optional[str] = None
         self.comment_entity: Optional[str] = None
@@ -30,8 +30,8 @@ class PermissionPublicRequest(object):
 
 
 class PermissionPublicRequestBuilder(object):
-    def __init__(self, permission_public_request: PermissionPublicRequest = PermissionPublicRequest({})) -> None:
-        self._permission_public_request: PermissionPublicRequest = permission_public_request
+    def __init__(self) -> None:
+        self._permission_public_request = PermissionPublicRequest()
 
     def external_access(self, external_access: bool) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.external_access = external_access

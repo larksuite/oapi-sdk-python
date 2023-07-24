@@ -12,7 +12,7 @@ class LeaveSubtype(object):
         "leave_type_name": List[I18n],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leave_type_id: Optional[str] = None
         self.leave_type_name: Optional[List[I18n]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class LeaveSubtype(object):
 
 
 class LeaveSubtypeBuilder(object):
-    def __init__(self, leave_subtype: LeaveSubtype = LeaveSubtype({})) -> None:
-        self._leave_subtype: LeaveSubtype = leave_subtype
+    def __init__(self) -> None:
+        self._leave_subtype = LeaveSubtype()
 
     def leave_type_id(self, leave_type_id: str) -> "LeaveSubtypeBuilder":
         self._leave_subtype.leave_type_id = leave_type_id

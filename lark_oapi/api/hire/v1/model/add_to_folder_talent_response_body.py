@@ -11,7 +11,7 @@ class AddToFolderTalentResponseBody(object):
         "folder_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.talent_id_list: Optional[List[str]] = None
         self.folder_id: Optional[str] = None
         init(self, d, self._types)
@@ -22,10 +22,8 @@ class AddToFolderTalentResponseBody(object):
 
 
 class AddToFolderTalentResponseBodyBuilder(object):
-    def __init__(self,
-                 add_to_folder_talent_response_body: AddToFolderTalentResponseBody = AddToFolderTalentResponseBody(
-                     {})) -> None:
-        self._add_to_folder_talent_response_body: AddToFolderTalentResponseBody = add_to_folder_talent_response_body
+    def __init__(self) -> None:
+        self._add_to_folder_talent_response_body = AddToFolderTalentResponseBody()
 
     def talent_id_list(self, talent_id_list: List[str]) -> "AddToFolderTalentResponseBodyBuilder":
         self._add_to_folder_talent_response_body.talent_id_list = talent_id_list

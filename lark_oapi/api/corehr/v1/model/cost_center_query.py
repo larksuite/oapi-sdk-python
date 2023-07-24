@@ -26,7 +26,7 @@ class CostCenterQuery(object):
         "support_cost_center": List[SupportCostCenterItem],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_autogenerate: Optional[bool] = None
         self.id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
@@ -49,8 +49,8 @@ class CostCenterQuery(object):
 
 
 class CostCenterQueryBuilder(object):
-    def __init__(self, cost_center_query: CostCenterQuery = CostCenterQuery({})) -> None:
-        self._cost_center_query: CostCenterQuery = cost_center_query
+    def __init__(self) -> None:
+        self._cost_center_query = CostCenterQuery()
 
     def is_autogenerate(self, is_autogenerate: bool) -> "CostCenterQueryBuilder":
         self._cost_center_query.is_autogenerate = is_autogenerate

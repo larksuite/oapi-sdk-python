@@ -10,7 +10,7 @@ class Process(object):
         "id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class Process(object):
 
 
 class ProcessBuilder(object):
-    def __init__(self, process: Process = Process({})) -> None:
-        self._process: Process = process
+    def __init__(self) -> None:
+        self._process = Process()
 
     def id(self, id: str) -> "ProcessBuilder":
         self._process.id = id

@@ -13,7 +13,7 @@ class ListLocationResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[Location]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListLocationResponseBody(object):
 
 
 class ListLocationResponseBodyBuilder(object):
-    def __init__(self, list_location_response_body: ListLocationResponseBody = ListLocationResponseBody({})) -> None:
-        self._list_location_response_body: ListLocationResponseBody = list_location_response_body
+    def __init__(self) -> None:
+        self._list_location_response_body = ListLocationResponseBody()
 
     def items(self, items: List[Location]) -> "ListLocationResponseBodyBuilder":
         self._list_location_response_body.items = items

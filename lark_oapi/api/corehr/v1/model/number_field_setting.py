@@ -13,7 +13,7 @@ class NumberFieldSetting(object):
         "decimal_total_places": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.number_field_type: Optional[int] = None
         self.decimal_places: Optional[int] = None
         self.round_type: Optional[int] = None
@@ -26,8 +26,8 @@ class NumberFieldSetting(object):
 
 
 class NumberFieldSettingBuilder(object):
-    def __init__(self, number_field_setting: NumberFieldSetting = NumberFieldSetting({})) -> None:
-        self._number_field_setting: NumberFieldSetting = number_field_setting
+    def __init__(self) -> None:
+        self._number_field_setting = NumberFieldSetting()
 
     def number_field_type(self, number_field_type: int) -> "NumberFieldSettingBuilder":
         self._number_field_setting.number_field_type = number_field_type

@@ -19,8 +19,8 @@ class GetByApplicationReferralRequest(BaseRequest):
 
 class GetByApplicationReferralRequestBuilder(object):
 
-    def __init__(self,
-                 get_by_application_referral_request: GetByApplicationReferralRequest = GetByApplicationReferralRequest()) -> None:
+    def __init__(self) -> None:
+        get_by_application_referral_request = GetByApplicationReferralRequest()
         get_by_application_referral_request.http_method = HttpMethod.GET
         get_by_application_referral_request.uri = "/open-apis/hire/v1/referrals/get_by_application"
         get_by_application_referral_request.token_types = {AccessTokenType.TENANT}

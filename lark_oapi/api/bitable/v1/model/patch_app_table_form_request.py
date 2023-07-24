@@ -22,7 +22,8 @@ class PatchAppTableFormRequest(BaseRequest):
 
 class PatchAppTableFormRequestBuilder(object):
 
-    def __init__(self, patch_app_table_form_request: PatchAppTableFormRequest = PatchAppTableFormRequest()) -> None:
+    def __init__(self) -> None:
+        patch_app_table_form_request = PatchAppTableFormRequest()
         patch_app_table_form_request.http_method = HttpMethod.PATCH
         patch_app_table_form_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id"
         patch_app_table_form_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

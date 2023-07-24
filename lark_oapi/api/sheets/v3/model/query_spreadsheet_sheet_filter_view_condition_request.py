@@ -20,8 +20,8 @@ class QuerySpreadsheetSheetFilterViewConditionRequest(BaseRequest):
 
 class QuerySpreadsheetSheetFilterViewConditionRequestBuilder(object):
 
-    def __init__(self,
-                 query_spreadsheet_sheet_filter_view_condition_request: QuerySpreadsheetSheetFilterViewConditionRequest = QuerySpreadsheetSheetFilterViewConditionRequest()) -> None:
+    def __init__(self) -> None:
+        query_spreadsheet_sheet_filter_view_condition_request = QuerySpreadsheetSheetFilterViewConditionRequest()
         query_spreadsheet_sheet_filter_view_condition_request.http_method = HttpMethod.GET
         query_spreadsheet_sheet_filter_view_condition_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/query"
         query_spreadsheet_sheet_filter_view_condition_request.token_types = {AccessTokenType.TENANT,

@@ -20,7 +20,8 @@ class PatchMessageRequest(BaseRequest):
 
 class PatchMessageRequestBuilder(object):
 
-    def __init__(self, patch_message_request: PatchMessageRequest = PatchMessageRequest()) -> None:
+    def __init__(self) -> None:
+        patch_message_request = PatchMessageRequest()
         patch_message_request.http_method = HttpMethod.PATCH
         patch_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         patch_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

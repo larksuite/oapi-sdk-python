@@ -11,7 +11,7 @@ class OvertimeRule(object):
         "off_overtime": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.on_overtime: Optional[str] = None
         self.off_overtime: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OvertimeRule(object):
 
 
 class OvertimeRuleBuilder(object):
-    def __init__(self, overtime_rule: OvertimeRule = OvertimeRule({})) -> None:
-        self._overtime_rule: OvertimeRule = overtime_rule
+    def __init__(self) -> None:
+        self._overtime_rule = OvertimeRule()
 
     def on_overtime(self, on_overtime: str) -> "OvertimeRuleBuilder":
         self._overtime_rule.on_overtime = on_overtime

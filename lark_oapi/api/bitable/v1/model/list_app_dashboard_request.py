@@ -20,7 +20,8 @@ class ListAppDashboardRequest(BaseRequest):
 
 class ListAppDashboardRequestBuilder(object):
 
-    def __init__(self, list_app_dashboard_request: ListAppDashboardRequest = ListAppDashboardRequest()) -> None:
+    def __init__(self) -> None:
+        list_app_dashboard_request = ListAppDashboardRequest()
         list_app_dashboard_request.http_method = HttpMethod.GET
         list_app_dashboard_request.uri = "/open-apis/bitable/v1/apps/:app_token/dashboards"
         list_app_dashboard_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

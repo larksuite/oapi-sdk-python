@@ -11,7 +11,7 @@ class CreateFolderFileRequestBody(object):
         "folder_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.folder_token: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class CreateFolderFileRequestBody(object):
 
 
 class CreateFolderFileRequestBodyBuilder(object):
-    def __init__(self, create_folder_file_request_body: CreateFolderFileRequestBody = CreateFolderFileRequestBody(
-        {})) -> None:
-        self._create_folder_file_request_body: CreateFolderFileRequestBody = create_folder_file_request_body
+    def __init__(self) -> None:
+        self._create_folder_file_request_body = CreateFolderFileRequestBody()
 
     def name(self, name: str) -> "CreateFolderFileRequestBodyBuilder":
         self._create_folder_file_request_body.name = name

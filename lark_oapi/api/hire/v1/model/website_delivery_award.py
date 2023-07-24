@@ -14,7 +14,7 @@ class WebsiteDeliveryAward(object):
         "award_time": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.customized_data: Optional[List[WebsiteDeliveryCustomizedData]] = None
         self.desc: Optional[str] = None
         self.title: Optional[str] = None
@@ -27,8 +27,8 @@ class WebsiteDeliveryAward(object):
 
 
 class WebsiteDeliveryAwardBuilder(object):
-    def __init__(self, website_delivery_award: WebsiteDeliveryAward = WebsiteDeliveryAward({})) -> None:
-        self._website_delivery_award: WebsiteDeliveryAward = website_delivery_award
+    def __init__(self) -> None:
+        self._website_delivery_award = WebsiteDeliveryAward()
 
     def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryAwardBuilder":
         self._website_delivery_award.customized_data = customized_data

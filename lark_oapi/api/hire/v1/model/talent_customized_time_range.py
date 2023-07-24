@@ -11,7 +11,7 @@ class TalentCustomizedTimeRange(object):
         "end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TalentCustomizedTimeRange(object):
 
 
 class TalentCustomizedTimeRangeBuilder(object):
-    def __init__(self, talent_customized_time_range: TalentCustomizedTimeRange = TalentCustomizedTimeRange({})) -> None:
-        self._talent_customized_time_range: TalentCustomizedTimeRange = talent_customized_time_range
+    def __init__(self) -> None:
+        self._talent_customized_time_range = TalentCustomizedTimeRange()
 
     def start_time(self, start_time: str) -> "TalentCustomizedTimeRangeBuilder":
         self._talent_customized_time_range.start_time = start_time

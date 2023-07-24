@@ -17,7 +17,7 @@ class VendorCompanyView(object):
         "extend_info": List[ExtendField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.company_code: Optional[str] = None
         self.gl_account: Optional[str] = None
@@ -33,8 +33,8 @@ class VendorCompanyView(object):
 
 
 class VendorCompanyViewBuilder(object):
-    def __init__(self, vendor_company_view: VendorCompanyView = VendorCompanyView({})) -> None:
-        self._vendor_company_view: VendorCompanyView = vendor_company_view
+    def __init__(self) -> None:
+        self._vendor_company_view = VendorCompanyView()
 
     def id(self, id: int) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.id = id

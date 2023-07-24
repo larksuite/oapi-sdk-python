@@ -11,7 +11,7 @@ class GetJobFamilyResponseBody(object):
         "job_family": JobFamily,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.job_family: Optional[JobFamily] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetJobFamilyResponseBody(object):
 
 
 class GetJobFamilyResponseBodyBuilder(object):
-    def __init__(self, get_job_family_response_body: GetJobFamilyResponseBody = GetJobFamilyResponseBody({})) -> None:
-        self._get_job_family_response_body: GetJobFamilyResponseBody = get_job_family_response_body
+    def __init__(self) -> None:
+        self._get_job_family_response_body = GetJobFamilyResponseBody()
 
     def job_family(self, job_family: JobFamily) -> "GetJobFamilyResponseBodyBuilder":
         self._get_job_family_response_body.job_family = job_family

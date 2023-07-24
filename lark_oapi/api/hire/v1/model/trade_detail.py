@@ -12,7 +12,7 @@ class TradeDetail(object):
         "total_recharge_reward_info": BonusAmount,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.account_id: Optional[str] = None
         self.total_recharge_reward_info: Optional[BonusAmount] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class TradeDetail(object):
 
 
 class TradeDetailBuilder(object):
-    def __init__(self, trade_detail: TradeDetail = TradeDetail({})) -> None:
-        self._trade_detail: TradeDetail = trade_detail
+    def __init__(self) -> None:
+        self._trade_detail = TradeDetail()
 
     def account_id(self, account_id: str) -> "TradeDetailBuilder":
         self._trade_detail.account_id = account_id

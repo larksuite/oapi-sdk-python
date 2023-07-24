@@ -12,7 +12,7 @@ class Setting(object):
         "comment_setting": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.create_setting: Optional[str] = None
         self.security_setting: Optional[str] = None
         self.comment_setting: Optional[str] = None
@@ -24,8 +24,8 @@ class Setting(object):
 
 
 class SettingBuilder(object):
-    def __init__(self, setting: Setting = Setting({})) -> None:
-        self._setting: Setting = setting
+    def __init__(self) -> None:
+        self._setting = Setting()
 
     def create_setting(self, create_setting: str) -> "SettingBuilder":
         self._setting.create_setting = create_setting

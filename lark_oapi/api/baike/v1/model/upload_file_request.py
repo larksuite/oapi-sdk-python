@@ -19,7 +19,8 @@ class UploadFileRequest(BaseRequest):
 
 class UploadFileRequestBuilder(object):
 
-    def __init__(self, upload_file_request: UploadFileRequest = UploadFileRequest()) -> None:
+    def __init__(self) -> None:
+        upload_file_request = UploadFileRequest()
         upload_file_request.http_method = HttpMethod.POST
         upload_file_request.uri = "/open-apis/baike/v1/files/upload"
         upload_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

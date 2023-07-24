@@ -12,7 +12,7 @@ class TalentCityInfo(object):
         "en_name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.city_code: Optional[str] = None
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -24,8 +24,8 @@ class TalentCityInfo(object):
 
 
 class TalentCityInfoBuilder(object):
-    def __init__(self, talent_city_info: TalentCityInfo = TalentCityInfo({})) -> None:
-        self._talent_city_info: TalentCityInfo = talent_city_info
+    def __init__(self) -> None:
+        self._talent_city_info = TalentCityInfo()
 
     def city_code(self, city_code: str) -> "TalentCityInfoBuilder":
         self._talent_city_info.city_code = city_code

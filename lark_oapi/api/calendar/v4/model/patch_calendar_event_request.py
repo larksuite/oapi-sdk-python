@@ -22,7 +22,8 @@ class PatchCalendarEventRequest(BaseRequest):
 
 class PatchCalendarEventRequestBuilder(object):
 
-    def __init__(self, patch_calendar_event_request: PatchCalendarEventRequest = PatchCalendarEventRequest()) -> None:
+    def __init__(self) -> None:
+        patch_calendar_event_request = PatchCalendarEventRequest()
         patch_calendar_event_request.http_method = HttpMethod.PATCH
         patch_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
         patch_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

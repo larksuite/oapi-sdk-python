@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.get_process_form_variable_data_request import GetProcessFormVariableDataRequest
-from lark_oapi.api.corehr.v1.model.get_process_form_variable_data_response import GetProcessFormVariableDataResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_process_form_variable_data_request import GetProcessFormVariableDataRequest
+from ..model.get_process_form_variable_data_response import GetProcessFormVariableDataResponse
 
 
 class ProcessFormVariableData(object):
@@ -16,7 +16,10 @@ class ProcessFormVariableData(object):
         self.config: Optional[Config] = config
 
     def get(self, request: GetProcessFormVariableDataRequest,
-            option: RequestOption = RequestOption()) -> GetProcessFormVariableDataResponse:
+            option: Optional[RequestOption] = None) -> GetProcessFormVariableDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

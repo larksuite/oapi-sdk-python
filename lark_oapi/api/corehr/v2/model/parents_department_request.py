@@ -22,7 +22,8 @@ class ParentsDepartmentRequest(BaseRequest):
 
 class ParentsDepartmentRequestBuilder(object):
 
-    def __init__(self, parents_department_request: ParentsDepartmentRequest = ParentsDepartmentRequest()) -> None:
+    def __init__(self) -> None:
+        parents_department_request = ParentsDepartmentRequest()
         parents_department_request.http_method = HttpMethod.POST
         parents_department_request.uri = "/open-apis/corehr/v2/departments/parents"
         parents_department_request.token_types = {AccessTokenType.TENANT}

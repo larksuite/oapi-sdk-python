@@ -12,7 +12,7 @@ class BooleanRuleCondition(object):
         "boolean_conditional_values": List[BoolRuleValue],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.boolean_conditional_values: Optional[List[BoolRuleValue]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class BooleanRuleCondition(object):
 
 
 class BooleanRuleConditionBuilder(object):
-    def __init__(self, boolean_rule_condition: BooleanRuleCondition = BooleanRuleCondition({})) -> None:
-        self._boolean_rule_condition: BooleanRuleCondition = boolean_rule_condition
+    def __init__(self) -> None:
+        self._boolean_rule_condition = BooleanRuleCondition()
 
     def type(self, type: str) -> "BooleanRuleConditionBuilder":
         self._boolean_rule_condition.type = type

@@ -11,7 +11,7 @@ class GetNoteResponseBody(object):
         "note": Note,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.note: Optional[Note] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetNoteResponseBody(object):
 
 
 class GetNoteResponseBodyBuilder(object):
-    def __init__(self, get_note_response_body: GetNoteResponseBody = GetNoteResponseBody({})) -> None:
-        self._get_note_response_body: GetNoteResponseBody = get_note_response_body
+    def __init__(self) -> None:
+        self._get_note_response_body = GetNoteResponseBody()
 
     def note(self, note: Note) -> "GetNoteResponseBodyBuilder":
         self._get_note_response_body.note = note

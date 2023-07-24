@@ -11,7 +11,7 @@ class OperateCardData(object):
         "meeting_no": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.meeting_url: Optional[str] = None
         self.meeting_no: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class OperateCardData(object):
 
 
 class OperateCardDataBuilder(object):
-    def __init__(self, operate_card_data: OperateCardData = OperateCardData({})) -> None:
-        self._operate_card_data: OperateCardData = operate_card_data
+    def __init__(self) -> None:
+        self._operate_card_data = OperateCardData()
 
     def meeting_url(self, meeting_url: str) -> "OperateCardDataBuilder":
         self._operate_card_data.meeting_url = meeting_url

@@ -2,15 +2,15 @@
 
 from typing import *
 
-from lark_oapi.api.auth.v3.model.create_tenant_access_token_request import CreateTenantAccessTokenRequest
-from lark_oapi.api.auth.v3.model.create_tenant_access_token_response import CreateTenantAccessTokenResponse
-from lark_oapi.api.auth.v3.model.internal_tenant_access_token_request import InternalTenantAccessTokenRequest
-from lark_oapi.api.auth.v3.model.internal_tenant_access_token_response import InternalTenantAccessTokenResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_tenant_access_token_request import CreateTenantAccessTokenRequest
+from ..model.create_tenant_access_token_response import CreateTenantAccessTokenResponse
+from ..model.internal_tenant_access_token_request import InternalTenantAccessTokenRequest
+from ..model.internal_tenant_access_token_response import InternalTenantAccessTokenResponse
 
 
 class TenantAccessToken(object):
@@ -18,7 +18,10 @@ class TenantAccessToken(object):
         self.config: Optional[Config] = config
 
     def create(self, request: CreateTenantAccessTokenRequest,
-               option: RequestOption = RequestOption()) -> CreateTenantAccessTokenResponse:
+               option: Optional[RequestOption] = None) -> CreateTenantAccessTokenResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -33,7 +36,10 @@ class TenantAccessToken(object):
         return response
 
     def internal(self, request: InternalTenantAccessTokenRequest,
-                 option: RequestOption = RequestOption()) -> InternalTenantAccessTokenResponse:
+                 option: Optional[RequestOption] = None) -> InternalTenantAccessTokenResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -13,7 +13,7 @@ class ListFileResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.files: Optional[List[File]] = None
         self.next_page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,8 +25,8 @@ class ListFileResponseBody(object):
 
 
 class ListFileResponseBodyBuilder(object):
-    def __init__(self, list_file_response_body: ListFileResponseBody = ListFileResponseBody({})) -> None:
-        self._list_file_response_body: ListFileResponseBody = list_file_response_body
+    def __init__(self) -> None:
+        self._list_file_response_body = ListFileResponseBody()
 
     def files(self, files: List[File]) -> "ListFileResponseBodyBuilder":
         self._list_file_response_body.files = files

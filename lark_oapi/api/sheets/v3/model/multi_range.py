@@ -10,7 +10,7 @@ class MultiRange(object):
         "ranges": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ranges: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class MultiRange(object):
 
 
 class MultiRangeBuilder(object):
-    def __init__(self, multi_range: MultiRange = MultiRange({})) -> None:
-        self._multi_range: MultiRange = multi_range
+    def __init__(self) -> None:
+        self._multi_range = MultiRange()
 
     def ranges(self, ranges: List[str]) -> "MultiRangeBuilder":
         self._multi_range.ranges = ranges

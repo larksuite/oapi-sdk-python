@@ -14,7 +14,7 @@ class EducationInfo(object):
         "field_of_study": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.school_name: Optional[str] = None
         self.education: Optional[str] = None
         self.start_time: Optional[str] = None
@@ -28,8 +28,8 @@ class EducationInfo(object):
 
 
 class EducationInfoBuilder(object):
-    def __init__(self, education_info: EducationInfo = EducationInfo({})) -> None:
-        self._education_info: EducationInfo = education_info
+    def __init__(self) -> None:
+        self._education_info = EducationInfo()
 
     def school_name(self, school_name: str) -> "EducationInfoBuilder":
         self._education_info.school_name = school_name

@@ -15,7 +15,7 @@ class TaskTransfer(object):
         "task_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -30,8 +30,8 @@ class TaskTransfer(object):
 
 
 class TaskTransferBuilder(object):
-    def __init__(self, task_transfer: TaskTransfer = TaskTransfer({})) -> None:
-        self._task_transfer: TaskTransfer = task_transfer
+    def __init__(self) -> None:
+        self._task_transfer = TaskTransfer()
 
     def approval_code(self, approval_code: str) -> "TaskTransferBuilder":
         self._task_transfer.approval_code = approval_code

@@ -7,7 +7,7 @@ class QuoteContainer(object):
     _types = {
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         init(self, d, self._types)
 
     @staticmethod
@@ -16,8 +16,8 @@ class QuoteContainer(object):
 
 
 class QuoteContainerBuilder(object):
-    def __init__(self, quote_container: QuoteContainer = QuoteContainer({})) -> None:
-        self._quote_container: QuoteContainer = quote_container
+    def __init__(self) -> None:
+        self._quote_container = QuoteContainer()
 
     def build(self) -> "QuoteContainer":
         return self._quote_container

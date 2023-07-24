@@ -10,7 +10,7 @@ class CreateFunctionalRoleResponseBody(object):
         "role_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.role_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -20,10 +20,8 @@ class CreateFunctionalRoleResponseBody(object):
 
 
 class CreateFunctionalRoleResponseBodyBuilder(object):
-    def __init__(self,
-                 create_functional_role_response_body: CreateFunctionalRoleResponseBody = CreateFunctionalRoleResponseBody(
-                     {})) -> None:
-        self._create_functional_role_response_body: CreateFunctionalRoleResponseBody = create_functional_role_response_body
+    def __init__(self) -> None:
+        self._create_functional_role_response_body = CreateFunctionalRoleResponseBody()
 
     def role_id(self, role_id: str) -> "CreateFunctionalRoleResponseBodyBuilder":
         self._create_functional_role_response_body.role_id = role_id

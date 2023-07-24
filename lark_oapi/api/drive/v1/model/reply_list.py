@@ -11,7 +11,7 @@ class ReplyList(object):
         "replies": List[FileCommentReply],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.replies: Optional[List[FileCommentReply]] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class ReplyList(object):
 
 
 class ReplyListBuilder(object):
-    def __init__(self, reply_list: ReplyList = ReplyList({})) -> None:
-        self._reply_list: ReplyList = reply_list
+    def __init__(self) -> None:
+        self._reply_list = ReplyList()
 
     def replies(self, replies: List[FileCommentReply]) -> "ReplyListBuilder":
         self._reply_list.replies = replies

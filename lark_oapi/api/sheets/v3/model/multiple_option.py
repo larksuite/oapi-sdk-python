@@ -15,7 +15,7 @@ class MultipleOption(object):
         "properties": OptionProperties,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.range: Optional[str] = None
         self.data_validation_values: Optional[List[DataValidationValue]] = None
@@ -28,8 +28,8 @@ class MultipleOption(object):
 
 
 class MultipleOptionBuilder(object):
-    def __init__(self, multiple_option: MultipleOption = MultipleOption({})) -> None:
-        self._multiple_option: MultipleOption = multiple_option
+    def __init__(self) -> None:
+        self._multiple_option = MultipleOption()
 
     def type(self, type: str) -> "MultipleOptionBuilder":
         self._multiple_option.type = type

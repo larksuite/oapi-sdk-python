@@ -19,7 +19,8 @@ class UnsubscribeEventRequest(BaseRequest):
 
 class UnsubscribeEventRequestBuilder(object):
 
-    def __init__(self, unsubscribe_event_request: UnsubscribeEventRequest = UnsubscribeEventRequest()) -> None:
+    def __init__(self) -> None:
+        unsubscribe_event_request = UnsubscribeEventRequest()
         unsubscribe_event_request.http_method = HttpMethod.POST
         unsubscribe_event_request.uri = "/open-apis/helpdesk/v1/events/unsubscribe"
         unsubscribe_event_request.token_types = {AccessTokenType.TENANT}

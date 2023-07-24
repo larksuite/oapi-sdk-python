@@ -11,7 +11,7 @@ class PatchNoteResponseBody(object):
         "note": Note,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.note: Optional[Note] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class PatchNoteResponseBody(object):
 
 
 class PatchNoteResponseBodyBuilder(object):
-    def __init__(self, patch_note_response_body: PatchNoteResponseBody = PatchNoteResponseBody({})) -> None:
-        self._patch_note_response_body: PatchNoteResponseBody = patch_note_response_body
+    def __init__(self) -> None:
+        self._patch_note_response_body = PatchNoteResponseBody()
 
     def note(self, note: Note) -> "PatchNoteResponseBodyBuilder":
         self._patch_note_response_body.note = note

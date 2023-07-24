@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.attendance.v1.model.query_user_stats_data_request import QueryUserStatsDataRequest
-from lark_oapi.api.attendance.v1.model.query_user_stats_data_response import QueryUserStatsDataResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.query_user_stats_data_request import QueryUserStatsDataRequest
+from ..model.query_user_stats_data_response import QueryUserStatsDataResponse
 
 
 class UserStatsData(object):
@@ -16,7 +16,10 @@ class UserStatsData(object):
         self.config: Optional[Config] = config
 
     def query(self, request: QueryUserStatsDataRequest,
-              option: RequestOption = RequestOption()) -> QueryUserStatsDataResponse:
+              option: Optional[RequestOption] = None) -> QueryUserStatsDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -18,8 +18,8 @@ class DeletePublicMailboxRequest(BaseRequest):
 
 class DeletePublicMailboxRequestBuilder(object):
 
-    def __init__(self,
-                 delete_public_mailbox_request: DeletePublicMailboxRequest = DeletePublicMailboxRequest()) -> None:
+    def __init__(self) -> None:
+        delete_public_mailbox_request = DeletePublicMailboxRequest()
         delete_public_mailbox_request.http_method = HttpMethod.DELETE
         delete_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id"
         delete_public_mailbox_request.token_types = {AccessTokenType.TENANT}

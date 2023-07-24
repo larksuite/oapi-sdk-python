@@ -14,7 +14,7 @@ class Area(object):
         "coords": List[Coordinate],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.center: Optional[Coordinate] = None
         self.radius: Optional[int] = None
@@ -27,8 +27,8 @@ class Area(object):
 
 
 class AreaBuilder(object):
-    def __init__(self, area: Area = Area({})) -> None:
-        self._area: Area = area
+    def __init__(self) -> None:
+        self._area = Area()
 
     def type(self, type: str) -> "AreaBuilder":
         self._area.type = type

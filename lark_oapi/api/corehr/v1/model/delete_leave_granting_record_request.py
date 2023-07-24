@@ -18,8 +18,8 @@ class DeleteLeaveGrantingRecordRequest(BaseRequest):
 
 class DeleteLeaveGrantingRecordRequestBuilder(object):
 
-    def __init__(self,
-                 delete_leave_granting_record_request: DeleteLeaveGrantingRecordRequest = DeleteLeaveGrantingRecordRequest()) -> None:
+    def __init__(self) -> None:
+        delete_leave_granting_record_request = DeleteLeaveGrantingRecordRequest()
         delete_leave_granting_record_request.http_method = HttpMethod.DELETE
         delete_leave_granting_record_request.uri = "/open-apis/corehr/v1/leave_granting_records/:leave_granting_record_id"
         delete_leave_granting_record_request.token_types = {AccessTokenType.TENANT}

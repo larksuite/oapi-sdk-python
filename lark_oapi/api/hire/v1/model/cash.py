@@ -11,7 +11,7 @@ class Cash(object):
         "amount": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.currency_type: Optional[str] = None
         self.amount: Optional[int] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Cash(object):
 
 
 class CashBuilder(object):
-    def __init__(self, cash: Cash = Cash({})) -> None:
-        self._cash: Cash = cash
+    def __init__(self) -> None:
+        self._cash = Cash()
 
     def currency_type(self, currency_type: str) -> "CashBuilder":
         self._cash.currency_type = currency_type

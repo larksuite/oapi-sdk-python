@@ -21,8 +21,8 @@ class ListTicketCustomizedFieldRequest(BaseRequest):
 
 class ListTicketCustomizedFieldRequestBuilder(object):
 
-    def __init__(self,
-                 list_ticket_customized_field_request: ListTicketCustomizedFieldRequest = ListTicketCustomizedFieldRequest()) -> None:
+    def __init__(self) -> None:
+        list_ticket_customized_field_request = ListTicketCustomizedFieldRequest()
         list_ticket_customized_field_request.http_method = HttpMethod.GET
         list_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields"
         list_ticket_customized_field_request.token_types = {AccessTokenType.TENANT}

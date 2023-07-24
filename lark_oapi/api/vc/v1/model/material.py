@@ -16,7 +16,7 @@ class Material(object):
         "material_source": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.file_token: Optional[str] = None
         self.file_size: Optional[int] = None
@@ -32,8 +32,8 @@ class Material(object):
 
 
 class MaterialBuilder(object):
-    def __init__(self, material: Material = Material({})) -> None:
-        self._material: Material = material
+    def __init__(self) -> None:
+        self._material = Material()
 
     def name(self, name: str) -> "MaterialBuilder":
         self._material.name = name

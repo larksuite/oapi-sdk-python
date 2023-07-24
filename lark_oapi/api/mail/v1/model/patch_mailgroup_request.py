@@ -20,7 +20,8 @@ class PatchMailgroupRequest(BaseRequest):
 
 class PatchMailgroupRequestBuilder(object):
 
-    def __init__(self, patch_mailgroup_request: PatchMailgroupRequest = PatchMailgroupRequest()) -> None:
+    def __init__(self) -> None:
+        patch_mailgroup_request = PatchMailgroupRequest()
         patch_mailgroup_request.http_method = HttpMethod.PATCH
         patch_mailgroup_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id"
         patch_mailgroup_request.token_types = {AccessTokenType.TENANT}

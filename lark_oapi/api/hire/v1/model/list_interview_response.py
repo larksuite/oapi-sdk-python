@@ -12,7 +12,7 @@ class ListInterviewResponse(BaseResponse):
         "data": ListInterviewResponseBody
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         super().__init__(d)
         self.data: Optional[ListInterviewResponseBody] = None
         init(self, d, self._types)

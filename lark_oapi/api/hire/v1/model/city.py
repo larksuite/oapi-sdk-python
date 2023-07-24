@@ -14,7 +14,7 @@ class City(object):
         "country": Country,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.city_code: Optional[str] = None
         self.name: Optional[str] = None
         self.en_name: Optional[str] = None
@@ -27,8 +27,8 @@ class City(object):
 
 
 class CityBuilder(object):
-    def __init__(self, city: City = City({})) -> None:
-        self._city: City = city
+    def __init__(self) -> None:
+        self._city = City()
 
     def city_code(self, city_code: str) -> "CityBuilder":
         self._city.city_code = city_code

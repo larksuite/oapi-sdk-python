@@ -5,45 +5,48 @@ from typing import *
 
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.api.drive.v1.model.copy_file_request import CopyFileRequest
-from lark_oapi.api.drive.v1.model.copy_file_response import CopyFileResponse
-from lark_oapi.api.drive.v1.model.create_folder_file_request import CreateFolderFileRequest
-from lark_oapi.api.drive.v1.model.create_folder_file_response import CreateFolderFileResponse
-from lark_oapi.api.drive.v1.model.create_shortcut_file_request import CreateShortcutFileRequest
-from lark_oapi.api.drive.v1.model.create_shortcut_file_response import CreateShortcutFileResponse
-from lark_oapi.api.drive.v1.model.delete_file_request import DeleteFileRequest
-from lark_oapi.api.drive.v1.model.delete_file_response import DeleteFileResponse
-from lark_oapi.api.drive.v1.model.download_file_request import DownloadFileRequest
-from lark_oapi.api.drive.v1.model.download_file_response import DownloadFileResponse
-from lark_oapi.api.drive.v1.model.list_file_request import ListFileRequest
-from lark_oapi.api.drive.v1.model.list_file_response import ListFileResponse
-from lark_oapi.api.drive.v1.model.move_file_request import MoveFileRequest
-from lark_oapi.api.drive.v1.model.move_file_response import MoveFileResponse
-from lark_oapi.api.drive.v1.model.subscribe_file_request import SubscribeFileRequest
-from lark_oapi.api.drive.v1.model.subscribe_file_response import SubscribeFileResponse
-from lark_oapi.api.drive.v1.model.task_check_file_request import TaskCheckFileRequest
-from lark_oapi.api.drive.v1.model.task_check_file_response import TaskCheckFileResponse
-from lark_oapi.api.drive.v1.model.upload_all_file_request import UploadAllFileRequest
-from lark_oapi.api.drive.v1.model.upload_all_file_response import UploadAllFileResponse
-from lark_oapi.api.drive.v1.model.upload_finish_file_request import UploadFinishFileRequest
-from lark_oapi.api.drive.v1.model.upload_finish_file_response import UploadFinishFileResponse
-from lark_oapi.api.drive.v1.model.upload_part_file_request import UploadPartFileRequest
-from lark_oapi.api.drive.v1.model.upload_part_file_response import UploadPartFileResponse
-from lark_oapi.api.drive.v1.model.upload_prepare_file_request import UploadPrepareFileRequest
-from lark_oapi.api.drive.v1.model.upload_prepare_file_response import UploadPrepareFileResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8, CONTENT_TYPE
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from lark_oapi.core.utils import Files
+from ..model.copy_file_request import CopyFileRequest
+from ..model.copy_file_response import CopyFileResponse
+from ..model.create_folder_file_request import CreateFolderFileRequest
+from ..model.create_folder_file_response import CreateFolderFileResponse
+from ..model.create_shortcut_file_request import CreateShortcutFileRequest
+from ..model.create_shortcut_file_response import CreateShortcutFileResponse
+from ..model.delete_file_request import DeleteFileRequest
+from ..model.delete_file_response import DeleteFileResponse
+from ..model.download_file_request import DownloadFileRequest
+from ..model.download_file_response import DownloadFileResponse
+from ..model.list_file_request import ListFileRequest
+from ..model.list_file_response import ListFileResponse
+from ..model.move_file_request import MoveFileRequest
+from ..model.move_file_response import MoveFileResponse
+from ..model.subscribe_file_request import SubscribeFileRequest
+from ..model.subscribe_file_response import SubscribeFileResponse
+from ..model.task_check_file_request import TaskCheckFileRequest
+from ..model.task_check_file_response import TaskCheckFileResponse
+from ..model.upload_all_file_request import UploadAllFileRequest
+from ..model.upload_all_file_response import UploadAllFileResponse
+from ..model.upload_finish_file_request import UploadFinishFileRequest
+from ..model.upload_finish_file_response import UploadFinishFileResponse
+from ..model.upload_part_file_request import UploadPartFileRequest
+from ..model.upload_part_file_response import UploadPartFileResponse
+from ..model.upload_prepare_file_request import UploadPrepareFileRequest
+from ..model.upload_prepare_file_response import UploadPrepareFileResponse
 
 
 class File(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def copy(self, request: CopyFileRequest, option: RequestOption = RequestOption()) -> CopyFileResponse:
+    def copy(self, request: CopyFileRequest, option: Optional[RequestOption] = None) -> CopyFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -57,7 +60,10 @@ class File(object):
         return response
 
     def create_folder(self, request: CreateFolderFileRequest,
-                      option: RequestOption = RequestOption()) -> CreateFolderFileResponse:
+                      option: Optional[RequestOption] = None) -> CreateFolderFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -71,7 +77,10 @@ class File(object):
         return response
 
     def create_shortcut(self, request: CreateShortcutFileRequest,
-                        option: RequestOption = RequestOption()) -> CreateShortcutFileResponse:
+                        option: Optional[RequestOption] = None) -> CreateShortcutFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -84,7 +93,10 @@ class File(object):
 
         return response
 
-    def delete(self, request: DeleteFileRequest, option: RequestOption = RequestOption()) -> DeleteFileResponse:
+    def delete(self, request: DeleteFileRequest, option: Optional[RequestOption] = None) -> DeleteFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -97,7 +109,10 @@ class File(object):
 
         return response
 
-    def download(self, request: DownloadFileRequest, option: RequestOption = RequestOption()) -> DownloadFileResponse:
+    def download(self, request: DownloadFileRequest, option: Optional[RequestOption] = None) -> DownloadFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -119,7 +134,10 @@ class File(object):
 
         return response
 
-    def list(self, request: ListFileRequest, option: RequestOption = RequestOption()) -> ListFileResponse:
+    def list(self, request: ListFileRequest, option: Optional[RequestOption] = None) -> ListFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -132,7 +150,10 @@ class File(object):
 
         return response
 
-    def move(self, request: MoveFileRequest, option: RequestOption = RequestOption()) -> MoveFileResponse:
+    def move(self, request: MoveFileRequest, option: Optional[RequestOption] = None) -> MoveFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -145,8 +166,10 @@ class File(object):
 
         return response
 
-    def subscribe(self, request: SubscribeFileRequest,
-                  option: RequestOption = RequestOption()) -> SubscribeFileResponse:
+    def subscribe(self, request: SubscribeFileRequest, option: Optional[RequestOption] = None) -> SubscribeFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -160,7 +183,10 @@ class File(object):
         return response
 
     def task_check(self, request: TaskCheckFileRequest,
-                   option: RequestOption = RequestOption()) -> TaskCheckFileResponse:
+                   option: Optional[RequestOption] = None) -> TaskCheckFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -174,7 +200,10 @@ class File(object):
         return response
 
     def upload_all(self, request: UploadAllFileRequest,
-                   option: RequestOption = RequestOption()) -> UploadAllFileResponse:
+                   option: Optional[RequestOption] = None) -> UploadAllFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -194,7 +223,10 @@ class File(object):
         return response
 
     def upload_finish(self, request: UploadFinishFileRequest,
-                      option: RequestOption = RequestOption()) -> UploadFinishFileResponse:
+                      option: Optional[RequestOption] = None) -> UploadFinishFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -208,7 +240,10 @@ class File(object):
         return response
 
     def upload_part(self, request: UploadPartFileRequest,
-                    option: RequestOption = RequestOption()) -> UploadPartFileResponse:
+                    option: Optional[RequestOption] = None) -> UploadPartFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -228,7 +263,10 @@ class File(object):
         return response
 
     def upload_prepare(self, request: UploadPrepareFileRequest,
-                       option: RequestOption = RequestOption()) -> UploadPrepareFileResponse:
+                       option: Optional[RequestOption] = None) -> UploadPrepareFileResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

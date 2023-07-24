@@ -18,7 +18,8 @@ class PrimaryCalendarRequest(BaseRequest):
 
 class PrimaryCalendarRequestBuilder(object):
 
-    def __init__(self, primary_calendar_request: PrimaryCalendarRequest = PrimaryCalendarRequest()) -> None:
+    def __init__(self) -> None:
+        primary_calendar_request = PrimaryCalendarRequest()
         primary_calendar_request.http_method = HttpMethod.POST
         primary_calendar_request.uri = "/open-apis/calendar/v4/calendars/primary"
         primary_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

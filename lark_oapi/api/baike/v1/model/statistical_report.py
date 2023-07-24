@@ -15,7 +15,7 @@ class StatisticalReport(object):
         "update_date": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.date_interval: Optional[int] = None
         self.word_info: Optional[WordInfo] = None
         self.correct_info: Optional[CorrectInfo] = None
@@ -28,8 +28,8 @@ class StatisticalReport(object):
 
 
 class StatisticalReportBuilder(object):
-    def __init__(self, statistical_report: StatisticalReport = StatisticalReport({})) -> None:
-        self._statistical_report: StatisticalReport = statistical_report
+    def __init__(self) -> None:
+        self._statistical_report = StatisticalReport()
 
     def date_interval(self, date_interval: int) -> "StatisticalReportBuilder":
         self._statistical_report.date_interval = date_interval

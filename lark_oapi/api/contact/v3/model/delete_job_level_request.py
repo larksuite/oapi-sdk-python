@@ -18,7 +18,8 @@ class DeleteJobLevelRequest(BaseRequest):
 
 class DeleteJobLevelRequestBuilder(object):
 
-    def __init__(self, delete_job_level_request: DeleteJobLevelRequest = DeleteJobLevelRequest()) -> None:
+    def __init__(self) -> None:
+        delete_job_level_request = DeleteJobLevelRequest()
         delete_job_level_request.http_method = HttpMethod.DELETE
         delete_job_level_request.uri = "/open-apis/contact/v3/job_levels/:job_level_id"
         delete_job_level_request.token_types = {AccessTokenType.TENANT}

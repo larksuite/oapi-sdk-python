@@ -21,8 +21,8 @@ class PatchPermissionPublicRequest(BaseRequest):
 
 class PatchPermissionPublicRequestBuilder(object):
 
-    def __init__(self,
-                 patch_permission_public_request: PatchPermissionPublicRequest = PatchPermissionPublicRequest()) -> None:
+    def __init__(self) -> None:
+        patch_permission_public_request = PatchPermissionPublicRequest()
         patch_permission_public_request.http_method = HttpMethod.PATCH
         patch_permission_public_request.uri = "/open-apis/drive/v1/permissions/:token/public"
         patch_permission_public_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

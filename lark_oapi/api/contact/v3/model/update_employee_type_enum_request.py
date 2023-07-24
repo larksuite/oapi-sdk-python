@@ -20,8 +20,8 @@ class UpdateEmployeeTypeEnumRequest(BaseRequest):
 
 class UpdateEmployeeTypeEnumRequestBuilder(object):
 
-    def __init__(self,
-                 update_employee_type_enum_request: UpdateEmployeeTypeEnumRequest = UpdateEmployeeTypeEnumRequest()) -> None:
+    def __init__(self) -> None:
+        update_employee_type_enum_request = UpdateEmployeeTypeEnumRequest()
         update_employee_type_enum_request.http_method = HttpMethod.PUT
         update_employee_type_enum_request.uri = "/open-apis/contact/v3/employee_type_enums/:enum_id"
         update_employee_type_enum_request.token_types = {AccessTokenType.TENANT}

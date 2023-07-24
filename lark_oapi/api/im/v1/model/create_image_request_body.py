@@ -12,7 +12,7 @@ class CreateImageRequestBody(object):
         "image": IO[Any],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.image_type: Optional[str] = None
         self.image: Optional[IO[Any]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class CreateImageRequestBody(object):
 
 
 class CreateImageRequestBodyBuilder(object):
-    def __init__(self, create_image_request_body: CreateImageRequestBody = CreateImageRequestBody({})) -> None:
-        self._create_image_request_body: CreateImageRequestBody = create_image_request_body
+    def __init__(self) -> None:
+        self._create_image_request_body = CreateImageRequestBody()
 
     def image_type(self, image_type: str) -> "CreateImageRequestBodyBuilder":
         self._create_image_request_body.image_type = image_type

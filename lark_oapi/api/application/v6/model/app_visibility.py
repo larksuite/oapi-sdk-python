@@ -13,7 +13,7 @@ class AppVisibility(object):
         "invisible_list": AppVisibleList,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.is_all: Optional[bool] = None
         self.visible_list: Optional[AppVisibleList] = None
         self.invisible_list: Optional[AppVisibleList] = None
@@ -25,8 +25,8 @@ class AppVisibility(object):
 
 
 class AppVisibilityBuilder(object):
-    def __init__(self, app_visibility: AppVisibility = AppVisibility({})) -> None:
-        self._app_visibility: AppVisibility = app_visibility
+    def __init__(self) -> None:
+        self._app_visibility = AppVisibility()
 
     def is_all(self, is_all: bool) -> "AppVisibilityBuilder":
         self._app_visibility.is_all = is_all

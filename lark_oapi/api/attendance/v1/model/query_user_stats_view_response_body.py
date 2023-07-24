@@ -11,7 +11,7 @@ class QueryUserStatsViewResponseBody(object):
         "view": UserStatsView,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view: Optional[UserStatsView] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class QueryUserStatsViewResponseBody(object):
 
 
 class QueryUserStatsViewResponseBodyBuilder(object):
-    def __init__(self,
-                 query_user_stats_view_response_body: QueryUserStatsViewResponseBody = QueryUserStatsViewResponseBody(
-                     {})) -> None:
-        self._query_user_stats_view_response_body: QueryUserStatsViewResponseBody = query_user_stats_view_response_body
+    def __init__(self) -> None:
+        self._query_user_stats_view_response_body = QueryUserStatsViewResponseBody()
 
     def view(self, view: UserStatsView) -> "QueryUserStatsViewResponseBodyBuilder":
         self._query_user_stats_view_response_body.view = view

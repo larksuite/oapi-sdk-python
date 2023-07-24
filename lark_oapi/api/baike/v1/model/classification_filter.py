@@ -11,7 +11,7 @@ class ClassificationFilter(object):
         "exclude": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.include: Optional[List[str]] = None
         self.exclude: Optional[List[str]] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class ClassificationFilter(object):
 
 
 class ClassificationFilterBuilder(object):
-    def __init__(self, classification_filter: ClassificationFilter = ClassificationFilter({})) -> None:
-        self._classification_filter: ClassificationFilter = classification_filter
+    def __init__(self) -> None:
+        self._classification_filter = ClassificationFilter()
 
     def include(self, include: List[str]) -> "ClassificationFilterBuilder":
         self._classification_filter.include = include

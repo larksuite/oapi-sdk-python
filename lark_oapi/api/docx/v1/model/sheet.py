@@ -12,7 +12,7 @@ class Sheet(object):
         "column_size": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.token: Optional[str] = None
         self.row_size: Optional[int] = None
         self.column_size: Optional[int] = None
@@ -24,8 +24,8 @@ class Sheet(object):
 
 
 class SheetBuilder(object):
-    def __init__(self, sheet: Sheet = Sheet({})) -> None:
-        self._sheet: Sheet = sheet
+    def __init__(self) -> None:
+        self._sheet = Sheet()
 
     def token(self, token: str) -> "SheetBuilder":
         self._sheet.token = token

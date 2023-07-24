@@ -22,7 +22,7 @@ class FileComment(object):
         "reply_list": ReplyList,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.comment_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.create_time: Optional[int] = None
@@ -43,8 +43,8 @@ class FileComment(object):
 
 
 class FileCommentBuilder(object):
-    def __init__(self, file_comment: FileComment = FileComment({})) -> None:
-        self._file_comment: FileComment = file_comment
+    def __init__(self) -> None:
+        self._file_comment = FileComment()
 
     def comment_id(self, comment_id: str) -> "FileCommentBuilder":
         self._file_comment.comment_id = comment_id

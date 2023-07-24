@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.workplace.v1.model.search_workplace_access_data_request import SearchWorkplaceAccessDataRequest
-from lark_oapi.api.workplace.v1.model.search_workplace_access_data_response import SearchWorkplaceAccessDataResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.search_workplace_access_data_request import SearchWorkplaceAccessDataRequest
+from ..model.search_workplace_access_data_response import SearchWorkplaceAccessDataResponse
 
 
 class WorkplaceAccessData(object):
@@ -16,7 +16,10 @@ class WorkplaceAccessData(object):
         self.config: Optional[Config] = config
 
     def search(self, request: SearchWorkplaceAccessDataRequest,
-               option: RequestOption = RequestOption()) -> SearchWorkplaceAccessDataResponse:
+               option: Optional[RequestOption] = None) -> SearchWorkplaceAccessDataResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

@@ -21,7 +21,7 @@ class TaskSearch(object):
         "order": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.approval_code: Optional[str] = None
         self.instance_code: Optional[str] = None
@@ -42,8 +42,8 @@ class TaskSearch(object):
 
 
 class TaskSearchBuilder(object):
-    def __init__(self, task_search: TaskSearch = TaskSearch({})) -> None:
-        self._task_search: TaskSearch = task_search
+    def __init__(self) -> None:
+        self._task_search = TaskSearch()
 
     def user_id(self, user_id: str) -> "TaskSearchBuilder":
         self._task_search.user_id = user_id

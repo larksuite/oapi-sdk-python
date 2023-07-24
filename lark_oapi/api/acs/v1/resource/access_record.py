@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.acs.v1.model.list_access_record_request import ListAccessRecordRequest
-from lark_oapi.api.acs.v1.model.list_access_record_response import ListAccessRecordResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.list_access_record_request import ListAccessRecordRequest
+from ..model.list_access_record_response import ListAccessRecordResponse
 
 
 class AccessRecord(object):
@@ -16,7 +16,10 @@ class AccessRecord(object):
         self.config: Optional[Config] = config
 
     def list(self, request: ListAccessRecordRequest,
-             option: RequestOption = RequestOption()) -> ListAccessRecordResponse:
+             option: Optional[RequestOption] = None) -> ListAccessRecordResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

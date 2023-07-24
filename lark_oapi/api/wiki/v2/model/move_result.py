@@ -13,7 +13,7 @@ class MoveResult(object):
         "status_msg": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.node: Optional[Node] = None
         self.status: Optional[int] = None
         self.status_msg: Optional[str] = None
@@ -25,8 +25,8 @@ class MoveResult(object):
 
 
 class MoveResultBuilder(object):
-    def __init__(self, move_result: MoveResult = MoveResult({})) -> None:
-        self._move_result: MoveResult = move_result
+    def __init__(self) -> None:
+        self._move_result = MoveResult()
 
     def node(self, node: Node) -> "MoveResultBuilder":
         self._move_result.node = node

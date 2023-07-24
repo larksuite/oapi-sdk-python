@@ -12,7 +12,7 @@ class Draft(object):
         "entity": Entity,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.draft_id: Optional[int] = None
         self.entity: Optional[Entity] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class Draft(object):
 
 
 class DraftBuilder(object):
-    def __init__(self, draft: Draft = Draft({})) -> None:
-        self._draft: Draft = draft
+    def __init__(self) -> None:
+        self._draft = Draft()
 
     def draft_id(self, draft_id: int) -> "DraftBuilder":
         self._draft.draft_id = draft_id

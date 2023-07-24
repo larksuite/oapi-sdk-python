@@ -11,7 +11,7 @@ class WorkLocation(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class WorkLocation(object):
 
 
 class WorkLocationBuilder(object):
-    def __init__(self, work_location: WorkLocation = WorkLocation({})) -> None:
-        self._work_location: WorkLocation = work_location
+    def __init__(self) -> None:
+        self._work_location = WorkLocation()
 
     def id(self, id: int) -> "WorkLocationBuilder":
         self._work_location.id = id

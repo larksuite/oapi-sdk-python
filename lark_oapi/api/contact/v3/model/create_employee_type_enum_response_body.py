@@ -11,7 +11,7 @@ class CreateEmployeeTypeEnumResponseBody(object):
         "employee_type_enum": EmployeeTypeEnum,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.employee_type_enum: Optional[EmployeeTypeEnum] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class CreateEmployeeTypeEnumResponseBody(object):
 
 
 class CreateEmployeeTypeEnumResponseBodyBuilder(object):
-    def __init__(self,
-                 create_employee_type_enum_response_body: CreateEmployeeTypeEnumResponseBody = CreateEmployeeTypeEnumResponseBody(
-                     {})) -> None:
-        self._create_employee_type_enum_response_body: CreateEmployeeTypeEnumResponseBody = create_employee_type_enum_response_body
+    def __init__(self) -> None:
+        self._create_employee_type_enum_response_body = CreateEmployeeTypeEnumResponseBody()
 
     def employee_type_enum(self, employee_type_enum: EmployeeTypeEnum) -> "CreateEmployeeTypeEnumResponseBodyBuilder":
         self._create_employee_type_enum_response_body.employee_type_enum = employee_type_enum

@@ -23,7 +23,7 @@ class VendorAccount(object):
         "extend_info": List[ExtendField],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.account: Optional[str] = None
         self.iban: Optional[str] = None
@@ -45,8 +45,8 @@ class VendorAccount(object):
 
 
 class VendorAccountBuilder(object):
-    def __init__(self, vendor_account: VendorAccount = VendorAccount({})) -> None:
-        self._vendor_account: VendorAccount = vendor_account
+    def __init__(self) -> None:
+        self._vendor_account = VendorAccount()
 
     def id(self, id: int) -> "VendorAccountBuilder":
         self._vendor_account.id = id

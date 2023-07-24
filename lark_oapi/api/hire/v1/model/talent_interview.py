@@ -12,7 +12,7 @@ class TalentInterview(object):
         "interview_list": List[InterviewExtend],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.application_id: Optional[str] = None
         self.interview_list: Optional[List[InterviewExtend]] = None
         init(self, d, self._types)
@@ -23,8 +23,8 @@ class TalentInterview(object):
 
 
 class TalentInterviewBuilder(object):
-    def __init__(self, talent_interview: TalentInterview = TalentInterview({})) -> None:
-        self._talent_interview: TalentInterview = talent_interview
+    def __init__(self) -> None:
+        self._talent_interview = TalentInterview()
 
     def application_id(self, application_id: str) -> "TalentInterviewBuilder":
         self._talent_interview.application_id = application_id

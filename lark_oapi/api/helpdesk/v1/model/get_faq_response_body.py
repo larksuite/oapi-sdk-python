@@ -11,7 +11,7 @@ class GetFaqResponseBody(object):
         "faq": Faq,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.faq: Optional[Faq] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class GetFaqResponseBody(object):
 
 
 class GetFaqResponseBodyBuilder(object):
-    def __init__(self, get_faq_response_body: GetFaqResponseBody = GetFaqResponseBody({})) -> None:
-        self._get_faq_response_body: GetFaqResponseBody = get_faq_response_body
+    def __init__(self) -> None:
+        self._get_faq_response_body = GetFaqResponseBody()
 
     def faq(self, faq: Faq) -> "GetFaqResponseBodyBuilder":
         self._get_faq_response_body.faq = faq

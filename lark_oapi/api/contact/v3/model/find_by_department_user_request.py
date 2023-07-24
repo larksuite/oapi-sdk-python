@@ -22,8 +22,8 @@ class FindByDepartmentUserRequest(BaseRequest):
 
 class FindByDepartmentUserRequestBuilder(object):
 
-    def __init__(self,
-                 find_by_department_user_request: FindByDepartmentUserRequest = FindByDepartmentUserRequest()) -> None:
+    def __init__(self) -> None:
+        find_by_department_user_request = FindByDepartmentUserRequest()
         find_by_department_user_request.http_method = HttpMethod.GET
         find_by_department_user_request.uri = "/open-apis/contact/v3/users/find_by_department"
         find_by_department_user_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

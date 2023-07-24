@@ -24,8 +24,8 @@ class CreateDocumentBlockChildrenRequest(BaseRequest):
 
 class CreateDocumentBlockChildrenRequestBuilder(object):
 
-    def __init__(self,
-                 create_document_block_children_request: CreateDocumentBlockChildrenRequest = CreateDocumentBlockChildrenRequest()) -> None:
+    def __init__(self) -> None:
+        create_document_block_children_request = CreateDocumentBlockChildrenRequest()
         create_document_block_children_request.http_method = HttpMethod.POST
         create_document_block_children_request.uri = "/open-apis/docx/v1/documents/:document_id/blocks/:block_id/children"
         create_document_block_children_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

@@ -20,8 +20,8 @@ class CreateUserTaskRemedyRequest(BaseRequest):
 
 class CreateUserTaskRemedyRequestBuilder(object):
 
-    def __init__(self,
-                 create_user_task_remedy_request: CreateUserTaskRemedyRequest = CreateUserTaskRemedyRequest()) -> None:
+    def __init__(self) -> None:
+        create_user_task_remedy_request = CreateUserTaskRemedyRequest()
         create_user_task_remedy_request.http_method = HttpMethod.POST
         create_user_task_remedy_request.uri = "/open-apis/attendance/v1/user_task_remedys"
         create_user_task_remedy_request.token_types = {AccessTokenType.TENANT}

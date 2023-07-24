@@ -21,8 +21,8 @@ class DeletePermissionMemberRequest(BaseRequest):
 
 class DeletePermissionMemberRequestBuilder(object):
 
-    def __init__(self,
-                 delete_permission_member_request: DeletePermissionMemberRequest = DeletePermissionMemberRequest()) -> None:
+    def __init__(self) -> None:
+        delete_permission_member_request = DeletePermissionMemberRequest()
         delete_permission_member_request.http_method = HttpMethod.DELETE
         delete_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/:member_id"
         delete_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

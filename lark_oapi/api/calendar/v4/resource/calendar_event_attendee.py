@@ -2,19 +2,17 @@
 
 from typing import *
 
-from lark_oapi.api.calendar.v4.model.batch_delete_calendar_event_attendee_request import \
-    BatchDeleteCalendarEventAttendeeRequest
-from lark_oapi.api.calendar.v4.model.batch_delete_calendar_event_attendee_response import \
-    BatchDeleteCalendarEventAttendeeResponse
-from lark_oapi.api.calendar.v4.model.create_calendar_event_attendee_request import CreateCalendarEventAttendeeRequest
-from lark_oapi.api.calendar.v4.model.create_calendar_event_attendee_response import CreateCalendarEventAttendeeResponse
-from lark_oapi.api.calendar.v4.model.list_calendar_event_attendee_request import ListCalendarEventAttendeeRequest
-from lark_oapi.api.calendar.v4.model.list_calendar_event_attendee_response import ListCalendarEventAttendeeResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.batch_delete_calendar_event_attendee_request import BatchDeleteCalendarEventAttendeeRequest
+from ..model.batch_delete_calendar_event_attendee_response import BatchDeleteCalendarEventAttendeeResponse
+from ..model.create_calendar_event_attendee_request import CreateCalendarEventAttendeeRequest
+from ..model.create_calendar_event_attendee_response import CreateCalendarEventAttendeeResponse
+from ..model.list_calendar_event_attendee_request import ListCalendarEventAttendeeRequest
+from ..model.list_calendar_event_attendee_response import ListCalendarEventAttendeeResponse
 
 
 class CalendarEventAttendee(object):
@@ -22,7 +20,10 @@ class CalendarEventAttendee(object):
         self.config: Optional[Config] = config
 
     def batch_delete(self, request: BatchDeleteCalendarEventAttendeeRequest,
-                     option: RequestOption = RequestOption()) -> BatchDeleteCalendarEventAttendeeResponse:
+                     option: Optional[RequestOption] = None) -> BatchDeleteCalendarEventAttendeeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -37,7 +38,10 @@ class CalendarEventAttendee(object):
         return response
 
     def create(self, request: CreateCalendarEventAttendeeRequest,
-               option: RequestOption = RequestOption()) -> CreateCalendarEventAttendeeResponse:
+               option: Optional[RequestOption] = None) -> CreateCalendarEventAttendeeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -52,7 +56,10 @@ class CalendarEventAttendee(object):
         return response
 
     def list(self, request: ListCalendarEventAttendeeRequest,
-             option: RequestOption = RequestOption()) -> ListCalendarEventAttendeeResponse:
+             option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

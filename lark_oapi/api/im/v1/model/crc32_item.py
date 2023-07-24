@@ -11,7 +11,7 @@ class Crc32Item(object):
         "crc32": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.part_id: Optional[str] = None
         self.crc32: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class Crc32Item(object):
 
 
 class Crc32ItemBuilder(object):
-    def __init__(self, crc32_item: Crc32Item = Crc32Item({})) -> None:
-        self._crc32_item: Crc32Item = crc32_item
+    def __init__(self) -> None:
+        self._crc32_item = Crc32Item()
 
     def part_id(self, part_id: str) -> "Crc32ItemBuilder":
         self._crc32_item.part_id = part_id

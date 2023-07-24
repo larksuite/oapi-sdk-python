@@ -27,7 +27,7 @@ class TicketEvent(object):
         "chat_id": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.ticket_id: Optional[str] = None
         self.helpdesk_id: Optional[str] = None
         self.guest: Optional[TicketUserEvent] = None
@@ -52,8 +52,8 @@ class TicketEvent(object):
 
 
 class TicketEventBuilder(object):
-    def __init__(self, ticket_event: TicketEvent = TicketEvent({})) -> None:
-        self._ticket_event: TicketEvent = ticket_event
+    def __init__(self) -> None:
+        self._ticket_event = TicketEvent()
 
     def ticket_id(self, ticket_id: str) -> "TicketEventBuilder":
         self._ticket_event.ticket_id = ticket_id

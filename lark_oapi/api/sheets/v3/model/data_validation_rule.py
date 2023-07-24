@@ -14,7 +14,7 @@ class DataValidationRule(object):
         "multiple_option": MultipleOption,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.type: Optional[str] = None
         self.single_option: Optional[SingleOption] = None
         self.multiple_option: Optional[MultipleOption] = None
@@ -26,8 +26,8 @@ class DataValidationRule(object):
 
 
 class DataValidationRuleBuilder(object):
-    def __init__(self, data_validation_rule: DataValidationRule = DataValidationRule({})) -> None:
-        self._data_validation_rule: DataValidationRule = data_validation_rule
+    def __init__(self) -> None:
+        self._data_validation_rule = DataValidationRule()
 
     def type(self, type: str) -> "DataValidationRuleBuilder":
         self._data_validation_rule.type = type

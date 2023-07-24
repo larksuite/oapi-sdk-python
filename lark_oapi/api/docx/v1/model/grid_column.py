@@ -10,7 +10,7 @@ class GridColumn(object):
         "width_ratio": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.width_ratio: Optional[int] = None
         init(self, d, self._types)
 
@@ -20,8 +20,8 @@ class GridColumn(object):
 
 
 class GridColumnBuilder(object):
-    def __init__(self, grid_column: GridColumn = GridColumn({})) -> None:
-        self._grid_column: GridColumn = grid_column
+    def __init__(self) -> None:
+        self._grid_column = GridColumn()
 
     def width_ratio(self, width_ratio: int) -> "GridColumnBuilder":
         self._grid_column.width_ratio = width_ratio

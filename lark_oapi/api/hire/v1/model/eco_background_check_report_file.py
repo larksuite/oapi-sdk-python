@@ -11,7 +11,7 @@ class EcoBackgroundCheckReportFile(object):
         "report_url": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.report_name: Optional[str] = None
         self.report_url: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class EcoBackgroundCheckReportFile(object):
 
 
 class EcoBackgroundCheckReportFileBuilder(object):
-    def __init__(self, eco_background_check_report_file: EcoBackgroundCheckReportFile = EcoBackgroundCheckReportFile(
-        {})) -> None:
-        self._eco_background_check_report_file: EcoBackgroundCheckReportFile = eco_background_check_report_file
+    def __init__(self) -> None:
+        self._eco_background_check_report_file = EcoBackgroundCheckReportFile()
 
     def report_name(self, report_name: str) -> "EcoBackgroundCheckReportFileBuilder":
         self._eco_background_check_report_file.report_name = report_name

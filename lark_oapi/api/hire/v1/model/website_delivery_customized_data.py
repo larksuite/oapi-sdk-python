@@ -11,7 +11,7 @@ class WebsiteDeliveryCustomizedData(object):
         "value": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
@@ -22,9 +22,8 @@ class WebsiteDeliveryCustomizedData(object):
 
 
 class WebsiteDeliveryCustomizedDataBuilder(object):
-    def __init__(self, website_delivery_customized_data: WebsiteDeliveryCustomizedData = WebsiteDeliveryCustomizedData(
-        {})) -> None:
-        self._website_delivery_customized_data: WebsiteDeliveryCustomizedData = website_delivery_customized_data
+    def __init__(self) -> None:
+        self._website_delivery_customized_data = WebsiteDeliveryCustomizedData()
 
     def object_id(self, object_id: str) -> "WebsiteDeliveryCustomizedDataBuilder":
         self._website_delivery_customized_data.object_id = object_id

@@ -15,7 +15,7 @@ class AppBadge(object):
         "mobile": ClientBadgeNum,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_id: Optional[int] = None
         self.version: Optional[int] = None
         self.extra: Optional[str] = None
@@ -29,8 +29,8 @@ class AppBadge(object):
 
 
 class AppBadgeBuilder(object):
-    def __init__(self, app_badge: AppBadge = AppBadge({})) -> None:
-        self._app_badge: AppBadge = app_badge
+    def __init__(self) -> None:
+        self._app_badge = AppBadge()
 
     def user_id(self, user_id: int) -> "AppBadgeBuilder":
         self._app_badge.user_id = user_id

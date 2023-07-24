@@ -10,7 +10,7 @@ class QueryUserSettingRequestBody(object):
         "user_ids": List[str],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.user_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -20,9 +20,8 @@ class QueryUserSettingRequestBody(object):
 
 
 class QueryUserSettingRequestBodyBuilder(object):
-    def __init__(self, query_user_setting_request_body: QueryUserSettingRequestBody = QueryUserSettingRequestBody(
-        {})) -> None:
-        self._query_user_setting_request_body: QueryUserSettingRequestBody = query_user_setting_request_body
+    def __init__(self) -> None:
+        self._query_user_setting_request_body = QueryUserSettingRequestBody()
 
     def user_ids(self, user_ids: List[str]) -> "QueryUserSettingRequestBodyBuilder":
         self._query_user_setting_request_body.user_ids = user_ids

@@ -11,7 +11,7 @@ class CopyFileResponseBody(object):
         "file": File,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.file: Optional[File] = None
         init(self, d, self._types)
 
@@ -21,8 +21,8 @@ class CopyFileResponseBody(object):
 
 
 class CopyFileResponseBodyBuilder(object):
-    def __init__(self, copy_file_response_body: CopyFileResponseBody = CopyFileResponseBody({})) -> None:
-        self._copy_file_response_body: CopyFileResponseBody = copy_file_response_body
+    def __init__(self) -> None:
+        self._copy_file_response_body = CopyFileResponseBody()
 
     def file(self, file: File) -> "CopyFileResponseBodyBuilder":
         self._copy_file_response_body.file = file

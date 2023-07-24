@@ -11,7 +11,7 @@ class TopBorderStyle(object):
         "color": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.style: Optional[str] = None
         self.color: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TopBorderStyle(object):
 
 
 class TopBorderStyleBuilder(object):
-    def __init__(self, top_border_style: TopBorderStyle = TopBorderStyle({})) -> None:
-        self._top_border_style: TopBorderStyle = top_border_style
+    def __init__(self) -> None:
+        self._top_border_style = TopBorderStyle()
 
     def style(self, style: str) -> "TopBorderStyleBuilder":
         self._top_border_style.style = style

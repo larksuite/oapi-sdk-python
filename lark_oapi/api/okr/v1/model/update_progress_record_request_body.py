@@ -11,7 +11,7 @@ class UpdateProgressRecordRequestBody(object):
         "content": ContentBlock,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.content: Optional[ContentBlock] = None
         init(self, d, self._types)
 
@@ -21,10 +21,8 @@ class UpdateProgressRecordRequestBody(object):
 
 
 class UpdateProgressRecordRequestBodyBuilder(object):
-    def __init__(self,
-                 update_progress_record_request_body: UpdateProgressRecordRequestBody = UpdateProgressRecordRequestBody(
-                     {})) -> None:
-        self._update_progress_record_request_body: UpdateProgressRecordRequestBody = update_progress_record_request_body
+    def __init__(self) -> None:
+        self._update_progress_record_request_body = UpdateProgressRecordRequestBody()
 
     def content(self, content: ContentBlock) -> "UpdateProgressRecordRequestBodyBuilder":
         self._update_progress_record_request_body.content = content

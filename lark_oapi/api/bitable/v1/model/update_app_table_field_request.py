@@ -22,8 +22,8 @@ class UpdateAppTableFieldRequest(BaseRequest):
 
 class UpdateAppTableFieldRequestBuilder(object):
 
-    def __init__(self,
-                 update_app_table_field_request: UpdateAppTableFieldRequest = UpdateAppTableFieldRequest()) -> None:
+    def __init__(self) -> None:
+        update_app_table_field_request = UpdateAppTableFieldRequest()
         update_app_table_field_request.http_method = HttpMethod.PUT
         update_app_table_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
         update_app_table_field_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

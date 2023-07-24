@@ -11,7 +11,7 @@ class TestResultDetail(object):
         "result": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.subject: Optional[str] = None
         self.result: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class TestResultDetail(object):
 
 
 class TestResultDetailBuilder(object):
-    def __init__(self, test_result_detail: TestResultDetail = TestResultDetail({})) -> None:
-        self._test_result_detail: TestResultDetail = test_result_detail
+    def __init__(self) -> None:
+        self._test_result_detail = TestResultDetail()
 
     def subject(self, subject: str) -> "TestResultDetailBuilder":
         self._test_result_detail.subject = subject

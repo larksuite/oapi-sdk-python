@@ -13,7 +13,7 @@ class GetParticipantListResponseBody(object):
         "has_more": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.participants: Optional[List[Participant]] = None
         self.page_token: Optional[str] = None
         self.has_more: Optional[bool] = None
@@ -25,10 +25,8 @@ class GetParticipantListResponseBody(object):
 
 
 class GetParticipantListResponseBodyBuilder(object):
-    def __init__(self,
-                 get_participant_list_response_body: GetParticipantListResponseBody = GetParticipantListResponseBody(
-                     {})) -> None:
-        self._get_participant_list_response_body: GetParticipantListResponseBody = get_participant_list_response_body
+    def __init__(self) -> None:
+        self._get_participant_list_response_body = GetParticipantListResponseBody()
 
     def participants(self, participants: List[Participant]) -> "GetParticipantListResponseBodyBuilder":
         self._get_participant_list_response_body.participants = participants

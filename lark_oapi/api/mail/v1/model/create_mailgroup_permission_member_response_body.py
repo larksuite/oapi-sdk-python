@@ -14,7 +14,7 @@ class CreateMailgroupPermissionMemberResponseBody(object):
         "type": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.permission_member_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.department_id: Optional[str] = None
@@ -28,10 +28,8 @@ class CreateMailgroupPermissionMemberResponseBody(object):
 
 
 class CreateMailgroupPermissionMemberResponseBodyBuilder(object):
-    def __init__(self,
-                 create_mailgroup_permission_member_response_body: CreateMailgroupPermissionMemberResponseBody = CreateMailgroupPermissionMemberResponseBody(
-                     {})) -> None:
-        self._create_mailgroup_permission_member_response_body: CreateMailgroupPermissionMemberResponseBody = create_mailgroup_permission_member_response_body
+    def __init__(self) -> None:
+        self._create_mailgroup_permission_member_response_body = CreateMailgroupPermissionMemberResponseBody()
 
     def permission_member_id(self, permission_member_id: str) -> "CreateMailgroupPermissionMemberResponseBodyBuilder":
         self._create_mailgroup_permission_member_response_body.permission_member_id = permission_member_id

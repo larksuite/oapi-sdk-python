@@ -13,7 +13,7 @@ class FileStatistics(object):
         "timestamp": int,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.uv: Optional[int] = None
         self.pv: Optional[int] = None
         self.like_count: Optional[int] = None
@@ -26,8 +26,8 @@ class FileStatistics(object):
 
 
 class FileStatisticsBuilder(object):
-    def __init__(self, file_statistics: FileStatistics = FileStatistics({})) -> None:
-        self._file_statistics: FileStatistics = file_statistics
+    def __init__(self) -> None:
+        self._file_statistics = FileStatistics()
 
     def uv(self, uv: int) -> "FileStatisticsBuilder":
         self._file_statistics.uv = uv

@@ -12,7 +12,7 @@ class CopySpaceNodeRequestBody(object):
         "title": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.target_parent_token: Optional[str] = None
         self.target_space_id: Optional[int] = None
         self.title: Optional[str] = None
@@ -24,8 +24,8 @@ class CopySpaceNodeRequestBody(object):
 
 
 class CopySpaceNodeRequestBodyBuilder(object):
-    def __init__(self, copy_space_node_request_body: CopySpaceNodeRequestBody = CopySpaceNodeRequestBody({})) -> None:
-        self._copy_space_node_request_body: CopySpaceNodeRequestBody = copy_space_node_request_body
+    def __init__(self) -> None:
+        self._copy_space_node_request_body = CopySpaceNodeRequestBody()
 
     def target_parent_token(self, target_parent_token: str) -> "CopySpaceNodeRequestBodyBuilder":
         self._copy_space_node_request_body.target_parent_token = target_parent_token

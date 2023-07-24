@@ -23,7 +23,8 @@ class SearchEmployeeRequest(BaseRequest):
 
 class SearchEmployeeRequestBuilder(object):
 
-    def __init__(self, search_employee_request: SearchEmployeeRequest = SearchEmployeeRequest()) -> None:
+    def __init__(self) -> None:
+        search_employee_request = SearchEmployeeRequest()
         search_employee_request.http_method = HttpMethod.POST
         search_employee_request.uri = "/open-apis/corehr/v2/employees/search"
         search_employee_request.token_types = {AccessTokenType.TENANT}

@@ -13,7 +13,7 @@ class ReqTable(object):
         "fields": List[AppTableCreateHeader],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.name: Optional[str] = None
         self.default_view_name: Optional[str] = None
         self.fields: Optional[List[AppTableCreateHeader]] = None
@@ -25,8 +25,8 @@ class ReqTable(object):
 
 
 class ReqTableBuilder(object):
-    def __init__(self, req_table: ReqTable = ReqTable({})) -> None:
-        self._req_table: ReqTable = req_table
+    def __init__(self) -> None:
+        self._req_table = ReqTable()
 
     def name(self, name: str) -> "ReqTableBuilder":
         self._req_table.name = name

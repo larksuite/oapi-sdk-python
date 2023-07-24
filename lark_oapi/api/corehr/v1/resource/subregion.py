@@ -2,22 +2,25 @@
 
 from typing import *
 
-from lark_oapi.api.corehr.v1.model.get_subregion_request import GetSubregionRequest
-from lark_oapi.api.corehr.v1.model.get_subregion_response import GetSubregionResponse
-from lark_oapi.api.corehr.v1.model.list_subregion_request import ListSubregionRequest
-from lark_oapi.api.corehr.v1.model.list_subregion_response import ListSubregionResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.get_subregion_request import GetSubregionRequest
+from ..model.get_subregion_response import GetSubregionResponse
+from ..model.list_subregion_request import ListSubregionRequest
+from ..model.list_subregion_response import ListSubregionResponse
 
 
 class Subregion(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def get(self, request: GetSubregionRequest, option: RequestOption = RequestOption()) -> GetSubregionResponse:
+    def get(self, request: GetSubregionRequest, option: Optional[RequestOption] = None) -> GetSubregionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -30,7 +33,10 @@ class Subregion(object):
 
         return response
 
-    def list(self, request: ListSubregionRequest, option: RequestOption = RequestOption()) -> ListSubregionResponse:
+    def list(self, request: ListSubregionRequest, option: Optional[RequestOption] = None) -> ListSubregionResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

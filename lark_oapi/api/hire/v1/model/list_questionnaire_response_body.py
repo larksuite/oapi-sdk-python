@@ -13,7 +13,7 @@ class ListQuestionnaireResponseBody(object):
         "items": List[Questionnaire],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
         self.items: Optional[List[Questionnaire]] = None
@@ -25,9 +25,8 @@ class ListQuestionnaireResponseBody(object):
 
 
 class ListQuestionnaireResponseBodyBuilder(object):
-    def __init__(self, list_questionnaire_response_body: ListQuestionnaireResponseBody = ListQuestionnaireResponseBody(
-        {})) -> None:
-        self._list_questionnaire_response_body: ListQuestionnaireResponseBody = list_questionnaire_response_body
+    def __init__(self) -> None:
+        self._list_questionnaire_response_body = ListQuestionnaireResponseBody()
 
     def has_more(self, has_more: bool) -> "ListQuestionnaireResponseBodyBuilder":
         self._list_questionnaire_response_body.has_more = has_more

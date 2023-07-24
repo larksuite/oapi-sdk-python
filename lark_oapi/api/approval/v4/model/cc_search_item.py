@@ -17,7 +17,7 @@ class CcSearchItem(object):
         "cc": CcSearchNode,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.approval: Optional[InstanceSearchApproval] = None
         self.group: Optional[InstanceSearchGroup] = None
         self.instance: Optional[InstanceSearchNode] = None
@@ -30,8 +30,8 @@ class CcSearchItem(object):
 
 
 class CcSearchItemBuilder(object):
-    def __init__(self, cc_search_item: CcSearchItem = CcSearchItem({})) -> None:
-        self._cc_search_item: CcSearchItem = cc_search_item
+    def __init__(self) -> None:
+        self._cc_search_item = CcSearchItem()
 
     def approval(self, approval: InstanceSearchApproval) -> "CcSearchItemBuilder":
         self._cc_search_item.approval = approval

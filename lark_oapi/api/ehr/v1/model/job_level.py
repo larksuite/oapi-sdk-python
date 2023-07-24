@@ -11,7 +11,7 @@ class JobLevel(object):
         "name": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[int] = None
         self.name: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class JobLevel(object):
 
 
 class JobLevelBuilder(object):
-    def __init__(self, job_level: JobLevel = JobLevel({})) -> None:
-        self._job_level: JobLevel = job_level
+    def __init__(self) -> None:
+        self._job_level = JobLevel()
 
     def id(self, id: int) -> "JobLevelBuilder":
         self._job_level.id = id

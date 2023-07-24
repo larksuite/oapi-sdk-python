@@ -2,30 +2,33 @@
 
 from typing import *
 
-from lark_oapi.api.vc.v1.model.end_meeting_request import EndMeetingRequest
-from lark_oapi.api.vc.v1.model.end_meeting_response import EndMeetingResponse
-from lark_oapi.api.vc.v1.model.get_meeting_request import GetMeetingRequest
-from lark_oapi.api.vc.v1.model.get_meeting_response import GetMeetingResponse
-from lark_oapi.api.vc.v1.model.invite_meeting_request import InviteMeetingRequest
-from lark_oapi.api.vc.v1.model.invite_meeting_response import InviteMeetingResponse
-from lark_oapi.api.vc.v1.model.kickout_meeting_request import KickoutMeetingRequest
-from lark_oapi.api.vc.v1.model.kickout_meeting_response import KickoutMeetingResponse
-from lark_oapi.api.vc.v1.model.list_by_no_meeting_request import ListByNoMeetingRequest
-from lark_oapi.api.vc.v1.model.list_by_no_meeting_response import ListByNoMeetingResponse
-from lark_oapi.api.vc.v1.model.set_host_meeting_request import SetHostMeetingRequest
-from lark_oapi.api.vc.v1.model.set_host_meeting_response import SetHostMeetingResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.end_meeting_request import EndMeetingRequest
+from ..model.end_meeting_response import EndMeetingResponse
+from ..model.get_meeting_request import GetMeetingRequest
+from ..model.get_meeting_response import GetMeetingResponse
+from ..model.invite_meeting_request import InviteMeetingRequest
+from ..model.invite_meeting_response import InviteMeetingResponse
+from ..model.kickout_meeting_request import KickoutMeetingRequest
+from ..model.kickout_meeting_response import KickoutMeetingResponse
+from ..model.list_by_no_meeting_request import ListByNoMeetingRequest
+from ..model.list_by_no_meeting_response import ListByNoMeetingResponse
+from ..model.set_host_meeting_request import SetHostMeetingRequest
+from ..model.set_host_meeting_response import SetHostMeetingResponse
 
 
 class Meeting(object):
     def __init__(self, config: Config) -> None:
         self.config: Optional[Config] = config
 
-    def end(self, request: EndMeetingRequest, option: RequestOption = RequestOption()) -> EndMeetingResponse:
+    def end(self, request: EndMeetingRequest, option: Optional[RequestOption] = None) -> EndMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -38,7 +41,10 @@ class Meeting(object):
 
         return response
 
-    def get(self, request: GetMeetingRequest, option: RequestOption = RequestOption()) -> GetMeetingResponse:
+    def get(self, request: GetMeetingRequest, option: Optional[RequestOption] = None) -> GetMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -51,7 +57,10 @@ class Meeting(object):
 
         return response
 
-    def invite(self, request: InviteMeetingRequest, option: RequestOption = RequestOption()) -> InviteMeetingResponse:
+    def invite(self, request: InviteMeetingRequest, option: Optional[RequestOption] = None) -> InviteMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -64,8 +73,10 @@ class Meeting(object):
 
         return response
 
-    def kickout(self, request: KickoutMeetingRequest,
-                option: RequestOption = RequestOption()) -> KickoutMeetingResponse:
+    def kickout(self, request: KickoutMeetingRequest, option: Optional[RequestOption] = None) -> KickoutMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -79,7 +90,10 @@ class Meeting(object):
         return response
 
     def list_by_no(self, request: ListByNoMeetingRequest,
-                   option: RequestOption = RequestOption()) -> ListByNoMeetingResponse:
+                   option: Optional[RequestOption] = None) -> ListByNoMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 
@@ -93,7 +107,10 @@ class Meeting(object):
         return response
 
     def set_host(self, request: SetHostMeetingRequest,
-                 option: RequestOption = RequestOption()) -> SetHostMeetingResponse:
+                 option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

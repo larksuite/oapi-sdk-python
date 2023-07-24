@@ -13,7 +13,7 @@ class ListJobLevelResponseBody(object):
         "page_token": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.items: Optional[List[JobLevel]] = None
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
@@ -25,8 +25,8 @@ class ListJobLevelResponseBody(object):
 
 
 class ListJobLevelResponseBodyBuilder(object):
-    def __init__(self, list_job_level_response_body: ListJobLevelResponseBody = ListJobLevelResponseBody({})) -> None:
-        self._list_job_level_response_body: ListJobLevelResponseBody = list_job_level_response_body
+    def __init__(self) -> None:
+        self._list_job_level_response_body = ListJobLevelResponseBody()
 
     def items(self, items: List[JobLevel]) -> "ListJobLevelResponseBodyBuilder":
         self._list_job_level_response_body.items = items

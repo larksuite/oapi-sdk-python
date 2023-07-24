@@ -11,7 +11,7 @@ class DataValidationValue(object):
         "option_color": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.option_value: Optional[str] = None
         self.option_color: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DataValidationValue(object):
 
 
 class DataValidationValueBuilder(object):
-    def __init__(self, data_validation_value: DataValidationValue = DataValidationValue({})) -> None:
-        self._data_validation_value: DataValidationValue = data_validation_value
+    def __init__(self) -> None:
+        self._data_validation_value = DataValidationValue()
 
     def option_value(self, option_value: str) -> "DataValidationValueBuilder":
         self._data_validation_value.option_value = option_value

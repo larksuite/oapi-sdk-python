@@ -14,7 +14,7 @@ class WorkExperience(object):
         "description": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.company_name: Optional[str] = None
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
@@ -28,8 +28,8 @@ class WorkExperience(object):
 
 
 class WorkExperienceBuilder(object):
-    def __init__(self, work_experience: WorkExperience = WorkExperience({})) -> None:
-        self._work_experience: WorkExperience = work_experience
+    def __init__(self) -> None:
+        self._work_experience = WorkExperience()
 
     def company_name(self, company_name: str) -> "WorkExperienceBuilder":
         self._work_experience.company_name = company_name

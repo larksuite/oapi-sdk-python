@@ -15,7 +15,7 @@ class WebsiteJobPostCustomizedData(object):
         "value": WebsiteJobPostCustomizedValue,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.object_id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.object_type: Optional[int] = None
@@ -28,9 +28,8 @@ class WebsiteJobPostCustomizedData(object):
 
 
 class WebsiteJobPostCustomizedDataBuilder(object):
-    def __init__(self, website_job_post_customized_data: WebsiteJobPostCustomizedData = WebsiteJobPostCustomizedData(
-        {})) -> None:
-        self._website_job_post_customized_data: WebsiteJobPostCustomizedData = website_job_post_customized_data
+    def __init__(self) -> None:
+        self._website_job_post_customized_data = WebsiteJobPostCustomizedData()
 
     def object_id(self, object_id: str) -> "WebsiteJobPostCustomizedDataBuilder":
         self._website_job_post_customized_data.object_id = object_id

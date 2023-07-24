@@ -11,7 +11,7 @@ class RestRule(object):
         "rest_end_time": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.rest_begin_time: Optional[str] = None
         self.rest_end_time: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class RestRule(object):
 
 
 class RestRuleBuilder(object):
-    def __init__(self, rest_rule: RestRule = RestRule({})) -> None:
-        self._rest_rule: RestRule = rest_rule
+    def __init__(self) -> None:
+        self._rest_rule = RestRule()
 
     def rest_begin_time(self, rest_begin_time: str) -> "RestRuleBuilder":
         self._rest_rule.rest_begin_time = rest_begin_time

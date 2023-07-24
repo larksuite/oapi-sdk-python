@@ -2,13 +2,13 @@
 
 from typing import *
 
-from lark_oapi.api.hire.v1.model.patch_ehr_import_task_request import PatchEhrImportTaskRequest
-from lark_oapi.api.hire.v1.model.patch_ehr_import_task_response import PatchEhrImportTaskResponse
 from lark_oapi.core import JSON
 from lark_oapi.core.const import UTF_8
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.patch_ehr_import_task_request import PatchEhrImportTaskRequest
+from ..model.patch_ehr_import_task_response import PatchEhrImportTaskResponse
 
 
 class EhrImportTask(object):
@@ -16,7 +16,10 @@ class EhrImportTask(object):
         self.config: Optional[Config] = config
 
     def patch(self, request: PatchEhrImportTaskRequest,
-              option: RequestOption = RequestOption()) -> PatchEhrImportTaskResponse:
+              option: Optional[RequestOption] = None) -> PatchEhrImportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self.config, request, option)
 

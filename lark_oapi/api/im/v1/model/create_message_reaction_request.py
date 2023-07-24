@@ -20,8 +20,8 @@ class CreateMessageReactionRequest(BaseRequest):
 
 class CreateMessageReactionRequestBuilder(object):
 
-    def __init__(self,
-                 create_message_reaction_request: CreateMessageReactionRequest = CreateMessageReactionRequest()) -> None:
+    def __init__(self) -> None:
+        create_message_reaction_request = CreateMessageReactionRequest()
         create_message_reaction_request.http_method = HttpMethod.POST
         create_message_reaction_request.uri = "/open-apis/im/v1/messages/:message_id/reactions"
         create_message_reaction_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}

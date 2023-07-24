@@ -12,7 +12,7 @@ class EcoExamResultDetail(object):
         "result": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.result: Optional[str] = None
@@ -24,8 +24,8 @@ class EcoExamResultDetail(object):
 
 
 class EcoExamResultDetailBuilder(object):
-    def __init__(self, eco_exam_result_detail: EcoExamResultDetail = EcoExamResultDetail({})) -> None:
-        self._eco_exam_result_detail: EcoExamResultDetail = eco_exam_result_detail
+    def __init__(self) -> None:
+        self._eco_exam_result_detail = EcoExamResultDetail()
 
     def id(self, id: str) -> "EcoExamResultDetailBuilder":
         self._eco_exam_result_detail.id = id

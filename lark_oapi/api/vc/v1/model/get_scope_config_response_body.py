@@ -12,7 +12,7 @@ class GetScopeConfigResponseBody(object):
         "origin_configs": List[ScopeConfig],
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.current_config: Optional[ScopeConfig] = None
         self.origin_configs: Optional[List[ScopeConfig]] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class GetScopeConfigResponseBody(object):
 
 
 class GetScopeConfigResponseBodyBuilder(object):
-    def __init__(self,
-                 get_scope_config_response_body: GetScopeConfigResponseBody = GetScopeConfigResponseBody({})) -> None:
-        self._get_scope_config_response_body: GetScopeConfigResponseBody = get_scope_config_response_body
+    def __init__(self) -> None:
+        self._get_scope_config_response_body = GetScopeConfigResponseBody()
 
     def current_config(self, current_config: ScopeConfig) -> "GetScopeConfigResponseBodyBuilder":
         self._get_scope_config_response_body.current_config = current_config

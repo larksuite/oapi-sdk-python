@@ -11,7 +11,7 @@ class MeetingChat(object):
         "applink": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.meeting_chat_id: Optional[str] = None
         self.applink: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class MeetingChat(object):
 
 
 class MeetingChatBuilder(object):
-    def __init__(self, meeting_chat: MeetingChat = MeetingChat({})) -> None:
-        self._meeting_chat: MeetingChat = meeting_chat
+    def __init__(self) -> None:
+        self._meeting_chat = MeetingChat()
 
     def meeting_chat_id(self, meeting_chat_id: str) -> "MeetingChatBuilder":
         self._meeting_chat.meeting_chat_id = meeting_chat_id

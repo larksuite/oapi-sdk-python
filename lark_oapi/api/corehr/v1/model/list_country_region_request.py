@@ -19,7 +19,8 @@ class ListCountryRegionRequest(BaseRequest):
 
 class ListCountryRegionRequestBuilder(object):
 
-    def __init__(self, list_country_region_request: ListCountryRegionRequest = ListCountryRegionRequest()) -> None:
+    def __init__(self) -> None:
+        list_country_region_request = ListCountryRegionRequest()
         list_country_region_request.http_method = HttpMethod.GET
         list_country_region_request.uri = "/open-apis/corehr/v1/country_regions"
         list_country_region_request.token_types = {AccessTokenType.TENANT}

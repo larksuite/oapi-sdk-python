@@ -19,7 +19,8 @@ class CreatePinRequest(BaseRequest):
 
 class CreatePinRequestBuilder(object):
 
-    def __init__(self, create_pin_request: CreatePinRequest = CreatePinRequest()) -> None:
+    def __init__(self) -> None:
+        create_pin_request = CreatePinRequest()
         create_pin_request.http_method = HttpMethod.POST
         create_pin_request.uri = "/open-apis/im/v1/pins"
         create_pin_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}

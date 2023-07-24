@@ -12,7 +12,7 @@ class PatchAppTableViewRequestBody(object):
         "property": AppTableViewProperty,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.view_name: Optional[str] = None
         self.property: Optional[AppTableViewProperty] = None
         init(self, d, self._types)
@@ -23,9 +23,8 @@ class PatchAppTableViewRequestBody(object):
 
 
 class PatchAppTableViewRequestBodyBuilder(object):
-    def __init__(self, patch_app_table_view_request_body: PatchAppTableViewRequestBody = PatchAppTableViewRequestBody(
-        {})) -> None:
-        self._patch_app_table_view_request_body: PatchAppTableViewRequestBody = patch_app_table_view_request_body
+    def __init__(self) -> None:
+        self._patch_app_table_view_request_body = PatchAppTableViewRequestBody()
 
     def view_name(self, view_name: str) -> "PatchAppTableViewRequestBodyBuilder":
         self._patch_app_table_view_request_body.view_name = view_name

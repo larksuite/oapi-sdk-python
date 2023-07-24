@@ -18,7 +18,7 @@ class CombinedJobResult(object):
         "onboard_registration_schema_info": RegistrationSchemaInfo,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.default_job_post: Optional[CombinedJobResultDefaultJobPost] = None
         self.job: Optional[Job] = None
         self.job_manager: Optional[JobManager] = None
@@ -32,8 +32,8 @@ class CombinedJobResult(object):
 
 
 class CombinedJobResultBuilder(object):
-    def __init__(self, combined_job_result: CombinedJobResult = CombinedJobResult({})) -> None:
-        self._combined_job_result: CombinedJobResult = combined_job_result
+    def __init__(self) -> None:
+        self._combined_job_result = CombinedJobResult()
 
     def default_job_post(self, default_job_post: CombinedJobResultDefaultJobPost) -> "CombinedJobResultBuilder":
         self._combined_job_result.default_job_post = default_job_post

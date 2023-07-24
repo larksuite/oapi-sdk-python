@@ -19,7 +19,8 @@ class CreateBadgeImageRequest(BaseRequest):
 
 class CreateBadgeImageRequestBuilder(object):
 
-    def __init__(self, create_badge_image_request: CreateBadgeImageRequest = CreateBadgeImageRequest()) -> None:
+    def __init__(self) -> None:
+        create_badge_image_request = CreateBadgeImageRequest()
         create_badge_image_request.http_method = HttpMethod.POST
         create_badge_image_request.uri = "/open-apis/admin/v1/badge_images"
         create_badge_image_request.token_types = {AccessTokenType.TENANT}

@@ -15,7 +15,7 @@ class UserPosition(object):
         "is_major": bool,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.position_code: Optional[str] = None
         self.position_name: Optional[str] = None
         self.department_id: Optional[str] = None
@@ -30,8 +30,8 @@ class UserPosition(object):
 
 
 class UserPositionBuilder(object):
-    def __init__(self, user_position: UserPosition = UserPosition({})) -> None:
-        self._user_position: UserPosition = user_position
+    def __init__(self) -> None:
+        self._user_position = UserPosition()
 
     def position_code(self, position_code: str) -> "UserPositionBuilder":
         self._user_position.position_code = position_code

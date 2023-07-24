@@ -13,7 +13,7 @@ class ContentColor(object):
         "alpha": float,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.red: Optional[int] = None
         self.green: Optional[int] = None
         self.blue: Optional[int] = None
@@ -26,8 +26,8 @@ class ContentColor(object):
 
 
 class ContentColorBuilder(object):
-    def __init__(self, content_color: ContentColor = ContentColor({})) -> None:
-        self._content_color: ContentColor = content_color
+    def __init__(self) -> None:
+        self._content_color = ContentColor()
 
     def red(self, red: int) -> "ContentColorBuilder":
         self._content_color.red = red

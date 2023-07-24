@@ -11,7 +11,7 @@ class DepartmentLeader(object):
         "leader_i_d": str,
     }
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.leader_type: Optional[int] = None
         self.leader_i_d: Optional[str] = None
         init(self, d, self._types)
@@ -22,8 +22,8 @@ class DepartmentLeader(object):
 
 
 class DepartmentLeaderBuilder(object):
-    def __init__(self, department_leader: DepartmentLeader = DepartmentLeader({})) -> None:
-        self._department_leader: DepartmentLeader = department_leader
+    def __init__(self) -> None:
+        self._department_leader = DepartmentLeader()
 
     def leader_type(self, leader_type: int) -> "DepartmentLeaderBuilder":
         self._department_leader.leader_type = leader_type
