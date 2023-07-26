@@ -20,8 +20,8 @@ class Transport(object):
         headers: Dict[str, str] = _build_header(req, option)
 
         data = req.body
-        if not isinstance(req.body, MultipartEncoder):
-            data = JSON.marshal(req.body)
+        if data is not None and not isinstance(data, MultipartEncoder):
+            data = JSON.marshal(req.body).encode(UTF_8)
 
         response = requests.request(
             str(req.http_method.name),
@@ -35,7 +35,7 @@ class Transport(object):
         logger.debug(f"{str(req.http_method.name)} {url} {response.status_code}, "
                      f"headers: {JSON.marshal(headers)}, "
                      f"params: {JSON.marshal(req.queries)}, "
-                     f"body: {data}")
+                     f"body: {str(data, UTF_8) if isinstance(data, bytes) else data}")
 
         resp = RawResponse()
         resp.status_code = response.status_code
@@ -58,7 +58,7 @@ def _build_header(request: BaseRequest, option: RequestOption) -> Dict[str, str]
     headers = request.headers
 
     # 添加ua
-    headers[USER_AGENT] = f"{PROJECT}/{VERSION}"
+    headers[USER_AGENT] = f"{PROJECT}/v{VERSION}"
 
     # 附加header
     if option.headers is not None:

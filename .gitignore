@@ -8,3 +8,4 @@ upload.sh
 *.pyc
 *.cache
 test/
+.env

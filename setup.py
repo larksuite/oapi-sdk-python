@@ -1,9 +1,12 @@
 from distutils.core import setup
-from setuptools import find_packages, find_namespace_packages
+
+from setuptools import find_packages
+
+from lark_oapi.core import VERSION
 
 setup(
     name='lark-oapi',
-    version='1.0.3',
+    version=VERSION,
     description='Lark OpenAPI SDK for Python',
     author='Wenbo Mao',
     author_email='maowenbo@bytedance.com',
