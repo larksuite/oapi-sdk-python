@@ -286,17 +286,20 @@ if __name__ == "__main__":
 ```
 其中 EventDispatcherHandler.builder(encrypt_key: str, verification_token: str) 方法参数用于签名验证和消息解密使用, 可在 [开发者后台](https://open.feishu.cn/app?lang=zh-CN) ->「事件订阅」中查看。
 
-![Console](doc/console.jpeg)
+![](doc/console.jpeg)
 
 需要注意的是注册处理器时，比如使用 register_p2_im_message_receive_v1 注册接受消息事件回调时，其中的 P2 为消息协议版本，当前飞书开放平台存在 [两种消息协议](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#8f960a4b) ，分别为 1.0 和 2.0。
 
 如下图开发者在注册消息处理器时，需从 [事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list) 中查看自己需要的是哪种协议的事件。
 
-如果是 1.0 的消息协议，则注册处理器时，需要找以 register_p2_xxxx 开头的。如果是 2.0 的消息协议，则注册处理器时，需要找以 register_p2_xxxx 开头的。
+如果是 1.0 的消息协议，则注册处理器时，需要找以 register_p1_xxxx 开头的。如果是 2.0 的消息协议，则注册处理器时，需要找以 register_p2_xxxx 开头的。
 
 若在 SDK 中未找到处理器，可使用 register_p1_customized_event 或 register_p2_customized_event 注册自定义事件。
 
-![Console](doc/event_prot.png)
+![](doc/event_prot.png)
+
+更多示例可参考：[事件回调](samples/event)
+
 
 ## License
 MIT
