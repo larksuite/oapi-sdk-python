@@ -18,6 +18,8 @@ from .list_device_response_body import *
 from .list_user_request import *
 from .list_user_response import *
 from .list_user_response_body import *
+from .p2_acs_access_record_created_v1 import *
+from .p2_acs_user_updated_v1 import *
 from .patch_user_request import *
 from .patch_user_response import *
 from .update_user_face_request import *

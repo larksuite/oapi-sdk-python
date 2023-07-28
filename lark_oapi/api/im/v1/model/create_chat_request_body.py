@@ -34,12 +34,9 @@ class CreateChatRequestBody(object):
         self.bot_id_list: Optional[List[str]] = None
         self.chat_mode: Optional[str] = None
         self.chat_type: Optional[str] = None
-        self.external: Optional[bool] = None
         self.join_message_visibility: Optional[str] = None
         self.leave_message_visibility: Optional[str] = None
         self.membership_approval: Optional[str] = None
-        self.labels: Optional[List[str]] = None
-        self.toolkit_ids: Optional[List[int]] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
         init(self, d, self._types)
 

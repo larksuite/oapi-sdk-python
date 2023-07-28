@@ -34,6 +34,7 @@ class V1(object):
         self.questionnaire: Optional[Questionnaire] = Questionnaire(config)
         self.referral: Optional[Referral] = Referral(config)
         self.referral_website_job_post: Optional[ReferralWebsiteJobPost] = ReferralWebsiteJobPost(config)
+        self.registration_schema: Optional[RegistrationSchema] = RegistrationSchema(config)
         self.resume_source: Optional[ResumeSource] = ResumeSource(config)
         self.talent: Optional[Talent] = Talent(config)
         self.talent_folder: Optional[TalentFolder] = TalentFolder(config)

@@ -50,6 +50,7 @@ from .list_data_source_response import *
 from .list_data_source_response_body import *
 from .llm_model_config import *
 from .model_config import *
+from .nls_model_config import *
 from .passage import *
 from .passage_param import *
 from .patch_data_source_request import *

@@ -26,7 +26,6 @@ class ListChat(object):
         self.owner_id_type: Optional[str] = None
         self.external: Optional[bool] = None
         self.tenant_key: Optional[str] = None
-        self.labels: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod

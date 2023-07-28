@@ -33,7 +33,6 @@ class Chat(object):
         self.only_owner_edit: Optional[bool] = None
         self.owner_user_id: Optional[str] = None
         self.type: Optional[str] = None
-        self.labels: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod

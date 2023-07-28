@@ -30,7 +30,6 @@ class DepartmentEvent(object):
         self.leader_user_id: Optional[str] = None
         self.chat_id: Optional[str] = None
         self.order: Optional[int] = None
-        self.unit_ids: Optional[List[str]] = None
         self.status: Optional[DepartmentStatus] = None
         self.leaders: Optional[List[DepartmentLeader]] = None
         self.department_hrbps: Optional[List[UserId]] = None

@@ -3,7 +3,6 @@
 from typing import *
 
 from lark_oapi.core.construct import init
-from .custom_list import CustomList
 from .subscribe_user import SubscribeUser
 
 
@@ -20,7 +19,6 @@ class ReserveFormConfig(object):
         self.notified_users: Optional[List[SubscribeUser]] = None
         self.notified_time: Optional[int] = None
         self.time_unit: Optional[int] = None
-        self.custom_list: Optional[List[CustomList]] = None
         init(self, d, self._types)
 
     @staticmethod

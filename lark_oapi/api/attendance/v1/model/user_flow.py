@@ -29,15 +29,12 @@ class UserFlow(object):
         self.check_time: Optional[str] = None
         self.comment: Optional[str] = None
         self.record_id: Optional[str] = None
-        self.longitude: Optional[float] = None
-        self.latitude: Optional[float] = None
         self.ssid: Optional[str] = None
         self.bssid: Optional[str] = None
         self.is_field: Optional[bool] = None
         self.is_wifi: Optional[bool] = None
         self.type: Optional[int] = None
         self.photo_urls: Optional[List[str]] = None
-        self.device_id: Optional[str] = None
         self.check_result: Optional[str] = None
         init(self, d, self._types)
 

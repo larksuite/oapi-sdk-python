@@ -94,6 +94,10 @@ from .meeting_settings import *
 from .myai_card_status import *
 from .myai_reply import *
 from .operate_card_data import *
+from .p2_calendar_calendar_acl_created_v4 import *
+from .p2_calendar_calendar_acl_deleted_v4 import *
+from .p2_calendar_calendar_changed_v4 import *
+from .p2_calendar_calendar_event_changed_v4 import *
 from .patch_calendar_event_request import *
 from .patch_calendar_event_response import *
 from .patch_calendar_event_response_body import *
@@ -104,6 +108,7 @@ from .primary_calendar_request import *
 from .primary_calendar_response import *
 from .primary_calendar_response_body import *
 from .reminder import *
+from .room_meta import *
 from .schema import *
 from .search_calendar_event_request import *
 from .search_calendar_event_request_body import *

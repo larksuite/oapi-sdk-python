@@ -39,6 +39,7 @@ class CombinedJob(object):
         "expiry_timestamp": str,
         "interview_registration_schema_id": str,
         "onboard_registration_schema_id": str,
+        "target_major_id_list": List[str],
     }
 
     def __init__(self, d=None):
@@ -60,7 +61,6 @@ class CombinedJob(object):
         self.is_never_expired: Optional[bool] = None
         self.max_salary: Optional[int] = None
         self.requirement: Optional[str] = None
-        self.address_id: Optional[str] = None
         self.description: Optional[str] = None
         self.highlight_list: Optional[List[str]] = None
         self.job_type_id: Optional[str] = None
@@ -73,6 +73,7 @@ class CombinedJob(object):
         self.expiry_timestamp: Optional[str] = None
         self.interview_registration_schema_id: Optional[str] = None
         self.onboard_registration_schema_id: Optional[str] = None
+        self.target_major_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -202,6 +203,10 @@ class CombinedJobBuilder(object):
 
     def onboard_registration_schema_id(self, onboard_registration_schema_id: str) -> "CombinedJobBuilder":
         self._combined_job.onboard_registration_schema_id = onboard_registration_schema_id
+        return self
+
+    def target_major_id_list(self, target_major_id_list: List[str]) -> "CombinedJobBuilder":
+        self._combined_job.target_major_id_list = target_major_id_list
         return self
 
     def build(self) -> "CombinedJob":

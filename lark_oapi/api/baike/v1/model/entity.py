@@ -29,7 +29,6 @@ class Entity(object):
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.main_keys: Optional[List[Term]] = None
-        self.full_names: Optional[List[Term]] = None
         self.aliases: Optional[List[Term]] = None
         self.description: Optional[str] = None
         self.creator: Optional[int] = None

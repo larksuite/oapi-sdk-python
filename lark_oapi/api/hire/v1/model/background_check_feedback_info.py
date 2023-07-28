@@ -7,11 +7,13 @@ from lark_oapi.core.construct import init
 
 class BackgroundCheckFeedbackInfo(object):
     _types = {
+        "feedback_id": str,
         "attachment_url": str,
         "result": str,
     }
 
     def __init__(self, d=None):
+        self.feedback_id: Optional[str] = None
         self.attachment_url: Optional[str] = None
         self.result: Optional[str] = None
         init(self, d, self._types)
@@ -24,6 +26,10 @@ class BackgroundCheckFeedbackInfo(object):
 class BackgroundCheckFeedbackInfoBuilder(object):
     def __init__(self) -> None:
         self._background_check_feedback_info = BackgroundCheckFeedbackInfo()
+
+    def feedback_id(self, feedback_id: str) -> "BackgroundCheckFeedbackInfoBuilder":
+        self._background_check_feedback_info.feedback_id = feedback_id
+        return self
 
     def attachment_url(self, attachment_url: str) -> "BackgroundCheckFeedbackInfoBuilder":
         self._background_check_feedback_info.attachment_url = attachment_url

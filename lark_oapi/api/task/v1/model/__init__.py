@@ -60,6 +60,9 @@ from .list_task_request import *
 from .list_task_response import *
 from .list_task_response_body import *
 from .origin import *
+from .p2_task_task_comment_updated_v1 import *
+from .p2_task_task_update_tenant_v1 import *
+from .p2_task_task_updated_v1 import *
 from .patch_task_request import *
 from .patch_task_request_body import *
 from .patch_task_response import *

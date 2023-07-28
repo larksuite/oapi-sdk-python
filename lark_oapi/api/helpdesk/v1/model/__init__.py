@@ -119,6 +119,10 @@ from .notification import *
 from .notification_chat import *
 from .notification_department import *
 from .notification_user import *
+from .p2_helpdesk_notification_approve_v1 import *
+from .p2_helpdesk_ticket_created_v1 import *
+from .p2_helpdesk_ticket_message_created_v1 import *
+from .p2_helpdesk_ticket_updated_v1 import *
 from .patch_agent_request import *
 from .patch_agent_request_body import *
 from .patch_agent_response import *

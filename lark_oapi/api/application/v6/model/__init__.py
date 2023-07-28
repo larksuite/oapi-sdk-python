@@ -85,6 +85,14 @@ from .overview_application_app_usage_request import *
 from .overview_application_app_usage_request_body import *
 from .overview_application_app_usage_response import *
 from .overview_application_app_usage_response_body import *
+from .p2_application_application_app_version_audit_v6 import *
+from .p2_application_application_app_version_publish_apply_v6 import *
+from .p2_application_application_app_version_publish_revoke_v6 import *
+from .p2_application_application_created_v6 import *
+from .p2_application_application_feedback_created_v6 import *
+from .p2_application_application_feedback_updated_v6 import *
+from .p2_application_application_visibility_added_v6 import *
+from .p2_application_bot_menu_v6 import *
 from .patch_application_app_version_request import *
 from .patch_application_app_version_response import *
 from .patch_application_feedback_request import *

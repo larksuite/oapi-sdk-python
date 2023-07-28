@@ -3,17 +3,20 @@
 from typing import *
 
 from lark_oapi.core.construct import init
+from .room_meta import RoomMeta
 
 
 class BookMeetingRoomData(object):
     _types = {
         "meeting_room_id": str,
         "hint": str,
+        "rooms": List[RoomMeta],
     }
 
     def __init__(self, d=None):
         self.meeting_room_id: Optional[str] = None
         self.hint: Optional[str] = None
+        self.rooms: Optional[List[RoomMeta]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +34,10 @@ class BookMeetingRoomDataBuilder(object):
 
     def hint(self, hint: str) -> "BookMeetingRoomDataBuilder":
         self._book_meeting_room_data.hint = hint
+        return self
+
+    def rooms(self, rooms: List[RoomMeta]) -> "BookMeetingRoomDataBuilder":
+        self._book_meeting_room_data.rooms = rooms
         return self
 
     def build(self) -> "BookMeetingRoomData":

@@ -36,7 +36,6 @@ class Dependent(object):
         self.relationship: Optional[Enum] = None
         self.gender: Optional[Enum] = None
         self.date_of_birth: Optional[str] = None
-        self.nationality_id: Optional[str] = None
         self.national_id_list: Optional[List[NationalId]] = None
         self.spouses_working_status: Optional[Enum] = None
         self.is_this_person_covered_by_health_insurance: Optional[bool] = None

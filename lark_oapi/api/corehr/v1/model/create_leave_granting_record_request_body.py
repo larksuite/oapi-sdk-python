@@ -13,6 +13,7 @@ class CreateLeaveGrantingRecordRequestBody(object):
         "granting_quantity": str,
         "granting_unit": int,
         "effective_date": str,
+        "expiration_date": str,
         "reason": List[I18n],
         "external_id": str,
     }
@@ -23,6 +24,7 @@ class CreateLeaveGrantingRecordRequestBody(object):
         self.granting_quantity: Optional[str] = None
         self.granting_unit: Optional[int] = None
         self.effective_date: Optional[str] = None
+        self.expiration_date: Optional[str] = None
         self.reason: Optional[List[I18n]] = None
         self.external_id: Optional[str] = None
         init(self, d, self._types)
@@ -54,6 +56,10 @@ class CreateLeaveGrantingRecordRequestBodyBuilder(object):
 
     def effective_date(self, effective_date: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
         self._create_leave_granting_record_request_body.effective_date = effective_date
+        return self
+
+    def expiration_date(self, expiration_date: str) -> "CreateLeaveGrantingRecordRequestBodyBuilder":
+        self._create_leave_granting_record_request_body.expiration_date = expiration_date
         return self
 
     def reason(self, reason: List[I18n]) -> "CreateLeaveGrantingRecordRequestBodyBuilder":

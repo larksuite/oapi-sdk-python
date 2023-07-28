@@ -3,15 +3,24 @@
 from typing import *
 
 from lark_oapi.core.construct import init
+from .room_meta import RoomMeta
 
 
 class MyaiReply(object):
     _types = {
         "reply": str,
+        "start_time": str,
+        "end_time": str,
+        "rooms": List[RoomMeta],
+        "summary": str,
     }
 
     def __init__(self, d=None):
         self.reply: Optional[str] = None
+        self.start_time: Optional[str] = None
+        self.end_time: Optional[str] = None
+        self.rooms: Optional[List[RoomMeta]] = None
+        self.summary: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +34,22 @@ class MyaiReplyBuilder(object):
 
     def reply(self, reply: str) -> "MyaiReplyBuilder":
         self._myai_reply.reply = reply
+        return self
+
+    def start_time(self, start_time: str) -> "MyaiReplyBuilder":
+        self._myai_reply.start_time = start_time
+        return self
+
+    def end_time(self, end_time: str) -> "MyaiReplyBuilder":
+        self._myai_reply.end_time = end_time
+        return self
+
+    def rooms(self, rooms: List[RoomMeta]) -> "MyaiReplyBuilder":
+        self._myai_reply.rooms = rooms
+        return self
+
+    def summary(self, summary: str) -> "MyaiReplyBuilder":
+        self._myai_reply.summary = summary
         return self
 
     def build(self) -> "MyaiReply":

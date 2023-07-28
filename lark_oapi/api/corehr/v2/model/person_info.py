@@ -12,9 +12,11 @@ from .email import Email
 from .emergency_contact import EmergencyContact
 from .enum import Enum
 from .national_id import NationalId
+from .person_info_chn import PersonInfoChn
 from .person_name import PersonName
 from .personal_profile import PersonalProfile
 from .phone import Phone
+from .resident_tax import ResidentTax
 from .work_experience_info import WorkExperienceInfo
 
 
@@ -55,6 +57,17 @@ class PersonInfo(object):
         "custom_fields": List[CustomFieldData],
         "national_id_number": str,
         "family_address": str,
+        "person_info_chns": List[PersonInfoChn],
+        "born_country_region": str,
+        "is_disabled": bool,
+        "disable_card_number": str,
+        "is_martyr_family": bool,
+        "martyr_card_number": str,
+        "is_old_alone": bool,
+        "resident_taxes": List[ResidentTax],
+        "first_entry_time": str,
+        "leave_time": str,
+        "religion": Enum,
     }
 
     def __init__(self, d=None):
@@ -67,7 +80,6 @@ class PersonInfo(object):
         self.name_list: Optional[List[PersonName]] = None
         self.gender: Optional[Enum] = None
         self.date_of_birth: Optional[str] = None
-        self.nationality_id: Optional[str] = None
         self.race: Optional[Enum] = None
         self.marital_status: Optional[Enum] = None
         self.phone_list: Optional[List[Phone]] = None
@@ -94,6 +106,17 @@ class PersonInfo(object):
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.national_id_number: Optional[str] = None
         self.family_address: Optional[str] = None
+        self.person_info_chns: Optional[List[PersonInfoChn]] = None
+        self.born_country_region: Optional[str] = None
+        self.is_disabled: Optional[bool] = None
+        self.disable_card_number: Optional[str] = None
+        self.is_martyr_family: Optional[bool] = None
+        self.martyr_card_number: Optional[str] = None
+        self.is_old_alone: Optional[bool] = None
+        self.resident_taxes: Optional[List[ResidentTax]] = None
+        self.first_entry_time: Optional[str] = None
+        self.leave_time: Optional[str] = None
+        self.religion: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -243,6 +266,50 @@ class PersonInfoBuilder(object):
 
     def family_address(self, family_address: str) -> "PersonInfoBuilder":
         self._person_info.family_address = family_address
+        return self
+
+    def person_info_chns(self, person_info_chns: List[PersonInfoChn]) -> "PersonInfoBuilder":
+        self._person_info.person_info_chns = person_info_chns
+        return self
+
+    def born_country_region(self, born_country_region: str) -> "PersonInfoBuilder":
+        self._person_info.born_country_region = born_country_region
+        return self
+
+    def is_disabled(self, is_disabled: bool) -> "PersonInfoBuilder":
+        self._person_info.is_disabled = is_disabled
+        return self
+
+    def disable_card_number(self, disable_card_number: str) -> "PersonInfoBuilder":
+        self._person_info.disable_card_number = disable_card_number
+        return self
+
+    def is_martyr_family(self, is_martyr_family: bool) -> "PersonInfoBuilder":
+        self._person_info.is_martyr_family = is_martyr_family
+        return self
+
+    def martyr_card_number(self, martyr_card_number: str) -> "PersonInfoBuilder":
+        self._person_info.martyr_card_number = martyr_card_number
+        return self
+
+    def is_old_alone(self, is_old_alone: bool) -> "PersonInfoBuilder":
+        self._person_info.is_old_alone = is_old_alone
+        return self
+
+    def resident_taxes(self, resident_taxes: List[ResidentTax]) -> "PersonInfoBuilder":
+        self._person_info.resident_taxes = resident_taxes
+        return self
+
+    def first_entry_time(self, first_entry_time: str) -> "PersonInfoBuilder":
+        self._person_info.first_entry_time = first_entry_time
+        return self
+
+    def leave_time(self, leave_time: str) -> "PersonInfoBuilder":
+        self._person_info.leave_time = leave_time
+        return self
+
+    def religion(self, religion: Enum) -> "PersonInfoBuilder":
+        self._person_info.religion = religion
         return self
 
     def build(self) -> "PersonInfo":

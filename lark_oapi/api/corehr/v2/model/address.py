@@ -36,8 +36,6 @@ class Address(object):
         self.address_id: Optional[str] = None
         self.country_region_id: Optional[str] = None
         self.region_id: Optional[str] = None
-        self.city_id: Optional[str] = None
-        self.distinct_id: Optional[str] = None
         self.local_address_line1: Optional[str] = None
         self.local_address_line2: Optional[str] = None
         self.local_address_line3: Optional[str] = None

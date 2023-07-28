@@ -1,8 +1,9 @@
 import requests
 from requests_toolbelt import MultipartEncoder
 
-from lark_oapi.core import JSON, logger
 from lark_oapi.core.const import *
+from lark_oapi.core.json import JSON
+from lark_oapi.core.log import logger
 from lark_oapi.core.model import *
 
 
@@ -26,7 +27,7 @@ class Transport(object):
         response = requests.request(
             str(req.http_method.name),
             url,
-            headers=headers,
+            headers=req.headers,
             params=req.queries,
             data=data,
             timeout=conf.timeout,
@@ -39,7 +40,7 @@ class Transport(object):
 
         resp = RawResponse()
         resp.status_code = response.status_code
-        resp.header = dict(response.headers)
+        resp.headers = dict(response.headers)
         resp.content = response.content
 
         return resp

@@ -20,7 +20,7 @@ request = lark.contact.v3.GetUserRequest.builder().user_id("7be5fg9a").build()
 # 发起请求
 response = client.contact.v3.user.get(request)
 ```
-更多示例可参考：[请求示例](./samples)
+更多示例可参考：[请求示例](./samples/api)
 
 ## API Client
 开发者在调用 API 前，需要先创建一个 API Client，然后才可以基于 API Client 发起 API 调用。
@@ -28,6 +28,8 @@ response = client.contact.v3.user.get(request)
 ### 创建 Client
 - 自建应用
 ```python
+import lark_oapi as lark
+
 client = lark.Client.builder() \
     .app_id("APP_ID") \
     .app_secret("APP_SECRET") \
@@ -36,6 +38,8 @@ client = lark.Client.builder() \
 
 - 商店应用
 ```python
+import lark_oapi as lark
+
 client = lark.Client.builder() \
     .app_id("APP_ID") \
     .app_secret("APP_SECRET") \
@@ -47,6 +51,8 @@ client = lark.Client.builder() \
 创建 API Client 时，可以对 API Client 进行一定的配置，比如我们可以在创建 API Client 时设置日志级别、http 请求超时时间等。
 
 ```python
+import lark_oapi as lark
+
 client = lark.Client.builder() \
     .app_id("APP_ID") \
     .app_secret("APP_SECRET") \
@@ -104,7 +110,7 @@ if not response.success():
 # 处理业务结果
 lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 ```
-更多示例可参考：[请求示例](./samples)
+更多示例可参考：[请求示例](./samples/api)
 
 ### Request 配置项
 在每次发起 API 调用时，可以设置请求级别的一些参数，比如传递 userAccessToken, 自定义 headers 等。
@@ -234,7 +240,7 @@ if not response.success():
 # 处理业务结果
 lark.logger.info(str(response.raw.content, lark.UTF_8))
 ```
-更多示例可参考：[原生调用](./samples/raw.py)
+更多示例可参考：[原生调用](samples/api/raw.py)
 
 ## License
 MIT

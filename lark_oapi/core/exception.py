@@ -21,3 +21,18 @@ class UnmarshalException(Exception):
 
     def __str__(self):
         return f"expected {self.dst} but was {self.src} at field: {self.field}"
+
+
+class InvalidArgsException(Exception):
+    def __init__(self, msg: str):
+        self.msg: str = msg
+
+
+class AccessDeniedException(Exception):
+    def __init__(self, msg: str):
+        self.msg: str = msg
+
+
+class EventException(Exception):
+    def __init__(self, msg: str):
+        self.msg: str = msg

@@ -7,6 +7,7 @@ from .combined_job_result_default_job_post import CombinedJobResultDefaultJobPos
 from .job import Job
 from .job_manager import JobManager
 from .registration_schema_info import RegistrationSchemaInfo
+from .target_major_info import TargetMajorInfo
 
 
 class CombinedJobResult(object):
@@ -16,6 +17,7 @@ class CombinedJobResult(object):
         "job_manager": JobManager,
         "interview_registration_schema_info": RegistrationSchemaInfo,
         "onboard_registration_schema_info": RegistrationSchemaInfo,
+        "target_major_list": List[TargetMajorInfo],
     }
 
     def __init__(self, d=None):
@@ -24,6 +26,7 @@ class CombinedJobResult(object):
         self.job_manager: Optional[JobManager] = None
         self.interview_registration_schema_info: Optional[RegistrationSchemaInfo] = None
         self.onboard_registration_schema_info: Optional[RegistrationSchemaInfo] = None
+        self.target_major_list: Optional[List[TargetMajorInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +58,10 @@ class CombinedJobResultBuilder(object):
     def onboard_registration_schema_info(self,
                                          onboard_registration_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
         self._combined_job_result.onboard_registration_schema_info = onboard_registration_schema_info
+        return self
+
+    def target_major_list(self, target_major_list: List[TargetMajorInfo]) -> "CombinedJobResultBuilder":
+        self._combined_job_result.target_major_list = target_major_list
         return self
 
     def build(self) -> "CombinedJobResult":

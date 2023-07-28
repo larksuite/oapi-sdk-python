@@ -7,5 +7,5 @@ upload.sh
 */__pycache__/
 *.pyc
 *.cache
-test/
+tests/
 .env

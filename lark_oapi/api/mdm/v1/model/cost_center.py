@@ -27,7 +27,6 @@ class CostCenter(object):
         self.i18n_cost_center_name: Optional[List[I18nStruct]] = None
         self.responsible_user_union_id: Optional[str] = None
         self.co_area_code: Optional[str] = None
-        self.company_code: Optional[str] = None
         self.profit_center_code: Optional[str] = None
         self.business_area: Optional[str] = None
         self.fee_type: Optional[str] = None

@@ -5,7 +5,6 @@ from typing import *
 from lark_oapi.core.construct import init
 from .talent_city_info import TalentCityInfo
 from .talent_customized_data_child import TalentCustomizedDataChild
-from .talent_identification_info import TalentIdentificationInfo
 from .talent_nationality import TalentNationality
 
 
@@ -48,7 +47,6 @@ class TalentBasicInfo(object):
         self.preferred_city_list: Optional[List[TalentCityInfo]] = None
         self.identification_type: Optional[int] = None
         self.identification_number: Optional[str] = None
-        self.identification: Optional[TalentIdentificationInfo] = None
         self.birthday: Optional[int] = None
         self.creator_id: Optional[str] = None
         self.marital_status: Optional[int] = None

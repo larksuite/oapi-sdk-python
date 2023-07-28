@@ -37,6 +37,7 @@ class WebsiteJobPost(object):
         "job_function": IdNameObject,
         "subject": IdNameObject,
         "address_list": List[CommonAddress],
+        "target_major_list": List[IdNameObject],
     }
 
     def __init__(self, d=None):
@@ -67,6 +68,7 @@ class WebsiteJobPost(object):
         self.job_function: Optional[IdNameObject] = None
         self.subject: Optional[IdNameObject] = None
         self.address_list: Optional[List[CommonAddress]] = None
+        self.target_major_list: Optional[List[IdNameObject]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -184,6 +186,10 @@ class WebsiteJobPostBuilder(object):
 
     def address_list(self, address_list: List[CommonAddress]) -> "WebsiteJobPostBuilder":
         self._website_job_post.address_list = address_list
+        return self
+
+    def target_major_list(self, target_major_list: List[IdNameObject]) -> "WebsiteJobPostBuilder":
+        self._website_job_post.target_major_list = target_major_list
         return self
 
     def build(self) -> "WebsiteJobPost":

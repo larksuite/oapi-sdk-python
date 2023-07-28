@@ -15,6 +15,7 @@ class GetShiftResponseBody(object):
         "shift_id": str,
         "shift_name": str,
         "punch_times": int,
+        "sub_shift_leader_ids": List[str],
         "is_flexible": bool,
         "flexible_minutes": int,
         "flexible_rule": List[FlexibleRule],
@@ -23,12 +24,14 @@ class GetShiftResponseBody(object):
         "late_off_late_on_rule": List[LateOffLateOnRule],
         "rest_time_rule": List[RestRule],
         "overtime_rule": List[OvertimeRule],
+        "allow_punch_approval": bool,
     }
 
     def __init__(self, d=None):
         self.shift_id: Optional[str] = None
         self.shift_name: Optional[str] = None
         self.punch_times: Optional[int] = None
+        self.sub_shift_leader_ids: Optional[List[str]] = None
         self.is_flexible: Optional[bool] = None
         self.flexible_minutes: Optional[int] = None
         self.flexible_rule: Optional[List[FlexibleRule]] = None
@@ -37,6 +40,7 @@ class GetShiftResponseBody(object):
         self.late_off_late_on_rule: Optional[List[LateOffLateOnRule]] = None
         self.rest_time_rule: Optional[List[RestRule]] = None
         self.overtime_rule: Optional[List[OvertimeRule]] = None
+        self.allow_punch_approval: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -58,6 +62,10 @@ class GetShiftResponseBodyBuilder(object):
 
     def punch_times(self, punch_times: int) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.punch_times = punch_times
+        return self
+
+    def sub_shift_leader_ids(self, sub_shift_leader_ids: List[str]) -> "GetShiftResponseBodyBuilder":
+        self._get_shift_response_body.sub_shift_leader_ids = sub_shift_leader_ids
         return self
 
     def is_flexible(self, is_flexible: bool) -> "GetShiftResponseBodyBuilder":
@@ -90,6 +98,10 @@ class GetShiftResponseBodyBuilder(object):
 
     def overtime_rule(self, overtime_rule: List[OvertimeRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.overtime_rule = overtime_rule
+        return self
+
+    def allow_punch_approval(self, allow_punch_approval: bool) -> "GetShiftResponseBodyBuilder":
+        self._get_shift_response_body.allow_punch_approval = allow_punch_approval
         return self
 
     def build(self) -> "GetShiftResponseBody":

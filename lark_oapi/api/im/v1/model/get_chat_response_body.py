@@ -59,8 +59,6 @@ class GetChatResponseBody(object):
         self.tenant_key: Optional[str] = None
         self.user_count: Optional[str] = None
         self.bot_count: Optional[str] = None
-        self.labels: Optional[List[str]] = None
-        self.toolkit_ids: Optional[List[int]] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
         init(self, d, self._types)
 

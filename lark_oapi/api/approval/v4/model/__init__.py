@@ -112,6 +112,7 @@ from .manageable_instance_node import *
 from .message import *
 from .node_approver import *
 from .node_cc import *
+from .p2_approval_approval_updated_v4 import *
 from .preview_instance_request import *
 from .preview_instance_request_body import *
 from .preview_instance_response import *

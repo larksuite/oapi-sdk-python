@@ -60,8 +60,13 @@ from .attachment import *
 from .attachment_info import *
 from .auth import *
 from .award_info import *
+from .background_check_custom_field_data_value import *
 from .background_check_feedback_info import *
+from .background_check_item_info import *
 from .background_check_order import *
+from .background_check_order_creator import *
+from .background_check_order_feedback_info import *
+from .background_check_order_process_info import *
 from .background_check_process_info import *
 from .base_address import *
 from .base_bilingual_with_id import *
@@ -314,6 +319,9 @@ from .list_questionnaire_response_body import *
 from .list_referral_website_job_post_request import *
 from .list_referral_website_job_post_response import *
 from .list_referral_website_job_post_response_body import *
+from .list_registration_schema_request import *
+from .list_registration_schema_response import *
+from .list_registration_schema_response_body import *
 from .list_resume_source_request import *
 from .list_resume_source_response import *
 from .list_resume_source_response_body import *
@@ -361,6 +369,10 @@ from .offer_selection_object import *
 from .offer_status_offer_request import *
 from .offer_status_offer_request_body import *
 from .offer_status_offer_response import *
+from .p2_hire_application_stage_changed_v1 import *
+from .p2_hire_ehr_import_task_for_internship_offer_imported_v1 import *
+from .p2_hire_ehr_import_task_imported_v1 import *
+from .p2_hire_offer_status_changed_v1 import *
 from .patch_ehr_import_task_request import *
 from .patch_ehr_import_task_response import *
 from .patch_employee_request import *
@@ -461,6 +473,7 @@ from .talent_schema_option import *
 from .talent_self_evaluation import *
 from .talent_sns_info import *
 from .talent_works_info import *
+from .target_major_info import *
 from .terminate_application_request import *
 from .terminate_application_request_body import *
 from .terminate_application_response import *
@@ -485,6 +498,7 @@ from .update_job_requirement_request import *
 from .update_job_requirement_response import *
 from .update_offer_request import *
 from .update_offer_response import *
+from .user_contact_info import *
 from .user_id import *
 from .user_role import *
 from .website import *

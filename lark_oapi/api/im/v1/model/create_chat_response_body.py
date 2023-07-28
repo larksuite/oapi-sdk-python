@@ -53,8 +53,6 @@ class CreateChatResponseBody(object):
         self.leave_message_visibility: Optional[str] = None
         self.membership_approval: Optional[str] = None
         self.moderation_permission: Optional[str] = None
-        self.labels: Optional[List[str]] = None
-        self.toolkit_ids: Optional[List[int]] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
         init(self, d, self._types)
 

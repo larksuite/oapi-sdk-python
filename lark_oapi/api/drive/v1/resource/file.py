@@ -19,8 +19,12 @@ from ..model.create_shortcut_file_request import CreateShortcutFileRequest
 from ..model.create_shortcut_file_response import CreateShortcutFileResponse
 from ..model.delete_file_request import DeleteFileRequest
 from ..model.delete_file_response import DeleteFileResponse
+from ..model.delete_subscribe_file_request import DeleteSubscribeFileRequest
+from ..model.delete_subscribe_file_response import DeleteSubscribeFileResponse
 from ..model.download_file_request import DownloadFileRequest
 from ..model.download_file_response import DownloadFileResponse
+from ..model.get_subscribe_file_request import GetSubscribeFileRequest
+from ..model.get_subscribe_file_response import GetSubscribeFileResponse
 from ..model.list_file_request import ListFileRequest
 from ..model.list_file_response import ListFileResponse
 from ..model.move_file_request import MoveFileRequest
@@ -109,6 +113,23 @@ class File(object):
 
         return response
 
+    def delete_subscribe(self, request: DeleteSubscribeFileRequest,
+                         option: Optional[RequestOption] = None) -> DeleteSubscribeFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteSubscribeFileResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSubscribeFileResponse)
+        response.raw = resp
+
+        return response
+
     def download(self, request: DownloadFileRequest, option: Optional[RequestOption] = None) -> DownloadFileResponse:
         if option is None:
             option = RequestOption()
@@ -130,6 +151,23 @@ class File(object):
 
         # 反序列化
         response: DownloadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), DownloadFileResponse)
+        response.raw = resp
+
+        return response
+
+    def get_subscribe(self, request: GetSubscribeFileRequest,
+                      option: Optional[RequestOption] = None) -> GetSubscribeFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetSubscribeFileResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSubscribeFileResponse)
         response.raw = resp
 
         return response

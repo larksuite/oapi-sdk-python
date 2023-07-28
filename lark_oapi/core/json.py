@@ -3,8 +3,7 @@ from json import *
 from typing import *
 
 from .const import UTF_8
-
-T = TypeVar('T')
+from .type import T
 
 
 class JSON(object):

@@ -55,6 +55,7 @@ from .national_id import *
 from .nationality import *
 from .object_field_data import *
 from .offer_info import *
+from .onboarding_task import *
 from .parents_department_request import *
 from .parents_department_request_body import *
 from .parents_department_response import *
@@ -63,12 +64,19 @@ from .patch_person_request import *
 from .patch_person_response import *
 from .patch_person_response_body import *
 from .person_info import *
+from .person_info_chn import *
 from .person_name import *
 from .personal_profile import *
 from .phone import *
+from .pre_hire import *
+from .pre_hire_contract_info import *
+from .pre_hire_employment_info import *
+from .pre_hire_onboarding_info import *
+from .pre_hire_probation_info import *
 from .prehire_create import *
 from .probation_info import *
 from .probation_info_for_submit import *
+from .resident_tax import *
 from .search_department_request import *
 from .search_department_request_body import *
 from .search_department_response import *

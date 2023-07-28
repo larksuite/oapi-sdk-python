@@ -21,6 +21,7 @@ from .offer_schema import *
 from .questionnaire import *
 from .referral import *
 from .referral_website_job_post import *
+from .registration_schema import *
 from .resume_source import *
 from .talent import *
 from .talent_folder import *

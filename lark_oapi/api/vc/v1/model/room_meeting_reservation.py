@@ -7,6 +7,7 @@ from lark_oapi.core.construct import init
 
 class RoomMeetingReservation(object):
     _types = {
+        "room_id": str,
         "room_name": str,
         "event_title": str,
         "reserver": str,
@@ -26,6 +27,7 @@ class RoomMeetingReservation(object):
     }
 
     def __init__(self, d=None):
+        self.room_id: Optional[str] = None
         self.room_name: Optional[str] = None
         self.event_title: Optional[str] = None
         self.reserver: Optional[str] = None
@@ -52,6 +54,10 @@ class RoomMeetingReservation(object):
 class RoomMeetingReservationBuilder(object):
     def __init__(self) -> None:
         self._room_meeting_reservation = RoomMeetingReservation()
+
+    def room_id(self, room_id: str) -> "RoomMeetingReservationBuilder":
+        self._room_meeting_reservation.room_id = room_id
+        return self
 
     def room_name(self, room_name: str) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.room_name = room_name

@@ -16,13 +16,11 @@ class SearchDepartmentRequestBody(object):
     }
 
     def __init__(self, d=None):
-        self.get_all_children: Optional[bool] = None
         self.manager_list: Optional[List[str]] = None
         self.department_id_list: Optional[List[str]] = None
         self.name_list: Optional[List[str]] = None
         self.parent_department_id: Optional[str] = None
         self.code_list: Optional[List[str]] = None
-        self.get_all_version: Optional[bool] = None
         self.fields: Optional[List[str]] = None
         init(self, d, self._types)
 

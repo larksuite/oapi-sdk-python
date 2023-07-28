@@ -14,6 +14,7 @@ class EmergencyContact(object):
         "name": PersonName,
         "relationship": Enum,
         "phone_ist": List[Phone],
+        "phone_list": List[Phone],
         "legal_name": str,
         "custom_fields": List[CustomFieldData],
     }
@@ -22,6 +23,7 @@ class EmergencyContact(object):
         self.name: Optional[PersonName] = None
         self.relationship: Optional[Enum] = None
         self.phone_ist: Optional[List[Phone]] = None
+        self.phone_list: Optional[List[Phone]] = None
         self.legal_name: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
@@ -45,6 +47,10 @@ class EmergencyContactBuilder(object):
 
     def phone_ist(self, phone_ist: List[Phone]) -> "EmergencyContactBuilder":
         self._emergency_contact.phone_ist = phone_ist
+        return self
+
+    def phone_list(self, phone_list: List[Phone]) -> "EmergencyContactBuilder":
+        self._emergency_contact.phone_list = phone_list
         return self
 
     def legal_name(self, legal_name: str) -> "EmergencyContactBuilder":

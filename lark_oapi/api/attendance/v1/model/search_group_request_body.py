@@ -12,7 +12,6 @@ class SearchGroupRequestBody(object):
 
     def __init__(self, d=None):
         self.group_name: Optional[str] = None
-        self.exactly_matched: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod

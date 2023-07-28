@@ -76,6 +76,8 @@ class Group(object):
         "no_need_punch_members": List[PunchMember],
         "save_auto_changes": bool,
         "org_change_auto_adjust": bool,
+        "bind_default_dept_ids": List[str],
+        "bind_default_user_ids": List[str],
     }
 
     def __init__(self, d=None):
@@ -141,6 +143,8 @@ class Group(object):
         self.no_need_punch_members: Optional[List[PunchMember]] = None
         self.save_auto_changes: Optional[bool] = None
         self.org_change_auto_adjust: Optional[bool] = None
+        self.bind_default_dept_ids: Optional[List[str]] = None
+        self.bind_default_user_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -398,6 +402,14 @@ class GroupBuilder(object):
 
     def org_change_auto_adjust(self, org_change_auto_adjust: bool) -> "GroupBuilder":
         self._group.org_change_auto_adjust = org_change_auto_adjust
+        return self
+
+    def bind_default_dept_ids(self, bind_default_dept_ids: List[str]) -> "GroupBuilder":
+        self._group.bind_default_dept_ids = bind_default_dept_ids
+        return self
+
+    def bind_default_user_ids(self, bind_default_user_ids: List[str]) -> "GroupBuilder":
+        self._group.bind_default_user_ids = bind_default_user_ids
         return self
 
     def build(self) -> "Group":

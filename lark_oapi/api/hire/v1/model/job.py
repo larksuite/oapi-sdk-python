@@ -13,6 +13,7 @@ from .job_highlight import JobHighlight
 from .job_level import JobLevel
 from .job_recruitment_type import JobRecruitmentType
 from .job_type import JobType
+from .target_major_info import TargetMajorInfo
 
 
 class Job(object):
@@ -52,6 +53,7 @@ class Job(object):
         "create_timestamp": str,
         "update_timestamp": str,
         "expiry_timestamp": str,
+        "target_major_list": List[TargetMajorInfo],
     }
 
     def __init__(self, d=None):
@@ -90,6 +92,7 @@ class Job(object):
         self.create_timestamp: Optional[str] = None
         self.update_timestamp: Optional[str] = None
         self.expiry_timestamp: Optional[str] = None
+        self.target_major_list: Optional[List[TargetMajorInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -239,6 +242,10 @@ class JobBuilder(object):
 
     def expiry_timestamp(self, expiry_timestamp: str) -> "JobBuilder":
         self._job.expiry_timestamp = expiry_timestamp
+        return self
+
+    def target_major_list(self, target_major_list: List[TargetMajorInfo]) -> "JobBuilder":
+        self._job.target_major_list = target_major_list
         return self
 
     def build(self) -> "Job":

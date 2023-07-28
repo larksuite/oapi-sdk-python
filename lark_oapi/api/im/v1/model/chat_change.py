@@ -40,7 +40,6 @@ class ChatChange(object):
         self.leave_message_visibility: Optional[str] = None
         self.moderation_permission: Optional[str] = None
         self.owner_id: Optional[UserId] = None
-        self.labels: Optional[List[str]] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
         init(self, d, self._types)
 

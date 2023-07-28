@@ -68,6 +68,8 @@ from .delete_permission_member_request import *
 from .delete_permission_member_response import *
 from .delete_permission_public_password_request import *
 from .delete_permission_public_password_response import *
+from .delete_subscribe_file_request import *
+from .delete_subscribe_file_response import *
 from .docs_link import *
 from .download_export_task_request import *
 from .download_export_task_response import *
@@ -105,6 +107,8 @@ from .get_import_task_response_body import *
 from .get_permission_public_request import *
 from .get_permission_public_response import *
 from .get_permission_public_response_body import *
+from .get_subscribe_file_request import *
+from .get_subscribe_file_response import *
 from .import_task import *
 from .import_task_mount_point import *
 from .list_file_comment_request import *
@@ -133,6 +137,14 @@ from .move_file_request_body import *
 from .move_file_response import *
 from .move_file_response_body import *
 from .owner import *
+from .p2_drive_file_bitable_field_changed_v1 import *
+from .p2_drive_file_deleted_v1 import *
+from .p2_drive_file_edit_v1 import *
+from .p2_drive_file_permission_member_added_v1 import *
+from .p2_drive_file_permission_member_removed_v1 import *
+from .p2_drive_file_read_v1 import *
+from .p2_drive_file_title_updated_v1 import *
+from .p2_drive_file_trashed_v1 import *
 from .patch_file_comment_request import *
 from .patch_file_comment_request_body import *
 from .patch_file_comment_response import *

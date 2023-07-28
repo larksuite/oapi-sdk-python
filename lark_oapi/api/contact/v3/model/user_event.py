@@ -6,7 +6,6 @@ from lark_oapi.core.construct import init
 from .avatar_info import AvatarInfo
 from .user_custom_attr import UserCustomAttr
 from .user_order import UserOrder
-from .user_position import UserPosition
 from .user_status import UserStatus
 
 
@@ -50,7 +49,6 @@ class UserEvent(object):
         self.enterprise_email: Optional[str] = None
         self.job_title: Optional[str] = None
         self.mobile: Optional[str] = None
-        self.mobile_visible: Optional[bool] = None
         self.gender: Optional[int] = None
         self.avatar: Optional[AvatarInfo] = None
         self.status: Optional[UserStatus] = None
@@ -60,12 +58,9 @@ class UserEvent(object):
         self.country: Optional[str] = None
         self.work_station: Optional[str] = None
         self.join_time: Optional[int] = None
-        self.is_tenant_manager: Optional[bool] = None
         self.employee_no: Optional[str] = None
         self.employee_type: Optional[int] = None
-        self.positions: Optional[List[UserPosition]] = None
         self.orders: Optional[List[UserOrder]] = None
-        self.time_zone: Optional[str] = None
         self.custom_attrs: Optional[List[UserCustomAttr]] = None
         self.job_level_id: Optional[str] = None
         self.job_family_id: Optional[str] = None

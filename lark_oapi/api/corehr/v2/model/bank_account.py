@@ -24,11 +24,7 @@ class BankAccount(object):
         self.bank_name: Optional[str] = None
         self.bank_account_number: Optional[str] = None
         self.account_holder: Optional[str] = None
-        self.bank: Optional[Enum] = None
-        self.bank_identification_code: Optional[str] = None
         self.branch_name: Optional[str] = None
-        self.bank_id: Optional[str] = None
-        self.branch_id: Optional[str] = None
         self.country_region_id: Optional[str] = None
         self.bank_account_usage: Optional[List[Enum]] = None
         self.bank_account_type: Optional[Enum] = None
