@@ -1,6 +1,7 @@
 from flask import Flask
 
 import lark_oapi as lark
+from lark_oapi.adapter.flask import *
 from lark_oapi.api.im.v1 import *
 
 app = Flask(__name__)
@@ -22,8 +23,8 @@ handler = lark.EventDispatcherHandler.builder(lark.ENCRYPT_KEY, lark.VERIFICATIO
 
 @app.route("/event", methods=["POST"])
 def event():
-    resp = handler.do(lark.flask.parse_req())
-    return lark.flask.parse_resp(resp)
+    resp = handler.do(parse_req())
+    return parse_resp(resp)
 
 
 if __name__ == "__main__":

@@ -242,6 +242,62 @@ lark.logger.info(str(response.raw.content, lark.UTF_8))
 ```
 更多示例可参考：[原生调用](samples/api/raw.py)
 
+## 处理消息事件回调
+了解消息订阅相关的知识，可以 [点击这里](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+
+获取飞书开放平台开放的所有事件列表，可以 [点击这里](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)
+### 基本用法
+开发者订阅消息事件后，可以使用下面代码，对飞书开放平台推送的消息事件进行处理。
+
+如下示例中使用 flask 启动 httpServer，如使用其他 web 框架，只需处理 http 出入参转换即可。
+
+```python
+from flask import Flask
+
+import lark_oapi as lark
+from lark_oapi.adapter.flask import *
+from lark_oapi.api.im.v1 import *
+
+app = Flask(__name__)
+
+
+def do_p2_im_message_receive_v1(data: P2ImMessageReceiveV1) -> None:
+    print(lark.JSON.marshal(data))
+
+
+def do_customized_event(data: lark.CustomizedEvent) -> None:
+    print(lark.JSON.marshal(data))
+
+
+handler = lark.EventDispatcherHandler.builder(lark.ENCRYPT_KEY, lark.VERIFICATION_TOKEN, lark.LogLevel.DEBUG) \
+    .register_p2_im_message_receive_v1(do_p2_im_message_receive_v1) \
+    .register_p1_customized_event("message", do_customized_event) \
+    .build()
+
+
+@app.route("/event", methods=["POST"])
+def event():
+    resp = handler.do(parse_req())
+    return parse_resp(resp)
+
+
+if __name__ == "__main__":
+    app.run(port=7777)
+```
+其中 EventDispatcherHandler.builder(encrypt_key: str, verification_token: str) 方法参数用于签名验证和消息解密使用, 可在 [开发者后台](https://open.feishu.cn/app?lang=zh-CN) ->「事件订阅」中查看。
+
+![Console](doc/console.jpeg)
+
+需要注意的是注册处理器时，比如使用 register_p2_im_message_receive_v1 注册接受消息事件回调时，其中的 P2 为消息协议版本，当前飞书开放平台存在 [两种消息协议](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#8f960a4b) ，分别为 1.0 和 2.0。
+
+如下图开发者在注册消息处理器时，需从 [事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list) 中查看自己需要的是哪种协议的事件。
+
+如果是 1.0 的消息协议，则注册处理器时，需要找以 register_p2_xxxx 开头的。如果是 2.0 的消息协议，则注册处理器时，需要找以 register_p2_xxxx 开头的。
+
+若在 SDK 中未找到处理器，可使用 register_p1_customized_event 或 register_p2_customized_event 注册自定义事件。
+
+![Console](doc/event_prot.png)
+
 ## License
 MIT
 
