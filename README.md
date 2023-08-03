@@ -69,7 +69,7 @@ client = lark.Client.builder() \
 ## API 调用
 创建完 API Client 后，我们可以使用 ``client.业务域.版本.资源.方法名称`` 来定位具体的 API 方法，然后对具体的 API 发起调用。
 
-![](./doc/client_expr.png)
+![client_expr](./doc/client_expr.png)
 
 飞书开放平台开放的所有 API
 列表，可点击[这里查看](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/server-api-list)
@@ -286,7 +286,7 @@ if __name__ == "__main__":
 ```
 其中 EventDispatcherHandler.builder(encrypt_key: str, verification_token: str) 方法参数用于签名验证和消息解密使用, 可在 [开发者后台](https://open.feishu.cn/app?lang=zh-CN) ->「事件订阅」中查看。
 
-![](doc/console.jpeg)
+![console](doc/console.jpeg)
 
 需要注意的是注册处理器时，比如使用 register_p2_im_message_receive_v1 注册接受消息事件回调时，其中的 P2 为消息协议版本，当前飞书开放平台存在 [两种消息协议](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#8f960a4b) ，分别为 1.0 和 2.0。
 
@@ -296,7 +296,7 @@ if __name__ == "__main__":
 
 若在 SDK 中未找到处理器，可使用 register_p1_customized_event 或 register_p2_customized_event 注册自定义事件。
 
-![](doc/event_prot.png)
+![event_prot](doc/event_prot.png)
 
 更多示例可参考：[事件回调](samples/event)
 

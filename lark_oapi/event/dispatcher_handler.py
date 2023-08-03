@@ -59,7 +59,7 @@ class EventDispatcherHandler(HttpHandler):
                 context.schema = "p2"
                 context.type = context.header.event_type
                 context.token = context.header.token
-            else:
+            elif Strings.is_not_empty(context.uuid):
                 # 解析 v1 事件
                 context.schema = "p1"
                 context.type = context.event.get("type")
