@@ -87,6 +87,7 @@ class EventDispatcherHandler(HttpHandler):
 
             # 返回成功
             resp.content = "{\"msg\":\"success\"}".encode(UTF_8)
+            return resp
 
         except Exception as e:
             logger.exception(
@@ -95,7 +96,6 @@ class EventDispatcherHandler(HttpHandler):
             resp_body = "{\"msg\":\"%s\"}" % str(e)
             resp.content = resp_body.encode(UTF_8)
 
-        finally:
             return resp
 
     def _decrypt(self, content: bytes) -> str:

@@ -13,7 +13,6 @@ class EventHeader(object):
         self.event_type: Optional[str] = None
         self.tenant_key: Optional[str] = None
         self.app_id: Optional[str] = None
-
         init(self, d, self._types)
 
 

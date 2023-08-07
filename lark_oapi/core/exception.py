@@ -36,3 +36,8 @@ class AccessDeniedException(Exception):
 class EventException(Exception):
     def __init__(self, msg: str):
         self.msg: str = msg
+
+
+class CardException(Exception):
+    def __init__(self, msg: str):
+        self.msg: str = msg
