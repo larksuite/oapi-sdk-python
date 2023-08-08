@@ -13,7 +13,7 @@ from ..model.list_device_response import ListDeviceResponse
 
 class Device(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListDeviceRequest, option: Optional[RequestOption] = None) -> ListDeviceResponse:
         if option is None:

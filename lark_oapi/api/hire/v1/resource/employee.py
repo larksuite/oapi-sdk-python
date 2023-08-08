@@ -17,7 +17,7 @@ from ..model.patch_employee_response import PatchEmployeeResponse
 
 class Employee(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetEmployeeRequest, option: Optional[RequestOption] = None) -> GetEmployeeResponse:
         if option is None:

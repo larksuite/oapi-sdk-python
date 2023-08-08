@@ -27,7 +27,7 @@ from ..model.update_entity_response import UpdateEntityResponse
 
 class Entity(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateEntityRequest, option: Optional[RequestOption] = None) -> CreateEntityResponse:
         if option is None:

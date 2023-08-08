@@ -21,7 +21,7 @@ from ..model.patch_app_table_view_response import PatchAppTableViewResponse
 
 class AppTableView(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAppTableViewRequest,
                option: Optional[RequestOption] = None) -> CreateAppTableViewResponse:

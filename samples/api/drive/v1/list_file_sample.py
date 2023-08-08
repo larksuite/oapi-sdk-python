@@ -17,6 +17,9 @@ def main():
         .page_size(10) \
         .page_token("MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef") \
         .folder_token("fldbcO1UuPz8VwnpPx5a9abcef") \
+        .order_by("EditedTime") \
+        .direction("DESC") \
+        .user_id_type("user_id") \
         .build()
 
     # 发起请求

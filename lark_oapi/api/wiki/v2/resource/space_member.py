@@ -15,7 +15,7 @@ from ..model.delete_space_member_response import DeleteSpaceMemberResponse
 
 class SpaceMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateSpaceMemberRequest,
                option: Optional[RequestOption] = None) -> CreateSpaceMemberResponse:

@@ -27,7 +27,7 @@ from ..model.unsubscription_calendar_event_response import UnsubscriptionCalenda
 
 class CalendarEvent(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateCalendarEventRequest,
                option: Optional[RequestOption] = None) -> CreateCalendarEventResponse:

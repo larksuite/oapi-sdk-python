@@ -19,7 +19,7 @@ from ..model.patch_note_response import PatchNoteResponse
 
 class Note(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateNoteRequest, option: Optional[RequestOption] = None) -> CreateNoteResponse:
         if option is None:

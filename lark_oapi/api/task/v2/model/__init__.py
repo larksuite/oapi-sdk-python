@@ -19,6 +19,9 @@ from .comment import *
 from .create_comment_request import *
 from .create_comment_response import *
 from .create_comment_response_body import *
+from .create_section_request import *
+from .create_section_response import *
+from .create_section_response_body import *
 from .create_task_request import *
 from .create_task_response import *
 from .create_task_response_body import *
@@ -32,6 +35,8 @@ from .custom_complete import *
 from .custom_complete_item import *
 from .delete_comment_request import *
 from .delete_comment_response import *
+from .delete_section_request import *
+from .delete_section_response import *
 from .delete_task_request import *
 from .delete_task_response import *
 from .delete_tasklist_request import *
@@ -41,6 +46,9 @@ from .dummy import *
 from .get_comment_request import *
 from .get_comment_response import *
 from .get_comment_response_body import *
+from .get_section_request import *
+from .get_section_response import *
+from .get_section_response_body import *
 from .get_task_request import *
 from .get_task_response import *
 from .get_task_response_body import *
@@ -57,6 +65,9 @@ from .input_tasklist import *
 from .list_comment_request import *
 from .list_comment_response import *
 from .list_comment_response_body import *
+from .list_section_request import *
+from .list_section_response import *
+from .list_section_response_body import *
 from .list_task_request import *
 from .list_task_response import *
 from .list_task_response_body import *
@@ -72,6 +83,10 @@ from .patch_comment_request import *
 from .patch_comment_request_body import *
 from .patch_comment_response import *
 from .patch_comment_response_body import *
+from .patch_section_request import *
+from .patch_section_request_body import *
+from .patch_section_response import *
+from .patch_section_response_body import *
 from .patch_task_request import *
 from .patch_task_request_body import *
 from .patch_task_response import *
@@ -111,6 +126,9 @@ from .tasklist_summary import *
 from .tasklists_task_request import *
 from .tasklists_task_response import *
 from .tasklists_task_response_body import *
+from .tasks_section_request import *
+from .tasks_section_response import *
+from .tasks_section_response_body import *
 from .tasks_tasklist_request import *
 from .tasks_tasklist_response import *
 from .tasks_tasklist_response_body import *

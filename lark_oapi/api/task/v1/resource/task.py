@@ -29,7 +29,7 @@ from ..model.uncomplete_task_response import UncompleteTaskResponse
 
 class Task(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_delete_collaborator(self, request: BatchDeleteCollaboratorTaskRequest,
                                   option: Optional[RequestOption] = None) -> BatchDeleteCollaboratorTaskResponse:

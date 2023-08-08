@@ -15,7 +15,7 @@ from ..model.update_file_comment_reply_response import UpdateFileCommentReplyRes
 
 class FileCommentReply(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def delete(self, request: DeleteFileCommentReplyRequest,
                option: Optional[RequestOption] = None) -> DeleteFileCommentReplyResponse:

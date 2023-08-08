@@ -15,7 +15,7 @@ from ..model.list_subregion_response import ListSubregionResponse
 
 class Subregion(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetSubregionRequest, option: Optional[RequestOption] = None) -> GetSubregionResponse:
         if option is None:

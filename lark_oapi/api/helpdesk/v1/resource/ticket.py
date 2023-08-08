@@ -27,7 +27,7 @@ from ..model.update_ticket_response import UpdateTicketResponse
 
 class Ticket(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def answer_user_query(self, request: AnswerUserQueryTicketRequest,
                           option: Optional[RequestOption] = None) -> AnswerUserQueryTicketResponse:

@@ -13,7 +13,7 @@ from ..model.resend_app_ticket_response import ResendAppTicketResponse
 
 class AppTicket(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def resend(self, request: ResendAppTicketRequest,
                option: Optional[RequestOption] = None) -> ResendAppTicketResponse:

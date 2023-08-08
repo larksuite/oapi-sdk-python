@@ -13,7 +13,7 @@ from ..model.list_user_okr_response import ListUserOkrResponse
 
 class UserOkr(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListUserOkrRequest, option: Optional[RequestOption] = None) -> ListUserOkrResponse:
         if option is None:

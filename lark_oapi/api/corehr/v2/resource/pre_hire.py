@@ -13,7 +13,7 @@ from ..model.create_pre_hire_response import CreatePreHireResponse
 
 class PreHire(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreatePreHireRequest, option: Optional[RequestOption] = None) -> CreatePreHireResponse:
         if option is None:

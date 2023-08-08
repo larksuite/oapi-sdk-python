@@ -13,7 +13,7 @@ from ..model.search_workplace_access_data_response import SearchWorkplaceAccessD
 
 class WorkplaceAccessData(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def search(self, request: SearchWorkplaceAccessDataRequest,
                option: Optional[RequestOption] = None) -> SearchWorkplaceAccessDataResponse:

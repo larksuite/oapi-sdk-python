@@ -13,7 +13,7 @@ from ..model.update_space_setting_response import UpdateSpaceSettingResponse
 
 class SpaceSetting(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def update(self, request: UpdateSpaceSettingRequest,
                option: Optional[RequestOption] = None) -> UpdateSpaceSettingResponse:

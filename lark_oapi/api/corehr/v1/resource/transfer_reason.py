@@ -13,7 +13,7 @@ from ..model.query_transfer_reason_response import QueryTransferReasonResponse
 
 class TransferReason(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryTransferReasonRequest,
               option: Optional[RequestOption] = None) -> QueryTransferReasonResponse:

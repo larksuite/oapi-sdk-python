@@ -19,7 +19,7 @@ from ..model.list_file_version_response import ListFileVersionResponse
 
 class FileVersion(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateFileVersionRequest,
                option: Optional[RequestOption] = None) -> CreateFileVersionResponse:

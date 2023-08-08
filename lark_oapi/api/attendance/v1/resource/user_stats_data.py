@@ -13,7 +13,7 @@ from ..model.query_user_stats_data_response import QueryUserStatsDataResponse
 
 class UserStatsData(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryUserStatsDataRequest,
               option: Optional[RequestOption] = None) -> QueryUserStatsDataResponse:

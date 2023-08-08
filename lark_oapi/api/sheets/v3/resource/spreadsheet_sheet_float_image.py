@@ -21,7 +21,7 @@ from ..model.query_spreadsheet_sheet_float_image_response import QuerySpreadshee
 
 class SpreadsheetSheetFloatImage(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateSpreadsheetSheetFloatImageRequest,
                option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFloatImageResponse:

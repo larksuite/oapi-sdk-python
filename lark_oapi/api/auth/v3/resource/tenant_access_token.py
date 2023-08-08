@@ -15,7 +15,7 @@ from ..model.internal_tenant_access_token_response import InternalTenantAccessTo
 
 class TenantAccessToken(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTenantAccessTokenRequest,
                option: Optional[RequestOption] = None) -> CreateTenantAccessTokenResponse:

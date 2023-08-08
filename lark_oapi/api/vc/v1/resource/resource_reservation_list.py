@@ -13,7 +13,7 @@ from ..model.get_resource_reservation_list_response import GetResourceReservatio
 
 class ResourceReservationList(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetResourceReservationListRequest,
             option: Optional[RequestOption] = None) -> GetResourceReservationListResponse:

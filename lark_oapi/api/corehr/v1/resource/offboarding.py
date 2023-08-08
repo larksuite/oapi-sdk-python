@@ -17,7 +17,7 @@ from ..model.submit_offboarding_response import SubmitOffboardingResponse
 
 class Offboarding(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryOffboardingRequest,
               option: Optional[RequestOption] = None) -> QueryOffboardingResponse:

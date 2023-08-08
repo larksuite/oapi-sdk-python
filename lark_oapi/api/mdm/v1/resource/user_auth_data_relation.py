@@ -15,7 +15,7 @@ from ..model.unbind_user_auth_data_relation_response import UnbindUserAuthDataRe
 
 class UserAuthDataRelation(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def bind(self, request: BindUserAuthDataRelationRequest,
              option: Optional[RequestOption] = None) -> BindUserAuthDataRelationResponse:

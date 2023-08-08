@@ -13,7 +13,7 @@ from ..model.get_process_form_variable_data_response import GetProcessFormVariab
 
 class ProcessFormVariableData(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetProcessFormVariableDataRequest,
             option: Optional[RequestOption] = None) -> GetProcessFormVariableDataResponse:

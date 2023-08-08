@@ -70,6 +70,7 @@ from .delete_permission_public_password_request import *
 from .delete_permission_public_password_response import *
 from .delete_subscribe_file_request import *
 from .delete_subscribe_file_response import *
+from .department_id import *
 from .docs_link import *
 from .download_export_task_request import *
 from .download_export_task_response import *
@@ -78,9 +79,11 @@ from .download_file_response import *
 from .download_media_request import *
 from .download_media_response import *
 from .export_task import *
+from .favorite import *
 from .file import *
 from .file_comment import *
 from .file_comment_reply import *
+from .file_favorite import *
 from .file_search import *
 from .file_statistics import *
 from .file_subscription import *

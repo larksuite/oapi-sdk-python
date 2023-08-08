@@ -15,7 +15,7 @@ from ..model.list_subdivision_response import ListSubdivisionResponse
 
 class Subdivision(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetSubdivisionRequest, option: Optional[RequestOption] = None) -> GetSubdivisionResponse:
         if option is None:

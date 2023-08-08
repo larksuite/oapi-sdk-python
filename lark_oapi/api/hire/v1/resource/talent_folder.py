@@ -13,7 +13,7 @@ from ..model.list_talent_folder_response import ListTalentFolderResponse
 
 class TalentFolder(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListTalentFolderRequest,
              option: Optional[RequestOption] = None) -> ListTalentFolderResponse:

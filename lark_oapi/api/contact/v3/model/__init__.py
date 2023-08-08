@@ -88,6 +88,7 @@ from .department_count import *
 from .department_detail import *
 from .department_event import *
 from .department_i18n_name import *
+from .department_id import *
 from .department_leader import *
 from .department_parent import *
 from .department_path import *

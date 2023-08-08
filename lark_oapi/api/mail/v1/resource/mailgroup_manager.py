@@ -17,7 +17,7 @@ from ..model.list_mailgroup_manager_response import ListMailgroupManagerResponse
 
 class MailgroupManager(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateMailgroupManagerRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateMailgroupManagerResponse:

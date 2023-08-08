@@ -19,7 +19,7 @@ from ..model.underauditlist_application_response import UnderauditlistApplicatio
 
 class Application(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def contacts_range_configuration(self, request: ContactsRangeConfigurationApplicationRequest, option: Optional[
         RequestOption] = None) -> ContactsRangeConfigurationApplicationResponse:

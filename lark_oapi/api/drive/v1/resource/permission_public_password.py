@@ -17,7 +17,7 @@ from ..model.update_permission_public_password_response import UpdatePermissionP
 
 class PermissionPublicPassword(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreatePermissionPublicPasswordRequest,
                option: Optional[RequestOption] = None) -> CreatePermissionPublicPasswordResponse:

@@ -23,7 +23,7 @@ from ..model.update_title_space_node_response import UpdateTitleSpaceNodeRespons
 
 class SpaceNode(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def copy(self, request: CopySpaceNodeRequest, option: Optional[RequestOption] = None) -> CopySpaceNodeResponse:
         if option is None:

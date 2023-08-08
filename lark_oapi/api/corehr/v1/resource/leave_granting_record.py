@@ -15,7 +15,7 @@ from ..model.delete_leave_granting_record_response import DeleteLeaveGrantingRec
 
 class LeaveGrantingRecord(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateLeaveGrantingRecordRequest,
                option: Optional[RequestOption] = None) -> CreateLeaveGrantingRecordResponse:

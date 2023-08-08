@@ -17,7 +17,7 @@ from ..model.get_document_block_children_response import GetDocumentBlockChildre
 
 class DocumentBlockChildren(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_delete(self, request: BatchDeleteDocumentBlockChildrenRequest,
                      option: Optional[RequestOption] = None) -> BatchDeleteDocumentBlockChildrenResponse:

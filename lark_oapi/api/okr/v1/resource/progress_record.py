@@ -19,7 +19,7 @@ from ..model.update_progress_record_response import UpdateProgressRecordResponse
 
 class ProgressRecord(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateProgressRecordRequest,
                option: Optional[RequestOption] = None) -> CreateProgressRecordResponse:

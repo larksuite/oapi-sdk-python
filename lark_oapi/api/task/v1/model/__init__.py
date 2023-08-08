@@ -35,6 +35,7 @@ from .delete_task_reminder_request import *
 from .delete_task_reminder_response import *
 from .delete_task_request import *
 from .delete_task_response import *
+from .department_id import *
 from .due import *
 from .follower import *
 from .get_task_comment_request import *

@@ -21,7 +21,7 @@ from ..model.patch_application_app_version_response import PatchApplicationAppVe
 
 class ApplicationAppVersion(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def contacts_range_suggest(self, request: ContactsRangeSuggestApplicationAppVersionRequest, option: Optional[
         RequestOption] = None) -> ContactsRangeSuggestApplicationAppVersionResponse:

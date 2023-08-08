@@ -23,7 +23,7 @@ from ..model.transfer_task_response import TransferTaskResponse
 
 class Task(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def approve(self, request: ApproveTaskRequest, option: Optional[RequestOption] = None) -> ApproveTaskResponse:
         if option is None:

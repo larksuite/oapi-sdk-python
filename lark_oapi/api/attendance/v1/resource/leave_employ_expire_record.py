@@ -13,7 +13,7 @@ from ..model.get_leave_employ_expire_record_response import GetLeaveEmployExpire
 
 class LeaveEmployExpireRecord(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetLeaveEmployExpireRecordRequest,
             option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:

@@ -60,6 +60,7 @@ from .delete_faq_request import *
 from .delete_faq_response import *
 from .delete_ticket_customized_field_request import *
 from .delete_ticket_customized_field_response import *
+from .department_id import *
 from .event import *
 from .execute_send_notification_request import *
 from .execute_send_notification_request_body import *

@@ -15,7 +15,7 @@ from ..model.patch_permission_public_response import PatchPermissionPublicRespon
 
 class PermissionPublic(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetPermissionPublicRequest,
             option: Optional[RequestOption] = None) -> GetPermissionPublicResponse:

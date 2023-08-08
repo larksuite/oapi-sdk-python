@@ -21,7 +21,7 @@ from ..model.patch_national_id_type_response import PatchNationalIdTypeResponse
 
 class NationalIdType(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateNationalIdTypeRequest,
                option: Optional[RequestOption] = None) -> CreateNationalIdTypeResponse:

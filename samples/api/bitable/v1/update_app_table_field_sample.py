@@ -19,7 +19,7 @@ def main():
         .field_id("fldPTb0U2y") \
         .request_body(AppTableField.builder()
                       .field_name("字段名称")
-                      .type(1)
+                      .type(int)
                       .property(AppTableFieldProperty.builder().build())
                       .description(AppTableFieldDescription.builder().build())
                       .ui_type("Progress")

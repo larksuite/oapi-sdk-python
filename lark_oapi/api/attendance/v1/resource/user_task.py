@@ -13,7 +13,7 @@ from ..model.query_user_task_response import QueryUserTaskResponse
 
 class UserTask(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryUserTaskRequest, option: Optional[RequestOption] = None) -> QueryUserTaskResponse:
         if option is None:

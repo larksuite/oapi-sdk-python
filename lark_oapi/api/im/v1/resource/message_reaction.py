@@ -17,7 +17,7 @@ from ..model.list_message_reaction_response import ListMessageReactionResponse
 
 class MessageReaction(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateMessageReactionRequest,
                option: Optional[RequestOption] = None) -> CreateMessageReactionResponse:

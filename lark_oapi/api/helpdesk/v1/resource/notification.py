@@ -27,7 +27,7 @@ from ..model.submit_approve_notification_response import SubmitApproveNotificati
 
 class Notification(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def cancel_approve(self, request: CancelApproveNotificationRequest,
                        option: Optional[RequestOption] = None) -> CancelApproveNotificationResponse:

@@ -19,7 +19,7 @@ from ..model.get_export_task_response import GetExportTaskResponse
 
 class ExportTask(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateExportTaskRequest,
                option: Optional[RequestOption] = None) -> CreateExportTaskResponse:

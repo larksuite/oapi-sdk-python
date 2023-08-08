@@ -15,7 +15,7 @@ from ..model.patch_reserve_config_disable_inform_response import PatchReserveCon
 
 class ReserveConfigDisableInform(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetReserveConfigDisableInformRequest,
             option: Optional[RequestOption] = None) -> GetReserveConfigDisableInformResponse:

@@ -15,7 +15,7 @@ from ..model.put_top_notice_chat_top_notice_response import PutTopNoticeChatTopN
 
 class ChatTopNotice(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def delete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest,
                           option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:

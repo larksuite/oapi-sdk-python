@@ -15,7 +15,7 @@ from ..model.delete_timeoff_event_response import DeleteTimeoffEventResponse
 
 class TimeoffEvent(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTimeoffEventRequest,
                option: Optional[RequestOption] = None) -> CreateTimeoffEventResponse:

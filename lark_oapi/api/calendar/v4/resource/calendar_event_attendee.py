@@ -17,7 +17,7 @@ from ..model.list_calendar_event_attendee_response import ListCalendarEventAtten
 
 class CalendarEventAttendee(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_delete(self, request: BatchDeleteCalendarEventAttendeeRequest,
                      option: Optional[RequestOption] = None) -> BatchDeleteCalendarEventAttendeeResponse:

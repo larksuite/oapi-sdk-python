@@ -49,6 +49,7 @@ from .delete_exchange_binding_request import *
 from .delete_exchange_binding_response import *
 from .delete_timeoff_event_request import *
 from .delete_timeoff_event_response import *
+from .department_id import *
 from .event_card import *
 from .event_location import *
 from .event_search_filter import *

@@ -13,7 +13,7 @@ from ..model.create_identity_response import CreateIdentityResponse
 
 class Identity(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateIdentityRequest, option: Optional[RequestOption] = None) -> CreateIdentityResponse:
         if option is None:

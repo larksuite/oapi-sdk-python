@@ -13,7 +13,7 @@ from ..model.list_access_record_response import ListAccessRecordResponse
 
 class AccessRecord(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListAccessRecordRequest,
              option: Optional[RequestOption] = None) -> ListAccessRecordResponse:

@@ -13,7 +13,7 @@ from ..model.list_metric_source_table_response import ListMetricSourceTableRespo
 
 class MetricSourceTable(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListMetricSourceTableRequest,
              option: Optional[RequestOption] = None) -> ListMetricSourceTableResponse:

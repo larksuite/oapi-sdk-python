@@ -17,7 +17,7 @@ from ..model.patch_user_response import PatchUserResponse
 
 class User(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetUserRequest, option: Optional[RequestOption] = None) -> GetUserResponse:
         if option is None:

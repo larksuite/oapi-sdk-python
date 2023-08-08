@@ -21,7 +21,7 @@ from ..model.query_shift_response import QueryShiftResponse
 
 class Shift(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateShiftRequest, option: Optional[RequestOption] = None) -> CreateShiftResponse:
         if option is None:

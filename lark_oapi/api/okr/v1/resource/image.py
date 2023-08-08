@@ -16,7 +16,7 @@ from ..model.upload_image_response import UploadImageResponse
 
 class Image(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def upload(self, request: UploadImageRequest, option: Optional[RequestOption] = None) -> UploadImageResponse:
         if option is None:

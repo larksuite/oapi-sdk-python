@@ -13,7 +13,7 @@ from ..model.patch_leave_accrual_record_response import PatchLeaveAccrualRecordR
 
 class LeaveAccrualRecord(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def patch(self, request: PatchLeaveAccrualRecordRequest,
               option: Optional[RequestOption] = None) -> PatchLeaveAccrualRecordResponse:

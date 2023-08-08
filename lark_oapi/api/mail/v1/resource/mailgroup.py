@@ -23,7 +23,7 @@ from ..model.update_mailgroup_response import UpdateMailgroupResponse
 
 class Mailgroup(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateMailgroupRequest,
                option: Optional[RequestOption] = None) -> CreateMailgroupResponse:

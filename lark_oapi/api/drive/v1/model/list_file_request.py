@@ -12,6 +12,9 @@ class ListFileRequest(BaseRequest):
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
         self.folder_token: Optional[str] = None
+        self.order_by: Optional[str] = None
+        self.direction: Optional[str] = None
+        self.user_id_type: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListFileRequestBuilder":
@@ -40,6 +43,21 @@ class ListFileRequestBuilder(object):
     def folder_token(self, folder_token: str) -> "ListFileRequestBuilder":
         self._list_file_request.folder_token = folder_token
         self._list_file_request.add_query("folder_token", folder_token)
+        return self
+
+    def order_by(self, order_by: str) -> "ListFileRequestBuilder":
+        self._list_file_request.order_by = order_by
+        self._list_file_request.add_query("order_by", order_by)
+        return self
+
+    def direction(self, direction: str) -> "ListFileRequestBuilder":
+        self._list_file_request.direction = direction
+        self._list_file_request.add_query("direction", direction)
+        return self
+
+    def user_id_type(self, user_id_type: str) -> "ListFileRequestBuilder":
+        self._list_file_request.user_id_type = user_id_type
+        self._list_file_request.add_query("user_id_type", user_id_type)
         return self
 
     def build(self) -> ListFileRequest:

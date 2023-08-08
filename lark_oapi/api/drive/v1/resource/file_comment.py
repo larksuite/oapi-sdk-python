@@ -21,7 +21,7 @@ from ..model.patch_file_comment_response import PatchFileCommentResponse
 
 class FileComment(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_query(self, request: BatchQueryFileCommentRequest,
                     option: Optional[RequestOption] = None) -> BatchQueryFileCommentResponse:

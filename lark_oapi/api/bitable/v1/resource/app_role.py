@@ -19,7 +19,7 @@ from ..model.update_app_role_response import UpdateAppRoleResponse
 
 class AppRole(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAppRoleRequest, option: Optional[RequestOption] = None) -> CreateAppRoleResponse:
         if option is None:

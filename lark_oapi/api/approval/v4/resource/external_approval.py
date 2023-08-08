@@ -15,7 +15,7 @@ from ..model.get_external_approval_response import GetExternalApprovalResponse
 
 class ExternalApproval(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateExternalApprovalRequest,
                option: Optional[RequestOption] = None) -> CreateExternalApprovalResponse:

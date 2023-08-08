@@ -27,7 +27,7 @@ from ..model.unbind_department_unit_response import UnbindDepartmentUnitResponse
 
 class Unit(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def bind_department(self, request: BindDepartmentUnitRequest,
                         option: Optional[RequestOption] = None) -> BindDepartmentUnitResponse:

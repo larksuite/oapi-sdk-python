@@ -153,7 +153,6 @@ from .user_allowed_remedy import *
 from .user_approval import *
 from .user_daily_shift import *
 from .user_flow import *
-from .user_id import *
 from .user_leave import *
 from .user_out import *
 from .user_overtime_work import *

@@ -13,7 +13,7 @@ from ..model.get_participant_list_response import GetParticipantListResponse
 
 class ParticipantList(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetParticipantListRequest,
             option: Optional[RequestOption] = None) -> GetParticipantListResponse:

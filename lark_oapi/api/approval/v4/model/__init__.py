@@ -57,6 +57,7 @@ from .definition import *
 from .delete_instance_comment_request import *
 from .delete_instance_comment_response import *
 from .delete_instance_comment_response_body import *
+from .department_id import *
 from .exteranl_instance_check import *
 from .exteranl_instance_check_response import *
 from .external_approval import *

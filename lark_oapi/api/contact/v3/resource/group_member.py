@@ -21,7 +21,7 @@ from ..model.simplelist_group_member_response import SimplelistGroupMemberRespon
 
 class GroupMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def add(self, request: AddGroupMemberRequest, option: Optional[RequestOption] = None) -> AddGroupMemberResponse:
         if option is None:

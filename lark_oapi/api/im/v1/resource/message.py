@@ -37,7 +37,7 @@ from ..model.urgent_sms_message_response import UrgentSmsMessageResponse
 
 class Message(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateMessageRequest, option: Optional[RequestOption] = None) -> CreateMessageResponse:
         if option is None:

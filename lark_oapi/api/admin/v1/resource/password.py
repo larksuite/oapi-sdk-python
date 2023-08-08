@@ -13,7 +13,7 @@ from ..model.reset_password_response import ResetPasswordResponse
 
 class Password(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def reset(self, request: ResetPasswordRequest, option: Optional[RequestOption] = None) -> ResetPasswordResponse:
         if option is None:

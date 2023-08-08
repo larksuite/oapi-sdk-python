@@ -21,7 +21,7 @@ from ..model.query_spreadsheet_sheet_filter_view_response import QuerySpreadshee
 
 class SpreadsheetSheetFilterView(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateSpreadsheetSheetFilterViewRequest,
                option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterViewResponse:

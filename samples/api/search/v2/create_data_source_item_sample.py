@@ -16,10 +16,10 @@ def main():
     request: CreateDataSourceItemRequest = CreateDataSourceItemRequest.builder() \
         .data_source_id("service_ticket") \
         .request_body(Item.builder()
-                      .id("str")
+                      .id("my_item_01010111")
                       .acl([])
                       .metadata(ItemMetadata.builder().build())
-                      .structured_data("str")
+                      .structured_data("")
                       .content(ItemContent.builder().build())
                       .build()) \
         .build()

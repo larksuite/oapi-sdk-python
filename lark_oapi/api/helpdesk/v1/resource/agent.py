@@ -15,7 +15,7 @@ from ..model.patch_agent_response import PatchAgentResponse
 
 class Agent(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def agent_email(self, request: AgentEmailAgentRequest,
                     option: Optional[RequestOption] = None) -> AgentEmailAgentResponse:

@@ -19,7 +19,7 @@ from ..model.list_space_response import ListSpaceResponse
 
 class Space(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateSpaceRequest, option: Optional[RequestOption] = None) -> CreateSpaceResponse:
         if option is None:

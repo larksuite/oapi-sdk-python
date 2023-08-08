@@ -29,3 +29,7 @@ def batch_get_id_user():
 
     # 处理业务结果
     lark.logger.info(str(response.raw.content, lark.UTF_8))
+
+
+if __name__ == "__main__":
+    batch_get_id_user()

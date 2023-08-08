@@ -15,7 +15,7 @@ from ..model.list_job_title_response import ListJobTitleResponse
 
 class JobTitle(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetJobTitleRequest, option: Optional[RequestOption] = None) -> GetJobTitleResponse:
         if option is None:

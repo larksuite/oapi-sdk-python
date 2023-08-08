@@ -15,7 +15,7 @@ from ..model.patch_app_table_form_field_response import PatchAppTableFormFieldRe
 
 class AppTableFormField(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListAppTableFormFieldRequest,
              option: Optional[RequestOption] = None) -> ListAppTableFormFieldResponse:

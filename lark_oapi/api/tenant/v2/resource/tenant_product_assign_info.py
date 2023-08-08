@@ -13,7 +13,7 @@ from ..model.query_tenant_product_assign_info_response import QueryTenantProduct
 
 class TenantProductAssignInfo(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryTenantProductAssignInfoRequest,
               option: Optional[RequestOption] = None) -> QueryTenantProductAssignInfoResponse:

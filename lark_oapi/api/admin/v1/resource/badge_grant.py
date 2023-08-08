@@ -21,7 +21,7 @@ from ..model.update_badge_grant_response import UpdateBadgeGrantResponse
 
 class BadgeGrant(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateBadgeGrantRequest,
                option: Optional[RequestOption] = None) -> CreateBadgeGrantResponse:

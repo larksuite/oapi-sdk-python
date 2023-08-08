@@ -15,7 +15,7 @@ from ..model.list_currency_response import ListCurrencyResponse
 
 class Currency(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetCurrencyRequest, option: Optional[RequestOption] = None) -> GetCurrencyResponse:
         if option is None:

@@ -15,7 +15,7 @@ from ..model.patch_person_response import PatchPersonResponse
 
 class Person(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreatePersonRequest, option: Optional[RequestOption] = None) -> CreatePersonResponse:
         if option is None:

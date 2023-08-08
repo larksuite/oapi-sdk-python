@@ -33,7 +33,7 @@ from ..model.update_department_response import UpdateDepartmentResponse
 
 class Department(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch(self, request: BatchDepartmentRequest, option: Optional[RequestOption] = None) -> BatchDepartmentResponse:
         if option is None:

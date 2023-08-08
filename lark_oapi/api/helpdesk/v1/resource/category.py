@@ -21,7 +21,7 @@ from ..model.patch_category_response import PatchCategoryResponse
 
 class Category(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateCategoryRequest, option: Optional[RequestOption] = None) -> CreateCategoryResponse:
         if option is None:

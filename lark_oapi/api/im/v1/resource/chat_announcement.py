@@ -15,7 +15,7 @@ from ..model.patch_chat_announcement_response import PatchChatAnnouncementRespon
 
 class ChatAnnouncement(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetChatAnnouncementRequest,
             option: Optional[RequestOption] = None) -> GetChatAnnouncementResponse:

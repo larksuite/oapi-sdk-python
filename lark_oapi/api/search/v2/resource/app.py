@@ -13,7 +13,7 @@ from ..model.create_app_response import CreateAppResponse
 
 class App(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
         if option is None:

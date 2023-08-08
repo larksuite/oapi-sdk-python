@@ -15,7 +15,7 @@ from ..model.get_message_resource_response import GetMessageResourceResponse
 
 class MessageResource(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetMessageResourceRequest,
             option: Optional[RequestOption] = None) -> GetMessageResourceResponse:

@@ -105,6 +105,7 @@ from .delete_working_hours_type_request import *
 from .delete_working_hours_type_response import *
 from .department import *
 from .department_create import *
+from .department_id import *
 from .dependent import *
 from .dimension_value import *
 from .education import *

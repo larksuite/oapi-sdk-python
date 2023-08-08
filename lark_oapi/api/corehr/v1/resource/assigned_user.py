@@ -13,7 +13,7 @@ from ..model.search_assigned_user_response import SearchAssignedUserResponse
 
 class AssignedUser(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def search(self, request: SearchAssignedUserRequest,
                option: Optional[RequestOption] = None) -> SearchAssignedUserResponse:

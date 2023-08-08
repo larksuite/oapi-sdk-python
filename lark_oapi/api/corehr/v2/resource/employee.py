@@ -13,7 +13,7 @@ from ..model.search_employee_response import SearchEmployeeResponse
 
 class Employee(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def search(self, request: SearchEmployeeRequest, option: Optional[RequestOption] = None) -> SearchEmployeeResponse:
         if option is None:

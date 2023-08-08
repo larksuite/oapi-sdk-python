@@ -13,7 +13,7 @@ from ..model.list_classification_response import ListClassificationResponse
 
 class Classification(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListClassificationRequest,
              option: Optional[RequestOption] = None) -> ListClassificationResponse:

@@ -15,7 +15,7 @@ from ..model.patch_reserve_config_form_response import PatchReserveConfigFormRes
 
 class ReserveConfigForm(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetReserveConfigFormRequest,
             option: Optional[RequestOption] = None) -> GetReserveConfigFormResponse:

@@ -17,7 +17,7 @@ from ..model.patch_spreadsheet_response import PatchSpreadsheetResponse
 
 class Spreadsheet(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateSpreadsheetRequest,
                option: Optional[RequestOption] = None) -> CreateSpreadsheetResponse:

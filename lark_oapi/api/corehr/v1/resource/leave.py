@@ -17,7 +17,7 @@ from ..model.leave_types_leave_response import LeaveTypesLeaveResponse
 
 class Leave(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def leave_balances(self, request: LeaveBalancesLeaveRequest,
                        option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:

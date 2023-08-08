@@ -19,7 +19,7 @@ from ..model.list_location_response import ListLocationResponse
 
 class Location(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateLocationRequest, option: Optional[RequestOption] = None) -> CreateLocationResponse:
         if option is None:

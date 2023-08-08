@@ -13,7 +13,7 @@ from ..model.get_by_application_referral_response import GetByApplicationReferra
 
 class Referral(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get_by_application(self, request: GetByApplicationReferralRequest,
                            option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:

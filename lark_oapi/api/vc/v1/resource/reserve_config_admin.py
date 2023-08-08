@@ -15,7 +15,7 @@ from ..model.patch_reserve_config_admin_response import PatchReserveConfigAdminR
 
 class ReserveConfigAdmin(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetReserveConfigAdminRequest,
             option: Optional[RequestOption] = None) -> GetReserveConfigAdminResponse:

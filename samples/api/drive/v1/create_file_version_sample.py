@@ -19,14 +19,14 @@ def main():
         .request_body(Version.builder()
                       .name("文档标题")
                       .version("version1")
-                      .parent_token("str")
+                      .parent_token("doxcnMycg4ryxQofSeoKkJuXYOb")
                       .owner_id("694699009591869450")
                       .creator_id("694699009591869451")
                       .create_time("1660708537")
                       .update_time("1660708537")
                       .status("0，1，2")
-                      .obj_type("doc/docx/sheet/bitable")
-                      .parent_type("doc/docx/sheet/bitable")
+                      .obj_type("docx")
+                      .parent_type("docx")
                       .build()) \
         .build()
 

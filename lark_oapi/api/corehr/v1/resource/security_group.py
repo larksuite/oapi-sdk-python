@@ -15,7 +15,7 @@ from ..model.query_security_group_response import QuerySecurityGroupResponse
 
 class SecurityGroup(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListSecurityGroupRequest,
              option: Optional[RequestOption] = None) -> ListSecurityGroupResponse:

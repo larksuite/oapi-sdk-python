@@ -21,7 +21,7 @@ from ..model.replace_spreadsheet_sheet_response import ReplaceSpreadsheetSheetRe
 
 class SpreadsheetSheet(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def find(self, request: FindSpreadsheetSheetRequest,
              option: Optional[RequestOption] = None) -> FindSpreadsheetSheetResponse:

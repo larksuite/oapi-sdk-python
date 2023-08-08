@@ -27,7 +27,7 @@ from ..model.upload_prepare_media_response import UploadPrepareMediaResponse
 
 class Media(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_get_tmp_download_url(self, request: BatchGetTmpDownloadUrlMediaRequest,
                                    option: Optional[RequestOption] = None) -> BatchGetTmpDownloadUrlMediaResponse:

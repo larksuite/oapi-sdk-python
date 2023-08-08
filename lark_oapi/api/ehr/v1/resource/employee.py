@@ -13,7 +13,7 @@ from ..model.list_employee_response import ListEmployeeResponse
 
 class Employee(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListEmployeeRequest, option: Optional[RequestOption] = None) -> ListEmployeeResponse:
         if option is None:

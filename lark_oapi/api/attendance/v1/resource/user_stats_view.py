@@ -15,7 +15,7 @@ from ..model.update_user_stats_view_response import UpdateUserStatsViewResponse
 
 class UserStatsView(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryUserStatsViewRequest,
               option: Optional[RequestOption] = None) -> QueryUserStatsViewResponse:

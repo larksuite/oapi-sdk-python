@@ -23,7 +23,7 @@ from ..model.list_mailgroup_permission_member_response import ListMailgroupPermi
 
 class MailgroupPermissionMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateMailgroupPermissionMemberRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateMailgroupPermissionMemberResponse:

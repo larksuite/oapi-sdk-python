@@ -15,7 +15,7 @@ from ..model.check_white_black_list_application_visibility_response import \
 
 class ApplicationVisibility(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def check_white_black_list(self, request: CheckWhiteBlackListApplicationVisibilityRequest, option: Optional[
         RequestOption] = None) -> CheckWhiteBlackListApplicationVisibilityResponse:

@@ -33,7 +33,7 @@ from ..model.update_user_response import UpdateUserResponse
 
 class User(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch(self, request: BatchUserRequest, option: Optional[RequestOption] = None) -> BatchUserResponse:
         if option is None:

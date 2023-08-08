@@ -15,7 +15,7 @@ from ..model.get_access_record_access_photo_response import GetAccessRecordAcces
 
 class AccessRecordAccessPhoto(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetAccessRecordAccessPhotoRequest,
             option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:

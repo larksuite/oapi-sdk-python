@@ -27,7 +27,7 @@ from ..model.tasks_tasklist_response import TasksTasklistResponse
 
 class Tasklist(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def add_members(self, request: AddMembersTasklistRequest,
                     option: Optional[RequestOption] = None) -> AddMembersTasklistResponse:

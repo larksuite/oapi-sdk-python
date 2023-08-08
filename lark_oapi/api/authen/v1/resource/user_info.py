@@ -13,7 +13,7 @@ from ..model.get_user_info_response import GetUserInfoResponse
 
 class UserInfo(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetUserInfoRequest, option: Optional[RequestOption] = None) -> GetUserInfoResponse:
         if option is None:

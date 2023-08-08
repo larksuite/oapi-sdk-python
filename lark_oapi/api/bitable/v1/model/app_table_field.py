@@ -9,23 +9,23 @@ from .app_table_field_property import AppTableFieldProperty
 
 class AppTableField(object):
     _types = {
-        "field_id": str,
         "field_name": str,
         "type": int,
         "property": AppTableFieldProperty,
         "description": AppTableFieldDescription,
         "is_primary": bool,
+        "field_id": str,
         "ui_type": str,
         "is_hidden": bool,
     }
 
     def __init__(self, d=None):
-        self.field_id: Optional[str] = None
         self.field_name: Optional[str] = None
         self.type: Optional[int] = None
         self.property: Optional[AppTableFieldProperty] = None
         self.description: Optional[AppTableFieldDescription] = None
         self.is_primary: Optional[bool] = None
+        self.field_id: Optional[str] = None
         self.ui_type: Optional[str] = None
         self.is_hidden: Optional[bool] = None
         init(self, d, self._types)
@@ -38,10 +38,6 @@ class AppTableField(object):
 class AppTableFieldBuilder(object):
     def __init__(self) -> None:
         self._app_table_field = AppTableField()
-
-    def field_id(self, field_id: str) -> "AppTableFieldBuilder":
-        self._app_table_field.field_id = field_id
-        return self
 
     def field_name(self, field_name: str) -> "AppTableFieldBuilder":
         self._app_table_field.field_name = field_name
@@ -61,6 +57,10 @@ class AppTableFieldBuilder(object):
 
     def is_primary(self, is_primary: bool) -> "AppTableFieldBuilder":
         self._app_table_field.is_primary = is_primary
+        return self
+
+    def field_id(self, field_id: str) -> "AppTableFieldBuilder":
+        self._app_table_field.field_id = field_id
         return self
 
     def ui_type(self, ui_type: str) -> "AppTableFieldBuilder":

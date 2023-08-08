@@ -15,7 +15,7 @@ from ..model.update_draft_response import UpdateDraftResponse
 
 class Draft(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateDraftRequest, option: Optional[RequestOption] = None) -> CreateDraftResponse:
         if option is None:

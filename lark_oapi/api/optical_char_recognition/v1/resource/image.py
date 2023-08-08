@@ -13,7 +13,7 @@ from ..model.basic_recognize_image_response import BasicRecognizeImageResponse
 
 class Image(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def basic_recognize(self, request: BasicRecognizeImageRequest,
                         option: Optional[RequestOption] = None) -> BasicRecognizeImageResponse:

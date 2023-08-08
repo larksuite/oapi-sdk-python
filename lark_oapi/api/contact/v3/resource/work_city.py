@@ -15,7 +15,7 @@ from ..model.list_work_city_response import ListWorkCityResponse
 
 class WorkCity(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetWorkCityRequest, option: Optional[RequestOption] = None) -> GetWorkCityResponse:
         if option is None:

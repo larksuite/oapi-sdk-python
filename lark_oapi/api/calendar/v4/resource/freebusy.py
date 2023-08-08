@@ -13,7 +13,7 @@ from ..model.list_freebusy_response import ListFreebusyResponse
 
 class Freebusy(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListFreebusyRequest, option: Optional[RequestOption] = None) -> ListFreebusyResponse:
         if option is None:

@@ -19,7 +19,7 @@ from ..model.patch_document_block_response import PatchDocumentBlockResponse
 
 class DocumentBlock(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_update(self, request: BatchUpdateDocumentBlockRequest,
                      option: Optional[RequestOption] = None) -> BatchUpdateDocumentBlockResponse:

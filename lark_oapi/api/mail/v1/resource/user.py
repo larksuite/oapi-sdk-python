@@ -13,7 +13,7 @@ from ..model.query_user_response import QueryUserResponse
 
 class User(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryUserRequest, option: Optional[RequestOption] = None) -> QueryUserResponse:
         if option is None:

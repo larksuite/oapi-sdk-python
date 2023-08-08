@@ -15,7 +15,7 @@ from ..model.stream_recognize_speech_response import StreamRecognizeSpeechRespon
 
 class Speech(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def file_recognize(self, request: FileRecognizeSpeechRequest,
                        option: Optional[RequestOption] = None) -> FileRecognizeSpeechResponse:

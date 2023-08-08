@@ -33,7 +33,7 @@ from ..model.unsubscription_calendar_response import UnsubscriptionCalendarRespo
 
 class Calendar(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateCalendarRequest, option: Optional[RequestOption] = None) -> CreateCalendarResponse:
         if option is None:

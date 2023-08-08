@@ -15,7 +15,7 @@ from ..model.patch_app_table_form_response import PatchAppTableFormResponse
 
 class AppTableForm(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetAppTableFormRequest, option: Optional[RequestOption] = None) -> GetAppTableFormResponse:
         if option is None:

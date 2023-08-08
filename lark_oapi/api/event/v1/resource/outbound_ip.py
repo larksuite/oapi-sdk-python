@@ -13,7 +13,7 @@ from ..model.list_outbound_ip_response import ListOutboundIpResponse
 
 class OutboundIp(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListOutboundIpRequest, option: Optional[RequestOption] = None) -> ListOutboundIpResponse:
         if option is None:

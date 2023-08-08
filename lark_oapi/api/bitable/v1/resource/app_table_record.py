@@ -27,7 +27,7 @@ from ..model.update_app_table_record_response import UpdateAppTableRecordRespons
 
 class AppTableRecord(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateAppTableRecordRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateAppTableRecordResponse:

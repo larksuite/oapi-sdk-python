@@ -21,7 +21,7 @@ from ..model.list_app_role_member_response import ListAppRoleMemberResponse
 
 class AppRoleMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateAppRoleMemberRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateAppRoleMemberResponse:

@@ -15,7 +15,7 @@ from ..model.unread_special_focus_response import UnreadSpecialFocusResponse
 
 class SpecialFocus(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListSpecialFocusRequest,
              option: Optional[RequestOption] = None) -> ListSpecialFocusResponse:

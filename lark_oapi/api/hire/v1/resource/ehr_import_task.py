@@ -13,7 +13,7 @@ from ..model.patch_ehr_import_task_response import PatchEhrImportTaskResponse
 
 class EhrImportTask(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def patch(self, request: PatchEhrImportTaskRequest,
               option: Optional[RequestOption] = None) -> PatchEhrImportTaskResponse:

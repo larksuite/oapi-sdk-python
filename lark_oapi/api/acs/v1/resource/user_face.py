@@ -19,7 +19,7 @@ from ..model.update_user_face_response import UpdateUserFaceResponse
 
 class UserFace(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetUserFaceRequest, option: Optional[RequestOption] = None) -> GetUserFaceResponse:
         if option is None:

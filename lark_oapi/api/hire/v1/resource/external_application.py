@@ -17,7 +17,7 @@ from ..model.update_external_application_response import UpdateExternalApplicati
 
 class ExternalApplication(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateExternalApplicationRequest,
                option: Optional[RequestOption] = None) -> CreateExternalApplicationResponse:

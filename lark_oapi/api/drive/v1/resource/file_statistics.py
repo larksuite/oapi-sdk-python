@@ -13,7 +13,7 @@ from ..model.get_file_statistics_response import GetFileStatisticsResponse
 
 class FileStatistics(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetFileStatisticsRequest,
             option: Optional[RequestOption] = None) -> GetFileStatisticsResponse:

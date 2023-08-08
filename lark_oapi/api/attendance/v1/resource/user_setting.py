@@ -15,7 +15,7 @@ from ..model.query_user_setting_response import QueryUserSettingResponse
 
 class UserSetting(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def modify(self, request: ModifyUserSettingRequest,
                option: Optional[RequestOption] = None) -> ModifyUserSettingResponse:

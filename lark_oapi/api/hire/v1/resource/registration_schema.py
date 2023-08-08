@@ -13,7 +13,7 @@ from ..model.list_registration_schema_response import ListRegistrationSchemaResp
 
 class RegistrationSchema(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListRegistrationSchemaRequest,
              option: Optional[RequestOption] = None) -> ListRegistrationSchemaResponse:

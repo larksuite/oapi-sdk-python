@@ -21,7 +21,7 @@ from ..model.patch_agent_skill_response import PatchAgentSkillResponse
 
 class AgentSkill(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAgentSkillRequest,
                option: Optional[RequestOption] = None) -> CreateAgentSkillResponse:

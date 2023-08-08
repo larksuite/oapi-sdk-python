@@ -13,7 +13,7 @@ from ..model.query_session_response import QuerySessionResponse
 
 class Session(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QuerySessionRequest, option: Optional[RequestOption] = None) -> QuerySessionResponse:
         if option is None:

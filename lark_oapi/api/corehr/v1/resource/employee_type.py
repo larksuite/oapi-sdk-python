@@ -21,7 +21,7 @@ from ..model.patch_employee_type_response import PatchEmployeeTypeResponse
 
 class EmployeeType(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateEmployeeTypeRequest,
                option: Optional[RequestOption] = None) -> CreateEmployeeTypeResponse:

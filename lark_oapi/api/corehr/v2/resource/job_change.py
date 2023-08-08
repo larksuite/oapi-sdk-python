@@ -13,7 +13,7 @@ from ..model.search_job_change_response import SearchJobChangeResponse
 
 class JobChange(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def search(self, request: SearchJobChangeRequest,
                option: Optional[RequestOption] = None) -> SearchJobChangeResponse:

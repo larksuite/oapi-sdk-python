@@ -17,7 +17,7 @@ from ..model.patch_employment_response import PatchEmploymentResponse
 
 class Employment(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateEmploymentRequest,
                option: Optional[RequestOption] = None) -> CreateEmploymentResponse:

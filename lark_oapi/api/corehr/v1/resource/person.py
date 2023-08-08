@@ -20,7 +20,7 @@ from ..model.upload_person_response import UploadPersonResponse
 
 class Person(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def delete(self, request: DeletePersonRequest, option: Optional[RequestOption] = None) -> DeletePersonResponse:
         if option is None:

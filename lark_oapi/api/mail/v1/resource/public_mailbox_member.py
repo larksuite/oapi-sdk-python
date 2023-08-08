@@ -25,7 +25,7 @@ from ..model.list_public_mailbox_member_response import ListPublicMailboxMemberR
 
 class PublicMailboxMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreatePublicMailboxMemberRequest,
                      option: Optional[RequestOption] = None) -> BatchCreatePublicMailboxMemberResponse:

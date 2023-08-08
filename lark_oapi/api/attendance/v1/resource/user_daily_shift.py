@@ -15,7 +15,7 @@ from ..model.query_user_daily_shift_response import QueryUserDailyShiftResponse
 
 class UserDailyShift(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateUserDailyShiftRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateUserDailyShiftResponse:

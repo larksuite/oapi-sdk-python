@@ -14,6 +14,7 @@ def main():
 
     # 构造请求对象
     request: CreateShortcutFileRequest = CreateShortcutFileRequest.builder() \
+        .user_id_type("user_id") \
         .request_body(CreateShortcutFileRequestBody.builder()
                       .parent_token("fldbc5qgwyQnO0uedNllWuF3fAd")
                       .refer_entity(ReferEntity.builder().build())

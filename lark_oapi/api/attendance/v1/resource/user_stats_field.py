@@ -13,7 +13,7 @@ from ..model.query_user_stats_field_response import QueryUserStatsFieldResponse
 
 class UserStatsField(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryUserStatsFieldRequest,
               option: Optional[RequestOption] = None) -> QueryUserStatsFieldResponse:

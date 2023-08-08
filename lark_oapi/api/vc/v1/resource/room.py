@@ -25,7 +25,7 @@ from ..model.search_room_response import SearchRoomResponse
 
 class Room(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateRoomRequest, option: Optional[RequestOption] = None) -> CreateRoomResponse:
         if option is None:

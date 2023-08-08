@@ -17,7 +17,7 @@ from ..model.update_functional_role_response import UpdateFunctionalRoleResponse
 
 class FunctionalRole(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateFunctionalRoleRequest,
                option: Optional[RequestOption] = None) -> CreateFunctionalRoleResponse:

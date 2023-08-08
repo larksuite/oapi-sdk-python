@@ -13,7 +13,7 @@ from ..model.delete_user_mailbox_response import DeleteUserMailboxResponse
 
 class UserMailbox(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def delete(self, request: DeleteUserMailboxRequest,
                option: Optional[RequestOption] = None) -> DeleteUserMailboxResponse:

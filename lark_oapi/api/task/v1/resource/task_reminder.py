@@ -17,7 +17,7 @@ from ..model.list_task_reminder_response import ListTaskReminderResponse
 
 class TaskReminder(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTaskReminderRequest,
                option: Optional[RequestOption] = None) -> CreateTaskReminderResponse:

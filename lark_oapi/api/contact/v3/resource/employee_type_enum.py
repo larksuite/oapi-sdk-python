@@ -19,7 +19,7 @@ from ..model.update_employee_type_enum_response import UpdateEmployeeTypeEnumRes
 
 class EmployeeTypeEnum(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateEmployeeTypeEnumRequest,
                option: Optional[RequestOption] = None) -> CreateEmployeeTypeEnumResponse:

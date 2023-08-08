@@ -15,7 +15,7 @@ from ..model.get_top_user_report_response import GetTopUserReportResponse
 
 class Report(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get_daily(self, request: GetDailyReportRequest,
                   option: Optional[RequestOption] = None) -> GetDailyReportResponse:

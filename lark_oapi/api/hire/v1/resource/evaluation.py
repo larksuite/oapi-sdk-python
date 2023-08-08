@@ -13,7 +13,7 @@ from ..model.list_evaluation_response import ListEvaluationResponse
 
 class Evaluation(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListEvaluationRequest, option: Optional[RequestOption] = None) -> ListEvaluationResponse:
         if option is None:

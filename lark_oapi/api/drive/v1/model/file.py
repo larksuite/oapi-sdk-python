@@ -14,6 +14,9 @@ class File(object):
         "parent_token": str,
         "url": str,
         "shortcut_info": ShortcutInfo,
+        "created_time": int,
+        "modified_time": int,
+        "owner_id": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +26,9 @@ class File(object):
         self.parent_token: Optional[str] = None
         self.url: Optional[str] = None
         self.shortcut_info: Optional[ShortcutInfo] = None
+        self.created_time: Optional[int] = None
+        self.modified_time: Optional[int] = None
+        self.owner_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +62,18 @@ class FileBuilder(object):
 
     def shortcut_info(self, shortcut_info: ShortcutInfo) -> "FileBuilder":
         self._file.shortcut_info = shortcut_info
+        return self
+
+    def created_time(self, created_time: int) -> "FileBuilder":
+        self._file.created_time = created_time
+        return self
+
+    def modified_time(self, modified_time: int) -> "FileBuilder":
+        self._file.modified_time = modified_time
+        return self
+
+    def owner_id(self, owner_id: str) -> "FileBuilder":
+        self._file.owner_id = owner_id
         return self
 
     def build(self) -> "File":

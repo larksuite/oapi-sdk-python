@@ -21,7 +21,7 @@ from ..model.patch_working_hours_type_response import PatchWorkingHoursTypeRespo
 
 class WorkingHoursType(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateWorkingHoursTypeRequest,
                option: Optional[RequestOption] = None) -> CreateWorkingHoursTypeResponse:

@@ -13,7 +13,7 @@ from ..model.create_refresh_access_token_response import CreateRefreshAccessToke
 
 class RefreshAccessToken(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateRefreshAccessTokenRequest,
                option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:

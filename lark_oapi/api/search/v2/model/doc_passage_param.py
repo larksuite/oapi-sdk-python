@@ -9,11 +9,13 @@ class DocPassageParam(object):
     _types = {
         "searchable": bool,
         "doc_tokens": List[str],
+        "folder_tokens": List[str],
     }
 
     def __init__(self, d=None):
         self.searchable: Optional[bool] = None
         self.doc_tokens: Optional[List[str]] = None
+        self.folder_tokens: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class DocPassageParamBuilder(object):
 
     def doc_tokens(self, doc_tokens: List[str]) -> "DocPassageParamBuilder":
         self._doc_passage_param.doc_tokens = doc_tokens
+        return self
+
+    def folder_tokens(self, folder_tokens: List[str]) -> "DocPassageParamBuilder":
+        self._doc_passage_param.folder_tokens = folder_tokens
         return self
 
     def build(self) -> "DocPassageParam":

@@ -13,6 +13,7 @@ class TransferOwnerPermissionMemberRequest(BaseRequest):
         self.type: Optional[str] = None
         self.need_notification: Optional[bool] = None
         self.remove_old_owner: Optional[bool] = None
+        self.stay_put: Optional[bool] = None
         self.token: Optional[str] = None
         self.request_body: Optional[Owner] = None
 
@@ -43,6 +44,11 @@ class TransferOwnerPermissionMemberRequestBuilder(object):
     def remove_old_owner(self, remove_old_owner: bool) -> "TransferOwnerPermissionMemberRequestBuilder":
         self._transfer_owner_permission_member_request.remove_old_owner = remove_old_owner
         self._transfer_owner_permission_member_request.add_query("remove_old_owner", remove_old_owner)
+        return self
+
+    def stay_put(self, stay_put: bool) -> "TransferOwnerPermissionMemberRequestBuilder":
+        self._transfer_owner_permission_member_request.stay_put = stay_put
+        self._transfer_owner_permission_member_request.add_query("stay_put", stay_put)
         return self
 
     def token(self, token: str) -> "TransferOwnerPermissionMemberRequestBuilder":

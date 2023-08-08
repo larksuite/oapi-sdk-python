@@ -17,7 +17,7 @@ from ..model.patch_agent_schedules_response import PatchAgentSchedulesResponse
 
 class AgentSchedules(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def delete(self, request: DeleteAgentSchedulesRequest,
                option: Optional[RequestOption] = None) -> DeleteAgentSchedulesResponse:

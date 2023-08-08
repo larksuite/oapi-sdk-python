@@ -19,7 +19,7 @@ from ..model.update_spreadsheet_sheet_filter_response import UpdateSpreadsheetSh
 
 class SpreadsheetSheetFilter(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateSpreadsheetSheetFilterRequest,
                option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterResponse:

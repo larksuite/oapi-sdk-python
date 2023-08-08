@@ -25,7 +25,7 @@ from ..model.search_room_level_response import SearchRoomLevelResponse
 
 class RoomLevel(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateRoomLevelRequest,
                option: Optional[RequestOption] = None) -> CreateRoomLevelResponse:

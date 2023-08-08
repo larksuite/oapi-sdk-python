@@ -21,7 +21,7 @@ from ..model.me_join_chat_members_response import MeJoinChatMembersResponse
 
 class ChatMembers(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateChatMembersRequest,
                option: Optional[RequestOption] = None) -> CreateChatMembersResponse:

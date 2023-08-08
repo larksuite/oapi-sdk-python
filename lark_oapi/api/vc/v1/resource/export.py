@@ -25,7 +25,7 @@ from ..model.resource_reservation_list_export_response import ResourceReservatio
 
 class Export(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def download(self, request: DownloadExportRequest,
                  option: Optional[RequestOption] = None) -> DownloadExportResponse:

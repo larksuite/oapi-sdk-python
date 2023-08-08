@@ -13,7 +13,7 @@ from ..model.get_participant_quality_list_response import GetParticipantQualityL
 
 class ParticipantQualityList(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetParticipantQualityListRequest,
             option: Optional[RequestOption] = None) -> GetParticipantQualityListResponse:

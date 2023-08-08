@@ -13,7 +13,7 @@ from ..model.query_talent_object_response import QueryTalentObjectResponse
 
 class TalentObject(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryTalentObjectRequest,
               option: Optional[RequestOption] = None) -> QueryTalentObjectResponse:

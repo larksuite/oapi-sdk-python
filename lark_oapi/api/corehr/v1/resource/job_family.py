@@ -21,7 +21,7 @@ from ..model.patch_job_family_response import PatchJobFamilyResponse
 
 class JobFamily(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateJobFamilyRequest,
                option: Optional[RequestOption] = None) -> CreateJobFamilyResponse:

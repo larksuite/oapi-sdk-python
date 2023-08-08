@@ -15,7 +15,7 @@ from ..model.list_agent_schedule_response import ListAgentScheduleResponse
 
 class AgentSchedule(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAgentScheduleRequest,
                option: Optional[RequestOption] = None) -> CreateAgentScheduleResponse:

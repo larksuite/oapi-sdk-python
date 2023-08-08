@@ -21,7 +21,7 @@ from ..model.update_config_job_response import UpdateConfigJobResponse
 
 class Job(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def combined_create(self, request: CombinedCreateJobRequest,
                         option: Optional[RequestOption] = None) -> CombinedCreateJobResponse:

@@ -15,7 +15,7 @@ from ..model.search_department_response import SearchDepartmentResponse
 
 class Department(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def parents(self, request: ParentsDepartmentRequest,
                 option: Optional[RequestOption] = None) -> ParentsDepartmentResponse:

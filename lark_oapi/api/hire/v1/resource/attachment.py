@@ -15,7 +15,7 @@ from ..model.preview_attachment_response import PreviewAttachmentResponse
 
 class Attachment(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetAttachmentRequest, option: Optional[RequestOption] = None) -> GetAttachmentResponse:
         if option is None:

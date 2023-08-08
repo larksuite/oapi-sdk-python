@@ -4,15 +4,18 @@ from typing import *
 
 from lark_oapi.core.construct import init
 from .schema_tag_options import SchemaTagOptions
+from .schema_user_ids_option import SchemaUserIdsOption
 
 
 class SchemaTypeDefinitions(object):
     _types = {
         "tag": List[SchemaTagOptions],
+        "user_ids": SchemaUserIdsOption,
     }
 
     def __init__(self, d=None):
         self.tag: Optional[List[SchemaTagOptions]] = None
+        self.user_ids: Optional[SchemaUserIdsOption] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -26,6 +29,10 @@ class SchemaTypeDefinitionsBuilder(object):
 
     def tag(self, tag: List[SchemaTagOptions]) -> "SchemaTypeDefinitionsBuilder":
         self._schema_type_definitions.tag = tag
+        return self
+
+    def user_ids(self, user_ids: SchemaUserIdsOption) -> "SchemaTypeDefinitionsBuilder":
+        self._schema_type_definitions.user_ids = user_ids
         return self
 
     def build(self) -> "SchemaTypeDefinitions":

@@ -13,7 +13,7 @@ from ..model.list_resume_source_response import ListResumeSourceResponse
 
 class ResumeSource(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListResumeSourceRequest,
              option: Optional[RequestOption] = None) -> ListResumeSourceResponse:

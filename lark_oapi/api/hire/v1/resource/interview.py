@@ -13,7 +13,7 @@ from ..model.list_interview_response import ListInterviewResponse
 
 class Interview(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListInterviewRequest, option: Optional[RequestOption] = None) -> ListInterviewResponse:
         if option is None:

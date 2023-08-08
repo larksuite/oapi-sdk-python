@@ -21,7 +21,7 @@ from ..model.scopes_functional_role_member_response import ScopesFunctionalRoleM
 
 class FunctionalRoleMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateFunctionalRoleMemberRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateFunctionalRoleMemberResponse:

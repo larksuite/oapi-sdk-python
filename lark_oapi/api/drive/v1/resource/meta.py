@@ -13,7 +13,7 @@ from ..model.batch_query_meta_response import BatchQueryMetaResponse
 
 class Meta(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_query(self, request: BatchQueryMetaRequest,
                     option: Optional[RequestOption] = None) -> BatchQueryMetaResponse:

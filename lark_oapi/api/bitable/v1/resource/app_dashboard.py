@@ -15,7 +15,7 @@ from ..model.list_app_dashboard_response import ListAppDashboardResponse
 
 class AppDashboard(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def copy(self, request: CopyAppDashboardRequest,
              option: Optional[RequestOption] = None) -> CopyAppDashboardResponse:

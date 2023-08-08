@@ -19,7 +19,7 @@ from ..model.patch_pre_hire_response import PatchPreHireResponse
 
 class PreHire(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def delete(self, request: DeletePreHireRequest, option: Optional[RequestOption] = None) -> DeletePreHireResponse:
         if option is None:

@@ -13,7 +13,7 @@ from ..model.query_transfer_type_response import QueryTransferTypeResponse
 
 class TransferType(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryTransferTypeRequest,
               option: Optional[RequestOption] = None) -> QueryTransferTypeResponse:

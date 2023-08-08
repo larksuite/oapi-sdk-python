@@ -15,7 +15,7 @@ from ..model.update_chat_moderation_response import UpdateChatModerationResponse
 
 class ChatModeration(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetChatModerationRequest,
             option: Optional[RequestOption] = None) -> GetChatModerationResponse:

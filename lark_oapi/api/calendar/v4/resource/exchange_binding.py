@@ -17,7 +17,7 @@ from ..model.get_exchange_binding_response import GetExchangeBindingResponse
 
 class ExchangeBinding(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateExchangeBindingRequest,
                option: Optional[RequestOption] = None) -> CreateExchangeBindingResponse:

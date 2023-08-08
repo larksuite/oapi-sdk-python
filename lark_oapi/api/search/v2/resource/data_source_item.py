@@ -17,7 +17,7 @@ from ..model.get_data_source_item_response import GetDataSourceItemResponse
 
 class DataSourceItem(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateDataSourceItemRequest,
                option: Optional[RequestOption] = None) -> CreateDataSourceItemResponse:

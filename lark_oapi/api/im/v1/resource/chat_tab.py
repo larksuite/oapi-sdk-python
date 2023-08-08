@@ -21,7 +21,7 @@ from ..model.update_tabs_chat_tab_response import UpdateTabsChatTabResponse
 
 class ChatTab(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateChatTabRequest, option: Optional[RequestOption] = None) -> CreateChatTabResponse:
         if option is None:

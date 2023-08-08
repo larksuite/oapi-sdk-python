@@ -17,7 +17,7 @@ from ..model.get_talent_response import GetTalentResponse
 
 class Talent(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def add_to_folder(self, request: AddToFolderTalentRequest,
                       option: Optional[RequestOption] = None) -> AddToFolderTalentResponse:

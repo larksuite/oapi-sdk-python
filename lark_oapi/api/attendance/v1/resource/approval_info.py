@@ -13,7 +13,7 @@ from ..model.process_approval_info_response import ProcessApprovalInfoResponse
 
 class ApprovalInfo(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def process(self, request: ProcessApprovalInfoRequest,
                 option: Optional[RequestOption] = None) -> ProcessApprovalInfoResponse:

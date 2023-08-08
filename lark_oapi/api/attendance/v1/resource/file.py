@@ -19,7 +19,7 @@ from ..model.upload_file_response import UploadFileResponse
 
 class File(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def download(self, request: DownloadFileRequest, option: Optional[RequestOption] = None) -> DownloadFileResponse:
         if option is None:

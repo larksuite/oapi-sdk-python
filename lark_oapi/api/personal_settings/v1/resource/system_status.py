@@ -23,7 +23,7 @@ from ..model.patch_system_status_response import PatchSystemStatusResponse
 
 class SystemStatus(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_close(self, request: BatchCloseSystemStatusRequest,
                     option: Optional[RequestOption] = None) -> BatchCloseSystemStatusResponse:

@@ -15,7 +15,7 @@ from ..model.list_country_region_response import ListCountryRegionResponse
 
 class CountryRegion(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetCountryRegionRequest, option: Optional[RequestOption] = None) -> GetCountryRegionResponse:
         if option is None:

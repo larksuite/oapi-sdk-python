@@ -17,7 +17,7 @@ from ..model.list_task_follower_response import ListTaskFollowerResponse
 
 class TaskFollower(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTaskFollowerRequest,
                option: Optional[RequestOption] = None) -> CreateTaskFollowerResponse:

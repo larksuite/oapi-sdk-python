@@ -15,7 +15,7 @@ from ..model.get_import_task_response import GetImportTaskResponse
 
 class ImportTask(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateImportTaskRequest,
                option: Optional[RequestOption] = None) -> CreateImportTaskResponse:

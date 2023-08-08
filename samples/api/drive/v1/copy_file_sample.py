@@ -15,6 +15,7 @@ def main():
     # 构造请求对象
     request: CopyFileRequest = CopyFileRequest.builder() \
         .file_token("doccngpahSdXrFPIBD4XdIabcef") \
+        .user_id_type("user_id") \
         .request_body(CopyFileRequestBody.builder()
                       .name("test.txt")
                       .type("doc")

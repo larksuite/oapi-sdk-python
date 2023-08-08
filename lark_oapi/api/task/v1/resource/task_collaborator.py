@@ -17,7 +17,7 @@ from ..model.list_task_collaborator_response import ListTaskCollaboratorResponse
 
 class TaskCollaborator(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTaskCollaboratorRequest,
                option: Optional[RequestOption] = None) -> CreateTaskCollaboratorResponse:

@@ -21,7 +21,7 @@ from ..model.patch_comment_response import PatchCommentResponse
 
 class Comment(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateCommentRequest, option: Optional[RequestOption] = None) -> CreateCommentResponse:
         if option is None:

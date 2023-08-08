@@ -11,13 +11,13 @@ class P2ApplicationBotMenuV6Data(object):
     _types = {
         "operator": Operator,
         "event_key": str,
-        "timestamp": str,
+        "timestamp": int,
     }
 
     def __init__(self, d=None):
         self.operator: Optional[Operator] = None
         self.event_key: Optional[str] = None
-        self.timestamp: Optional[str] = None
+        self.timestamp: Optional[int] = None
         init(self, d, self._types)
 
 

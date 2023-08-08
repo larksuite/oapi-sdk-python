@@ -13,7 +13,7 @@ from ..model.batch_get_okr_response import BatchGetOkrResponse
 
 class Okr(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_get(self, request: BatchGetOkrRequest, option: Optional[RequestOption] = None) -> BatchGetOkrResponse:
         if option is None:

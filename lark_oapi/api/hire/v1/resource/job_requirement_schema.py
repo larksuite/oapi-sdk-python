@@ -13,7 +13,7 @@ from ..model.list_job_requirement_schema_response import ListJobRequirementSchem
 
 class JobRequirementSchema(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListJobRequirementSchemaRequest,
              option: Optional[RequestOption] = None) -> ListJobRequirementSchemaResponse:

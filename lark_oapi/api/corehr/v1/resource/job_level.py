@@ -21,7 +21,7 @@ from ..model.patch_job_level_response import PatchJobLevelResponse
 
 class JobLevel(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateJobLevelRequest, option: Optional[RequestOption] = None) -> CreateJobLevelResponse:
         if option is None:

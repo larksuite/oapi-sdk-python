@@ -13,7 +13,7 @@ from ..model.list_calendar_event_attendee_chat_member_response import ListCalend
 
 class CalendarEventAttendeeChatMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListCalendarEventAttendeeChatMemberRequest,
              option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:

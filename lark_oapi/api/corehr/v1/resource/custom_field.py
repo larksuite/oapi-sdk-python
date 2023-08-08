@@ -17,7 +17,7 @@ from ..model.query_custom_field_response import QueryCustomFieldResponse
 
 class CustomField(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get_by_param(self, request: GetByParamCustomFieldRequest,
                      option: Optional[RequestOption] = None) -> GetByParamCustomFieldResponse:

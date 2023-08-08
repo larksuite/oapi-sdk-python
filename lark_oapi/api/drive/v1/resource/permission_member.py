@@ -23,7 +23,7 @@ from ..model.update_permission_member_response import UpdatePermissionMemberResp
 
 class PermissionMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def auth(self, request: AuthPermissionMemberRequest,
              option: Optional[RequestOption] = None) -> AuthPermissionMemberResponse:

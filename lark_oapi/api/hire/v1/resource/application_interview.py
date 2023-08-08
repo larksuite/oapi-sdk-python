@@ -13,7 +13,7 @@ from ..model.list_application_interview_response import ListApplicationInterview
 
 class ApplicationInterview(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListApplicationInterviewRequest,
              option: Optional[RequestOption] = None) -> ListApplicationInterviewResponse:

@@ -23,7 +23,7 @@ from ..model.update_public_mailbox_response import UpdatePublicMailboxResponse
 
 class PublicMailbox(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreatePublicMailboxRequest,
                option: Optional[RequestOption] = None) -> CreatePublicMailboxResponse:

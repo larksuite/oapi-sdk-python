@@ -23,7 +23,7 @@ from ..model.update_offer_response import UpdateOfferResponse
 
 class Offer(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateOfferRequest, option: Optional[RequestOption] = None) -> CreateOfferResponse:
         if option is None:

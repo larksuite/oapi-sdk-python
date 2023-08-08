@@ -19,7 +19,7 @@ from ..model.update_badge_response import UpdateBadgeResponse
 
 class Badge(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateBadgeRequest, option: Optional[RequestOption] = None) -> CreateBadgeResponse:
         if option is None:

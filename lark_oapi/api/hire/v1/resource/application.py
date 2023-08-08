@@ -23,7 +23,7 @@ from ..model.transfer_onboard_application_response import TransferOnboardApplica
 
 class Application(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateApplicationRequest,
                option: Optional[RequestOption] = None) -> CreateApplicationResponse:

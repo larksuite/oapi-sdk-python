@@ -1,3 +1,4 @@
+from .department_id import *
 from .event_info import *
 from .event_time import *
 from .event_uid import *

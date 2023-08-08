@@ -15,7 +15,7 @@ from ..model.list_ticket_message_response import ListTicketMessageResponse
 
 class TicketMessage(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTicketMessageRequest,
                option: Optional[RequestOption] = None) -> CreateTicketMessageResponse:

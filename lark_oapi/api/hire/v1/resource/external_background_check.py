@@ -13,7 +13,7 @@ from ..model.create_external_background_check_response import CreateExternalBack
 
 class ExternalBackgroundCheck(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateExternalBackgroundCheckRequest,
                option: Optional[RequestOption] = None) -> CreateExternalBackgroundCheckResponse:

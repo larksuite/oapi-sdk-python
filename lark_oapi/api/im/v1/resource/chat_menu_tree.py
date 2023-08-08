@@ -19,7 +19,7 @@ from ..model.sort_chat_menu_tree_response import SortChatMenuTreeResponse
 
 class ChatMenuTree(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateChatMenuTreeRequest,
                option: Optional[RequestOption] = None) -> CreateChatMenuTreeResponse:

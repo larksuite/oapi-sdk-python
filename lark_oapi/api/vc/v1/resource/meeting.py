@@ -23,7 +23,7 @@ from ..model.set_host_meeting_response import SetHostMeetingResponse
 
 class Meeting(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def end(self, request: EndMeetingRequest, option: Optional[RequestOption] = None) -> EndMeetingResponse:
         if option is None:

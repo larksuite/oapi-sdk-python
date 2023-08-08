@@ -13,7 +13,7 @@ from ..model.list_agent_skill_rule_response import ListAgentSkillRuleResponse
 
 class AgentSkillRule(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListAgentSkillRuleRequest,
              option: Optional[RequestOption] = None) -> ListAgentSkillRuleResponse:

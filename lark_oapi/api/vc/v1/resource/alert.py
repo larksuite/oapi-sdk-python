@@ -13,7 +13,7 @@ from ..model.list_alert_response import ListAlertResponse
 
 class Alert(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListAlertRequest, option: Optional[RequestOption] = None) -> ListAlertResponse:
         if option is None:

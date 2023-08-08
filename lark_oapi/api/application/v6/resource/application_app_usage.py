@@ -15,7 +15,7 @@ from ..model.overview_application_app_usage_response import OverviewApplicationA
 
 class ApplicationAppUsage(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def department_overview(self, request: DepartmentOverviewApplicationAppUsageRequest,
                             option: Optional[RequestOption] = None) -> DepartmentOverviewApplicationAppUsageResponse:

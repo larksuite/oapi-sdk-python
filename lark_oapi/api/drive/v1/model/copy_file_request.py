@@ -10,6 +10,7 @@ from .copy_file_request_body import CopyFileRequestBody
 class CopyFileRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.file_token: Optional[str] = None
         self.request_body: Optional[CopyFileRequestBody] = None
 
@@ -26,6 +27,11 @@ class CopyFileRequestBuilder(object):
         copy_file_request.uri = "/open-apis/drive/v1/files/:file_token/copy"
         copy_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._copy_file_request: CopyFileRequest = copy_file_request
+
+    def user_id_type(self, user_id_type: str) -> "CopyFileRequestBuilder":
+        self._copy_file_request.user_id_type = user_id_type
+        self._copy_file_request.add_query("user_id_type", user_id_type)
+        return self
 
     def file_token(self, file_token: str) -> "CopyFileRequestBuilder":
         self._copy_file_request.file_token = file_token

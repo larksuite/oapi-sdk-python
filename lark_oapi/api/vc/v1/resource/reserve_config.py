@@ -15,7 +15,7 @@ from ..model.reserve_scope_reserve_config_response import ReserveScopeReserveCon
 
 class ReserveConfig(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def patch(self, request: PatchReserveConfigRequest,
               option: Optional[RequestOption] = None) -> PatchReserveConfigResponse:

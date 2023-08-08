@@ -19,7 +19,7 @@ from ..model.set_room_config_response import SetRoomConfigResponse
 
 class RoomConfig(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryRoomConfigRequest, option: Optional[RequestOption] = None) -> QueryRoomConfigResponse:
         if option is None:

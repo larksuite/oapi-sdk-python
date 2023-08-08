@@ -17,7 +17,7 @@ from ..model.patch_file_subscription_response import PatchFileSubscriptionRespon
 
 class FileSubscription(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateFileSubscriptionRequest,
                option: Optional[RequestOption] = None) -> CreateFileSubscriptionResponse:

@@ -23,7 +23,7 @@ from ..model.patch_app_table_response import PatchAppTableResponse
 
 class AppTable(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateAppTableRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateAppTableResponse:

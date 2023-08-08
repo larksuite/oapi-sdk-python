@@ -19,7 +19,7 @@ from ..model.patch_metric_source_table_item_response import PatchMetricSourceTab
 
 class MetricSourceTableItem(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_update(self, request: BatchUpdateMetricSourceTableItemRequest,
                      option: Optional[RequestOption] = None) -> BatchUpdateMetricSourceTableItemResponse:

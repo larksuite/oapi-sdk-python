@@ -17,7 +17,7 @@ from ..model.query_user_flow_response import QueryUserFlowResponse
 
 class UserFlow(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateUserFlowRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateUserFlowResponse:

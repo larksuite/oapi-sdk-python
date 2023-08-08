@@ -13,7 +13,7 @@ from ..model.list_app_recommend_rule_response import ListAppRecommendRuleRespons
 
 class AppRecommendRule(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListAppRecommendRuleRequest,
              option: Optional[RequestOption] = None) -> ListAppRecommendRuleResponse:

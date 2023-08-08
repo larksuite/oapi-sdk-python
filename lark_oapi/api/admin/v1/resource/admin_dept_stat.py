@@ -13,7 +13,7 @@ from ..model.list_admin_dept_stat_response import ListAdminDeptStatResponse
 
 class AdminDeptStat(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListAdminDeptStatRequest,
              option: Optional[RequestOption] = None) -> ListAdminDeptStatResponse:

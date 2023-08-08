@@ -19,7 +19,7 @@ from ..model.remove_instance_comment_response import RemoveInstanceCommentRespon
 
 class InstanceComment(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateInstanceCommentRequest,
                option: Optional[RequestOption] = None) -> CreateInstanceCommentResponse:

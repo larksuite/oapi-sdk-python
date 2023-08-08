@@ -15,7 +15,7 @@ from ..model.internal_app_access_token_response import InternalAppAccessTokenRes
 
 class AppAccessToken(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAppAccessTokenRequest,
                option: Optional[RequestOption] = None) -> CreateAppAccessTokenResponse:

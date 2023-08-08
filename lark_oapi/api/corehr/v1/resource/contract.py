@@ -21,7 +21,7 @@ from ..model.patch_contract_response import PatchContractResponse
 
 class Contract(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateContractRequest, option: Optional[RequestOption] = None) -> CreateContractResponse:
         if option is None:

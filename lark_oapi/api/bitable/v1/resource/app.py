@@ -19,7 +19,7 @@ from ..model.update_app_response import UpdateAppResponse
 
 class App(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def copy(self, request: CopyAppRequest, option: Optional[RequestOption] = None) -> CopyAppResponse:
         if option is None:

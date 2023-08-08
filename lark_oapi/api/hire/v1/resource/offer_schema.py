@@ -13,7 +13,7 @@ from ..model.get_offer_schema_response import GetOfferSchemaResponse
 
 class OfferSchema(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetOfferSchemaRequest, option: Optional[RequestOption] = None) -> GetOfferSchemaResponse:
         if option is None:

@@ -1,4 +1,5 @@
 from .access_record import *
+from .department_id import *
 from .device import *
 from .feature import *
 from .file import *

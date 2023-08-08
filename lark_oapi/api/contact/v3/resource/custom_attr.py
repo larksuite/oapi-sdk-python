@@ -13,7 +13,7 @@ from ..model.list_custom_attr_response import ListCustomAttrResponse
 
 class CustomAttr(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListCustomAttrRequest, option: Optional[RequestOption] = None) -> ListCustomAttrResponse:
         if option is None:

@@ -15,7 +15,7 @@ from ..model.list_task_subtask_response import ListTaskSubtaskResponse
 
 class TaskSubtask(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTaskSubtaskRequest,
                option: Optional[RequestOption] = None) -> CreateTaskSubtaskResponse:

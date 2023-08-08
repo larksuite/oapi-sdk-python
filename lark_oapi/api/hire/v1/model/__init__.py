@@ -139,6 +139,7 @@ from .delete_external_application_response_body import *
 from .delete_job_requirement_request import *
 from .delete_job_requirement_response import *
 from .department import *
+from .department_id import *
 from .di_data import *
 from .di_info import *
 from .dummy import *

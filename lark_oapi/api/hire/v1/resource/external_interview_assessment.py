@@ -13,7 +13,7 @@ from ..model.create_external_interview_assessment_response import CreateExternal
 
 class ExternalInterviewAssessment(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateExternalInterviewAssessmentRequest,
                option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:

@@ -16,7 +16,7 @@ from ..model.create_badge_image_response import CreateBadgeImageResponse
 
 class BadgeImage(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateBadgeImageRequest,
                option: Optional[RequestOption] = None) -> CreateBadgeImageResponse:

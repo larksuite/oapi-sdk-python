@@ -21,7 +21,7 @@ from ..model.patch_department_response import PatchDepartmentResponse
 
 class Department(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateDepartmentRequest,
                option: Optional[RequestOption] = None) -> CreateDepartmentResponse:

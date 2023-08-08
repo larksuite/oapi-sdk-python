@@ -13,7 +13,7 @@ from ..model.list_file_view_record_response import ListFileViewRecordResponse
 
 class FileViewRecord(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListFileViewRecordRequest,
              option: Optional[RequestOption] = None) -> ListFileViewRecordResponse:

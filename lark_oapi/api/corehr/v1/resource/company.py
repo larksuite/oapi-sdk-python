@@ -19,7 +19,7 @@ from ..model.list_company_response import ListCompanyResponse
 
 class Company(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateCompanyRequest, option: Optional[RequestOption] = None) -> CreateCompanyResponse:
         if option is None:

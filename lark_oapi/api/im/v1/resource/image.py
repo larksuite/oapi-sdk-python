@@ -19,7 +19,7 @@ from ..model.get_image_response import GetImageResponse
 
 class Image(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateImageRequest, option: Optional[RequestOption] = None) -> CreateImageResponse:
         if option is None:

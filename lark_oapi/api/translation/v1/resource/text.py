@@ -15,7 +15,7 @@ from ..model.translate_text_response import TranslateTextResponse
 
 class Text(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def detect(self, request: DetectTextRequest, option: Optional[RequestOption] = None) -> DetectTextResponse:
         if option is None:

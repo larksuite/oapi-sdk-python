@@ -13,7 +13,7 @@ from ..model.create_access_token_response import CreateAccessTokenResponse
 
 class AccessToken(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAccessTokenRequest,
                option: Optional[RequestOption] = None) -> CreateAccessTokenResponse:

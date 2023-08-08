@@ -17,7 +17,7 @@ from ..model.query_user_task_remedy_response import QueryUserTaskRemedyResponse
 
 class UserTaskRemedy(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateUserTaskRemedyRequest,
                option: Optional[RequestOption] = None) -> CreateUserTaskRemedyResponse:

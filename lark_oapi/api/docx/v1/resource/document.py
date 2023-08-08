@@ -17,7 +17,7 @@ from ..model.raw_content_document_response import RawContentDocumentResponse
 
 class Document(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateDocumentRequest, option: Optional[RequestOption] = None) -> CreateDocumentResponse:
         if option is None:

@@ -17,7 +17,7 @@ from ..model.list_user_mailbox_alias_response import ListUserMailboxAliasRespons
 
 class UserMailboxAlias(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateUserMailboxAliasRequest,
                option: Optional[RequestOption] = None) -> CreateUserMailboxAliasResponse:

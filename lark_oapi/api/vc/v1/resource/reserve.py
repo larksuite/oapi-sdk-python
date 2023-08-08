@@ -21,7 +21,7 @@ from ..model.update_reserve_response import UpdateReserveResponse
 
 class Reserve(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def apply(self, request: ApplyReserveRequest, option: Optional[RequestOption] = None) -> ApplyReserveResponse:
         if option is None:

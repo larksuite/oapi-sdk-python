@@ -31,7 +31,7 @@ from ..model.specified_rollback_instance_response import SpecifiedRollbackInstan
 
 class Instance(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def add_sign(self, request: AddSignInstanceRequest,
                  option: Optional[RequestOption] = None) -> AddSignInstanceResponse:

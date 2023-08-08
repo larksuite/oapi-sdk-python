@@ -21,7 +21,7 @@ from ..model.search_group_response import SearchGroupResponse
 
 class Group(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateGroupRequest, option: Optional[RequestOption] = None) -> CreateGroupResponse:
         if option is None:

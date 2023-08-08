@@ -18,6 +18,7 @@ def main():
         .type("doc") \
         .need_notification(True) \
         .remove_old_owner(False) \
+        .stay_put(False) \
         .request_body(Owner.builder()
                       .member_type("openid")
                       .member_id("string")

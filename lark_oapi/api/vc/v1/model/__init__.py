@@ -23,6 +23,7 @@ from .delete_reserve_request import *
 from .delete_reserve_response import *
 from .delete_room_request import *
 from .delete_room_response import *
+from .department_id import *
 from .device import *
 from .disable_inform_config import *
 from .download_export_request import *
@@ -126,6 +127,14 @@ from .mget_room_request import *
 from .mget_room_request_body import *
 from .mget_room_response import *
 from .mget_room_response_body import *
+from .my_ai_object_context import *
+from .my_ai_plugin_context import *
+from .my_ai_vc_meeting_content_common_result import *
+from .my_ai_vc_meeting_extra import *
+from .my_ai_vc_meeting_operation_result import *
+from .my_ai_vc_meeting_recap_result import *
+from .my_ai_vc_meeting_scenario_context import *
+from .my_ai_vc_meeting_todo_task_result import *
 from .options import *
 from .p2_vc_meeting_all_meeting_ended_v1 import *
 from .p2_vc_meeting_all_meeting_started_v1 import *

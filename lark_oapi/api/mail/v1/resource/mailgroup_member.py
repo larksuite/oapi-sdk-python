@@ -23,7 +23,7 @@ from ..model.list_mailgroup_member_response import ListMailgroupMemberResponse
 
 class MailgroupMember(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def batch_create(self, request: BatchCreateMailgroupMemberRequest,
                      option: Optional[RequestOption] = None) -> BatchCreateMailgroupMemberResponse:

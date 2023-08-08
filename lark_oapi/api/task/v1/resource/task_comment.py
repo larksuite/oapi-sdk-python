@@ -21,7 +21,7 @@ from ..model.update_task_comment_response import UpdateTaskCommentResponse
 
 class TaskComment(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateTaskCommentRequest,
                option: Optional[RequestOption] = None) -> CreateTaskCommentResponse:

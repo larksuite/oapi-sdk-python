@@ -15,7 +15,7 @@ from ..model.query_user_approval_response import QueryUserApprovalResponse
 
 class UserApproval(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateUserApprovalRequest,
                option: Optional[RequestOption] = None) -> CreateUserApprovalResponse:

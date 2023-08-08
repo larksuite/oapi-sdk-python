@@ -64,13 +64,14 @@ from .patch_schema_response_body import *
 from .schema import *
 from .schema_display import *
 from .schema_display_field_mapping import *
-from .schema_display_option import *
 from .schema_enum_options import *
+from .schema_filter_options import *
+from .schema_predefine_enum_struct import *
 from .schema_property import *
-from .schema_property_definition import *
 from .schema_search_options import *
 from .schema_sort_options import *
 from .schema_tag_options import *
 from .schema_type_definitions import *
+from .schema_user_ids_option import *
 from .web_passage_param import *
 from .wiki_passage_param import *

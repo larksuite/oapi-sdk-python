@@ -91,6 +91,7 @@ from .delete_tabs_chat_tab_response import *
 from .delete_tabs_chat_tab_response_body import *
 from .delete_top_notice_chat_top_notice_request import *
 from .delete_top_notice_chat_top_notice_response import *
+from .department_id import *
 from .emoji import *
 from .event_message import *
 from .event_message_reader import *

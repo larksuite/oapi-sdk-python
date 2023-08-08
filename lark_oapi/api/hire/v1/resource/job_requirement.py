@@ -21,7 +21,7 @@ from ..model.update_job_requirement_response import UpdateJobRequirementResponse
 
 class JobRequirement(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateJobRequirementRequest,
                option: Optional[RequestOption] = None) -> CreateJobRequirementResponse:

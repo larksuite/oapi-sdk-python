@@ -15,7 +15,7 @@ from ..model.delete_managers_chat_managers_response import DeleteManagersChatMan
 
 class ChatManagers(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def add_managers(self, request: AddManagersChatManagersRequest,
                      option: Optional[RequestOption] = None) -> AddManagersChatManagersResponse:

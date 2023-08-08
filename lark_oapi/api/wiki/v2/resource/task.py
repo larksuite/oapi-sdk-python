@@ -13,7 +13,7 @@ from ..model.get_task_response import GetTaskResponse
 
 class Task(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
         if option is None:

@@ -13,7 +13,7 @@ from ..model.query_tenant_response import QueryTenantResponse
 
 class Tenant(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def query(self, request: QueryTenantRequest, option: Optional[RequestOption] = None) -> QueryTenantResponse:
         if option is None:

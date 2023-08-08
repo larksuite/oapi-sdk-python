@@ -13,7 +13,7 @@ from ..model.patch_chat_menu_item_response import PatchChatMenuItemResponse
 
 class ChatMenuItem(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def patch(self, request: PatchChatMenuItemRequest,
               option: Optional[RequestOption] = None) -> PatchChatMenuItemResponse:

@@ -19,7 +19,7 @@ def main():
         .client_token("fe599b60-450f-46ff-b2ef-9f6675625b97") \
         .request_body(AppTableField.builder()
                       .field_name("字段名称")
-                      .type(1)
+                      .type(int)
                       .property(AppTableFieldProperty.builder().build())
                       .description(AppTableFieldDescription.builder().build())
                       .ui_type("Progress")

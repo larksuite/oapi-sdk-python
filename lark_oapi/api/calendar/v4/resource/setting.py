@@ -13,7 +13,7 @@ from ..model.generate_caldav_conf_setting_response import GenerateCaldavConfSett
 
 class Setting(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def generate_caldav_conf(self, request: GenerateCaldavConfSettingRequest,
                              option: Optional[RequestOption] = None) -> GenerateCaldavConfSettingResponse:

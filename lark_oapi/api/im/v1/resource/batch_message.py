@@ -17,7 +17,7 @@ from ..model.read_user_batch_message_response import ReadUserBatchMessageRespons
 
 class BatchMessage(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def delete(self, request: DeleteBatchMessageRequest,
                option: Optional[RequestOption] = None) -> DeleteBatchMessageResponse:

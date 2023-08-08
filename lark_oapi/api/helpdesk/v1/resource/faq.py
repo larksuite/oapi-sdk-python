@@ -27,7 +27,7 @@ from ..model.search_faq_response import SearchFaqResponse
 
 class Faq(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateFaqRequest, option: Optional[RequestOption] = None) -> CreateFaqResponse:
         if option is None:

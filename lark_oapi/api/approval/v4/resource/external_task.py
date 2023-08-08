@@ -13,7 +13,7 @@ from ..model.list_external_task_response import ListExternalTaskResponse
 
 class ExternalTask(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListExternalTaskRequest,
              option: Optional[RequestOption] = None) -> ListExternalTaskResponse:

@@ -4,6 +4,7 @@ from typing import *
 
 from lark_oapi.core.construct import init
 from lark_oapi.event.context import EventContext
+from .department_id import DepartmentId
 from .user_id import UserId
 
 
@@ -15,6 +16,7 @@ class P2HireEhrImportTaskImportedV1Data(object):
         "ehr_requirement_id": str,
         "operator_id": str,
         "operator_user_id": UserId,
+        "ehr_department": DepartmentId,
     }
 
     def __init__(self, d=None):
@@ -24,6 +26,7 @@ class P2HireEhrImportTaskImportedV1Data(object):
         self.ehr_requirement_id: Optional[str] = None
         self.operator_id: Optional[str] = None
         self.operator_user_id: Optional[UserId] = None
+        self.ehr_department: Optional[DepartmentId] = None
         init(self, d, self._types)
 
 

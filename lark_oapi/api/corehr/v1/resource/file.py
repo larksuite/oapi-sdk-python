@@ -15,7 +15,7 @@ from ..model.get_file_response import GetFileResponse
 
 class File(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetFileRequest, option: Optional[RequestOption] = None) -> GetFileResponse:
         if option is None:

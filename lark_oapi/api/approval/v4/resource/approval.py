@@ -19,7 +19,7 @@ from ..model.unsubscribe_approval_response import UnsubscribeApprovalResponse
 
 class Approval(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateApprovalRequest, option: Optional[RequestOption] = None) -> CreateApprovalResponse:
         if option is None:

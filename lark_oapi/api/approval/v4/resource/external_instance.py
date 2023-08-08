@@ -15,7 +15,7 @@ from ..model.create_external_instance_response import CreateExternalInstanceResp
 
 class ExternalInstance(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def check(self, request: CheckExternalInstanceRequest,
               option: Optional[RequestOption] = None) -> CheckExternalInstanceResponse:

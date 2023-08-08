@@ -17,7 +17,7 @@ from ..model.list_pin_response import ListPinResponse
 
 class Pin(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreatePinRequest, option: Optional[RequestOption] = None) -> CreatePinResponse:
         if option is None:

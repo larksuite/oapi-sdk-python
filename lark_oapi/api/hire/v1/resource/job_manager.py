@@ -13,7 +13,7 @@ from ..model.get_job_manager_response import GetJobManagerResponse
 
 class JobManager(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def get(self, request: GetJobManagerRequest, option: Optional[RequestOption] = None) -> GetJobManagerResponse:
         if option is None:

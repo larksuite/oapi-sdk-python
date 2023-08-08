@@ -19,7 +19,7 @@ from ..model.patch_schema_response import PatchSchemaResponse
 
 class Schema(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateSchemaRequest, option: Optional[RequestOption] = None) -> CreateSchemaResponse:
         if option is None:

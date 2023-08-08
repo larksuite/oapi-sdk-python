@@ -21,7 +21,7 @@ from ..model.patch_job_data_response import PatchJobDataResponse
 
 class JobData(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateJobDataRequest, option: Optional[RequestOption] = None) -> CreateJobDataResponse:
         if option is None:

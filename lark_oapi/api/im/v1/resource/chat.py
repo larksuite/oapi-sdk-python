@@ -25,7 +25,7 @@ from ..model.update_chat_response import UpdateChatResponse
 
 class Chat(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateChatRequest, option: Optional[RequestOption] = None) -> CreateChatResponse:
         if option is None:

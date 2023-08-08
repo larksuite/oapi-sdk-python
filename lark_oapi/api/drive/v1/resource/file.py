@@ -45,7 +45,7 @@ from ..model.upload_prepare_file_response import UploadPrepareFileResponse
 
 class File(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def copy(self, request: CopyFileRequest, option: Optional[RequestOption] = None) -> CopyFileResponse:
         if option is None:

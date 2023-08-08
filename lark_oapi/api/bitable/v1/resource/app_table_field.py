@@ -19,7 +19,7 @@ from ..model.update_app_table_field_response import UpdateAppTableFieldResponse
 
 class AppTableField(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def create(self, request: CreateAppTableFieldRequest,
                option: Optional[RequestOption] = None) -> CreateAppTableFieldResponse:

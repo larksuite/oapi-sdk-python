@@ -15,7 +15,7 @@ from ..model.unsubscribe_event_response import UnsubscribeEventResponse
 
 class Event(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def subscribe(self, request: SubscribeEventRequest,
                   option: Optional[RequestOption] = None) -> SubscribeEventResponse:

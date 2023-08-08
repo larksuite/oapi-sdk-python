@@ -13,7 +13,7 @@ from ..model.list_job_process_response import ListJobProcessResponse
 
 class JobProcess(object):
     def __init__(self, config: Config) -> None:
-        self.config: Optional[Config] = config
+        self.config: Config = config
 
     def list(self, request: ListJobProcessRequest, option: Optional[RequestOption] = None) -> ListJobProcessResponse:
         if option is None:
