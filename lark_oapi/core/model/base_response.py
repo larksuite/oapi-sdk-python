@@ -8,7 +8,7 @@ from .raw_response import RawResponse
 class BaseResponse(object):
     _types = {}
 
-    def __init__(self, d):
+    def __init__(self, d=None):
         self.raw: Optional[RawResponse] = None
         self.code: Optional[int] = None
         self.msg: Optional[str] = None

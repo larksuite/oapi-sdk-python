@@ -12,6 +12,8 @@ class ScopeGroup(object):
         "operation_type": int,
         "right": List[ScopeValue],
         "member_ids": List[str],
+        "custom_field__i_d": str,
+        "custom_field_obj_type": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +21,8 @@ class ScopeGroup(object):
         self.operation_type: Optional[int] = None
         self.right: Optional[List[ScopeValue]] = None
         self.member_ids: Optional[List[str]] = None
+        self.custom_field__i_d: Optional[str] = None
+        self.custom_field_obj_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -44,6 +48,14 @@ class ScopeGroupBuilder(object):
 
     def member_ids(self, member_ids: List[str]) -> "ScopeGroupBuilder":
         self._scope_group.member_ids = member_ids
+        return self
+
+    def custom_field__i_d(self, custom_field__i_d: str) -> "ScopeGroupBuilder":
+        self._scope_group.custom_field__i_d = custom_field__i_d
+        return self
+
+    def custom_field_obj_type(self, custom_field_obj_type: str) -> "ScopeGroupBuilder":
+        self._scope_group.custom_field_obj_type = custom_field_obj_type
         return self
 
     def build(self) -> "ScopeGroup":

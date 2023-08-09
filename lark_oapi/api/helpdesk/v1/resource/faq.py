@@ -72,12 +72,12 @@ class Faq(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 处理二进制流
-        if resp.status_code == 200:
+        if 200 <= resp.status_code < 300:
             response: FaqImageFaqResponse = FaqImageFaqResponse({})
             response.code = 0
             response.raw = resp
             response.file = io.BytesIO(resp.content)
-            response.file_name = Files.parse_file_name(response.raw.header)
+            response.file_name = Files.parse_file_name(response.raw.headers)
             return response
 
         # 反序列化

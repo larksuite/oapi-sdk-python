@@ -15,7 +15,7 @@ class Files(object):
         return file_name.encode('ISO-8859-1').decode()
 
     @staticmethod
-    def parse_form_data(obj: Any) -> Dict[str, str]:
+    def parse_form_data(obj: Any) -> Dict[str, Any]:
         if not hasattr(obj, "__dict__"):
             return {}
         d = vars(obj)
