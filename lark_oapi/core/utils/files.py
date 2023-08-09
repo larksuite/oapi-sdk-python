@@ -1,4 +1,5 @@
 import cgi
+import io
 from typing import Any, Dict, Optional
 
 from lark_oapi.core import Content_Disposition
@@ -16,12 +17,17 @@ class Files(object):
 
     @staticmethod
     def parse_form_data(obj: Any) -> Dict[str, Any]:
-        if not hasattr(obj, "__dict__"):
-            return {}
-        d = vars(obj)
-        for k, v in d.items():
-            if k == "file" or v is None:
-                continue
-            d[k] = str(v)
+        fd = {}
+        if isinstance(obj, dict):
+            fd = obj
+        elif not hasattr(obj, "__dict__"):
+            return fd
+        else:
+            fd = vars(obj)
 
-        return d
+        for k, v in fd.items():
+            if v is None or isinstance(v, io.IOBase):
+                continue
+            fd[k] = str(v)
+
+        return fd

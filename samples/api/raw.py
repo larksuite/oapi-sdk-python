@@ -51,10 +51,10 @@ def upload_all_file():
         "file_name": "demo.pdf",
         "parent_type": "explorer",
         "parent_node": "Y9LhfoWNZlKxWcdsf2fcPP0SnXc",
-        "size": "1199",
+        "size": 1199,
         "file": file
     }
-    body = MultipartEncoder(data)
+    body = MultipartEncoder(lark.Files.parse_form_data(data))
 
     request: lark.BaseRequest = lark.BaseRequest.builder() \
         .http_method(lark.HttpMethod.POST) \
