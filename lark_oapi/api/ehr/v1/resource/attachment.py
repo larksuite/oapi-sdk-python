@@ -33,7 +33,7 @@ class Attachment(object):
         if 200 <= resp.status_code < 300:
             response.code = 0
             response.file = io.BytesIO(resp.content)
-            response.file_name = Files.parse_file_name(response.raw.headers)
+            response.file_name = Files.parse_file_name(resp.headers)
         elif content_type is not None and content_type.startswith(APPLICATION_JSON):
             response = JSON.unmarshal(str(resp.content, UTF_8), GetAttachmentResponse)
 
