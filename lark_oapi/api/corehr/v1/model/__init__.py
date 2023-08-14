@@ -215,6 +215,7 @@ from .leave_balances_leave_response import *
 from .leave_balances_leave_response_body import *
 from .leave_granting_record import *
 from .leave_request import *
+from .leave_request_detail import *
 from .leave_request_history_leave_request import *
 from .leave_request_history_leave_response import *
 from .leave_request_history_leave_response_body import *

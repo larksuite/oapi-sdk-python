@@ -24,6 +24,9 @@ class LeaveRequestHistoryLeaveRequest(BaseRequest):
         self.user_id_type: Optional[str] = None
         self.leave_update_time_min: Optional[str] = None
         self.leave_update_time_max: Optional[str] = None
+        self.return_detail: Optional[bool] = None
+        self.leave_term_type: Optional[int] = None
+        self.time_zone: Optional[str] = None
 
     @staticmethod
     def builder() -> "LeaveRequestHistoryLeaveRequestBuilder":
@@ -112,6 +115,21 @@ class LeaveRequestHistoryLeaveRequestBuilder(object):
     def leave_update_time_max(self, leave_update_time_max: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.leave_update_time_max = leave_update_time_max
         self._leave_request_history_leave_request.add_query("leave_update_time_max", leave_update_time_max)
+        return self
+
+    def return_detail(self, return_detail: bool) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.return_detail = return_detail
+        self._leave_request_history_leave_request.add_query("return_detail", return_detail)
+        return self
+
+    def leave_term_type(self, leave_term_type: int) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.leave_term_type = leave_term_type
+        self._leave_request_history_leave_request.add_query("leave_term_type", leave_term_type)
+        return self
+
+    def time_zone(self, time_zone: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.time_zone = time_zone
+        self._leave_request_history_leave_request.add_query("time_zone", time_zone)
         return self
 
     def build(self) -> LeaveRequestHistoryLeaveRequest:

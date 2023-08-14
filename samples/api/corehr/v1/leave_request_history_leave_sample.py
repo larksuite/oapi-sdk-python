@@ -29,6 +29,9 @@ def main():
         .user_id_type("people_corehr_id") \
         .leave_update_time_min("2022-10-24 10:00:00") \
         .leave_update_time_max("2022-10-24 10:00:00") \
+        .return_detail(False) \
+        .leave_term_type(0) \
+        .time_zone("Asia/Shanghai") \
         .build()
 
     # 发起请求

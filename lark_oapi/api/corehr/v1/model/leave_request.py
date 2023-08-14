@@ -4,6 +4,7 @@ from typing import *
 
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .leave_request_detail import LeaveRequestDetail
 
 
 class LeaveRequest(object):
@@ -23,6 +24,13 @@ class LeaveRequest(object):
         "submitted_at": str,
         "submitted_by": str,
         "notes": str,
+        "approval_date": str,
+        "is_deducted": bool,
+        "details": List[LeaveRequestDetail],
+        "leave_type_code": str,
+        "actual_end_date": str,
+        "estimated_end_date": str,
+        "time_zone": str,
     }
 
     def __init__(self, d=None):
@@ -41,6 +49,13 @@ class LeaveRequest(object):
         self.submitted_at: Optional[str] = None
         self.submitted_by: Optional[str] = None
         self.notes: Optional[str] = None
+        self.approval_date: Optional[str] = None
+        self.is_deducted: Optional[bool] = None
+        self.details: Optional[List[LeaveRequestDetail]] = None
+        self.leave_type_code: Optional[str] = None
+        self.actual_end_date: Optional[str] = None
+        self.estimated_end_date: Optional[str] = None
+        self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -110,6 +125,34 @@ class LeaveRequestBuilder(object):
 
     def notes(self, notes: str) -> "LeaveRequestBuilder":
         self._leave_request.notes = notes
+        return self
+
+    def approval_date(self, approval_date: str) -> "LeaveRequestBuilder":
+        self._leave_request.approval_date = approval_date
+        return self
+
+    def is_deducted(self, is_deducted: bool) -> "LeaveRequestBuilder":
+        self._leave_request.is_deducted = is_deducted
+        return self
+
+    def details(self, details: List[LeaveRequestDetail]) -> "LeaveRequestBuilder":
+        self._leave_request.details = details
+        return self
+
+    def leave_type_code(self, leave_type_code: str) -> "LeaveRequestBuilder":
+        self._leave_request.leave_type_code = leave_type_code
+        return self
+
+    def actual_end_date(self, actual_end_date: str) -> "LeaveRequestBuilder":
+        self._leave_request.actual_end_date = actual_end_date
+        return self
+
+    def estimated_end_date(self, estimated_end_date: str) -> "LeaveRequestBuilder":
+        self._leave_request.estimated_end_date = estimated_end_date
+        return self
+
+    def time_zone(self, time_zone: str) -> "LeaveRequestBuilder":
+        self._leave_request.time_zone = time_zone
         return self
 
     def build(self) -> "LeaveRequest":

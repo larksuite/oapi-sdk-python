@@ -46,6 +46,7 @@ class User(object):
         "subscription_ids": List[int],
         "assign_info": List[UserAssignInfo],
         "department_path": List[DepartmentDetail],
+        "dotted_line_leader_user_ids": List[int],
     }
 
     def __init__(self, d=None):
@@ -82,6 +83,7 @@ class User(object):
         self.subscription_ids: Optional[List[int]] = None
         self.assign_info: Optional[List[UserAssignInfo]] = None
         self.department_path: Optional[List[DepartmentDetail]] = None
+        self.dotted_line_leader_user_ids: Optional[List[int]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -223,6 +225,10 @@ class UserBuilder(object):
 
     def department_path(self, department_path: List[DepartmentDetail]) -> "UserBuilder":
         self._user.department_path = department_path
+        return self
+
+    def dotted_line_leader_user_ids(self, dotted_line_leader_user_ids: List[int]) -> "UserBuilder":
+        self._user.dotted_line_leader_user_ids = dotted_line_leader_user_ids
         return self
 
     def build(self) -> "User":

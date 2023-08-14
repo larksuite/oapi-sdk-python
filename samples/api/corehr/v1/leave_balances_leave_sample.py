@@ -19,6 +19,7 @@ def main():
         .as_of_date("2022-07-29") \
         .employment_id_list([]) \
         .user_id_type("people_corehr_id") \
+        .time_zone("Asia/Shanghai") \
         .build()
 
     # 发起请求

@@ -14,6 +14,7 @@ class LeaveBalancesLeaveRequest(BaseRequest):
         self.as_of_date: Optional[str] = None
         self.employment_id_list: Optional[List[str]] = None
         self.user_id_type: Optional[str] = None
+        self.time_zone: Optional[str] = None
 
     @staticmethod
     def builder() -> "LeaveBalancesLeaveRequestBuilder":
@@ -52,6 +53,11 @@ class LeaveBalancesLeaveRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "LeaveBalancesLeaveRequestBuilder":
         self._leave_balances_leave_request.user_id_type = user_id_type
         self._leave_balances_leave_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def time_zone(self, time_zone: str) -> "LeaveBalancesLeaveRequestBuilder":
+        self._leave_balances_leave_request.time_zone = time_zone
+        self._leave_balances_leave_request.add_query("time_zone", time_zone)
         return self
 
     def build(self) -> LeaveBalancesLeaveRequest:

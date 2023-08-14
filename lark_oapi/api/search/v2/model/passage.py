@@ -13,6 +13,7 @@ class Passage(object):
         "title": str,
         "url": str,
         "score": float,
+        "extra": str,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class Passage(object):
         self.title: Optional[str] = None
         self.url: Optional[str] = None
         self.score: Optional[float] = None
+        self.extra: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +57,10 @@ class PassageBuilder(object):
 
     def score(self, score: float) -> "PassageBuilder":
         self._passage.score = score
+        return self
+
+    def extra(self, extra: str) -> "PassageBuilder":
+        self._passage.extra = extra
         return self
 
     def build(self) -> "Passage":

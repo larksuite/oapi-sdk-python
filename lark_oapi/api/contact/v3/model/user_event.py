@@ -36,6 +36,7 @@ class UserEvent(object):
         "custom_attrs": List[UserCustomAttr],
         "job_level_id": str,
         "job_family_id": str,
+        "dotted_line_leader_user_ids": List[int],
     }
 
     def __init__(self, d=None):
@@ -64,6 +65,7 @@ class UserEvent(object):
         self.custom_attrs: Optional[List[UserCustomAttr]] = None
         self.job_level_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
+        self.dotted_line_leader_user_ids: Optional[List[int]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -173,6 +175,10 @@ class UserEventBuilder(object):
 
     def job_family_id(self, job_family_id: str) -> "UserEventBuilder":
         self._user_event.job_family_id = job_family_id
+        return self
+
+    def dotted_line_leader_user_ids(self, dotted_line_leader_user_ids: List[int]) -> "UserEventBuilder":
+        self._user_event.dotted_line_leader_user_ids = dotted_line_leader_user_ids
         return self
 
     def build(self) -> "UserEvent":

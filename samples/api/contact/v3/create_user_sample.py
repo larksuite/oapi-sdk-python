@@ -43,6 +43,7 @@ def main():
                       .job_level_id("mga5oa8ayjlp9rb")
                       .job_family_id("mga5oa8ayjlp9rb")
                       .subscription_ids([])
+                      .dotted_line_leader_user_ids([])
                       .build()) \
         .build()
 

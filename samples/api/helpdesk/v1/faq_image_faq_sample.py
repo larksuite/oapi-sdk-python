@@ -28,7 +28,7 @@ def main():
         return
 
     # 处理业务结果
-    f = open(f"file_path/{response.file_name}", "wb")
+    f = open(f"/file_path/{response.file_name}", "wb")
     f.write(response.file.read())
     f.close()
 

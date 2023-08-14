@@ -4,7 +4,7 @@ import io
 from typing import *
 
 from lark_oapi.core import JSON
-from lark_oapi.core.const import UTF_8
+from lark_oapi.core.const import UTF_8, CONTENT_TYPE, APPLICATION_JSON
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
@@ -39,18 +39,16 @@ class Export(object):
         resp: RawResponse = Transport.execute(self.config, request, option)
 
         # 处理二进制流
+        content_type = resp.headers.get(CONTENT_TYPE)
+        response: DownloadExportResponse = DownloadExportResponse()
         if 200 <= resp.status_code < 300:
-            response: DownloadExportResponse = DownloadExportResponse({})
             response.code = 0
-            response.raw = resp
             response.file = io.BytesIO(resp.content)
             response.file_name = Files.parse_file_name(response.raw.headers)
-            return response
+        elif content_type is not None and content_type.startswith(APPLICATION_JSON):
+            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadExportResponse)
 
-        # 反序列化
-        response: DownloadExportResponse = JSON.unmarshal(str(resp.content, UTF_8), DownloadExportResponse)
         response.raw = resp
-
         return response
 
     def get(self, request: GetExportRequest, option: Optional[RequestOption] = None) -> GetExportResponse:

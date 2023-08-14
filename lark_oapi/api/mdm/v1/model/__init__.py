@@ -16,6 +16,7 @@ from .internal_order import *
 from .legal_entity import *
 from .legal_entity_bank import *
 from .multi_language import *
+from .open_api_update_vendor import *
 from .project import *
 from .project_company_dept_mapping import *
 from .unbind_user_auth_data_relation_request import *
