@@ -37,7 +37,7 @@ handler = lark.CardActionHandler.builder(lark.ENCRYPT_KEY, lark.VERIFICATION_TOK
 
 
 @app.route("/card", methods=["POST"])
-def event():
+def card():
     resp = handler.do(parse_req())
     return parse_resp(resp)
 

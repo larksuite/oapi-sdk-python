@@ -300,6 +300,8 @@ if __name__ == "__main__":
 
 更多示例可参考：[事件回调](samples/event)
 
+## 场景示例
+常用的 API 组合调用及场景封装可参考：https://github.com/larksuite/oapi-sdk-python-example
 
 ## License
 MIT

@@ -25,6 +25,7 @@ class Card(object):
         self.user_id: Optional[str] = None
         self.tenant_key: Optional[str] = None
         self.open_message_id: Optional[str] = None
+        self.open_chat_id: Optional[str] = None
         self.token: Optional[str] = None
         self.challenge: Optional[str] = None
         self.type: Optional[str] = None
