@@ -33,6 +33,8 @@ class GetChatResponseBody(object):
         "user_count": str,
         "bot_count": str,
         "restricted_mode_setting": RestrictedModeSetting,
+        "urgent_setting": str,
+        "video_conference_setting": str,
     }
 
     def __init__(self, d=None):
@@ -60,6 +62,8 @@ class GetChatResponseBody(object):
         self.user_count: Optional[str] = None
         self.bot_count: Optional[str] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
+        self.urgent_setting: Optional[str] = None
+        self.video_conference_setting: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -165,6 +169,14 @@ class GetChatResponseBodyBuilder(object):
 
     def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.restricted_mode_setting = restricted_mode_setting
+        return self
+
+    def urgent_setting(self, urgent_setting: str) -> "GetChatResponseBodyBuilder":
+        self._get_chat_response_body.urgent_setting = urgent_setting
+        return self
+
+    def video_conference_setting(self, video_conference_setting: str) -> "GetChatResponseBodyBuilder":
+        self._get_chat_response_body.video_conference_setting = video_conference_setting
         return self
 
     def build(self) -> "GetChatResponseBody":

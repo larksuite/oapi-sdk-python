@@ -9,12 +9,14 @@ from .subscribe_user import SubscribeUser
 
 class ReserveScopeConfig(object):
     _types = {
+        "if_cover_child_scope": bool,
         "allow_all_users": int,
         "allow_users": List[SubscribeUser],
         "allow_depts": List[SubscribeDepartment],
     }
 
     def __init__(self, d=None):
+        self.if_cover_child_scope: Optional[bool] = None
         self.allow_all_users: Optional[int] = None
         self.allow_users: Optional[List[SubscribeUser]] = None
         self.allow_depts: Optional[List[SubscribeDepartment]] = None
@@ -28,6 +30,10 @@ class ReserveScopeConfig(object):
 class ReserveScopeConfigBuilder(object):
     def __init__(self) -> None:
         self._reserve_scope_config = ReserveScopeConfig()
+
+    def if_cover_child_scope(self, if_cover_child_scope: bool) -> "ReserveScopeConfigBuilder":
+        self._reserve_scope_config.if_cover_child_scope = if_cover_child_scope
+        return self
 
     def allow_all_users(self, allow_all_users: int) -> "ReserveScopeConfigBuilder":
         self._reserve_scope_config.allow_all_users = allow_all_users

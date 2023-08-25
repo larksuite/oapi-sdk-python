@@ -79,7 +79,7 @@ class EventDispatcherHandler(HttpHandler):
 
             processor: IEventProcessor = self._processorMap.get(f"{context.schema}.{context.type}")
             if processor is None:
-                raise EventException(f"processor not found, type: {context.type}")
+                raise EventException(f"processor not found, type: {context.schema}.{context.type}")
 
             # 消息反序列化
             data = JSON.unmarshal(plaintext, processor.type())
@@ -553,9 +553,9 @@ class EventDispatcherHandlerBuilder(object):
 
     def register_p2_helpdesk_ticket_message_created_v1(self, f: Callable[
         [P2HelpdeskTicketMessageCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
-        if "p2.helpdesk.ticket.message.created_v1" in self._processorMap:
-            raise EventException("processor already registered, type: p2.helpdesk.ticket.message.created_v1")
-        self._processorMap["p2.helpdesk.ticket.message.created_v1"] = P2HelpdeskTicketMessageCreatedV1Processor(f)
+        if "p2.helpdesk.ticket_message.created_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.helpdesk.ticket_message.created_v1")
+        self._processorMap["p2.helpdesk.ticket_message.created_v1"] = P2HelpdeskTicketMessageCreatedV1Processor(f)
         return self
 
     def register_p2_hire_application_stage_changed_v1(self, f: Callable[

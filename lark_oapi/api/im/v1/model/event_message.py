@@ -12,11 +12,13 @@ class EventMessage(object):
         "root_id": str,
         "parent_id": str,
         "create_time": int,
+        "update_time": int,
         "chat_id": str,
         "chat_type": str,
         "message_type": str,
         "content": str,
         "mentions": List[MentionEvent],
+        "user_agent": str,
     }
 
     def __init__(self, d=None):
@@ -24,11 +26,13 @@ class EventMessage(object):
         self.root_id: Optional[str] = None
         self.parent_id: Optional[str] = None
         self.create_time: Optional[int] = None
+        self.update_time: Optional[int] = None
         self.chat_id: Optional[str] = None
         self.chat_type: Optional[str] = None
         self.message_type: Optional[str] = None
         self.content: Optional[str] = None
         self.mentions: Optional[List[MentionEvent]] = None
+        self.user_agent: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +60,10 @@ class EventMessageBuilder(object):
         self._event_message.create_time = create_time
         return self
 
+    def update_time(self, update_time: int) -> "EventMessageBuilder":
+        self._event_message.update_time = update_time
+        return self
+
     def chat_id(self, chat_id: str) -> "EventMessageBuilder":
         self._event_message.chat_id = chat_id
         return self
@@ -74,6 +82,10 @@ class EventMessageBuilder(object):
 
     def mentions(self, mentions: List[MentionEvent]) -> "EventMessageBuilder":
         self._event_message.mentions = mentions
+        return self
+
+    def user_agent(self, user_agent: str) -> "EventMessageBuilder":
+        self._event_message.user_agent = user_agent
         return self
 
     def build(self) -> "EventMessage":

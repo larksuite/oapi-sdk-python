@@ -8,6 +8,7 @@ from .room_digital_signage_material import RoomDigitalSignageMaterial
 
 class RoomDigitalSignage(object):
     _types = {
+        "if_cover_child_scope": bool,
         "enable": bool,
         "mute": bool,
         "start_display": int,
@@ -16,6 +17,7 @@ class RoomDigitalSignage(object):
     }
 
     def __init__(self, d=None):
+        self.if_cover_child_scope: Optional[bool] = None
         self.enable: Optional[bool] = None
         self.mute: Optional[bool] = None
         self.start_display: Optional[int] = None
@@ -31,6 +33,10 @@ class RoomDigitalSignage(object):
 class RoomDigitalSignageBuilder(object):
     def __init__(self) -> None:
         self._room_digital_signage = RoomDigitalSignage()
+
+    def if_cover_child_scope(self, if_cover_child_scope: bool) -> "RoomDigitalSignageBuilder":
+        self._room_digital_signage.if_cover_child_scope = if_cover_child_scope
+        return self
 
     def enable(self, enable: bool) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.enable = enable

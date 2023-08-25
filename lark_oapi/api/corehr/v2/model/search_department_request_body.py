@@ -7,6 +7,7 @@ from lark_oapi.core.construct import init
 
 class SearchDepartmentRequestBody(object):
     _types = {
+        "get_all_children": bool,
         "manager_list": List[str],
         "department_id_list": List[str],
         "name_list": List[str],
@@ -16,6 +17,7 @@ class SearchDepartmentRequestBody(object):
     }
 
     def __init__(self, d=None):
+        self.get_all_children: Optional[bool] = None
         self.manager_list: Optional[List[str]] = None
         self.department_id_list: Optional[List[str]] = None
         self.name_list: Optional[List[str]] = None
@@ -32,6 +34,10 @@ class SearchDepartmentRequestBody(object):
 class SearchDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_department_request_body = SearchDepartmentRequestBody()
+
+    def get_all_children(self, get_all_children: bool) -> "SearchDepartmentRequestBodyBuilder":
+        self._search_department_request_body.get_all_children = get_all_children
+        return self
 
     def manager_list(self, manager_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.manager_list = manager_list

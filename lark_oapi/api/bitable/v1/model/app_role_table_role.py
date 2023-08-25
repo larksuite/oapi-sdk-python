@@ -3,27 +3,26 @@
 from typing import *
 
 from lark_oapi.core.construct import init
-from .app_role_table_role_field_perm import AppRoleTableRoleFieldPerm
 from .app_role_table_role_rec_rule import AppRoleTableRoleRecRule
 
 
 class AppRoleTableRole(object):
     _types = {
+        "table_perm": int,
         "table_name": str,
         "table_id": str,
-        "table_perm": int,
         "rec_rule": AppRoleTableRoleRecRule,
-        "field_perm": AppRoleTableRoleFieldPerm,
+        "field_perm": Dict[str, int],
         "allow_add_record": bool,
         "allow_delete_record": bool,
     }
 
     def __init__(self, d=None):
+        self.table_perm: Optional[int] = None
         self.table_name: Optional[str] = None
         self.table_id: Optional[str] = None
-        self.table_perm: Optional[int] = None
         self.rec_rule: Optional[AppRoleTableRoleRecRule] = None
-        self.field_perm: Optional[AppRoleTableRoleFieldPerm] = None
+        self.field_perm: Optional[Dict[str, int]] = None
         self.allow_add_record: Optional[bool] = None
         self.allow_delete_record: Optional[bool] = None
         init(self, d, self._types)
@@ -37,6 +36,10 @@ class AppRoleTableRoleBuilder(object):
     def __init__(self) -> None:
         self._app_role_table_role = AppRoleTableRole()
 
+    def table_perm(self, table_perm: int) -> "AppRoleTableRoleBuilder":
+        self._app_role_table_role.table_perm = table_perm
+        return self
+
     def table_name(self, table_name: str) -> "AppRoleTableRoleBuilder":
         self._app_role_table_role.table_name = table_name
         return self
@@ -45,15 +48,11 @@ class AppRoleTableRoleBuilder(object):
         self._app_role_table_role.table_id = table_id
         return self
 
-    def table_perm(self, table_perm: int) -> "AppRoleTableRoleBuilder":
-        self._app_role_table_role.table_perm = table_perm
-        return self
-
     def rec_rule(self, rec_rule: AppRoleTableRoleRecRule) -> "AppRoleTableRoleBuilder":
         self._app_role_table_role.rec_rule = rec_rule
         return self
 
-    def field_perm(self, field_perm: AppRoleTableRoleFieldPerm) -> "AppRoleTableRoleBuilder":
+    def field_perm(self, field_perm: Dict[str, int]) -> "AppRoleTableRoleBuilder":
         self._app_role_table_role.field_perm = field_perm
         return self
 

@@ -155,9 +155,6 @@ from .list_notify_status import *
 from .list_pin_request import *
 from .list_pin_response import *
 from .list_pin_response_body import *
-from .list_special_focus_request import *
-from .list_special_focus_response import *
-from .list_special_focus_response_body import *
 from .list_tabs_chat_tab_request import *
 from .list_tabs_chat_tab_response import *
 from .list_tabs_chat_tab_response_body import *
@@ -232,10 +229,6 @@ from .special_focus_unread import *
 from .toolkit import *
 from .toolkit_callback import *
 from .toolkit_redirect_link import *
-from .unread_special_focus_request import *
-from .unread_special_focus_request_body import *
-from .unread_special_focus_response import *
-from .unread_special_focus_response_body import *
 from .update_chat_moderation_request import *
 from .update_chat_moderation_request_body import *
 from .update_chat_moderation_response import *

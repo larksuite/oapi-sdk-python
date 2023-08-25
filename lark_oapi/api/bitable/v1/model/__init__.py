@@ -16,6 +16,7 @@ from .app_table import *
 from .app_table_create_header import *
 from .app_table_field import *
 from .app_table_field_description import *
+from .app_table_field_for_list import *
 from .app_table_field_property import *
 from .app_table_field_property_option import *
 from .app_table_form import *

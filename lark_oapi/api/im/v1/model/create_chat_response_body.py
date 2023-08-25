@@ -16,6 +16,8 @@ class CreateChatResponseBody(object):
         "i18n_names": I18nNames,
         "owner_id": str,
         "owner_id_type": str,
+        "urgent_setting": str,
+        "video_conference_setting": str,
         "add_member_permission": str,
         "share_card_permission": str,
         "at_all_permission": str,
@@ -40,6 +42,8 @@ class CreateChatResponseBody(object):
         self.i18n_names: Optional[I18nNames] = None
         self.owner_id: Optional[str] = None
         self.owner_id_type: Optional[str] = None
+        self.urgent_setting: Optional[str] = None
+        self.video_conference_setting: Optional[str] = None
         self.add_member_permission: Optional[str] = None
         self.share_card_permission: Optional[str] = None
         self.at_all_permission: Optional[str] = None
@@ -91,6 +95,14 @@ class CreateChatResponseBodyBuilder(object):
 
     def owner_id_type(self, owner_id_type: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.owner_id_type = owner_id_type
+        return self
+
+    def urgent_setting(self, urgent_setting: str) -> "CreateChatResponseBodyBuilder":
+        self._create_chat_response_body.urgent_setting = urgent_setting
+        return self
+
+    def video_conference_setting(self, video_conference_setting: str) -> "CreateChatResponseBodyBuilder":
+        self._create_chat_response_body.video_conference_setting = video_conference_setting
         return self
 
     def add_member_permission(self, add_member_permission: str) -> "CreateChatResponseBodyBuilder":

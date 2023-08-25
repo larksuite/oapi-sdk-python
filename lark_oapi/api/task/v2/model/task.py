@@ -39,6 +39,7 @@ class Task(object):
         "url": str,
         "start": Start,
         "subtask_count": int,
+        "is_milestone": bool,
     }
 
     def __init__(self, d=None):
@@ -66,6 +67,7 @@ class Task(object):
         self.url: Optional[str] = None
         self.start: Optional[Start] = None
         self.subtask_count: Optional[int] = None
+        self.is_milestone: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -171,6 +173,10 @@ class TaskBuilder(object):
 
     def subtask_count(self, subtask_count: int) -> "TaskBuilder":
         self._task.subtask_count = subtask_count
+        return self
+
+    def is_milestone(self, is_milestone: bool) -> "TaskBuilder":
+        self._task.is_milestone = is_milestone
         return self
 
     def build(self) -> "Task":

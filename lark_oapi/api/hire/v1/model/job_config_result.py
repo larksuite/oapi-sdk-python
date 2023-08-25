@@ -4,6 +4,7 @@ from typing import *
 
 from lark_oapi.core.construct import init
 from .id_name_object import IdNameObject
+from .interview_appointment_config import InterviewAppointmentConfig
 from .job_config_interview_round import JobConfigInterviewRound
 from .job_config_round_type_result import JobConfigRoundTypeResult
 from .registration_info import RegistrationInfo
@@ -23,6 +24,7 @@ class JobConfigResult(object):
         "interview_round_type_list": List[JobConfigRoundTypeResult],
         "related_job_list": List[IdNameObject],
         "job_attribute": int,
+        "interview_appointment_config": InterviewAppointmentConfig,
     }
 
     def __init__(self, d=None):
@@ -38,6 +40,7 @@ class JobConfigResult(object):
         self.interview_round_type_list: Optional[List[JobConfigRoundTypeResult]] = None
         self.related_job_list: Optional[List[IdNameObject]] = None
         self.job_attribute: Optional[int] = None
+        self.interview_appointment_config: Optional[InterviewAppointmentConfig] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -96,6 +99,11 @@ class JobConfigResultBuilder(object):
 
     def job_attribute(self, job_attribute: int) -> "JobConfigResultBuilder":
         self._job_config_result.job_attribute = job_attribute
+        return self
+
+    def interview_appointment_config(self,
+                                     interview_appointment_config: InterviewAppointmentConfig) -> "JobConfigResultBuilder":
+        self._job_config_result.interview_appointment_config = interview_appointment_config
         return self
 
     def build(self) -> "JobConfigResult":

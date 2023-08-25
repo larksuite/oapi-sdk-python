@@ -30,6 +30,8 @@ def main():
                       .client_token("daa2237f-8310-4707-a83b-52c8a81e0fb7")
                       .start(Start.builder().build())
                       .reminders([])
+                      .mode(2)
+                      .is_milestone(False)
                       .build()) \
         .build()
 

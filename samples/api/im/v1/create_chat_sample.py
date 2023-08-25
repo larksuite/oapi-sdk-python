@@ -31,6 +31,9 @@ def main():
                       .leave_message_visibility("all_members")
                       .membership_approval("no_approval_required")
                       .restricted_mode_setting(RestrictedModeSetting.builder().build())
+                      .urgent_setting("all_members")
+                      .video_conference_setting("all_members")
+                      .edit_permission("all_members")
                       .build()) \
         .build()
 

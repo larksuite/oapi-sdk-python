@@ -33,6 +33,9 @@ from .create_tasklist_response import *
 from .create_tasklist_response_body import *
 from .custom_complete import *
 from .custom_complete_item import *
+from .custom_field import *
+from .custom_field_value import *
+from .datetime_setting import *
 from .delete_comment_request import *
 from .delete_comment_response import *
 from .delete_section_request import *
@@ -59,6 +62,8 @@ from .href import *
 from .i18n_text import *
 from .input_attachment import *
 from .input_comment import *
+from .input_custom_field import *
+from .input_option import *
 from .input_section import *
 from .input_task import *
 from .input_tasklist import *
@@ -78,6 +83,9 @@ from .list_tasklist_request import *
 from .list_tasklist_response import *
 from .list_tasklist_response_body import *
 from .member import *
+from .member_setting import *
+from .number_setting import *
+from .option import *
 from .origin import *
 from .patch_comment_request import *
 from .patch_comment_request_body import *
@@ -115,6 +123,7 @@ from .remove_tasklist_task_response_body import *
 from .resource import *
 from .section import *
 from .section_summary import *
+from .select_setting import *
 from .start import *
 from .task import *
 from .task_in_tasklist_info import *

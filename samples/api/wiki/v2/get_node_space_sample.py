@@ -15,6 +15,7 @@ def main():
     # 构造请求对象
     request: GetNodeSpaceRequest = GetNodeSpaceRequest.builder() \
         .token("wikcnKQ1k3p******8Vabcef") \
+        .obj_type("wiki") \
         .build()
 
     # 发起请求

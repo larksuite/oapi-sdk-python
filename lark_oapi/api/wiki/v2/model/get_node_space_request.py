@@ -10,6 +10,7 @@ class GetNodeSpaceRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.token: Optional[str] = None
+        self.obj_type: Optional[str] = None
 
     @staticmethod
     def builder() -> "GetNodeSpaceRequestBuilder":
@@ -28,6 +29,11 @@ class GetNodeSpaceRequestBuilder(object):
     def token(self, token: str) -> "GetNodeSpaceRequestBuilder":
         self._get_node_space_request.token = token
         self._get_node_space_request.add_query("token", token)
+        return self
+
+    def obj_type(self, obj_type: str) -> "GetNodeSpaceRequestBuilder":
+        self._get_node_space_request.obj_type = obj_type
+        self._get_node_space_request.add_query("obj_type", obj_type)
         return self
 
     def build(self) -> GetNodeSpaceRequest:

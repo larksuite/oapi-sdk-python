@@ -114,6 +114,9 @@ from .get_subscribe_file_request import *
 from .get_subscribe_file_response import *
 from .import_task import *
 from .import_task_mount_point import *
+from .list_file_comment_reply_request import *
+from .list_file_comment_reply_response import *
+from .list_file_comment_reply_response_body import *
 from .list_file_comment_request import *
 from .list_file_comment_response import *
 from .list_file_comment_response_body import *

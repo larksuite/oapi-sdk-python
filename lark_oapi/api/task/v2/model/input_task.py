@@ -27,6 +27,8 @@ class InputTask(object):
         "client_token": str,
         "start": Start,
         "reminders": List[Reminder],
+        "mode": int,
+        "is_milestone": bool,
     }
 
     def __init__(self, d=None):
@@ -43,6 +45,8 @@ class InputTask(object):
         self.client_token: Optional[str] = None
         self.start: Optional[Start] = None
         self.reminders: Optional[List[Reminder]] = None
+        self.mode: Optional[int] = None
+        self.is_milestone: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -104,6 +108,14 @@ class InputTaskBuilder(object):
 
     def reminders(self, reminders: List[Reminder]) -> "InputTaskBuilder":
         self._input_task.reminders = reminders
+        return self
+
+    def mode(self, mode: int) -> "InputTaskBuilder":
+        self._input_task.mode = mode
+        return self
+
+    def is_milestone(self, is_milestone: bool) -> "InputTaskBuilder":
+        self._input_task.is_milestone = is_milestone
         return self
 
     def build(self) -> "InputTask":

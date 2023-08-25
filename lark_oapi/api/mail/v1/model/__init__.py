@@ -113,6 +113,7 @@ from .list_user_mailbox_alias_request import *
 from .list_user_mailbox_alias_response import *
 from .list_user_mailbox_alias_response_body import *
 from .mail_address import *
+from .mail_contact import *
 from .mailgroup import *
 from .mailgroup_manager import *
 from .mailgroup_member import *

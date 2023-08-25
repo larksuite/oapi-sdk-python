@@ -7,6 +7,7 @@ from lark_oapi.core.construct import init
 
 class TimeConfig(object):
     _types = {
+        "if_cover_child_scope": bool,
         "time_switch": int,
         "days_in_advance": int,
         "opening_hour": int,
@@ -16,6 +17,7 @@ class TimeConfig(object):
     }
 
     def __init__(self, d=None):
+        self.if_cover_child_scope: Optional[bool] = None
         self.time_switch: Optional[int] = None
         self.days_in_advance: Optional[int] = None
         self.opening_hour: Optional[int] = None
@@ -32,6 +34,10 @@ class TimeConfig(object):
 class TimeConfigBuilder(object):
     def __init__(self) -> None:
         self._time_config = TimeConfig()
+
+    def if_cover_child_scope(self, if_cover_child_scope: bool) -> "TimeConfigBuilder":
+        self._time_config.if_cover_child_scope = if_cover_child_scope
+        return self
 
     def time_switch(self, time_switch: int) -> "TimeConfigBuilder":
         self._time_config.time_switch = time_switch

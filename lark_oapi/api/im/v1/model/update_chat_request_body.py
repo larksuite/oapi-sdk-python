@@ -23,6 +23,8 @@ class UpdateChatRequestBody(object):
         "membership_approval": str,
         "restricted_mode_setting": RestrictedModeSetting,
         "chat_type": str,
+        "urgent_setting": str,
+        "video_conference_setting": str,
     }
 
     def __init__(self, d=None):
@@ -40,6 +42,8 @@ class UpdateChatRequestBody(object):
         self.membership_approval: Optional[str] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
         self.chat_type: Optional[str] = None
+        self.urgent_setting: Optional[str] = None
+        self.video_conference_setting: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -105,6 +109,14 @@ class UpdateChatRequestBodyBuilder(object):
 
     def chat_type(self, chat_type: str) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.chat_type = chat_type
+        return self
+
+    def urgent_setting(self, urgent_setting: str) -> "UpdateChatRequestBodyBuilder":
+        self._update_chat_request_body.urgent_setting = urgent_setting
+        return self
+
+    def video_conference_setting(self, video_conference_setting: str) -> "UpdateChatRequestBodyBuilder":
+        self._update_chat_request_body.video_conference_setting = video_conference_setting
         return self
 
     def build(self) -> "UpdateChatRequestBody":

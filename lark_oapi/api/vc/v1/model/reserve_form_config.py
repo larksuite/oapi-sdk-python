@@ -8,6 +8,7 @@ from .subscribe_user import SubscribeUser
 
 class ReserveFormConfig(object):
     _types = {
+        "if_cover_child_scope": bool,
         "reserve_form": bool,
         "notified_users": List[SubscribeUser],
         "notified_time": int,
@@ -15,6 +16,7 @@ class ReserveFormConfig(object):
     }
 
     def __init__(self, d=None):
+        self.if_cover_child_scope: Optional[bool] = None
         self.reserve_form: Optional[bool] = None
         self.notified_users: Optional[List[SubscribeUser]] = None
         self.notified_time: Optional[int] = None
@@ -29,6 +31,10 @@ class ReserveFormConfig(object):
 class ReserveFormConfigBuilder(object):
     def __init__(self) -> None:
         self._reserve_form_config = ReserveFormConfig()
+
+    def if_cover_child_scope(self, if_cover_child_scope: bool) -> "ReserveFormConfigBuilder":
+        self._reserve_form_config.if_cover_child_scope = if_cover_child_scope
+        return self
 
     def reserve_form(self, reserve_form: bool) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.reserve_form = reserve_form

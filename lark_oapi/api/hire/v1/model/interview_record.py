@@ -13,8 +13,6 @@ class InterviewRecord(object):
         "id": str,
         "user_id": str,
         "content": str,
-        "min_job_level_id": str,
-        "max_job_level_id": str,
         "commit_status": int,
         "feedback_submit_time": int,
         "conclusion": int,
@@ -27,8 +25,6 @@ class InterviewRecord(object):
         self.id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.content: Optional[str] = None
-        self.min_job_level_id: Optional[str] = None
-        self.max_job_level_id: Optional[str] = None
         self.commit_status: Optional[int] = None
         self.feedback_submit_time: Optional[int] = None
         self.conclusion: Optional[int] = None
@@ -56,14 +52,6 @@ class InterviewRecordBuilder(object):
 
     def content(self, content: str) -> "InterviewRecordBuilder":
         self._interview_record.content = content
-        return self
-
-    def min_job_level_id(self, min_job_level_id: str) -> "InterviewRecordBuilder":
-        self._interview_record.min_job_level_id = min_job_level_id
-        return self
-
-    def max_job_level_id(self, max_job_level_id: str) -> "InterviewRecordBuilder":
-        self._interview_record.max_job_level_id = max_job_level_id
         return self
 
     def commit_status(self, commit_status: int) -> "InterviewRecordBuilder":

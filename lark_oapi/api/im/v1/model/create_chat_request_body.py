@@ -22,6 +22,9 @@ class CreateChatRequestBody(object):
         "leave_message_visibility": str,
         "membership_approval": str,
         "restricted_mode_setting": RestrictedModeSetting,
+        "urgent_setting": str,
+        "video_conference_setting": str,
+        "edit_permission": str,
     }
 
     def __init__(self, d=None):
@@ -38,6 +41,9 @@ class CreateChatRequestBody(object):
         self.leave_message_visibility: Optional[str] = None
         self.membership_approval: Optional[str] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
+        self.urgent_setting: Optional[str] = None
+        self.video_conference_setting: Optional[str] = None
+        self.edit_permission: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -99,6 +105,18 @@ class CreateChatRequestBodyBuilder(object):
 
     def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.restricted_mode_setting = restricted_mode_setting
+        return self
+
+    def urgent_setting(self, urgent_setting: str) -> "CreateChatRequestBodyBuilder":
+        self._create_chat_request_body.urgent_setting = urgent_setting
+        return self
+
+    def video_conference_setting(self, video_conference_setting: str) -> "CreateChatRequestBodyBuilder":
+        self._create_chat_request_body.video_conference_setting = video_conference_setting
+        return self
+
+    def edit_permission(self, edit_permission: str) -> "CreateChatRequestBodyBuilder":
+        self._create_chat_request_body.edit_permission = edit_permission
         return self
 
     def build(self) -> "CreateChatRequestBody":

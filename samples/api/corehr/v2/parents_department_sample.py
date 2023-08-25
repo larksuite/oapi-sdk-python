@@ -15,8 +15,6 @@ def main():
     # 构造请求对象
     request: ParentsDepartmentRequest = ParentsDepartmentRequest.builder() \
         .department_id_type("open_department_id") \
-        .page_token("str") \
-        .page_size(20) \
         .request_body(ParentsDepartmentRequestBody.builder()
                       .department_id_list([])
                       .build()) \

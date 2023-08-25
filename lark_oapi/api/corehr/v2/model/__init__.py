@@ -50,6 +50,7 @@ from .job_data_cost_center import *
 from .job_family import *
 from .job_level import *
 from .location import *
+from .location_v2 import *
 from .name import *
 from .national_id import *
 from .nationality import *
@@ -89,7 +90,6 @@ from .search_job_change_request import *
 from .search_job_change_request_body import *
 from .search_job_change_response import *
 from .search_job_change_response_body import *
-from .support_cost_center_item import *
 from .transfer_info import *
 from .work_email import *
 from .work_experience import *

@@ -16,4 +16,3 @@ from .message import *
 from .message_reaction import *
 from .message_resource import *
 from .pin import *
-from .special_focus import *
