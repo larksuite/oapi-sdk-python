@@ -5,7 +5,7 @@
 ```shell
 pip install lark-oapi -U
 ```
-支持 Python 3.8 及以上
+支持 Python 3.7 及以上
 
 ## 简单示例
 ```python

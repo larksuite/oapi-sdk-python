@@ -21,7 +21,7 @@ setup(
     extras_require={
         "flask": ["Flask>=2"]
     },
-    python_requires=">=3.8",
+    python_requires=">=3.7",
     keywords=["Lark", "OpenAPI"],
     include_package_data=True,
     project_urls={
