@@ -300,6 +300,64 @@ if __name__ == "__main__":
 
 更多示例可参考：[事件回调](samples/event)
 
+## 处理卡片行为回调
+关于卡片行为相关的知识，可点击[这里查看](https://open.feishu.cn/document/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)
+
+### 基本用法
+开发者可以使用下面代码处理卡片回调，示例中使用 flask 启动 httpServer，如使用其他 web 框架，只需处理 http 出入参转换即可。
+
+```python
+from typing import Any
+
+from flask import Flask
+
+import lark_oapi as lark
+from lark_oapi.adapter.flask import *
+
+app = Flask(__name__)
+
+
+def do_interactive_card(data: lark.Card) -> Any:
+    print(lark.JSON.marshal(data))
+    content = {
+        "header": {
+            "title": {
+                "tag": "plain_text",
+                "content": "更新卡片成功"
+            },
+            "template": "green"
+        },
+        "elements": [
+            {
+                "tag": "div",
+                "text": {
+                    "tag": "lark_md",
+                    "content": "**Success!\n成功啦😄**"
+                }
+            },
+        ]
+    }
+    return content
+
+
+handler = lark.CardActionHandler.builder(lark.ENCRYPT_KEY, lark.VERIFICATION_TOKEN, lark.LogLevel.DEBUG) \
+    .register(do_interactive_card) \
+    .build()
+
+
+@app.route("/card", methods=["POST"])
+def card():
+    resp = handler.do(parse_req())
+    return parse_resp(resp)
+
+
+if __name__ == "__main__":
+    app.run(port=7777)
+
+```
+
+更多示例可参考：[事件回调](samples/card)
+
 ## 场景示例
 常用的 API 组合调用及场景封装可参考：https://github.com/larksuite/oapi-sdk-python-example
 
