@@ -14,6 +14,7 @@ from .create_space_response_body import *
 from .delete_space_member_request import *
 from .delete_space_member_response import *
 from .delete_space_member_response_body import *
+from .department_id import *
 from .get_node_space_request import *
 from .get_node_space_response import *
 from .get_node_space_response_body import *

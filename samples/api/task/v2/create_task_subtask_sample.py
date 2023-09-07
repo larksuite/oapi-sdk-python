@@ -32,6 +32,7 @@ def main():
                       .reminders([])
                       .mode(2)
                       .is_milestone(False)
+                      .custom_fields([])
                       .build()) \
         .build()
 

@@ -11,6 +11,7 @@ from .create_draft_response_body import *
 from .create_entity_request import *
 from .create_entity_response import *
 from .create_entity_response_body import *
+from .department_id import *
 from .display_status import *
 from .download_file_request import *
 from .download_file_response import *

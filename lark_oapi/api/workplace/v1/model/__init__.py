@@ -1,6 +1,7 @@
 from .access_data import *
 from .block_access_data import *
 from .custom_workplace_access_data import *
+from .department_id import *
 from .i18n_name import *
 from .rule import *
 from .search_custom_workplace_access_data_request import *

@@ -16,10 +16,7 @@ def main():
     request: GetFileSubscriptionRequest = GetFileSubscriptionRequest.builder() \
         .file_token("doxcnxxxxxxxxxxxxxxxxxxxxxx") \
         .subscription_id("1234567890987654321") \
-        .request_body(FileSubscription.builder()
-                      .subscription_id("1234567890987654321")
-                      .subscription_type("comment_update")
-                      .is_subcribe(True)
+        .request_body(GetFileSubscriptionRequestBody.builder()
                       .file_type("doc")
                       .build()) \
         .build()

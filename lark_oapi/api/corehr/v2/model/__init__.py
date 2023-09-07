@@ -28,6 +28,7 @@ from .custom_field_data import *
 from .custom_name import *
 from .department import *
 from .department_hrbp import *
+from .department_id import *
 from .department_parent_info import *
 from .department_parents import *
 from .dependent import *
@@ -44,6 +45,7 @@ from .enum import *
 from .file import *
 from .hiberarchy_common import *
 from .i18n import *
+from .job import *
 from .job_change import *
 from .job_data import *
 from .job_data_cost_center import *

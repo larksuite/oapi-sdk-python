@@ -4,6 +4,7 @@ from .create_entity_response import *
 from .create_entity_response_body import *
 from .create_message_request import *
 from .create_message_response import *
+from .department_id import *
 from .entity import *
 from .message import *
 from .update_entity_request import *

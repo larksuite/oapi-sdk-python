@@ -1,6 +1,7 @@
 from .attachment import *
 from .contract_company import *
 from .custom_fields import *
+from .department_id import *
 from .education import *
 from .emergency_contact import *
 from .employee import *

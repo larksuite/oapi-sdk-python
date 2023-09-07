@@ -17,6 +17,7 @@ def main():
         .request_body(PublicMailbox.builder()
                       .email("test_public_mailbox@xxx.xx")
                       .name("test public mailbox")
+                      .geo("cn")
                       .build()) \
         .build()
 

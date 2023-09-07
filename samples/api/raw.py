@@ -90,7 +90,7 @@ def download_file():
     request: lark.BaseRequest = lark.BaseRequest.builder() \
         .http_method(lark.HttpMethod.GET) \
         .uri("/open-apis/drive/v1/files/:file_token/download") \
-        .paths({"file_token": "CGSMbFkp4onp2rxfhJ2c8155n8g"}) \
+        .paths({"file_token": "DF3QbBQxGoIU39xWUstcixCWnUb"}) \
         .token_types({lark.AccessTokenType.TENANT}) \
         .build()
 

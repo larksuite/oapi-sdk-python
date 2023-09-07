@@ -29,6 +29,7 @@ from .delete_group_request import *
 from .delete_group_response import *
 from .delete_shift_request import *
 from .delete_shift_response import *
+from .department_id import *
 from .download_file_request import *
 from .download_file_response import *
 from .field import *
@@ -153,6 +154,7 @@ from .user_allowed_remedy import *
 from .user_approval import *
 from .user_daily_shift import *
 from .user_flow import *
+from .user_id import *
 from .user_leave import *
 from .user_out import *
 from .user_overtime_work import *

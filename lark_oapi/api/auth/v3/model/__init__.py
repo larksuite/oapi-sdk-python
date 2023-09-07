@@ -6,6 +6,7 @@ from .create_app_access_token_response import *
 from .create_tenant_access_token_request import *
 from .create_tenant_access_token_request_body import *
 from .create_tenant_access_token_response import *
+from .department_id import *
 from .internal_app_access_token_request import *
 from .internal_app_access_token_request_body import *
 from .internal_app_access_token_response import *

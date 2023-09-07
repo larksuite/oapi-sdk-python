@@ -1,6 +1,7 @@
 from .create_moto_request import *
 from .create_moto_response import *
 from .create_moto_response_body import *
+from .department_id import *
 from .get_moto_request import *
 from .get_moto_response import *
 from .get_moto_response_body import *

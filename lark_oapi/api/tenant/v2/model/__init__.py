@@ -1,4 +1,5 @@
 from .avatar import *
+from .department_id import *
 from .product_i18n_name import *
 from .query_tenant_product_assign_info_request import *
 from .query_tenant_product_assign_info_response import *

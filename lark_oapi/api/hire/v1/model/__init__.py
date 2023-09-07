@@ -107,6 +107,7 @@ from .competition_info import *
 from .config_job_request import *
 from .config_job_response import *
 from .config_job_response_body import *
+from .contract_period_info import *
 from .country import *
 from .create_application_request import *
 from .create_application_request_body import *
@@ -428,6 +429,7 @@ from .site_resume_project import *
 from .site_resume_sns import *
 from .site_resume_work import *
 from .sns_info import *
+from .store import *
 from .subject import *
 from .talent import *
 from .talent_award_info import *
@@ -499,6 +501,7 @@ from .update_job_requirement_request import *
 from .update_job_requirement_response import *
 from .update_offer_request import *
 from .update_offer_response import *
+from .update_offer_response_body import *
 from .user_contact_info import *
 from .user_id import *
 from .user_role import *

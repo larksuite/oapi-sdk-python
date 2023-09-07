@@ -22,6 +22,7 @@ from .create_document_response_body import *
 from .delete_grid_column_request import *
 from .delete_table_columns_request import *
 from .delete_table_rows_request import *
+from .department_id import *
 from .diagram import *
 from .divider import *
 from .document import *

@@ -2,7 +2,7 @@
 
 import hashlib
 import json
-from typing import *
+from typing import Optional, Dict
 
 from lark_oapi.api.acs.v1.processor import *
 from lark_oapi.api.application.v6.processor import *
@@ -79,7 +79,7 @@ class EventDispatcherHandler(HttpHandler):
 
             processor: IEventProcessor = self._processorMap.get(f"{context.schema}.{context.type}")
             if processor is None:
-                raise EventException(f"processor not found, type: {context.schema}.{context.type}")
+                raise EventException(f"processor not found, type: {context.type}")
 
             # 消息反序列化
             data = JSON.unmarshal(plaintext, processor.type())

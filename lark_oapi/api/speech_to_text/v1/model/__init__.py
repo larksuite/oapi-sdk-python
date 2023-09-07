@@ -1,3 +1,4 @@
+from .department_id import *
 from .file_config import *
 from .file_recognize_speech_request import *
 from .file_recognize_speech_request_body import *

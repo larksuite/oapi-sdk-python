@@ -44,6 +44,7 @@ from .delete_task_request import *
 from .delete_task_response import *
 from .delete_tasklist_request import *
 from .delete_tasklist_response import *
+from .department_id import *
 from .due import *
 from .dummy import *
 from .get_comment_request import *
@@ -63,6 +64,7 @@ from .i18n_text import *
 from .input_attachment import *
 from .input_comment import *
 from .input_custom_field import *
+from .input_custom_field_value import *
 from .input_option import *
 from .input_section import *
 from .input_task import *

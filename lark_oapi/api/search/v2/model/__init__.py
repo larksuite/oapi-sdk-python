@@ -27,6 +27,7 @@ from .delete_data_source_request import *
 from .delete_data_source_response import *
 from .delete_schema_request import *
 from .delete_schema_response import *
+from .department_id import *
 from .doc import *
 from .doc_passage_param import *
 from .filter_schema import *

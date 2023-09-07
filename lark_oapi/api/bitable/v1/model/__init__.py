@@ -98,6 +98,7 @@ from .delete_app_table_response import *
 from .delete_app_table_view_request import *
 from .delete_app_table_view_response import *
 from .delete_record import *
+from .department_id import *
 from .display_app import *
 from .display_app_v2 import *
 from .get_app_request import *

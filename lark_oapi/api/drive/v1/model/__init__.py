@@ -99,6 +99,7 @@ from .get_file_statistics_request import *
 from .get_file_statistics_response import *
 from .get_file_statistics_response_body import *
 from .get_file_subscription_request import *
+from .get_file_subscription_request_body import *
 from .get_file_subscription_response import *
 from .get_file_subscription_response_body import *
 from .get_file_version_request import *

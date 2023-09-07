@@ -1,4 +1,5 @@
 from .credentials import *
+from .department_id import *
 from .idp_credential import *
 from .idp_credential_id import *
 from .mask_session import *

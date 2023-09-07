@@ -7,6 +7,7 @@ from .company_company_bank_account import *
 from .config import *
 from .cost_center import *
 from .department_cost_center_relationship import *
+from .department_id import *
 from .extend_field import *
 from .fixed_exchange_rate import *
 from .gl_account import *

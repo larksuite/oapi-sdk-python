@@ -14,6 +14,8 @@ def main():
 
     # 构造请求对象
     request: ListPublicMailboxRequest = ListPublicMailboxRequest.builder() \
+        .user_id("int") \
+        .user_id_type("user_id") \
         .page_token("xxx") \
         .page_size(20) \
         .build()

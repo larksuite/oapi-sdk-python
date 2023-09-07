@@ -20,6 +20,7 @@ def main():
         .text_field_as_array(True) \
         .user_id_type("user_id") \
         .display_formula_ref(True) \
+        .with_shared_url(bool) \
         .automatic_fields(True) \
         .build()
 

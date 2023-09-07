@@ -19,6 +19,7 @@ def main():
         .user_id_type("open_id") \
         .department_id_type("open_department_id") \
         .request_body(SearchDepartmentRequestBody.builder()
+                      .active(True)
                       .get_all_children(False)
                       .manager_list([])
                       .department_id_list([])

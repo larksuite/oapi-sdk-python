@@ -1,7 +1,9 @@
+from .accessibility import *
 from .app_ability import *
 from .app_admin_user import *
 from .app_badge import *
 from .app_common_category import *
+from .app_contacts_range_id_list import *
 from .app_custom_category import *
 from .app_custom_category_i18n_info import *
 from .app_i18n_info import *
@@ -19,6 +21,7 @@ from .app_version_remark import *
 from .app_version_remark_event import *
 from .app_visibility import *
 from .app_visibility_event import *
+from .app_visibility_id_list import *
 from .app_visibility_item import *
 from .app_visible_list import *
 from .app_visible_list_event import *
@@ -81,6 +84,7 @@ from .msg_action import *
 from .msg_action_i18n_info import *
 from .navigate import *
 from .navigate_meta import *
+from .openapi_option import *
 from .operator import *
 from .overview_application_app_usage_request import *
 from .overview_application_app_usage_request_body import *

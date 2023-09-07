@@ -27,6 +27,7 @@ from .create_progress_record_response_body import *
 from .current_okr_simple import *
 from .delete_progress_record_request import *
 from .delete_progress_record_response import *
+from .department_id import *
 from .dummy import *
 from .failed_metric_item import *
 from .get_metric_source_table_item_request import *

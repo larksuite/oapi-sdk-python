@@ -1,3 +1,4 @@
+from .department_id import *
 from .detect_text_request import *
 from .detect_text_request_body import *
 from .detect_text_response import *

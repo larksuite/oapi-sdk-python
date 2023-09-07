@@ -28,6 +28,7 @@ from .create_badge_response import *
 from .create_badge_response_body import *
 from .delete_badge_grant_request import *
 from .delete_badge_grant_response import *
+from .department_id import *
 from .file import *
 from .file_list import *
 from .get_badge_grant_request import *
