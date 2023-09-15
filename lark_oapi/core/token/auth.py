@@ -14,13 +14,12 @@ def verify(config: Config, request: BaseRequest, option: RequestOption) -> None:
         if Strings.is_not_empty(option.tenant_access_token) and AccessTokenType.TENANT in request.token_types:
             request.token_types = {AccessTokenType.TENANT}
             return
-        if Strings.is_not_empty(option.app_access_token) and AccessTokenType.TENANT in request.token_types:
+        if Strings.is_not_empty(option.app_access_token) and AccessTokenType.APP in request.token_types:
             request.token_types = {AccessTokenType.APP}
             return
         if Strings.is_not_empty(option.user_access_token) and AccessTokenType.USER in request.token_types:
             request.token_types = {AccessTokenType.USER}
             return
-        raise NoAuthorizationException("access_token not found")
 
     # 未开启token配置，根据app_id/app_secret获取token
     if Strings.is_empty(config.app_id) or Strings.is_empty(config.app_secret):
