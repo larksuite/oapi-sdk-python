@@ -36,6 +36,7 @@ class OfferInfo(object):
         "contract_type": str,
         "company": str,
         "cost_center_rate": List[JobDataCostCenter],
+        "job_grade_id": str,
         "custom_fields": List[ObjectFieldData],
     }
 
@@ -67,6 +68,7 @@ class OfferInfo(object):
         self.contract_type: Optional[str] = None
         self.company: Optional[str] = None
         self.cost_center_rate: Optional[List[JobDataCostCenter]] = None
+        self.job_grade_id: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
@@ -185,6 +187,10 @@ class OfferInfoBuilder(object):
 
     def cost_center_rate(self, cost_center_rate: List[JobDataCostCenter]) -> "OfferInfoBuilder":
         self._offer_info.cost_center_rate = cost_center_rate
+        return self
+
+    def job_grade_id(self, job_grade_id: str) -> "OfferInfoBuilder":
+        self._offer_info.job_grade_id = job_grade_id
         return self
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "OfferInfoBuilder":

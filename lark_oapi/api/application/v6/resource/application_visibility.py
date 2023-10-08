@@ -3,7 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core import JSON
-from lark_oapi.core.const import UTF_8
+from lark_oapi.core.const import UTF_8, CONTENT_TYPE, APPLICATION_JSON
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
@@ -11,6 +11,8 @@ from ..model.check_white_black_list_application_visibility_request import \
     CheckWhiteBlackListApplicationVisibilityRequest
 from ..model.check_white_black_list_application_visibility_response import \
     CheckWhiteBlackListApplicationVisibilityResponse
+from ..model.patch_application_visibility_request import PatchApplicationVisibilityRequest
+from ..model.patch_application_visibility_response import PatchApplicationVisibilityResponse
 
 
 class ApplicationVisibility(object):
@@ -22,8 +24,12 @@ class ApplicationVisibility(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -31,6 +37,28 @@ class ApplicationVisibility(object):
         # 反序列化
         response: CheckWhiteBlackListApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                                     CheckWhiteBlackListApplicationVisibilityResponse)
+        response.raw = resp
+
+        return response
+
+    def patch(self, request: PatchApplicationVisibilityRequest,
+              option: Optional[RequestOption] = None) -> PatchApplicationVisibilityResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      PatchApplicationVisibilityResponse)
         response.raw = resp
 
         return response

@@ -9,6 +9,14 @@ from .basic_employee import *
 from .basic_info import *
 from .basic_job_data import *
 from .basic_person_info import *
+from .batch_get_employee_request import *
+from .batch_get_employee_request_body import *
+from .batch_get_employee_response import *
+from .batch_get_employee_response_body import *
+from .batch_get_employees_job_data_request import *
+from .batch_get_employees_job_data_request_body import *
+from .batch_get_employees_job_data_response import *
+from .batch_get_employees_job_data_response_body import *
 from .bp import *
 from .city import *
 from .company import *
@@ -45,6 +53,7 @@ from .enum import *
 from .file import *
 from .hiberarchy_common import *
 from .i18n import *
+from .international_assignment import *
 from .job import *
 from .job_change import *
 from .job_data import *
@@ -79,7 +88,15 @@ from .pre_hire_probation_info import *
 from .prehire_create import *
 from .probation_info import *
 from .probation_info_for_submit import *
+from .query_employees_job_data_request import *
+from .query_employees_job_data_request_body import *
+from .query_employees_job_data_response import *
+from .query_employees_job_data_response_body import *
 from .resident_tax import *
+from .search_contract_request import *
+from .search_contract_request_body import *
+from .search_contract_response import *
+from .search_contract_response_body import *
 from .search_department_request import *
 from .search_department_request_body import *
 from .search_department_response import *
@@ -92,6 +109,7 @@ from .search_job_change_request import *
 from .search_job_change_request_body import *
 from .search_job_change_response import *
 from .search_job_change_response_body import *
+from .tranfer_employment_info import *
 from .transfer_info import *
 from .work_email import *
 from .work_experience import *

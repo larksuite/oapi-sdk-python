@@ -22,6 +22,7 @@ def main():
                       .display_progress(1)
                       .head_count(11)
                       .recruitment_type_id("1618209327096")
+                      .employee_type_id("6807409776231254285")
                       .max_level_id("123")
                       .min_level_id("11")
                       .sequence_id("111")
@@ -39,6 +40,8 @@ def main():
                       .address_id("11")
                       .description("11")
                       .customized_data_list([])
+                      .process_type(1)
+                      .job_type_id("6930815272790114324")
                       .build()) \
         .build()
 

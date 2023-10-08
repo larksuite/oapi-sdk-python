@@ -9,11 +9,13 @@ class ReqApp(object):
     _types = {
         "name": str,
         "folder_token": str,
+        "time_zone": str,
     }
 
     def __init__(self, d=None):
         self.name: Optional[str] = None
         self.folder_token: Optional[str] = None
+        self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class ReqAppBuilder(object):
 
     def folder_token(self, folder_token: str) -> "ReqAppBuilder":
         self._req_app.folder_token = folder_token
+        return self
+
+    def time_zone(self, time_zone: str) -> "ReqAppBuilder":
+        self._req_app.time_zone = time_zone
         return self
 
     def build(self) -> "ReqApp":

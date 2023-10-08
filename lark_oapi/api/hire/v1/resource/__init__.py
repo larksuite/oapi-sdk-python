@@ -15,6 +15,7 @@ from .job_manager import *
 from .job_process import *
 from .job_requirement import *
 from .job_requirement_schema import *
+from .job_type import *
 from .note import *
 from .offer import *
 from .offer_schema import *

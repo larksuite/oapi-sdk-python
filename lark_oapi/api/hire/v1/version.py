@@ -21,6 +21,7 @@ class V1(object):
         self.job_process: JobProcess = JobProcess(config)
         self.job_requirement: JobRequirement = JobRequirement(config)
         self.job_requirement_schema: JobRequirementSchema = JobRequirementSchema(config)
+        self.job_type: JobType = JobType(config)
         self.note: Note = Note(config)
         self.offer: Offer = Offer(config)
         self.offer_schema: OfferSchema = OfferSchema(config)

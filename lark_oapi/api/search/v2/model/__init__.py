@@ -2,6 +2,7 @@ from .acl import *
 from .batch_item_result import *
 from .chunk import *
 from .connect_data_source import *
+from .connector_param import *
 from .create_app_request import *
 from .create_app_request_body import *
 from .create_app_response import *

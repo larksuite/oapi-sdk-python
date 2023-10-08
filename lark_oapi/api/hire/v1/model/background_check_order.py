@@ -9,7 +9,7 @@ from .background_check_order_creator import BackgroundCheckOrderCreator
 from .background_check_order_feedback_info import BackgroundCheckOrderFeedbackInfo
 from .background_check_order_process_info import BackgroundCheckOrderProcessInfo
 from .eco_background_check_custom_field_data import EcoBackgroundCheckCustomFieldData
-from .id_name_object import IdNameObject
+from .provider_id_name_object import ProviderIdNameObject
 from .user_contact_info import UserContactInfo
 
 
@@ -30,7 +30,7 @@ class BackgroundCheckOrder(object):
         "begin_time": str,
         "end_time": str,
         "conclusion": str,
-        "provider_info": IdNameObject,
+        "provider_info": ProviderIdNameObject,
         "custom_field_list": List[EcoBackgroundCheckCustomFieldData],
         "custom_data_list": List[BackgroundCheckCustomFieldDataValue],
         "ext_item_info_list": List[BackgroundCheckItemInfo],
@@ -56,7 +56,7 @@ class BackgroundCheckOrder(object):
         self.begin_time: Optional[str] = None
         self.end_time: Optional[str] = None
         self.conclusion: Optional[str] = None
-        self.provider_info: Optional[IdNameObject] = None
+        self.provider_info: Optional[ProviderIdNameObject] = None
         self.custom_field_list: Optional[List[EcoBackgroundCheckCustomFieldData]] = None
         self.custom_data_list: Optional[List[BackgroundCheckCustomFieldDataValue]] = None
         self.ext_item_info_list: Optional[List[BackgroundCheckItemInfo]] = None
@@ -137,7 +137,7 @@ class BackgroundCheckOrderBuilder(object):
         self._background_check_order.conclusion = conclusion
         return self
 
-    def provider_info(self, provider_info: IdNameObject) -> "BackgroundCheckOrderBuilder":
+    def provider_info(self, provider_info: ProviderIdNameObject) -> "BackgroundCheckOrderBuilder":
         self._background_check_order.provider_info = provider_info
         return self
 

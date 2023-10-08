@@ -11,6 +11,7 @@ class MyAiVcMeetingExtra(object):
         "vc_locale": str,
         "vc_applink_host": str,
         "vc_app_version": str,
+        "vc_feature_config": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class MyAiVcMeetingExtra(object):
         self.vc_locale: Optional[str] = None
         self.vc_applink_host: Optional[str] = None
         self.vc_app_version: Optional[str] = None
+        self.vc_feature_config: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +45,10 @@ class MyAiVcMeetingExtraBuilder(object):
 
     def vc_app_version(self, vc_app_version: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.vc_app_version = vc_app_version
+        return self
+
+    def vc_feature_config(self, vc_feature_config: str) -> "MyAiVcMeetingExtraBuilder":
+        self._my_ai_vc_meeting_extra.vc_feature_config = vc_feature_config
         return self
 
     def build(self) -> "MyAiVcMeetingExtra":

@@ -16,6 +16,7 @@ class CustomFieldValue(object):
         "single_select_value": str,
         "multi_select_value": List[str],
         "name": str,
+        "text_value": str,
     }
 
     def __init__(self, d=None):
@@ -27,6 +28,7 @@ class CustomFieldValue(object):
         self.single_select_value: Optional[str] = None
         self.multi_select_value: Optional[List[str]] = None
         self.name: Optional[str] = None
+        self.text_value: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -68,6 +70,10 @@ class CustomFieldValueBuilder(object):
 
     def name(self, name: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.name = name
+        return self
+
+    def text_value(self, text_value: str) -> "CustomFieldValueBuilder":
+        self._custom_field_value.text_value = text_value
         return self
 
     def build(self) -> "CustomFieldValue":

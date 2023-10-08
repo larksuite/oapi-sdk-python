@@ -3,6 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .connector_param import ConnectorParam
 from .i18n_meta import I18nMeta
 
 
@@ -14,6 +15,7 @@ class PatchDataSourceRequestBody(object):
         "icon_url": str,
         "i18n_name": I18nMeta,
         "i18n_description": I18nMeta,
+        "connector_param": ConnectorParam,
     }
 
     def __init__(self, d=None):
@@ -23,6 +25,7 @@ class PatchDataSourceRequestBody(object):
         self.icon_url: Optional[str] = None
         self.i18n_name: Optional[I18nMeta] = None
         self.i18n_description: Optional[I18nMeta] = None
+        self.connector_param: Optional[ConnectorParam] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +59,10 @@ class PatchDataSourceRequestBodyBuilder(object):
 
     def i18n_description(self, i18n_description: I18nMeta) -> "PatchDataSourceRequestBodyBuilder":
         self._patch_data_source_request_body.i18n_description = i18n_description
+        return self
+
+    def connector_param(self, connector_param: ConnectorParam) -> "PatchDataSourceRequestBodyBuilder":
+        self._patch_data_source_request_body.connector_param = connector_param
         return self
 
     def build(self) -> "PatchDataSourceRequestBody":

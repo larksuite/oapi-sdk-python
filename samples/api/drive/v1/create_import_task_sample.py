@@ -15,10 +15,10 @@ def main():
     # 构造请求对象
     request: CreateImportTaskRequest = CreateImportTaskRequest.builder() \
         .request_body(ImportTask.builder()
-                      .file_extension("str")
-                      .file_token("str")
-                      .type("str")
-                      .file_name("str")
+                      .file_extension("txt")
+                      .file_token("boxbcHgfxdfxxxxxxxxxxxfMky")
+                      .type("docx")
+                      .file_name("文件名")
                       .point(ImportTaskMountPoint.builder().build())
                       .build()) \
         .build()

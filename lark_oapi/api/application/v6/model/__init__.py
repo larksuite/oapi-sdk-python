@@ -100,10 +100,16 @@ from .p2_application_application_visibility_added_v6 import *
 from .p2_application_bot_menu_v6 import *
 from .patch_application_app_version_request import *
 from .patch_application_app_version_response import *
+from .patch_application_contacts_range_request import *
+from .patch_application_contacts_range_request_body import *
+from .patch_application_contacts_range_response import *
 from .patch_application_feedback_request import *
 from .patch_application_feedback_response import *
 from .patch_application_request import *
 from .patch_application_response import *
+from .patch_application_visibility_request import *
+from .patch_application_visibility_request_body import *
+from .patch_application_visibility_response import *
 from .plus_menu import *
 from .scope import *
 from .underauditlist_application_request import *

@@ -13,6 +13,7 @@ class App(object):
         "folder_token": str,
         "url": str,
         "default_table_id": str,
+        "time_zone": str,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class App(object):
         self.folder_token: Optional[str] = None
         self.url: Optional[str] = None
         self.default_table_id: Optional[str] = None
+        self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +57,10 @@ class AppBuilder(object):
 
     def default_table_id(self, default_table_id: str) -> "AppBuilder":
         self._app.default_table_id = default_table_id
+        return self
+
+    def time_zone(self, time_zone: str) -> "AppBuilder":
+        self._app.time_zone = time_zone
         return self
 
     def build(self) -> "App":

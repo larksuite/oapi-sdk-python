@@ -10,11 +10,13 @@ class InterviewDimensionScore(object):
     _types = {
         "id": str,
         "name": I18n,
+        "score_val": int,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
+        self.score_val: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -32,6 +34,10 @@ class InterviewDimensionScoreBuilder(object):
 
     def name(self, name: I18n) -> "InterviewDimensionScoreBuilder":
         self._interview_dimension_score.name = name
+        return self
+
+    def score_val(self, score_val: int) -> "InterviewDimensionScoreBuilder":
+        self._interview_dimension_score.score_val = score_val
         return self
 
     def build(self) -> "InterviewDimensionScore":

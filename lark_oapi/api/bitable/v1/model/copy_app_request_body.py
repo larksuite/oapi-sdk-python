@@ -10,12 +10,14 @@ class CopyAppRequestBody(object):
         "name": str,
         "folder_token": str,
         "without_content": bool,
+        "time_zone": str,
     }
 
     def __init__(self, d=None):
         self.name: Optional[str] = None
         self.folder_token: Optional[str] = None
         self.without_content: Optional[bool] = None
+        self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +39,10 @@ class CopyAppRequestBodyBuilder(object):
 
     def without_content(self, without_content: bool) -> "CopyAppRequestBodyBuilder":
         self._copy_app_request_body.without_content = without_content
+        return self
+
+    def time_zone(self, time_zone: str) -> "CopyAppRequestBodyBuilder":
+        self._copy_app_request_body.time_zone = time_zone
         return self
 
     def build(self) -> "CopyAppRequestBody":

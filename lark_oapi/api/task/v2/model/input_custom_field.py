@@ -7,6 +7,7 @@ from .datetime_setting import DatetimeSetting
 from .member_setting import MemberSetting
 from .number_setting import NumberSetting
 from .select_setting import SelectSetting
+from .text_setting import TextSetting
 
 
 class InputCustomField(object):
@@ -20,6 +21,7 @@ class InputCustomField(object):
         "datetime_setting": DatetimeSetting,
         "single_select_setting": SelectSetting,
         "multi_select_setting": SelectSetting,
+        "text_setting": TextSetting,
     }
 
     def __init__(self, d=None):
@@ -32,6 +34,7 @@ class InputCustomField(object):
         self.datetime_setting: Optional[DatetimeSetting] = None
         self.single_select_setting: Optional[SelectSetting] = None
         self.multi_select_setting: Optional[SelectSetting] = None
+        self.text_setting: Optional[TextSetting] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -77,6 +80,10 @@ class InputCustomFieldBuilder(object):
 
     def multi_select_setting(self, multi_select_setting: SelectSetting) -> "InputCustomFieldBuilder":
         self._input_custom_field.multi_select_setting = multi_select_setting
+        return self
+
+    def text_setting(self, text_setting: TextSetting) -> "InputCustomFieldBuilder":
+        self._input_custom_field.text_setting = text_setting
         return self
 
     def build(self) -> "InputCustomField":

@@ -130,6 +130,7 @@ from .subscription_calendar_event_response import *
 from .subscription_calendar_request import *
 from .subscription_calendar_response import *
 from .time_info import *
+from .time_span import *
 from .timeoff_event import *
 from .unsubscribe_calendar_request import *
 from .unsubscribe_calendar_response import *

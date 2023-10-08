@@ -34,8 +34,12 @@ class Ticket(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -52,8 +56,12 @@ class Ticket(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -69,8 +77,12 @@ class Ticket(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -85,8 +97,12 @@ class Ticket(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -102,8 +118,12 @@ class Ticket(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -119,8 +139,12 @@ class Ticket(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -142,8 +166,12 @@ class Ticket(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)

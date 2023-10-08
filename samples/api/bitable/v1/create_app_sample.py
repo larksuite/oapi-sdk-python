@@ -17,6 +17,7 @@ def main():
         .request_body(ReqApp.builder()
                       .name("一篇新的多维表格")
                       .folder_token("fldbcoh8O99CIMltVc")
+                      .time_zone("Asia/Macau")
                       .build()) \
         .build()
 

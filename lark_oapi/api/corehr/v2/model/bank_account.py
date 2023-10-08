@@ -17,6 +17,7 @@ class BankAccount(object):
         "bank_account_usage": List[Enum],
         "bank_account_type": Enum,
         "currency_id": str,
+        "i_b_a_n": str,
         "custom_fields": List[CustomFieldData],
     }
 
@@ -29,6 +30,7 @@ class BankAccount(object):
         self.bank_account_usage: Optional[List[Enum]] = None
         self.bank_account_type: Optional[Enum] = None
         self.currency_id: Optional[str] = None
+        self.i_b_a_n: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
@@ -71,6 +73,10 @@ class BankAccountBuilder(object):
 
     def currency_id(self, currency_id: str) -> "BankAccountBuilder":
         self._bank_account.currency_id = currency_id
+        return self
+
+    def i_b_a_n(self, i_b_a_n: str) -> "BankAccountBuilder":
+        self._bank_account.i_b_a_n = i_b_a_n
         return self
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "BankAccountBuilder":

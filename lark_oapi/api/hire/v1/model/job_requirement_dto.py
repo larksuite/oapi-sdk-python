@@ -5,6 +5,7 @@ from typing import Optional, List
 from lark_oapi.core.construct import init
 from .id_name_object import IdNameObject
 from .job_requirement_customized_data_dto import JobRequirementCustomizedDataDto
+from .job_type_info import JobTypeInfo
 
 
 class JobRequirementDto(object):
@@ -15,6 +16,7 @@ class JobRequirementDto(object):
         "display_progress": int,
         "head_count": int,
         "recruitment_type": IdNameObject,
+        "employee_type": IdNameObject,
         "max_level": IdNameObject,
         "min_level": IdNameObject,
         "sequence": IdNameObject,
@@ -33,6 +35,8 @@ class JobRequirementDto(object):
         "description": str,
         "customized_data_list": List[JobRequirementCustomizedDataDto],
         "job_id_list": List[str],
+        "process_type": int,
+        "job_type": JobTypeInfo,
     }
 
     def __init__(self, d=None):
@@ -42,6 +46,7 @@ class JobRequirementDto(object):
         self.display_progress: Optional[int] = None
         self.head_count: Optional[int] = None
         self.recruitment_type: Optional[IdNameObject] = None
+        self.employee_type: Optional[IdNameObject] = None
         self.max_level: Optional[IdNameObject] = None
         self.min_level: Optional[IdNameObject] = None
         self.sequence: Optional[IdNameObject] = None
@@ -60,6 +65,8 @@ class JobRequirementDto(object):
         self.description: Optional[str] = None
         self.customized_data_list: Optional[List[JobRequirementCustomizedDataDto]] = None
         self.job_id_list: Optional[List[str]] = None
+        self.process_type: Optional[int] = None
+        self.job_type: Optional[JobTypeInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -93,6 +100,10 @@ class JobRequirementDtoBuilder(object):
 
     def recruitment_type(self, recruitment_type: IdNameObject) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.recruitment_type = recruitment_type
+        return self
+
+    def employee_type(self, employee_type: IdNameObject) -> "JobRequirementDtoBuilder":
+        self._job_requirement_dto.employee_type = employee_type
         return self
 
     def max_level(self, max_level: IdNameObject) -> "JobRequirementDtoBuilder":
@@ -166,6 +177,14 @@ class JobRequirementDtoBuilder(object):
 
     def job_id_list(self, job_id_list: List[str]) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.job_id_list = job_id_list
+        return self
+
+    def process_type(self, process_type: int) -> "JobRequirementDtoBuilder":
+        self._job_requirement_dto.process_type = process_type
+        return self
+
+    def job_type(self, job_type: JobTypeInfo) -> "JobRequirementDtoBuilder":
+        self._job_requirement_dto.job_type = job_type
         return self
 
     def build(self) -> "JobRequirementDto":

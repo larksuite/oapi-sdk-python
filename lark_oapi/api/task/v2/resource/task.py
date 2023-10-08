@@ -3,10 +3,12 @@
 from typing import Optional
 
 from lark_oapi.core import JSON
-from lark_oapi.core.const import UTF_8
+from lark_oapi.core.const import UTF_8, CONTENT_TYPE, APPLICATION_JSON
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.add_dependencies_task_request import AddDependenciesTaskRequest
+from ..model.add_dependencies_task_response import AddDependenciesTaskResponse
 from ..model.add_members_task_request import AddMembersTaskRequest
 from ..model.add_members_task_response import AddMembersTaskResponse
 from ..model.add_reminders_task_request import AddRemindersTaskRequest
@@ -23,6 +25,8 @@ from ..model.list_task_request import ListTaskRequest
 from ..model.list_task_response import ListTaskResponse
 from ..model.patch_task_request import PatchTaskRequest
 from ..model.patch_task_response import PatchTaskResponse
+from ..model.remove_dependencies_task_request import RemoveDependenciesTaskRequest
+from ..model.remove_dependencies_task_response import RemoveDependenciesTaskResponse
 from ..model.remove_members_task_request import RemoveMembersTaskRequest
 from ..model.remove_members_task_response import RemoveMembersTaskResponse
 from ..model.remove_reminders_task_request import RemoveRemindersTaskRequest
@@ -37,13 +41,38 @@ class Task(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
+    def add_dependencies(self, request: AddDependenciesTaskRequest,
+                         option: Optional[RequestOption] = None) -> AddDependenciesTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: AddDependenciesTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), AddDependenciesTaskResponse)
+        response.raw = resp
+
+        return response
+
     def add_members(self, request: AddMembersTaskRequest,
                     option: Optional[RequestOption] = None) -> AddMembersTaskResponse:
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -59,8 +88,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -76,8 +109,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -92,8 +129,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -108,8 +149,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -124,8 +169,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -140,8 +189,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -156,8 +209,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -168,13 +225,39 @@ class Task(object):
 
         return response
 
+    def remove_dependencies(self, request: RemoveDependenciesTaskRequest,
+                            option: Optional[RequestOption] = None) -> RemoveDependenciesTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RemoveDependenciesTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  RemoveDependenciesTaskResponse)
+        response.raw = resp
+
+        return response
+
     def remove_members(self, request: RemoveMembersTaskRequest,
                        option: Optional[RequestOption] = None) -> RemoveMembersTaskResponse:
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -190,8 +273,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -207,8 +294,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
@@ -223,8 +314,12 @@ class Task(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)

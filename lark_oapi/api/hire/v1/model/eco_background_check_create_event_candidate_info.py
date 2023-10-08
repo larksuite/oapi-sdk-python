@@ -11,12 +11,16 @@ class EcoBackgroundCheckCreateEventCandidateInfo(object):
         "name": str,
         "mobile": EcoBackgroundCheckCreateEventMobile,
         "email": str,
+        "first_name": str,
+        "last_name": str,
     }
 
     def __init__(self, d=None):
         self.name: Optional[str] = None
         self.mobile: Optional[EcoBackgroundCheckCreateEventMobile] = None
         self.email: Optional[str] = None
+        self.first_name: Optional[str] = None
+        self.last_name: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -39,6 +43,14 @@ class EcoBackgroundCheckCreateEventCandidateInfoBuilder(object):
 
     def email(self, email: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
         self._eco_background_check_create_event_candidate_info.email = email
+        return self
+
+    def first_name(self, first_name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
+        self._eco_background_check_create_event_candidate_info.first_name = first_name
+        return self
+
+    def last_name(self, last_name: str) -> "EcoBackgroundCheckCreateEventCandidateInfoBuilder":
+        self._eco_background_check_create_event_candidate_info.last_name = last_name
         return self
 
     def build(self) -> "EcoBackgroundCheckCreateEventCandidateInfo":

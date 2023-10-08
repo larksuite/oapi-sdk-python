@@ -23,14 +23,14 @@ class BadgeImage(object):
         if option is None:
             option = RequestOption()
 
-        # 鉴权、获取token
+        # 鉴权、获取 token
         verify(self.config, request, option)
 
-        # 处理 form-data
+        # 添加 content-type
         if request.body is not None:
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
-            option.headers[CONTENT_TYPE] = form_data.content_type
             request.body = form_data
+            option.headers[CONTENT_TYPE] = form_data.content_type
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)

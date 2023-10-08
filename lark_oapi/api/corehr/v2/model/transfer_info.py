@@ -4,6 +4,7 @@ from typing import Optional, List
 
 from lark_oapi.core.construct import init
 from .job_data_cost_center import JobDataCostCenter
+from .tranfer_employment_info import TranferEmploymentInfo
 
 
 class TransferInfo(object):
@@ -54,6 +55,8 @@ class TransferInfo(object):
         "target_work_shift": str,
         "original_cost_center_rate": List[JobDataCostCenter],
         "target_cost_center_rate": List[JobDataCostCenter],
+        "original_employment_change": TranferEmploymentInfo,
+        "target_employment_change": TranferEmploymentInfo,
     }
 
     def __init__(self, d=None):
@@ -103,6 +106,8 @@ class TransferInfo(object):
         self.target_work_shift: Optional[str] = None
         self.original_cost_center_rate: Optional[List[JobDataCostCenter]] = None
         self.target_cost_center_rate: Optional[List[JobDataCostCenter]] = None
+        self.original_employment_change: Optional[TranferEmploymentInfo] = None
+        self.target_employment_change: Optional[TranferEmploymentInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -296,6 +301,14 @@ class TransferInfoBuilder(object):
 
     def target_cost_center_rate(self, target_cost_center_rate: List[JobDataCostCenter]) -> "TransferInfoBuilder":
         self._transfer_info.target_cost_center_rate = target_cost_center_rate
+        return self
+
+    def original_employment_change(self, original_employment_change: TranferEmploymentInfo) -> "TransferInfoBuilder":
+        self._transfer_info.original_employment_change = original_employment_change
+        return self
+
+    def target_employment_change(self, target_employment_change: TranferEmploymentInfo) -> "TransferInfoBuilder":
+        self._transfer_info.target_employment_change = target_employment_change
         return self
 
     def build(self) -> "TransferInfo":

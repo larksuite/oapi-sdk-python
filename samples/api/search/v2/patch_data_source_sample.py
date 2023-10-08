@@ -22,6 +22,7 @@ def main():
                       .icon_url("https://www.xxx.com/open.jpg")
                       .i18n_name(I18nMeta.builder().build())
                       .i18n_description(I18nMeta.builder().build())
+                      .connector_param(ConnectorParam.builder().build())
                       .build()) \
         .build()
 

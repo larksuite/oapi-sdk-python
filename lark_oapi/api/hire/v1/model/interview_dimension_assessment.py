@@ -3,28 +3,38 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .ability import Ability
 from .i18n import I18n
 from .interview_dimension_score import InterviewDimensionScore
+from .interview_question import InterviewQuestion
 
 
 class InterviewDimensionAssessment(object):
     _types = {
         "id": str,
         "name": I18n,
+        "full_score": int,
         "content": str,
         "dimension_id": str,
         "dimension_score": InterviewDimensionScore,
         "dimension_score_list": List[InterviewDimensionScore],
+        "dimension_custom_score": int,
+        "ability_list": List[Ability],
+        "question_list": List[InterviewQuestion],
         "dimension_type": int,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
+        self.full_score: Optional[int] = None
         self.content: Optional[str] = None
         self.dimension_id: Optional[str] = None
         self.dimension_score: Optional[InterviewDimensionScore] = None
         self.dimension_score_list: Optional[List[InterviewDimensionScore]] = None
+        self.dimension_custom_score: Optional[int] = None
+        self.ability_list: Optional[List[Ability]] = None
+        self.question_list: Optional[List[InterviewQuestion]] = None
         self.dimension_type: Optional[int] = None
         init(self, d, self._types)
 
@@ -45,6 +55,10 @@ class InterviewDimensionAssessmentBuilder(object):
         self._interview_dimension_assessment.name = name
         return self
 
+    def full_score(self, full_score: int) -> "InterviewDimensionAssessmentBuilder":
+        self._interview_dimension_assessment.full_score = full_score
+        return self
+
     def content(self, content: str) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.content = content
         return self
@@ -60,6 +74,18 @@ class InterviewDimensionAssessmentBuilder(object):
     def dimension_score_list(self, dimension_score_list: List[
         InterviewDimensionScore]) -> "InterviewDimensionAssessmentBuilder":
         self._interview_dimension_assessment.dimension_score_list = dimension_score_list
+        return self
+
+    def dimension_custom_score(self, dimension_custom_score: int) -> "InterviewDimensionAssessmentBuilder":
+        self._interview_dimension_assessment.dimension_custom_score = dimension_custom_score
+        return self
+
+    def ability_list(self, ability_list: List[Ability]) -> "InterviewDimensionAssessmentBuilder":
+        self._interview_dimension_assessment.ability_list = ability_list
+        return self
+
+    def question_list(self, question_list: List[InterviewQuestion]) -> "InterviewDimensionAssessmentBuilder":
+        self._interview_dimension_assessment.question_list = question_list
         return self
 
     def dimension_type(self, dimension_type: int) -> "InterviewDimensionAssessmentBuilder":

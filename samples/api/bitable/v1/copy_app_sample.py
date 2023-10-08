@@ -19,6 +19,7 @@ def main():
                       .name("一篇新的多维表格")
                       .folder_token("fldbco*****CIMltVc")
                       .without_content(False)
+                      .time_zone("Asia/Shanghai")
                       .build()) \
         .build()
 

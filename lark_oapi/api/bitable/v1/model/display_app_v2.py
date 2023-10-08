@@ -10,12 +10,14 @@ class DisplayAppV2(object):
         "app_token": str,
         "name": str,
         "is_advanced": bool,
+        "time_zone": str,
     }
 
     def __init__(self, d=None):
         self.app_token: Optional[str] = None
         self.name: Optional[str] = None
         self.is_advanced: Optional[bool] = None
+        self.time_zone: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +39,10 @@ class DisplayAppV2Builder(object):
 
     def is_advanced(self, is_advanced: bool) -> "DisplayAppV2Builder":
         self._display_app_v2.is_advanced = is_advanced
+        return self
+
+    def time_zone(self, time_zone: str) -> "DisplayAppV2Builder":
+        self._display_app_v2.time_zone = time_zone
         return self
 
     def build(self) -> "DisplayAppV2":

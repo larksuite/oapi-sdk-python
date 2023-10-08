@@ -8,6 +8,7 @@ from .member import Member
 from .member_setting import MemberSetting
 from .number_setting import NumberSetting
 from .select_setting import SelectSetting
+from .text_setting import TextSetting
 
 
 class CustomField(object):
@@ -23,6 +24,7 @@ class CustomField(object):
         "creator": Member,
         "created_at": str,
         "updated_at": str,
+        "text_setting": TextSetting,
     }
 
     def __init__(self, d=None):
@@ -37,6 +39,7 @@ class CustomField(object):
         self.creator: Optional[Member] = None
         self.created_at: Optional[str] = None
         self.updated_at: Optional[str] = None
+        self.text_setting: Optional[TextSetting] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -90,6 +93,10 @@ class CustomFieldBuilder(object):
 
     def updated_at(self, updated_at: str) -> "CustomFieldBuilder":
         self._custom_field.updated_at = updated_at
+        return self
+
+    def text_setting(self, text_setting: TextSetting) -> "CustomFieldBuilder":
+        self._custom_field.text_setting = text_setting
         return self
 
     def build(self) -> "CustomField":

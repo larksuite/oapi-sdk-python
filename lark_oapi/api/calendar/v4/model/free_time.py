@@ -9,11 +9,13 @@ class FreeTime(object):
     _types = {
         "free_time_start": str,
         "free_time_end": str,
+        "free_time_list": str,
     }
 
     def __init__(self, d=None):
         self.free_time_start: Optional[str] = None
         self.free_time_end: Optional[str] = None
+        self.free_time_list: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class FreeTimeBuilder(object):
 
     def free_time_end(self, free_time_end: str) -> "FreeTimeBuilder":
         self._free_time.free_time_end = free_time_end
+        return self
+
+    def free_time_list(self, free_time_list: str) -> "FreeTimeBuilder":
+        self._free_time.free_time_list = free_time_list
         return self
 
     def build(self) -> "FreeTime":

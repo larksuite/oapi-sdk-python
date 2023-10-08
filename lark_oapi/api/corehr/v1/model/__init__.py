@@ -395,6 +395,7 @@ from .subregion import *
 from .support_cost_center_item import *
 from .temp import *
 from .text_field_setting import *
+from .tranfer_employment_info import *
 from .transfer_info import *
 from .transfer_reason import *
 from .transfer_type import *

@@ -26,6 +26,8 @@ def main():
                       .i18n_description(I18nMeta.builder().build())
                       .schema_id("7159054681489010384")
                       .app_id("cli_a1306bed4738d01b")
+                      .connect_type(0)
+                      .connector_param(ConnectorParam.builder().build())
                       .build()) \
         .build()
 

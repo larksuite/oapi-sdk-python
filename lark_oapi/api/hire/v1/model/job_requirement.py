@@ -13,6 +13,7 @@ class JobRequirement(object):
         "display_progress": int,
         "head_count": int,
         "recruitment_type_id": str,
+        "employee_type_id": str,
         "max_level_id": str,
         "min_level_id": str,
         "sequence_id": str,
@@ -30,6 +31,8 @@ class JobRequirement(object):
         "address_id": str,
         "description": str,
         "customized_data_list": List[JobRequirementCustomizedData],
+        "process_type": int,
+        "job_type_id": str,
     }
 
     def __init__(self, d=None):
@@ -38,6 +41,7 @@ class JobRequirement(object):
         self.display_progress: Optional[int] = None
         self.head_count: Optional[int] = None
         self.recruitment_type_id: Optional[str] = None
+        self.employee_type_id: Optional[str] = None
         self.max_level_id: Optional[str] = None
         self.min_level_id: Optional[str] = None
         self.sequence_id: Optional[str] = None
@@ -55,6 +59,8 @@ class JobRequirement(object):
         self.address_id: Optional[str] = None
         self.description: Optional[str] = None
         self.customized_data_list: Optional[List[JobRequirementCustomizedData]] = None
+        self.process_type: Optional[int] = None
+        self.job_type_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -84,6 +90,10 @@ class JobRequirementBuilder(object):
 
     def recruitment_type_id(self, recruitment_type_id: str) -> "JobRequirementBuilder":
         self._job_requirement.recruitment_type_id = recruitment_type_id
+        return self
+
+    def employee_type_id(self, employee_type_id: str) -> "JobRequirementBuilder":
+        self._job_requirement.employee_type_id = employee_type_id
         return self
 
     def max_level_id(self, max_level_id: str) -> "JobRequirementBuilder":
@@ -152,6 +162,14 @@ class JobRequirementBuilder(object):
 
     def customized_data_list(self, customized_data_list: List[JobRequirementCustomizedData]) -> "JobRequirementBuilder":
         self._job_requirement.customized_data_list = customized_data_list
+        return self
+
+    def process_type(self, process_type: int) -> "JobRequirementBuilder":
+        self._job_requirement.process_type = process_type
+        return self
+
+    def job_type_id(self, job_type_id: str) -> "JobRequirementBuilder":
+        self._job_requirement.job_type_id = job_type_id
         return self
 
     def build(self) -> "JobRequirement":

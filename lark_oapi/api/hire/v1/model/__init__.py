@@ -1,3 +1,4 @@
+from .ability import *
 from .account import *
 from .add_to_folder_talent_request import *
 from .add_to_folder_talent_request_body import *
@@ -25,6 +26,7 @@ from .application_offer_basic_info import *
 from .application_offer_basic_info_customized_object import *
 from .application_offer_basic_info_customized_object_option_value import *
 from .application_offer_basic_info_user import *
+from .application_offer_custom_module import *
 from .application_offer_custom_value import *
 from .application_offer_onboard_profile import *
 from .application_offer_onboard_profile_address import *
@@ -55,9 +57,11 @@ from .application_talent_sns_info import *
 from .application_talent_works_info import *
 from .application_website_channel import *
 from .application_website_resume_source import *
+from .assessment_score_info import *
 from .assets import *
 from .attachment import *
 from .attachment_info import *
+from .attachment_v2 import *
 from .auth import *
 from .award_info import *
 from .background_check_custom_field_data_value import *
@@ -241,6 +245,7 @@ from .interview_dimension_assessment import *
 from .interview_dimension_score import *
 from .interview_extend import *
 from .interview_meeting_room import *
+from .interview_question import *
 from .interview_record import *
 from .interview_record_template import *
 from .interview_registration_schema import *
@@ -282,6 +287,7 @@ from .job_requirement_dto import *
 from .job_requirement_schema import *
 from .job_schema import *
 from .job_type import *
+from .job_type_info import *
 from .language_info import *
 from .level import *
 from .list_application_interview_request import *
@@ -309,6 +315,9 @@ from .list_job_requirement_response_body import *
 from .list_job_requirement_schema_request import *
 from .list_job_requirement_schema_response import *
 from .list_job_requirement_schema_response_body import *
+from .list_job_type_request import *
+from .list_job_type_response import *
+from .list_job_type_response_body import *
 from .list_note_request import *
 from .list_note_response import *
 from .list_note_response_body import *
@@ -390,6 +399,7 @@ from .preview_attachment_request import *
 from .preview_attachment_response import *
 from .preview_attachment_response_body import *
 from .project_info import *
+from .provider_id_name_object import *
 from .push_stage import *
 from .query_talent_object_request import *
 from .query_talent_object_response import *

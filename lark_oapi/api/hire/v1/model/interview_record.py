@@ -3,8 +3,11 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .assessment_score_info import AssessmentScoreInfo
+from .attachment_v2 import AttachmentV2
 from .id_name_object import IdNameObject
 from .interview_dimension_assessment import InterviewDimensionAssessment
+from .interview_question import InterviewQuestion
 from .interview_score import InterviewScore
 
 
@@ -17,7 +20,11 @@ class InterviewRecord(object):
         "feedback_submit_time": int,
         "conclusion": int,
         "interview_score": InterviewScore,
+        "assessment_score": AssessmentScoreInfo,
+        "question_list": List[InterviewQuestion],
+        "code_question_list": List[InterviewQuestion],
         "interviewer": IdNameObject,
+        "image_list": List[AttachmentV2],
         "dimension_assessment_list": List[InterviewDimensionAssessment],
     }
 
@@ -29,7 +36,11 @@ class InterviewRecord(object):
         self.feedback_submit_time: Optional[int] = None
         self.conclusion: Optional[int] = None
         self.interview_score: Optional[InterviewScore] = None
+        self.assessment_score: Optional[AssessmentScoreInfo] = None
+        self.question_list: Optional[List[InterviewQuestion]] = None
+        self.code_question_list: Optional[List[InterviewQuestion]] = None
         self.interviewer: Optional[IdNameObject] = None
+        self.image_list: Optional[List[AttachmentV2]] = None
         self.dimension_assessment_list: Optional[List[InterviewDimensionAssessment]] = None
         init(self, d, self._types)
 
@@ -70,8 +81,24 @@ class InterviewRecordBuilder(object):
         self._interview_record.interview_score = interview_score
         return self
 
+    def assessment_score(self, assessment_score: AssessmentScoreInfo) -> "InterviewRecordBuilder":
+        self._interview_record.assessment_score = assessment_score
+        return self
+
+    def question_list(self, question_list: List[InterviewQuestion]) -> "InterviewRecordBuilder":
+        self._interview_record.question_list = question_list
+        return self
+
+    def code_question_list(self, code_question_list: List[InterviewQuestion]) -> "InterviewRecordBuilder":
+        self._interview_record.code_question_list = code_question_list
+        return self
+
     def interviewer(self, interviewer: IdNameObject) -> "InterviewRecordBuilder":
         self._interview_record.interviewer = interviewer
+        return self
+
+    def image_list(self, image_list: List[AttachmentV2]) -> "InterviewRecordBuilder":
+        self._interview_record.image_list = image_list
         return self
 
     def dimension_assessment_list(self, dimension_assessment_list: List[

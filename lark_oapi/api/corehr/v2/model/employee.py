@@ -21,6 +21,7 @@ class Employee(object):
         "employee_type_id": str,
         "department_id": str,
         "job_level_id": str,
+        "job_grade_id": str,
         "work_location_id": str,
         "job_family_id": str,
         "job_id": str,
@@ -74,6 +75,7 @@ class Employee(object):
         self.employee_type_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
+        self.job_grade_id: Optional[str] = None
         self.work_location_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
         self.job_id: Optional[str] = None
@@ -154,6 +156,10 @@ class EmployeeBuilder(object):
 
     def job_level_id(self, job_level_id: str) -> "EmployeeBuilder":
         self._employee.job_level_id = job_level_id
+        return self
+
+    def job_grade_id(self, job_grade_id: str) -> "EmployeeBuilder":
+        self._employee.job_grade_id = job_grade_id
         return self
 
     def work_location_id(self, work_location_id: str) -> "EmployeeBuilder":

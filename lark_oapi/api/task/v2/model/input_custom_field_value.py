@@ -14,6 +14,7 @@ class InputCustomFieldValue(object):
         "datetime_value": str,
         "single_select_value": str,
         "multi_select_value": List[str],
+        "text_value": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class InputCustomFieldValue(object):
         self.datetime_value: Optional[str] = None
         self.single_select_value: Optional[str] = None
         self.multi_select_value: Optional[List[str]] = None
+        self.text_value: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +58,10 @@ class InputCustomFieldValueBuilder(object):
 
     def multi_select_value(self, multi_select_value: List[str]) -> "InputCustomFieldValueBuilder":
         self._input_custom_field_value.multi_select_value = multi_select_value
+        return self
+
+    def text_value(self, text_value: str) -> "InputCustomFieldValueBuilder":
+        self._input_custom_field_value.text_value = text_value
         return self
 
     def build(self) -> "InputCustomFieldValue":

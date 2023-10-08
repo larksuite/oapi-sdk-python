@@ -28,6 +28,7 @@ from . import optical_char_recognition
 from . import passport
 from . import personal_settings
 from . import search
+from . import security_and_compliance
 from . import sheets
 from . import speech_to_text
 from . import task

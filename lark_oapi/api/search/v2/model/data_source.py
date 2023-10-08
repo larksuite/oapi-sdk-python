@@ -3,6 +3,7 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .connector_param import ConnectorParam
 from .i18n_meta import I18nMeta
 
 
@@ -22,6 +23,8 @@ class DataSource(object):
         "i18n_description": I18nMeta,
         "schema_id": str,
         "app_id": str,
+        "connect_type": int,
+        "connector_param": ConnectorParam,
     }
 
     def __init__(self, d=None):
@@ -39,6 +42,8 @@ class DataSource(object):
         self.i18n_description: Optional[I18nMeta] = None
         self.schema_id: Optional[str] = None
         self.app_id: Optional[str] = None
+        self.connect_type: Optional[int] = None
+        self.connector_param: Optional[ConnectorParam] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -104,6 +109,14 @@ class DataSourceBuilder(object):
 
     def app_id(self, app_id: str) -> "DataSourceBuilder":
         self._data_source.app_id = app_id
+        return self
+
+    def connect_type(self, connect_type: int) -> "DataSourceBuilder":
+        self._data_source.connect_type = connect_type
+        return self
+
+    def connector_param(self, connector_param: ConnectorParam) -> "DataSourceBuilder":
+        self._data_source.connector_param = connector_param
         return self
 
     def build(self) -> "DataSource":
