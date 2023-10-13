@@ -23,7 +23,7 @@ class JSON(object):
 class Encoder(JSONEncoder):
     def default(self, o: Any) -> Any:
         if hasattr(o, "__dict__"):
-            return vars(o)
+            return filter_null(vars(o))
         if isinstance(o, datetime.datetime):
             return o.strftime("%Y-%m-%d %H:%M:%S")
         if isinstance(o, bytes):
@@ -35,3 +35,15 @@ class Encoder(JSONEncoder):
         if isinstance(o, set):
             return list(o)
         return super().default(o)
+
+
+def filter_null(d: Dict) -> Dict:
+    if isinstance(d, dict):
+        for k, v in list(d.items()):
+            if isinstance(v, dict):
+                filter_null(v)
+            elif v is None:
+                del d[k]
+
+    return d
+
