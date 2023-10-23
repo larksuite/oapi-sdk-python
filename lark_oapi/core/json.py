@@ -1,3 +1,4 @@
+import copy
 import datetime
 from json import *
 from typing import *
@@ -23,7 +24,7 @@ class JSON(object):
 class Encoder(JSONEncoder):
     def default(self, o: Any) -> Any:
         if hasattr(o, "__dict__"):
-            return filter_null(vars(o))
+            return filter_null(copy.deepcopy(vars(o)))
         if isinstance(o, datetime.datetime):
             return o.strftime("%Y-%m-%d %H:%M:%S")
         if isinstance(o, bytes):
