@@ -23,6 +23,10 @@ class DeviceApplyRecord(object):
         "operator": UserId,
         "apply_time": str,
         "disk_serial_number": str,
+        "device_ownership": str,
+        "device_system": str,
+        "device_name": str,
+        "device_record_id": int,
     }
 
     def __init__(self, d=None):
@@ -41,6 +45,10 @@ class DeviceApplyRecord(object):
         self.operator: Optional[UserId] = None
         self.apply_time: Optional[str] = None
         self.disk_serial_number: Optional[str] = None
+        self.device_ownership: Optional[str] = None
+        self.device_system: Optional[str] = None
+        self.device_name: Optional[str] = None
+        self.device_record_id: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -110,6 +118,22 @@ class DeviceApplyRecordBuilder(object):
 
     def disk_serial_number(self, disk_serial_number: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.disk_serial_number = disk_serial_number
+        return self
+
+    def device_ownership(self, device_ownership: str) -> "DeviceApplyRecordBuilder":
+        self._device_apply_record.device_ownership = device_ownership
+        return self
+
+    def device_system(self, device_system: str) -> "DeviceApplyRecordBuilder":
+        self._device_apply_record.device_system = device_system
+        return self
+
+    def device_name(self, device_name: str) -> "DeviceApplyRecordBuilder":
+        self._device_apply_record.device_name = device_name
+        return self
+
+    def device_record_id(self, device_record_id: int) -> "DeviceApplyRecordBuilder":
+        self._device_apply_record.device_record_id = device_record_id
         return self
 
     def build(self) -> "DeviceApplyRecord":

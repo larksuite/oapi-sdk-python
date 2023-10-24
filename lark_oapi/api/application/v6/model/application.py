@@ -15,6 +15,7 @@ class Application(object):
         "status": int,
         "scene_type": int,
         "payment_type": int,
+        "create_source": str,
         "redirect_urls": List[str],
         "online_version_id": int,
         "unaudit_version_id": int,
@@ -35,6 +36,7 @@ class Application(object):
         self.status: Optional[int] = None
         self.scene_type: Optional[int] = None
         self.payment_type: Optional[int] = None
+        self.create_source: Optional[str] = None
         self.redirect_urls: Optional[List[str]] = None
         self.online_version_id: Optional[int] = None
         self.unaudit_version_id: Optional[int] = None
@@ -76,6 +78,10 @@ class ApplicationBuilder(object):
 
     def payment_type(self, payment_type: int) -> "ApplicationBuilder":
         self._application.payment_type = payment_type
+        return self
+
+    def create_source(self, create_source: str) -> "ApplicationBuilder":
+        self._application.create_source = create_source
         return self
 
     def redirect_urls(self, redirect_urls: List[str]) -> "ApplicationBuilder":

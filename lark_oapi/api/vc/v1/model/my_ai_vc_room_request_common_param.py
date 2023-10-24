@@ -3,17 +3,24 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .my_ai_room_openapi_response import MyAiRoomOpenapiResponse
 
 
 class MyAiVcRoomRequestCommonParam(object):
     _types = {
         "language": str,
         "utc_offset": str,
+        "room_id": str,
+        "client_version": str,
+        "openapi_history": MyAiRoomOpenapiResponse,
     }
 
     def __init__(self, d=None):
         self.language: Optional[str] = None
         self.utc_offset: Optional[str] = None
+        self.room_id: Optional[str] = None
+        self.client_version: Optional[str] = None
+        self.openapi_history: Optional[MyAiRoomOpenapiResponse] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +38,18 @@ class MyAiVcRoomRequestCommonParamBuilder(object):
 
     def utc_offset(self, utc_offset: str) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.utc_offset = utc_offset
+        return self
+
+    def room_id(self, room_id: str) -> "MyAiVcRoomRequestCommonParamBuilder":
+        self._my_ai_vc_room_request_common_param.room_id = room_id
+        return self
+
+    def client_version(self, client_version: str) -> "MyAiVcRoomRequestCommonParamBuilder":
+        self._my_ai_vc_room_request_common_param.client_version = client_version
+        return self
+
+    def openapi_history(self, openapi_history: MyAiRoomOpenapiResponse) -> "MyAiVcRoomRequestCommonParamBuilder":
+        self._my_ai_vc_room_request_common_param.openapi_history = openapi_history
         return self
 
     def build(self) -> "MyAiVcRoomRequestCommonParam":

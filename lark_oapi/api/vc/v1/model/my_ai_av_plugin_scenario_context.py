@@ -3,6 +3,7 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .my_ai_av_plugin_context_system_info import MyAiAvPluginContextSystemInfo
 from .my_ai_av_plugin_upload_object import MyAiAvPluginUploadObject
 from .my_ai_plugin_context import MyAiPluginContext
 
@@ -14,6 +15,7 @@ class MyAiAvPluginScenarioContext(object):
         "scenario": str,
         "session_id": str,
         "upload_objects": List[MyAiAvPluginUploadObject],
+        "system_info": MyAiAvPluginContextSystemInfo,
     }
 
     def __init__(self, d=None):
@@ -22,6 +24,7 @@ class MyAiAvPluginScenarioContext(object):
         self.scenario: Optional[str] = None
         self.session_id: Optional[str] = None
         self.upload_objects: Optional[List[MyAiAvPluginUploadObject]] = None
+        self.system_info: Optional[MyAiAvPluginContextSystemInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -51,6 +54,10 @@ class MyAiAvPluginScenarioContextBuilder(object):
 
     def upload_objects(self, upload_objects: List[MyAiAvPluginUploadObject]) -> "MyAiAvPluginScenarioContextBuilder":
         self._my_ai_av_plugin_scenario_context.upload_objects = upload_objects
+        return self
+
+    def system_info(self, system_info: MyAiAvPluginContextSystemInfo) -> "MyAiAvPluginScenarioContextBuilder":
+        self._my_ai_av_plugin_scenario_context.system_info = system_info
         return self
 
     def build(self) -> "MyAiAvPluginScenarioContext":

@@ -26,6 +26,9 @@ from .create_calendar_event_attendee_request import *
 from .create_calendar_event_attendee_request_body import *
 from .create_calendar_event_attendee_response import *
 from .create_calendar_event_attendee_response_body import *
+from .create_calendar_event_meeting_chat_request import *
+from .create_calendar_event_meeting_chat_response import *
+from .create_calendar_event_meeting_chat_response_body import *
 from .create_calendar_event_request import *
 from .create_calendar_event_response import *
 from .create_calendar_event_response_body import *
@@ -41,6 +44,8 @@ from .create_timeoff_event_response_body import *
 from .customization_option import *
 from .delete_calendar_acl_request import *
 from .delete_calendar_acl_response import *
+from .delete_calendar_event_meeting_chat_request import *
+from .delete_calendar_event_meeting_chat_response import *
 from .delete_calendar_event_request import *
 from .delete_calendar_event_response import *
 from .delete_calendar_request import *

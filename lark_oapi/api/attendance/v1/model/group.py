@@ -8,6 +8,7 @@ from .leave_need_punch_cfg import LeaveNeedPunchCfg
 from .location import Location
 from .machine import Machine
 from .member_status_change import MemberStatusChange
+from .overtime_clock_cfg import OvertimeClockCfg
 from .punch_member import PunchMember
 from .punch_special_date_shift import PunchSpecialDateShift
 
@@ -78,6 +79,7 @@ class Group(object):
         "org_change_auto_adjust": bool,
         "bind_default_dept_ids": List[str],
         "bind_default_user_ids": List[str],
+        "overtime_clock_cfg": OvertimeClockCfg,
     }
 
     def __init__(self, d=None):
@@ -145,6 +147,7 @@ class Group(object):
         self.org_change_auto_adjust: Optional[bool] = None
         self.bind_default_dept_ids: Optional[List[str]] = None
         self.bind_default_user_ids: Optional[List[str]] = None
+        self.overtime_clock_cfg: Optional[OvertimeClockCfg] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -410,6 +413,10 @@ class GroupBuilder(object):
 
     def bind_default_user_ids(self, bind_default_user_ids: List[str]) -> "GroupBuilder":
         self._group.bind_default_user_ids = bind_default_user_ids
+        return self
+
+    def overtime_clock_cfg(self, overtime_clock_cfg: OvertimeClockCfg) -> "GroupBuilder":
+        self._group.overtime_clock_cfg = overtime_clock_cfg
         return self
 
     def build(self) -> "Group":

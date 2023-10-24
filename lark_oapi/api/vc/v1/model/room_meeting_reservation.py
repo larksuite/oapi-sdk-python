@@ -11,6 +11,7 @@ class RoomMeetingReservation(object):
         "room_name": str,
         "event_title": str,
         "reserver": str,
+        "reserver_user_id": str,
         "department_of_reserver": str,
         "guests_number": str,
         "accepted_number": str,
@@ -31,6 +32,7 @@ class RoomMeetingReservation(object):
         self.room_name: Optional[str] = None
         self.event_title: Optional[str] = None
         self.reserver: Optional[str] = None
+        self.reserver_user_id: Optional[str] = None
         self.department_of_reserver: Optional[str] = None
         self.guests_number: Optional[str] = None
         self.accepted_number: Optional[str] = None
@@ -69,6 +71,10 @@ class RoomMeetingReservationBuilder(object):
 
     def reserver(self, reserver: str) -> "RoomMeetingReservationBuilder":
         self._room_meeting_reservation.reserver = reserver
+        return self
+
+    def reserver_user_id(self, reserver_user_id: str) -> "RoomMeetingReservationBuilder":
+        self._room_meeting_reservation.reserver_user_id = reserver_user_id
         return self
 
     def department_of_reserver(self, department_of_reserver: str) -> "RoomMeetingReservationBuilder":

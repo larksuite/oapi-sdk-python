@@ -41,6 +41,9 @@ from .create_task_response_body import *
 from .create_task_subtask_request import *
 from .create_task_subtask_response import *
 from .create_task_subtask_response_body import *
+from .create_tasklist_activity_subscription_request import *
+from .create_tasklist_activity_subscription_response import *
+from .create_tasklist_activity_subscription_response_body import *
 from .create_tasklist_request import *
 from .create_tasklist_response import *
 from .create_tasklist_response_body import *
@@ -55,9 +58,12 @@ from .delete_section_request import *
 from .delete_section_response import *
 from .delete_task_request import *
 from .delete_task_response import *
+from .delete_tasklist_activity_subscription_request import *
+from .delete_tasklist_activity_subscription_response import *
 from .delete_tasklist_request import *
 from .delete_tasklist_response import *
 from .department_id import *
+from .docx_source import *
 from .due import *
 from .dummy import *
 from .get_comment_request import *
@@ -72,6 +78,9 @@ from .get_section_response_body import *
 from .get_task_request import *
 from .get_task_response import *
 from .get_task_response_body import *
+from .get_tasklist_activity_subscription_request import *
+from .get_tasklist_activity_subscription_response import *
+from .get_tasklist_activity_subscription_response_body import *
 from .get_tasklist_request import *
 from .get_tasklist_response import *
 from .get_tasklist_response_body import *
@@ -100,6 +109,9 @@ from .list_task_response_body import *
 from .list_task_subtask_request import *
 from .list_task_subtask_response import *
 from .list_task_subtask_response_body import *
+from .list_tasklist_activity_subscription_request import *
+from .list_tasklist_activity_subscription_response import *
+from .list_tasklist_activity_subscription_response_body import *
 from .list_tasklist_request import *
 from .list_tasklist_response import *
 from .list_tasklist_response_body import *
@@ -128,6 +140,10 @@ from .patch_task_request import *
 from .patch_task_request_body import *
 from .patch_task_response import *
 from .patch_task_response_body import *
+from .patch_tasklist_activity_subscription_request import *
+from .patch_tasklist_activity_subscription_request_body import *
+from .patch_tasklist_activity_subscription_response import *
+from .patch_tasklist_activity_subscription_response_body import *
 from .patch_tasklist_request import *
 from .patch_tasklist_request_body import *
 from .patch_tasklist_response import *

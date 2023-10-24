@@ -47,4 +47,3 @@ def filter_null(d: Dict) -> Dict:
                 del d[k]
 
     return d
-

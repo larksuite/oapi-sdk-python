@@ -20,6 +20,7 @@ from .model.p2_corehr_org_role_authorization_updated_v1 import P2CorehrOrgRoleAu
 from .model.p2_corehr_person_created_v1 import P2CorehrPersonCreatedV1
 from .model.p2_corehr_person_deleted_v1 import P2CorehrPersonDeletedV1
 from .model.p2_corehr_person_updated_v1 import P2CorehrPersonUpdatedV1
+from .model.p2_corehr_pre_hire_updated_v1 import P2CorehrPreHireUpdatedV1
 
 
 class P2CorehrContractCreatedV1Processor(IEventProcessor[P2CorehrContractCreatedV1]):
@@ -206,4 +207,15 @@ class P2CorehrPersonUpdatedV1Processor(IEventProcessor[P2CorehrPersonUpdatedV1])
         return P2CorehrPersonUpdatedV1
 
     def do(self, data: P2CorehrPersonUpdatedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrPreHireUpdatedV1Processor(IEventProcessor[P2CorehrPreHireUpdatedV1]):
+    def __init__(self, f: Callable[[P2CorehrPreHireUpdatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPreHireUpdatedV1]:
+        return P2CorehrPreHireUpdatedV1
+
+    def do(self, data: P2CorehrPreHireUpdatedV1) -> None:
         self.f(data)

@@ -16,6 +16,7 @@ class PatchDataSourceRequestBody(object):
         "i18n_name": I18nMeta,
         "i18n_description": I18nMeta,
         "connector_param": ConnectorParam,
+        "enable_answer": bool,
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class PatchDataSourceRequestBody(object):
         self.i18n_name: Optional[I18nMeta] = None
         self.i18n_description: Optional[I18nMeta] = None
         self.connector_param: Optional[ConnectorParam] = None
+        self.enable_answer: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -63,6 +65,10 @@ class PatchDataSourceRequestBodyBuilder(object):
 
     def connector_param(self, connector_param: ConnectorParam) -> "PatchDataSourceRequestBodyBuilder":
         self._patch_data_source_request_body.connector_param = connector_param
+        return self
+
+    def enable_answer(self, enable_answer: bool) -> "PatchDataSourceRequestBodyBuilder":
+        self._patch_data_source_request_body.enable_answer = enable_answer
         return self
 
     def build(self) -> "PatchDataSourceRequestBody":

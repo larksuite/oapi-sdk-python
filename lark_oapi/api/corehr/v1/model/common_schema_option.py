@@ -11,12 +11,14 @@ class CommonSchemaOption(object):
         "api_name": str,
         "name": Name,
         "description": Name,
+        "is_open": bool,
     }
 
     def __init__(self, d=None):
         self.api_name: Optional[str] = None
         self.name: Optional[Name] = None
         self.description: Optional[Name] = None
+        self.is_open: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -38,6 +40,10 @@ class CommonSchemaOptionBuilder(object):
 
     def description(self, description: Name) -> "CommonSchemaOptionBuilder":
         self._common_schema_option.description = description
+        return self
+
+    def is_open(self, is_open: bool) -> "CommonSchemaOptionBuilder":
+        self._common_schema_option.is_open = is_open
         return self
 
     def build(self) -> "CommonSchemaOption":

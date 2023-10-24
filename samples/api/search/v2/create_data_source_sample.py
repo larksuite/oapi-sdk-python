@@ -28,6 +28,7 @@ def main():
                       .app_id("cli_a1306bed4738d01b")
                       .connect_type(0)
                       .connector_param(ConnectorParam.builder().build())
+                      .enable_answer(False)
                       .build()) \
         .build()
 

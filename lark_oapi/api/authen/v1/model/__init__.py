@@ -17,7 +17,6 @@ from .create_refresh_access_token_response_body import *
 from .department_id import *
 from .get_authorize_request import *
 from .get_authorize_response import *
-from .get_authorize_response_body import *
 from .get_user_info_request import *
 from .get_user_info_response import *
 from .get_user_info_response_body import *

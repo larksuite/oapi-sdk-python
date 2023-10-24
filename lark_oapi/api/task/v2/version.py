@@ -10,3 +10,4 @@ class V2(object):
         self.task: Task = Task(config)
         self.task_subtask: TaskSubtask = TaskSubtask(config)
         self.tasklist: Tasklist = Tasklist(config)
+        self.tasklist_activity_subscription: TasklistActivitySubscription = TasklistActivitySubscription(config)

@@ -10,6 +10,7 @@ class Participant(object):
         "participant_name": str,
         "department": str,
         "user_id": str,
+        "meeting_room_id": str,
         "employee_id": str,
         "phone": str,
         "email": str,
@@ -37,6 +38,7 @@ class Participant(object):
         self.participant_name: Optional[str] = None
         self.department: Optional[str] = None
         self.user_id: Optional[str] = None
+        self.meeting_room_id: Optional[str] = None
         self.employee_id: Optional[str] = None
         self.phone: Optional[str] = None
         self.email: Optional[str] = None
@@ -79,6 +81,10 @@ class ParticipantBuilder(object):
 
     def user_id(self, user_id: str) -> "ParticipantBuilder":
         self._participant.user_id = user_id
+        return self
+
+    def meeting_room_id(self, meeting_room_id: str) -> "ParticipantBuilder":
+        self._participant.meeting_room_id = meeting_room_id
         return self
 
     def employee_id(self, employee_id: str) -> "ParticipantBuilder":

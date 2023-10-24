@@ -24,7 +24,7 @@ class ListFreebusyRequestBuilder(object):
         list_freebusy_request = ListFreebusyRequest()
         list_freebusy_request.http_method = HttpMethod.POST
         list_freebusy_request.uri = "/open-apis/calendar/v4/freebusy/list"
-        list_freebusy_request.token_types = {AccessTokenType.TENANT}
+        list_freebusy_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_freebusy_request: ListFreebusyRequest = list_freebusy_request
 
     def user_id_type(self, user_id_type: str) -> "ListFreebusyRequestBuilder":

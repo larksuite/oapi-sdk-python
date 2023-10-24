@@ -5,6 +5,7 @@ class V1(object):
     def __init__(self, config: Config) -> None:
         self.assigned_user: AssignedUser = AssignedUser(config)
         self.company: Company = Company(config)
+        self.compensation_standard: CompensationStandard = CompensationStandard(config)
         self.contract: Contract = Contract(config)
         self.country_region: CountryRegion = CountryRegion(config)
         self.currency: Currency = Currency(config)

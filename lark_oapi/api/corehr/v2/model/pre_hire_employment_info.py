@@ -31,6 +31,7 @@ class PreHireEmploymentInfo(object):
         "rehire": str,
         "rehire_employment_id": str,
         "working_hours_type": str,
+        "weekly_working_hours_v2": float,
     }
 
     def __init__(self, d=None):
@@ -56,6 +57,7 @@ class PreHireEmploymentInfo(object):
         self.rehire: Optional[str] = None
         self.rehire_employment_id: Optional[str] = None
         self.working_hours_type: Optional[str] = None
+        self.weekly_working_hours_v2: Optional[float] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -153,6 +155,10 @@ class PreHireEmploymentInfoBuilder(object):
 
     def working_hours_type(self, working_hours_type: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.working_hours_type = working_hours_type
+        return self
+
+    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.weekly_working_hours_v2 = weekly_working_hours_v2
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

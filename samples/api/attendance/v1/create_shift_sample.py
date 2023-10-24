@@ -26,7 +26,6 @@ def main():
                       .late_off_late_on_rule([])
                       .rest_time_rule([])
                       .overtime_rule([])
-                      .allow_punch_approval(False)
                       .build()) \
         .build()
 

@@ -13,6 +13,7 @@ class Tenant(object):
         "tenant_tag": int,
         "tenant_key": str,
         "avatar": Avatar,
+        "domain": str,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class Tenant(object):
         self.tenant_tag: Optional[int] = None
         self.tenant_key: Optional[str] = None
         self.avatar: Optional[Avatar] = None
+        self.domain: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -50,6 +52,10 @@ class TenantBuilder(object):
 
     def avatar(self, avatar: Avatar) -> "TenantBuilder":
         self._tenant.avatar = avatar
+        return self
+
+    def domain(self, domain: str) -> "TenantBuilder":
+        self._tenant.domain = domain
         return self
 
     def build(self) -> "Tenant":

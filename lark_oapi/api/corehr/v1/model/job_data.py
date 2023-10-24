@@ -34,6 +34,7 @@ class JobData(object):
         "second_direct_manager_id": str,
         "cost_center_rate": List[SupportCostCenterItem],
         "custom_fields": List[ObjectFieldData],
+        "weekly_working_hours_v2": float,
     }
 
     def __init__(self, d=None):
@@ -61,6 +62,7 @@ class JobData(object):
         self.second_direct_manager_id: Optional[str] = None
         self.cost_center_rate: Optional[List[SupportCostCenterItem]] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.weekly_working_hours_v2: Optional[float] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -166,6 +168,10 @@ class JobDataBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "JobDataBuilder":
         self._job_data.custom_fields = custom_fields
+        return self
+
+    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "JobDataBuilder":
+        self._job_data.weekly_working_hours_v2 = weekly_working_hours_v2
         return self
 
     def build(self) -> "JobData":

@@ -112,6 +112,8 @@ from .patch_application_visibility_request_body import *
 from .patch_application_visibility_response import *
 from .plus_menu import *
 from .scope import *
+from .set_app_badge_request import *
+from .set_app_badge_response import *
 from .underauditlist_application_request import *
 from .underauditlist_application_response import *
 from .underauditlist_application_response_body import *

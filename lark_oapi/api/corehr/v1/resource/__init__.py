@@ -1,5 +1,6 @@
 from .assigned_user import *
 from .company import *
+from .compensation_standard import *
 from .contract import *
 from .country_region import *
 from .currency import *

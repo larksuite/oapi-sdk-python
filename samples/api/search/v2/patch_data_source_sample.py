@@ -23,6 +23,7 @@ def main():
                       .i18n_name(I18nMeta.builder().build())
                       .i18n_description(I18nMeta.builder().build())
                       .connector_param(ConnectorParam.builder().build())
+                      .enable_answer(False)
                       .build()) \
         .build()
 

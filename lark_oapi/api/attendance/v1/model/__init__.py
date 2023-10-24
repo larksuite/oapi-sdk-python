@@ -75,6 +75,8 @@ from .modify_user_setting_request import *
 from .modify_user_setting_request_body import *
 from .modify_user_setting_response import *
 from .modify_user_setting_response_body import *
+from .overtime_clock_cfg import *
+from .overtime_detail import *
 from .overtime_rule import *
 from .patch_leave_accrual_record_request import *
 from .patch_leave_accrual_record_request_body import *

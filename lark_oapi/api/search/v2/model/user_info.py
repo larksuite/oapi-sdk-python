@@ -8,10 +8,12 @@ from lark_oapi.core.construct import init
 class UserInfo(object):
     _types = {
         "user_language": str,
+        "timezone": str,
     }
 
     def __init__(self, d=None):
         self.user_language: Optional[str] = None
+        self.timezone: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +27,10 @@ class UserInfoBuilder(object):
 
     def user_language(self, user_language: str) -> "UserInfoBuilder":
         self._user_info.user_language = user_language
+        return self
+
+    def timezone(self, timezone: str) -> "UserInfoBuilder":
+        self._user_info.timezone = timezone
         return self
 
     def build(self) -> "UserInfo":

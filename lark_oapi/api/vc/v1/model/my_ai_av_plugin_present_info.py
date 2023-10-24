@@ -3,7 +3,6 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
-from .my_ai_av_plugin_callback_info import MyAiAvPluginCallbackInfo
 from .my_ai_av_plugin_card_varibales import MyAiAvPluginCardVaribales
 
 
@@ -13,7 +12,7 @@ class MyAiAvPluginPresentInfo(object):
         "card_template_id": str,
         "body": str,
         "card_varibales": MyAiAvPluginCardVaribales,
-        "callback_info": MyAiAvPluginCallbackInfo,
+        "callback_info": str,
     }
 
     def __init__(self, d=None):
@@ -21,7 +20,7 @@ class MyAiAvPluginPresentInfo(object):
         self.card_template_id: Optional[str] = None
         self.body: Optional[str] = None
         self.card_varibales: Optional[MyAiAvPluginCardVaribales] = None
-        self.callback_info: Optional[MyAiAvPluginCallbackInfo] = None
+        self.callback_info: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,7 +48,7 @@ class MyAiAvPluginPresentInfoBuilder(object):
         self._my_ai_av_plugin_present_info.card_varibales = card_varibales
         return self
 
-    def callback_info(self, callback_info: MyAiAvPluginCallbackInfo) -> "MyAiAvPluginPresentInfoBuilder":
+    def callback_info(self, callback_info: str) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.callback_info = callback_info
         return self
 

@@ -3,6 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .schema_field_answer_option import SchemaFieldAnswerOption
 from .schema_filter_options import SchemaFilterOptions
 from .schema_search_options import SchemaSearchOptions
 from .schema_sort_options import SchemaSortOptions
@@ -21,6 +22,8 @@ class SchemaProperty(object):
         "search_options": SchemaSearchOptions,
         "is_filterable": bool,
         "filter_options": SchemaFilterOptions,
+        "answer_option": SchemaFieldAnswerOption,
+        "desc": str,
     }
 
     def __init__(self, d=None):
@@ -34,6 +37,8 @@ class SchemaProperty(object):
         self.search_options: Optional[SchemaSearchOptions] = None
         self.is_filterable: Optional[bool] = None
         self.filter_options: Optional[SchemaFilterOptions] = None
+        self.answer_option: Optional[SchemaFieldAnswerOption] = None
+        self.desc: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -83,6 +88,14 @@ class SchemaPropertyBuilder(object):
 
     def filter_options(self, filter_options: SchemaFilterOptions) -> "SchemaPropertyBuilder":
         self._schema_property.filter_options = filter_options
+        return self
+
+    def answer_option(self, answer_option: SchemaFieldAnswerOption) -> "SchemaPropertyBuilder":
+        self._schema_property.answer_option = answer_option
+        return self
+
+    def desc(self, desc: str) -> "SchemaPropertyBuilder":
+        self._schema_property.desc = desc
         return self
 
     def build(self) -> "SchemaProperty":

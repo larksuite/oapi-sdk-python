@@ -25,6 +25,7 @@ class DataSource(object):
         "app_id": str,
         "connect_type": int,
         "connector_param": ConnectorParam,
+        "enable_answer": bool,
     }
 
     def __init__(self, d=None):
@@ -44,6 +45,7 @@ class DataSource(object):
         self.app_id: Optional[str] = None
         self.connect_type: Optional[int] = None
         self.connector_param: Optional[ConnectorParam] = None
+        self.enable_answer: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -117,6 +119,10 @@ class DataSourceBuilder(object):
 
     def connector_param(self, connector_param: ConnectorParam) -> "DataSourceBuilder":
         self._data_source.connector_param = connector_param
+        return self
+
+    def enable_answer(self, enable_answer: bool) -> "DataSourceBuilder":
+        self._data_source.enable_answer = enable_answer
         return self
 
     def build(self) -> "DataSource":

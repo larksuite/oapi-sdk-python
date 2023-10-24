@@ -18,6 +18,7 @@ def main():
         .request_body(BatchGetIdUserRequestBody.builder()
                       .emails([])
                       .mobiles([])
+                      .include_resigned(False)
                       .build()) \
         .build()
 

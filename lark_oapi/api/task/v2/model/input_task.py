@@ -4,6 +4,7 @@ from typing import Optional, List
 
 from lark_oapi.core.construct import init
 from .custom_complete import CustomComplete
+from .docx_source import DocxSource
 from .due import Due
 from .input_custom_field_value import InputCustomFieldValue
 from .member import Member
@@ -31,6 +32,7 @@ class InputTask(object):
         "mode": int,
         "is_milestone": bool,
         "custom_fields": List[InputCustomFieldValue],
+        "docx_source": DocxSource,
     }
 
     def __init__(self, d=None):
@@ -50,6 +52,7 @@ class InputTask(object):
         self.mode: Optional[int] = None
         self.is_milestone: Optional[bool] = None
         self.custom_fields: Optional[List[InputCustomFieldValue]] = None
+        self.docx_source: Optional[DocxSource] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -123,6 +126,10 @@ class InputTaskBuilder(object):
 
     def custom_fields(self, custom_fields: List[InputCustomFieldValue]) -> "InputTaskBuilder":
         self._input_task.custom_fields = custom_fields
+        return self
+
+    def docx_source(self, docx_source: DocxSource) -> "InputTaskBuilder":
+        self._input_task.docx_source = docx_source
         return self
 
     def build(self) -> "InputTask":

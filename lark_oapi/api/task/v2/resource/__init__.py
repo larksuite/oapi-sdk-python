@@ -5,3 +5,4 @@ from .section import *
 from .task import *
 from .task_subtask import *
 from .tasklist import *
+from .tasklist_activity_subscription import *

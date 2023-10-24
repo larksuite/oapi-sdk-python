@@ -17,6 +17,7 @@ def main():
         .schema_id("custom_schema_id") \
         .request_body(PatchSchemaRequestBody.builder()
                       .display(SchemaDisplay.builder().build())
+                      .properties([])
                       .build()) \
         .build()
 

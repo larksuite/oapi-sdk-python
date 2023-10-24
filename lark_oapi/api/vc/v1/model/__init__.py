@@ -127,8 +127,9 @@ from .mget_room_request import *
 from .mget_room_request_body import *
 from .mget_room_response import *
 from .mget_room_response_body import *
-from .my_ai_av_plugin_callback_info import *
+from .my_ai_av_plugin_card_status import *
 from .my_ai_av_plugin_card_varibales import *
+from .my_ai_av_plugin_context_system_info import *
 from .my_ai_av_plugin_present_info import *
 from .my_ai_av_plugin_scenario_context import *
 from .my_ai_av_plugin_upload_object import *
@@ -136,6 +137,7 @@ from .my_ai_object_context import *
 from .my_ai_plugin_context import *
 from .my_ai_response_present import *
 from .my_ai_room_common_result import *
+from .my_ai_room_openapi_response import *
 from .my_ai_vc_meeting_content_common_result import *
 from .my_ai_vc_meeting_extra import *
 from .my_ai_vc_meeting_operation_result import *

@@ -17,6 +17,7 @@ class Attachment(object):
         "uploader": Member,
         "is_cover": bool,
         "uploaded_at": int,
+        "url": str,
     }
 
     def __init__(self, d=None):
@@ -28,6 +29,7 @@ class Attachment(object):
         self.uploader: Optional[Member] = None
         self.is_cover: Optional[bool] = None
         self.uploaded_at: Optional[int] = None
+        self.url: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -69,6 +71,10 @@ class AttachmentBuilder(object):
 
     def uploaded_at(self, uploaded_at: int) -> "AttachmentBuilder":
         self._attachment.uploaded_at = uploaded_at
+        return self
+
+    def url(self, url: str) -> "AttachmentBuilder":
+        self._attachment.url = url
         return self
 
     def build(self) -> "Attachment":

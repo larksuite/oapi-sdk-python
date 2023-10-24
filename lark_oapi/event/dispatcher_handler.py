@@ -10,6 +10,7 @@ from lark_oapi.api.approval.v4.processor import *
 from lark_oapi.api.calendar.v4.processor import *
 from lark_oapi.api.contact.v3.processor import *
 from lark_oapi.api.corehr.v1.processor import *
+from lark_oapi.api.corehr.v2.processor import *
 from lark_oapi.api.drive.v1.processor import *
 from lark_oapi.api.helpdesk.v1.processor import *
 from lark_oapi.api.hire.v1.processor import *
@@ -473,6 +474,20 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.corehr.person.updated_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.corehr.person.updated_v1")
         self._processorMap["p2.corehr.person.updated_v1"] = P2CorehrPersonUpdatedV1Processor(f)
+        return self
+
+    def register_p2_corehr_pre_hire_updated_v1(self, f: Callable[
+        [P2CorehrPreHireUpdatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.pre_hire.updated_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.pre_hire.updated_v1")
+        self._processorMap["p2.corehr.pre_hire.updated_v1"] = P2CorehrPreHireUpdatedV1Processor(f)
+        return self
+
+    def register_p2_corehr_probation_updated_v2(self, f: Callable[
+        [P2CorehrProbationUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.probation.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.probation.updated_v2")
+        self._processorMap["p2.corehr.probation.updated_v2"] = P2CorehrProbationUpdatedV2Processor(f)
         return self
 
     def register_p2_drive_file_bitable_field_changed_v1(self, f: Callable[

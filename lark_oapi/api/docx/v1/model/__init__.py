@@ -9,6 +9,7 @@ from .batch_update_document_block_response import *
 from .batch_update_document_block_response_body import *
 from .bitable import *
 from .block import *
+from .block_id_relation import *
 from .callout import *
 from .chat_card import *
 from .create_document_block_children_request import *

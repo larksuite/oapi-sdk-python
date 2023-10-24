@@ -52,13 +52,16 @@ from .list_data_source_response import *
 from .list_data_source_response_body import *
 from .llm_model_config import *
 from .model_config import *
+from .model_param import *
 from .nls_model_config import *
+from .paraphrase_result import *
 from .passage import *
 from .passage_param import *
 from .patch_data_source_request import *
 from .patch_data_source_request_body import *
 from .patch_data_source_response import *
 from .patch_data_source_response_body import *
+from .patch_schema_property import *
 from .patch_schema_request import *
 from .patch_schema_request_body import *
 from .patch_schema_response import *
@@ -67,6 +70,7 @@ from .schema import *
 from .schema_display import *
 from .schema_display_field_mapping import *
 from .schema_enum_options import *
+from .schema_field_answer_option import *
 from .schema_filter_options import *
 from .schema_predefine_enum_struct import *
 from .schema_property import *

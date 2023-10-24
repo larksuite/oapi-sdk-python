@@ -20,6 +20,8 @@ class PortalJobPost(object):
         "job_recruitment_type": IdNameObject,
         "job_department": IdNameObject,
         "job_type": IdNameObject,
+        "min_job_level": IdNameObject,
+        "max_job_level": IdNameObject,
         "address": CommonAddress,
         "min_salary": str,
         "max_salary": str,
@@ -49,6 +51,8 @@ class PortalJobPost(object):
         self.job_recruitment_type: Optional[IdNameObject] = None
         self.job_department: Optional[IdNameObject] = None
         self.job_type: Optional[IdNameObject] = None
+        self.min_job_level: Optional[IdNameObject] = None
+        self.max_job_level: Optional[IdNameObject] = None
         self.address: Optional[CommonAddress] = None
         self.min_salary: Optional[str] = None
         self.max_salary: Optional[str] = None
@@ -114,6 +118,14 @@ class PortalJobPostBuilder(object):
 
     def job_type(self, job_type: IdNameObject) -> "PortalJobPostBuilder":
         self._portal_job_post.job_type = job_type
+        return self
+
+    def min_job_level(self, min_job_level: IdNameObject) -> "PortalJobPostBuilder":
+        self._portal_job_post.min_job_level = min_job_level
+        return self
+
+    def max_job_level(self, max_job_level: IdNameObject) -> "PortalJobPostBuilder":
+        self._portal_job_post.max_job_level = max_job_level
         return self
 
     def address(self, address: CommonAddress) -> "PortalJobPostBuilder":

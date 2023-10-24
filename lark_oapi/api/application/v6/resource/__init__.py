@@ -1,3 +1,4 @@
+from .app_badge import *
 from .app_recommend_rule import *
 from .application import *
 from .application_app_usage import *

@@ -20,6 +20,8 @@ class WebsiteJobPost(object):
         "job_recruitment_type": IdNameObject,
         "job_department": IdNameObject,
         "job_type": IdNameObject,
+        "min_job_level": IdNameObject,
+        "max_job_level": IdNameObject,
         "address": CommonAddress,
         "min_salary": str,
         "max_salary": str,
@@ -32,7 +34,6 @@ class WebsiteJobPost(object):
         "creator": IdNameObject,
         "create_time": str,
         "modify_time": str,
-        "publish_time": str,
         "customized_data_list": List[WebsiteJobPostCustomizedData],
         "job_function": IdNameObject,
         "subject": IdNameObject,
@@ -51,6 +52,8 @@ class WebsiteJobPost(object):
         self.job_recruitment_type: Optional[IdNameObject] = None
         self.job_department: Optional[IdNameObject] = None
         self.job_type: Optional[IdNameObject] = None
+        self.min_job_level: Optional[IdNameObject] = None
+        self.max_job_level: Optional[IdNameObject] = None
         self.address: Optional[CommonAddress] = None
         self.min_salary: Optional[str] = None
         self.max_salary: Optional[str] = None
@@ -63,7 +66,6 @@ class WebsiteJobPost(object):
         self.creator: Optional[IdNameObject] = None
         self.create_time: Optional[str] = None
         self.modify_time: Optional[str] = None
-        self.publish_time: Optional[str] = None
         self.customized_data_list: Optional[List[WebsiteJobPostCustomizedData]] = None
         self.job_function: Optional[IdNameObject] = None
         self.subject: Optional[IdNameObject] = None
@@ -120,6 +122,14 @@ class WebsiteJobPostBuilder(object):
         self._website_job_post.job_type = job_type
         return self
 
+    def min_job_level(self, min_job_level: IdNameObject) -> "WebsiteJobPostBuilder":
+        self._website_job_post.min_job_level = min_job_level
+        return self
+
+    def max_job_level(self, max_job_level: IdNameObject) -> "WebsiteJobPostBuilder":
+        self._website_job_post.max_job_level = max_job_level
+        return self
+
     def address(self, address: CommonAddress) -> "WebsiteJobPostBuilder":
         self._website_job_post.address = address
         return self
@@ -166,10 +176,6 @@ class WebsiteJobPostBuilder(object):
 
     def modify_time(self, modify_time: str) -> "WebsiteJobPostBuilder":
         self._website_job_post.modify_time = modify_time
-        return self
-
-    def publish_time(self, publish_time: str) -> "WebsiteJobPostBuilder":
-        self._website_job_post.publish_time = publish_time
         return self
 
     def customized_data_list(self, customized_data_list: List[WebsiteJobPostCustomizedData]) -> "WebsiteJobPostBuilder":

@@ -282,6 +282,9 @@ from .location import *
 from .lookup_field_setting import *
 from .manage_relation import *
 from .management_scope import *
+from .match_compensation_standard_request import *
+from .match_compensation_standard_response import *
+from .match_compensation_standard_response_body import *
 from .name import *
 from .national_id import *
 from .national_id_type import *
@@ -311,6 +314,7 @@ from .p2_corehr_org_role_authorization_updated_v1 import *
 from .p2_corehr_person_created_v1 import *
 from .p2_corehr_person_deleted_v1 import *
 from .p2_corehr_person_updated_v1 import *
+from .p2_corehr_pre_hire_updated_v1 import *
 from .patch_contract_request import *
 from .patch_contract_response import *
 from .patch_contract_response_body import *

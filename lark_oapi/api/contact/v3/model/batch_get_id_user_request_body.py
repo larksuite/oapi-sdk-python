@@ -9,11 +9,13 @@ class BatchGetIdUserRequestBody(object):
     _types = {
         "emails": List[str],
         "mobiles": List[str],
+        "include_resigned": bool,
     }
 
     def __init__(self, d=None):
         self.emails: Optional[List[str]] = None
         self.mobiles: Optional[List[str]] = None
+        self.include_resigned: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class BatchGetIdUserRequestBodyBuilder(object):
 
     def mobiles(self, mobiles: List[str]) -> "BatchGetIdUserRequestBodyBuilder":
         self._batch_get_id_user_request_body.mobiles = mobiles
+        return self
+
+    def include_resigned(self, include_resigned: bool) -> "BatchGetIdUserRequestBodyBuilder":
+        self._batch_get_id_user_request_body.include_resigned = include_resigned
         return self
 
     def build(self) -> "BatchGetIdUserRequestBody":

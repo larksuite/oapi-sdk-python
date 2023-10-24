@@ -32,6 +32,7 @@ def main():
                       .mode(2)
                       .is_milestone(False)
                       .custom_fields([])
+                      .docx_source(DocxSource.builder().build())
                       .build()) \
         .build()
 

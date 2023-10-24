@@ -11,11 +11,13 @@ class P2CalendarCalendarEventChangedV4Data(object):
     _types = {
         "calendar_id": str,
         "user_id_list": List[UserId],
+        "calendar_event_id": str,
     }
 
     def __init__(self, d=None):
         self.calendar_id: Optional[str] = None
         self.user_id_list: Optional[List[UserId]] = None
+        self.calendar_event_id: Optional[str] = None
         init(self, d, self._types)
 
 

@@ -20,6 +20,7 @@ from . import helpdesk
 from . import hire
 from . import human_authentication
 from . import im
+from . import lingo
 from . import mail
 from . import mdm
 from . import meeting_room
