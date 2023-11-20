@@ -3,6 +3,7 @@ from .resource import *
 
 class V2(object):
     def __init__(self, config: Config) -> None:
+        self.attachment: Attachment = Attachment(config)
         self.comment: Comment = Comment(config)
         self.custom_field: CustomField = CustomField(config)
         self.custom_field_option: CustomFieldOption = CustomFieldOption(config)

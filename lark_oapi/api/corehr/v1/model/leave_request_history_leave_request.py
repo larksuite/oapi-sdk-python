@@ -27,6 +27,7 @@ class LeaveRequestHistoryLeaveRequest(BaseRequest):
         self.return_detail: Optional[bool] = None
         self.leave_term_type: Optional[int] = None
         self.time_zone: Optional[str] = None
+        self.data_source: Optional[int] = None
 
     @staticmethod
     def builder() -> "LeaveRequestHistoryLeaveRequestBuilder":
@@ -130,6 +131,11 @@ class LeaveRequestHistoryLeaveRequestBuilder(object):
     def time_zone(self, time_zone: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.time_zone = time_zone
         self._leave_request_history_leave_request.add_query("time_zone", time_zone)
+        return self
+
+    def data_source(self, data_source: int) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.data_source = data_source
+        self._leave_request_history_leave_request.add_query("data_source", data_source)
         return self
 
     def build(self) -> LeaveRequestHistoryLeaveRequest:

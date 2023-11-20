@@ -9,3 +9,4 @@ upload.sh
 *.cache
 tests/
 .env
+sensitive_info_result.txt

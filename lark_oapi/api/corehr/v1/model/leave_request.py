@@ -31,6 +31,7 @@ class LeaveRequest(object):
         "actual_end_date": str,
         "estimated_end_date": str,
         "time_zone": str,
+        "data_source": int,
     }
 
     def __init__(self, d=None):
@@ -56,6 +57,7 @@ class LeaveRequest(object):
         self.actual_end_date: Optional[str] = None
         self.estimated_end_date: Optional[str] = None
         self.time_zone: Optional[str] = None
+        self.data_source: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -153,6 +155,10 @@ class LeaveRequestBuilder(object):
 
     def time_zone(self, time_zone: str) -> "LeaveRequestBuilder":
         self._leave_request.time_zone = time_zone
+        return self
+
+    def data_source(self, data_source: int) -> "LeaveRequestBuilder":
+        self._leave_request.data_source = data_source
         return self
 
     def build(self) -> "LeaveRequest":

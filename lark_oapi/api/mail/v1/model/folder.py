@@ -11,6 +11,8 @@ class Folder(object):
         "name": str,
         "parent_folder_id": int,
         "folder_type": int,
+        "unread_message_count": int,
+        "unread_thread_count": int,
     }
 
     def __init__(self, d=None):
@@ -18,6 +20,8 @@ class Folder(object):
         self.name: Optional[str] = None
         self.parent_folder_id: Optional[int] = None
         self.folder_type: Optional[int] = None
+        self.unread_message_count: Optional[int] = None
+        self.unread_thread_count: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +47,14 @@ class FolderBuilder(object):
 
     def folder_type(self, folder_type: int) -> "FolderBuilder":
         self._folder.folder_type = folder_type
+        return self
+
+    def unread_message_count(self, unread_message_count: int) -> "FolderBuilder":
+        self._folder.unread_message_count = unread_message_count
+        return self
+
+    def unread_thread_count(self, unread_thread_count: int) -> "FolderBuilder":
+        self._folder.unread_thread_count = unread_thread_count
         return self
 
     def build(self) -> "Folder":

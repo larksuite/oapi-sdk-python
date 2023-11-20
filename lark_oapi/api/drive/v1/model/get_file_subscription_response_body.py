@@ -3,16 +3,21 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
-from .file_subscription import FileSubscription
 
 
 class GetFileSubscriptionResponseBody(object):
     _types = {
-        "subscription": FileSubscription,
+        "subscription_id": str,
+        "subscription_type": str,
+        "is_subcribe": bool,
+        "file_type": str,
     }
 
     def __init__(self, d=None):
-        self.subscription: Optional[FileSubscription] = None
+        self.subscription_id: Optional[str] = None
+        self.subscription_type: Optional[str] = None
+        self.is_subcribe: Optional[bool] = None
+        self.file_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,8 +29,20 @@ class GetFileSubscriptionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_file_subscription_response_body = GetFileSubscriptionResponseBody()
 
-    def subscription(self, subscription: FileSubscription) -> "GetFileSubscriptionResponseBodyBuilder":
-        self._get_file_subscription_response_body.subscription = subscription
+    def subscription_id(self, subscription_id: str) -> "GetFileSubscriptionResponseBodyBuilder":
+        self._get_file_subscription_response_body.subscription_id = subscription_id
+        return self
+
+    def subscription_type(self, subscription_type: str) -> "GetFileSubscriptionResponseBodyBuilder":
+        self._get_file_subscription_response_body.subscription_type = subscription_type
+        return self
+
+    def is_subcribe(self, is_subcribe: bool) -> "GetFileSubscriptionResponseBodyBuilder":
+        self._get_file_subscription_response_body.is_subcribe = is_subcribe
+        return self
+
+    def file_type(self, file_type: str) -> "GetFileSubscriptionResponseBodyBuilder":
+        self._get_file_subscription_response_body.file_type = file_type
         return self
 
     def build(self) -> "GetFileSubscriptionResponseBody":

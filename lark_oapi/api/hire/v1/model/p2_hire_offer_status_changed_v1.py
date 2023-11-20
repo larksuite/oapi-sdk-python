@@ -9,10 +9,12 @@ from lark_oapi.event.context import EventContext
 class P2HireOfferStatusChangedV1Data(object):
     _types = {
         "offer_id": str,
+        "offer_status": int,
     }
 
     def __init__(self, d=None):
         self.offer_id: Optional[str] = None
+        self.offer_status: Optional[int] = None
         init(self, d, self._types)
 
 

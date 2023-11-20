@@ -7,6 +7,7 @@ from .application_offer_custom_value import ApplicationOfferCustomValue
 from .base_address import BaseAddress
 from .base_bilingual_with_id import BaseBilingualWithId
 from .contract_period_info import ContractPeriodInfo
+from .master_location_address_info import MasterLocationAddressInfo
 
 
 class ApplicationOfferBasicInfo(object):
@@ -30,6 +31,7 @@ class ApplicationOfferBasicInfo(object):
         "onboard_address": BaseAddress,
         "work_address": BaseAddress,
         "customize_info_list": List[ApplicationOfferCustomValue],
+        "work_location_address_info": MasterLocationAddressInfo,
     }
 
     def __init__(self, d=None):
@@ -52,6 +54,7 @@ class ApplicationOfferBasicInfo(object):
         self.onboard_address: Optional[BaseAddress] = None
         self.work_address: Optional[BaseAddress] = None
         self.customize_info_list: Optional[List[ApplicationOfferCustomValue]] = None
+        self.work_location_address_info: Optional[MasterLocationAddressInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -138,6 +141,11 @@ class ApplicationOfferBasicInfoBuilder(object):
     def customize_info_list(self, customize_info_list: List[
         ApplicationOfferCustomValue]) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.customize_info_list = customize_info_list
+        return self
+
+    def work_location_address_info(self,
+                                   work_location_address_info: MasterLocationAddressInfo) -> "ApplicationOfferBasicInfoBuilder":
+        self._application_offer_basic_info.work_location_address_info = work_location_address_info
         return self
 
     def build(self) -> "ApplicationOfferBasicInfo":

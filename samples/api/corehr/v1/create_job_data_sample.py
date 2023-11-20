@@ -19,6 +19,7 @@ def main():
         .department_id_type("people_corehr_department_id") \
         .request_body(JobData.builder()
                       .job_level_id("6890452208593372679")
+                      .job_grade_id("6890452208593372679")
                       .employee_type_id("6890452208593372679")
                       .working_hours_type_id("6890452208593372679")
                       .work_location_id("6890452208593372679")

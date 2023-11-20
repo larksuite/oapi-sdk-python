@@ -111,6 +111,7 @@ from .dimension_value import *
 from .education import *
 from .email import *
 from .emergency_contact import *
+from .employee_date_type import *
 from .employee_type import *
 from .employment import *
 from .employment_cost_center import *
@@ -298,6 +299,8 @@ from .offboarding_data import *
 from .offboarding_info import *
 from .offboarding_reason import *
 from .p2_corehr_contract_created_v1 import *
+from .p2_corehr_contract_deleted_v1 import *
+from .p2_corehr_contract_updated_v1 import *
 from .p2_corehr_department_created_v1 import *
 from .p2_corehr_department_deleted_v1 import *
 from .p2_corehr_department_updated_v1 import *
@@ -356,6 +359,7 @@ from .person_info_mys import *
 from .person_name import *
 from .personal_profile import *
 from .phone import *
+from .phone_number_and_area_code import *
 from .pre_hire import *
 from .pre_hire_query import *
 from .previous_employer import *
@@ -390,6 +394,7 @@ from .search_offboarding_request_body import *
 from .search_offboarding_response import *
 from .search_offboarding_response_body import *
 from .security_group import *
+from .sort_option import *
 from .subdivision import *
 from .submit_offboarding_request import *
 from .submit_offboarding_request_body import *
@@ -408,5 +413,9 @@ from .upload_person_request_body import *
 from .upload_person_response import *
 from .upload_person_response_body import *
 from .user_id import *
+from .wk_calendar_i18n import *
+from .wk_option import *
+from .work_calendar_detail import *
+from .work_calendar_filter import *
 from .work_experience import *
 from .working_hours_type import *

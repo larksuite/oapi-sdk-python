@@ -11,6 +11,7 @@ from . import block
 from . import calendar
 from . import contact
 from . import corehr
+from . import document_ai
 from . import docx
 from . import drive
 from . import ehr

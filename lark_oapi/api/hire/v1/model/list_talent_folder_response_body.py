@@ -3,20 +3,20 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
-from .talent_folder import TalentFolder
+from .talent_folder_for_list import TalentFolderForList
 
 
 class ListTalentFolderResponseBody(object):
     _types = {
         "has_more": bool,
         "page_token": str,
-        "items": List[TalentFolder],
+        "items": List[TalentFolderForList],
     }
 
     def __init__(self, d=None):
         self.has_more: Optional[bool] = None
         self.page_token: Optional[str] = None
-        self.items: Optional[List[TalentFolder]] = None
+        self.items: Optional[List[TalentFolderForList]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,7 +36,7 @@ class ListTalentFolderResponseBodyBuilder(object):
         self._list_talent_folder_response_body.page_token = page_token
         return self
 
-    def items(self, items: List[TalentFolder]) -> "ListTalentFolderResponseBodyBuilder":
+    def items(self, items: List[TalentFolderForList]) -> "ListTalentFolderResponseBodyBuilder":
         self._list_talent_folder_response_body.items = items
         return self
 

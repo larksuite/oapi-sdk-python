@@ -20,6 +20,8 @@ def main():
                       .time_max("2020-12-28T12:00:00+08:00")
                       .user_id("ou_xxxxxxxxxx")
                       .room_id("omm_xxxxxxxxxx")
+                      .include_external_calendar(True)
+                      .only_busy(True)
                       .build()) \
         .build()
 

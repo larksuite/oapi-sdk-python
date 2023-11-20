@@ -1,5 +1,6 @@
 from .approval_info import *
 from .area import *
+from .arrange_shift_group import *
 from .batch_create_user_daily_shift_request import *
 from .batch_create_user_daily_shift_request_body import *
 from .batch_create_user_daily_shift_response import *
@@ -32,6 +33,7 @@ from .delete_shift_response import *
 from .department_id import *
 from .download_file_request import *
 from .download_file_response import *
+from .duration_item import *
 from .field import *
 from .file import *
 from .flexible_rule import *
@@ -78,6 +80,7 @@ from .modify_user_setting_response_body import *
 from .overtime_clock_cfg import *
 from .overtime_detail import *
 from .overtime_rule import *
+from .overtime_time_range import *
 from .patch_leave_accrual_record_request import *
 from .patch_leave_accrual_record_request_body import *
 from .patch_leave_accrual_record_response import *
@@ -154,6 +157,7 @@ from .upload_file_response import *
 from .upload_file_response_body import *
 from .user_allowed_remedy import *
 from .user_approval import *
+from .user_arrange_shift_group import *
 from .user_daily_shift import *
 from .user_flow import *
 from .user_id import *

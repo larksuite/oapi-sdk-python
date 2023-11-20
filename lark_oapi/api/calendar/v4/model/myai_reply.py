@@ -4,6 +4,7 @@ from typing import Optional, List
 
 from lark_oapi.core.construct import init
 from .room_meta import RoomMeta
+from .user_meta import UserMeta
 
 
 class MyaiReply(object):
@@ -13,6 +14,7 @@ class MyaiReply(object):
         "end_time": str,
         "rooms": List[RoomMeta],
         "summary": str,
+        "participants": List[UserMeta],
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class MyaiReply(object):
         self.end_time: Optional[str] = None
         self.rooms: Optional[List[RoomMeta]] = None
         self.summary: Optional[str] = None
+        self.participants: Optional[List[UserMeta]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -50,6 +53,10 @@ class MyaiReplyBuilder(object):
 
     def summary(self, summary: str) -> "MyaiReplyBuilder":
         self._myai_reply.summary = summary
+        return self
+
+    def participants(self, participants: List[UserMeta]) -> "MyaiReplyBuilder":
+        self._myai_reply.participants = participants
         return self
 
     def build(self) -> "MyaiReply":

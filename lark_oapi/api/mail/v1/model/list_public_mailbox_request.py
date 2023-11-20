@@ -9,8 +9,6 @@ from lark_oapi.core.model import BaseRequest
 class ListPublicMailboxRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.user_id: Optional[int] = None
-        self.user_id_type: Optional[str] = None
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
 
@@ -27,16 +25,6 @@ class ListPublicMailboxRequestBuilder(object):
         list_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes"
         list_public_mailbox_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_public_mailbox_request: ListPublicMailboxRequest = list_public_mailbox_request
-
-    def user_id(self, user_id: int) -> "ListPublicMailboxRequestBuilder":
-        self._list_public_mailbox_request.user_id = user_id
-        self._list_public_mailbox_request.add_query("user_id", user_id)
-        return self
-
-    def user_id_type(self, user_id_type: str) -> "ListPublicMailboxRequestBuilder":
-        self._list_public_mailbox_request.user_id_type = user_id_type
-        self._list_public_mailbox_request.add_query("user_id_type", user_id_type)
-        return self
 
     def page_token(self, page_token: str) -> "ListPublicMailboxRequestBuilder":
         self._list_public_mailbox_request.page_token = page_token

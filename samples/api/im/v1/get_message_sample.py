@@ -15,6 +15,7 @@ def main():
     # 构造请求对象
     request: GetMessageRequest = GetMessageRequest.builder() \
         .message_id("om_dc13264520392913993dd051dba21dcf") \
+        .user_id_type("open_id") \
         .build()
 
     # 发起请求

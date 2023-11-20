@@ -9,11 +9,15 @@ class Attachment(object):
     _types = {
         "body": str,
         "filename": str,
+        "id": str,
+        "attachment_type": int,
     }
 
     def __init__(self, d=None):
         self.body: Optional[str] = None
         self.filename: Optional[str] = None
+        self.id: Optional[str] = None
+        self.attachment_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +35,14 @@ class AttachmentBuilder(object):
 
     def filename(self, filename: str) -> "AttachmentBuilder":
         self._attachment.filename = filename
+        return self
+
+    def id(self, id: str) -> "AttachmentBuilder":
+        self._attachment.id = id
+        return self
+
+    def attachment_type(self, attachment_type: int) -> "AttachmentBuilder":
+        self._attachment.attachment_type = attachment_type
         return self
 
     def build(self) -> "Attachment":

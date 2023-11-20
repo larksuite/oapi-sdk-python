@@ -27,6 +27,8 @@ from ..model.search_department_request import SearchDepartmentRequest
 from ..model.search_department_response import SearchDepartmentResponse
 from ..model.unbind_department_chat_department_request import UnbindDepartmentChatDepartmentRequest
 from ..model.unbind_department_chat_department_response import UnbindDepartmentChatDepartmentResponse
+from ..model.update_department_id_department_request import UpdateDepartmentIdDepartmentRequest
+from ..model.update_department_id_department_response import UpdateDepartmentIdDepartmentResponse
 from ..model.update_department_request import UpdateDepartmentRequest
 from ..model.update_department_response import UpdateDepartmentResponse
 
@@ -259,6 +261,28 @@ class Department(object):
 
         # 反序列化
         response: UpdateDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    def update_department_id(self, request: UpdateDepartmentIdDepartmentRequest,
+                             option: Optional[RequestOption] = None) -> UpdateDepartmentIdDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateDepartmentIdDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        UpdateDepartmentIdDepartmentResponse)
         response.raw = resp
 
         return response

@@ -12,6 +12,7 @@ class MyAiVcMeetingExtra(object):
         "vc_applink_host": str,
         "vc_app_version": str,
         "vc_feature_config": str,
+        "quick_execute_param_rich_tag": str,
     }
 
     def __init__(self, d=None):
@@ -20,6 +21,7 @@ class MyAiVcMeetingExtra(object):
         self.vc_applink_host: Optional[str] = None
         self.vc_app_version: Optional[str] = None
         self.vc_feature_config: Optional[str] = None
+        self.quick_execute_param_rich_tag: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +51,10 @@ class MyAiVcMeetingExtraBuilder(object):
 
     def vc_feature_config(self, vc_feature_config: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.vc_feature_config = vc_feature_config
+        return self
+
+    def quick_execute_param_rich_tag(self, quick_execute_param_rich_tag: str) -> "MyAiVcMeetingExtraBuilder":
+        self._my_ai_vc_meeting_extra.quick_execute_param_rich_tag = quick_execute_param_rich_tag
         return self
 
     def build(self) -> "MyAiVcMeetingExtra":

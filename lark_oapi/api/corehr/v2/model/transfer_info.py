@@ -57,6 +57,8 @@ class TransferInfo(object):
         "target_cost_center_rate": List[JobDataCostCenter],
         "original_employment_change": TranferEmploymentInfo,
         "target_employment_change": TranferEmploymentInfo,
+        "original_job_grade": str,
+        "target_job_grade": str,
     }
 
     def __init__(self, d=None):
@@ -108,6 +110,8 @@ class TransferInfo(object):
         self.target_cost_center_rate: Optional[List[JobDataCostCenter]] = None
         self.original_employment_change: Optional[TranferEmploymentInfo] = None
         self.target_employment_change: Optional[TranferEmploymentInfo] = None
+        self.original_job_grade: Optional[str] = None
+        self.target_job_grade: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -309,6 +313,14 @@ class TransferInfoBuilder(object):
 
     def target_employment_change(self, target_employment_change: TranferEmploymentInfo) -> "TransferInfoBuilder":
         self._transfer_info.target_employment_change = target_employment_change
+        return self
+
+    def original_job_grade(self, original_job_grade: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_job_grade = original_job_grade
+        return self
+
+    def target_job_grade(self, target_job_grade: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_job_grade = target_job_grade
         return self
 
     def build(self) -> "TransferInfo":

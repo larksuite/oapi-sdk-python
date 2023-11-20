@@ -17,6 +17,9 @@ from .calendar_event_attendee_resp import *
 from .calendar_event_resp import *
 from .calendar_freebusy import *
 from .calendar_freebusy_error import *
+from .calendar_primary_batch_req import *
+from .calendar_understand_extra import *
+from .calendar_understand_scenario_context import *
 from .card_callback import *
 from .card_present import *
 from .create_calendar_acl_request import *
@@ -61,6 +64,7 @@ from .event_search_filter import *
 from .event_time import *
 from .exchange_binding import *
 from .free_time import *
+from .free_time_slot import *
 from .freebusy import *
 from .generate_caldav_conf_setting_request import *
 from .generate_caldav_conf_setting_request_body import *
@@ -146,6 +150,10 @@ from .unsubscription_calendar_event_response import *
 from .unsubscription_calendar_request import *
 from .unsubscription_calendar_response import *
 from .user_calendar import *
+from .user_freebusy import *
 from .user_id import *
+from .user_meta import *
 from .vc_info import *
 from .vchat import *
+from .workhour import *
+from .workhour_setting import *

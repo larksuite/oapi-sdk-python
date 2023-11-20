@@ -32,6 +32,7 @@ def main():
         .return_detail(False) \
         .leave_term_type(0) \
         .time_zone("Asia/Shanghai") \
+        .data_source(1) \
         .build()
 
     # 发起请求

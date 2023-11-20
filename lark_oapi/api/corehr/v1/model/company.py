@@ -3,10 +3,12 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .currency import Currency
 from .enum import Enum
 from .hiberarchy_common import HiberarchyCommon
 from .i18n import I18n
 from .object_field_data import ObjectFieldData
+from .phone_number_and_area_code import PhoneNumberAndAreaCode
 
 
 class Company(object):
@@ -23,6 +25,11 @@ class Company(object):
         "branch_company": bool,
         "primary_manager": List[I18n],
         "custom_fields": List[ObjectFieldData],
+        "currency": Currency,
+        "phone": PhoneNumberAndAreaCode,
+        "fax": PhoneNumberAndAreaCode,
+        "registered_office_address": List[I18n],
+        "office_address": List[I18n],
     }
 
     def __init__(self, d=None):
@@ -38,6 +45,11 @@ class Company(object):
         self.branch_company: Optional[bool] = None
         self.primary_manager: Optional[List[I18n]] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.currency: Optional[Currency] = None
+        self.phone: Optional[PhoneNumberAndAreaCode] = None
+        self.fax: Optional[PhoneNumberAndAreaCode] = None
+        self.registered_office_address: Optional[List[I18n]] = None
+        self.office_address: Optional[List[I18n]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -95,6 +107,26 @@ class CompanyBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "CompanyBuilder":
         self._company.custom_fields = custom_fields
+        return self
+
+    def currency(self, currency: Currency) -> "CompanyBuilder":
+        self._company.currency = currency
+        return self
+
+    def phone(self, phone: PhoneNumberAndAreaCode) -> "CompanyBuilder":
+        self._company.phone = phone
+        return self
+
+    def fax(self, fax: PhoneNumberAndAreaCode) -> "CompanyBuilder":
+        self._company.fax = fax
+        return self
+
+    def registered_office_address(self, registered_office_address: List[I18n]) -> "CompanyBuilder":
+        self._company.registered_office_address = registered_office_address
+        return self
+
+    def office_address(self, office_address: List[I18n]) -> "CompanyBuilder":
+        self._company.office_address = office_address
         return self
 
     def build(self) -> "Company":

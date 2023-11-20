@@ -9,11 +9,17 @@ class MyAiAvPluginContextSystemInfo(object):
     _types = {
         "lang": str,
         "brand": str,
+        "locale": str,
+        "session_id": str,
+        "app_version": str,
     }
 
     def __init__(self, d=None):
         self.lang: Optional[str] = None
         self.brand: Optional[str] = None
+        self.locale: Optional[str] = None
+        self.session_id: Optional[str] = None
+        self.app_version: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +37,18 @@ class MyAiAvPluginContextSystemInfoBuilder(object):
 
     def brand(self, brand: str) -> "MyAiAvPluginContextSystemInfoBuilder":
         self._my_ai_av_plugin_context_system_info.brand = brand
+        return self
+
+    def locale(self, locale: str) -> "MyAiAvPluginContextSystemInfoBuilder":
+        self._my_ai_av_plugin_context_system_info.locale = locale
+        return self
+
+    def session_id(self, session_id: str) -> "MyAiAvPluginContextSystemInfoBuilder":
+        self._my_ai_av_plugin_context_system_info.session_id = session_id
+        return self
+
+    def app_version(self, app_version: str) -> "MyAiAvPluginContextSystemInfoBuilder":
+        self._my_ai_av_plugin_context_system_info.app_version = app_version
         return self
 
     def build(self) -> "MyAiAvPluginContextSystemInfo":

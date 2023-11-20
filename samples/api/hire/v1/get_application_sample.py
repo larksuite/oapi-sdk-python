@@ -15,6 +15,7 @@ def main():
     # 构造请求对象
     request: GetApplicationRequest = GetApplicationRequest.builder() \
         .application_id("6949805467799537964") \
+        .options([]) \
         .build()
 
     # 发起请求

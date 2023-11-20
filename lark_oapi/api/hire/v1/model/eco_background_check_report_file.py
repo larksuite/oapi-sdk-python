@@ -9,11 +9,13 @@ class EcoBackgroundCheckReportFile(object):
     _types = {
         "report_name": str,
         "report_url": str,
+        "report_url_type": int,
     }
 
     def __init__(self, d=None):
         self.report_name: Optional[str] = None
         self.report_url: Optional[str] = None
+        self.report_url_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class EcoBackgroundCheckReportFileBuilder(object):
 
     def report_url(self, report_url: str) -> "EcoBackgroundCheckReportFileBuilder":
         self._eco_background_check_report_file.report_url = report_url
+        return self
+
+    def report_url_type(self, report_url_type: int) -> "EcoBackgroundCheckReportFileBuilder":
+        self._eco_background_check_report_file.report_url_type = report_url_type
         return self
 
     def build(self) -> "EcoBackgroundCheckReportFile":

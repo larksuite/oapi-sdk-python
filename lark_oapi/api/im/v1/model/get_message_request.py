@@ -9,6 +9,7 @@ from lark_oapi.core.model import BaseRequest
 class GetMessageRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.message_id: Optional[str] = None
 
     @staticmethod
@@ -24,6 +25,11 @@ class GetMessageRequestBuilder(object):
         get_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         get_message_request.token_types = {AccessTokenType.TENANT}
         self._get_message_request: GetMessageRequest = get_message_request
+
+    def user_id_type(self, user_id_type: str) -> "GetMessageRequestBuilder":
+        self._get_message_request.user_id_type = user_id_type
+        self._get_message_request.add_query("user_id_type", user_id_type)
+        return self
 
     def message_id(self, message_id: str) -> "GetMessageRequestBuilder":
         self._get_message_request.message_id = message_id

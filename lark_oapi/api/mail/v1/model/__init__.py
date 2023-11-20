@@ -1,4 +1,5 @@
 from .attachment import *
+from .attachment_download_url_item import *
 from .batch_create_mailgroup_manager_request import *
 from .batch_create_mailgroup_manager_request_body import *
 from .batch_create_mailgroup_manager_response import *

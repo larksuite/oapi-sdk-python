@@ -32,10 +32,6 @@ from .draft import *
 from .entity import *
 from .entity_card_data import *
 from .entity_word import *
-from .extract_entity_request import *
-from .extract_entity_request_body import *
-from .extract_entity_response import *
-from .extract_entity_response_body import *
 from .file import *
 from .get_entity_request import *
 from .get_entity_response import *

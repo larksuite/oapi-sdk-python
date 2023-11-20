@@ -11,6 +11,8 @@ class ListFreebusyRequestBody(object):
         "time_max": str,
         "user_id": str,
         "room_id": str,
+        "include_external_calendar": bool,
+        "only_busy": bool,
     }
 
     def __init__(self, d=None):
@@ -18,6 +20,8 @@ class ListFreebusyRequestBody(object):
         self.time_max: Optional[str] = None
         self.user_id: Optional[str] = None
         self.room_id: Optional[str] = None
+        self.include_external_calendar: Optional[bool] = None
+        self.only_busy: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +47,14 @@ class ListFreebusyRequestBodyBuilder(object):
 
     def room_id(self, room_id: str) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.room_id = room_id
+        return self
+
+    def include_external_calendar(self, include_external_calendar: bool) -> "ListFreebusyRequestBodyBuilder":
+        self._list_freebusy_request_body.include_external_calendar = include_external_calendar
+        return self
+
+    def only_busy(self, only_busy: bool) -> "ListFreebusyRequestBodyBuilder":
+        self._list_freebusy_request_body.only_busy = only_busy
         return self
 
     def build(self) -> "ListFreebusyRequestBody":

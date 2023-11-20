@@ -3,6 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .calendar_understand_scenario_context import CalendarUnderstandScenarioContext
 
 
 class EventCard(object):
@@ -15,6 +16,9 @@ class EventCard(object):
         "recurrence_rule": str,
         "meeting_room_ids": str,
         "duration": str,
+        "need_meeting_notes": str,
+        "scenario_context_schema_version": str,
+        "scenario_context": CalendarUnderstandScenarioContext,
     }
 
     def __init__(self, d=None):
@@ -26,6 +30,9 @@ class EventCard(object):
         self.recurrence_rule: Optional[str] = None
         self.meeting_room_ids: Optional[str] = None
         self.duration: Optional[str] = None
+        self.need_meeting_notes: Optional[str] = None
+        self.scenario_context_schema_version: Optional[str] = None
+        self.scenario_context: Optional[CalendarUnderstandScenarioContext] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -67,6 +74,18 @@ class EventCardBuilder(object):
 
     def duration(self, duration: str) -> "EventCardBuilder":
         self._event_card.duration = duration
+        return self
+
+    def need_meeting_notes(self, need_meeting_notes: str) -> "EventCardBuilder":
+        self._event_card.need_meeting_notes = need_meeting_notes
+        return self
+
+    def scenario_context_schema_version(self, scenario_context_schema_version: str) -> "EventCardBuilder":
+        self._event_card.scenario_context_schema_version = scenario_context_schema_version
+        return self
+
+    def scenario_context(self, scenario_context: CalendarUnderstandScenarioContext) -> "EventCardBuilder":
+        self._event_card.scenario_context = scenario_context
         return self
 
     def build(self) -> "EventCard":

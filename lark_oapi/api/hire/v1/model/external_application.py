@@ -17,6 +17,7 @@ class ExternalApplication(object):
         "termination_reason": str,
         "delivery_type": int,
         "modify_time": int,
+        "create_time": int,
         "termination_type": str,
     }
 
@@ -31,6 +32,7 @@ class ExternalApplication(object):
         self.termination_reason: Optional[str] = None
         self.delivery_type: Optional[int] = None
         self.modify_time: Optional[int] = None
+        self.create_time: Optional[int] = None
         self.termination_type: Optional[str] = None
         init(self, d, self._types)
 
@@ -81,6 +83,10 @@ class ExternalApplicationBuilder(object):
 
     def modify_time(self, modify_time: int) -> "ExternalApplicationBuilder":
         self._external_application.modify_time = modify_time
+        return self
+
+    def create_time(self, create_time: int) -> "ExternalApplicationBuilder":
+        self._external_application.create_time = create_time
         return self
 
     def termination_type(self, termination_type: str) -> "ExternalApplicationBuilder":

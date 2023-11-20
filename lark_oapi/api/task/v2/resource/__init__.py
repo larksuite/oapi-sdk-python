@@ -1,3 +1,4 @@
+from .attachment import *
 from .comment import *
 from .custom_field import *
 from .custom_field_option import *

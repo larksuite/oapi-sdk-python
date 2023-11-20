@@ -11,12 +11,14 @@ class BookMeetingRoomData(object):
         "meeting_room_id": str,
         "hint": str,
         "rooms": List[RoomMeta],
+        "recurrence_rule": str,
     }
 
     def __init__(self, d=None):
         self.meeting_room_id: Optional[str] = None
         self.hint: Optional[str] = None
         self.rooms: Optional[List[RoomMeta]] = None
+        self.recurrence_rule: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -38,6 +40,10 @@ class BookMeetingRoomDataBuilder(object):
 
     def rooms(self, rooms: List[RoomMeta]) -> "BookMeetingRoomDataBuilder":
         self._book_meeting_room_data.rooms = rooms
+        return self
+
+    def recurrence_rule(self, recurrence_rule: str) -> "BookMeetingRoomDataBuilder":
+        self._book_meeting_room_data.recurrence_rule = recurrence_rule
         return self
 
     def build(self) -> "BookMeetingRoomData":

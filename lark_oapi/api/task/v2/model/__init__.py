@@ -52,6 +52,8 @@ from .custom_complete_item import *
 from .custom_field import *
 from .custom_field_value import *
 from .datetime_setting import *
+from .delete_attachment_request import *
+from .delete_attachment_response import *
 from .delete_comment_request import *
 from .delete_comment_response import *
 from .delete_section_request import *
@@ -66,6 +68,9 @@ from .department_id import *
 from .docx_source import *
 from .due import *
 from .dummy import *
+from .get_attachment_request import *
+from .get_attachment_response import *
+from .get_attachment_response_body import *
 from .get_comment_request import *
 from .get_comment_response import *
 from .get_comment_response_body import *
@@ -94,6 +99,9 @@ from .input_option import *
 from .input_section import *
 from .input_task import *
 from .input_tasklist import *
+from .list_attachment_request import *
+from .list_attachment_response import *
+from .list_attachment_response_body import *
 from .list_comment_request import *
 from .list_comment_response import *
 from .list_comment_response_body import *
@@ -196,3 +204,6 @@ from .tasks_tasklist_request import *
 from .tasks_tasklist_response import *
 from .tasks_tasklist_response_body import *
 from .text_setting import *
+from .upload_attachment_request import *
+from .upload_attachment_response import *
+from .upload_attachment_response_body import *

@@ -13,12 +13,14 @@ class P2VcMeetingLeaveMeetingV1Data(object):
         "meeting": MeetingEventMeeting,
         "operator": MeetingEventUser,
         "leave_reason": int,
+        "leave_user": MeetingEventUser,
     }
 
     def __init__(self, d=None):
         self.meeting: Optional[MeetingEventMeeting] = None
         self.operator: Optional[MeetingEventUser] = None
         self.leave_reason: Optional[int] = None
+        self.leave_user: Optional[MeetingEventUser] = None
         init(self, d, self._types)
 
 

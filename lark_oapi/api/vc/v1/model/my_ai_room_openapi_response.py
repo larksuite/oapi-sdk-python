@@ -9,11 +9,13 @@ class MyAiRoomOpenapiResponse(object):
     _types = {
         "response_type": int,
         "schedule_event_id": str,
+        "other_msg": str,
     }
 
     def __init__(self, d=None):
         self.response_type: Optional[int] = None
         self.schedule_event_id: Optional[str] = None
+        self.other_msg: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class MyAiRoomOpenapiResponseBuilder(object):
 
     def schedule_event_id(self, schedule_event_id: str) -> "MyAiRoomOpenapiResponseBuilder":
         self._my_ai_room_openapi_response.schedule_event_id = schedule_event_id
+        return self
+
+    def other_msg(self, other_msg: str) -> "MyAiRoomOpenapiResponseBuilder":
+        self._my_ai_room_openapi_response.other_msg = other_msg
         return self
 
     def build(self) -> "MyAiRoomOpenapiResponse":

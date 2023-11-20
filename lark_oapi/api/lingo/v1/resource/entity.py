@@ -9,8 +9,6 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
 from ..model.create_entity_request import CreateEntityRequest
 from ..model.create_entity_response import CreateEntityResponse
-from ..model.extract_entity_request import ExtractEntityRequest
-from ..model.extract_entity_response import ExtractEntityResponse
 from ..model.get_entity_request import GetEntityRequest
 from ..model.get_entity_response import GetEntityResponse
 from ..model.highlight_entity_request import HighlightEntityRequest
@@ -45,26 +43,6 @@ class Entity(object):
 
         # 反序列化
         response: CreateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEntityResponse)
-        response.raw = resp
-
-        return response
-
-    def extract(self, request: ExtractEntityRequest, option: Optional[RequestOption] = None) -> ExtractEntityResponse:
-        if option is None:
-            option = RequestOption()
-
-        # 鉴权、获取 token
-        verify(self.config, request, option)
-
-        # 添加 content-type
-        if request.body is not None:
-            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
-
-        # 发起请求
-        resp: RawResponse = Transport.execute(self.config, request, option)
-
-        # 反序列化
-        response: ExtractEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), ExtractEntityResponse)
         response.raw = resp
 
         return response

@@ -9,6 +9,7 @@ class BackgroundCheckOrderFeedbackInfo(object):
     _types = {
         "id": str,
         "attachment_url": str,
+        "report_preview_url": str,
         "result": str,
         "report_type": int,
         "create_time": str,
@@ -18,6 +19,7 @@ class BackgroundCheckOrderFeedbackInfo(object):
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.attachment_url: Optional[str] = None
+        self.report_preview_url: Optional[str] = None
         self.result: Optional[str] = None
         self.report_type: Optional[int] = None
         self.create_time: Optional[str] = None
@@ -39,6 +41,10 @@ class BackgroundCheckOrderFeedbackInfoBuilder(object):
 
     def attachment_url(self, attachment_url: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.attachment_url = attachment_url
+        return self
+
+    def report_preview_url(self, report_preview_url: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
+        self._background_check_order_feedback_info.report_preview_url = report_preview_url
         return self
 
     def result(self, result: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":

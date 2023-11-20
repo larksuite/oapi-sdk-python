@@ -4,6 +4,8 @@ from typing import Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
 from .model.p2_corehr_contract_created_v1 import P2CorehrContractCreatedV1
+from .model.p2_corehr_contract_deleted_v1 import P2CorehrContractDeletedV1
+from .model.p2_corehr_contract_updated_v1 import P2CorehrContractUpdatedV1
 from .model.p2_corehr_department_created_v1 import P2CorehrDepartmentCreatedV1
 from .model.p2_corehr_department_deleted_v1 import P2CorehrDepartmentDeletedV1
 from .model.p2_corehr_department_updated_v1 import P2CorehrDepartmentUpdatedV1
@@ -31,6 +33,28 @@ class P2CorehrContractCreatedV1Processor(IEventProcessor[P2CorehrContractCreated
         return P2CorehrContractCreatedV1
 
     def do(self, data: P2CorehrContractCreatedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrContractDeletedV1Processor(IEventProcessor[P2CorehrContractDeletedV1]):
+    def __init__(self, f: Callable[[P2CorehrContractDeletedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrContractDeletedV1]:
+        return P2CorehrContractDeletedV1
+
+    def do(self, data: P2CorehrContractDeletedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrContractUpdatedV1Processor(IEventProcessor[P2CorehrContractUpdatedV1]):
+    def __init__(self, f: Callable[[P2CorehrContractUpdatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrContractUpdatedV1]:
+        return P2CorehrContractUpdatedV1
+
+    def do(self, data: P2CorehrContractUpdatedV1) -> None:
         self.f(data)
 
 

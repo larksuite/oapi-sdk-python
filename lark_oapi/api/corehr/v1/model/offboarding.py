@@ -15,6 +15,7 @@ class Offboarding(object):
         "application_info": ApplicationInfo,
         "offboarding_info": OffboardingInfo,
         "offboarding_checklist": OffboardingChecklist,
+        "offboarding_id": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class Offboarding(object):
         self.application_info: Optional[ApplicationInfo] = None
         self.offboarding_info: Optional[OffboardingInfo] = None
         self.offboarding_checklist: Optional[OffboardingChecklist] = None
+        self.offboarding_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -52,6 +54,10 @@ class OffboardingBuilder(object):
 
     def offboarding_checklist(self, offboarding_checklist: OffboardingChecklist) -> "OffboardingBuilder":
         self._offboarding.offboarding_checklist = offboarding_checklist
+        return self
+
+    def offboarding_id(self, offboarding_id: str) -> "OffboardingBuilder":
+        self._offboarding.offboarding_id = offboarding_id
         return self
 
     def build(self) -> "Offboarding":

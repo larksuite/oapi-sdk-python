@@ -17,10 +17,10 @@ def main():
         .space_id("6704147935988285963") \
         .request_body(Node.builder()
                       .obj_type("doc")
-                      .parent_node_token("str")
+                      .parent_node_token("wikcnKQ1k3p******8Vabcef")
                       .node_type("origin")
-                      .origin_node_token("str")
-                      .title("str")
+                      .origin_node_token("wikcnKQ1k3p******8Vabcef")
+                      .title("xxxx")
                       .build()) \
         .build()
 

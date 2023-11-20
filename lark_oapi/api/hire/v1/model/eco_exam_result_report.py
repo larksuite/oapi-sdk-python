@@ -9,11 +9,13 @@ class EcoExamResultReport(object):
     _types = {
         "name": str,
         "url": str,
+        "answer_time": str,
     }
 
     def __init__(self, d=None):
         self.name: Optional[str] = None
         self.url: Optional[str] = None
+        self.answer_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +33,10 @@ class EcoExamResultReportBuilder(object):
 
     def url(self, url: str) -> "EcoExamResultReportBuilder":
         self._eco_exam_result_report.url = url
+        return self
+
+    def answer_time(self, answer_time: str) -> "EcoExamResultReportBuilder":
+        self._eco_exam_result_report.answer_time = answer_time
         return self
 
     def build(self) -> "EcoExamResultReport":

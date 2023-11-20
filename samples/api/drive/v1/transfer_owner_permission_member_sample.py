@@ -19,6 +19,7 @@ def main():
         .need_notification(True) \
         .remove_old_owner(False) \
         .stay_put(False) \
+        .old_owner_perm("full_access") \
         .request_body(Owner.builder()
                       .member_type("openid")
                       .member_id("string")

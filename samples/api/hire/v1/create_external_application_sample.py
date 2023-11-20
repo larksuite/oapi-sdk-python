@@ -24,6 +24,7 @@ def main():
                       .termination_reason("不合适")
                       .delivery_type(1)
                       .modify_time(1618500278645)
+                      .create_time(1618500278644)
                       .termination_type("health")
                       .build()) \
         .build()

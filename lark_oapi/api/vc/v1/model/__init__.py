@@ -128,6 +128,7 @@ from .mget_room_request_body import *
 from .mget_room_response import *
 from .mget_room_response_body import *
 from .my_ai_av_plugin_card_status import *
+from .my_ai_av_plugin_card_variables import *
 from .my_ai_av_plugin_card_varibales import *
 from .my_ai_av_plugin_context_system_info import *
 from .my_ai_av_plugin_present_info import *

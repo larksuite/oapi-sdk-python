@@ -19,6 +19,7 @@ class JobData(object):
         "department_id": str,
         "job_id": str,
         "job_level_id": str,
+        "job_grade_id": str,
         "job_family_id": str,
         "probation_start_date": str,
         "probation_end_date": str,
@@ -45,6 +46,7 @@ class JobData(object):
         self.department_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
+        self.job_grade_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
         self.probation_start_date: Optional[str] = None
         self.probation_end_date: Optional[str] = None
@@ -101,6 +103,10 @@ class JobDataBuilder(object):
 
     def job_level_id(self, job_level_id: str) -> "JobDataBuilder":
         self._job_data.job_level_id = job_level_id
+        return self
+
+    def job_grade_id(self, job_grade_id: str) -> "JobDataBuilder":
+        self._job_data.job_grade_id = job_grade_id
         return self
 
     def job_family_id(self, job_family_id: str) -> "JobDataBuilder":

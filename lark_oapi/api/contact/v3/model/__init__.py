@@ -242,6 +242,9 @@ from .unbind_department_unit_request_body import *
 from .unbind_department_unit_response import *
 from .unit import *
 from .unit_department import *
+from .update_department_id_department_request import *
+from .update_department_id_department_request_body import *
+from .update_department_id_department_response import *
 from .update_department_request import *
 from .update_department_response import *
 from .update_department_response_body import *
