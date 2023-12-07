@@ -21,6 +21,7 @@ def main():
         .sync_token("ListCalendarsSyncToken_1632452910") \
         .start_time("1631777271") \
         .end_time("1631777271") \
+        .user_id_type("user_id") \
         .build()
 
     # 发起请求

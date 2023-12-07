@@ -9,6 +9,7 @@ class ParticipantListExportRequestBody(object):
     _types = {
         "meeting_start_time": int,
         "meeting_end_time": int,
+        "meeting_status": int,
         "meeting_no": str,
         "user_id": str,
         "room_id": str,
@@ -17,6 +18,7 @@ class ParticipantListExportRequestBody(object):
     def __init__(self, d=None):
         self.meeting_start_time: Optional[int] = None
         self.meeting_end_time: Optional[int] = None
+        self.meeting_status: Optional[int] = None
         self.meeting_no: Optional[str] = None
         self.user_id: Optional[str] = None
         self.room_id: Optional[str] = None
@@ -37,6 +39,10 @@ class ParticipantListExportRequestBodyBuilder(object):
 
     def meeting_end_time(self, meeting_end_time: int) -> "ParticipantListExportRequestBodyBuilder":
         self._participant_list_export_request_body.meeting_end_time = meeting_end_time
+        return self
+
+    def meeting_status(self, meeting_status: int) -> "ParticipantListExportRequestBodyBuilder":
+        self._participant_list_export_request_body.meeting_status = meeting_status
         return self
 
     def meeting_no(self, meeting_no: str) -> "ParticipantListExportRequestBodyBuilder":

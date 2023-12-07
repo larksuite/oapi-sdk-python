@@ -20,6 +20,7 @@ class UserFlow(object):
         "type": int,
         "photo_urls": List[str],
         "check_result": str,
+        "external_id": str,
     }
 
     def __init__(self, d=None):
@@ -36,6 +37,7 @@ class UserFlow(object):
         self.type: Optional[int] = None
         self.photo_urls: Optional[List[str]] = None
         self.check_result: Optional[str] = None
+        self.external_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -97,6 +99,10 @@ class UserFlowBuilder(object):
 
     def check_result(self, check_result: str) -> "UserFlowBuilder":
         self._user_flow.check_result = check_result
+        return self
+
+    def external_id(self, external_id: str) -> "UserFlowBuilder":
+        self._user_flow.external_id = external_id
         return self
 
     def build(self) -> "UserFlow":

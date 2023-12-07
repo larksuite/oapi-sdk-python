@@ -11,6 +11,7 @@ class GetMeetingListRequest(BaseRequest):
         super().__init__()
         self.start_time: Optional[int] = None
         self.end_time: Optional[int] = None
+        self.meeting_status: Optional[int] = None
         self.meeting_no: Optional[str] = None
         self.user_id: Optional[str] = None
         self.room_id: Optional[str] = None
@@ -40,6 +41,11 @@ class GetMeetingListRequestBuilder(object):
     def end_time(self, end_time: int) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.end_time = end_time
         self._get_meeting_list_request.add_query("end_time", end_time)
+        return self
+
+    def meeting_status(self, meeting_status: int) -> "GetMeetingListRequestBuilder":
+        self._get_meeting_list_request.meeting_status = meeting_status
+        self._get_meeting_list_request.add_query("meeting_status", meeting_status)
         return self
 
     def meeting_no(self, meeting_no: str) -> "GetMeetingListRequestBuilder":

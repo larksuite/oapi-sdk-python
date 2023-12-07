@@ -32,6 +32,10 @@ class LeaveRequest(object):
         "estimated_end_date": str,
         "time_zone": str,
         "data_source": int,
+        "leave_process_id": List[str],
+        "leave_correct_process_id": List[str],
+        "leave_cancel_process_id": List[str],
+        "leave_return_process_id": List[str],
     }
 
     def __init__(self, d=None):
@@ -58,6 +62,10 @@ class LeaveRequest(object):
         self.estimated_end_date: Optional[str] = None
         self.time_zone: Optional[str] = None
         self.data_source: Optional[int] = None
+        self.leave_process_id: Optional[List[str]] = None
+        self.leave_correct_process_id: Optional[List[str]] = None
+        self.leave_cancel_process_id: Optional[List[str]] = None
+        self.leave_return_process_id: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -159,6 +167,22 @@ class LeaveRequestBuilder(object):
 
     def data_source(self, data_source: int) -> "LeaveRequestBuilder":
         self._leave_request.data_source = data_source
+        return self
+
+    def leave_process_id(self, leave_process_id: List[str]) -> "LeaveRequestBuilder":
+        self._leave_request.leave_process_id = leave_process_id
+        return self
+
+    def leave_correct_process_id(self, leave_correct_process_id: List[str]) -> "LeaveRequestBuilder":
+        self._leave_request.leave_correct_process_id = leave_correct_process_id
+        return self
+
+    def leave_cancel_process_id(self, leave_cancel_process_id: List[str]) -> "LeaveRequestBuilder":
+        self._leave_request.leave_cancel_process_id = leave_cancel_process_id
+        return self
+
+    def leave_return_process_id(self, leave_return_process_id: List[str]) -> "LeaveRequestBuilder":
+        self._leave_request.leave_return_process_id = leave_return_process_id
         return self
 
     def build(self) -> "LeaveRequest":

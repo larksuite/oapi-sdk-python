@@ -1,3 +1,4 @@
+from .activity_record import *
 from .add_custom_field_request import *
 from .add_custom_field_request_body import *
 from .add_custom_field_response import *

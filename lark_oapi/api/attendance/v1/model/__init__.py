@@ -77,6 +77,7 @@ from .modify_user_setting_request import *
 from .modify_user_setting_request_body import *
 from .modify_user_setting_response import *
 from .modify_user_setting_response_body import *
+from .open_apply_time_range import *
 from .overtime_clock_cfg import *
 from .overtime_detail import *
 from .overtime_rule import *
@@ -145,6 +146,7 @@ from .search_group_request_body import *
 from .search_group_response import *
 from .search_group_response_body import *
 from .shift import *
+from .shift_group_user import *
 from .status_change import *
 from .task_result import *
 from .update_user_stats_view_request import *
@@ -165,6 +167,7 @@ from .user_leave import *
 from .user_out import *
 from .user_overtime_work import *
 from .user_setting import *
+from .user_shift_groups_list import *
 from .user_stats_data import *
 from .user_stats_data_cell import *
 from .user_stats_data_feature import *

@@ -18,6 +18,7 @@ def main():
         .request_body(MeetingListExportRequestBody.builder()
                       .start_time("1655276858")
                       .end_time("1655276858")
+                      .meeting_status(2)
                       .meeting_no("123456789")
                       .user_id("ou_3ec3f6a28a0d08c45d895276e8e5e19b")
                       .room_id("omm_eada1d61a550955240c28757e7dec3af")

@@ -80,6 +80,7 @@ class Group(object):
         "bind_default_dept_ids": List[str],
         "bind_default_user_ids": List[str],
         "overtime_clock_cfg": OvertimeClockCfg,
+        "new_calendar_id": str,
     }
 
     def __init__(self, d=None):
@@ -148,6 +149,7 @@ class Group(object):
         self.bind_default_dept_ids: Optional[List[str]] = None
         self.bind_default_user_ids: Optional[List[str]] = None
         self.overtime_clock_cfg: Optional[OvertimeClockCfg] = None
+        self.new_calendar_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -417,6 +419,10 @@ class GroupBuilder(object):
 
     def overtime_clock_cfg(self, overtime_clock_cfg: OvertimeClockCfg) -> "GroupBuilder":
         self._group.overtime_clock_cfg = overtime_clock_cfg
+        return self
+
+    def new_calendar_id(self, new_calendar_id: str) -> "GroupBuilder":
+        self._group.new_calendar_id = new_calendar_id
         return self
 
     def build(self) -> "Group":

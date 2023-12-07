@@ -11,6 +11,9 @@ class FileStatistics(object):
         "pv": int,
         "like_count": int,
         "timestamp": int,
+        "uv_today": int,
+        "pv_today": int,
+        "like_count_today": int,
     }
 
     def __init__(self, d=None):
@@ -18,6 +21,9 @@ class FileStatistics(object):
         self.pv: Optional[int] = None
         self.like_count: Optional[int] = None
         self.timestamp: Optional[int] = None
+        self.uv_today: Optional[int] = None
+        self.pv_today: Optional[int] = None
+        self.like_count_today: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +49,18 @@ class FileStatisticsBuilder(object):
 
     def timestamp(self, timestamp: int) -> "FileStatisticsBuilder":
         self._file_statistics.timestamp = timestamp
+        return self
+
+    def uv_today(self, uv_today: int) -> "FileStatisticsBuilder":
+        self._file_statistics.uv_today = uv_today
+        return self
+
+    def pv_today(self, pv_today: int) -> "FileStatisticsBuilder":
+        self._file_statistics.pv_today = pv_today
+        return self
+
+    def like_count_today(self, like_count_today: int) -> "FileStatisticsBuilder":
+        self._file_statistics.like_count_today = like_count_today
         return self
 
     def build(self) -> "FileStatistics":

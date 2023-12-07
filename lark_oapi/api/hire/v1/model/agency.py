@@ -3,6 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .i18n import I18n
 
 
 class Agency(object):
@@ -10,12 +11,14 @@ class Agency(object):
         "id": str,
         "name": str,
         "contactor_id": str,
+        "contactor_name": I18n,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.contactor_id: Optional[str] = None
+        self.contactor_name: Optional[I18n] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +40,10 @@ class AgencyBuilder(object):
 
     def contactor_id(self, contactor_id: str) -> "AgencyBuilder":
         self._agency.contactor_id = contactor_id
+        return self
+
+    def contactor_name(self, contactor_name: I18n) -> "AgencyBuilder":
+        self._agency.contactor_name = contactor_name
         return self
 
     def build(self) -> "Agency":

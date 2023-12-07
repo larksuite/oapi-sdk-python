@@ -60,6 +60,7 @@ from .delete_timeoff_event_response import *
 from .department_id import *
 from .event_card import *
 from .event_location import *
+from .event_organizer import *
 from .event_search_filter import *
 from .event_time import *
 from .exchange_binding import *
@@ -79,6 +80,7 @@ from .get_calendar_response_body import *
 from .get_exchange_binding_request import *
 from .get_exchange_binding_response import *
 from .get_exchange_binding_response_body import *
+from .instance import *
 from .list_calendar_acl_request import *
 from .list_calendar_acl_response import *
 from .list_calendar_acl_response_body import *

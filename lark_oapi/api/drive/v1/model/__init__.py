@@ -81,6 +81,8 @@ from .download_media_response import *
 from .export_task import *
 from .favorite import *
 from .file import *
+from .file_block_change_info import *
+from .file_change_info import *
 from .file_comment import *
 from .file_comment_reply import *
 from .file_favorite import *

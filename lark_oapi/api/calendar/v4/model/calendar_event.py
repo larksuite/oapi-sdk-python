@@ -4,6 +4,7 @@ from typing import Optional, List
 
 from lark_oapi.core.construct import init
 from .event_location import EventLocation
+from .event_organizer import EventOrganizer
 from .reminder import Reminder
 from .schema import Schema
 from .time_info import TimeInfo
@@ -32,6 +33,8 @@ class CalendarEvent(object):
         "recurring_event_id": str,
         "create_time": str,
         "schemas": List[Schema],
+        "event_organizer": EventOrganizer,
+        "app_link": str,
     }
 
     def __init__(self, d=None):
@@ -55,6 +58,8 @@ class CalendarEvent(object):
         self.recurring_event_id: Optional[str] = None
         self.create_time: Optional[str] = None
         self.schemas: Optional[List[Schema]] = None
+        self.event_organizer: Optional[EventOrganizer] = None
+        self.app_link: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -144,6 +149,14 @@ class CalendarEventBuilder(object):
 
     def schemas(self, schemas: List[Schema]) -> "CalendarEventBuilder":
         self._calendar_event.schemas = schemas
+        return self
+
+    def event_organizer(self, event_organizer: EventOrganizer) -> "CalendarEventBuilder":
+        self._calendar_event.event_organizer = event_organizer
+        return self
+
+    def app_link(self, app_link: str) -> "CalendarEventBuilder":
+        self._calendar_event.app_link = app_link
         return self
 
     def build(self) -> "CalendarEvent":

@@ -15,6 +15,7 @@ class ListCalendarEventRequest(BaseRequest):
         self.sync_token: Optional[str] = None
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
+        self.user_id_type: Optional[str] = None
         self.calendar_id: Optional[str] = None
 
     @staticmethod
@@ -59,6 +60,11 @@ class ListCalendarEventRequestBuilder(object):
     def end_time(self, end_time: str) -> "ListCalendarEventRequestBuilder":
         self._list_calendar_event_request.end_time = end_time
         self._list_calendar_event_request.add_query("end_time", end_time)
+        return self
+
+    def user_id_type(self, user_id_type: str) -> "ListCalendarEventRequestBuilder":
+        self._list_calendar_event_request.user_id_type = user_id_type
+        self._list_calendar_event_request.add_query("user_id_type", user_id_type)
         return self
 
     def calendar_id(self, calendar_id: str) -> "ListCalendarEventRequestBuilder":

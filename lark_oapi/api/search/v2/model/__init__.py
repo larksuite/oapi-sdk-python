@@ -79,6 +79,7 @@ from .schema_sort_options import *
 from .schema_tag_options import *
 from .schema_type_definitions import *
 from .schema_user_ids_option import *
+from .seperate_passage import *
 from .user_info import *
 from .web_passage_param import *
 from .wiki_passage_param import *

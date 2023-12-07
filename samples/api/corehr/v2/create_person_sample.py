@@ -32,7 +32,6 @@ def main():
                       .emergency_contact_list([])
                       .date_entered_workforce("2020-10-01")
                       .profile_image_id("dfysuc8x76dsfsw")
-                      .age(22)
                       .personal_profile([])
                       .native_region("6863326262618752111")
                       .hukou_type(Enum.builder().build())

@@ -45,6 +45,9 @@ from .list_admin_dept_stat_response_body import *
 from .list_admin_user_stat_request import *
 from .list_admin_user_stat_response import *
 from .list_admin_user_stat_response_body import *
+from .list_audit_info_request import *
+from .list_audit_info_response import *
+from .list_audit_info_response_body import *
 from .list_badge_grant_request import *
 from .list_badge_grant_response import *
 from .list_badge_grant_response_body import *

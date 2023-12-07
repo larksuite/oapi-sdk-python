@@ -179,8 +179,11 @@ from .search_probation_request import *
 from .search_probation_request_body import *
 from .search_probation_response import *
 from .search_probation_response_body import *
+from .signature_file import *
 from .tranfer_employment_info import *
 from .transfer_info import *
+from .user_contact import *
+from .user_info import *
 from .work_email import *
 from .work_experience import *
 from .work_experience_info import *

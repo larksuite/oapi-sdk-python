@@ -12,6 +12,8 @@ from .create_draft_response_body import *
 from .create_entity_request import *
 from .create_entity_response import *
 from .create_entity_response_body import *
+from .delete_entity_request import *
+from .delete_entity_response import *
 from .department_id import *
 from .display_status import *
 from .doc_bullet import *

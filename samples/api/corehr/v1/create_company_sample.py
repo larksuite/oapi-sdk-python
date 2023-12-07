@@ -27,6 +27,9 @@ def main():
                       .branch_company(True)
                       .primary_manager([])
                       .custom_fields([])
+                      .currency(Currency.builder().build())
+                      .phone(PhoneNumberAndAreaCode.builder().build())
+                      .fax(PhoneNumberAndAreaCode.builder().build())
                       .build()) \
         .build()
 

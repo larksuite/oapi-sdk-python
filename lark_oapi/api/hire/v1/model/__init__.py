@@ -5,6 +5,7 @@ from .add_to_folder_talent_request_body import *
 from .add_to_folder_talent_response import *
 from .add_to_folder_talent_response_body import *
 from .agency import *
+from .agency_protection import *
 from .appli_offer_basic_cust_obj import *
 from .appli_offer_basic_cust_obj_op_v import *
 from .appli_offer_basic_info_user import *
@@ -460,6 +461,7 @@ from .reconciliation_referral_account_response import *
 from .reconciliation_referral_account_response_body import *
 from .recruitment_type import *
 from .referral import *
+from .referral_info import *
 from .registration_basic_info import *
 from .registration_info import *
 from .registration_schema import *

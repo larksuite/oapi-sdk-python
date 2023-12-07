@@ -12,6 +12,7 @@ class PreHireEmploymentInfo(object):
         "department_id": str,
         "cost_center_rates": List[JobDataCostCenter],
         "office_location_id": str,
+        "work_location_id": str,
         "work_station": str,
         "worker_id": str,
         "compensation_type": Enum,
@@ -38,6 +39,7 @@ class PreHireEmploymentInfo(object):
         self.department_id: Optional[str] = None
         self.cost_center_rates: Optional[List[JobDataCostCenter]] = None
         self.office_location_id: Optional[str] = None
+        self.work_location_id: Optional[str] = None
         self.work_station: Optional[str] = None
         self.worker_id: Optional[str] = None
         self.compensation_type: Optional[Enum] = None
@@ -79,6 +81,10 @@ class PreHireEmploymentInfoBuilder(object):
 
     def office_location_id(self, office_location_id: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.office_location_id = office_location_id
+        return self
+
+    def work_location_id(self, work_location_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.work_location_id = work_location_id
         return self
 
     def work_station(self, work_station: str) -> "PreHireEmploymentInfoBuilder":
