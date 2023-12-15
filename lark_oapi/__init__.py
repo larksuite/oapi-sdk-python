@@ -1,3 +1,4 @@
+from . import ws
 from .api import *
 from .card import *
 from .client import Client
