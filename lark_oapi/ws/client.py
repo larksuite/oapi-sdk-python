@@ -8,7 +8,7 @@ import websockets
 from google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 
 from lark_oapi.core.cache import ExpiringCache
-from lark_oapi.core.const import UTF_8
+from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN
 from lark_oapi.core.enum import LogLevel
 from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
@@ -18,8 +18,6 @@ from lark_oapi.ws.enum import FrameType, MessageType
 from lark_oapi.ws.exception import *
 from lark_oapi.ws.model import *
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
-
-x_tt_env = "boe_mwb"
 
 try:
     loop = asyncio.get_event_loop()
@@ -79,7 +77,7 @@ class Client(object):
                  app_secret,
                  log_level: LogLevel = LogLevel.INFO,
                  event_handler: EventDispatcherHandler = None,
-                 domain: str = "https://open.feishu-boe.cn",
+                 domain: str = FEISHU_DOMAIN,
                  auto_reconnect: bool = True) -> None:
         self._app_id: str = app_id
         self._app_secret: str = app_secret
@@ -139,7 +137,7 @@ class Client(object):
             conn_id = q[DEVICE_ID][0]
             service_id = q[SERVICE_ID][0]
 
-            conn = await websockets.connect(conn_url, extra_headers={"x-use-boe": "1", "x-tt-env": x_tt_env})
+            conn = await websockets.connect(conn_url)
             self._conn = conn
             self._conn_url = conn_url
             self._conn_id = conn_id
@@ -170,8 +168,6 @@ class Client(object):
         response = requests.post(
             self._domain + GEN_ENDPOINT_URI,
             headers={
-                "x-use-boe": "1",
-                "x-tt-env": x_tt_env,
                 "locale": "zh",
             },
             json={
