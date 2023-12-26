@@ -1,6 +1,7 @@
 import asyncio
 import http
 import random
+import time
 from urllib.parse import urlparse, parse_qs
 
 import requests
@@ -122,7 +123,7 @@ class Client(object):
                     await self._write_message(frame.SerializeToString())
                     logger.debug(self._fmt_log("ping success"))
             except Exception as e:
-                logger.error(self._fmt_log("ping failed, err: {}", e))
+                logger.warn(self._fmt_log("ping failed, err: {}", e))
             finally:
                 await asyncio.sleep(self._ping_interval)
 
@@ -242,12 +243,17 @@ class Client(object):
 
         resp = Response(code=http.HTTPStatus.OK)
         try:
+            start = int(round(time.time() * 1000))
             if message_type == MessageType.EVENT:
                 self._event_handler.do_without_validation(pl)
             elif message_type == MessageType.CARD:
                 return
             else:
                 return
+            end = int(round(time.time() * 1000))
+            header = hs.add()
+            header.key = HEADER_BIZ_RT
+            header.value = str(end - start)
         except Exception as e:
             logger.error(
                 self._fmt_log("handle message failed, message_type: {}, message_id: {}, trace_id: {}, err: {}",
@@ -269,7 +275,8 @@ class Client(object):
                 if await self._try_connect(i):
                     return
                 await asyncio.sleep(self._reconnect_interval)
-            raise ServerUnreachableException(f"unable to connect to server after {self._reconnect_count} retries")
+            raise ServerUnreachableException(
+                f"unable to connect to the server after trying {self._reconnect_count} times")
         else:
             i = 0
             while True:
@@ -279,7 +286,7 @@ class Client(object):
                 i += 1
 
     async def _try_connect(self, cnt: int) -> bool:
-        logger.info(self._fmt_log("trying to reconnect: {}", cnt + 1))
+        logger.info(self._fmt_log("trying to reconnect for the {} time", cnt + 1))
         try:
             await self._connect()
             return True
