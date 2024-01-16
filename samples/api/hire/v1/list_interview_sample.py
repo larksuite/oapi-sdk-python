@@ -20,6 +20,7 @@ def main():
         .interview_id("6888217964693309704") \
         .start_time("1609489908000") \
         .end_time("1610489908000") \
+        .job_level_id_type("people_admin_job_level_id") \
         .user_id_type("user_id") \
         .build()
 

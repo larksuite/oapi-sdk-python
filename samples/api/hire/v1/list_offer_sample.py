@@ -18,6 +18,7 @@ def main():
         .page_size(1) \
         .talent_id("7096320678581242123") \
         .user_id_type("user_id") \
+        .employee_type_id_type("people_admin_employee_type_id") \
         .build()
 
     # 发起请求

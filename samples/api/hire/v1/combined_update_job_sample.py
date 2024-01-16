@@ -17,6 +17,8 @@ def main():
         .job_id("6960663240925956660") \
         .user_id_type("open_id") \
         .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
         .request_body(CombinedJob.builder()
                       .id("6960663240925956576")
                       .experience(1)

@@ -13,6 +13,8 @@ class BankAccount(object):
         "bank_account_number": str,
         "account_holder": str,
         "branch_name": str,
+        "bank_id_v2": str,
+        "branch_id_v2": str,
         "country_region_id": str,
         "bank_account_usage": List[Enum],
         "bank_account_type": Enum,
@@ -26,6 +28,8 @@ class BankAccount(object):
         self.bank_account_number: Optional[str] = None
         self.account_holder: Optional[str] = None
         self.branch_name: Optional[str] = None
+        self.bank_id_v2: Optional[str] = None
+        self.branch_id_v2: Optional[str] = None
         self.country_region_id: Optional[str] = None
         self.bank_account_usage: Optional[List[Enum]] = None
         self.bank_account_type: Optional[Enum] = None
@@ -57,6 +61,14 @@ class BankAccountBuilder(object):
 
     def branch_name(self, branch_name: str) -> "BankAccountBuilder":
         self._bank_account.branch_name = branch_name
+        return self
+
+    def bank_id_v2(self, bank_id_v2: str) -> "BankAccountBuilder":
+        self._bank_account.bank_id_v2 = bank_id_v2
+        return self
+
+    def branch_id_v2(self, branch_id_v2: str) -> "BankAccountBuilder":
+        self._bank_account.branch_id_v2 = branch_id_v2
         return self
 
     def country_region_id(self, country_region_id: str) -> "BankAccountBuilder":

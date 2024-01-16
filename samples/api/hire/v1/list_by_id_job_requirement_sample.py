@@ -16,6 +16,9 @@ def main():
     request: ListByIdJobRequirementRequest = ListByIdJobRequirementRequest.builder() \
         .user_id_type("open_id") \
         .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
+        .employee_type_id_type("people_admin_employee_type_id") \
         .request_body(ListByIdJobRequirementRequestBody.builder()
                       .id_list([])
                       .build()) \

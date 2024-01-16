@@ -11,6 +11,9 @@ class GetEmployeeRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.department_id_type: Optional[str] = None
+        self.job_level_id_type: Optional[str] = None
+        self.job_family_id_type: Optional[str] = None
+        self.employee_type_id_type: Optional[str] = None
         self.employee_id: Optional[str] = None
 
     @staticmethod
@@ -35,6 +38,21 @@ class GetEmployeeRequestBuilder(object):
     def department_id_type(self, department_id_type: str) -> "GetEmployeeRequestBuilder":
         self._get_employee_request.department_id_type = department_id_type
         self._get_employee_request.add_query("department_id_type", department_id_type)
+        return self
+
+    def job_level_id_type(self, job_level_id_type: str) -> "GetEmployeeRequestBuilder":
+        self._get_employee_request.job_level_id_type = job_level_id_type
+        self._get_employee_request.add_query("job_level_id_type", job_level_id_type)
+        return self
+
+    def job_family_id_type(self, job_family_id_type: str) -> "GetEmployeeRequestBuilder":
+        self._get_employee_request.job_family_id_type = job_family_id_type
+        self._get_employee_request.add_query("job_family_id_type", job_family_id_type)
+        return self
+
+    def employee_type_id_type(self, employee_type_id_type: str) -> "GetEmployeeRequestBuilder":
+        self._get_employee_request.employee_type_id_type = employee_type_id_type
+        self._get_employee_request.add_query("employee_type_id_type", employee_type_id_type)
         return self
 
     def employee_id(self, employee_id: str) -> "GetEmployeeRequestBuilder":

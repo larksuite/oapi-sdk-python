@@ -10,12 +10,16 @@ class SearchJobChangeRequestBody(object):
         "employment_ids": List[str],
         "job_change_ids": List[str],
         "statuses": List[str],
+        "effective_date_start": str,
+        "effective_date_end": str,
     }
 
     def __init__(self, d=None):
         self.employment_ids: Optional[List[str]] = None
         self.job_change_ids: Optional[List[str]] = None
         self.statuses: Optional[List[str]] = None
+        self.effective_date_start: Optional[str] = None
+        self.effective_date_end: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +41,14 @@ class SearchJobChangeRequestBodyBuilder(object):
 
     def statuses(self, statuses: List[str]) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.statuses = statuses
+        return self
+
+    def effective_date_start(self, effective_date_start: str) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.effective_date_start = effective_date_start
+        return self
+
+    def effective_date_end(self, effective_date_end: str) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.effective_date_end = effective_date_end
         return self
 
     def build(self) -> "SearchJobChangeRequestBody":

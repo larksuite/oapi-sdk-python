@@ -22,6 +22,8 @@ def main():
                       .employment_ids([])
                       .job_change_ids([])
                       .statuses([])
+                      .effective_date_start("2022-01-01")
+                      .effective_date_end("2022-01-01")
                       .build()) \
         .build()
 

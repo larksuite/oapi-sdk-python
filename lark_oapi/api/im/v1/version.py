@@ -21,3 +21,4 @@ class V1(object):
         self.message_reaction: MessageReaction = MessageReaction(config)
         self.message_resource: MessageResource = MessageResource(config)
         self.pin: Pin = Pin(config)
+        self.thread: Thread = Thread(config)

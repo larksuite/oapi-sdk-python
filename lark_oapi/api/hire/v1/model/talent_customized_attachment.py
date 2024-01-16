@@ -8,14 +8,14 @@ from lark_oapi.core.construct import init
 class TalentCustomizedAttachment(object):
     _types = {
         "file_id": str,
-        "file_name": str,
+        "name": str,
         "content_type": str,
         "file_size": int,
     }
 
     def __init__(self, d=None):
         self.file_id: Optional[str] = None
-        self.file_name: Optional[str] = None
+        self.name: Optional[str] = None
         self.content_type: Optional[str] = None
         self.file_size: Optional[int] = None
         init(self, d, self._types)
@@ -33,8 +33,8 @@ class TalentCustomizedAttachmentBuilder(object):
         self._talent_customized_attachment.file_id = file_id
         return self
 
-    def file_name(self, file_name: str) -> "TalentCustomizedAttachmentBuilder":
-        self._talent_customized_attachment.file_name = file_name
+    def name(self, name: str) -> "TalentCustomizedAttachmentBuilder":
+        self._talent_customized_attachment.name = name
         return self
 
     def content_type(self, content_type: str) -> "TalentCustomizedAttachmentBuilder":

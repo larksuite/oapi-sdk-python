@@ -17,6 +17,9 @@ def main():
         .offer_id("7016605170635213100") \
         .user_id_type("open_id") \
         .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
+        .employee_type_id_type("people_admin_employee_type_id") \
         .request_body(OfferInfo.builder()
                       .schema_id("7013318077945596204")
                       .basic_info(OfferBasicInfo.builder().build())

@@ -24,6 +24,7 @@ class ChatChange(object):
         "moderation_permission": str,
         "owner_id": UserId,
         "restricted_mode_setting": RestrictedModeSetting,
+        "group_message_type": str,
     }
 
     def __init__(self, d=None):
@@ -41,6 +42,7 @@ class ChatChange(object):
         self.moderation_permission: Optional[str] = None
         self.owner_id: Optional[UserId] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
+        self.group_message_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -106,6 +108,10 @@ class ChatChangeBuilder(object):
 
     def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "ChatChangeBuilder":
         self._chat_change.restricted_mode_setting = restricted_mode_setting
+        return self
+
+    def group_message_type(self, group_message_type: str) -> "ChatChangeBuilder":
+        self._chat_change.group_message_type = group_message_type
         return self
 
     def build(self) -> "ChatChange":

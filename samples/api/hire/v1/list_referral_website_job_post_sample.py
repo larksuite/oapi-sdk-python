@@ -19,6 +19,7 @@ def main():
         .page_size(10) \
         .user_id_type("open_id") \
         .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
         .build()
 
     # 发起请求

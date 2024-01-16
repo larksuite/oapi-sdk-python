@@ -18,6 +18,7 @@ def main():
         .page_size(10) \
         .page_token("xx") \
         .user_id_type("open_id") \
+        .job_level_id_type("people_admin_job_level_id") \
         .build()
 
     # 发起请求

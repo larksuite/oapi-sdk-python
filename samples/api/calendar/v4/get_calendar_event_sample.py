@@ -17,6 +17,8 @@ def main():
         .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
         .event_id("xxxxxxxxx_0") \
         .need_meeting_settings(False) \
+        .need_attendee(False) \
+        .max_attendee_num(10) \
         .user_id_type("user_id") \
         .build()
 

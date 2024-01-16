@@ -23,7 +23,7 @@ class GetMessageRequestBuilder(object):
         get_message_request = GetMessageRequest()
         get_message_request.http_method = HttpMethod.GET
         get_message_request.uri = "/open-apis/im/v1/messages/:message_id"
-        get_message_request.token_types = {AccessTokenType.TENANT}
+        get_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_message_request: GetMessageRequest = get_message_request
 
     def user_id_type(self, user_id_type: str) -> "GetMessageRequestBuilder":

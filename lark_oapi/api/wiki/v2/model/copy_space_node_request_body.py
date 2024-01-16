@@ -8,13 +8,13 @@ from lark_oapi.core.construct import init
 class CopySpaceNodeRequestBody(object):
     _types = {
         "target_parent_token": str,
-        "target_space_id": int,
+        "target_space_id": str,
         "title": str,
     }
 
     def __init__(self, d=None):
         self.target_parent_token: Optional[str] = None
-        self.target_space_id: Optional[int] = None
+        self.target_space_id: Optional[str] = None
         self.title: Optional[str] = None
         init(self, d, self._types)
 
@@ -31,7 +31,7 @@ class CopySpaceNodeRequestBodyBuilder(object):
         self._copy_space_node_request_body.target_parent_token = target_parent_token
         return self
 
-    def target_space_id(self, target_space_id: int) -> "CopySpaceNodeRequestBodyBuilder":
+    def target_space_id(self, target_space_id: str) -> "CopySpaceNodeRequestBodyBuilder":
         self._copy_space_node_request_body.target_space_id = target_space_id
         return self
 

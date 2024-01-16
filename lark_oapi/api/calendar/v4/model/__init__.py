@@ -58,6 +58,7 @@ from .delete_exchange_binding_response import *
 from .delete_timeoff_event_request import *
 from .delete_timeoff_event_response import *
 from .department_id import *
+from .event_brief_info_ai import *
 from .event_card import *
 from .event_location import *
 from .event_organizer import *
@@ -65,6 +66,7 @@ from .event_search_filter import *
 from .event_time import *
 from .exchange_binding import *
 from .free_time import *
+from .free_time_ai import *
 from .free_time_slot import *
 from .freebusy import *
 from .generate_caldav_conf_setting_request import *
@@ -81,6 +83,12 @@ from .get_exchange_binding_request import *
 from .get_exchange_binding_response import *
 from .get_exchange_binding_response_body import *
 from .instance import *
+from .instance_view_calendar_event_request import *
+from .instance_view_calendar_event_response import *
+from .instance_view_calendar_event_response_body import *
+from .instances_calendar_event_request import *
+from .instances_calendar_event_response import *
+from .instances_calendar_event_response_body import *
 from .list_calendar_acl_request import *
 from .list_calendar_acl_response import *
 from .list_calendar_acl_response_body import *
@@ -103,6 +111,8 @@ from .list_freebusy_response_body import *
 from .meeting_chat import *
 from .meeting_minute import *
 from .meeting_settings import *
+from .my_ai_event_detail import *
+from .my_ai_event_info import *
 from .myai_card_status import *
 from .myai_reply import *
 from .operate_card_data import *
@@ -120,6 +130,9 @@ from .primary_calendar_request import *
 from .primary_calendar_response import *
 from .primary_calendar_response_body import *
 from .reminder import *
+from .reply_calendar_event_request import *
+from .reply_calendar_event_request_body import *
+from .reply_calendar_event_response import *
 from .room_meta import *
 from .schema import *
 from .search_calendar_event_request import *
@@ -130,6 +143,9 @@ from .search_calendar_request import *
 from .search_calendar_request_body import *
 from .search_calendar_response import *
 from .search_calendar_response_body import *
+from .search_event_data import *
+from .search_user_data_ai import *
+from .search_user_result_ai import *
 from .setting import *
 from .subscribe_calendar_request import *
 from .subscribe_calendar_response import *
@@ -140,6 +156,7 @@ from .subscription_calendar_event_request import *
 from .subscription_calendar_event_response import *
 from .subscription_calendar_request import *
 from .subscription_calendar_response import *
+from .system_info import *
 from .time_info import *
 from .time_span import *
 from .timeoff_event import *

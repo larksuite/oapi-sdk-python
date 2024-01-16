@@ -35,6 +35,7 @@ class DlpExecuteLog(object):
         "document_link": str,
         "evidence_detail": DlpEvidenceDetail,
         "hit_policies": List[DlpHitPolicy],
+        "file_token": str,
     }
 
     def __init__(self, d=None):
@@ -64,6 +65,7 @@ class DlpExecuteLog(object):
         self.document_link: Optional[str] = None
         self.evidence_detail: Optional[DlpEvidenceDetail] = None
         self.hit_policies: Optional[List[DlpHitPolicy]] = None
+        self.file_token: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -177,6 +179,10 @@ class DlpExecuteLogBuilder(object):
 
     def hit_policies(self, hit_policies: List[DlpHitPolicy]) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.hit_policies = hit_policies
+        return self
+
+    def file_token(self, file_token: str) -> "DlpExecuteLogBuilder":
+        self._dlp_execute_log.file_token = file_token
         return self
 
     def build(self) -> "DlpExecuteLog":

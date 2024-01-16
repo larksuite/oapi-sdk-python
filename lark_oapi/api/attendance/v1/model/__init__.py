@@ -78,6 +78,7 @@ from .modify_user_setting_request_body import *
 from .modify_user_setting_response import *
 from .modify_user_setting_response_body import *
 from .open_apply_time_range import *
+from .overtime_apply_detail import *
 from .overtime_clock_cfg import *
 from .overtime_detail import *
 from .overtime_rule import *

@@ -11,7 +11,7 @@ class AppTableViewPropertyFilterInfoCondition(object):
         "operator": str,
         "value": str,
         "condition_id": str,
-        "field_type": str,
+        "field_type": int,
     }
 
     def __init__(self, d=None):
@@ -19,7 +19,7 @@ class AppTableViewPropertyFilterInfoCondition(object):
         self.operator: Optional[str] = None
         self.value: Optional[str] = None
         self.condition_id: Optional[str] = None
-        self.field_type: Optional[str] = None
+        self.field_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -47,7 +47,7 @@ class AppTableViewPropertyFilterInfoConditionBuilder(object):
         self._app_table_view_property_filter_info_condition.condition_id = condition_id
         return self
 
-    def field_type(self, field_type: str) -> "AppTableViewPropertyFilterInfoConditionBuilder":
+    def field_type(self, field_type: int) -> "AppTableViewPropertyFilterInfoConditionBuilder":
         self._app_table_view_property_filter_info_condition.field_type = field_type
         return self
 

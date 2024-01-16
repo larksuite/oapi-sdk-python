@@ -15,6 +15,8 @@ from ..model.config_job_request import ConfigJobRequest
 from ..model.config_job_response import ConfigJobResponse
 from ..model.get_job_request import GetJobRequest
 from ..model.get_job_response import GetJobResponse
+from ..model.recruiter_job_request import RecruiterJobRequest
+from ..model.recruiter_job_response import RecruiterJobResponse
 from ..model.update_config_job_request import UpdateConfigJobRequest
 from ..model.update_config_job_response import UpdateConfigJobResponse
 
@@ -101,6 +103,26 @@ class Job(object):
 
         # 反序列化
         response: GetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobResponse)
+        response.raw = resp
+
+        return response
+
+    def recruiter(self, request: RecruiterJobRequest, option: Optional[RequestOption] = None) -> RecruiterJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RecruiterJobResponse = JSON.unmarshal(str(resp.content, UTF_8), RecruiterJobResponse)
         response.raw = resp
 
         return response

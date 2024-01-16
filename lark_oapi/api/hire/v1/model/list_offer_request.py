@@ -13,6 +13,7 @@ class ListOfferRequest(BaseRequest):
         self.page_size: Optional[int] = None
         self.talent_id: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.employee_type_id_type: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListOfferRequestBuilder":
@@ -46,6 +47,11 @@ class ListOfferRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "ListOfferRequestBuilder":
         self._list_offer_request.user_id_type = user_id_type
         self._list_offer_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def employee_type_id_type(self, employee_type_id_type: str) -> "ListOfferRequestBuilder":
+        self._list_offer_request.employee_type_id_type = employee_type_id_type
+        self._list_offer_request.add_query("employee_type_id_type", employee_type_id_type)
         return self
 
     def build(self) -> ListOfferRequest:

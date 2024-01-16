@@ -25,6 +25,7 @@ def main():
                       .owner_id("4d7a3c6g")
                       .user_id_list([])
                       .bot_id_list([])
+                      .group_message_type("chat")
                       .chat_mode("group")
                       .chat_type("private")
                       .join_message_visibility("all_members")

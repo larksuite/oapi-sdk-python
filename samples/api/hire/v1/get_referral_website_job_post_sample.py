@@ -17,6 +17,7 @@ def main():
         .job_post_id("6701528341100366094") \
         .user_id_type("open_id") \
         .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
         .build()
 
     # 发起请求

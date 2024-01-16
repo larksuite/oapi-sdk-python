@@ -6,5 +6,6 @@ class V1(object):
         self.image: Image = Image(config)
         self.okr: Okr = Okr(config)
         self.period: Period = Period(config)
+        self.period_rule: PeriodRule = PeriodRule(config)
         self.progress_record: ProgressRecord = ProgressRecord(config)
         self.user_okr: UserOkr = UserOkr(config)

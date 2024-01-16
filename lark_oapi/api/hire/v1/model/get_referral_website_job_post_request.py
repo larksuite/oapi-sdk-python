@@ -11,6 +11,7 @@ class GetReferralWebsiteJobPostRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.department_id_type: Optional[str] = None
+        self.job_level_id_type: Optional[str] = None
         self.job_post_id: Optional[str] = None
 
     @staticmethod
@@ -35,6 +36,11 @@ class GetReferralWebsiteJobPostRequestBuilder(object):
     def department_id_type(self, department_id_type: str) -> "GetReferralWebsiteJobPostRequestBuilder":
         self._get_referral_website_job_post_request.department_id_type = department_id_type
         self._get_referral_website_job_post_request.add_query("department_id_type", department_id_type)
+        return self
+
+    def job_level_id_type(self, job_level_id_type: str) -> "GetReferralWebsiteJobPostRequestBuilder":
+        self._get_referral_website_job_post_request.job_level_id_type = job_level_id_type
+        self._get_referral_website_job_post_request.add_query("job_level_id_type", job_level_id_type)
         return self
 
     def job_post_id(self, job_post_id: str) -> "GetReferralWebsiteJobPostRequestBuilder":

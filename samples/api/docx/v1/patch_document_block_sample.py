@@ -35,6 +35,7 @@ def main():
                       .replace_image(ReplaceImageRequest.builder().build())
                       .replace_file(ReplaceFileRequest.builder().build())
                       .update_text(UpdateTextRequest.builder().build())
+                      .update_task(UpdateTaskRequest.builder().build())
                       .build()) \
         .build()
 

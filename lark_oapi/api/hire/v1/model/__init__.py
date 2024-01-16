@@ -459,6 +459,9 @@ from .reconciliation_referral_account_request import *
 from .reconciliation_referral_account_request_body import *
 from .reconciliation_referral_account_response import *
 from .reconciliation_referral_account_response_body import *
+from .recruiter_job_request import *
+from .recruiter_job_response import *
+from .recruiter_job_response_body import *
 from .recruitment_type import *
 from .referral import *
 from .referral_info import *

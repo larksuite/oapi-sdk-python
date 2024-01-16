@@ -31,6 +31,7 @@ def main():
                       .membership_approval("no_approval_required")
                       .restricted_mode_setting(RestrictedModeSetting.builder().build())
                       .chat_type("private")
+                      .group_message_type("chat")
                       .urgent_setting("all_members")
                       .video_conference_setting("all_members")
                       .build()) \

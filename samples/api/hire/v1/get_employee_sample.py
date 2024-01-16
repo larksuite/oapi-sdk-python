@@ -17,6 +17,9 @@ def main():
         .employee_id("123") \
         .user_id_type("open_id") \
         .department_id_type("people_admin_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
+        .employee_type_id_type("people_admin_employee_type_id") \
         .build()
 
     # 发起请求

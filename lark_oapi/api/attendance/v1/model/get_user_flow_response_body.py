@@ -19,6 +19,7 @@ class GetUserFlowResponseBody(object):
         "is_wifi": bool,
         "type": int,
         "photo_urls": List[str],
+        "device_id": str,
         "check_result": str,
         "external_id": str,
     }
@@ -36,6 +37,7 @@ class GetUserFlowResponseBody(object):
         self.is_wifi: Optional[bool] = None
         self.type: Optional[int] = None
         self.photo_urls: Optional[List[str]] = None
+        self.device_id: Optional[str] = None
         self.check_result: Optional[str] = None
         self.external_id: Optional[str] = None
         init(self, d, self._types)
@@ -95,6 +97,10 @@ class GetUserFlowResponseBodyBuilder(object):
 
     def photo_urls(self, photo_urls: List[str]) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.photo_urls = photo_urls
+        return self
+
+    def device_id(self, device_id: str) -> "GetUserFlowResponseBodyBuilder":
+        self._get_user_flow_response_body.device_id = device_id
         return self
 
     def check_result(self, check_result: str) -> "GetUserFlowResponseBodyBuilder":

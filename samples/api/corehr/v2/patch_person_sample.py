@@ -20,6 +20,7 @@ def main():
                       .name_list([])
                       .gender(Enum.builder().build())
                       .date_of_birth("2020-01-01")
+                      .nationality_id_v2("6862995757234914821")
                       .race(Enum.builder().build())
                       .marital_status(Enum.builder().build())
                       .phone_list([])

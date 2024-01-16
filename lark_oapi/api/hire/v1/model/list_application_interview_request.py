@@ -12,6 +12,7 @@ class ListApplicationInterviewRequest(BaseRequest):
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.job_level_id_type: Optional[str] = None
         self.application_id: Optional[str] = None
 
     @staticmethod
@@ -41,6 +42,11 @@ class ListApplicationInterviewRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "ListApplicationInterviewRequestBuilder":
         self._list_application_interview_request.user_id_type = user_id_type
         self._list_application_interview_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def job_level_id_type(self, job_level_id_type: str) -> "ListApplicationInterviewRequestBuilder":
+        self._list_application_interview_request.job_level_id_type = job_level_id_type
+        self._list_application_interview_request.add_query("job_level_id_type", job_level_id_type)
         return self
 
     def application_id(self, application_id: str) -> "ListApplicationInterviewRequestBuilder":

@@ -12,6 +12,9 @@ class UpdateJobRequirementRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.department_id_type: Optional[str] = None
+        self.job_level_id_type: Optional[str] = None
+        self.job_family_id_type: Optional[str] = None
+        self.employee_type_id_type: Optional[str] = None
         self.job_requirement_id: Optional[str] = None
         self.request_body: Optional[JobRequirement] = None
 
@@ -37,6 +40,21 @@ class UpdateJobRequirementRequestBuilder(object):
     def department_id_type(self, department_id_type: str) -> "UpdateJobRequirementRequestBuilder":
         self._update_job_requirement_request.department_id_type = department_id_type
         self._update_job_requirement_request.add_query("department_id_type", department_id_type)
+        return self
+
+    def job_level_id_type(self, job_level_id_type: str) -> "UpdateJobRequirementRequestBuilder":
+        self._update_job_requirement_request.job_level_id_type = job_level_id_type
+        self._update_job_requirement_request.add_query("job_level_id_type", job_level_id_type)
+        return self
+
+    def job_family_id_type(self, job_family_id_type: str) -> "UpdateJobRequirementRequestBuilder":
+        self._update_job_requirement_request.job_family_id_type = job_family_id_type
+        self._update_job_requirement_request.add_query("job_family_id_type", job_family_id_type)
+        return self
+
+    def employee_type_id_type(self, employee_type_id_type: str) -> "UpdateJobRequirementRequestBuilder":
+        self._update_job_requirement_request.employee_type_id_type = employee_type_id_type
+        self._update_job_requirement_request.add_query("employee_type_id_type", employee_type_id_type)
         return self
 
     def job_requirement_id(self, job_requirement_id: str) -> "UpdateJobRequirementRequestBuilder":

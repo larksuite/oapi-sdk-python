@@ -10,7 +10,7 @@ from .move_docs_to_wiki_space_node_request_body import MoveDocsToWikiSpaceNodeRe
 class MoveDocsToWikiSpaceNodeRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.space_id: Optional[int] = None
+        self.space_id: Optional[str] = None
         self.request_body: Optional[MoveDocsToWikiSpaceNodeRequestBody] = None
 
     @staticmethod
@@ -27,7 +27,7 @@ class MoveDocsToWikiSpaceNodeRequestBuilder(object):
         move_docs_to_wiki_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._move_docs_to_wiki_space_node_request: MoveDocsToWikiSpaceNodeRequest = move_docs_to_wiki_space_node_request
 
-    def space_id(self, space_id: int) -> "MoveDocsToWikiSpaceNodeRequestBuilder":
+    def space_id(self, space_id: str) -> "MoveDocsToWikiSpaceNodeRequestBuilder":
         self._move_docs_to_wiki_space_node_request.space_id = space_id
         self._move_docs_to_wiki_space_node_request.paths["space_id"] = str(space_id)
         return self

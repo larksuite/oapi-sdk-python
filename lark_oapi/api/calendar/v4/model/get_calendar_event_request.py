@@ -10,6 +10,8 @@ class GetCalendarEventRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.need_meeting_settings: Optional[bool] = None
+        self.need_attendee: Optional[bool] = None
+        self.max_attendee_num: Optional[int] = None
         self.user_id_type: Optional[str] = None
         self.calendar_id: Optional[str] = None
         self.event_id: Optional[str] = None
@@ -31,6 +33,16 @@ class GetCalendarEventRequestBuilder(object):
     def need_meeting_settings(self, need_meeting_settings: bool) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.need_meeting_settings = need_meeting_settings
         self._get_calendar_event_request.add_query("need_meeting_settings", need_meeting_settings)
+        return self
+
+    def need_attendee(self, need_attendee: bool) -> "GetCalendarEventRequestBuilder":
+        self._get_calendar_event_request.need_attendee = need_attendee
+        self._get_calendar_event_request.add_query("need_attendee", need_attendee)
+        return self
+
+    def max_attendee_num(self, max_attendee_num: int) -> "GetCalendarEventRequestBuilder":
+        self._get_calendar_event_request.max_attendee_num = max_attendee_num
+        self._get_calendar_event_request.add_query("max_attendee_num", max_attendee_num)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetCalendarEventRequestBuilder":

@@ -3,7 +3,6 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
-from .children_filter import ChildrenFilter
 from .condition import Condition
 
 
@@ -11,13 +10,11 @@ class FilterInfo(object):
     _types = {
         "conjunction": str,
         "conditions": List[Condition],
-        "children": List[ChildrenFilter],
     }
 
     def __init__(self, d=None):
         self.conjunction: Optional[str] = None
         self.conditions: Optional[List[Condition]] = None
-        self.children: Optional[List[ChildrenFilter]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -35,10 +32,6 @@ class FilterInfoBuilder(object):
 
     def conditions(self, conditions: List[Condition]) -> "FilterInfoBuilder":
         self._filter_info.conditions = conditions
-        return self
-
-    def children(self, children: List[ChildrenFilter]) -> "FilterInfoBuilder":
-        self._filter_info.children = children
         return self
 
     def build(self) -> "FilterInfo":

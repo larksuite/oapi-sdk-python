@@ -19,6 +19,7 @@ class EventCard(object):
         "need_meeting_notes": str,
         "scenario_context_schema_version": str,
         "scenario_context": CalendarUnderstandScenarioContext,
+        "event_id": str,
     }
 
     def __init__(self, d=None):
@@ -33,6 +34,7 @@ class EventCard(object):
         self.need_meeting_notes: Optional[str] = None
         self.scenario_context_schema_version: Optional[str] = None
         self.scenario_context: Optional[CalendarUnderstandScenarioContext] = None
+        self.event_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -86,6 +88,10 @@ class EventCardBuilder(object):
 
     def scenario_context(self, scenario_context: CalendarUnderstandScenarioContext) -> "EventCardBuilder":
         self._event_card.scenario_context = scenario_context
+        return self
+
+    def event_id(self, event_id: str) -> "EventCardBuilder":
+        self._event_card.event_id = event_id
         return self
 
     def build(self) -> "EventCard":

@@ -7,13 +7,37 @@ from lark_oapi.core.const import UTF_8, CONTENT_TYPE, APPLICATION_JSON
 from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.token import verify
+from ..model.create_period_request import CreatePeriodRequest
+from ..model.create_period_response import CreatePeriodResponse
 from ..model.list_period_request import ListPeriodRequest
 from ..model.list_period_response import ListPeriodResponse
+from ..model.patch_period_request import PatchPeriodRequest
+from ..model.patch_period_response import PatchPeriodResponse
 
 
 class Period(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def create(self, request: CreatePeriodRequest, option: Optional[RequestOption] = None) -> CreatePeriodResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePeriodResponse)
+        response.raw = resp
+
+        return response
 
     def list(self, request: ListPeriodRequest, option: Optional[RequestOption] = None) -> ListPeriodResponse:
         if option is None:
@@ -31,6 +55,26 @@ class Period(object):
 
         # 反序列化
         response: ListPeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPeriodResponse)
+        response.raw = resp
+
+        return response
+
+    def patch(self, request: PatchPeriodRequest, option: Optional[RequestOption] = None) -> PatchPeriodResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchPeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPeriodResponse)
         response.raw = resp
 
         return response

@@ -3,6 +3,7 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .address import Address
 from .currency import Currency
 from .custom_field_data import CustomFieldData
 from .enum import Enum
@@ -29,6 +30,8 @@ class Company(object):
         "fax": PhoneNumberAndAreaCode,
         "registered_office_address": List[I18n],
         "office_address": List[I18n],
+        "registered_office_address_info": Address,
+        "office_address_info": Address,
         "custom_fields": List[CustomFieldData],
     }
 
@@ -49,6 +52,8 @@ class Company(object):
         self.fax: Optional[PhoneNumberAndAreaCode] = None
         self.registered_office_address: Optional[List[I18n]] = None
         self.office_address: Optional[List[I18n]] = None
+        self.registered_office_address_info: Optional[Address] = None
+        self.office_address_info: Optional[Address] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
@@ -123,6 +128,14 @@ class CompanyBuilder(object):
 
     def office_address(self, office_address: List[I18n]) -> "CompanyBuilder":
         self._company.office_address = office_address
+        return self
+
+    def registered_office_address_info(self, registered_office_address_info: Address) -> "CompanyBuilder":
+        self._company.registered_office_address_info = registered_office_address_info
+        return self
+
+    def office_address_info(self, office_address_info: Address) -> "CompanyBuilder":
+        self._company.office_address_info = office_address_info
         return self
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CompanyBuilder":

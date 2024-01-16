@@ -19,6 +19,7 @@ class Rule(object):
         "visitors": List[UserExternal],
         "remind_face": bool,
         "opening_time": OpeningTimeExternal,
+        "is_temp": bool,
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class Rule(object):
         self.visitors: Optional[List[UserExternal]] = None
         self.remind_face: Optional[bool] = None
         self.opening_time: Optional[OpeningTimeExternal] = None
+        self.is_temp: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -76,6 +78,10 @@ class RuleBuilder(object):
 
     def opening_time(self, opening_time: OpeningTimeExternal) -> "RuleBuilder":
         self._rule.opening_time = opening_time
+        return self
+
+    def is_temp(self, is_temp: bool) -> "RuleBuilder":
+        self._rule.is_temp = is_temp
         return self
 
     def build(self) -> "Rule":

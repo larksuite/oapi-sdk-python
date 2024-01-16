@@ -13,10 +13,16 @@ from ..model.delete_calendar_event_request import DeleteCalendarEventRequest
 from ..model.delete_calendar_event_response import DeleteCalendarEventResponse
 from ..model.get_calendar_event_request import GetCalendarEventRequest
 from ..model.get_calendar_event_response import GetCalendarEventResponse
+from ..model.instance_view_calendar_event_request import InstanceViewCalendarEventRequest
+from ..model.instance_view_calendar_event_response import InstanceViewCalendarEventResponse
+from ..model.instances_calendar_event_request import InstancesCalendarEventRequest
+from ..model.instances_calendar_event_response import InstancesCalendarEventResponse
 from ..model.list_calendar_event_request import ListCalendarEventRequest
 from ..model.list_calendar_event_response import ListCalendarEventResponse
 from ..model.patch_calendar_event_request import PatchCalendarEventRequest
 from ..model.patch_calendar_event_response import PatchCalendarEventResponse
+from ..model.reply_calendar_event_request import ReplyCalendarEventRequest
+from ..model.reply_calendar_event_response import ReplyCalendarEventResponse
 from ..model.search_calendar_event_request import SearchCalendarEventRequest
 from ..model.search_calendar_event_response import SearchCalendarEventResponse
 from ..model.subscription_calendar_event_request import SubscriptionCalendarEventRequest
@@ -91,6 +97,50 @@ class CalendarEvent(object):
 
         return response
 
+    def instance_view(self, request: InstanceViewCalendarEventRequest,
+                      option: Optional[RequestOption] = None) -> InstanceViewCalendarEventResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: InstanceViewCalendarEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     InstanceViewCalendarEventResponse)
+        response.raw = resp
+
+        return response
+
+    def instances(self, request: InstancesCalendarEventRequest,
+                  option: Optional[RequestOption] = None) -> InstancesCalendarEventResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: InstancesCalendarEventResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  InstancesCalendarEventResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListCalendarEventRequest,
              option: Optional[RequestOption] = None) -> ListCalendarEventResponse:
         if option is None:
@@ -129,6 +179,27 @@ class CalendarEvent(object):
 
         # 反序列化
         response: PatchCalendarEventResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCalendarEventResponse)
+        response.raw = resp
+
+        return response
+
+    def reply(self, request: ReplyCalendarEventRequest,
+              option: Optional[RequestOption] = None) -> ReplyCalendarEventResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ReplyCalendarEventResponse = JSON.unmarshal(str(resp.content, UTF_8), ReplyCalendarEventResponse)
         response.raw = resp
 
         return response

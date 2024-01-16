@@ -18,6 +18,7 @@ def main():
         .request_body(ReplyMessageRequestBody.builder()
                       .content("")
                       .msg_type("text")
+                      .reply_in_thread(False)
                       .uuid("a0d69e20-1dd1-458b-k525-dfeca4015204")
                       .build()) \
         .build()

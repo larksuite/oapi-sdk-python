@@ -10,7 +10,7 @@ from .copy_space_node_request_body import CopySpaceNodeRequestBody
 class CopySpaceNodeRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.space_id: Optional[int] = None
+        self.space_id: Optional[str] = None
         self.node_token: Optional[str] = None
         self.request_body: Optional[CopySpaceNodeRequestBody] = None
 
@@ -28,7 +28,7 @@ class CopySpaceNodeRequestBuilder(object):
         copy_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._copy_space_node_request: CopySpaceNodeRequest = copy_space_node_request
 
-    def space_id(self, space_id: int) -> "CopySpaceNodeRequestBuilder":
+    def space_id(self, space_id: str) -> "CopySpaceNodeRequestBuilder":
         self._copy_space_node_request.space_id = space_id
         self._copy_space_node_request.paths["space_id"] = str(space_id)
         return self

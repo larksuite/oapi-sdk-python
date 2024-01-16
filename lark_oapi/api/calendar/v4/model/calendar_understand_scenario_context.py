@@ -4,6 +4,7 @@ from typing import Optional
 
 from lark_oapi.core.construct import init
 from .calendar_understand_extra import CalendarUnderstandExtra
+from .system_info import SystemInfo
 
 
 class CalendarUnderstandScenarioContext(object):
@@ -11,12 +12,14 @@ class CalendarUnderstandScenarioContext(object):
         "scenario": str,
         "work_mode": int,
         "extra": CalendarUnderstandExtra,
+        "system_info": SystemInfo,
     }
 
     def __init__(self, d=None):
         self.scenario: Optional[str] = None
         self.work_mode: Optional[int] = None
         self.extra: Optional[CalendarUnderstandExtra] = None
+        self.system_info: Optional[SystemInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -38,6 +41,10 @@ class CalendarUnderstandScenarioContextBuilder(object):
 
     def extra(self, extra: CalendarUnderstandExtra) -> "CalendarUnderstandScenarioContextBuilder":
         self._calendar_understand_scenario_context.extra = extra
+        return self
+
+    def system_info(self, system_info: SystemInfo) -> "CalendarUnderstandScenarioContextBuilder":
+        self._calendar_understand_scenario_context.system_info = system_info
         return self
 
     def build(self) -> "CalendarUnderstandScenarioContext":
