@@ -180,6 +180,27 @@ class Message(object):
 
         return response
 
+    async def apatch(self, request: PatchMessageRequest,
+                     option: Optional[RequestOption] = None) -> PatchMessageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PatchMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchMessageResponse)
+        response.raw = resp
+
+        return response
+
     def read_users(self, request: ReadUsersMessageRequest,
                    option: Optional[RequestOption] = None) -> ReadUsersMessageResponse:
         if option is None:
