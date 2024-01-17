@@ -27,8 +27,8 @@ class BaseRequest(object):
 
 class BaseRequestBuilder(object):
 
-    def __init__(self, base_request: BaseRequest = BaseRequest()) -> None:
-        self._base_request: BaseRequest = base_request
+    def __init__(self) -> None:
+        self._base_request: BaseRequest = BaseRequest()
 
     def http_method(self, http_method: HttpMethod) -> "BaseRequestBuilder":
         self._base_request.http_method = http_method

@@ -1,3 +1,4 @@
+import httpx
 import requests
 from requests_toolbelt import MultipartEncoder
 
@@ -44,6 +45,43 @@ class Transport(object):
         resp.content = response.content
 
         return resp
+
+    @staticmethod
+    async def aexecute(conf: Config, req: BaseRequest, option: Optional[RequestOption] = None) -> RawResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 拼接url
+        url: str = _build_url(conf.domain, req.uri, req.paths)
+
+        # 组装header
+        headers: Dict[str, str] = _build_header(req, option)
+
+        data = req.body
+        if data is not None:
+            data = JSON.marshal(req.body).encode(UTF_8)
+
+        async with httpx.AsyncClient() as client:
+            response = await client.request(
+                str(req.http_method.name),
+                url,
+                headers=req.headers,
+                params=req.queries,
+                data=data,
+                timeout=conf.timeout,
+            )
+
+            logger.debug(f"{str(req.http_method.name)} {url} {response.status_code}, "
+                         f"headers: {JSON.marshal(headers)}, "
+                         f"params: {JSON.marshal(req.queries)}, "
+                         f"body: {str(data, UTF_8) if isinstance(data, bytes) else data}")
+
+            resp = RawResponse()
+            resp.status_code = response.status_code
+            resp.headers = dict(response.headers)
+            resp.content = response.content
+
+            return resp
 
 
 def _build_url(domain: str, uri: str, paths: Dict[str, str]) -> str:

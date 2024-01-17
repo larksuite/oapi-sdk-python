@@ -119,6 +119,24 @@ class Client(object):
 
         return resp
 
+    async def arequest(self, request: BaseRequest, option: RequestOption = RequestOption()) -> BaseResponse:
+        # 鉴权、获取token
+        verify(self._config, request, option)
+
+        # 发起请求
+        raw_resp = await Transport.aexecute(self._config, request, option)
+
+        # 返回结果
+        resp = BaseResponse()
+        content_type = raw_resp.headers.get(CONTENT_TYPE)
+        if content_type is not None and content_type.startswith(APPLICATION_JSON):
+            resp = JSON.unmarshal(str(raw_resp.content, UTF_8), BaseResponse)
+        elif 200 <= raw_resp.status_code < 300:
+            resp.code = 0
+        resp.raw = raw_resp
+
+        return resp
+
 
 class ClientBuilder(object):
     def __init__(self) -> None:
