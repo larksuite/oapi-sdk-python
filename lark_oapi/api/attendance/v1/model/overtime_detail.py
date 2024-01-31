@@ -18,6 +18,9 @@ class OvertimeDetail(object):
         "effective_time": int,
         "progress_start_time": int,
         "date": str,
+        "update_time": str,
+        "is_time_bank": bool,
+        "instance_id": int,
     }
 
     def __init__(self, d=None):
@@ -32,6 +35,9 @@ class OvertimeDetail(object):
         self.effective_time: Optional[int] = None
         self.progress_start_time: Optional[int] = None
         self.date: Optional[str] = None
+        self.update_time: Optional[str] = None
+        self.is_time_bank: Optional[bool] = None
+        self.instance_id: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -85,6 +91,18 @@ class OvertimeDetailBuilder(object):
 
     def date(self, date: str) -> "OvertimeDetailBuilder":
         self._overtime_detail.date = date
+        return self
+
+    def update_time(self, update_time: str) -> "OvertimeDetailBuilder":
+        self._overtime_detail.update_time = update_time
+        return self
+
+    def is_time_bank(self, is_time_bank: bool) -> "OvertimeDetailBuilder":
+        self._overtime_detail.is_time_bank = is_time_bank
+        return self
+
+    def instance_id(self, instance_id: int) -> "OvertimeDetailBuilder":
+        self._overtime_detail.instance_id = instance_id
         return self
 
     def build(self) -> "OvertimeDetail":

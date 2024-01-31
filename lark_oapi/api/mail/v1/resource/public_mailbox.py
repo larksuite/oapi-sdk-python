@@ -46,6 +46,23 @@ class PublicMailbox(object):
 
         return response
 
+    async def acreate(self, request: CreatePublicMailboxRequest,
+                      option: Optional[RequestOption] = None) -> CreatePublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeletePublicMailboxRequest,
                option: Optional[RequestOption] = None) -> DeletePublicMailboxResponse:
         if option is None:
@@ -67,6 +84,23 @@ class PublicMailbox(object):
 
         return response
 
+    async def adelete(self, request: DeletePublicMailboxRequest,
+                      option: Optional[RequestOption] = None) -> DeletePublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeletePublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetPublicMailboxRequest, option: Optional[RequestOption] = None) -> GetPublicMailboxResponse:
         if option is None:
             option = RequestOption()
@@ -80,6 +114,23 @@ class PublicMailbox(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetPublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetPublicMailboxRequest,
+                   option: Optional[RequestOption] = None) -> GetPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetPublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPublicMailboxResponse)
@@ -108,6 +159,23 @@ class PublicMailbox(object):
 
         return response
 
+    async def alist(self, request: ListPublicMailboxRequest,
+                    option: Optional[RequestOption] = None) -> ListPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListPublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchPublicMailboxRequest,
               option: Optional[RequestOption] = None) -> PatchPublicMailboxResponse:
         if option is None:
@@ -129,6 +197,23 @@ class PublicMailbox(object):
 
         return response
 
+    async def apatch(self, request: PatchPublicMailboxRequest,
+                     option: Optional[RequestOption] = None) -> PatchPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PatchPublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdatePublicMailboxRequest,
                option: Optional[RequestOption] = None) -> UpdatePublicMailboxResponse:
         if option is None:
@@ -143,6 +228,23 @@ class PublicMailbox(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdatePublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdatePublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdatePublicMailboxRequest,
+                      option: Optional[RequestOption] = None) -> UpdatePublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdatePublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdatePublicMailboxResponse)

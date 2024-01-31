@@ -41,6 +41,24 @@ class ApplicationVisibility(object):
 
         return response
 
+    async def acheck_white_black_list(self, request: CheckWhiteBlackListApplicationVisibilityRequest, option: Optional[
+        RequestOption] = None) -> CheckWhiteBlackListApplicationVisibilityResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CheckWhiteBlackListApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                    CheckWhiteBlackListApplicationVisibilityResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchApplicationVisibilityRequest,
               option: Optional[RequestOption] = None) -> PatchApplicationVisibilityResponse:
         if option is None:
@@ -55,6 +73,24 @@ class ApplicationVisibility(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      PatchApplicationVisibilityResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchApplicationVisibilityRequest,
+                     option: Optional[RequestOption] = None) -> PatchApplicationVisibilityResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchApplicationVisibilityResponse = JSON.unmarshal(str(resp.content, UTF_8),

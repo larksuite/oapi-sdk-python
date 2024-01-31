@@ -38,6 +38,23 @@ class Department(object):
 
         return response
 
+    async def aparents(self, request: ParentsDepartmentRequest,
+                       option: Optional[RequestOption] = None) -> ParentsDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ParentsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ParentsDepartmentResponse)
+        response.raw = resp
+
+        return response
+
     def search(self, request: SearchDepartmentRequest,
                option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
         if option is None:
@@ -52,6 +69,23 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)

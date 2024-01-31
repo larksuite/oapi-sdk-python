@@ -39,6 +39,24 @@ class Probation(object):
 
         return response
 
+    async def aenable_disable_assessment(self, request: EnableDisableAssessmentProbationRequest, option: Optional[
+        RequestOption] = None) -> EnableDisableAssessmentProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: EnableDisableAssessmentProbationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            EnableDisableAssessmentProbationResponse)
+        response.raw = resp
+
+        return response
+
     def search(self, request: SearchProbationRequest,
                option: Optional[RequestOption] = None) -> SearchProbationResponse:
         if option is None:
@@ -53,6 +71,23 @@ class Probation(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchProbationResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchProbationRequest,
+                      option: Optional[RequestOption] = None) -> SearchProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SearchProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchProbationResponse)

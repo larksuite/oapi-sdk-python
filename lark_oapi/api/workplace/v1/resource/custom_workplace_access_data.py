@@ -36,3 +36,21 @@ class CustomWorkplaceAccessData(object):
         response.raw = resp
 
         return response
+
+    async def asearch(self, request: SearchCustomWorkplaceAccessDataRequest,
+                      option: Optional[RequestOption] = None) -> SearchCustomWorkplaceAccessDataResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           SearchCustomWorkplaceAccessDataResponse)
+        response.raw = resp
+
+        return response

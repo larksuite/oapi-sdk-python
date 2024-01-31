@@ -15,6 +15,7 @@ from .replace_image_request import ReplaceImageRequest
 from .unmerge_table_cells_request import UnmergeTableCellsRequest
 from .update_grid_column_width_ratio_request import UpdateGridColumnWidthRatioRequest
 from .update_table_property_request import UpdateTablePropertyRequest
+from .update_task_request import UpdateTaskRequest
 from .update_text_elements_request import UpdateTextElementsRequest
 from .update_text_request import UpdateTextRequest
 from .update_text_style_request import UpdateTextStyleRequest
@@ -38,6 +39,7 @@ class UpdateBlockRequest(object):
         "replace_file": ReplaceFileRequest,
         "block_id": str,
         "update_text": UpdateTextRequest,
+        "update_task": UpdateTaskRequest,
     }
 
     def __init__(self, d=None):
@@ -57,6 +59,7 @@ class UpdateBlockRequest(object):
         self.replace_file: Optional[ReplaceFileRequest] = None
         self.block_id: Optional[str] = None
         self.update_text: Optional[UpdateTextRequest] = None
+        self.update_task: Optional[UpdateTaskRequest] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -131,6 +134,10 @@ class UpdateBlockRequestBuilder(object):
 
     def update_text(self, update_text: UpdateTextRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_text = update_text
+        return self
+
+    def update_task(self, update_task: UpdateTaskRequest) -> "UpdateBlockRequestBuilder":
+        self._update_block_request.update_task = update_task
         return self
 
     def build(self) -> "UpdateBlockRequest":

@@ -40,5 +40,43 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: PatchDataSourceRequest = PatchDataSourceRequest.builder() \
+        .data_source_id("service_ticket") \
+        .request_body(PatchDataSourceRequestBody.builder()
+                      .name("客服工单")
+                      .state(0)
+                      .description("搜索客服工单")
+                      .icon_url("https://www.xxx.com/open.jpg")
+                      .i18n_name(I18nMeta.builder().build())
+                      .i18n_description(I18nMeta.builder().build())
+                      .connector_param(ConnectorParam.builder().build())
+                      .enable_answer(False)
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: PatchDataSourceResponse = await client.search.v2.data_source.apatch(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.search.v2.data_source.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

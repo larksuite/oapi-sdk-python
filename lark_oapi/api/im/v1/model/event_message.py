@@ -14,6 +14,7 @@ class EventMessage(object):
         "create_time": int,
         "update_time": int,
         "chat_id": str,
+        "thread_id": str,
         "chat_type": str,
         "message_type": str,
         "content": str,
@@ -28,6 +29,7 @@ class EventMessage(object):
         self.create_time: Optional[int] = None
         self.update_time: Optional[int] = None
         self.chat_id: Optional[str] = None
+        self.thread_id: Optional[str] = None
         self.chat_type: Optional[str] = None
         self.message_type: Optional[str] = None
         self.content: Optional[str] = None
@@ -66,6 +68,10 @@ class EventMessageBuilder(object):
 
     def chat_id(self, chat_id: str) -> "EventMessageBuilder":
         self._event_message.chat_id = chat_id
+        return self
+
+    def thread_id(self, thread_id: str) -> "EventMessageBuilder":
+        self._event_message.thread_id = thread_id
         return self
 
     def chat_type(self, chat_type: str) -> "EventMessageBuilder":

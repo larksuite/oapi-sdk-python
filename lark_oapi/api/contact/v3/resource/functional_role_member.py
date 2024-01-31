@@ -45,6 +45,24 @@ class FunctionalRoleMember(object):
 
         return response
 
+    async def abatch_create(self, request: BatchCreateFunctionalRoleMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreateFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchCreateFunctionalRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           BatchCreateFunctionalRoleMemberResponse)
+        response.raw = resp
+
+        return response
+
     def batch_delete(self, request: BatchDeleteFunctionalRoleMemberRequest,
                      option: Optional[RequestOption] = None) -> BatchDeleteFunctionalRoleMemberResponse:
         if option is None:
@@ -59,6 +77,24 @@ class FunctionalRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDeleteFunctionalRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           BatchDeleteFunctionalRoleMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def abatch_delete(self, request: BatchDeleteFunctionalRoleMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: BatchDeleteFunctionalRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -89,6 +125,24 @@ class FunctionalRoleMember(object):
 
         return response
 
+    async def aget(self, request: GetFunctionalRoleMemberRequest,
+                   option: Optional[RequestOption] = None) -> GetFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetFunctionalRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   GetFunctionalRoleMemberResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListFunctionalRoleMemberRequest,
              option: Optional[RequestOption] = None) -> ListFunctionalRoleMemberResponse:
         if option is None:
@@ -111,6 +165,24 @@ class FunctionalRoleMember(object):
 
         return response
 
+    async def alist(self, request: ListFunctionalRoleMemberRequest,
+                    option: Optional[RequestOption] = None) -> ListFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListFunctionalRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    ListFunctionalRoleMemberResponse)
+        response.raw = resp
+
+        return response
+
     def scopes(self, request: ScopesFunctionalRoleMemberRequest,
                option: Optional[RequestOption] = None) -> ScopesFunctionalRoleMemberResponse:
         if option is None:
@@ -125,6 +197,24 @@ class FunctionalRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ScopesFunctionalRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      ScopesFunctionalRoleMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def ascopes(self, request: ScopesFunctionalRoleMemberRequest,
+                      option: Optional[RequestOption] = None) -> ScopesFunctionalRoleMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ScopesFunctionalRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),

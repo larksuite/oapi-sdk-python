@@ -10,12 +10,14 @@ class OnboardingTask(object):
         "task_name": str,
         "task_status": str,
         "operator_id": str,
+        "task_code": str,
     }
 
     def __init__(self, d=None):
         self.task_name: Optional[str] = None
         self.task_status: Optional[str] = None
         self.operator_id: Optional[str] = None
+        self.task_code: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +39,10 @@ class OnboardingTaskBuilder(object):
 
     def operator_id(self, operator_id: str) -> "OnboardingTaskBuilder":
         self._onboarding_task.operator_id = operator_id
+        return self
+
+    def task_code(self, task_code: str) -> "OnboardingTaskBuilder":
+        self._onboarding_task.task_code = task_code
         return self
 
     def build(self) -> "OnboardingTask":

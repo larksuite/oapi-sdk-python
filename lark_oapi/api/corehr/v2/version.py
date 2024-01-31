@@ -3,9 +3,20 @@ from .resource import *
 
 class V2(object):
     def __init__(self, config: Config) -> None:
+        self.basic_info_bank: BasicInfoBank = BasicInfoBank(config)
+        self.basic_info_bank_branch: BasicInfoBankBranch = BasicInfoBankBranch(config)
+        self.basic_info_city: BasicInfoCity = BasicInfoCity(config)
+        self.basic_info_country_region: BasicInfoCountryRegion = BasicInfoCountryRegion(config)
+        self.basic_info_country_region_subdivision: BasicInfoCountryRegionSubdivision = BasicInfoCountryRegionSubdivision(
+            config)
+        self.basic_info_currency: BasicInfoCurrency = BasicInfoCurrency(config)
+        self.basic_info_district: BasicInfoDistrict = BasicInfoDistrict(config)
+        self.basic_info_nationality: BasicInfoNationality = BasicInfoNationality(config)
         self.bp: Bp = Bp(config)
         self.company: Company = Company(config)
         self.contract: Contract = Contract(config)
+        self.cost_center: CostCenter = CostCenter(config)
+        self.cost_center_version: CostCenterVersion = CostCenterVersion(config)
         self.department: Department = Department(config)
         self.employee: Employee = Employee(config)
         self.employees_bp: EmployeesBp = EmployeesBp(config)
@@ -19,3 +30,6 @@ class V2(object):
         self.pre_hire: PreHire = PreHire(config)
         self.probation: Probation = Probation(config)
         self.probation_assessment: ProbationAssessment = ProbationAssessment(config)
+        self.process: Process = Process(config)
+        self.process_approver: ProcessApprover = ProcessApprover(config)
+        self.process_cc: ProcessCc = ProcessCc(config)

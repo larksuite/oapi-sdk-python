@@ -9,12 +9,14 @@ class ReplyMessageRequestBody(object):
     _types = {
         "content": str,
         "msg_type": str,
+        "reply_in_thread": bool,
         "uuid": str,
     }
 
     def __init__(self, d=None):
         self.content: Optional[str] = None
         self.msg_type: Optional[str] = None
+        self.reply_in_thread: Optional[bool] = None
         self.uuid: Optional[str] = None
         init(self, d, self._types)
 
@@ -33,6 +35,10 @@ class ReplyMessageRequestBodyBuilder(object):
 
     def msg_type(self, msg_type: str) -> "ReplyMessageRequestBodyBuilder":
         self._reply_message_request_body.msg_type = msg_type
+        return self
+
+    def reply_in_thread(self, reply_in_thread: bool) -> "ReplyMessageRequestBodyBuilder":
+        self._reply_message_request_body.reply_in_thread = reply_in_thread
         return self
 
     def uuid(self, uuid: str) -> "ReplyMessageRequestBodyBuilder":

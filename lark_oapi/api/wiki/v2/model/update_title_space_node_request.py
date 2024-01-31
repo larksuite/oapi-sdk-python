@@ -10,7 +10,7 @@ from .update_title_space_node_request_body import UpdateTitleSpaceNodeRequestBod
 class UpdateTitleSpaceNodeRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.space_id: Optional[int] = None
+        self.space_id: Optional[str] = None
         self.node_token: Optional[str] = None
         self.request_body: Optional[UpdateTitleSpaceNodeRequestBody] = None
 
@@ -28,7 +28,7 @@ class UpdateTitleSpaceNodeRequestBuilder(object):
         update_title_space_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._update_title_space_node_request: UpdateTitleSpaceNodeRequest = update_title_space_node_request
 
-    def space_id(self, space_id: int) -> "UpdateTitleSpaceNodeRequestBuilder":
+    def space_id(self, space_id: str) -> "UpdateTitleSpaceNodeRequestBuilder":
         self._update_title_space_node_request.space_id = space_id
         self._update_title_space_node_request.paths["space_id"] = str(space_id)
         return self

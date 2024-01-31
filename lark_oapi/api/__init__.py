@@ -29,6 +29,7 @@ from . import okr
 from . import optical_char_recognition
 from . import passport
 from . import personal_settings
+from . import report
 from . import search
 from . import security_and_compliance
 from . import sheets
@@ -37,5 +38,6 @@ from . import task
 from . import tenant
 from . import translation
 from . import vc
+from . import verification
 from . import wiki
 from . import workplace

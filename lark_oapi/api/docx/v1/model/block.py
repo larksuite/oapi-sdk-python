@@ -5,6 +5,7 @@ from typing import Optional, List
 from lark_oapi.core.construct import init
 from .add_ons import AddOns
 from .bitable import Bitable
+from .board import Board
 from .callout import Callout
 from .chat_card import ChatCard
 from .diagram import Diagram
@@ -82,6 +83,7 @@ class Block(object):
         "comment_ids": List[str],
         "jira_issue": JiraIssue,
         "wiki_catalog": WikiCatalog,
+        "board": Board,
     }
 
     def __init__(self, d=None):
@@ -133,6 +135,7 @@ class Block(object):
         self.comment_ids: Optional[List[str]] = None
         self.jira_issue: Optional[JiraIssue] = None
         self.wiki_catalog: Optional[WikiCatalog] = None
+        self.board: Optional[Board] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -334,6 +337,10 @@ class BlockBuilder(object):
 
     def wiki_catalog(self, wiki_catalog: WikiCatalog) -> "BlockBuilder":
         self._block.wiki_catalog = wiki_catalog
+        return self
+
+    def board(self, board: Board) -> "BlockBuilder":
+        self._block.board = board
         return self
 
     def build(self) -> "Block":

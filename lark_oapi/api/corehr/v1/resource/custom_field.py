@@ -41,6 +41,24 @@ class CustomField(object):
 
         return response
 
+    async def aget_by_param(self, request: GetByParamCustomFieldRequest,
+                            option: Optional[RequestOption] = None) -> GetByParamCustomFieldResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetByParamCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 GetByParamCustomFieldResponse)
+        response.raw = resp
+
+        return response
+
     def list_object_api_name(self, request: ListObjectApiNameCustomFieldRequest,
                              option: Optional[RequestOption] = None) -> ListObjectApiNameCustomFieldResponse:
         if option is None:
@@ -63,6 +81,24 @@ class CustomField(object):
 
         return response
 
+    async def alist_object_api_name(self, request: ListObjectApiNameCustomFieldRequest,
+                                    option: Optional[RequestOption] = None) -> ListObjectApiNameCustomFieldResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListObjectApiNameCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        ListObjectApiNameCustomFieldResponse)
+        response.raw = resp
+
+        return response
+
     def query(self, request: QueryCustomFieldRequest,
               option: Optional[RequestOption] = None) -> QueryCustomFieldResponse:
         if option is None:
@@ -77,6 +113,23 @@ class CustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryCustomFieldResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery(self, request: QueryCustomFieldRequest,
+                     option: Optional[RequestOption] = None) -> QueryCustomFieldResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: QueryCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryCustomFieldResponse)

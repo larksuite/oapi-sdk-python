@@ -48,6 +48,30 @@ class File(object):
         response.raw = resp
         return response
 
+    async def adownload(self, request: DownloadFileRequest,
+                        option: Optional[RequestOption] = None) -> DownloadFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 处理二进制流
+        content_type = resp.headers.get(CONTENT_TYPE)
+        response: DownloadFileResponse = DownloadFileResponse()
+        if 200 <= resp.status_code < 300:
+            response.code = 0
+            response.file = io.BytesIO(resp.content)
+            response.file_name = Files.parse_file_name(resp.headers)
+        elif content_type is not None and content_type.startswith(APPLICATION_JSON):
+            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadFileResponse)
+
+        response.raw = resp
+        return response
+
     def upload(self, request: UploadFileRequest, option: Optional[RequestOption] = None) -> UploadFileResponse:
         if option is None:
             option = RequestOption()
@@ -63,6 +87,25 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UploadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupload(self, request: UploadFileRequest, option: Optional[RequestOption] = None) -> UploadFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UploadFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFileResponse)

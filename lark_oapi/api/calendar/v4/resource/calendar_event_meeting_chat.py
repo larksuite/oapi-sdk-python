@@ -39,6 +39,24 @@ class CalendarEventMeetingChat(object):
 
         return response
 
+    async def acreate(self, request: CreateCalendarEventMeetingChatRequest,
+                      option: Optional[RequestOption] = None) -> CreateCalendarEventMeetingChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateCalendarEventMeetingChatResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          CreateCalendarEventMeetingChatResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteCalendarEventMeetingChatRequest,
                option: Optional[RequestOption] = None) -> DeleteCalendarEventMeetingChatResponse:
         if option is None:
@@ -53,6 +71,24 @@ class CalendarEventMeetingChat(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteCalendarEventMeetingChatResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          DeleteCalendarEventMeetingChatResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteCalendarEventMeetingChatRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCalendarEventMeetingChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteCalendarEventMeetingChatResponse = JSON.unmarshal(str(resp.content, UTF_8),

@@ -36,3 +36,21 @@ class Referral(object):
         response.raw = resp
 
         return response
+
+    async def aget_by_application(self, request: GetByApplicationReferralRequest,
+                                  option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    GetByApplicationReferralResponse)
+        response.raw = resp
+
+        return response

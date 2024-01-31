@@ -15,8 +15,11 @@ from .model.p2_corehr_employment_deleted_v1 import P2CorehrEmploymentDeletedV1
 from .model.p2_corehr_employment_resigned_v1 import P2CorehrEmploymentResignedV1
 from .model.p2_corehr_employment_updated_v1 import P2CorehrEmploymentUpdatedV1
 from .model.p2_corehr_job_change_updated_v1 import P2CorehrJobChangeUpdatedV1
+from .model.p2_corehr_job_created_v1 import P2CorehrJobCreatedV1
 from .model.p2_corehr_job_data_changed_v1 import P2CorehrJobDataChangedV1
 from .model.p2_corehr_job_data_employed_v1 import P2CorehrJobDataEmployedV1
+from .model.p2_corehr_job_deleted_v1 import P2CorehrJobDeletedV1
+from .model.p2_corehr_job_updated_v1 import P2CorehrJobUpdatedV1
 from .model.p2_corehr_offboarding_updated_v1 import P2CorehrOffboardingUpdatedV1
 from .model.p2_corehr_org_role_authorization_updated_v1 import P2CorehrOrgRoleAuthorizationUpdatedV1
 from .model.p2_corehr_person_created_v1 import P2CorehrPersonCreatedV1
@@ -143,6 +146,39 @@ class P2CorehrEmploymentUpdatedV1Processor(IEventProcessor[P2CorehrEmploymentUpd
         return P2CorehrEmploymentUpdatedV1
 
     def do(self, data: P2CorehrEmploymentUpdatedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrJobCreatedV1Processor(IEventProcessor[P2CorehrJobCreatedV1]):
+    def __init__(self, f: Callable[[P2CorehrJobCreatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobCreatedV1]:
+        return P2CorehrJobCreatedV1
+
+    def do(self, data: P2CorehrJobCreatedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrJobDeletedV1Processor(IEventProcessor[P2CorehrJobDeletedV1]):
+    def __init__(self, f: Callable[[P2CorehrJobDeletedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobDeletedV1]:
+        return P2CorehrJobDeletedV1
+
+    def do(self, data: P2CorehrJobDeletedV1) -> None:
+        self.f(data)
+
+
+class P2CorehrJobUpdatedV1Processor(IEventProcessor[P2CorehrJobUpdatedV1]):
+    def __init__(self, f: Callable[[P2CorehrJobUpdatedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobUpdatedV1]:
+        return P2CorehrJobUpdatedV1
+
+    def do(self, data: P2CorehrJobUpdatedV1) -> None:
         self.f(data)
 
 

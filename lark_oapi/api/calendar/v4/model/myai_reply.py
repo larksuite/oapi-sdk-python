@@ -15,6 +15,8 @@ class MyaiReply(object):
         "rooms": List[RoomMeta],
         "summary": str,
         "participants": List[UserMeta],
+        "event_id": str,
+        "recurrence_rule": str,
     }
 
     def __init__(self, d=None):
@@ -24,6 +26,8 @@ class MyaiReply(object):
         self.rooms: Optional[List[RoomMeta]] = None
         self.summary: Optional[str] = None
         self.participants: Optional[List[UserMeta]] = None
+        self.event_id: Optional[str] = None
+        self.recurrence_rule: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -57,6 +61,14 @@ class MyaiReplyBuilder(object):
 
     def participants(self, participants: List[UserMeta]) -> "MyaiReplyBuilder":
         self._myai_reply.participants = participants
+        return self
+
+    def event_id(self, event_id: str) -> "MyaiReplyBuilder":
+        self._myai_reply.event_id = event_id
+        return self
+
+    def recurrence_rule(self, recurrence_rule: str) -> "MyaiReplyBuilder":
+        self._myai_reply.recurrence_rule = recurrence_rule
         return self
 
     def build(self) -> "MyaiReply":

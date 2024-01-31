@@ -40,3 +40,23 @@ class BankCard(object):
         response.raw = resp
 
         return response
+
+    async def arecognize(self, request: RecognizeBankCardRequest,
+                         option: Optional[RequestOption] = None) -> RecognizeBankCardResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RecognizeBankCardResponse = JSON.unmarshal(str(resp.content, UTF_8), RecognizeBankCardResponse)
+        response.raw = resp
+
+        return response

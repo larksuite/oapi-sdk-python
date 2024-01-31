@@ -41,6 +41,24 @@ class EcoBackgroundCheckPackage(object):
 
         return response
 
+    async def abatch_delete(self, request: BatchDeleteEcoBackgroundCheckPackageRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteEcoBackgroundCheckPackageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDeleteEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                BatchDeleteEcoBackgroundCheckPackageResponse)
+        response.raw = resp
+
+        return response
+
     def batch_update(self, request: BatchUpdateEcoBackgroundCheckPackageRequest,
                      option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckPackageResponse:
         if option is None:
@@ -63,6 +81,24 @@ class EcoBackgroundCheckPackage(object):
 
         return response
 
+    async def abatch_update(self, request: BatchUpdateEcoBackgroundCheckPackageRequest,
+                            option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckPackageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchUpdateEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                BatchUpdateEcoBackgroundCheckPackageResponse)
+        response.raw = resp
+
+        return response
+
     def create(self, request: CreateEcoBackgroundCheckPackageRequest,
                option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckPackageResponse:
         if option is None:
@@ -77,6 +113,24 @@ class EcoBackgroundCheckPackage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreateEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           CreateEcoBackgroundCheckPackageResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate(self, request: CreateEcoBackgroundCheckPackageRequest,
+                      option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckPackageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CreateEcoBackgroundCheckPackageResponse = JSON.unmarshal(str(resp.content, UTF_8),

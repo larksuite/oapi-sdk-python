@@ -10,6 +10,7 @@ class WebsiteDeliveryEducation(object):
     _types = {
         "education_type": int,
         "end_time": int,
+        "end_time_v2": int,
         "field_of_study": str,
         "school": str,
         "start_time": int,
@@ -21,6 +22,7 @@ class WebsiteDeliveryEducation(object):
     def __init__(self, d=None):
         self.education_type: Optional[int] = None
         self.end_time: Optional[int] = None
+        self.end_time_v2: Optional[int] = None
         self.field_of_study: Optional[str] = None
         self.school: Optional[str] = None
         self.start_time: Optional[int] = None
@@ -44,6 +46,10 @@ class WebsiteDeliveryEducationBuilder(object):
 
     def end_time(self, end_time: int) -> "WebsiteDeliveryEducationBuilder":
         self._website_delivery_education.end_time = end_time
+        return self
+
+    def end_time_v2(self, end_time_v2: int) -> "WebsiteDeliveryEducationBuilder":
+        self._website_delivery_education.end_time_v2 = end_time_v2
         return self
 
     def field_of_study(self, field_of_study: str) -> "WebsiteDeliveryEducationBuilder":

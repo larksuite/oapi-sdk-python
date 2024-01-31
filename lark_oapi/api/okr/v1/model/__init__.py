@@ -16,6 +16,10 @@ from .content_paragraph_style import *
 from .content_person import *
 from .content_text_run import *
 from .content_text_style import *
+from .create_period_request import *
+from .create_period_request_body import *
+from .create_period_response import *
+from .create_period_response_body import *
 from .create_progress_record_request import *
 from .create_progress_record_request_body import *
 from .create_progress_record_response import *
@@ -35,6 +39,9 @@ from .kr_content import *
 from .list_period_request import *
 from .list_period_response import *
 from .list_period_response_body import *
+from .list_period_rule_request import *
+from .list_period_rule_response import *
+from .list_period_rule_response_body import *
 from .list_user_okr_request import *
 from .list_user_okr_response import *
 from .list_user_okr_response_body import *
@@ -65,6 +72,10 @@ from .okr_review import *
 from .okr_review_period import *
 from .okr_review_period_url import *
 from .okr_simple import *
+from .patch_period_request import *
+from .patch_period_request_body import *
+from .patch_period_response import *
+from .patch_period_response_body import *
 from .period import *
 from .period_rule import *
 from .progress_item import *

@@ -46,6 +46,23 @@ class PermissionMember(object):
 
         return response
 
+    async def aauth(self, request: AuthPermissionMemberRequest,
+                    option: Optional[RequestOption] = None) -> AuthPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: AuthPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), AuthPermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
     def create(self, request: CreatePermissionMemberRequest,
                option: Optional[RequestOption] = None) -> CreatePermissionMemberResponse:
         if option is None:
@@ -60,6 +77,24 @@ class PermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  CreatePermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate(self, request: CreatePermissionMemberRequest,
+                      option: Optional[RequestOption] = None) -> CreatePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CreatePermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -90,6 +125,24 @@ class PermissionMember(object):
 
         return response
 
+    async def adelete(self, request: DeletePermissionMemberRequest,
+                      option: Optional[RequestOption] = None) -> DeletePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeletePermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  DeletePermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListPermissionMemberRequest,
              option: Optional[RequestOption] = None) -> ListPermissionMemberResponse:
         if option is None:
@@ -104,6 +157,23 @@ class PermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListPermissionMemberRequest,
+                    option: Optional[RequestOption] = None) -> ListPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPermissionMemberResponse)
@@ -133,6 +203,24 @@ class PermissionMember(object):
 
         return response
 
+    async def atransfer_owner(self, request: TransferOwnerPermissionMemberRequest,
+                              option: Optional[RequestOption] = None) -> TransferOwnerPermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TransferOwnerPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         TransferOwnerPermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdatePermissionMemberRequest,
                option: Optional[RequestOption] = None) -> UpdatePermissionMemberResponse:
         if option is None:
@@ -147,6 +235,24 @@ class PermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdatePermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  UpdatePermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdatePermissionMemberRequest,
+                      option: Optional[RequestOption] = None) -> UpdatePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdatePermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),

@@ -39,6 +39,24 @@ class ExternalApproval(object):
 
         return response
 
+    async def acreate(self, request: CreateExternalApprovalRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateExternalApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  CreateExternalApprovalResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetExternalApprovalRequest,
             option: Optional[RequestOption] = None) -> GetExternalApprovalResponse:
         if option is None:
@@ -53,6 +71,23 @@ class ExternalApproval(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetExternalApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExternalApprovalResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetExternalApprovalRequest,
+                   option: Optional[RequestOption] = None) -> GetExternalApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetExternalApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExternalApprovalResponse)

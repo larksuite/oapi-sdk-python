@@ -38,6 +38,23 @@ class SpaceMember(object):
 
         return response
 
+    async def acreate(self, request: CreateSpaceMemberRequest,
+                      option: Optional[RequestOption] = None) -> CreateSpaceMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpaceMemberResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteSpaceMemberRequest,
                option: Optional[RequestOption] = None) -> DeleteSpaceMemberResponse:
         if option is None:
@@ -52,6 +69,23 @@ class SpaceMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpaceMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteSpaceMemberRequest,
+                      option: Optional[RequestOption] = None) -> DeleteSpaceMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpaceMemberResponse)

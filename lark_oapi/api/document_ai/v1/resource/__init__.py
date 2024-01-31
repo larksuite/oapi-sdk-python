@@ -6,10 +6,12 @@ from .contract import *
 from .driving_license import *
 from .food_manage_license import *
 from .food_produce_license import *
+from .health_certificate import *
 from .hkm_mainland_travel_permit import *
 from .id_card import *
 from .taxi_invoice import *
 from .train_invoice import *
 from .tw_mainland_travel_permit import *
 from .vat_invoice import *
+from .vehicle_invoice import *
 from .vehicle_license import *

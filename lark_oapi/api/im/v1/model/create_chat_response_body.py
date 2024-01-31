@@ -22,6 +22,7 @@ class CreateChatResponseBody(object):
         "share_card_permission": str,
         "at_all_permission": str,
         "edit_permission": str,
+        "group_message_type": str,
         "chat_mode": str,
         "chat_type": str,
         "chat_tag": str,
@@ -48,6 +49,7 @@ class CreateChatResponseBody(object):
         self.share_card_permission: Optional[str] = None
         self.at_all_permission: Optional[str] = None
         self.edit_permission: Optional[str] = None
+        self.group_message_type: Optional[str] = None
         self.chat_mode: Optional[str] = None
         self.chat_type: Optional[str] = None
         self.chat_tag: Optional[str] = None
@@ -119,6 +121,10 @@ class CreateChatResponseBodyBuilder(object):
 
     def edit_permission(self, edit_permission: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.edit_permission = edit_permission
+        return self
+
+    def group_message_type(self, group_message_type: str) -> "CreateChatResponseBodyBuilder":
+        self._create_chat_response_body.group_message_type = group_message_type
         return self
 
     def chat_mode(self, chat_mode: str) -> "CreateChatResponseBodyBuilder":

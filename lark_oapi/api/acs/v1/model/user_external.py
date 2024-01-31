@@ -11,6 +11,7 @@ class UserExternal(object):
         "user_id": int,
         "user_name": str,
         "phone_num": str,
+        "department_id": int,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class UserExternal(object):
         self.user_id: Optional[int] = None
         self.user_name: Optional[str] = None
         self.phone_num: Optional[str] = None
+        self.department_id: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +45,10 @@ class UserExternalBuilder(object):
 
     def phone_num(self, phone_num: str) -> "UserExternalBuilder":
         self._user_external.phone_num = phone_num
+        return self
+
+    def department_id(self, department_id: int) -> "UserExternalBuilder":
+        self._user_external.department_id = department_id
         return self
 
     def build(self) -> "UserExternal":

@@ -101,6 +101,10 @@ from .forward_message_request import *
 from .forward_message_request_body import *
 from .forward_message_response import *
 from .forward_message_response_body import *
+from .forward_thread_request import *
+from .forward_thread_request_body import *
+from .forward_thread_response import *
+from .forward_thread_response_body import *
 from .get_chat_announcement_request import *
 from .get_chat_announcement_response import *
 from .get_chat_announcement_response_body import *
@@ -226,6 +230,7 @@ from .sort_tabs_chat_tab_response import *
 from .sort_tabs_chat_tab_response_body import *
 from .special_focus import *
 from .special_focus_unread import *
+from .thread import *
 from .toolkit import *
 from .toolkit_callback import *
 from .toolkit_redirect_link import *

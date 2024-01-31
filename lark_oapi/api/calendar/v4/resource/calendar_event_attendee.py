@@ -41,6 +41,24 @@ class CalendarEventAttendee(object):
 
         return response
 
+    async def abatch_delete(self, request: BatchDeleteCalendarEventAttendeeRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteCalendarEventAttendeeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDeleteCalendarEventAttendeeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            BatchDeleteCalendarEventAttendeeResponse)
+        response.raw = resp
+
+        return response
+
     def create(self, request: CreateCalendarEventAttendeeRequest,
                option: Optional[RequestOption] = None) -> CreateCalendarEventAttendeeResponse:
         if option is None:
@@ -63,6 +81,24 @@ class CalendarEventAttendee(object):
 
         return response
 
+    async def acreate(self, request: CreateCalendarEventAttendeeRequest,
+                      option: Optional[RequestOption] = None) -> CreateCalendarEventAttendeeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateCalendarEventAttendeeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       CreateCalendarEventAttendeeResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListCalendarEventAttendeeRequest,
              option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeResponse:
         if option is None:
@@ -77,6 +113,24 @@ class CalendarEventAttendee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListCalendarEventAttendeeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     ListCalendarEventAttendeeResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListCalendarEventAttendeeRequest,
+                    option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListCalendarEventAttendeeResponse = JSON.unmarshal(str(resp.content, UTF_8),

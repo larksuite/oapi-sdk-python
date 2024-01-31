@@ -15,6 +15,7 @@ class DlpEvidenceDetail(object):
         "file_type_hits": List[str],
         "file_name_ext_hits": List[str],
         "trigger_snippets": List[DlpPolicyHitProof],
+        "secure_label_hits": List[str],
     }
 
     def __init__(self, d=None):
@@ -25,6 +26,7 @@ class DlpEvidenceDetail(object):
         self.file_type_hits: Optional[List[str]] = None
         self.file_name_ext_hits: Optional[List[str]] = None
         self.trigger_snippets: Optional[List[DlpPolicyHitProof]] = None
+        self.secure_label_hits: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,6 +64,10 @@ class DlpEvidenceDetailBuilder(object):
 
     def trigger_snippets(self, trigger_snippets: List[DlpPolicyHitProof]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.trigger_snippets = trigger_snippets
+        return self
+
+    def secure_label_hits(self, secure_label_hits: List[str]) -> "DlpEvidenceDetailBuilder":
+        self._dlp_evidence_detail.secure_label_hits = secure_label_hits
         return self
 
     def build(self) -> "DlpEvidenceDetail":

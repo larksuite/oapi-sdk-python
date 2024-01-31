@@ -38,5 +38,41 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: CreateJobLevelRequest = CreateJobLevelRequest.builder() \
+        .client_token("12454646") \
+        .request_body(JobLevel.builder()
+                      .level_order(9999)
+                      .code("VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=")
+                      .name([])
+                      .description([])
+                      .active(True)
+                      .custom_fields([])
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: CreateJobLevelResponse = await client.corehr.v1.job_level.acreate(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v1.job_level.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

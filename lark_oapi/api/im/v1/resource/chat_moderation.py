@@ -38,6 +38,23 @@ class ChatModeration(object):
 
         return response
 
+    async def aget(self, request: GetChatModerationRequest,
+                   option: Optional[RequestOption] = None) -> GetChatModerationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetChatModerationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatModerationResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateChatModerationRequest,
                option: Optional[RequestOption] = None) -> UpdateChatModerationResponse:
         if option is None:
@@ -52,6 +69,23 @@ class ChatModeration(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateChatModerationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatModerationResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateChatModerationRequest,
+                      option: Optional[RequestOption] = None) -> UpdateChatModerationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateChatModerationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatModerationResponse)

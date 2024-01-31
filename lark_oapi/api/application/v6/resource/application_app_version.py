@@ -45,6 +45,24 @@ class ApplicationAppVersion(object):
 
         return response
 
+    async def acontacts_range_suggest(self, request: ContactsRangeSuggestApplicationAppVersionRequest, option: Optional[
+        RequestOption] = None) -> ContactsRangeSuggestApplicationAppVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ContactsRangeSuggestApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                     ContactsRangeSuggestApplicationAppVersionResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetApplicationAppVersionRequest,
             option: Optional[RequestOption] = None) -> GetApplicationAppVersionResponse:
         if option is None:
@@ -59,6 +77,24 @@ class ApplicationAppVersion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    GetApplicationAppVersionResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetApplicationAppVersionRequest,
+                   option: Optional[RequestOption] = None) -> GetApplicationAppVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -89,6 +125,24 @@ class ApplicationAppVersion(object):
 
         return response
 
+    async def alist(self, request: ListApplicationAppVersionRequest,
+                    option: Optional[RequestOption] = None) -> ListApplicationAppVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     ListApplicationAppVersionResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchApplicationAppVersionRequest,
               option: Optional[RequestOption] = None) -> PatchApplicationAppVersionResponse:
         if option is None:
@@ -103,6 +157,24 @@ class ApplicationAppVersion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      PatchApplicationAppVersionResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchApplicationAppVersionRequest,
+                     option: Optional[RequestOption] = None) -> PatchApplicationAppVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchApplicationAppVersionResponse = JSON.unmarshal(str(resp.content, UTF_8),

@@ -14,6 +14,7 @@ class UserOvertimeWork(object):
         "type": int,
         "start_time": str,
         "end_time": str,
+        "reason": str,
     }
 
     def __init__(self, d=None):
@@ -24,6 +25,7 @@ class UserOvertimeWork(object):
         self.type: Optional[int] = None
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
+        self.reason: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -61,6 +63,10 @@ class UserOvertimeWorkBuilder(object):
 
     def end_time(self, end_time: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.end_time = end_time
+        return self
+
+    def reason(self, reason: str) -> "UserOvertimeWorkBuilder":
+        self._user_overtime_work.reason = reason
         return self
 
     def build(self) -> "UserOvertimeWork":

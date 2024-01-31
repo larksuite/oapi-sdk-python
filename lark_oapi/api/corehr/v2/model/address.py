@@ -14,6 +14,8 @@ class Address(object):
         "address_id": str,
         "country_region_id": str,
         "region_id": str,
+        "city_id_v2": str,
+        "district_id_v2": str,
         "local_address_line1": str,
         "local_address_line2": str,
         "local_address_line3": str,
@@ -36,6 +38,8 @@ class Address(object):
         self.address_id: Optional[str] = None
         self.country_region_id: Optional[str] = None
         self.region_id: Optional[str] = None
+        self.city_id_v2: Optional[str] = None
+        self.district_id_v2: Optional[str] = None
         self.local_address_line1: Optional[str] = None
         self.local_address_line2: Optional[str] = None
         self.local_address_line3: Optional[str] = None
@@ -79,6 +83,14 @@ class AddressBuilder(object):
 
     def region_id(self, region_id: str) -> "AddressBuilder":
         self._address.region_id = region_id
+        return self
+
+    def city_id_v2(self, city_id_v2: str) -> "AddressBuilder":
+        self._address.city_id_v2 = city_id_v2
+        return self
+
+    def district_id_v2(self, district_id_v2: str) -> "AddressBuilder":
+        self._address.district_id_v2 = district_id_v2
         return self
 
     def local_address_line1(self, local_address_line1: str) -> "AddressBuilder":

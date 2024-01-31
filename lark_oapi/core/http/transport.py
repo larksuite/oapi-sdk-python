@@ -1,3 +1,6 @@
+
+import json
+
 import httpx
 import requests
 from requests_toolbelt import MultipartEncoder
@@ -57,9 +60,15 @@ class Transport(object):
         # 组装header
         headers: Dict[str, str] = _build_header(req, option)
 
-        data = req.body
-        if data is not None:
-            data = JSON.marshal(req.body).encode(UTF_8)
+        json_, files, data = None, None, None
+        if req.files:
+            # multipart/form-data
+            files = req.files
+            if req.body is not None:
+                data = json.loads(JSON.marshal(req.body))
+        elif req.body is not None:
+            # application/json
+            json_ = json.loads(JSON.marshal(req.body))
 
         async with httpx.AsyncClient() as client:
             response = await client.request(
@@ -67,14 +76,18 @@ class Transport(object):
                 url,
                 headers=req.headers,
                 params=req.queries,
+                json=json_,
                 data=data,
+                files=files,
                 timeout=conf.timeout,
             )
 
-            logger.debug(f"{str(req.http_method.name)} {url} {response.status_code}, "
-                         f"headers: {JSON.marshal(headers)}, "
-                         f"params: {JSON.marshal(req.queries)}, "
-                         f"body: {str(data, UTF_8) if isinstance(data, bytes) else data}")
+            logger.debug(
+                f"{str(req.http_method.name)} {url} {response.status_code}"
+                f"{f', headers: {JSON.marshal(headers)}' if headers else ''}"
+                f"{f', params: {JSON.marshal(req.queries)}' if req.queries else ''}"
+                f"{f', body: {JSON.marshal(_merge_dicts(json_, files, data))}' if json_ or files or data else ''}"
+            )
 
             resp = RawResponse()
             resp.status_code = response.status_code
@@ -114,3 +127,11 @@ def _build_header(request: BaseRequest, option: RequestOption) -> Dict[str, str]
             headers[AUTHORIZATION] = f"Bearer {option.user_access_token}"
 
     return headers
+
+
+def _merge_dicts(*dicts):
+    res = {}
+    for d in dicts:
+        if d is not None:
+            res.update(d)
+    return res

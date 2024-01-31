@@ -134,11 +134,16 @@ from .my_ai_av_plugin_context_system_info import *
 from .my_ai_av_plugin_present_info import *
 from .my_ai_av_plugin_scenario_context import *
 from .my_ai_av_plugin_upload_object import *
+from .my_ai_callback_action import *
+from .my_ai_callback_action_value import *
 from .my_ai_object_context import *
 from .my_ai_plugin_context import *
 from .my_ai_response_present import *
 from .my_ai_room_common_result import *
 from .my_ai_room_openapi_response import *
+from .my_ai_sip_card_variables import *
+from .my_ai_sip_image_property import *
+from .my_ai_sip_present import *
 from .my_ai_vc_meeting_content_common_result import *
 from .my_ai_vc_meeting_extra import *
 from .my_ai_vc_meeting_operation_result import *

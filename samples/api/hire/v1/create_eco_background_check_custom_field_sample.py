@@ -34,5 +34,37 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: CreateEcoBackgroundCheckCustomFieldRequest = CreateEcoBackgroundCheckCustomFieldRequest.builder() \
+        .request_body(EcoBackgroundCheckCustomField.builder()
+                      .account_id("6995842370159937061")
+                      .custom_field_list([])
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: CreateEcoBackgroundCheckCustomFieldResponse = await client.hire.v1.eco_background_check_custom_field.acreate(
+        request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.eco_background_check_custom_field.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

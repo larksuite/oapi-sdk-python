@@ -37,6 +37,23 @@ class CountryRegion(object):
 
         return response
 
+    async def aget(self, request: GetCountryRegionRequest,
+                   option: Optional[RequestOption] = None) -> GetCountryRegionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCountryRegionResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListCountryRegionRequest,
              option: Optional[RequestOption] = None) -> ListCountryRegionResponse:
         if option is None:
@@ -51,6 +68,23 @@ class CountryRegion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCountryRegionResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListCountryRegionRequest,
+                    option: Optional[RequestOption] = None) -> ListCountryRegionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListCountryRegionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCountryRegionResponse)

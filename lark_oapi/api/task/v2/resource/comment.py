@@ -43,6 +43,23 @@ class Comment(object):
 
         return response
 
+    async def acreate(self, request: CreateCommentRequest,
+                      option: Optional[RequestOption] = None) -> CreateCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCommentResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteCommentRequest, option: Optional[RequestOption] = None) -> DeleteCommentResponse:
         if option is None:
             option = RequestOption()
@@ -56,6 +73,23 @@ class Comment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCommentResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteCommentRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCommentResponse)
@@ -83,6 +117,22 @@ class Comment(object):
 
         return response
 
+    async def aget(self, request: GetCommentRequest, option: Optional[RequestOption] = None) -> GetCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCommentResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListCommentRequest, option: Optional[RequestOption] = None) -> ListCommentResponse:
         if option is None:
             option = RequestOption()
@@ -103,6 +153,22 @@ class Comment(object):
 
         return response
 
+    async def alist(self, request: ListCommentRequest, option: Optional[RequestOption] = None) -> ListCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCommentResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchCommentRequest, option: Optional[RequestOption] = None) -> PatchCommentResponse:
         if option is None:
             option = RequestOption()
@@ -116,6 +182,23 @@ class Comment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCommentResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchCommentRequest,
+                     option: Optional[RequestOption] = None) -> PatchCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCommentResponse)

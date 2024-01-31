@@ -14,6 +14,8 @@ class BankAccount(object):
         "account_holder": str,
         "bank": Enum,
         "branch_name": str,
+        "bank_id_v2": str,
+        "branch_id_v2": str,
         "custom_fields": List[ObjectFieldData],
         "country_region_id": str,
         "bank_account_usage": List[Enum],
@@ -27,6 +29,8 @@ class BankAccount(object):
         self.account_holder: Optional[str] = None
         self.bank: Optional[Enum] = None
         self.branch_name: Optional[str] = None
+        self.bank_id_v2: Optional[str] = None
+        self.branch_id_v2: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.country_region_id: Optional[str] = None
         self.bank_account_usage: Optional[List[Enum]] = None
@@ -61,6 +65,14 @@ class BankAccountBuilder(object):
 
     def branch_name(self, branch_name: str) -> "BankAccountBuilder":
         self._bank_account.branch_name = branch_name
+        return self
+
+    def bank_id_v2(self, bank_id_v2: str) -> "BankAccountBuilder":
+        self._bank_account.bank_id_v2 = bank_id_v2
+        return self
+
+    def branch_id_v2(self, branch_id_v2: str) -> "BankAccountBuilder":
+        self._bank_account.branch_id_v2 = branch_id_v2
         return self
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "BankAccountBuilder":

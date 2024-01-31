@@ -1,6 +1,8 @@
 from .admin_dept_stat import *
 from .admin_user_stat import *
 from .administrator import *
+from .annual_report_map_float import *
+from .annual_report_map_int import *
 from .api_audit_common_drawers import *
 from .api_audit_drawer_info import *
 from .audit_android_context import *
@@ -71,3 +73,4 @@ from .user import *
 from .user_annual_report import *
 from .user_report2021 import *
 from .user_report2022 import *
+from .user_report2023 import *

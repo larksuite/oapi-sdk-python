@@ -36,3 +36,21 @@ class ExternalInterviewAssessment(object):
         response.raw = resp
 
         return response
+
+    async def acreate(self, request: CreateExternalInterviewAssessmentRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             CreateExternalInterviewAssessmentResponse)
+        response.raw = resp
+
+        return response

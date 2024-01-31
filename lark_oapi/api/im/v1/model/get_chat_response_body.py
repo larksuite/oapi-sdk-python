@@ -21,6 +21,7 @@ class GetChatResponseBody(object):
         "owner_id": str,
         "user_manager_id_list": List[str],
         "bot_manager_id_list": List[str],
+        "group_message_type": str,
         "chat_mode": str,
         "chat_type": str,
         "chat_tag": str,
@@ -50,6 +51,7 @@ class GetChatResponseBody(object):
         self.owner_id: Optional[str] = None
         self.user_manager_id_list: Optional[List[str]] = None
         self.bot_manager_id_list: Optional[List[str]] = None
+        self.group_message_type: Optional[str] = None
         self.chat_mode: Optional[str] = None
         self.chat_type: Optional[str] = None
         self.chat_tag: Optional[str] = None
@@ -121,6 +123,10 @@ class GetChatResponseBodyBuilder(object):
 
     def bot_manager_id_list(self, bot_manager_id_list: List[str]) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.bot_manager_id_list = bot_manager_id_list
+        return self
+
+    def group_message_type(self, group_message_type: str) -> "GetChatResponseBodyBuilder":
+        self._get_chat_response_body.group_message_type = group_message_type
         return self
 
     def chat_mode(self, chat_mode: str) -> "GetChatResponseBodyBuilder":

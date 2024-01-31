@@ -57,6 +57,23 @@ class Department(object):
 
         return response
 
+    async def abatch(self, request: BatchDepartmentRequest,
+                     option: Optional[RequestOption] = None) -> BatchDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDepartmentResponse)
+        response.raw = resp
+
+        return response
+
     def children(self, request: ChildrenDepartmentRequest,
                  option: Optional[RequestOption] = None) -> ChildrenDepartmentResponse:
         if option is None:
@@ -71,6 +88,23 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ChildrenDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ChildrenDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def achildren(self, request: ChildrenDepartmentRequest,
+                        option: Optional[RequestOption] = None) -> ChildrenDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ChildrenDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ChildrenDepartmentResponse)
@@ -99,6 +133,23 @@ class Department(object):
 
         return response
 
+    async def acreate(self, request: CreateDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> CreateDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDepartmentResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteDepartmentRequest,
                option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
         if option is None:
@@ -113,6 +164,23 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> DeleteDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDepartmentResponse)
@@ -140,6 +208,23 @@ class Department(object):
 
         return response
 
+    async def aget(self, request: GetDepartmentRequest,
+                   option: Optional[RequestOption] = None) -> GetDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDepartmentResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListDepartmentRequest, option: Optional[RequestOption] = None) -> ListDepartmentResponse:
         if option is None:
             option = RequestOption()
@@ -153,6 +238,23 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListDepartmentRequest,
+                    option: Optional[RequestOption] = None) -> ListDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDepartmentResponse)
@@ -181,6 +283,23 @@ class Department(object):
 
         return response
 
+    async def aparent(self, request: ParentDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> ParentDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ParentDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ParentDepartmentResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchDepartmentRequest, option: Optional[RequestOption] = None) -> PatchDepartmentResponse:
         if option is None:
             option = RequestOption()
@@ -194,6 +313,23 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchDepartmentRequest,
+                     option: Optional[RequestOption] = None) -> PatchDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDepartmentResponse)
@@ -215,6 +351,23 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> SearchDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
@@ -244,6 +397,24 @@ class Department(object):
 
         return response
 
+    async def aunbind_department_chat(self, request: UnbindDepartmentChatDepartmentRequest,
+                                      option: Optional[RequestOption] = None) -> UnbindDepartmentChatDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UnbindDepartmentChatDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          UnbindDepartmentChatDepartmentResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateDepartmentRequest,
                option: Optional[RequestOption] = None) -> UpdateDepartmentResponse:
         if option is None:
@@ -265,6 +436,23 @@ class Department(object):
 
         return response
 
+    async def aupdate(self, request: UpdateDepartmentRequest,
+                      option: Optional[RequestOption] = None) -> UpdateDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDepartmentResponse)
+        response.raw = resp
+
+        return response
+
     def update_department_id(self, request: UpdateDepartmentIdDepartmentRequest,
                              option: Optional[RequestOption] = None) -> UpdateDepartmentIdDepartmentResponse:
         if option is None:
@@ -279,6 +467,24 @@ class Department(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateDepartmentIdDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        UpdateDepartmentIdDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate_department_id(self, request: UpdateDepartmentIdDepartmentRequest,
+                                    option: Optional[RequestOption] = None) -> UpdateDepartmentIdDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateDepartmentIdDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),

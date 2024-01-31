@@ -3,6 +3,8 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .address import Address
+from .i18n import I18n
 from .onboarding_task import OnboardingTask
 
 
@@ -16,8 +18,10 @@ class PreHireOnboardingInfo(object):
         "recruitment_type": str,
         "onboarding_location_id": str,
         "company_sponsored_visa": bool,
-        "onboarding_status": bool,
+        "onboarding_status": str,
         "onboarding_task_list": List[OnboardingTask],
+        "onboarding_address": Address,
+        "flow_name": List[I18n],
     }
 
     def __init__(self, d=None):
@@ -29,8 +33,10 @@ class PreHireOnboardingInfo(object):
         self.recruitment_type: Optional[str] = None
         self.onboarding_location_id: Optional[str] = None
         self.company_sponsored_visa: Optional[bool] = None
-        self.onboarding_status: Optional[bool] = None
+        self.onboarding_status: Optional[str] = None
         self.onboarding_task_list: Optional[List[OnboardingTask]] = None
+        self.onboarding_address: Optional[Address] = None
+        self.flow_name: Optional[List[I18n]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -74,12 +80,20 @@ class PreHireOnboardingInfoBuilder(object):
         self._pre_hire_onboarding_info.company_sponsored_visa = company_sponsored_visa
         return self
 
-    def onboarding_status(self, onboarding_status: bool) -> "PreHireOnboardingInfoBuilder":
+    def onboarding_status(self, onboarding_status: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_status = onboarding_status
         return self
 
     def onboarding_task_list(self, onboarding_task_list: List[OnboardingTask]) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_task_list = onboarding_task_list
+        return self
+
+    def onboarding_address(self, onboarding_address: Address) -> "PreHireOnboardingInfoBuilder":
+        self._pre_hire_onboarding_info.onboarding_address = onboarding_address
+        return self
+
+    def flow_name(self, flow_name: List[I18n]) -> "PreHireOnboardingInfoBuilder":
+        self._pre_hire_onboarding_info.flow_name = flow_name
         return self
 
     def build(self) -> "PreHireOnboardingInfo":

@@ -40,6 +40,23 @@ class Leave(object):
 
         return response
 
+    async def aleave_balances(self, request: LeaveBalancesLeaveRequest,
+                              option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: LeaveBalancesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveBalancesLeaveResponse)
+        response.raw = resp
+
+        return response
+
     def leave_request_history(self, request: LeaveRequestHistoryLeaveRequest,
                               option: Optional[RequestOption] = None) -> LeaveRequestHistoryLeaveResponse:
         if option is None:
@@ -62,6 +79,24 @@ class Leave(object):
 
         return response
 
+    async def aleave_request_history(self, request: LeaveRequestHistoryLeaveRequest,
+                                     option: Optional[RequestOption] = None) -> LeaveRequestHistoryLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: LeaveRequestHistoryLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    LeaveRequestHistoryLeaveResponse)
+        response.raw = resp
+
+        return response
+
     def leave_types(self, request: LeaveTypesLeaveRequest,
                     option: Optional[RequestOption] = None) -> LeaveTypesLeaveResponse:
         if option is None:
@@ -76,6 +111,23 @@ class Leave(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: LeaveTypesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveTypesLeaveResponse)
+        response.raw = resp
+
+        return response
+
+    async def aleave_types(self, request: LeaveTypesLeaveRequest,
+                           option: Optional[RequestOption] = None) -> LeaveTypesLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: LeaveTypesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveTypesLeaveResponse)

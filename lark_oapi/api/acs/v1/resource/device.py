@@ -34,3 +34,19 @@ class Device(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListDeviceRequest, option: Optional[RequestOption] = None) -> ListDeviceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListDeviceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDeviceResponse)
+        response.raw = resp
+
+        return response

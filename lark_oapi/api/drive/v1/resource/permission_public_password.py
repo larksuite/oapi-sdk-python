@@ -41,6 +41,24 @@ class PermissionPublicPassword(object):
 
         return response
 
+    async def acreate(self, request: CreatePermissionPublicPasswordRequest,
+                      option: Optional[RequestOption] = None) -> CreatePermissionPublicPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          CreatePermissionPublicPasswordResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeletePermissionPublicPasswordRequest,
                option: Optional[RequestOption] = None) -> DeletePermissionPublicPasswordResponse:
         if option is None:
@@ -63,6 +81,24 @@ class PermissionPublicPassword(object):
 
         return response
 
+    async def adelete(self, request: DeletePermissionPublicPasswordRequest,
+                      option: Optional[RequestOption] = None) -> DeletePermissionPublicPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeletePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          DeletePermissionPublicPasswordResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdatePermissionPublicPasswordRequest,
                option: Optional[RequestOption] = None) -> UpdatePermissionPublicPasswordResponse:
         if option is None:
@@ -77,6 +113,24 @@ class PermissionPublicPassword(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdatePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                          UpdatePermissionPublicPasswordResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdatePermissionPublicPasswordRequest,
+                      option: Optional[RequestOption] = None) -> UpdatePermissionPublicPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdatePermissionPublicPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8),

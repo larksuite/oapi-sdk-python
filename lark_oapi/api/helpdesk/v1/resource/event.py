@@ -38,6 +38,23 @@ class Event(object):
 
         return response
 
+    async def asubscribe(self, request: SubscribeEventRequest,
+                         option: Optional[RequestOption] = None) -> SubscribeEventResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SubscribeEventResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeEventResponse)
+        response.raw = resp
+
+        return response
+
     def unsubscribe(self, request: UnsubscribeEventRequest,
                     option: Optional[RequestOption] = None) -> UnsubscribeEventResponse:
         if option is None:
@@ -52,6 +69,23 @@ class Event(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscribeEventResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscribeEventResponse)
+        response.raw = resp
+
+        return response
+
+    async def aunsubscribe(self, request: UnsubscribeEventRequest,
+                           option: Optional[RequestOption] = None) -> UnsubscribeEventResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UnsubscribeEventResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscribeEventResponse)

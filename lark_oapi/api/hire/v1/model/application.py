@@ -29,6 +29,7 @@ class Application(object):
         "termination_reason_list": List[str],
         "termination_reason_note": str,
         "application_preferred_city_list": List[CodeNameObject],
+        "creator_id": str,
     }
 
     def __init__(self, d=None):
@@ -49,6 +50,7 @@ class Application(object):
         self.termination_reason_list: Optional[List[str]] = None
         self.termination_reason_note: Optional[str] = None
         self.application_preferred_city_list: Optional[List[CodeNameObject]] = None
+        self.creator_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -127,6 +129,10 @@ class ApplicationBuilder(object):
     def application_preferred_city_list(self,
                                         application_preferred_city_list: List[CodeNameObject]) -> "ApplicationBuilder":
         self._application.application_preferred_city_list = application_preferred_city_list
+        return self
+
+    def creator_id(self, creator_id: str) -> "ApplicationBuilder":
+        self._application.creator_id = creator_id
         return self
 
     def build(self) -> "Application":

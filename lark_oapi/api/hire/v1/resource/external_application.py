@@ -41,6 +41,24 @@ class ExternalApplication(object):
 
         return response
 
+    async def acreate(self, request: CreateExternalApplicationRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     CreateExternalApplicationResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteExternalApplicationRequest,
                option: Optional[RequestOption] = None) -> DeleteExternalApplicationResponse:
         if option is None:
@@ -63,6 +81,24 @@ class ExternalApplication(object):
 
         return response
 
+    async def adelete(self, request: DeleteExternalApplicationRequest,
+                      option: Optional[RequestOption] = None) -> DeleteExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     DeleteExternalApplicationResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateExternalApplicationRequest,
                option: Optional[RequestOption] = None) -> UpdateExternalApplicationResponse:
         if option is None:
@@ -77,6 +113,24 @@ class ExternalApplication(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     UpdateExternalApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateExternalApplicationRequest,
+                      option: Optional[RequestOption] = None) -> UpdateExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),

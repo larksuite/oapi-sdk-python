@@ -38,6 +38,23 @@ class UserStatsView(object):
 
         return response
 
+    async def aquery(self, request: QueryUserStatsViewRequest,
+                     option: Optional[RequestOption] = None) -> QueryUserStatsViewResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryUserStatsViewResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserStatsViewResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateUserStatsViewRequest,
                option: Optional[RequestOption] = None) -> UpdateUserStatsViewResponse:
         if option is None:
@@ -52,6 +69,23 @@ class UserStatsView(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateUserStatsViewResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserStatsViewResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateUserStatsViewRequest,
+                      option: Optional[RequestOption] = None) -> UpdateUserStatsViewResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateUserStatsViewResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserStatsViewResponse)

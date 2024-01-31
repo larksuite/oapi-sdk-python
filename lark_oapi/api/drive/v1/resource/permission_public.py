@@ -38,6 +38,23 @@ class PermissionPublic(object):
 
         return response
 
+    async def aget(self, request: GetPermissionPublicRequest,
+                   option: Optional[RequestOption] = None) -> GetPermissionPublicResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetPermissionPublicResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPermissionPublicResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchPermissionPublicRequest,
               option: Optional[RequestOption] = None) -> PatchPermissionPublicResponse:
         if option is None:
@@ -52,6 +69,24 @@ class PermissionPublic(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchPermissionPublicResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 PatchPermissionPublicResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchPermissionPublicRequest,
+                     option: Optional[RequestOption] = None) -> PatchPermissionPublicResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchPermissionPublicResponse = JSON.unmarshal(str(resp.content, UTF_8),

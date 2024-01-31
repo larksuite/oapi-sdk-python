@@ -15,6 +15,10 @@ from ..model.config_job_request import ConfigJobRequest
 from ..model.config_job_response import ConfigJobResponse
 from ..model.get_job_request import GetJobRequest
 from ..model.get_job_response import GetJobResponse
+from ..model.list_job_request import ListJobRequest
+from ..model.list_job_response import ListJobResponse
+from ..model.recruiter_job_request import RecruiterJobRequest
+from ..model.recruiter_job_response import RecruiterJobResponse
 from ..model.update_config_job_request import UpdateConfigJobRequest
 from ..model.update_config_job_response import UpdateConfigJobResponse
 
@@ -44,6 +48,23 @@ class Job(object):
 
         return response
 
+    async def acombined_create(self, request: CombinedCreateJobRequest,
+                               option: Optional[RequestOption] = None) -> CombinedCreateJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CombinedCreateJobResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedCreateJobResponse)
+        response.raw = resp
+
+        return response
+
     def combined_update(self, request: CombinedUpdateJobRequest,
                         option: Optional[RequestOption] = None) -> CombinedUpdateJobResponse:
         if option is None:
@@ -58,6 +79,23 @@ class Job(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CombinedUpdateJobResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedUpdateJobResponse)
+        response.raw = resp
+
+        return response
+
+    async def acombined_update(self, request: CombinedUpdateJobRequest,
+                               option: Optional[RequestOption] = None) -> CombinedUpdateJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CombinedUpdateJobResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedUpdateJobResponse)
@@ -85,6 +123,22 @@ class Job(object):
 
         return response
 
+    async def aconfig(self, request: ConfigJobRequest, option: Optional[RequestOption] = None) -> ConfigJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ConfigJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ConfigJobResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
         if option is None:
             option = RequestOption()
@@ -105,6 +159,95 @@ class Job(object):
 
         return response
 
+    async def aget(self, request: GetJobRequest, option: Optional[RequestOption] = None) -> GetJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetJobResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobResponse)
+        response.raw = resp
+
+        return response
+
+    def list(self, request: ListJobRequest, option: Optional[RequestOption] = None) -> ListJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListJobRequest, option: Optional[RequestOption] = None) -> ListJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobResponse)
+        response.raw = resp
+
+        return response
+
+    def recruiter(self, request: RecruiterJobRequest, option: Optional[RequestOption] = None) -> RecruiterJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RecruiterJobResponse = JSON.unmarshal(str(resp.content, UTF_8), RecruiterJobResponse)
+        response.raw = resp
+
+        return response
+
+    async def arecruiter(self, request: RecruiterJobRequest,
+                         option: Optional[RequestOption] = None) -> RecruiterJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RecruiterJobResponse = JSON.unmarshal(str(resp.content, UTF_8), RecruiterJobResponse)
+        response.raw = resp
+
+        return response
+
     def update_config(self, request: UpdateConfigJobRequest,
                       option: Optional[RequestOption] = None) -> UpdateConfigJobResponse:
         if option is None:
@@ -119,6 +262,23 @@ class Job(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateConfigJobResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateConfigJobResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate_config(self, request: UpdateConfigJobRequest,
+                             option: Optional[RequestOption] = None) -> UpdateConfigJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateConfigJobResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateConfigJobResponse)

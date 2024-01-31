@@ -38,6 +38,23 @@ class ImportTask(object):
 
         return response
 
+    async def acreate(self, request: CreateImportTaskRequest,
+                      option: Optional[RequestOption] = None) -> CreateImportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImportTaskResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetImportTaskRequest, option: Optional[RequestOption] = None) -> GetImportTaskResponse:
         if option is None:
             option = RequestOption()
@@ -51,6 +68,23 @@ class ImportTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetImportTaskResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetImportTaskRequest,
+                   option: Optional[RequestOption] = None) -> GetImportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetImportTaskResponse)

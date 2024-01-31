@@ -34,3 +34,20 @@ class JobProcess(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListJobProcessRequest,
+                    option: Optional[RequestOption] = None) -> ListJobProcessResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListJobProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobProcessResponse)
+        response.raw = resp
+
+        return response

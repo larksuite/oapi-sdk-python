@@ -41,6 +41,24 @@ class EcoExamPaper(object):
 
         return response
 
+    async def abatch_delete(self, request: BatchDeleteEcoExamPaperRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteEcoExamPaperResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDeleteEcoExamPaperResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   BatchDeleteEcoExamPaperResponse)
+        response.raw = resp
+
+        return response
+
     def batch_update(self, request: BatchUpdateEcoExamPaperRequest,
                      option: Optional[RequestOption] = None) -> BatchUpdateEcoExamPaperResponse:
         if option is None:
@@ -63,6 +81,24 @@ class EcoExamPaper(object):
 
         return response
 
+    async def abatch_update(self, request: BatchUpdateEcoExamPaperRequest,
+                            option: Optional[RequestOption] = None) -> BatchUpdateEcoExamPaperResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchUpdateEcoExamPaperResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   BatchUpdateEcoExamPaperResponse)
+        response.raw = resp
+
+        return response
+
     def create(self, request: CreateEcoExamPaperRequest,
                option: Optional[RequestOption] = None) -> CreateEcoExamPaperResponse:
         if option is None:
@@ -77,6 +113,23 @@ class EcoExamPaper(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreateEcoExamPaperResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEcoExamPaperResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate(self, request: CreateEcoExamPaperRequest,
+                      option: Optional[RequestOption] = None) -> CreateEcoExamPaperResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CreateEcoExamPaperResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEcoExamPaperResponse)

@@ -43,6 +43,24 @@ class ReferralAccount(object):
 
         return response
 
+    async def acreate(self, request: CreateReferralAccountRequest,
+                      option: Optional[RequestOption] = None) -> CreateReferralAccountResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CreateReferralAccountResponse)
+        response.raw = resp
+
+        return response
+
     def deactivate(self, request: DeactivateReferralAccountRequest,
                    option: Optional[RequestOption] = None) -> DeactivateReferralAccountResponse:
         if option is None:
@@ -57,6 +75,24 @@ class ReferralAccount(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeactivateReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     DeactivateReferralAccountResponse)
+        response.raw = resp
+
+        return response
+
+    async def adeactivate(self, request: DeactivateReferralAccountRequest,
+                          option: Optional[RequestOption] = None) -> DeactivateReferralAccountResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeactivateReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -87,6 +123,24 @@ class ReferralAccount(object):
 
         return response
 
+    async def areconciliation(self, request: ReconciliationReferralAccountRequest,
+                              option: Optional[RequestOption] = None) -> ReconciliationReferralAccountResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ReconciliationReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         ReconciliationReferralAccountResponse)
+        response.raw = resp
+
+        return response
+
     def withdraw(self, request: WithdrawReferralAccountRequest,
                  option: Optional[RequestOption] = None) -> WithdrawReferralAccountResponse:
         if option is None:
@@ -101,6 +155,24 @@ class ReferralAccount(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: WithdrawReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   WithdrawReferralAccountResponse)
+        response.raw = resp
+
+        return response
+
+    async def awithdraw(self, request: WithdrawReferralAccountRequest,
+                        option: Optional[RequestOption] = None) -> WithdrawReferralAccountResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: WithdrawReferralAccountResponse = JSON.unmarshal(str(resp.content, UTF_8),

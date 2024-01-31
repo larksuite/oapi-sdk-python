@@ -37,6 +37,22 @@ class Subregion(object):
 
         return response
 
+    async def aget(self, request: GetSubregionRequest, option: Optional[RequestOption] = None) -> GetSubregionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetSubregionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSubregionResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListSubregionRequest, option: Optional[RequestOption] = None) -> ListSubregionResponse:
         if option is None:
             option = RequestOption()
@@ -50,6 +66,23 @@ class Subregion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListSubregionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubregionResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListSubregionRequest,
+                    option: Optional[RequestOption] = None) -> ListSubregionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListSubregionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubregionResponse)

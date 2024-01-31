@@ -20,6 +20,9 @@ class Alert(object):
         "process_time": int,
         "recover_time": int,
         "process_status": int,
+        "alert_rule_id": int,
+        "monitor_target_room_id": str,
+        "monitor_target_room_mac": str,
     }
 
     def __init__(self, d=None):
@@ -35,6 +38,9 @@ class Alert(object):
         self.process_time: Optional[int] = None
         self.recover_time: Optional[int] = None
         self.process_status: Optional[int] = None
+        self.alert_rule_id: Optional[int] = None
+        self.monitor_target_room_id: Optional[str] = None
+        self.monitor_target_room_mac: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -92,6 +98,18 @@ class AlertBuilder(object):
 
     def process_status(self, process_status: int) -> "AlertBuilder":
         self._alert.process_status = process_status
+        return self
+
+    def alert_rule_id(self, alert_rule_id: int) -> "AlertBuilder":
+        self._alert.alert_rule_id = alert_rule_id
+        return self
+
+    def monitor_target_room_id(self, monitor_target_room_id: str) -> "AlertBuilder":
+        self._alert.monitor_target_room_id = monitor_target_room_id
+        return self
+
+    def monitor_target_room_mac(self, monitor_target_room_mac: str) -> "AlertBuilder":
+        self._alert.monitor_target_room_mac = monitor_target_room_mac
         return self
 
     def build(self) -> "Alert":

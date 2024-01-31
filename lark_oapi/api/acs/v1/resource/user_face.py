@@ -48,6 +48,29 @@ class UserFace(object):
         response.raw = resp
         return response
 
+    async def aget(self, request: GetUserFaceRequest, option: Optional[RequestOption] = None) -> GetUserFaceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 处理二进制流
+        content_type = resp.headers.get(CONTENT_TYPE)
+        response: GetUserFaceResponse = GetUserFaceResponse()
+        if 200 <= resp.status_code < 300:
+            response.code = 0
+            response.file = io.BytesIO(resp.content)
+            response.file_name = Files.parse_file_name(resp.headers)
+        elif content_type is not None and content_type.startswith(APPLICATION_JSON):
+            response = JSON.unmarshal(str(resp.content, UTF_8), GetUserFaceResponse)
+
+        response.raw = resp
+        return response
+
     def update(self, request: UpdateUserFaceRequest, option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
         if option is None:
             option = RequestOption()
@@ -63,6 +86,26 @@ class UserFace(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateUserFaceResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserFaceResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateUserFaceRequest,
+                      option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateUserFaceResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserFaceResponse)

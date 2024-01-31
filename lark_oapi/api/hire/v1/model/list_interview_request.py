@@ -15,6 +15,7 @@ class ListInterviewRequest(BaseRequest):
         self.interview_id: Optional[str] = None
         self.start_time: Optional[str] = None
         self.end_time: Optional[str] = None
+        self.job_level_id_type: Optional[str] = None
         self.user_id_type: Optional[str] = None
 
     @staticmethod
@@ -59,6 +60,11 @@ class ListInterviewRequestBuilder(object):
     def end_time(self, end_time: str) -> "ListInterviewRequestBuilder":
         self._list_interview_request.end_time = end_time
         self._list_interview_request.add_query("end_time", end_time)
+        return self
+
+    def job_level_id_type(self, job_level_id_type: str) -> "ListInterviewRequestBuilder":
+        self._list_interview_request.job_level_id_type = job_level_id_type
+        self._list_interview_request.add_query("job_level_id_type", job_level_id_type)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListInterviewRequestBuilder":

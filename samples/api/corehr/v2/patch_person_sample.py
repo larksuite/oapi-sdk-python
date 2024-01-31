@@ -20,6 +20,7 @@ def main():
                       .name_list([])
                       .gender(Enum.builder().build())
                       .date_of_birth("2020-01-01")
+                      .nationality_id_v2("6862995757234914821")
                       .race(Enum.builder().build())
                       .marital_status(Enum.builder().build())
                       .phone_list([])
@@ -64,5 +65,68 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: PatchPersonRequest = PatchPersonRequest.builder() \
+        .person_id("12454646") \
+        .client_token("12454646") \
+        .request_body(PersonInfo.builder()
+                      .name_list([])
+                      .gender(Enum.builder().build())
+                      .date_of_birth("2020-01-01")
+                      .nationality_id_v2("6862995757234914821")
+                      .race(Enum.builder().build())
+                      .marital_status(Enum.builder().build())
+                      .phone_list([])
+                      .address_list([])
+                      .email_list([])
+                      .work_experience_list([])
+                      .education_list([])
+                      .bank_account_list([])
+                      .national_id_list([])
+                      .dependent_list([])
+                      .emergency_contact_list([])
+                      .date_entered_workforce("2020-10-01")
+                      .profile_image_id("dfysuc8x76dsfsw")
+                      .personal_profile([])
+                      .native_region("6863326262618752111")
+                      .hukou_type(Enum.builder().build())
+                      .hukou_location("山东省平阴县")
+                      .talent_id("6863326262618752123")
+                      .custom_fields([])
+                      .born_country_region("中国")
+                      .is_disabled(True)
+                      .disable_card_number("1110000")
+                      .is_martyr_family(True)
+                      .martyr_card_number("1110000")
+                      .is_old_alone(True)
+                      .resident_taxes([])
+                      .first_entry_time("2021-01-02")
+                      .leave_time("2022-01-02")
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: PatchPersonResponse = await client.corehr.v2.person.apatch(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.person.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

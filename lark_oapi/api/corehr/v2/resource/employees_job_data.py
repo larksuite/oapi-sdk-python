@@ -39,6 +39,24 @@ class EmployeesJobData(object):
 
         return response
 
+    async def abatch_get(self, request: BatchGetEmployeesJobDataRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetEmployeesJobDataResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchGetEmployeesJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchGetEmployeesJobDataResponse)
+        response.raw = resp
+
+        return response
+
     def query(self, request: QueryEmployeesJobDataRequest,
               option: Optional[RequestOption] = None) -> QueryEmployeesJobDataResponse:
         if option is None:
@@ -53,6 +71,24 @@ class EmployeesJobData(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryEmployeesJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 QueryEmployeesJobDataResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery(self, request: QueryEmployeesJobDataRequest,
+                     option: Optional[RequestOption] = None) -> QueryEmployeesJobDataResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: QueryEmployeesJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8),

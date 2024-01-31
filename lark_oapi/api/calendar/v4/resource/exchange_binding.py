@@ -41,6 +41,24 @@ class ExchangeBinding(object):
 
         return response
 
+    async def acreate(self, request: CreateExchangeBindingRequest,
+                      option: Optional[RequestOption] = None) -> CreateExchangeBindingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateExchangeBindingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CreateExchangeBindingResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteExchangeBindingRequest,
                option: Optional[RequestOption] = None) -> DeleteExchangeBindingResponse:
         if option is None:
@@ -63,6 +81,24 @@ class ExchangeBinding(object):
 
         return response
 
+    async def adelete(self, request: DeleteExchangeBindingRequest,
+                      option: Optional[RequestOption] = None) -> DeleteExchangeBindingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteExchangeBindingResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 DeleteExchangeBindingResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetExchangeBindingRequest,
             option: Optional[RequestOption] = None) -> GetExchangeBindingResponse:
         if option is None:
@@ -77,6 +113,23 @@ class ExchangeBinding(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetExchangeBindingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExchangeBindingResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetExchangeBindingRequest,
+                   option: Optional[RequestOption] = None) -> GetExchangeBindingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetExchangeBindingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExchangeBindingResponse)

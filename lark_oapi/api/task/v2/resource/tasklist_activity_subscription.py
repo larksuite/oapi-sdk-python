@@ -45,6 +45,24 @@ class TasklistActivitySubscription(object):
 
         return response
 
+    async def acreate(self, request: CreateTasklistActivitySubscriptionRequest,
+                      option: Optional[RequestOption] = None) -> CreateTasklistActivitySubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateTasklistActivitySubscriptionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                              CreateTasklistActivitySubscriptionResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteTasklistActivitySubscriptionRequest,
                option: Optional[RequestOption] = None) -> DeleteTasklistActivitySubscriptionResponse:
         if option is None:
@@ -59,6 +77,24 @@ class TasklistActivitySubscription(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteTasklistActivitySubscriptionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                              DeleteTasklistActivitySubscriptionResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteTasklistActivitySubscriptionRequest,
+                      option: Optional[RequestOption] = None) -> DeleteTasklistActivitySubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteTasklistActivitySubscriptionResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -89,6 +125,24 @@ class TasklistActivitySubscription(object):
 
         return response
 
+    async def aget(self, request: GetTasklistActivitySubscriptionRequest,
+                   option: Optional[RequestOption] = None) -> GetTasklistActivitySubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetTasklistActivitySubscriptionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           GetTasklistActivitySubscriptionResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListTasklistActivitySubscriptionRequest,
              option: Optional[RequestOption] = None) -> ListTasklistActivitySubscriptionResponse:
         if option is None:
@@ -111,6 +165,24 @@ class TasklistActivitySubscription(object):
 
         return response
 
+    async def alist(self, request: ListTasklistActivitySubscriptionRequest,
+                    option: Optional[RequestOption] = None) -> ListTasklistActivitySubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListTasklistActivitySubscriptionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            ListTasklistActivitySubscriptionResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchTasklistActivitySubscriptionRequest,
               option: Optional[RequestOption] = None) -> PatchTasklistActivitySubscriptionResponse:
         if option is None:
@@ -125,6 +197,24 @@ class TasklistActivitySubscription(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchTasklistActivitySubscriptionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             PatchTasklistActivitySubscriptionResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchTasklistActivitySubscriptionRequest,
+                     option: Optional[RequestOption] = None) -> PatchTasklistActivitySubscriptionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchTasklistActivitySubscriptionResponse = JSON.unmarshal(str(resp.content, UTF_8),

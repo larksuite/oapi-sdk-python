@@ -12,6 +12,8 @@ class CombinedCreateJobRequest(BaseRequest):
         super().__init__()
         self.user_id_type: Optional[str] = None
         self.department_id_type: Optional[str] = None
+        self.job_level_id_type: Optional[str] = None
+        self.job_family_id_type: Optional[str] = None
         self.request_body: Optional[CombinedJob] = None
 
     @staticmethod
@@ -36,6 +38,16 @@ class CombinedCreateJobRequestBuilder(object):
     def department_id_type(self, department_id_type: str) -> "CombinedCreateJobRequestBuilder":
         self._combined_create_job_request.department_id_type = department_id_type
         self._combined_create_job_request.add_query("department_id_type", department_id_type)
+        return self
+
+    def job_level_id_type(self, job_level_id_type: str) -> "CombinedCreateJobRequestBuilder":
+        self._combined_create_job_request.job_level_id_type = job_level_id_type
+        self._combined_create_job_request.add_query("job_level_id_type", job_level_id_type)
+        return self
+
+    def job_family_id_type(self, job_family_id_type: str) -> "CombinedCreateJobRequestBuilder":
+        self._combined_create_job_request.job_family_id_type = job_family_id_type
+        self._combined_create_job_request.add_query("job_family_id_type", job_family_id_type)
         return self
 
     def request_body(self, request_body: CombinedJob) -> "CombinedCreateJobRequestBuilder":

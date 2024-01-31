@@ -16,6 +16,7 @@ class CreateChatRequestBody(object):
         "owner_id": str,
         "user_id_list": List[str],
         "bot_id_list": List[str],
+        "group_message_type": str,
         "chat_mode": str,
         "chat_type": str,
         "join_message_visibility": str,
@@ -35,6 +36,7 @@ class CreateChatRequestBody(object):
         self.owner_id: Optional[str] = None
         self.user_id_list: Optional[List[str]] = None
         self.bot_id_list: Optional[List[str]] = None
+        self.group_message_type: Optional[str] = None
         self.chat_mode: Optional[str] = None
         self.chat_type: Optional[str] = None
         self.join_message_visibility: Optional[str] = None
@@ -81,6 +83,10 @@ class CreateChatRequestBodyBuilder(object):
 
     def bot_id_list(self, bot_id_list: List[str]) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.bot_id_list = bot_id_list
+        return self
+
+    def group_message_type(self, group_message_type: str) -> "CreateChatRequestBodyBuilder":
+        self._create_chat_request_body.group_message_type = group_message_type
         return self
 
     def chat_mode(self, chat_mode: str) -> "CreateChatRequestBodyBuilder":

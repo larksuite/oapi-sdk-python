@@ -36,3 +36,21 @@ class LeaveAccrualRecord(object):
         response.raw = resp
 
         return response
+
+    async def apatch(self, request: PatchLeaveAccrualRecordRequest,
+                     option: Optional[RequestOption] = None) -> PatchLeaveAccrualRecordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PatchLeaveAccrualRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   PatchLeaveAccrualRecordResponse)
+        response.raw = resp
+
+        return response

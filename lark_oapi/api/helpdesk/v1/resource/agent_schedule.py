@@ -38,6 +38,23 @@ class AgentSchedule(object):
 
         return response
 
+    async def acreate(self, request: CreateAgentScheduleRequest,
+                      option: Optional[RequestOption] = None) -> CreateAgentScheduleResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAgentScheduleResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAgentScheduleResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListAgentScheduleRequest,
              option: Optional[RequestOption] = None) -> ListAgentScheduleResponse:
         if option is None:
@@ -52,6 +69,23 @@ class AgentSchedule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListAgentScheduleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentScheduleResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListAgentScheduleRequest,
+                    option: Optional[RequestOption] = None) -> ListAgentScheduleResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListAgentScheduleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentScheduleResponse)

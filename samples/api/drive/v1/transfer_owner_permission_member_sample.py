@@ -39,5 +39,42 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: TransferOwnerPermissionMemberRequest = TransferOwnerPermissionMemberRequest.builder() \
+        .token("doccnBKgoMyY5OMbUG6FioTXuBe") \
+        .type("doc") \
+        .need_notification(True) \
+        .remove_old_owner(False) \
+        .stay_put(False) \
+        .old_owner_perm("full_access") \
+        .request_body(Owner.builder()
+                      .member_type("openid")
+                      .member_id("string")
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: TransferOwnerPermissionMemberResponse = await client.drive.v1.permission_member.atransfer_owner(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.drive.v1.permission_member.atransfer_owner failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

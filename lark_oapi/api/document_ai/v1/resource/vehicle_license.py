@@ -41,3 +41,24 @@ class VehicleLicense(object):
         response.raw = resp
 
         return response
+
+    async def arecognize(self, request: RecognizeVehicleLicenseRequest,
+                         option: Optional[RequestOption] = None) -> RecognizeVehicleLicenseResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RecognizeVehicleLicenseResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   RecognizeVehicleLicenseResponse)
+        response.raw = resp
+
+        return response

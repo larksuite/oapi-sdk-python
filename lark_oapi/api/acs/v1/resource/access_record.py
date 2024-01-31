@@ -35,3 +35,20 @@ class AccessRecord(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListAccessRecordRequest,
+                    option: Optional[RequestOption] = None) -> ListAccessRecordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListAccessRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAccessRecordResponse)
+        response.raw = resp
+
+        return response

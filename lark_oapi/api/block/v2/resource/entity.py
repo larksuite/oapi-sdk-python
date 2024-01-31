@@ -37,6 +37,23 @@ class Entity(object):
 
         return response
 
+    async def acreate(self, request: CreateEntityRequest,
+                      option: Optional[RequestOption] = None) -> CreateEntityResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEntityResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateEntityRequest, option: Optional[RequestOption] = None) -> UpdateEntityResponse:
         if option is None:
             option = RequestOption()
@@ -50,6 +67,23 @@ class Entity(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateEntityResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateEntityRequest,
+                      option: Optional[RequestOption] = None) -> UpdateEntityResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateEntityResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateEntityResponse)

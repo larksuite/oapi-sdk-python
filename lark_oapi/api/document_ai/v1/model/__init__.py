@@ -28,6 +28,8 @@ from .food_manage_entity import *
 from .food_manage_license import *
 from .food_produce_entity import *
 from .food_produce_license import *
+from .health_certificate import *
+from .health_certificate_entity import *
 from .hkm_mainland_travel_permit import *
 from .hkm_mainland_travel_permit_entity import *
 from .id_card import *
@@ -60,6 +62,10 @@ from .recognize_food_produce_license_request import *
 from .recognize_food_produce_license_request_body import *
 from .recognize_food_produce_license_response import *
 from .recognize_food_produce_license_response_body import *
+from .recognize_health_certificate_request import *
+from .recognize_health_certificate_request_body import *
+from .recognize_health_certificate_response import *
+from .recognize_health_certificate_response_body import *
 from .recognize_hkm_mainland_travel_permit_request import *
 from .recognize_hkm_mainland_travel_permit_request_body import *
 from .recognize_hkm_mainland_travel_permit_response import *
@@ -84,6 +90,10 @@ from .recognize_vat_invoice_request import *
 from .recognize_vat_invoice_request_body import *
 from .recognize_vat_invoice_response import *
 from .recognize_vat_invoice_response_body import *
+from .recognize_vehicle_invoice_request import *
+from .recognize_vehicle_invoice_request_body import *
+from .recognize_vehicle_invoice_response import *
+from .recognize_vehicle_invoice_response_body import *
 from .recognize_vehicle_license_request import *
 from .recognize_vehicle_license_request_body import *
 from .recognize_vehicle_license_response import *
@@ -100,4 +110,6 @@ from .tw_mainland_travel_permit_entity import *
 from .vat_entity import *
 from .vat_invoice import *
 from .vehicle_entity import *
+from .vehicle_invoice import *
+from .vehicle_invoice_entity import *
 from .vehicle_license import *

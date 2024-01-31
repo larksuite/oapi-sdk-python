@@ -41,6 +41,23 @@ class Schema(object):
 
         return response
 
+    async def acreate(self, request: CreateSchemaRequest,
+                      option: Optional[RequestOption] = None) -> CreateSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSchemaResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteSchemaRequest, option: Optional[RequestOption] = None) -> DeleteSchemaResponse:
         if option is None:
             option = RequestOption()
@@ -54,6 +71,23 @@ class Schema(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSchemaResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteSchemaRequest,
+                      option: Optional[RequestOption] = None) -> DeleteSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSchemaResponse)
@@ -81,6 +115,22 @@ class Schema(object):
 
         return response
 
+    async def aget(self, request: GetSchemaRequest, option: Optional[RequestOption] = None) -> GetSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSchemaResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchSchemaRequest, option: Optional[RequestOption] = None) -> PatchSchemaResponse:
         if option is None:
             option = RequestOption()
@@ -94,6 +144,22 @@ class Schema(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSchemaResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchSchemaRequest, option: Optional[RequestOption] = None) -> PatchSchemaResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSchemaResponse)

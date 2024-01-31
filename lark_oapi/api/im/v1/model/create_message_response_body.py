@@ -13,6 +13,7 @@ class CreateMessageResponseBody(object):
         "message_id": str,
         "root_id": str,
         "parent_id": str,
+        "thread_id": str,
         "msg_type": str,
         "create_time": int,
         "update_time": int,
@@ -29,6 +30,7 @@ class CreateMessageResponseBody(object):
         self.message_id: Optional[str] = None
         self.root_id: Optional[str] = None
         self.parent_id: Optional[str] = None
+        self.thread_id: Optional[str] = None
         self.msg_type: Optional[str] = None
         self.create_time: Optional[int] = None
         self.update_time: Optional[int] = None
@@ -60,6 +62,10 @@ class CreateMessageResponseBodyBuilder(object):
 
     def parent_id(self, parent_id: str) -> "CreateMessageResponseBodyBuilder":
         self._create_message_response_body.parent_id = parent_id
+        return self
+
+    def thread_id(self, thread_id: str) -> "CreateMessageResponseBodyBuilder":
+        self._create_message_response_body.thread_id = thread_id
         return self
 
     def msg_type(self, msg_type: str) -> "CreateMessageResponseBodyBuilder":

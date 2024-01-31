@@ -36,3 +36,21 @@ class ProcessFormVariableData(object):
         response.raw = resp
 
         return response
+
+    async def aget(self, request: GetProcessFormVariableDataRequest,
+                   option: Optional[RequestOption] = None) -> GetProcessFormVariableDataResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetProcessFormVariableDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      GetProcessFormVariableDataResponse)
+        response.raw = resp
+
+        return response

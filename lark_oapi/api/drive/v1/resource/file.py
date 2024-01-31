@@ -67,6 +67,22 @@ class File(object):
 
         return response
 
+    async def acopy(self, request: CopyFileRequest, option: Optional[RequestOption] = None) -> CopyFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CopyFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CopyFileResponse)
+        response.raw = resp
+
+        return response
+
     def create_folder(self, request: CreateFolderFileRequest,
                       option: Optional[RequestOption] = None) -> CreateFolderFileResponse:
         if option is None:
@@ -81,6 +97,23 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreateFolderFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFolderFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate_folder(self, request: CreateFolderFileRequest,
+                             option: Optional[RequestOption] = None) -> CreateFolderFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CreateFolderFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFolderFileResponse)
@@ -109,6 +142,23 @@ class File(object):
 
         return response
 
+    async def acreate_shortcut(self, request: CreateShortcutFileRequest,
+                               option: Optional[RequestOption] = None) -> CreateShortcutFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateShortcutFileResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateShortcutFileResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteFileRequest, option: Optional[RequestOption] = None) -> DeleteFileResponse:
         if option is None:
             option = RequestOption()
@@ -122,6 +172,22 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteFileResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteFileRequest, option: Optional[RequestOption] = None) -> DeleteFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteFileResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFileResponse)
@@ -150,6 +216,23 @@ class File(object):
 
         return response
 
+    async def adelete_subscribe(self, request: DeleteSubscribeFileRequest,
+                                option: Optional[RequestOption] = None) -> DeleteSubscribeFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteSubscribeFileResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSubscribeFileResponse)
+        response.raw = resp
+
+        return response
+
     def download(self, request: DownloadFileRequest, option: Optional[RequestOption] = None) -> DownloadFileResponse:
         if option is None:
             option = RequestOption()
@@ -163,6 +246,30 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 处理二进制流
+        content_type = resp.headers.get(CONTENT_TYPE)
+        response: DownloadFileResponse = DownloadFileResponse()
+        if 200 <= resp.status_code < 300:
+            response.code = 0
+            response.file = io.BytesIO(resp.content)
+            response.file_name = Files.parse_file_name(resp.headers)
+        elif content_type is not None and content_type.startswith(APPLICATION_JSON):
+            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadFileResponse)
+
+        response.raw = resp
+        return response
+
+    async def adownload(self, request: DownloadFileRequest,
+                        option: Optional[RequestOption] = None) -> DownloadFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
@@ -198,6 +305,23 @@ class File(object):
 
         return response
 
+    async def aget_subscribe(self, request: GetSubscribeFileRequest,
+                             option: Optional[RequestOption] = None) -> GetSubscribeFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetSubscribeFileResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSubscribeFileResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListFileRequest, option: Optional[RequestOption] = None) -> ListFileResponse:
         if option is None:
             option = RequestOption()
@@ -211,6 +335,22 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListFileResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListFileRequest, option: Optional[RequestOption] = None) -> ListFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListFileResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileResponse)
@@ -238,6 +378,22 @@ class File(object):
 
         return response
 
+    async def amove(self, request: MoveFileRequest, option: Optional[RequestOption] = None) -> MoveFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: MoveFileResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveFileResponse)
+        response.raw = resp
+
+        return response
+
     def subscribe(self, request: SubscribeFileRequest, option: Optional[RequestOption] = None) -> SubscribeFileResponse:
         if option is None:
             option = RequestOption()
@@ -251,6 +407,23 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubscribeFileResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def asubscribe(self, request: SubscribeFileRequest,
+                         option: Optional[RequestOption] = None) -> SubscribeFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SubscribeFileResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeFileResponse)
@@ -272,6 +445,23 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TaskCheckFileResponse = JSON.unmarshal(str(resp.content, UTF_8), TaskCheckFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def atask_check(self, request: TaskCheckFileRequest,
+                          option: Optional[RequestOption] = None) -> TaskCheckFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: TaskCheckFileResponse = JSON.unmarshal(str(resp.content, UTF_8), TaskCheckFileResponse)
@@ -302,6 +492,26 @@ class File(object):
 
         return response
 
+    async def aupload_all(self, request: UploadAllFileRequest,
+                          option: Optional[RequestOption] = None) -> UploadAllFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UploadAllFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAllFileResponse)
+        response.raw = resp
+
+        return response
+
     def upload_finish(self, request: UploadFinishFileRequest,
                       option: Optional[RequestOption] = None) -> UploadFinishFileResponse:
         if option is None:
@@ -316,6 +526,23 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UploadFinishFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFinishFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupload_finish(self, request: UploadFinishFileRequest,
+                             option: Optional[RequestOption] = None) -> UploadFinishFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UploadFinishFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFinishFileResponse)
@@ -346,6 +573,26 @@ class File(object):
 
         return response
 
+    async def aupload_part(self, request: UploadPartFileRequest,
+                           option: Optional[RequestOption] = None) -> UploadPartFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UploadPartFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPartFileResponse)
+        response.raw = resp
+
+        return response
+
     def upload_prepare(self, request: UploadPrepareFileRequest,
                        option: Optional[RequestOption] = None) -> UploadPrepareFileResponse:
         if option is None:
@@ -360,6 +607,23 @@ class File(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UploadPrepareFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPrepareFileResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupload_prepare(self, request: UploadPrepareFileRequest,
+                              option: Optional[RequestOption] = None) -> UploadPrepareFileResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UploadPrepareFileResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPrepareFileResponse)

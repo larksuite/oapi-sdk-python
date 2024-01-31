@@ -36,3 +36,21 @@ class CompensationStandard(object):
         response.raw = resp
 
         return response
+
+    async def amatch(self, request: MatchCompensationStandardRequest,
+                     option: Optional[RequestOption] = None) -> MatchCompensationStandardResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: MatchCompensationStandardResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     MatchCompensationStandardResponse)
+        response.raw = resp
+
+        return response

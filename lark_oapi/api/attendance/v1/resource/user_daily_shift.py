@@ -39,6 +39,24 @@ class UserDailyShift(object):
 
         return response
 
+    async def abatch_create(self, request: BatchCreateUserDailyShiftRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreateUserDailyShiftResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchCreateUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     BatchCreateUserDailyShiftResponse)
+        response.raw = resp
+
+        return response
+
     def query(self, request: QueryUserDailyShiftRequest,
               option: Optional[RequestOption] = None) -> QueryUserDailyShiftResponse:
         if option is None:
@@ -53,6 +71,23 @@ class UserDailyShift(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserDailyShiftResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery(self, request: QueryUserDailyShiftRequest,
+                     option: Optional[RequestOption] = None) -> QueryUserDailyShiftResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: QueryUserDailyShiftResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserDailyShiftResponse)

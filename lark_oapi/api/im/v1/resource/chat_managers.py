@@ -39,6 +39,24 @@ class ChatManagers(object):
 
         return response
 
+    async def aadd_managers(self, request: AddManagersChatManagersRequest,
+                            option: Optional[RequestOption] = None) -> AddManagersChatManagersResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: AddManagersChatManagersResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   AddManagersChatManagersResponse)
+        response.raw = resp
+
+        return response
+
     def delete_managers(self, request: DeleteManagersChatManagersRequest,
                         option: Optional[RequestOption] = None) -> DeleteManagersChatManagersResponse:
         if option is None:
@@ -53,6 +71,24 @@ class ChatManagers(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteManagersChatManagersResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      DeleteManagersChatManagersResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete_managers(self, request: DeleteManagersChatManagersRequest,
+                               option: Optional[RequestOption] = None) -> DeleteManagersChatManagersResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteManagersChatManagersResponse = JSON.unmarshal(str(resp.content, UTF_8),

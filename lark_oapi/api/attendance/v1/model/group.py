@@ -26,9 +26,12 @@ class Group(object):
         "sub_group_leader_ids": List[str],
         "allow_out_punch": bool,
         "out_punch_need_approval": bool,
+        "out_punch_need_post_approval": bool,
         "out_punch_need_remark": bool,
         "out_punch_need_photo": bool,
         "out_punch_allowed_hide_addr": bool,
+        "out_punch_allowed_adjust_addr": bool,
+        "adjust_range": int,
         "allow_pc_punch": bool,
         "allow_remedy": bool,
         "remedy_limit": bool,
@@ -81,6 +84,7 @@ class Group(object):
         "bind_default_user_ids": List[str],
         "overtime_clock_cfg": OvertimeClockCfg,
         "new_calendar_id": str,
+        "allow_apply_punch": bool,
     }
 
     def __init__(self, d=None):
@@ -95,9 +99,12 @@ class Group(object):
         self.sub_group_leader_ids: Optional[List[str]] = None
         self.allow_out_punch: Optional[bool] = None
         self.out_punch_need_approval: Optional[bool] = None
+        self.out_punch_need_post_approval: Optional[bool] = None
         self.out_punch_need_remark: Optional[bool] = None
         self.out_punch_need_photo: Optional[bool] = None
         self.out_punch_allowed_hide_addr: Optional[bool] = None
+        self.out_punch_allowed_adjust_addr: Optional[bool] = None
+        self.adjust_range: Optional[int] = None
         self.allow_pc_punch: Optional[bool] = None
         self.allow_remedy: Optional[bool] = None
         self.remedy_limit: Optional[bool] = None
@@ -150,6 +157,7 @@ class Group(object):
         self.bind_default_user_ids: Optional[List[str]] = None
         self.overtime_clock_cfg: Optional[OvertimeClockCfg] = None
         self.new_calendar_id: Optional[str] = None
+        self.allow_apply_punch: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -205,6 +213,10 @@ class GroupBuilder(object):
         self._group.out_punch_need_approval = out_punch_need_approval
         return self
 
+    def out_punch_need_post_approval(self, out_punch_need_post_approval: bool) -> "GroupBuilder":
+        self._group.out_punch_need_post_approval = out_punch_need_post_approval
+        return self
+
     def out_punch_need_remark(self, out_punch_need_remark: bool) -> "GroupBuilder":
         self._group.out_punch_need_remark = out_punch_need_remark
         return self
@@ -215,6 +227,14 @@ class GroupBuilder(object):
 
     def out_punch_allowed_hide_addr(self, out_punch_allowed_hide_addr: bool) -> "GroupBuilder":
         self._group.out_punch_allowed_hide_addr = out_punch_allowed_hide_addr
+        return self
+
+    def out_punch_allowed_adjust_addr(self, out_punch_allowed_adjust_addr: bool) -> "GroupBuilder":
+        self._group.out_punch_allowed_adjust_addr = out_punch_allowed_adjust_addr
+        return self
+
+    def adjust_range(self, adjust_range: int) -> "GroupBuilder":
+        self._group.adjust_range = adjust_range
         return self
 
     def allow_pc_punch(self, allow_pc_punch: bool) -> "GroupBuilder":
@@ -423,6 +443,10 @@ class GroupBuilder(object):
 
     def new_calendar_id(self, new_calendar_id: str) -> "GroupBuilder":
         self._group.new_calendar_id = new_calendar_id
+        return self
+
+    def allow_apply_punch(self, allow_apply_punch: bool) -> "GroupBuilder":
+        self._group.allow_apply_punch = allow_apply_punch
         return self
 
     def build(self) -> "Group":

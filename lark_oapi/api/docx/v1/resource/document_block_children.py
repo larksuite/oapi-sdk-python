@@ -41,6 +41,24 @@ class DocumentBlockChildren(object):
 
         return response
 
+    async def abatch_delete(self, request: BatchDeleteDocumentBlockChildrenRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteDocumentBlockChildrenResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDeleteDocumentBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            BatchDeleteDocumentBlockChildrenResponse)
+        response.raw = resp
+
+        return response
+
     def create(self, request: CreateDocumentBlockChildrenRequest,
                option: Optional[RequestOption] = None) -> CreateDocumentBlockChildrenResponse:
         if option is None:
@@ -63,6 +81,24 @@ class DocumentBlockChildren(object):
 
         return response
 
+    async def acreate(self, request: CreateDocumentBlockChildrenRequest,
+                      option: Optional[RequestOption] = None) -> CreateDocumentBlockChildrenResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateDocumentBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       CreateDocumentBlockChildrenResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetDocumentBlockChildrenRequest,
             option: Optional[RequestOption] = None) -> GetDocumentBlockChildrenResponse:
         if option is None:
@@ -77,6 +113,24 @@ class DocumentBlockChildren(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetDocumentBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    GetDocumentBlockChildrenResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetDocumentBlockChildrenRequest,
+                   option: Optional[RequestOption] = None) -> GetDocumentBlockChildrenResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetDocumentBlockChildrenResponse = JSON.unmarshal(str(resp.content, UTF_8),

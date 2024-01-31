@@ -46,6 +46,23 @@ class Application(object):
 
         return response
 
+    async def acreate(self, request: CreateApplicationRequest,
+                      option: Optional[RequestOption] = None) -> CreateApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateApplicationResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetApplicationRequest, option: Optional[RequestOption] = None) -> GetApplicationResponse:
         if option is None:
             option = RequestOption()
@@ -66,6 +83,23 @@ class Application(object):
 
         return response
 
+    async def aget(self, request: GetApplicationRequest,
+                   option: Optional[RequestOption] = None) -> GetApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
         if option is None:
             option = RequestOption()
@@ -79,6 +113,23 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListApplicationRequest,
+                    option: Optional[RequestOption] = None) -> ListApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
@@ -107,6 +158,23 @@ class Application(object):
 
         return response
 
+    async def aoffer(self, request: OfferApplicationRequest,
+                     option: Optional[RequestOption] = None) -> OfferApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: OfferApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), OfferApplicationResponse)
+        response.raw = resp
+
+        return response
+
     def terminate(self, request: TerminateApplicationRequest,
                   option: Optional[RequestOption] = None) -> TerminateApplicationResponse:
         if option is None:
@@ -128,6 +196,23 @@ class Application(object):
 
         return response
 
+    async def aterminate(self, request: TerminateApplicationRequest,
+                         option: Optional[RequestOption] = None) -> TerminateApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TerminateApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), TerminateApplicationResponse)
+        response.raw = resp
+
+        return response
+
     def transfer_onboard(self, request: TransferOnboardApplicationRequest,
                          option: Optional[RequestOption] = None) -> TransferOnboardApplicationResponse:
         if option is None:
@@ -142,6 +227,24 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TransferOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      TransferOnboardApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    async def atransfer_onboard(self, request: TransferOnboardApplicationRequest,
+                                option: Optional[RequestOption] = None) -> TransferOnboardApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: TransferOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),

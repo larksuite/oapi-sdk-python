@@ -16,6 +16,7 @@ class P2ApplicationApplicationCreatedV6Data(object):
         "avatar": str,
         "app_scene_type": int,
         "primary_language": str,
+        "create_source": str,
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class P2ApplicationApplicationCreatedV6Data(object):
         self.avatar: Optional[str] = None
         self.app_scene_type: Optional[int] = None
         self.primary_language: Optional[str] = None
+        self.create_source: Optional[str] = None
         init(self, d, self._types)
 
 

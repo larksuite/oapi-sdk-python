@@ -35,5 +35,38 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: CreateApplicationRequest = CreateApplicationRequest.builder() \
+        .request_body(CreateApplicationRequestBody.builder()
+                      .talent_id("12312312312")
+                      .job_id("12312312312")
+                      .resume_source_id("7115289562569591070")
+                      .application_preferred_city_code_list([])
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: CreateApplicationResponse = await client.hire.v1.application.acreate(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.application.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

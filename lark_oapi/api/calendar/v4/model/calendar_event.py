@@ -3,6 +3,7 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .calendar_event_attendee import CalendarEventAttendee
 from .event_location import EventLocation
 from .event_organizer import EventOrganizer
 from .reminder import Reminder
@@ -35,6 +36,8 @@ class CalendarEvent(object):
         "schemas": List[Schema],
         "event_organizer": EventOrganizer,
         "app_link": str,
+        "attendees": List[CalendarEventAttendee],
+        "has_more_attendee": bool,
     }
 
     def __init__(self, d=None):
@@ -60,6 +63,8 @@ class CalendarEvent(object):
         self.schemas: Optional[List[Schema]] = None
         self.event_organizer: Optional[EventOrganizer] = None
         self.app_link: Optional[str] = None
+        self.attendees: Optional[List[CalendarEventAttendee]] = None
+        self.has_more_attendee: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -157,6 +162,14 @@ class CalendarEventBuilder(object):
 
     def app_link(self, app_link: str) -> "CalendarEventBuilder":
         self._calendar_event.app_link = app_link
+        return self
+
+    def attendees(self, attendees: List[CalendarEventAttendee]) -> "CalendarEventBuilder":
+        self._calendar_event.attendees = attendees
+        return self
+
+    def has_more_attendee(self, has_more_attendee: bool) -> "CalendarEventBuilder":
+        self._calendar_event.has_more_attendee = has_more_attendee
         return self
 
     def build(self) -> "CalendarEvent":

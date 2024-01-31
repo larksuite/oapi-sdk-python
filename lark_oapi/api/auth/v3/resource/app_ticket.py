@@ -35,3 +35,20 @@ class AppTicket(object):
         response.raw = resp
 
         return response
+
+    async def aresend(self, request: ResendAppTicketRequest,
+                      option: Optional[RequestOption] = None) -> ResendAppTicketResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ResendAppTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), ResendAppTicketResponse)
+        response.raw = resp
+
+        return response

@@ -37,6 +37,23 @@ class Person(object):
 
         return response
 
+    async def acreate(self, request: CreatePersonRequest,
+                      option: Optional[RequestOption] = None) -> CreatePersonResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePersonResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePersonResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchPersonRequest, option: Optional[RequestOption] = None) -> PatchPersonResponse:
         if option is None:
             option = RequestOption()
@@ -50,6 +67,22 @@ class Person(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPersonResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchPersonRequest, option: Optional[RequestOption] = None) -> PatchPersonResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPersonResponse)

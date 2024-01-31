@@ -41,6 +41,22 @@ class App(object):
 
         return response
 
+    async def acopy(self, request: CopyAppRequest, option: Optional[RequestOption] = None) -> CopyAppResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CopyAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CopyAppResponse)
+        response.raw = resp
+
+        return response
+
     def create(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
         if option is None:
             option = RequestOption()
@@ -54,6 +70,22 @@ class App(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
@@ -81,6 +113,22 @@ class App(object):
 
         return response
 
+    async def aget(self, request: GetAppRequest, option: Optional[RequestOption] = None) -> GetAppResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetAppResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateAppRequest, option: Optional[RequestOption] = None) -> UpdateAppResponse:
         if option is None:
             option = RequestOption()
@@ -94,6 +142,22 @@ class App(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateAppRequest, option: Optional[RequestOption] = None) -> UpdateAppResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppResponse)

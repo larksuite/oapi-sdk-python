@@ -44,6 +44,23 @@ class AppTableView(object):
 
         return response
 
+    async def acreate(self, request: CreateAppTableViewRequest,
+                      option: Optional[RequestOption] = None) -> CreateAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAppTableViewResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppTableViewResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteAppTableViewRequest,
                option: Optional[RequestOption] = None) -> DeleteAppTableViewResponse:
         if option is None:
@@ -65,6 +82,23 @@ class AppTableView(object):
 
         return response
 
+    async def adelete(self, request: DeleteAppTableViewRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteAppTableViewResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppTableViewResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetAppTableViewRequest, option: Optional[RequestOption] = None) -> GetAppTableViewResponse:
         if option is None:
             option = RequestOption()
@@ -78,6 +112,23 @@ class AppTableView(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetAppTableViewResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppTableViewResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetAppTableViewRequest,
+                   option: Optional[RequestOption] = None) -> GetAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetAppTableViewResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppTableViewResponse)
@@ -106,6 +157,23 @@ class AppTableView(object):
 
         return response
 
+    async def alist(self, request: ListAppTableViewRequest,
+                    option: Optional[RequestOption] = None) -> ListAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListAppTableViewResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppTableViewResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchAppTableViewRequest,
               option: Optional[RequestOption] = None) -> PatchAppTableViewResponse:
         if option is None:
@@ -120,6 +188,23 @@ class AppTableView(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchAppTableViewResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAppTableViewResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchAppTableViewRequest,
+                     option: Optional[RequestOption] = None) -> PatchAppTableViewResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchAppTableViewResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAppTableViewResponse)

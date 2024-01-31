@@ -17,6 +17,9 @@ def main():
         .offer_id("7016605170635213100") \
         .user_id_type("open_id") \
         .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
+        .employee_type_id_type("people_admin_employee_type_id") \
         .request_body(OfferInfo.builder()
                       .schema_id("7013318077945596204")
                       .basic_info(OfferBasicInfo.builder().build())
@@ -38,5 +41,44 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: UpdateOfferRequest = UpdateOfferRequest.builder() \
+        .offer_id("7016605170635213100") \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
+        .employee_type_id_type("people_admin_employee_type_id") \
+        .request_body(OfferInfo.builder()
+                      .schema_id("7013318077945596204")
+                      .basic_info(OfferBasicInfo.builder().build())
+                      .salary_info(OfferSalaryInfo.builder().build())
+                      .customized_info_list([])
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: UpdateOfferResponse = await client.hire.v1.offer.aupdate(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.offer.aupdate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

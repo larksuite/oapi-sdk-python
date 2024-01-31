@@ -3,6 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .member import Member
 
 
 class ActivityRecord(object):
@@ -10,12 +11,20 @@ class ActivityRecord(object):
         "key": int,
         "content": str,
         "created_at": str,
+        "op_user": Member,
+        "key_name": str,
+        "target_task_guid": str,
+        "target_task_name": str,
     }
 
     def __init__(self, d=None):
         self.key: Optional[int] = None
         self.content: Optional[str] = None
         self.created_at: Optional[str] = None
+        self.op_user: Optional[Member] = None
+        self.key_name: Optional[str] = None
+        self.target_task_guid: Optional[str] = None
+        self.target_task_name: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +46,22 @@ class ActivityRecordBuilder(object):
 
     def created_at(self, created_at: str) -> "ActivityRecordBuilder":
         self._activity_record.created_at = created_at
+        return self
+
+    def op_user(self, op_user: Member) -> "ActivityRecordBuilder":
+        self._activity_record.op_user = op_user
+        return self
+
+    def key_name(self, key_name: str) -> "ActivityRecordBuilder":
+        self._activity_record.key_name = key_name
+        return self
+
+    def target_task_guid(self, target_task_guid: str) -> "ActivityRecordBuilder":
+        self._activity_record.target_task_guid = target_task_guid
+        return self
+
+    def target_task_name(self, target_task_name: str) -> "ActivityRecordBuilder":
+        self._activity_record.target_task_name = target_task_name
         return self
 
     def build(self) -> "ActivityRecord":

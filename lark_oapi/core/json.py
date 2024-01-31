@@ -1,5 +1,6 @@
 import copy
 import datetime
+import io
 from json import *
 from typing import *
 
@@ -23,6 +24,8 @@ class JSON(object):
 
 class Encoder(JSONEncoder):
     def default(self, o: Any) -> Any:
+        if isinstance(o, io.BufferedReader):
+            return o.__str__()
         if hasattr(o, "__dict__"):
             return filter_null(copy.deepcopy(vars(o)))
         if isinstance(o, datetime.datetime):

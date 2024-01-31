@@ -18,6 +18,7 @@ class Dependent(object):
         "relationship": Enum,
         "gender": Enum,
         "date_of_birth": str,
+        "nationality_id_v2": str,
         "national_id_list": List[NationalId],
         "spouses_working_status": Enum,
         "is_this_person_covered_by_health_insurance": bool,
@@ -36,6 +37,7 @@ class Dependent(object):
         self.relationship: Optional[Enum] = None
         self.gender: Optional[Enum] = None
         self.date_of_birth: Optional[str] = None
+        self.nationality_id_v2: Optional[str] = None
         self.national_id_list: Optional[List[NationalId]] = None
         self.spouses_working_status: Optional[Enum] = None
         self.is_this_person_covered_by_health_insurance: Optional[bool] = None
@@ -72,6 +74,10 @@ class DependentBuilder(object):
 
     def date_of_birth(self, date_of_birth: str) -> "DependentBuilder":
         self._dependent.date_of_birth = date_of_birth
+        return self
+
+    def nationality_id_v2(self, nationality_id_v2: str) -> "DependentBuilder":
+        self._dependent.nationality_id_v2 = nationality_id_v2
         return self
 
     def national_id_list(self, national_id_list: List[NationalId]) -> "DependentBuilder":

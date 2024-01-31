@@ -35,3 +35,20 @@ class AdminUserStat(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListAdminUserStatRequest,
+                    option: Optional[RequestOption] = None) -> ListAdminUserStatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListAdminUserStatResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAdminUserStatResponse)
+        response.raw = resp
+
+        return response
