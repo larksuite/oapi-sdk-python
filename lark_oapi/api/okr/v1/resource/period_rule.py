@@ -34,3 +34,20 @@ class PeriodRule(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListPeriodRuleRequest,
+                    option: Optional[RequestOption] = None) -> ListPeriodRuleResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListPeriodRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPeriodRuleResponse)
+        response.raw = resp
+
+        return response

@@ -35,3 +35,20 @@ class FileStatistics(object):
         response.raw = resp
 
         return response
+
+    async def aget(self, request: GetFileStatisticsRequest,
+                   option: Optional[RequestOption] = None) -> GetFileStatisticsResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetFileStatisticsResponse = JSON.unmarshal(str(resp.content, UTF_8), GetFileStatisticsResponse)
+        response.raw = resp
+
+        return response

@@ -38,6 +38,23 @@ class Agent(object):
 
         return response
 
+    async def aagent_email(self, request: AgentEmailAgentRequest,
+                           option: Optional[RequestOption] = None) -> AgentEmailAgentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: AgentEmailAgentResponse = JSON.unmarshal(str(resp.content, UTF_8), AgentEmailAgentResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchAgentRequest, option: Optional[RequestOption] = None) -> PatchAgentResponse:
         if option is None:
             option = RequestOption()
@@ -51,6 +68,22 @@ class Agent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchAgentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchAgentRequest, option: Optional[RequestOption] = None) -> PatchAgentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchAgentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentResponse)

@@ -44,6 +44,23 @@ class AgentSkill(object):
 
         return response
 
+    async def acreate(self, request: CreateAgentSkillRequest,
+                      option: Optional[RequestOption] = None) -> CreateAgentSkillResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAgentSkillResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteAgentSkillRequest,
                option: Optional[RequestOption] = None) -> DeleteAgentSkillResponse:
         if option is None:
@@ -58,6 +75,23 @@ class AgentSkill(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAgentSkillResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteAgentSkillRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAgentSkillResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAgentSkillResponse)
@@ -85,6 +119,23 @@ class AgentSkill(object):
 
         return response
 
+    async def aget(self, request: GetAgentSkillRequest,
+                   option: Optional[RequestOption] = None) -> GetAgentSkillResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgentSkillResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListAgentSkillRequest, option: Optional[RequestOption] = None) -> ListAgentSkillResponse:
         if option is None:
             option = RequestOption()
@@ -105,6 +156,23 @@ class AgentSkill(object):
 
         return response
 
+    async def alist(self, request: ListAgentSkillRequest,
+                    option: Optional[RequestOption] = None) -> ListAgentSkillResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentSkillResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchAgentSkillRequest, option: Optional[RequestOption] = None) -> PatchAgentSkillResponse:
         if option is None:
             option = RequestOption()
@@ -118,6 +186,23 @@ class AgentSkill(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentSkillResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchAgentSkillRequest,
+                     option: Optional[RequestOption] = None) -> PatchAgentSkillResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchAgentSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentSkillResponse)

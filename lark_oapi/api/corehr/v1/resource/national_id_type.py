@@ -44,6 +44,23 @@ class NationalIdType(object):
 
         return response
 
+    async def acreate(self, request: CreateNationalIdTypeRequest,
+                      option: Optional[RequestOption] = None) -> CreateNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateNationalIdTypeResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteNationalIdTypeRequest,
                option: Optional[RequestOption] = None) -> DeleteNationalIdTypeResponse:
         if option is None:
@@ -58,6 +75,23 @@ class NationalIdType(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteNationalIdTypeResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteNationalIdTypeRequest,
+                      option: Optional[RequestOption] = None) -> DeleteNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteNationalIdTypeResponse)
@@ -86,6 +120,23 @@ class NationalIdType(object):
 
         return response
 
+    async def aget(self, request: GetNationalIdTypeRequest,
+                   option: Optional[RequestOption] = None) -> GetNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNationalIdTypeResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListNationalIdTypeRequest,
              option: Optional[RequestOption] = None) -> ListNationalIdTypeResponse:
         if option is None:
@@ -107,6 +158,23 @@ class NationalIdType(object):
 
         return response
 
+    async def alist(self, request: ListNationalIdTypeRequest,
+                    option: Optional[RequestOption] = None) -> ListNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListNationalIdTypeResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchNationalIdTypeRequest,
               option: Optional[RequestOption] = None) -> PatchNationalIdTypeResponse:
         if option is None:
@@ -121,6 +189,23 @@ class NationalIdType(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNationalIdTypeResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchNationalIdTypeRequest,
+                     option: Optional[RequestOption] = None) -> PatchNationalIdTypeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchNationalIdTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNationalIdTypeResponse)

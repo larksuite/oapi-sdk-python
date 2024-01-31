@@ -40,3 +40,23 @@ class BadgeImage(object):
         response.raw = resp
 
         return response
+
+    async def acreate(self, request: CreateBadgeImageRequest,
+                      option: Optional[RequestOption] = None) -> CreateBadgeImageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateBadgeImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateBadgeImageResponse)
+        response.raw = resp
+
+        return response

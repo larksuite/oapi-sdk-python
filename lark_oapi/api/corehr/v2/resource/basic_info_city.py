@@ -35,3 +35,20 @@ class BasicInfoCity(object):
         response.raw = resp
 
         return response
+
+    async def asearch(self, request: SearchBasicInfoCityRequest,
+                      option: Optional[RequestOption] = None) -> SearchBasicInfoCityResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchBasicInfoCityResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoCityResponse)
+        response.raw = resp
+
+        return response

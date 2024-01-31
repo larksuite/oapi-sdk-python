@@ -34,3 +34,20 @@ class JobManager(object):
         response.raw = resp
 
         return response
+
+    async def aget(self, request: GetJobManagerRequest,
+                   option: Optional[RequestOption] = None) -> GetJobManagerResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetJobManagerResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobManagerResponse)
+        response.raw = resp
+
+        return response

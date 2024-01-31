@@ -39,6 +39,24 @@ class ApplicationAppUsage(object):
 
         return response
 
+    async def adepartment_overview(self, request: DepartmentOverviewApplicationAppUsageRequest, option: Optional[
+        RequestOption] = None) -> DepartmentOverviewApplicationAppUsageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DepartmentOverviewApplicationAppUsageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                 DepartmentOverviewApplicationAppUsageResponse)
+        response.raw = resp
+
+        return response
+
     def overview(self, request: OverviewApplicationAppUsageRequest,
                  option: Optional[RequestOption] = None) -> OverviewApplicationAppUsageResponse:
         if option is None:
@@ -53,6 +71,24 @@ class ApplicationAppUsage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: OverviewApplicationAppUsageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       OverviewApplicationAppUsageResponse)
+        response.raw = resp
+
+        return response
+
+    async def aoverview(self, request: OverviewApplicationAppUsageRequest,
+                        option: Optional[RequestOption] = None) -> OverviewApplicationAppUsageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: OverviewApplicationAppUsageResponse = JSON.unmarshal(str(resp.content, UTF_8),

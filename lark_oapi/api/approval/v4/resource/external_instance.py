@@ -39,6 +39,24 @@ class ExternalInstance(object):
 
         return response
 
+    async def acheck(self, request: CheckExternalInstanceRequest,
+                     option: Optional[RequestOption] = None) -> CheckExternalInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CheckExternalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CheckExternalInstanceResponse)
+        response.raw = resp
+
+        return response
+
     def create(self, request: CreateExternalInstanceRequest,
                option: Optional[RequestOption] = None) -> CreateExternalInstanceResponse:
         if option is None:
@@ -53,6 +71,24 @@ class ExternalInstance(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreateExternalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  CreateExternalInstanceResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate(self, request: CreateExternalInstanceRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalInstanceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CreateExternalInstanceResponse = JSON.unmarshal(str(resp.content, UTF_8),

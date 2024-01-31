@@ -34,3 +34,20 @@ class Password(object):
         response.raw = resp
 
         return response
+
+    async def areset(self, request: ResetPasswordRequest,
+                     option: Optional[RequestOption] = None) -> ResetPasswordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ResetPasswordResponse = JSON.unmarshal(str(resp.content, UTF_8), ResetPasswordResponse)
+        response.raw = resp
+
+        return response

@@ -43,6 +43,23 @@ class Company(object):
 
         return response
 
+    async def acreate(self, request: CreateCompanyRequest,
+                      option: Optional[RequestOption] = None) -> CreateCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCompanyResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteCompanyRequest, option: Optional[RequestOption] = None) -> DeleteCompanyResponse:
         if option is None:
             option = RequestOption()
@@ -56,6 +73,23 @@ class Company(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCompanyResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteCompanyRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCompanyResponse)
@@ -83,6 +117,22 @@ class Company(object):
 
         return response
 
+    async def aget(self, request: GetCompanyRequest, option: Optional[RequestOption] = None) -> GetCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCompanyResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListCompanyRequest, option: Optional[RequestOption] = None) -> ListCompanyResponse:
         if option is None:
             option = RequestOption()
@@ -103,6 +153,22 @@ class Company(object):
 
         return response
 
+    async def alist(self, request: ListCompanyRequest, option: Optional[RequestOption] = None) -> ListCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCompanyResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchCompanyRequest, option: Optional[RequestOption] = None) -> PatchCompanyResponse:
         if option is None:
             option = RequestOption()
@@ -116,6 +182,23 @@ class Company(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCompanyResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchCompanyRequest,
+                     option: Optional[RequestOption] = None) -> PatchCompanyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCompanyResponse)

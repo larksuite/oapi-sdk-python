@@ -9,10 +9,12 @@ from .event_brief_info_ai import EventBriefInfoAi
 class SearchEventData(object):
     _types = {
         "events": List[EventBriefInfoAi],
+        "msg": str,
     }
 
     def __init__(self, d=None):
         self.events: Optional[List[EventBriefInfoAi]] = None
+        self.msg: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -26,6 +28,10 @@ class SearchEventDataBuilder(object):
 
     def events(self, events: List[EventBriefInfoAi]) -> "SearchEventDataBuilder":
         self._search_event_data.events = events
+        return self
+
+    def msg(self, msg: str) -> "SearchEventDataBuilder":
+        self._search_event_data.msg = msg
         return self
 
     def build(self) -> "SearchEventData":

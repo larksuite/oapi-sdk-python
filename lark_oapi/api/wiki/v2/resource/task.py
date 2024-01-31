@@ -34,3 +34,19 @@ class Task(object):
         response.raw = resp
 
         return response
+
+    async def aget(self, request: GetTaskRequest, option: Optional[RequestOption] = None) -> GetTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskResponse)
+        response.raw = resp
+
+        return response

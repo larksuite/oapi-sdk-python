@@ -39,6 +39,24 @@ class ApplicationFeedback(object):
 
         return response
 
+    async def alist(self, request: ListApplicationFeedbackRequest,
+                    option: Optional[RequestOption] = None) -> ListApplicationFeedbackResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListApplicationFeedbackResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   ListApplicationFeedbackResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchApplicationFeedbackRequest,
               option: Optional[RequestOption] = None) -> PatchApplicationFeedbackResponse:
         if option is None:
@@ -53,6 +71,24 @@ class ApplicationFeedback(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchApplicationFeedbackResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    PatchApplicationFeedbackResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchApplicationFeedbackRequest,
+                     option: Optional[RequestOption] = None) -> PatchApplicationFeedbackResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchApplicationFeedbackResponse = JSON.unmarshal(str(resp.content, UTF_8),

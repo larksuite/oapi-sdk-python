@@ -37,6 +37,22 @@ class Process(object):
 
         return response
 
+    async def aget(self, request: GetProcessRequest, option: Optional[RequestOption] = None) -> GetProcessResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), GetProcessResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListProcessRequest, option: Optional[RequestOption] = None) -> ListProcessResponse:
         if option is None:
             option = RequestOption()
@@ -50,6 +66,22 @@ class Process(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), ListProcessResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListProcessRequest, option: Optional[RequestOption] = None) -> ListProcessResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListProcessResponse = JSON.unmarshal(str(resp.content, UTF_8), ListProcessResponse)

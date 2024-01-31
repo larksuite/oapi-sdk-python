@@ -34,3 +34,19 @@ class Scope(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListScopeRequest, option: Optional[RequestOption] = None) -> ListScopeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListScopeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListScopeResponse)
+        response.raw = resp
+
+        return response

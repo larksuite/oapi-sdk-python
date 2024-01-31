@@ -52,5 +52,55 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: PatchDocumentBlockRequest = PatchDocumentBlockRequest.builder() \
+        .document_id("doxcnePuYufKa49ISjhD8Ih0ikh") \
+        .block_id("doxcnO6UW6wAw2qIcYf4hZpFIth") \
+        .document_revision_id(-1) \
+        .client_token("0e2633a3-aa1a-4171-af9e-0768ff863566") \
+        .user_id_type("user_id") \
+        .request_body(UpdateBlockRequest.builder()
+                      .update_text_elements(UpdateTextElementsRequest.builder().build())
+                      .update_text_style(UpdateTextStyleRequest.builder().build())
+                      .update_table_property(UpdateTablePropertyRequest.builder().build())
+                      .insert_table_row(InsertTableRowRequest.builder().build())
+                      .insert_table_column(InsertTableColumnRequest.builder().build())
+                      .delete_table_rows(DeleteTableRowsRequest.builder().build())
+                      .delete_table_columns(DeleteTableColumnsRequest.builder().build())
+                      .merge_table_cells(MergeTableCellsRequest.builder().build())
+                      .unmerge_table_cells(UnmergeTableCellsRequest.builder().build())
+                      .insert_grid_column(InsertGridColumnRequest.builder().build())
+                      .delete_grid_column(DeleteGridColumnRequest.builder().build())
+                      .update_grid_column_width_ratio(UpdateGridColumnWidthRatioRequest.builder().build())
+                      .replace_image(ReplaceImageRequest.builder().build())
+                      .replace_file(ReplaceFileRequest.builder().build())
+                      .update_text(UpdateTextRequest.builder().build())
+                      .update_task(UpdateTaskRequest.builder().build())
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: PatchDocumentBlockResponse = await client.docx.v1.document_block.apatch(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.docx.v1.document_block.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

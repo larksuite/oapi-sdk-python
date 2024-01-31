@@ -36,3 +36,21 @@ class RefreshAccessToken(object):
         response.raw = resp
 
         return response
+
+    async def acreate(self, request: CreateRefreshAccessTokenRequest,
+                      option: Optional[RequestOption] = None) -> CreateRefreshAccessTokenResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    CreateRefreshAccessTokenResponse)
+        response.raw = resp
+
+        return response

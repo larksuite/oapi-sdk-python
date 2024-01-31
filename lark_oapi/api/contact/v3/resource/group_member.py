@@ -43,6 +43,23 @@ class GroupMember(object):
 
         return response
 
+    async def aadd(self, request: AddGroupMemberRequest,
+                   option: Optional[RequestOption] = None) -> AddGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: AddGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), AddGroupMemberResponse)
+        response.raw = resp
+
+        return response
+
     def batch_add(self, request: BatchAddGroupMemberRequest,
                   option: Optional[RequestOption] = None) -> BatchAddGroupMemberResponse:
         if option is None:
@@ -57,6 +74,23 @@ class GroupMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: BatchAddGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchAddGroupMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def abatch_add(self, request: BatchAddGroupMemberRequest,
+                         option: Optional[RequestOption] = None) -> BatchAddGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: BatchAddGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchAddGroupMemberResponse)
@@ -86,6 +120,24 @@ class GroupMember(object):
 
         return response
 
+    async def abatch_remove(self, request: BatchRemoveGroupMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchRemoveGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchRemoveGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  BatchRemoveGroupMemberResponse)
+        response.raw = resp
+
+        return response
+
     def remove(self, request: RemoveGroupMemberRequest,
                option: Optional[RequestOption] = None) -> RemoveGroupMemberResponse:
         if option is None:
@@ -107,6 +159,23 @@ class GroupMember(object):
 
         return response
 
+    async def aremove(self, request: RemoveGroupMemberRequest,
+                      option: Optional[RequestOption] = None) -> RemoveGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RemoveGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveGroupMemberResponse)
+        response.raw = resp
+
+        return response
+
     def simplelist(self, request: SimplelistGroupMemberRequest,
                    option: Optional[RequestOption] = None) -> SimplelistGroupMemberResponse:
         if option is None:
@@ -121,6 +190,24 @@ class GroupMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SimplelistGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 SimplelistGroupMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def asimplelist(self, request: SimplelistGroupMemberRequest,
+                          option: Optional[RequestOption] = None) -> SimplelistGroupMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SimplelistGroupMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),

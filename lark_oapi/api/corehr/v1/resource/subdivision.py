@@ -37,6 +37,23 @@ class Subdivision(object):
 
         return response
 
+    async def aget(self, request: GetSubdivisionRequest,
+                   option: Optional[RequestOption] = None) -> GetSubdivisionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetSubdivisionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSubdivisionResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListSubdivisionRequest, option: Optional[RequestOption] = None) -> ListSubdivisionResponse:
         if option is None:
             option = RequestOption()
@@ -50,6 +67,23 @@ class Subdivision(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListSubdivisionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubdivisionResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListSubdivisionRequest,
+                    option: Optional[RequestOption] = None) -> ListSubdivisionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListSubdivisionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSubdivisionResponse)

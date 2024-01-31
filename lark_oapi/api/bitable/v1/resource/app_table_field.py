@@ -42,6 +42,23 @@ class AppTableField(object):
 
         return response
 
+    async def acreate(self, request: CreateAppTableFieldRequest,
+                      option: Optional[RequestOption] = None) -> CreateAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAppTableFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppTableFieldResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteAppTableFieldRequest,
                option: Optional[RequestOption] = None) -> DeleteAppTableFieldResponse:
         if option is None:
@@ -56,6 +73,23 @@ class AppTableField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteAppTableFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppTableFieldResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteAppTableFieldRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteAppTableFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppTableFieldResponse)
@@ -84,6 +118,23 @@ class AppTableField(object):
 
         return response
 
+    async def alist(self, request: ListAppTableFieldRequest,
+                    option: Optional[RequestOption] = None) -> ListAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListAppTableFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppTableFieldResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateAppTableFieldRequest,
                option: Optional[RequestOption] = None) -> UpdateAppTableFieldResponse:
         if option is None:
@@ -98,6 +149,23 @@ class AppTableField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateAppTableFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppTableFieldResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateAppTableFieldRequest,
+                      option: Optional[RequestOption] = None) -> UpdateAppTableFieldResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateAppTableFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAppTableFieldResponse)

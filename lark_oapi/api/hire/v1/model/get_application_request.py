@@ -9,6 +9,7 @@ from lark_oapi.core.model import BaseRequest
 class GetApplicationRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.options: Optional[List[str]] = None
         self.application_id: Optional[str] = None
 
@@ -25,6 +26,11 @@ class GetApplicationRequestBuilder(object):
         get_application_request.uri = "/open-apis/hire/v1/applications/:application_id"
         get_application_request.token_types = {AccessTokenType.TENANT}
         self._get_application_request: GetApplicationRequest = get_application_request
+
+    def user_id_type(self, user_id_type: str) -> "GetApplicationRequestBuilder":
+        self._get_application_request.user_id_type = user_id_type
+        self._get_application_request.add_query("user_id_type", user_id_type)
+        return self
 
     def options(self, options: List[str]) -> "GetApplicationRequestBuilder":
         self._get_application_request.options = options

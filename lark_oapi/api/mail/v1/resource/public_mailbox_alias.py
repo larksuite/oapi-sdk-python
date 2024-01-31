@@ -41,6 +41,24 @@ class PublicMailboxAlias(object):
 
         return response
 
+    async def acreate(self, request: CreatePublicMailboxAliasRequest,
+                      option: Optional[RequestOption] = None) -> CreatePublicMailboxAliasResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreatePublicMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    CreatePublicMailboxAliasResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeletePublicMailboxAliasRequest,
                option: Optional[RequestOption] = None) -> DeletePublicMailboxAliasResponse:
         if option is None:
@@ -63,6 +81,24 @@ class PublicMailboxAlias(object):
 
         return response
 
+    async def adelete(self, request: DeletePublicMailboxAliasRequest,
+                      option: Optional[RequestOption] = None) -> DeletePublicMailboxAliasResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeletePublicMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    DeletePublicMailboxAliasResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListPublicMailboxAliasRequest,
              option: Optional[RequestOption] = None) -> ListPublicMailboxAliasResponse:
         if option is None:
@@ -77,6 +113,24 @@ class PublicMailboxAlias(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListPublicMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  ListPublicMailboxAliasResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListPublicMailboxAliasRequest,
+                    option: Optional[RequestOption] = None) -> ListPublicMailboxAliasResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListPublicMailboxAliasResponse = JSON.unmarshal(str(resp.content, UTF_8),

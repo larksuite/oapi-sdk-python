@@ -34,3 +34,19 @@ class Alert(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListAlertRequest, option: Optional[RequestOption] = None) -> ListAlertResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListAlertResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAlertResponse)
+        response.raw = resp
+
+        return response

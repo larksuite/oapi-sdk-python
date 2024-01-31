@@ -48,60 +48,64 @@ from .core.const import UTF_8, APPLICATION_JSON
 from .core.http import Transport
 from .core.model import *
 from .core.token import TokenManager, verify
+from .core.utils.files import Files
 
 
 class Client(object):
     def __init__(self) -> None:
         self._config: Optional[Config] = None
-        self.gray_test_open_sg: Optional[GrayTestOpenSgService] = None
-        self.okr: Optional[OkrService] = None
-        self.personal_settings: Optional[PersonalSettingsService] = None
-        self.attendance: Optional[AttendanceService] = None
         self.docx: Optional[DocxService] = None
-        self.calendar: Optional[CalendarService] = None
-        self.im: Optional[ImService] = None
-        self.optical_char_recognition: Optional[OpticalCharRecognitionService] = None
-        self.security_and_compliance: Optional[SecurityAndComplianceService] = None
-        self.translation: Optional[TranslationService] = None
-        self.vc: Optional[VcService] = None
-        self.auth: Optional[AuthService] = None
-        self.baike: Optional[BaikeService] = None
-        self.human_authentication: Optional[HumanAuthenticationService] = None
         self.mdm: Optional[MdmService] = None
+        self.optical_char_recognition: Optional[OpticalCharRecognitionService] = None
         self.report: Optional[ReportService] = None
-        self.application: Optional[ApplicationService] = None
-        self.corehr: Optional[CorehrService] = None
-        self.passport: Optional[PassportService] = None
-        self.speech_to_text: Optional[SpeechToTextService] = None
-        self.wiki: Optional[WikiService] = None
-        self.hire: Optional[HireService] = None
-        self.mail: Optional[MailService] = None
-        self.helpdesk: Optional[HelpdeskService] = None
-        self.lingo: Optional[LingoService] = None
-        self.search: Optional[SearchService] = None
         self.tenant: Optional[TenantService] = None
-        self.block: Optional[BlockService] = None
+        self.wiki: Optional[WikiService] = None
         self.contact: Optional[ContactService] = None
-        self.task: Optional[TaskService] = None
-        self.ehr: Optional[EhrService] = None
         self.event: Optional[EventService] = None
-        self.meeting_room: Optional[MeetingRoomService] = None
-        self.verification: Optional[VerificationService] = None
-        self.bitable: Optional[BitableService] = None
-        self.drive: Optional[DriveService] = None
-        self.approval: Optional[ApprovalService] = None
-        self.authen: Optional[AuthenService] = None
+        self.okr: Optional[OkrService] = None
+        self.calendar: Optional[CalendarService] = None
         self.document_ai: Optional[DocumentAiService] = None
-        self.sheets: Optional[SheetsService] = None
-        self.workplace: Optional[WorkplaceService] = None
-        self.acs: Optional[AcsService] = None
+        self.hire: Optional[HireService] = None
+        self.speech_to_text: Optional[SpeechToTextService] = None
+        self.translation: Optional[TranslationService] = None
         self.admin: Optional[AdminService] = None
+        self.approval: Optional[ApprovalService] = None
+        self.bitable: Optional[BitableService] = None
+        self.verification: Optional[VerificationService] = None
+        self.lingo: Optional[LingoService] = None
+        self.personal_settings: Optional[PersonalSettingsService] = None
+        self.security_and_compliance: Optional[SecurityAndComplianceService] = None
+        self.attendance: Optional[AttendanceService] = None
+        self.baike: Optional[BaikeService] = None
+        self.gray_test_open_sg: Optional[GrayTestOpenSgService] = None
+        self.mail: Optional[MailService] = None
+        self.corehr: Optional[CorehrService] = None
+        self.helpdesk: Optional[HelpdeskService] = None
+        self.im: Optional[ImService] = None
+        self.authen: Optional[AuthenService] = None
+        self.block: Optional[BlockService] = None
+        self.task: Optional[TaskService] = None
+        self.vc: Optional[VcService] = None
+        self.workplace: Optional[WorkplaceService] = None
+        self.application: Optional[ApplicationService] = None
+        self.ehr: Optional[EhrService] = None
+        self.human_authentication: Optional[HumanAuthenticationService] = None
+        self.meeting_room: Optional[MeetingRoomService] = None
+        self.passport: Optional[PassportService] = None
+        self.search: Optional[SearchService] = None
+        self.sheets: Optional[SheetsService] = None
+        self.acs: Optional[AcsService] = None
+        self.auth: Optional[AuthService] = None
+        self.drive: Optional[DriveService] = None
 
     @staticmethod
     def builder() -> "ClientBuilder":
         return ClientBuilder()
 
-    def request(self, request: BaseRequest, option: RequestOption = RequestOption()) -> BaseResponse:
+    def request(self, request: BaseRequest, option: Optional[RequestOption] = None) -> BaseResponse:
+        if option is None:
+            option = RequestOption()
+
         # 鉴权、获取token
         verify(self._config, request, option)
 
@@ -122,6 +126,9 @@ class Client(object):
     async def arequest(self, request: BaseRequest, option: RequestOption = RequestOption()) -> BaseResponse:
         # 鉴权、获取token
         verify(self._config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
 
         # 发起请求
         raw_resp = await Transport.aexecute(self._config, request, option)
@@ -189,49 +196,49 @@ class ClientBuilder(object):
         self._init_logger()
 
         # 初始化 服务
-        client.gray_test_open_sg = GrayTestOpenSgService(self._config)
-        client.okr = OkrService(self._config)
-        client.personal_settings = PersonalSettingsService(self._config)
-        client.attendance = AttendanceService(self._config)
         client.docx = DocxService(self._config)
-        client.calendar = CalendarService(self._config)
-        client.im = ImService(self._config)
-        client.optical_char_recognition = OpticalCharRecognitionService(self._config)
-        client.security_and_compliance = SecurityAndComplianceService(self._config)
-        client.translation = TranslationService(self._config)
-        client.vc = VcService(self._config)
-        client.auth = AuthService(self._config)
-        client.baike = BaikeService(self._config)
-        client.human_authentication = HumanAuthenticationService(self._config)
         client.mdm = MdmService(self._config)
+        client.optical_char_recognition = OpticalCharRecognitionService(self._config)
         client.report = ReportService(self._config)
-        client.application = ApplicationService(self._config)
-        client.corehr = CorehrService(self._config)
-        client.passport = PassportService(self._config)
-        client.speech_to_text = SpeechToTextService(self._config)
-        client.wiki = WikiService(self._config)
-        client.hire = HireService(self._config)
-        client.mail = MailService(self._config)
-        client.helpdesk = HelpdeskService(self._config)
-        client.lingo = LingoService(self._config)
-        client.search = SearchService(self._config)
         client.tenant = TenantService(self._config)
-        client.block = BlockService(self._config)
+        client.wiki = WikiService(self._config)
         client.contact = ContactService(self._config)
-        client.task = TaskService(self._config)
-        client.ehr = EhrService(self._config)
         client.event = EventService(self._config)
-        client.meeting_room = MeetingRoomService(self._config)
-        client.verification = VerificationService(self._config)
-        client.bitable = BitableService(self._config)
-        client.drive = DriveService(self._config)
-        client.approval = ApprovalService(self._config)
-        client.authen = AuthenService(self._config)
+        client.okr = OkrService(self._config)
+        client.calendar = CalendarService(self._config)
         client.document_ai = DocumentAiService(self._config)
-        client.sheets = SheetsService(self._config)
-        client.workplace = WorkplaceService(self._config)
-        client.acs = AcsService(self._config)
+        client.hire = HireService(self._config)
+        client.speech_to_text = SpeechToTextService(self._config)
+        client.translation = TranslationService(self._config)
         client.admin = AdminService(self._config)
+        client.approval = ApprovalService(self._config)
+        client.bitable = BitableService(self._config)
+        client.verification = VerificationService(self._config)
+        client.lingo = LingoService(self._config)
+        client.personal_settings = PersonalSettingsService(self._config)
+        client.security_and_compliance = SecurityAndComplianceService(self._config)
+        client.attendance = AttendanceService(self._config)
+        client.baike = BaikeService(self._config)
+        client.gray_test_open_sg = GrayTestOpenSgService(self._config)
+        client.mail = MailService(self._config)
+        client.corehr = CorehrService(self._config)
+        client.helpdesk = HelpdeskService(self._config)
+        client.im = ImService(self._config)
+        client.authen = AuthenService(self._config)
+        client.block = BlockService(self._config)
+        client.task = TaskService(self._config)
+        client.vc = VcService(self._config)
+        client.workplace = WorkplaceService(self._config)
+        client.application = ApplicationService(self._config)
+        client.ehr = EhrService(self._config)
+        client.human_authentication = HumanAuthenticationService(self._config)
+        client.meeting_room = MeetingRoomService(self._config)
+        client.passport = PassportService(self._config)
+        client.search = SearchService(self._config)
+        client.sheets = SheetsService(self._config)
+        client.acs = AcsService(self._config)
+        client.auth = AuthService(self._config)
+        client.drive = DriveService(self._config)
 
         return client
 

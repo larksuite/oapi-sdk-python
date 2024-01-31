@@ -42,6 +42,23 @@ class FileVersion(object):
 
         return response
 
+    async def acreate(self, request: CreateFileVersionRequest,
+                      option: Optional[RequestOption] = None) -> CreateFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateFileVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateFileVersionResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteFileVersionRequest,
                option: Optional[RequestOption] = None) -> DeleteFileVersionResponse:
         if option is None:
@@ -56,6 +73,23 @@ class FileVersion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteFileVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFileVersionResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteFileVersionRequest,
+                      option: Optional[RequestOption] = None) -> DeleteFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteFileVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFileVersionResponse)
@@ -83,6 +117,23 @@ class FileVersion(object):
 
         return response
 
+    async def aget(self, request: GetFileVersionRequest,
+                   option: Optional[RequestOption] = None) -> GetFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetFileVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetFileVersionResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListFileVersionRequest, option: Optional[RequestOption] = None) -> ListFileVersionResponse:
         if option is None:
             option = RequestOption()
@@ -96,6 +147,23 @@ class FileVersion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListFileVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileVersionResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListFileVersionRequest,
+                    option: Optional[RequestOption] = None) -> ListFileVersionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListFileVersionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileVersionResponse)

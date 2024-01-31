@@ -39,6 +39,24 @@ class UserAuthDataRelation(object):
 
         return response
 
+    async def abind(self, request: BindUserAuthDataRelationRequest,
+                    option: Optional[RequestOption] = None) -> BindUserAuthDataRelationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BindUserAuthDataRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BindUserAuthDataRelationResponse)
+        response.raw = resp
+
+        return response
+
     def unbind(self, request: UnbindUserAuthDataRelationRequest,
                option: Optional[RequestOption] = None) -> UnbindUserAuthDataRelationResponse:
         if option is None:
@@ -53,6 +71,24 @@ class UserAuthDataRelation(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UnbindUserAuthDataRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      UnbindUserAuthDataRelationResponse)
+        response.raw = resp
+
+        return response
+
+    async def aunbind(self, request: UnbindUserAuthDataRelationRequest,
+                      option: Optional[RequestOption] = None) -> UnbindUserAuthDataRelationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UnbindUserAuthDataRelationResponse = JSON.unmarshal(str(resp.content, UTF_8),

@@ -35,3 +35,20 @@ class SpaceSetting(object):
         response.raw = resp
 
         return response
+
+    async def aupdate(self, request: UpdateSpaceSettingRequest,
+                      option: Optional[RequestOption] = None) -> UpdateSpaceSettingResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateSpaceSettingResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateSpaceSettingResponse)
+        response.raw = resp
+
+        return response

@@ -43,6 +43,23 @@ class Reserve(object):
 
         return response
 
+    async def aapply(self, request: ApplyReserveRequest,
+                     option: Optional[RequestOption] = None) -> ApplyReserveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ApplyReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), ApplyReserveResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteReserveRequest, option: Optional[RequestOption] = None) -> DeleteReserveResponse:
         if option is None:
             option = RequestOption()
@@ -63,6 +80,23 @@ class Reserve(object):
 
         return response
 
+    async def adelete(self, request: DeleteReserveRequest,
+                      option: Optional[RequestOption] = None) -> DeleteReserveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteReserveResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetReserveRequest, option: Optional[RequestOption] = None) -> GetReserveResponse:
         if option is None:
             option = RequestOption()
@@ -76,6 +110,22 @@ class Reserve(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetReserveRequest, option: Optional[RequestOption] = None) -> GetReserveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveResponse)
@@ -105,6 +155,24 @@ class Reserve(object):
 
         return response
 
+    async def aget_active_meeting(self, request: GetActiveMeetingReserveRequest,
+                                  option: Optional[RequestOption] = None) -> GetActiveMeetingReserveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetActiveMeetingReserveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   GetActiveMeetingReserveResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateReserveRequest, option: Optional[RequestOption] = None) -> UpdateReserveResponse:
         if option is None:
             option = RequestOption()
@@ -118,6 +186,23 @@ class Reserve(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateReserveResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateReserveRequest,
+                      option: Optional[RequestOption] = None) -> UpdateReserveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateReserveResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateReserveResponse)

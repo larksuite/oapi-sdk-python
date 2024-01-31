@@ -43,6 +43,23 @@ class JobLevel(object):
 
         return response
 
+    async def acreate(self, request: CreateJobLevelRequest,
+                      option: Optional[RequestOption] = None) -> CreateJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobLevelResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteJobLevelRequest, option: Optional[RequestOption] = None) -> DeleteJobLevelResponse:
         if option is None:
             option = RequestOption()
@@ -56,6 +73,23 @@ class JobLevel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobLevelResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteJobLevelRequest,
+                      option: Optional[RequestOption] = None) -> DeleteJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobLevelResponse)
@@ -83,6 +117,22 @@ class JobLevel(object):
 
         return response
 
+    async def aget(self, request: GetJobLevelRequest, option: Optional[RequestOption] = None) -> GetJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobLevelResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListJobLevelRequest, option: Optional[RequestOption] = None) -> ListJobLevelResponse:
         if option is None:
             option = RequestOption()
@@ -103,6 +153,22 @@ class JobLevel(object):
 
         return response
 
+    async def alist(self, request: ListJobLevelRequest, option: Optional[RequestOption] = None) -> ListJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobLevelResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateJobLevelRequest, option: Optional[RequestOption] = None) -> UpdateJobLevelResponse:
         if option is None:
             option = RequestOption()
@@ -116,6 +182,23 @@ class JobLevel(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateJobLevelResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateJobLevelRequest,
+                      option: Optional[RequestOption] = None) -> UpdateJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateJobLevelResponse)

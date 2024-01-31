@@ -3,7 +3,9 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .address import Address
 from .custom_field_data import CustomFieldData
+from .email import Email
 from .enum import Enum
 from .person_name import PersonName
 from .phone import Phone
@@ -17,6 +19,8 @@ class EmergencyContact(object):
         "phone_list": List[Phone],
         "legal_name": str,
         "custom_fields": List[CustomFieldData],
+        "address": Address,
+        "email": Email,
     }
 
     def __init__(self, d=None):
@@ -26,6 +30,8 @@ class EmergencyContact(object):
         self.phone_list: Optional[List[Phone]] = None
         self.legal_name: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.address: Optional[Address] = None
+        self.email: Optional[Email] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -59,6 +65,14 @@ class EmergencyContactBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmergencyContactBuilder":
         self._emergency_contact.custom_fields = custom_fields
+        return self
+
+    def address(self, address: Address) -> "EmergencyContactBuilder":
+        self._emergency_contact.address = address
+        return self
+
+    def email(self, email: Email) -> "EmergencyContactBuilder":
+        self._emergency_contact.email = email
         return self
 
     def build(self) -> "EmergencyContact":

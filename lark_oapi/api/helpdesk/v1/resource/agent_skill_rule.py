@@ -35,3 +35,20 @@ class AgentSkillRule(object):
         response.raw = resp
 
         return response
+
+    async def alist(self, request: ListAgentSkillRuleRequest,
+                    option: Optional[RequestOption] = None) -> ListAgentSkillRuleResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListAgentSkillRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAgentSkillRuleResponse)
+        response.raw = resp
+
+        return response

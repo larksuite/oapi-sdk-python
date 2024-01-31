@@ -35,5 +35,38 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: ListUserOkrRequest = ListUserOkrRequest.builder() \
+        .user_id("ou-asdasdasdasdasd") \
+        .user_id_type("open_id") \
+        .offset("0") \
+        .limit("5") \
+        .lang("zh_cn") \
+        .period_ids([]) \
+        .build()
+
+    # 发起请求
+    response: ListUserOkrResponse = await client.okr.v1.user_okr.alist(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.okr.v1.user_okr.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

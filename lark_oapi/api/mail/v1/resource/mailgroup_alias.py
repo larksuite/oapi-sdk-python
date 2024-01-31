@@ -40,6 +40,23 @@ class MailgroupAlias(object):
 
         return response
 
+    async def acreate(self, request: CreateMailgroupAliasRequest,
+                      option: Optional[RequestOption] = None) -> CreateMailgroupAliasResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMailgroupAliasResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteMailgroupAliasRequest,
                option: Optional[RequestOption] = None) -> DeleteMailgroupAliasResponse:
         if option is None:
@@ -61,6 +78,23 @@ class MailgroupAlias(object):
 
         return response
 
+    async def adelete(self, request: DeleteMailgroupAliasRequest,
+                      option: Optional[RequestOption] = None) -> DeleteMailgroupAliasResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteMailgroupAliasResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListMailgroupAliasRequest,
              option: Optional[RequestOption] = None) -> ListMailgroupAliasResponse:
         if option is None:
@@ -75,6 +109,23 @@ class MailgroupAlias(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupAliasResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListMailgroupAliasRequest,
+                    option: Optional[RequestOption] = None) -> ListMailgroupAliasResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListMailgroupAliasResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMailgroupAliasResponse)

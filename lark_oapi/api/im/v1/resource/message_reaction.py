@@ -41,6 +41,24 @@ class MessageReaction(object):
 
         return response
 
+    async def acreate(self, request: CreateMessageReactionRequest,
+                      option: Optional[RequestOption] = None) -> CreateMessageReactionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CreateMessageReactionResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteMessageReactionRequest,
                option: Optional[RequestOption] = None) -> DeleteMessageReactionResponse:
         if option is None:
@@ -63,6 +81,24 @@ class MessageReaction(object):
 
         return response
 
+    async def adelete(self, request: DeleteMessageReactionRequest,
+                      option: Optional[RequestOption] = None) -> DeleteMessageReactionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 DeleteMessageReactionResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListMessageReactionRequest,
              option: Optional[RequestOption] = None) -> ListMessageReactionResponse:
         if option is None:
@@ -77,6 +113,23 @@ class MessageReaction(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMessageReactionResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListMessageReactionRequest,
+                    option: Optional[RequestOption] = None) -> ListMessageReactionResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListMessageReactionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMessageReactionResponse)

@@ -37,5 +37,40 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: CreateExternalBackgroundCheckRequest = CreateExternalBackgroundCheckRequest.builder() \
+        .request_body(ExternalBackgroundCheck.builder()
+                      .external_id("123")
+                      .external_application_id("1234111")
+                      .date(1626602069393)
+                      .name("测试.pdf")
+                      .result("1")
+                      .attachment_id_list([])
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: CreateExternalBackgroundCheckResponse = await client.hire.v1.external_background_check.acreate(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.external_background_check.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

@@ -629,6 +629,13 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.helpdesk.ticket_message.created_v1"] = P2HelpdeskTicketMessageCreatedV1Processor(f)
         return self
 
+    def register_p2_hire_application_deleted_v1(self, f: Callable[
+        [P2HireApplicationDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.hire.application.deleted_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.hire.application.deleted_v1")
+        self._processorMap["p2.hire.application.deleted_v1"] = P2HireApplicationDeletedV1Processor(f)
+        return self
+
     def register_p2_hire_application_stage_changed_v1(self, f: Callable[
         [P2HireApplicationStageChangedV1], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.hire.application.stage_changed_v1" in self._processorMap:

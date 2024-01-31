@@ -38,6 +38,23 @@ class SecurityGroup(object):
 
         return response
 
+    async def alist(self, request: ListSecurityGroupRequest,
+                    option: Optional[RequestOption] = None) -> ListSecurityGroupResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListSecurityGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSecurityGroupResponse)
+        response.raw = resp
+
+        return response
+
     def query(self, request: QuerySecurityGroupRequest,
               option: Optional[RequestOption] = None) -> QuerySecurityGroupResponse:
         if option is None:
@@ -52,6 +69,23 @@ class SecurityGroup(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QuerySecurityGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySecurityGroupResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery(self, request: QuerySecurityGroupRequest,
+                     option: Optional[RequestOption] = None) -> QuerySecurityGroupResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: QuerySecurityGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySecurityGroupResponse)

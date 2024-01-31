@@ -36,3 +36,21 @@ class BasicInfoBankBranch(object):
         response.raw = resp
 
         return response
+
+    async def asearch(self, request: SearchBasicInfoBankBranchRequest,
+                      option: Optional[RequestOption] = None) -> SearchBasicInfoBankBranchResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchBasicInfoBankBranchResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     SearchBasicInfoBankBranchResponse)
+        response.raw = resp
+
+        return response

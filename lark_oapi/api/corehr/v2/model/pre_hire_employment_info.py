@@ -3,6 +3,8 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .address import Address
+from .custom_field_data import CustomFieldData
 from .enum import Enum
 from .job_data_cost_center import JobDataCostCenter
 
@@ -33,6 +35,11 @@ class PreHireEmploymentInfo(object):
         "rehire_employment_id": str,
         "working_hours_type": str,
         "weekly_working_hours_v2": float,
+        "office_address": Address,
+        "working_calendar_id": str,
+        "updated_at": str,
+        "suspected_rehiring": bool,
+        "custom_fields": List[CustomFieldData],
     }
 
     def __init__(self, d=None):
@@ -60,6 +67,11 @@ class PreHireEmploymentInfo(object):
         self.rehire_employment_id: Optional[str] = None
         self.working_hours_type: Optional[str] = None
         self.weekly_working_hours_v2: Optional[float] = None
+        self.office_address: Optional[Address] = None
+        self.working_calendar_id: Optional[str] = None
+        self.updated_at: Optional[str] = None
+        self.suspected_rehiring: Optional[bool] = None
+        self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -165,6 +177,26 @@ class PreHireEmploymentInfoBuilder(object):
 
     def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.weekly_working_hours_v2 = weekly_working_hours_v2
+        return self
+
+    def office_address(self, office_address: Address) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.office_address = office_address
+        return self
+
+    def working_calendar_id(self, working_calendar_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.working_calendar_id = working_calendar_id
+        return self
+
+    def updated_at(self, updated_at: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.updated_at = updated_at
+        return self
+
+    def suspected_rehiring(self, suspected_rehiring: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.suspected_rehiring = suspected_rehiring
+        return self
+
+    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.custom_fields = custom_fields
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

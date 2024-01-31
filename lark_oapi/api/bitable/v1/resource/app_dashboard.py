@@ -38,6 +38,23 @@ class AppDashboard(object):
 
         return response
 
+    async def acopy(self, request: CopyAppDashboardRequest,
+                    option: Optional[RequestOption] = None) -> CopyAppDashboardResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CopyAppDashboardResponse = JSON.unmarshal(str(resp.content, UTF_8), CopyAppDashboardResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListAppDashboardRequest,
              option: Optional[RequestOption] = None) -> ListAppDashboardResponse:
         if option is None:
@@ -52,6 +69,23 @@ class AppDashboard(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListAppDashboardResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppDashboardResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListAppDashboardRequest,
+                    option: Optional[RequestOption] = None) -> ListAppDashboardResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListAppDashboardResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppDashboardResponse)

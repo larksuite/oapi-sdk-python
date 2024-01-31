@@ -3,6 +3,7 @@
 from typing import Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
+from .model.p2_hire_application_deleted_v1 import P2HireApplicationDeletedV1
 from .model.p2_hire_application_stage_changed_v1 import P2HireApplicationStageChangedV1
 from .model.p2_hire_eco_account_created_v1 import P2HireEcoAccountCreatedV1
 from .model.p2_hire_eco_background_check_canceled_v1 import P2HireEcoBackgroundCheckCanceledV1
@@ -13,6 +14,17 @@ from .model.p2_hire_ehr_import_task_for_internship_offer_imported_v1 import \
 from .model.p2_hire_ehr_import_task_imported_v1 import P2HireEhrImportTaskImportedV1
 from .model.p2_hire_offer_status_changed_v1 import P2HireOfferStatusChangedV1
 from .model.p2_hire_referral_account_assets_update_v1 import P2HireReferralAccountAssetsUpdateV1
+
+
+class P2HireApplicationDeletedV1Processor(IEventProcessor[P2HireApplicationDeletedV1]):
+    def __init__(self, f: Callable[[P2HireApplicationDeletedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2HireApplicationDeletedV1]:
+        return P2HireApplicationDeletedV1
+
+    def do(self, data: P2HireApplicationDeletedV1) -> None:
+        self.f(data)
 
 
 class P2HireApplicationStageChangedV1Processor(IEventProcessor[P2HireApplicationStageChangedV1]):

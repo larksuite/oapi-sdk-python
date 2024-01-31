@@ -35,3 +35,20 @@ class Image(object):
         response.raw = resp
 
         return response
+
+    async def abasic_recognize(self, request: BasicRecognizeImageRequest,
+                               option: Optional[RequestOption] = None) -> BasicRecognizeImageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BasicRecognizeImageResponse = JSON.unmarshal(str(resp.content, UTF_8), BasicRecognizeImageResponse)
+        response.raw = resp
+
+        return response

@@ -38,5 +38,41 @@ def main():
     lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
+# 异步方式
+async def amain():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    request: GetLeaveEmployExpireRecordRequest = GetLeaveEmployExpireRecordRequest.builder() \
+        .leave_id("1") \
+        .user_id_type("open_id") \
+        .request_body(GetLeaveEmployExpireRecordRequestBody.builder()
+                      .employment_id("1")
+                      .leave_type_id("1")
+                      .start_expiration_date("2023-04-10")
+                      .end_expiration_date("2023-05-10")
+                      .time_offset(480)
+                      .build()) \
+        .build()
+
+    # 发起请求
+    response: GetLeaveEmployExpireRecordResponse = await client.attendance.v1.leave_employ_expire_record.aget(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.attendance.v1.leave_employ_expire_record.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+
+
 if __name__ == "__main__":
+    # asyncio.run(amain()) 异步方式
     main()

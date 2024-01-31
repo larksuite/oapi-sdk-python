@@ -42,6 +42,23 @@ class ExportTask(object):
 
         return response
 
+    async def acreate(self, request: CreateExportTaskRequest,
+                      option: Optional[RequestOption] = None) -> CreateExportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExportTaskResponse)
+        response.raw = resp
+
+        return response
+
     def download(self, request: DownloadExportTaskRequest,
                  option: Optional[RequestOption] = None) -> DownloadExportTaskResponse:
         if option is None:
@@ -70,6 +87,30 @@ class ExportTask(object):
         response.raw = resp
         return response
 
+    async def adownload(self, request: DownloadExportTaskRequest,
+                        option: Optional[RequestOption] = None) -> DownloadExportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 处理二进制流
+        content_type = resp.headers.get(CONTENT_TYPE)
+        response: DownloadExportTaskResponse = DownloadExportTaskResponse()
+        if 200 <= resp.status_code < 300:
+            response.code = 0
+            response.file = io.BytesIO(resp.content)
+            response.file_name = Files.parse_file_name(resp.headers)
+        elif content_type is not None and content_type.startswith(APPLICATION_JSON):
+            response = JSON.unmarshal(str(resp.content, UTF_8), DownloadExportTaskResponse)
+
+        response.raw = resp
+        return response
+
     def get(self, request: GetExportTaskRequest, option: Optional[RequestOption] = None) -> GetExportTaskResponse:
         if option is None:
             option = RequestOption()
@@ -83,6 +124,23 @@ class ExportTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportTaskResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetExportTaskRequest,
+                   option: Optional[RequestOption] = None) -> GetExportTaskResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportTaskResponse)

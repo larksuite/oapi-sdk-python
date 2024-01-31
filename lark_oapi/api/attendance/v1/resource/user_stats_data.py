@@ -35,3 +35,20 @@ class UserStatsData(object):
         response.raw = resp
 
         return response
+
+    async def aquery(self, request: QueryUserStatsDataRequest,
+                     option: Optional[RequestOption] = None) -> QueryUserStatsDataResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryUserStatsDataResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserStatsDataResponse)
+        response.raw = resp
+
+        return response

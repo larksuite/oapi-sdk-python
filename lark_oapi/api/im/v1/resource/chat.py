@@ -47,6 +47,22 @@ class Chat(object):
 
         return response
 
+    async def acreate(self, request: CreateChatRequest, option: Optional[RequestOption] = None) -> CreateChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateChatResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteChatRequest, option: Optional[RequestOption] = None) -> DeleteChatResponse:
         if option is None:
             option = RequestOption()
@@ -60,6 +76,22 @@ class Chat(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteChatResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteChatResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteChatRequest, option: Optional[RequestOption] = None) -> DeleteChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteChatResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteChatResponse)
@@ -87,6 +119,22 @@ class Chat(object):
 
         return response
 
+    async def aget(self, request: GetChatRequest, option: Optional[RequestOption] = None) -> GetChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetChatResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatResponse)
+        response.raw = resp
+
+        return response
+
     def link(self, request: LinkChatRequest, option: Optional[RequestOption] = None) -> LinkChatResponse:
         if option is None:
             option = RequestOption()
@@ -100,6 +148,22 @@ class Chat(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: LinkChatResponse = JSON.unmarshal(str(resp.content, UTF_8), LinkChatResponse)
+        response.raw = resp
+
+        return response
+
+    async def alink(self, request: LinkChatRequest, option: Optional[RequestOption] = None) -> LinkChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: LinkChatResponse = JSON.unmarshal(str(resp.content, UTF_8), LinkChatResponse)
@@ -127,6 +191,22 @@ class Chat(object):
 
         return response
 
+    async def alist(self, request: ListChatRequest, option: Optional[RequestOption] = None) -> ListChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListChatResponse = JSON.unmarshal(str(resp.content, UTF_8), ListChatResponse)
+        response.raw = resp
+
+        return response
+
     def search(self, request: SearchChatRequest, option: Optional[RequestOption] = None) -> SearchChatResponse:
         if option is None:
             option = RequestOption()
@@ -147,6 +227,22 @@ class Chat(object):
 
         return response
 
+    async def asearch(self, request: SearchChatRequest, option: Optional[RequestOption] = None) -> SearchChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchChatResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchChatResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateChatRequest, option: Optional[RequestOption] = None) -> UpdateChatResponse:
         if option is None:
             option = RequestOption()
@@ -160,6 +256,22 @@ class Chat(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateChatResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateChatRequest, option: Optional[RequestOption] = None) -> UpdateChatResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateChatResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatResponse)

@@ -3,6 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .my_ai_present_card_variables import MyAiPresentCardVariables
 
 
 class MyAiPresent(object):
@@ -11,6 +12,8 @@ class MyAiPresent(object):
         "body": str,
         "callback_url": str,
         "callback_info": str,
+        "card_template_id": str,
+        "card_variables": MyAiPresentCardVariables,
     }
 
     def __init__(self, d=None):
@@ -18,6 +21,8 @@ class MyAiPresent(object):
         self.body: Optional[str] = None
         self.callback_url: Optional[str] = None
         self.callback_info: Optional[str] = None
+        self.card_template_id: Optional[str] = None
+        self.card_variables: Optional[MyAiPresentCardVariables] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +48,14 @@ class MyAiPresentBuilder(object):
 
     def callback_info(self, callback_info: str) -> "MyAiPresentBuilder":
         self._my_ai_present.callback_info = callback_info
+        return self
+
+    def card_template_id(self, card_template_id: str) -> "MyAiPresentBuilder":
+        self._my_ai_present.card_template_id = card_template_id
+        return self
+
+    def card_variables(self, card_variables: MyAiPresentCardVariables) -> "MyAiPresentBuilder":
+        self._my_ai_present.card_variables = card_variables
         return self
 
     def build(self) -> "MyAiPresent":

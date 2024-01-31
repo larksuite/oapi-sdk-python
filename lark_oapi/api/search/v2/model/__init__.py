@@ -29,6 +29,7 @@ from .delete_data_source_response import *
 from .delete_schema_request import *
 from .delete_schema_response import *
 from .department_id import *
+from .dialog_search_request import *
 from .doc import *
 from .doc_passage_param import *
 from .filter_schema import *
@@ -51,6 +52,7 @@ from .list_data_source_request import *
 from .list_data_source_response import *
 from .list_data_source_response_body import *
 from .llm_model_config import *
+from .memory_message import *
 from .model_config import *
 from .model_param import *
 from .nls_model_config import *
@@ -66,6 +68,9 @@ from .patch_schema_request import *
 from .patch_schema_request_body import *
 from .patch_schema_response import *
 from .patch_schema_response_body import *
+from .present import *
+from .scenario_context import *
+from .scenario_context_extra import *
 from .schema import *
 from .schema_display import *
 from .schema_display_field_mapping import *
@@ -80,6 +85,8 @@ from .schema_tag_options import *
 from .schema_type_definitions import *
 from .schema_user_ids_option import *
 from .seperate_passage import *
+from .system_info import *
+from .template_card_variables import *
 from .user_info import *
 from .web_passage_param import *
 from .wiki_passage_param import *

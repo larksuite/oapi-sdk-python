@@ -31,3 +31,26 @@ class Files(object):
             fd[k] = str(v)
 
         return fd
+
+    @staticmethod
+    def extract_files(obj: Any):
+        if obj is None:
+            return None
+        files = {}
+        if isinstance(obj, dict):
+            to_del_keys = []
+            for k, v in obj.items():
+                if isinstance(v, io.IOBase):
+                    files[k] = v
+                    to_del_keys.append(k)
+            for k in to_del_keys:
+                del obj[k]
+        elif not hasattr(obj, "__dict__"):
+            return None
+        else:
+            for k, v in vars(obj).items():
+                if isinstance(v, io.IOBase):
+                    files[k] = v
+                    setattr(obj, k, None)
+
+        return files

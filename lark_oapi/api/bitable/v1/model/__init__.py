@@ -162,6 +162,10 @@ from .rating import *
 from .req_app import *
 from .req_table import *
 from .req_view import *
+from .search_app_table_record_request import *
+from .search_app_table_record_request_body import *
+from .search_app_table_record_response import *
+from .search_app_table_record_response_body import *
 from .sort import *
 from .update_app_request import *
 from .update_app_request_body import *

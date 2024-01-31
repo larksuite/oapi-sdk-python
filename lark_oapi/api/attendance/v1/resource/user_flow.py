@@ -40,6 +40,23 @@ class UserFlow(object):
 
         return response
 
+    async def abatch_create(self, request: BatchCreateUserFlowRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreateUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchCreateUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateUserFlowResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetUserFlowRequest, option: Optional[RequestOption] = None) -> GetUserFlowResponse:
         if option is None:
             option = RequestOption()
@@ -60,6 +77,22 @@ class UserFlow(object):
 
         return response
 
+    async def aget(self, request: GetUserFlowRequest, option: Optional[RequestOption] = None) -> GetUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserFlowResponse)
+        response.raw = resp
+
+        return response
+
     def query(self, request: QueryUserFlowRequest, option: Optional[RequestOption] = None) -> QueryUserFlowResponse:
         if option is None:
             option = RequestOption()
@@ -73,6 +106,23 @@ class UserFlow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserFlowResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery(self, request: QueryUserFlowRequest,
+                     option: Optional[RequestOption] = None) -> QueryUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: QueryUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserFlowResponse)

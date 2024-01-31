@@ -38,6 +38,23 @@ class ScopeConfig(object):
 
         return response
 
+    async def acreate(self, request: CreateScopeConfigRequest,
+                      option: Optional[RequestOption] = None) -> CreateScopeConfigResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateScopeConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateScopeConfigResponse)
+        response.raw = resp
+
+        return response
+
     def get(self, request: GetScopeConfigRequest, option: Optional[RequestOption] = None) -> GetScopeConfigResponse:
         if option is None:
             option = RequestOption()
@@ -51,6 +68,23 @@ class ScopeConfig(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: GetScopeConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), GetScopeConfigResponse)
+        response.raw = resp
+
+        return response
+
+    async def aget(self, request: GetScopeConfigRequest,
+                   option: Optional[RequestOption] = None) -> GetScopeConfigResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: GetScopeConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), GetScopeConfigResponse)

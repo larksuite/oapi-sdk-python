@@ -41,6 +41,23 @@ class RoomConfig(object):
 
         return response
 
+    async def aquery(self, request: QueryRoomConfigRequest,
+                     option: Optional[RequestOption] = None) -> QueryRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryRoomConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRoomConfigResponse)
+        response.raw = resp
+
+        return response
+
     def set(self, request: SetRoomConfigRequest, option: Optional[RequestOption] = None) -> SetRoomConfigResponse:
         if option is None:
             option = RequestOption()
@@ -54,6 +71,23 @@ class RoomConfig(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SetRoomConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), SetRoomConfigResponse)
+        response.raw = resp
+
+        return response
+
+    async def aset(self, request: SetRoomConfigRequest,
+                   option: Optional[RequestOption] = None) -> SetRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SetRoomConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), SetRoomConfigResponse)
@@ -83,6 +117,24 @@ class RoomConfig(object):
 
         return response
 
+    async def aset_checkboard_access_code(self, request: SetCheckboardAccessCodeRoomConfigRequest, option: Optional[
+        RequestOption] = None) -> SetCheckboardAccessCodeRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SetCheckboardAccessCodeRoomConfigResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                             SetCheckboardAccessCodeRoomConfigResponse)
+        response.raw = resp
+
+        return response
+
     def set_room_access_code(self, request: SetRoomAccessCodeRoomConfigRequest,
                              option: Optional[RequestOption] = None) -> SetRoomAccessCodeRoomConfigResponse:
         if option is None:
@@ -97,6 +149,24 @@ class RoomConfig(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SetRoomAccessCodeRoomConfigResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       SetRoomAccessCodeRoomConfigResponse)
+        response.raw = resp
+
+        return response
+
+    async def aset_room_access_code(self, request: SetRoomAccessCodeRoomConfigRequest,
+                                    option: Optional[RequestOption] = None) -> SetRoomAccessCodeRoomConfigResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SetRoomAccessCodeRoomConfigResponse = JSON.unmarshal(str(resp.content, UTF_8),

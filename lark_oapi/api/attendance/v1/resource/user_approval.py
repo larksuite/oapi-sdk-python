@@ -38,6 +38,23 @@ class UserApproval(object):
 
         return response
 
+    async def acreate(self, request: CreateUserApprovalRequest,
+                      option: Optional[RequestOption] = None) -> CreateUserApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateUserApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserApprovalResponse)
+        response.raw = resp
+
+        return response
+
     def query(self, request: QueryUserApprovalRequest,
               option: Optional[RequestOption] = None) -> QueryUserApprovalResponse:
         if option is None:
@@ -52,6 +69,23 @@ class UserApproval(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryUserApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserApprovalResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery(self, request: QueryUserApprovalRequest,
+                     option: Optional[RequestOption] = None) -> QueryUserApprovalResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: QueryUserApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserApprovalResponse)

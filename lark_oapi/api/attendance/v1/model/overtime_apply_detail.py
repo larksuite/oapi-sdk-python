@@ -13,6 +13,7 @@ class OvertimeApplyDetail(object):
         "duration": str,
         "unit": int,
         "is_time_bank": bool,
+        "update_time": str,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class OvertimeApplyDetail(object):
         self.duration: Optional[str] = None
         self.unit: Optional[int] = None
         self.is_time_bank: Optional[bool] = None
+        self.update_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +57,10 @@ class OvertimeApplyDetailBuilder(object):
 
     def is_time_bank(self, is_time_bank: bool) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.is_time_bank = is_time_bank
+        return self
+
+    def update_time(self, update_time: str) -> "OvertimeApplyDetailBuilder":
+        self._overtime_apply_detail.update_time = update_time
         return self
 
     def build(self) -> "OvertimeApplyDetail":

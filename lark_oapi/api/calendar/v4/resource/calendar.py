@@ -55,6 +55,23 @@ class Calendar(object):
 
         return response
 
+    async def acreate(self, request: CreateCalendarRequest,
+                      option: Optional[RequestOption] = None) -> CreateCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCalendarResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteCalendarRequest, option: Optional[RequestOption] = None) -> DeleteCalendarResponse:
         if option is None:
             option = RequestOption()
@@ -68,6 +85,23 @@ class Calendar(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteCalendarRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCalendarResponse)
@@ -95,6 +129,22 @@ class Calendar(object):
 
         return response
 
+    async def aget(self, request: GetCalendarRequest, option: Optional[RequestOption] = None) -> GetCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCalendarResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListCalendarRequest, option: Optional[RequestOption] = None) -> ListCalendarResponse:
         if option is None:
             option = RequestOption()
@@ -115,6 +165,22 @@ class Calendar(object):
 
         return response
 
+    async def alist(self, request: ListCalendarRequest, option: Optional[RequestOption] = None) -> ListCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCalendarResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchCalendarRequest, option: Optional[RequestOption] = None) -> PatchCalendarResponse:
         if option is None:
             option = RequestOption()
@@ -128,6 +194,23 @@ class Calendar(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchCalendarRequest,
+                     option: Optional[RequestOption] = None) -> PatchCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCalendarResponse)
@@ -156,6 +239,23 @@ class Calendar(object):
 
         return response
 
+    async def aprimary(self, request: PrimaryCalendarRequest,
+                       option: Optional[RequestOption] = None) -> PrimaryCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PrimaryCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), PrimaryCalendarResponse)
+        response.raw = resp
+
+        return response
+
     def search(self, request: SearchCalendarRequest, option: Optional[RequestOption] = None) -> SearchCalendarResponse:
         if option is None:
             option = RequestOption()
@@ -169,6 +269,23 @@ class Calendar(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchCalendarRequest,
+                      option: Optional[RequestOption] = None) -> SearchCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SearchCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCalendarResponse)
@@ -197,6 +314,23 @@ class Calendar(object):
 
         return response
 
+    async def asubscribe(self, request: SubscribeCalendarRequest,
+                         option: Optional[RequestOption] = None) -> SubscribeCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SubscribeCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeCalendarResponse)
+        response.raw = resp
+
+        return response
+
     def subscription(self, request: SubscriptionCalendarRequest,
                      option: Optional[RequestOption] = None) -> SubscriptionCalendarResponse:
         if option is None:
@@ -211,6 +345,23 @@ class Calendar(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubscriptionCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    async def asubscription(self, request: SubscriptionCalendarRequest,
+                            option: Optional[RequestOption] = None) -> SubscriptionCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SubscriptionCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscriptionCalendarResponse)
@@ -239,6 +390,23 @@ class Calendar(object):
 
         return response
 
+    async def aunsubscribe(self, request: UnsubscribeCalendarRequest,
+                           option: Optional[RequestOption] = None) -> UnsubscribeCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscribeCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscribeCalendarResponse)
+        response.raw = resp
+
+        return response
+
     def unsubscription(self, request: UnsubscriptionCalendarRequest,
                        option: Optional[RequestOption] = None) -> UnsubscriptionCalendarResponse:
         if option is None:
@@ -253,6 +421,24 @@ class Calendar(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UnsubscriptionCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  UnsubscriptionCalendarResponse)
+        response.raw = resp
+
+        return response
+
+    async def aunsubscription(self, request: UnsubscriptionCalendarRequest,
+                              option: Optional[RequestOption] = None) -> UnsubscriptionCalendarResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UnsubscriptionCalendarResponse = JSON.unmarshal(str(resp.content, UTF_8),

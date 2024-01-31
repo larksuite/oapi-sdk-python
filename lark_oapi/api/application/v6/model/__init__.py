@@ -128,6 +128,9 @@ from .set_app_badge_response import *
 from .underauditlist_application_request import *
 from .underauditlist_application_response import *
 from .underauditlist_application_response_body import *
+from .update_application_management_request import *
+from .update_application_management_request_body import *
+from .update_application_management_response import *
 from .usage_overview_item import *
 from .usage_trend_item import *
 from .usage_user import *

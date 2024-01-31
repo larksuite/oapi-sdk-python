@@ -38,6 +38,23 @@ class TimeoffEvent(object):
 
         return response
 
+    async def acreate(self, request: CreateTimeoffEventRequest,
+                      option: Optional[RequestOption] = None) -> CreateTimeoffEventResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateTimeoffEventResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTimeoffEventResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteTimeoffEventRequest,
                option: Optional[RequestOption] = None) -> DeleteTimeoffEventResponse:
         if option is None:
@@ -52,6 +69,23 @@ class TimeoffEvent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteTimeoffEventResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTimeoffEventResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteTimeoffEventRequest,
+                      option: Optional[RequestOption] = None) -> DeleteTimeoffEventResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteTimeoffEventResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTimeoffEventResponse)

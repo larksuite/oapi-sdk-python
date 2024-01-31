@@ -44,3 +44,27 @@ class MessageResource(object):
 
         response.raw = resp
         return response
+
+    async def aget(self, request: GetMessageResourceRequest,
+                   option: Optional[RequestOption] = None) -> GetMessageResourceResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 处理二进制流
+        content_type = resp.headers.get(CONTENT_TYPE)
+        response: GetMessageResourceResponse = GetMessageResourceResponse()
+        if 200 <= resp.status_code < 300:
+            response.code = 0
+            response.file = io.BytesIO(resp.content)
+            response.file_name = Files.parse_file_name(resp.headers)
+        elif content_type is not None and content_type.startswith(APPLICATION_JSON):
+            response = JSON.unmarshal(str(resp.content, UTF_8), GetMessageResourceResponse)
+
+        response.raw = resp
+        return response

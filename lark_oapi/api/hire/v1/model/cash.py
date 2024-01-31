@@ -8,12 +8,12 @@ from lark_oapi.core.construct import init
 class Cash(object):
     _types = {
         "currency_type": str,
-        "amount": int,
+        "amount": float,
     }
 
     def __init__(self, d=None):
         self.currency_type: Optional[str] = None
-        self.amount: Optional[int] = None
+        self.amount: Optional[float] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -29,7 +29,7 @@ class CashBuilder(object):
         self._cash.currency_type = currency_type
         return self
 
-    def amount(self, amount: int) -> "CashBuilder":
+    def amount(self, amount: float) -> "CashBuilder":
         self._cash.amount = amount
         return self
 

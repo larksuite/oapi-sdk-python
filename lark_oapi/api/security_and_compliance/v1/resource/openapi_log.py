@@ -35,3 +35,20 @@ class OpenapiLog(object):
         response.raw = resp
 
         return response
+
+    async def alist_data(self, request: ListDataOpenapiLogRequest,
+                         option: Optional[RequestOption] = None) -> ListDataOpenapiLogResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListDataOpenapiLogResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDataOpenapiLogResponse)
+        response.raw = resp
+
+        return response

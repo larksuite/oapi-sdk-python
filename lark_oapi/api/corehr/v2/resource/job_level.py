@@ -35,3 +35,20 @@ class JobLevel(object):
         response.raw = resp
 
         return response
+
+    async def abatch_get(self, request: BatchGetJobLevelRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetJobLevelResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchGetJobLevelResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetJobLevelResponse)
+        response.raw = resp
+
+        return response

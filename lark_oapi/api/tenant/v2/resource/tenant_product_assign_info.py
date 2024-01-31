@@ -36,3 +36,21 @@ class TenantProductAssignInfo(object):
         response.raw = resp
 
         return response
+
+    async def aquery(self, request: QueryTenantProductAssignInfoRequest,
+                     option: Optional[RequestOption] = None) -> QueryTenantProductAssignInfoResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryTenantProductAssignInfoResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        QueryTenantProductAssignInfoResponse)
+        response.raw = resp
+
+        return response

@@ -44,6 +44,23 @@ class TaskComment(object):
 
         return response
 
+    async def acreate(self, request: CreateTaskCommentRequest,
+                      option: Optional[RequestOption] = None) -> CreateTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskCommentResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteTaskCommentRequest,
                option: Optional[RequestOption] = None) -> DeleteTaskCommentResponse:
         if option is None:
@@ -58,6 +75,23 @@ class TaskComment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskCommentResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteTaskCommentRequest,
+                      option: Optional[RequestOption] = None) -> DeleteTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskCommentResponse)
@@ -85,6 +119,23 @@ class TaskComment(object):
 
         return response
 
+    async def aget(self, request: GetTaskCommentRequest,
+                   option: Optional[RequestOption] = None) -> GetTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTaskCommentResponse)
+        response.raw = resp
+
+        return response
+
     def list(self, request: ListTaskCommentRequest, option: Optional[RequestOption] = None) -> ListTaskCommentResponse:
         if option is None:
             option = RequestOption()
@@ -98,6 +149,23 @@ class TaskComment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskCommentResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListTaskCommentRequest,
+                    option: Optional[RequestOption] = None) -> ListTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ListTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskCommentResponse)
@@ -119,6 +187,23 @@ class TaskComment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTaskCommentResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateTaskCommentRequest,
+                      option: Optional[RequestOption] = None) -> UpdateTaskCommentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateTaskCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTaskCommentResponse)

@@ -43,6 +43,23 @@ class ChatTab(object):
 
         return response
 
+    async def acreate(self, request: CreateChatTabRequest,
+                      option: Optional[RequestOption] = None) -> CreateChatTabResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateChatTabResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatTabResponse)
+        response.raw = resp
+
+        return response
+
     def delete_tabs(self, request: DeleteTabsChatTabRequest,
                     option: Optional[RequestOption] = None) -> DeleteTabsChatTabResponse:
         if option is None:
@@ -57,6 +74,23 @@ class ChatTab(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteTabsChatTabResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTabsChatTabResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete_tabs(self, request: DeleteTabsChatTabRequest,
+                           option: Optional[RequestOption] = None) -> DeleteTabsChatTabResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteTabsChatTabResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTabsChatTabResponse)
@@ -85,6 +119,23 @@ class ChatTab(object):
 
         return response
 
+    async def alist_tabs(self, request: ListTabsChatTabRequest,
+                         option: Optional[RequestOption] = None) -> ListTabsChatTabResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListTabsChatTabResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTabsChatTabResponse)
+        response.raw = resp
+
+        return response
+
     def sort_tabs(self, request: SortTabsChatTabRequest,
                   option: Optional[RequestOption] = None) -> SortTabsChatTabResponse:
         if option is None:
@@ -106,6 +157,23 @@ class ChatTab(object):
 
         return response
 
+    async def asort_tabs(self, request: SortTabsChatTabRequest,
+                         option: Optional[RequestOption] = None) -> SortTabsChatTabResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SortTabsChatTabResponse = JSON.unmarshal(str(resp.content, UTF_8), SortTabsChatTabResponse)
+        response.raw = resp
+
+        return response
+
     def update_tabs(self, request: UpdateTabsChatTabRequest,
                     option: Optional[RequestOption] = None) -> UpdateTabsChatTabResponse:
         if option is None:
@@ -120,6 +188,23 @@ class ChatTab(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateTabsChatTabResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTabsChatTabResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate_tabs(self, request: UpdateTabsChatTabRequest,
+                           option: Optional[RequestOption] = None) -> UpdateTabsChatTabResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateTabsChatTabResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTabsChatTabResponse)

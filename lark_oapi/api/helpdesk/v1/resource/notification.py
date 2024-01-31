@@ -51,6 +51,24 @@ class Notification(object):
 
         return response
 
+    async def acancel_approve(self, request: CancelApproveNotificationRequest,
+                              option: Optional[RequestOption] = None) -> CancelApproveNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CancelApproveNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     CancelApproveNotificationResponse)
+        response.raw = resp
+
+        return response
+
     def cancel_send(self, request: CancelSendNotificationRequest,
                     option: Optional[RequestOption] = None) -> CancelSendNotificationResponse:
         if option is None:
@@ -65,6 +83,24 @@ class Notification(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CancelSendNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  CancelSendNotificationResponse)
+        response.raw = resp
+
+        return response
+
+    async def acancel_send(self, request: CancelSendNotificationRequest,
+                           option: Optional[RequestOption] = None) -> CancelSendNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: CancelSendNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -94,6 +130,23 @@ class Notification(object):
 
         return response
 
+    async def acreate(self, request: CreateNotificationRequest,
+                      option: Optional[RequestOption] = None) -> CreateNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateNotificationResponse)
+        response.raw = resp
+
+        return response
+
     def execute_send(self, request: ExecuteSendNotificationRequest,
                      option: Optional[RequestOption] = None) -> ExecuteSendNotificationResponse:
         if option is None:
@@ -108,6 +161,24 @@ class Notification(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ExecuteSendNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   ExecuteSendNotificationResponse)
+        response.raw = resp
+
+        return response
+
+    async def aexecute_send(self, request: ExecuteSendNotificationRequest,
+                            option: Optional[RequestOption] = None) -> ExecuteSendNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: ExecuteSendNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -136,6 +207,23 @@ class Notification(object):
 
         return response
 
+    async def aget(self, request: GetNotificationRequest,
+                   option: Optional[RequestOption] = None) -> GetNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: GetNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNotificationResponse)
+        response.raw = resp
+
+        return response
+
     def patch(self, request: PatchNotificationRequest,
               option: Optional[RequestOption] = None) -> PatchNotificationResponse:
         if option is None:
@@ -150,6 +238,23 @@ class Notification(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNotificationResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchNotificationRequest,
+                     option: Optional[RequestOption] = None) -> PatchNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: PatchNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchNotificationResponse)
@@ -178,6 +283,23 @@ class Notification(object):
 
         return response
 
+    async def apreview(self, request: PreviewNotificationRequest,
+                       option: Optional[RequestOption] = None) -> PreviewNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PreviewNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8), PreviewNotificationResponse)
+        response.raw = resp
+
+        return response
+
     def submit_approve(self, request: SubmitApproveNotificationRequest,
                        option: Optional[RequestOption] = None) -> SubmitApproveNotificationResponse:
         if option is None:
@@ -192,6 +314,24 @@ class Notification(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubmitApproveNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     SubmitApproveNotificationResponse)
+        response.raw = resp
+
+        return response
+
+    async def asubmit_approve(self, request: SubmitApproveNotificationRequest,
+                              option: Optional[RequestOption] = None) -> SubmitApproveNotificationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: SubmitApproveNotificationResponse = JSON.unmarshal(str(resp.content, UTF_8),

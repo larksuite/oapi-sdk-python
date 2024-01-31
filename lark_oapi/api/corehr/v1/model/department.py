@@ -19,6 +19,7 @@ class Department(object):
         "expiration_time": str,
         "custom_fields": List[ObjectFieldData],
         "cost_center_id": str,
+        "staffing_model": Enum,
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class Department(object):
         self.expiration_time: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.cost_center_id: Optional[str] = None
+        self.staffing_model: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -76,6 +78,10 @@ class DepartmentBuilder(object):
 
     def cost_center_id(self, cost_center_id: str) -> "DepartmentBuilder":
         self._department.cost_center_id = cost_center_id
+        return self
+
+    def staffing_model(self, staffing_model: Enum) -> "DepartmentBuilder":
+        self._department.staffing_model = staffing_model
         return self
 
     def build(self) -> "Department":

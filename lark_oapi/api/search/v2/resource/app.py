@@ -34,3 +34,19 @@ class App(object):
         response.raw = resp
 
         return response
+
+    async def acreate(self, request: CreateAppRequest, option: Optional[RequestOption] = None) -> CreateAppResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAppResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppResponse)
+        response.raw = resp
+
+        return response

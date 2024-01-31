@@ -36,3 +36,21 @@ class ExternalBackgroundCheck(object):
         response.raw = resp
 
         return response
+
+    async def acreate(self, request: CreateExternalBackgroundCheckRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalBackgroundCheckResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateExternalBackgroundCheckResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         CreateExternalBackgroundCheckResponse)
+        response.raw = resp
+
+        return response

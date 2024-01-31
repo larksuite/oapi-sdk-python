@@ -36,3 +36,21 @@ class BasicInfoCurrency(object):
         response.raw = resp
 
         return response
+
+    async def asearch(self, request: SearchBasicInfoCurrencyRequest,
+                      option: Optional[RequestOption] = None) -> SearchBasicInfoCurrencyResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchBasicInfoCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   SearchBasicInfoCurrencyResponse)
+        response.raw = resp
+
+        return response

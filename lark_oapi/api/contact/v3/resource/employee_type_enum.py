@@ -43,6 +43,24 @@ class EmployeeTypeEnum(object):
 
         return response
 
+    async def acreate(self, request: CreateEmployeeTypeEnumRequest,
+                      option: Optional[RequestOption] = None) -> CreateEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateEmployeeTypeEnumResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  CreateEmployeeTypeEnumResponse)
+        response.raw = resp
+
+        return response
+
     def delete(self, request: DeleteEmployeeTypeEnumRequest,
                option: Optional[RequestOption] = None) -> DeleteEmployeeTypeEnumResponse:
         if option is None:
@@ -57,6 +75,24 @@ class EmployeeTypeEnum(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteEmployeeTypeEnumResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  DeleteEmployeeTypeEnumResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteEmployeeTypeEnumRequest,
+                      option: Optional[RequestOption] = None) -> DeleteEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: DeleteEmployeeTypeEnumResponse = JSON.unmarshal(str(resp.content, UTF_8),
@@ -86,6 +122,23 @@ class EmployeeTypeEnum(object):
 
         return response
 
+    async def alist(self, request: ListEmployeeTypeEnumRequest,
+                    option: Optional[RequestOption] = None) -> ListEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListEmployeeTypeEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEmployeeTypeEnumResponse)
+        response.raw = resp
+
+        return response
+
     def update(self, request: UpdateEmployeeTypeEnumRequest,
                option: Optional[RequestOption] = None) -> UpdateEmployeeTypeEnumResponse:
         if option is None:
@@ -100,6 +153,24 @@ class EmployeeTypeEnum(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: UpdateEmployeeTypeEnumResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  UpdateEmployeeTypeEnumResponse)
+        response.raw = resp
+
+        return response
+
+    async def aupdate(self, request: UpdateEmployeeTypeEnumRequest,
+                      option: Optional[RequestOption] = None) -> UpdateEmployeeTypeEnumResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
 
         # 反序列化
         response: UpdateEmployeeTypeEnumResponse = JSON.unmarshal(str(resp.content, UTF_8),
