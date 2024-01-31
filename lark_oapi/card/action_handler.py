@@ -1,13 +1,16 @@
 import hashlib
+import json
 from typing import Optional, Callable, Any
 
 from lark_oapi.core.const import *
 from lark_oapi.core.enum import LogLevel
-from lark_oapi.core.exception import InvalidArgsException, AccessDeniedException, CardException
+from lark_oapi.core.exception import InvalidArgsException, AccessDeniedException, CardException, \
+    NoAuthorizationException
 from lark_oapi.core.http import HttpHandler
 from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
 from lark_oapi.core.model import RawRequest, RawResponse
+from lark_oapi.core.utils import Strings, AESCipher
 from .model import Card
 
 
@@ -31,8 +34,11 @@ class CardActionHandler(HttpHandler):
             if req.body is None:
                 raise InvalidArgsException("request body is null")
 
+            # 消息解密
+            plaintext = self._decrypt(req.body)
+
             # 反序列化
-            card = JSON.unmarshal(str(req.body, UTF_8), Card)
+            card = JSON.unmarshal(plaintext, Card)
             card.raw = req
 
             if URL_VERIFICATION == card.type:
@@ -77,6 +83,18 @@ class CardActionHandler(HttpHandler):
             resp.content = resp_body.encode(UTF_8)
 
             return resp
+
+    def _decrypt(self, content: bytes) -> str:
+        plaintext: str
+        encrypt = json.loads(content).get("encrypt")
+        if Strings.is_not_empty(encrypt):
+            if Strings.is_empty(self._encrypt_key):
+                raise NoAuthorizationException("encrypt_key not found")
+            plaintext = AESCipher(self._encrypt_key).decrypt_str(encrypt)
+        else:
+            plaintext = str(content, UTF_8)
+
+        return plaintext
 
     def _verify_sign(self, request: RawRequest) -> None:
         timestamp = request.headers.get(LARK_REQUEST_TIMESTAMP)
