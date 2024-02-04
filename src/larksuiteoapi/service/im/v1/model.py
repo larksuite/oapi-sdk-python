@@ -466,6 +466,7 @@ class MessagePatchReqBody(object):
 class MessageReplyReqBody(object):
     content = attr.ib(type=str, default=None, metadata={'json': 'content'})
     msg_type = attr.ib(type=str, default=None, metadata={'json': 'msg_type'})
+    reply_in_thread = attr.ib(type=bool, default=None, metadata={'json': 'reply_in_thread'})
 
 
 
