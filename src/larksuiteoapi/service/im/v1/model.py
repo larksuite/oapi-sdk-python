@@ -304,6 +304,8 @@ class ChatGetResult(object):
     edit_permission = attr.ib(type=str, default=None, metadata={'json': 'edit_permission'})
     owner_id_type = attr.ib(type=str, default=None, metadata={'json': 'owner_id_type'})
     owner_id = attr.ib(type=str, default=None, metadata={'json': 'owner_id'})
+    user_manager_id_list = attr.ib(type=List[str], default=None, metadata={'json': 'user_manager_id_list'})
+    bot_manager_id_list = attr.ib(type=List[str], default=None, metadata={'json': 'bot_manager_id_list'})
     chat_mode = attr.ib(type=str, default=None, metadata={'json': 'chat_mode'})
     chat_type = attr.ib(type=str, default=None, metadata={'json': 'chat_type'})
     chat_tag = attr.ib(type=str, default=None, metadata={'json': 'chat_tag'})
@@ -313,6 +315,8 @@ class ChatGetResult(object):
     moderation_permission = attr.ib(type=str, default=None, metadata={'json': 'moderation_permission'})
     external = attr.ib(type=bool, default=None, metadata={'json': 'external'})
     tenant_key = attr.ib(type=str, default=None, metadata={'json': 'tenant_key'})
+    user_count = attr.ib(type=int, default=None, metadata={'json': 'user_count'})
+    bot_count = attr.ib(type=int, default=None, metadata={'json': 'bot_count'})
     
 
 
@@ -462,6 +466,7 @@ class MessagePatchReqBody(object):
 class MessageReplyReqBody(object):
     content = attr.ib(type=str, default=None, metadata={'json': 'content'})
     msg_type = attr.ib(type=str, default=None, metadata={'json': 'msg_type'})
+    reply_in_thread = attr.ib(type=bool, default=None, metadata={'json': 'reply_in_thread'})
 
 
 

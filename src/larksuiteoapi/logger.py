@@ -63,4 +63,4 @@ class DefaultLogger(Logger):
         logging.warning(message)
 
     def error(self, message):  # type: (str) -> None
-        logging.error(message)
+        logging.error(message, stack_info=True)
