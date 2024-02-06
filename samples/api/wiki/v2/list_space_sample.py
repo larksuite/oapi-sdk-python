@@ -14,8 +14,9 @@ def main():
 
     # 构造请求对象
     request: ListSpaceRequest = ListSpaceRequest.builder() \
-        .page_size(10) \
+        .page_size(20) \
         .page_token("1565676577122621") \
+        .lang("en") \
         .build()
 
     # 发起请求
@@ -42,8 +43,9 @@ async def amain():
 
     # 构造请求对象
     request: ListSpaceRequest = ListSpaceRequest.builder() \
-        .page_size(10) \
+        .page_size(20) \
         .page_token("1565676577122621") \
+        .lang("en") \
         .build()
 
     # 发起请求

@@ -16,8 +16,8 @@ class RequestOption(object):
 
 class RequestOptionBuilder(object):
 
-    def __init__(self, request_option: RequestOption = RequestOption()) -> None:
-        self._request_option: RequestOption = request_option
+    def __init__(self) -> None:
+        self._request_option: RequestOption = RequestOption()
 
     def tenant_key(self, tenant_key: str) -> "RequestOptionBuilder":
         self._request_option.tenant_key = tenant_key

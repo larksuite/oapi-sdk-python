@@ -14,6 +14,9 @@ class MyAiPresent(object):
         "callback_info": str,
         "card_template_id": str,
         "card_variables": MyAiPresentCardVariables,
+        "interactable": bool,
+        "operation_type": str,
+        "operation_url": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +26,9 @@ class MyAiPresent(object):
         self.callback_info: Optional[str] = None
         self.card_template_id: Optional[str] = None
         self.card_variables: Optional[MyAiPresentCardVariables] = None
+        self.interactable: Optional[bool] = None
+        self.operation_type: Optional[str] = None
+        self.operation_url: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +62,18 @@ class MyAiPresentBuilder(object):
 
     def card_variables(self, card_variables: MyAiPresentCardVariables) -> "MyAiPresentBuilder":
         self._my_ai_present.card_variables = card_variables
+        return self
+
+    def interactable(self, interactable: bool) -> "MyAiPresentBuilder":
+        self._my_ai_present.interactable = interactable
+        return self
+
+    def operation_type(self, operation_type: str) -> "MyAiPresentBuilder":
+        self._my_ai_present.operation_type = operation_type
+        return self
+
+    def operation_url(self, operation_url: str) -> "MyAiPresentBuilder":
+        self._my_ai_present.operation_url = operation_url
         return self
 
     def build(self) -> "MyAiPresent":

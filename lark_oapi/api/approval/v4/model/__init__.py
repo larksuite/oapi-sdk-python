@@ -112,6 +112,8 @@ from .manageable_definition import *
 from .manageable_instance_item import *
 from .manageable_instance_node import *
 from .message import *
+from .my_ai_card_action import *
+from .my_ai_card_value import *
 from .my_ai_comment import *
 from .my_ai_instance import *
 from .my_ai_instance_detail_extra import *

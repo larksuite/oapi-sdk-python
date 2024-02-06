@@ -15,6 +15,7 @@ def main():
     # 构造请求对象
     request: GetSpaceRequest = GetSpaceRequest.builder() \
         .space_id("6870403571079249922") \
+        .lang("en") \
         .build()
 
     # 发起请求
@@ -42,6 +43,7 @@ async def amain():
     # 构造请求对象
     request: GetSpaceRequest = GetSpaceRequest.builder() \
         .space_id("6870403571079249922") \
+        .lang("en") \
         .build()
 
     # 发起请求

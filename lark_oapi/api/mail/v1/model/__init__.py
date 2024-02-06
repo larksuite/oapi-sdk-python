@@ -73,6 +73,7 @@ from .delete_user_mailbox_request import *
 from .delete_user_mailbox_response import *
 from .department_id import *
 from .email_alias import *
+from .event_log import *
 from .folder import *
 from .get_mailgroup_member_request import *
 from .get_mailgroup_member_response import *

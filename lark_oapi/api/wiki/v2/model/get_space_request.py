@@ -9,6 +9,7 @@ from lark_oapi.core.model import BaseRequest
 class GetSpaceRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.lang: Optional[str] = None
         self.space_id: Optional[str] = None
 
     @staticmethod
@@ -24,6 +25,11 @@ class GetSpaceRequestBuilder(object):
         get_space_request.uri = "/open-apis/wiki/v2/spaces/:space_id"
         get_space_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_space_request: GetSpaceRequest = get_space_request
+
+    def lang(self, lang: str) -> "GetSpaceRequestBuilder":
+        self._get_space_request.lang = lang
+        self._get_space_request.add_query("lang", lang)
+        return self
 
     def space_id(self, space_id: str) -> "GetSpaceRequestBuilder":
         self._get_space_request.space_id = space_id
