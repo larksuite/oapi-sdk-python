@@ -99,6 +99,27 @@ class EventDispatcherHandler(HttpHandler):
 
             return resp
 
+    def do_without_validation(self, payload: bytes):
+        pl = payload.decode(UTF_8)
+        context = JSON.unmarshal(pl, EventContext)
+        if Strings.is_not_empty(context.schema):
+            # 解析 v2 事件
+            context.schema = "p2"
+            context.type = context.header.event_type
+            context.token = context.header.token
+        elif Strings.is_not_empty(context.uuid):
+            # 解析 v1 事件
+            context.schema = "p1"
+            context.type = context.event.get("type")
+
+        processor: IEventProcessor = self._processorMap.get(f"{context.schema}.{context.type}")
+        if processor is None:
+            raise EventException(f"processor not found, type: {context.type}")
+
+        # 消息反序列化
+        data = JSON.unmarshal(pl, processor.type())
+        processor.do(data)
+
     def _decrypt(self, content: bytes) -> str:
         plaintext: str
         encrypt = json.loads(content).get("encrypt")
