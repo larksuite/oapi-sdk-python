@@ -11,6 +11,7 @@ class PatchPersonRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.client_token: Optional[str] = None
+        self.no_need_query: Optional[bool] = None
         self.person_id: Optional[str] = None
         self.request_body: Optional[PersonInfo] = None
 
@@ -31,6 +32,11 @@ class PatchPersonRequestBuilder(object):
     def client_token(self, client_token: str) -> "PatchPersonRequestBuilder":
         self._patch_person_request.client_token = client_token
         self._patch_person_request.add_query("client_token", client_token)
+        return self
+
+    def no_need_query(self, no_need_query: bool) -> "PatchPersonRequestBuilder":
+        self._patch_person_request.no_need_query = no_need_query
+        self._patch_person_request.add_query("no_need_query", no_need_query)
         return self
 
     def person_id(self, person_id: str) -> "PatchPersonRequestBuilder":

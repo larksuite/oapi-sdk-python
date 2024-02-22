@@ -21,6 +21,8 @@ class OfferInfo(object):
         "probation_end_date": str,
         "contract_start_date": str,
         "contract_end_date": str,
+        "duration_period": float,
+        "duration_unit": str,
         "onboarding_date": str,
         "onboarding_location_id": str,
         "office_location_id": str,
@@ -53,6 +55,8 @@ class OfferInfo(object):
         self.probation_end_date: Optional[str] = None
         self.contract_start_date: Optional[str] = None
         self.contract_end_date: Optional[str] = None
+        self.duration_period: Optional[float] = None
+        self.duration_unit: Optional[str] = None
         self.onboarding_date: Optional[str] = None
         self.onboarding_location_id: Optional[str] = None
         self.office_location_id: Optional[str] = None
@@ -127,6 +131,14 @@ class OfferInfoBuilder(object):
 
     def contract_end_date(self, contract_end_date: str) -> "OfferInfoBuilder":
         self._offer_info.contract_end_date = contract_end_date
+        return self
+
+    def duration_period(self, duration_period: float) -> "OfferInfoBuilder":
+        self._offer_info.duration_period = duration_period
+        return self
+
+    def duration_unit(self, duration_unit: str) -> "OfferInfoBuilder":
+        self._offer_info.duration_unit = duration_unit
         return self
 
     def onboarding_date(self, onboarding_date: str) -> "OfferInfoBuilder":

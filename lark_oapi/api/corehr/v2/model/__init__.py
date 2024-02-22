@@ -44,6 +44,7 @@ from .batch_get_location_response_body import *
 from .bp import *
 from .calculate_param import *
 from .change_field_pair import *
+from .citizenship_status import *
 from .city import *
 from .company import *
 from .company_id_and_name import *

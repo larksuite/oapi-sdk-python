@@ -2,8 +2,6 @@ import asyncio
 import time
 from typing import Dict, Tuple, Any
 
-from . import ICache
-
 
 class ExpiringCache(object):
 

@@ -2,7 +2,6 @@
 PROJECT = "oapi-sdk-python"
 VERSION = "1.2.1"
 
-
 # Domain
 FEISHU_DOMAIN = "https://open.feishu.cn"
 LARK_DOMAIN = "https://open.larksuite.com"

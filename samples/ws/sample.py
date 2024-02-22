@@ -16,7 +16,7 @@ event_handler = lark.EventDispatcherHandler.builder("", "") \
 
 
 def main():
-    cli = lark.ws.Client("YOUR_APP_ID", "YOUR_APP_SECRET",
+    cli = lark.ws.Client(lark.APP_ID, lark.APP_SECRET,
                          event_handler=event_handler, log_level=lark.LogLevel.DEBUG)
     cli.start()
 

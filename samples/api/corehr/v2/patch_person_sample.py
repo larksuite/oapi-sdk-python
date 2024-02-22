@@ -16,6 +16,7 @@ def main():
     request: PatchPersonRequest = PatchPersonRequest.builder() \
         .person_id("12454646") \
         .client_token("12454646") \
+        .no_need_query(False) \
         .request_body(PersonInfo.builder()
                       .name_list([])
                       .gender(Enum.builder().build())
@@ -78,6 +79,7 @@ async def amain():
     request: PatchPersonRequest = PatchPersonRequest.builder() \
         .person_id("12454646") \
         .client_token("12454646") \
+        .no_need_query(False) \
         .request_body(PersonInfo.builder()
                       .name_list([])
                       .gender(Enum.builder().build())
