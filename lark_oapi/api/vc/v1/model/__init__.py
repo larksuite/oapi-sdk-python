@@ -144,11 +144,13 @@ from .my_ai_room_openapi_response import *
 from .my_ai_sip_card_variables import *
 from .my_ai_sip_image_property import *
 from .my_ai_sip_present import *
+from .my_ai_vc_analysis_result import *
 from .my_ai_vc_meeting_content_common_result import *
 from .my_ai_vc_meeting_extra import *
 from .my_ai_vc_meeting_operation_result import *
 from .my_ai_vc_meeting_recap_result import *
 from .my_ai_vc_meeting_scenario_context import *
+from .my_ai_vc_meeting_suggest_question_result import *
 from .my_ai_vc_meeting_todo_task_result import *
 from .my_ai_vc_room_extra import *
 from .my_ai_vc_room_request_common_param import *

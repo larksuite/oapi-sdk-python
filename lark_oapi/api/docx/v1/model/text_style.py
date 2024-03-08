@@ -12,6 +12,8 @@ class TextStyle(object):
         "folded": bool,
         "language": int,
         "wrap": bool,
+        "background_color": str,
+        "indentation_level": str,
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,8 @@ class TextStyle(object):
         self.folded: Optional[bool] = None
         self.language: Optional[int] = None
         self.wrap: Optional[bool] = None
+        self.background_color: Optional[str] = None
+        self.indentation_level: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +53,14 @@ class TextStyleBuilder(object):
 
     def wrap(self, wrap: bool) -> "TextStyleBuilder":
         self._text_style.wrap = wrap
+        return self
+
+    def background_color(self, background_color: str) -> "TextStyleBuilder":
+        self._text_style.background_color = background_color
+        return self
+
+    def indentation_level(self, indentation_level: str) -> "TextStyleBuilder":
+        self._text_style.indentation_level = indentation_level
         return self
 
     def build(self) -> "TextStyle":

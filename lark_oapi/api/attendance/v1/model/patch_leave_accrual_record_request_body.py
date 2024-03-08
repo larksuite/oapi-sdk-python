@@ -15,6 +15,7 @@ class PatchLeaveAccrualRecordRequestBody(object):
         "time_offset": int,
         "expiration_date": str,
         "quantity": str,
+        "section_type": int,
     }
 
     def __init__(self, d=None):
@@ -25,6 +26,7 @@ class PatchLeaveAccrualRecordRequestBody(object):
         self.time_offset: Optional[int] = None
         self.expiration_date: Optional[str] = None
         self.quantity: Optional[str] = None
+        self.section_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,6 +64,10 @@ class PatchLeaveAccrualRecordRequestBodyBuilder(object):
 
     def quantity(self, quantity: str) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
         self._patch_leave_accrual_record_request_body.quantity = quantity
+        return self
+
+    def section_type(self, section_type: int) -> "PatchLeaveAccrualRecordRequestBodyBuilder":
+        self._patch_leave_accrual_record_request_body.section_type = section_type
         return self
 
     def build(self) -> "PatchLeaveAccrualRecordRequestBody":

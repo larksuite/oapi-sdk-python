@@ -3,6 +3,7 @@
 from typing import Optional, List
 
 from lark_oapi.core.construct import init
+from .my_ai_av_plugin_context_system_info import MyAiAvPluginContextSystemInfo
 from .my_ai_object_context import MyAiObjectContext
 from .my_ai_plugin_context import MyAiPluginContext
 from .my_ai_vc_meeting_extra import MyAiVcMeetingExtra
@@ -15,6 +16,7 @@ class MyAiVcMeetingScenarioContext(object):
         "work_mode": int,
         "scenario": str,
         "extra": MyAiVcMeetingExtra,
+        "system_info": MyAiAvPluginContextSystemInfo,
     }
 
     def __init__(self, d=None):
@@ -23,6 +25,7 @@ class MyAiVcMeetingScenarioContext(object):
         self.work_mode: Optional[int] = None
         self.scenario: Optional[str] = None
         self.extra: Optional[MyAiVcMeetingExtra] = None
+        self.system_info: Optional[MyAiAvPluginContextSystemInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -52,6 +55,10 @@ class MyAiVcMeetingScenarioContextBuilder(object):
 
     def extra(self, extra: MyAiVcMeetingExtra) -> "MyAiVcMeetingScenarioContextBuilder":
         self._my_ai_vc_meeting_scenario_context.extra = extra
+        return self
+
+    def system_info(self, system_info: MyAiAvPluginContextSystemInfo) -> "MyAiVcMeetingScenarioContextBuilder":
+        self._my_ai_vc_meeting_scenario_context.system_info = system_info
         return self
 
     def build(self) -> "MyAiVcMeetingScenarioContext":

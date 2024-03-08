@@ -382,6 +382,9 @@ from .list_resume_source_response_body import *
 from .list_talent_folder_request import *
 from .list_talent_folder_response import *
 from .list_talent_folder_response_body import *
+from .list_talent_request import *
+from .list_talent_response import *
+from .list_talent_response_body import *
 from .location import *
 from .location_base_info import *
 from .login_info_eco_exam_request import *

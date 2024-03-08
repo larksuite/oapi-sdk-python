@@ -18,17 +18,6 @@ def main():
         .file_type("doc") \
         .user_id_type("user_id") \
         .request_body(FileComment.builder()
-                      .comment_id("str")
-                      .user_id("str")
-                      .create_time(int)
-                      .update_time(int)
-                      .is_solved(bool)
-                      .solved_time(int)
-                      .solver_user_id("str")
-                      .has_more(bool)
-                      .page_token("str")
-                      .is_whole(bool)
-                      .quote("str")
                       .reply_list(ReplyList.builder().build())
                       .build()) \
         .build()
@@ -61,17 +50,6 @@ async def amain():
         .file_type("doc") \
         .user_id_type("user_id") \
         .request_body(FileComment.builder()
-                      .comment_id("str")
-                      .user_id("str")
-                      .create_time(int)
-                      .update_time(int)
-                      .is_solved(bool)
-                      .solved_time(int)
-                      .solver_user_id("str")
-                      .has_more(bool)
-                      .page_token("str")
-                      .is_whole(bool)
-                      .quote("str")
                       .reply_list(ReplyList.builder().build())
                       .build()) \
         .build()

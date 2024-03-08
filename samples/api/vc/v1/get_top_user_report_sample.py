@@ -18,6 +18,7 @@ def main():
         .end_time("1608889966") \
         .limit(10) \
         .order_by(1) \
+        .unit(0) \
         .user_id_type("user_id") \
         .build()
 
@@ -49,6 +50,7 @@ async def amain():
         .end_time("1608889966") \
         .limit(10) \
         .order_by(1) \
+        .unit(0) \
         .user_id_type("user_id") \
         .build()
 

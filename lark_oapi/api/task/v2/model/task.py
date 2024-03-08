@@ -11,6 +11,7 @@ from .member import Member
 from .origin import Origin
 from .reminder import Reminder
 from .start import Start
+from .task_assignee import TaskAssignee
 from .task_dependency import TaskDependency
 from .task_in_tasklist_info import TaskInTasklistInfo
 
@@ -44,6 +45,7 @@ class Task(object):
         "is_milestone": bool,
         "custom_fields": List[CustomFieldValue],
         "dependencies": List[TaskDependency],
+        "assignee_related": List[TaskAssignee],
     }
 
     def __init__(self, d=None):
@@ -74,6 +76,7 @@ class Task(object):
         self.is_milestone: Optional[bool] = None
         self.custom_fields: Optional[List[CustomFieldValue]] = None
         self.dependencies: Optional[List[TaskDependency]] = None
+        self.assignee_related: Optional[List[TaskAssignee]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -191,6 +194,10 @@ class TaskBuilder(object):
 
     def dependencies(self, dependencies: List[TaskDependency]) -> "TaskBuilder":
         self._task.dependencies = dependencies
+        return self
+
+    def assignee_related(self, assignee_related: List[TaskAssignee]) -> "TaskBuilder":
+        self._task.assignee_related = assignee_related
         return self
 
     def build(self) -> "Task":

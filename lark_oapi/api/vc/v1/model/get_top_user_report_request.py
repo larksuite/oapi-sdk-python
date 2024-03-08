@@ -13,6 +13,7 @@ class GetTopUserReportRequest(BaseRequest):
         self.end_time: Optional[int] = None
         self.limit: Optional[int] = None
         self.order_by: Optional[int] = None
+        self.unit: Optional[int] = None
         self.user_id_type: Optional[str] = None
 
     @staticmethod
@@ -47,6 +48,11 @@ class GetTopUserReportRequestBuilder(object):
     def order_by(self, order_by: int) -> "GetTopUserReportRequestBuilder":
         self._get_top_user_report_request.order_by = order_by
         self._get_top_user_report_request.add_query("order_by", order_by)
+        return self
+
+    def unit(self, unit: int) -> "GetTopUserReportRequestBuilder":
+        self._get_top_user_report_request.unit = unit
+        self._get_top_user_report_request.add_query("unit", unit)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetTopUserReportRequestBuilder":

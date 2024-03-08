@@ -34,6 +34,10 @@ from .hkm_mainland_travel_permit import *
 from .hkm_mainland_travel_permit_entity import *
 from .id_card import *
 from .id_entity import *
+from .parse_resume_request import *
+from .parse_resume_request_body import *
+from .parse_resume_response import *
+from .parse_resume_response_body import *
 from .recognize_bank_card_request import *
 from .recognize_bank_card_request_body import *
 from .recognize_bank_card_response import *
@@ -100,6 +104,14 @@ from .recognize_vehicle_license_response import *
 from .recognize_vehicle_license_response_body import *
 from .recognized_entities import *
 from .recognized_entity import *
+from .resume import *
+from .resume_award import *
+from .resume_career import *
+from .resume_certificate import *
+from .resume_competition import *
+from .resume_education import *
+from .resume_language import *
+from .resume_project import *
 from .taxi_enitity import *
 from .taxi_entity import *
 from .taxi_invoice import *

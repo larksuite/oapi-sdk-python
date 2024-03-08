@@ -13,6 +13,7 @@ class ApplicationOwner(object):
         "help_desk": str,
         "email": str,
         "phone": str,
+        "customer_service_account": str,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class ApplicationOwner(object):
         self.help_desk: Optional[str] = None
         self.email: Optional[str] = None
         self.phone: Optional[str] = None
+        self.customer_service_account: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +57,10 @@ class ApplicationOwnerBuilder(object):
 
     def phone(self, phone: str) -> "ApplicationOwnerBuilder":
         self._application_owner.phone = phone
+        return self
+
+    def customer_service_account(self, customer_service_account: str) -> "ApplicationOwnerBuilder":
+        self._application_owner.customer_service_account = customer_service_account
         return self
 
     def build(self) -> "ApplicationOwner":

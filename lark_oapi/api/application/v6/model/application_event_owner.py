@@ -3,6 +3,7 @@
 from typing import Optional
 
 from lark_oapi.core.construct import init
+from .user_id import UserId
 
 
 class ApplicationEventOwner(object):
@@ -12,6 +13,8 @@ class ApplicationEventOwner(object):
         "help_desk": str,
         "email": str,
         "phone": str,
+        "owner_id": UserId,
+        "customer_service_account": str,
     }
 
     def __init__(self, d=None):
@@ -20,6 +23,8 @@ class ApplicationEventOwner(object):
         self.help_desk: Optional[str] = None
         self.email: Optional[str] = None
         self.phone: Optional[str] = None
+        self.owner_id: Optional[UserId] = None
+        self.customer_service_account: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +54,14 @@ class ApplicationEventOwnerBuilder(object):
 
     def phone(self, phone: str) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.phone = phone
+        return self
+
+    def owner_id(self, owner_id: UserId) -> "ApplicationEventOwnerBuilder":
+        self._application_event_owner.owner_id = owner_id
+        return self
+
+    def customer_service_account(self, customer_service_account: str) -> "ApplicationEventOwnerBuilder":
+        self._application_event_owner.customer_service_account = customer_service_account
         return self
 
     def build(self) -> "ApplicationEventOwner":

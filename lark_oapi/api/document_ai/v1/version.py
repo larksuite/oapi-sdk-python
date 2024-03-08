@@ -14,6 +14,7 @@ class V1(object):
         self.health_certificate: HealthCertificate = HealthCertificate(config)
         self.hkm_mainland_travel_permit: HkmMainlandTravelPermit = HkmMainlandTravelPermit(config)
         self.id_card: IdCard = IdCard(config)
+        self.resume: Resume = Resume(config)
         self.taxi_invoice: TaxiInvoice = TaxiInvoice(config)
         self.train_invoice: TrainInvoice = TrainInvoice(config)
         self.tw_mainland_travel_permit: TwMainlandTravelPermit = TwMainlandTravelPermit(config)

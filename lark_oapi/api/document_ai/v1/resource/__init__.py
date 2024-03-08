@@ -9,6 +9,7 @@ from .food_produce_license import *
 from .health_certificate import *
 from .hkm_mainland_travel_permit import *
 from .id_card import *
+from .resume import *
 from .taxi_invoice import *
 from .train_invoice import *
 from .tw_mainland_travel_permit import *

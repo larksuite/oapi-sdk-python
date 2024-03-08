@@ -21,6 +21,7 @@ class LeaveAccrualRecord(object):
         "created_by": str,
         "updated_at": str,
         "updated_by": str,
+        "section_type": int,
     }
 
     def __init__(self, d=None):
@@ -37,6 +38,7 @@ class LeaveAccrualRecord(object):
         self.created_by: Optional[str] = None
         self.updated_at: Optional[str] = None
         self.updated_by: Optional[str] = None
+        self.section_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -98,6 +100,10 @@ class LeaveAccrualRecordBuilder(object):
 
     def updated_by(self, updated_by: str) -> "LeaveAccrualRecordBuilder":
         self._leave_accrual_record.updated_by = updated_by
+        return self
+
+    def section_type(self, section_type: int) -> "LeaveAccrualRecordBuilder":
+        self._leave_accrual_record.section_type = section_type
         return self
 
     def build(self) -> "LeaveAccrualRecord":

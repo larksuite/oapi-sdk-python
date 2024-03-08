@@ -10,6 +10,7 @@ class SubscribeFileRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
         self.file_type: Optional[str] = None
+        self.event_type: Optional[str] = None
         self.file_token: Optional[str] = None
 
     @staticmethod
@@ -29,6 +30,11 @@ class SubscribeFileRequestBuilder(object):
     def file_type(self, file_type: str) -> "SubscribeFileRequestBuilder":
         self._subscribe_file_request.file_type = file_type
         self._subscribe_file_request.add_query("file_type", file_type)
+        return self
+
+    def event_type(self, event_type: str) -> "SubscribeFileRequestBuilder":
+        self._subscribe_file_request.event_type = event_type
+        self._subscribe_file_request.add_query("event_type", event_type)
         return self
 
     def file_token(self, file_token: str) -> "SubscribeFileRequestBuilder":

@@ -187,6 +187,7 @@ from .section_summary import *
 from .select_setting import *
 from .start import *
 from .task import *
+from .task_assignee import *
 from .task_dependency import *
 from .task_in_tasklist_info import *
 from .task_statistics import *

@@ -26,6 +26,8 @@ def main():
                       .late_off_late_on_rule([])
                       .rest_time_rule([])
                       .overtime_rule([])
+                      .day_type(60)
+                      .overtime_rest_time_rule([])
                       .build()) \
         .build()
 
@@ -65,6 +67,8 @@ async def amain():
                       .late_off_late_on_rule([])
                       .rest_time_rule([])
                       .overtime_rule([])
+                      .day_type(60)
+                      .overtime_rest_time_rule([])
                       .build()) \
         .build()
 

@@ -28,6 +28,8 @@ class Application(object):
         "primary_language": str,
         "common_categories": List[str],
         "owner": ApplicationOwner,
+        "mobile_default_ability": str,
+        "pc_default_ability": str,
     }
 
     def __init__(self, d=None):
@@ -49,6 +51,8 @@ class Application(object):
         self.primary_language: Optional[str] = None
         self.common_categories: Optional[List[str]] = None
         self.owner: Optional[ApplicationOwner] = None
+        self.mobile_default_ability: Optional[str] = None
+        self.pc_default_ability: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -130,6 +134,14 @@ class ApplicationBuilder(object):
 
     def owner(self, owner: ApplicationOwner) -> "ApplicationBuilder":
         self._application.owner = owner
+        return self
+
+    def mobile_default_ability(self, mobile_default_ability: str) -> "ApplicationBuilder":
+        self._application.mobile_default_ability = mobile_default_ability
+        return self
+
+    def pc_default_ability(self, pc_default_ability: str) -> "ApplicationBuilder":
+        self._application.pc_default_ability = pc_default_ability
         return self
 
     def build(self) -> "Application":

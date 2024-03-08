@@ -24,6 +24,7 @@ def main():
                       .time_offset(480)
                       .expiration_date("2020-01-01")
                       .quantity("1")
+                      .section_type(1)
                       .build()) \
         .build()
 
@@ -61,6 +62,7 @@ async def amain():
                       .time_offset(480)
                       .expiration_date("2020-01-01")
                       .quantity("1")
+                      .section_type(1)
                       .build()) \
         .build()
 

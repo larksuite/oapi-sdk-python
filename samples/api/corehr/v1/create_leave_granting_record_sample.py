@@ -22,6 +22,7 @@ def main():
                       .granting_unit(1)
                       .effective_date("2022-01-01")
                       .expiration_date("2022-01-01")
+                      .section_type(1)
                       .reason([])
                       .external_id("111")
                       .build()) \
@@ -59,6 +60,7 @@ async def amain():
                       .granting_unit(1)
                       .effective_date("2022-01-01")
                       .expiration_date("2022-01-01")
+                      .section_type(1)
                       .reason([])
                       .external_id("111")
                       .build()) \

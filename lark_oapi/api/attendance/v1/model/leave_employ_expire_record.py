@@ -20,6 +20,7 @@ class LeaveEmployExpireRecord(object):
         "is_update_by_external": bool,
         "accrual_source": int,
         "leave_sub_type_id": str,
+        "section_type": int,
     }
 
     def __init__(self, d=None):
@@ -35,6 +36,7 @@ class LeaveEmployExpireRecord(object):
         self.is_update_by_external: Optional[bool] = None
         self.accrual_source: Optional[int] = None
         self.leave_sub_type_id: Optional[str] = None
+        self.section_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -92,6 +94,10 @@ class LeaveEmployExpireRecordBuilder(object):
 
     def leave_sub_type_id(self, leave_sub_type_id: str) -> "LeaveEmployExpireRecordBuilder":
         self._leave_employ_expire_record.leave_sub_type_id = leave_sub_type_id
+        return self
+
+    def section_type(self, section_type: int) -> "LeaveEmployExpireRecordBuilder":
+        self._leave_employ_expire_record.section_type = section_type
         return self
 
     def build(self) -> "LeaveEmployExpireRecord":

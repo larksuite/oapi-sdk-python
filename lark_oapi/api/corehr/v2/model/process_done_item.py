@@ -18,6 +18,7 @@ class ProcessDoneItem(object):
         "node_name": DataengineI18n,
         "create_time": str,
         "complete_time": str,
+        "node_definition_id": str,
     }
 
     def __init__(self, d=None):
@@ -30,6 +31,7 @@ class ProcessDoneItem(object):
         self.node_name: Optional[DataengineI18n] = None
         self.create_time: Optional[str] = None
         self.complete_time: Optional[str] = None
+        self.node_definition_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -75,6 +77,10 @@ class ProcessDoneItemBuilder(object):
 
     def complete_time(self, complete_time: str) -> "ProcessDoneItemBuilder":
         self._process_done_item.complete_time = complete_time
+        return self
+
+    def node_definition_id(self, node_definition_id: str) -> "ProcessDoneItemBuilder":
+        self._process_done_item.node_definition_id = node_definition_id
         return self
 
     def build(self) -> "ProcessDoneItem":

@@ -7,6 +7,7 @@ from .app_ability import AppAbility
 from .app_i18n_info import AppI18nInfo
 from .app_scope import AppScope
 from .app_version_remark import AppVersionRemark
+from .event import Event
 
 
 class ApplicationAppVersion(object):
@@ -27,6 +28,7 @@ class ApplicationAppVersion(object):
         "publish_time": int,
         "ability": AppAbility,
         "remark": AppVersionRemark,
+        "event_infos": List[Event],
     }
 
     def __init__(self, d=None):
@@ -46,6 +48,7 @@ class ApplicationAppVersion(object):
         self.publish_time: Optional[int] = None
         self.ability: Optional[AppAbility] = None
         self.remark: Optional[AppVersionRemark] = None
+        self.event_infos: Optional[List[Event]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -119,6 +122,10 @@ class ApplicationAppVersionBuilder(object):
 
     def remark(self, remark: AppVersionRemark) -> "ApplicationAppVersionBuilder":
         self._application_app_version.remark = remark
+        return self
+
+    def event_infos(self, event_infos: List[Event]) -> "ApplicationAppVersionBuilder":
+        self._application_app_version.event_infos = event_infos
         return self
 
     def build(self) -> "ApplicationAppVersion":

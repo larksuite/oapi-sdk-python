@@ -9,20 +9,20 @@ from .reply_extra import ReplyExtra
 
 class FileCommentReply(object):
     _types = {
+        "content": ReplyContent,
         "reply_id": str,
         "user_id": str,
         "create_time": int,
         "update_time": int,
-        "content": ReplyContent,
         "extra": ReplyExtra,
     }
 
     def __init__(self, d=None):
+        self.content: Optional[ReplyContent] = None
         self.reply_id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.create_time: Optional[int] = None
         self.update_time: Optional[int] = None
-        self.content: Optional[ReplyContent] = None
         self.extra: Optional[ReplyExtra] = None
         init(self, d, self._types)
 
@@ -34,6 +34,10 @@ class FileCommentReply(object):
 class FileCommentReplyBuilder(object):
     def __init__(self) -> None:
         self._file_comment_reply = FileCommentReply()
+
+    def content(self, content: ReplyContent) -> "FileCommentReplyBuilder":
+        self._file_comment_reply.content = content
+        return self
 
     def reply_id(self, reply_id: str) -> "FileCommentReplyBuilder":
         self._file_comment_reply.reply_id = reply_id
@@ -49,10 +53,6 @@ class FileCommentReplyBuilder(object):
 
     def update_time(self, update_time: int) -> "FileCommentReplyBuilder":
         self._file_comment_reply.update_time = update_time
-        return self
-
-    def content(self, content: ReplyContent) -> "FileCommentReplyBuilder":
-        self._file_comment_reply.content = content
         return self
 
     def extra(self, extra: ReplyExtra) -> "FileCommentReplyBuilder":

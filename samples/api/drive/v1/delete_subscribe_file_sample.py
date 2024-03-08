@@ -16,6 +16,7 @@ def main():
     request: DeleteSubscribeFileRequest = DeleteSubscribeFileRequest.builder() \
         .file_token("doccnxxxxxxxxxxxxxxxxxxxxxx") \
         .file_type("doc") \
+        .event_type("file.created_in_folder_v1") \
         .build()
 
     # 发起请求
@@ -44,6 +45,7 @@ async def amain():
     request: DeleteSubscribeFileRequest = DeleteSubscribeFileRequest.builder() \
         .file_token("doccnxxxxxxxxxxxxxxxxxxxxxx") \
         .file_type("doc") \
+        .event_type("file.created_in_folder_v1") \
         .build()
 
     # 发起请求

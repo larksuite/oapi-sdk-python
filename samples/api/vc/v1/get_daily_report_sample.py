@@ -16,6 +16,7 @@ def main():
     request: GetDailyReportRequest = GetDailyReportRequest.builder() \
         .start_time("1608888867") \
         .end_time("1608888966") \
+        .unit(0) \
         .build()
 
     # 发起请求
@@ -44,6 +45,7 @@ async def amain():
     request: GetDailyReportRequest = GetDailyReportRequest.builder() \
         .start_time("1608888867") \
         .end_time("1608888966") \
+        .unit(0) \
         .build()
 
     # 发起请求

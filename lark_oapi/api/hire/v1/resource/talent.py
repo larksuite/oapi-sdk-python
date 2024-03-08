@@ -13,6 +13,8 @@ from ..model.batch_get_id_talent_request import BatchGetIdTalentRequest
 from ..model.batch_get_id_talent_response import BatchGetIdTalentResponse
 from ..model.get_talent_request import GetTalentRequest
 from ..model.get_talent_response import GetTalentResponse
+from ..model.list_talent_request import ListTalentRequest
+from ..model.list_talent_response import ListTalentResponse
 
 
 class Talent(object):
@@ -127,6 +129,42 @@ class Talent(object):
 
         # 反序列化
         response: GetTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTalentResponse)
+        response.raw = resp
+
+        return response
+
+    def list(self, request: ListTalentRequest, option: Optional[RequestOption] = None) -> ListTalentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListTalentRequest, option: Optional[RequestOption] = None) -> ListTalentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentResponse)
         response.raw = resp
 
         return response

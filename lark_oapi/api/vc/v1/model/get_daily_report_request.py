@@ -11,6 +11,7 @@ class GetDailyReportRequest(BaseRequest):
         super().__init__()
         self.start_time: Optional[int] = None
         self.end_time: Optional[int] = None
+        self.unit: Optional[int] = None
 
     @staticmethod
     def builder() -> "GetDailyReportRequestBuilder":
@@ -34,6 +35,11 @@ class GetDailyReportRequestBuilder(object):
     def end_time(self, end_time: int) -> "GetDailyReportRequestBuilder":
         self._get_daily_report_request.end_time = end_time
         self._get_daily_report_request.add_query("end_time", end_time)
+        return self
+
+    def unit(self, unit: int) -> "GetDailyReportRequestBuilder":
+        self._get_daily_report_request.unit = unit
+        self._get_daily_report_request.add_query("unit", unit)
         return self
 
     def build(self) -> GetDailyReportRequest:

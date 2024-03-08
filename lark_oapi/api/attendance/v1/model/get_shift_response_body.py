@@ -24,6 +24,8 @@ class GetShiftResponseBody(object):
         "late_off_late_on_rule": List[LateOffLateOnRule],
         "rest_time_rule": List[RestRule],
         "overtime_rule": List[OvertimeRule],
+        "day_type": int,
+        "overtime_rest_time_rule": List[RestRule],
     }
 
     def __init__(self, d=None):
@@ -39,6 +41,8 @@ class GetShiftResponseBody(object):
         self.late_off_late_on_rule: Optional[List[LateOffLateOnRule]] = None
         self.rest_time_rule: Optional[List[RestRule]] = None
         self.overtime_rule: Optional[List[OvertimeRule]] = None
+        self.day_type: Optional[int] = None
+        self.overtime_rest_time_rule: Optional[List[RestRule]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -96,6 +100,14 @@ class GetShiftResponseBodyBuilder(object):
 
     def overtime_rule(self, overtime_rule: List[OvertimeRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.overtime_rule = overtime_rule
+        return self
+
+    def day_type(self, day_type: int) -> "GetShiftResponseBodyBuilder":
+        self._get_shift_response_body.day_type = day_type
+        return self
+
+    def overtime_rest_time_rule(self, overtime_rest_time_rule: List[RestRule]) -> "GetShiftResponseBodyBuilder":
+        self._get_shift_response_body.overtime_rest_time_rule = overtime_rest_time_rule
         return self
 
     def build(self) -> "GetShiftResponseBody":

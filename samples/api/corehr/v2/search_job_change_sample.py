@@ -24,6 +24,8 @@ def main():
                       .statuses([])
                       .effective_date_start("2022-01-01")
                       .effective_date_end("2022-01-01")
+                      .updated_time_start("1704084635000")
+                      .updated_time_end("1704084635000")
                       .build()) \
         .build()
 
@@ -61,6 +63,8 @@ async def amain():
                       .statuses([])
                       .effective_date_start("2022-01-01")
                       .effective_date_end("2022-01-01")
+                      .updated_time_start("1704084635000")
+                      .updated_time_end("1704084635000")
                       .build()) \
         .build()
 

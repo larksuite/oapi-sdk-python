@@ -16,6 +16,7 @@ class ProcessTodoItem(object):
         "operator_name": DataengineI18n,
         "node_name": DataengineI18n,
         "create_time": str,
+        "node_definition_id": str,
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class ProcessTodoItem(object):
         self.operator_name: Optional[DataengineI18n] = None
         self.node_name: Optional[DataengineI18n] = None
         self.create_time: Optional[str] = None
+        self.node_definition_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -63,6 +65,10 @@ class ProcessTodoItemBuilder(object):
 
     def create_time(self, create_time: str) -> "ProcessTodoItemBuilder":
         self._process_todo_item.create_time = create_time
+        return self
+
+    def node_definition_id(self, node_definition_id: str) -> "ProcessTodoItemBuilder":
+        self._process_todo_item.node_definition_id = node_definition_id
         return self
 
     def build(self) -> "ProcessTodoItem":

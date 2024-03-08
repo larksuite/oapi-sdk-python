@@ -24,7 +24,7 @@ class DeleteEntityRequestBuilder(object):
         delete_entity_request = DeleteEntityRequest()
         delete_entity_request.http_method = HttpMethod.DELETE
         delete_entity_request.uri = "/open-apis/lingo/v1/entities/:entity_id"
-        delete_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        delete_entity_request.token_types = {AccessTokenType.TENANT}
         self._delete_entity_request: DeleteEntityRequest = delete_entity_request
 
     def provider(self, provider: str) -> "DeleteEntityRequestBuilder":

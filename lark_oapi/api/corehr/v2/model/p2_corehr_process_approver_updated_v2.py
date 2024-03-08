@@ -12,6 +12,7 @@ class P2CorehrProcessApproverUpdatedV2Data(object):
         "approver_id": str,
         "type": int,
         "status": int,
+        "biz_type": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class P2CorehrProcessApproverUpdatedV2Data(object):
         self.approver_id: Optional[str] = None
         self.type: Optional[int] = None
         self.status: Optional[int] = None
+        self.biz_type: Optional[str] = None
         init(self, d, self._types)
 
 

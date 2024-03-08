@@ -11,12 +11,14 @@ class P2CorehrProcessCcUpdatedV2Data(object):
         "process_id": str,
         "approver_id": str,
         "status": int,
+        "biz_type": str,
     }
 
     def __init__(self, d=None):
         self.process_id: Optional[str] = None
         self.approver_id: Optional[str] = None
         self.status: Optional[int] = None
+        self.biz_type: Optional[str] = None
         init(self, d, self._types)
 
 

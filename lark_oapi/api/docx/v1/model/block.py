@@ -4,6 +4,10 @@ from typing import Optional, List
 
 from lark_oapi.core.construct import init
 from .add_ons import AddOns
+from .agenda import Agenda
+from .agenda_item import AgendaItem
+from .agenda_item_content import AgendaItemContent
+from .agenda_item_title import AgendaItemTitle
 from .bitable import Bitable
 from .board import Board
 from .callout import Callout
@@ -84,6 +88,10 @@ class Block(object):
         "jira_issue": JiraIssue,
         "wiki_catalog": WikiCatalog,
         "board": Board,
+        "agenda": Agenda,
+        "agenda_item": AgendaItem,
+        "agenda_item_title": AgendaItemTitle,
+        "agenda_item_content": AgendaItemContent,
     }
 
     def __init__(self, d=None):
@@ -136,6 +144,10 @@ class Block(object):
         self.jira_issue: Optional[JiraIssue] = None
         self.wiki_catalog: Optional[WikiCatalog] = None
         self.board: Optional[Board] = None
+        self.agenda: Optional[Agenda] = None
+        self.agenda_item: Optional[AgendaItem] = None
+        self.agenda_item_title: Optional[AgendaItemTitle] = None
+        self.agenda_item_content: Optional[AgendaItemContent] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -341,6 +353,22 @@ class BlockBuilder(object):
 
     def board(self, board: Board) -> "BlockBuilder":
         self._block.board = board
+        return self
+
+    def agenda(self, agenda: Agenda) -> "BlockBuilder":
+        self._block.agenda = agenda
+        return self
+
+    def agenda_item(self, agenda_item: AgendaItem) -> "BlockBuilder":
+        self._block.agenda_item = agenda_item
+        return self
+
+    def agenda_item_title(self, agenda_item_title: AgendaItemTitle) -> "BlockBuilder":
+        self._block.agenda_item_title = agenda_item_title
+        return self
+
+    def agenda_item_content(self, agenda_item_content: AgendaItemContent) -> "BlockBuilder":
+        self._block.agenda_item_content = agenda_item_content
         return self
 
     def build(self) -> "Block":
