@@ -13,6 +13,7 @@ from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN
 from lark_oapi.core.enum import LogLevel
 from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
+from lark_oapi.core.utils import Strings
 from lark_oapi.event.dispatcher_handler import EventDispatcherHandler
 from lark_oapi.ws.const import *
 from lark_oapi.ws.enum import FrameType, MessageType
@@ -46,6 +47,15 @@ def _new_ping_frame(service_id: int) -> Frame:
     frame.LogID = 0
 
     return frame
+
+
+def _ordinal(n: int):
+    suffixes = {1: 'st', 2: 'nd', 3: 'rd'}
+    if 10 <= n <= 20:
+        suffix = 'th'
+    else:
+        suffix = suffixes.get(n % 10, 'th')
+    return str(n) + suffix
 
 
 async def _select():
@@ -153,9 +163,10 @@ class Client(object):
 
     async def _receive_message_loop(self):
         try:
-            if self._conn is None:
-                raise ConnectionClosedException("connection is closed")
-            async for msg in self._conn:
+            while True:
+                if self._conn is None:
+                    raise ConnectionClosedException("connection is closed")
+                msg = await self._conn.recv()
                 loop.create_task(self._handle_message(msg))
         except Exception as e:
             logger.error(self._fmt_log("receive message loop exit, err: {}", e))
@@ -166,6 +177,9 @@ class Client(object):
                 raise e
 
     def _get_conn_url(self) -> str:
+        if Strings.is_empty(self._app_id) or Strings.is_empty(self._app_secret):
+            raise ClientException(NO_CREDENTIAL, "app_id or app_secret is null")
+
         response = requests.post(
             self._domain + GEN_ENDPOINT_URI,
             headers={
@@ -286,7 +300,7 @@ class Client(object):
                 i += 1
 
     async def _try_connect(self, cnt: int) -> bool:
-        logger.info(self._fmt_log("trying to reconnect for the {} time", cnt + 1))
+        logger.info(self._fmt_log("trying to reconnect for the {} time", _ordinal(cnt + 1)))
         try:
             await self._connect()
             return True
