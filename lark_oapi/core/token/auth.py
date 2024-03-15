@@ -9,17 +9,20 @@ def verify(config: Config, request: BaseRequest, option: RequestOption) -> None:
     if len(request.token_types) == 0:
         return
 
-    # 如开启token配置，需手动传入token
+    # 是否有手动传入的 token:
+    if Strings.is_not_empty(option.tenant_access_token) and AccessTokenType.TENANT in request.token_types:
+        request.token_types = {AccessTokenType.TENANT}
+        return
+    if Strings.is_not_empty(option.app_access_token) and AccessTokenType.APP in request.token_types:
+        request.token_types = {AccessTokenType.APP}
+        return
+    if Strings.is_not_empty(option.user_access_token) and AccessTokenType.USER in request.token_types:
+        request.token_types = {AccessTokenType.USER}
+        return
+
+    # 如开启token配置，必需手动传入token
     if config.enable_set_token:
-        if Strings.is_not_empty(option.tenant_access_token) and AccessTokenType.TENANT in request.token_types:
-            request.token_types = {AccessTokenType.TENANT}
-            return
-        if Strings.is_not_empty(option.app_access_token) and AccessTokenType.APP in request.token_types:
-            request.token_types = {AccessTokenType.APP}
-            return
-        if Strings.is_not_empty(option.user_access_token) and AccessTokenType.USER in request.token_types:
-            request.token_types = {AccessTokenType.USER}
-            return
+        raise NoAuthorizationException("access token is required to be manually set in request option")
 
     # 未开启token配置，根据app_id/app_secret获取token
     if Strings.is_empty(config.app_id) or Strings.is_empty(config.app_secret):
@@ -47,7 +50,7 @@ def verify(config: Config, request: BaseRequest, option: RequestOption) -> None:
         request.token_types = {AccessTokenType.APP}
         return
 
-    if AccessTokenType.APP in request.token_types:
+    if AccessTokenType.USER in request.token_types:
         if Strings.is_empty(option.user_access_token):
             raise NoAuthorizationException("user_access_token not found")
         raise NoAuthorizationException("need enable set token")
