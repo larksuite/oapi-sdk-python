@@ -2,8 +2,7 @@
 
 import hashlib
 import json
-from typing import Optional, Dict
-
+from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.api.acs.v1.processor import *
 from lark_oapi.api.application.v6.processor import *
 from lark_oapi.api.approval.v4.processor import *
@@ -565,6 +564,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.corehr.process.cc.updated_v2" in self._processorMap:
             raise EventException("processor already registered, type: p2.corehr.process.cc.updated_v2")
         self._processorMap["p2.corehr.process.cc.updated_v2"] = P2CorehrProcessCcUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_process_node_updated_v2(self, f: Callable[
+        [P2CorehrProcessNodeUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.process.node.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.process.node.updated_v2")
+        self._processorMap["p2.corehr.process.node.updated_v2"] = P2CorehrProcessNodeUpdatedV2Processor(f)
         return self
 
     def register_p2_drive_file_bitable_field_changed_v1(self, f: Callable[

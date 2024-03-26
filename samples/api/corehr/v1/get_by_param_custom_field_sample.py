@@ -5,60 +5,60 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest.builder() \
-        .custom_api_name("custom_field_33") \
-        .object_api_name("offboarding_info") \
-        .build()
+	# 构造请求对象
+	request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest.builder() \
+		.custom_api_name("custom_field_33") \
+		.object_api_name("offboarding_info") \
+		.build()
 
-    # 发起请求
-    response: GetByParamCustomFieldResponse = client.corehr.v1.custom_field.get_by_param(request)
+	# 发起请求
+	response: GetByParamCustomFieldResponse = client.corehr.v1.custom_field.get_by_param(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v1.custom_field.get_by_param failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v1.custom_field.get_by_param failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest.builder() \
-        .custom_api_name("custom_field_33") \
-        .object_api_name("offboarding_info") \
-        .build()
+	# 构造请求对象
+	request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest.builder() \
+		.custom_api_name("custom_field_33") \
+		.object_api_name("offboarding_info") \
+		.build()
 
-    # 发起请求
-    response: GetByParamCustomFieldResponse = await client.corehr.v1.custom_field.aget_by_param(request)
+	# 发起请求
+	response: GetByParamCustomFieldResponse = await client.corehr.v1.custom_field.aget_by_param(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v1.custom_field.aget_by_param failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v1.custom_field.aget_by_param failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()
