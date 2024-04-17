@@ -3,17 +3,20 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .rule_dimension import RuleDimension
+from .filter_expression import FilterExpression
 
 
 class PermissionSecurityGroup(object):
     _types = {
         "rule_dimension": RuleDimension,
         "rule_type": int,
+        "expression": FilterExpression,
     }
 
     def __init__(self, d=None):
         self.rule_dimension: Optional[RuleDimension] = None
         self.rule_type: Optional[int] = None
+        self.expression: Optional[FilterExpression] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -31,6 +34,10 @@ class PermissionSecurityGroupBuilder(object):
 
     def rule_type(self, rule_type: int) -> "PermissionSecurityGroupBuilder":
         self._permission_security_group.rule_type = rule_type
+        return self
+
+    def expression(self, expression: FilterExpression) -> "PermissionSecurityGroupBuilder":
+        self._permission_security_group.expression = expression
         return self
 
     def build(self) -> "PermissionSecurityGroup":

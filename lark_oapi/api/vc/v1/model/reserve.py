@@ -9,6 +9,7 @@ class Reserve(object):
     _types = {
         "id": int,
         "meeting_no": str,
+        "password": str,
         "url": str,
         "app_link": str,
         "live_link": str,
@@ -21,6 +22,7 @@ class Reserve(object):
     def __init__(self, d=None):
         self.id: Optional[int] = None
         self.meeting_no: Optional[str] = None
+        self.password: Optional[str] = None
         self.url: Optional[str] = None
         self.app_link: Optional[str] = None
         self.live_link: Optional[str] = None
@@ -45,6 +47,10 @@ class ReserveBuilder(object):
 
     def meeting_no(self, meeting_no: str) -> "ReserveBuilder":
         self._reserve.meeting_no = meeting_no
+        return self
+
+    def password(self, password: str) -> "ReserveBuilder":
+        self._reserve.password = password
         return self
 
     def url(self, url: str) -> "ReserveBuilder":

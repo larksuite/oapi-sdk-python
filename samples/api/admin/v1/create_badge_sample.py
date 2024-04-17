@@ -5,72 +5,72 @@ from lark_oapi.api.admin.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateBadgeRequest = CreateBadgeRequest.builder() \
-		.request_body(Badge.builder()
-					  .name("激励勋章")
-					  .explanation("这枚勋章为了激励员工颁发。")
-					  .detail_image("75a1949f-d9df-4b46-bc88-dacc51e88f3j")
-					  .show_image("03daa74a-159f-49e9-963e-b6c4d76103fj")
-					  .i18n_name(I18n.builder().build())
-					  .i18n_explanation(I18n.builder().build())
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateBadgeRequest = CreateBadgeRequest.builder() \
+        .request_body(Badge.builder()
+                      .name("激励勋章")
+                      .explanation("这枚勋章为了激励员工颁发。")
+                      .detail_image("75a1949f-d9df-4b46-bc88-dacc51e88f3j")
+                      .show_image("03daa74a-159f-49e9-963e-b6c4d76103fj")
+                      .i18n_name(I18n.builder().build())
+                      .i18n_explanation(I18n.builder().build())
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateBadgeResponse = client.admin.v1.badge.create(request)
+    # 发起请求
+    response: CreateBadgeResponse = client.admin.v1.badge.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.admin.v1.badge.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.admin.v1.badge.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateBadgeRequest = CreateBadgeRequest.builder() \
-		.request_body(Badge.builder()
-					  .name("激励勋章")
-					  .explanation("这枚勋章为了激励员工颁发。")
-					  .detail_image("75a1949f-d9df-4b46-bc88-dacc51e88f3j")
-					  .show_image("03daa74a-159f-49e9-963e-b6c4d76103fj")
-					  .i18n_name(I18n.builder().build())
-					  .i18n_explanation(I18n.builder().build())
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateBadgeRequest = CreateBadgeRequest.builder() \
+        .request_body(Badge.builder()
+                      .name("激励勋章")
+                      .explanation("这枚勋章为了激励员工颁发。")
+                      .detail_image("75a1949f-d9df-4b46-bc88-dacc51e88f3j")
+                      .show_image("03daa74a-159f-49e9-963e-b6c4d76103fj")
+                      .i18n_name(I18n.builder().build())
+                      .i18n_explanation(I18n.builder().build())
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateBadgeResponse = await client.admin.v1.badge.acreate(request)
+    # 发起请求
+    response: CreateBadgeResponse = await client.admin.v1.badge.acreate(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.admin.v1.badge.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.admin.v1.badge.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

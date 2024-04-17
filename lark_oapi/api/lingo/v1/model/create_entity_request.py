@@ -24,7 +24,7 @@ class CreateEntityRequestBuilder(object):
         create_entity_request = CreateEntityRequest()
         create_entity_request.http_method = HttpMethod.POST
         create_entity_request.uri = "/open-apis/lingo/v1/entities"
-        create_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_entity_request.token_types = {AccessTokenType.TENANT}
         self._create_entity_request: CreateEntityRequest = create_entity_request
 
     def repo_id(self, repo_id: int) -> "CreateEntityRequestBuilder":

@@ -31,6 +31,7 @@ class Participant(object):
         "leave_time": str,
         "time_in_meeting": str,
         "leave_reason": str,
+        "accept_status": int,
     }
 
     def __init__(self, d=None):
@@ -59,6 +60,7 @@ class Participant(object):
         self.leave_time: Optional[str] = None
         self.time_in_meeting: Optional[str] = None
         self.leave_reason: Optional[str] = None
+        self.accept_status: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -168,6 +170,10 @@ class ParticipantBuilder(object):
 
     def leave_reason(self, leave_reason: str) -> "ParticipantBuilder":
         self._participant.leave_reason = leave_reason
+        return self
+
+    def accept_status(self, accept_status: int) -> "ParticipantBuilder":
+        self._participant.accept_status = accept_status
         return self
 
     def build(self) -> "Participant":

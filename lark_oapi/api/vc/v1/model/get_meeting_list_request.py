@@ -14,6 +14,7 @@ class GetMeetingListRequest(BaseRequest):
         self.meeting_no: Optional[str] = None
         self.user_id: Optional[str] = None
         self.room_id: Optional[str] = None
+        self.meeting_type: Optional[int] = None
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
         self.user_id_type: Optional[str] = None
@@ -60,6 +61,11 @@ class GetMeetingListRequestBuilder(object):
     def room_id(self, room_id: str) -> "GetMeetingListRequestBuilder":
         self._get_meeting_list_request.room_id = room_id
         self._get_meeting_list_request.add_query("room_id", room_id)
+        return self
+
+    def meeting_type(self, meeting_type: int) -> "GetMeetingListRequestBuilder":
+        self._get_meeting_list_request.meeting_type = meeting_type
+        self._get_meeting_list_request.add_query("meeting_type", meeting_type)
         return self
 
     def page_size(self, page_size: int) -> "GetMeetingListRequestBuilder":

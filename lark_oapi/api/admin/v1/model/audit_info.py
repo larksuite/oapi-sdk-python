@@ -29,6 +29,7 @@ class AuditInfo(object):
         "operator_app_name": str,
         "common_drawers": ApiAuditCommonDrawers,
         "audit_detail": AuditDetail,
+        "operator_tenant": str,
     }
 
     def __init__(self, d=None):
@@ -49,6 +50,7 @@ class AuditInfo(object):
         self.operator_app_name: Optional[str] = None
         self.common_drawers: Optional[ApiAuditCommonDrawers] = None
         self.audit_detail: Optional[AuditDetail] = None
+        self.operator_tenant: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -126,6 +128,10 @@ class AuditInfoBuilder(object):
 
     def audit_detail(self, audit_detail: AuditDetail) -> "AuditInfoBuilder":
         self._audit_info.audit_detail = audit_detail
+        return self
+
+    def operator_tenant(self, operator_tenant: str) -> "AuditInfoBuilder":
+        self._audit_info.operator_tenant = operator_tenant
         return self
 
     def build(self) -> "AuditInfo":

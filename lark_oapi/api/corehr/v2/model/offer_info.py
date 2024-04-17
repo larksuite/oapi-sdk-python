@@ -42,6 +42,9 @@ class OfferInfo(object):
         "service_company": str,
         "work_shift": str,
         "compensation_type": str,
+        "work_location_id": str,
+        "onboarding_address_id": str,
+        "office_address_id": str,
     }
 
     def __init__(self, d=None):
@@ -79,6 +82,9 @@ class OfferInfo(object):
         self.service_company: Optional[str] = None
         self.work_shift: Optional[str] = None
         self.compensation_type: Optional[str] = None
+        self.work_location_id: Optional[str] = None
+        self.onboarding_address_id: Optional[str] = None
+        self.office_address_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -224,6 +230,18 @@ class OfferInfoBuilder(object):
 
     def compensation_type(self, compensation_type: str) -> "OfferInfoBuilder":
         self._offer_info.compensation_type = compensation_type
+        return self
+
+    def work_location_id(self, work_location_id: str) -> "OfferInfoBuilder":
+        self._offer_info.work_location_id = work_location_id
+        return self
+
+    def onboarding_address_id(self, onboarding_address_id: str) -> "OfferInfoBuilder":
+        self._offer_info.onboarding_address_id = onboarding_address_id
+        return self
+
+    def office_address_id(self, office_address_id: str) -> "OfferInfoBuilder":
+        self._offer_info.office_address_id = office_address_id
         return self
 
     def build(self) -> "OfferInfo":

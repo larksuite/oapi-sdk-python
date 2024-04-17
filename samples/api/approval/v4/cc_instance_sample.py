@@ -5,72 +5,72 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CcInstanceRequest = CcInstanceRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(InstanceCc.builder()
-					  .approval_code("7C468A54-8745-2245-9675-08B7C63E7A85")
-					  .instance_code("7C468A54-8745-2245-9675-08B7C63E7A85")
-					  .user_id("f7cb567e")
-					  .cc_user_ids([])
-					  .comment("ok")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CcInstanceRequest = CcInstanceRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(InstanceCc.builder()
+                      .approval_code("7C468A54-8745-2245-9675-08B7C63E7A85")
+                      .instance_code("7C468A54-8745-2245-9675-08B7C63E7A85")
+                      .user_id("f7cb567e")
+                      .cc_user_ids([])
+                      .comment("ok")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CcInstanceResponse = client.approval.v4.instance.cc(request)
+    # 发起请求
+    response: CcInstanceResponse = client.approval.v4.instance.cc(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.approval.v4.instance.cc failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.approval.v4.instance.cc failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CcInstanceRequest = CcInstanceRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(InstanceCc.builder()
-					  .approval_code("7C468A54-8745-2245-9675-08B7C63E7A85")
-					  .instance_code("7C468A54-8745-2245-9675-08B7C63E7A85")
-					  .user_id("f7cb567e")
-					  .cc_user_ids([])
-					  .comment("ok")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CcInstanceRequest = CcInstanceRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(InstanceCc.builder()
+                      .approval_code("7C468A54-8745-2245-9675-08B7C63E7A85")
+                      .instance_code("7C468A54-8745-2245-9675-08B7C63E7A85")
+                      .user_id("f7cb567e")
+                      .cc_user_ids([])
+                      .comment("ok")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CcInstanceResponse = await client.approval.v4.instance.acc(request)
+    # 发起请求
+    response: CcInstanceResponse = await client.approval.v4.instance.acc(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.approval.v4.instance.acc failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.approval.v4.instance.acc failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

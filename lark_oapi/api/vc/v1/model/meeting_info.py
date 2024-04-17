@@ -2,12 +2,14 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .reserved_room import ReservedRoom
 
 
 class MeetingInfo(object):
     _types = {
         "meeting_id": str,
         "meeting_topic": str,
+        "meeting_type": int,
         "organizer": str,
         "department": str,
         "user_id": str,
@@ -18,16 +20,20 @@ class MeetingInfo(object):
         "meeting_end_time": str,
         "meeting_duration": str,
         "number_of_participants": str,
+        "number_of_devices": str,
         "audio": bool,
         "video": bool,
         "sharing": bool,
         "recording": bool,
         "telephone": bool,
+        "reserved_rooms": List[ReservedRoom],
+        "has_related_document": bool,
     }
 
     def __init__(self, d=None):
         self.meeting_id: Optional[str] = None
         self.meeting_topic: Optional[str] = None
+        self.meeting_type: Optional[int] = None
         self.organizer: Optional[str] = None
         self.department: Optional[str] = None
         self.user_id: Optional[str] = None
@@ -38,11 +44,14 @@ class MeetingInfo(object):
         self.meeting_end_time: Optional[str] = None
         self.meeting_duration: Optional[str] = None
         self.number_of_participants: Optional[str] = None
+        self.number_of_devices: Optional[str] = None
         self.audio: Optional[bool] = None
         self.video: Optional[bool] = None
         self.sharing: Optional[bool] = None
         self.recording: Optional[bool] = None
         self.telephone: Optional[bool] = None
+        self.reserved_rooms: Optional[List[ReservedRoom]] = None
+        self.has_related_document: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -60,6 +69,10 @@ class MeetingInfoBuilder(object):
 
     def meeting_topic(self, meeting_topic: str) -> "MeetingInfoBuilder":
         self._meeting_info.meeting_topic = meeting_topic
+        return self
+
+    def meeting_type(self, meeting_type: int) -> "MeetingInfoBuilder":
+        self._meeting_info.meeting_type = meeting_type
         return self
 
     def organizer(self, organizer: str) -> "MeetingInfoBuilder":
@@ -102,6 +115,10 @@ class MeetingInfoBuilder(object):
         self._meeting_info.number_of_participants = number_of_participants
         return self
 
+    def number_of_devices(self, number_of_devices: str) -> "MeetingInfoBuilder":
+        self._meeting_info.number_of_devices = number_of_devices
+        return self
+
     def audio(self, audio: bool) -> "MeetingInfoBuilder":
         self._meeting_info.audio = audio
         return self
@@ -120,6 +137,14 @@ class MeetingInfoBuilder(object):
 
     def telephone(self, telephone: bool) -> "MeetingInfoBuilder":
         self._meeting_info.telephone = telephone
+        return self
+
+    def reserved_rooms(self, reserved_rooms: List[ReservedRoom]) -> "MeetingInfoBuilder":
+        self._meeting_info.reserved_rooms = reserved_rooms
+        return self
+
+    def has_related_document(self, has_related_document: bool) -> "MeetingInfoBuilder":
+        self._meeting_info.has_related_document = has_related_document
         return self
 
     def build(self) -> "MeetingInfo":

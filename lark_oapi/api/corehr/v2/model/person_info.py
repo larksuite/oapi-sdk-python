@@ -21,6 +21,7 @@ from .education import Education
 from .education import Education
 from .personal_profile import PersonalProfile
 from .enum import Enum
+from .enum import Enum
 from .custom_field_data import CustomFieldData
 from .person_info_chn import PersonInfoChn
 from .resident_tax import ResidentTax
@@ -61,6 +62,7 @@ class PersonInfo(object):
         "native_region": str,
         "hukou_type": Enum,
         "hukou_location": str,
+        "political_affiliations": List[Enum],
         "talent_id": str,
         "custom_fields": List[CustomFieldData],
         "national_id_number": str,
@@ -111,6 +113,7 @@ class PersonInfo(object):
         self.native_region: Optional[str] = None
         self.hukou_type: Optional[Enum] = None
         self.hukou_location: Optional[str] = None
+        self.political_affiliations: Optional[List[Enum]] = None
         self.talent_id: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.national_id_number: Optional[str] = None
@@ -263,6 +266,10 @@ class PersonInfoBuilder(object):
 
     def hukou_location(self, hukou_location: str) -> "PersonInfoBuilder":
         self._person_info.hukou_location = hukou_location
+        return self
+
+    def political_affiliations(self, political_affiliations: List[Enum]) -> "PersonInfoBuilder":
+        self._person_info.political_affiliations = political_affiliations
         return self
 
     def talent_id(self, talent_id: str) -> "PersonInfoBuilder":

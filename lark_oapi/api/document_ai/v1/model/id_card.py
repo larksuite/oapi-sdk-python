@@ -10,12 +10,14 @@ class IdCard(object):
         "entities": List[IdEntity],
         "side": int,
         "conners": List[int],
+        "face_conners": List[int],
     }
 
     def __init__(self, d=None):
         self.entities: Optional[List[IdEntity]] = None
         self.side: Optional[int] = None
         self.conners: Optional[List[int]] = None
+        self.face_conners: Optional[List[int]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,6 +39,10 @@ class IdCardBuilder(object):
 
     def conners(self, conners: List[int]) -> "IdCardBuilder":
         self._id_card.conners = conners
+        return self
+
+    def face_conners(self, face_conners: List[int]) -> "IdCardBuilder":
+        self._id_card.face_conners = face_conners
         return self
 
     def build(self) -> "IdCard":

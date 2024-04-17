@@ -5,74 +5,74 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchEmployeeTypeRequest = PatchEmployeeTypeRequest.builder() \
-		.employee_type_id("6969828847931885087") \
-		.client_token("12454646") \
-		.request_body(EmployeeType.builder()
-					  .name([])
-					  .default_employee_type(True)
-					  .active(True)
-					  .code("1245")
-					  .custom_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchEmployeeTypeRequest = PatchEmployeeTypeRequest.builder() \
+        .employee_type_id("6969828847931885087") \
+        .client_token("12454646") \
+        .request_body(EmployeeType.builder()
+                      .name([])
+                      .default_employee_type(True)
+                      .active(True)
+                      .code("1245")
+                      .custom_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchEmployeeTypeResponse = client.corehr.v1.employee_type.patch(request)
+    # 发起请求
+    response: PatchEmployeeTypeResponse = client.corehr.v1.employee_type.patch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v1.employee_type.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v1.employee_type.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchEmployeeTypeRequest = PatchEmployeeTypeRequest.builder() \
-		.employee_type_id("6969828847931885087") \
-		.client_token("12454646") \
-		.request_body(EmployeeType.builder()
-					  .name([])
-					  .default_employee_type(True)
-					  .active(True)
-					  .code("1245")
-					  .custom_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchEmployeeTypeRequest = PatchEmployeeTypeRequest.builder() \
+        .employee_type_id("6969828847931885087") \
+        .client_token("12454646") \
+        .request_body(EmployeeType.builder()
+                      .name([])
+                      .default_employee_type(True)
+                      .active(True)
+                      .code("1245")
+                      .custom_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchEmployeeTypeResponse = await client.corehr.v1.employee_type.apatch(request)
+    # 发起请求
+    response: PatchEmployeeTypeResponse = await client.corehr.v1.employee_type.apatch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v1.employee_type.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v1.employee_type.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

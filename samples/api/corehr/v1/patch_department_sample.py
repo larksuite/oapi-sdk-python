@@ -5,86 +5,86 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchDepartmentRequest = PatchDepartmentRequest.builder() \
-		.department_id("6969828847121885087") \
-		.client_token("12454646") \
-		.user_id_type("people_corehr_id") \
-		.department_id_type("people_corehr_department_id") \
-		.request_body(Department.builder()
-					  .id("4719456877659520852")
-					  .sub_type(Enum.builder().build())
-					  .manager("6893013238632416776")
-					  .is_confidential(True)
-					  .hiberarchy_common(HiberarchyCommon.builder().build())
-					  .effective_time("2020-05-01 00:00:00")
-					  .custom_fields([])
-					  .cost_center_id("7142384817131652652")
-					  .staffing_model(Enum.builder().build())
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchDepartmentRequest = PatchDepartmentRequest.builder() \
+        .department_id("6969828847121885087") \
+        .client_token("12454646") \
+        .user_id_type("people_corehr_id") \
+        .department_id_type("people_corehr_department_id") \
+        .request_body(Department.builder()
+                      .id("4719456877659520852")
+                      .sub_type(Enum.builder().build())
+                      .manager("6893013238632416776")
+                      .is_confidential(True)
+                      .hiberarchy_common(HiberarchyCommon.builder().build())
+                      .effective_time("2020-05-01 00:00:00")
+                      .custom_fields([])
+                      .cost_center_id("7142384817131652652")
+                      .staffing_model(Enum.builder().build())
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchDepartmentResponse = client.corehr.v1.department.patch(request)
+    # 发起请求
+    response: PatchDepartmentResponse = client.corehr.v1.department.patch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v1.department.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v1.department.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchDepartmentRequest = PatchDepartmentRequest.builder() \
-		.department_id("6969828847121885087") \
-		.client_token("12454646") \
-		.user_id_type("people_corehr_id") \
-		.department_id_type("people_corehr_department_id") \
-		.request_body(Department.builder()
-					  .id("4719456877659520852")
-					  .sub_type(Enum.builder().build())
-					  .manager("6893013238632416776")
-					  .is_confidential(True)
-					  .hiberarchy_common(HiberarchyCommon.builder().build())
-					  .effective_time("2020-05-01 00:00:00")
-					  .custom_fields([])
-					  .cost_center_id("7142384817131652652")
-					  .staffing_model(Enum.builder().build())
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchDepartmentRequest = PatchDepartmentRequest.builder() \
+        .department_id("6969828847121885087") \
+        .client_token("12454646") \
+        .user_id_type("people_corehr_id") \
+        .department_id_type("people_corehr_department_id") \
+        .request_body(Department.builder()
+                      .id("4719456877659520852")
+                      .sub_type(Enum.builder().build())
+                      .manager("6893013238632416776")
+                      .is_confidential(True)
+                      .hiberarchy_common(HiberarchyCommon.builder().build())
+                      .effective_time("2020-05-01 00:00:00")
+                      .custom_fields([])
+                      .cost_center_id("7142384817131652652")
+                      .staffing_model(Enum.builder().build())
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchDepartmentResponse = await client.corehr.v1.department.apatch(request)
+    # 发起请求
+    response: PatchDepartmentResponse = await client.corehr.v1.department.apatch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v1.department.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v1.department.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

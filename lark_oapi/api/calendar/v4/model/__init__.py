@@ -39,7 +39,10 @@ from .meeting_settings import *
 from .my_ai_event_detail import *
 from .my_ai_event_info import *
 from .myai_card_status import *
+from .myai_doc_detail import *
 from .myai_reply import *
+from .myai_search_doc_result import *
+from .open_event_rsvp_info import *
 from .operate_card_data import *
 from .reminder import *
 from .room_meta import *

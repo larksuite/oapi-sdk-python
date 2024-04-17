@@ -9,6 +9,7 @@ class DepartmentChange(object):
     _types = {
         "department_change_id": str,
         "department_id": str,
+        "draft_department_id": str,
         "department_change_type": str,
         "reorganization_info": ReorganizationInfo,
     }
@@ -16,6 +17,7 @@ class DepartmentChange(object):
     def __init__(self, d=None):
         self.department_change_id: Optional[str] = None
         self.department_id: Optional[str] = None
+        self.draft_department_id: Optional[str] = None
         self.department_change_type: Optional[str] = None
         self.reorganization_info: Optional[ReorganizationInfo] = None
         init(self, d, self._types)
@@ -35,6 +37,10 @@ class DepartmentChangeBuilder(object):
 
     def department_id(self, department_id: str) -> "DepartmentChangeBuilder":
         self._department_change.department_id = department_id
+        return self
+
+    def draft_department_id(self, draft_department_id: str) -> "DepartmentChangeBuilder":
+        self._department_change.draft_department_id = draft_department_id
         return self
 
     def department_change_type(self, department_change_type: str) -> "DepartmentChangeBuilder":

@@ -5,64 +5,67 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: EnableDisableAssessmentProbationRequest = EnableDisableAssessmentProbationRequest.builder() \
-		.request_body(EnableDisableAssessmentProbationRequestBody.builder()
-					  .active(True)
-					  .app_url("https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: EnableDisableAssessmentProbationRequest = EnableDisableAssessmentProbationRequest.builder() \
+        .request_body(EnableDisableAssessmentProbationRequestBody.builder()
+                      .active(True)
+                      .app_url(
+        "https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: EnableDisableAssessmentProbationResponse = client.corehr.v2.probation.enable_disable_assessment(request)
+    # 发起请求
+    response: EnableDisableAssessmentProbationResponse = client.corehr.v2.probation.enable_disable_assessment(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.probation.enable_disable_assessment failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.probation.enable_disable_assessment failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: EnableDisableAssessmentProbationRequest = EnableDisableAssessmentProbationRequest.builder() \
-		.request_body(EnableDisableAssessmentProbationRequestBody.builder()
-					  .active(True)
-					  .app_url("https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: EnableDisableAssessmentProbationRequest = EnableDisableAssessmentProbationRequest.builder() \
+        .request_body(EnableDisableAssessmentProbationRequestBody.builder()
+                      .active(True)
+                      .app_url(
+        "https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: EnableDisableAssessmentProbationResponse = await client.corehr.v2.probation.aenable_disable_assessment(request)
+    # 发起请求
+    response: EnableDisableAssessmentProbationResponse = await client.corehr.v2.probation.aenable_disable_assessment(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.probation.aenable_disable_assessment failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.probation.aenable_disable_assessment failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

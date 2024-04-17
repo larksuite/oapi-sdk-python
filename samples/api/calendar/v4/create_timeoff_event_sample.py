@@ -5,74 +5,74 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateTimeoffEventRequest = CreateTimeoffEventRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(TimeoffEvent.builder()
-					  .user_id("str")
-					  .timezone("str")
-					  .start_time("str")
-					  .end_time("str")
-					  .title("str")
-					  .description("str")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateTimeoffEventRequest = CreateTimeoffEventRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(TimeoffEvent.builder()
+                      .user_id("str")
+                      .timezone("str")
+                      .start_time("str")
+                      .end_time("str")
+                      .title("str")
+                      .description("str")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateTimeoffEventResponse = client.calendar.v4.timeoff_event.create(request)
+    # 发起请求
+    response: CreateTimeoffEventResponse = client.calendar.v4.timeoff_event.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.calendar.v4.timeoff_event.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.calendar.v4.timeoff_event.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateTimeoffEventRequest = CreateTimeoffEventRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(TimeoffEvent.builder()
-					  .user_id("str")
-					  .timezone("str")
-					  .start_time("str")
-					  .end_time("str")
-					  .title("str")
-					  .description("str")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateTimeoffEventRequest = CreateTimeoffEventRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(TimeoffEvent.builder()
+                      .user_id("str")
+                      .timezone("str")
+                      .start_time("str")
+                      .end_time("str")
+                      .title("str")
+                      .description("str")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateTimeoffEventResponse = await client.calendar.v4.timeoff_event.acreate(request)
+    # 发起请求
+    response: CreateTimeoffEventResponse = await client.calendar.v4.timeoff_event.acreate(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.calendar.v4.timeoff_event.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.calendar.v4.timeoff_event.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

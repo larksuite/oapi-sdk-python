@@ -14,6 +14,7 @@ class ListChat(object):
         "owner_id_type": str,
         "external": bool,
         "tenant_key": str,
+        "chat_status": str,
     }
 
     def __init__(self, d=None):
@@ -25,6 +26,7 @@ class ListChat(object):
         self.owner_id_type: Optional[str] = None
         self.external: Optional[bool] = None
         self.tenant_key: Optional[str] = None
+        self.chat_status: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -66,6 +68,10 @@ class ListChatBuilder(object):
 
     def tenant_key(self, tenant_key: str) -> "ListChatBuilder":
         self._list_chat.tenant_key = tenant_key
+        return self
+
+    def chat_status(self, chat_status: str) -> "ListChatBuilder":
+        self._list_chat.chat_status = chat_status
         return self
 
     def build(self) -> "ListChat":

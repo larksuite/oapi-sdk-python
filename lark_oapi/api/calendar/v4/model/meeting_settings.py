@@ -8,6 +8,7 @@ class MeetingSettings(object):
     _types = {
         "owner_id": int,
         "join_meeting_permission": str,
+        "password": str,
         "assign_hosts": List[int],
         "auto_record": bool,
         "open_lobby": bool,
@@ -17,6 +18,7 @@ class MeetingSettings(object):
     def __init__(self, d=None):
         self.owner_id: Optional[int] = None
         self.join_meeting_permission: Optional[str] = None
+        self.password: Optional[str] = None
         self.assign_hosts: Optional[List[int]] = None
         self.auto_record: Optional[bool] = None
         self.open_lobby: Optional[bool] = None
@@ -38,6 +40,10 @@ class MeetingSettingsBuilder(object):
 
     def join_meeting_permission(self, join_meeting_permission: str) -> "MeetingSettingsBuilder":
         self._meeting_settings.join_meeting_permission = join_meeting_permission
+        return self
+
+    def password(self, password: str) -> "MeetingSettingsBuilder":
+        self._meeting_settings.password = password
         return self
 
     def assign_hosts(self, assign_hosts: List[int]) -> "MeetingSettingsBuilder":

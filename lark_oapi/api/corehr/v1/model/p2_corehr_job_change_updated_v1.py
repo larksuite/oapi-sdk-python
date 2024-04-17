@@ -13,6 +13,7 @@ class P2CorehrJobChangeUpdatedV1Data(object):
         "job_change_id": str,
         "transfer_mode": int,
         "transfer_type_unique_identifier": str,
+        "transfer_reason_unique_identifier": str,
         "process_id": str,
         "effective_date": str,
         "status": int,
@@ -25,6 +26,7 @@ class P2CorehrJobChangeUpdatedV1Data(object):
         self.job_change_id: Optional[str] = None
         self.transfer_mode: Optional[int] = None
         self.transfer_type_unique_identifier: Optional[str] = None
+        self.transfer_reason_unique_identifier: Optional[str] = None
         self.process_id: Optional[str] = None
         self.effective_date: Optional[str] = None
         self.status: Optional[int] = None

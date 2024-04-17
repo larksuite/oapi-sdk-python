@@ -78,6 +78,7 @@ from .delete_progress_record_request import *
 from .get_progress_record_request import *
 from .update_progress_record_request_body import *
 from .update_progress_record_request import *
+from .query_review_request import *
 from .list_user_okr_request import *
 from .upload_image_response_body import *
 from .upload_image_response import *
@@ -98,5 +99,7 @@ from .get_progress_record_response_body import *
 from .get_progress_record_response import *
 from .update_progress_record_response_body import *
 from .update_progress_record_response import *
+from .query_review_response_body import *
+from .query_review_response import *
 from .list_user_okr_response_body import *
 from .list_user_okr_response import *

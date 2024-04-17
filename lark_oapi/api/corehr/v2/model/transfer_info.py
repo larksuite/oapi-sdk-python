@@ -2,6 +2,8 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .orgdraft_department_id import OrgdraftDepartmentId
+from .orgdraft_department_id import OrgdraftDepartmentId
 from .job_data_cost_center import JobDataCostCenter
 from .job_data_cost_center import JobDataCostCenter
 from .tranfer_employment_info import TranferEmploymentInfo
@@ -16,6 +18,9 @@ class TransferInfo(object):
         "probation_exist": bool,
         "original_department": str,
         "target_department": str,
+        "target_draft_department": str,
+        "original_department_id_path": List[OrgdraftDepartmentId],
+        "target_department_id_path": List[OrgdraftDepartmentId],
         "original_work_location": str,
         "target_work_location": str,
         "original_direct_manager": str,
@@ -73,6 +78,9 @@ class TransferInfo(object):
         self.probation_exist: Optional[bool] = None
         self.original_department: Optional[str] = None
         self.target_department: Optional[str] = None
+        self.target_draft_department: Optional[str] = None
+        self.original_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
+        self.target_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
         self.original_work_location: Optional[str] = None
         self.target_work_location: Optional[str] = None
         self.original_direct_manager: Optional[str] = None
@@ -154,6 +162,19 @@ class TransferInfoBuilder(object):
 
     def target_department(self, target_department: str) -> "TransferInfoBuilder":
         self._transfer_info.target_department = target_department
+        return self
+
+    def target_draft_department(self, target_draft_department: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_draft_department = target_draft_department
+        return self
+
+    def original_department_id_path(self,
+                                    original_department_id_path: List[OrgdraftDepartmentId]) -> "TransferInfoBuilder":
+        self._transfer_info.original_department_id_path = original_department_id_path
+        return self
+
+    def target_department_id_path(self, target_department_id_path: List[OrgdraftDepartmentId]) -> "TransferInfoBuilder":
+        self._transfer_info.target_department_id_path = target_department_id_path
         return self
 
     def original_work_location(self, original_work_location: str) -> "TransferInfoBuilder":

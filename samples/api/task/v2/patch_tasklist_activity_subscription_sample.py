@@ -5,70 +5,71 @@ from lark_oapi.api.task.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchTasklistActivitySubscriptionRequest = PatchTasklistActivitySubscriptionRequest.builder() \
-		.tasklist_guid("33991879-704f-444f-81d7-55a6aa7be80c") \
-		.activity_subscription_guid("f5ca6747-5ac3-422e-a97e-972c1b2c24f3") \
-		.user_id_type("open_id") \
-		.request_body(PatchTasklistActivitySubscriptionRequestBody.builder()
-					  .activity_subscription(TasklistActivitySubscription.builder().build())
-					  .update_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchTasklistActivitySubscriptionRequest = PatchTasklistActivitySubscriptionRequest.builder() \
+        .tasklist_guid("33991879-704f-444f-81d7-55a6aa7be80c") \
+        .activity_subscription_guid("f5ca6747-5ac3-422e-a97e-972c1b2c24f3") \
+        .user_id_type("open_id") \
+        .request_body(PatchTasklistActivitySubscriptionRequestBody.builder()
+                      .activity_subscription(TasklistActivitySubscription.builder().build())
+                      .update_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchTasklistActivitySubscriptionResponse = client.task.v2.tasklist_activity_subscription.patch(request)
+    # 发起请求
+    response: PatchTasklistActivitySubscriptionResponse = client.task.v2.tasklist_activity_subscription.patch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.task.v2.tasklist_activity_subscription.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.task.v2.tasklist_activity_subscription.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: PatchTasklistActivitySubscriptionRequest = PatchTasklistActivitySubscriptionRequest.builder() \
-		.tasklist_guid("33991879-704f-444f-81d7-55a6aa7be80c") \
-		.activity_subscription_guid("f5ca6747-5ac3-422e-a97e-972c1b2c24f3") \
-		.user_id_type("open_id") \
-		.request_body(PatchTasklistActivitySubscriptionRequestBody.builder()
-					  .activity_subscription(TasklistActivitySubscription.builder().build())
-					  .update_fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: PatchTasklistActivitySubscriptionRequest = PatchTasklistActivitySubscriptionRequest.builder() \
+        .tasklist_guid("33991879-704f-444f-81d7-55a6aa7be80c") \
+        .activity_subscription_guid("f5ca6747-5ac3-422e-a97e-972c1b2c24f3") \
+        .user_id_type("open_id") \
+        .request_body(PatchTasklistActivitySubscriptionRequestBody.builder()
+                      .activity_subscription(TasklistActivitySubscription.builder().build())
+                      .update_fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: PatchTasklistActivitySubscriptionResponse = await client.task.v2.tasklist_activity_subscription.apatch(request)
+    # 发起请求
+    response: PatchTasklistActivitySubscriptionResponse = await client.task.v2.tasklist_activity_subscription.apatch(
+        request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.task.v2.tasklist_activity_subscription.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.task.v2.tasklist_activity_subscription.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

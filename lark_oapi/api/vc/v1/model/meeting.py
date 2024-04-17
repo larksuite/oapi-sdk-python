@@ -13,6 +13,7 @@ class Meeting(object):
         "topic": str,
         "url": str,
         "meeting_no": str,
+        "password": str,
         "create_time": int,
         "start_time": int,
         "end_time": int,
@@ -29,6 +30,7 @@ class Meeting(object):
         self.topic: Optional[str] = None
         self.url: Optional[str] = None
         self.meeting_no: Optional[str] = None
+        self.password: Optional[str] = None
         self.create_time: Optional[int] = None
         self.start_time: Optional[int] = None
         self.end_time: Optional[int] = None
@@ -63,6 +65,10 @@ class MeetingBuilder(object):
 
     def meeting_no(self, meeting_no: str) -> "MeetingBuilder":
         self._meeting.meeting_no = meeting_no
+        return self
+
+    def password(self, password: str) -> "MeetingBuilder":
+        self._meeting.password = password
         return self
 
     def create_time(self, create_time: int) -> "MeetingBuilder":

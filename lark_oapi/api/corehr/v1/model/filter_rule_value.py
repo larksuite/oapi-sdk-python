@@ -8,11 +8,15 @@ class FilterRuleValue(object):
     _types = {
         "type": int,
         "value": str,
+        "lookup_value": str,
+        "lookup_type": str,
     }
 
     def __init__(self, d=None):
         self.type: Optional[int] = None
         self.value: Optional[str] = None
+        self.lookup_value: Optional[str] = None
+        self.lookup_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +34,14 @@ class FilterRuleValueBuilder(object):
 
     def value(self, value: str) -> "FilterRuleValueBuilder":
         self._filter_rule_value.value = value
+        return self
+
+    def lookup_value(self, lookup_value: str) -> "FilterRuleValueBuilder":
+        self._filter_rule_value.lookup_value = lookup_value
+        return self
+
+    def lookup_type(self, lookup_type: str) -> "FilterRuleValueBuilder":
+        self._filter_rule_value.lookup_type = lookup_type
         return self
 
     def build(self) -> "FilterRuleValue":

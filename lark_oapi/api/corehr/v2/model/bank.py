@@ -12,6 +12,8 @@ class Bank(object):
         "bank_code": str,
         "country_region_id": str,
         "status": int,
+        "create_time": str,
+        "update_time": str,
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,8 @@ class Bank(object):
         self.bank_code: Optional[str] = None
         self.country_region_id: Optional[str] = None
         self.status: Optional[int] = None
+        self.create_time: Optional[str] = None
+        self.update_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +53,14 @@ class BankBuilder(object):
 
     def status(self, status: int) -> "BankBuilder":
         self._bank.status = status
+        return self
+
+    def create_time(self, create_time: str) -> "BankBuilder":
+        self._bank.create_time = create_time
+        return self
+
+    def update_time(self, update_time: str) -> "BankBuilder":
+        self._bank.update_time = update_time
         return self
 
     def build(self) -> "Bank":

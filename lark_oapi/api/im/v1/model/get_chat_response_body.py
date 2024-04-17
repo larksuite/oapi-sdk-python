@@ -35,6 +35,9 @@ class GetChatResponseBody(object):
         "restricted_mode_setting": RestrictedModeSetting,
         "urgent_setting": str,
         "video_conference_setting": str,
+        "pin_manage_setting": str,
+        "hide_member_count_setting": str,
+        "chat_status": str,
     }
 
     def __init__(self, d=None):
@@ -65,6 +68,9 @@ class GetChatResponseBody(object):
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
         self.urgent_setting: Optional[str] = None
         self.video_conference_setting: Optional[str] = None
+        self.pin_manage_setting: Optional[str] = None
+        self.hide_member_count_setting: Optional[str] = None
+        self.chat_status: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -182,6 +188,18 @@ class GetChatResponseBodyBuilder(object):
 
     def video_conference_setting(self, video_conference_setting: str) -> "GetChatResponseBodyBuilder":
         self._get_chat_response_body.video_conference_setting = video_conference_setting
+        return self
+
+    def pin_manage_setting(self, pin_manage_setting: str) -> "GetChatResponseBodyBuilder":
+        self._get_chat_response_body.pin_manage_setting = pin_manage_setting
+        return self
+
+    def hide_member_count_setting(self, hide_member_count_setting: str) -> "GetChatResponseBodyBuilder":
+        self._get_chat_response_body.hide_member_count_setting = hide_member_count_setting
+        return self
+
+    def chat_status(self, chat_status: str) -> "GetChatResponseBodyBuilder":
+        self._get_chat_response_body.chat_status = chat_status
         return self
 
     def build(self) -> "GetChatResponseBody":

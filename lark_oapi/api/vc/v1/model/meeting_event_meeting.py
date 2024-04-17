@@ -4,6 +4,8 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .meeting_event_user import MeetingEventUser
 from .meeting_event_user import MeetingEventUser
+from .meeting_security_setting import MeetingSecuritySetting
+from .meeting_webinar_setting import MeetingWebinarSetting
 
 
 class MeetingEventMeeting(object):
@@ -17,6 +19,9 @@ class MeetingEventMeeting(object):
         "host_user": MeetingEventUser,
         "owner": MeetingEventUser,
         "calendar_event_id": str,
+        "meeting_sub_type": int,
+        "security_setting": MeetingSecuritySetting,
+        "webinar_setting": MeetingWebinarSetting,
     }
 
     def __init__(self, d=None):
@@ -29,6 +34,9 @@ class MeetingEventMeeting(object):
         self.host_user: Optional[MeetingEventUser] = None
         self.owner: Optional[MeetingEventUser] = None
         self.calendar_event_id: Optional[str] = None
+        self.meeting_sub_type: Optional[int] = None
+        self.security_setting: Optional[MeetingSecuritySetting] = None
+        self.webinar_setting: Optional[MeetingWebinarSetting] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -74,6 +82,18 @@ class MeetingEventMeetingBuilder(object):
 
     def calendar_event_id(self, calendar_event_id: str) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.calendar_event_id = calendar_event_id
+        return self
+
+    def meeting_sub_type(self, meeting_sub_type: int) -> "MeetingEventMeetingBuilder":
+        self._meeting_event_meeting.meeting_sub_type = meeting_sub_type
+        return self
+
+    def security_setting(self, security_setting: MeetingSecuritySetting) -> "MeetingEventMeetingBuilder":
+        self._meeting_event_meeting.security_setting = security_setting
+        return self
+
+    def webinar_setting(self, webinar_setting: MeetingWebinarSetting) -> "MeetingEventMeetingBuilder":
+        self._meeting_event_meeting.webinar_setting = webinar_setting
         return self
 
     def build(self) -> "MeetingEventMeeting":

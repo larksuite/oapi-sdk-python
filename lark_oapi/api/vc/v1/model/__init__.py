@@ -20,7 +20,9 @@ from .meeting_info import *
 from .meeting_invite_status import *
 from .meeting_participant import *
 from .meeting_participant_result import *
+from .meeting_security_setting import *
 from .meeting_user import *
+from .meeting_webinar_setting import *
 from .my_ai_av_plugin_card_status import *
 from .my_ai_av_plugin_card_variables import *
 from .my_ai_av_plugin_card_varibales import *
@@ -73,6 +75,7 @@ from .reserve_meeting_setting import *
 from .reserve_permission_checker import *
 from .reserve_scope_config import *
 from .reserve_scope_config_event import *
+from .reserved_room import *
 from .room import *
 from .room_config import *
 from .room_digital_signage import *

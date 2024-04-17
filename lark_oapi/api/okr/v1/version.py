@@ -8,4 +8,5 @@ class V1(object):
         self.period: Period = Period(config)
         self.period_rule: PeriodRule = PeriodRule(config)
         self.progress_record: ProgressRecord = ProgressRecord(config)
+        self.review: Review = Review(config)
         self.user_okr: UserOkr = UserOkr(config)

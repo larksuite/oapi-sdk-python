@@ -17,6 +17,7 @@ from .item import *
 from .item_content import *
 from .item_metadata import *
 from .item_record import *
+from .lingo_passage_param import *
 from .llm_model_config import *
 from .memory_message import *
 from .model_config import *
@@ -27,6 +28,8 @@ from .passage import *
 from .passage_param import *
 from .patch_schema_property import *
 from .present import *
+from .rag_answer_response import *
+from .rag_probe import *
 from .scenario_context import *
 from .scenario_context_extra import *
 from .schema import *

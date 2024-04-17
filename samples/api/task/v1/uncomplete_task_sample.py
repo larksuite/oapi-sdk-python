@@ -5,58 +5,58 @@ from lark_oapi.api.task.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: UncompleteTaskRequest = UncompleteTaskRequest.builder() \
-		.task_id("bb54ab99-d360-434f-bcaa-a4cc4c05840e") \
-		.build()
+    # 构造请求对象
+    request: UncompleteTaskRequest = UncompleteTaskRequest.builder() \
+        .task_id("bb54ab99-d360-434f-bcaa-a4cc4c05840e") \
+        .build()
 
-	# 发起请求
-	response: UncompleteTaskResponse = client.task.v1.task.uncomplete(request)
+    # 发起请求
+    response: UncompleteTaskResponse = client.task.v1.task.uncomplete(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.task.v1.task.uncomplete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.task.v1.task.uncomplete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: UncompleteTaskRequest = UncompleteTaskRequest.builder() \
-		.task_id("bb54ab99-d360-434f-bcaa-a4cc4c05840e") \
-		.build()
+    # 构造请求对象
+    request: UncompleteTaskRequest = UncompleteTaskRequest.builder() \
+        .task_id("bb54ab99-d360-434f-bcaa-a4cc4c05840e") \
+        .build()
 
-	# 发起请求
-	response: UncompleteTaskResponse = await client.task.v1.task.auncomplete(request)
+    # 发起请求
+    response: UncompleteTaskResponse = await client.task.v1.task.auncomplete(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.task.v1.task.auncomplete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.task.v1.task.auncomplete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

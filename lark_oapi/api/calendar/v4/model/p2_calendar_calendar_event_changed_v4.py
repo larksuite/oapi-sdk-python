@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.event.context import EventContext
 from .user_id import UserId
+from .open_event_rsvp_info import OpenEventRsvpInfo
 
 
 class P2CalendarCalendarEventChangedV4Data(object):
@@ -11,12 +12,16 @@ class P2CalendarCalendarEventChangedV4Data(object):
         "calendar_id": str,
         "user_id_list": List[UserId],
         "calendar_event_id": str,
+        "change_type": str,
+        "rsvp_infos": List[OpenEventRsvpInfo],
     }
 
     def __init__(self, d=None):
         self.calendar_id: Optional[str] = None
         self.user_id_list: Optional[List[UserId]] = None
         self.calendar_event_id: Optional[str] = None
+        self.change_type: Optional[str] = None
+        self.rsvp_infos: Optional[List[OpenEventRsvpInfo]] = None
         init(self, d, self._types)
 
 

@@ -24,7 +24,7 @@ class UpdateEntityRequestBuilder(object):
         update_entity_request = UpdateEntityRequest()
         update_entity_request.http_method = HttpMethod.PUT
         update_entity_request.uri = "/open-apis/lingo/v1/entities/:entity_id"
-        update_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        update_entity_request.token_types = {AccessTokenType.TENANT}
         self._update_entity_request: UpdateEntityRequest = update_entity_request
 
     def user_id_type(self, user_id_type: str) -> "UpdateEntityRequestBuilder":

@@ -1,4 +1,7 @@
 from .approval_info import *
+from .archive_field_data import *
+from .archive_report_data import *
+from .archive_report_meta import *
 from .area import *
 from .arrange_shift_group import *
 from .child_field import *
@@ -8,6 +11,7 @@ from .department_id import *
 from .duration_item import *
 from .field import *
 from .file import *
+from .filter_item import *
 from .flexible_rule import *
 from .free_punch_cfg import *
 from .group import *
@@ -35,6 +39,9 @@ from .overtime_time_range import *
 from .punch_member import *
 from .punch_special_date_shift import *
 from .punch_time_rule import *
+from .punch_time_simple_rule import *
+from .report_data import *
+from .report_value import *
 from .rest_rule import *
 from .scan_wifi_info import *
 from .schedule import *
@@ -42,6 +49,7 @@ from .scope_group import *
 from .scope_value import *
 from .shift import *
 from .shift_group_user import *
+from .statistics_field import *
 from .status_change import *
 from .task_result import *
 from .user_allowed_remedy import *
@@ -62,6 +70,7 @@ from .user_stats_field import *
 from .user_stats_view import *
 from .user_task import *
 from .user_task_remedy import *
+from .user_tmp_daily_shift import *
 from .user_trip import *
 from .wifi_info import *
 from .wifi_info_event import *

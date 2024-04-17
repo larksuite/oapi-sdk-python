@@ -5,64 +5,64 @@ from lark_oapi.api.vc.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: MgetRoomRequest = MgetRoomRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(MgetRoomRequestBody.builder()
-					  .room_ids([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: MgetRoomRequest = MgetRoomRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(MgetRoomRequestBody.builder()
+                      .room_ids([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: MgetRoomResponse = client.vc.v1.room.mget(request)
+    # 发起请求
+    response: MgetRoomResponse = client.vc.v1.room.mget(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.vc.v1.room.mget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.vc.v1.room.mget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: MgetRoomRequest = MgetRoomRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(MgetRoomRequestBody.builder()
-					  .room_ids([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: MgetRoomRequest = MgetRoomRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(MgetRoomRequestBody.builder()
+                      .room_ids([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: MgetRoomResponse = await client.vc.v1.room.amget(request)
+    # 发起请求
+    response: MgetRoomResponse = await client.vc.v1.room.amget(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.vc.v1.room.amget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.vc.v1.room.amget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

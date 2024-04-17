@@ -36,7 +36,7 @@ class MatchCompensationStandardRequestBuilder(object):
         match_compensation_standard_request = MatchCompensationStandardRequest()
         match_compensation_standard_request.http_method = HttpMethod.GET
         match_compensation_standard_request.uri = "/open-apis/corehr/v1/compensation_standards/match"
-        match_compensation_standard_request.token_types = {AccessTokenType.TENANT}
+        match_compensation_standard_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._match_compensation_standard_request: MatchCompensationStandardRequest = match_compensation_standard_request
 
     def user_id_type(self, user_id_type: str) -> "MatchCompensationStandardRequestBuilder":

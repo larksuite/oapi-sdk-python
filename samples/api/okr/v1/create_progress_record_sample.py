@@ -5,76 +5,76 @@ from lark_oapi.api.okr.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateProgressRecordRequest = CreateProgressRecordRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(CreateProgressRecordRequestBody.builder()
-					  .source_title("周报系统")
-					  .source_url("https://www.zhoubao.com")
-					  .target_id("7041430377642082323")
-					  .target_type(1)
-					  .content(ContentBlock.builder().build())
-					  .source_url_pc("open.feishu.cn")
-					  .source_url_mobile("open.feishu.cn")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateProgressRecordRequest = CreateProgressRecordRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(CreateProgressRecordRequestBody.builder()
+                      .source_title("周报系统")
+                      .source_url("https://www.zhoubao.com")
+                      .target_id("7041430377642082323")
+                      .target_type(1)
+                      .content(ContentBlock.builder().build())
+                      .source_url_pc("open.feishu.cn")
+                      .source_url_mobile("open.feishu.cn")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateProgressRecordResponse = client.okr.v1.progress_record.create(request)
+    # 发起请求
+    response: CreateProgressRecordResponse = client.okr.v1.progress_record.create(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.okr.v1.progress_record.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.okr.v1.progress_record.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CreateProgressRecordRequest = CreateProgressRecordRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(CreateProgressRecordRequestBody.builder()
-					  .source_title("周报系统")
-					  .source_url("https://www.zhoubao.com")
-					  .target_id("7041430377642082323")
-					  .target_type(1)
-					  .content(ContentBlock.builder().build())
-					  .source_url_pc("open.feishu.cn")
-					  .source_url_mobile("open.feishu.cn")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CreateProgressRecordRequest = CreateProgressRecordRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(CreateProgressRecordRequestBody.builder()
+                      .source_title("周报系统")
+                      .source_url("https://www.zhoubao.com")
+                      .target_id("7041430377642082323")
+                      .target_type(1)
+                      .content(ContentBlock.builder().build())
+                      .source_url_pc("open.feishu.cn")
+                      .source_url_mobile("open.feishu.cn")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CreateProgressRecordResponse = await client.okr.v1.progress_record.acreate(request)
+    # 发起请求
+    response: CreateProgressRecordResponse = await client.okr.v1.progress_record.acreate(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.okr.v1.progress_record.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.okr.v1.progress_record.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

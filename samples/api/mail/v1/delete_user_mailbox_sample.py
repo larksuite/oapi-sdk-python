@@ -5,60 +5,60 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: DeleteUserMailboxRequest = DeleteUserMailboxRequest.builder() \
-		.user_mailbox_id("111111@abc.com") \
-		.transfer_mailbox("888888@abc.com") \
-		.build()
+    # 构造请求对象
+    request: DeleteUserMailboxRequest = DeleteUserMailboxRequest.builder() \
+        .user_mailbox_id("111111@abc.com") \
+        .transfer_mailbox("888888@abc.com") \
+        .build()
 
-	# 发起请求
-	response: DeleteUserMailboxResponse = client.mail.v1.user_mailbox.delete(request)
+    # 发起请求
+    response: DeleteUserMailboxResponse = client.mail.v1.user_mailbox.delete(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.mail.v1.user_mailbox.delete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.mail.v1.user_mailbox.delete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: DeleteUserMailboxRequest = DeleteUserMailboxRequest.builder() \
-		.user_mailbox_id("111111@abc.com") \
-		.transfer_mailbox("888888@abc.com") \
-		.build()
+    # 构造请求对象
+    request: DeleteUserMailboxRequest = DeleteUserMailboxRequest.builder() \
+        .user_mailbox_id("111111@abc.com") \
+        .transfer_mailbox("888888@abc.com") \
+        .build()
 
-	# 发起请求
-	response: DeleteUserMailboxResponse = await client.mail.v1.user_mailbox.adelete(request)
+    # 发起请求
+    response: DeleteUserMailboxResponse = await client.mail.v1.user_mailbox.adelete(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.mail.v1.user_mailbox.adelete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.mail.v1.user_mailbox.adelete failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

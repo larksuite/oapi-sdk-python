@@ -25,6 +25,8 @@ class UpdateChatRequestBody(object):
         "group_message_type": str,
         "urgent_setting": str,
         "video_conference_setting": str,
+        "pin_manage_setting": str,
+        "hide_member_count_setting": str,
     }
 
     def __init__(self, d=None):
@@ -45,6 +47,8 @@ class UpdateChatRequestBody(object):
         self.group_message_type: Optional[str] = None
         self.urgent_setting: Optional[str] = None
         self.video_conference_setting: Optional[str] = None
+        self.pin_manage_setting: Optional[str] = None
+        self.hide_member_count_setting: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -122,6 +126,14 @@ class UpdateChatRequestBodyBuilder(object):
 
     def video_conference_setting(self, video_conference_setting: str) -> "UpdateChatRequestBodyBuilder":
         self._update_chat_request_body.video_conference_setting = video_conference_setting
+        return self
+
+    def pin_manage_setting(self, pin_manage_setting: str) -> "UpdateChatRequestBodyBuilder":
+        self._update_chat_request_body.pin_manage_setting = pin_manage_setting
+        return self
+
+    def hide_member_count_setting(self, hide_member_count_setting: str) -> "UpdateChatRequestBodyBuilder":
+        self._update_chat_request_body.hide_member_count_setting = hide_member_count_setting
         return self
 
     def build(self) -> "UpdateChatRequestBody":

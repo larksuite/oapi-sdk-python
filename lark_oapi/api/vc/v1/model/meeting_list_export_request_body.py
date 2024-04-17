@@ -12,6 +12,7 @@ class MeetingListExportRequestBody(object):
         "meeting_no": str,
         "user_id": str,
         "room_id": str,
+        "meeting_type": int,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class MeetingListExportRequestBody(object):
         self.meeting_no: Optional[str] = None
         self.user_id: Optional[str] = None
         self.room_id: Optional[str] = None
+        self.meeting_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +56,10 @@ class MeetingListExportRequestBodyBuilder(object):
 
     def room_id(self, room_id: str) -> "MeetingListExportRequestBodyBuilder":
         self._meeting_list_export_request_body.room_id = room_id
+        return self
+
+    def meeting_type(self, meeting_type: int) -> "MeetingListExportRequestBodyBuilder":
+        self._meeting_list_export_request_body.meeting_type = meeting_type
         return self
 
     def build(self) -> "MeetingListExportRequestBody":

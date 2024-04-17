@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .name import Name
+from .name import Name
 
 
 class BasicInfo(object):
@@ -13,6 +14,7 @@ class BasicInfo(object):
         "email": str,
         "date_of_birth": str,
         "personal_id_number": str,
+        "personal_id_type": str,
         "date_entered_workforce": str,
         "gender_id": str,
         "nationality_id": str,
@@ -21,6 +23,7 @@ class BasicInfo(object):
         "home_address": str,
         "worker_id": str,
         "user_geo": str,
+        "legal_name": Name,
     }
 
     def __init__(self, d=None):
@@ -30,6 +33,7 @@ class BasicInfo(object):
         self.email: Optional[str] = None
         self.date_of_birth: Optional[str] = None
         self.personal_id_number: Optional[str] = None
+        self.personal_id_type: Optional[str] = None
         self.date_entered_workforce: Optional[str] = None
         self.gender_id: Optional[str] = None
         self.nationality_id: Optional[str] = None
@@ -38,6 +42,7 @@ class BasicInfo(object):
         self.home_address: Optional[str] = None
         self.worker_id: Optional[str] = None
         self.user_geo: Optional[str] = None
+        self.legal_name: Optional[Name] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -73,6 +78,10 @@ class BasicInfoBuilder(object):
         self._basic_info.personal_id_number = personal_id_number
         return self
 
+    def personal_id_type(self, personal_id_type: str) -> "BasicInfoBuilder":
+        self._basic_info.personal_id_type = personal_id_type
+        return self
+
     def date_entered_workforce(self, date_entered_workforce: str) -> "BasicInfoBuilder":
         self._basic_info.date_entered_workforce = date_entered_workforce
         return self
@@ -103,6 +112,10 @@ class BasicInfoBuilder(object):
 
     def user_geo(self, user_geo: str) -> "BasicInfoBuilder":
         self._basic_info.user_geo = user_geo
+        return self
+
+    def legal_name(self, legal_name: Name) -> "BasicInfoBuilder":
+        self._basic_info.legal_name = legal_name
         return self
 
     def build(self) -> "BasicInfo":

@@ -15,6 +15,7 @@ class ListAdminDeptStatRequest(BaseRequest):
         self.contains_child_dept: Optional[bool] = None
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
+        self.target_geo: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListAdminDeptStatRequestBuilder":
@@ -63,6 +64,11 @@ class ListAdminDeptStatRequestBuilder(object):
     def page_token(self, page_token: str) -> "ListAdminDeptStatRequestBuilder":
         self._list_admin_dept_stat_request.page_token = page_token
         self._list_admin_dept_stat_request.add_query("page_token", page_token)
+        return self
+
+    def target_geo(self, target_geo: str) -> "ListAdminDeptStatRequestBuilder":
+        self._list_admin_dept_stat_request.target_geo = target_geo
+        self._list_admin_dept_stat_request.add_query("target_geo", target_geo)
         return self
 
     def build(self) -> ListAdminDeptStatRequest:

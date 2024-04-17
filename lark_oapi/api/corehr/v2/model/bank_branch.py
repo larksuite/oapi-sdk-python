@@ -13,6 +13,11 @@ class BankBranch(object):
         "code": str,
         "swift_code": str,
         "status": int,
+        "bank_branch_code": str,
+        "register_place": str,
+        "bank_address": str,
+        "create_time": str,
+        "update_time": str,
     }
 
     def __init__(self, d=None):
@@ -22,6 +27,11 @@ class BankBranch(object):
         self.code: Optional[str] = None
         self.swift_code: Optional[str] = None
         self.status: Optional[int] = None
+        self.bank_branch_code: Optional[str] = None
+        self.register_place: Optional[str] = None
+        self.bank_address: Optional[str] = None
+        self.create_time: Optional[str] = None
+        self.update_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -55,6 +65,26 @@ class BankBranchBuilder(object):
 
     def status(self, status: int) -> "BankBranchBuilder":
         self._bank_branch.status = status
+        return self
+
+    def bank_branch_code(self, bank_branch_code: str) -> "BankBranchBuilder":
+        self._bank_branch.bank_branch_code = bank_branch_code
+        return self
+
+    def register_place(self, register_place: str) -> "BankBranchBuilder":
+        self._bank_branch.register_place = register_place
+        return self
+
+    def bank_address(self, bank_address: str) -> "BankBranchBuilder":
+        self._bank_branch.bank_address = bank_address
+        return self
+
+    def create_time(self, create_time: str) -> "BankBranchBuilder":
+        self._bank_branch.create_time = create_time
+        return self
+
+    def update_time(self, update_time: str) -> "BankBranchBuilder":
+        self._bank_branch.update_time = update_time
         return self
 
     def build(self) -> "BankBranch":

@@ -14,6 +14,7 @@ from .form_field_variable_department_value import FormFieldVariableDepartmentVal
 from .form_field_variable_file_value import FormFieldVariableFileValue
 from .form_field_variable_i18n_value import FormFieldVariableI18nValue
 from .form_field_variable_object_value import FormFieldVariableObjectValue
+from .form_field_variable_record_value import FormFieldVariableRecordValue
 
 
 class FormFieldVariableListObject(object):
@@ -30,6 +31,7 @@ class FormFieldVariableListObject(object):
         "file_value": FormFieldVariableFileValue,
         "i18n_value": FormFieldVariableI18nValue,
         "object_value": FormFieldVariableObjectValue,
+        "record_value": FormFieldVariableRecordValue,
     }
 
     def __init__(self, d=None):
@@ -45,6 +47,7 @@ class FormFieldVariableListObject(object):
         self.file_value: Optional[FormFieldVariableFileValue] = None
         self.i18n_value: Optional[FormFieldVariableI18nValue] = None
         self.object_value: Optional[FormFieldVariableObjectValue] = None
+        self.record_value: Optional[FormFieldVariableRecordValue] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -104,6 +107,10 @@ class FormFieldVariableListObjectBuilder(object):
 
     def object_value(self, object_value: FormFieldVariableObjectValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.object_value = object_value
+        return self
+
+    def record_value(self, record_value: FormFieldVariableRecordValue) -> "FormFieldVariableListObjectBuilder":
+        self._form_field_variable_list_object.record_value = record_value
         return self
 
     def build(self) -> "FormFieldVariableListObject":

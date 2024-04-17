@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_pre_hire_request import CreatePreHireRequest
 from ..model.create_pre_hire_response import CreatePreHireResponse
+from ..model.search_pre_hire_request import SearchPreHireRequest
+from ..model.search_pre_hire_response import SearchPreHireResponse
 
 
 class PreHire(object):
@@ -50,6 +52,43 @@ class PreHire(object):
 
         # 反序列化
         response: CreatePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePreHireResponse)
+        response.raw = resp
+
+        return response
+
+    def search(self, request: SearchPreHireRequest, option: Optional[RequestOption] = None) -> SearchPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchPreHireResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchPreHireRequest,
+                      option: Optional[RequestOption] = None) -> SearchPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchPreHireResponse)
         response.raw = resp
 
         return response

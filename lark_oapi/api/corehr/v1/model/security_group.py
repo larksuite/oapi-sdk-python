@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .name import Name
 from .name import Name
+from .org_truncation import OrgTruncation
 
 
 class SecurityGroup(object):
@@ -14,6 +15,7 @@ class SecurityGroup(object):
         "active_status": int,
         "description": Name,
         "update_time": str,
+        "org_truncation": List[OrgTruncation],
     }
 
     def __init__(self, d=None):
@@ -23,6 +25,7 @@ class SecurityGroup(object):
         self.active_status: Optional[int] = None
         self.description: Optional[Name] = None
         self.update_time: Optional[str] = None
+        self.org_truncation: Optional[List[OrgTruncation]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -56,6 +59,10 @@ class SecurityGroupBuilder(object):
 
     def update_time(self, update_time: str) -> "SecurityGroupBuilder":
         self._security_group.update_time = update_time
+        return self
+
+    def org_truncation(self, org_truncation: List[OrgTruncation]) -> "SecurityGroupBuilder":
+        self._security_group.org_truncation = org_truncation
         return self
 
     def build(self) -> "SecurityGroup":

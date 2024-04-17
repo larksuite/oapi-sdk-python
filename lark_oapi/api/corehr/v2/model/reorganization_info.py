@@ -10,6 +10,8 @@ from .i18n import I18n
 from .i18n import I18n
 from .cost_center import CostCenter
 from .cost_center import CostCenter
+from .orgdraft_department_id import OrgdraftDepartmentId
+from .orgdraft_department_id import OrgdraftDepartmentId
 from .change_field_pair import ChangeFieldPair
 
 
@@ -33,6 +35,9 @@ class ReorganizationInfo(object):
         "target_staffing_model": bool,
         "original_parent_department_id": str,
         "target_parent_department_id": str,
+        "draft_target_parent_department_id": str,
+        "original_department_id_path": List[OrgdraftDepartmentId],
+        "target_department_id_path": List[OrgdraftDepartmentId],
         "custom_fields": List[ChangeFieldPair],
     }
 
@@ -55,6 +60,9 @@ class ReorganizationInfo(object):
         self.target_staffing_model: Optional[bool] = None
         self.original_parent_department_id: Optional[str] = None
         self.target_parent_department_id: Optional[str] = None
+        self.draft_target_parent_department_id: Optional[str] = None
+        self.original_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
+        self.target_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
         self.custom_fields: Optional[List[ChangeFieldPair]] = None
         init(self, d, self._types)
 
@@ -137,6 +145,20 @@ class ReorganizationInfoBuilder(object):
 
     def target_parent_department_id(self, target_parent_department_id: str) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_parent_department_id = target_parent_department_id
+        return self
+
+    def draft_target_parent_department_id(self, draft_target_parent_department_id: str) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.draft_target_parent_department_id = draft_target_parent_department_id
+        return self
+
+    def original_department_id_path(self, original_department_id_path: List[
+        OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.original_department_id_path = original_department_id_path
+        return self
+
+    def target_department_id_path(self,
+                                  target_department_id_path: List[OrgdraftDepartmentId]) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.target_department_id_path = target_department_id_path
         return self
 
     def custom_fields(self, custom_fields: List[ChangeFieldPair]) -> "ReorganizationInfoBuilder":
