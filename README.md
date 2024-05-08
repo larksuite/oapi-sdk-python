@@ -320,22 +320,38 @@ app = Flask(__name__)
 def do_interactive_card(data: lark.Card) -> Any:
     print(lark.JSON.marshal(data))
     content = {
-        "header": {
-            "title": {
-                "tag": "plain_text",
-                "content": "更新卡片成功"
-            },
-            "template": "green"
+        "toast":{
+            "type":"info",
+            "content":"卡片交互成功",
+            "i18n":{
+                "zh_cn":"卡片交互成功",
+                "en_us":"card action success"
+            }
         },
-        "elements": [
-            {
-                "tag": "div",
-                "text": {
-                    "tag": "lark_md",
-                    "content": "**Success!\n成功啦😄**"
+        "card":{
+            "type":"raw",
+            "data":{
+                "config":{
+                    "enable_forward":True
+                },
+                "elements":[
+                    {
+                        "tag":"div",
+                        "text":{
+                            "content":"This is the plain text",
+                            "tag":"plain_text"
+                        }
+                    }
+                ],
+                "header":{
+                    "template":"blue",
+                    "title":{
+                        "content":"This is the title",
+                        "tag":"plain_text"
+                    }
                 }
-            },
-        ]
+            }
+        }
     }
     return content
 
