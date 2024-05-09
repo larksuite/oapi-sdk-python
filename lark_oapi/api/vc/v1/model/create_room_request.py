@@ -23,7 +23,7 @@ class CreateRoomRequestBuilder(object):
         create_room_request = CreateRoomRequest()
         create_room_request.http_method = HttpMethod.POST
         create_room_request.uri = "/open-apis/vc/v1/rooms"
-        create_room_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_room_request.token_types = {AccessTokenType.TENANT}
         self._create_room_request: CreateRoomRequest = create_room_request
 
     def user_id_type(self, user_id_type: str) -> "CreateRoomRequestBuilder":

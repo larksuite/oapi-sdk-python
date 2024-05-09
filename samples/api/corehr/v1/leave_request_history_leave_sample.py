@@ -33,6 +33,11 @@ def main():
         .leave_term_type(0) \
         .time_zone("Asia/Shanghai") \
         .data_source(1) \
+        .db_update_time_min("2022-10-24 10:00:00") \
+        .db_update_time_max("2022-10-24 10:00:00") \
+        .wd_need_amount_zero_records(False) \
+        .wd_need_denied_and_canceled_record(False) \
+        .wd_paid_type(1) \
         .build()
 
     # 发起请求
@@ -78,6 +83,11 @@ async def amain():
         .leave_term_type(0) \
         .time_zone("Asia/Shanghai") \
         .data_source(1) \
+        .db_update_time_min("2022-10-24 10:00:00") \
+        .db_update_time_max("2022-10-24 10:00:00") \
+        .wd_need_amount_zero_records(False) \
+        .wd_need_denied_and_canceled_record(False) \
+        .wd_paid_type(1) \
         .build()
 
     # 发起请求

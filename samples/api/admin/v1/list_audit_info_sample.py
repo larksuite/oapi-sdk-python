@@ -25,6 +25,8 @@ def main():
         "LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf") \
         .page_size(20) \
         .user_type(0) \
+        .object_type(1) \
+        .object_value("55ed16fe") \
         .build()
 
     # 发起请求
@@ -62,6 +64,8 @@ async def amain():
         "LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf") \
         .page_size(20) \
         .user_type(0) \
+        .object_type(1) \
+        .object_value("55ed16fe") \
         .build()
 
     # 发起请求

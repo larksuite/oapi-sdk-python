@@ -21,7 +21,7 @@ class DeleteRoomRequestBuilder(object):
         delete_room_request = DeleteRoomRequest()
         delete_room_request.http_method = HttpMethod.DELETE
         delete_room_request.uri = "/open-apis/vc/v1/rooms/:room_id"
-        delete_room_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        delete_room_request.token_types = {AccessTokenType.TENANT}
         self._delete_room_request: DeleteRoomRequest = delete_room_request
 
     def room_id(self, room_id: str) -> "DeleteRoomRequestBuilder":

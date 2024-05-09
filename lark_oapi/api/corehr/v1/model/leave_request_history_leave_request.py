@@ -27,6 +27,11 @@ class LeaveRequestHistoryLeaveRequest(BaseRequest):
         self.leave_term_type: Optional[int] = None
         self.time_zone: Optional[str] = None
         self.data_source: Optional[int] = None
+        self.db_update_time_min: Optional[str] = None
+        self.db_update_time_max: Optional[str] = None
+        self.wd_need_amount_zero_records: Optional[bool] = None
+        self.wd_need_denied_and_canceled_record: Optional[bool] = None
+        self.wd_paid_type: Optional[int] = None
 
     @staticmethod
     def builder() -> "LeaveRequestHistoryLeaveRequestBuilder":
@@ -135,6 +140,34 @@ class LeaveRequestHistoryLeaveRequestBuilder(object):
     def data_source(self, data_source: int) -> "LeaveRequestHistoryLeaveRequestBuilder":
         self._leave_request_history_leave_request.data_source = data_source
         self._leave_request_history_leave_request.add_query("data_source", data_source)
+        return self
+
+    def db_update_time_min(self, db_update_time_min: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.db_update_time_min = db_update_time_min
+        self._leave_request_history_leave_request.add_query("db_update_time_min", db_update_time_min)
+        return self
+
+    def db_update_time_max(self, db_update_time_max: str) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.db_update_time_max = db_update_time_max
+        self._leave_request_history_leave_request.add_query("db_update_time_max", db_update_time_max)
+        return self
+
+    def wd_need_amount_zero_records(self,
+                                    wd_need_amount_zero_records: bool) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.wd_need_amount_zero_records = wd_need_amount_zero_records
+        self._leave_request_history_leave_request.add_query("wd_need_amount_zero_records", wd_need_amount_zero_records)
+        return self
+
+    def wd_need_denied_and_canceled_record(self,
+                                           wd_need_denied_and_canceled_record: bool) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.wd_need_denied_and_canceled_record = wd_need_denied_and_canceled_record
+        self._leave_request_history_leave_request.add_query("wd_need_denied_and_canceled_record",
+                                                            wd_need_denied_and_canceled_record)
+        return self
+
+    def wd_paid_type(self, wd_paid_type: int) -> "LeaveRequestHistoryLeaveRequestBuilder":
+        self._leave_request_history_leave_request.wd_paid_type = wd_paid_type
+        self._leave_request_history_leave_request.add_query("wd_paid_type", wd_paid_type)
         return self
 
     def build(self) -> LeaveRequestHistoryLeaveRequest:

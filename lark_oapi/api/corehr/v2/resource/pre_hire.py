@@ -11,6 +11,10 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.create_pre_hire_request import CreatePreHireRequest
 from ..model.create_pre_hire_response import CreatePreHireResponse
+from ..model.delete_pre_hire_request import DeletePreHireRequest
+from ..model.delete_pre_hire_response import DeletePreHireResponse
+from ..model.patch_pre_hire_request import PatchPreHireRequest
+from ..model.patch_pre_hire_response import PatchPreHireResponse
 from ..model.search_pre_hire_request import SearchPreHireRequest
 from ..model.search_pre_hire_response import SearchPreHireResponse
 
@@ -52,6 +56,80 @@ class PreHire(object):
 
         # 反序列化
         response: CreatePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePreHireResponse)
+        response.raw = resp
+
+        return response
+
+    def delete(self, request: DeletePreHireRequest, option: Optional[RequestOption] = None) -> DeletePreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePreHireResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeletePreHireRequest,
+                      option: Optional[RequestOption] = None) -> DeletePreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePreHireResponse)
+        response.raw = resp
+
+        return response
+
+    def patch(self, request: PatchPreHireRequest, option: Optional[RequestOption] = None) -> PatchPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPreHireResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchPreHireRequest,
+                     option: Optional[RequestOption] = None) -> PatchPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PatchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPreHireResponse)
         response.raw = resp
 
         return response

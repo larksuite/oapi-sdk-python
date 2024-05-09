@@ -23,7 +23,7 @@ class GetReserveConfigFormRequestBuilder(object):
         get_reserve_config_form_request = GetReserveConfigFormRequest()
         get_reserve_config_form_request.http_method = HttpMethod.GET
         get_reserve_config_form_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/form"
-        get_reserve_config_form_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_reserve_config_form_request.token_types = {AccessTokenType.TENANT}
         self._get_reserve_config_form_request: GetReserveConfigFormRequest = get_reserve_config_form_request
 
     def scope_type(self, scope_type: int) -> "GetReserveConfigFormRequestBuilder":

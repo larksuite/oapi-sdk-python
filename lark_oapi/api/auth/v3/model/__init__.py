@@ -1,6 +1,7 @@
 from .app_access_token import *
 from .app_ticket import *
 from .department_id import *
+from .revoke_token_event import *
 from .tenant_access_token import *
 from .create_app_access_token_request_body import *
 from .create_app_access_token_request import *

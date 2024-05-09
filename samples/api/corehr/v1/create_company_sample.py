@@ -30,6 +30,8 @@ def main():
                       .currency(Currency.builder().build())
                       .phone(PhoneNumberAndAreaCode.builder().build())
                       .fax(PhoneNumberAndAreaCode.builder().build())
+                      .registered_office_address_info(Address.builder().build())
+                      .office_address_info(Address.builder().build())
                       .build()) \
         .build()
 
@@ -73,6 +75,8 @@ async def amain():
                       .currency(Currency.builder().build())
                       .phone(PhoneNumberAndAreaCode.builder().build())
                       .fax(PhoneNumberAndAreaCode.builder().build())
+                      .registered_office_address_info(Address.builder().build())
+                      .office_address_info(Address.builder().build())
                       .build()) \
         .build()
 

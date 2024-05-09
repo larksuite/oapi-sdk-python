@@ -24,7 +24,7 @@ class PatchReserveConfigRequestBuilder(object):
         patch_reserve_config_request = PatchReserveConfigRequest()
         patch_reserve_config_request.http_method = HttpMethod.PATCH
         patch_reserve_config_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id"
-        patch_reserve_config_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_reserve_config_request.token_types = {AccessTokenType.TENANT}
         self._patch_reserve_config_request: PatchReserveConfigRequest = patch_reserve_config_request
 
     def user_id_type(self, user_id_type: str) -> "PatchReserveConfigRequestBuilder":

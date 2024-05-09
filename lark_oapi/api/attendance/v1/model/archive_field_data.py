@@ -7,13 +7,11 @@ from lark_oapi.core.construct import init
 class ArchiveFieldData(object):
     _types = {
         "code": str,
-        "type": str,
         "value": str,
     }
 
     def __init__(self, d=None):
         self.code: Optional[str] = None
-        self.type: Optional[str] = None
         self.value: Optional[str] = None
         init(self, d, self._types)
 
@@ -28,10 +26,6 @@ class ArchiveFieldDataBuilder(object):
 
     def code(self, code: str) -> "ArchiveFieldDataBuilder":
         self._archive_field_data.code = code
-        return self
-
-    def type(self, type: str) -> "ArchiveFieldDataBuilder":
-        self._archive_field_data.type = type
         return self
 
     def value(self, value: str) -> "ArchiveFieldDataBuilder":

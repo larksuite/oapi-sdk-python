@@ -22,7 +22,7 @@ class GetRoomRequestBuilder(object):
         get_room_request = GetRoomRequest()
         get_room_request.http_method = HttpMethod.GET
         get_room_request.uri = "/open-apis/vc/v1/rooms/:room_id"
-        get_room_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_room_request.token_types = {AccessTokenType.TENANT}
         self._get_room_request: GetRoomRequest = get_room_request
 
     def user_id_type(self, user_id_type: str) -> "GetRoomRequestBuilder":

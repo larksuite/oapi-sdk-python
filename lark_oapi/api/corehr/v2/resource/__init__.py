@@ -27,4 +27,5 @@ from .probation_assessment import *
 from .process import *
 from .process_approver import *
 from .process_cc import *
+from .process_form_variable_data import *
 from .process_node import *

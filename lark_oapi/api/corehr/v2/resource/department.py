@@ -13,6 +13,8 @@ from ..model.batch_get_department_request import BatchGetDepartmentRequest
 from ..model.batch_get_department_response import BatchGetDepartmentResponse
 from ..model.parents_department_request import ParentsDepartmentRequest
 from ..model.parents_department_response import ParentsDepartmentResponse
+from ..model.query_timeline_department_request import QueryTimelineDepartmentRequest
+from ..model.query_timeline_department_response import QueryTimelineDepartmentResponse
 from ..model.search_department_request import SearchDepartmentRequest
 from ..model.search_department_response import SearchDepartmentResponse
 
@@ -93,6 +95,46 @@ class Department(object):
 
         # 反序列化
         response: ParentsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), ParentsDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    def query_timeline(self, request: QueryTimelineDepartmentRequest,
+                       option: Optional[RequestOption] = None) -> QueryTimelineDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   QueryTimelineDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery_timeline(self, request: QueryTimelineDepartmentRequest,
+                              option: Optional[RequestOption] = None) -> QueryTimelineDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   QueryTimelineDepartmentResponse)
         response.raw = resp
 
         return response

@@ -17,6 +17,7 @@ from .department_id import *
 from .diagram import *
 from .divider import *
 from .document import *
+from .document_cover import *
 from .document_display_setting import *
 from .equation import *
 from .file import *
@@ -33,6 +34,7 @@ from .insert_table_row_request import *
 from .isv import *
 from .jira_issue import *
 from .link import *
+from .link_preview import *
 from .mention_doc import *
 from .mention_user import *
 from .merge_table_cells_request import *
@@ -63,6 +65,7 @@ from .undefined import *
 from .undefined_element import *
 from .unmerge_table_cells_request import *
 from .update_block_request import *
+from .update_cover_request import *
 from .update_document_request import *
 from .update_grid_column_width_ratio_request import *
 from .update_table_property_request import *

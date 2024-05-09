@@ -1,5 +1,6 @@
 from .acl_scope import *
 from .acl_scope_event import *
+from .attachment import *
 from .attendee_chat_member import *
 from .book_meeting_room_data import *
 from .calendar import *

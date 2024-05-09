@@ -33,4 +33,5 @@ class V2(object):
         self.process: Process = Process(config)
         self.process_approver: ProcessApprover = ProcessApprover(config)
         self.process_cc: ProcessCc = ProcessCc(config)
+        self.process_form_variable_data: ProcessFormVariableData = ProcessFormVariableData(config)
         self.process_node: ProcessNode = ProcessNode(config)

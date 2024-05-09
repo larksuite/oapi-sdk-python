@@ -22,7 +22,7 @@ class DelRoomLevelRequestBuilder(object):
         del_room_level_request = DelRoomLevelRequest()
         del_room_level_request.http_method = HttpMethod.POST
         del_room_level_request.uri = "/open-apis/vc/v1/room_levels/del"
-        del_room_level_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        del_room_level_request.token_types = {AccessTokenType.TENANT}
         self._del_room_level_request: DelRoomLevelRequest = del_room_level_request
 
     def request_body(self, request_body: DelRoomLevelRequestBody) -> "DelRoomLevelRequestBuilder":

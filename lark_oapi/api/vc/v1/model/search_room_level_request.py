@@ -21,7 +21,7 @@ class SearchRoomLevelRequestBuilder(object):
         search_room_level_request = SearchRoomLevelRequest()
         search_room_level_request.http_method = HttpMethod.GET
         search_room_level_request.uri = "/open-apis/vc/v1/room_levels/search"
-        search_room_level_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        search_room_level_request.token_types = {AccessTokenType.TENANT}
         self._search_room_level_request: SearchRoomLevelRequest = search_room_level_request
 
     def custom_level_ids(self, custom_level_ids: str) -> "SearchRoomLevelRequestBuilder":

@@ -23,7 +23,7 @@ class GetReserveConfigAdminRequestBuilder(object):
         get_reserve_config_admin_request = GetReserveConfigAdminRequest()
         get_reserve_config_admin_request.http_method = HttpMethod.GET
         get_reserve_config_admin_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/admin"
-        get_reserve_config_admin_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        get_reserve_config_admin_request.token_types = {AccessTokenType.TENANT}
         self._get_reserve_config_admin_request: GetReserveConfigAdminRequest = get_reserve_config_admin_request
 
     def scope_type(self, scope_type: int) -> "GetReserveConfigAdminRequestBuilder":

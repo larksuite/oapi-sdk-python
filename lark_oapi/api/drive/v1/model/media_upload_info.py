@@ -8,16 +8,16 @@ class MediaUploadInfo(object):
     _types = {
         "file_name": str,
         "parent_type": str,
-        "parent_node": str,
         "size": int,
+        "parent_node": str,
         "extra": str,
     }
 
     def __init__(self, d=None):
         self.file_name: Optional[str] = None
         self.parent_type: Optional[str] = None
-        self.parent_node: Optional[str] = None
         self.size: Optional[int] = None
+        self.parent_node: Optional[str] = None
         self.extra: Optional[str] = None
         init(self, d, self._types)
 
@@ -38,12 +38,12 @@ class MediaUploadInfoBuilder(object):
         self._media_upload_info.parent_type = parent_type
         return self
 
-    def parent_node(self, parent_node: str) -> "MediaUploadInfoBuilder":
-        self._media_upload_info.parent_node = parent_node
-        return self
-
     def size(self, size: int) -> "MediaUploadInfoBuilder":
         self._media_upload_info.size = size
+        return self
+
+    def parent_node(self, parent_node: str) -> "MediaUploadInfoBuilder":
+        self._media_upload_info.parent_node = parent_node
         return self
 
     def extra(self, extra: str) -> "MediaUploadInfoBuilder":

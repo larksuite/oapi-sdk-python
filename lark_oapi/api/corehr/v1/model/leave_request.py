@@ -36,6 +36,7 @@ class LeaveRequest(object):
         "leave_correct_process_id": List[str],
         "leave_cancel_process_id": List[str],
         "leave_return_process_id": List[str],
+        "wd_paid_type": int,
     }
 
     def __init__(self, d=None):
@@ -66,6 +67,7 @@ class LeaveRequest(object):
         self.leave_correct_process_id: Optional[List[str]] = None
         self.leave_cancel_process_id: Optional[List[str]] = None
         self.leave_return_process_id: Optional[List[str]] = None
+        self.wd_paid_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -183,6 +185,10 @@ class LeaveRequestBuilder(object):
 
     def leave_return_process_id(self, leave_return_process_id: List[str]) -> "LeaveRequestBuilder":
         self._leave_request.leave_return_process_id = leave_return_process_id
+        return self
+
+    def wd_paid_type(self, wd_paid_type: int) -> "LeaveRequestBuilder":
+        self._leave_request.wd_paid_type = wd_paid_type
         return self
 
     def build(self) -> "LeaveRequest":

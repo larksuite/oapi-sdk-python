@@ -23,7 +23,7 @@ class PatchRoomLevelRequestBuilder(object):
         patch_room_level_request = PatchRoomLevelRequest()
         patch_room_level_request.http_method = HttpMethod.PATCH
         patch_room_level_request.uri = "/open-apis/vc/v1/room_levels/:room_level_id"
-        patch_room_level_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_room_level_request.token_types = {AccessTokenType.TENANT}
         self._patch_room_level_request: PatchRoomLevelRequest = patch_room_level_request
 
     def room_level_id(self, room_level_id: str) -> "PatchRoomLevelRequestBuilder":

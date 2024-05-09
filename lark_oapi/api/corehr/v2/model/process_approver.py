@@ -2,7 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .process_form_variable import ProcessFormVariable
+from .process_form_variable_v2 import ProcessFormVariableV2
 
 
 class ProcessApprover(object):
@@ -11,7 +11,7 @@ class ProcessApprover(object):
         "user_id": str,
         "system_approval": bool,
         "reason": str,
-        "field_values": List[ProcessFormVariable],
+        "field_values_v2": List[ProcessFormVariableV2],
     }
 
     def __init__(self, d=None):
@@ -19,7 +19,7 @@ class ProcessApprover(object):
         self.user_id: Optional[str] = None
         self.system_approval: Optional[bool] = None
         self.reason: Optional[str] = None
-        self.field_values: Optional[List[ProcessFormVariable]] = None
+        self.field_values_v2: Optional[List[ProcessFormVariableV2]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -47,8 +47,8 @@ class ProcessApproverBuilder(object):
         self._process_approver.reason = reason
         return self
 
-    def field_values(self, field_values: List[ProcessFormVariable]) -> "ProcessApproverBuilder":
-        self._process_approver.field_values = field_values
+    def field_values_v2(self, field_values_v2: List[ProcessFormVariableV2]) -> "ProcessApproverBuilder":
+        self._process_approver.field_values_v2 = field_values_v2
         return self
 
     def build(self) -> "ProcessApprover":

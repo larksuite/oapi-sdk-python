@@ -15,11 +15,11 @@ def main():
     # 构造请求对象
     request: UploadPrepareMediaRequest = UploadPrepareMediaRequest.builder() \
         .request_body(MediaUploadInfo.builder()
-                      .file_name("123.txt")
-                      .parent_type("doc_image")
-                      .parent_node("fldcnxxxxxx")
+                      .file_name("demo.jpeg")
+                      .parent_type("ccm_import_open")
                       .size(1024)
-                      .extra("test")
+                      .parent_node("2olt0Ts4Mds7j7iqzdwrqEUnO7q")
+                      .extra("")
                       .build()) \
         .build()
 
@@ -48,11 +48,11 @@ async def amain():
     # 构造请求对象
     request: UploadPrepareMediaRequest = UploadPrepareMediaRequest.builder() \
         .request_body(MediaUploadInfo.builder()
-                      .file_name("123.txt")
-                      .parent_type("doc_image")
-                      .parent_node("fldcnxxxxxx")
+                      .file_name("demo.jpeg")
+                      .parent_type("ccm_import_open")
                       .size(1024)
-                      .extra("test")
+                      .parent_node("2olt0Ts4Mds7j7iqzdwrqEUnO7q")
+                      .extra("")
                       .build()) \
         .build()
 

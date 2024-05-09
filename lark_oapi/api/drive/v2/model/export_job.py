@@ -11,7 +11,6 @@ class ExportJob(object):
         "type": str,
         "file_name": str,
         "file_token": str,
-        "file_size": int,
         "job_error_msg": str,
         "job_status": int,
     }
@@ -22,7 +21,6 @@ class ExportJob(object):
         self.type: Optional[str] = None
         self.file_name: Optional[str] = None
         self.file_token: Optional[str] = None
-        self.file_size: Optional[int] = None
         self.job_error_msg: Optional[str] = None
         self.job_status: Optional[int] = None
         init(self, d, self._types)
@@ -54,10 +52,6 @@ class ExportJobBuilder(object):
 
     def file_token(self, file_token: str) -> "ExportJobBuilder":
         self._export_job.file_token = file_token
-        return self
-
-    def file_size(self, file_size: int) -> "ExportJobBuilder":
-        self._export_job.file_size = file_size
         return self
 
     def job_error_msg(self, job_error_msg: str) -> "ExportJobBuilder":

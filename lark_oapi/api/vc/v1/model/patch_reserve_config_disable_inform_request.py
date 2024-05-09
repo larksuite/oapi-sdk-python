@@ -24,7 +24,7 @@ class PatchReserveConfigDisableInformRequestBuilder(object):
         patch_reserve_config_disable_inform_request = PatchReserveConfigDisableInformRequest()
         patch_reserve_config_disable_inform_request.http_method = HttpMethod.PATCH
         patch_reserve_config_disable_inform_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/disable_inform"
-        patch_reserve_config_disable_inform_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_reserve_config_disable_inform_request.token_types = {AccessTokenType.TENANT}
         self._patch_reserve_config_disable_inform_request: PatchReserveConfigDisableInformRequest = patch_reserve_config_disable_inform_request
 
     def user_id_type(self, user_id_type: str) -> "PatchReserveConfigDisableInformRequestBuilder":

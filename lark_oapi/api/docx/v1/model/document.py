@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .document_display_setting import DocumentDisplaySetting
+from .document_cover import DocumentCover
 
 
 class Document(object):
@@ -11,6 +12,7 @@ class Document(object):
         "revision_id": int,
         "title": str,
         "display_setting": DocumentDisplaySetting,
+        "cover": DocumentCover,
     }
 
     def __init__(self, d=None):
@@ -18,6 +20,7 @@ class Document(object):
         self.revision_id: Optional[int] = None
         self.title: Optional[str] = None
         self.display_setting: Optional[DocumentDisplaySetting] = None
+        self.cover: Optional[DocumentCover] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +46,10 @@ class DocumentBuilder(object):
 
     def display_setting(self, display_setting: DocumentDisplaySetting) -> "DocumentBuilder":
         self._document.display_setting = display_setting
+        return self
+
+    def cover(self, cover: DocumentCover) -> "DocumentBuilder":
+        self._document.cover = cover
         return self
 
     def build(self) -> "Document":

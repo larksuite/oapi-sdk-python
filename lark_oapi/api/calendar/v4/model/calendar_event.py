@@ -10,6 +10,7 @@ from .reminder import Reminder
 from .schema import Schema
 from .event_organizer import EventOrganizer
 from .calendar_event_attendee import CalendarEventAttendee
+from .attachment import Attachment
 
 
 class CalendarEvent(object):
@@ -38,6 +39,7 @@ class CalendarEvent(object):
         "app_link": str,
         "attendees": List[CalendarEventAttendee],
         "has_more_attendee": bool,
+        "attachments": List[Attachment],
     }
 
     def __init__(self, d=None):
@@ -65,6 +67,7 @@ class CalendarEvent(object):
         self.app_link: Optional[str] = None
         self.attendees: Optional[List[CalendarEventAttendee]] = None
         self.has_more_attendee: Optional[bool] = None
+        self.attachments: Optional[List[Attachment]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -170,6 +173,10 @@ class CalendarEventBuilder(object):
 
     def has_more_attendee(self, has_more_attendee: bool) -> "CalendarEventBuilder":
         self._calendar_event.has_more_attendee = has_more_attendee
+        return self
+
+    def attachments(self, attachments: List[Attachment]) -> "CalendarEventBuilder":
+        self._calendar_event.attachments = attachments
         return self
 
     def build(self) -> "CalendarEvent":

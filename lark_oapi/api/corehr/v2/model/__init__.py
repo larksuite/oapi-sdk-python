@@ -61,7 +61,17 @@ from .employee_international_assignment import *
 from .employee_job_data import *
 from .employment import *
 from .employment_bp import *
+from .employment_leave_balance import *
 from .enum import *
+from .field_variable_sub_vlaue import *
+from .field_variable_sub_vlaue_for_review import *
+from .field_variable_value import *
+from .field_variable_value_i18n import *
+from .field_variable_value_to import *
+from .field_variable_value_to_enum import *
+from .field_variable_value_to_for_review import *
+from .field_variable_value_to_object import *
+from .field_variable_value_to_record import *
 from .file import *
 from .form_field_variable_bool_value import *
 from .form_field_variable_i18n_value import *
@@ -81,7 +91,15 @@ from .job_change import *
 from .job_data import *
 from .job_data_cost_center import *
 from .job_family import *
+from .job_grade import *
 from .job_level import *
+from .lang_text import *
+from .leave_accrual_record import *
+from .leave_balance import *
+from .leave_employ_expire_record import *
+from .leave_granting_record import *
+from .leave_request import *
+from .leave_request_detail import *
 from .location import *
 from .location_v2 import *
 from .match_rule import *
@@ -94,8 +112,10 @@ from .object_field_data import *
 from .offer_info import *
 from .offer_info_update import *
 from .onboarding_flow import *
+from .onboarding_flow_change import *
 from .onboarding_qr_code import *
 from .onboarding_task import *
+from .onboarding_task_change import *
 from .org_role import *
 from .org_role_update import *
 from .orgdraft_department_id import *
@@ -120,6 +140,7 @@ from .process_abstract_item import *
 from .process_cc_item import *
 from .process_done_item import *
 from .process_form_variable import *
+from .process_form_variable_v2 import *
 from .process_link import *
 from .process_todo_item import *
 from .profile_setting_address import *
@@ -211,6 +232,8 @@ from .batch_get_department_request_body import *
 from .batch_get_department_request import *
 from .parents_department_request_body import *
 from .parents_department_request import *
+from .query_timeline_department_request_body import *
+from .query_timeline_department_request import *
 from .search_department_request_body import *
 from .search_department_request import *
 from .batch_get_employee_request_body import *
@@ -236,6 +259,8 @@ from .batch_get_location_request import *
 from .create_person_request import *
 from .patch_person_request import *
 from .create_pre_hire_request import *
+from .delete_pre_hire_request import *
+from .patch_pre_hire_request import *
 from .search_pre_hire_request_body import *
 from .search_pre_hire_request import *
 from .enable_disable_assessment_probation_request_body import *
@@ -248,6 +273,7 @@ from .delete_probation_assessment_request import *
 from .patch_probation_assessment_request import *
 from .get_process_request import *
 from .list_process_request import *
+from .get_process_form_variable_data_request import *
 from .search_basic_info_bank_response_body import *
 from .search_basic_info_bank_response import *
 from .search_basic_info_bank_branch_response_body import *
@@ -288,6 +314,8 @@ from .batch_get_department_response_body import *
 from .batch_get_department_response import *
 from .parents_department_response_body import *
 from .parents_department_response import *
+from .query_timeline_department_response_body import *
+from .query_timeline_department_response import *
 from .search_department_response_body import *
 from .search_department_response import *
 from .batch_get_employee_response_body import *
@@ -318,6 +346,9 @@ from .patch_person_response_body import *
 from .patch_person_response import *
 from .create_pre_hire_response_body import *
 from .create_pre_hire_response import *
+from .delete_pre_hire_response import *
+from .patch_pre_hire_response_body import *
+from .patch_pre_hire_response import *
 from .search_pre_hire_response_body import *
 from .search_pre_hire_response import *
 from .enable_disable_assessment_probation_response import *
@@ -331,6 +362,8 @@ from .get_process_response_body import *
 from .get_process_response import *
 from .list_process_response_body import *
 from .list_process_response import *
+from .get_process_form_variable_data_response_body import *
+from .get_process_form_variable_data_response import *
 from .p2_corehr_probation_updated_v2 import *
 from .p2_corehr_process_updated_v2 import *
 from .p2_corehr_process_approver_updated_v2 import *

@@ -14,6 +14,7 @@ class ProfileSettingEmploymentBasicInfo(object):
         "seniority_date": str,
         "work_email": str,
         "phone": ProfileSettingPhone,
+        "user_geo": str,
         "custom_fields": List[ProfileSettingCustomField],
     }
 
@@ -24,6 +25,7 @@ class ProfileSettingEmploymentBasicInfo(object):
         self.seniority_date: Optional[str] = None
         self.work_email: Optional[str] = None
         self.phone: Optional[ProfileSettingPhone] = None
+        self.user_geo: Optional[str] = None
         self.custom_fields: Optional[List[ProfileSettingCustomField]] = None
         init(self, d, self._types)
 
@@ -59,6 +61,10 @@ class ProfileSettingEmploymentBasicInfoBuilder(object):
 
     def phone(self, phone: ProfileSettingPhone) -> "ProfileSettingEmploymentBasicInfoBuilder":
         self._profile_setting_employment_basic_info.phone = phone
+        return self
+
+    def user_geo(self, user_geo: str) -> "ProfileSettingEmploymentBasicInfoBuilder":
+        self._profile_setting_employment_basic_info.user_geo = user_geo
         return self
 
     def custom_fields(self,

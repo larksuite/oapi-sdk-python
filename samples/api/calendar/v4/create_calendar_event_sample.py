@@ -32,6 +32,7 @@ def main():
                       .reminders([])
                       .recurrence("FREQ=DAILY;INTERVAL=1")
                       .schemas([])
+                      .attachments([])
                       .build()) \
         .build()
 
@@ -77,6 +78,7 @@ async def amain():
                       .reminders([])
                       .recurrence("FREQ=DAILY;INTERVAL=1")
                       .schemas([])
+                      .attachments([])
                       .build()) \
         .build()
 

@@ -143,6 +143,8 @@ from .work_experience import *
 from .working_hours_type import *
 from .search_assigned_user_request_body import *
 from .search_assigned_user_request import *
+from .convert_common_data_id_request_body import *
+from .convert_common_data_id_request import *
 from .create_company_request import *
 from .delete_company_request import *
 from .get_company_request import *
@@ -243,6 +245,8 @@ from .list_working_hours_type_request import *
 from .patch_working_hours_type_request import *
 from .search_assigned_user_response_body import *
 from .search_assigned_user_response import *
+from .convert_common_data_id_response_body import *
+from .convert_common_data_id_response import *
 from .create_company_response_body import *
 from .create_company_response import *
 from .delete_company_response import *

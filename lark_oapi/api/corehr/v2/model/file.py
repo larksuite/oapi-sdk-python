@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class File(object):
     _types = {
         "id": str,
+        "name": str,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
+        self.name: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +26,10 @@ class FileBuilder(object):
 
     def id(self, id: str) -> "FileBuilder":
         self._file.id = id
+        return self
+
+    def name(self, name: str) -> "FileBuilder":
+        self._file.name = name
         return self
 
     def build(self) -> "File":

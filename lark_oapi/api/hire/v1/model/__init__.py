@@ -103,6 +103,7 @@ from .department import *
 from .department_id import *
 from .di_data import *
 from .di_info import *
+from .dimension_ability import *
 from .dummy import *
 from .eco_account_custom_field import *
 from .eco_account_custom_field_data import *
@@ -161,8 +162,12 @@ from .interview_assessment_dimension_args_score import *
 from .interview_assessment_template import *
 from .interview_assessment_template_args import *
 from .interview_dimension_assessment import *
+from .interview_dimension_option import *
 from .interview_dimension_score import *
 from .interview_extend import *
+from .interview_feedback_form import *
+from .interview_feedback_form_dimension import *
+from .interview_feedback_form_module import *
 from .interview_meeting_room import *
 from .interview_question import *
 from .interview_record import *
@@ -267,6 +272,8 @@ from .resume_source import *
 from .role import *
 from .role_detail import *
 from .salary import *
+from .score_calculation_config import *
+from .score_dimension_config import *
 from .select_option_result import *
 from .sequence import *
 from .site import *

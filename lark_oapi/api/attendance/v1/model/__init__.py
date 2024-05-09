@@ -1,4 +1,5 @@
 from .approval_info import *
+from .archive_field import *
 from .archive_field_data import *
 from .archive_report_data import *
 from .archive_report_meta import *
@@ -16,6 +17,7 @@ from .flexible_rule import *
 from .free_punch_cfg import *
 from .group import *
 from .group_meta import *
+from .i18n_map import *
 from .i18n_names import *
 from .item import *
 from .lang_text import *

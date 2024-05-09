@@ -24,7 +24,7 @@ class PatchReserveConfigFormRequestBuilder(object):
         patch_reserve_config_form_request = PatchReserveConfigFormRequest()
         patch_reserve_config_form_request.http_method = HttpMethod.PATCH
         patch_reserve_config_form_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/form"
-        patch_reserve_config_form_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        patch_reserve_config_form_request.token_types = {AccessTokenType.TENANT}
         self._patch_reserve_config_form_request: PatchReserveConfigFormRequest = patch_reserve_config_form_request
 
     def user_id_type(self, user_id_type: str) -> "PatchReserveConfigFormRequestBuilder":

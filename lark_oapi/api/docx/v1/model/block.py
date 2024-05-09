@@ -50,6 +50,7 @@ from .agenda import Agenda
 from .agenda_item import AgendaItem
 from .agenda_item_title import AgendaItemTitle
 from .agenda_item_content import AgendaItemContent
+from .link_preview import LinkPreview
 
 
 class Block(object):
@@ -107,6 +108,7 @@ class Block(object):
         "agenda_item": AgendaItem,
         "agenda_item_title": AgendaItemTitle,
         "agenda_item_content": AgendaItemContent,
+        "link_preview": LinkPreview,
     }
 
     def __init__(self, d=None):
@@ -163,6 +165,7 @@ class Block(object):
         self.agenda_item: Optional[AgendaItem] = None
         self.agenda_item_title: Optional[AgendaItemTitle] = None
         self.agenda_item_content: Optional[AgendaItemContent] = None
+        self.link_preview: Optional[LinkPreview] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -384,6 +387,10 @@ class BlockBuilder(object):
 
     def agenda_item_content(self, agenda_item_content: AgendaItemContent) -> "BlockBuilder":
         self._block.agenda_item_content = agenda_item_content
+        return self
+
+    def link_preview(self, link_preview: LinkPreview) -> "BlockBuilder":
+        self._block.link_preview = link_preview
         return self
 
     def build(self) -> "Block":

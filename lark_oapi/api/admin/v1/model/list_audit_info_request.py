@@ -18,6 +18,8 @@ class ListAuditInfoRequest(BaseRequest):
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
         self.user_type: Optional[int] = None
+        self.object_type: Optional[int] = None
+        self.object_value: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListAuditInfoRequestBuilder":
@@ -81,6 +83,16 @@ class ListAuditInfoRequestBuilder(object):
     def user_type(self, user_type: int) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.user_type = user_type
         self._list_audit_info_request.add_query("user_type", user_type)
+        return self
+
+    def object_type(self, object_type: int) -> "ListAuditInfoRequestBuilder":
+        self._list_audit_info_request.object_type = object_type
+        self._list_audit_info_request.add_query("object_type", object_type)
+        return self
+
+    def object_value(self, object_value: str) -> "ListAuditInfoRequestBuilder":
+        self._list_audit_info_request.object_value = object_value
+        self._list_audit_info_request.add_query("object_value", object_value)
         return self
 
     def build(self) -> ListAuditInfoRequest:

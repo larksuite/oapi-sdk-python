@@ -24,7 +24,7 @@ class ListRoomRequestBuilder(object):
         list_room_request = ListRoomRequest()
         list_room_request.http_method = HttpMethod.GET
         list_room_request.uri = "/open-apis/vc/v1/rooms"
-        list_room_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_room_request.token_types = {AccessTokenType.TENANT}
         self._list_room_request: ListRoomRequest = list_room_request
 
     def page_size(self, page_size: int) -> "ListRoomRequestBuilder":

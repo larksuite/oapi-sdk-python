@@ -23,7 +23,7 @@ class ListRoomLevelRequestBuilder(object):
         list_room_level_request = ListRoomLevelRequest()
         list_room_level_request.http_method = HttpMethod.GET
         list_room_level_request.uri = "/open-apis/vc/v1/room_levels"
-        list_room_level_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        list_room_level_request.token_types = {AccessTokenType.TENANT}
         self._list_room_level_request: ListRoomLevelRequest = list_room_level_request
 
     def room_level_id(self, room_level_id: str) -> "ListRoomLevelRequestBuilder":
