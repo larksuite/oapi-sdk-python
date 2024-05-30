@@ -12,6 +12,9 @@ class P2CorehrProcessApproverUpdatedV2Data(object):
         "type": int,
         "status": int,
         "biz_type": str,
+        "flow_definition_id": str,
+        "node_definition_id": str,
+        "node_id": str,
     }
 
     def __init__(self, d=None):
@@ -20,6 +23,9 @@ class P2CorehrProcessApproverUpdatedV2Data(object):
         self.type: Optional[int] = None
         self.status: Optional[int] = None
         self.biz_type: Optional[str] = None
+        self.flow_definition_id: Optional[str] = None
+        self.node_definition_id: Optional[str] = None
+        self.node_id: Optional[str] = None
         init(self, d, self._types)
 
 

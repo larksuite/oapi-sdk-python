@@ -22,6 +22,7 @@ from .i18n_names import *
 from .item import *
 from .lang_text import *
 from .late_off_late_on_rule import *
+from .late_off_late_on_setting import *
 from .leave_accrual_record import *
 from .leave_employ_expire_record import *
 from .leave_need_punch_cfg import *
@@ -51,6 +52,7 @@ from .scope_group import *
 from .scope_value import *
 from .shift import *
 from .shift_group_user import *
+from .shift_middle_time_rule import *
 from .statistics_field import *
 from .status_change import *
 from .task_result import *

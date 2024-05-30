@@ -15,6 +15,8 @@ class SignatureFile(object):
         "employment_id": str,
         "signature_file_state": Enum,
         "contract_code": str,
+        "effective_date": str,
+        "template_id": str,
     }
 
     def __init__(self, d=None):
@@ -25,6 +27,8 @@ class SignatureFile(object):
         self.employment_id: Optional[str] = None
         self.signature_file_state: Optional[Enum] = None
         self.contract_code: Optional[str] = None
+        self.effective_date: Optional[str] = None
+        self.template_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,6 +66,14 @@ class SignatureFileBuilder(object):
 
     def contract_code(self, contract_code: str) -> "SignatureFileBuilder":
         self._signature_file.contract_code = contract_code
+        return self
+
+    def effective_date(self, effective_date: str) -> "SignatureFileBuilder":
+        self._signature_file.effective_date = effective_date
+        return self
+
+    def template_id(self, template_id: str) -> "SignatureFileBuilder":
+        self._signature_file.template_id = template_id
         return self
 
     def build(self) -> "SignatureFile":

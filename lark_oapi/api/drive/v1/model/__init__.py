@@ -221,6 +221,7 @@ from .delete_permission_public_password_response import *
 from .update_permission_public_password_response_body import *
 from .update_permission_public_password_response import *
 from .p2_drive_file_bitable_field_changed_v1 import *
+from .p2_drive_file_bitable_record_changed_v1 import *
 from .p2_drive_file_deleted_v1 import *
 from .p2_drive_file_edit_v1 import *
 from .p2_drive_file_permission_member_added_v1 import *

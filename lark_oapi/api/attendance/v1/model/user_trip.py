@@ -12,6 +12,7 @@ class UserTrip(object):
         "reason": str,
         "approve_pass_time": str,
         "approve_apply_time": str,
+        "idempotent_id": str,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class UserTrip(object):
         self.reason: Optional[str] = None
         self.approve_pass_time: Optional[str] = None
         self.approve_apply_time: Optional[str] = None
+        self.idempotent_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +56,10 @@ class UserTripBuilder(object):
 
     def approve_apply_time(self, approve_apply_time: str) -> "UserTripBuilder":
         self._user_trip.approve_apply_time = approve_apply_time
+        return self
+
+    def idempotent_id(self, idempotent_id: str) -> "UserTripBuilder":
+        self._user_trip.idempotent_id = idempotent_id
         return self
 
     def build(self) -> "UserTrip":

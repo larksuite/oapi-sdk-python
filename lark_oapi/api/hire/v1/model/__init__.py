@@ -177,6 +177,7 @@ from .interview_round_type import *
 from .interview_round_type_assessment_template import *
 from .interview_score import *
 from .interview_task import *
+from .interviewer import *
 from .job import *
 from .job_manager import *
 from .job_recruiter import *
@@ -481,6 +482,7 @@ from .get_referral_website_job_post_request import *
 from .list_referral_website_job_post_request import *
 from .list_registration_schema_request import *
 from .list_resume_source_request import *
+from .get_role_request import *
 from .add_to_folder_talent_request_body import *
 from .add_to_folder_talent_request import *
 from .batch_get_id_talent_request_body import *
@@ -617,6 +619,8 @@ from .list_registration_schema_response_body import *
 from .list_registration_schema_response import *
 from .list_resume_source_response_body import *
 from .list_resume_source_response import *
+from .get_role_response_body import *
+from .get_role_response import *
 from .add_to_folder_talent_response_body import *
 from .add_to_folder_talent_response import *
 from .batch_get_id_talent_response_body import *

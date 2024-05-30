@@ -4,6 +4,7 @@ from .resource import *
 class V1(object):
     def __init__(self, config: Config) -> None:
         self.assigned_user: AssignedUser = AssignedUser(config)
+        self.authorization: Authorization = Authorization(config)
         self.common_data_id: CommonDataId = CommonDataId(config)
         self.company: Company = Company(config)
         self.compensation_standard: CompensationStandard = CompensationStandard(config)

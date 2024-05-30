@@ -143,6 +143,8 @@ from .work_experience import *
 from .working_hours_type import *
 from .search_assigned_user_request_body import *
 from .search_assigned_user_request import *
+from .get_by_param_authorization_request import *
+from .query_authorization_request import *
 from .convert_common_data_id_request_body import *
 from .convert_common_data_id_request import *
 from .create_company_request import *
@@ -220,8 +222,10 @@ from .search_offboarding_request_body import *
 from .search_offboarding_request import *
 from .submit_offboarding_request_body import *
 from .submit_offboarding_request import *
+from .create_person_request import *
 from .delete_person_request import *
 from .get_person_request import *
+from .patch_person_request import *
 from .upload_person_request_body import *
 from .upload_person_request import *
 from .delete_pre_hire_request import *
@@ -245,6 +249,10 @@ from .list_working_hours_type_request import *
 from .patch_working_hours_type_request import *
 from .search_assigned_user_response_body import *
 from .search_assigned_user_response import *
+from .get_by_param_authorization_response_body import *
+from .get_by_param_authorization_response import *
+from .query_authorization_response_body import *
+from .query_authorization_response import *
 from .convert_common_data_id_response_body import *
 from .convert_common_data_id_response import *
 from .create_company_response_body import *
@@ -374,9 +382,13 @@ from .search_offboarding_response_body import *
 from .search_offboarding_response import *
 from .submit_offboarding_response_body import *
 from .submit_offboarding_response import *
+from .create_person_response_body import *
+from .create_person_response import *
 from .delete_person_response import *
 from .get_person_response_body import *
 from .get_person_response import *
+from .patch_person_response_body import *
+from .patch_person_response import *
 from .upload_person_response_body import *
 from .upload_person_response import *
 from .delete_pre_hire_response import *

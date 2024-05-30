@@ -1,6 +1,6 @@
 # Info
 PROJECT = "oapi-sdk-python"
-VERSION = "1.2.6"
+VERSION = "1.2.7"
 
 # Domain
 FEISHU_DOMAIN = "https://open.feishu.cn"

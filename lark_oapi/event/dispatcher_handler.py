@@ -538,6 +538,28 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.pre_hire.updated_v1"] = P2CorehrPreHireUpdatedV1Processor(f)
         return self
 
+    def register_p2_corehr_offboarding_checklist_updated_v2(self, f: Callable[
+        [P2CorehrOffboardingChecklistUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.offboarding.checklist_updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.offboarding.checklist_updated_v2")
+        self._processorMap[
+            "p2.corehr.offboarding.checklist_updated_v2"] = P2CorehrOffboardingChecklistUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_offboarding_status_updated_v2(self, f: Callable[
+        [P2CorehrOffboardingStatusUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.offboarding.status_updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.offboarding.status_updated_v2")
+        self._processorMap["p2.corehr.offboarding.status_updated_v2"] = P2CorehrOffboardingStatusUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_offboarding_updated_v2(self, f: Callable[
+        [P2CorehrOffboardingUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.offboarding.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.offboarding.updated_v2")
+        self._processorMap["p2.corehr.offboarding.updated_v2"] = P2CorehrOffboardingUpdatedV2Processor(f)
+        return self
+
     def register_p2_corehr_probation_updated_v2(self, f: Callable[
         [P2CorehrProbationUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.probation.updated_v2" in self._processorMap:
@@ -578,6 +600,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.drive.file.bitable_field_changed_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.drive.file.bitable_field_changed_v1")
         self._processorMap["p2.drive.file.bitable_field_changed_v1"] = P2DriveFileBitableFieldChangedV1Processor(f)
+        return self
+
+    def register_p2_drive_file_bitable_record_changed_v1(self, f: Callable[
+        [P2DriveFileBitableRecordChangedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.drive.file.bitable_record_changed_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.drive.file.bitable_record_changed_v1")
+        self._processorMap["p2.drive.file.bitable_record_changed_v1"] = P2DriveFileBitableRecordChangedV1Processor(f)
         return self
 
     def register_p2_drive_file_deleted_v1(self,

@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
 from .model.p2_drive_file_bitable_field_changed_v1 import P2DriveFileBitableFieldChangedV1
+from .model.p2_drive_file_bitable_record_changed_v1 import P2DriveFileBitableRecordChangedV1
 from .model.p2_drive_file_deleted_v1 import P2DriveFileDeletedV1
 from .model.p2_drive_file_edit_v1 import P2DriveFileEditV1
 from .model.p2_drive_file_permission_member_added_v1 import P2DriveFilePermissionMemberAddedV1
@@ -21,6 +22,17 @@ class P2DriveFileBitableFieldChangedV1Processor(IEventProcessor[P2DriveFileBitab
         return P2DriveFileBitableFieldChangedV1
 
     def do(self, data: P2DriveFileBitableFieldChangedV1) -> None:
+        self.f(data)
+
+
+class P2DriveFileBitableRecordChangedV1Processor(IEventProcessor[P2DriveFileBitableRecordChangedV1]):
+    def __init__(self, f: Callable[[P2DriveFileBitableRecordChangedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2DriveFileBitableRecordChangedV1]:
+        return P2DriveFileBitableRecordChangedV1
+
+    def do(self, data: P2DriveFileBitableRecordChangedV1) -> None:
         self.f(data)
 
 

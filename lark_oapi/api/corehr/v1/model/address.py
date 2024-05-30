@@ -15,8 +15,15 @@ class Address(object):
         "region_id": str,
         "city_id": str,
         "distinct_id": str,
-        "city_id_v2": str,
-        "district_id_v2": str,
+        "address_line1": str,
+        "address_line2": str,
+        "address_line3": str,
+        "address_line4": str,
+        "address_line5": str,
+        "address_line6": str,
+        "address_line7": str,
+        "address_line8": str,
+        "address_line9": str,
         "local_address_line1": str,
         "local_address_line2": str,
         "local_address_line3": str,
@@ -41,8 +48,15 @@ class Address(object):
         self.region_id: Optional[str] = None
         self.city_id: Optional[str] = None
         self.distinct_id: Optional[str] = None
-        self.city_id_v2: Optional[str] = None
-        self.district_id_v2: Optional[str] = None
+        self.address_line1: Optional[str] = None
+        self.address_line2: Optional[str] = None
+        self.address_line3: Optional[str] = None
+        self.address_line4: Optional[str] = None
+        self.address_line5: Optional[str] = None
+        self.address_line6: Optional[str] = None
+        self.address_line7: Optional[str] = None
+        self.address_line8: Optional[str] = None
+        self.address_line9: Optional[str] = None
         self.local_address_line1: Optional[str] = None
         self.local_address_line2: Optional[str] = None
         self.local_address_line3: Optional[str] = None
@@ -96,12 +110,40 @@ class AddressBuilder(object):
         self._address.distinct_id = distinct_id
         return self
 
-    def city_id_v2(self, city_id_v2: str) -> "AddressBuilder":
-        self._address.city_id_v2 = city_id_v2
+    def address_line1(self, address_line1: str) -> "AddressBuilder":
+        self._address.address_line1 = address_line1
         return self
 
-    def district_id_v2(self, district_id_v2: str) -> "AddressBuilder":
-        self._address.district_id_v2 = district_id_v2
+    def address_line2(self, address_line2: str) -> "AddressBuilder":
+        self._address.address_line2 = address_line2
+        return self
+
+    def address_line3(self, address_line3: str) -> "AddressBuilder":
+        self._address.address_line3 = address_line3
+        return self
+
+    def address_line4(self, address_line4: str) -> "AddressBuilder":
+        self._address.address_line4 = address_line4
+        return self
+
+    def address_line5(self, address_line5: str) -> "AddressBuilder":
+        self._address.address_line5 = address_line5
+        return self
+
+    def address_line6(self, address_line6: str) -> "AddressBuilder":
+        self._address.address_line6 = address_line6
+        return self
+
+    def address_line7(self, address_line7: str) -> "AddressBuilder":
+        self._address.address_line7 = address_line7
+        return self
+
+    def address_line8(self, address_line8: str) -> "AddressBuilder":
+        self._address.address_line8 = address_line8
+        return self
+
+    def address_line9(self, address_line9: str) -> "AddressBuilder":
+        self._address.address_line9 = address_line9
         return self
 
     def local_address_line1(self, local_address_line1: str) -> "AddressBuilder":

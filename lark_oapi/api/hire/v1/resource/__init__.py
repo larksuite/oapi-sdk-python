@@ -32,6 +32,7 @@ from .referral_account import *
 from .referral_website_job_post import *
 from .registration_schema import *
 from .resume_source import *
+from .role import *
 from .talent import *
 from .talent_folder import *
 from .talent_object import *

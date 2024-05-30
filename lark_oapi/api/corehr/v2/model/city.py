@@ -11,6 +11,7 @@ class City(object):
         "name": List[I18n],
         "country_region_subdivision_id": str,
         "code": str,
+        "subregion_code": str,
         "status": int,
     }
 
@@ -19,6 +20,7 @@ class City(object):
         self.name: Optional[List[I18n]] = None
         self.country_region_subdivision_id: Optional[str] = None
         self.code: Optional[str] = None
+        self.subregion_code: Optional[str] = None
         self.status: Optional[int] = None
         init(self, d, self._types)
 
@@ -45,6 +47,10 @@ class CityBuilder(object):
 
     def code(self, code: str) -> "CityBuilder":
         self._city.code = code
+        return self
+
+    def subregion_code(self, subregion_code: str) -> "CityBuilder":
+        self._city.subregion_code = subregion_code
         return self
 
     def status(self, status: int) -> "CityBuilder":

@@ -8,6 +8,8 @@ from .late_off_late_on_rule import LateOffLateOnRule
 from .rest_rule import RestRule
 from .overtime_rule import OvertimeRule
 from .rest_rule import RestRule
+from .shift_middle_time_rule import ShiftMiddleTimeRule
+from .late_off_late_on_setting import LateOffLateOnSetting
 
 
 class Shift(object):
@@ -26,6 +28,9 @@ class Shift(object):
         "overtime_rule": List[OvertimeRule],
         "day_type": int,
         "overtime_rest_time_rule": List[RestRule],
+        "late_minutes_as_serious_late": int,
+        "shift_middle_time_rule": ShiftMiddleTimeRule,
+        "late_off_late_on_setting": LateOffLateOnSetting,
     }
 
     def __init__(self, d=None):
@@ -43,6 +48,9 @@ class Shift(object):
         self.overtime_rule: Optional[List[OvertimeRule]] = None
         self.day_type: Optional[int] = None
         self.overtime_rest_time_rule: Optional[List[RestRule]] = None
+        self.late_minutes_as_serious_late: Optional[int] = None
+        self.shift_middle_time_rule: Optional[ShiftMiddleTimeRule] = None
+        self.late_off_late_on_setting: Optional[LateOffLateOnSetting] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -108,6 +116,18 @@ class ShiftBuilder(object):
 
     def overtime_rest_time_rule(self, overtime_rest_time_rule: List[RestRule]) -> "ShiftBuilder":
         self._shift.overtime_rest_time_rule = overtime_rest_time_rule
+        return self
+
+    def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "ShiftBuilder":
+        self._shift.late_minutes_as_serious_late = late_minutes_as_serious_late
+        return self
+
+    def shift_middle_time_rule(self, shift_middle_time_rule: ShiftMiddleTimeRule) -> "ShiftBuilder":
+        self._shift.shift_middle_time_rule = shift_middle_time_rule
+        return self
+
+    def late_off_late_on_setting(self, late_off_late_on_setting: LateOffLateOnSetting) -> "ShiftBuilder":
+        self._shift.late_off_late_on_setting = late_off_late_on_setting
         return self
 
     def build(self) -> "Shift":

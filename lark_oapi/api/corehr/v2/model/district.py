@@ -10,6 +10,7 @@ class District(object):
         "district_id": str,
         "name": List[I18n],
         "city_id": str,
+        "subregion_code": str,
         "status": int,
     }
 
@@ -17,6 +18,7 @@ class District(object):
         self.district_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.city_id: Optional[str] = None
+        self.subregion_code: Optional[str] = None
         self.status: Optional[int] = None
         init(self, d, self._types)
 
@@ -39,6 +41,10 @@ class DistrictBuilder(object):
 
     def city_id(self, city_id: str) -> "DistrictBuilder":
         self._district.city_id = city_id
+        return self
+
+    def subregion_code(self, subregion_code: str) -> "DistrictBuilder":
+        self._district.subregion_code = subregion_code
         return self
 
     def status(self, status: int) -> "DistrictBuilder":

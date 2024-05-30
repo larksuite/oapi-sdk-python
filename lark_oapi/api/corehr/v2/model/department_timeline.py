@@ -4,11 +4,13 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
 from .i18n import I18n
+from .custom_field_data import CustomFieldData
 
 
 class DepartmentTimeline(object):
     _types = {
         "id": str,
+        "version_id": str,
         "names": List[I18n],
         "parent_department_id": str,
         "manager": str,
@@ -16,10 +18,12 @@ class DepartmentTimeline(object):
         "effective_date": str,
         "active": bool,
         "descriptions": List[I18n],
+        "custom_fields": List[CustomFieldData],
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
+        self.version_id: Optional[str] = None
         self.names: Optional[List[I18n]] = None
         self.parent_department_id: Optional[str] = None
         self.manager: Optional[str] = None
@@ -27,6 +31,7 @@ class DepartmentTimeline(object):
         self.effective_date: Optional[str] = None
         self.active: Optional[bool] = None
         self.descriptions: Optional[List[I18n]] = None
+        self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,6 +45,10 @@ class DepartmentTimelineBuilder(object):
 
     def id(self, id: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.id = id
+        return self
+
+    def version_id(self, version_id: str) -> "DepartmentTimelineBuilder":
+        self._department_timeline.version_id = version_id
         return self
 
     def names(self, names: List[I18n]) -> "DepartmentTimelineBuilder":
@@ -68,6 +77,10 @@ class DepartmentTimelineBuilder(object):
 
     def descriptions(self, descriptions: List[I18n]) -> "DepartmentTimelineBuilder":
         self._department_timeline.descriptions = descriptions
+        return self
+
+    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "DepartmentTimelineBuilder":
+        self._department_timeline.custom_fields = custom_fields
         return self
 
     def build(self) -> "DepartmentTimeline":

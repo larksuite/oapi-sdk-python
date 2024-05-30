@@ -26,8 +26,11 @@ def main():
                       .late_off_late_on_rule([])
                       .rest_time_rule([])
                       .overtime_rule([])
-                      .day_type(60)
+                      .day_type(1)
                       .overtime_rest_time_rule([])
+                      .late_minutes_as_serious_late(40)
+                      .shift_middle_time_rule(ShiftMiddleTimeRule.builder().build())
+                      .late_off_late_on_setting(LateOffLateOnSetting.builder().build())
                       .build()) \
         .build()
 
@@ -67,8 +70,11 @@ async def amain():
                       .late_off_late_on_rule([])
                       .rest_time_rule([])
                       .overtime_rule([])
-                      .day_type(60)
+                      .day_type(1)
                       .overtime_rest_time_rule([])
+                      .late_minutes_as_serious_late(40)
+                      .shift_middle_time_rule(ShiftMiddleTimeRule.builder().build())
+                      .late_off_late_on_setting(LateOffLateOnSetting.builder().build())
                       .build()) \
         .build()
 

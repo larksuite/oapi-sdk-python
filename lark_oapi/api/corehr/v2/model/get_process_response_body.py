@@ -29,6 +29,7 @@ class GetProcessResponseBody(object):
         "todos": List[ProcessTodoItem],
         "cc_list": List[ProcessCcItem],
         "done_list": List[ProcessDoneItem],
+        "properties": int,
     }
 
     def __init__(self, d=None):
@@ -47,6 +48,7 @@ class GetProcessResponseBody(object):
         self.todos: Optional[List[ProcessTodoItem]] = None
         self.cc_list: Optional[List[ProcessCcItem]] = None
         self.done_list: Optional[List[ProcessDoneItem]] = None
+        self.properties: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -116,6 +118,10 @@ class GetProcessResponseBodyBuilder(object):
 
     def done_list(self, done_list: List[ProcessDoneItem]) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.done_list = done_list
+        return self
+
+    def properties(self, properties: int) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.properties = properties
         return self
 
     def build(self) -> "GetProcessResponseBody":

@@ -15,8 +15,8 @@ def main():
     # 构造请求对象
     request: GetProcessFormVariableDataRequest = GetProcessFormVariableDataRequest.builder() \
         .process_id("7341373094948242956") \
-        .user_id_type("open_id") \
-        .department_id_type("open_department_id") \
+        .user_id_type("people_corehr_id") \
+        .department_id_type("people_corehr_department_id") \
         .build()
 
     # 发起请求
@@ -44,8 +44,8 @@ async def amain():
     # 构造请求对象
     request: GetProcessFormVariableDataRequest = GetProcessFormVariableDataRequest.builder() \
         .process_id("7341373094948242956") \
-        .user_id_type("open_id") \
-        .department_id_type("open_department_id") \
+        .user_id_type("people_corehr_id") \
+        .department_id_type("people_corehr_department_id") \
         .build()
 
     # 发起请求

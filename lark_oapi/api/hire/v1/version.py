@@ -38,6 +38,7 @@ class V1(object):
         self.referral_website_job_post: ReferralWebsiteJobPost = ReferralWebsiteJobPost(config)
         self.registration_schema: RegistrationSchema = RegistrationSchema(config)
         self.resume_source: ResumeSource = ResumeSource(config)
+        self.role: Role = Role(config)
         self.talent: Talent = Talent(config)
         self.talent_folder: TalentFolder = TalentFolder(config)
         self.talent_object: TalentObject = TalentObject(config)

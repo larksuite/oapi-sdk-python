@@ -15,6 +15,8 @@ class PunchTimeRule(object):
         "early_minutes_as_lack": int,
         "off_delay_minutes": int,
         "late_minutes_as_serious_late": int,
+        "no_need_on": bool,
+        "no_need_off": bool,
     }
 
     def __init__(self, d=None):
@@ -27,6 +29,8 @@ class PunchTimeRule(object):
         self.early_minutes_as_lack: Optional[int] = None
         self.off_delay_minutes: Optional[int] = None
         self.late_minutes_as_serious_late: Optional[int] = None
+        self.no_need_on: Optional[bool] = None
+        self.no_need_off: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -72,6 +76,14 @@ class PunchTimeRuleBuilder(object):
 
     def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "PunchTimeRuleBuilder":
         self._punch_time_rule.late_minutes_as_serious_late = late_minutes_as_serious_late
+        return self
+
+    def no_need_on(self, no_need_on: bool) -> "PunchTimeRuleBuilder":
+        self._punch_time_rule.no_need_on = no_need_on
+        return self
+
+    def no_need_off(self, no_need_off: bool) -> "PunchTimeRuleBuilder":
+        self._punch_time_rule.no_need_off = no_need_off
         return self
 
     def build(self) -> "PunchTimeRule":

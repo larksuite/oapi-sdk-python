@@ -1,4 +1,5 @@
 from .assigned_user import *
+from .authorization import *
 from .common_data_id import *
 from .company import *
 from .compensation_standard import *

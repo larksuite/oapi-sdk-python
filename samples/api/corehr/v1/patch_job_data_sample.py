@@ -19,6 +19,7 @@ def main():
         .user_id_type("people_corehr_id") \
         .department_id_type("people_corehr_department_id") \
         .request_body(JobData.builder()
+                      .version_id("6890452208593372697")
                       .job_level_id("6890452208593372679")
                       .job_grade_id("6890452208593372679")
                       .employee_type_id("6890452208593372679")
@@ -74,6 +75,7 @@ async def amain():
         .user_id_type("people_corehr_id") \
         .department_id_type("people_corehr_department_id") \
         .request_body(JobData.builder()
+                      .version_id("6890452208593372697")
                       .job_level_id("6890452208593372679")
                       .job_grade_id("6890452208593372679")
                       .employee_type_id("6890452208593372679")

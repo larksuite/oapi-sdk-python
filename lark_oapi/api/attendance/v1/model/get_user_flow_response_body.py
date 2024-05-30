@@ -21,6 +21,7 @@ class GetUserFlowResponseBody(object):
         "device_id": str,
         "check_result": str,
         "external_id": str,
+        "idempotent_id": str,
     }
 
     def __init__(self, d=None):
@@ -39,6 +40,7 @@ class GetUserFlowResponseBody(object):
         self.device_id: Optional[str] = None
         self.check_result: Optional[str] = None
         self.external_id: Optional[str] = None
+        self.idempotent_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -108,6 +110,10 @@ class GetUserFlowResponseBodyBuilder(object):
 
     def external_id(self, external_id: str) -> "GetUserFlowResponseBodyBuilder":
         self._get_user_flow_response_body.external_id = external_id
+        return self
+
+    def idempotent_id(self, idempotent_id: str) -> "GetUserFlowResponseBodyBuilder":
+        self._get_user_flow_response_body.idempotent_id = idempotent_id
         return self
 
     def build(self) -> "GetUserFlowResponseBody":

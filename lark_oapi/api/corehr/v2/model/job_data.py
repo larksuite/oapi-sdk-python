@@ -41,6 +41,7 @@ class JobData(object):
         "work_shift": Enum,
         "compensation_type": Enum,
         "service_company": str,
+        "created_at": str,
     }
 
     def __init__(self, d=None):
@@ -70,6 +71,7 @@ class JobData(object):
         self.work_shift: Optional[Enum] = None
         self.compensation_type: Optional[Enum] = None
         self.service_company: Optional[str] = None
+        self.created_at: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -183,6 +185,10 @@ class JobDataBuilder(object):
 
     def service_company(self, service_company: str) -> "JobDataBuilder":
         self._job_data.service_company = service_company
+        return self
+
+    def created_at(self, created_at: str) -> "JobDataBuilder":
+        self._job_data.created_at = created_at
         return self
 
     def build(self) -> "JobData":
