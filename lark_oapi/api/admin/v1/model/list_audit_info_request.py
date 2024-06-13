@@ -20,6 +20,7 @@ class ListAuditInfoRequest(BaseRequest):
         self.user_type: Optional[int] = None
         self.object_type: Optional[int] = None
         self.object_value: Optional[str] = None
+        self.ext_filter_object_by_ccm_token: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListAuditInfoRequestBuilder":
@@ -93,6 +94,11 @@ class ListAuditInfoRequestBuilder(object):
     def object_value(self, object_value: str) -> "ListAuditInfoRequestBuilder":
         self._list_audit_info_request.object_value = object_value
         self._list_audit_info_request.add_query("object_value", object_value)
+        return self
+
+    def ext_filter_object_by_ccm_token(self, ext_filter_object_by_ccm_token: str) -> "ListAuditInfoRequestBuilder":
+        self._list_audit_info_request.ext_filter_object_by_ccm_token = ext_filter_object_by_ccm_token
+        self._list_audit_info_request.add_query("ext_filter_object_by_ccm_token", ext_filter_object_by_ccm_token)
         return self
 
     def build(self) -> ListAuditInfoRequest:

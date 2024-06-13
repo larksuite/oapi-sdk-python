@@ -25,7 +25,6 @@ class CreateChatRequestBody(object):
         "urgent_setting": str,
         "video_conference_setting": str,
         "edit_permission": str,
-        "pin_manage_setting": str,
         "hide_member_count_setting": str,
     }
 
@@ -47,7 +46,6 @@ class CreateChatRequestBody(object):
         self.urgent_setting: Optional[str] = None
         self.video_conference_setting: Optional[str] = None
         self.edit_permission: Optional[str] = None
-        self.pin_manage_setting: Optional[str] = None
         self.hide_member_count_setting: Optional[str] = None
         init(self, d, self._types)
 
@@ -126,10 +124,6 @@ class CreateChatRequestBodyBuilder(object):
 
     def edit_permission(self, edit_permission: str) -> "CreateChatRequestBodyBuilder":
         self._create_chat_request_body.edit_permission = edit_permission
-        return self
-
-    def pin_manage_setting(self, pin_manage_setting: str) -> "CreateChatRequestBodyBuilder":
-        self._create_chat_request_body.pin_manage_setting = pin_manage_setting
         return self
 
     def hide_member_count_setting(self, hide_member_count_setting: str) -> "CreateChatRequestBodyBuilder":

@@ -35,7 +35,6 @@ def main():
                       .urgent_setting("all_members")
                       .video_conference_setting("all_members")
                       .edit_permission("all_members")
-                      .pin_manage_setting("all_members")
                       .hide_member_count_setting("all_members")
                       .build()) \
         .build()
@@ -85,7 +84,6 @@ async def amain():
                       .urgent_setting("all_members")
                       .video_conference_setting("all_members")
                       .edit_permission("all_members")
-                      .pin_manage_setting("all_members")
                       .hide_member_count_setting("all_members")
                       .build()) \
         .build()

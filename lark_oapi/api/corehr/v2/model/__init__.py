@@ -116,6 +116,10 @@ from .onboarding_flow_change import *
 from .onboarding_qr_code import *
 from .onboarding_task import *
 from .onboarding_task_change import *
+from .operation_log_entity import *
+from .operation_log_entity_field import *
+from .operation_log_list_req import *
+from .operation_log_list_resp_item import *
 from .org_role import *
 from .org_role_update import *
 from .orgdraft_department_id import *
@@ -272,6 +276,8 @@ from .search_department_request_body import *
 from .search_department_request import *
 from .batch_get_employee_request_body import *
 from .batch_get_employee_request import *
+from .create_employee_request_body import *
+from .create_employee_request import *
 from .search_employee_request_body import *
 from .search_employee_request import *
 from .batch_get_employees_bp_request_body import *
@@ -358,6 +364,8 @@ from .search_department_response_body import *
 from .search_department_response import *
 from .batch_get_employee_response_body import *
 from .batch_get_employee_response import *
+from .create_employee_response_body import *
+from .create_employee_response import *
 from .search_employee_response_body import *
 from .search_employee_response import *
 from .batch_get_employees_bp_response_body import *
@@ -404,6 +412,7 @@ from .list_process_response_body import *
 from .list_process_response import *
 from .get_process_form_variable_data_response_body import *
 from .get_process_form_variable_data_response import *
+from .p2_corehr_job_change_updated_v2 import *
 from .p2_corehr_offboarding_checklist_updated_v2 import *
 from .p2_corehr_offboarding_status_updated_v2 import *
 from .p2_corehr_offboarding_updated_v2 import *

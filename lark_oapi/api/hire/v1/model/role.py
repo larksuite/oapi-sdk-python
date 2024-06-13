@@ -12,6 +12,9 @@ class Role(object):
         "name": I18n,
         "description": I18n,
         "scope_of_application": int,
+        "modify_time": str,
+        "role_status": int,
+        "role_type": int,
     }
 
     def __init__(self, d=None):
@@ -19,6 +22,9 @@ class Role(object):
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
         self.scope_of_application: Optional[int] = None
+        self.modify_time: Optional[str] = None
+        self.role_status: Optional[int] = None
+        self.role_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -44,6 +50,18 @@ class RoleBuilder(object):
 
     def scope_of_application(self, scope_of_application: int) -> "RoleBuilder":
         self._role.scope_of_application = scope_of_application
+        return self
+
+    def modify_time(self, modify_time: str) -> "RoleBuilder":
+        self._role.modify_time = modify_time
+        return self
+
+    def role_status(self, role_status: int) -> "RoleBuilder":
+        self._role.role_status = role_status
+        return self
+
+    def role_type(self, role_type: int) -> "RoleBuilder":
+        self._role.role_type = role_type
         return self
 
     def build(self) -> "Role":

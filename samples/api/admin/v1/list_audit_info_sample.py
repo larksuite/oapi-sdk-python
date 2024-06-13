@@ -27,6 +27,7 @@ def main():
         .user_type(0) \
         .object_type(1) \
         .object_value("55ed16fe") \
+        .ext_filter_object_by_ccm_token("55ed16fe") \
         .build()
 
     # 发起请求
@@ -66,6 +67,7 @@ async def amain():
         .user_type(0) \
         .object_type(1) \
         .object_value("55ed16fe") \
+        .ext_filter_object_by_ccm_token("55ed16fe") \
         .build()
 
     # 发起请求

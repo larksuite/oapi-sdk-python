@@ -17,6 +17,7 @@ from .department_id import *
 from .diagram import *
 from .divider import *
 from .document import *
+from .document_author import *
 from .document_cover import *
 from .document_display_setting import *
 from .equation import *

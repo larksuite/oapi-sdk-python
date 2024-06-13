@@ -6,6 +6,8 @@ from .enum import Enum
 from .object_field_data import ObjectFieldData
 from .enum import Enum
 from .enum import Enum
+from .enum import Enum
+from .enum import Enum
 
 
 class Contract(object):
@@ -22,6 +24,9 @@ class Contract(object):
         "contract_end_date": str,
         "contract_number": str,
         "signing_type": Enum,
+        "contract_status": Enum,
+        "renewal_status": Enum,
+        "signing_times": int,
     }
 
     def __init__(self, d=None):
@@ -37,6 +42,9 @@ class Contract(object):
         self.contract_end_date: Optional[str] = None
         self.contract_number: Optional[str] = None
         self.signing_type: Optional[Enum] = None
+        self.contract_status: Optional[Enum] = None
+        self.renewal_status: Optional[Enum] = None
+        self.signing_times: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -94,6 +102,18 @@ class ContractBuilder(object):
 
     def signing_type(self, signing_type: Enum) -> "ContractBuilder":
         self._contract.signing_type = signing_type
+        return self
+
+    def contract_status(self, contract_status: Enum) -> "ContractBuilder":
+        self._contract.contract_status = contract_status
+        return self
+
+    def renewal_status(self, renewal_status: Enum) -> "ContractBuilder":
+        self._contract.renewal_status = renewal_status
+        return self
+
+    def signing_times(self, signing_times: int) -> "ContractBuilder":
+        self._contract.signing_times = signing_times
         return self
 
     def build(self) -> "Contract":

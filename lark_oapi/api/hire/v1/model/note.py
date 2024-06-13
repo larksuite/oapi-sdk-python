@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .mention_entity import MentionEntity
 
 
 class Note(object):
@@ -15,6 +16,8 @@ class Note(object):
         "creator_id": str,
         "content": str,
         "privacy": int,
+        "notify_mentioned_user": bool,
+        "mention_entity_list": List[MentionEntity],
     }
 
     def __init__(self, d=None):
@@ -27,6 +30,8 @@ class Note(object):
         self.creator_id: Optional[str] = None
         self.content: Optional[str] = None
         self.privacy: Optional[int] = None
+        self.notify_mentioned_user: Optional[bool] = None
+        self.mention_entity_list: Optional[List[MentionEntity]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -72,6 +77,14 @@ class NoteBuilder(object):
 
     def privacy(self, privacy: int) -> "NoteBuilder":
         self._note.privacy = privacy
+        return self
+
+    def notify_mentioned_user(self, notify_mentioned_user: bool) -> "NoteBuilder":
+        self._note.notify_mentioned_user = notify_mentioned_user
+        return self
+
+    def mention_entity_list(self, mention_entity_list: List[MentionEntity]) -> "NoteBuilder":
+        self._note.mention_entity_list = mention_entity_list
         return self
 
     def build(self) -> "Note":

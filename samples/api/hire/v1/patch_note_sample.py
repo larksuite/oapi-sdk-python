@@ -18,6 +18,9 @@ def main():
         .user_id_type("open_id") \
         .request_body(PatchNoteRequestBody.builder()
                       .content("111")
+                      .operator_id("ou_f476cb099ac9227c9bae09ce46112579")
+                      .notify_mentioned_user(False)
+                      .mention_entity_list([])
                       .build()) \
         .build()
 
@@ -49,6 +52,9 @@ async def amain():
         .user_id_type("open_id") \
         .request_body(PatchNoteRequestBody.builder()
                       .content("111")
+                      .operator_id("ou_f476cb099ac9227c9bae09ce46112579")
+                      .notify_mentioned_user(False)
+                      .mention_entity_list([])
                       .build()) \
         .build()
 

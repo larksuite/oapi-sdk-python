@@ -21,6 +21,8 @@ def main():
                       .creator_id("ou_f476cb099ac9227c9bae09ce46112579")
                       .content("测试5")
                       .privacy(1)
+                      .notify_mentioned_user(False)
+                      .mention_entity_list([])
                       .build()) \
         .build()
 
@@ -55,6 +57,8 @@ async def amain():
                       .creator_id("ou_f476cb099ac9227c9bae09ce46112579")
                       .content("测试5")
                       .privacy(1)
+                      .notify_mentioned_user(False)
+                      .mention_entity_list([])
                       .build()) \
         .build()
 

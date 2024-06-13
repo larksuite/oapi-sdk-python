@@ -219,6 +219,7 @@ from .location import *
 from .location_base_info import *
 from .master_location_address_info import *
 from .master_location_info import *
+from .mention_entity import *
 from .mobile import *
 from .nationality import *
 from .note import *

@@ -538,6 +538,13 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.pre_hire.updated_v1"] = P2CorehrPreHireUpdatedV1Processor(f)
         return self
 
+    def register_p2_corehr_job_change_updated_v2(self, f: Callable[
+        [P2CorehrJobChangeUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_change.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_change.updated_v2")
+        self._processorMap["p2.corehr.job_change.updated_v2"] = P2CorehrJobChangeUpdatedV2Processor(f)
+        return self
+
     def register_p2_corehr_offboarding_checklist_updated_v2(self, f: Callable[
         [P2CorehrOffboardingChecklistUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.offboarding.checklist_updated_v2" in self._processorMap:

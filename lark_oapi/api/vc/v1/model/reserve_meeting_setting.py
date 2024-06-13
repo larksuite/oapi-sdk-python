@@ -12,6 +12,7 @@ class ReserveMeetingSetting(object):
         "topic": str,
         "action_permissions": List[ReserveActionPermission],
         "meeting_initial_type": int,
+        "meeting_connect": bool,
         "call_setting": ReserveCallSetting,
         "auto_record": bool,
         "assign_host_list": List[ReserveAssignHost],
@@ -22,6 +23,7 @@ class ReserveMeetingSetting(object):
         self.topic: Optional[str] = None
         self.action_permissions: Optional[List[ReserveActionPermission]] = None
         self.meeting_initial_type: Optional[int] = None
+        self.meeting_connect: Optional[bool] = None
         self.call_setting: Optional[ReserveCallSetting] = None
         self.auto_record: Optional[bool] = None
         self.assign_host_list: Optional[List[ReserveAssignHost]] = None
@@ -47,6 +49,10 @@ class ReserveMeetingSettingBuilder(object):
 
     def meeting_initial_type(self, meeting_initial_type: int) -> "ReserveMeetingSettingBuilder":
         self._reserve_meeting_setting.meeting_initial_type = meeting_initial_type
+        return self
+
+    def meeting_connect(self, meeting_connect: bool) -> "ReserveMeetingSettingBuilder":
+        self._reserve_meeting_setting.meeting_connect = meeting_connect
         return self
 
     def call_setting(self, call_setting: ReserveCallSetting) -> "ReserveMeetingSettingBuilder":

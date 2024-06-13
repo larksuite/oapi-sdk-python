@@ -105,6 +105,10 @@ from .offboarding_checklist import *
 from .offboarding_data import *
 from .offboarding_info import *
 from .offboarding_reason import *
+from .operation_log_entity import *
+from .operation_log_entity_field import *
+from .operation_log_list_req import *
+from .operation_log_list_resp_item import *
 from .org_truncation import *
 from .permission_detail import *
 from .permission_security_group import *

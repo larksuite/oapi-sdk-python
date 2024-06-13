@@ -44,6 +44,10 @@ class AdminDeptStat(object):
         "email_receive_ext_count": int,
         "email_send_in_count": int,
         "email_receive_in_count": int,
+        "search_active_dau": int,
+        "total_search_count": int,
+        "quick_search_count": int,
+        "tab_search_count": int,
     }
 
     def __init__(self, d=None):
@@ -85,6 +89,10 @@ class AdminDeptStat(object):
         self.email_receive_ext_count: Optional[int] = None
         self.email_send_in_count: Optional[int] = None
         self.email_receive_in_count: Optional[int] = None
+        self.search_active_dau: Optional[int] = None
+        self.total_search_count: Optional[int] = None
+        self.quick_search_count: Optional[int] = None
+        self.tab_search_count: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -246,6 +254,22 @@ class AdminDeptStatBuilder(object):
 
     def email_receive_in_count(self, email_receive_in_count: int) -> "AdminDeptStatBuilder":
         self._admin_dept_stat.email_receive_in_count = email_receive_in_count
+        return self
+
+    def search_active_dau(self, search_active_dau: int) -> "AdminDeptStatBuilder":
+        self._admin_dept_stat.search_active_dau = search_active_dau
+        return self
+
+    def total_search_count(self, total_search_count: int) -> "AdminDeptStatBuilder":
+        self._admin_dept_stat.total_search_count = total_search_count
+        return self
+
+    def quick_search_count(self, quick_search_count: int) -> "AdminDeptStatBuilder":
+        self._admin_dept_stat.quick_search_count = quick_search_count
+        return self
+
+    def tab_search_count(self, tab_search_count: int) -> "AdminDeptStatBuilder":
+        self._admin_dept_stat.tab_search_count = tab_search_count
         return self
 
     def build(self) -> "AdminDeptStat":

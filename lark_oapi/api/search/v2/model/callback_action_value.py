@@ -10,6 +10,7 @@ class CallbackActionValue(object):
         "agent_id": str,
         "agent_type": int,
         "response_type": int,
+        "session_id": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class CallbackActionValue(object):
         self.agent_id: Optional[str] = None
         self.agent_type: Optional[int] = None
         self.response_type: Optional[int] = None
+        self.session_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class CallbackActionValueBuilder(object):
 
     def response_type(self, response_type: int) -> "CallbackActionValueBuilder":
         self._callback_action_value.response_type = response_type
+        return self
+
+    def session_id(self, session_id: str) -> "CallbackActionValueBuilder":
+        self._callback_action_value.session_id = session_id
         return self
 
     def build(self) -> "CallbackActionValue":

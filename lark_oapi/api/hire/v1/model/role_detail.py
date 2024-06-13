@@ -13,6 +13,9 @@ class RoleDetail(object):
         "id": str,
         "name": I18n,
         "description": I18n,
+        "modify_time": str,
+        "role_status": int,
+        "role_type": int,
         "scope_of_application": int,
         "has_business_management_scope": bool,
         "socail_permission_collection": PermissionCollection,
@@ -23,6 +26,9 @@ class RoleDetail(object):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.description: Optional[I18n] = None
+        self.modify_time: Optional[str] = None
+        self.role_status: Optional[int] = None
+        self.role_type: Optional[int] = None
         self.scope_of_application: Optional[int] = None
         self.has_business_management_scope: Optional[bool] = None
         self.socail_permission_collection: Optional[PermissionCollection] = None
@@ -48,6 +54,18 @@ class RoleDetailBuilder(object):
 
     def description(self, description: I18n) -> "RoleDetailBuilder":
         self._role_detail.description = description
+        return self
+
+    def modify_time(self, modify_time: str) -> "RoleDetailBuilder":
+        self._role_detail.modify_time = modify_time
+        return self
+
+    def role_status(self, role_status: int) -> "RoleDetailBuilder":
+        self._role_detail.role_status = role_status
+        return self
+
+    def role_type(self, role_type: int) -> "RoleDetailBuilder":
+        self._role_detail.role_type = role_type
         return self
 
     def scope_of_application(self, scope_of_application: int) -> "RoleDetailBuilder":
