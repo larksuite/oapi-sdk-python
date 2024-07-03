@@ -69,6 +69,7 @@ from .user_setting import *
 from .user_shift_groups_list import *
 from .user_stats_data import *
 from .user_stats_data_cell import *
+from .user_stats_data_duration import *
 from .user_stats_data_feature import *
 from .user_stats_field import *
 from .user_stats_view import *

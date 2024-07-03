@@ -23,7 +23,7 @@ class UpdateAilySessionRequestBuilder(object):
         update_aily_session_request = UpdateAilySessionRequest()
         update_aily_session_request.http_method = HttpMethod.PUT
         update_aily_session_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id"
-        update_aily_session_request.token_types = {AccessTokenType.USER}
+        update_aily_session_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._update_aily_session_request: UpdateAilySessionRequest = update_aily_session_request
 
     def aily_session_id(self, aily_session_id: str) -> "UpdateAilySessionRequestBuilder":

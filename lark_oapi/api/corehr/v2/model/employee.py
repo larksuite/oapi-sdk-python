@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .job_level import JobLevel
 from .job_family import JobFamily
+from .position import Position
 from .job import Job
 from .enum import Enum
 from .enum import Enum
@@ -37,6 +38,8 @@ class Employee(object):
         "work_location_id": str,
         "job_family_id": str,
         "job_family": JobFamily,
+        "position_id": str,
+        "position": Position,
         "job_id": str,
         "job": Job,
         "company_id": str,
@@ -97,6 +100,8 @@ class Employee(object):
         self.work_location_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
         self.job_family: Optional[JobFamily] = None
+        self.position_id: Optional[str] = None
+        self.position: Optional[Position] = None
         self.job_id: Optional[str] = None
         self.job: Optional[Job] = None
         self.company_id: Optional[str] = None
@@ -199,6 +204,14 @@ class EmployeeBuilder(object):
 
     def job_family(self, job_family: JobFamily) -> "EmployeeBuilder":
         self._employee.job_family = job_family
+        return self
+
+    def position_id(self, position_id: str) -> "EmployeeBuilder":
+        self._employee.position_id = position_id
+        return self
+
+    def position(self, position: Position) -> "EmployeeBuilder":
+        self._employee.position = position
         return self
 
     def job_id(self, job_id: str) -> "EmployeeBuilder":

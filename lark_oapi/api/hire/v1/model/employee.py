@@ -21,6 +21,7 @@ class Employee(object):
         "sequence": str,
         "level": str,
         "employee_type": str,
+        "job_requirement_id": str,
     }
 
     def __init__(self, d=None):
@@ -39,6 +40,7 @@ class Employee(object):
         self.sequence: Optional[str] = None
         self.level: Optional[str] = None
         self.employee_type: Optional[str] = None
+        self.job_requirement_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -108,6 +110,10 @@ class EmployeeBuilder(object):
 
     def employee_type(self, employee_type: str) -> "EmployeeBuilder":
         self._employee.employee_type = employee_type
+        return self
+
+    def job_requirement_id(self, job_requirement_id: str) -> "EmployeeBuilder":
+        self._employee.job_requirement_id = job_requirement_id
         return self
 
     def build(self) -> "Employee":

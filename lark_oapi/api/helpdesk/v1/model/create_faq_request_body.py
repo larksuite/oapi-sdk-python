@@ -2,16 +2,16 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .faq_update_info import FaqUpdateInfo
+from .faq_create_info import FaqCreateInfo
 
 
 class CreateFaqRequestBody(object):
     _types = {
-        "faq": FaqUpdateInfo,
+        "faq": FaqCreateInfo,
     }
 
     def __init__(self, d=None):
-        self.faq: Optional[FaqUpdateInfo] = None
+        self.faq: Optional[FaqCreateInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,7 +23,7 @@ class CreateFaqRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_faq_request_body = CreateFaqRequestBody()
 
-    def faq(self, faq: FaqUpdateInfo) -> "CreateFaqRequestBodyBuilder":
+    def faq(self, faq: FaqCreateInfo) -> "CreateFaqRequestBodyBuilder":
         self._create_faq_request_body.faq = faq
         return self
 

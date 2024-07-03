@@ -6,6 +6,9 @@ from .job_data_cost_center import JobDataCostCenter
 from .enum import Enum
 from .address import Address
 from .custom_field_data import CustomFieldData
+from .pre_hire_pay_group_info import PreHirePayGroupInfo
+from .pre_hire_abnormal_reason import PreHireAbnormalReason
+from .enum import Enum
 
 
 class PreHireEmploymentInfo(object):
@@ -39,6 +42,17 @@ class PreHireEmploymentInfo(object):
         "updated_at": str,
         "suspected_rehiring": bool,
         "custom_fields": List[CustomFieldData],
+        "position_id": str,
+        "company_manual_updated": bool,
+        "pay_group": PreHirePayGroupInfo,
+        "whether_the_information_is_abnormal": bool,
+        "abnormal_reason": List[PreHireAbnormalReason],
+        "has_offer_salary": bool,
+        "recruitment_project_id": str,
+        "work_shift": Enum,
+        "created_at": str,
+        "created_by": str,
+        "updated_by": str,
     }
 
     def __init__(self, d=None):
@@ -71,6 +85,17 @@ class PreHireEmploymentInfo(object):
         self.updated_at: Optional[str] = None
         self.suspected_rehiring: Optional[bool] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.position_id: Optional[str] = None
+        self.company_manual_updated: Optional[bool] = None
+        self.pay_group: Optional[PreHirePayGroupInfo] = None
+        self.whether_the_information_is_abnormal: Optional[bool] = None
+        self.abnormal_reason: Optional[List[PreHireAbnormalReason]] = None
+        self.has_offer_salary: Optional[bool] = None
+        self.recruitment_project_id: Optional[str] = None
+        self.work_shift: Optional[Enum] = None
+        self.created_at: Optional[str] = None
+        self.created_by: Optional[str] = None
+        self.updated_by: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -196,6 +221,51 @@ class PreHireEmploymentInfoBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.custom_fields = custom_fields
+        return self
+
+    def position_id(self, position_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.position_id = position_id
+        return self
+
+    def company_manual_updated(self, company_manual_updated: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.company_manual_updated = company_manual_updated
+        return self
+
+    def pay_group(self, pay_group: PreHirePayGroupInfo) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.pay_group = pay_group
+        return self
+
+    def whether_the_information_is_abnormal(self,
+                                            whether_the_information_is_abnormal: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.whether_the_information_is_abnormal = whether_the_information_is_abnormal
+        return self
+
+    def abnormal_reason(self, abnormal_reason: List[PreHireAbnormalReason]) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.abnormal_reason = abnormal_reason
+        return self
+
+    def has_offer_salary(self, has_offer_salary: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.has_offer_salary = has_offer_salary
+        return self
+
+    def recruitment_project_id(self, recruitment_project_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.recruitment_project_id = recruitment_project_id
+        return self
+
+    def work_shift(self, work_shift: Enum) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.work_shift = work_shift
+        return self
+
+    def created_at(self, created_at: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.created_at = created_at
+        return self
+
+    def created_by(self, created_by: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.created_by = created_by
+        return self
+
+    def updated_by(self, updated_by: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.updated_by = updated_by
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

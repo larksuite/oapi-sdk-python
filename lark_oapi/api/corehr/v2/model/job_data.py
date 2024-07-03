@@ -21,6 +21,7 @@ class JobData(object):
         "working_hours_type_id": str,
         "work_location_id": str,
         "department_id": str,
+        "position_id": str,
         "job_id": str,
         "job_level_id": str,
         "job_grade_id": str,
@@ -51,6 +52,7 @@ class JobData(object):
         self.working_hours_type_id: Optional[str] = None
         self.work_location_id: Optional[str] = None
         self.department_id: Optional[str] = None
+        self.position_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
         self.job_grade_id: Optional[str] = None
@@ -105,6 +107,10 @@ class JobDataBuilder(object):
 
     def department_id(self, department_id: str) -> "JobDataBuilder":
         self._job_data.department_id = department_id
+        return self
+
+    def position_id(self, position_id: str) -> "JobDataBuilder":
+        self._job_data.position_id = position_id
         return self
 
     def job_id(self, job_id: str) -> "JobDataBuilder":

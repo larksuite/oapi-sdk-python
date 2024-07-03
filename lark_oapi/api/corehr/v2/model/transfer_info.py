@@ -69,6 +69,8 @@ class TransferInfo(object):
         "target_compensation_type": str,
         "original_service_company": str,
         "target_service_company": str,
+        "original_position": str,
+        "target_position": str,
     }
 
     def __init__(self, d=None):
@@ -129,6 +131,8 @@ class TransferInfo(object):
         self.target_compensation_type: Optional[str] = None
         self.original_service_company: Optional[str] = None
         self.target_service_company: Optional[str] = None
+        self.original_position: Optional[str] = None
+        self.target_position: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -367,6 +371,14 @@ class TransferInfoBuilder(object):
 
     def target_service_company(self, target_service_company: str) -> "TransferInfoBuilder":
         self._transfer_info.target_service_company = target_service_company
+        return self
+
+    def original_position(self, original_position: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_position = original_position
+        return self
+
+    def target_position(self, target_position: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_position = target_position
         return self
 
     def build(self) -> "TransferInfo":

@@ -22,6 +22,8 @@ from .download_token import *
 from .email import *
 from .email_filter import *
 from .file import *
+from .file_risk_detection_record import *
+from .file_risk_detection_record_result import *
 from .gw_common import *
 from .gw_request import *
 from .gw_response import *

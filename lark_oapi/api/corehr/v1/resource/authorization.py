@@ -13,6 +13,8 @@ from ..model.get_by_param_authorization_request import GetByParamAuthorizationRe
 from ..model.get_by_param_authorization_response import GetByParamAuthorizationResponse
 from ..model.query_authorization_request import QueryAuthorizationRequest
 from ..model.query_authorization_response import QueryAuthorizationResponse
+from ..model.remove_role_assign_authorization_request import RemoveRoleAssignAuthorizationRequest
+from ..model.remove_role_assign_authorization_response import RemoveRoleAssignAuthorizationResponse
 
 
 class Authorization(object):
@@ -93,6 +95,46 @@ class Authorization(object):
 
         # 反序列化
         response: QueryAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryAuthorizationResponse)
+        response.raw = resp
+
+        return response
+
+    def remove_role_assign(self, request: RemoveRoleAssignAuthorizationRequest,
+                           option: Optional[RequestOption] = None) -> RemoveRoleAssignAuthorizationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RemoveRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         RemoveRoleAssignAuthorizationResponse)
+        response.raw = resp
+
+        return response
+
+    async def aremove_role_assign(self, request: RemoveRoleAssignAuthorizationRequest,
+                                  option: Optional[RequestOption] = None) -> RemoveRoleAssignAuthorizationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RemoveRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         RemoveRoleAssignAuthorizationResponse)
         response.raw = resp
 
         return response

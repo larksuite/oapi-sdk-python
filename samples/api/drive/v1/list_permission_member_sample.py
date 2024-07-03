@@ -17,6 +17,7 @@ def main():
         .token("doccnBKgoMyY5OMbUG6FioTXuBe") \
         .type("doc") \
         .fields("*") \
+        .perm_type("container") \
         .build()
 
     # 发起请求
@@ -46,6 +47,7 @@ async def amain():
         .token("doccnBKgoMyY5OMbUG6FioTXuBe") \
         .type("doc") \
         .fields("*") \
+        .perm_type("container") \
         .build()
 
     # 发起请求

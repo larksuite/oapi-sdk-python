@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .user_stats_data_feature import UserStatsDataFeature
+from .user_stats_data_duration import UserStatsDataDuration
 
 
 class UserStatsDataCell(object):
@@ -11,6 +12,7 @@ class UserStatsDataCell(object):
         "value": str,
         "features": List[UserStatsDataFeature],
         "title": str,
+        "duration_num": UserStatsDataDuration,
     }
 
     def __init__(self, d=None):
@@ -18,6 +20,7 @@ class UserStatsDataCell(object):
         self.value: Optional[str] = None
         self.features: Optional[List[UserStatsDataFeature]] = None
         self.title: Optional[str] = None
+        self.duration_num: Optional[UserStatsDataDuration] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +46,10 @@ class UserStatsDataCellBuilder(object):
 
     def title(self, title: str) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.title = title
+        return self
+
+    def duration_num(self, duration_num: UserStatsDataDuration) -> "UserStatsDataCellBuilder":
+        self._user_stats_data_cell.duration_num = duration_num
         return self
 
     def build(self) -> "UserStatsDataCell":

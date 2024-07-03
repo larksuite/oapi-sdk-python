@@ -1,6 +1,7 @@
 from .assigned_user import *
 from .authorization import *
 from .common_data_id import *
+from .common_data_meta_data import *
 from .company import *
 from .compensation_standard import *
 from .contract import *

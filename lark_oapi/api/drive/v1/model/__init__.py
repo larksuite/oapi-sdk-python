@@ -113,6 +113,8 @@ from .upload_part_media_request import *
 from .upload_prepare_media_request import *
 from .batch_query_meta_request import *
 from .auth_permission_member_request import *
+from .batch_create_permission_member_request_body import *
+from .batch_create_permission_member_request import *
 from .create_permission_member_request import *
 from .delete_permission_member_request_body import *
 from .delete_permission_member_request import *
@@ -203,6 +205,8 @@ from .batch_query_meta_response_body import *
 from .batch_query_meta_response import *
 from .auth_permission_member_response_body import *
 from .auth_permission_member_response import *
+from .batch_create_permission_member_response_body import *
+from .batch_create_permission_member_response import *
 from .create_permission_member_response_body import *
 from .create_permission_member_response import *
 from .delete_permission_member_response import *

@@ -15,7 +15,7 @@ def main():
     # 构造请求对象
     request: ListOfferRequest = ListOfferRequest.builder() \
         .page_token("1231231987") \
-        .page_size(1) \
+        .page_size(10) \
         .talent_id("7096320678581242123") \
         .user_id_type("user_id") \
         .employee_type_id_type("people_admin_employee_type_id") \
@@ -46,7 +46,7 @@ async def amain():
     # 构造请求对象
     request: ListOfferRequest = ListOfferRequest.builder() \
         .page_token("1231231987") \
-        .page_size(1) \
+        .page_size(10) \
         .talent_id("7096320678581242123") \
         .user_id_type("user_id") \
         .employee_type_id_type("people_admin_employee_type_id") \

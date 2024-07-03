@@ -9,6 +9,7 @@ class BaseMember(object):
         "member_type": str,
         "member_id": str,
         "perm": str,
+        "perm_type": str,
         "type": str,
     }
 
@@ -16,6 +17,7 @@ class BaseMember(object):
         self.member_type: Optional[str] = None
         self.member_id: Optional[str] = None
         self.perm: Optional[str] = None
+        self.perm_type: Optional[str] = None
         self.type: Optional[str] = None
         init(self, d, self._types)
 
@@ -38,6 +40,10 @@ class BaseMemberBuilder(object):
 
     def perm(self, perm: str) -> "BaseMemberBuilder":
         self._base_member.perm = perm
+        return self
+
+    def perm_type(self, perm_type: str) -> "BaseMemberBuilder":
+        self._base_member.perm_type = perm_type
         return self
 
     def type(self, type: str) -> "BaseMemberBuilder":

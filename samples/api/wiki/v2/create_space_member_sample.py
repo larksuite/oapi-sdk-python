@@ -17,9 +17,9 @@ def main():
         .space_id("1565676577122621") \
         .need_notification(True) \
         .request_body(Member.builder()
-                      .member_type("str")
-                      .member_id("str")
-                      .member_role("str")
+                      .member_type("openid")
+                      .member_id("ou_67e5ecb64ce1c0bd94612c17999db411")
+                      .member_role("admin")
                       .build()) \
         .build()
 
@@ -50,9 +50,9 @@ async def amain():
         .space_id("1565676577122621") \
         .need_notification(True) \
         .request_body(Member.builder()
-                      .member_type("str")
-                      .member_id("str")
-                      .member_role("str")
+                      .member_type("openid")
+                      .member_id("ou_67e5ecb64ce1c0bd94612c17999db411")
+                      .member_role("admin")
                       .build()) \
         .build()
 

@@ -22,7 +22,7 @@ class CreateAilySessionRequestBuilder(object):
         create_aily_session_request = CreateAilySessionRequest()
         create_aily_session_request.http_method = HttpMethod.POST
         create_aily_session_request.uri = "/open-apis/aily/v1/sessions"
-        create_aily_session_request.token_types = {AccessTokenType.USER}
+        create_aily_session_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_aily_session_request: CreateAilySessionRequest = create_aily_session_request
 
     def request_body(self, request_body: CreateAilySessionRequestBody) -> "CreateAilySessionRequestBuilder":

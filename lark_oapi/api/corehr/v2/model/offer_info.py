@@ -45,6 +45,13 @@ class OfferInfo(object):
         "work_location_id": str,
         "onboarding_address_id": str,
         "office_address_id": str,
+        "position_id": str,
+        "working_calendar_id": str,
+        "working_hours_type": str,
+        "pay_group_id": str,
+        "flow_id": str,
+        "check_in_time": str,
+        "check_in_method": str,
     }
 
     def __init__(self, d=None):
@@ -85,6 +92,13 @@ class OfferInfo(object):
         self.work_location_id: Optional[str] = None
         self.onboarding_address_id: Optional[str] = None
         self.office_address_id: Optional[str] = None
+        self.position_id: Optional[str] = None
+        self.working_calendar_id: Optional[str] = None
+        self.working_hours_type: Optional[str] = None
+        self.pay_group_id: Optional[str] = None
+        self.flow_id: Optional[str] = None
+        self.check_in_time: Optional[str] = None
+        self.check_in_method: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -242,6 +256,34 @@ class OfferInfoBuilder(object):
 
     def office_address_id(self, office_address_id: str) -> "OfferInfoBuilder":
         self._offer_info.office_address_id = office_address_id
+        return self
+
+    def position_id(self, position_id: str) -> "OfferInfoBuilder":
+        self._offer_info.position_id = position_id
+        return self
+
+    def working_calendar_id(self, working_calendar_id: str) -> "OfferInfoBuilder":
+        self._offer_info.working_calendar_id = working_calendar_id
+        return self
+
+    def working_hours_type(self, working_hours_type: str) -> "OfferInfoBuilder":
+        self._offer_info.working_hours_type = working_hours_type
+        return self
+
+    def pay_group_id(self, pay_group_id: str) -> "OfferInfoBuilder":
+        self._offer_info.pay_group_id = pay_group_id
+        return self
+
+    def flow_id(self, flow_id: str) -> "OfferInfoBuilder":
+        self._offer_info.flow_id = flow_id
+        return self
+
+    def check_in_time(self, check_in_time: str) -> "OfferInfoBuilder":
+        self._offer_info.check_in_time = check_in_time
+        return self
+
+    def check_in_method(self, check_in_method: str) -> "OfferInfoBuilder":
+        self._offer_info.check_in_method = check_in_method
         return self
 
     def build(self) -> "OfferInfo":

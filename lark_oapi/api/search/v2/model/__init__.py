@@ -31,6 +31,7 @@ from .passage import *
 from .passage_param import *
 from .patch_schema_property import *
 from .present import *
+from .present_data_callback_dialog_request import *
 from .rag_answer_response import *
 from .rag_probe import *
 from .scenario_context import *
@@ -49,6 +50,7 @@ from .schema_tag_options import *
 from .schema_type_definitions import *
 from .schema_user_ids_option import *
 from .seperate_passage import *
+from .status import *
 from .system_info import *
 from .template_card_variables import *
 from .user_info import *

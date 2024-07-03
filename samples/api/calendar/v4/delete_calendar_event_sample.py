@@ -16,7 +16,7 @@ def main():
     request: DeleteCalendarEventRequest = DeleteCalendarEventRequest.builder() \
         .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
         .event_id("xxxxxxxxx_0") \
-        .need_notification(False) \
+        .need_notification("true") \
         .build()
 
     # 发起请求
@@ -45,7 +45,7 @@ async def amain():
     request: DeleteCalendarEventRequest = DeleteCalendarEventRequest.builder() \
         .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
         .event_id("xxxxxxxxx_0") \
-        .need_notification(False) \
+        .need_notification("true") \
         .build()
 
     # 发起请求

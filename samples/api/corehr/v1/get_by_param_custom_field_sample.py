@@ -14,8 +14,8 @@ def main():
 
     # 构造请求对象
     request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest.builder() \
-        .custom_api_name("custom_field_33") \
         .object_api_name("offboarding_info") \
+        .custom_api_name("custom_field_33") \
         .build()
 
     # 发起请求
@@ -42,8 +42,8 @@ async def amain():
 
     # 构造请求对象
     request: GetByParamCustomFieldRequest = GetByParamCustomFieldRequest.builder() \
-        .custom_api_name("custom_field_33") \
         .object_api_name("offboarding_info") \
+        .custom_api_name("custom_field_33") \
         .build()
 
     # 发起请求

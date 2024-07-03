@@ -25,7 +25,7 @@ class ListAilySessionAilyMessageRequestBuilder(object):
         list_aily_session_aily_message_request = ListAilySessionAilyMessageRequest()
         list_aily_session_aily_message_request.http_method = HttpMethod.GET
         list_aily_session_aily_message_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id/messages"
-        list_aily_session_aily_message_request.token_types = {AccessTokenType.USER}
+        list_aily_session_aily_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_aily_session_aily_message_request: ListAilySessionAilyMessageRequest = list_aily_session_aily_message_request
 
     def page_size(self, page_size: int) -> "ListAilySessionAilyMessageRequestBuilder":

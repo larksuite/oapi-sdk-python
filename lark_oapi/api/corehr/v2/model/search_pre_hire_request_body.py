@@ -10,6 +10,8 @@ class SearchPreHireRequestBody(object):
         "pre_hire_ids": List[str],
         "onboarding_date_start": str,
         "onboarding_date_end": str,
+        "updated_date_start": str,
+        "updated_date_end": str,
         "onboarding_location_ids": List[str],
         "onboarding_status": str,
         "department_ids": List[str],
@@ -26,6 +28,8 @@ class SearchPreHireRequestBody(object):
         self.pre_hire_ids: Optional[List[str]] = None
         self.onboarding_date_start: Optional[str] = None
         self.onboarding_date_end: Optional[str] = None
+        self.updated_date_start: Optional[str] = None
+        self.updated_date_end: Optional[str] = None
         self.onboarding_location_ids: Optional[List[str]] = None
         self.onboarding_status: Optional[str] = None
         self.department_ids: Optional[List[str]] = None
@@ -60,6 +64,14 @@ class SearchPreHireRequestBodyBuilder(object):
 
     def onboarding_date_end(self, onboarding_date_end: str) -> "SearchPreHireRequestBodyBuilder":
         self._search_pre_hire_request_body.onboarding_date_end = onboarding_date_end
+        return self
+
+    def updated_date_start(self, updated_date_start: str) -> "SearchPreHireRequestBodyBuilder":
+        self._search_pre_hire_request_body.updated_date_start = updated_date_start
+        return self
+
+    def updated_date_end(self, updated_date_end: str) -> "SearchPreHireRequestBodyBuilder":
+        self._search_pre_hire_request_body.updated_date_end = updated_date_end
         return self
 
     def onboarding_location_ids(self, onboarding_location_ids: List[str]) -> "SearchPreHireRequestBodyBuilder":

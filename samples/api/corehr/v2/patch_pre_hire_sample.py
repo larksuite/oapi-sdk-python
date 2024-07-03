@@ -20,6 +20,7 @@ def main():
                       .offer_info_update(OfferInfoUpdate.builder().build())
                       .standard_update_fields([])
                       .custom_update_fields([])
+                      .person_custom_update_fields([])
                       .build()) \
         .build()
 
@@ -53,6 +54,7 @@ async def amain():
                       .offer_info_update(OfferInfoUpdate.builder().build())
                       .standard_update_fields([])
                       .custom_update_fields([])
+                      .person_custom_update_fields([])
                       .build()) \
         .build()
 

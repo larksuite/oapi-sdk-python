@@ -21,7 +21,6 @@ def main():
                       .name_list([])
                       .gender(Enum.builder().build())
                       .date_of_birth("2020-01-01")
-                      .nationality_id_v2("6862995757234914821")
                       .race(Enum.builder().build())
                       .marital_status(Enum.builder().build())
                       .phone_list([])
@@ -51,6 +50,9 @@ def main():
                       .resident_taxes([])
                       .first_entry_time("2021-01-02")
                       .leave_time("2022-01-02")
+                      .bank_account_number("69928404442626824")
+                      .passport_number("6919733936050406926")
+                      .former_employer([])
                       .build()) \
         .build()
 
@@ -85,7 +87,6 @@ async def amain():
                       .name_list([])
                       .gender(Enum.builder().build())
                       .date_of_birth("2020-01-01")
-                      .nationality_id_v2("6862995757234914821")
                       .race(Enum.builder().build())
                       .marital_status(Enum.builder().build())
                       .phone_list([])
@@ -115,6 +116,9 @@ async def amain():
                       .resident_taxes([])
                       .first_entry_time("2021-01-02")
                       .leave_time("2022-01-02")
+                      .bank_account_number("69928404442626824")
+                      .passport_number("6919733936050406926")
+                      .former_employer([])
                       .build()) \
         .build()
 

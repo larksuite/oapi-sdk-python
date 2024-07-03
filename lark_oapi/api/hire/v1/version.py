@@ -42,3 +42,4 @@ class V1(object):
         self.talent: Talent = Talent(config)
         self.talent_folder: TalentFolder = TalentFolder(config)
         self.talent_object: TalentObject = TalentObject(config)
+        self.termination_reason: TerminationReason = TerminationReason(config)

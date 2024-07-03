@@ -8,8 +8,8 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class GetByParamCustomFieldRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.custom_api_name: Optional[str] = None
         self.object_api_name: Optional[str] = None
+        self.custom_api_name: Optional[str] = None
 
     @staticmethod
     def builder() -> "GetByParamCustomFieldRequestBuilder":
@@ -25,14 +25,14 @@ class GetByParamCustomFieldRequestBuilder(object):
         get_by_param_custom_field_request.token_types = {AccessTokenType.TENANT}
         self._get_by_param_custom_field_request: GetByParamCustomFieldRequest = get_by_param_custom_field_request
 
-    def custom_api_name(self, custom_api_name: str) -> "GetByParamCustomFieldRequestBuilder":
-        self._get_by_param_custom_field_request.custom_api_name = custom_api_name
-        self._get_by_param_custom_field_request.add_query("custom_api_name", custom_api_name)
-        return self
-
     def object_api_name(self, object_api_name: str) -> "GetByParamCustomFieldRequestBuilder":
         self._get_by_param_custom_field_request.object_api_name = object_api_name
         self._get_by_param_custom_field_request.add_query("object_api_name", object_api_name)
+        return self
+
+    def custom_api_name(self, custom_api_name: str) -> "GetByParamCustomFieldRequestBuilder":
+        self._get_by_param_custom_field_request.custom_api_name = custom_api_name
+        self._get_by_param_custom_field_request.add_query("custom_api_name", custom_api_name)
         return self
 
     def build(self) -> GetByParamCustomFieldRequest:

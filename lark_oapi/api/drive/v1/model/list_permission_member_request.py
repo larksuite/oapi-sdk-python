@@ -10,6 +10,7 @@ class ListPermissionMemberRequest(BaseRequest):
         super().__init__()
         self.type: Optional[str] = None
         self.fields: Optional[str] = None
+        self.perm_type: Optional[str] = None
         self.token: Optional[str] = None
 
     @staticmethod
@@ -34,6 +35,11 @@ class ListPermissionMemberRequestBuilder(object):
     def fields(self, fields: str) -> "ListPermissionMemberRequestBuilder":
         self._list_permission_member_request.fields = fields
         self._list_permission_member_request.add_query("fields", fields)
+        return self
+
+    def perm_type(self, perm_type: str) -> "ListPermissionMemberRequestBuilder":
+        self._list_permission_member_request.perm_type = perm_type
+        self._list_permission_member_request.add_query("perm_type", perm_type)
         return self
 
     def token(self, token: str) -> "ListPermissionMemberRequestBuilder":

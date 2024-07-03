@@ -18,6 +18,7 @@ class ApplicationOffer(object):
         "offer_status": int,
         "job_info": OfferJobInfo,
         "customized_module_list": List[ApplicationOfferCustomModule],
+        "job_requirement_id": str,
     }
 
     def __init__(self, d=None):
@@ -29,6 +30,7 @@ class ApplicationOffer(object):
         self.offer_status: Optional[int] = None
         self.job_info: Optional[OfferJobInfo] = None
         self.customized_module_list: Optional[List[ApplicationOfferCustomModule]] = None
+        self.job_requirement_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -71,6 +73,10 @@ class ApplicationOfferBuilder(object):
     def customized_module_list(self,
                                customized_module_list: List[ApplicationOfferCustomModule]) -> "ApplicationOfferBuilder":
         self._application_offer.customized_module_list = customized_module_list
+        return self
+
+    def job_requirement_id(self, job_requirement_id: str) -> "ApplicationOfferBuilder":
+        self._application_offer.job_requirement_id = job_requirement_id
         return self
 
     def build(self) -> "ApplicationOffer":

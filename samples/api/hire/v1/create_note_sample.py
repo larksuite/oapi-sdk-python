@@ -20,7 +20,7 @@ def main():
                       .application_id("6891565253964859661")
                       .creator_id("ou_f476cb099ac9227c9bae09ce46112579")
                       .content("测试5")
-                      .privacy(1)
+                      .privacy(2)
                       .notify_mentioned_user(False)
                       .mention_entity_list([])
                       .build()) \
@@ -56,7 +56,7 @@ async def amain():
                       .application_id("6891565253964859661")
                       .creator_id("ou_f476cb099ac9227c9bae09ce46112579")
                       .content("测试5")
-                      .privacy(1)
+                      .privacy(2)
                       .notify_mentioned_user(False)
                       .mention_entity_list([])
                       .build()) \

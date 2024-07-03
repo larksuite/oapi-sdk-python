@@ -21,6 +21,7 @@ class Node(object):
         "node_create_time": int,
         "creator": str,
         "owner": str,
+        "node_creator": str,
     }
 
     def __init__(self, d=None):
@@ -39,6 +40,7 @@ class Node(object):
         self.node_create_time: Optional[int] = None
         self.creator: Optional[str] = None
         self.owner: Optional[str] = None
+        self.node_creator: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -108,6 +110,10 @@ class NodeBuilder(object):
 
     def owner(self, owner: str) -> "NodeBuilder":
         self._node.owner = owner
+        return self
+
+    def node_creator(self, node_creator: str) -> "NodeBuilder":
+        self._node.node_creator = node_creator
         return self
 
     def build(self) -> "Node":

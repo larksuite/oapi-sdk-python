@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class DeletePermissionMemberRequestBody(object):
     _types = {
         "type": str,
+        "perm_type": str,
     }
 
     def __init__(self, d=None):
         self.type: Optional[str] = None
+        self.perm_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +26,10 @@ class DeletePermissionMemberRequestBodyBuilder(object):
 
     def type(self, type: str) -> "DeletePermissionMemberRequestBodyBuilder":
         self._delete_permission_member_request_body.type = type
+        return self
+
+    def perm_type(self, perm_type: str) -> "DeletePermissionMemberRequestBodyBuilder":
+        self._delete_permission_member_request_body.perm_type = perm_type
         return self
 
     def build(self) -> "DeletePermissionMemberRequestBody":

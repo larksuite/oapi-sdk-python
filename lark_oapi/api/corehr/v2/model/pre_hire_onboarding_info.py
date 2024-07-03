@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .onboarding_task import OnboardingTask
 from .address import Address
 from .i18n import I18n
+from .enum import Enum
 
 
 class PreHireOnboardingInfo(object):
@@ -21,6 +22,9 @@ class PreHireOnboardingInfo(object):
         "onboarding_task_list": List[OnboardingTask],
         "onboarding_address": Address,
         "flow_name": List[I18n],
+        "flow_id": str,
+        "check_in_time": str,
+        "check_in_method": Enum,
     }
 
     def __init__(self, d=None):
@@ -36,6 +40,9 @@ class PreHireOnboardingInfo(object):
         self.onboarding_task_list: Optional[List[OnboardingTask]] = None
         self.onboarding_address: Optional[Address] = None
         self.flow_name: Optional[List[I18n]] = None
+        self.flow_id: Optional[str] = None
+        self.check_in_time: Optional[str] = None
+        self.check_in_method: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -93,6 +100,18 @@ class PreHireOnboardingInfoBuilder(object):
 
     def flow_name(self, flow_name: List[I18n]) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.flow_name = flow_name
+        return self
+
+    def flow_id(self, flow_id: str) -> "PreHireOnboardingInfoBuilder":
+        self._pre_hire_onboarding_info.flow_id = flow_id
+        return self
+
+    def check_in_time(self, check_in_time: str) -> "PreHireOnboardingInfoBuilder":
+        self._pre_hire_onboarding_info.check_in_time = check_in_time
+        return self
+
+    def check_in_method(self, check_in_method: Enum) -> "PreHireOnboardingInfoBuilder":
+        self._pre_hire_onboarding_info.check_in_method = check_in_method
         return self
 
     def build(self) -> "PreHireOnboardingInfo":

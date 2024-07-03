@@ -15,6 +15,8 @@ class SystemInfo(object):
         "shadow_name": str,
         "msg_id": str,
         "agent_id": str,
+        "locale": str,
+        "app_version": str,
     }
 
     def __init__(self, d=None):
@@ -27,6 +29,8 @@ class SystemInfo(object):
         self.shadow_name: Optional[str] = None
         self.msg_id: Optional[str] = None
         self.agent_id: Optional[str] = None
+        self.locale: Optional[str] = None
+        self.app_version: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -72,6 +76,14 @@ class SystemInfoBuilder(object):
 
     def agent_id(self, agent_id: str) -> "SystemInfoBuilder":
         self._system_info.agent_id = agent_id
+        return self
+
+    def locale(self, locale: str) -> "SystemInfoBuilder":
+        self._system_info.locale = locale
+        return self
+
+    def app_version(self, app_version: str) -> "SystemInfoBuilder":
+        self._system_info.app_version = app_version
         return self
 
     def build(self) -> "SystemInfo":

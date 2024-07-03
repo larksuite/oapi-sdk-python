@@ -15,13 +15,13 @@ def main():
     # 构造请求对象
     request: SearchBasicInfoBankBranchRequest = SearchBasicInfoBankBranchRequest.builder() \
         .page_size(100) \
-        .page_token("6891251722631890445") \
+        .page_token("MDBK00000120") \
         .request_body(SearchBasicInfoBankBranchRequestBody.builder()
                       .bank_id_list([])
                       .bank_branch_id_list([])
                       .bank_branch_name_list([])
                       .status_list([])
-                      .update_start_time("2024-01-01 00:00:00")
+                      .update_start_time("2020-01-01 00:00:00")
                       .update_end_time("2024-01-01 00:00:00")
                       .build()) \
         .build()
@@ -51,13 +51,13 @@ async def amain():
     # 构造请求对象
     request: SearchBasicInfoBankBranchRequest = SearchBasicInfoBankBranchRequest.builder() \
         .page_size(100) \
-        .page_token("6891251722631890445") \
+        .page_token("MDBK00000120") \
         .request_body(SearchBasicInfoBankBranchRequestBody.builder()
                       .bank_id_list([])
                       .bank_branch_id_list([])
                       .bank_branch_name_list([])
                       .status_list([])
-                      .update_start_time("2024-01-01 00:00:00")
+                      .update_start_time("2020-01-01 00:00:00")
                       .update_end_time("2024-01-01 00:00:00")
                       .build()) \
         .build()

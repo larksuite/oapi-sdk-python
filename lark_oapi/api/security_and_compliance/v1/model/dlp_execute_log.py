@@ -35,6 +35,7 @@ class DlpExecuteLog(object):
         "evidence_detail": DlpEvidenceDetail,
         "hit_policies": List[DlpHitPolicy],
         "file_token": str,
+        "trigger_event_type": str,
     }
 
     def __init__(self, d=None):
@@ -65,6 +66,7 @@ class DlpExecuteLog(object):
         self.evidence_detail: Optional[DlpEvidenceDetail] = None
         self.hit_policies: Optional[List[DlpHitPolicy]] = None
         self.file_token: Optional[str] = None
+        self.trigger_event_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -182,6 +184,10 @@ class DlpExecuteLogBuilder(object):
 
     def file_token(self, file_token: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.file_token = file_token
+        return self
+
+    def trigger_event_type(self, trigger_event_type: str) -> "DlpExecuteLogBuilder":
+        self._dlp_execute_log.trigger_event_type = trigger_event_type
         return self
 
     def build(self) -> "DlpExecuteLog":

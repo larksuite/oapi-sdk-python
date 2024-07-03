@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import IEventProcessor
+from .model.p2_corehr_employee_domain_event_v2 import P2CorehrEmployeeDomainEventV2
 from .model.p2_corehr_job_change_updated_v2 import P2CorehrJobChangeUpdatedV2
 from .model.p2_corehr_offboarding_checklist_updated_v2 import P2CorehrOffboardingChecklistUpdatedV2
 from .model.p2_corehr_offboarding_status_updated_v2 import P2CorehrOffboardingStatusUpdatedV2
@@ -12,6 +13,17 @@ from .model.p2_corehr_process_updated_v2 import P2CorehrProcessUpdatedV2
 from .model.p2_corehr_process_approver_updated_v2 import P2CorehrProcessApproverUpdatedV2
 from .model.p2_corehr_process_cc_updated_v2 import P2CorehrProcessCcUpdatedV2
 from .model.p2_corehr_process_node_updated_v2 import P2CorehrProcessNodeUpdatedV2
+
+
+class P2CorehrEmployeeDomainEventV2Processor(IEventProcessor[P2CorehrEmployeeDomainEventV2]):
+    def __init__(self, f: Callable[[P2CorehrEmployeeDomainEventV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrEmployeeDomainEventV2]:
+        return P2CorehrEmployeeDomainEventV2
+
+    def do(self, data: P2CorehrEmployeeDomainEventV2) -> None:
+        self.f(data)
 
 
 class P2CorehrJobChangeUpdatedV2Processor(IEventProcessor[P2CorehrJobChangeUpdatedV2]):

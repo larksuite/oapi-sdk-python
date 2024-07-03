@@ -9,6 +9,7 @@ class Member(object):
         "member_type": str,
         "member_id": str,
         "perm": str,
+        "perm_type": str,
         "type": str,
         "name": str,
         "avatar": str,
@@ -19,6 +20,7 @@ class Member(object):
         self.member_type: Optional[str] = None
         self.member_id: Optional[str] = None
         self.perm: Optional[str] = None
+        self.perm_type: Optional[str] = None
         self.type: Optional[str] = None
         self.name: Optional[str] = None
         self.avatar: Optional[str] = None
@@ -44,6 +46,10 @@ class MemberBuilder(object):
 
     def perm(self, perm: str) -> "MemberBuilder":
         self._member.perm = perm
+        return self
+
+    def perm_type(self, perm_type: str) -> "MemberBuilder":
+        self._member.perm_type = perm_type
         return self
 
     def type(self, type: str) -> "MemberBuilder":

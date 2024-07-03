@@ -18,6 +18,7 @@ class Meeting(object):
         "start_time": int,
         "end_time": int,
         "host_user": MeetingUser,
+        "meeting_connect": bool,
         "status": int,
         "participant_count": int,
         "participant_count_accumulated": int,
@@ -35,6 +36,7 @@ class Meeting(object):
         self.start_time: Optional[int] = None
         self.end_time: Optional[int] = None
         self.host_user: Optional[MeetingUser] = None
+        self.meeting_connect: Optional[bool] = None
         self.status: Optional[int] = None
         self.participant_count: Optional[int] = None
         self.participant_count_accumulated: Optional[int] = None
@@ -85,6 +87,10 @@ class MeetingBuilder(object):
 
     def host_user(self, host_user: MeetingUser) -> "MeetingBuilder":
         self._meeting.host_user = host_user
+        return self
+
+    def meeting_connect(self, meeting_connect: bool) -> "MeetingBuilder":
+        self._meeting.meeting_connect = meeting_connect
         return self
 
     def status(self, status: int) -> "MeetingBuilder":

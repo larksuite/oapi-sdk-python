@@ -15,7 +15,7 @@ def main():
     # 构造请求对象
     request: SearchBasicInfoNationalityRequest = SearchBasicInfoNationalityRequest.builder() \
         .page_size(100) \
-        .page_token("6891251722631890445") \
+        .page_token("7075702743846897196") \
         .request_body(SearchBasicInfoNationalityRequestBody.builder()
                       .nationality_id_list([])
                       .country_region_id_list([])
@@ -48,7 +48,7 @@ async def amain():
     # 构造请求对象
     request: SearchBasicInfoNationalityRequest = SearchBasicInfoNationalityRequest.builder() \
         .page_size(100) \
-        .page_token("6891251722631890445") \
+        .page_token("7075702743846897196") \
         .request_body(SearchBasicInfoNationalityRequestBody.builder()
                       .nationality_id_list([])
                       .country_region_id_list([])

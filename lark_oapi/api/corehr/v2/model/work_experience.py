@@ -11,6 +11,7 @@ class WorkExperience(object):
         "end_time": str,
         "job_title": str,
         "description": str,
+        "department": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class WorkExperience(object):
         self.end_time: Optional[str] = None
         self.job_title: Optional[str] = None
         self.description: Optional[str] = None
+        self.department: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +50,10 @@ class WorkExperienceBuilder(object):
 
     def description(self, description: str) -> "WorkExperienceBuilder":
         self._work_experience.description = description
+        return self
+
+    def department(self, department: str) -> "WorkExperienceBuilder":
+        self._work_experience.department = department
         return self
 
     def build(self) -> "WorkExperience":

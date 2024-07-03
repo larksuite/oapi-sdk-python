@@ -17,8 +17,9 @@ def main():
         .space_id("7008061636015554580") \
         .member_id("g64fb7g7") \
         .request_body(Member.builder()
-                      .member_type("str")
-                      .member_role("str")
+                      .member_type("openid")
+                      .member_role("admin")
+                      .type("user")
                       .build()) \
         .build()
 
@@ -49,8 +50,9 @@ async def amain():
         .space_id("7008061636015554580") \
         .member_id("g64fb7g7") \
         .request_body(Member.builder()
-                      .member_type("str")
-                      .member_role("str")
+                      .member_type("openid")
+                      .member_role("admin")
+                      .type("user")
                       .build()) \
         .build()
 

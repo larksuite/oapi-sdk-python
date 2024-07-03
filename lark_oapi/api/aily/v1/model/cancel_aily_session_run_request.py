@@ -22,7 +22,7 @@ class CancelAilySessionRunRequestBuilder(object):
         cancel_aily_session_run_request = CancelAilySessionRunRequest()
         cancel_aily_session_run_request.http_method = HttpMethod.POST
         cancel_aily_session_run_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id/runs/:run_id/cancel"
-        cancel_aily_session_run_request.token_types = {AccessTokenType.USER}
+        cancel_aily_session_run_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._cancel_aily_session_run_request: CancelAilySessionRunRequest = cancel_aily_session_run_request
 
     def aily_session_id(self, aily_session_id: str) -> "CancelAilySessionRunRequestBuilder":

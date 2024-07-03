@@ -15,7 +15,7 @@ def main():
     # 构造请求对象
     request: CreateFaqRequest = CreateFaqRequest.builder() \
         .request_body(CreateFaqRequestBody.builder()
-                      .faq(FaqUpdateInfo.builder().build())
+                      .faq(FaqCreateInfo.builder().build())
                       .build()) \
         .build()
 
@@ -44,7 +44,7 @@ async def amain():
     # 构造请求对象
     request: CreateFaqRequest = CreateFaqRequest.builder() \
         .request_body(CreateFaqRequestBody.builder()
-                      .faq(FaqUpdateInfo.builder().build())
+                      .faq(FaqCreateInfo.builder().build())
                       .build()) \
         .build()
 

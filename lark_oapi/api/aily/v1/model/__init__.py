@@ -9,6 +9,8 @@ from .aily_knowledge_wiki_space import *
 from .aily_mention import *
 from .aily_message import *
 from .aily_message_file import *
+from .aily_message_file_filter import *
+from .aily_message_file_preview import *
 from .aily_message_filter import *
 from .aily_sender import *
 from .aily_session import *

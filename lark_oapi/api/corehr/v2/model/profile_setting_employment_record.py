@@ -21,6 +21,7 @@ class ProfileSettingEmploymentRecord(object):
         "job_grade": str,
         "work_location": str,
         "weekly_working_hours": int,
+        "position": str,
     }
 
     def __init__(self, d=None):
@@ -38,6 +39,7 @@ class ProfileSettingEmploymentRecord(object):
         self.job_grade: Optional[str] = None
         self.work_location: Optional[str] = None
         self.weekly_working_hours: Optional[int] = None
+        self.position: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -105,6 +107,10 @@ class ProfileSettingEmploymentRecordBuilder(object):
 
     def weekly_working_hours(self, weekly_working_hours: int) -> "ProfileSettingEmploymentRecordBuilder":
         self._profile_setting_employment_record.weekly_working_hours = weekly_working_hours
+        return self
+
+    def position(self, position: str) -> "ProfileSettingEmploymentRecordBuilder":
+        self._profile_setting_employment_record.position = position
         return self
 
     def build(self) -> "ProfileSettingEmploymentRecord":

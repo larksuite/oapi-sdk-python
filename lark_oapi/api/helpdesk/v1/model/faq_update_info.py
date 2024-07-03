@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .richtext import Richtext
 
 
 class FaqUpdateInfo(object):
@@ -9,7 +10,7 @@ class FaqUpdateInfo(object):
         "category_id": str,
         "question": str,
         "answer": str,
-        "answer_richtext": str,
+        "answer_richtext": List[Richtext],
         "tags": List[str],
     }
 
@@ -17,7 +18,7 @@ class FaqUpdateInfo(object):
         self.category_id: Optional[str] = None
         self.question: Optional[str] = None
         self.answer: Optional[str] = None
-        self.answer_richtext: Optional[str] = None
+        self.answer_richtext: Optional[List[Richtext]] = None
         self.tags: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -42,7 +43,7 @@ class FaqUpdateInfoBuilder(object):
         self._faq_update_info.answer = answer
         return self
 
-    def answer_richtext(self, answer_richtext: str) -> "FaqUpdateInfoBuilder":
+    def answer_richtext(self, answer_richtext: List[Richtext]) -> "FaqUpdateInfoBuilder":
         self._faq_update_info.answer_richtext = answer_richtext
         return self
 

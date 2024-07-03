@@ -21,6 +21,7 @@ def main():
                       .member_type("openid")
                       .member_id("string")
                       .perm("view")
+                      .perm_type("container")
                       .type("user")
                       .build()) \
         .build()
@@ -56,6 +57,7 @@ async def amain():
                       .member_type("openid")
                       .member_id("string")
                       .perm("view")
+                      .perm_type("container")
                       .type("user")
                       .build()) \
         .build()

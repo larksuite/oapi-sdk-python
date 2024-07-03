@@ -23,7 +23,7 @@ class ListAilySessionRunRequestBuilder(object):
         list_aily_session_run_request = ListAilySessionRunRequest()
         list_aily_session_run_request.http_method = HttpMethod.GET
         list_aily_session_run_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id/runs"
-        list_aily_session_run_request.token_types = {AccessTokenType.USER}
+        list_aily_session_run_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_aily_session_run_request: ListAilySessionRunRequest = list_aily_session_run_request
 
     def page_size(self, page_size: int) -> "ListAilySessionRunRequestBuilder":

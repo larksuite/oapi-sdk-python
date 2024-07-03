@@ -45,6 +45,9 @@ class JobRequirementDto(object):
         "job_id_list": List[str],
         "process_type": int,
         "job_type": JobTypeInfo,
+        "create_time": str,
+        "creator_id": str,
+        "update_time": str,
     }
 
     def __init__(self, d=None):
@@ -75,6 +78,9 @@ class JobRequirementDto(object):
         self.job_id_list: Optional[List[str]] = None
         self.process_type: Optional[int] = None
         self.job_type: Optional[JobTypeInfo] = None
+        self.create_time: Optional[str] = None
+        self.creator_id: Optional[str] = None
+        self.update_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -193,6 +199,18 @@ class JobRequirementDtoBuilder(object):
 
     def job_type(self, job_type: JobTypeInfo) -> "JobRequirementDtoBuilder":
         self._job_requirement_dto.job_type = job_type
+        return self
+
+    def create_time(self, create_time: str) -> "JobRequirementDtoBuilder":
+        self._job_requirement_dto.create_time = create_time
+        return self
+
+    def creator_id(self, creator_id: str) -> "JobRequirementDtoBuilder":
+        self._job_requirement_dto.creator_id = creator_id
+        return self
+
+    def update_time(self, update_time: str) -> "JobRequirementDtoBuilder":
+        self._job_requirement_dto.update_time = update_time
         return self
 
     def build(self) -> "JobRequirementDto":

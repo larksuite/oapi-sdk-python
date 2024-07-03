@@ -22,7 +22,7 @@ class GetAilySessionAilyMessageRequestBuilder(object):
         get_aily_session_aily_message_request = GetAilySessionAilyMessageRequest()
         get_aily_session_aily_message_request.http_method = HttpMethod.GET
         get_aily_session_aily_message_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id/messages/:aily_message_id"
-        get_aily_session_aily_message_request.token_types = {AccessTokenType.USER}
+        get_aily_session_aily_message_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_aily_session_aily_message_request: GetAilySessionAilyMessageRequest = get_aily_session_aily_message_request
 
     def aily_session_id(self, aily_session_id: str) -> "GetAilySessionAilyMessageRequestBuilder":

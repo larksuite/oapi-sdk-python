@@ -17,7 +17,7 @@ def main():
         .employment_id_list([]) \
         .role_id_list([]) \
         .page_token("6969864184272078374") \
-        .page_size("100") \
+        .page_size("20") \
         .user_id_type("people_corehr_id") \
         .build()
 
@@ -48,7 +48,7 @@ async def amain():
         .employment_id_list([]) \
         .role_id_list([]) \
         .page_token("6969864184272078374") \
-        .page_size("100") \
+        .page_size("20") \
         .user_id_type("people_corehr_id") \
         .build()
 

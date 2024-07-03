@@ -26,6 +26,7 @@ from .custom_field_data import CustomFieldData
 from .person_info_chn import PersonInfoChn
 from .resident_tax import ResidentTax
 from .enum import Enum
+from .i18n import I18n
 
 
 class PersonInfo(object):
@@ -39,7 +40,6 @@ class PersonInfo(object):
         "name_list": List[PersonName],
         "gender": Enum,
         "date_of_birth": str,
-        "nationality_id_v2": str,
         "race": Enum,
         "marital_status": Enum,
         "phone_list": List[Phone],
@@ -78,6 +78,14 @@ class PersonInfo(object):
         "first_entry_time": str,
         "leave_time": str,
         "religion": Enum,
+        "working_years_v2": float,
+        "created_at": str,
+        "updated_at": str,
+        "created_by": str,
+        "updated_by": str,
+        "bank_account_number": str,
+        "passport_number": str,
+        "former_employer": List[I18n],
     }
 
     def __init__(self, d=None):
@@ -90,7 +98,6 @@ class PersonInfo(object):
         self.name_list: Optional[List[PersonName]] = None
         self.gender: Optional[Enum] = None
         self.date_of_birth: Optional[str] = None
-        self.nationality_id_v2: Optional[str] = None
         self.race: Optional[Enum] = None
         self.marital_status: Optional[Enum] = None
         self.phone_list: Optional[List[Phone]] = None
@@ -129,6 +136,14 @@ class PersonInfo(object):
         self.first_entry_time: Optional[str] = None
         self.leave_time: Optional[str] = None
         self.religion: Optional[Enum] = None
+        self.working_years_v2: Optional[float] = None
+        self.created_at: Optional[str] = None
+        self.updated_at: Optional[str] = None
+        self.created_by: Optional[str] = None
+        self.updated_by: Optional[str] = None
+        self.bank_account_number: Optional[str] = None
+        self.passport_number: Optional[str] = None
+        self.former_employer: Optional[List[I18n]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -174,10 +189,6 @@ class PersonInfoBuilder(object):
 
     def date_of_birth(self, date_of_birth: str) -> "PersonInfoBuilder":
         self._person_info.date_of_birth = date_of_birth
-        return self
-
-    def nationality_id_v2(self, nationality_id_v2: str) -> "PersonInfoBuilder":
-        self._person_info.nationality_id_v2 = nationality_id_v2
         return self
 
     def race(self, race: Enum) -> "PersonInfoBuilder":
@@ -330,6 +341,38 @@ class PersonInfoBuilder(object):
 
     def religion(self, religion: Enum) -> "PersonInfoBuilder":
         self._person_info.religion = religion
+        return self
+
+    def working_years_v2(self, working_years_v2: float) -> "PersonInfoBuilder":
+        self._person_info.working_years_v2 = working_years_v2
+        return self
+
+    def created_at(self, created_at: str) -> "PersonInfoBuilder":
+        self._person_info.created_at = created_at
+        return self
+
+    def updated_at(self, updated_at: str) -> "PersonInfoBuilder":
+        self._person_info.updated_at = updated_at
+        return self
+
+    def created_by(self, created_by: str) -> "PersonInfoBuilder":
+        self._person_info.created_by = created_by
+        return self
+
+    def updated_by(self, updated_by: str) -> "PersonInfoBuilder":
+        self._person_info.updated_by = updated_by
+        return self
+
+    def bank_account_number(self, bank_account_number: str) -> "PersonInfoBuilder":
+        self._person_info.bank_account_number = bank_account_number
+        return self
+
+    def passport_number(self, passport_number: str) -> "PersonInfoBuilder":
+        self._person_info.passport_number = passport_number
+        return self
+
+    def former_employer(self, former_employer: List[I18n]) -> "PersonInfoBuilder":
+        self._person_info.former_employer = former_employer
         return self
 
     def build(self) -> "PersonInfo":

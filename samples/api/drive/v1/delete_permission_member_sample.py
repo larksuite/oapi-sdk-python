@@ -20,6 +20,7 @@ def main():
         .member_type("openid") \
         .request_body(DeletePermissionMemberRequestBody.builder()
                       .type("user")
+                      .perm_type("container")
                       .build()) \
         .build()
 
@@ -53,6 +54,7 @@ async def amain():
         .member_type("openid") \
         .request_body(DeletePermissionMemberRequestBody.builder()
                       .type("user")
+                      .perm_type("container")
                       .build()) \
         .build()
 

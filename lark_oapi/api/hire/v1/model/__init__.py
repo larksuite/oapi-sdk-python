@@ -1,4 +1,5 @@
 from .ability import *
+from .acceptance import *
 from .account import *
 from .agency import *
 from .agency_protection import *
@@ -78,6 +79,7 @@ from .base_resp import *
 from .basic_info import *
 from .bonus_amount import *
 from .business_management_scope import *
+from .candidate_tag_filter import *
 from .career_info import *
 from .cash import *
 from .certificate_info import *
@@ -99,6 +101,7 @@ from .competition_info import *
 from .contract_period_info import *
 from .country import *
 from .data_permission import *
+from .degree_filter import *
 from .department import *
 from .department_id import *
 from .di_data import *
@@ -144,6 +147,7 @@ from .external_interview import *
 from .external_interview_assessment import *
 from .external_interview_assessment_dimension import *
 from .external_reward import *
+from .filter import *
 from .five_start_scoring_result import *
 from .i18n import *
 from .id_name_object import *
@@ -217,6 +221,12 @@ from .language_info import *
 from .level import *
 from .location import *
 from .location_base_info import *
+from .location_city import *
+from .location_country import *
+from .location_district import *
+from .location_dto import *
+from .location_name_info import *
+from .location_state import *
 from .master_location_address_info import *
 from .master_location_info import *
 from .mention_entity import *
@@ -242,6 +252,8 @@ from .offer_custom_field import *
 from .offer_custom_field_config import *
 from .offer_custom_field_config_option import *
 from .offer_customized_info import *
+from .offer_email_info import *
+from .offer_file import *
 from .offer_info import *
 from .offer_job_info import *
 from .offer_list_info import *
@@ -253,6 +265,8 @@ from .offer_schema_detail_option import *
 from .offer_schema_list_info import *
 from .offer_schema_name import *
 from .offer_selection_object import *
+from .offer_send_record import *
+from .offer_signature_info import *
 from .permission_collection import *
 from .permission_group_info import *
 from .permission_scope_rule import *
@@ -263,6 +277,7 @@ from .provider_id_name_object import *
 from .push_stage import *
 from .question import *
 from .questionnaire import *
+from .range_filter import *
 from .recruitment_type import *
 from .referral import *
 from .referral_info import *
@@ -278,6 +293,7 @@ from .score_calculation_config import *
 from .score_dimension_config import *
 from .select_option_result import *
 from .sequence import *
+from .signature_attachment import *
 from .site import *
 from .site_application import *
 from .site_job_city import *
@@ -492,6 +508,7 @@ from .get_talent_request import *
 from .list_talent_request import *
 from .list_talent_folder_request import *
 from .query_talent_object_request import *
+from .list_termination_reason_request import *
 from .create_application_response_body import *
 from .create_application_response import *
 from .get_application_response_body import *
@@ -634,6 +651,8 @@ from .list_talent_folder_response_body import *
 from .list_talent_folder_response import *
 from .query_talent_object_response_body import *
 from .query_talent_object_response import *
+from .list_termination_reason_response_body import *
+from .list_termination_reason_response import *
 from .p2_hire_application_deleted_v1 import *
 from .p2_hire_application_stage_changed_v1 import *
 from .p2_hire_eco_account_created_v1 import *

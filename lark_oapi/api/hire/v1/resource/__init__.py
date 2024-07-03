@@ -36,3 +36,4 @@ from .role import *
 from .talent import *
 from .talent_folder import *
 from .talent_object import *
+from .termination_reason import *

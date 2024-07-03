@@ -21,7 +21,7 @@ class DeleteAilySessionRequestBuilder(object):
         delete_aily_session_request = DeleteAilySessionRequest()
         delete_aily_session_request.http_method = HttpMethod.DELETE
         delete_aily_session_request.uri = "/open-apis/aily/v1/sessions/:aily_session_id"
-        delete_aily_session_request.token_types = {AccessTokenType.USER}
+        delete_aily_session_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._delete_aily_session_request: DeleteAilySessionRequest = delete_aily_session_request
 
     def aily_session_id(self, aily_session_id: str) -> "DeleteAilySessionRequestBuilder":

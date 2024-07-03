@@ -12,6 +12,7 @@ class PrehireUpdate(object):
         "offer_info_update": OfferInfoUpdate,
         "standard_update_fields": List[str],
         "custom_update_fields": List[str],
+        "person_custom_update_fields": List[str],
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class PrehireUpdate(object):
         self.offer_info_update: Optional[OfferInfoUpdate] = None
         self.standard_update_fields: Optional[List[str]] = None
         self.custom_update_fields: Optional[List[str]] = None
+        self.person_custom_update_fields: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -44,6 +46,10 @@ class PrehireUpdateBuilder(object):
 
     def custom_update_fields(self, custom_update_fields: List[str]) -> "PrehireUpdateBuilder":
         self._prehire_update.custom_update_fields = custom_update_fields
+        return self
+
+    def person_custom_update_fields(self, person_custom_update_fields: List[str]) -> "PrehireUpdateBuilder":
+        self._prehire_update.person_custom_update_fields = person_custom_update_fields
         return self
 
     def build(self) -> "PrehireUpdate":

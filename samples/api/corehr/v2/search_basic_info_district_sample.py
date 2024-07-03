@@ -15,7 +15,7 @@ def main():
     # 构造请求对象
     request: SearchBasicInfoDistrictRequest = SearchBasicInfoDistrictRequest.builder() \
         .page_size(100) \
-        .page_token("6891251722631890445") \
+        .page_token("6863333352758314504") \
         .request_body(SearchBasicInfoDistrictRequestBody.builder()
                       .city_id_list([])
                       .district_id_list([])
@@ -48,7 +48,7 @@ async def amain():
     # 构造请求对象
     request: SearchBasicInfoDistrictRequest = SearchBasicInfoDistrictRequest.builder() \
         .page_size(100) \
-        .page_token("6891251722631890445") \
+        .page_token("6863333352758314504") \
         .request_body(SearchBasicInfoDistrictRequestBody.builder()
                       .city_id_list([])
                       .district_id_list([])

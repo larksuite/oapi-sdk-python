@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.auth_permission_member_request import AuthPermissionMemberRequest
 from ..model.auth_permission_member_response import AuthPermissionMemberResponse
+from ..model.batch_create_permission_member_request import BatchCreatePermissionMemberRequest
+from ..model.batch_create_permission_member_response import BatchCreatePermissionMemberResponse
 from ..model.create_permission_member_request import CreatePermissionMemberRequest
 from ..model.create_permission_member_response import CreatePermissionMemberResponse
 from ..model.delete_permission_member_request import DeletePermissionMemberRequest
@@ -61,6 +63,46 @@ class PermissionMember(object):
 
         # 反序列化
         response: AuthPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), AuthPermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
+    def batch_create(self, request: BatchCreatePermissionMemberRequest,
+                     option: Optional[RequestOption] = None) -> BatchCreatePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: BatchCreatePermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchCreatePermissionMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def abatch_create(self, request: BatchCreatePermissionMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreatePermissionMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchCreatePermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchCreatePermissionMemberResponse)
         response.raw = resp
 
         return response

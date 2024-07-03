@@ -8,7 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class DeleteCalendarEventRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
-        self.need_notification: Optional[bool] = None
+        self.need_notification: Optional[str] = None
         self.calendar_id: Optional[str] = None
         self.event_id: Optional[str] = None
 
@@ -26,7 +26,7 @@ class DeleteCalendarEventRequestBuilder(object):
         delete_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_calendar_event_request: DeleteCalendarEventRequest = delete_calendar_event_request
 
-    def need_notification(self, need_notification: bool) -> "DeleteCalendarEventRequestBuilder":
+    def need_notification(self, need_notification: str) -> "DeleteCalendarEventRequestBuilder":
         self._delete_calendar_event_request.need_notification = need_notification
         self._delete_calendar_event_request.add_query("need_notification", need_notification)
         return self

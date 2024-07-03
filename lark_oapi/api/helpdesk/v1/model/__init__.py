@@ -13,6 +13,7 @@ from .customized_field_display_item import *
 from .department_id import *
 from .event import *
 from .faq import *
+from .faq_create_info import *
 from .faq_update_info import *
 from .i18n import *
 from .notification import *

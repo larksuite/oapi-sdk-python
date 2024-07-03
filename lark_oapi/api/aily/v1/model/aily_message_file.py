@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .aily_message_file_preview import AilyMessageFilePreview
 
 
 class AilyMessageFile(object):
@@ -11,6 +12,7 @@ class AilyMessageFile(object):
         "file_name": str,
         "metadata": str,
         "created_at": int,
+        "preview_url": AilyMessageFilePreview,
     }
 
     def __init__(self, d=None):
@@ -19,6 +21,7 @@ class AilyMessageFile(object):
         self.file_name: Optional[str] = None
         self.metadata: Optional[str] = None
         self.created_at: Optional[int] = None
+        self.preview_url: Optional[AilyMessageFilePreview] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +51,10 @@ class AilyMessageFileBuilder(object):
 
     def created_at(self, created_at: int) -> "AilyMessageFileBuilder":
         self._aily_message_file.created_at = created_at
+        return self
+
+    def preview_url(self, preview_url: AilyMessageFilePreview) -> "AilyMessageFileBuilder":
+        self._aily_message_file.preview_url = preview_url
         return self
 
     def build(self) -> "AilyMessageFile":
