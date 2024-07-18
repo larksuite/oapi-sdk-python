@@ -9,6 +9,8 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.create_attachment_request import CreateAttachmentRequest
+from ..model.create_attachment_response import CreateAttachmentResponse
 from ..model.get_attachment_request import GetAttachmentRequest
 from ..model.get_attachment_response import GetAttachmentResponse
 from ..model.preview_attachment_request import PreviewAttachmentRequest
@@ -18,6 +20,49 @@ from ..model.preview_attachment_response import PreviewAttachmentResponse
 class Attachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def create(self, request: CreateAttachmentRequest,
+               option: Optional[RequestOption] = None) -> CreateAttachmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            form_data = MultipartEncoder(Files.parse_form_data(request.body))
+            request.body = form_data
+            option.headers[CONTENT_TYPE] = form_data.content_type
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAttachmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate(self, request: CreateAttachmentRequest,
+                      option: Optional[RequestOption] = None) -> CreateAttachmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 解析文件
+        request.files = Files.extract_files(request.body)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAttachmentResponse)
+        response.raw = resp
+
+        return response
 
     def get(self, request: GetAttachmentRequest, option: Optional[RequestOption] = None) -> GetAttachmentResponse:
         if option is None:

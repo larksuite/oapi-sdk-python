@@ -16,12 +16,12 @@ def main():
     request: CreateTimeoffEventRequest = CreateTimeoffEventRequest.builder() \
         .user_id_type("user_id") \
         .request_body(TimeoffEvent.builder()
-                      .user_id("str")
-                      .timezone("str")
-                      .start_time("str")
-                      .end_time("str")
-                      .title("str")
-                      .description("str")
+                      .user_id("ou_XXXXXXXXXX")
+                      .timezone("Asia/Shanghai")
+                      .start_time("2021-01-01")
+                      .end_time("2021-01-02")
+                      .title("请假日程标题")
+                      .description("请假日程描述")
                       .build()) \
         .build()
 
@@ -51,12 +51,12 @@ async def amain():
     request: CreateTimeoffEventRequest = CreateTimeoffEventRequest.builder() \
         .user_id_type("user_id") \
         .request_body(TimeoffEvent.builder()
-                      .user_id("str")
-                      .timezone("str")
-                      .start_time("str")
-                      .end_time("str")
-                      .title("str")
-                      .description("str")
+                      .user_id("ou_XXXXXXXXXX")
+                      .timezone("Asia/Shanghai")
+                      .start_time("2021-01-01")
+                      .end_time("2021-01-02")
+                      .title("请假日程标题")
+                      .description("请假日程描述")
                       .build()) \
         .build()
 

@@ -130,6 +130,8 @@ from .merge_forward_message_request_body import *
 from .merge_forward_message_request import *
 from .patch_message_request_body import *
 from .patch_message_request import *
+from .push_follow_up_message_request_body import *
+from .push_follow_up_message_request import *
 from .read_users_message_request import *
 from .reply_message_request_body import *
 from .reply_message_request import *
@@ -225,6 +227,7 @@ from .list_message_response import *
 from .merge_forward_message_response_body import *
 from .merge_forward_message_response import *
 from .patch_message_response import *
+from .push_follow_up_message_response import *
 from .read_users_message_response_body import *
 from .read_users_message_response import *
 from .reply_message_response_body import *
@@ -253,6 +256,7 @@ from .forward_thread_response_body import *
 from .forward_thread_response import *
 from .p2_im_chat_disbanded_v1 import *
 from .p2_im_chat_updated_v1 import *
+from .p2_im_chat_access_event_bot_p2p_chat_entered_v1 import *
 from .p2_im_chat_member_bot_added_v1 import *
 from .p2_im_chat_member_bot_deleted_v1 import *
 from .p2_im_chat_member_user_added_v1 import *

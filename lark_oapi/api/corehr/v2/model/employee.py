@@ -2,8 +2,8 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .job_level import JobLevel
-from .job_family import JobFamily
+from .employee_job_level import EmployeeJobLevel
+from .employee_job_family import EmployeeJobFamily
 from .position import Position
 from .job import Job
 from .enum import Enum
@@ -33,11 +33,11 @@ class Employee(object):
         "employee_type_id": str,
         "department_id": str,
         "job_level_id": str,
-        "job_level": JobLevel,
+        "job_level": EmployeeJobLevel,
         "job_grade_id": str,
         "work_location_id": str,
         "job_family_id": str,
-        "job_family": JobFamily,
+        "job_family": EmployeeJobFamily,
         "position_id": str,
         "position": Position,
         "job_id": str,
@@ -95,11 +95,11 @@ class Employee(object):
         self.employee_type_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
-        self.job_level: Optional[JobLevel] = None
+        self.job_level: Optional[EmployeeJobLevel] = None
         self.job_grade_id: Optional[str] = None
         self.work_location_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
-        self.job_family: Optional[JobFamily] = None
+        self.job_family: Optional[EmployeeJobFamily] = None
         self.position_id: Optional[str] = None
         self.position: Optional[Position] = None
         self.job_id: Optional[str] = None
@@ -186,7 +186,7 @@ class EmployeeBuilder(object):
         self._employee.job_level_id = job_level_id
         return self
 
-    def job_level(self, job_level: JobLevel) -> "EmployeeBuilder":
+    def job_level(self, job_level: EmployeeJobLevel) -> "EmployeeBuilder":
         self._employee.job_level = job_level
         return self
 
@@ -202,7 +202,7 @@ class EmployeeBuilder(object):
         self._employee.job_family_id = job_family_id
         return self
 
-    def job_family(self, job_family: JobFamily) -> "EmployeeBuilder":
+    def job_family(self, job_family: EmployeeJobFamily) -> "EmployeeBuilder":
         self._employee.job_family = job_family
         return self
 

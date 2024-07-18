@@ -9,19 +9,63 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.complete_pre_hire_request import CompletePreHireRequest
+from ..model.complete_pre_hire_response import CompletePreHireResponse
 from ..model.create_pre_hire_request import CreatePreHireRequest
 from ..model.create_pre_hire_response import CreatePreHireResponse
 from ..model.delete_pre_hire_request import DeletePreHireRequest
 from ..model.delete_pre_hire_response import DeletePreHireResponse
 from ..model.patch_pre_hire_request import PatchPreHireRequest
 from ..model.patch_pre_hire_response import PatchPreHireResponse
+from ..model.query_pre_hire_request import QueryPreHireRequest
+from ..model.query_pre_hire_response import QueryPreHireResponse
 from ..model.search_pre_hire_request import SearchPreHireRequest
 from ..model.search_pre_hire_response import SearchPreHireResponse
+from ..model.transit_task_pre_hire_request import TransitTaskPreHireRequest
+from ..model.transit_task_pre_hire_response import TransitTaskPreHireResponse
 
 
 class PreHire(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def complete(self, request: CompletePreHireRequest,
+                 option: Optional[RequestOption] = None) -> CompletePreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CompletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CompletePreHireResponse)
+        response.raw = resp
+
+        return response
+
+    async def acomplete(self, request: CompletePreHireRequest,
+                        option: Optional[RequestOption] = None) -> CompletePreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CompletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), CompletePreHireResponse)
+        response.raw = resp
+
+        return response
 
     def create(self, request: CreatePreHireRequest, option: Optional[RequestOption] = None) -> CreatePreHireResponse:
         if option is None:
@@ -134,6 +178,43 @@ class PreHire(object):
 
         return response
 
+    def query(self, request: QueryPreHireRequest, option: Optional[RequestOption] = None) -> QueryPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryPreHireResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery(self, request: QueryPreHireRequest,
+                     option: Optional[RequestOption] = None) -> QueryPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryPreHireResponse)
+        response.raw = resp
+
+        return response
+
     def search(self, request: SearchPreHireRequest, option: Optional[RequestOption] = None) -> SearchPreHireResponse:
         if option is None:
             option = RequestOption()
@@ -167,6 +248,44 @@ class PreHire(object):
 
         # 反序列化
         response: SearchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchPreHireResponse)
+        response.raw = resp
+
+        return response
+
+    def transit_task(self, request: TransitTaskPreHireRequest,
+                     option: Optional[RequestOption] = None) -> TransitTaskPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TransitTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), TransitTaskPreHireResponse)
+        response.raw = resp
+
+        return response
+
+    async def atransit_task(self, request: TransitTaskPreHireRequest,
+                            option: Optional[RequestOption] = None) -> TransitTaskPreHireResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TransitTaskPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), TransitTaskPreHireResponse)
         response.raw = resp
 
         return response

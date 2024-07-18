@@ -15,8 +15,9 @@ def main():
     # 构造请求对象
     request: CreateSpaceRequest = CreateSpaceRequest.builder() \
         .request_body(Space.builder()
-                      .name("str")
-                      .description("str")
+                      .name("测试知识库")
+                      .description("测试知识库")
+                      .open_sharing("open")
                       .build()) \
         .build()
 
@@ -45,8 +46,9 @@ async def amain():
     # 构造请求对象
     request: CreateSpaceRequest = CreateSpaceRequest.builder() \
         .request_body(Space.builder()
-                      .name("str")
-                      .description("str")
+                      .name("测试知识库")
+                      .description("测试知识库")
+                      .open_sharing("open")
                       .build()) \
         .build()
 

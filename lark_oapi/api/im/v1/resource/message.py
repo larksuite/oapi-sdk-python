@@ -23,6 +23,8 @@ from ..model.merge_forward_message_request import MergeForwardMessageRequest
 from ..model.merge_forward_message_response import MergeForwardMessageResponse
 from ..model.patch_message_request import PatchMessageRequest
 from ..model.patch_message_response import PatchMessageResponse
+from ..model.push_follow_up_message_request import PushFollowUpMessageRequest
+from ..model.push_follow_up_message_response import PushFollowUpMessageResponse
 from ..model.read_users_message_request import ReadUsersMessageRequest
 from ..model.read_users_message_response import ReadUsersMessageResponse
 from ..model.reply_message_request import ReplyMessageRequest
@@ -295,6 +297,44 @@ class Message(object):
 
         # 反序列化
         response: PatchMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchMessageResponse)
+        response.raw = resp
+
+        return response
+
+    def push_follow_up(self, request: PushFollowUpMessageRequest,
+                       option: Optional[RequestOption] = None) -> PushFollowUpMessageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PushFollowUpMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PushFollowUpMessageResponse)
+        response.raw = resp
+
+        return response
+
+    async def apush_follow_up(self, request: PushFollowUpMessageRequest,
+                              option: Optional[RequestOption] = None) -> PushFollowUpMessageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PushFollowUpMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), PushFollowUpMessageResponse)
         response.raw = resp
 
         return response

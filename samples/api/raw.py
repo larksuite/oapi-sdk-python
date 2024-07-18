@@ -77,6 +77,47 @@ def upload_all_file():
     lark.logger.info(str(response.raw.content, lark.UTF_8))
 
 
+# 上传审批文件
+def upload_approval_file():
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
+
+    # 构造请求对象
+    file = open("/Users/bytedance/Desktop/demo.pdf", "rb")
+    data = {
+        "name": "2305.14283.pdf",
+        "type": "attachment",
+        "content": ("2305.14283.pdf", file, "")
+    }
+    body = MultipartEncoder(lark.Files.parse_form_data(data))
+
+    request: lark.BaseRequest = (
+        lark.BaseRequest.builder()
+        .http_method(lark.HttpMethod.POST)
+        .uri("/approval/openapi/v2/file/upload")
+        .headers({"Content-Type": body.content_type})
+        .token_types({lark.AccessTokenType.TENANT})
+        .body(body)
+        .build()
+    )
+
+    # 发起请求
+    response: lark.BaseResponse = client.request(request)
+
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.request failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
+
+    # 处理业务结果
+    lark.logger.info(str(response.raw.content, lark.UTF_8))
+
+
 # 下载文件
 def download_file():
     # 创建client

@@ -13,6 +13,10 @@ from ..model.enable_disable_assessment_probation_request import EnableDisableAss
 from ..model.enable_disable_assessment_probation_response import EnableDisableAssessmentProbationResponse
 from ..model.search_probation_request import SearchProbationRequest
 from ..model.search_probation_response import SearchProbationResponse
+from ..model.submit_probation_request import SubmitProbationRequest
+from ..model.submit_probation_response import SubmitProbationResponse
+from ..model.withdraw_probation_request import WithdrawProbationRequest
+from ..model.withdraw_probation_response import WithdrawProbationResponse
 
 
 class Probation(object):
@@ -93,6 +97,82 @@ class Probation(object):
 
         # 反序列化
         response: SearchProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchProbationResponse)
+        response.raw = resp
+
+        return response
+
+    def submit(self, request: SubmitProbationRequest,
+               option: Optional[RequestOption] = None) -> SubmitProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SubmitProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SubmitProbationResponse)
+        response.raw = resp
+
+        return response
+
+    async def asubmit(self, request: SubmitProbationRequest,
+                      option: Optional[RequestOption] = None) -> SubmitProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SubmitProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), SubmitProbationResponse)
+        response.raw = resp
+
+        return response
+
+    def withdraw(self, request: WithdrawProbationRequest,
+                 option: Optional[RequestOption] = None) -> WithdrawProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: WithdrawProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), WithdrawProbationResponse)
+        response.raw = resp
+
+        return response
+
+    async def awithdraw(self, request: WithdrawProbationRequest,
+                        option: Optional[RequestOption] = None) -> WithdrawProbationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: WithdrawProbationResponse = JSON.unmarshal(str(resp.content, UTF_8), WithdrawProbationResponse)
         response.raw = resp
 
         return response

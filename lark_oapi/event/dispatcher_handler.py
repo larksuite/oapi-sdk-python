@@ -786,6 +786,14 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.im.chat.updated_v1"] = P2ImChatUpdatedV1Processor(f)
         return self
 
+    def register_p2_im_chat_access_event_bot_p2p_chat_entered_v1(self, f: Callable[
+        [P2ImChatAccessEventBotP2pChatEnteredV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.im.chat.access_event.bot_p2p_chat_entered_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.im.chat.access_event.bot_p2p_chat_entered_v1")
+        self._processorMap[
+            "p2.im.chat.access_event.bot_p2p_chat_entered_v1"] = P2ImChatAccessEventBotP2pChatEnteredV1Processor(f)
+        return self
+
     def register_p2_im_chat_member_bot_added_v1(self, f: Callable[
         [P2ImChatMemberBotAddedV1], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.im.chat.member.bot.added_v1" in self._processorMap:

@@ -4,6 +4,7 @@ from .calendar_event import *
 from .calendar_event_attendee import *
 from .calendar_event_attendee_chat_member import *
 from .calendar_event_meeting_chat import *
+from .calendar_event_meeting_minute import *
 from .exchange_binding import *
 from .freebusy import *
 from .setting import *

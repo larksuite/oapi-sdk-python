@@ -29,6 +29,7 @@ from .event_organizer import *
 from .event_search_filter import *
 from .event_time import *
 from .exchange_binding import *
+from .file import *
 from .free_time import *
 from .free_time_ai import *
 from .free_time_slot import *
@@ -102,6 +103,7 @@ from .list_calendar_event_attendee_request import *
 from .list_calendar_event_attendee_chat_member_request import *
 from .create_calendar_event_meeting_chat_request import *
 from .delete_calendar_event_meeting_chat_request import *
+from .create_calendar_event_meeting_minute_request import *
 from .create_exchange_binding_request import *
 from .delete_exchange_binding_request import *
 from .get_exchange_binding_request import *
@@ -164,6 +166,8 @@ from .list_calendar_event_attendee_chat_member_response import *
 from .create_calendar_event_meeting_chat_response_body import *
 from .create_calendar_event_meeting_chat_response import *
 from .delete_calendar_event_meeting_chat_response import *
+from .create_calendar_event_meeting_minute_response_body import *
+from .create_calendar_event_meeting_minute_response import *
 from .create_exchange_binding_response_body import *
 from .create_exchange_binding_response import *
 from .delete_exchange_binding_response import *

@@ -1,5 +1,6 @@
 from .batch_message import *
 from .chat import *
+from .chat_access_event import *
 from .chat_announcement import *
 from .chat_managers import *
 from .chat_member_bot import *

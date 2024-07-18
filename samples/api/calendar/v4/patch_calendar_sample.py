@@ -16,11 +16,11 @@ def main():
     request: PatchCalendarRequest = PatchCalendarRequest.builder() \
         .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
         .request_body(Calendar.builder()
-                      .summary("str")
-                      .description("str")
+                      .summary("summary")
+                      .description("description")
                       .permissions("private")
-                      .color(int)
-                      .summary_alias("str")
+                      .color(11034625)
+                      .summary_alias("xxx")
                       .build()) \
         .build()
 
@@ -50,11 +50,11 @@ async def amain():
     request: PatchCalendarRequest = PatchCalendarRequest.builder() \
         .calendar_id("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn") \
         .request_body(Calendar.builder()
-                      .summary("str")
-                      .description("str")
+                      .summary("summary")
+                      .description("description")
                       .permissions("private")
-                      .color(int)
-                      .summary_alias("str")
+                      .color(11034625)
+                      .summary_alias("xxx")
                       .build()) \
         .build()
 

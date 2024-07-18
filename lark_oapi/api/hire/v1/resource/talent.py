@@ -13,6 +13,8 @@ from ..model.add_to_folder_talent_request import AddToFolderTalentRequest
 from ..model.add_to_folder_talent_response import AddToFolderTalentResponse
 from ..model.batch_get_id_talent_request import BatchGetIdTalentRequest
 from ..model.batch_get_id_talent_response import BatchGetIdTalentResponse
+from ..model.combined_create_talent_request import CombinedCreateTalentRequest
+from ..model.combined_create_talent_response import CombinedCreateTalentResponse
 from ..model.get_talent_request import GetTalentRequest
 from ..model.get_talent_response import GetTalentResponse
 from ..model.list_talent_request import ListTalentRequest
@@ -95,6 +97,44 @@ class Talent(object):
 
         # 反序列化
         response: BatchGetIdTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetIdTalentResponse)
+        response.raw = resp
+
+        return response
+
+    def combined_create(self, request: CombinedCreateTalentRequest,
+                        option: Optional[RequestOption] = None) -> CombinedCreateTalentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CombinedCreateTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedCreateTalentResponse)
+        response.raw = resp
+
+        return response
+
+    async def acombined_create(self, request: CombinedCreateTalentRequest,
+                               option: Optional[RequestOption] = None) -> CombinedCreateTalentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CombinedCreateTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedCreateTalentResponse)
         response.raw = resp
 
         return response

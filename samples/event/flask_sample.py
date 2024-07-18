@@ -17,7 +17,7 @@ def do_customized_event(data: lark.CustomizedEvent) -> None:
 
 handler = lark.EventDispatcherHandler.builder(lark.ENCRYPT_KEY, lark.VERIFICATION_TOKEN, lark.LogLevel.DEBUG) \
     .register_p2_im_message_receive_v1(do_p2_im_message_receive_v1) \
-    .register_p1_customized_event("message", do_customized_event) \
+    .register_p1_customized_event("这里填入你要自定义订阅的 event 的 key,例如 out_approval", do_customized_event) \
     .build()
 
 

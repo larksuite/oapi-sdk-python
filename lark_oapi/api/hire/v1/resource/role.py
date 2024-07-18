@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.get_role_request import GetRoleRequest
 from ..model.get_role_response import GetRoleResponse
+from ..model.list_role_request import ListRoleRequest
+from ..model.list_role_response import ListRoleResponse
 
 
 class Role(object):
@@ -49,6 +51,42 @@ class Role(object):
 
         # 反序列化
         response: GetRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRoleResponse)
+        response.raw = resp
+
+        return response
+
+    def list(self, request: ListRoleRequest, option: Optional[RequestOption] = None) -> ListRoleResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoleResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListRoleRequest, option: Optional[RequestOption] = None) -> ListRoleResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListRoleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListRoleResponse)
         response.raw = resp
 
         return response

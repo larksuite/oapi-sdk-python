@@ -16,9 +16,9 @@ def main():
     request: CreateExchangeBindingRequest = CreateExchangeBindingRequest.builder() \
         .user_id_type("user_id") \
         .request_body(ExchangeBinding.builder()
-                      .admin_account("str")
-                      .exchange_account("str")
-                      .user_id("str")
+                      .admin_account("email_admin_example@outlook.com")
+                      .exchange_account("email_account_example@outlook.com")
+                      .user_id("ou_xxxxxxxxxxxxxxxxxx")
                       .build()) \
         .build()
 
@@ -48,9 +48,9 @@ async def amain():
     request: CreateExchangeBindingRequest = CreateExchangeBindingRequest.builder() \
         .user_id_type("user_id") \
         .request_body(ExchangeBinding.builder()
-                      .admin_account("str")
-                      .exchange_account("str")
-                      .user_id("str")
+                      .admin_account("email_admin_example@outlook.com")
+                      .exchange_account("email_account_example@outlook.com")
+                      .user_id("ou_xxxxxxxxxxxxxxxxxx")
                       .build()) \
         .build()
 

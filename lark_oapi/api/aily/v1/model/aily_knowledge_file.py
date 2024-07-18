@@ -9,12 +9,14 @@ class AilyKnowledgeFile(object):
         "title": str,
         "mime_type": str,
         "content": str,
+        "source_url": str,
     }
 
     def __init__(self, d=None):
         self.title: Optional[str] = None
         self.mime_type: Optional[str] = None
         self.content: Optional[str] = None
+        self.source_url: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +38,10 @@ class AilyKnowledgeFileBuilder(object):
 
     def content(self, content: str) -> "AilyKnowledgeFileBuilder":
         self._aily_knowledge_file.content = content
+        return self
+
+    def source_url(self, source_url: str) -> "AilyKnowledgeFileBuilder":
+        self._aily_knowledge_file.source_url = source_url
         return self
 
     def build(self) -> "AilyKnowledgeFile":

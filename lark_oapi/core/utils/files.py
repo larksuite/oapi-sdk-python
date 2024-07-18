@@ -26,7 +26,7 @@ class Files(object):
             fd = vars(obj)
 
         for k, v in fd.items():
-            if v is None or isinstance(v, io.IOBase):
+            if v is None or isinstance(v, io.IOBase) or isinstance(v, tuple):
                 continue
             fd[k] = str(v)
 

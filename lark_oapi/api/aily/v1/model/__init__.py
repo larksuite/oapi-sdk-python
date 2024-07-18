@@ -41,6 +41,7 @@ from .skill_base_info import *
 from .skill_call import *
 from .skill_instance import *
 from .source_setting import *
+from .suggestion import *
 from .table import *
 from .create_aily_session_request_body import *
 from .create_aily_session_request import *

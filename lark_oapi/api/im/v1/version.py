@@ -5,6 +5,7 @@ class V1(object):
     def __init__(self, config: Config) -> None:
         self.batch_message: BatchMessage = BatchMessage(config)
         self.chat: Chat = Chat(config)
+        self.chat_access_event: ChatAccessEvent = ChatAccessEvent(config)
         self.chat_announcement: ChatAnnouncement = ChatAnnouncement(config)
         self.chat_managers: ChatManagers = ChatManagers(config)
         self.chat_member_bot: ChatMemberBot = ChatMemberBot(config)

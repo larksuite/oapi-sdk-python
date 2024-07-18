@@ -11,6 +11,7 @@ class Space(object):
         "space_id": str,
         "space_type": str,
         "visibility": str,
+        "open_sharing": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class Space(object):
         self.space_id: Optional[str] = None
         self.space_type: Optional[str] = None
         self.visibility: Optional[str] = None
+        self.open_sharing: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +50,10 @@ class SpaceBuilder(object):
 
     def visibility(self, visibility: str) -> "SpaceBuilder":
         self._space.visibility = visibility
+        return self
+
+    def open_sharing(self, open_sharing: str) -> "SpaceBuilder":
+        self._space.open_sharing = open_sharing
         return self
 
     def build(self) -> "Space":

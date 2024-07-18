@@ -5,6 +5,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.event.processor import IEventProcessor
 from .model.p2_im_chat_disbanded_v1 import P2ImChatDisbandedV1
 from .model.p2_im_chat_updated_v1 import P2ImChatUpdatedV1
+from .model.p2_im_chat_access_event_bot_p2p_chat_entered_v1 import P2ImChatAccessEventBotP2pChatEnteredV1
 from .model.p2_im_chat_member_bot_added_v1 import P2ImChatMemberBotAddedV1
 from .model.p2_im_chat_member_bot_deleted_v1 import P2ImChatMemberBotDeletedV1
 from .model.p2_im_chat_member_user_added_v1 import P2ImChatMemberUserAddedV1
@@ -36,6 +37,17 @@ class P2ImChatUpdatedV1Processor(IEventProcessor[P2ImChatUpdatedV1]):
         return P2ImChatUpdatedV1
 
     def do(self, data: P2ImChatUpdatedV1) -> None:
+        self.f(data)
+
+
+class P2ImChatAccessEventBotP2pChatEnteredV1Processor(IEventProcessor[P2ImChatAccessEventBotP2pChatEnteredV1]):
+    def __init__(self, f: Callable[[P2ImChatAccessEventBotP2pChatEnteredV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2ImChatAccessEventBotP2pChatEnteredV1]:
+        return P2ImChatAccessEventBotP2pChatEnteredV1
+
+    def do(self, data: P2ImChatAccessEventBotP2pChatEnteredV1) -> None:
         self.f(data)
 
 

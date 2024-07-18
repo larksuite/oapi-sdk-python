@@ -16,9 +16,9 @@ def main():
     request: UpdateSpaceSettingRequest = UpdateSpaceSettingRequest.builder() \
         .space_id("1565676577122621") \
         .request_body(Setting.builder()
-                      .create_setting("str")
-                      .security_setting("str")
-                      .comment_setting("str")
+                      .create_setting("admin")
+                      .security_setting("allow")
+                      .comment_setting("allow")
                       .build()) \
         .build()
 
@@ -48,9 +48,9 @@ async def amain():
     request: UpdateSpaceSettingRequest = UpdateSpaceSettingRequest.builder() \
         .space_id("1565676577122621") \
         .request_body(Setting.builder()
-                      .create_setting("str")
-                      .security_setting("str")
-                      .comment_setting("str")
+                      .create_setting("admin")
+                      .security_setting("allow")
+                      .comment_setting("allow")
                       .build()) \
         .build()
 

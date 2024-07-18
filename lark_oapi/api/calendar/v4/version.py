@@ -10,6 +10,7 @@ class V4(object):
         self.calendar_event_attendee_chat_member: CalendarEventAttendeeChatMember = CalendarEventAttendeeChatMember(
             config)
         self.calendar_event_meeting_chat: CalendarEventMeetingChat = CalendarEventMeetingChat(config)
+        self.calendar_event_meeting_minute: CalendarEventMeetingMinute = CalendarEventMeetingMinute(config)
         self.exchange_binding: ExchangeBinding = ExchangeBinding(config)
         self.freebusy: Freebusy = Freebusy(config)
         self.setting: Setting = Setting(config)

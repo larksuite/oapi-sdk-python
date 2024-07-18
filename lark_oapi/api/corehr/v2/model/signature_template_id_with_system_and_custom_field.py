@@ -11,15 +11,15 @@ class SignatureTemplateIdWithSystemAndCustomField(object):
     _types = {
         "id": str,
         "system_field_info": SignatureFileSystemField,
-        "custom_field_info": SignatureCustomFieldV1,
-        "custom_field_info_v2": SignatureCustomFieldV2,
+        "custom_fields": List[SignatureCustomFieldV1],
+        "custom_fields_v2": List[SignatureCustomFieldV2],
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.system_field_info: Optional[SignatureFileSystemField] = None
-        self.custom_field_info: Optional[SignatureCustomFieldV1] = None
-        self.custom_field_info_v2: Optional[SignatureCustomFieldV2] = None
+        self.custom_fields: Optional[List[SignatureCustomFieldV1]] = None
+        self.custom_fields_v2: Optional[List[SignatureCustomFieldV2]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,14 +40,14 @@ class SignatureTemplateIdWithSystemAndCustomFieldBuilder(object):
         self._signature_template_id_with_system_and_custom_field.system_field_info = system_field_info
         return self
 
-    def custom_field_info(self,
-                          custom_field_info: SignatureCustomFieldV1) -> "SignatureTemplateIdWithSystemAndCustomFieldBuilder":
-        self._signature_template_id_with_system_and_custom_field.custom_field_info = custom_field_info
+    def custom_fields(self, custom_fields: List[
+        SignatureCustomFieldV1]) -> "SignatureTemplateIdWithSystemAndCustomFieldBuilder":
+        self._signature_template_id_with_system_and_custom_field.custom_fields = custom_fields
         return self
 
-    def custom_field_info_v2(self,
-                             custom_field_info_v2: SignatureCustomFieldV2) -> "SignatureTemplateIdWithSystemAndCustomFieldBuilder":
-        self._signature_template_id_with_system_and_custom_field.custom_field_info_v2 = custom_field_info_v2
+    def custom_fields_v2(self, custom_fields_v2: List[
+        SignatureCustomFieldV2]) -> "SignatureTemplateIdWithSystemAndCustomFieldBuilder":
+        self._signature_template_id_with_system_and_custom_field.custom_fields_v2 = custom_fields_v2
         return self
 
     def build(self) -> "SignatureTemplateIdWithSystemAndCustomField":

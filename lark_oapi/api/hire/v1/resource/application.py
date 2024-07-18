@@ -17,6 +17,8 @@ from ..model.list_application_request import ListApplicationRequest
 from ..model.list_application_response import ListApplicationResponse
 from ..model.offer_application_request import OfferApplicationRequest
 from ..model.offer_application_response import OfferApplicationResponse
+from ..model.recover_application_request import RecoverApplicationRequest
+from ..model.recover_application_response import RecoverApplicationResponse
 from ..model.terminate_application_request import TerminateApplicationRequest
 from ..model.terminate_application_response import TerminateApplicationResponse
 from ..model.transfer_onboard_application_request import TransferOnboardApplicationRequest
@@ -173,6 +175,44 @@ class Application(object):
 
         # 反序列化
         response: OfferApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), OfferApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    def recover(self, request: RecoverApplicationRequest,
+                option: Optional[RequestOption] = None) -> RecoverApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RecoverApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), RecoverApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    async def arecover(self, request: RecoverApplicationRequest,
+                       option: Optional[RequestOption] = None) -> RecoverApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RecoverApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), RecoverApplicationResponse)
         response.raw = resp
 
         return response

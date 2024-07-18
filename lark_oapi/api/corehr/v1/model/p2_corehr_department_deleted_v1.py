@@ -8,10 +8,12 @@ from lark_oapi.event.context import EventContext
 class P2CorehrDepartmentDeletedV1Data(object):
     _types = {
         "department_id": str,
+        "code": str,
     }
 
     def __init__(self, d=None):
         self.department_id: Optional[str] = None
+        self.code: Optional[str] = None
         init(self, d, self._types)
 
 
