@@ -100,8 +100,8 @@ class CardActionHandler(HttpHandler):
         timestamp = request.headers.get(LARK_REQUEST_TIMESTAMP)
         nonce = request.headers.get(LARK_REQUEST_NONCE)
         signature = request.headers.get(LARK_REQUEST_SIGNATURE)
-        bs = (timestamp + nonce + self._verification_token).encode(UTF_8) + request.body
-        h = hashlib.sha1(bs)
+        bs = (timestamp + nonce + self._encrypt_key).encode(UTF_8) + request.body
+        h = hashlib.sha256(bs)
         if signature != h.hexdigest():
             raise AccessDeniedException("signature verification failed")
 
