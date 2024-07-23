@@ -1,4 +1,4 @@
-from typing import Dict, Optional, Any
+from typing import Dict, Optional, Any, List
 
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import RawRequest
@@ -12,6 +12,11 @@ class Action(object):
         self.tag: Optional[str] = None
         self.option: Optional[str] = None
         self.timezone: Optional[str] = None
+        self.form_value: Dict[str, Any] = {}
+        self.name: Optional[str] = None
+        self.input_value: Optional[str] = None
+        self.options: Optional[List[str]] = None
+        self.checked: Optional[bool] = None
         init(self, d, self._types)
 
 
