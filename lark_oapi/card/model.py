@@ -12,6 +12,7 @@ class Action(object):
         self.tag: Optional[str] = None
         self.option: Optional[str] = None
         self.timezone: Optional[str] = None
+        self.form_value: Dict[str, Any] = {}
         init(self, d, self._types)
 
 
