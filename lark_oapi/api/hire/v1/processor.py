@@ -14,6 +14,7 @@ from .model.p2_hire_ehr_import_task_for_internship_offer_imported_v1 import \
     P2HireEhrImportTaskForInternshipOfferImportedV1
 from .model.p2_hire_offer_status_changed_v1 import P2HireOfferStatusChangedV1
 from .model.p2_hire_referral_account_assets_update_v1 import P2HireReferralAccountAssetsUpdateV1
+from .model.p2_hire_talent_deleted_v1 import P2HireTalentDeletedV1
 
 
 class P2HireApplicationDeletedV1Processor(IEventProcessor[P2HireApplicationDeletedV1]):
@@ -124,4 +125,15 @@ class P2HireReferralAccountAssetsUpdateV1Processor(IEventProcessor[P2HireReferra
         return P2HireReferralAccountAssetsUpdateV1
 
     def do(self, data: P2HireReferralAccountAssetsUpdateV1) -> None:
+        self.f(data)
+
+
+class P2HireTalentDeletedV1Processor(IEventProcessor[P2HireTalentDeletedV1]):
+    def __init__(self, f: Callable[[P2HireTalentDeletedV1], None]):
+        self.f = f
+
+    def type(self) -> Type[P2HireTalentDeletedV1]:
+        return P2HireTalentDeletedV1
+
+    def do(self, data: P2HireTalentDeletedV1) -> None:
         self.f(data)

@@ -24,6 +24,7 @@ class Message(object):
         "message_id": str,
         "body_plain_text": str,
         "attachments": List[Attachment],
+        "thread_id": str,
     }
 
     def __init__(self, d=None):
@@ -40,6 +41,7 @@ class Message(object):
         self.message_id: Optional[str] = None
         self.body_plain_text: Optional[str] = None
         self.attachments: Optional[List[Attachment]] = None
+        self.thread_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -101,6 +103,10 @@ class MessageBuilder(object):
 
     def attachments(self, attachments: List[Attachment]) -> "MessageBuilder":
         self._message.attachments = attachments
+        return self
+
+    def thread_id(self, thread_id: str) -> "MessageBuilder":
+        self._message.thread_id = thread_id
         return self
 
     def build(self) -> "Message":

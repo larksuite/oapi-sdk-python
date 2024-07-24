@@ -342,6 +342,7 @@ from .delete_probation_assessment_request import *
 from .patch_probation_assessment_request import *
 from .get_process_request import *
 from .list_process_request import *
+from .update_process_approver_request import *
 from .get_process_form_variable_data_request import *
 from .search_basic_info_bank_response_body import *
 from .search_basic_info_bank_response import *
@@ -446,6 +447,8 @@ from .get_process_response_body import *
 from .get_process_response import *
 from .list_process_response_body import *
 from .list_process_response import *
+from .update_process_approver_response_body import *
+from .update_process_approver_response import *
 from .get_process_form_variable_data_response_body import *
 from .get_process_form_variable_data_response import *
 from .p2_corehr_employee_domain_event_v2 import *

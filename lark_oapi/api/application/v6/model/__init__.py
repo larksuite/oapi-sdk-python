@@ -88,6 +88,8 @@ from .patch_application_request import *
 from .underauditlist_application_request import *
 from .department_overview_application_app_usage_request_body import *
 from .department_overview_application_app_usage_request import *
+from .message_push_overview_application_app_usage_request_body import *
+from .message_push_overview_application_app_usage_request import *
 from .overview_application_app_usage_request_body import *
 from .overview_application_app_usage_request import *
 from .contacts_range_suggest_application_app_version_request import *
@@ -116,6 +118,8 @@ from .underauditlist_application_response_body import *
 from .underauditlist_application_response import *
 from .department_overview_application_app_usage_response_body import *
 from .department_overview_application_app_usage_response import *
+from .message_push_overview_application_app_usage_response_body import *
+from .message_push_overview_application_app_usage_response import *
 from .overview_application_app_usage_response_body import *
 from .overview_application_app_usage_response import *
 from .contacts_range_suggest_application_app_version_response_body import *

@@ -81,6 +81,9 @@ from .wifi_info import *
 from .wifi_info_event import *
 from .process_approval_info_request_body import *
 from .process_approval_info_request import *
+from .list_archive_rule_request import *
+from .user_stats_fields_query_archive_rule_request_body import *
+from .user_stats_fields_query_archive_rule_request import *
 from .download_file_request import *
 from .upload_file_request_body import *
 from .upload_file_request import *
@@ -134,6 +137,10 @@ from .query_user_allowed_remedys_user_task_remedy_request_body import *
 from .query_user_allowed_remedys_user_task_remedy_request import *
 from .process_approval_info_response_body import *
 from .process_approval_info_response import *
+from .list_archive_rule_response_body import *
+from .list_archive_rule_response import *
+from .user_stats_fields_query_archive_rule_response_body import *
+from .user_stats_fields_query_archive_rule_response import *
 from .download_file_response import *
 from .upload_file_response_body import *
 from .upload_file_response import *

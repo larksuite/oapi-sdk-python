@@ -15,7 +15,7 @@ def main():
     # 构造请求对象
     request: ListWebsiteChannelRequest = ListWebsiteChannelRequest.builder() \
         .website_id("1618209327096") \
-        .page_size("100") \
+        .page_size("10") \
         .page_token("eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ") \
         .build()
 
@@ -44,7 +44,7 @@ async def amain():
     # 构造请求对象
     request: ListWebsiteChannelRequest = ListWebsiteChannelRequest.builder() \
         .website_id("1618209327096") \
-        .page_size("100") \
+        .page_size("10") \
         .page_token("eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ") \
         .build()
 

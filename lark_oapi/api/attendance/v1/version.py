@@ -4,6 +4,7 @@ from .resource import *
 class V1(object):
     def __init__(self, config: Config) -> None:
         self.approval_info: ApprovalInfo = ApprovalInfo(config)
+        self.archive_rule: ArchiveRule = ArchiveRule(config)
         self.file: File = File(config)
         self.group: Group = Group(config)
         self.leave_accrual_record: LeaveAccrualRecord = LeaveAccrualRecord(config)

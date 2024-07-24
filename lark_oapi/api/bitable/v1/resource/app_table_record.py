@@ -13,6 +13,8 @@ from ..model.batch_create_app_table_record_request import BatchCreateAppTableRec
 from ..model.batch_create_app_table_record_response import BatchCreateAppTableRecordResponse
 from ..model.batch_delete_app_table_record_request import BatchDeleteAppTableRecordRequest
 from ..model.batch_delete_app_table_record_response import BatchDeleteAppTableRecordResponse
+from ..model.batch_get_app_table_record_request import BatchGetAppTableRecordRequest
+from ..model.batch_get_app_table_record_response import BatchGetAppTableRecordResponse
 from ..model.batch_update_app_table_record_request import BatchUpdateAppTableRecordRequest
 from ..model.batch_update_app_table_record_response import BatchUpdateAppTableRecordResponse
 from ..model.create_app_table_record_request import CreateAppTableRecordRequest
@@ -109,6 +111,46 @@ class AppTableRecord(object):
         # 反序列化
         response: BatchDeleteAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                      BatchDeleteAppTableRecordResponse)
+        response.raw = resp
+
+        return response
+
+    def batch_get(self, request: BatchGetAppTableRecordRequest,
+                  option: Optional[RequestOption] = None) -> BatchGetAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: BatchGetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  BatchGetAppTableRecordResponse)
+        response.raw = resp
+
+        return response
+
+    async def abatch_get(self, request: BatchGetAppTableRecordRequest,
+                         option: Optional[RequestOption] = None) -> BatchGetAppTableRecordResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchGetAppTableRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  BatchGetAppTableRecordResponse)
         response.raw = resp
 
         return response

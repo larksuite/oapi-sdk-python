@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.get_by_application_referral_request import GetByApplicationReferralRequest
 from ..model.get_by_application_referral_response import GetByApplicationReferralResponse
+from ..model.search_referral_request import SearchReferralRequest
+from ..model.search_referral_response import SearchReferralResponse
 
 
 class Referral(object):
@@ -53,6 +55,43 @@ class Referral(object):
         # 反序列化
         response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                     GetByApplicationReferralResponse)
+        response.raw = resp
+
+        return response
+
+    def search(self, request: SearchReferralRequest, option: Optional[RequestOption] = None) -> SearchReferralResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: SearchReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchReferralResponse)
+        response.raw = resp
+
+        return response
+
+    async def asearch(self, request: SearchReferralRequest,
+                      option: Optional[RequestOption] = None) -> SearchReferralResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: SearchReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchReferralResponse)
         response.raw = resp
 
         return response

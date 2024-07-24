@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.department_overview_application_app_usage_request import DepartmentOverviewApplicationAppUsageRequest
 from ..model.department_overview_application_app_usage_response import DepartmentOverviewApplicationAppUsageResponse
+from ..model.message_push_overview_application_app_usage_request import MessagePushOverviewApplicationAppUsageRequest
+from ..model.message_push_overview_application_app_usage_response import MessagePushOverviewApplicationAppUsageResponse
 from ..model.overview_application_app_usage_request import OverviewApplicationAppUsageRequest
 from ..model.overview_application_app_usage_response import OverviewApplicationAppUsageResponse
 
@@ -55,6 +57,46 @@ class ApplicationAppUsage(object):
         # 反序列化
         response: DepartmentOverviewApplicationAppUsageResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                                  DepartmentOverviewApplicationAppUsageResponse)
+        response.raw = resp
+
+        return response
+
+    def message_push_overview(self, request: MessagePushOverviewApplicationAppUsageRequest,
+                              option: Optional[RequestOption] = None) -> MessagePushOverviewApplicationAppUsageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: MessagePushOverviewApplicationAppUsageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                  MessagePushOverviewApplicationAppUsageResponse)
+        response.raw = resp
+
+        return response
+
+    async def amessage_push_overview(self, request: MessagePushOverviewApplicationAppUsageRequest, option: Optional[
+        RequestOption] = None) -> MessagePushOverviewApplicationAppUsageResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: MessagePushOverviewApplicationAppUsageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                                  MessagePushOverviewApplicationAppUsageResponse)
         response.raw = resp
 
         return response

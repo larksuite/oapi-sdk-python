@@ -773,6 +773,13 @@ class EventDispatcherHandlerBuilder(object):
             f)
         return self
 
+    def register_p2_hire_talent_deleted_v1(self, f: Callable[
+        [P2HireTalentDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.hire.talent.deleted_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.hire.talent.deleted_v1")
+        self._processorMap["p2.hire.talent.deleted_v1"] = P2HireTalentDeletedV1Processor(f)
+        return self
+
     def register_p2_im_chat_disbanded_v1(self,
                                          f: Callable[[P2ImChatDisbandedV1], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.im.chat.disbanded_v1" in self._processorMap:

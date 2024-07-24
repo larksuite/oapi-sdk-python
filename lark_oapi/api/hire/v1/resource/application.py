@@ -23,6 +23,8 @@ from ..model.terminate_application_request import TerminateApplicationRequest
 from ..model.terminate_application_response import TerminateApplicationResponse
 from ..model.transfer_onboard_application_request import TransferOnboardApplicationRequest
 from ..model.transfer_onboard_application_response import TransferOnboardApplicationResponse
+from ..model.transfer_stage_application_request import TransferStageApplicationRequest
+from ..model.transfer_stage_application_response import TransferStageApplicationResponse
 
 
 class Application(object):
@@ -291,6 +293,46 @@ class Application(object):
         # 反序列化
         response: TransferOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                       TransferOnboardApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    def transfer_stage(self, request: TransferStageApplicationRequest,
+                       option: Optional[RequestOption] = None) -> TransferStageApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TransferStageApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    TransferStageApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    async def atransfer_stage(self, request: TransferStageApplicationRequest,
+                              option: Optional[RequestOption] = None) -> TransferStageApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TransferStageApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    TransferStageApplicationResponse)
         response.raw = resp
 
         return response

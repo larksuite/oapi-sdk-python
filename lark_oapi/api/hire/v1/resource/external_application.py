@@ -13,6 +13,8 @@ from ..model.create_external_application_request import CreateExternalApplicatio
 from ..model.create_external_application_response import CreateExternalApplicationResponse
 from ..model.delete_external_application_request import DeleteExternalApplicationRequest
 from ..model.delete_external_application_response import DeleteExternalApplicationResponse
+from ..model.list_external_application_request import ListExternalApplicationRequest
+from ..model.list_external_application_response import ListExternalApplicationResponse
 from ..model.update_external_application_request import UpdateExternalApplicationRequest
 from ..model.update_external_application_response import UpdateExternalApplicationResponse
 
@@ -97,6 +99,46 @@ class ExternalApplication(object):
         # 反序列化
         response: DeleteExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                      DeleteExternalApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    def list(self, request: ListExternalApplicationRequest,
+             option: Optional[RequestOption] = None) -> ListExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   ListExternalApplicationResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListExternalApplicationRequest,
+                    option: Optional[RequestOption] = None) -> ListExternalApplicationResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListExternalApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   ListExternalApplicationResponse)
         response.raw = resp
 
         return response

@@ -1,4 +1,5 @@
 from .approval_info import *
+from .archive_rule import *
 from .file import *
 from .group import *
 from .leave_accrual_record import *

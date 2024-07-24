@@ -20,6 +20,7 @@ def main():
                       .education_info([])
                       .work_experience([])
                       .ats_application_id("7140946969586010376")
+                      .out_biz_id("7140946969586010376")
                       .build()) \
         .build()
 
@@ -53,6 +54,7 @@ async def amain():
                       .education_info([])
                       .work_experience([])
                       .ats_application_id("7140946969586010376")
+                      .out_biz_id("7140946969586010376")
                       .build()) \
         .build()
 

@@ -15,7 +15,7 @@ def main():
     # 构造请求对象
     request: ListLocationRequest = ListLocationRequest.builder() \
         .page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
-        .page_size(100) \
+        .page_size(10) \
         .usage("interview_location") \
         .build()
 
@@ -44,7 +44,7 @@ async def amain():
     # 构造请求对象
     request: ListLocationRequest = ListLocationRequest.builder() \
         .page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
-        .page_size(100) \
+        .page_size(10) \
         .usage("interview_location") \
         .build()
 

@@ -15,6 +15,7 @@ class PrehireCreate(object):
         "education_info": List[EducationInfo],
         "work_experience": List[WorkExperience],
         "ats_application_id": str,
+        "out_biz_id": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class PrehireCreate(object):
         self.education_info: Optional[List[EducationInfo]] = None
         self.work_experience: Optional[List[WorkExperience]] = None
         self.ats_application_id: Optional[str] = None
+        self.out_biz_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -52,6 +54,10 @@ class PrehireCreateBuilder(object):
 
     def ats_application_id(self, ats_application_id: str) -> "PrehireCreateBuilder":
         self._prehire_create.ats_application_id = ats_application_id
+        return self
+
+    def out_biz_id(self, out_biz_id: str) -> "PrehireCreateBuilder":
+        self._prehire_create.out_biz_id = out_biz_id
         return self
 
     def build(self) -> "PrehireCreate":

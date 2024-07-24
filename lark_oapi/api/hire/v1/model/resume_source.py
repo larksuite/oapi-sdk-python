@@ -10,7 +10,7 @@ class ResumeSource(object):
         "zh_name": str,
         "en_name": str,
         "active_status": int,
-        "resume_source_type": int,
+        "resume_source_type": str,
     }
 
     def __init__(self, d=None):
@@ -18,7 +18,7 @@ class ResumeSource(object):
         self.zh_name: Optional[str] = None
         self.en_name: Optional[str] = None
         self.active_status: Optional[int] = None
-        self.resume_source_type: Optional[int] = None
+        self.resume_source_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -46,7 +46,7 @@ class ResumeSourceBuilder(object):
         self._resume_source.active_status = active_status
         return self
 
-    def resume_source_type(self, resume_source_type: int) -> "ResumeSourceBuilder":
+    def resume_source_type(self, resume_source_type: str) -> "ResumeSourceBuilder":
         self._resume_source.resume_source_type = resume_source_type
         return self
 

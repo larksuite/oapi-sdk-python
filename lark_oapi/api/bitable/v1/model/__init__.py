@@ -88,6 +88,8 @@ from .batch_create_app_table_record_request_body import *
 from .batch_create_app_table_record_request import *
 from .batch_delete_app_table_record_request_body import *
 from .batch_delete_app_table_record_request import *
+from .batch_get_app_table_record_request_body import *
+from .batch_get_app_table_record_request import *
 from .batch_update_app_table_record_request_body import *
 from .batch_update_app_table_record_request import *
 from .create_app_table_record_request import *
@@ -158,6 +160,8 @@ from .batch_create_app_table_record_response_body import *
 from .batch_create_app_table_record_response import *
 from .batch_delete_app_table_record_response_body import *
 from .batch_delete_app_table_record_response import *
+from .batch_get_app_table_record_response_body import *
+from .batch_get_app_table_record_response import *
 from .batch_update_app_table_record_response_body import *
 from .batch_update_app_table_record_response import *
 from .create_app_table_record_response_body import *
