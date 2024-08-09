@@ -18,6 +18,7 @@ def main():
         .client_token("12454646") \
         .user_id_type("people_corehr_id") \
         .department_id_type("people_corehr_department_id") \
+        .strict_verify("false") \
         .request_body(JobData.builder()
                       .version_id("6890452208593372697")
                       .job_level_id("6890452208593372679")
@@ -73,6 +74,7 @@ async def amain():
         .client_token("12454646") \
         .user_id_type("people_corehr_id") \
         .department_id_type("people_corehr_department_id") \
+        .strict_verify("false") \
         .request_body(JobData.builder()
                       .version_id("6890452208593372697")
                       .job_level_id("6890452208593372679")

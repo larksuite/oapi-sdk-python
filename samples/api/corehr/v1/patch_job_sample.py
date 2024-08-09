@@ -26,7 +26,6 @@ def main():
                       .job_level_id_list([])
                       .working_hours_type_id("6890452208593372679")
                       .effective_time("2020-01-01 00:00:00")
-                      .expiration_time("2021-01-01 00:00:00")
                       .custom_fields([])
                       .build()) \
         .build()
@@ -67,7 +66,6 @@ async def amain():
                       .job_level_id_list([])
                       .working_hours_type_id("6890452208593372679")
                       .effective_time("2020-01-01 00:00:00")
-                      .expiration_time("2021-01-01 00:00:00")
                       .custom_fields([])
                       .build()) \
         .build()

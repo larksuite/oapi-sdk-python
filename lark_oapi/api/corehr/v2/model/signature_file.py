@@ -13,6 +13,7 @@ class SignatureFile(object):
         "create_time": str,
         "update_time": str,
         "employment_id": str,
+        "pre_hire_id": str,
         "signature_file_state": Enum,
         "contract_code": str,
         "effective_date": str,
@@ -25,6 +26,7 @@ class SignatureFile(object):
         self.create_time: Optional[str] = None
         self.update_time: Optional[str] = None
         self.employment_id: Optional[str] = None
+        self.pre_hire_id: Optional[str] = None
         self.signature_file_state: Optional[Enum] = None
         self.contract_code: Optional[str] = None
         self.effective_date: Optional[str] = None
@@ -58,6 +60,10 @@ class SignatureFileBuilder(object):
 
     def employment_id(self, employment_id: str) -> "SignatureFileBuilder":
         self._signature_file.employment_id = employment_id
+        return self
+
+    def pre_hire_id(self, pre_hire_id: str) -> "SignatureFileBuilder":
+        self._signature_file.pre_hire_id = pre_hire_id
         return self
 
     def signature_file_state(self, signature_file_state: Enum) -> "SignatureFileBuilder":

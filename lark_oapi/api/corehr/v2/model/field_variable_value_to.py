@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .field_variable_value_i18n import FieldVariableValueI18n
 from .field_variable_value_to_object import FieldVariableValueToObject
 from .field_variable_value_to_record import FieldVariableValueToRecord
+from .field_variable_value_to_file import FieldVariableValueToFile
 
 
 class FieldVariableValueTo(object):
@@ -22,6 +23,7 @@ class FieldVariableValueTo(object):
         "record_value": FieldVariableValueToRecord,
         "employment_value": str,
         "list_values": List[str],
+        "file_value": FieldVariableValueToFile,
     }
 
     def __init__(self, d=None):
@@ -38,6 +40,7 @@ class FieldVariableValueTo(object):
         self.record_value: Optional[FieldVariableValueToRecord] = None
         self.employment_value: Optional[str] = None
         self.list_values: Optional[List[str]] = None
+        self.file_value: Optional[FieldVariableValueToFile] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -99,6 +102,10 @@ class FieldVariableValueToBuilder(object):
 
     def list_values(self, list_values: List[str]) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.list_values = list_values
+        return self
+
+    def file_value(self, file_value: FieldVariableValueToFile) -> "FieldVariableValueToBuilder":
+        self._field_variable_value_to.file_value = file_value
         return self
 
     def build(self) -> "FieldVariableValueTo":

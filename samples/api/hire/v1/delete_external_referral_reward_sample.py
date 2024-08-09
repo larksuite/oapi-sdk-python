@@ -14,7 +14,7 @@ def main():
 
     # 构造请求对象
     request: DeleteExternalReferralRewardRequest = DeleteExternalReferralRewardRequest.builder() \
-        .external_referral_reward_id("6942778198054125570") \
+        .external_referral_reward_id("str") \
         .build()
 
     # 发起请求
@@ -41,7 +41,7 @@ async def amain():
 
     # 构造请求对象
     request: DeleteExternalReferralRewardRequest = DeleteExternalReferralRewardRequest.builder() \
-        .external_referral_reward_id("6942778198054125570") \
+        .external_referral_reward_id("str") \
         .build()
 
     # 发起请求

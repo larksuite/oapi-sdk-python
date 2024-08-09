@@ -14,7 +14,7 @@ def main():
 
     # 构造请求对象
     request: ListInterviewRecordRequest = ListInterviewRecordRequest.builder() \
-        .page_size(int) \
+        .page_size(10) \
         .page_token("str") \
         .ids([]) \
         .user_id_type("user_id") \
@@ -44,7 +44,7 @@ async def amain():
 
     # 构造请求对象
     request: ListInterviewRecordRequest = ListInterviewRecordRequest.builder() \
-        .page_size(int) \
+        .page_size(10) \
         .page_token("str") \
         .ids([]) \
         .user_id_type("user_id") \

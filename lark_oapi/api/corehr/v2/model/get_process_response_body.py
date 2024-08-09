@@ -10,6 +10,8 @@ from .process_abstract_item import ProcessAbstractItem
 from .process_todo_item import ProcessTodoItem
 from .process_cc_item import ProcessCcItem
 from .process_done_item import ProcessDoneItem
+from .process_system_todo_item import ProcessSystemTodoItem
+from .process_system_done_item import ProcessSystemDoneItem
 
 
 class GetProcessResponseBody(object):
@@ -30,6 +32,8 @@ class GetProcessResponseBody(object):
         "cc_list": List[ProcessCcItem],
         "done_list": List[ProcessDoneItem],
         "properties": int,
+        "system_todos": List[ProcessSystemTodoItem],
+        "system_done_list": List[ProcessSystemDoneItem],
     }
 
     def __init__(self, d=None):
@@ -49,6 +53,8 @@ class GetProcessResponseBody(object):
         self.cc_list: Optional[List[ProcessCcItem]] = None
         self.done_list: Optional[List[ProcessDoneItem]] = None
         self.properties: Optional[int] = None
+        self.system_todos: Optional[List[ProcessSystemTodoItem]] = None
+        self.system_done_list: Optional[List[ProcessSystemDoneItem]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -122,6 +128,14 @@ class GetProcessResponseBodyBuilder(object):
 
     def properties(self, properties: int) -> "GetProcessResponseBodyBuilder":
         self._get_process_response_body.properties = properties
+        return self
+
+    def system_todos(self, system_todos: List[ProcessSystemTodoItem]) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.system_todos = system_todos
+        return self
+
+    def system_done_list(self, system_done_list: List[ProcessSystemDoneItem]) -> "GetProcessResponseBodyBuilder":
+        self._get_process_response_body.system_done_list = system_done_list
         return self
 
     def build(self) -> "GetProcessResponseBody":

@@ -15,7 +15,7 @@ def main():
     # 构造请求对象
     request: ListJobRequirementSchemaRequest = ListJobRequirementSchemaRequest.builder() \
         .page_token("1231231987") \
-        .page_size(100) \
+        .page_size(10) \
         .build()
 
     # 发起请求
@@ -43,7 +43,7 @@ async def amain():
     # 构造请求对象
     request: ListJobRequirementSchemaRequest = ListJobRequirementSchemaRequest.builder() \
         .page_token("1231231987") \
-        .page_size(100) \
+        .page_size(10) \
         .build()
 
     # 发起请求

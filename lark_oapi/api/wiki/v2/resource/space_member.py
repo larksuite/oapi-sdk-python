@@ -13,6 +13,8 @@ from ..model.create_space_member_request import CreateSpaceMemberRequest
 from ..model.create_space_member_response import CreateSpaceMemberResponse
 from ..model.delete_space_member_request import DeleteSpaceMemberRequest
 from ..model.delete_space_member_response import DeleteSpaceMemberResponse
+from ..model.list_space_member_request import ListSpaceMemberRequest
+from ..model.list_space_member_response import ListSpaceMemberResponse
 
 
 class SpaceMember(object):
@@ -91,6 +93,43 @@ class SpaceMember(object):
 
         # 反序列化
         response: DeleteSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpaceMemberResponse)
+        response.raw = resp
+
+        return response
+
+    def list(self, request: ListSpaceMemberRequest, option: Optional[RequestOption] = None) -> ListSpaceMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: ListSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceMemberResponse)
+        response.raw = resp
+
+        return response
+
+    async def alist(self, request: ListSpaceMemberRequest,
+                    option: Optional[RequestOption] = None) -> ListSpaceMemberResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: ListSpaceMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceMemberResponse)
         response.raw = resp
 
         return response

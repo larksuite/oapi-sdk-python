@@ -48,9 +48,6 @@ def main():
                       .resident_taxes([])
                       .first_entry_time("2021-01-02")
                       .leave_time("2022-01-02")
-                      .bank_account_number("69928404442626824")
-                      .passport_number("6919733936050406926")
-                      .former_employer([])
                       .build()) \
         .build()
 
@@ -112,9 +109,6 @@ async def amain():
                       .resident_taxes([])
                       .first_entry_time("2021-01-02")
                       .leave_time("2022-01-02")
-                      .bank_account_number("69928404442626824")
-                      .passport_number("6919733936050406926")
-                      .former_employer([])
                       .build()) \
         .build()
 

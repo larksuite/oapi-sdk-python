@@ -25,6 +25,7 @@ class Contract(object):
         "contract_status": Enum,
         "renewal_status": Enum,
         "signing_times": int,
+        "original_contract": str,
     }
 
     def __init__(self, d=None):
@@ -42,6 +43,7 @@ class Contract(object):
         self.contract_status: Optional[Enum] = None
         self.renewal_status: Optional[Enum] = None
         self.signing_times: Optional[int] = None
+        self.original_contract: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -107,6 +109,10 @@ class ContractBuilder(object):
 
     def signing_times(self, signing_times: int) -> "ContractBuilder":
         self._contract.signing_times = signing_times
+        return self
+
+    def original_contract(self, original_contract: str) -> "ContractBuilder":
+        self._contract.original_contract = original_contract
         return self
 
     def build(self) -> "Contract":

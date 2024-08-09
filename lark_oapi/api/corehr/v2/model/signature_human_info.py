@@ -7,12 +7,16 @@ from .enum import Enum
 
 class SignatureHumanInfo(object):
     _types = {
-        "id": str,
+        "employee_id": str,
+        "pre_hire_id": str,
+        "user_id_type": str,
         "human_type": Enum,
     }
 
     def __init__(self, d=None):
-        self.id: Optional[str] = None
+        self.employee_id: Optional[str] = None
+        self.pre_hire_id: Optional[str] = None
+        self.user_id_type: Optional[str] = None
         self.human_type: Optional[Enum] = None
         init(self, d, self._types)
 
@@ -25,8 +29,16 @@ class SignatureHumanInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_human_info = SignatureHumanInfo()
 
-    def id(self, id: str) -> "SignatureHumanInfoBuilder":
-        self._signature_human_info.id = id
+    def employee_id(self, employee_id: str) -> "SignatureHumanInfoBuilder":
+        self._signature_human_info.employee_id = employee_id
+        return self
+
+    def pre_hire_id(self, pre_hire_id: str) -> "SignatureHumanInfoBuilder":
+        self._signature_human_info.pre_hire_id = pre_hire_id
+        return self
+
+    def user_id_type(self, user_id_type: str) -> "SignatureHumanInfoBuilder":
+        self._signature_human_info.user_id_type = user_id_type
         return self
 
     def human_type(self, human_type: Enum) -> "SignatureHumanInfoBuilder":

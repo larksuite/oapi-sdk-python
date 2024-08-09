@@ -13,6 +13,8 @@ from .table_cell_merge_info import *
 from .table_meta import *
 from .text import *
 from .whiteboard_node import *
+from .download_as_image_whiteboard_request import *
 from .list_whiteboard_node_request import *
+from .download_as_image_whiteboard_response import *
 from .list_whiteboard_node_response_body import *
 from .list_whiteboard_node_response import *

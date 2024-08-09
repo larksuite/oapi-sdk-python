@@ -12,6 +12,7 @@ class PatchJobDataRequest(BaseRequest):
         self.client_token: Optional[str] = None
         self.user_id_type: Optional[str] = None
         self.department_id_type: Optional[str] = None
+        self.strict_verify: Optional[str] = None
         self.job_data_id: Optional[str] = None
         self.request_body: Optional[JobData] = None
 
@@ -42,6 +43,11 @@ class PatchJobDataRequestBuilder(object):
     def department_id_type(self, department_id_type: str) -> "PatchJobDataRequestBuilder":
         self._patch_job_data_request.department_id_type = department_id_type
         self._patch_job_data_request.add_query("department_id_type", department_id_type)
+        return self
+
+    def strict_verify(self, strict_verify: str) -> "PatchJobDataRequestBuilder":
+        self._patch_job_data_request.strict_verify = strict_verify
+        self._patch_job_data_request.add_query("strict_verify", strict_verify)
         return self
 
     def job_data_id(self, job_data_id: str) -> "PatchJobDataRequestBuilder":

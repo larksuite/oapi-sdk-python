@@ -6,6 +6,7 @@ from .custom_attr_event import *
 from .custom_attr_generic_user import *
 from .custom_attr_option import *
 from .custom_attr_options import *
+from .deparment_count import *
 from .department import *
 from .department_leader import *
 from .department_count import *
@@ -37,6 +38,7 @@ from .notification_option import *
 from .old_department_object import *
 from .old_user_object import *
 from .product_i18n_name import *
+from .resource_accept import *
 from .resource_acceptor import *
 from .scope import *
 from .share_department import *

@@ -20,7 +20,7 @@ def main():
         .active_status("1") \
         .job_id("7334134355464633") \
         .page_token("1") \
-        .page_size(100) \
+        .page_size(10) \
         .update_start_time("1618500278663") \
         .update_end_time("1618500278663") \
         .build()
@@ -55,7 +55,7 @@ async def amain():
         .active_status("1") \
         .job_id("7334134355464633") \
         .page_token("1") \
-        .page_size(100) \
+        .page_size(10) \
         .update_start_time("1618500278663") \
         .update_end_time("1618500278663") \
         .build()

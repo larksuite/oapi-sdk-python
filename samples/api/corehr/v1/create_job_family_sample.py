@@ -20,7 +20,6 @@ def main():
                       .active(True)
                       .parent_id("4698020757495316313")
                       .effective_time("2020-05-01 00:00:00")
-                      .expiration_time("2020-05-02 00:00:00")
                       .code("123456")
                       .custom_fields([])
                       .build()) \
@@ -56,7 +55,6 @@ async def amain():
                       .active(True)
                       .parent_id("4698020757495316313")
                       .effective_time("2020-05-01 00:00:00")
-                      .expiration_time("2020-05-02 00:00:00")
                       .code("123456")
                       .custom_fields([])
                       .build()) \

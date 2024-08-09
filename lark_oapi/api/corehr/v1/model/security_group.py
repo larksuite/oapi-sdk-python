@@ -14,6 +14,8 @@ class SecurityGroup(object):
         "name": Name,
         "active_status": int,
         "description": Name,
+        "group_type": int,
+        "created_by": str,
         "update_time": str,
         "org_truncation": List[OrgTruncation],
     }
@@ -24,6 +26,8 @@ class SecurityGroup(object):
         self.name: Optional[Name] = None
         self.active_status: Optional[int] = None
         self.description: Optional[Name] = None
+        self.group_type: Optional[int] = None
+        self.created_by: Optional[str] = None
         self.update_time: Optional[str] = None
         self.org_truncation: Optional[List[OrgTruncation]] = None
         init(self, d, self._types)
@@ -55,6 +59,14 @@ class SecurityGroupBuilder(object):
 
     def description(self, description: Name) -> "SecurityGroupBuilder":
         self._security_group.description = description
+        return self
+
+    def group_type(self, group_type: int) -> "SecurityGroupBuilder":
+        self._security_group.group_type = group_type
+        return self
+
+    def created_by(self, created_by: str) -> "SecurityGroupBuilder":
+        self._security_group.created_by = created_by
         return self
 
     def update_time(self, update_time: str) -> "SecurityGroupBuilder":
