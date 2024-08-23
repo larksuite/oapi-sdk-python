@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .external_interview_assessment import ExternalInterviewAssessment
 
 
 class ExternalInterview(object):
@@ -12,6 +13,7 @@ class ExternalInterview(object):
         "participate_status": int,
         "begin_time": int,
         "end_time": int,
+        "interview_assessments": List[ExternalInterviewAssessment],
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class ExternalInterview(object):
         self.participate_status: Optional[int] = None
         self.begin_time: Optional[int] = None
         self.end_time: Optional[int] = None
+        self.interview_assessments: Optional[List[ExternalInterviewAssessment]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +57,11 @@ class ExternalInterviewBuilder(object):
 
     def end_time(self, end_time: int) -> "ExternalInterviewBuilder":
         self._external_interview.end_time = end_time
+        return self
+
+    def interview_assessments(self,
+                              interview_assessments: List[ExternalInterviewAssessment]) -> "ExternalInterviewBuilder":
+        self._external_interview.interview_assessments = interview_assessments
         return self
 
     def build(self) -> "ExternalInterview":

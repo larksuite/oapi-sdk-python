@@ -18,6 +18,15 @@ from .plan_detail import *
 from .plan_indicator import *
 from .plan_item import *
 from .plan_scope import *
+from .social_archive import *
+from .social_archive_adjust_record import *
+from .social_archive_detail import *
+from .social_archive_item import *
+from .social_insurance import *
+from .social_plan import *
+from .social_plan_item_detail import *
+from .social_plan_item_setting import *
+from .social_plan_scope import *
 from .query_archive_request_body import *
 from .query_archive_request import *
 from .list_change_reason_request import *

@@ -5,68 +5,68 @@ from lark_oapi.api.calendar.v4 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateExchangeBindingRequest = CreateExchangeBindingRequest.builder() \
-        .user_id_type("user_id") \
-        .request_body(ExchangeBinding.builder()
-                      .admin_account("email_admin_example@outlook.com")
-                      .exchange_account("email_account_example@outlook.com")
-                      .user_id("ou_xxxxxxxxxxxxxxxxxx")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateExchangeBindingRequest = CreateExchangeBindingRequest.builder() \
+		.user_id_type("user_id") \
+		.request_body(ExchangeBinding.builder()
+					  .admin_account("email_admin_example@outlook.com")
+					  .exchange_account("email_account_example@outlook.com")
+					  .user_id("ou_xxxxxxxxxxxxxxxxxx")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateExchangeBindingResponse = client.calendar.v4.exchange_binding.create(request)
+	# 发起请求
+	response: CreateExchangeBindingResponse = client.calendar.v4.exchange_binding.create(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.calendar.v4.exchange_binding.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.calendar.v4.exchange_binding.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateExchangeBindingRequest = CreateExchangeBindingRequest.builder() \
-        .user_id_type("user_id") \
-        .request_body(ExchangeBinding.builder()
-                      .admin_account("email_admin_example@outlook.com")
-                      .exchange_account("email_account_example@outlook.com")
-                      .user_id("ou_xxxxxxxxxxxxxxxxxx")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateExchangeBindingRequest = CreateExchangeBindingRequest.builder() \
+		.user_id_type("user_id") \
+		.request_body(ExchangeBinding.builder()
+					  .admin_account("email_admin_example@outlook.com")
+					  .exchange_account("email_account_example@outlook.com")
+					  .user_id("ou_xxxxxxxxxxxxxxxxxx")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateExchangeBindingResponse = await client.calendar.v4.exchange_binding.acreate(request)
+	# 发起请求
+	response: CreateExchangeBindingResponse = await client.calendar.v4.exchange_binding.acreate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.calendar.v4.exchange_binding.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.calendar.v4.exchange_binding.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

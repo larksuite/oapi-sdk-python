@@ -49,6 +49,7 @@ class OfferInfoUpdate(object):
         "work_location_id": str,
         "working_calendar": str,
         "working_hours_type": str,
+        "seniority_date": str,
     }
 
     def __init__(self, d=None):
@@ -92,6 +93,7 @@ class OfferInfoUpdate(object):
         self.work_location_id: Optional[str] = None
         self.working_calendar: Optional[str] = None
         self.working_hours_type: Optional[str] = None
+        self.seniority_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -261,6 +263,10 @@ class OfferInfoUpdateBuilder(object):
 
     def working_hours_type(self, working_hours_type: str) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.working_hours_type = working_hours_type
+        return self
+
+    def seniority_date(self, seniority_date: str) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.seniority_date = seniority_date
         return self
 
     def build(self) -> "OfferInfoUpdate":

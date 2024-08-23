@@ -158,10 +158,12 @@ from .exam_marking_task import *
 from .external_application import *
 from .external_background_check import *
 from .external_background_check_attachment import *
+from .external_common_attachment import *
 from .external_grant_role_info import *
 from .external_interview import *
 from .external_interview_assessment import *
 from .external_interview_assessment_dimension import *
+from .external_offer import *
 from .external_reward import *
 from .filter import *
 from .five_start_scoring_result import *

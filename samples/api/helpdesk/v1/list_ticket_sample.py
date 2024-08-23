@@ -5,90 +5,90 @@ from lark_oapi.api.helpdesk.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListTicketRequest = ListTicketRequest.builder() \
-        .ticket_id("123456") \
-        .agent_id("ou_b5de90429xxx") \
-        .closed_by_id("ou_b5de90429xxx") \
-        .type(1) \
-        .channel(0) \
-        .solved(1) \
-        .score(1) \
-        .status_list([]) \
-        .guest_name("abc") \
-        .guest_id("ou_b5de90429xxx") \
-        .tags([]) \
-        .page(1) \
-        .page_size(20) \
-        .create_time_start(0) \
-        .create_time_end(0) \
-        .update_time_start(0) \
-        .update_time_end(0) \
-        .build()
+	# 构造请求对象
+	request: ListTicketRequest = ListTicketRequest.builder() \
+		.ticket_id("123456") \
+		.agent_id("ou_b5de90429xxx") \
+		.closed_by_id("ou_b5de90429xxx") \
+		.type(1) \
+		.channel(0) \
+		.solved(1) \
+		.score(1) \
+		.status_list([]) \
+		.guest_name("abc") \
+		.guest_id("ou_b5de90429xxx") \
+		.tags([]) \
+		.page(1) \
+		.page_size(20) \
+		.create_time_start(0) \
+		.create_time_end(0) \
+		.update_time_start(0) \
+		.update_time_end(0) \
+		.build()
 
-    # 发起请求
-    response: ListTicketResponse = client.helpdesk.v1.ticket.list(request)
+	# 发起请求
+	response: ListTicketResponse = client.helpdesk.v1.ticket.list(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.helpdesk.v1.ticket.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.helpdesk.v1.ticket.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListTicketRequest = ListTicketRequest.builder() \
-        .ticket_id("123456") \
-        .agent_id("ou_b5de90429xxx") \
-        .closed_by_id("ou_b5de90429xxx") \
-        .type(1) \
-        .channel(0) \
-        .solved(1) \
-        .score(1) \
-        .status_list([]) \
-        .guest_name("abc") \
-        .guest_id("ou_b5de90429xxx") \
-        .tags([]) \
-        .page(1) \
-        .page_size(20) \
-        .create_time_start(0) \
-        .create_time_end(0) \
-        .update_time_start(0) \
-        .update_time_end(0) \
-        .build()
+	# 构造请求对象
+	request: ListTicketRequest = ListTicketRequest.builder() \
+		.ticket_id("123456") \
+		.agent_id("ou_b5de90429xxx") \
+		.closed_by_id("ou_b5de90429xxx") \
+		.type(1) \
+		.channel(0) \
+		.solved(1) \
+		.score(1) \
+		.status_list([]) \
+		.guest_name("abc") \
+		.guest_id("ou_b5de90429xxx") \
+		.tags([]) \
+		.page(1) \
+		.page_size(20) \
+		.create_time_start(0) \
+		.create_time_end(0) \
+		.update_time_start(0) \
+		.update_time_end(0) \
+		.build()
 
-    # 发起请求
-    response: ListTicketResponse = await client.helpdesk.v1.ticket.alist(request)
+	# 发起请求
+	response: ListTicketResponse = await client.helpdesk.v1.ticket.alist(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.helpdesk.v1.ticket.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.helpdesk.v1.ticket.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

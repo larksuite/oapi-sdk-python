@@ -5,68 +5,68 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListQuestionnaireRequest = ListQuestionnaireRequest.builder() \
-        .page_token("1231231987") \
-        .page_size(1) \
-        .application_id("6985833807195212076") \
-        .interview_id("7038435261598763308") \
-        .update_start_time("1638848468868") \
-        .update_end_time("1638848468869") \
-        .build()
+	# 构造请求对象
+	request: ListQuestionnaireRequest = ListQuestionnaireRequest.builder() \
+		.page_token("1231231987") \
+		.page_size(20) \
+		.application_id("6985833807195212076") \
+		.interview_id("7038435261598763308") \
+		.update_start_time("1638848468868") \
+		.update_end_time("1638848468869") \
+		.build()
 
-    # 发起请求
-    response: ListQuestionnaireResponse = client.hire.v1.questionnaire.list(request)
+	# 发起请求
+	response: ListQuestionnaireResponse = client.hire.v1.questionnaire.list(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.hire.v1.questionnaire.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.hire.v1.questionnaire.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListQuestionnaireRequest = ListQuestionnaireRequest.builder() \
-        .page_token("1231231987") \
-        .page_size(1) \
-        .application_id("6985833807195212076") \
-        .interview_id("7038435261598763308") \
-        .update_start_time("1638848468868") \
-        .update_end_time("1638848468869") \
-        .build()
+	# 构造请求对象
+	request: ListQuestionnaireRequest = ListQuestionnaireRequest.builder() \
+		.page_token("1231231987") \
+		.page_size(20) \
+		.application_id("6985833807195212076") \
+		.interview_id("7038435261598763308") \
+		.update_start_time("1638848468868") \
+		.update_end_time("1638848468869") \
+		.build()
 
-    # 发起请求
-    response: ListQuestionnaireResponse = await client.hire.v1.questionnaire.alist(request)
+	# 发起请求
+	response: ListQuestionnaireResponse = await client.hire.v1.questionnaire.alist(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.hire.v1.questionnaire.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.hire.v1.questionnaire.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

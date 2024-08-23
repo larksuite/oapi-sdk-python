@@ -19,6 +19,8 @@ from ..model.query_timeline_department_request import QueryTimelineDepartmentReq
 from ..model.query_timeline_department_response import QueryTimelineDepartmentResponse
 from ..model.search_department_request import SearchDepartmentRequest
 from ..model.search_department_response import SearchDepartmentResponse
+from ..model.tree_department_request import TreeDepartmentRequest
+from ..model.tree_department_response import TreeDepartmentResponse
 
 
 class Department(object):
@@ -215,6 +217,43 @@ class Department(object):
 
         # 反序列化
         response: SearchDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    def tree(self, request: TreeDepartmentRequest, option: Optional[RequestOption] = None) -> TreeDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: TreeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), TreeDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def atree(self, request: TreeDepartmentRequest,
+                    option: Optional[RequestOption] = None) -> TreeDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: TreeDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8), TreeDepartmentResponse)
         response.raw = resp
 
         return response

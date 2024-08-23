@@ -31,8 +31,6 @@ class ReorganizationInfo(object):
         "target_cost_center": CostCenter,
         "original_is_confidential": bool,
         "target_is_confidential": bool,
-        "original_staffing_model": bool,
-        "target_staffing_model": bool,
         "original_parent_department_id": str,
         "target_parent_department_id": str,
         "draft_target_parent_department_id": str,
@@ -56,8 +54,6 @@ class ReorganizationInfo(object):
         self.target_cost_center: Optional[CostCenter] = None
         self.original_is_confidential: Optional[bool] = None
         self.target_is_confidential: Optional[bool] = None
-        self.original_staffing_model: Optional[bool] = None
-        self.target_staffing_model: Optional[bool] = None
         self.original_parent_department_id: Optional[str] = None
         self.target_parent_department_id: Optional[str] = None
         self.draft_target_parent_department_id: Optional[str] = None
@@ -129,14 +125,6 @@ class ReorganizationInfoBuilder(object):
 
     def target_is_confidential(self, target_is_confidential: bool) -> "ReorganizationInfoBuilder":
         self._reorganization_info.target_is_confidential = target_is_confidential
-        return self
-
-    def original_staffing_model(self, original_staffing_model: bool) -> "ReorganizationInfoBuilder":
-        self._reorganization_info.original_staffing_model = original_staffing_model
-        return self
-
-    def target_staffing_model(self, target_staffing_model: bool) -> "ReorganizationInfoBuilder":
-        self._reorganization_info.target_staffing_model = target_staffing_model
         return self
 
     def original_parent_department_id(self, original_parent_department_id: str) -> "ReorganizationInfoBuilder":

@@ -11,12 +11,14 @@ class P2CorehrJobDataChangedV1Data(object):
         "job_data_id": str,
         "employment_id": str,
         "target_user_id": UserId,
+        "job_change_id": str,
     }
 
     def __init__(self, d=None):
         self.job_data_id: Optional[str] = None
         self.employment_id: Optional[str] = None
         self.target_user_id: Optional[UserId] = None
+        self.job_change_id: Optional[str] = None
         init(self, d, self._types)
 
 

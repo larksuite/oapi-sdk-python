@@ -18,6 +18,7 @@ class SignatureFile(object):
         "contract_code": str,
         "effective_date": str,
         "template_id": str,
+        "sign_url": str,
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class SignatureFile(object):
         self.contract_code: Optional[str] = None
         self.effective_date: Optional[str] = None
         self.template_id: Optional[str] = None
+        self.sign_url: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -80,6 +82,10 @@ class SignatureFileBuilder(object):
 
     def template_id(self, template_id: str) -> "SignatureFileBuilder":
         self._signature_file.template_id = template_id
+        return self
+
+    def sign_url(self, sign_url: str) -> "SignatureFileBuilder":
+        self._signature_file.sign_url = sign_url
         return self
 
     def build(self) -> "SignatureFile":

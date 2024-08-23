@@ -8,9 +8,11 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class ListTalentRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.keyword: Optional[str] = None
         self.update_start_time: Optional[int] = None
         self.update_end_time: Optional[int] = None
         self.page_size: Optional[int] = None
+        self.sort_by: Optional[int] = None
         self.page_token: Optional[str] = None
         self.user_id_type: Optional[str] = None
         self.query_option: Optional[str] = None
@@ -29,6 +31,11 @@ class ListTalentRequestBuilder(object):
         list_talent_request.token_types = {AccessTokenType.TENANT}
         self._list_talent_request: ListTalentRequest = list_talent_request
 
+    def keyword(self, keyword: str) -> "ListTalentRequestBuilder":
+        self._list_talent_request.keyword = keyword
+        self._list_talent_request.add_query("keyword", keyword)
+        return self
+
     def update_start_time(self, update_start_time: int) -> "ListTalentRequestBuilder":
         self._list_talent_request.update_start_time = update_start_time
         self._list_talent_request.add_query("update_start_time", update_start_time)
@@ -42,6 +49,11 @@ class ListTalentRequestBuilder(object):
     def page_size(self, page_size: int) -> "ListTalentRequestBuilder":
         self._list_talent_request.page_size = page_size
         self._list_talent_request.add_query("page_size", page_size)
+        return self
+
+    def sort_by(self, sort_by: int) -> "ListTalentRequestBuilder":
+        self._list_talent_request.sort_by = sort_by
+        self._list_talent_request.add_query("sort_by", sort_by)
         return self
 
     def page_token(self, page_token: str) -> "ListTalentRequestBuilder":

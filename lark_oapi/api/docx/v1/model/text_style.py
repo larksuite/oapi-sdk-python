@@ -13,6 +13,7 @@ class TextStyle(object):
         "wrap": bool,
         "background_color": str,
         "indentation_level": str,
+        "sequence": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class TextStyle(object):
         self.wrap: Optional[bool] = None
         self.background_color: Optional[str] = None
         self.indentation_level: Optional[str] = None
+        self.sequence: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -60,6 +62,10 @@ class TextStyleBuilder(object):
 
     def indentation_level(self, indentation_level: str) -> "TextStyleBuilder":
         self._text_style.indentation_level = indentation_level
+        return self
+
+    def sequence(self, sequence: str) -> "TextStyleBuilder":
+        self._text_style.sequence = sequence
         return self
 
     def build(self) -> "TextStyle":

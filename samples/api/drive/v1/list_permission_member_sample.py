@@ -5,64 +5,64 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListPermissionMemberRequest = ListPermissionMemberRequest.builder() \
-        .token("doccnBKgoMyY5OMbUG6FioTXuBe") \
-        .type("doc") \
-        .fields("*") \
-        .perm_type("container") \
-        .build()
+	# 构造请求对象
+	request: ListPermissionMemberRequest = ListPermissionMemberRequest.builder() \
+		.token("doccnBKgoMyY5OMbUG6FioTXuBe") \
+		.type("doc") \
+		.fields("*") \
+		.perm_type("container") \
+		.build()
 
-    # 发起请求
-    response: ListPermissionMemberResponse = client.drive.v1.permission_member.list(request)
+	# 发起请求
+	response: ListPermissionMemberResponse = client.drive.v1.permission_member.list(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.drive.v1.permission_member.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.drive.v1.permission_member.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListPermissionMemberRequest = ListPermissionMemberRequest.builder() \
-        .token("doccnBKgoMyY5OMbUG6FioTXuBe") \
-        .type("doc") \
-        .fields("*") \
-        .perm_type("container") \
-        .build()
+	# 构造请求对象
+	request: ListPermissionMemberRequest = ListPermissionMemberRequest.builder() \
+		.token("doccnBKgoMyY5OMbUG6FioTXuBe") \
+		.type("doc") \
+		.fields("*") \
+		.perm_type("container") \
+		.build()
 
-    # 发起请求
-    response: ListPermissionMemberResponse = await client.drive.v1.permission_member.alist(request)
+	# 发起请求
+	response: ListPermissionMemberResponse = await client.drive.v1.permission_member.alist(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.drive.v1.permission_member.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.drive.v1.permission_member.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

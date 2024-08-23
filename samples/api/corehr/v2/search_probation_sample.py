@@ -5,94 +5,94 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SearchProbationRequest = SearchProbationRequest.builder() \
-        .page_size(100) \
-        .page_token("6891251722631890445") \
-        .user_id_type("open_id") \
-        .department_id_type("open_department_id") \
-        .request_body(SearchProbationRequestBody.builder()
-                      .employment_ids([])
-                      .department_ids([])
-                      .probation_start_date_start("2022-05-18")
-                      .probation_start_date_end("2022-05-20")
-                      .probation_expected_end_date_start("2022-06-20")
-                      .probation_expected_end_date_end("2022-07-20")
-                      .actual_probation_end_date_start("2022-08-20")
-                      .actual_probation_end_date_end("2022-09-20")
-                      .initiating_time_start("2022-10-20")
-                      .initiating_time_end("2022-11-20")
-                      .probation_status("approved")
-                      .final_assessment_result("approved")
-                      .final_assessment_grade("grade_a")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SearchProbationRequest = SearchProbationRequest.builder() \
+		.page_size(100) \
+		.page_token("6891251722631890445") \
+		.user_id_type("open_id") \
+		.department_id_type("open_department_id") \
+		.request_body(SearchProbationRequestBody.builder()
+					  .employment_ids([])
+					  .department_ids([])
+					  .probation_start_date_start("2022-05-18")
+					  .probation_start_date_end("2022-05-20")
+					  .probation_expected_end_date_start("2022-06-20")
+					  .probation_expected_end_date_end("2022-07-20")
+					  .actual_probation_end_date_start("2022-08-20")
+					  .actual_probation_end_date_end("2022-09-20")
+					  .initiating_time_start("2022-10-20")
+					  .initiating_time_end("2022-11-20")
+					  .probation_status("approved")
+					  .final_assessment_result("approved")
+					  .final_assessment_grade("grade_a")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SearchProbationResponse = client.corehr.v2.probation.search(request)
+	# 发起请求
+	response: SearchProbationResponse = client.corehr.v2.probation.search(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v2.probation.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v2.probation.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SearchProbationRequest = SearchProbationRequest.builder() \
-        .page_size(100) \
-        .page_token("6891251722631890445") \
-        .user_id_type("open_id") \
-        .department_id_type("open_department_id") \
-        .request_body(SearchProbationRequestBody.builder()
-                      .employment_ids([])
-                      .department_ids([])
-                      .probation_start_date_start("2022-05-18")
-                      .probation_start_date_end("2022-05-20")
-                      .probation_expected_end_date_start("2022-06-20")
-                      .probation_expected_end_date_end("2022-07-20")
-                      .actual_probation_end_date_start("2022-08-20")
-                      .actual_probation_end_date_end("2022-09-20")
-                      .initiating_time_start("2022-10-20")
-                      .initiating_time_end("2022-11-20")
-                      .probation_status("approved")
-                      .final_assessment_result("approved")
-                      .final_assessment_grade("grade_a")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SearchProbationRequest = SearchProbationRequest.builder() \
+		.page_size(100) \
+		.page_token("6891251722631890445") \
+		.user_id_type("open_id") \
+		.department_id_type("open_department_id") \
+		.request_body(SearchProbationRequestBody.builder()
+					  .employment_ids([])
+					  .department_ids([])
+					  .probation_start_date_start("2022-05-18")
+					  .probation_start_date_end("2022-05-20")
+					  .probation_expected_end_date_start("2022-06-20")
+					  .probation_expected_end_date_end("2022-07-20")
+					  .actual_probation_end_date_start("2022-08-20")
+					  .actual_probation_end_date_end("2022-09-20")
+					  .initiating_time_start("2022-10-20")
+					  .initiating_time_end("2022-11-20")
+					  .probation_status("approved")
+					  .final_assessment_result("approved")
+					  .final_assessment_grade("grade_a")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SearchProbationResponse = await client.corehr.v2.probation.asearch(request)
+	# 发起请求
+	response: SearchProbationResponse = await client.corehr.v2.probation.asearch(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v2.probation.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v2.probation.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

@@ -5,104 +5,104 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreatePersonRequest = CreatePersonRequest.builder() \
-        .client_token("12454646") \
-        .request_body(Person.builder()
-                      .name_list([])
-                      .gender(Enum.builder().build())
-                      .date_of_birth("2020-01-01")
-                      .nationality_id("7075702732803278381")
-                      .race(Enum.builder().build())
-                      .marital_status(Enum.builder().build())
-                      .phone_list([])
-                      .address_list([])
-                      .email_list([])
-                      .work_experience_list([])
-                      .education_list([])
-                      .bank_account_list([])
-                      .national_id_list([])
-                      .dependent_list([])
-                      .emergency_contact_list([])
-                      .date_entered_workforce("2020-10-01")
-                      .profile_image_id("dfysuc8x76dsfsw")
-                      .custom_fields([])
-                      .resident_tax_id_list([])
-                      .age(22)
-                      .personal_profile([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreatePersonRequest = CreatePersonRequest.builder() \
+		.client_token("12454646") \
+		.request_body(Person.builder()
+					  .name_list([])
+					  .gender(Enum.builder().build())
+					  .date_of_birth("2020-01-01")
+					  .nationality_id("7075702732803278381")
+					  .race(Enum.builder().build())
+					  .marital_status(Enum.builder().build())
+					  .phone_list([])
+					  .address_list([])
+					  .email_list([])
+					  .work_experience_list([])
+					  .education_list([])
+					  .bank_account_list([])
+					  .national_id_list([])
+					  .dependent_list([])
+					  .emergency_contact_list([])
+					  .date_entered_workforce("2020-10-01")
+					  .profile_image_id("dfysuc8x76dsfsw")
+					  .custom_fields([])
+					  .resident_tax_id_list([])
+					  .age(22)
+					  .personal_profile([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreatePersonResponse = client.corehr.v1.person.create(request)
+	# 发起请求
+	response: CreatePersonResponse = client.corehr.v1.person.create(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v1.person.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v1.person.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreatePersonRequest = CreatePersonRequest.builder() \
-        .client_token("12454646") \
-        .request_body(Person.builder()
-                      .name_list([])
-                      .gender(Enum.builder().build())
-                      .date_of_birth("2020-01-01")
-                      .nationality_id("7075702732803278381")
-                      .race(Enum.builder().build())
-                      .marital_status(Enum.builder().build())
-                      .phone_list([])
-                      .address_list([])
-                      .email_list([])
-                      .work_experience_list([])
-                      .education_list([])
-                      .bank_account_list([])
-                      .national_id_list([])
-                      .dependent_list([])
-                      .emergency_contact_list([])
-                      .date_entered_workforce("2020-10-01")
-                      .profile_image_id("dfysuc8x76dsfsw")
-                      .custom_fields([])
-                      .resident_tax_id_list([])
-                      .age(22)
-                      .personal_profile([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreatePersonRequest = CreatePersonRequest.builder() \
+		.client_token("12454646") \
+		.request_body(Person.builder()
+					  .name_list([])
+					  .gender(Enum.builder().build())
+					  .date_of_birth("2020-01-01")
+					  .nationality_id("7075702732803278381")
+					  .race(Enum.builder().build())
+					  .marital_status(Enum.builder().build())
+					  .phone_list([])
+					  .address_list([])
+					  .email_list([])
+					  .work_experience_list([])
+					  .education_list([])
+					  .bank_account_list([])
+					  .national_id_list([])
+					  .dependent_list([])
+					  .emergency_contact_list([])
+					  .date_entered_workforce("2020-10-01")
+					  .profile_image_id("dfysuc8x76dsfsw")
+					  .custom_fields([])
+					  .resident_tax_id_list([])
+					  .age(22)
+					  .personal_profile([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreatePersonResponse = await client.corehr.v1.person.acreate(request)
+	# 发起请求
+	response: CreatePersonResponse = await client.corehr.v1.person.acreate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v1.person.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v1.person.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

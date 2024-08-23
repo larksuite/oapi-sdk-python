@@ -53,6 +53,7 @@ class PreHireEmploymentInfo(object):
         "created_at": str,
         "created_by": str,
         "updated_by": str,
+        "seniority_date": str,
     }
 
     def __init__(self, d=None):
@@ -96,6 +97,7 @@ class PreHireEmploymentInfo(object):
         self.created_at: Optional[str] = None
         self.created_by: Optional[str] = None
         self.updated_by: Optional[str] = None
+        self.seniority_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -266,6 +268,10 @@ class PreHireEmploymentInfoBuilder(object):
 
     def updated_by(self, updated_by: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.updated_by = updated_by
+        return self
+
+    def seniority_date(self, seniority_date: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.seniority_date = seniority_date
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

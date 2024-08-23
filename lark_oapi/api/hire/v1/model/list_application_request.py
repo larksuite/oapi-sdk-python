@@ -13,6 +13,7 @@ class ListApplicationRequest(BaseRequest):
         self.talent_id: Optional[str] = None
         self.active_status: Optional[str] = None
         self.job_id: Optional[str] = None
+        self.lock_status: Optional[List[int]] = None
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
         self.update_start_time: Optional[int] = None
@@ -55,6 +56,11 @@ class ListApplicationRequestBuilder(object):
     def job_id(self, job_id: str) -> "ListApplicationRequestBuilder":
         self._list_application_request.job_id = job_id
         self._list_application_request.add_query("job_id", job_id)
+        return self
+
+    def lock_status(self, lock_status: List[int]) -> "ListApplicationRequestBuilder":
+        self._list_application_request.lock_status = lock_status
+        self._list_application_request.add_query("lock_status", lock_status)
         return self
 
     def page_token(self, page_token: str) -> "ListApplicationRequestBuilder":

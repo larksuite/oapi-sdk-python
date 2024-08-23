@@ -52,6 +52,7 @@ class OfferInfo(object):
         "flow_id": str,
         "check_in_time": str,
         "check_in_method": str,
+        "seniority_date": str,
     }
 
     def __init__(self, d=None):
@@ -99,6 +100,7 @@ class OfferInfo(object):
         self.flow_id: Optional[str] = None
         self.check_in_time: Optional[str] = None
         self.check_in_method: Optional[str] = None
+        self.seniority_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -284,6 +286,10 @@ class OfferInfoBuilder(object):
 
     def check_in_method(self, check_in_method: str) -> "OfferInfoBuilder":
         self._offer_info.check_in_method = check_in_method
+        return self
+
+    def seniority_date(self, seniority_date: str) -> "OfferInfoBuilder":
+        self._offer_info.seniority_date = seniority_date
         return self
 
     def build(self) -> "OfferInfo":

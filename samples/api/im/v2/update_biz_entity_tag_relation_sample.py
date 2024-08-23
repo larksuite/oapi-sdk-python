@@ -5,66 +5,66 @@ from lark_oapi.api.im.v2 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: UpdateBizEntityTagRelationRequest = UpdateBizEntityTagRelationRequest.builder() \
-        .request_body(UpdateBizEntityTagRelationRequestBody.builder()
-                      .tag_biz_type("chat")
-                      .biz_entity_id("7161681111")
-                      .tag_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: UpdateBizEntityTagRelationRequest = UpdateBizEntityTagRelationRequest.builder() \
+		.request_body(UpdateBizEntityTagRelationRequestBody.builder()
+					  .tag_biz_type("chat")
+					  .biz_entity_id("7161681111")
+					  .tag_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: UpdateBizEntityTagRelationResponse = client.im.v2.biz_entity_tag_relation.update(request)
+	# 发起请求
+	response: UpdateBizEntityTagRelationResponse = client.im.v2.biz_entity_tag_relation.update(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.im.v2.biz_entity_tag_relation.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.im.v2.biz_entity_tag_relation.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: UpdateBizEntityTagRelationRequest = UpdateBizEntityTagRelationRequest.builder() \
-        .request_body(UpdateBizEntityTagRelationRequestBody.builder()
-                      .tag_biz_type("chat")
-                      .biz_entity_id("7161681111")
-                      .tag_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: UpdateBizEntityTagRelationRequest = UpdateBizEntityTagRelationRequest.builder() \
+		.request_body(UpdateBizEntityTagRelationRequestBody.builder()
+					  .tag_biz_type("chat")
+					  .biz_entity_id("7161681111")
+					  .tag_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: UpdateBizEntityTagRelationResponse = await client.im.v2.biz_entity_tag_relation.aupdate(request)
+	# 发起请求
+	response: UpdateBizEntityTagRelationResponse = await client.im.v2.biz_entity_tag_relation.aupdate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.im.v2.biz_entity_tag_relation.aupdate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.im.v2.biz_entity_tag_relation.aupdate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

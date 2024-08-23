@@ -13,6 +13,7 @@ class SearchJobChangeRequestBody(object):
         "effective_date_end": str,
         "updated_time_start": str,
         "updated_time_end": str,
+        "target_department_ids": List[str],
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class SearchJobChangeRequestBody(object):
         self.effective_date_end: Optional[str] = None
         self.updated_time_start: Optional[str] = None
         self.updated_time_end: Optional[str] = None
+        self.target_department_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -60,6 +62,10 @@ class SearchJobChangeRequestBodyBuilder(object):
 
     def updated_time_end(self, updated_time_end: str) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.updated_time_end = updated_time_end
+        return self
+
+    def target_department_ids(self, target_department_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.target_department_ids = target_department_ids
         return self
 
     def build(self) -> "SearchJobChangeRequestBody":

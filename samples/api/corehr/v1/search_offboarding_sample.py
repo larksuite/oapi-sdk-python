@@ -5,86 +5,86 @@ from lark_oapi.api.corehr.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SearchOffboardingRequest = SearchOffboardingRequest.builder() \
-        .page_size(100) \
-        .page_token("6891251722631890445") \
-        .user_id_type("open_id") \
-        .request_body(SearchOffboardingRequestBody.builder()
-                      .employment_ids([])
-                      .apply_initiating_time_start("2022-01-01 11:22:33")
-                      .apply_initiating_time_end("2022-01-01 11:22:33")
-                      .expected_offboarding_date_start("2022-01-01")
-                      .expected_offboarding_date_end("2022-01-01")
-                      .offboarding_date_start("2022-01-01")
-                      .offboarding_date_end("2022-01-01")
-                      .statuses([])
-                      .reasons([])
-                      .employee_reasons([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SearchOffboardingRequest = SearchOffboardingRequest.builder() \
+		.page_size(100) \
+		.page_token("6891251722631890445") \
+		.user_id_type("open_id") \
+		.request_body(SearchOffboardingRequestBody.builder()
+					  .employment_ids([])
+					  .apply_initiating_time_start("2022-01-01 11:22:33")
+					  .apply_initiating_time_end("2022-01-01 11:22:33")
+					  .expected_offboarding_date_start("2022-01-01")
+					  .expected_offboarding_date_end("2022-01-01")
+					  .offboarding_date_start("2022-01-01")
+					  .offboarding_date_end("2022-01-01")
+					  .statuses([])
+					  .reasons([])
+					  .employee_reasons([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SearchOffboardingResponse = client.corehr.v1.offboarding.search(request)
+	# 发起请求
+	response: SearchOffboardingResponse = client.corehr.v1.offboarding.search(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v1.offboarding.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v1.offboarding.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SearchOffboardingRequest = SearchOffboardingRequest.builder() \
-        .page_size(100) \
-        .page_token("6891251722631890445") \
-        .user_id_type("open_id") \
-        .request_body(SearchOffboardingRequestBody.builder()
-                      .employment_ids([])
-                      .apply_initiating_time_start("2022-01-01 11:22:33")
-                      .apply_initiating_time_end("2022-01-01 11:22:33")
-                      .expected_offboarding_date_start("2022-01-01")
-                      .expected_offboarding_date_end("2022-01-01")
-                      .offboarding_date_start("2022-01-01")
-                      .offboarding_date_end("2022-01-01")
-                      .statuses([])
-                      .reasons([])
-                      .employee_reasons([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SearchOffboardingRequest = SearchOffboardingRequest.builder() \
+		.page_size(100) \
+		.page_token("6891251722631890445") \
+		.user_id_type("open_id") \
+		.request_body(SearchOffboardingRequestBody.builder()
+					  .employment_ids([])
+					  .apply_initiating_time_start("2022-01-01 11:22:33")
+					  .apply_initiating_time_end("2022-01-01 11:22:33")
+					  .expected_offboarding_date_start("2022-01-01")
+					  .expected_offboarding_date_end("2022-01-01")
+					  .offboarding_date_start("2022-01-01")
+					  .offboarding_date_end("2022-01-01")
+					  .statuses([])
+					  .reasons([])
+					  .employee_reasons([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SearchOffboardingResponse = await client.corehr.v1.offboarding.asearch(request)
+	# 发起请求
+	response: SearchOffboardingResponse = await client.corehr.v1.offboarding.asearch(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v1.offboarding.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v1.offboarding.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

@@ -5,60 +5,60 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetInterviewRecordRequest = GetInterviewRecordRequest.builder() \
-        .interview_record_id("1618209327096") \
-        .user_id_type("open_id") \
-        .build()
+	# 构造请求对象
+	request: GetInterviewRecordRequest = GetInterviewRecordRequest.builder() \
+		.interview_record_id("1618209327096") \
+		.user_id_type("open_id") \
+		.build()
 
-    # 发起请求
-    response: GetInterviewRecordResponse = client.hire.v1.interview_record.get(request)
+	# 发起请求
+	response: GetInterviewRecordResponse = client.hire.v1.interview_record.get(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.hire.v1.interview_record.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.hire.v1.interview_record.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetInterviewRecordRequest = GetInterviewRecordRequest.builder() \
-        .interview_record_id("1618209327096") \
-        .user_id_type("open_id") \
-        .build()
+	# 构造请求对象
+	request: GetInterviewRecordRequest = GetInterviewRecordRequest.builder() \
+		.interview_record_id("1618209327096") \
+		.user_id_type("open_id") \
+		.build()
 
-    # 发起请求
-    response: GetInterviewRecordResponse = await client.hire.v1.interview_record.aget(request)
+	# 发起请求
+	response: GetInterviewRecordResponse = await client.hire.v1.interview_record.aget(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.hire.v1.interview_record.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.hire.v1.interview_record.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

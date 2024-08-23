@@ -48,6 +48,7 @@ from .department_id import *
 from .department_parent_info import *
 from .department_parents import *
 from .department_timeline import *
+from .department_tree import *
 from .dependent import *
 from .dependent_for_update import *
 from .dimension import *
@@ -301,6 +302,8 @@ from .query_timeline_department_request_body import *
 from .query_timeline_department_request import *
 from .search_department_request_body import *
 from .search_department_request import *
+from .tree_department_request_body import *
+from .tree_department_request import *
 from .batch_get_employee_request_body import *
 from .batch_get_employee_request import *
 from .create_employee_request_body import *
@@ -399,6 +402,8 @@ from .query_timeline_department_response_body import *
 from .query_timeline_department_response import *
 from .search_department_response_body import *
 from .search_department_response import *
+from .tree_department_response_body import *
+from .tree_department_response import *
 from .batch_get_employee_response_body import *
 from .batch_get_employee_response import *
 from .create_employee_response_body import *

@@ -5,72 +5,72 @@ from lark_oapi.api.contact.v3 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateJobFamilyRequest = CreateJobFamilyRequest.builder() \
-        .request_body(JobFamily.builder()
-                      .name("产品")
-                      .description("负责产品策略制定的相关工作")
-                      .parent_job_family_id("mga5oa8ayjlp9rb")
-                      .status(False)
-                      .i18n_name([])
-                      .i18n_description([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateJobFamilyRequest = CreateJobFamilyRequest.builder() \
+		.request_body(JobFamily.builder()
+					  .name("产品")
+					  .description("负责产品策略制定的相关工作")
+					  .parent_job_family_id("mga5oa8ayjlp9rb")
+					  .status(False)
+					  .i18n_name([])
+					  .i18n_description([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateJobFamilyResponse = client.contact.v3.job_family.create(request)
+	# 发起请求
+	response: CreateJobFamilyResponse = client.contact.v3.job_family.create(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.contact.v3.job_family.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.contact.v3.job_family.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateJobFamilyRequest = CreateJobFamilyRequest.builder() \
-        .request_body(JobFamily.builder()
-                      .name("产品")
-                      .description("负责产品策略制定的相关工作")
-                      .parent_job_family_id("mga5oa8ayjlp9rb")
-                      .status(False)
-                      .i18n_name([])
-                      .i18n_description([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateJobFamilyRequest = CreateJobFamilyRequest.builder() \
+		.request_body(JobFamily.builder()
+					  .name("产品")
+					  .description("负责产品策略制定的相关工作")
+					  .parent_job_family_id("mga5oa8ayjlp9rb")
+					  .status(False)
+					  .i18n_name([])
+					  .i18n_description([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateJobFamilyResponse = await client.contact.v3.job_family.acreate(request)
+	# 发起请求
+	response: CreateJobFamilyResponse = await client.contact.v3.job_family.acreate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.contact.v3.job_family.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.contact.v3.job_family.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

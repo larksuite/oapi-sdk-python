@@ -5,78 +5,78 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateInstanceCommentRequest = CreateInstanceCommentRequest.builder() \
-        .instance_id("6A123516-FB88-470D-A428-9AF58B71B3C0") \
-        .user_id_type("user_id") \
-        .user_id("e5286g26") \
-        .request_body(CommentRequest.builder()
-                      .content("")
-                      .at_info_list([])
-                      .parent_comment_id("7081516627711524883")
-                      .comment_id("7081516627711524883")
-                      .disable_bot(False)
-                      .extra("")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateInstanceCommentRequest = CreateInstanceCommentRequest.builder() \
+		.instance_id("6A123516-FB88-470D-A428-9AF58B71B3C0") \
+		.user_id_type("user_id") \
+		.user_id("e5286g26") \
+		.request_body(CommentRequest.builder()
+					  .content("")
+					  .at_info_list([])
+					  .parent_comment_id("7081516627711524883")
+					  .comment_id("7081516627711524883")
+					  .disable_bot(False)
+					  .extra("")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateInstanceCommentResponse = client.approval.v4.instance_comment.create(request)
+	# 发起请求
+	response: CreateInstanceCommentResponse = client.approval.v4.instance_comment.create(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.approval.v4.instance_comment.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.approval.v4.instance_comment.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateInstanceCommentRequest = CreateInstanceCommentRequest.builder() \
-        .instance_id("6A123516-FB88-470D-A428-9AF58B71B3C0") \
-        .user_id_type("user_id") \
-        .user_id("e5286g26") \
-        .request_body(CommentRequest.builder()
-                      .content("")
-                      .at_info_list([])
-                      .parent_comment_id("7081516627711524883")
-                      .comment_id("7081516627711524883")
-                      .disable_bot(False)
-                      .extra("")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateInstanceCommentRequest = CreateInstanceCommentRequest.builder() \
+		.instance_id("6A123516-FB88-470D-A428-9AF58B71B3C0") \
+		.user_id_type("user_id") \
+		.user_id("e5286g26") \
+		.request_body(CommentRequest.builder()
+					  .content("")
+					  .at_info_list([])
+					  .parent_comment_id("7081516627711524883")
+					  .comment_id("7081516627711524883")
+					  .disable_bot(False)
+					  .extra("")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateInstanceCommentResponse = await client.approval.v4.instance_comment.acreate(request)
+	# 发起请求
+	response: CreateInstanceCommentResponse = await client.approval.v4.instance_comment.acreate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.approval.v4.instance_comment.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.approval.v4.instance_comment.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()
