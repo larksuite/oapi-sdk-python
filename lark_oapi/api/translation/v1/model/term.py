@@ -25,7 +25,7 @@ class TermBuilder(object):
         self._term = Term()
 
     def from_(self, from_: str) -> "TermBuilder":
-        self._term.from_ = from_
+        setattr(self._term, "from", from_)
         return self
 
     def to(self, to: str) -> "TermBuilder":
