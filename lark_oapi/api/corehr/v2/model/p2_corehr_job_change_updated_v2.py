@@ -18,6 +18,8 @@ class P2CorehrJobChangeUpdatedV2Data(object):
         "operate_reason": str,
         "transfer_type": int,
         "updated_fields": List[str],
+        "transform_type": str,
+        "transform_reason": str,
     }
 
     def __init__(self, d=None):
@@ -32,6 +34,8 @@ class P2CorehrJobChangeUpdatedV2Data(object):
         self.operate_reason: Optional[str] = None
         self.transfer_type: Optional[int] = None
         self.updated_fields: Optional[List[str]] = None
+        self.transform_type: Optional[str] = None
+        self.transform_reason: Optional[str] = None
         init(self, d, self._types)
 
 

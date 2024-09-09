@@ -8,11 +8,13 @@ class Scope(object):
     _types = {
         "scope_name": str,
         "grant_status": int,
+        "scope_type": str,
     }
 
     def __init__(self, d=None):
         self.scope_name: Optional[str] = None
         self.grant_status: Optional[int] = None
+        self.scope_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +32,10 @@ class ScopeBuilder(object):
 
     def grant_status(self, grant_status: int) -> "ScopeBuilder":
         self._scope.grant_status = grant_status
+        return self
+
+    def scope_type(self, scope_type: str) -> "ScopeBuilder":
+        self._scope.scope_type = scope_type
         return self
 
     def build(self) -> "Scope":

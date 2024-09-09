@@ -59,6 +59,8 @@ from .update_biz_entity_tag_relation_request_body import *
 from .update_biz_entity_tag_relation_request import *
 from .update_chat_button_request_body import *
 from .update_chat_button_request import *
+from .bot_time_sentive_feed_card_request_body import *
+from .bot_time_sentive_feed_card_request import *
 from .patch_feed_card_request_body import *
 from .patch_feed_card_request import *
 from .create_tag_request_body import *
@@ -79,6 +81,8 @@ from .get_biz_entity_tag_relation_response import *
 from .update_biz_entity_tag_relation_response import *
 from .update_chat_button_response_body import *
 from .update_chat_button_response import *
+from .bot_time_sentive_feed_card_response_body import *
+from .bot_time_sentive_feed_card_response import *
 from .patch_feed_card_response_body import *
 from .patch_feed_card_response import *
 from .create_tag_response_body import *

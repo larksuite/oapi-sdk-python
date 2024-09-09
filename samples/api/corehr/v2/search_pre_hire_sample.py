@@ -5,98 +5,98 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: SearchPreHireRequest = SearchPreHireRequest.builder() \
-		.page_size(100) \
-		.page_token("6891251722631890445") \
-		.user_id_type("open_id") \
-		.department_id_type("open_department_id") \
-		.request_body(SearchPreHireRequestBody.builder()
-					  .worker_ids([])
-					  .pre_hire_ids([])
-					  .onboarding_date_start("2006-01-02")
-					  .onboarding_date_end("2006-01-02")
-					  .updated_date_start("2006-01-02")
-					  .updated_date_end("2006-01-02")
-					  .onboarding_location_ids([])
-					  .onboarding_status("待入职(preboarding)")
-					  .department_ids([])
-					  .direct_manager_ids([])
-					  .employee_type_ids([])
-					  .job_family_ids([])
-					  .key_word("张三")
-					  .rehire("张三")
-					  .fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: SearchPreHireRequest = SearchPreHireRequest.builder() \
+        .page_size(100) \
+        .page_token("6891251722631890445") \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .request_body(SearchPreHireRequestBody.builder()
+                      .worker_ids([])
+                      .pre_hire_ids([])
+                      .onboarding_date_start("2006-01-02")
+                      .onboarding_date_end("2006-01-02")
+                      .updated_date_start("2006-01-02")
+                      .updated_date_end("2006-01-02")
+                      .onboarding_location_ids([])
+                      .onboarding_status("待入职(preboarding)")
+                      .department_ids([])
+                      .direct_manager_ids([])
+                      .employee_type_ids([])
+                      .job_family_ids([])
+                      .key_word("张三")
+                      .rehire("张三")
+                      .fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: SearchPreHireResponse = client.corehr.v2.pre_hire.search(request)
+    # 发起请求
+    response: SearchPreHireResponse = client.corehr.v2.pre_hire.search(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.pre_hire.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.pre_hire.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: SearchPreHireRequest = SearchPreHireRequest.builder() \
-		.page_size(100) \
-		.page_token("6891251722631890445") \
-		.user_id_type("open_id") \
-		.department_id_type("open_department_id") \
-		.request_body(SearchPreHireRequestBody.builder()
-					  .worker_ids([])
-					  .pre_hire_ids([])
-					  .onboarding_date_start("2006-01-02")
-					  .onboarding_date_end("2006-01-02")
-					  .updated_date_start("2006-01-02")
-					  .updated_date_end("2006-01-02")
-					  .onboarding_location_ids([])
-					  .onboarding_status("待入职(preboarding)")
-					  .department_ids([])
-					  .direct_manager_ids([])
-					  .employee_type_ids([])
-					  .job_family_ids([])
-					  .key_word("张三")
-					  .rehire("张三")
-					  .fields([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: SearchPreHireRequest = SearchPreHireRequest.builder() \
+        .page_size(100) \
+        .page_token("6891251722631890445") \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .request_body(SearchPreHireRequestBody.builder()
+                      .worker_ids([])
+                      .pre_hire_ids([])
+                      .onboarding_date_start("2006-01-02")
+                      .onboarding_date_end("2006-01-02")
+                      .updated_date_start("2006-01-02")
+                      .updated_date_end("2006-01-02")
+                      .onboarding_location_ids([])
+                      .onboarding_status("待入职(preboarding)")
+                      .department_ids([])
+                      .direct_manager_ids([])
+                      .employee_type_ids([])
+                      .job_family_ids([])
+                      .key_word("张三")
+                      .rehire("张三")
+                      .fields([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: SearchPreHireResponse = await client.corehr.v2.pre_hire.asearch(request)
+    # 发起请求
+    response: SearchPreHireResponse = await client.corehr.v2.pre_hire.asearch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.corehr.v2.pre_hire.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.corehr.v2.pre_hire.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

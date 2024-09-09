@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .i18n import I18n
 from .i18n import I18n
 from .org_role_update import OrgRoleUpdate
+from .custom_field_data import CustomFieldData
 
 
 class CustomOrgUpdate(object):
@@ -17,6 +18,7 @@ class CustomOrgUpdate(object):
         "description": List[I18n],
         "effective_time": str,
         "org_roles": List[OrgRoleUpdate],
+        "custom_fields": List[CustomFieldData],
     }
 
     def __init__(self, d=None):
@@ -28,6 +30,7 @@ class CustomOrgUpdate(object):
         self.description: Optional[List[I18n]] = None
         self.effective_time: Optional[str] = None
         self.org_roles: Optional[List[OrgRoleUpdate]] = None
+        self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -69,6 +72,10 @@ class CustomOrgUpdateBuilder(object):
 
     def org_roles(self, org_roles: List[OrgRoleUpdate]) -> "CustomOrgUpdateBuilder":
         self._custom_org_update.org_roles = org_roles
+        return self
+
+    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgUpdateBuilder":
+        self._custom_org_update.custom_fields = custom_fields
         return self
 
     def build(self) -> "CustomOrgUpdate":

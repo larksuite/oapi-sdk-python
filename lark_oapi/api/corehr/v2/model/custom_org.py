@@ -6,6 +6,7 @@ from .i18n import I18n
 from .i18n import I18n
 from .org_role import OrgRole
 from .match_rules import MatchRules
+from .custom_field_data import CustomFieldData
 
 
 class CustomOrg(object):
@@ -21,6 +22,7 @@ class CustomOrg(object):
         "match_rule_groups": List[MatchRules],
         "active": bool,
         "org_id": str,
+        "custom_fields": List[CustomFieldData],
     }
 
     def __init__(self, d=None):
@@ -35,6 +37,7 @@ class CustomOrg(object):
         self.match_rule_groups: Optional[List[MatchRules]] = None
         self.active: Optional[bool] = None
         self.org_id: Optional[str] = None
+        self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -88,6 +91,10 @@ class CustomOrgBuilder(object):
 
     def org_id(self, org_id: str) -> "CustomOrgBuilder":
         self._custom_org.org_id = org_id
+        return self
+
+    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgBuilder":
+        self._custom_org.custom_fields = custom_fields
         return self
 
     def build(self) -> "CustomOrg":

@@ -14,6 +14,7 @@ class AppTableRecord(object):
         "created_time": int,
         "last_modified_by": Person,
         "last_modified_time": int,
+        "shared_url": str,
         "record_url": str,
     }
 
@@ -24,6 +25,7 @@ class AppTableRecord(object):
         self.created_time: Optional[int] = None
         self.last_modified_by: Optional[Person] = None
         self.last_modified_time: Optional[int] = None
+        self.shared_url: Optional[str] = None
         self.record_url: Optional[str] = None
         init(self, d, self._types)
 
@@ -58,6 +60,10 @@ class AppTableRecordBuilder(object):
 
     def last_modified_time(self, last_modified_time: int) -> "AppTableRecordBuilder":
         self._app_table_record.last_modified_time = last_modified_time
+        return self
+
+    def shared_url(self, shared_url: str) -> "AppTableRecordBuilder":
+        self._app_table_record.shared_url = shared_url
         return self
 
     def record_url(self, record_url: str) -> "AppTableRecordBuilder":

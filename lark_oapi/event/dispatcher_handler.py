@@ -15,6 +15,7 @@ from lark_oapi.api.helpdesk.v1.processor import *
 from lark_oapi.api.hire.v1.processor import *
 from lark_oapi.api.im.v1.processor import *
 from lark_oapi.api.meeting_room.v1.processor import *
+from lark_oapi.api.moments.v1.processor import *
 from lark_oapi.api.task.v1.processor import *
 from lark_oapi.api.vc.v1.processor import *
 from lark_oapi.core.const import *
@@ -488,11 +489,32 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.job_data.changed_v1"] = P2CorehrJobDataChangedV1Processor(f)
         return self
 
+    def register_p2_corehr_job_data_created_v1(self, f: Callable[
+        [P2CorehrJobDataCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_data.created_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_data.created_v1")
+        self._processorMap["p2.corehr.job_data.created_v1"] = P2CorehrJobDataCreatedV1Processor(f)
+        return self
+
+    def register_p2_corehr_job_data_deleted_v1(self, f: Callable[
+        [P2CorehrJobDataDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_data.deleted_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_data.deleted_v1")
+        self._processorMap["p2.corehr.job_data.deleted_v1"] = P2CorehrJobDataDeletedV1Processor(f)
+        return self
+
     def register_p2_corehr_job_data_employed_v1(self, f: Callable[
         [P2CorehrJobDataEmployedV1], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.job_data.employed_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.corehr.job_data.employed_v1")
         self._processorMap["p2.corehr.job_data.employed_v1"] = P2CorehrJobDataEmployedV1Processor(f)
+        return self
+
+    def register_p2_corehr_job_data_updated_v1(self, f: Callable[
+        [P2CorehrJobDataUpdatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_data.updated_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_data.updated_v1")
+        self._processorMap["p2.corehr.job_data.updated_v1"] = P2CorehrJobDataUpdatedV1Processor(f)
         return self
 
     def register_p2_corehr_offboarding_updated_v1(self, f: Callable[
@@ -543,6 +565,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.corehr.employee.domain_event_v2" in self._processorMap:
             raise EventException("processor already registered, type: p2.corehr.employee.domain_event_v2")
         self._processorMap["p2.corehr.employee.domain_event_v2"] = P2CorehrEmployeeDomainEventV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_change_status_updated_v2(self, f: Callable[
+        [P2CorehrJobChangeStatusUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_change.status_updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_change.status_updated_v2")
+        self._processorMap["p2.corehr.job_change.status_updated_v2"] = P2CorehrJobChangeStatusUpdatedV2Processor(f)
         return self
 
     def register_p2_corehr_job_change_updated_v2(self, f: Callable[
@@ -898,6 +927,69 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.meeting_room.meeting_room.updated_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.meeting_room.meeting_room.updated_v1")
         self._processorMap["p2.meeting_room.meeting_room.updated_v1"] = P2MeetingRoomMeetingRoomUpdatedV1Processor(f)
+        return self
+
+    def register_p2_moments_comment_created_v1(self, f: Callable[
+        [P2MomentsCommentCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.comment.created_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.comment.created_v1")
+        self._processorMap["p2.moments.comment.created_v1"] = P2MomentsCommentCreatedV1Processor(f)
+        return self
+
+    def register_p2_moments_comment_deleted_v1(self, f: Callable[
+        [P2MomentsCommentDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.comment.deleted_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.comment.deleted_v1")
+        self._processorMap["p2.moments.comment.deleted_v1"] = P2MomentsCommentDeletedV1Processor(f)
+        return self
+
+    def register_p2_moments_dislike_created_v1(self, f: Callable[
+        [P2MomentsDislikeCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.dislike.created_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.dislike.created_v1")
+        self._processorMap["p2.moments.dislike.created_v1"] = P2MomentsDislikeCreatedV1Processor(f)
+        return self
+
+    def register_p2_moments_dislike_deleted_v1(self, f: Callable[
+        [P2MomentsDislikeDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.dislike.deleted_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.dislike.deleted_v1")
+        self._processorMap["p2.moments.dislike.deleted_v1"] = P2MomentsDislikeDeletedV1Processor(f)
+        return self
+
+    def register_p2_moments_post_created_v1(self, f: Callable[
+        [P2MomentsPostCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.post.created_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.post.created_v1")
+        self._processorMap["p2.moments.post.created_v1"] = P2MomentsPostCreatedV1Processor(f)
+        return self
+
+    def register_p2_moments_post_deleted_v1(self, f: Callable[
+        [P2MomentsPostDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.post.deleted_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.post.deleted_v1")
+        self._processorMap["p2.moments.post.deleted_v1"] = P2MomentsPostDeletedV1Processor(f)
+        return self
+
+    def register_p2_moments_post_statistics_updated_v1(self, f: Callable[
+        [P2MomentsPostStatisticsUpdatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.post_statistics.updated_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.post_statistics.updated_v1")
+        self._processorMap["p2.moments.post_statistics.updated_v1"] = P2MomentsPostStatisticsUpdatedV1Processor(f)
+        return self
+
+    def register_p2_moments_reaction_created_v1(self, f: Callable[
+        [P2MomentsReactionCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.reaction.created_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.reaction.created_v1")
+        self._processorMap["p2.moments.reaction.created_v1"] = P2MomentsReactionCreatedV1Processor(f)
+        return self
+
+    def register_p2_moments_reaction_deleted_v1(self, f: Callable[
+        [P2MomentsReactionDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.moments.reaction.deleted_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.moments.reaction.deleted_v1")
+        self._processorMap["p2.moments.reaction.deleted_v1"] = P2MomentsReactionDeletedV1Processor(f)
         return self
 
     def register_p2_task_task_update_tenant_v1(self, f: Callable[

@@ -106,6 +106,8 @@ from .check_white_black_list_application_visibility_request_body import *
 from .check_white_black_list_application_visibility_request import *
 from .patch_application_visibility_request_body import *
 from .patch_application_visibility_request import *
+from .apply_scope_request import *
+from .list_scope_request import *
 from .set_app_badge_response import *
 from .list_app_recommend_rule_response_body import *
 from .list_app_recommend_rule_response import *
@@ -137,6 +139,9 @@ from .update_application_management_response import *
 from .check_white_black_list_application_visibility_response_body import *
 from .check_white_black_list_application_visibility_response import *
 from .patch_application_visibility_response import *
+from .apply_scope_response import *
+from .list_scope_response_body import *
+from .list_scope_response import *
 from .p2_application_application_created_v6 import *
 from .p2_application_application_app_version_audit_v6 import *
 from .p2_application_application_app_version_publish_apply_v6 import *

@@ -5,72 +5,72 @@ from lark_oapi.api.acs.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	file = open("file_path", "rb")
-	request: UpdateUserFaceRequest = UpdateUserFaceRequest.builder() \
-		.user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
-		.user_id_type("user_id") \
-		.request_body(File.builder()
-					  .files(file)
-					  .file_type("jpg")
-					  .file_name("efeqz12f.jpg")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    file = open("file_path", "rb")
+    request: UpdateUserFaceRequest = UpdateUserFaceRequest.builder() \
+        .user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
+        .user_id_type("user_id") \
+        .request_body(File.builder()
+                      .files(file)
+                      .file_type("jpg")
+                      .file_name("efeqz12f.jpg")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: UpdateUserFaceResponse = client.acs.v1.user_face.update(request)
+    # 发起请求
+    response: UpdateUserFaceResponse = client.acs.v1.user_face.update(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.acs.v1.user_face.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.acs.v1.user_face.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	file = open("file_path", "rb")
-	request: UpdateUserFaceRequest = UpdateUserFaceRequest.builder() \
-		.user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
-		.user_id_type("user_id") \
-		.request_body(File.builder()
-					  .files(file)
-					  .file_type("jpg")
-					  .file_name("efeqz12f.jpg")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    file = open("file_path", "rb")
+    request: UpdateUserFaceRequest = UpdateUserFaceRequest.builder() \
+        .user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62") \
+        .user_id_type("user_id") \
+        .request_body(File.builder()
+                      .files(file)
+                      .file_type("jpg")
+                      .file_name("efeqz12f.jpg")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: UpdateUserFaceResponse = await client.acs.v1.user_face.aupdate(request)
+    # 发起请求
+    response: UpdateUserFaceResponse = await client.acs.v1.user_face.aupdate(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.acs.v1.user_face.aupdate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.acs.v1.user_face.aupdate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

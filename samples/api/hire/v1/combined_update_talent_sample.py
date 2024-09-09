@@ -5,96 +5,96 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CombinedUpdateTalentRequest = CombinedUpdateTalentRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(CombinedUpdateTalentRequestBody.builder()
-					  .talent_id("1")
-					  .init_source_id("1")
-					  .folder_id_list([])
-					  .operator_id("ou_xxx")
-					  .operator_account_type(1)
-					  .resume_attachment_id("12345")
-					  .basic_info(TalentCombinedBasicInfo.builder().build())
-					  .education_list([])
-					  .career_list([])
-					  .project_list([])
-					  .works_list([])
-					  .award_list([])
-					  .language_list([])
-					  .sns_list([])
-					  .preferred_city_code_list([])
-					  .self_evaluation(TalentSelfEvaluation.builder().build())
-					  .customized_data([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CombinedUpdateTalentRequest = CombinedUpdateTalentRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(CombinedUpdateTalentRequestBody.builder()
+                      .talent_id("1")
+                      .init_source_id("1")
+                      .folder_id_list([])
+                      .operator_id("ou_xxx")
+                      .operator_account_type(1)
+                      .resume_attachment_id("12345")
+                      .basic_info(TalentCombinedBasicInfo.builder().build())
+                      .education_list([])
+                      .career_list([])
+                      .project_list([])
+                      .works_list([])
+                      .award_list([])
+                      .language_list([])
+                      .sns_list([])
+                      .preferred_city_code_list([])
+                      .self_evaluation(TalentSelfEvaluation.builder().build())
+                      .customized_data([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CombinedUpdateTalentResponse = client.hire.v1.talent.combined_update(request)
+    # 发起请求
+    response: CombinedUpdateTalentResponse = client.hire.v1.talent.combined_update(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.talent.combined_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.talent.combined_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: CombinedUpdateTalentRequest = CombinedUpdateTalentRequest.builder() \
-		.user_id_type("user_id") \
-		.request_body(CombinedUpdateTalentRequestBody.builder()
-					  .talent_id("1")
-					  .init_source_id("1")
-					  .folder_id_list([])
-					  .operator_id("ou_xxx")
-					  .operator_account_type(1)
-					  .resume_attachment_id("12345")
-					  .basic_info(TalentCombinedBasicInfo.builder().build())
-					  .education_list([])
-					  .career_list([])
-					  .project_list([])
-					  .works_list([])
-					  .award_list([])
-					  .language_list([])
-					  .sns_list([])
-					  .preferred_city_code_list([])
-					  .self_evaluation(TalentSelfEvaluation.builder().build())
-					  .customized_data([])
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: CombinedUpdateTalentRequest = CombinedUpdateTalentRequest.builder() \
+        .user_id_type("user_id") \
+        .request_body(CombinedUpdateTalentRequestBody.builder()
+                      .talent_id("1")
+                      .init_source_id("1")
+                      .folder_id_list([])
+                      .operator_id("ou_xxx")
+                      .operator_account_type(1)
+                      .resume_attachment_id("12345")
+                      .basic_info(TalentCombinedBasicInfo.builder().build())
+                      .education_list([])
+                      .career_list([])
+                      .project_list([])
+                      .works_list([])
+                      .award_list([])
+                      .language_list([])
+                      .sns_list([])
+                      .preferred_city_code_list([])
+                      .self_evaluation(TalentSelfEvaluation.builder().build())
+                      .customized_data([])
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: CombinedUpdateTalentResponse = await client.hire.v1.talent.acombined_update(request)
+    # 发起请求
+    response: CombinedUpdateTalentResponse = await client.hire.v1.talent.acombined_update(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.talent.acombined_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.talent.acombined_update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

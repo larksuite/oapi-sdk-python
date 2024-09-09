@@ -9,3 +9,4 @@ from .public_mailbox_member import *
 from .user import *
 from .user_mailbox import *
 from .user_mailbox_alias import *
+from .user_mailbox_message import *

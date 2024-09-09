@@ -216,6 +216,7 @@ from .delete_job_level_request import *
 from .get_job_level_request import *
 from .list_job_level_request import *
 from .patch_job_level_request import *
+from .calendar_by_scope_leave_request import *
 from .leave_balances_leave_request import *
 from .leave_request_history_leave_request import *
 from .leave_types_leave_request import *
@@ -376,6 +377,8 @@ from .list_job_level_response_body import *
 from .list_job_level_response import *
 from .patch_job_level_response_body import *
 from .patch_job_level_response import *
+from .calendar_by_scope_leave_response_body import *
+from .calendar_by_scope_leave_response import *
 from .leave_balances_leave_response_body import *
 from .leave_balances_leave_response import *
 from .leave_request_history_leave_response_body import *
@@ -466,7 +469,10 @@ from .p2_corehr_job_deleted_v1 import *
 from .p2_corehr_job_updated_v1 import *
 from .p2_corehr_job_change_updated_v1 import *
 from .p2_corehr_job_data_changed_v1 import *
+from .p2_corehr_job_data_created_v1 import *
+from .p2_corehr_job_data_deleted_v1 import *
 from .p2_corehr_job_data_employed_v1 import *
+from .p2_corehr_job_data_updated_v1 import *
 from .p2_corehr_offboarding_updated_v1 import *
 from .p2_corehr_org_role_authorization_updated_v1 import *
 from .p2_corehr_person_created_v1 import *

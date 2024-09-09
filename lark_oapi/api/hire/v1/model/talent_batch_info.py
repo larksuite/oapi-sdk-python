@@ -12,6 +12,7 @@ class TalentBatchInfo(object):
         "email": str,
         "identification_type": int,
         "identification_number": str,
+        "is_onboarded": bool,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class TalentBatchInfo(object):
         self.email: Optional[str] = None
         self.identification_type: Optional[int] = None
         self.identification_number: Optional[str] = None
+        self.is_onboarded: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +56,10 @@ class TalentBatchInfoBuilder(object):
 
     def identification_number(self, identification_number: str) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.identification_number = identification_number
+        return self
+
+    def is_onboarded(self, is_onboarded: bool) -> "TalentBatchInfoBuilder":
+        self._talent_batch_info.is_onboarded = is_onboarded
         return self
 
     def build(self) -> "TalentBatchInfo":

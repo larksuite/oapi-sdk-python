@@ -5,74 +5,74 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: SearchJobPublishRecordRequest = SearchJobPublishRecordRequest.builder() \
-		.page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
-		.page_size(10) \
-		.user_id_type("open_id") \
-		.department_id_type("open_department_id") \
-		.job_level_id_type("people_admin_job_level_id") \
-		.job_family_id_type("people_admin_job_category_id") \
-		.request_body(SearchJobPublishRecordRequestBody.builder()
-					  .job_channel_id("7047318856652261676")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: SearchJobPublishRecordRequest = SearchJobPublishRecordRequest.builder() \
+        .page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
+        .page_size(10) \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
+        .request_body(SearchJobPublishRecordRequestBody.builder()
+                      .job_channel_id("7047318856652261676")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: SearchJobPublishRecordResponse = client.hire.v1.job_publish_record.search(request)
+    # 发起请求
+    response: SearchJobPublishRecordResponse = client.hire.v1.job_publish_record.search(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.job_publish_record.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.job_publish_record.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: SearchJobPublishRecordRequest = SearchJobPublishRecordRequest.builder() \
-		.page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
-		.page_size(10) \
-		.user_id_type("open_id") \
-		.department_id_type("open_department_id") \
-		.job_level_id_type("people_admin_job_level_id") \
-		.job_family_id_type("people_admin_job_category_id") \
-		.request_body(SearchJobPublishRecordRequestBody.builder()
-					  .job_channel_id("7047318856652261676")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: SearchJobPublishRecordRequest = SearchJobPublishRecordRequest.builder() \
+        .page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
+        .page_size(10) \
+        .user_id_type("open_id") \
+        .department_id_type("open_department_id") \
+        .job_level_id_type("people_admin_job_level_id") \
+        .job_family_id_type("people_admin_job_category_id") \
+        .request_body(SearchJobPublishRecordRequestBody.builder()
+                      .job_channel_id("7047318856652261676")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: SearchJobPublishRecordResponse = await client.hire.v1.job_publish_record.asearch(request)
+    # 发起请求
+    response: SearchJobPublishRecordResponse = await client.hire.v1.job_publish_record.asearch(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.hire.v1.job_publish_record.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.hire.v1.job_publish_record.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

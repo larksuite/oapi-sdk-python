@@ -294,8 +294,10 @@ from .patch_cost_center_version_request_body import *
 from .patch_cost_center_version_request import *
 from .batch_get_department_request_body import *
 from .batch_get_department_request import *
+from .delete_department_request import *
 from .parents_department_request_body import *
 from .parents_department_request import *
+from .patch_department_request import *
 from .query_multi_timeline_department_request_body import *
 from .query_multi_timeline_department_request import *
 from .query_timeline_department_request_body import *
@@ -394,8 +396,10 @@ from .patch_cost_center_version_response_body import *
 from .patch_cost_center_version_response import *
 from .batch_get_department_response_body import *
 from .batch_get_department_response import *
+from .delete_department_response import *
 from .parents_department_response_body import *
 from .parents_department_response import *
+from .patch_department_response import *
 from .query_multi_timeline_department_response_body import *
 from .query_multi_timeline_department_response import *
 from .query_timeline_department_response_body import *
@@ -466,6 +470,7 @@ from .update_process_approver_response import *
 from .get_process_form_variable_data_response_body import *
 from .get_process_form_variable_data_response import *
 from .p2_corehr_employee_domain_event_v2 import *
+from .p2_corehr_job_change_status_updated_v2 import *
 from .p2_corehr_job_change_updated_v2 import *
 from .p2_corehr_offboarding_checklist_updated_v2 import *
 from .p2_corehr_offboarding_status_updated_v2 import *

@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .transfer_info import TransferInfo
+from .custom_field_data import CustomFieldData
 
 
 class JobChange(object):
@@ -17,6 +18,8 @@ class JobChange(object):
         "created_time": str,
         "updated_time": str,
         "transfer_info": TransferInfo,
+        "is_adjust_salary": bool,
+        "custom_fields": List[CustomFieldData],
     }
 
     def __init__(self, d=None):
@@ -30,6 +33,8 @@ class JobChange(object):
         self.created_time: Optional[str] = None
         self.updated_time: Optional[str] = None
         self.transfer_info: Optional[TransferInfo] = None
+        self.is_adjust_salary: Optional[bool] = None
+        self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -79,6 +84,14 @@ class JobChangeBuilder(object):
 
     def transfer_info(self, transfer_info: TransferInfo) -> "JobChangeBuilder":
         self._job_change.transfer_info = transfer_info
+        return self
+
+    def is_adjust_salary(self, is_adjust_salary: bool) -> "JobChangeBuilder":
+        self._job_change.is_adjust_salary = is_adjust_salary
+        return self
+
+    def custom_fields(self, custom_fields: List[CustomFieldData]) -> "JobChangeBuilder":
+        self._job_change.custom_fields = custom_fields
         return self
 
     def build(self) -> "JobChange":

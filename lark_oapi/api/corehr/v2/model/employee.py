@@ -27,11 +27,13 @@ from .enum import Enum
 class Employee(object):
     _types = {
         "employment_id": str,
+        "employment_id_v2": str,
         "ats_application_id": str,
         "prehire_id": str,
         "employee_number": str,
         "employee_type_id": str,
         "department_id": str,
+        "department_id_v2": str,
         "job_level_id": str,
         "job_level": EmployeeJobLevel,
         "job_grade_id": str,
@@ -53,6 +55,8 @@ class Employee(object):
         "probation_end_date": str,
         "direct_manager_id": str,
         "dotted_line_manager_id": str,
+        "direct_manager_id_v2": str,
+        "dotted_line_manager_id_v2": str,
         "employment_type": Enum,
         "employment_status": Enum,
         "expiration_date": str,
@@ -90,11 +94,13 @@ class Employee(object):
 
     def __init__(self, d=None):
         self.employment_id: Optional[str] = None
+        self.employment_id_v2: Optional[str] = None
         self.ats_application_id: Optional[str] = None
         self.prehire_id: Optional[str] = None
         self.employee_number: Optional[str] = None
         self.employee_type_id: Optional[str] = None
         self.department_id: Optional[str] = None
+        self.department_id_v2: Optional[str] = None
         self.job_level_id: Optional[str] = None
         self.job_level: Optional[EmployeeJobLevel] = None
         self.job_grade_id: Optional[str] = None
@@ -116,6 +122,8 @@ class Employee(object):
         self.probation_end_date: Optional[str] = None
         self.direct_manager_id: Optional[str] = None
         self.dotted_line_manager_id: Optional[str] = None
+        self.direct_manager_id_v2: Optional[str] = None
+        self.dotted_line_manager_id_v2: Optional[str] = None
         self.employment_type: Optional[Enum] = None
         self.employment_status: Optional[Enum] = None
         self.expiration_date: Optional[str] = None
@@ -164,6 +172,10 @@ class EmployeeBuilder(object):
         self._employee.employment_id = employment_id
         return self
 
+    def employment_id_v2(self, employment_id_v2: str) -> "EmployeeBuilder":
+        self._employee.employment_id_v2 = employment_id_v2
+        return self
+
     def ats_application_id(self, ats_application_id: str) -> "EmployeeBuilder":
         self._employee.ats_application_id = ats_application_id
         return self
@@ -182,6 +194,10 @@ class EmployeeBuilder(object):
 
     def department_id(self, department_id: str) -> "EmployeeBuilder":
         self._employee.department_id = department_id
+        return self
+
+    def department_id_v2(self, department_id_v2: str) -> "EmployeeBuilder":
+        self._employee.department_id_v2 = department_id_v2
         return self
 
     def job_level_id(self, job_level_id: str) -> "EmployeeBuilder":
@@ -266,6 +282,14 @@ class EmployeeBuilder(object):
 
     def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "EmployeeBuilder":
         self._employee.dotted_line_manager_id = dotted_line_manager_id
+        return self
+
+    def direct_manager_id_v2(self, direct_manager_id_v2: str) -> "EmployeeBuilder":
+        self._employee.direct_manager_id_v2 = direct_manager_id_v2
+        return self
+
+    def dotted_line_manager_id_v2(self, dotted_line_manager_id_v2: str) -> "EmployeeBuilder":
+        self._employee.dotted_line_manager_id_v2 = dotted_line_manager_id_v2
         return self
 
     def employment_type(self, employment_type: Enum) -> "EmployeeBuilder":

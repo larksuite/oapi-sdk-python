@@ -5,62 +5,62 @@ from lark_oapi.api.wiki.v2 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListSpaceMemberRequest = ListSpaceMemberRequest.builder() \
-		.space_id("7375263209671884820") \
-		.page_size(1) \
-		.page_token("ou_12345") \
-		.build()
+    # 构造请求对象
+    request: ListSpaceMemberRequest = ListSpaceMemberRequest.builder() \
+        .space_id("7375263209671884820") \
+        .page_size(1) \
+        .page_token("ou_12345") \
+        .build()
 
-	# 发起请求
-	response: ListSpaceMemberResponse = client.wiki.v2.space_member.list(request)
+    # 发起请求
+    response: ListSpaceMemberResponse = client.wiki.v2.space_member.list(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.wiki.v2.space_member.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.wiki.v2.space_member.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListSpaceMemberRequest = ListSpaceMemberRequest.builder() \
-		.space_id("7375263209671884820") \
-		.page_size(1) \
-		.page_token("ou_12345") \
-		.build()
+    # 构造请求对象
+    request: ListSpaceMemberRequest = ListSpaceMemberRequest.builder() \
+        .space_id("7375263209671884820") \
+        .page_size(1) \
+        .page_token("ou_12345") \
+        .build()
 
-	# 发起请求
-	response: ListSpaceMemberResponse = await client.wiki.v2.space_member.alist(request)
+    # 发起请求
+    response: ListSpaceMemberResponse = await client.wiki.v2.space_member.alist(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.wiki.v2.space_member.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.wiki.v2.space_member.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

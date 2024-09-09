@@ -11,6 +11,7 @@ class UserDailyShift(object):
         "month": int,
         "user_id": str,
         "day_no": int,
+        "is_clear_schedule": bool,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class UserDailyShift(object):
         self.month: Optional[int] = None
         self.user_id: Optional[str] = None
         self.day_no: Optional[int] = None
+        self.is_clear_schedule: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +50,10 @@ class UserDailyShiftBuilder(object):
 
     def day_no(self, day_no: int) -> "UserDailyShiftBuilder":
         self._user_daily_shift.day_no = day_no
+        return self
+
+    def is_clear_schedule(self, is_clear_schedule: bool) -> "UserDailyShiftBuilder":
+        self._user_daily_shift.is_clear_schedule = is_clear_schedule
         return self
 
     def build(self) -> "UserDailyShift":

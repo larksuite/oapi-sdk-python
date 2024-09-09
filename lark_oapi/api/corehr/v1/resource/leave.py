@@ -9,6 +9,8 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.calendar_by_scope_leave_request import CalendarByScopeLeaveRequest
+from ..model.calendar_by_scope_leave_response import CalendarByScopeLeaveResponse
 from ..model.leave_balances_leave_request import LeaveBalancesLeaveRequest
 from ..model.leave_balances_leave_response import LeaveBalancesLeaveResponse
 from ..model.leave_request_history_leave_request import LeaveRequestHistoryLeaveRequest
@@ -20,6 +22,44 @@ from ..model.leave_types_leave_response import LeaveTypesLeaveResponse
 class Leave(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def calendar_by_scope(self, request: CalendarByScopeLeaveRequest,
+                          option: Optional[RequestOption] = None) -> CalendarByScopeLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CalendarByScopeLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), CalendarByScopeLeaveResponse)
+        response.raw = resp
+
+        return response
+
+    async def acalendar_by_scope(self, request: CalendarByScopeLeaveRequest,
+                                 option: Optional[RequestOption] = None) -> CalendarByScopeLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CalendarByScopeLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), CalendarByScopeLeaveResponse)
+        response.raw = resp
+
+        return response
 
     def leave_balances(self, request: LeaveBalancesLeaveRequest,
                        option: Optional[RequestOption] = None) -> LeaveBalancesLeaveResponse:

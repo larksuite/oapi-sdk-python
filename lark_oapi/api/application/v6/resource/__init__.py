@@ -8,3 +8,4 @@ from .application_feedback import *
 from .application_management import *
 from .application_visibility import *
 from .bot import *
+from .scope import *

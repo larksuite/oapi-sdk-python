@@ -8,6 +8,7 @@ from lark_oapi.core.enum import HttpMethod, AccessTokenType
 class DeleteJobDataRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.version_id: Optional[str] = None
         self.job_data_id: Optional[str] = None
 
     @staticmethod
@@ -23,6 +24,11 @@ class DeleteJobDataRequestBuilder(object):
         delete_job_data_request.uri = "/open-apis/corehr/v1/job_datas/:job_data_id"
         delete_job_data_request.token_types = {AccessTokenType.TENANT}
         self._delete_job_data_request: DeleteJobDataRequest = delete_job_data_request
+
+    def version_id(self, version_id: str) -> "DeleteJobDataRequestBuilder":
+        self._delete_job_data_request.version_id = version_id
+        self._delete_job_data_request.add_query("version_id", version_id)
+        return self
 
     def job_data_id(self, job_data_id: str) -> "DeleteJobDataRequestBuilder":
         self._delete_job_data_request.job_data_id = job_data_id

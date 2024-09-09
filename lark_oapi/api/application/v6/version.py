@@ -13,3 +13,4 @@ class V6(object):
         self.application_management: ApplicationManagement = ApplicationManagement(config)
         self.application_visibility: ApplicationVisibility = ApplicationVisibility(config)
         self.bot: Bot = Bot(config)
+        self.scope: Scope = Scope(config)

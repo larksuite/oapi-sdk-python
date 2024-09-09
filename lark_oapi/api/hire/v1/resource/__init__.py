@@ -31,6 +31,7 @@ from .interview_record_attachment import *
 from .interview_registration_schema import *
 from .interview_round_type import *
 from .interview_task import *
+from .interviewer import *
 from .job import *
 from .job_manager import *
 from .job_function import *
@@ -41,6 +42,7 @@ from .job_requirement_schema import *
 from .job_schema import *
 from .job_type import *
 from .location import *
+from .minutes import *
 from .note import *
 from .offer import *
 from .offer_application_form import *
@@ -64,6 +66,7 @@ from .termination_reason import *
 from .test import *
 from .todo import *
 from .tripartite_agreement import *
+from .user_role import *
 from .website import *
 from .website_channel import *
 from .website_delivery import *

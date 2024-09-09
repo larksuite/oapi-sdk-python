@@ -40,6 +40,7 @@ class PersonInfo(object):
         "name_list": List[PersonName],
         "gender": Enum,
         "date_of_birth": str,
+        "nationality_id_v2": str,
         "race": Enum,
         "marital_status": Enum,
         "phone_list": List[Phone],
@@ -98,6 +99,7 @@ class PersonInfo(object):
         self.name_list: Optional[List[PersonName]] = None
         self.gender: Optional[Enum] = None
         self.date_of_birth: Optional[str] = None
+        self.nationality_id_v2: Optional[str] = None
         self.race: Optional[Enum] = None
         self.marital_status: Optional[Enum] = None
         self.phone_list: Optional[List[Phone]] = None
@@ -189,6 +191,10 @@ class PersonInfoBuilder(object):
 
     def date_of_birth(self, date_of_birth: str) -> "PersonInfoBuilder":
         self._person_info.date_of_birth = date_of_birth
+        return self
+
+    def nationality_id_v2(self, nationality_id_v2: str) -> "PersonInfoBuilder":
+        self._person_info.nationality_id_v2 = nationality_id_v2
         return self
 
     def race(self, race: Enum) -> "PersonInfoBuilder":

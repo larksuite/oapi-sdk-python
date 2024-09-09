@@ -8,11 +8,13 @@ from .i18n import I18n
 class BasicDepartment(object):
     _types = {
         "id": str,
+        "id_v2": str,
         "department_name": List[I18n],
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
+        self.id_v2: Optional[str] = None
         self.department_name: Optional[List[I18n]] = None
         init(self, d, self._types)
 
@@ -27,6 +29,10 @@ class BasicDepartmentBuilder(object):
 
     def id(self, id: str) -> "BasicDepartmentBuilder":
         self._basic_department.id = id
+        return self
+
+    def id_v2(self, id_v2: str) -> "BasicDepartmentBuilder":
+        self._basic_department.id_v2 = id_v2
         return self
 
     def department_name(self, department_name: List[I18n]) -> "BasicDepartmentBuilder":

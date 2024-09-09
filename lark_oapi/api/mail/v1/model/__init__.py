@@ -75,6 +75,7 @@ from .delete_user_mailbox_request import *
 from .create_user_mailbox_alias_request import *
 from .delete_user_mailbox_alias_request import *
 from .list_user_mailbox_alias_request import *
+from .send_user_mailbox_message_request import *
 from .create_mailgroup_response_body import *
 from .create_mailgroup_response import *
 from .delete_mailgroup_response import *
@@ -150,3 +151,4 @@ from .create_user_mailbox_alias_response import *
 from .delete_user_mailbox_alias_response import *
 from .list_user_mailbox_alias_response_body import *
 from .list_user_mailbox_alias_response import *
+from .send_user_mailbox_message_response import *

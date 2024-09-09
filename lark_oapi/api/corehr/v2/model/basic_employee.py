@@ -8,6 +8,7 @@ from .basic_person_info import BasicPersonInfo
 class BasicEmployee(object):
     _types = {
         "employment_id": str,
+        "employment_id_v2": str,
         "employee_number": str,
         "email_address": str,
         "person_info": BasicPersonInfo,
@@ -15,6 +16,7 @@ class BasicEmployee(object):
 
     def __init__(self, d=None):
         self.employment_id: Optional[str] = None
+        self.employment_id_v2: Optional[str] = None
         self.employee_number: Optional[str] = None
         self.email_address: Optional[str] = None
         self.person_info: Optional[BasicPersonInfo] = None
@@ -31,6 +33,10 @@ class BasicEmployeeBuilder(object):
 
     def employment_id(self, employment_id: str) -> "BasicEmployeeBuilder":
         self._basic_employee.employment_id = employment_id
+        return self
+
+    def employment_id_v2(self, employment_id_v2: str) -> "BasicEmployeeBuilder":
+        self._basic_employee.employment_id_v2 = employment_id_v2
         return self
 
     def employee_number(self, employee_number: str) -> "BasicEmployeeBuilder":

@@ -14,3 +14,4 @@ class V1(object):
         self.user: User = User(config)
         self.user_mailbox: UserMailbox = UserMailbox(config)
         self.user_mailbox_alias: UserMailboxAlias = UserMailboxAlias(config)
+        self.user_mailbox_message: UserMailboxMessage = UserMailboxMessage(config)

@@ -3,6 +3,7 @@ from typing import *
 from lark_oapi.core.const import X_TT_LOGID
 from lark_oapi.core.construct import init
 from .raw_response import RawResponse
+from .error import Error
 
 
 class BaseResponse(object):
@@ -12,6 +13,7 @@ class BaseResponse(object):
         self.raw: Optional[RawResponse] = None
         self.code: Optional[int] = None
         self.msg: Optional[str] = None
+        self.error: Optional[Error] = None
         init(self, d, self._types)
 
     def success(self):
@@ -21,3 +23,6 @@ class BaseResponse(object):
         if self.raw is None or self.raw.headers is None:
             return None
         return self.raw.headers.get(X_TT_LOGID)
+
+    def get_troubleshooter(self) -> Optional[str]:
+        return self.error.troubleshooter if self.error is not None else None
