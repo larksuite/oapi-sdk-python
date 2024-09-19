@@ -47,7 +47,7 @@ def verify(config: Config, request: BaseRequest, option: RequestOption) -> None:
         request.token_types = {AccessTokenType.APP}
         return
 
-    if AccessTokenType.APP in request.token_types:
+    if AccessTokenType.USER in request.token_types:
         if Strings.is_empty(option.user_access_token):
             raise NoAuthorizationException("user_access_token not found")
         raise NoAuthorizationException("need enable set token")
