@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
 from .social_plan_scope import SocialPlanScope
+from .social_plan_item_detail import SocialPlanItemDetail
 from .i18n import I18n
 
 
@@ -16,7 +17,7 @@ class SocialPlan(object):
         "active": bool,
         "insurance_type": str,
         "scope": SocialPlanScope,
-        "item_detail": bool,
+        "item_detail": List[SocialPlanItemDetail],
         "remark": I18n,
     }
 
@@ -28,7 +29,7 @@ class SocialPlan(object):
         self.active: Optional[bool] = None
         self.insurance_type: Optional[str] = None
         self.scope: Optional[SocialPlanScope] = None
-        self.item_detail: Optional[bool] = None
+        self.item_detail: Optional[List[SocialPlanItemDetail]] = None
         self.remark: Optional[I18n] = None
         init(self, d, self._types)
 
@@ -69,7 +70,7 @@ class SocialPlanBuilder(object):
         self._social_plan.scope = scope
         return self
 
-    def item_detail(self, item_detail: bool) -> "SocialPlanBuilder":
+    def item_detail(self, item_detail: List[SocialPlanItemDetail]) -> "SocialPlanBuilder":
         self._social_plan.item_detail = item_detail
         return self
 

@@ -9,6 +9,7 @@ from .create_referral_account_request_body import CreateReferralAccountRequestBo
 class CreateReferralAccountRequest(BaseRequest):
     def __init__(self) -> None:
         super().__init__()
+        self.user_id_type: Optional[str] = None
         self.request_body: Optional[CreateReferralAccountRequestBody] = None
 
     @staticmethod
@@ -24,6 +25,11 @@ class CreateReferralAccountRequestBuilder(object):
         create_referral_account_request.uri = "/open-apis/hire/v1/referral_account"
         create_referral_account_request.token_types = {AccessTokenType.TENANT}
         self._create_referral_account_request: CreateReferralAccountRequest = create_referral_account_request
+
+    def user_id_type(self, user_id_type: str) -> "CreateReferralAccountRequestBuilder":
+        self._create_referral_account_request.user_id_type = user_id_type
+        self._create_referral_account_request.add_query("user_id_type", user_id_type)
+        return self
 
     def request_body(self, request_body: CreateReferralAccountRequestBody) -> "CreateReferralAccountRequestBuilder":
         self._create_referral_account_request.request_body = request_body

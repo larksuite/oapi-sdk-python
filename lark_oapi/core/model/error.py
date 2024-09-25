@@ -1,8 +1,6 @@
 from typing import *
 
-from lark_oapi.core.const import X_TT_LOGID
 from lark_oapi.core.construct import init
-from .raw_response import RawResponse
 
 
 class ErrorDetail(object):

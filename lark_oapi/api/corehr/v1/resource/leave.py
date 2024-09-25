@@ -17,6 +17,10 @@ from ..model.leave_request_history_leave_request import LeaveRequestHistoryLeave
 from ..model.leave_request_history_leave_response import LeaveRequestHistoryLeaveResponse
 from ..model.leave_types_leave_request import LeaveTypesLeaveRequest
 from ..model.leave_types_leave_response import LeaveTypesLeaveResponse
+from ..model.work_calendar_leave_request import WorkCalendarLeaveRequest
+from ..model.work_calendar_leave_response import WorkCalendarLeaveResponse
+from ..model.work_calendar_date_leave_request import WorkCalendarDateLeaveRequest
+from ..model.work_calendar_date_leave_response import WorkCalendarDateLeaveResponse
 
 
 class Leave(object):
@@ -173,6 +177,84 @@ class Leave(object):
 
         # 反序列化
         response: LeaveTypesLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), LeaveTypesLeaveResponse)
+        response.raw = resp
+
+        return response
+
+    def work_calendar(self, request: WorkCalendarLeaveRequest,
+                      option: Optional[RequestOption] = None) -> WorkCalendarLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: WorkCalendarLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), WorkCalendarLeaveResponse)
+        response.raw = resp
+
+        return response
+
+    async def awork_calendar(self, request: WorkCalendarLeaveRequest,
+                             option: Optional[RequestOption] = None) -> WorkCalendarLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: WorkCalendarLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8), WorkCalendarLeaveResponse)
+        response.raw = resp
+
+        return response
+
+    def work_calendar_date(self, request: WorkCalendarDateLeaveRequest,
+                           option: Optional[RequestOption] = None) -> WorkCalendarDateLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: WorkCalendarDateLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 WorkCalendarDateLeaveResponse)
+        response.raw = resp
+
+        return response
+
+    async def awork_calendar_date(self, request: WorkCalendarDateLeaveRequest,
+                                  option: Optional[RequestOption] = None) -> WorkCalendarDateLeaveResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: WorkCalendarDateLeaveResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 WorkCalendarDateLeaveResponse)
         response.raw = resp
 
         return response

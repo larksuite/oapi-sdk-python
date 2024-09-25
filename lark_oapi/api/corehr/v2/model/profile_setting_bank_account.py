@@ -15,6 +15,10 @@ class ProfileSettingBankAccount(object):
         "bank_account_type": str,
         "bank_id": str,
         "branch_id": str,
+        "payment_type": str,
+        "payment_rate": str,
+        "payment_amount": str,
+        "priority": str,
     }
 
     def __init__(self, d=None):
@@ -27,6 +31,10 @@ class ProfileSettingBankAccount(object):
         self.bank_account_type: Optional[str] = None
         self.bank_id: Optional[str] = None
         self.branch_id: Optional[str] = None
+        self.payment_type: Optional[str] = None
+        self.payment_rate: Optional[str] = None
+        self.payment_amount: Optional[str] = None
+        self.priority: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -72,6 +80,22 @@ class ProfileSettingBankAccountBuilder(object):
 
     def branch_id(self, branch_id: str) -> "ProfileSettingBankAccountBuilder":
         self._profile_setting_bank_account.branch_id = branch_id
+        return self
+
+    def payment_type(self, payment_type: str) -> "ProfileSettingBankAccountBuilder":
+        self._profile_setting_bank_account.payment_type = payment_type
+        return self
+
+    def payment_rate(self, payment_rate: str) -> "ProfileSettingBankAccountBuilder":
+        self._profile_setting_bank_account.payment_rate = payment_rate
+        return self
+
+    def payment_amount(self, payment_amount: str) -> "ProfileSettingBankAccountBuilder":
+        self._profile_setting_bank_account.payment_amount = payment_amount
+        return self
+
+    def priority(self, priority: str) -> "ProfileSettingBankAccountBuilder":
+        self._profile_setting_bank_account.priority = priority
         return self
 
     def build(self) -> "ProfileSettingBankAccount":

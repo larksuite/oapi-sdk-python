@@ -9,12 +9,14 @@ class ChatTabContent(object):
         "url": str,
         "doc": str,
         "meeting_minute": str,
+        "task": str,
     }
 
     def __init__(self, d=None):
         self.url: Optional[str] = None
         self.doc: Optional[str] = None
         self.meeting_minute: Optional[str] = None
+        self.task: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +38,10 @@ class ChatTabContentBuilder(object):
 
     def meeting_minute(self, meeting_minute: str) -> "ChatTabContentBuilder":
         self._chat_tab_content.meeting_minute = meeting_minute
+        return self
+
+    def task(self, task: str) -> "ChatTabContentBuilder":
+        self._chat_tab_content.task = task
         return self
 
     def build(self) -> "ChatTabContent":

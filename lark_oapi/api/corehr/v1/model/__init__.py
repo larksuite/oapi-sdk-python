@@ -220,6 +220,8 @@ from .calendar_by_scope_leave_request import *
 from .leave_balances_leave_request import *
 from .leave_request_history_leave_request import *
 from .leave_types_leave_request import *
+from .work_calendar_leave_request import *
+from .work_calendar_date_leave_request import *
 from .create_leave_granting_record_request_body import *
 from .create_leave_granting_record_request import *
 from .delete_leave_granting_record_request import *
@@ -385,6 +387,10 @@ from .leave_request_history_leave_response_body import *
 from .leave_request_history_leave_response import *
 from .leave_types_leave_response_body import *
 from .leave_types_leave_response import *
+from .work_calendar_leave_response_body import *
+from .work_calendar_leave_response import *
+from .work_calendar_date_leave_response_body import *
+from .work_calendar_date_leave_response import *
 from .create_leave_granting_record_response_body import *
 from .create_leave_granting_record_response import *
 from .delete_leave_granting_record_response import *

@@ -14,6 +14,7 @@ def main():
 
     # 构造请求对象
     request: CreateReferralAccountRequest = CreateReferralAccountRequest.builder() \
+        .user_id_type("user_id") \
         .request_body(CreateReferralAccountRequestBody.builder()
                       .mobile(Mobile.builder().build())
                       .email("hire@open.com")
@@ -44,6 +45,7 @@ async def amain():
 
     # 构造请求对象
     request: CreateReferralAccountRequest = CreateReferralAccountRequest.builder() \
+        .user_id_type("user_id") \
         .request_body(CreateReferralAccountRequestBody.builder()
                       .mobile(Mobile.builder().build())
                       .email("hire@open.com")

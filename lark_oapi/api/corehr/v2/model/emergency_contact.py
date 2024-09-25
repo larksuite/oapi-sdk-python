@@ -13,6 +13,7 @@ from .email import Email
 
 class EmergencyContact(object):
     _types = {
+        "id": str,
         "name": PersonName,
         "relationship": Enum,
         "phone_ist": List[Phone],
@@ -24,6 +25,7 @@ class EmergencyContact(object):
     }
 
     def __init__(self, d=None):
+        self.id: Optional[str] = None
         self.name: Optional[PersonName] = None
         self.relationship: Optional[Enum] = None
         self.phone_ist: Optional[List[Phone]] = None
@@ -42,6 +44,10 @@ class EmergencyContact(object):
 class EmergencyContactBuilder(object):
     def __init__(self) -> None:
         self._emergency_contact = EmergencyContact()
+
+    def id(self, id: str) -> "EmergencyContactBuilder":
+        self._emergency_contact.id = id
+        return self
 
     def name(self, name: PersonName) -> "EmergencyContactBuilder":
         self._emergency_contact.name = name

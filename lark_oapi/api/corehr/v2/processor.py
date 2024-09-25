@@ -6,9 +6,16 @@ from lark_oapi.event.processor import IEventProcessor
 from .model.p2_corehr_employee_domain_event_v2 import P2CorehrEmployeeDomainEventV2
 from .model.p2_corehr_job_change_status_updated_v2 import P2CorehrJobChangeStatusUpdatedV2
 from .model.p2_corehr_job_change_updated_v2 import P2CorehrJobChangeUpdatedV2
+from .model.p2_corehr_job_family_created_v2 import P2CorehrJobFamilyCreatedV2
+from .model.p2_corehr_job_family_deleted_v2 import P2CorehrJobFamilyDeletedV2
+from .model.p2_corehr_job_family_updated_v2 import P2CorehrJobFamilyUpdatedV2
+from .model.p2_corehr_job_level_created_v2 import P2CorehrJobLevelCreatedV2
+from .model.p2_corehr_job_level_deleted_v2 import P2CorehrJobLevelDeletedV2
+from .model.p2_corehr_job_level_updated_v2 import P2CorehrJobLevelUpdatedV2
 from .model.p2_corehr_offboarding_checklist_updated_v2 import P2CorehrOffboardingChecklistUpdatedV2
 from .model.p2_corehr_offboarding_status_updated_v2 import P2CorehrOffboardingStatusUpdatedV2
 from .model.p2_corehr_offboarding_updated_v2 import P2CorehrOffboardingUpdatedV2
+from .model.p2_corehr_pre_hire_onboarding_task_changed_v2 import P2CorehrPreHireOnboardingTaskChangedV2
 from .model.p2_corehr_probation_updated_v2 import P2CorehrProbationUpdatedV2
 from .model.p2_corehr_process_updated_v2 import P2CorehrProcessUpdatedV2
 from .model.p2_corehr_process_approver_updated_v2 import P2CorehrProcessApproverUpdatedV2
@@ -49,6 +56,72 @@ class P2CorehrJobChangeUpdatedV2Processor(IEventProcessor[P2CorehrJobChangeUpdat
         self.f(data)
 
 
+class P2CorehrJobFamilyCreatedV2Processor(IEventProcessor[P2CorehrJobFamilyCreatedV2]):
+    def __init__(self, f: Callable[[P2CorehrJobFamilyCreatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobFamilyCreatedV2]:
+        return P2CorehrJobFamilyCreatedV2
+
+    def do(self, data: P2CorehrJobFamilyCreatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrJobFamilyDeletedV2Processor(IEventProcessor[P2CorehrJobFamilyDeletedV2]):
+    def __init__(self, f: Callable[[P2CorehrJobFamilyDeletedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobFamilyDeletedV2]:
+        return P2CorehrJobFamilyDeletedV2
+
+    def do(self, data: P2CorehrJobFamilyDeletedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrJobFamilyUpdatedV2Processor(IEventProcessor[P2CorehrJobFamilyUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrJobFamilyUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobFamilyUpdatedV2]:
+        return P2CorehrJobFamilyUpdatedV2
+
+    def do(self, data: P2CorehrJobFamilyUpdatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrJobLevelCreatedV2Processor(IEventProcessor[P2CorehrJobLevelCreatedV2]):
+    def __init__(self, f: Callable[[P2CorehrJobLevelCreatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobLevelCreatedV2]:
+        return P2CorehrJobLevelCreatedV2
+
+    def do(self, data: P2CorehrJobLevelCreatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrJobLevelDeletedV2Processor(IEventProcessor[P2CorehrJobLevelDeletedV2]):
+    def __init__(self, f: Callable[[P2CorehrJobLevelDeletedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobLevelDeletedV2]:
+        return P2CorehrJobLevelDeletedV2
+
+    def do(self, data: P2CorehrJobLevelDeletedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrJobLevelUpdatedV2Processor(IEventProcessor[P2CorehrJobLevelUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrJobLevelUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrJobLevelUpdatedV2]:
+        return P2CorehrJobLevelUpdatedV2
+
+    def do(self, data: P2CorehrJobLevelUpdatedV2) -> None:
+        self.f(data)
+
+
 class P2CorehrOffboardingChecklistUpdatedV2Processor(IEventProcessor[P2CorehrOffboardingChecklistUpdatedV2]):
     def __init__(self, f: Callable[[P2CorehrOffboardingChecklistUpdatedV2], None]):
         self.f = f
@@ -79,6 +152,17 @@ class P2CorehrOffboardingUpdatedV2Processor(IEventProcessor[P2CorehrOffboardingU
         return P2CorehrOffboardingUpdatedV2
 
     def do(self, data: P2CorehrOffboardingUpdatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrPreHireOnboardingTaskChangedV2Processor(IEventProcessor[P2CorehrPreHireOnboardingTaskChangedV2]):
+    def __init__(self, f: Callable[[P2CorehrPreHireOnboardingTaskChangedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrPreHireOnboardingTaskChangedV2]:
+        return P2CorehrPreHireOnboardingTaskChangedV2
+
+    def do(self, data: P2CorehrPreHireOnboardingTaskChangedV2) -> None:
         self.f(data)
 
 

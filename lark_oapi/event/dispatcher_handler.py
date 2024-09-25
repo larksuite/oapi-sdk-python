@@ -581,6 +581,48 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.job_change.updated_v2"] = P2CorehrJobChangeUpdatedV2Processor(f)
         return self
 
+    def register_p2_corehr_job_family_created_v2(self, f: Callable[
+        [P2CorehrJobFamilyCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_family.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_family.created_v2")
+        self._processorMap["p2.corehr.job_family.created_v2"] = P2CorehrJobFamilyCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_family_deleted_v2(self, f: Callable[
+        [P2CorehrJobFamilyDeletedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_family.deleted_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_family.deleted_v2")
+        self._processorMap["p2.corehr.job_family.deleted_v2"] = P2CorehrJobFamilyDeletedV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_family_updated_v2(self, f: Callable[
+        [P2CorehrJobFamilyUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_family.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_family.updated_v2")
+        self._processorMap["p2.corehr.job_family.updated_v2"] = P2CorehrJobFamilyUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_level_created_v2(self, f: Callable[
+        [P2CorehrJobLevelCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_level.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_level.created_v2")
+        self._processorMap["p2.corehr.job_level.created_v2"] = P2CorehrJobLevelCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_level_deleted_v2(self, f: Callable[
+        [P2CorehrJobLevelDeletedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_level.deleted_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_level.deleted_v2")
+        self._processorMap["p2.corehr.job_level.deleted_v2"] = P2CorehrJobLevelDeletedV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_level_updated_v2(self, f: Callable[
+        [P2CorehrJobLevelUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_level.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_level.updated_v2")
+        self._processorMap["p2.corehr.job_level.updated_v2"] = P2CorehrJobLevelUpdatedV2Processor(f)
+        return self
+
     def register_p2_corehr_offboarding_checklist_updated_v2(self, f: Callable[
         [P2CorehrOffboardingChecklistUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.offboarding.checklist_updated_v2" in self._processorMap:
@@ -601,6 +643,14 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.corehr.offboarding.updated_v2" in self._processorMap:
             raise EventException("processor already registered, type: p2.corehr.offboarding.updated_v2")
         self._processorMap["p2.corehr.offboarding.updated_v2"] = P2CorehrOffboardingUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_pre_hire_onboarding_task_changed_v2(self, f: Callable[
+        [P2CorehrPreHireOnboardingTaskChangedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.pre_hire.onboarding_task_changed_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.pre_hire.onboarding_task_changed_v2")
+        self._processorMap[
+            "p2.corehr.pre_hire.onboarding_task_changed_v2"] = P2CorehrPreHireOnboardingTaskChangedV2Processor(f)
         return self
 
     def register_p2_corehr_probation_updated_v2(self, f: Callable[

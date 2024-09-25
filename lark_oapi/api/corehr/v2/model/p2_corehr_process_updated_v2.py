@@ -11,6 +11,7 @@ class P2CorehrProcessUpdatedV2Data(object):
         "status": int,
         "biz_type": str,
         "flow_definition_id": str,
+        "properties": int,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class P2CorehrProcessUpdatedV2Data(object):
         self.status: Optional[int] = None
         self.biz_type: Optional[str] = None
         self.flow_definition_id: Optional[str] = None
+        self.properties: Optional[int] = None
         init(self, d, self._types)
 
 

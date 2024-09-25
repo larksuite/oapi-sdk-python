@@ -41,6 +41,7 @@ def main():
                       .phone_number_list([])
                       .email_address_list([])
                       .department_id_list_include_sub([])
+                      .cost_center_id_list([])
                       .build()) \
         .build()
 
@@ -95,6 +96,7 @@ async def amain():
                       .phone_number_list([])
                       .email_address_list([])
                       .department_id_list_include_sub([])
+                      .cost_center_id_list([])
                       .build()) \
         .build()
 

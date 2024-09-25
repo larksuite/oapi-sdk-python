@@ -2,7 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .plan_condition import PlanCondition
+from .social_plan_condition import SocialPlanCondition
 
 
 class SocialPlanScope(object):

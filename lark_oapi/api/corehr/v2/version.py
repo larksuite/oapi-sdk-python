@@ -37,3 +37,4 @@ class V2(object):
         self.process_cc: ProcessCc = ProcessCc(config)
         self.process_form_variable_data: ProcessFormVariableData = ProcessFormVariableData(config)
         self.process_node: ProcessNode = ProcessNode(config)
+        self.workforce_plan_detail: WorkforcePlanDetail = WorkforcePlanDetail(config)

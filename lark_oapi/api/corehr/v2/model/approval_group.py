@@ -17,6 +17,7 @@ class ApprovalGroup(object):
         "draft_status": str,
         "department_changes": List[str],
         "job_changes": List[str],
+        "position_changes": List[str],
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class ApprovalGroup(object):
         self.draft_status: Optional[str] = None
         self.department_changes: Optional[List[str]] = None
         self.job_changes: Optional[List[str]] = None
+        self.position_changes: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -84,6 +86,10 @@ class ApprovalGroupBuilder(object):
 
     def job_changes(self, job_changes: List[str]) -> "ApprovalGroupBuilder":
         self._approval_group.job_changes = job_changes
+        return self
+
+    def position_changes(self, position_changes: List[str]) -> "ApprovalGroupBuilder":
+        self._approval_group.position_changes = position_changes
         return self
 
     def build(self) -> "ApprovalGroup":

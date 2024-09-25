@@ -27,6 +27,7 @@ class PreHireEmploymentInfo(object):
         "job_grade_id": str,
         "job_title": str,
         "employee_type_id": str,
+        "employee_subtype_id": str,
         "employment_type": str,
         "work_email": str,
         "company_id": str,
@@ -71,6 +72,7 @@ class PreHireEmploymentInfo(object):
         self.job_grade_id: Optional[str] = None
         self.job_title: Optional[str] = None
         self.employee_type_id: Optional[str] = None
+        self.employee_subtype_id: Optional[str] = None
         self.employment_type: Optional[str] = None
         self.work_email: Optional[str] = None
         self.company_id: Optional[str] = None
@@ -163,6 +165,10 @@ class PreHireEmploymentInfoBuilder(object):
 
     def employee_type_id(self, employee_type_id: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.employee_type_id = employee_type_id
+        return self
+
+    def employee_subtype_id(self, employee_subtype_id: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.employee_subtype_id = employee_subtype_id
         return self
 
     def employment_type(self, employment_type: str) -> "PreHireEmploymentInfoBuilder":

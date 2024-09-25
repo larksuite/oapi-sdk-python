@@ -1,4 +1,6 @@
+from .admin_dept_ext_contact_stat import *
 from .admin_dept_stat import *
+from .admin_user_ext_contact_stat import *
 from .admin_user_stat import *
 from .administrator import *
 from .annual_report_map_float import *

@@ -3,15 +3,18 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .cash import Cash
+from .cash import Cash
 
 
 class BonusAmount(object):
     _types = {
         "point_bonus": int,
+        "cash_bonus": List[Cash],
     }
 
     def __init__(self, d=None):
         self.point_bonus: Optional[int] = None
+        self.cash_bonus: Optional[List[Cash]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,6 +28,10 @@ class BonusAmountBuilder(object):
 
     def point_bonus(self, point_bonus: int) -> "BonusAmountBuilder":
         self._bonus_amount.point_bonus = point_bonus
+        return self
+
+    def cash_bonus(self, cash_bonus: List[Cash]) -> "BonusAmountBuilder":
+        self._bonus_amount.cash_bonus = cash_bonus
         return self
 
     def build(self) -> "BonusAmount":

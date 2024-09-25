@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .enum import Enum
 from .enum import Enum
 from .enum import Enum
+from .enum import Enum
 from .custom_field_data import CustomFieldData
 
 
@@ -19,6 +20,10 @@ class BankAccount(object):
         "country_region_id": str,
         "bank_account_usage": List[Enum],
         "bank_account_type": Enum,
+        "payment_type": Enum,
+        "payment_rate": str,
+        "payment_amount": str,
+        "priority": int,
         "currency_id": str,
         "i_b_a_n": str,
         "custom_fields": List[CustomFieldData],
@@ -34,6 +39,10 @@ class BankAccount(object):
         self.country_region_id: Optional[str] = None
         self.bank_account_usage: Optional[List[Enum]] = None
         self.bank_account_type: Optional[Enum] = None
+        self.payment_type: Optional[Enum] = None
+        self.payment_rate: Optional[str] = None
+        self.payment_amount: Optional[str] = None
+        self.priority: Optional[int] = None
         self.currency_id: Optional[str] = None
         self.i_b_a_n: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
@@ -82,6 +91,22 @@ class BankAccountBuilder(object):
 
     def bank_account_type(self, bank_account_type: Enum) -> "BankAccountBuilder":
         self._bank_account.bank_account_type = bank_account_type
+        return self
+
+    def payment_type(self, payment_type: Enum) -> "BankAccountBuilder":
+        self._bank_account.payment_type = payment_type
+        return self
+
+    def payment_rate(self, payment_rate: str) -> "BankAccountBuilder":
+        self._bank_account.payment_rate = payment_rate
+        return self
+
+    def payment_amount(self, payment_amount: str) -> "BankAccountBuilder":
+        self._bank_account.payment_amount = payment_amount
+        return self
+
+    def priority(self, priority: int) -> "BankAccountBuilder":
+        self._bank_account.priority = priority
         return self
 
     def currency_id(self, currency_id: str) -> "BankAccountBuilder":

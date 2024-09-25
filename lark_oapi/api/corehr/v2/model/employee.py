@@ -32,6 +32,7 @@ class Employee(object):
         "prehire_id": str,
         "employee_number": str,
         "employee_type_id": str,
+        "employee_subtype_id": str,
         "department_id": str,
         "department_id_v2": str,
         "job_level_id": str,
@@ -99,6 +100,7 @@ class Employee(object):
         self.prehire_id: Optional[str] = None
         self.employee_number: Optional[str] = None
         self.employee_type_id: Optional[str] = None
+        self.employee_subtype_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.department_id_v2: Optional[str] = None
         self.job_level_id: Optional[str] = None
@@ -190,6 +192,10 @@ class EmployeeBuilder(object):
 
     def employee_type_id(self, employee_type_id: str) -> "EmployeeBuilder":
         self._employee.employee_type_id = employee_type_id
+        return self
+
+    def employee_subtype_id(self, employee_subtype_id: str) -> "EmployeeBuilder":
+        self._employee.employee_subtype_id = employee_subtype_id
         return self
 
     def department_id(self, department_id: str) -> "EmployeeBuilder":

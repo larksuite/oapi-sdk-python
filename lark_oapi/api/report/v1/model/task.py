@@ -9,23 +9,29 @@ class Task(object):
     _types = {
         "task_id": int,
         "rule_name": str,
-        "from_user_id": str,
+        "from_user_id": int,
         "from_user_name": str,
         "department_name": str,
         "commit_time": int,
         "form_contents": List[FormContent],
         "rule_id": int,
+        "department_ids": List[int],
+        "to_user_ids": List[int],
+        "to_user_names": List[str],
     }
 
     def __init__(self, d=None):
         self.task_id: Optional[int] = None
         self.rule_name: Optional[str] = None
-        self.from_user_id: Optional[str] = None
+        self.from_user_id: Optional[int] = None
         self.from_user_name: Optional[str] = None
         self.department_name: Optional[str] = None
         self.commit_time: Optional[int] = None
         self.form_contents: Optional[List[FormContent]] = None
         self.rule_id: Optional[int] = None
+        self.department_ids: Optional[List[int]] = None
+        self.to_user_ids: Optional[List[int]] = None
+        self.to_user_names: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -45,7 +51,7 @@ class TaskBuilder(object):
         self._task.rule_name = rule_name
         return self
 
-    def from_user_id(self, from_user_id: str) -> "TaskBuilder":
+    def from_user_id(self, from_user_id: int) -> "TaskBuilder":
         self._task.from_user_id = from_user_id
         return self
 
@@ -67,6 +73,18 @@ class TaskBuilder(object):
 
     def rule_id(self, rule_id: int) -> "TaskBuilder":
         self._task.rule_id = rule_id
+        return self
+
+    def department_ids(self, department_ids: List[int]) -> "TaskBuilder":
+        self._task.department_ids = department_ids
+        return self
+
+    def to_user_ids(self, to_user_ids: List[int]) -> "TaskBuilder":
+        self._task.to_user_ids = to_user_ids
+        return self
+
+    def to_user_names(self, to_user_names: List[str]) -> "TaskBuilder":
+        self._task.to_user_names = to_user_names
         return self
 
     def build(self) -> "Task":

@@ -25,6 +25,7 @@ def main():
                       .minutes_acceptor_user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62")
                       .survey_acceptor_user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62")
                       .email_acceptor(ResourceAcceptor.builder().build())
+                      .anycross_acceptor_user_id("str")
                       .build()) \
         .build()
 
@@ -63,6 +64,7 @@ async def amain():
                       .minutes_acceptor_user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62")
                       .survey_acceptor_user_id("ou_7dab8a3d3cdcc9da365777c7ad535d62")
                       .email_acceptor(ResourceAcceptor.builder().build())
+                      .anycross_acceptor_user_id("str")
                       .build()) \
         .build()
 

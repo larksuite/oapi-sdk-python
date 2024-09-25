@@ -28,6 +28,7 @@ class OfferInfo(object):
         "recruitment_type_id": str,
         "probation_period": str,
         "employee_type_id": str,
+        "employee_subtype_id": str,
         "employment_type_id": str,
         "work_email": str,
         "duration_type_id": str,
@@ -76,6 +77,7 @@ class OfferInfo(object):
         self.recruitment_type_id: Optional[str] = None
         self.probation_period: Optional[str] = None
         self.employee_type_id: Optional[str] = None
+        self.employee_subtype_id: Optional[str] = None
         self.employment_type_id: Optional[str] = None
         self.work_email: Optional[str] = None
         self.duration_type_id: Optional[str] = None
@@ -190,6 +192,10 @@ class OfferInfoBuilder(object):
 
     def employee_type_id(self, employee_type_id: str) -> "OfferInfoBuilder":
         self._offer_info.employee_type_id = employee_type_id
+        return self
+
+    def employee_subtype_id(self, employee_subtype_id: str) -> "OfferInfoBuilder":
+        self._offer_info.employee_subtype_id = employee_subtype_id
         return self
 
     def employment_type_id(self, employment_type_id: str) -> "OfferInfoBuilder":

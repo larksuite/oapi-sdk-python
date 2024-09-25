@@ -22,6 +22,7 @@ def main():
                       .description([])
                       .active(True)
                       .custom_fields([])
+                      .job_grade([])
                       .build()) \
         .build()
 
@@ -57,6 +58,7 @@ async def amain():
                       .description([])
                       .active(True)
                       .custom_fields([])
+                      .job_grade([])
                       .build()) \
         .build()
 

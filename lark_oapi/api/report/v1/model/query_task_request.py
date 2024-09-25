@@ -23,7 +23,7 @@ class QueryTaskRequestBuilder(object):
         query_task_request = QueryTaskRequest()
         query_task_request.http_method = HttpMethod.POST
         query_task_request.uri = "/open-apis/report/v1/tasks/query"
-        query_task_request.token_types = {AccessTokenType.TENANT}
+        query_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._query_task_request: QueryTaskRequest = query_task_request
 
     def user_id_type(self, user_id_type: str) -> "QueryTaskRequestBuilder":

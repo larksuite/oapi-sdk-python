@@ -15,6 +15,7 @@ class DeleteUserRequestBody(object):
         "minutes_acceptor_user_id": str,
         "survey_acceptor_user_id": str,
         "email_acceptor": ResourceAcceptor,
+        "anycross_acceptor_user_id": str,
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class DeleteUserRequestBody(object):
         self.minutes_acceptor_user_id: Optional[str] = None
         self.survey_acceptor_user_id: Optional[str] = None
         self.email_acceptor: Optional[ResourceAcceptor] = None
+        self.anycross_acceptor_user_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -67,6 +69,10 @@ class DeleteUserRequestBodyBuilder(object):
 
     def email_acceptor(self, email_acceptor: ResourceAcceptor) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.email_acceptor = email_acceptor
+        return self
+
+    def anycross_acceptor_user_id(self, anycross_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
+        self._delete_user_request_body.anycross_acceptor_user_id = anycross_acceptor_user_id
         return self
 
     def build(self) -> "DeleteUserRequestBody":

@@ -26,6 +26,7 @@ class EmployeesAdditionalJob(object):
         "service_company": str,
         "weekly_working_hours": str,
         "work_calendar_id": str,
+        "position_id": str,
     }
 
     def __init__(self, d=None):
@@ -47,6 +48,7 @@ class EmployeesAdditionalJob(object):
         self.service_company: Optional[str] = None
         self.weekly_working_hours: Optional[str] = None
         self.work_calendar_id: Optional[str] = None
+        self.position_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -128,6 +130,10 @@ class EmployeesAdditionalJobBuilder(object):
 
     def work_calendar_id(self, work_calendar_id: str) -> "EmployeesAdditionalJobBuilder":
         self._employees_additional_job.work_calendar_id = work_calendar_id
+        return self
+
+    def position_id(self, position_id: str) -> "EmployeesAdditionalJobBuilder":
+        self._employees_additional_job.position_id = position_id
         return self
 
     def build(self) -> "EmployeesAdditionalJob":

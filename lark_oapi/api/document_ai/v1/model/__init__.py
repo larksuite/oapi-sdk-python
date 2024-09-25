@@ -4,7 +4,6 @@ from .bank_entity import *
 from .bank_info import *
 from .body_entity import *
 from .body_info import *
-from .business_card import *
 from .business_entity import *
 from .business_license import *
 from .chinese_passport import *
@@ -18,14 +17,12 @@ from .doc_chunk_table_cell import *
 from .doc_chunk_table_detail import *
 from .doc_chunk_table_row import *
 from .driving_entity import *
-from .driving_license import *
 from .drving_license import *
 from .extract_copy import *
 from .extract_currency import *
 from .extract_price import *
 from .extract_term import *
 from .extract_time import *
-from .field_extraction import *
 from .food_manage_entity import *
 from .food_manage_license import *
 from .food_produce_entity import *
@@ -36,6 +33,12 @@ from .hkm_mainland_travel_permit import *
 from .hkm_mainland_travel_permit_entity import *
 from .id_card import *
 from .id_entity import *
+from .image_detail import *
+from .llm_config import *
+from .llm_content import *
+from .llm_detail import *
+from .llm_message import *
+from .llm_usage import *
 from .recognized_entities import *
 from .recognized_entity import *
 from .resume import *

@@ -31,3 +31,4 @@ from .process_approver import *
 from .process_cc import *
 from .process_form_variable_data import *
 from .process_node import *
+from .workforce_plan_detail import *

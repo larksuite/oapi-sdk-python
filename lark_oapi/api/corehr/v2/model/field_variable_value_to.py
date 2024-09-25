@@ -20,7 +20,7 @@ class FieldVariableValueTo(object):
         "object_value": FieldVariableValueToObject,
         "user_value": str,
         "department_value": str,
-        "record_value": FieldVariableValueToRecord,
+        "record_values": List[FieldVariableValueToRecord],
         "employment_value": str,
         "list_values": List[str],
         "file_value": FieldVariableValueToFile,
@@ -37,7 +37,7 @@ class FieldVariableValueTo(object):
         self.object_value: Optional[FieldVariableValueToObject] = None
         self.user_value: Optional[str] = None
         self.department_value: Optional[str] = None
-        self.record_value: Optional[FieldVariableValueToRecord] = None
+        self.record_values: Optional[List[FieldVariableValueToRecord]] = None
         self.employment_value: Optional[str] = None
         self.list_values: Optional[List[str]] = None
         self.file_value: Optional[FieldVariableValueToFile] = None
@@ -92,8 +92,8 @@ class FieldVariableValueToBuilder(object):
         self._field_variable_value_to.department_value = department_value
         return self
 
-    def record_value(self, record_value: FieldVariableValueToRecord) -> "FieldVariableValueToBuilder":
-        self._field_variable_value_to.record_value = record_value
+    def record_values(self, record_values: List[FieldVariableValueToRecord]) -> "FieldVariableValueToBuilder":
+        self._field_variable_value_to.record_values = record_values
         return self
 
     def employment_value(self, employment_value: str) -> "FieldVariableValueToBuilder":

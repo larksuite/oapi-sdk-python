@@ -36,6 +36,10 @@ class Address(object):
         "is_primary": bool,
         "is_public": bool,
         "custom_fields": List[CustomFieldData],
+        "city_subdivision_1": str,
+        "city_subdivision_2": str,
+        "region_subdivision_1": str,
+        "region_subdivision_2": str,
     }
 
     def __init__(self, d=None):
@@ -67,6 +71,10 @@ class Address(object):
         self.is_primary: Optional[bool] = None
         self.is_public: Optional[bool] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.city_subdivision_1: Optional[str] = None
+        self.city_subdivision_2: Optional[str] = None
+        self.region_subdivision_1: Optional[str] = None
+        self.region_subdivision_2: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -188,6 +196,22 @@ class AddressBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "AddressBuilder":
         self._address.custom_fields = custom_fields
+        return self
+
+    def city_subdivision_1(self, city_subdivision_1: str) -> "AddressBuilder":
+        self._address.city_subdivision_1 = city_subdivision_1
+        return self
+
+    def city_subdivision_2(self, city_subdivision_2: str) -> "AddressBuilder":
+        self._address.city_subdivision_2 = city_subdivision_2
+        return self
+
+    def region_subdivision_1(self, region_subdivision_1: str) -> "AddressBuilder":
+        self._address.region_subdivision_1 = region_subdivision_1
+        return self
+
+    def region_subdivision_2(self, region_subdivision_2: str) -> "AddressBuilder":
+        self._address.region_subdivision_2 = region_subdivision_2
         return self
 
     def build(self) -> "Address":

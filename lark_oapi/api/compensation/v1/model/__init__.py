@@ -24,6 +24,7 @@ from .social_archive_detail import *
 from .social_archive_item import *
 from .social_insurance import *
 from .social_plan import *
+from .social_plan_condition import *
 from .social_plan_item_detail import *
 from .social_plan_item_setting import *
 from .social_plan_scope import *

@@ -15,6 +15,7 @@ from .file import File
 
 class Dependent(object):
     _types = {
+        "id": str,
         "name": PersonName,
         "relationship": Enum,
         "gender": Enum,
@@ -34,6 +35,7 @@ class Dependent(object):
     }
 
     def __init__(self, d=None):
+        self.id: Optional[str] = None
         self.name: Optional[PersonName] = None
         self.relationship: Optional[Enum] = None
         self.gender: Optional[Enum] = None
@@ -60,6 +62,10 @@ class Dependent(object):
 class DependentBuilder(object):
     def __init__(self) -> None:
         self._dependent = Dependent()
+
+    def id(self, id: str) -> "DependentBuilder":
+        self._dependent.id = id
+        return self
 
     def name(self, name: PersonName) -> "DependentBuilder":
         self._dependent.name = name

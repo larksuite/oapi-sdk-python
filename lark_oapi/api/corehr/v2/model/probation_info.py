@@ -9,6 +9,8 @@ from .enum import Enum
 from .enum import Enum
 from .enum import Enum
 from .assessment import Assessment
+from .enum import Enum
+from .enum import Enum
 
 
 class ProbationInfo(object):
@@ -34,6 +36,10 @@ class ProbationInfo(object):
         "final_assessment_comment": str,
         "final_assessment_detail": str,
         "assessments": List[Assessment],
+        "probation_extend_expected_end_date": str,
+        "extended_probation_period_duration": int,
+        "extended_probation_period_unit": Enum,
+        "probation_outcome": Enum,
     }
 
     def __init__(self, d=None):
@@ -58,6 +64,10 @@ class ProbationInfo(object):
         self.final_assessment_comment: Optional[str] = None
         self.final_assessment_detail: Optional[str] = None
         self.assessments: Optional[List[Assessment]] = None
+        self.probation_extend_expected_end_date: Optional[str] = None
+        self.extended_probation_period_duration: Optional[int] = None
+        self.extended_probation_period_unit: Optional[Enum] = None
+        self.probation_outcome: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -151,6 +161,22 @@ class ProbationInfoBuilder(object):
 
     def assessments(self, assessments: List[Assessment]) -> "ProbationInfoBuilder":
         self._probation_info.assessments = assessments
+        return self
+
+    def probation_extend_expected_end_date(self, probation_extend_expected_end_date: str) -> "ProbationInfoBuilder":
+        self._probation_info.probation_extend_expected_end_date = probation_extend_expected_end_date
+        return self
+
+    def extended_probation_period_duration(self, extended_probation_period_duration: int) -> "ProbationInfoBuilder":
+        self._probation_info.extended_probation_period_duration = extended_probation_period_duration
+        return self
+
+    def extended_probation_period_unit(self, extended_probation_period_unit: Enum) -> "ProbationInfoBuilder":
+        self._probation_info.extended_probation_period_unit = extended_probation_period_unit
+        return self
+
+    def probation_outcome(self, probation_outcome: Enum) -> "ProbationInfoBuilder":
+        self._probation_info.probation_outcome = probation_outcome
         return self
 
     def build(self) -> "ProbationInfo":

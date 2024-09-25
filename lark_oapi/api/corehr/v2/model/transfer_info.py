@@ -35,6 +35,8 @@ class TransferInfo(object):
         "target_job_level": str,
         "original_workforce_type": str,
         "target_workforce_type": str,
+        "original_employee_subtype": str,
+        "target_employee_subtype": str,
         "original_company": str,
         "target_company": str,
         "original_contract_number": str,
@@ -71,6 +73,7 @@ class TransferInfo(object):
         "target_service_company": str,
         "original_position": str,
         "target_position": str,
+        "target_draft_position": str,
         "original_social_security_city": str,
         "target_social_security_city": str,
     }
@@ -99,6 +102,8 @@ class TransferInfo(object):
         self.target_job_level: Optional[str] = None
         self.original_workforce_type: Optional[str] = None
         self.target_workforce_type: Optional[str] = None
+        self.original_employee_subtype: Optional[str] = None
+        self.target_employee_subtype: Optional[str] = None
         self.original_company: Optional[str] = None
         self.target_company: Optional[str] = None
         self.original_contract_number: Optional[str] = None
@@ -135,6 +140,7 @@ class TransferInfo(object):
         self.target_service_company: Optional[str] = None
         self.original_position: Optional[str] = None
         self.target_position: Optional[str] = None
+        self.target_draft_position: Optional[str] = None
         self.original_social_security_city: Optional[str] = None
         self.target_social_security_city: Optional[str] = None
         init(self, d, self._types)
@@ -239,6 +245,14 @@ class TransferInfoBuilder(object):
 
     def target_workforce_type(self, target_workforce_type: str) -> "TransferInfoBuilder":
         self._transfer_info.target_workforce_type = target_workforce_type
+        return self
+
+    def original_employee_subtype(self, original_employee_subtype: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_employee_subtype = original_employee_subtype
+        return self
+
+    def target_employee_subtype(self, target_employee_subtype: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_employee_subtype = target_employee_subtype
         return self
 
     def original_company(self, original_company: str) -> "TransferInfoBuilder":
@@ -383,6 +397,10 @@ class TransferInfoBuilder(object):
 
     def target_position(self, target_position: str) -> "TransferInfoBuilder":
         self._transfer_info.target_position = target_position
+        return self
+
+    def target_draft_position(self, target_draft_position: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_draft_position = target_draft_position
         return self
 
     def original_social_security_city(self, original_social_security_city: str) -> "TransferInfoBuilder":

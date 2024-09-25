@@ -9,13 +9,13 @@ class SocialArchiveAdjustRecord(object):
     _types = {
         "user_id": str,
         "record_type": str,
-        "details": SocialArchiveDetail,
+        "details": List[SocialArchiveDetail],
     }
 
     def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.record_type: Optional[str] = None
-        self.details: Optional[SocialArchiveDetail] = None
+        self.details: Optional[List[SocialArchiveDetail]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -35,7 +35,7 @@ class SocialArchiveAdjustRecordBuilder(object):
         self._social_archive_adjust_record.record_type = record_type
         return self
 
-    def details(self, details: SocialArchiveDetail) -> "SocialArchiveAdjustRecordBuilder":
+    def details(self, details: List[SocialArchiveDetail]) -> "SocialArchiveAdjustRecordBuilder":
         self._social_archive_adjust_record.details = details
         return self
 

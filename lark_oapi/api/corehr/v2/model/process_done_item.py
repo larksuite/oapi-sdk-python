@@ -19,6 +19,7 @@ class ProcessDoneItem(object):
         "create_time": str,
         "complete_time": str,
         "node_definition_id": str,
+        "approval_opinion": str,
     }
 
     def __init__(self, d=None):
@@ -32,6 +33,7 @@ class ProcessDoneItem(object):
         self.create_time: Optional[str] = None
         self.complete_time: Optional[str] = None
         self.node_definition_id: Optional[str] = None
+        self.approval_opinion: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -81,6 +83,10 @@ class ProcessDoneItemBuilder(object):
 
     def node_definition_id(self, node_definition_id: str) -> "ProcessDoneItemBuilder":
         self._process_done_item.node_definition_id = node_definition_id
+        return self
+
+    def approval_opinion(self, approval_opinion: str) -> "ProcessDoneItemBuilder":
+        self._process_done_item.approval_opinion = approval_opinion
         return self
 
     def build(self) -> "ProcessDoneItem":

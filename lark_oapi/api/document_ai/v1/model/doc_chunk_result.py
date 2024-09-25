@@ -4,6 +4,8 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .doc_chunk_position import DocChunkPosition
 from .doc_chunk_table_detail import DocChunkTableDetail
+from .llm_detail import LlmDetail
+from .image_detail import ImageDetail
 
 
 class DocChunkResult(object):
@@ -18,6 +20,9 @@ class DocChunkResult(object):
         "label": str,
         "block_id": str,
         "table_detail": DocChunkTableDetail,
+        "llm_detail": LlmDetail,
+        "image_detail": ImageDetail,
+        "slide_index": str,
     }
 
     def __init__(self, d=None):
@@ -31,6 +36,9 @@ class DocChunkResult(object):
         self.label: Optional[str] = None
         self.block_id: Optional[str] = None
         self.table_detail: Optional[DocChunkTableDetail] = None
+        self.llm_detail: Optional[LlmDetail] = None
+        self.image_detail: Optional[ImageDetail] = None
+        self.slide_index: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -80,6 +88,18 @@ class DocChunkResultBuilder(object):
 
     def table_detail(self, table_detail: DocChunkTableDetail) -> "DocChunkResultBuilder":
         self._doc_chunk_result.table_detail = table_detail
+        return self
+
+    def llm_detail(self, llm_detail: LlmDetail) -> "DocChunkResultBuilder":
+        self._doc_chunk_result.llm_detail = llm_detail
+        return self
+
+    def image_detail(self, image_detail: ImageDetail) -> "DocChunkResultBuilder":
+        self._doc_chunk_result.image_detail = image_detail
+        return self
+
+    def slide_index(self, slide_index: str) -> "DocChunkResultBuilder":
+        self._doc_chunk_result.slide_index = slide_index
         return self
 
     def build(self) -> "DocChunkResult":

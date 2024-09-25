@@ -16,6 +16,7 @@ class JobLevel(object):
         "description": List[I18n],
         "active": bool,
         "custom_fields": List[ObjectFieldData],
+        "job_grade": List[str],
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class JobLevel(object):
         self.description: Optional[List[I18n]] = None
         self.active: Optional[bool] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.job_grade: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -63,6 +65,10 @@ class JobLevelBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "JobLevelBuilder":
         self._job_level.custom_fields = custom_fields
+        return self
+
+    def job_grade(self, job_grade: List[str]) -> "JobLevelBuilder":
+        self._job_level.job_grade = job_grade
         return self
 
     def build(self) -> "JobLevel":

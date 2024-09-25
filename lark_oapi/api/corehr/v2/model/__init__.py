@@ -4,6 +4,7 @@ from .abnormal_reason_i18n_element import *
 from .address import *
 from .address_for_update import *
 from .approval_group import *
+from .approver_info import *
 from .assessment import *
 from .assessment_for_create import *
 from .bank import *
@@ -74,6 +75,9 @@ from .employees_additional_job import *
 from .employees_additional_job_batch_req_date import *
 from .employees_additional_job_edit import *
 from .employees_additional_job_write_resp import *
+from .employees_international_assignment import *
+from .employees_international_assignment_req import *
+from .employees_international_assignment_resp import *
 from .employment import *
 from .employment_bp import *
 from .employment_leave_balance import *
@@ -109,6 +113,8 @@ from .job_data_cost_center import *
 from .job_data_custom_org import *
 from .job_family import *
 from .job_grade import *
+from .job_grade_create import *
+from .job_grade_update import *
 from .job_level import *
 from .lang_text import *
 from .leave_accrual_record import *
@@ -118,6 +124,9 @@ from .leave_granting_record import *
 from .leave_request import *
 from .leave_request_detail import *
 from .location import *
+from .location_address_create import *
+from .location_address_update import *
+from .location_update import *
 from .location_v2 import *
 from .match_rule import *
 from .match_rules import *
@@ -140,6 +149,7 @@ from .operation_log_list_req import *
 from .operation_log_list_resp_item import *
 from .org_role import *
 from .org_role_update import *
+from .organization_domain_event_data import *
 from .orgdraft_department_id import *
 from .person_info import *
 from .person_info_chn import *
@@ -150,6 +160,8 @@ from .phone import *
 from .phone_for_update import *
 from .phone_number_and_area_code import *
 from .position import *
+from .position_adjustment_info import *
+from .position_change import *
 from .position_create import *
 from .position_update import *
 from .pre_hire import *
@@ -166,9 +178,11 @@ from .probation_info_for_submit import *
 from .process_approver import *
 from .process_abstract_item import *
 from .process_cc_item import *
+from .process_comment_info import *
 from .process_done_item import *
 from .process_form_variable import *
 from .process_form_variable_v2 import *
+from .process_info import *
 from .process_link import *
 from .process_system_done_item import *
 from .process_system_todo_item import *
@@ -243,6 +257,7 @@ from .signature_template_permission_info import *
 from .signature_template_region_info import *
 from .signature_template_setting import *
 from .signature_user_info import *
+from .terminate_signature_fail_id_and_reason import *
 from .tranfer_employment_info import *
 from .transfer_info import *
 from .user_contact import *
@@ -300,6 +315,7 @@ from .parents_department_request import *
 from .patch_department_request import *
 from .query_multi_timeline_department_request_body import *
 from .query_multi_timeline_department_request import *
+from .query_recent_change_department_request import *
 from .query_timeline_department_request_body import *
 from .query_timeline_department_request import *
 from .search_department_request_body import *
@@ -358,6 +374,8 @@ from .get_process_request import *
 from .list_process_request import *
 from .update_process_approver_request import *
 from .get_process_form_variable_data_request import *
+from .batch_workforce_plan_detail_request_body import *
+from .batch_workforce_plan_detail_request import *
 from .search_basic_info_bank_response_body import *
 from .search_basic_info_bank_response import *
 from .search_basic_info_bank_branch_response_body import *
@@ -402,6 +420,8 @@ from .parents_department_response import *
 from .patch_department_response import *
 from .query_multi_timeline_department_response_body import *
 from .query_multi_timeline_department_response import *
+from .query_recent_change_department_response_body import *
+from .query_recent_change_department_response import *
 from .query_timeline_department_response_body import *
 from .query_timeline_department_response import *
 from .search_department_response_body import *
@@ -469,12 +489,21 @@ from .update_process_approver_response_body import *
 from .update_process_approver_response import *
 from .get_process_form_variable_data_response_body import *
 from .get_process_form_variable_data_response import *
+from .batch_workforce_plan_detail_response_body import *
+from .batch_workforce_plan_detail_response import *
 from .p2_corehr_employee_domain_event_v2 import *
 from .p2_corehr_job_change_status_updated_v2 import *
 from .p2_corehr_job_change_updated_v2 import *
+from .p2_corehr_job_family_created_v2 import *
+from .p2_corehr_job_family_deleted_v2 import *
+from .p2_corehr_job_family_updated_v2 import *
+from .p2_corehr_job_level_created_v2 import *
+from .p2_corehr_job_level_deleted_v2 import *
+from .p2_corehr_job_level_updated_v2 import *
 from .p2_corehr_offboarding_checklist_updated_v2 import *
 from .p2_corehr_offboarding_status_updated_v2 import *
 from .p2_corehr_offboarding_updated_v2 import *
+from .p2_corehr_pre_hire_onboarding_task_changed_v2 import *
 from .p2_corehr_probation_updated_v2 import *
 from .p2_corehr_process_updated_v2 import *
 from .p2_corehr_process_approver_updated_v2 import *

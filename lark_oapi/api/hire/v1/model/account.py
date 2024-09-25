@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .assets import Assets
+from .account_referrer import AccountReferrer
 
 
 class Account(object):
