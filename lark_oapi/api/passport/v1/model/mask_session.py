@@ -9,12 +9,14 @@ class MaskSession(object):
         "create_time": int,
         "terminal_type": int,
         "user_id": str,
+        "sid": str,
     }
 
     def __init__(self, d=None):
         self.create_time: Optional[int] = None
         self.terminal_type: Optional[int] = None
         self.user_id: Optional[str] = None
+        self.sid: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +38,10 @@ class MaskSessionBuilder(object):
 
     def user_id(self, user_id: str) -> "MaskSessionBuilder":
         self._mask_session.user_id = user_id
+        return self
+
+    def sid(self, sid: str) -> "MaskSessionBuilder":
+        self._mask_session.sid = sid
         return self
 
     def build(self) -> "MaskSession":

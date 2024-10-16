@@ -10,7 +10,7 @@ class AdminUserExtContactStat(object):
         "user_id": str,
         "user_name": str,
         "department_name": str,
-        "ref_contact_ucnt": int,
+        "ref_contact_ucnt": str,
         "ref_contact_tcnt": str,
     }
 
@@ -19,7 +19,7 @@ class AdminUserExtContactStat(object):
         self.user_id: Optional[str] = None
         self.user_name: Optional[str] = None
         self.department_name: Optional[str] = None
-        self.ref_contact_ucnt: Optional[int] = None
+        self.ref_contact_ucnt: Optional[str] = None
         self.ref_contact_tcnt: Optional[str] = None
         init(self, d, self._types)
 
@@ -48,7 +48,7 @@ class AdminUserExtContactStatBuilder(object):
         self._admin_user_ext_contact_stat.department_name = department_name
         return self
 
-    def ref_contact_ucnt(self, ref_contact_ucnt: int) -> "AdminUserExtContactStatBuilder":
+    def ref_contact_ucnt(self, ref_contact_ucnt: str) -> "AdminUserExtContactStatBuilder":
         self._admin_user_ext_contact_stat.ref_contact_ucnt = ref_contact_ucnt
         return self
 

@@ -5,7 +5,9 @@ from .basic_info_country_region import *
 from .basic_info_country_region_subdivision import *
 from .basic_info_currency import *
 from .basic_info_district import *
+from .basic_info_language import *
 from .basic_info_nationality import *
+from .basic_info_time_zone import *
 from .bp import *
 from .company import *
 from .contract import *
@@ -31,4 +33,5 @@ from .process_approver import *
 from .process_cc import *
 from .process_form_variable_data import *
 from .process_node import *
+from .process_status import *
 from .workforce_plan_detail import *

@@ -51,6 +51,7 @@ from .schedule import *
 from .scope_group import *
 from .scope_value import *
 from .shift import *
+from .shift_attendance_time_config import *
 from .shift_group_user import *
 from .shift_middle_time_rule import *
 from .statistics_field import *

@@ -16,6 +16,7 @@ def main():
     request: ListItemRequest = ListItemRequest.builder() \
         .page_size(100) \
         .page_token("5234233214") \
+        .item_type("bonus") \
         .build()
 
     # 发起请求
@@ -44,6 +45,7 @@ async def amain():
     request: ListItemRequest = ListItemRequest.builder() \
         .page_size(100) \
         .page_token("5234233214") \
+        .item_type("bonus") \
         .build()
 
     # 发起请求

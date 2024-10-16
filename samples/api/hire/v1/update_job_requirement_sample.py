@@ -45,6 +45,7 @@ def main():
                       .customized_data_list([])
                       .process_type(1)
                       .job_type_id("6930815272790114324")
+                      .job_id_list([])
                       .build()) \
         .build()
 
@@ -103,6 +104,7 @@ async def amain():
                       .customized_data_list([])
                       .process_type(1)
                       .job_type_id("6930815272790114324")
+                      .job_id_list([])
                       .build()) \
         .build()
 

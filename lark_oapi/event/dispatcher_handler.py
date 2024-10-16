@@ -560,6 +560,48 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.pre_hire.updated_v1"] = P2CorehrPreHireUpdatedV1Processor(f)
         return self
 
+    def register_p2_corehr_company_created_v2(self, f: Callable[
+        [P2CorehrCompanyCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.company.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.company.created_v2")
+        self._processorMap["p2.corehr.company.created_v2"] = P2CorehrCompanyCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_company_deleted_v2(self, f: Callable[
+        [P2CorehrCompanyDeletedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.company.deleted_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.company.deleted_v2")
+        self._processorMap["p2.corehr.company.deleted_v2"] = P2CorehrCompanyDeletedV2Processor(f)
+        return self
+
+    def register_p2_corehr_company_updated_v2(self, f: Callable[
+        [P2CorehrCompanyUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.company.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.company.updated_v2")
+        self._processorMap["p2.corehr.company.updated_v2"] = P2CorehrCompanyUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_cost_center_created_v2(self, f: Callable[
+        [P2CorehrCostCenterCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.cost_center.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.cost_center.created_v2")
+        self._processorMap["p2.corehr.cost_center.created_v2"] = P2CorehrCostCenterCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_cost_center_deleted_v2(self, f: Callable[
+        [P2CorehrCostCenterDeletedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.cost_center.deleted_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.cost_center.deleted_v2")
+        self._processorMap["p2.corehr.cost_center.deleted_v2"] = P2CorehrCostCenterDeletedV2Processor(f)
+        return self
+
+    def register_p2_corehr_cost_center_updated_v2(self, f: Callable[
+        [P2CorehrCostCenterUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.cost_center.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.cost_center.updated_v2")
+        self._processorMap["p2.corehr.cost_center.updated_v2"] = P2CorehrCostCenterUpdatedV2Processor(f)
+        return self
+
     def register_p2_corehr_employee_domain_event_v2(self, f: Callable[
         [P2CorehrEmployeeDomainEventV2], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.employee.domain_event_v2" in self._processorMap:
@@ -602,6 +644,27 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.job_family.updated_v2"] = P2CorehrJobFamilyUpdatedV2Processor(f)
         return self
 
+    def register_p2_corehr_job_grade_created_v2(self, f: Callable[
+        [P2CorehrJobGradeCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_grade.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_grade.created_v2")
+        self._processorMap["p2.corehr.job_grade.created_v2"] = P2CorehrJobGradeCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_grade_deleted_v2(self, f: Callable[
+        [P2CorehrJobGradeDeletedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_grade.deleted_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_grade.deleted_v2")
+        self._processorMap["p2.corehr.job_grade.deleted_v2"] = P2CorehrJobGradeDeletedV2Processor(f)
+        return self
+
+    def register_p2_corehr_job_grade_updated_v2(self, f: Callable[
+        [P2CorehrJobGradeUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.job_grade.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.job_grade.updated_v2")
+        self._processorMap["p2.corehr.job_grade.updated_v2"] = P2CorehrJobGradeUpdatedV2Processor(f)
+        return self
+
     def register_p2_corehr_job_level_created_v2(self, f: Callable[
         [P2CorehrJobLevelCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.job_level.created_v2" in self._processorMap:
@@ -621,6 +684,27 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.corehr.job_level.updated_v2" in self._processorMap:
             raise EventException("processor already registered, type: p2.corehr.job_level.updated_v2")
         self._processorMap["p2.corehr.job_level.updated_v2"] = P2CorehrJobLevelUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_location_created_v2(self, f: Callable[
+        [P2CorehrLocationCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.location.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.location.created_v2")
+        self._processorMap["p2.corehr.location.created_v2"] = P2CorehrLocationCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_location_deleted_v2(self, f: Callable[
+        [P2CorehrLocationDeletedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.location.deleted_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.location.deleted_v2")
+        self._processorMap["p2.corehr.location.deleted_v2"] = P2CorehrLocationDeletedV2Processor(f)
+        return self
+
+    def register_p2_corehr_location_updated_v2(self, f: Callable[
+        [P2CorehrLocationUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.location.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.location.updated_v2")
+        self._processorMap["p2.corehr.location.updated_v2"] = P2CorehrLocationUpdatedV2Processor(f)
         return self
 
     def register_p2_corehr_offboarding_checklist_updated_v2(self, f: Callable[
@@ -686,6 +770,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.corehr.process.node.updated_v2" in self._processorMap:
             raise EventException("processor already registered, type: p2.corehr.process.node.updated_v2")
         self._processorMap["p2.corehr.process.node.updated_v2"] = P2CorehrProcessNodeUpdatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_process_status_update_v2(self, f: Callable[
+        [P2CorehrProcessStatusUpdateV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.process.status.update_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.process.status.update_v2")
+        self._processorMap["p2.corehr.process.status.update_v2"] = P2CorehrProcessStatusUpdateV2Processor(f)
         return self
 
     def register_p2_drive_file_bitable_field_changed_v1(self, f: Callable[

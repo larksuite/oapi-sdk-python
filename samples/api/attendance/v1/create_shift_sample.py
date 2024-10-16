@@ -31,7 +31,9 @@ def main():
                       .overtime_rest_time_rule([])
                       .late_minutes_as_serious_late(40)
                       .shift_middle_time_rule(ShiftMiddleTimeRule.builder().build())
+                      .shift_attendance_time_config(ShiftAttendanceTimeConfig.builder().build())
                       .late_off_late_on_setting(LateOffLateOnSetting.builder().build())
+                      .id("6919358778597097404")
                       .build()) \
         .build()
 
@@ -76,7 +78,9 @@ async def amain():
                       .overtime_rest_time_rule([])
                       .late_minutes_as_serious_late(40)
                       .shift_middle_time_rule(ShiftMiddleTimeRule.builder().build())
+                      .shift_attendance_time_config(ShiftAttendanceTimeConfig.builder().build())
                       .late_off_late_on_setting(LateOffLateOnSetting.builder().build())
+                      .id("6919358778597097404")
                       .build()) \
         .build()
 

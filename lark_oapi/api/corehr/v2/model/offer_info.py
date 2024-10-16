@@ -12,6 +12,7 @@ class OfferInfo(object):
         "offer_hr_id": str,
         "department_id": str,
         "direct_leader_id": str,
+        "dotted_line_manager_id": str,
         "job_id": str,
         "job_family_id": str,
         "job_level_id": str,
@@ -61,6 +62,7 @@ class OfferInfo(object):
         self.offer_hr_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.direct_leader_id: Optional[str] = None
+        self.dotted_line_manager_id: Optional[str] = None
         self.job_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
@@ -128,6 +130,10 @@ class OfferInfoBuilder(object):
 
     def direct_leader_id(self, direct_leader_id: str) -> "OfferInfoBuilder":
         self._offer_info.direct_leader_id = direct_leader_id
+        return self
+
+    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "OfferInfoBuilder":
+        self._offer_info.dotted_line_manager_id = dotted_line_manager_id
         return self
 
     def job_id(self, job_id: str) -> "OfferInfoBuilder":

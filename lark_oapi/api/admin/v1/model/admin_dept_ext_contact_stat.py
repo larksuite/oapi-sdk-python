@@ -10,7 +10,7 @@ class AdminDeptExtContactStat(object):
         "department_id": str,
         "department_name": str,
         "has_ref_contact_ucnt": str,
-        "ref_contact_ucnt": int,
+        "ref_contact_ucnt": str,
         "ref_contact_tcnt": str,
     }
 
@@ -19,7 +19,7 @@ class AdminDeptExtContactStat(object):
         self.department_id: Optional[str] = None
         self.department_name: Optional[str] = None
         self.has_ref_contact_ucnt: Optional[str] = None
-        self.ref_contact_ucnt: Optional[int] = None
+        self.ref_contact_ucnt: Optional[str] = None
         self.ref_contact_tcnt: Optional[str] = None
         init(self, d, self._types)
 
@@ -48,7 +48,7 @@ class AdminDeptExtContactStatBuilder(object):
         self._admin_dept_ext_contact_stat.has_ref_contact_ucnt = has_ref_contact_ucnt
         return self
 
-    def ref_contact_ucnt(self, ref_contact_ucnt: int) -> "AdminDeptExtContactStatBuilder":
+    def ref_contact_ucnt(self, ref_contact_ucnt: str) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.ref_contact_ucnt = ref_contact_ucnt
         return self
 

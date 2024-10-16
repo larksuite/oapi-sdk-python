@@ -90,6 +90,8 @@ from .batch_delete_document_block_children_request import *
 from .create_document_block_children_request_body import *
 from .create_document_block_children_request import *
 from .get_document_block_children_request import *
+from .create_document_block_descendant_request_body import *
+from .create_document_block_descendant_request import *
 from .create_document_response_body import *
 from .create_document_response import *
 from .get_document_response_body import *
@@ -110,3 +112,5 @@ from .create_document_block_children_response_body import *
 from .create_document_block_children_response import *
 from .get_document_block_children_response_body import *
 from .get_document_block_children_response import *
+from .create_document_block_descendant_response_body import *
+from .create_document_block_descendant_response import *

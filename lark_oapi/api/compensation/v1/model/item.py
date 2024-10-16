@@ -18,6 +18,7 @@ class Item(object):
         "active_status": int,
         "i18n_names": List[I18nContent],
         "i18n_descriptions": List[I18nContent],
+        "item_type": str,
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class Item(object):
         self.active_status: Optional[int] = None
         self.i18n_names: Optional[List[I18nContent]] = None
         self.i18n_descriptions: Optional[List[I18nContent]] = None
+        self.item_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -80,6 +82,10 @@ class ItemBuilder(object):
 
     def i18n_descriptions(self, i18n_descriptions: List[I18nContent]) -> "ItemBuilder":
         self._item.i18n_descriptions = i18n_descriptions
+        return self
+
+    def item_type(self, item_type: str) -> "ItemBuilder":
+        self._item.item_type = item_type
         return self
 
     def build(self) -> "Item":

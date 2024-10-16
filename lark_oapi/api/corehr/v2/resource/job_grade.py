@@ -9,6 +9,12 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
+from ..model.create_job_grade_request import CreateJobGradeRequest
+from ..model.create_job_grade_response import CreateJobGradeResponse
+from ..model.delete_job_grade_request import DeleteJobGradeRequest
+from ..model.delete_job_grade_response import DeleteJobGradeResponse
+from ..model.patch_job_grade_request import PatchJobGradeRequest
+from ..model.patch_job_grade_response import PatchJobGradeResponse
 from ..model.query_job_grade_request import QueryJobGradeRequest
 from ..model.query_job_grade_response import QueryJobGradeResponse
 
@@ -16,6 +22,117 @@ from ..model.query_job_grade_response import QueryJobGradeResponse
 class JobGrade(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    def create(self, request: CreateJobGradeRequest, option: Optional[RequestOption] = None) -> CreateJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: CreateJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobGradeResponse)
+        response.raw = resp
+
+        return response
+
+    async def acreate(self, request: CreateJobGradeRequest,
+                      option: Optional[RequestOption] = None) -> CreateJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: CreateJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobGradeResponse)
+        response.raw = resp
+
+        return response
+
+    def delete(self, request: DeleteJobGradeRequest, option: Optional[RequestOption] = None) -> DeleteJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobGradeResponse)
+        response.raw = resp
+
+        return response
+
+    async def adelete(self, request: DeleteJobGradeRequest,
+                      option: Optional[RequestOption] = None) -> DeleteJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: DeleteJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobGradeResponse)
+        response.raw = resp
+
+        return response
+
+    def patch(self, request: PatchJobGradeRequest, option: Optional[RequestOption] = None) -> PatchJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: PatchJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchJobGradeResponse)
+        response.raw = resp
+
+        return response
+
+    async def apatch(self, request: PatchJobGradeRequest,
+                     option: Optional[RequestOption] = None) -> PatchJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: PatchJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchJobGradeResponse)
+        response.raw = resp
+
+        return response
 
     def query(self, request: QueryJobGradeRequest, option: Optional[RequestOption] = None) -> QueryJobGradeResponse:
         if option is None:

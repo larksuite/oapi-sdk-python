@@ -10,6 +10,7 @@ class ListItemRequest(BaseRequest):
         super().__init__()
         self.page_size: Optional[int] = None
         self.page_token: Optional[str] = None
+        self.item_type: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListItemRequestBuilder":
@@ -33,6 +34,11 @@ class ListItemRequestBuilder(object):
     def page_token(self, page_token: str) -> "ListItemRequestBuilder":
         self._list_item_request.page_token = page_token
         self._list_item_request.add_query("page_token", page_token)
+        return self
+
+    def item_type(self, item_type: str) -> "ListItemRequestBuilder":
+        self._list_item_request.item_type = item_type
+        self._list_item_request.add_query("item_type", item_type)
         return self
 
     def build(self) -> ListItemRequest:

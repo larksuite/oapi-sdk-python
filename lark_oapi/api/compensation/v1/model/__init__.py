@@ -12,6 +12,13 @@ from .i18n_content import *
 from .indicator import *
 from .item import *
 from .item_category import *
+from .lump_sum_payment import *
+from .lump_sum_payment_detail import *
+from .lump_sum_payment_detail_for_create import *
+from .lump_sum_payment_detail_for_update import *
+from .lump_sum_payment_for_create import *
+from .lump_sum_payment_for_update import *
+from .lump_sum_payment_operate_result import *
 from .plan import *
 from .plan_condition import *
 from .plan_detail import *

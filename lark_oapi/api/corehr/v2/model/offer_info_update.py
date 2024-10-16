@@ -45,6 +45,7 @@ class OfferInfoUpdate(object):
         "employee_type_id": str,
         "employee_subtype_id": str,
         "direct_leader_id": str,
+        "dotted_line_manager_id": str,
         "department_id": str,
         "social_security_city": str,
         "work_location_id": str,
@@ -90,6 +91,7 @@ class OfferInfoUpdate(object):
         self.employee_type_id: Optional[str] = None
         self.employee_subtype_id: Optional[str] = None
         self.direct_leader_id: Optional[str] = None
+        self.dotted_line_manager_id: Optional[str] = None
         self.department_id: Optional[str] = None
         self.social_security_city: Optional[str] = None
         self.work_location_id: Optional[str] = None
@@ -249,6 +251,10 @@ class OfferInfoUpdateBuilder(object):
 
     def direct_leader_id(self, direct_leader_id: str) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.direct_leader_id = direct_leader_id
+        return self
+
+    def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.dotted_line_manager_id = dotted_line_manager_id
         return self
 
     def department_id(self, department_id: str) -> "OfferInfoUpdateBuilder":

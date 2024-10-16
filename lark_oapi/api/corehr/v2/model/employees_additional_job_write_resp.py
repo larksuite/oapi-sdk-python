@@ -26,6 +26,8 @@ class EmployeesAdditionalJobWriteResp(object):
         "service_company": str,
         "weekly_working_hours": str,
         "work_calendar_id": str,
+        "position_id": str,
+        "employee_subtype_id": str,
     }
 
     def __init__(self, d=None):
@@ -47,6 +49,8 @@ class EmployeesAdditionalJobWriteResp(object):
         self.service_company: Optional[str] = None
         self.weekly_working_hours: Optional[str] = None
         self.work_calendar_id: Optional[str] = None
+        self.position_id: Optional[str] = None
+        self.employee_subtype_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -128,6 +132,14 @@ class EmployeesAdditionalJobWriteRespBuilder(object):
 
     def work_calendar_id(self, work_calendar_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
         self._employees_additional_job_write_resp.work_calendar_id = work_calendar_id
+        return self
+
+    def position_id(self, position_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+        self._employees_additional_job_write_resp.position_id = position_id
+        return self
+
+    def employee_subtype_id(self, employee_subtype_id: str) -> "EmployeesAdditionalJobWriteRespBuilder":
+        self._employees_additional_job_write_resp.employee_subtype_id = employee_subtype_id
         return self
 
     def build(self) -> "EmployeesAdditionalJobWriteResp":

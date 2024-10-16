@@ -7,6 +7,9 @@ from .custom_list import *
 from .department_id import *
 from .device import *
 from .disable_inform_config import *
+from .key_point import *
+from .key_point_match_detail import *
+from .key_point_match_details import *
 from .material import *
 from .material_delete_result import *
 from .material_review_result import *
@@ -14,6 +17,7 @@ from .material_upload_result import *
 from .meeting import *
 from .meeting_recording import *
 from .meeting_ability import *
+from .meeting_analyze_output import *
 from .meeting_event_meeting import *
 from .meeting_event_user import *
 from .meeting_info import *
@@ -51,6 +55,9 @@ from .my_ai_vc_meeting_todo_task_result import *
 from .my_ai_vc_room_extra import *
 from .my_ai_vc_room_request_common_param import *
 from .my_ai_vc_room_scenario_context import *
+from .objective_check import *
+from .objective_check_output import *
+from .objective_check_param import *
 from .options import *
 from .participant import *
 from .participant_quality import *
@@ -86,6 +93,8 @@ from .room_meeting_reservation import *
 from .room_status import *
 from .room_status_event import *
 from .scope_config import *
+from .subjective_check import *
+from .subjective_check_output import *
 from .subscribe_department import *
 from .subscribe_user import *
 from .subscribe_user_event import *
