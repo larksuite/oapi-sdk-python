@@ -3,6 +3,9 @@
 import hashlib
 import json
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
+
+from requests_toolbelt.multipart.encoder import reset
+
 from lark_oapi.api.acs.v1.processor import *
 from lark_oapi.api.application.v6.processor import *
 from lark_oapi.api.approval.v4.processor import *
@@ -26,14 +29,19 @@ from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
 from lark_oapi.core.model import RawRequest, RawResponse
 from lark_oapi.core.utils import Strings, AESCipher
+from .callback.model.p2_card_action_tigger import P2CardActionTiggerResponse
+from .callback.model.p2_card_action_tigger import P2CardActionTigger
+from .callback.processor import P2CardActionTiggerProcessor
 from .context import EventContext
 from .custom import CustomizedEventProcessor, CustomizedEvent
+from .processor import ICallBackProcessor
 
 
 class EventDispatcherHandler(HttpHandler):
 
     def __init__(self) -> None:
         self._processorMap: Dict[str, IEventProcessor] = {}
+        self._callback_processor_map: Dict[str, ICallBackProcessor] = {}
         self._encrypt_key: Optional[str] = None
         self._verification_token: Optional[str] = None
 
@@ -78,16 +86,29 @@ class EventDispatcherHandler(HttpHandler):
                 # 否则验签
                 self._verify_sign(req)
 
-            processor: IEventProcessor = self._processorMap.get(f"{context.schema}.{context.type}")
-            if processor is None:
-                raise EventException(f"processor not found, type: {context.type}")
+            event_key = f"{context.schema}.{context.type}"
+            if event_key in self._callback_processor_map:
+                processor: ICallBackProcessor = self._callback_processor_map.get(event_key)
+                if processor is None:
+                    raise EventException(f"callback processor not found, type: {context.type}")
 
-            # 消息反序列化
-            data = JSON.unmarshal(plaintext, processor.type())
-            processor.do(data)
+                # 消息反序列化
+                data = JSON.unmarshal(plaintext, processor.type())
+                result = processor.do(data)
 
-            # 返回成功
-            resp.content = "{\"msg\":\"success\"}".encode(UTF_8)
+                # 返回成功
+                resp.content = JSON.marshal(result)
+            else:
+                processor: IEventProcessor = self._processorMap.get(event_key)
+                if processor is None:
+                    raise EventException(f"processor not found, type: {context.type}")
+
+                # 消息反序列化
+                data = JSON.unmarshal(plaintext, processor.type())
+                processor.do(data)
+
+                # 返回成功
+                resp.content = "{\"msg\":\"success\"}".encode(UTF_8)
             return resp
 
         except Exception as e:
@@ -99,7 +120,7 @@ class EventDispatcherHandler(HttpHandler):
 
             return resp
 
-    def do_without_validation(self, payload: bytes):
+    def do_without_validation(self, payload: bytes) -> Any:
         pl = payload.decode(UTF_8)
         context = JSON.unmarshal(pl, EventContext)
         if Strings.is_not_empty(context.schema):
@@ -112,13 +133,26 @@ class EventDispatcherHandler(HttpHandler):
             context.schema = "p1"
             context.type = context.event.get("type")
 
-        processor: IEventProcessor = self._processorMap.get(f"{context.schema}.{context.type}")
-        if processor is None:
-            raise EventException(f"processor not found, type: {context.type}")
+        event_key = f"{context.schema}.{context.type}"
+        if event_key in self._callback_processor_map:
+            processor: ICallBackProcessor = self._callback_processor_map.get(event_key)
+            if processor is None:
+                raise EventException(f"callback processor not found, type: {context.type}")
 
-        # 消息反序列化
-        data = JSON.unmarshal(pl, processor.type())
-        processor.do(data)
+            # 消息反序列化
+            data = JSON.unmarshal(pl, processor.type())
+            result = processor.do(data)
+
+            # 返回成功
+            return result
+        else:
+            processor: IEventProcessor = self._processorMap.get(f"{context.schema}.{context.type}")
+            if processor is None:
+                raise EventException(f"processor not found, type: {context.type}")
+
+            # 消息反序列化
+            data = JSON.unmarshal(pl, processor.type())
+            processor.do(data)
 
     def _decrypt(self, content: bytes) -> str:
         plaintext: str
@@ -153,6 +187,7 @@ class EventDispatcherHandlerBuilder(object):
         self._encrypt_key = encrypt_key
         self._verification_token = verification_token
         self._processorMap = {}
+        self._callback_processor_map = {}
 
     def register_p1_customized_event(self, event_type: str,
                                      f: Callable[[CustomizedEvent], None]) -> "EventDispatcherHandlerBuilder":
@@ -168,6 +203,13 @@ class EventDispatcherHandlerBuilder(object):
         if t in self._processorMap:
             raise EventException(f"processor already registered, type: {t}")
         self._processorMap[t] = CustomizedEventProcessor(f)
+        return self
+
+    def register_p2_card_action_tigger(self, f: Callable[
+        [P2CardActionTigger], P2CardActionTiggerResponse]) -> "EventDispatcherHandlerBuilder":
+        if "p2.card.action.trigger" in self._callback_processor_map:
+            raise EventException("processor already registered, type: p2.card.action.trigger")
+        self._callback_processor_map["p2.card.action.trigger"] = P2CardActionTiggerProcessor(f)
         return self
 
     def register_p2_acs_access_record_created_v1(self, f: Callable[
@@ -1282,4 +1324,5 @@ class EventDispatcherHandlerBuilder(object):
         event_dispatcher_handler._encrypt_key = self._encrypt_key
         event_dispatcher_handler._verification_token = self._verification_token
         event_dispatcher_handler._processorMap = self._processorMap
+        event_dispatcher_handler._callback_processor_map = self._callback_processor_map
         return event_dispatcher_handler

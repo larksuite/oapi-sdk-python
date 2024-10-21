@@ -1,4 +1,5 @@
 import asyncio
+import base64
 import http
 import random
 import time
@@ -259,7 +260,7 @@ class Client(object):
         try:
             start = int(round(time.time() * 1000))
             if message_type == MessageType.EVENT:
-                self._event_handler.do_without_validation(pl)
+                result = self._event_handler.do_without_validation(pl)
             elif message_type == MessageType.CARD:
                 return
             else:
@@ -268,6 +269,8 @@ class Client(object):
             header = hs.add()
             header.key = HEADER_BIZ_RT
             header.value = str(end - start)
+            if result is not None:
+                resp.data = base64.b64encode(JSON.marshal(result).encode(UTF_8))
         except Exception as e:
             logger.error(
                 self._fmt_log("handle message failed, message_type: {}, message_id: {}, trace_id: {}, err: {}",
