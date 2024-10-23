@@ -1,7 +1,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.event.context import EventContext
-from lark_oapi.event.callback.model.p2_card_action_tigger import CallBackOperator, CallBackContext, CallBackCard
+from lark_oapi.event.callback.model.p2_card_action_trigger import CallBackOperator, CallBackContext, CallBackCard
 
 
 class P2URLPreviewGetData(object):

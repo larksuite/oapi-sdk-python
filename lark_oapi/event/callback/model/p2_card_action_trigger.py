@@ -58,7 +58,7 @@ class CallBackAction(object):
         init(self, d, self._types)
 
 
-class P2CardActionTiggerData(object):
+class P2CardActionTriggerData(object):
     _types = {
         "operator": CallBackOperator,
         "token": str,
@@ -78,15 +78,15 @@ class P2CardActionTiggerData(object):
         init(self, d, self._types)
 
 
-class P2CardActionTigger(EventContext):
+class P2CardActionTrigger(EventContext):
     _types = {
-        "event": P2CardActionTiggerData
+        "event": P2CardActionTriggerData
     }
 
     def __init__(self, d=None):
         super().__init__(d)
         self._types.update(super()._types)
-        self.event: Optional[P2CardActionTiggerData] = None
+        self.event: Optional[P2CardActionTriggerData] = None
         init(self, d, self._types)
 
 
@@ -116,7 +116,7 @@ class CallBackCard(object):
         init(self, d, self._types)
 
 
-class P2CardActionTiggerResponse(object):
+class P2CardActionTriggerResponse(object):
     _types = {
         "toast": CallBackToast,
         "card": CallBackCard,

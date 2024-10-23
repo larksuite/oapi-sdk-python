@@ -1,18 +1,18 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 
 from lark_oapi.event.processor import ICallBackProcessor
-from .model.p2_card_action_tigger import P2CardActionTigger, P2CardActionTiggerResponse
+from .model.p2_card_action_trigger import P2CardActionTrigger, P2CardActionTriggerResponse
 from .model.p2_url_preview_get import P2URLPreviewGet, P2URLPreviewGetResponse
 
 
-class P2CardActionTiggerProcessor(ICallBackProcessor[P2CardActionTigger]):
-    def __init__(self, f: Callable[[P2CardActionTigger], P2CardActionTiggerResponse]):
+class P2CardActionTriggerProcessor(ICallBackProcessor[P2CardActionTrigger]):
+    def __init__(self, f: Callable[[P2CardActionTrigger], P2CardActionTriggerResponse]):
         self.f = f
 
-    def type(self) -> Type[P2CardActionTigger]:
-        return P2CardActionTigger
+    def type(self) -> Type[P2CardActionTrigger]:
+        return P2CardActionTrigger
 
-    def do(self, data: P2CardActionTigger) -> P2CardActionTiggerResponse:
+    def do(self, data: P2CardActionTrigger) -> P2CardActionTriggerResponse:
         return self.f(data)
 
 

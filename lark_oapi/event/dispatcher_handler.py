@@ -29,10 +29,10 @@ from lark_oapi.core.json import JSON
 from lark_oapi.core.log import logger
 from lark_oapi.core.model import RawRequest, RawResponse
 from lark_oapi.core.utils import Strings, AESCipher
-from .callback.model.p2_card_action_tigger import P2CardActionTiggerResponse
-from .callback.model.p2_card_action_tigger import P2CardActionTigger
+from .callback.model.p2_card_action_trigger import P2CardActionTriggerResponse
+from .callback.model.p2_card_action_trigger import P2CardActionTrigger
 from .callback.model.p2_url_preview_get import P2URLPreviewGet, P2URLPreviewGetResponse
-from .callback.processor import P2CardActionTiggerProcessor, P2URLPreviewGetProcessor
+from .callback.processor import P2CardActionTriggerProcessor, P2URLPreviewGetProcessor
 from .context import EventContext
 from .custom import CustomizedEventProcessor, CustomizedEvent
 from .processor import ICallBackProcessor
@@ -206,11 +206,11 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap[t] = CustomizedEventProcessor(f)
         return self
 
-    def register_p2_card_action_tigger(self, f: Callable[
-        [P2CardActionTigger], P2CardActionTiggerResponse]) -> "EventDispatcherHandlerBuilder":
+    def register_p2_card_action_trigger(self, f: Callable[
+        [P2CardActionTrigger], P2CardActionTriggerResponse]) -> "EventDispatcherHandlerBuilder":
         if "p2.card.action.trigger" in self._callback_processor_map:
             raise EventException("processor already registered, type: p2.card.action.trigger")
-        self._callback_processor_map["p2.card.action.trigger"] = P2CardActionTiggerProcessor(f)
+        self._callback_processor_map["p2.card.action.trigger"] = P2CardActionTriggerProcessor(f)
         return self
 
     def register_p2_url_preview_get(self, f: Callable[
