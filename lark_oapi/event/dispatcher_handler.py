@@ -31,7 +31,8 @@ from lark_oapi.core.model import RawRequest, RawResponse
 from lark_oapi.core.utils import Strings, AESCipher
 from .callback.model.p2_card_action_tigger import P2CardActionTiggerResponse
 from .callback.model.p2_card_action_tigger import P2CardActionTigger
-from .callback.processor import P2CardActionTiggerProcessor
+from .callback.model.p2_url_preview_get import P2URLPreviewGet, P2URLPreviewGetResponse
+from .callback.processor import P2CardActionTiggerProcessor, P2URLPreviewGetProcessor
 from .context import EventContext
 from .custom import CustomizedEventProcessor, CustomizedEvent
 from .processor import ICallBackProcessor
@@ -210,6 +211,13 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.card.action.trigger" in self._callback_processor_map:
             raise EventException("processor already registered, type: p2.card.action.trigger")
         self._callback_processor_map["p2.card.action.trigger"] = P2CardActionTiggerProcessor(f)
+        return self
+
+    def register_p2_url_preview_get(self, f: Callable[
+        [P2URLPreviewGet], P2URLPreviewGetResponse]) -> "EventDispatcherHandlerBuilder":
+        if "p2.url.preview.get" in self._callback_processor_map:
+            raise EventException("processor already registered, type: p2.url.preview.get")
+        self._callback_processor_map["p2.url.preview.get"] = P2URLPreviewGetProcessor(f)
         return self
 
     def register_p2_acs_access_record_created_v1(self, f: Callable[
