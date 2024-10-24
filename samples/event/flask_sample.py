@@ -1,3 +1,5 @@
+import threading
+import queue
 from flask import Flask
 
 import lark_oapi as lark
@@ -21,11 +23,27 @@ handler = lark.EventDispatcherHandler.builder(lark.ENCRYPT_KEY, lark.VERIFICATIO
     .build()
 
 
+q = queue.Queue()
+
+def worker():
+    while True:
+        request = q.get()
+        print(f'handler on {request}')
+        resp = handler.do(request)
+        print(f'Finished {resp}')
+        q.task_done()
+
+
 @app.route("/event", methods=["POST"])
 def event():
-    resp = handler.do(parse_req())
-    return parse_resp(resp)
+    # put event message to queue, do not block current request
+    # return empty
+    q.put_nowait(parse_req())
+    return
 
 
 if __name__ == "__main__":
+    # Turn-on the worker thread.
+    threading.Thread(target=worker, daemon=True).start()
+    # start flask server
     app.run(port=7777)
