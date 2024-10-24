@@ -2,9 +2,6 @@
 
 import hashlib
 import json
-from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
-
-from requests_toolbelt.multipart.encoder import reset
 
 from lark_oapi.api.acs.v1.processor import *
 from lark_oapi.api.application.v6.processor import *
@@ -98,7 +95,7 @@ class EventDispatcherHandler(HttpHandler):
                 result = processor.do(data)
 
                 # 返回成功
-                resp.content = JSON.marshal(result)
+                resp.content = JSON.marshal(result).encode(UTF_8)
             else:
                 processor: IEventProcessor = self._processorMap.get(event_key)
                 if processor is None:
