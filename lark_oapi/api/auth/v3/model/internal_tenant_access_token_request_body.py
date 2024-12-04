@@ -23,14 +23,12 @@ class InternalTenantAccessTokenRequestBody(object):
 class InternalTenantAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._internal_tenant_access_token_request_body = InternalTenantAccessTokenRequestBody()
-
     def app_id(self, app_id: str) -> "InternalTenantAccessTokenRequestBodyBuilder":
         self._internal_tenant_access_token_request_body.app_id = app_id
         return self
-
     def app_secret(self, app_secret: str) -> "InternalTenantAccessTokenRequestBodyBuilder":
         self._internal_tenant_access_token_request_body.app_secret = app_secret
         return self
-
+    
     def build(self) -> "InternalTenantAccessTokenRequestBody":
         return self._internal_tenant_access_token_request_body

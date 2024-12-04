@@ -27,18 +27,15 @@ class OfferCustomField(object):
 class OfferCustomFieldBuilder(object):
     def __init__(self) -> None:
         self._offer_custom_field = OfferCustomField()
-
     def id(self, id: str) -> "OfferCustomFieldBuilder":
         self._offer_custom_field.id = id
         return self
-
     def name(self, name: I18n) -> "OfferCustomFieldBuilder":
         self._offer_custom_field.name = name
         return self
-
     def config(self, config: OfferCustomFieldConfig) -> "OfferCustomFieldBuilder":
         self._offer_custom_field.config = config
         return self
-
+    
     def build(self) -> "OfferCustomField":
         return self._offer_custom_field

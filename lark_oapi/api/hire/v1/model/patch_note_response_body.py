@@ -22,10 +22,9 @@ class PatchNoteResponseBody(object):
 class PatchNoteResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_note_response_body = PatchNoteResponseBody()
-
     def note(self, note: Note) -> "PatchNoteResponseBodyBuilder":
         self._patch_note_response_body.note = note
         return self
-
+    
     def build(self) -> "PatchNoteResponseBody":
         return self._patch_note_response_body

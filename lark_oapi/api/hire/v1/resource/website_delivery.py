@@ -19,8 +19,7 @@ class WebsiteDelivery(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create_by_attachment(self, request: CreateByAttachmentWebsiteDeliveryRequest,
-                             option: Optional[RequestOption] = None) -> CreateByAttachmentWebsiteDeliveryResponse:
+    def create_by_attachment(self, request: CreateByAttachmentWebsiteDeliveryRequest, option: Optional[RequestOption] = None) -> CreateByAttachmentWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class WebsiteDelivery(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateByAttachmentWebsiteDeliveryResponse)
+        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateByAttachmentWebsiteDeliveryResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate_by_attachment(self, request: CreateByAttachmentWebsiteDeliveryRequest, option: Optional[
-        RequestOption] = None) -> CreateByAttachmentWebsiteDeliveryResponse:
+    async def acreate_by_attachment(self, request: CreateByAttachmentWebsiteDeliveryRequest, option: Optional[RequestOption] = None) -> CreateByAttachmentWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateByAttachmentWebsiteDeliveryResponse)
+        response: CreateByAttachmentWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateByAttachmentWebsiteDeliveryResponse)
         response.raw = resp
 
         return response
-
-    def create_by_resume(self, request: CreateByResumeWebsiteDeliveryRequest,
-                         option: Optional[RequestOption] = None) -> CreateByResumeWebsiteDeliveryResponse:
+        
+    def create_by_resume(self, request: CreateByResumeWebsiteDeliveryRequest, option: Optional[RequestOption] = None) -> CreateByResumeWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class WebsiteDelivery(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         CreateByResumeWebsiteDeliveryResponse)
+        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateByResumeWebsiteDeliveryResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate_by_resume(self, request: CreateByResumeWebsiteDeliveryRequest,
-                                option: Optional[RequestOption] = None) -> CreateByResumeWebsiteDeliveryResponse:
+    async def acreate_by_resume(self, request: CreateByResumeWebsiteDeliveryRequest, option: Optional[RequestOption] = None) -> CreateByResumeWebsiteDeliveryResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         CreateByResumeWebsiteDeliveryResponse)
+        response: CreateByResumeWebsiteDeliveryResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateByResumeWebsiteDeliveryResponse)
         response.raw = resp
 
         return response
+        
+    

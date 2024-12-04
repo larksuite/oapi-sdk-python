@@ -23,14 +23,12 @@ class VatEntity(object):
 class VatEntityBuilder(object):
     def __init__(self) -> None:
         self._vat_entity = VatEntity()
-
     def type(self, type: str) -> "VatEntityBuilder":
         self._vat_entity.type = type
         return self
-
     def value(self, value: str) -> "VatEntityBuilder":
         self._vat_entity.value = value
         return self
-
+    
     def build(self) -> "VatEntity":
         return self._vat_entity

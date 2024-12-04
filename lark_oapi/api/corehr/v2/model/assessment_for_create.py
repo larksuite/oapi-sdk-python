@@ -33,34 +33,27 @@ class AssessmentForCreate(object):
 class AssessmentForCreateBuilder(object):
     def __init__(self) -> None:
         self._assessment_for_create = AssessmentForCreate()
-
     def assessment_status(self, assessment_status: str) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_status = assessment_status
         return self
-
     def assessment_result(self, assessment_result: str) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_result = assessment_result
         return self
-
     def assessment_score(self, assessment_score: float) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_score = assessment_score
         return self
-
     def assessment_grade(self, assessment_grade: str) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_grade = assessment_grade
         return self
-
     def assessment_comment(self, assessment_comment: str) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_comment = assessment_comment
         return self
-
     def assessment_detail(self, assessment_detail: str) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.assessment_detail = assessment_detail
         return self
-
     def is_final_asssessment(self, is_final_asssessment: bool) -> "AssessmentForCreateBuilder":
         self._assessment_for_create.is_final_asssessment = is_final_asssessment
         return self
-
+    
     def build(self) -> "AssessmentForCreate":
         return self._assessment_for_create

@@ -36,30 +36,32 @@ class JobGrade(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobGradeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateJobGradeRequest,
-                      option: Optional[RequestOption] = None) -> CreateJobGradeResponse:
+    async def acreate(self, request: CreateJobGradeRequest, option: Optional[RequestOption] = None) -> CreateJobGradeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobGradeResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeleteJobGradeRequest, option: Optional[RequestOption] = None) -> DeleteJobGradeResponse:
         if option is None:
             option = RequestOption()
@@ -73,30 +75,32 @@ class JobGrade(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobGradeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteJobGradeRequest,
-                      option: Optional[RequestOption] = None) -> DeleteJobGradeResponse:
+    async def adelete(self, request: DeleteJobGradeRequest, option: Optional[RequestOption] = None) -> DeleteJobGradeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobGradeResponse)
         response.raw = resp
 
         return response
-
+        
     def patch(self, request: PatchJobGradeRequest, option: Optional[RequestOption] = None) -> PatchJobGradeResponse:
         if option is None:
             option = RequestOption()
@@ -110,30 +114,32 @@ class JobGrade(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchJobGradeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchJobGradeRequest,
-                     option: Optional[RequestOption] = None) -> PatchJobGradeResponse:
+    async def apatch(self, request: PatchJobGradeRequest, option: Optional[RequestOption] = None) -> PatchJobGradeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchJobGradeResponse)
         response.raw = resp
 
         return response
-
+        
     def query(self, request: QueryJobGradeRequest, option: Optional[RequestOption] = None) -> QueryJobGradeResponse:
         if option is None:
             option = RequestOption()
@@ -147,26 +153,30 @@ class JobGrade(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryJobGradeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryJobGradeRequest,
-                     option: Optional[RequestOption] = None) -> QueryJobGradeResponse:
+    async def aquery(self, request: QueryJobGradeRequest, option: Optional[RequestOption] = None) -> QueryJobGradeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryJobGradeResponse)
         response.raw = resp
 
         return response
+        
+    

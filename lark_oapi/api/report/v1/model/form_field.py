@@ -23,14 +23,12 @@ class FormField(object):
 class FormFieldBuilder(object):
     def __init__(self) -> None:
         self._form_field = FormField()
-
     def name(self, name: str) -> "FormFieldBuilder":
         self._form_field.name = name
         return self
-
     def type(self, type: str) -> "FormFieldBuilder":
         self._form_field.type = type
         return self
-
+    
     def build(self) -> "FormField":
         return self._form_field

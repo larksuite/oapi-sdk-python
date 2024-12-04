@@ -52,62 +52,48 @@ class LocationV2(object):
 class LocationV2Builder(object):
     def __init__(self) -> None:
         self._location_v2 = LocationV2()
-
     def location_id(self, location_id: str) -> "LocationV2Builder":
         self._location_v2.location_id = location_id
         return self
-
     def parent_location_id(self, parent_location_id: str) -> "LocationV2Builder":
         self._location_v2.parent_location_id = parent_location_id
         return self
-
     def names(self, names: List[I18n]) -> "LocationV2Builder":
         self._location_v2.names = names
         return self
-
     def code(self, code: str) -> "LocationV2Builder":
         self._location_v2.code = code
         return self
-
     def active(self, active: bool) -> "LocationV2Builder":
         self._location_v2.active = active
         return self
-
     def location_usages(self, location_usages: List[Enum]) -> "LocationV2Builder":
         self._location_v2.location_usages = location_usages
         return self
-
     def addresses(self, addresses: List[Address]) -> "LocationV2Builder":
         self._location_v2.addresses = addresses
         return self
-
     def working_hours_type_id(self, working_hours_type_id: str) -> "LocationV2Builder":
         self._location_v2.working_hours_type_id = working_hours_type_id
         return self
-
     def effective_time(self, effective_time: str) -> "LocationV2Builder":
         self._location_v2.effective_time = effective_time
         return self
-
     def expiration_time(self, expiration_time: str) -> "LocationV2Builder":
         self._location_v2.expiration_time = expiration_time
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "LocationV2Builder":
         self._location_v2.custom_fields = custom_fields
         return self
-
     def locale(self, locale: Enum) -> "LocationV2Builder":
         self._location_v2.locale = locale
         return self
-
     def time_zone_id(self, time_zone_id: str) -> "LocationV2Builder":
         self._location_v2.time_zone_id = time_zone_id
         return self
-
     def display_language_id(self, display_language_id: str) -> "LocationV2Builder":
         self._location_v2.display_language_id = display_language_id
         return self
-
+    
     def build(self) -> "LocationV2":
         return self._location_v2

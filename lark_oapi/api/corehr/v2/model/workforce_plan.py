@@ -30,26 +30,21 @@ class WorkforcePlan(object):
 class WorkforcePlanBuilder(object):
     def __init__(self) -> None:
         self._workforce_plan = WorkforcePlan()
-
     def workforce_plan_id(self, workforce_plan_id: str) -> "WorkforcePlanBuilder":
         self._workforce_plan.workforce_plan_id = workforce_plan_id
         return self
-
     def workforce_plan_name(self, workforce_plan_name: List[I18n]) -> "WorkforcePlanBuilder":
         self._workforce_plan.workforce_plan_name = workforce_plan_name
         return self
-
     def start_date(self, start_date: str) -> "WorkforcePlanBuilder":
         self._workforce_plan.start_date = start_date
         return self
-
     def end_date(self, end_date: str) -> "WorkforcePlanBuilder":
         self._workforce_plan.end_date = end_date
         return self
-
     def active(self, active: bool) -> "WorkforcePlanBuilder":
         self._workforce_plan.active = active
         return self
-
+    
     def build(self) -> "WorkforcePlan":
         return self._workforce_plan

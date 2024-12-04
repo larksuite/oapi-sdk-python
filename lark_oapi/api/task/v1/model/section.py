@@ -19,6 +19,6 @@ class Section(object):
 class SectionBuilder(object):
     def __init__(self) -> None:
         self._section = Section()
-
+    
     def build(self) -> "Section":
         return self._section

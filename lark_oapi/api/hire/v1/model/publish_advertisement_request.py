@@ -25,12 +25,12 @@ class PublishAdvertisementRequestBuilder(object):
         publish_advertisement_request.uri = "/open-apis/hire/v1/advertisements/:advertisement_id/publish"
         publish_advertisement_request.token_types = {AccessTokenType.TENANT}
         self._publish_advertisement_request: PublishAdvertisementRequest = publish_advertisement_request
-
+    
     def advertisement_id(self, advertisement_id: str) -> "PublishAdvertisementRequestBuilder":
         self._publish_advertisement_request.advertisement_id = advertisement_id
         self._publish_advertisement_request.paths["advertisement_id"] = str(advertisement_id)
         return self
-
+    
     def request_body(self, request_body: PublishAdvertisementRequestBody) -> "PublishAdvertisementRequestBuilder":
         self._publish_advertisement_request.request_body = request_body
         self._publish_advertisement_request.body = request_body

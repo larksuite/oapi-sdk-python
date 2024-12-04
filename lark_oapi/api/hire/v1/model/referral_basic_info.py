@@ -32,30 +32,24 @@ class ReferralBasicInfo(object):
 class ReferralBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._referral_basic_info = ReferralBasicInfo()
-
     def id(self, id: str) -> "ReferralBasicInfoBuilder":
         self._referral_basic_info.id = id
         return self
-
     def application_id(self, application_id: str) -> "ReferralBasicInfoBuilder":
         self._referral_basic_info.application_id = application_id
         return self
-
     def referral_type(self, referral_type: int) -> "ReferralBasicInfoBuilder":
         self._referral_basic_info.referral_type = referral_type
         return self
-
     def user_info(self, user_info: BasicUserInfo) -> "ReferralBasicInfoBuilder":
         self._referral_basic_info.user_info = user_info
         return self
-
     def create_time(self, create_time: str) -> "ReferralBasicInfoBuilder":
         self._referral_basic_info.create_time = create_time
         return self
-
     def referral_method(self, referral_method: int) -> "ReferralBasicInfoBuilder":
         self._referral_basic_info.referral_method = referral_method
         return self
-
+    
     def build(self) -> "ReferralBasicInfo":
         return self._referral_basic_info

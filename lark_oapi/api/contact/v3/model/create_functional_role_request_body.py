@@ -21,10 +21,9 @@ class CreateFunctionalRoleRequestBody(object):
 class CreateFunctionalRoleRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_functional_role_request_body = CreateFunctionalRoleRequestBody()
-
     def role_name(self, role_name: str) -> "CreateFunctionalRoleRequestBodyBuilder":
         self._create_functional_role_request_body.role_name = role_name
         return self
-
+    
     def build(self) -> "CreateFunctionalRoleRequestBody":
         return self._create_functional_role_request_body

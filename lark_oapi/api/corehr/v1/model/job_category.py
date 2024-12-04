@@ -21,10 +21,9 @@ class JobCategory(object):
 class JobCategoryBuilder(object):
     def __init__(self) -> None:
         self._job_category = JobCategory()
-
     def id(self, id: str) -> "JobCategoryBuilder":
         self._job_category.id = id
         return self
-
+    
     def build(self) -> "JobCategory":
         return self._job_category

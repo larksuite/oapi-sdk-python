@@ -47,6 +47,7 @@ def main():
                       .job_type_id("6930815272790114324")
                       .job_id_list([])
                       .employment_job_id("123")
+                      .position_id("123")
                       .build()) \
         .build()
 
@@ -107,6 +108,7 @@ async def amain():
                       .job_type_id("6930815272790114324")
                       .job_id_list([])
                       .employment_job_id("123")
+                      .position_id("123")
                       .build()) \
         .build()
 

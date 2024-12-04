@@ -21,10 +21,9 @@ class MgetRoomLevelRequestBody(object):
 class MgetRoomLevelRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._mget_room_level_request_body = MgetRoomLevelRequestBody()
-
     def level_ids(self, level_ids: List[str]) -> "MgetRoomLevelRequestBodyBuilder":
         self._mget_room_level_request_body.level_ids = level_ids
         return self
-
+    
     def build(self) -> "MgetRoomLevelRequestBody":
         return self._mget_room_level_request_body

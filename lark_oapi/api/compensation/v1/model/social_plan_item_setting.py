@@ -31,30 +31,24 @@ class SocialPlanItemSetting(object):
 class SocialPlanItemSettingBuilder(object):
     def __init__(self) -> None:
         self._social_plan_item_setting = SocialPlanItemSetting()
-
     def lower_limit(self, lower_limit: str) -> "SocialPlanItemSettingBuilder":
         self._social_plan_item_setting.lower_limit = lower_limit
         return self
-
     def upper_limit(self, upper_limit: str) -> "SocialPlanItemSettingBuilder":
         self._social_plan_item_setting.upper_limit = upper_limit
         return self
-
     def payment_ratio(self, payment_ratio: str) -> "SocialPlanItemSettingBuilder":
         self._social_plan_item_setting.payment_ratio = payment_ratio
         return self
-
     def payment_rounding_rule(self, payment_rounding_rule: str) -> "SocialPlanItemSettingBuilder":
         self._social_plan_item_setting.payment_rounding_rule = payment_rounding_rule
         return self
-
     def payment_decimals(self, payment_decimals: int) -> "SocialPlanItemSettingBuilder":
         self._social_plan_item_setting.payment_decimals = payment_decimals
         return self
-
     def fixed_payment(self, fixed_payment: str) -> "SocialPlanItemSettingBuilder":
         self._social_plan_item_setting.fixed_payment = fixed_payment
         return self
-
+    
     def build(self) -> "SocialPlanItemSetting":
         return self._social_plan_item_setting

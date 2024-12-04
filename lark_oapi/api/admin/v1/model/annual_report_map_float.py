@@ -23,14 +23,12 @@ class AnnualReportMapFloat(object):
 class AnnualReportMapFloatBuilder(object):
     def __init__(self) -> None:
         self._annual_report_map_float = AnnualReportMapFloat()
-
     def year(self, year: str) -> "AnnualReportMapFloatBuilder":
         self._annual_report_map_float.year = year
         return self
-
     def num(self, num: float) -> "AnnualReportMapFloatBuilder":
         self._annual_report_map_float.num = num
         return self
-
+    
     def build(self) -> "AnnualReportMapFloat":
         return self._annual_report_map_float

@@ -11,6 +11,7 @@ class CommonFilter(object):
         "value_type": int,
         "value_list": List[str],
         "range_filter": RangeFilter,
+        "user_id_list": List[str],
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class CommonFilter(object):
         self.value_type: Optional[int] = None
         self.value_list: Optional[List[str]] = None
         self.range_filter: Optional[RangeFilter] = None
+        self.user_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -28,22 +30,21 @@ class CommonFilter(object):
 class CommonFilterBuilder(object):
     def __init__(self) -> None:
         self._common_filter = CommonFilter()
-
     def key(self, key: str) -> "CommonFilterBuilder":
         self._common_filter.key = key
         return self
-
     def value_type(self, value_type: int) -> "CommonFilterBuilder":
         self._common_filter.value_type = value_type
         return self
-
     def value_list(self, value_list: List[str]) -> "CommonFilterBuilder":
         self._common_filter.value_list = value_list
         return self
-
     def range_filter(self, range_filter: RangeFilter) -> "CommonFilterBuilder":
         self._common_filter.range_filter = range_filter
         return self
-
+    def user_id_list(self, user_id_list: List[str]) -> "CommonFilterBuilder":
+        self._common_filter.user_id_list = user_id_list
+        return self
+    
     def build(self) -> "CommonFilter":
         return self._common_filter

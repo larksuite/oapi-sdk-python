@@ -22,10 +22,9 @@ class ListRepoResponseBody(object):
 class ListRepoResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_repo_response_body = ListRepoResponseBody()
-
     def items(self, items: List[Repo]) -> "ListRepoResponseBodyBuilder":
         self._list_repo_response_body.items = items
         return self
-
+    
     def build(self) -> "ListRepoResponseBody":
         return self._list_repo_response_body

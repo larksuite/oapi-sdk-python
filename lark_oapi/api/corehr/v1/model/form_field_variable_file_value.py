@@ -29,26 +29,21 @@ class FormFieldVariableFileValue(object):
 class FormFieldVariableFileValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_file_value = FormFieldVariableFileValue()
-
     def source_type(self, source_type: int) -> "FormFieldVariableFileValueBuilder":
         self._form_field_variable_file_value.source_type = source_type
         return self
-
     def file_id(self, file_id: str) -> "FormFieldVariableFileValueBuilder":
         self._form_field_variable_file_value.file_id = file_id
         return self
-
     def file_name(self, file_name: str) -> "FormFieldVariableFileValueBuilder":
         self._form_field_variable_file_value.file_name = file_name
         return self
-
     def length(self, length: int) -> "FormFieldVariableFileValueBuilder":
         self._form_field_variable_file_value.length = length
         return self
-
     def mime_type(self, mime_type: str) -> "FormFieldVariableFileValueBuilder":
         self._form_field_variable_file_value.mime_type = mime_type
         return self
-
+    
     def build(self) -> "FormFieldVariableFileValue":
         return self._form_field_variable_file_value

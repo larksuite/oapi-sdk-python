@@ -28,22 +28,18 @@ class SearchEntityRequestBody(object):
 class SearchEntityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_entity_request_body = SearchEntityRequestBody()
-
     def query(self, query: str) -> "SearchEntityRequestBodyBuilder":
         self._search_entity_request_body.query = query
         return self
-
     def classification_filter(self, classification_filter: ClassificationFilter) -> "SearchEntityRequestBodyBuilder":
         self._search_entity_request_body.classification_filter = classification_filter
         return self
-
     def sources(self, sources: List[int]) -> "SearchEntityRequestBodyBuilder":
         self._search_entity_request_body.sources = sources
         return self
-
     def creators(self, creators: List[str]) -> "SearchEntityRequestBodyBuilder":
         self._search_entity_request_body.creators = creators
         return self
-
+    
     def build(self) -> "SearchEntityRequestBody":
         return self._search_entity_request_body

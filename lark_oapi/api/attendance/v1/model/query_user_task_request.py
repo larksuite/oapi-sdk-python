@@ -27,22 +27,22 @@ class QueryUserTaskRequestBuilder(object):
         query_user_task_request.uri = "/open-apis/attendance/v1/user_tasks/query"
         query_user_task_request.token_types = {AccessTokenType.TENANT}
         self._query_user_task_request: QueryUserTaskRequest = query_user_task_request
-
+    
     def employee_type(self, employee_type: str) -> "QueryUserTaskRequestBuilder":
         self._query_user_task_request.employee_type = employee_type
         self._query_user_task_request.add_query("employee_type", employee_type)
         return self
-
+    
     def ignore_invalid_users(self, ignore_invalid_users: bool) -> "QueryUserTaskRequestBuilder":
         self._query_user_task_request.ignore_invalid_users = ignore_invalid_users
         self._query_user_task_request.add_query("ignore_invalid_users", ignore_invalid_users)
         return self
-
+    
     def include_terminated_user(self, include_terminated_user: bool) -> "QueryUserTaskRequestBuilder":
         self._query_user_task_request.include_terminated_user = include_terminated_user
         self._query_user_task_request.add_query("include_terminated_user", include_terminated_user)
         return self
-
+    
     def request_body(self, request_body: QueryUserTaskRequestBody) -> "QueryUserTaskRequestBuilder":
         self._query_user_task_request.request_body = request_body
         self._query_user_task_request.body = request_body

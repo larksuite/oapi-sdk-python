@@ -49,62 +49,48 @@ class SocialArchiveDetail(object):
 class SocialArchiveDetailBuilder(object):
     def __init__(self) -> None:
         self._social_archive_detail = SocialArchiveDetail()
-
     def description(self, description: I18n) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.description = description
         return self
-
     def insurance_type(self, insurance_type: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.insurance_type = insurance_type
         return self
-
     def insurance_status(self, insurance_status: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.insurance_status = insurance_status
         return self
-
     def id(self, id: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.id = id
         return self
-
     def tid(self, tid: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.tid = tid
         return self
-
     def plan_id(self, plan_id: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.plan_id = plan_id
         return self
-
     def plan_tid(self, plan_tid: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.plan_tid = plan_tid
         return self
-
     def location_id(self, location_id: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.location_id = location_id
         return self
-
     def company_id(self, company_id: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.company_id = company_id
         return self
-
     def account_type(self, account_type: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.account_type = account_type
         return self
-
     def insurance_account(self, insurance_account: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.insurance_account = insurance_account
         return self
-
     def base_salary(self, base_salary: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.base_salary = base_salary
         return self
-
     def insurance_details(self, insurance_details: List[SocialArchiveItem]) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.insurance_details = insurance_details
         return self
-
     def effective_date(self, effective_date: str) -> "SocialArchiveDetailBuilder":
         self._social_archive_detail.effective_date = effective_date
         return self
-
+    
     def build(self) -> "SocialArchiveDetail":
         return self._social_archive_detail

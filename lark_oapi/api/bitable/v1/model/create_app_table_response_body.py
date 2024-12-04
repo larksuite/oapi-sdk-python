@@ -25,18 +25,15 @@ class CreateAppTableResponseBody(object):
 class CreateAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_table_response_body = CreateAppTableResponseBody()
-
     def table_id(self, table_id: str) -> "CreateAppTableResponseBodyBuilder":
         self._create_app_table_response_body.table_id = table_id
         return self
-
     def default_view_id(self, default_view_id: str) -> "CreateAppTableResponseBodyBuilder":
         self._create_app_table_response_body.default_view_id = default_view_id
         return self
-
     def field_id_list(self, field_id_list: List[str]) -> "CreateAppTableResponseBodyBuilder":
         self._create_app_table_response_body.field_id_list = field_id_list
         return self
-
+    
     def build(self) -> "CreateAppTableResponseBody":
         return self._create_app_table_response_body

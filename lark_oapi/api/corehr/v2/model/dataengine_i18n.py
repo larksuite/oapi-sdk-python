@@ -23,14 +23,12 @@ class DataengineI18n(object):
 class DataengineI18nBuilder(object):
     def __init__(self) -> None:
         self._dataengine_i18n = DataengineI18n()
-
     def zh_cn(self, zh_cn: str) -> "DataengineI18nBuilder":
         self._dataengine_i18n.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "DataengineI18nBuilder":
         self._dataengine_i18n.en_us = en_us
         return self
-
+    
     def build(self) -> "DataengineI18n":
         return self._dataengine_i18n

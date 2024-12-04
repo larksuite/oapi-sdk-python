@@ -1,5 +1,4 @@
 from .attachment import *
-from .attatchment import *
 from .collaborator import *
 from .comment import *
 from .department_id import *

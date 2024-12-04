@@ -25,18 +25,15 @@ class ProcessLink(object):
 class ProcessLinkBuilder(object):
     def __init__(self) -> None:
         self._process_link = ProcessLink()
-
     def web_link(self, web_link: str) -> "ProcessLinkBuilder":
         self._process_link.web_link = web_link
         return self
-
     def pc_link(self, pc_link: str) -> "ProcessLinkBuilder":
         self._process_link.pc_link = pc_link
         return self
-
     def mobile_link(self, mobile_link: str) -> "ProcessLinkBuilder":
         self._process_link.mobile_link = mobile_link
         return self
-
+    
     def build(self) -> "ProcessLink":
         return self._process_link

@@ -17,8 +17,7 @@ class ApplicationManagement(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateApplicationManagementRequest,
-               option: Optional[RequestOption] = None) -> UpdateApplicationManagementResponse:
+    def update(self, request: UpdateApplicationManagementRequest, option: Optional[RequestOption] = None) -> UpdateApplicationManagementResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class ApplicationManagement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateApplicationManagementResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UpdateApplicationManagementResponse)
+        response: UpdateApplicationManagementResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateApplicationManagementResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate(self, request: UpdateApplicationManagementRequest,
-                      option: Optional[RequestOption] = None) -> UpdateApplicationManagementResponse:
+    async def aupdate(self, request: UpdateApplicationManagementRequest, option: Optional[RequestOption] = None) -> UpdateApplicationManagementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateApplicationManagementResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       UpdateApplicationManagementResponse)
+        response: UpdateApplicationManagementResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateApplicationManagementResponse)
         response.raw = resp
 
         return response
+        
+    

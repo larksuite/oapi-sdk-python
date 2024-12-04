@@ -21,10 +21,9 @@ class ClearDataValidation(object):
 class ClearDataValidationBuilder(object):
     def __init__(self) -> None:
         self._clear_data_validation = ClearDataValidation()
-
     def ranges(self, ranges: List[str]) -> "ClearDataValidationBuilder":
         self._clear_data_validation.ranges = ranges
         return self
-
+    
     def build(self) -> "ClearDataValidation":
         return self._clear_data_validation

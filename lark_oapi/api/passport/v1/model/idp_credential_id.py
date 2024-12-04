@@ -21,10 +21,9 @@ class IdpCredentialId(object):
 class IdpCredentialIdBuilder(object):
     def __init__(self) -> None:
         self._idp_credential_id = IdpCredentialId()
-
     def idp_credential_id(self, idp_credential_id: str) -> "IdpCredentialIdBuilder":
         self._idp_credential_id.idp_credential_id = idp_credential_id
         return self
-
+    
     def build(self) -> "IdpCredentialId":
         return self._idp_credential_id

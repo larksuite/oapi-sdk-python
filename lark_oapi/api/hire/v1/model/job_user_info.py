@@ -24,14 +24,12 @@ class JobUserInfo(object):
 class JobUserInfoBuilder(object):
     def __init__(self) -> None:
         self._job_user_info = JobUserInfo()
-
     def id(self, id: str) -> "JobUserInfoBuilder":
         self._job_user_info.id = id
         return self
-
     def name(self, name: I18n) -> "JobUserInfoBuilder":
         self._job_user_info.name = name
         return self
-
+    
     def build(self) -> "JobUserInfo":
         return self._job_user_info

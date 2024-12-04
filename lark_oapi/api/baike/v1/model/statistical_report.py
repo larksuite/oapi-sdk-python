@@ -29,22 +29,18 @@ class StatisticalReport(object):
 class StatisticalReportBuilder(object):
     def __init__(self) -> None:
         self._statistical_report = StatisticalReport()
-
     def date_interval(self, date_interval: int) -> "StatisticalReportBuilder":
         self._statistical_report.date_interval = date_interval
         return self
-
     def word_info(self, word_info: WordInfo) -> "StatisticalReportBuilder":
         self._statistical_report.word_info = word_info
         return self
-
     def correct_info(self, correct_info: CorrectInfo) -> "StatisticalReportBuilder":
         self._statistical_report.correct_info = correct_info
         return self
-
     def update_date(self, update_date: int) -> "StatisticalReportBuilder":
         self._statistical_report.update_date = update_date
         return self
-
+    
     def build(self) -> "StatisticalReport":
         return self._statistical_report

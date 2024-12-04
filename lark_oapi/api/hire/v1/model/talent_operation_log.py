@@ -32,30 +32,24 @@ class TalentOperationLog(object):
 class TalentOperationLogBuilder(object):
     def __init__(self) -> None:
         self._talent_operation_log = TalentOperationLog()
-
     def application_id(self, application_id: str) -> "TalentOperationLogBuilder":
         self._talent_operation_log.application_id = application_id
         return self
-
     def talent_id(self, talent_id: str) -> "TalentOperationLogBuilder":
         self._talent_operation_log.talent_id = talent_id
         return self
-
     def operator(self, operator: IdNameObject) -> "TalentOperationLogBuilder":
         self._talent_operation_log.operator = operator
         return self
-
     def operation_type(self, operation_type: int) -> "TalentOperationLogBuilder":
         self._talent_operation_log.operation_type = operation_type
         return self
-
     def operation_time(self, operation_time: str) -> "TalentOperationLogBuilder":
         self._talent_operation_log.operation_time = operation_time
         return self
-
     def operator_type(self, operator_type: int) -> "TalentOperationLogBuilder":
         self._talent_operation_log.operator_type = operator_type
         return self
-
+    
     def build(self) -> "TalentOperationLog":
         return self._talent_operation_log

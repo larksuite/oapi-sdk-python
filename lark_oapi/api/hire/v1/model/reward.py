@@ -67,82 +67,63 @@ class Reward(object):
 class RewardBuilder(object):
     def __init__(self) -> None:
         self._reward = Reward()
-
     def id(self, id: str) -> "RewardBuilder":
         self._reward.id = id
         return self
-
     def referrer(self, referrer: RewardUser) -> "RewardBuilder":
         self._reward.referrer = referrer
         return self
-
     def candidate(self, candidate: RewardCandidate) -> "RewardBuilder":
         self._reward.candidate = candidate
         return self
-
     def referral_job(self, referral_job: ObjectIdName) -> "RewardBuilder":
         self._reward.referral_job = referral_job
         return self
-
     def reason(self, reason: I18n) -> "RewardBuilder":
         self._reward.reason = reason
         return self
-
     def bonus(self, bonus: BonusAmount) -> "RewardBuilder":
         self._reward.bonus = bonus
         return self
-
     def create_time(self, create_time: str) -> "RewardBuilder":
         self._reward.create_time = create_time
         return self
-
     def rule(self, rule: ObjectIdName) -> "RewardBuilder":
         self._reward.rule = rule
         return self
-
     def reward_type(self, reward_type: int) -> "RewardBuilder":
         self._reward.reward_type = reward_type
         return self
-
     def job_manager(self, job_manager: RewardUser) -> "RewardBuilder":
         self._reward.job_manager = job_manager
         return self
-
     def offer_manager(self, offer_manager: RewardUser) -> "RewardBuilder":
         self._reward.offer_manager = offer_manager
         return self
-
     def onborad_time(self, onborad_time: str) -> "RewardBuilder":
         self._reward.onborad_time = onborad_time
         return self
-
     def conversion_time(self, conversion_time: str) -> "RewardBuilder":
         self._reward.conversion_time = conversion_time
         return self
-
     def confirm_user(self, confirm_user: RewardUser) -> "RewardBuilder":
         self._reward.confirm_user = confirm_user
         return self
-
     def confirm_time(self, confirm_time: str) -> "RewardBuilder":
         self._reward.confirm_time = confirm_time
         return self
-
     def pay_user(self, pay_user: RewardUser) -> "RewardBuilder":
         self._reward.pay_user = pay_user
         return self
-
     def pay_time(self, pay_time: str) -> "RewardBuilder":
         self._reward.pay_time = pay_time
         return self
-
     def stage(self, stage: int) -> "RewardBuilder":
         self._reward.stage = stage
         return self
-
     def is_import(self, is_import: bool) -> "RewardBuilder":
         self._reward.is_import = is_import
         return self
-
+    
     def build(self) -> "Reward":
         return self._reward

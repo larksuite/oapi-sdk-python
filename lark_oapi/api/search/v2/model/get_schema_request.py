@@ -23,11 +23,12 @@ class GetSchemaRequestBuilder(object):
         get_schema_request.uri = "/open-apis/search/v2/schemas/:schema_id"
         get_schema_request.token_types = {AccessTokenType.TENANT}
         self._get_schema_request: GetSchemaRequest = get_schema_request
-
+    
     def schema_id(self, schema_id: str) -> "GetSchemaRequestBuilder":
         self._get_schema_request.schema_id = schema_id
         self._get_schema_request.paths["schema_id"] = str(schema_id)
         return self
+    
 
     def build(self) -> GetSchemaRequest:
         return self._get_schema_request

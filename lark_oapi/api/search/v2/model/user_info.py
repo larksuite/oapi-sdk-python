@@ -31,30 +31,24 @@ class UserInfo(object):
 class UserInfoBuilder(object):
     def __init__(self) -> None:
         self._user_info = UserInfo()
-
     def user_language(self, user_language: str) -> "UserInfoBuilder":
         self._user_info.user_language = user_language
         return self
-
     def timezone(self, timezone: str) -> "UserInfoBuilder":
         self._user_info.timezone = timezone
         return self
-
     def user_id(self, user_id: int) -> "UserInfoBuilder":
         self._user_info.user_id = user_id
         return self
-
     def user_open_id(self, user_open_id: str) -> "UserInfoBuilder":
         self._user_info.user_open_id = user_open_id
         return self
-
     def tenant_id(self, tenant_id: int) -> "UserInfoBuilder":
         self._user_info.tenant_id = tenant_id
         return self
-
     def locale(self, locale: str) -> "UserInfoBuilder":
         self._user_info.locale = locale
         return self
-
+    
     def build(self) -> "UserInfo":
         return self._user_info

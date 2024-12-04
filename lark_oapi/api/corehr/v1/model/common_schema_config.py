@@ -9,6 +9,7 @@ from .lookup_field_setting import LookupFieldSetting
 from .date_time_field_setting import DateTimeFieldSetting
 from .attachment_field_setting import AttachmentFieldSetting
 from .image_field_setting import ImageFieldSetting
+from .calculated_field_setting import CalculatedFieldSetting
 
 
 class CommonSchemaConfig(object):
@@ -20,6 +21,7 @@ class CommonSchemaConfig(object):
         "date_time_field_setting": DateTimeFieldSetting,
         "attachment_field_setting": AttachmentFieldSetting,
         "image_field_setting": ImageFieldSetting,
+        "calculated_field_setting": CalculatedFieldSetting,
     }
 
     def __init__(self, d=None):
@@ -30,6 +32,7 @@ class CommonSchemaConfig(object):
         self.date_time_field_setting: Optional[DateTimeFieldSetting] = None
         self.attachment_field_setting: Optional[AttachmentFieldSetting] = None
         self.image_field_setting: Optional[ImageFieldSetting] = None
+        self.calculated_field_setting: Optional[CalculatedFieldSetting] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,34 +43,30 @@ class CommonSchemaConfig(object):
 class CommonSchemaConfigBuilder(object):
     def __init__(self) -> None:
         self._common_schema_config = CommonSchemaConfig()
-
     def text_field_setting(self, text_field_setting: TextFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.text_field_setting = text_field_setting
         return self
-
     def number_field_setting(self, number_field_setting: NumberFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.number_field_setting = number_field_setting
         return self
-
     def enum_field_setting(self, enum_field_setting: EnumFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.enum_field_setting = enum_field_setting
         return self
-
     def lookup_field_setting(self, lookup_field_setting: LookupFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.lookup_field_setting = lookup_field_setting
         return self
-
     def date_time_field_setting(self, date_time_field_setting: DateTimeFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.date_time_field_setting = date_time_field_setting
         return self
-
     def attachment_field_setting(self, attachment_field_setting: AttachmentFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.attachment_field_setting = attachment_field_setting
         return self
-
     def image_field_setting(self, image_field_setting: ImageFieldSetting) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.image_field_setting = image_field_setting
         return self
-
+    def calculated_field_setting(self, calculated_field_setting: CalculatedFieldSetting) -> "CommonSchemaConfigBuilder":
+        self._common_schema_config.calculated_field_setting = calculated_field_setting
+        return self
+    
     def build(self) -> "CommonSchemaConfig":
         return self._common_schema_config

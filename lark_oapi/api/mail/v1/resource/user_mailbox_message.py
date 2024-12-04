@@ -17,8 +17,7 @@ class UserMailboxMessage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def send(self, request: SendUserMailboxMessageRequest,
-             option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
+    def send(self, request: SendUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class UserMailboxMessage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SendUserMailboxMessageResponse)
+        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), SendUserMailboxMessageResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asend(self, request: SendUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
+    async def asend(self, request: SendUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SendUserMailboxMessageResponse)
+        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), SendUserMailboxMessageResponse)
         response.raw = resp
 
         return response
+        
+    

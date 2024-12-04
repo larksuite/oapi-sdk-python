@@ -25,14 +25,13 @@ class UpdateTalentExternalInfoRequestBuilder(object):
         update_talent_external_info_request.uri = "/open-apis/hire/v1/talents/:talent_id/external_info"
         update_talent_external_info_request.token_types = {AccessTokenType.TENANT}
         self._update_talent_external_info_request: UpdateTalentExternalInfoRequest = update_talent_external_info_request
-
+    
     def talent_id(self, talent_id: str) -> "UpdateTalentExternalInfoRequestBuilder":
         self._update_talent_external_info_request.talent_id = talent_id
         self._update_talent_external_info_request.paths["talent_id"] = str(talent_id)
         return self
-
-    def request_body(self,
-                     request_body: UpdateTalentExternalInfoRequestBody) -> "UpdateTalentExternalInfoRequestBuilder":
+    
+    def request_body(self, request_body: UpdateTalentExternalInfoRequestBody) -> "UpdateTalentExternalInfoRequestBuilder":
         self._update_talent_external_info_request.request_body = request_body
         self._update_talent_external_info_request.body = request_body
         return self

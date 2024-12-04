@@ -21,10 +21,9 @@ class BatchDeleteFunctionalRoleMemberRequestBody(object):
 class BatchDeleteFunctionalRoleMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_functional_role_member_request_body = BatchDeleteFunctionalRoleMemberRequestBody()
-
     def members(self, members: List[str]) -> "BatchDeleteFunctionalRoleMemberRequestBodyBuilder":
         self._batch_delete_functional_role_member_request_body.members = members
         return self
-
+    
     def build(self) -> "BatchDeleteFunctionalRoleMemberRequestBody":
         return self._batch_delete_functional_role_member_request_body

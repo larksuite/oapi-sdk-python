@@ -24,14 +24,12 @@ class PatchSystemStatusRequestBody(object):
 class PatchSystemStatusRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_system_status_request_body = PatchSystemStatusRequestBody()
-
     def system_status(self, system_status: SystemStatus) -> "PatchSystemStatusRequestBodyBuilder":
         self._patch_system_status_request_body.system_status = system_status
         return self
-
     def update_fields(self, update_fields: List[str]) -> "PatchSystemStatusRequestBodyBuilder":
         self._patch_system_status_request_body.update_fields = update_fields
         return self
-
+    
     def build(self) -> "PatchSystemStatusRequestBody":
         return self._patch_system_status_request_body

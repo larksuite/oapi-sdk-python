@@ -23,14 +23,12 @@ class AilyKnowledgeDatatable(object):
 class AilyKnowledgeDatatableBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_datatable = AilyKnowledgeDatatable()
-
     def api_name(self, api_name: str) -> "AilyKnowledgeDatatableBuilder":
         self._aily_knowledge_datatable.api_name = api_name
         return self
-
     def title(self, title: str) -> "AilyKnowledgeDatatableBuilder":
         self._aily_knowledge_datatable.title = title
         return self
-
+    
     def build(self) -> "AilyKnowledgeDatatable":
         return self._aily_knowledge_datatable

@@ -24,14 +24,12 @@ class TaskResult(object):
 class TaskResultBuilder(object):
     def __init__(self) -> None:
         self._task_result = TaskResult()
-
     def task_id(self, task_id: str) -> "TaskResultBuilder":
         self._task_result.task_id = task_id
         return self
-
     def move_result(self, move_result: List[MoveResult]) -> "TaskResultBuilder":
         self._task_result.move_result = move_result
         return self
-
+    
     def build(self) -> "TaskResult":
         return self._task_result

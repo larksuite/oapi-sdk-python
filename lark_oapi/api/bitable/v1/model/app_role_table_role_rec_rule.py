@@ -26,18 +26,15 @@ class AppRoleTableRoleRecRule(object):
 class AppRoleTableRoleRecRuleBuilder(object):
     def __init__(self) -> None:
         self._app_role_table_role_rec_rule = AppRoleTableRoleRecRule()
-
     def conditions(self, conditions: List[AppRoleTableRoleRecRuleCondition]) -> "AppRoleTableRoleRecRuleBuilder":
         self._app_role_table_role_rec_rule.conditions = conditions
         return self
-
     def conjunction(self, conjunction: str) -> "AppRoleTableRoleRecRuleBuilder":
         self._app_role_table_role_rec_rule.conjunction = conjunction
         return self
-
     def other_perm(self, other_perm: int) -> "AppRoleTableRoleRecRuleBuilder":
         self._app_role_table_role_rec_rule.other_perm = other_perm
         return self
-
+    
     def build(self) -> "AppRoleTableRoleRecRule":
         return self._app_role_table_role_rec_rule

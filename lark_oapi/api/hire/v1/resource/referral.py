@@ -19,8 +19,7 @@ class Referral(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_by_application(self, request: GetByApplicationReferralRequest,
-                           option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
+    def get_by_application(self, request: GetByApplicationReferralRequest, option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,32 +32,32 @@ class Referral(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetByApplicationReferralResponse)
+        response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByApplicationReferralResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget_by_application(self, request: GetByApplicationReferralRequest,
-                                  option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
+    async def aget_by_application(self, request: GetByApplicationReferralRequest, option: Optional[RequestOption] = None) -> GetByApplicationReferralResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetByApplicationReferralResponse)
+        response: GetByApplicationReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByApplicationReferralResponse)
         response.raw = resp
 
         return response
-
+        
     def search(self, request: SearchReferralRequest, option: Optional[RequestOption] = None) -> SearchReferralResponse:
         if option is None:
             option = RequestOption()
@@ -72,26 +71,30 @@ class Referral(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchReferralResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asearch(self, request: SearchReferralRequest,
-                      option: Optional[RequestOption] = None) -> SearchReferralResponse:
+    async def asearch(self, request: SearchReferralRequest, option: Optional[RequestOption] = None) -> SearchReferralResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchReferralResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchReferralResponse)
         response.raw = resp
 
         return response
+        
+    

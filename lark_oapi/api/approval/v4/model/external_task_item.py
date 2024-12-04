@@ -25,18 +25,15 @@ class ExternalTaskItem(object):
 class ExternalTaskItemBuilder(object):
     def __init__(self) -> None:
         self._external_task_item = ExternalTaskItem()
-
     def id(self, id: str) -> "ExternalTaskItemBuilder":
         self._external_task_item.id = id
         return self
-
     def status(self, status: str) -> "ExternalTaskItemBuilder":
         self._external_task_item.status = status
         return self
-
     def update_time(self, update_time: int) -> "ExternalTaskItemBuilder":
         self._external_task_item.update_time = update_time
         return self
-
+    
     def build(self) -> "ExternalTaskItem":
         return self._external_task_item

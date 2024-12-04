@@ -24,14 +24,12 @@ class AnswerUserQueryTicketRequestBody(object):
 class AnswerUserQueryTicketRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._answer_user_query_ticket_request_body = AnswerUserQueryTicketRequestBody()
-
     def event_id(self, event_id: str) -> "AnswerUserQueryTicketRequestBodyBuilder":
         self._answer_user_query_ticket_request_body.event_id = event_id
         return self
-
     def faqs(self, faqs: List[UserQueryFaqInfo]) -> "AnswerUserQueryTicketRequestBodyBuilder":
         self._answer_user_query_ticket_request_body.faqs = faqs
         return self
-
+    
     def build(self) -> "AnswerUserQueryTicketRequestBody":
         return self._answer_user_query_ticket_request_body

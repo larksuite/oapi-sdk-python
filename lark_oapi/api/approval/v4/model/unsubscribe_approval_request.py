@@ -23,11 +23,12 @@ class UnsubscribeApprovalRequestBuilder(object):
         unsubscribe_approval_request.uri = "/open-apis/approval/v4/approvals/:approval_code/unsubscribe"
         unsubscribe_approval_request.token_types = {AccessTokenType.TENANT}
         self._unsubscribe_approval_request: UnsubscribeApprovalRequest = unsubscribe_approval_request
-
+    
     def approval_code(self, approval_code: str) -> "UnsubscribeApprovalRequestBuilder":
         self._unsubscribe_approval_request.approval_code = approval_code
         self._unsubscribe_approval_request.paths["approval_code"] = str(approval_code)
         return self
+    
 
     def build(self) -> UnsubscribeApprovalRequest:
         return self._unsubscribe_approval_request

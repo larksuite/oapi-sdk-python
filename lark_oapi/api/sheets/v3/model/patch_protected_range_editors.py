@@ -27,18 +27,15 @@ class PatchProtectedRangeEditors(object):
 class PatchProtectedRangeEditorsBuilder(object):
     def __init__(self) -> None:
         self._patch_protected_range_editors = PatchProtectedRangeEditors()
-
     def type(self, type: str) -> "PatchProtectedRangeEditorsBuilder":
         self._patch_protected_range_editors.type = type
         return self
-
     def add_editors(self, add_editors: ProtectedRangeEditors) -> "PatchProtectedRangeEditorsBuilder":
         self._patch_protected_range_editors.add_editors = add_editors
         return self
-
     def remove_editors(self, remove_editors: ProtectedRangeEditors) -> "PatchProtectedRangeEditorsBuilder":
         self._patch_protected_range_editors.remove_editors = remove_editors
         return self
-
+    
     def build(self) -> "PatchProtectedRangeEditors":
         return self._patch_protected_range_editors

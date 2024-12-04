@@ -38,30 +38,32 @@ class JobData(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobDataResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateJobDataRequest,
-                      option: Optional[RequestOption] = None) -> CreateJobDataResponse:
+    async def acreate(self, request: CreateJobDataRequest, option: Optional[RequestOption] = None) -> CreateJobDataResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateJobDataResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeleteJobDataRequest, option: Optional[RequestOption] = None) -> DeleteJobDataResponse:
         if option is None:
             option = RequestOption()
@@ -75,30 +77,32 @@ class JobData(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobDataResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteJobDataRequest,
-                      option: Optional[RequestOption] = None) -> DeleteJobDataResponse:
+    async def adelete(self, request: DeleteJobDataRequest, option: Optional[RequestOption] = None) -> DeleteJobDataResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteJobDataResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetJobDataRequest, option: Optional[RequestOption] = None) -> GetJobDataResponse:
         if option is None:
             option = RequestOption()
@@ -112,12 +116,13 @@ class JobData(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobDataResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetJobDataRequest, option: Optional[RequestOption] = None) -> GetJobDataResponse:
         if option is None:
@@ -126,15 +131,17 @@ class JobData(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobDataResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListJobDataRequest, option: Optional[RequestOption] = None) -> ListJobDataResponse:
         if option is None:
             option = RequestOption()
@@ -148,12 +155,13 @@ class JobData(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobDataResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListJobDataRequest, option: Optional[RequestOption] = None) -> ListJobDataResponse:
         if option is None:
@@ -162,15 +170,17 @@ class JobData(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobDataResponse)
         response.raw = resp
 
         return response
-
+        
     def patch(self, request: PatchJobDataRequest, option: Optional[RequestOption] = None) -> PatchJobDataResponse:
         if option is None:
             option = RequestOption()
@@ -184,26 +194,30 @@ class JobData(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchJobDataResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchJobDataRequest,
-                     option: Optional[RequestOption] = None) -> PatchJobDataResponse:
+    async def apatch(self, request: PatchJobDataRequest, option: Optional[RequestOption] = None) -> PatchJobDataResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchJobDataResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchJobDataResponse)
         response.raw = resp
 
         return response
+        
+    

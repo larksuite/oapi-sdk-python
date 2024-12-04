@@ -27,18 +27,15 @@ class ChatMenuTopLevel(object):
 class ChatMenuTopLevelBuilder(object):
     def __init__(self) -> None:
         self._chat_menu_top_level = ChatMenuTopLevel()
-
     def chat_menu_top_level_id(self, chat_menu_top_level_id: int) -> "ChatMenuTopLevelBuilder":
         self._chat_menu_top_level.chat_menu_top_level_id = chat_menu_top_level_id
         return self
-
     def chat_menu_item(self, chat_menu_item: ChatMenuItem) -> "ChatMenuTopLevelBuilder":
         self._chat_menu_top_level.chat_menu_item = chat_menu_item
         return self
-
     def children(self, children: List[ChatMenuSecondLevel]) -> "ChatMenuTopLevelBuilder":
         self._chat_menu_top_level.children = children
         return self
-
+    
     def build(self) -> "ChatMenuTopLevel":
         return self._chat_menu_top_level

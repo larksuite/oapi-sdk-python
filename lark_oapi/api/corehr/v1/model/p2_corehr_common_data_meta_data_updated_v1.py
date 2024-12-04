@@ -8,10 +8,12 @@ from lark_oapi.event.context import EventContext
 class P2CorehrCommonDataMetaDataUpdatedV1Data(object):
     _types = {
         "api_name": str,
+        "field_changes": List[str],
     }
 
     def __init__(self, d=None):
         self.api_name: Optional[str] = None
+        self.field_changes: Optional[List[str]] = None
         init(self, d, self._types)
 
 

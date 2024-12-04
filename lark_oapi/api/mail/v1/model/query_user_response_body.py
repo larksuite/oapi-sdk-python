@@ -22,10 +22,9 @@ class QueryUserResponseBody(object):
 class QueryUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_response_body = QueryUserResponseBody()
-
     def user_list(self, user_list: List[User]) -> "QueryUserResponseBodyBuilder":
         self._query_user_response_body.user_list = user_list
         return self
-
+    
     def build(self) -> "QueryUserResponseBody":
         return self._query_user_response_body

@@ -26,18 +26,15 @@ class SearchTalentPoolResponseBody(object):
 class SearchTalentPoolResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_talent_pool_response_body = SearchTalentPoolResponseBody()
-
     def items(self, items: List[TalentPool]) -> "SearchTalentPoolResponseBodyBuilder":
         self._search_talent_pool_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "SearchTalentPoolResponseBodyBuilder":
         self._search_talent_pool_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "SearchTalentPoolResponseBodyBuilder":
         self._search_talent_pool_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "SearchTalentPoolResponseBody":
         return self._search_talent_pool_response_body

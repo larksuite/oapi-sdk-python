@@ -26,18 +26,15 @@ class ReqTable(object):
 class ReqTableBuilder(object):
     def __init__(self) -> None:
         self._req_table = ReqTable()
-
     def name(self, name: str) -> "ReqTableBuilder":
         self._req_table.name = name
         return self
-
     def default_view_name(self, default_view_name: str) -> "ReqTableBuilder":
         self._req_table.default_view_name = default_view_name
         return self
-
     def fields(self, fields: List[AppTableCreateHeader]) -> "ReqTableBuilder":
         self._req_table.fields = fields
         return self
-
+    
     def build(self) -> "ReqTable":
         return self._req_table

@@ -24,14 +24,12 @@ class LeaveSubtype(object):
 class LeaveSubtypeBuilder(object):
     def __init__(self) -> None:
         self._leave_subtype = LeaveSubtype()
-
     def leave_type_id(self, leave_type_id: str) -> "LeaveSubtypeBuilder":
         self._leave_subtype.leave_type_id = leave_type_id
         return self
-
     def leave_type_name(self, leave_type_name: List[I18n]) -> "LeaveSubtypeBuilder":
         self._leave_subtype.leave_type_name = leave_type_name
         return self
-
+    
     def build(self) -> "LeaveSubtype":
         return self._leave_subtype

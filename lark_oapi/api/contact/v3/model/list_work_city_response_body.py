@@ -26,18 +26,15 @@ class ListWorkCityResponseBody(object):
 class ListWorkCityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_work_city_response_body = ListWorkCityResponseBody()
-
     def items(self, items: List[WorkCity]) -> "ListWorkCityResponseBodyBuilder":
         self._list_work_city_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListWorkCityResponseBodyBuilder":
         self._list_work_city_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListWorkCityResponseBodyBuilder":
         self._list_work_city_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListWorkCityResponseBody":
         return self._list_work_city_response_body

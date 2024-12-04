@@ -8,6 +8,7 @@ from .profile_setting_employment_record import ProfileSettingEmploymentRecord
 from .profile_setting_emp_contract_record import ProfileSettingEmpContractRecord
 from .profile_setting_custom_group import ProfileSettingCustomGroup
 from .job_data_custom_org import JobDataCustomOrg
+from .seniority_adjust_information_edit import SeniorityAdjustInformationEdit
 
 
 class ProfileSettingEmploymentInfo(object):
@@ -18,6 +19,7 @@ class ProfileSettingEmploymentInfo(object):
         "emp_contract_record": ProfileSettingEmpContractRecord,
         "custom_groups": List[ProfileSettingCustomGroup],
         "custom_org_groups": List[JobDataCustomOrg],
+        "seniority_adjust_informations": List[SeniorityAdjustInformationEdit],
     }
 
     def __init__(self, d=None):
@@ -27,6 +29,7 @@ class ProfileSettingEmploymentInfo(object):
         self.emp_contract_record: Optional[ProfileSettingEmpContractRecord] = None
         self.custom_groups: Optional[List[ProfileSettingCustomGroup]] = None
         self.custom_org_groups: Optional[List[JobDataCustomOrg]] = None
+        self.seniority_adjust_informations: Optional[List[SeniorityAdjustInformationEdit]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -37,32 +40,27 @@ class ProfileSettingEmploymentInfo(object):
 class ProfileSettingEmploymentInfoBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_employment_info = ProfileSettingEmploymentInfo()
-
     def basic_info(self, basic_info: ProfileSettingEmploymentBasicInfo) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.basic_info = basic_info
         return self
-
     def probation_info(self, probation_info: ProfileSettingProbationInfo) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.probation_info = probation_info
         return self
-
-    def employment_record(self,
-                          employment_record: ProfileSettingEmploymentRecord) -> "ProfileSettingEmploymentInfoBuilder":
+    def employment_record(self, employment_record: ProfileSettingEmploymentRecord) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.employment_record = employment_record
         return self
-
-    def emp_contract_record(self,
-                            emp_contract_record: ProfileSettingEmpContractRecord) -> "ProfileSettingEmploymentInfoBuilder":
+    def emp_contract_record(self, emp_contract_record: ProfileSettingEmpContractRecord) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.emp_contract_record = emp_contract_record
         return self
-
     def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.custom_groups = custom_groups
         return self
-
     def custom_org_groups(self, custom_org_groups: List[JobDataCustomOrg]) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.custom_org_groups = custom_org_groups
         return self
-
+    def seniority_adjust_informations(self, seniority_adjust_informations: List[SeniorityAdjustInformationEdit]) -> "ProfileSettingEmploymentInfoBuilder":
+        self._profile_setting_employment_info.seniority_adjust_informations = seniority_adjust_informations
+        return self
+    
     def build(self) -> "ProfileSettingEmploymentInfo":
         return self._profile_setting_employment_info

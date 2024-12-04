@@ -25,14 +25,12 @@ class BusinessManagementScope(object):
 class BusinessManagementScopeBuilder(object):
     def __init__(self) -> None:
         self._business_management_scope = BusinessManagementScope()
-
     def entity(self, entity: EntityInfo) -> "BusinessManagementScopeBuilder":
         self._business_management_scope.entity = entity
         return self
-
     def permission_groups(self, permission_groups: List[PermissionGroupInfo]) -> "BusinessManagementScopeBuilder":
         self._business_management_scope.permission_groups = permission_groups
         return self
-
+    
     def build(self) -> "BusinessManagementScope":
         return self._business_management_scope

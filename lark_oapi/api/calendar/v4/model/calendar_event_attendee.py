@@ -51,67 +51,51 @@ class CalendarEventAttendee(object):
 class CalendarEventAttendeeBuilder(object):
     def __init__(self) -> None:
         self._calendar_event_attendee = CalendarEventAttendee()
-
     def type(self, type: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.type = type
         return self
-
     def attendee_id(self, attendee_id: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.attendee_id = attendee_id
         return self
-
     def rsvp_status(self, rsvp_status: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.rsvp_status = rsvp_status
         return self
-
     def is_optional(self, is_optional: bool) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.is_optional = is_optional
         return self
-
     def is_organizer(self, is_organizer: bool) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.is_organizer = is_organizer
         return self
-
     def is_external(self, is_external: bool) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.is_external = is_external
         return self
-
     def display_name(self, display_name: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.display_name = display_name
         return self
-
     def chat_members(self, chat_members: List[AttendeeChatMember]) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.chat_members = chat_members
         return self
-
     def user_id(self, user_id: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.user_id = user_id
         return self
-
     def chat_id(self, chat_id: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.chat_id = chat_id
         return self
-
     def room_id(self, room_id: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.room_id = room_id
         return self
-
     def third_party_email(self, third_party_email: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.third_party_email = third_party_email
         return self
-
     def operate_id(self, operate_id: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.operate_id = operate_id
         return self
-
-    def resource_customization(self, resource_customization: List[
-        CalendarAttendeeResourceCustomization]) -> "CalendarEventAttendeeBuilder":
+    def resource_customization(self, resource_customization: List[CalendarAttendeeResourceCustomization]) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.resource_customization = resource_customization
         return self
-
     def approval_reason(self, approval_reason: str) -> "CalendarEventAttendeeBuilder":
         self._calendar_event_attendee.approval_reason = approval_reason
         return self
-
+    
     def build(self) -> "CalendarEventAttendee":
         return self._calendar_event_attendee

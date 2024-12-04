@@ -33,34 +33,27 @@ class TalentBatchInfo(object):
 class TalentBatchInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_batch_info = TalentBatchInfo()
-
     def talent_id(self, talent_id: str) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.talent_id = talent_id
         return self
-
     def mobile_code(self, mobile_code: str) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.mobile_code = mobile_code
         return self
-
     def mobile_number(self, mobile_number: str) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.mobile_number = mobile_number
         return self
-
     def email(self, email: str) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.email = email
         return self
-
     def identification_type(self, identification_type: int) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.identification_type = identification_type
         return self
-
     def identification_number(self, identification_number: str) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.identification_number = identification_number
         return self
-
     def is_onboarded(self, is_onboarded: bool) -> "TalentBatchInfoBuilder":
         self._talent_batch_info.is_onboarded = is_onboarded
         return self
-
+    
     def build(self) -> "TalentBatchInfo":
         return self._talent_batch_info

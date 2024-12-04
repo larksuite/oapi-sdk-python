@@ -31,30 +31,24 @@ class SignatureFileSystemField(object):
 class SignatureFileSystemFieldBuilder(object):
     def __init__(self) -> None:
         self._signature_file_system_field = SignatureFileSystemField()
-
     def effective_date(self, effective_date: str) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.effective_date = effective_date
         return self
-
     def deadline(self, deadline: str) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.deadline = deadline
         return self
-
     def ordered_node_keys(self, ordered_node_keys: List[str]) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.ordered_node_keys = ordered_node_keys
         return self
-
     def deadline_timestamp(self, deadline_timestamp: str) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.deadline_timestamp = deadline_timestamp
         return self
-
     def auto_stamp_timestamp(self, auto_stamp_timestamp: str) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.auto_stamp_timestamp = auto_stamp_timestamp
         return self
-
     def approval_role(self, approval_role: str) -> "SignatureFileSystemFieldBuilder":
         self._signature_file_system_field.approval_role = approval_role
         return self
-
+    
     def build(self) -> "SignatureFileSystemField":
         return self._signature_file_system_field

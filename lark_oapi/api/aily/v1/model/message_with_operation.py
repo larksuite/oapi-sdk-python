@@ -28,22 +28,18 @@ class MessageWithOperation(object):
 class MessageWithOperationBuilder(object):
     def __init__(self) -> None:
         self._message_with_operation = MessageWithOperation()
-
     def message(self, message: Message) -> "MessageWithOperationBuilder":
         self._message_with_operation.message = message
         return self
-
     def operation_type(self, operation_type: str) -> "MessageWithOperationBuilder":
         self._message_with_operation.operation_type = operation_type
         return self
-
     def operation_id(self, operation_id: int) -> "MessageWithOperationBuilder":
         self._message_with_operation.operation_id = operation_id
         return self
-
     def intent_id(self, intent_id: int) -> "MessageWithOperationBuilder":
         self._message_with_operation.intent_id = intent_id
         return self
-
+    
     def build(self) -> "MessageWithOperation":
         return self._message_with_operation

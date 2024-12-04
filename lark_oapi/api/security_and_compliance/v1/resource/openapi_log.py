@@ -17,8 +17,7 @@ class OpenapiLog(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list_data(self, request: ListDataOpenapiLogRequest,
-                  option: Optional[RequestOption] = None) -> ListDataOpenapiLogResponse:
+    def list_data(self, request: ListDataOpenapiLogRequest, option: Optional[RequestOption] = None) -> ListDataOpenapiLogResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class OpenapiLog(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListDataOpenapiLogResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDataOpenapiLogResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist_data(self, request: ListDataOpenapiLogRequest,
-                         option: Optional[RequestOption] = None) -> ListDataOpenapiLogResponse:
+    async def alist_data(self, request: ListDataOpenapiLogRequest, option: Optional[RequestOption] = None) -> ListDataOpenapiLogResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListDataOpenapiLogResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDataOpenapiLogResponse)
         response.raw = resp
 
         return response
+        
+    

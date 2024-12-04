@@ -25,18 +25,15 @@ class MatchRule(object):
 class MatchRuleBuilder(object):
     def __init__(self) -> None:
         self._match_rule = MatchRule()
-
     def left_value(self, left_value: str) -> "MatchRuleBuilder":
         self._match_rule.left_value = left_value
         return self
-
     def operator(self, operator: str) -> "MatchRuleBuilder":
         self._match_rule.operator = operator
         return self
-
     def right_values(self, right_values: List[str]) -> "MatchRuleBuilder":
         self._match_rule.right_values = right_values
         return self
-
+    
     def build(self) -> "MatchRule":
         return self._match_rule

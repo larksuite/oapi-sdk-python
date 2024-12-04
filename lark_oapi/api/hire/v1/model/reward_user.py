@@ -11,12 +11,14 @@ class RewardUser(object):
         "id": str,
         "name": I18n,
         "department": BasicDepartmentInfo,
+        "recruitment_type": int,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.department: Optional[BasicDepartmentInfo] = None
+        self.recruitment_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -27,18 +29,18 @@ class RewardUser(object):
 class RewardUserBuilder(object):
     def __init__(self) -> None:
         self._reward_user = RewardUser()
-
     def id(self, id: str) -> "RewardUserBuilder":
         self._reward_user.id = id
         return self
-
     def name(self, name: I18n) -> "RewardUserBuilder":
         self._reward_user.name = name
         return self
-
     def department(self, department: BasicDepartmentInfo) -> "RewardUserBuilder":
         self._reward_user.department = department
         return self
-
+    def recruitment_type(self, recruitment_type: int) -> "RewardUserBuilder":
+        self._reward_user.recruitment_type = recruitment_type
+        return self
+    
     def build(self) -> "RewardUser":
         return self._reward_user

@@ -22,10 +22,9 @@ class RecognizeDrivingLicenseResponseBody(object):
 class RecognizeDrivingLicenseResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_driving_license_response_body = RecognizeDrivingLicenseResponseBody()
-
     def driving_license(self, driving_license: DrvingLicense) -> "RecognizeDrivingLicenseResponseBodyBuilder":
         self._recognize_driving_license_response_body.driving_license = driving_license
         return self
-
+    
     def build(self) -> "RecognizeDrivingLicenseResponseBody":
         return self._recognize_driving_license_response_body

@@ -30,26 +30,21 @@ class Indicator(object):
 class IndicatorBuilder(object):
     def __init__(self) -> None:
         self._indicator = Indicator()
-
     def id(self, id: str) -> "IndicatorBuilder":
         self._indicator.id = id
         return self
-
     def name(self, name: str) -> "IndicatorBuilder":
         self._indicator.name = name
         return self
-
     def value_type(self, value_type: str) -> "IndicatorBuilder":
         self._indicator.value_type = value_type
         return self
-
     def active_status(self, active_status: int) -> "IndicatorBuilder":
         self._indicator.active_status = active_status
         return self
-
     def i18n_names(self, i18n_names: List[I18nContent]) -> "IndicatorBuilder":
         self._indicator.i18n_names = i18n_names
         return self
-
+    
     def build(self) -> "Indicator":
         return self._indicator

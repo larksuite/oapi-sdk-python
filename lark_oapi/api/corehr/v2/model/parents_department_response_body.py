@@ -22,10 +22,9 @@ class ParentsDepartmentResponseBody(object):
 class ParentsDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._parents_department_response_body = ParentsDepartmentResponseBody()
-
     def items(self, items: List[DepartmentParents]) -> "ParentsDepartmentResponseBodyBuilder":
         self._parents_department_response_body.items = items
         return self
-
+    
     def build(self) -> "ParentsDepartmentResponseBody":
         return self._parents_department_response_body

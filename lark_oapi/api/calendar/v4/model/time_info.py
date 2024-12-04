@@ -25,18 +25,15 @@ class TimeInfo(object):
 class TimeInfoBuilder(object):
     def __init__(self) -> None:
         self._time_info = TimeInfo()
-
     def date(self, date: str) -> "TimeInfoBuilder":
         self._time_info.date = date
         return self
-
     def timestamp(self, timestamp: str) -> "TimeInfoBuilder":
         self._time_info.timestamp = timestamp
         return self
-
     def timezone(self, timezone: str) -> "TimeInfoBuilder":
         self._time_info.timezone = timezone
         return self
-
+    
     def build(self) -> "TimeInfo":
         return self._time_info

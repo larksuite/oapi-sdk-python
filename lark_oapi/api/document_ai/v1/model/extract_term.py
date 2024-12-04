@@ -23,14 +23,12 @@ class ExtractTerm(object):
 class ExtractTermBuilder(object):
     def __init__(self) -> None:
         self._extract_term = ExtractTerm()
-
     def initial_time(self, initial_time: str) -> "ExtractTermBuilder":
         self._extract_term.initial_time = initial_time
         return self
-
     def initial_unit(self, initial_unit: str) -> "ExtractTermBuilder":
         self._extract_term.initial_unit = initial_unit
         return self
-
+    
     def build(self) -> "ExtractTerm":
         return self._extract_term

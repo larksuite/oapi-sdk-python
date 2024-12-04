@@ -22,10 +22,9 @@ class UpdateDepartmentResponseBody(object):
 class UpdateDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_department_response_body = UpdateDepartmentResponseBody()
-
     def department(self, department: Department) -> "UpdateDepartmentResponseBodyBuilder":
         self._update_department_response_body.department = department
         return self
-
+    
     def build(self) -> "UpdateDepartmentResponseBody":
         return self._update_department_response_body

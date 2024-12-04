@@ -24,7 +24,7 @@ class CreateEmployeeTypeEnumRequestBuilder(object):
         create_employee_type_enum_request.uri = "/open-apis/contact/v3/employee_type_enums"
         create_employee_type_enum_request.token_types = {AccessTokenType.TENANT}
         self._create_employee_type_enum_request: CreateEmployeeTypeEnumRequest = create_employee_type_enum_request
-
+    
     def request_body(self, request_body: EmployeeTypeEnum) -> "CreateEmployeeTypeEnumRequestBuilder":
         self._create_employee_type_enum_request.request_body = request_body
         self._create_employee_type_enum_request.body = request_body

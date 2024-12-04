@@ -36,34 +36,27 @@ class EmployeeJobLevel(object):
 class EmployeeJobLevelBuilder(object):
     def __init__(self) -> None:
         self._employee_job_level = EmployeeJobLevel()
-
     def id(self, id: str) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.id = id
         return self
-
     def level_order(self, level_order: int) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.level_order = level_order
         return self
-
     def code(self, code: str) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.code = code
         return self
-
     def name(self, name: List[I18n]) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.name = name
         return self
-
     def description(self, description: List[I18n]) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.description = description
         return self
-
     def active(self, active: bool) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.active = active
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmployeeJobLevelBuilder":
         self._employee_job_level.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "EmployeeJobLevel":
         return self._employee_job_level

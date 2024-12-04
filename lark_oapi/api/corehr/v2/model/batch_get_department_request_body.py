@@ -25,18 +25,15 @@ class BatchGetDepartmentRequestBody(object):
 class BatchGetDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_department_request_body = BatchGetDepartmentRequestBody()
-
     def department_id_list(self, department_id_list: List[str]) -> "BatchGetDepartmentRequestBodyBuilder":
         self._batch_get_department_request_body.department_id_list = department_id_list
         return self
-
     def fields(self, fields: List[str]) -> "BatchGetDepartmentRequestBodyBuilder":
         self._batch_get_department_request_body.fields = fields
         return self
-
     def department_name_list(self, department_name_list: List[str]) -> "BatchGetDepartmentRequestBodyBuilder":
         self._batch_get_department_request_body.department_name_list = department_name_list
         return self
-
+    
     def build(self) -> "BatchGetDepartmentRequestBody":
         return self._batch_get_department_request_body

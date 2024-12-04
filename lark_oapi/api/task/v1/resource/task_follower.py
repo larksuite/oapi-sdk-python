@@ -21,8 +21,7 @@ class TaskFollower(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTaskFollowerRequest,
-               option: Optional[RequestOption] = None) -> CreateTaskFollowerResponse:
+    def create(self, request: CreateTaskFollowerRequest, option: Optional[RequestOption] = None) -> CreateTaskFollowerResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,32 +34,33 @@ class TaskFollower(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateTaskFollowerResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskFollowerResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateTaskFollowerRequest,
-                      option: Optional[RequestOption] = None) -> CreateTaskFollowerResponse:
+    async def acreate(self, request: CreateTaskFollowerRequest, option: Optional[RequestOption] = None) -> CreateTaskFollowerResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateTaskFollowerResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTaskFollowerResponse)
         response.raw = resp
 
         return response
-
-    def delete(self, request: DeleteTaskFollowerRequest,
-               option: Optional[RequestOption] = None) -> DeleteTaskFollowerResponse:
+        
+    def delete(self, request: DeleteTaskFollowerRequest, option: Optional[RequestOption] = None) -> DeleteTaskFollowerResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,32 +73,33 @@ class TaskFollower(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteTaskFollowerResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskFollowerResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteTaskFollowerRequest,
-                      option: Optional[RequestOption] = None) -> DeleteTaskFollowerResponse:
+    async def adelete(self, request: DeleteTaskFollowerRequest, option: Optional[RequestOption] = None) -> DeleteTaskFollowerResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteTaskFollowerResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTaskFollowerResponse)
         response.raw = resp
 
         return response
-
-    def list(self, request: ListTaskFollowerRequest,
-             option: Optional[RequestOption] = None) -> ListTaskFollowerResponse:
+        
+    def list(self, request: ListTaskFollowerRequest, option: Optional[RequestOption] = None) -> ListTaskFollowerResponse:
         if option is None:
             option = RequestOption()
 
@@ -111,26 +112,30 @@ class TaskFollower(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListTaskFollowerResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskFollowerResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListTaskFollowerRequest,
-                    option: Optional[RequestOption] = None) -> ListTaskFollowerResponse:
+    async def alist(self, request: ListTaskFollowerRequest, option: Optional[RequestOption] = None) -> ListTaskFollowerResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListTaskFollowerResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTaskFollowerResponse)
         response.raw = resp
 
         return response
+        
+    

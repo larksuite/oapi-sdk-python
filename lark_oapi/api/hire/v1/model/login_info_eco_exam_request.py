@@ -25,12 +25,12 @@ class LoginInfoEcoExamRequestBuilder(object):
         login_info_eco_exam_request.uri = "/open-apis/hire/v1/eco_exams/:exam_id/login_info"
         login_info_eco_exam_request.token_types = {AccessTokenType.TENANT}
         self._login_info_eco_exam_request: LoginInfoEcoExamRequest = login_info_eco_exam_request
-
+    
     def exam_id(self, exam_id: str) -> "LoginInfoEcoExamRequestBuilder":
         self._login_info_eco_exam_request.exam_id = exam_id
         self._login_info_eco_exam_request.paths["exam_id"] = str(exam_id)
         return self
-
+    
     def request_body(self, request_body: LoginInfoEcoExamRequestBody) -> "LoginInfoEcoExamRequestBuilder":
         self._login_info_eco_exam_request.request_body = request_body
         self._login_info_eco_exam_request.body = request_body

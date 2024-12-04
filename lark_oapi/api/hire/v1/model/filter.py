@@ -34,30 +34,24 @@ class Filter(object):
 class FilterBuilder(object):
     def __init__(self) -> None:
         self._filter = Filter()
-
     def key(self, key: str) -> "FilterBuilder":
         self._filter.key = key
         return self
-
     def value_type(self, value_type: int) -> "FilterBuilder":
         self._filter.value_type = value_type
         return self
-
     def value_list(self, value_list: List[str]) -> "FilterBuilder":
         self._filter.value_list = value_list
         return self
-
     def range_filter(self, range_filter: RangeFilter) -> "FilterBuilder":
         self._filter.range_filter = range_filter
         return self
-
     def candidate_tag_filter(self, candidate_tag_filter: CandidateTagFilter) -> "FilterBuilder":
         self._filter.candidate_tag_filter = candidate_tag_filter
         return self
-
     def degree_filter(self, degree_filter: DegreeFilter) -> "FilterBuilder":
         self._filter.degree_filter = degree_filter
         return self
-
+    
     def build(self) -> "Filter":
         return self._filter

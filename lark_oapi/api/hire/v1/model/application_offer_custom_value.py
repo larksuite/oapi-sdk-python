@@ -23,14 +23,12 @@ class ApplicationOfferCustomValue(object):
 class ApplicationOfferCustomValueBuilder(object):
     def __init__(self) -> None:
         self._application_offer_custom_value = ApplicationOfferCustomValue()
-
     def object_id(self, object_id: str) -> "ApplicationOfferCustomValueBuilder":
         self._application_offer_custom_value.object_id = object_id
         return self
-
     def customize_value(self, customize_value: str) -> "ApplicationOfferCustomValueBuilder":
         self._application_offer_custom_value.customize_value = customize_value
         return self
-
+    
     def build(self) -> "ApplicationOfferCustomValue":
         return self._application_offer_custom_value

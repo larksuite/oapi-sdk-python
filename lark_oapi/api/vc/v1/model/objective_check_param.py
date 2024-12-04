@@ -21,10 +21,9 @@ class ObjectiveCheckParam(object):
 class ObjectiveCheckParamBuilder(object):
     def __init__(self) -> None:
         self._objective_check_param = ObjectiveCheckParam()
-
     def params(self, params: List[int]) -> "ObjectiveCheckParamBuilder":
         self._objective_check_param.params = params
         return self
-
+    
     def build(self) -> "ObjectiveCheckParam":
         return self._objective_check_param

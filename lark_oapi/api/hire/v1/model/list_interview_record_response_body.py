@@ -26,18 +26,15 @@ class ListInterviewRecordResponseBody(object):
 class ListInterviewRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_interview_record_response_body = ListInterviewRecordResponseBody()
-
     def items(self, items: List[InterviewRecord]) -> "ListInterviewRecordResponseBodyBuilder":
         self._list_interview_record_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListInterviewRecordResponseBodyBuilder":
         self._list_interview_record_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListInterviewRecordResponseBodyBuilder":
         self._list_interview_record_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListInterviewRecordResponseBody":
         return self._list_interview_record_response_body

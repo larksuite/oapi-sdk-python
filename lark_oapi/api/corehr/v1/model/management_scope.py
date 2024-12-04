@@ -23,14 +23,12 @@ class ManagementScope(object):
 class ManagementScopeBuilder(object):
     def __init__(self) -> None:
         self._management_scope = ManagementScope()
-
     def management_dimension(self, management_dimension: str) -> "ManagementScopeBuilder":
         self._management_scope.management_dimension = management_dimension
         return self
-
     def obj_id(self, obj_id: str) -> "ManagementScopeBuilder":
         self._management_scope.obj_id = obj_id
         return self
-
+    
     def build(self) -> "ManagementScope":
         return self._management_scope

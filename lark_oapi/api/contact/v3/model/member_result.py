@@ -23,14 +23,12 @@ class MemberResult(object):
 class MemberResultBuilder(object):
     def __init__(self) -> None:
         self._member_result = MemberResult()
-
     def member_id(self, member_id: str) -> "MemberResultBuilder":
         self._member_result.member_id = member_id
         return self
-
     def code(self, code: int) -> "MemberResultBuilder":
         self._member_result.code = code
         return self
-
+    
     def build(self) -> "MemberResult":
         return self._member_result

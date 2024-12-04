@@ -23,14 +23,12 @@ class OuterInfo(object):
 class OuterInfoBuilder(object):
     def __init__(self) -> None:
         self._outer_info = OuterInfo()
-
     def provider(self, provider: str) -> "OuterInfoBuilder":
         self._outer_info.provider = provider
         return self
-
     def outer_id(self, outer_id: str) -> "OuterInfoBuilder":
         self._outer_info.outer_id = outer_id
         return self
-
+    
     def build(self) -> "OuterInfo":
         return self._outer_info

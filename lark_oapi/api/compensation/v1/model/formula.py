@@ -24,14 +24,12 @@ class Formula(object):
 class FormulaBuilder(object):
     def __init__(self) -> None:
         self._formula = Formula()
-
     def expr(self, expr: str) -> "FormulaBuilder":
         self._formula.expr = expr
         return self
-
     def formula_params(self, formula_params: List[FormulaParam]) -> "FormulaBuilder":
         self._formula.formula_params = formula_params
         return self
-
+    
     def build(self) -> "Formula":
         return self._formula

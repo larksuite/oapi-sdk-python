@@ -22,10 +22,9 @@ class MoveSpaceNodeResponseBody(object):
 class MoveSpaceNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._move_space_node_response_body = MoveSpaceNodeResponseBody()
-
     def node(self, node: Node) -> "MoveSpaceNodeResponseBodyBuilder":
         self._move_space_node_response_body.node = node
         return self
-
+    
     def build(self) -> "MoveSpaceNodeResponseBody":
         return self._move_space_node_response_body

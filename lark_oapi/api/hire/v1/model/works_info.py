@@ -25,18 +25,15 @@ class WorksInfo(object):
 class WorksInfoBuilder(object):
     def __init__(self) -> None:
         self._works_info = WorksInfo()
-
     def attachment_id(self, attachment_id: str) -> "WorksInfoBuilder":
         self._works_info.attachment_id = attachment_id
         return self
-
     def desc(self, desc: str) -> "WorksInfoBuilder":
         self._works_info.desc = desc
         return self
-
     def link(self, link: str) -> "WorksInfoBuilder":
         self._works_info.link = link
         return self
-
+    
     def build(self) -> "WorksInfo":
         return self._works_info

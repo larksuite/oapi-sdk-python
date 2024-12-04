@@ -41,42 +41,33 @@ class NationalIdType(object):
 class NationalIdTypeBuilder(object):
     def __init__(self) -> None:
         self._national_id_type = NationalIdType()
-
     def id(self, id: str) -> "NationalIdTypeBuilder":
         self._national_id_type.id = id
         return self
-
     def country_region_id(self, country_region_id: str) -> "NationalIdTypeBuilder":
         self._national_id_type.country_region_id = country_region_id
         return self
-
     def name(self, name: List[I18n]) -> "NationalIdTypeBuilder":
         self._national_id_type.name = name
         return self
-
     def active(self, active: bool) -> "NationalIdTypeBuilder":
         self._national_id_type.active = active
         return self
-
     def validation_rule(self, validation_rule: str) -> "NationalIdTypeBuilder":
         self._national_id_type.validation_rule = validation_rule
         return self
-
     def validation_rule_description(self, validation_rule_description: List[I18n]) -> "NationalIdTypeBuilder":
         self._national_id_type.validation_rule_description = validation_rule_description
         return self
-
     def code(self, code: str) -> "NationalIdTypeBuilder":
         self._national_id_type.code = code
         return self
-
     def identification_type(self, identification_type: Enum) -> "NationalIdTypeBuilder":
         self._national_id_type.identification_type = identification_type
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "NationalIdTypeBuilder":
         self._national_id_type.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "NationalIdType":
         return self._national_id_type

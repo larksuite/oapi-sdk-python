@@ -26,18 +26,15 @@ class JobTypeInfo(object):
 class JobTypeInfoBuilder(object):
     def __init__(self) -> None:
         self._job_type_info = JobTypeInfo()
-
     def id(self, id: str) -> "JobTypeInfoBuilder":
         self._job_type_info.id = id
         return self
-
     def name(self, name: I18n) -> "JobTypeInfoBuilder":
         self._job_type_info.name = name
         return self
-
     def parent_id(self, parent_id: str) -> "JobTypeInfoBuilder":
         self._job_type_info.parent_id = parent_id
         return self
-
+    
     def build(self) -> "JobTypeInfo":
         return self._job_type_info

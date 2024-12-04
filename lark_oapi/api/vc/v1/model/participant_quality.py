@@ -34,26 +34,21 @@ class ParticipantQuality(object):
 class ParticipantQualityBuilder(object):
     def __init__(self) -> None:
         self._participant_quality = ParticipantQuality()
-
     def network(self, network: QualityNetwork) -> "ParticipantQualityBuilder":
         self._participant_quality.network = network
         return self
-
     def audio(self, audio: QualityAudio) -> "ParticipantQualityBuilder":
         self._participant_quality.audio = audio
         return self
-
     def video(self, video: QualityVideoSharing) -> "ParticipantQualityBuilder":
         self._participant_quality.video = video
         return self
-
     def screen_sharing(self, screen_sharing: QualityVideoSharing) -> "ParticipantQualityBuilder":
         self._participant_quality.screen_sharing = screen_sharing
         return self
-
     def cpu_usage(self, cpu_usage: QualityCpuUsage) -> "ParticipantQualityBuilder":
         self._participant_quality.cpu_usage = cpu_usage
         return self
-
+    
     def build(self) -> "ParticipantQuality":
         return self._participant_quality

@@ -24,7 +24,7 @@ class CreateFolderFileRequestBuilder(object):
         create_folder_file_request.uri = "/open-apis/drive/v1/files/create_folder"
         create_folder_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_folder_file_request: CreateFolderFileRequest = create_folder_file_request
-
+    
     def request_body(self, request_body: CreateFolderFileRequestBody) -> "CreateFolderFileRequestBuilder":
         self._create_folder_file_request.request_body = request_body
         self._create_folder_file_request.body = request_body

@@ -19,6 +19,8 @@ def main():
         .page_token("6969864184272078374") \
         .page_size("20") \
         .user_id_type("people_corehr_id") \
+        .updated_at_gte("1729773628") \
+        .updated_at_lte("1729773628") \
         .build()
 
     # 发起请求
@@ -50,6 +52,8 @@ async def amain():
         .page_token("6969864184272078374") \
         .page_size("20") \
         .user_id_type("people_corehr_id") \
+        .updated_at_gte("1729773628") \
+        .updated_at_lte("1729773628") \
         .build()
 
     # 发起请求

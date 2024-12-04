@@ -31,30 +31,24 @@ class TaskResubmit(object):
 class TaskResubmitBuilder(object):
     def __init__(self) -> None:
         self._task_resubmit = TaskResubmit()
-
     def approval_code(self, approval_code: str) -> "TaskResubmitBuilder":
         self._task_resubmit.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "TaskResubmitBuilder":
         self._task_resubmit.instance_code = instance_code
         return self
-
     def user_id(self, user_id: str) -> "TaskResubmitBuilder":
         self._task_resubmit.user_id = user_id
         return self
-
     def comment(self, comment: str) -> "TaskResubmitBuilder":
         self._task_resubmit.comment = comment
         return self
-
     def task_id(self, task_id: str) -> "TaskResubmitBuilder":
         self._task_resubmit.task_id = task_id
         return self
-
     def form(self, form: str) -> "TaskResubmitBuilder":
         self._task_resubmit.form = form
         return self
-
+    
     def build(self) -> "TaskResubmit":
         return self._task_resubmit

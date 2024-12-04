@@ -23,14 +23,12 @@ class RestRule(object):
 class RestRuleBuilder(object):
     def __init__(self) -> None:
         self._rest_rule = RestRule()
-
     def rest_begin_time(self, rest_begin_time: str) -> "RestRuleBuilder":
         self._rest_rule.rest_begin_time = rest_begin_time
         return self
-
     def rest_end_time(self, rest_end_time: str) -> "RestRuleBuilder":
         self._rest_rule.rest_end_time = rest_end_time
         return self
-
+    
     def build(self) -> "RestRule":
         return self._rest_rule

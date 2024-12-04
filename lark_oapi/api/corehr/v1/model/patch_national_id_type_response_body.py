@@ -22,10 +22,9 @@ class PatchNationalIdTypeResponseBody(object):
 class PatchNationalIdTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_national_id_type_response_body = PatchNationalIdTypeResponseBody()
-
     def national_id_type(self, national_id_type: NationalIdType) -> "PatchNationalIdTypeResponseBodyBuilder":
         self._patch_national_id_type_response_body.national_id_type = national_id_type
         return self
-
+    
     def build(self) -> "PatchNationalIdTypeResponseBody":
         return self._patch_national_id_type_response_body

@@ -36,34 +36,27 @@ class SignatureTemplateFilter(object):
 class SignatureTemplateFilterBuilder(object):
     def __init__(self) -> None:
         self._signature_template_filter = SignatureTemplateFilter()
-
     def label(self, label: List[I18n]) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.label = label
         return self
-
     def apiname(self, apiname: str) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.apiname = apiname
         return self
-
     def filters(self, filters: List[SignatureTemplateFilterItem]) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.filters = filters
         return self
-
     def logic(self, logic: Enum) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.logic = logic
         return self
-
     def is_checked(self, is_checked: bool) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.is_checked = is_checked
         return self
-
     def filter_desc(self, filter_desc: str) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.filter_desc = filter_desc
         return self
-
     def criterion_list(self, criterion_list: str) -> "SignatureTemplateFilterBuilder":
         self._signature_template_filter.criterion_list = criterion_list
         return self
-
+    
     def build(self) -> "SignatureTemplateFilter":
         return self._signature_template_filter

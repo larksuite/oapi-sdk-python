@@ -26,18 +26,15 @@ class UserStatsData(object):
 class UserStatsDataBuilder(object):
     def __init__(self) -> None:
         self._user_stats_data = UserStatsData()
-
     def name(self, name: str) -> "UserStatsDataBuilder":
         self._user_stats_data.name = name
         return self
-
     def user_id(self, user_id: str) -> "UserStatsDataBuilder":
         self._user_stats_data.user_id = user_id
         return self
-
     def datas(self, datas: List[UserStatsDataCell]) -> "UserStatsDataBuilder":
         self._user_stats_data.datas = datas
         return self
-
+    
     def build(self) -> "UserStatsData":
         return self._user_stats_data

@@ -23,14 +23,12 @@ class CurrentOkrSimple(object):
 class CurrentOkrSimpleBuilder(object):
     def __init__(self) -> None:
         self._current_okr_simple = CurrentOkrSimple()
-
     def okr_id(self, okr_id: str) -> "CurrentOkrSimpleBuilder":
         self._current_okr_simple.okr_id = okr_id
         return self
-
     def period_id(self, period_id: str) -> "CurrentOkrSimpleBuilder":
         self._current_okr_simple.period_id = period_id
         return self
-
+    
     def build(self) -> "CurrentOkrSimple":
         return self._current_okr_simple

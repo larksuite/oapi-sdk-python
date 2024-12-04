@@ -22,10 +22,9 @@ class CreateCalendarEventAttendeeResponseBody(object):
 class CreateCalendarEventAttendeeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_calendar_event_attendee_response_body = CreateCalendarEventAttendeeResponseBody()
-
     def attendees(self, attendees: List[CalendarEventAttendee]) -> "CreateCalendarEventAttendeeResponseBodyBuilder":
         self._create_calendar_event_attendee_response_body.attendees = attendees
         return self
-
+    
     def build(self) -> "CreateCalendarEventAttendeeResponseBody":
         return self._create_calendar_event_attendee_response_body

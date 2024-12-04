@@ -21,10 +21,9 @@ class CreateImportTaskResponseBody(object):
 class CreateImportTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_import_task_response_body = CreateImportTaskResponseBody()
-
     def ticket(self, ticket: str) -> "CreateImportTaskResponseBodyBuilder":
         self._create_import_task_response_body.ticket = ticket
         return self
-
+    
     def build(self) -> "CreateImportTaskResponseBody":
         return self._create_import_task_response_body

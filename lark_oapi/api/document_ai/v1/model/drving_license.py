@@ -22,10 +22,9 @@ class DrvingLicense(object):
 class DrvingLicenseBuilder(object):
     def __init__(self) -> None:
         self._drving_license = DrvingLicense()
-
     def entities(self, entities: List[DrivingEntity]) -> "DrvingLicenseBuilder":
         self._drving_license.entities = entities
         return self
-
+    
     def build(self) -> "DrvingLicense":
         return self._drving_license

@@ -25,12 +25,12 @@ class MoveFileRequestBuilder(object):
         move_file_request.uri = "/open-apis/drive/v1/files/:file_token/move"
         move_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._move_file_request: MoveFileRequest = move_file_request
-
+    
     def file_token(self, file_token: str) -> "MoveFileRequestBuilder":
         self._move_file_request.file_token = file_token
         self._move_file_request.paths["file_token"] = str(file_token)
         return self
-
+    
     def request_body(self, request_body: MoveFileRequestBody) -> "MoveFileRequestBuilder":
         self._move_file_request.request_body = request_body
         self._move_file_request.body = request_body

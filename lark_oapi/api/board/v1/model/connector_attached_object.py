@@ -21,10 +21,9 @@ class ConnectorAttachedObject(object):
 class ConnectorAttachedObjectBuilder(object):
     def __init__(self) -> None:
         self._connector_attached_object = ConnectorAttachedObject()
-
     def id(self, id: str) -> "ConnectorAttachedObjectBuilder":
         self._connector_attached_object.id = id
         return self
-
+    
     def build(self) -> "ConnectorAttachedObject":
         return self._connector_attached_object

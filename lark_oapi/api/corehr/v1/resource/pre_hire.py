@@ -36,30 +36,32 @@ class PreHire(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePreHireResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeletePreHireRequest,
-                      option: Optional[RequestOption] = None) -> DeletePreHireResponse:
+    async def adelete(self, request: DeletePreHireRequest, option: Optional[RequestOption] = None) -> DeletePreHireResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeletePreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePreHireResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetPreHireRequest, option: Optional[RequestOption] = None) -> GetPreHireResponse:
         if option is None:
             option = RequestOption()
@@ -73,12 +75,13 @@ class PreHire(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPreHireResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetPreHireRequest, option: Optional[RequestOption] = None) -> GetPreHireResponse:
         if option is None:
@@ -87,15 +90,17 @@ class PreHire(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPreHireResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListPreHireRequest, option: Optional[RequestOption] = None) -> ListPreHireResponse:
         if option is None:
             option = RequestOption()
@@ -109,12 +114,13 @@ class PreHire(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPreHireResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListPreHireRequest, option: Optional[RequestOption] = None) -> ListPreHireResponse:
         if option is None:
@@ -123,15 +129,17 @@ class PreHire(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPreHireResponse)
         response.raw = resp
 
         return response
-
+        
     def patch(self, request: PatchPreHireRequest, option: Optional[RequestOption] = None) -> PatchPreHireResponse:
         if option is None:
             option = RequestOption()
@@ -145,26 +153,30 @@ class PreHire(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPreHireResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchPreHireRequest,
-                     option: Optional[RequestOption] = None) -> PatchPreHireResponse:
+    async def apatch(self, request: PatchPreHireRequest, option: Optional[RequestOption] = None) -> PatchPreHireResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchPreHireResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPreHireResponse)
         response.raw = resp
 
         return response
+        
+    

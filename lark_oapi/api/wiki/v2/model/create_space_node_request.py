@@ -25,12 +25,12 @@ class CreateSpaceNodeRequestBuilder(object):
         create_space_node_request.uri = "/open-apis/wiki/v2/spaces/:space_id/nodes"
         create_space_node_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_space_node_request: CreateSpaceNodeRequest = create_space_node_request
-
+    
     def space_id(self, space_id: str) -> "CreateSpaceNodeRequestBuilder":
         self._create_space_node_request.space_id = space_id
         self._create_space_node_request.paths["space_id"] = str(space_id)
         return self
-
+    
     def request_body(self, request_body: Node) -> "CreateSpaceNodeRequestBuilder":
         self._create_space_node_request.request_body = request_body
         self._create_space_node_request.body = request_body

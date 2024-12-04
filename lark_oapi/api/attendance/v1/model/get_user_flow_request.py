@@ -24,16 +24,17 @@ class GetUserFlowRequestBuilder(object):
         get_user_flow_request.uri = "/open-apis/attendance/v1/user_flows/:user_flow_id"
         get_user_flow_request.token_types = {AccessTokenType.TENANT}
         self._get_user_flow_request: GetUserFlowRequest = get_user_flow_request
-
+    
     def employee_type(self, employee_type: str) -> "GetUserFlowRequestBuilder":
         self._get_user_flow_request.employee_type = employee_type
         self._get_user_flow_request.add_query("employee_type", employee_type)
         return self
-
+    
     def user_flow_id(self, user_flow_id: str) -> "GetUserFlowRequestBuilder":
         self._get_user_flow_request.user_flow_id = user_flow_id
         self._get_user_flow_request.paths["user_flow_id"] = str(user_flow_id)
         return self
+    
 
     def build(self) -> GetUserFlowRequest:
         return self._get_user_flow_request

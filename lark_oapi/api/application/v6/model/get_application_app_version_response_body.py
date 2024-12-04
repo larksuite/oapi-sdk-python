@@ -22,10 +22,9 @@ class GetApplicationAppVersionResponseBody(object):
 class GetApplicationAppVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_application_app_version_response_body = GetApplicationAppVersionResponseBody()
-
     def app_version(self, app_version: ApplicationAppVersion) -> "GetApplicationAppVersionResponseBodyBuilder":
         self._get_application_app_version_response_body.app_version = app_version
         return self
-
+    
     def build(self) -> "GetApplicationAppVersionResponseBody":
         return self._get_application_app_version_response_body

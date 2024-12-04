@@ -24,7 +24,7 @@ class StreamRecognizeSpeechRequestBuilder(object):
         stream_recognize_speech_request.uri = "/open-apis/speech_to_text/v1/speech/stream_recognize"
         stream_recognize_speech_request.token_types = {AccessTokenType.TENANT}
         self._stream_recognize_speech_request: StreamRecognizeSpeechRequest = stream_recognize_speech_request
-
+    
     def request_body(self, request_body: StreamRecognizeSpeechRequestBody) -> "StreamRecognizeSpeechRequestBuilder":
         self._stream_recognize_speech_request.request_body = request_body
         self._stream_recognize_speech_request.body = request_body

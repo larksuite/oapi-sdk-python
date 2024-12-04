@@ -17,8 +17,7 @@ class FileViewRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListFileViewRecordRequest,
-             option: Optional[RequestOption] = None) -> ListFileViewRecordResponse:
+    def list(self, request: ListFileViewRecordRequest, option: Optional[RequestOption] = None) -> ListFileViewRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class FileViewRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListFileViewRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileViewRecordResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListFileViewRecordRequest,
-                    option: Optional[RequestOption] = None) -> ListFileViewRecordResponse:
+    async def alist(self, request: ListFileViewRecordRequest, option: Optional[RequestOption] = None) -> ListFileViewRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListFileViewRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileViewRecordResponse)
         response.raw = resp
 
         return response
+        
+    

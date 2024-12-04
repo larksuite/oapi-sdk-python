@@ -28,22 +28,18 @@ class FeedGroupUpdater(object):
 class FeedGroupUpdaterBuilder(object):
     def __init__(self) -> None:
         self._feed_group_updater = FeedGroupUpdater()
-
     def group_id(self, group_id: str) -> "FeedGroupUpdaterBuilder":
         self._feed_group_updater.group_id = group_id
         return self
-
     def name(self, name: str) -> "FeedGroupUpdaterBuilder":
         self._feed_group_updater.name = name
         return self
-
     def rules(self, rules: FeedGroupRules) -> "FeedGroupUpdaterBuilder":
         self._feed_group_updater.rules = rules
         return self
-
     def update_fields(self, update_fields: List[str]) -> "FeedGroupUpdaterBuilder":
         self._feed_group_updater.update_fields = update_fields
         return self
-
+    
     def build(self) -> "FeedGroupUpdater":
         return self._feed_group_updater

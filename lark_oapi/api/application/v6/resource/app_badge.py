@@ -30,12 +30,13 @@ class AppBadge(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SetAppBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), SetAppBadgeResponse)
         response.raw = resp
 
         return response
+        
 
     async def aset(self, request: SetAppBadgeRequest, option: Optional[RequestOption] = None) -> SetAppBadgeResponse:
         if option is None:
@@ -44,11 +45,15 @@ class AppBadge(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SetAppBadgeResponse = JSON.unmarshal(str(resp.content, UTF_8), SetAppBadgeResponse)
         response.raw = resp
 
         return response
+        
+    

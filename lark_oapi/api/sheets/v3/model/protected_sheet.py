@@ -21,10 +21,9 @@ class ProtectedSheet(object):
 class ProtectedSheetBuilder(object):
     def __init__(self) -> None:
         self._protected_sheet = ProtectedSheet()
-
     def sheet_id(self, sheet_id: str) -> "ProtectedSheetBuilder":
         self._protected_sheet.sheet_id = sheet_id
         return self
-
+    
     def build(self) -> "ProtectedSheet":
         return self._protected_sheet

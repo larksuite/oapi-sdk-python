@@ -34,12 +34,13 @@ class Moto(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateMotoResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMotoResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreateMotoRequest, option: Optional[RequestOption] = None) -> CreateMotoResponse:
         if option is None:
@@ -48,15 +49,17 @@ class Moto(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateMotoResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateMotoResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetMotoRequest, option: Optional[RequestOption] = None) -> GetMotoResponse:
         if option is None:
             option = RequestOption()
@@ -70,12 +73,13 @@ class Moto(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetMotoResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMotoResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetMotoRequest, option: Optional[RequestOption] = None) -> GetMotoResponse:
         if option is None:
@@ -84,15 +88,17 @@ class Moto(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetMotoResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMotoResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListMotoRequest, option: Optional[RequestOption] = None) -> ListMotoResponse:
         if option is None:
             option = RequestOption()
@@ -106,12 +112,13 @@ class Moto(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListMotoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMotoResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListMotoRequest, option: Optional[RequestOption] = None) -> ListMotoResponse:
         if option is None:
@@ -120,11 +127,15 @@ class Moto(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListMotoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListMotoResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -181,6 +181,9 @@ from .pre_hire_onboarding_info import *
 from .pre_hire_pay_group_info import *
 from .pre_hire_probation_info import *
 from .prehire_create import *
+from .prehire_seniority_adjust_information import *
+from .prehire_seniority_adjust_information_query import *
+from .prehire_seniority_adjust_information_update import *
 from .prehire_update import *
 from .probation_info import *
 from .probation_info_for_submit import *
@@ -239,7 +242,7 @@ from .report_detail_req import *
 from .resident_tax import *
 from .resident_tax_for_update import *
 from .seniority_adjust_information import *
-from .seniority_adjust_information_for_edit import *
+from .seniority_adjust_information_edit import *
 from .signature_custom_field_v1 import *
 from .signature_custom_field_v2 import *
 from .signature_custom_field_value import *
@@ -292,6 +295,11 @@ from .workforce_plan_detail_req import *
 from .workforce_plan_detail_row import *
 from .workforce_plan_detail_v2 import *
 from .workforce_plan_eai_detail import *
+from .get_approval_groups_request import *
+from .open_query_department_change_list_by_ids_approval_groups_request_body import *
+from .open_query_department_change_list_by_ids_approval_groups_request import *
+from .open_query_job_change_list_by_ids_approval_groups_request_body import *
+from .open_query_job_change_list_by_ids_approval_groups_request import *
 from .list_approver_request import *
 from .search_basic_info_bank_request_body import *
 from .search_basic_info_bank_request import *
@@ -388,6 +396,10 @@ from .patch_location_request import *
 from .create_location_address_request import *
 from .delete_location_address_request import *
 from .patch_location_address_request import *
+from .edit_offboarding_request_body import *
+from .edit_offboarding_request import *
+from .revoke_offboarding_request_body import *
+from .revoke_offboarding_request import *
 from .submit_v2_offboarding_request_body import *
 from .submit_v2_offboarding_request import *
 from .create_person_request import *
@@ -421,6 +433,12 @@ from .get_process_form_variable_data_request import *
 from .list_workforce_plan_request import *
 from .batch_workforce_plan_detail_request_body import *
 from .batch_workforce_plan_detail_request import *
+from .get_approval_groups_response_body import *
+from .get_approval_groups_response import *
+from .open_query_department_change_list_by_ids_approval_groups_response_body import *
+from .open_query_department_change_list_by_ids_approval_groups_response import *
+from .open_query_job_change_list_by_ids_approval_groups_response_body import *
+from .open_query_job_change_list_by_ids_approval_groups_response import *
 from .list_approver_response_body import *
 from .list_approver_response import *
 from .search_basic_info_bank_response_body import *
@@ -525,6 +543,9 @@ from .create_location_address_response_body import *
 from .create_location_address_response import *
 from .delete_location_address_response import *
 from .patch_location_address_response import *
+from .edit_offboarding_response_body import *
+from .edit_offboarding_response import *
+from .revoke_offboarding_response import *
 from .submit_v2_offboarding_response_body import *
 from .submit_v2_offboarding_response import *
 from .create_person_response_body import *
@@ -566,6 +587,7 @@ from .list_workforce_plan_response_body import *
 from .list_workforce_plan_response import *
 from .batch_workforce_plan_detail_response_body import *
 from .batch_workforce_plan_detail_response import *
+from .p2_corehr_approval_groups_updated_v2 import *
 from .p2_corehr_company_created_v2 import *
 from .p2_corehr_company_deleted_v2 import *
 from .p2_corehr_company_updated_v2 import *

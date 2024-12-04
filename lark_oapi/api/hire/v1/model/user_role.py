@@ -34,31 +34,24 @@ class UserRole(object):
 class UserRoleBuilder(object):
     def __init__(self) -> None:
         self._user_role = UserRole()
-
     def user_id(self, user_id: str) -> "UserRoleBuilder":
         self._user_role.user_id = user_id
         return self
-
     def role_id(self, role_id: str) -> "UserRoleBuilder":
         self._user_role.role_id = role_id
         return self
-
     def modify_time(self, modify_time: str) -> "UserRoleBuilder":
         self._user_role.modify_time = modify_time
         return self
-
     def role_name(self, role_name: I18n) -> "UserRoleBuilder":
         self._user_role.role_name = role_name
         return self
-
     def role_description(self, role_description: I18n) -> "UserRoleBuilder":
         self._user_role.role_description = role_description
         return self
-
-    def business_management_scopes(self,
-                                   business_management_scopes: List[UserBusinessManagementScope]) -> "UserRoleBuilder":
+    def business_management_scopes(self, business_management_scopes: List[UserBusinessManagementScope]) -> "UserRoleBuilder":
         self._user_role.business_management_scopes = business_management_scopes
         return self
-
+    
     def build(self) -> "UserRole":
         return self._user_role

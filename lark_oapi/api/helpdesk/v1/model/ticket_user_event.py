@@ -28,22 +28,18 @@ class TicketUserEvent(object):
 class TicketUserEventBuilder(object):
     def __init__(self) -> None:
         self._ticket_user_event = TicketUserEvent()
-
     def id(self, id: UserId) -> "TicketUserEventBuilder":
         self._ticket_user_event.id = id
         return self
-
     def avatar_url(self, avatar_url: str) -> "TicketUserEventBuilder":
         self._ticket_user_event.avatar_url = avatar_url
         return self
-
     def name(self, name: str) -> "TicketUserEventBuilder":
         self._ticket_user_event.name = name
         return self
-
     def email(self, email: str) -> "TicketUserEventBuilder":
         self._ticket_user_event.email = email
         return self
-
+    
     def build(self) -> "TicketUserEvent":
         return self._ticket_user_event

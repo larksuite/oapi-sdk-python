@@ -30,26 +30,30 @@ class RuleView(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: RemoveRuleViewResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRuleViewResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aremove(self, request: RemoveRuleViewRequest,
-                      option: Optional[RequestOption] = None) -> RemoveRuleViewResponse:
+    async def aremove(self, request: RemoveRuleViewRequest, option: Optional[RequestOption] = None) -> RemoveRuleViewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: RemoveRuleViewResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRuleViewResponse)
         response.raw = resp
 
         return response
+        
+    

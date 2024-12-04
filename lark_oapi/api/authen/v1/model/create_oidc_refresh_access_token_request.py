@@ -24,9 +24,8 @@ class CreateOidcRefreshAccessTokenRequestBuilder(object):
         create_oidc_refresh_access_token_request.uri = "/open-apis/authen/v1/oidc/refresh_access_token"
         create_oidc_refresh_access_token_request.token_types = {AccessTokenType.APP}
         self._create_oidc_refresh_access_token_request: CreateOidcRefreshAccessTokenRequest = create_oidc_refresh_access_token_request
-
-    def request_body(self,
-                     request_body: CreateOidcRefreshAccessTokenRequestBody) -> "CreateOidcRefreshAccessTokenRequestBuilder":
+    
+    def request_body(self, request_body: CreateOidcRefreshAccessTokenRequestBody) -> "CreateOidcRefreshAccessTokenRequestBuilder":
         self._create_oidc_refresh_access_token_request.request_body = request_body
         self._create_oidc_refresh_access_token_request.body = request_body
         return self

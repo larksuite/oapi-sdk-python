@@ -26,18 +26,15 @@ class CreateProgressRecordResponseBody(object):
 class CreateProgressRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_progress_record_response_body = CreateProgressRecordResponseBody()
-
     def progress_id(self, progress_id: int) -> "CreateProgressRecordResponseBodyBuilder":
         self._create_progress_record_response_body.progress_id = progress_id
         return self
-
     def modify_time(self, modify_time: int) -> "CreateProgressRecordResponseBodyBuilder":
         self._create_progress_record_response_body.modify_time = modify_time
         return self
-
     def content(self, content: ContentBlock) -> "CreateProgressRecordResponseBodyBuilder":
         self._create_progress_record_response_body.content = content
         return self
-
+    
     def build(self) -> "CreateProgressRecordResponseBody":
         return self._create_progress_record_response_body

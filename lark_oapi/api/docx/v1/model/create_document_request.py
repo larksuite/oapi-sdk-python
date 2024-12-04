@@ -24,7 +24,7 @@ class CreateDocumentRequestBuilder(object):
         create_document_request.uri = "/open-apis/docx/v1/documents"
         create_document_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_document_request: CreateDocumentRequest = create_document_request
-
+    
     def request_body(self, request_body: CreateDocumentRequestBody) -> "CreateDocumentRequestBuilder":
         self._create_document_request.request_body = request_body
         self._create_document_request.body = request_body

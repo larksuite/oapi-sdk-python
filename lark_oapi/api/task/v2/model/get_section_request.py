@@ -24,16 +24,17 @@ class GetSectionRequestBuilder(object):
         get_section_request.uri = "/open-apis/task/v2/sections/:section_guid"
         get_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_section_request: GetSectionRequest = get_section_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetSectionRequestBuilder":
         self._get_section_request.user_id_type = user_id_type
         self._get_section_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def section_guid(self, section_guid: str) -> "GetSectionRequestBuilder":
         self._get_section_request.section_guid = section_guid
         self._get_section_request.paths["section_guid"] = str(section_guid)
         return self
+    
 
     def build(self) -> GetSectionRequest:
         return self._get_section_request

@@ -17,6 +17,7 @@ class PreHire(object):
         "probation_info": PreHireProbationInfo,
         "contract_info": PreHireContractInfo,
         "pre_hire_id": str,
+        "people_fields_json": str,
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class PreHire(object):
         self.probation_info: Optional[PreHireProbationInfo] = None
         self.contract_info: Optional[PreHireContractInfo] = None
         self.pre_hire_id: Optional[str] = None
+        self.people_fields_json: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,30 +38,27 @@ class PreHire(object):
 class PreHireBuilder(object):
     def __init__(self) -> None:
         self._pre_hire = PreHire()
-
     def person_info(self, person_info: PersonInfo) -> "PreHireBuilder":
         self._pre_hire.person_info = person_info
         return self
-
     def employment_info(self, employment_info: PreHireEmploymentInfo) -> "PreHireBuilder":
         self._pre_hire.employment_info = employment_info
         return self
-
     def onboarding_info(self, onboarding_info: PreHireOnboardingInfo) -> "PreHireBuilder":
         self._pre_hire.onboarding_info = onboarding_info
         return self
-
     def probation_info(self, probation_info: PreHireProbationInfo) -> "PreHireBuilder":
         self._pre_hire.probation_info = probation_info
         return self
-
     def contract_info(self, contract_info: PreHireContractInfo) -> "PreHireBuilder":
         self._pre_hire.contract_info = contract_info
         return self
-
     def pre_hire_id(self, pre_hire_id: str) -> "PreHireBuilder":
         self._pre_hire.pre_hire_id = pre_hire_id
         return self
-
+    def people_fields_json(self, people_fields_json: str) -> "PreHireBuilder":
+        self._pre_hire.people_fields_json = people_fields_json
+        return self
+    
     def build(self) -> "PreHire":
         return self._pre_hire

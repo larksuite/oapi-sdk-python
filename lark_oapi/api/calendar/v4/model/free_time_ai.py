@@ -21,10 +21,9 @@ class FreeTimeAi(object):
 class FreeTimeAiBuilder(object):
     def __init__(self) -> None:
         self._free_time_ai = FreeTimeAi()
-
     def free_time_list(self, free_time_list: str) -> "FreeTimeAiBuilder":
         self._free_time_ai.free_time_list = free_time_list
         return self
-
+    
     def build(self) -> "FreeTimeAi":
         return self._free_time_ai

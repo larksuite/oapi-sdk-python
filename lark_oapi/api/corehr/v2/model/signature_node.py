@@ -35,34 +35,27 @@ class SignatureNode(object):
 class SignatureNodeBuilder(object):
     def __init__(self) -> None:
         self._signature_node = SignatureNode()
-
     def user_infos(self, user_infos: List[SignatureUserInfo]) -> "SignatureNodeBuilder":
         self._signature_node.user_infos = user_infos
         return self
-
     def state(self, state: str) -> "SignatureNodeBuilder":
         self._signature_node.state = state
         return self
-
     def finish_time(self, finish_time: str) -> "SignatureNodeBuilder":
         self._signature_node.finish_time = finish_time
         return self
-
     def updated_time(self, updated_time: str) -> "SignatureNodeBuilder":
         self._signature_node.updated_time = updated_time
         return self
-
     def is_ongoing(self, is_ongoing: bool) -> "SignatureNodeBuilder":
         self._signature_node.is_ongoing = is_ongoing
         return self
-
     def role_label(self, role_label: SignatureEnumInfoLabel) -> "SignatureNodeBuilder":
         self._signature_node.role_label = role_label
         return self
-
     def sign_role(self, sign_role: str) -> "SignatureNodeBuilder":
         self._signature_node.sign_role = sign_role
         return self
-
+    
     def build(self) -> "SignatureNode":
         return self._signature_node

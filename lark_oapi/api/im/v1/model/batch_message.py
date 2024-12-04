@@ -27,18 +27,15 @@ class BatchMessage(object):
 class BatchMessageBuilder(object):
     def __init__(self) -> None:
         self._batch_message = BatchMessage()
-
     def batch_message_id(self, batch_message_id: str) -> "BatchMessageBuilder":
         self._batch_message.batch_message_id = batch_message_id
         return self
-
     def batch_send_progress(self, batch_send_progress: BatchSendProgress) -> "BatchMessageBuilder":
         self._batch_message.batch_send_progress = batch_send_progress
         return self
-
     def batch_recall_progress(self, batch_recall_progress: BatchRecallProgress) -> "BatchMessageBuilder":
         self._batch_message.batch_recall_progress = batch_recall_progress
         return self
-
+    
     def build(self) -> "BatchMessage":
         return self._batch_message

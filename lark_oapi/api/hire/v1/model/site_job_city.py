@@ -24,14 +24,12 @@ class SiteJobCity(object):
 class SiteJobCityBuilder(object):
     def __init__(self) -> None:
         self._site_job_city = SiteJobCity()
-
     def city_code(self, city_code: str) -> "SiteJobCityBuilder":
         self._site_job_city.city_code = city_code
         return self
-
     def name(self, name: SiteName) -> "SiteJobCityBuilder":
         self._site_job_city.name = name
         return self
-
+    
     def build(self) -> "SiteJobCity":
         return self._site_job_city

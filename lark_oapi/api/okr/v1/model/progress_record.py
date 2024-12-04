@@ -26,18 +26,15 @@ class ProgressRecord(object):
 class ProgressRecordBuilder(object):
     def __init__(self) -> None:
         self._progress_record = ProgressRecord()
-
     def progress_id(self, progress_id: int) -> "ProgressRecordBuilder":
         self._progress_record.progress_id = progress_id
         return self
-
     def modify_time(self, modify_time: int) -> "ProgressRecordBuilder":
         self._progress_record.modify_time = modify_time
         return self
-
     def content(self, content: ContentBlock) -> "ProgressRecordBuilder":
         self._progress_record.content = content
         return self
-
+    
     def build(self) -> "ProgressRecord":
         return self._progress_record

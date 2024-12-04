@@ -26,18 +26,15 @@ class UserStatsField(object):
 class UserStatsFieldBuilder(object):
     def __init__(self) -> None:
         self._user_stats_field = UserStatsField()
-
     def stats_type(self, stats_type: str) -> "UserStatsFieldBuilder":
         self._user_stats_field.stats_type = stats_type
         return self
-
     def user_id(self, user_id: str) -> "UserStatsFieldBuilder":
         self._user_stats_field.user_id = user_id
         return self
-
     def fields(self, fields: List[Field]) -> "UserStatsFieldBuilder":
         self._user_stats_field.fields = fields
         return self
-
+    
     def build(self) -> "UserStatsField":
         return self._user_stats_field

@@ -23,14 +23,12 @@ class ArchiveFieldData(object):
 class ArchiveFieldDataBuilder(object):
     def __init__(self) -> None:
         self._archive_field_data = ArchiveFieldData()
-
     def code(self, code: str) -> "ArchiveFieldDataBuilder":
         self._archive_field_data.code = code
         return self
-
     def value(self, value: str) -> "ArchiveFieldDataBuilder":
         self._archive_field_data.value = value
         return self
-
+    
     def build(self) -> "ArchiveFieldData":
         return self._archive_field_data

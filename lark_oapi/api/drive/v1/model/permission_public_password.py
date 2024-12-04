@@ -19,6 +19,6 @@ class PermissionPublicPassword(object):
 class PermissionPublicPasswordBuilder(object):
     def __init__(self) -> None:
         self._permission_public_password = PermissionPublicPassword()
-
+    
     def build(self) -> "PermissionPublicPassword":
         return self._permission_public_password

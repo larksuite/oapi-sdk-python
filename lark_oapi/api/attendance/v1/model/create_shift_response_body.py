@@ -22,10 +22,9 @@ class CreateShiftResponseBody(object):
 class CreateShiftResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_shift_response_body = CreateShiftResponseBody()
-
     def shift(self, shift: Shift) -> "CreateShiftResponseBodyBuilder":
         self._create_shift_response_body.shift = shift
         return self
-
+    
     def build(self) -> "CreateShiftResponseBody":
         return self._create_shift_response_body

@@ -22,6 +22,7 @@ class ListDeviceRequestBuilder(object):
         list_device_request.uri = "/open-apis/acs/v1/devices"
         list_device_request.token_types = {AccessTokenType.TENANT}
         self._list_device_request: ListDeviceRequest = list_device_request
+    
 
     def build(self) -> ListDeviceRequest:
         return self._list_device_request

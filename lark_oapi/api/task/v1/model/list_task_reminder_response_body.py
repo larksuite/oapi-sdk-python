@@ -26,18 +26,15 @@ class ListTaskReminderResponseBody(object):
 class ListTaskReminderResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_task_reminder_response_body = ListTaskReminderResponseBody()
-
     def items(self, items: List[Reminder]) -> "ListTaskReminderResponseBodyBuilder":
         self._list_task_reminder_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListTaskReminderResponseBodyBuilder":
         self._list_task_reminder_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListTaskReminderResponseBodyBuilder":
         self._list_task_reminder_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListTaskReminderResponseBody":
         return self._list_task_reminder_response_body

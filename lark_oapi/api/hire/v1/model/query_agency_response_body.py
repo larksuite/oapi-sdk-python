@@ -22,10 +22,9 @@ class QueryAgencyResponseBody(object):
 class QueryAgencyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_agency_response_body = QueryAgencyResponseBody()
-
     def items(self, items: List[Agency]) -> "QueryAgencyResponseBodyBuilder":
         self._query_agency_response_body.items = items
         return self
-
+    
     def build(self) -> "QueryAgencyResponseBody":
         return self._query_agency_response_body

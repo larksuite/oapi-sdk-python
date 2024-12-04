@@ -34,30 +34,24 @@ class Offboarding(object):
 class OffboardingBuilder(object):
     def __init__(self) -> None:
         self._offboarding = Offboarding()
-
     def initiating_type(self, initiating_type: str) -> "OffboardingBuilder":
         self._offboarding.initiating_type = initiating_type
         return self
-
     def status(self, status: str) -> "OffboardingBuilder":
         self._offboarding.status = status
         return self
-
     def application_info(self, application_info: ApplicationInfo) -> "OffboardingBuilder":
         self._offboarding.application_info = application_info
         return self
-
     def offboarding_info(self, offboarding_info: OffboardingInfo) -> "OffboardingBuilder":
         self._offboarding.offboarding_info = offboarding_info
         return self
-
     def offboarding_checklist(self, offboarding_checklist: OffboardingChecklist) -> "OffboardingBuilder":
         self._offboarding.offboarding_checklist = offboarding_checklist
         return self
-
     def offboarding_id(self, offboarding_id: str) -> "OffboardingBuilder":
         self._offboarding.offboarding_id = offboarding_id
         return self
-
+    
     def build(self) -> "Offboarding":
         return self._offboarding

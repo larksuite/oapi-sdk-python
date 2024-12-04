@@ -24,14 +24,12 @@ class ListClassificationResponseBody(object):
 class ListClassificationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_classification_response_body = ListClassificationResponseBody()
-
     def items(self, items: List[Classification]) -> "ListClassificationResponseBodyBuilder":
         self._list_classification_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListClassificationResponseBodyBuilder":
         self._list_classification_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "ListClassificationResponseBody":
         return self._list_classification_response_body

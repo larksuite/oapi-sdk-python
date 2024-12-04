@@ -22,10 +22,9 @@ class RecruiterJobResponseBody(object):
 class RecruiterJobResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recruiter_job_response_body = RecruiterJobResponseBody()
-
     def info(self, info: JobRecruiter2) -> "RecruiterJobResponseBodyBuilder":
         self._recruiter_job_response_body.info = info
         return self
-
+    
     def build(self) -> "RecruiterJobResponseBody":
         return self._recruiter_job_response_body

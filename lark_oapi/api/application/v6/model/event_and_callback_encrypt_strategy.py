@@ -23,14 +23,12 @@ class EventAndCallbackEncryptStrategy(object):
 class EventAndCallbackEncryptStrategyBuilder(object):
     def __init__(self) -> None:
         self._event_and_callback_encrypt_strategy = EventAndCallbackEncryptStrategy()
-
     def encryption_key(self, encryption_key: str) -> "EventAndCallbackEncryptStrategyBuilder":
         self._event_and_callback_encrypt_strategy.encryption_key = encryption_key
         return self
-
     def verification_token(self, verification_token: str) -> "EventAndCallbackEncryptStrategyBuilder":
         self._event_and_callback_encrypt_strategy.verification_token = verification_token
         return self
-
+    
     def build(self) -> "EventAndCallbackEncryptStrategy":
         return self._event_and_callback_encrypt_strategy

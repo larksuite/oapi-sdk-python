@@ -51,70 +51,54 @@ class EmployeeV2(object):
 class EmployeeV2Builder(object):
     def __init__(self) -> None:
         self._employee_v2 = EmployeeV2()
-
     def id(self, id: str) -> "EmployeeV2Builder":
         self._employee_v2.id = id
         return self
-
     def application_id(self, application_id: str) -> "EmployeeV2Builder":
         self._employee_v2.application_id = application_id
         return self
-
     def onboard_status(self, onboard_status: int) -> "EmployeeV2Builder":
         self._employee_v2.onboard_status = onboard_status
         return self
-
     def conversion_status(self, conversion_status: int) -> "EmployeeV2Builder":
         self._employee_v2.conversion_status = conversion_status
         return self
-
     def onboard_time(self, onboard_time: str) -> "EmployeeV2Builder":
         self._employee_v2.onboard_time = onboard_time
         return self
-
     def expected_conversion_time(self, expected_conversion_time: str) -> "EmployeeV2Builder":
         self._employee_v2.expected_conversion_time = expected_conversion_time
         return self
-
     def actual_conversion_time(self, actual_conversion_time: str) -> "EmployeeV2Builder":
         self._employee_v2.actual_conversion_time = actual_conversion_time
         return self
-
     def overboard_time(self, overboard_time: str) -> "EmployeeV2Builder":
         self._employee_v2.overboard_time = overboard_time
         return self
-
     def overboard_note(self, overboard_note: str) -> "EmployeeV2Builder":
         self._employee_v2.overboard_note = overboard_note
         return self
-
     def onboard_city_code(self, onboard_city_code: str) -> "EmployeeV2Builder":
         self._employee_v2.onboard_city_code = onboard_city_code
         return self
-
     def department_id(self, department_id: str) -> "EmployeeV2Builder":
         self._employee_v2.department_id = department_id
         return self
-
     def leader_id(self, leader_id: str) -> "EmployeeV2Builder":
         self._employee_v2.leader_id = leader_id
         return self
-
     def sequence_id(self, sequence_id: str) -> "EmployeeV2Builder":
         self._employee_v2.sequence_id = sequence_id
         return self
-
     def level_id(self, level_id: str) -> "EmployeeV2Builder":
         self._employee_v2.level_id = level_id
         return self
-
     def employee_type(self, employee_type: str) -> "EmployeeV2Builder":
         self._employee_v2.employee_type = employee_type
         return self
-
     def job_requirement_id(self, job_requirement_id: str) -> "EmployeeV2Builder":
         self._employee_v2.job_requirement_id = job_requirement_id
         return self
-
+    
     def build(self) -> "EmployeeV2":
         return self._employee_v2

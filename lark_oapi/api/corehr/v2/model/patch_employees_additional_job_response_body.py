@@ -22,11 +22,9 @@ class PatchEmployeesAdditionalJobResponseBody(object):
 class PatchEmployeesAdditionalJobResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_employees_additional_job_response_body = PatchEmployeesAdditionalJobResponseBody()
-
-    def additional_job(self,
-                       additional_job: EmployeesAdditionalJobWriteResp) -> "PatchEmployeesAdditionalJobResponseBodyBuilder":
+    def additional_job(self, additional_job: EmployeesAdditionalJobWriteResp) -> "PatchEmployeesAdditionalJobResponseBodyBuilder":
         self._patch_employees_additional_job_response_body.additional_job = additional_job
         return self
-
+    
     def build(self) -> "PatchEmployeesAdditionalJobResponseBody":
         return self._patch_employees_additional_job_response_body

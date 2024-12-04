@@ -27,22 +27,18 @@ class WebsiteChannelInfo(object):
 class WebsiteChannelInfoBuilder(object):
     def __init__(self) -> None:
         self._website_channel_info = WebsiteChannelInfo()
-
     def id(self, id: str) -> "WebsiteChannelInfoBuilder":
         self._website_channel_info.id = id
         return self
-
     def name(self, name: str) -> "WebsiteChannelInfoBuilder":
         self._website_channel_info.name = name
         return self
-
     def link(self, link: str) -> "WebsiteChannelInfoBuilder":
         self._website_channel_info.link = link
         return self
-
     def code(self, code: str) -> "WebsiteChannelInfoBuilder":
         self._website_channel_info.code = code
         return self
-
+    
     def build(self) -> "WebsiteChannelInfo":
         return self._website_channel_info

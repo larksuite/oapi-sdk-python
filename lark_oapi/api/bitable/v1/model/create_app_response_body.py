@@ -22,10 +22,9 @@ class CreateAppResponseBody(object):
 class CreateAppResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_response_body = CreateAppResponseBody()
-
     def app(self, app: App) -> "CreateAppResponseBodyBuilder":
         self._create_app_response_body.app = app
         return self
-
+    
     def build(self) -> "CreateAppResponseBody":
         return self._create_app_response_body

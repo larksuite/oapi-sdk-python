@@ -26,18 +26,15 @@ class OfferApplyForm(object):
 class OfferApplyFormBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form = OfferApplyForm()
-
     def id(self, id: str) -> "OfferApplyFormBuilder":
         self._offer_apply_form.id = id
         return self
-
     def name(self, name: I18n) -> "OfferApplyFormBuilder":
         self._offer_apply_form.name = name
         return self
-
     def create_time(self, create_time: str) -> "OfferApplyFormBuilder":
         self._offer_apply_form.create_time = create_time
         return self
-
+    
     def build(self) -> "OfferApplyForm":
         return self._offer_apply_form

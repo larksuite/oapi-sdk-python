@@ -23,14 +23,12 @@ class EmployeeOverboardInfo(object):
 class EmployeeOverboardInfoBuilder(object):
     def __init__(self) -> None:
         self._employee_overboard_info = EmployeeOverboardInfo()
-
     def actual_overboard_time(self, actual_overboard_time: int) -> "EmployeeOverboardInfoBuilder":
         self._employee_overboard_info.actual_overboard_time = actual_overboard_time
         return self
-
     def overboard_note(self, overboard_note: str) -> "EmployeeOverboardInfoBuilder":
         self._employee_overboard_info.overboard_note = overboard_note
         return self
-
+    
     def build(self) -> "EmployeeOverboardInfo":
         return self._employee_overboard_info

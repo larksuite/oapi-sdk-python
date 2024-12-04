@@ -27,18 +27,15 @@ class ApplicationVisibility(object):
 class ApplicationVisibilityBuilder(object):
     def __init__(self) -> None:
         self._application_visibility = ApplicationVisibility()
-
     def is_all(self, is_all: bool) -> "ApplicationVisibilityBuilder":
         self._application_visibility.is_all = is_all
         return self
-
     def visible_list(self, visible_list: AppVisibleList) -> "ApplicationVisibilityBuilder":
         self._application_visibility.visible_list = visible_list
         return self
-
     def invisible_list(self, invisible_list: AppVisibleList) -> "ApplicationVisibilityBuilder":
         self._application_visibility.invisible_list = invisible_list
         return self
-
+    
     def build(self) -> "ApplicationVisibility":
         return self._application_visibility

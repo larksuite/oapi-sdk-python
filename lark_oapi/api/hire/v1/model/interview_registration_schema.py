@@ -28,22 +28,18 @@ class InterviewRegistrationSchema(object):
 class InterviewRegistrationSchemaBuilder(object):
     def __init__(self) -> None:
         self._interview_registration_schema = InterviewRegistrationSchema()
-
     def id(self, id: str) -> "InterviewRegistrationSchemaBuilder":
         self._interview_registration_schema.id = id
         return self
-
     def name(self, name: str) -> "InterviewRegistrationSchemaBuilder":
         self._interview_registration_schema.name = name
         return self
-
     def is_used_as_interview(self, is_used_as_interview: bool) -> "InterviewRegistrationSchemaBuilder":
         self._interview_registration_schema.is_used_as_interview = is_used_as_interview
         return self
-
     def object_list(self, object_list: List[CommonSchema]) -> "InterviewRegistrationSchemaBuilder":
         self._interview_registration_schema.object_list = object_list
         return self
-
+    
     def build(self) -> "InterviewRegistrationSchema":
         return self._interview_registration_schema

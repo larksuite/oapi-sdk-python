@@ -29,26 +29,21 @@ class ExamMarkingTask(object):
 class ExamMarkingTaskBuilder(object):
     def __init__(self) -> None:
         self._exam_marking_task = ExamMarkingTask()
-
     def id(self, id: str) -> "ExamMarkingTaskBuilder":
         self._exam_marking_task.id = id
         return self
-
     def job_id(self, job_id: str) -> "ExamMarkingTaskBuilder":
         self._exam_marking_task.job_id = job_id
         return self
-
     def talent_id(self, talent_id: str) -> "ExamMarkingTaskBuilder":
         self._exam_marking_task.talent_id = talent_id
         return self
-
     def application_id(self, application_id: str) -> "ExamMarkingTaskBuilder":
         self._exam_marking_task.application_id = application_id
         return self
-
     def activity_status(self, activity_status: int) -> "ExamMarkingTaskBuilder":
         self._exam_marking_task.activity_status = activity_status
         return self
-
+    
     def build(self) -> "ExamMarkingTask":
         return self._exam_marking_task

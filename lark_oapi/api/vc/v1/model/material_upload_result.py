@@ -23,14 +23,12 @@ class MaterialUploadResult(object):
 class MaterialUploadResultBuilder(object):
     def __init__(self) -> None:
         self._material_upload_result = MaterialUploadResult()
-
     def file_token(self, file_token: str) -> "MaterialUploadResultBuilder":
         self._material_upload_result.file_token = file_token
         return self
-
     def result(self, result: int) -> "MaterialUploadResultBuilder":
         self._material_upload_result.result = result
         return self
-
+    
     def build(self) -> "MaterialUploadResult":
         return self._material_upload_result

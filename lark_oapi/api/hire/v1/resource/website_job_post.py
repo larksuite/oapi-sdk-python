@@ -21,8 +21,7 @@ class WebsiteJobPost(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetWebsiteJobPostRequest,
-            option: Optional[RequestOption] = None) -> GetWebsiteJobPostResponse:
+    def get(self, request: GetWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> GetWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,32 +34,33 @@ class WebsiteJobPost(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetWebsiteJobPostResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetWebsiteJobPostRequest,
-                   option: Optional[RequestOption] = None) -> GetWebsiteJobPostResponse:
+    async def aget(self, request: GetWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> GetWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), GetWebsiteJobPostResponse)
         response.raw = resp
 
         return response
-
-    def list(self, request: ListWebsiteJobPostRequest,
-             option: Optional[RequestOption] = None) -> ListWebsiteJobPostResponse:
+        
+    def list(self, request: ListWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> ListWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,32 +73,33 @@ class WebsiteJobPost(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWebsiteJobPostResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListWebsiteJobPostRequest,
-                    option: Optional[RequestOption] = None) -> ListWebsiteJobPostResponse:
+    async def alist(self, request: ListWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> ListWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWebsiteJobPostResponse)
         response.raw = resp
 
         return response
-
-    def search(self, request: SearchWebsiteJobPostRequest,
-               option: Optional[RequestOption] = None) -> SearchWebsiteJobPostResponse:
+        
+    def search(self, request: SearchWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> SearchWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
@@ -111,26 +112,30 @@ class WebsiteJobPost(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchWebsiteJobPostResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asearch(self, request: SearchWebsiteJobPostRequest,
-                      option: Optional[RequestOption] = None) -> SearchWebsiteJobPostResponse:
+    async def asearch(self, request: SearchWebsiteJobPostRequest, option: Optional[RequestOption] = None) -> SearchWebsiteJobPostResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchWebsiteJobPostResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchWebsiteJobPostResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -24,14 +24,12 @@ class Term(object):
 class TermBuilder(object):
     def __init__(self) -> None:
         self._term = Term()
-
     def key(self, key: str) -> "TermBuilder":
         self._term.key = key
         return self
-
     def display_status(self, display_status: DisplayStatus) -> "TermBuilder":
         self._term.display_status = display_status
         return self
-
+    
     def build(self) -> "Term":
         return self._term

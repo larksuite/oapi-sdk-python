@@ -27,22 +27,18 @@ class FileSubscription(object):
 class FileSubscriptionBuilder(object):
     def __init__(self) -> None:
         self._file_subscription = FileSubscription()
-
     def subscription_id(self, subscription_id: str) -> "FileSubscriptionBuilder":
         self._file_subscription.subscription_id = subscription_id
         return self
-
     def subscription_type(self, subscription_type: str) -> "FileSubscriptionBuilder":
         self._file_subscription.subscription_type = subscription_type
         return self
-
     def is_subcribe(self, is_subcribe: bool) -> "FileSubscriptionBuilder":
         self._file_subscription.is_subcribe = is_subcribe
         return self
-
     def file_type(self, file_type: str) -> "FileSubscriptionBuilder":
         self._file_subscription.file_type = file_type
         return self
-
+    
     def build(self) -> "FileSubscription":
         return self._file_subscription

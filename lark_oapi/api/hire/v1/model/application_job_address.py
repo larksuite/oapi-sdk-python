@@ -25,18 +25,15 @@ class ApplicationJobAddress(object):
 class ApplicationJobAddressBuilder(object):
     def __init__(self) -> None:
         self._application_job_address = ApplicationJobAddress()
-
     def id(self, id: str) -> "ApplicationJobAddressBuilder":
         self._application_job_address.id = id
         return self
-
     def name(self, name: str) -> "ApplicationJobAddressBuilder":
         self._application_job_address.name = name
         return self
-
     def en_name(self, en_name: str) -> "ApplicationJobAddressBuilder":
         self._application_job_address.en_name = en_name
         return self
-
+    
     def build(self) -> "ApplicationJobAddress":
         return self._application_job_address

@@ -40,12 +40,13 @@ class Offer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateOfferResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreateOfferRequest, option: Optional[RequestOption] = None) -> CreateOfferResponse:
         if option is None:
@@ -54,15 +55,17 @@ class Offer(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateOfferResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetOfferRequest, option: Optional[RequestOption] = None) -> GetOfferResponse:
         if option is None:
             option = RequestOption()
@@ -76,12 +79,13 @@ class Offer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetOfferRequest, option: Optional[RequestOption] = None) -> GetOfferResponse:
         if option is None:
@@ -90,17 +94,18 @@ class Offer(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferResponse)
         response.raw = resp
 
         return response
-
-    def intern_offer_status(self, request: InternOfferStatusOfferRequest,
-                            option: Optional[RequestOption] = None) -> InternOfferStatusOfferResponse:
+        
+    def intern_offer_status(self, request: InternOfferStatusOfferRequest, option: Optional[RequestOption] = None) -> InternOfferStatusOfferResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,32 +118,32 @@ class Offer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: InternOfferStatusOfferResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  InternOfferStatusOfferResponse)
+        response: InternOfferStatusOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), InternOfferStatusOfferResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aintern_offer_status(self, request: InternOfferStatusOfferRequest,
-                                   option: Optional[RequestOption] = None) -> InternOfferStatusOfferResponse:
+    async def aintern_offer_status(self, request: InternOfferStatusOfferRequest, option: Optional[RequestOption] = None) -> InternOfferStatusOfferResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: InternOfferStatusOfferResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  InternOfferStatusOfferResponse)
+        response: InternOfferStatusOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), InternOfferStatusOfferResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListOfferRequest, option: Optional[RequestOption] = None) -> ListOfferResponse:
         if option is None:
             option = RequestOption()
@@ -152,12 +157,13 @@ class Offer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), ListOfferResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListOfferRequest, option: Optional[RequestOption] = None) -> ListOfferResponse:
         if option is None:
@@ -166,17 +172,18 @@ class Offer(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), ListOfferResponse)
         response.raw = resp
 
         return response
-
-    def offer_status(self, request: OfferStatusOfferRequest,
-                     option: Optional[RequestOption] = None) -> OfferStatusOfferResponse:
+        
+    def offer_status(self, request: OfferStatusOfferRequest, option: Optional[RequestOption] = None) -> OfferStatusOfferResponse:
         if option is None:
             option = RequestOption()
 
@@ -189,30 +196,32 @@ class Offer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: OfferStatusOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), OfferStatusOfferResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aoffer_status(self, request: OfferStatusOfferRequest,
-                            option: Optional[RequestOption] = None) -> OfferStatusOfferResponse:
+    async def aoffer_status(self, request: OfferStatusOfferRequest, option: Optional[RequestOption] = None) -> OfferStatusOfferResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: OfferStatusOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), OfferStatusOfferResponse)
         response.raw = resp
 
         return response
-
+        
     def update(self, request: UpdateOfferRequest, option: Optional[RequestOption] = None) -> UpdateOfferResponse:
         if option is None:
             option = RequestOption()
@@ -226,12 +235,13 @@ class Offer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateOfferResponse)
         response.raw = resp
 
         return response
+        
 
     async def aupdate(self, request: UpdateOfferRequest, option: Optional[RequestOption] = None) -> UpdateOfferResponse:
         if option is None:
@@ -240,11 +250,15 @@ class Offer(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateOfferResponse)
         response.raw = resp
 
         return response
+        
+    

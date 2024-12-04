@@ -33,34 +33,27 @@ class SiteResumeEducation(object):
 class SiteResumeEducationBuilder(object):
     def __init__(self) -> None:
         self._site_resume_education = SiteResumeEducation()
-
     def degree(self, degree: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.degree = degree
         return self
-
     def school(self, school: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.school = school
         return self
-
     def major(self, major: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.major = major
         return self
-
     def start_time(self, start_time: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.end_time = end_time
         return self
-
     def education_type(self, education_type: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.education_type = education_type
         return self
-
     def academic_ranking(self, academic_ranking: str) -> "SiteResumeEducationBuilder":
         self._site_resume_education.academic_ranking = academic_ranking
         return self
-
+    
     def build(self) -> "SiteResumeEducation":
         return self._site_resume_education

@@ -23,11 +23,12 @@ class GetLocationRequestBuilder(object):
         get_location_request.uri = "/open-apis/corehr/v1/locations/:location_id"
         get_location_request.token_types = {AccessTokenType.TENANT}
         self._get_location_request: GetLocationRequest = get_location_request
-
+    
     def location_id(self, location_id: str) -> "GetLocationRequestBuilder":
         self._get_location_request.location_id = location_id
         self._get_location_request.paths["location_id"] = str(location_id)
         return self
+    
 
     def build(self) -> GetLocationRequest:
         return self._get_location_request

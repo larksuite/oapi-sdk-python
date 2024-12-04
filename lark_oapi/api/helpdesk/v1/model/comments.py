@@ -31,30 +31,24 @@ class Comments(object):
 class CommentsBuilder(object):
     def __init__(self) -> None:
         self._comments = Comments()
-
     def content(self, content: str) -> "CommentsBuilder":
         self._comments.content = content
         return self
-
     def created_at(self, created_at: int) -> "CommentsBuilder":
         self._comments.created_at = created_at
         return self
-
     def id(self, id: int) -> "CommentsBuilder":
         self._comments.id = id
         return self
-
     def user_avatar_url(self, user_avatar_url: str) -> "CommentsBuilder":
         self._comments.user_avatar_url = user_avatar_url
         return self
-
     def user_name(self, user_name: str) -> "CommentsBuilder":
         self._comments.user_name = user_name
         return self
-
     def user_id(self, user_id: int) -> "CommentsBuilder":
         self._comments.user_id = user_id
         return self
-
+    
     def build(self) -> "Comments":
         return self._comments

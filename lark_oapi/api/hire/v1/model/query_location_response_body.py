@@ -26,18 +26,15 @@ class QueryLocationResponseBody(object):
 class QueryLocationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_location_response_body = QueryLocationResponseBody()
-
     def items(self, items: List[LocationDto]) -> "QueryLocationResponseBodyBuilder":
         self._query_location_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "QueryLocationResponseBodyBuilder":
         self._query_location_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "QueryLocationResponseBodyBuilder":
         self._query_location_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "QueryLocationResponseBody":
         return self._query_location_response_body

@@ -21,10 +21,9 @@ class TranslateTextResponseBody(object):
 class TranslateTextResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._translate_text_response_body = TranslateTextResponseBody()
-
     def text(self, text: str) -> "TranslateTextResponseBodyBuilder":
         self._translate_text_response_body.text = text
         return self
-
+    
     def build(self) -> "TranslateTextResponseBody":
         return self._translate_text_response_body

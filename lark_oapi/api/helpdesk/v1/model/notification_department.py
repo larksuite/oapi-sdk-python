@@ -23,14 +23,12 @@ class NotificationDepartment(object):
 class NotificationDepartmentBuilder(object):
     def __init__(self) -> None:
         self._notification_department = NotificationDepartment()
-
     def department_id(self, department_id: str) -> "NotificationDepartmentBuilder":
         self._notification_department.department_id = department_id
         return self
-
     def name(self, name: str) -> "NotificationDepartmentBuilder":
         self._notification_department.name = name
         return self
-
+    
     def build(self) -> "NotificationDepartment":
         return self._notification_department

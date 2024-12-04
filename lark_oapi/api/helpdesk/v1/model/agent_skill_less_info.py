@@ -25,18 +25,15 @@ class AgentSkillLessInfo(object):
 class AgentSkillLessInfoBuilder(object):
     def __init__(self) -> None:
         self._agent_skill_less_info = AgentSkillLessInfo()
-
     def id(self, id: str) -> "AgentSkillLessInfoBuilder":
         self._agent_skill_less_info.id = id
         return self
-
     def name(self, name: str) -> "AgentSkillLessInfoBuilder":
         self._agent_skill_less_info.name = name
         return self
-
     def is_default(self, is_default: bool) -> "AgentSkillLessInfoBuilder":
         self._agent_skill_less_info.is_default = is_default
         return self
-
+    
     def build(self) -> "AgentSkillLessInfo":
         return self._agent_skill_less_info

@@ -23,14 +23,12 @@ class AppCollaborator(object):
 class AppCollaboratorBuilder(object):
     def __init__(self) -> None:
         self._app_collaborator = AppCollaborator()
-
     def type(self, type: str) -> "AppCollaboratorBuilder":
         self._app_collaborator.type = type
         return self
-
     def user_id(self, user_id: str) -> "AppCollaboratorBuilder":
         self._app_collaborator.user_id = user_id
         return self
-
+    
     def build(self) -> "AppCollaborator":
         return self._app_collaborator

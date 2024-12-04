@@ -23,14 +23,12 @@ class ProfileSettingCustomField(object):
 class ProfileSettingCustomFieldBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_custom_field = ProfileSettingCustomField()
-
     def field_name(self, field_name: str) -> "ProfileSettingCustomFieldBuilder":
         self._profile_setting_custom_field.field_name = field_name
         return self
-
     def value(self, value: str) -> "ProfileSettingCustomFieldBuilder":
         self._profile_setting_custom_field.value = value
         return self
-
+    
     def build(self) -> "ProfileSettingCustomField":
         return self._profile_setting_custom_field

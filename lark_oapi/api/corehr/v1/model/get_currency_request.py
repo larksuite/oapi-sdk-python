@@ -23,11 +23,12 @@ class GetCurrencyRequestBuilder(object):
         get_currency_request.uri = "/open-apis/corehr/v1/currencies/:currency_id"
         get_currency_request.token_types = {AccessTokenType.TENANT}
         self._get_currency_request: GetCurrencyRequest = get_currency_request
-
+    
     def currency_id(self, currency_id: str) -> "GetCurrencyRequestBuilder":
         self._get_currency_request.currency_id = currency_id
         self._get_currency_request.paths["currency_id"] = str(currency_id)
         return self
+    
 
     def build(self) -> GetCurrencyRequest:
         return self._get_currency_request

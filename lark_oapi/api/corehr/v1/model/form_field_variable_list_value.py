@@ -22,10 +22,9 @@ class FormFieldVariableListValue(object):
 class FormFieldVariableListValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_list_value = FormFieldVariableListValue()
-
     def values(self, values: List[FormFieldVariableListObject]) -> "FormFieldVariableListValueBuilder":
         self._form_field_variable_list_value.values = values
         return self
-
+    
     def build(self) -> "FormFieldVariableListValue":
         return self._form_field_variable_list_value

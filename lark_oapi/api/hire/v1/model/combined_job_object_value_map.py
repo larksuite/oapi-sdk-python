@@ -23,14 +23,12 @@ class CombinedJobObjectValueMap(object):
 class CombinedJobObjectValueMapBuilder(object):
     def __init__(self) -> None:
         self._combined_job_object_value_map = CombinedJobObjectValueMap()
-
     def object_id(self, object_id: str) -> "CombinedJobObjectValueMapBuilder":
         self._combined_job_object_value_map.object_id = object_id
         return self
-
     def value(self, value: str) -> "CombinedJobObjectValueMapBuilder":
         self._combined_job_object_value_map.value = value
         return self
-
+    
     def build(self) -> "CombinedJobObjectValueMap":
         return self._combined_job_object_value_map

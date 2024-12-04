@@ -26,18 +26,15 @@ class MessageAction(object):
 class MessageActionBuilder(object):
     def __init__(self) -> None:
         self._message_action = MessageAction()
-
     def pc_app_link(self, pc_app_link: str) -> "MessageActionBuilder":
         self._message_action.pc_app_link = pc_app_link
         return self
-
     def mobile_app_link(self, mobile_app_link: str) -> "MessageActionBuilder":
         self._message_action.mobile_app_link = mobile_app_link
         return self
-
     def i18n(self, i18n: List[MessageActionI18nInfo]) -> "MessageActionBuilder":
         self._message_action.i18n = i18n
         return self
-
+    
     def build(self) -> "MessageAction":
         return self._message_action

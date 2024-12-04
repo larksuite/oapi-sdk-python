@@ -17,8 +17,7 @@ class CalendarEventMeetingMinute(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateCalendarEventMeetingMinuteRequest,
-               option: Optional[RequestOption] = None) -> CreateCalendarEventMeetingMinuteResponse:
+    def create(self, request: CreateCalendarEventMeetingMinuteRequest, option: Optional[RequestOption] = None) -> CreateCalendarEventMeetingMinuteResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class CalendarEventMeetingMinute(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            CreateCalendarEventMeetingMinuteResponse)
+        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCalendarEventMeetingMinuteResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateCalendarEventMeetingMinuteRequest,
-                      option: Optional[RequestOption] = None) -> CreateCalendarEventMeetingMinuteResponse:
+    async def acreate(self, request: CreateCalendarEventMeetingMinuteRequest, option: Optional[RequestOption] = None) -> CreateCalendarEventMeetingMinuteResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            CreateCalendarEventMeetingMinuteResponse)
+        response: CreateCalendarEventMeetingMinuteResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCalendarEventMeetingMinuteResponse)
         response.raw = resp
 
         return response
+        
+    

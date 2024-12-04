@@ -26,18 +26,15 @@ class TreeDepartmentResponseBody(object):
 class TreeDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._tree_department_response_body = TreeDepartmentResponseBody()
-
     def items(self, items: List[DepartmentTree]) -> "TreeDepartmentResponseBodyBuilder":
         self._tree_department_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "TreeDepartmentResponseBodyBuilder":
         self._tree_department_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "TreeDepartmentResponseBodyBuilder":
         self._tree_department_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "TreeDepartmentResponseBody":
         return self._tree_department_response_body

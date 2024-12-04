@@ -19,8 +19,7 @@ class ReserveConfigDisableInform(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetReserveConfigDisableInformRequest,
-            option: Optional[RequestOption] = None) -> GetReserveConfigDisableInformResponse:
+    def get(self, request: GetReserveConfigDisableInformRequest, option: Optional[RequestOption] = None) -> GetReserveConfigDisableInformResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class ReserveConfigDisableInform(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         GetReserveConfigDisableInformResponse)
+        response: GetReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveConfigDisableInformResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetReserveConfigDisableInformRequest,
-                   option: Optional[RequestOption] = None) -> GetReserveConfigDisableInformResponse:
+    async def aget(self, request: GetReserveConfigDisableInformRequest, option: Optional[RequestOption] = None) -> GetReserveConfigDisableInformResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         GetReserveConfigDisableInformResponse)
+        response: GetReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveConfigDisableInformResponse)
         response.raw = resp
 
         return response
-
-    def patch(self, request: PatchReserveConfigDisableInformRequest,
-              option: Optional[RequestOption] = None) -> PatchReserveConfigDisableInformResponse:
+        
+    def patch(self, request: PatchReserveConfigDisableInformRequest, option: Optional[RequestOption] = None) -> PatchReserveConfigDisableInformResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class ReserveConfigDisableInform(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           PatchReserveConfigDisableInformResponse)
+        response: PatchReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchReserveConfigDisableInformResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchReserveConfigDisableInformRequest,
-                     option: Optional[RequestOption] = None) -> PatchReserveConfigDisableInformResponse:
+    async def apatch(self, request: PatchReserveConfigDisableInformRequest, option: Optional[RequestOption] = None) -> PatchReserveConfigDisableInformResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           PatchReserveConfigDisableInformResponse)
+        response: PatchReserveConfigDisableInformResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchReserveConfigDisableInformResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -22,11 +22,9 @@ class DeleteAppFeedCardBatchResponseBody(object):
 class DeleteAppFeedCardBatchResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_app_feed_card_batch_response_body = DeleteAppFeedCardBatchResponseBody()
-
-    def failed_cards(self,
-                     failed_cards: List[OpenFailedUserAppFeedCardItem]) -> "DeleteAppFeedCardBatchResponseBodyBuilder":
+    def failed_cards(self, failed_cards: List[OpenFailedUserAppFeedCardItem]) -> "DeleteAppFeedCardBatchResponseBodyBuilder":
         self._delete_app_feed_card_batch_response_body.failed_cards = failed_cards
         return self
-
+    
     def build(self) -> "DeleteAppFeedCardBatchResponseBody":
         return self._delete_app_feed_card_batch_response_body

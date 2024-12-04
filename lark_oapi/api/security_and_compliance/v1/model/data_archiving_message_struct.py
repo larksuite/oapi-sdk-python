@@ -48,62 +48,48 @@ class DataArchivingMessageStruct(object):
 class DataArchivingMessageStructBuilder(object):
     def __init__(self) -> None:
         self._data_archiving_message_struct = DataArchivingMessageStruct()
-
     def message_id(self, message_id: str) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.message_id = message_id
         return self
-
     def message_type(self, message_type: int) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.message_type = message_type
         return self
-
     def sender_info(self, sender_info: DataArchivingUserStruct) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.sender_info = sender_info
         return self
-
     def receiver_ids(self, receiver_ids: List[str]) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.receiver_ids = receiver_ids
         return self
-
     def action_type(self, action_type: str) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.action_type = action_type
         return self
-
     def chat_id(self, chat_id: int) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.chat_id = chat_id
         return self
-
     def action_time(self, action_time: int) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.action_time = action_time
         return self
-
     def is_super_chat(self, is_super_chat: bool) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.is_super_chat = is_super_chat
         return self
-
     def is_cross_tenant_chat(self, is_cross_tenant_chat: bool) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.is_cross_tenant_chat = is_cross_tenant_chat
         return self
-
     def chat_name(self, chat_name: str) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.chat_name = chat_name
         return self
-
     def content(self, content: str) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.content = content
         return self
-
     def chat_mode(self, chat_mode: str) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.chat_mode = chat_mode
         return self
-
     def reaction_type(self, reaction_type: str) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.reaction_type = reaction_type
         return self
-
     def parent_msg_id(self, parent_msg_id: str) -> "DataArchivingMessageStructBuilder":
         self._data_archiving_message_struct.parent_msg_id = parent_msg_id
         return self
-
+    
     def build(self) -> "DataArchivingMessageStruct":
         return self._data_archiving_message_struct

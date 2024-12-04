@@ -30,26 +30,21 @@ class AuditObjectEntity(object):
 class AuditObjectEntityBuilder(object):
     def __init__(self) -> None:
         self._audit_object_entity = AuditObjectEntity()
-
     def object_type(self, object_type: str) -> "AuditObjectEntityBuilder":
         self._audit_object_entity.object_type = object_type
         return self
-
     def object_value(self, object_value: str) -> "AuditObjectEntityBuilder":
         self._audit_object_entity.object_value = object_value
         return self
-
     def object_detail(self, object_detail: AuditObjectDetail) -> "AuditObjectEntityBuilder":
         self._audit_object_entity.object_detail = object_detail
         return self
-
     def object_name(self, object_name: str) -> "AuditObjectEntityBuilder":
         self._audit_object_entity.object_name = object_name
         return self
-
     def object_owner(self, object_owner: str) -> "AuditObjectEntityBuilder":
         self._audit_object_entity.object_owner = object_owner
         return self
-
+    
     def build(self) -> "AuditObjectEntity":
         return self._audit_object_entity

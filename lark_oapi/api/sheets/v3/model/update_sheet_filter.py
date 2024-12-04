@@ -24,14 +24,12 @@ class UpdateSheetFilter(object):
 class UpdateSheetFilterBuilder(object):
     def __init__(self) -> None:
         self._update_sheet_filter = UpdateSheetFilter()
-
     def col(self, col: str) -> "UpdateSheetFilterBuilder":
         self._update_sheet_filter.col = col
         return self
-
     def condition(self, condition: Condition) -> "UpdateSheetFilterBuilder":
         self._update_sheet_filter.condition = condition
         return self
-
+    
     def build(self) -> "UpdateSheetFilter":
         return self._update_sheet_filter

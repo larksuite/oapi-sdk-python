@@ -24,7 +24,7 @@ class WorkCalendarDateLeaveRequestBuilder(object):
         work_calendar_date_leave_request.uri = "/open-apis/corehr/v1/leaves/work_calendar_date"
         work_calendar_date_leave_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._work_calendar_date_leave_request: WorkCalendarDateLeaveRequest = work_calendar_date_leave_request
-
+    
     def request_body(self, request_body: CalendarDateByDateFilter) -> "WorkCalendarDateLeaveRequestBuilder":
         self._work_calendar_date_leave_request.request_body = request_body
         self._work_calendar_date_leave_request.body = request_body

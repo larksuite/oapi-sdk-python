@@ -26,18 +26,15 @@ class ItemCategory(object):
 class ItemCategoryBuilder(object):
     def __init__(self) -> None:
         self._item_category = ItemCategory()
-
     def id(self, id: str) -> "ItemCategoryBuilder":
         self._item_category.id = id
         return self
-
     def name(self, name: str) -> "ItemCategoryBuilder":
         self._item_category.name = name
         return self
-
     def i18n_names(self, i18n_names: List[I18nContent]) -> "ItemCategoryBuilder":
         self._item_category.i18n_names = i18n_names
         return self
-
+    
     def build(self) -> "ItemCategory":
         return self._item_category

@@ -19,6 +19,7 @@ def main():
         .user_id_type("open_id") \
         .request_body(QueryArchiveRequestBody.builder()
                       .user_id_list([])
+                      .tid_list([])
                       .effective_start_date("2022-05-10")
                       .effective_end_date("2023-05-15")
                       .build()) \
@@ -53,6 +54,7 @@ async def amain():
         .user_id_type("open_id") \
         .request_body(QueryArchiveRequestBody.builder()
                       .user_id_list([])
+                      .tid_list([])
                       .effective_start_date("2022-05-10")
                       .effective_end_date("2023-05-15")
                       .build()) \

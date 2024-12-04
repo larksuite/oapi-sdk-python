@@ -27,23 +27,18 @@ class GlAccountCompanyRelationship(object):
 class GlAccountCompanyRelationshipBuilder(object):
     def __init__(self) -> None:
         self._gl_account_company_relationship = GlAccountCompanyRelationship()
-
     def gl_account_code(self, gl_account_code: str) -> "GlAccountCompanyRelationshipBuilder":
         self._gl_account_company_relationship.gl_account_code = gl_account_code
         return self
-
     def company_code(self, company_code: str) -> "GlAccountCompanyRelationshipBuilder":
         self._gl_account_company_relationship.company_code = company_code
         return self
-
-    def gl_account_company_relationship_uid(self,
-                                            gl_account_company_relationship_uid: str) -> "GlAccountCompanyRelationshipBuilder":
+    def gl_account_company_relationship_uid(self, gl_account_company_relationship_uid: str) -> "GlAccountCompanyRelationshipBuilder":
         self._gl_account_company_relationship.gl_account_company_relationship_uid = gl_account_company_relationship_uid
         return self
-
     def valid_to(self, valid_to: str) -> "GlAccountCompanyRelationshipBuilder":
         self._gl_account_company_relationship.valid_to = valid_to
         return self
-
+    
     def build(self) -> "GlAccountCompanyRelationship":
         return self._gl_account_company_relationship

@@ -25,12 +25,12 @@ class ParticipantListExportRequestBuilder(object):
         participant_list_export_request.uri = "/open-apis/vc/v1/exports/participant_list"
         participant_list_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._participant_list_export_request: ParticipantListExportRequest = participant_list_export_request
-
+    
     def user_id_type(self, user_id_type: str) -> "ParticipantListExportRequestBuilder":
         self._participant_list_export_request.user_id_type = user_id_type
         self._participant_list_export_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: ParticipantListExportRequestBody) -> "ParticipantListExportRequestBuilder":
         self._participant_list_export_request.request_body = request_body
         self._participant_list_export_request.body = request_body

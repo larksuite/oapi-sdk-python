@@ -23,14 +23,12 @@ class ExternalInstanceLink(object):
 class ExternalInstanceLinkBuilder(object):
     def __init__(self) -> None:
         self._external_instance_link = ExternalInstanceLink()
-
     def pc_link(self, pc_link: str) -> "ExternalInstanceLinkBuilder":
         self._external_instance_link.pc_link = pc_link
         return self
-
     def mobile_link(self, mobile_link: str) -> "ExternalInstanceLinkBuilder":
         self._external_instance_link.mobile_link = mobile_link
         return self
-
+    
     def build(self) -> "ExternalInstanceLink":
         return self._external_instance_link

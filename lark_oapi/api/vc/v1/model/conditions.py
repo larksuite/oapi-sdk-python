@@ -23,14 +23,12 @@ class Conditions(object):
 class ConditionsBuilder(object):
     def __init__(self) -> None:
         self._conditions = Conditions()
-
     def custom_key(self, custom_key: str) -> "ConditionsBuilder":
         self._conditions.custom_key = custom_key
         return self
-
     def option_keys(self, option_keys: List[str]) -> "ConditionsBuilder":
         self._conditions.option_keys = option_keys
         return self
-
+    
     def build(self) -> "Conditions":
         return self._conditions

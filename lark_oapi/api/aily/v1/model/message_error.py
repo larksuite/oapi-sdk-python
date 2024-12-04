@@ -29,26 +29,21 @@ class MessageError(object):
 class MessageErrorBuilder(object):
     def __init__(self) -> None:
         self._message_error = MessageError()
-
     def code(self, code: str) -> "MessageErrorBuilder":
         self._message_error.code = code
         return self
-
     def message(self, message: str) -> "MessageErrorBuilder":
         self._message_error.message = message
         return self
-
     def error_type(self, error_type: str) -> "MessageErrorBuilder":
         self._message_error.error_type = error_type
         return self
-
     def log_id(self, log_id: str) -> "MessageErrorBuilder":
         self._message_error.log_id = log_id
         return self
-
     def title(self, title: str) -> "MessageErrorBuilder":
         self._message_error.title = title
         return self
-
+    
     def build(self) -> "MessageError":
         return self._message_error

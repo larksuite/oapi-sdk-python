@@ -21,10 +21,9 @@ class WifiInfo(object):
 class WifiInfoBuilder(object):
     def __init__(self) -> None:
         self._wifi_info = WifiInfo()
-
     def status(self, status: int) -> "WifiInfoBuilder":
         self._wifi_info.status = status
         return self
-
+    
     def build(self) -> "WifiInfo":
         return self._wifi_info

@@ -23,14 +23,12 @@ class OkrName(object):
 class OkrNameBuilder(object):
     def __init__(self) -> None:
         self._okr_name = OkrName()
-
     def zh(self, zh: str) -> "OkrNameBuilder":
         self._okr_name.zh = zh
         return self
-
     def en(self, en: str) -> "OkrNameBuilder":
         self._okr_name.en = en
         return self
-
+    
     def build(self) -> "OkrName":
         return self._okr_name

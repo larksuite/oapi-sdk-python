@@ -23,14 +23,12 @@ class BackgroundCheckItemInfo(object):
 class BackgroundCheckItemInfoBuilder(object):
     def __init__(self) -> None:
         self._background_check_item_info = BackgroundCheckItemInfo()
-
     def id(self, id: str) -> "BackgroundCheckItemInfoBuilder":
         self._background_check_item_info.id = id
         return self
-
     def name(self, name: str) -> "BackgroundCheckItemInfoBuilder":
         self._background_check_item_info.name = name
         return self
-
+    
     def build(self) -> "BackgroundCheckItemInfo":
         return self._background_check_item_info

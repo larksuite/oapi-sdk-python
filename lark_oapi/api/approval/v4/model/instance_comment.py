@@ -32,30 +32,24 @@ class InstanceComment(object):
 class InstanceCommentBuilder(object):
     def __init__(self) -> None:
         self._instance_comment = InstanceComment()
-
     def id(self, id: str) -> "InstanceCommentBuilder":
         self._instance_comment.id = id
         return self
-
     def user_id(self, user_id: str) -> "InstanceCommentBuilder":
         self._instance_comment.user_id = user_id
         return self
-
     def open_id(self, open_id: str) -> "InstanceCommentBuilder":
         self._instance_comment.open_id = open_id
         return self
-
     def comment(self, comment: str) -> "InstanceCommentBuilder":
         self._instance_comment.comment = comment
         return self
-
     def create_time(self, create_time: int) -> "InstanceCommentBuilder":
         self._instance_comment.create_time = create_time
         return self
-
     def files(self, files: List[File]) -> "InstanceCommentBuilder":
         self._instance_comment.files = files
         return self
-
+    
     def build(self) -> "InstanceComment":
         return self._instance_comment

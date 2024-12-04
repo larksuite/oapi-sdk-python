@@ -25,18 +25,15 @@ class Hrbp(object):
 class HrbpBuilder(object):
     def __init__(self) -> None:
         self._hrbp = Hrbp()
-
     def employment_id_list(self, employment_id_list: List[str]) -> "HrbpBuilder":
         self._hrbp.employment_id_list = employment_id_list
         return self
-
     def department_id(self, department_id: str) -> "HrbpBuilder":
         self._hrbp.department_id = department_id
         return self
-
     def work_location_id(self, work_location_id: str) -> "HrbpBuilder":
         self._hrbp.work_location_id = work_location_id
         return self
-
+    
     def build(self) -> "Hrbp":
         return self._hrbp

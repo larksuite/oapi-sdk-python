@@ -22,10 +22,9 @@ class UpdateAppTableFieldResponseBody(object):
 class UpdateAppTableFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_app_table_field_response_body = UpdateAppTableFieldResponseBody()
-
     def field(self, field: AppTableField) -> "UpdateAppTableFieldResponseBodyBuilder":
         self._update_app_table_field_response_body.field = field
         return self
-
+    
     def build(self) -> "UpdateAppTableFieldResponseBody":
         return self._update_app_table_field_response_body

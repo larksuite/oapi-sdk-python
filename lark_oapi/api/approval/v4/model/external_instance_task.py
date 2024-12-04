@@ -23,14 +23,12 @@ class ExternalInstanceTask(object):
 class ExternalInstanceTaskBuilder(object):
     def __init__(self) -> None:
         self._external_instance_task = ExternalInstanceTask()
-
     def task_id(self, task_id: str) -> "ExternalInstanceTaskBuilder":
         self._external_instance_task.task_id = task_id
         return self
-
     def update_time(self, update_time: int) -> "ExternalInstanceTaskBuilder":
         self._external_instance_task.update_time = update_time
         return self
-
+    
     def build(self) -> "ExternalInstanceTask":
         return self._external_instance_task

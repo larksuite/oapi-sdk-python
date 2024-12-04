@@ -35,30 +35,24 @@ class MyAiVcMeetingScenarioContext(object):
 class MyAiVcMeetingScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_meeting_scenario_context = MyAiVcMeetingScenarioContext()
-
     def plugins(self, plugins: List[MyAiPluginContext]) -> "MyAiVcMeetingScenarioContextBuilder":
         self._my_ai_vc_meeting_scenario_context.plugins = plugins
         return self
-
     def object(self, object: MyAiObjectContext) -> "MyAiVcMeetingScenarioContextBuilder":
         self._my_ai_vc_meeting_scenario_context.object = object
         return self
-
     def work_mode(self, work_mode: int) -> "MyAiVcMeetingScenarioContextBuilder":
         self._my_ai_vc_meeting_scenario_context.work_mode = work_mode
         return self
-
     def scenario(self, scenario: str) -> "MyAiVcMeetingScenarioContextBuilder":
         self._my_ai_vc_meeting_scenario_context.scenario = scenario
         return self
-
     def extra(self, extra: MyAiVcMeetingExtra) -> "MyAiVcMeetingScenarioContextBuilder":
         self._my_ai_vc_meeting_scenario_context.extra = extra
         return self
-
     def system_info(self, system_info: MyAiAvPluginContextSystemInfo) -> "MyAiVcMeetingScenarioContextBuilder":
         self._my_ai_vc_meeting_scenario_context.system_info = system_info
         return self
-
+    
     def build(self) -> "MyAiVcMeetingScenarioContext":
         return self._my_ai_vc_meeting_scenario_context

@@ -22,10 +22,9 @@ class RecognizeTrainInvoiceResponseBody(object):
 class RecognizeTrainInvoiceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_train_invoice_response_body = RecognizeTrainInvoiceResponseBody()
-
     def train_invoices(self, train_invoices: List[TrainInvoice]) -> "RecognizeTrainInvoiceResponseBodyBuilder":
         self._recognize_train_invoice_response_body.train_invoices = train_invoices
         return self
-
+    
     def build(self) -> "RecognizeTrainInvoiceResponseBody":
         return self._recognize_train_invoice_response_body

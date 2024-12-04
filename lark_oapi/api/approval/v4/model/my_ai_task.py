@@ -25,18 +25,15 @@ class MyAiTask(object):
 class MyAiTaskBuilder(object):
     def __init__(self) -> None:
         self._my_ai_task = MyAiTask()
-
     def user_name(self, user_name: str) -> "MyAiTaskBuilder":
         self._my_ai_task.user_name = user_name
         return self
-
     def type(self, type: str) -> "MyAiTaskBuilder":
         self._my_ai_task.type = type
         return self
-
     def node_name(self, node_name: str) -> "MyAiTaskBuilder":
         self._my_ai_task.node_name = node_name
         return self
-
+    
     def build(self) -> "MyAiTask":
         return self._my_ai_task

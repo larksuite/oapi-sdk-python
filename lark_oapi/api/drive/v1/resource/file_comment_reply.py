@@ -21,8 +21,7 @@ class FileCommentReply(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete(self, request: DeleteFileCommentReplyRequest,
-               option: Optional[RequestOption] = None) -> DeleteFileCommentReplyResponse:
+    def delete(self, request: DeleteFileCommentReplyRequest, option: Optional[RequestOption] = None) -> DeleteFileCommentReplyResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,34 +34,33 @@ class FileCommentReply(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteFileCommentReplyResponse)
+        response: DeleteFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFileCommentReplyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteFileCommentReplyRequest,
-                      option: Optional[RequestOption] = None) -> DeleteFileCommentReplyResponse:
+    async def adelete(self, request: DeleteFileCommentReplyRequest, option: Optional[RequestOption] = None) -> DeleteFileCommentReplyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
+
+        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeleteFileCommentReplyResponse)
+        response: DeleteFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteFileCommentReplyResponse)
         response.raw = resp
 
         return response
-
-    def list(self, request: ListFileCommentReplyRequest,
-             option: Optional[RequestOption] = None) -> ListFileCommentReplyResponse:
+        
+    def list(self, request: ListFileCommentReplyRequest, option: Optional[RequestOption] = None) -> ListFileCommentReplyResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,32 +73,33 @@ class FileCommentReply(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileCommentReplyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListFileCommentReplyRequest,
-                    option: Optional[RequestOption] = None) -> ListFileCommentReplyResponse:
+    async def alist(self, request: ListFileCommentReplyRequest, option: Optional[RequestOption] = None) -> ListFileCommentReplyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileCommentReplyResponse)
         response.raw = resp
 
         return response
-
-    def update(self, request: UpdateFileCommentReplyRequest,
-               option: Optional[RequestOption] = None) -> UpdateFileCommentReplyResponse:
+        
+    def update(self, request: UpdateFileCommentReplyRequest, option: Optional[RequestOption] = None) -> UpdateFileCommentReplyResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,28 +112,30 @@ class FileCommentReply(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateFileCommentReplyResponse)
+        response: UpdateFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateFileCommentReplyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate(self, request: UpdateFileCommentReplyRequest,
-                      option: Optional[RequestOption] = None) -> UpdateFileCommentReplyResponse:
+    async def aupdate(self, request: UpdateFileCommentReplyRequest, option: Optional[RequestOption] = None) -> UpdateFileCommentReplyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  UpdateFileCommentReplyResponse)
+        response: UpdateFileCommentReplyResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateFileCommentReplyResponse)
         response.raw = resp
 
         return response
+        
+    

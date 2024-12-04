@@ -18,6 +18,7 @@ def main():
                       .background_check_id("6931286400470354183")
                       .result("无差异")
                       .result_time("1660123456789")
+                      .operator_role(1)
                       .report_file_list([])
                       .build()) \
         .build()
@@ -50,6 +51,7 @@ async def amain():
                       .background_check_id("6931286400470354183")
                       .result("无差异")
                       .result_time("1660123456789")
+                      .operator_role(1)
                       .report_file_list([])
                       .build()) \
         .build()

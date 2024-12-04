@@ -23,14 +23,12 @@ class InstanceSearchLink(object):
 class InstanceSearchLinkBuilder(object):
     def __init__(self) -> None:
         self._instance_search_link = InstanceSearchLink()
-
     def pc_link(self, pc_link: str) -> "InstanceSearchLinkBuilder":
         self._instance_search_link.pc_link = pc_link
         return self
-
     def mobile_link(self, mobile_link: str) -> "InstanceSearchLinkBuilder":
         self._instance_search_link.mobile_link = mobile_link
         return self
-
+    
     def build(self) -> "InstanceSearchLink":
         return self._instance_search_link

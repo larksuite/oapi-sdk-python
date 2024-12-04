@@ -25,12 +25,12 @@ class UpdateResultEcoExamRequestBuilder(object):
         update_result_eco_exam_request.uri = "/open-apis/hire/v1/eco_exams/:exam_id/update_result"
         update_result_eco_exam_request.token_types = {AccessTokenType.TENANT}
         self._update_result_eco_exam_request: UpdateResultEcoExamRequest = update_result_eco_exam_request
-
+    
     def exam_id(self, exam_id: str) -> "UpdateResultEcoExamRequestBuilder":
         self._update_result_eco_exam_request.exam_id = exam_id
         self._update_result_eco_exam_request.paths["exam_id"] = str(exam_id)
         return self
-
+    
     def request_body(self, request_body: EcoExamResult) -> "UpdateResultEcoExamRequestBuilder":
         self._update_result_eco_exam_request.request_body = request_body
         self._update_result_eco_exam_request.body = request_body

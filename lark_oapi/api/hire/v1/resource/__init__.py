@@ -23,6 +23,7 @@ from .external_application import *
 from .external_background_check import *
 from .external_interview import *
 from .external_interview_assessment import *
+from .external_offer import *
 from .external_referral_reward import *
 from .interview import *
 from .interview_feedback_form import *
@@ -58,6 +59,7 @@ from .role import *
 from .subject import *
 from .talent import *
 from .talent_external_info import *
+from .talent_blocklist import *
 from .talent_folder import *
 from .talent_object import *
 from .talent_operation_log import *

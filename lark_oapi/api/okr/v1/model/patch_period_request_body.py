@@ -21,10 +21,9 @@ class PatchPeriodRequestBody(object):
 class PatchPeriodRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_period_request_body = PatchPeriodRequestBody()
-
     def status(self, status: int) -> "PatchPeriodRequestBodyBuilder":
         self._patch_period_request_body.status = status
         return self
-
+    
     def build(self) -> "PatchPeriodRequestBody":
         return self._patch_period_request_body

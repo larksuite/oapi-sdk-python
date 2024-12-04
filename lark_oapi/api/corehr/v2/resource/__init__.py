@@ -1,3 +1,4 @@
+from .approval_groups import *
 from .approver import *
 from .basic_info_bank import *
 from .basic_info_bank_branch import *

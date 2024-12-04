@@ -26,18 +26,15 @@ class MatchCompensationStandardResponseBody(object):
 class MatchCompensationStandardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._match_compensation_standard_response_body = MatchCompensationStandardResponseBody()
-
     def standard_id(self, standard_id: str) -> "MatchCompensationStandardResponseBodyBuilder":
         self._match_compensation_standard_response_body.standard_id = standard_id
         return self
-
     def grade(self, grade: CpstGrade) -> "MatchCompensationStandardResponseBodyBuilder":
         self._match_compensation_standard_response_body.grade = grade
         return self
-
     def effective_time(self, effective_time: str) -> "MatchCompensationStandardResponseBodyBuilder":
         self._match_compensation_standard_response_body.effective_time = effective_time
         return self
-
+    
     def build(self) -> "MatchCompensationStandardResponseBody":
         return self._match_compensation_standard_response_body

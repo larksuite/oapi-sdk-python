@@ -26,17 +26,17 @@ class PatchFeedCardRequestBuilder(object):
         patch_feed_card_request.uri = "/open-apis/im/v2/feed_cards/:feed_card_id"
         patch_feed_card_request.token_types = {AccessTokenType.TENANT}
         self._patch_feed_card_request: PatchFeedCardRequest = patch_feed_card_request
-
+    
     def user_id_type(self, user_id_type: str) -> "PatchFeedCardRequestBuilder":
         self._patch_feed_card_request.user_id_type = user_id_type
         self._patch_feed_card_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def feed_card_id(self, feed_card_id: str) -> "PatchFeedCardRequestBuilder":
         self._patch_feed_card_request.feed_card_id = feed_card_id
         self._patch_feed_card_request.paths["feed_card_id"] = str(feed_card_id)
         return self
-
+    
     def request_body(self, request_body: PatchFeedCardRequestBody) -> "PatchFeedCardRequestBuilder":
         self._patch_feed_card_request.request_body = request_body
         self._patch_feed_card_request.body = request_body

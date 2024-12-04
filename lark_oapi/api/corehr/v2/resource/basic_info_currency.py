@@ -17,8 +17,7 @@ class BasicInfoCurrency(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoCurrencyRequest,
-               option: Optional[RequestOption] = None) -> SearchBasicInfoCurrencyResponse:
+    def search(self, request: SearchBasicInfoCurrencyRequest, option: Optional[RequestOption] = None) -> SearchBasicInfoCurrencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class BasicInfoCurrency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: SearchBasicInfoCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   SearchBasicInfoCurrencyResponse)
+        response: SearchBasicInfoCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoCurrencyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asearch(self, request: SearchBasicInfoCurrencyRequest,
-                      option: Optional[RequestOption] = None) -> SearchBasicInfoCurrencyResponse:
+    async def asearch(self, request: SearchBasicInfoCurrencyRequest, option: Optional[RequestOption] = None) -> SearchBasicInfoCurrencyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: SearchBasicInfoCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   SearchBasicInfoCurrencyResponse)
+        response: SearchBasicInfoCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoCurrencyResponse)
         response.raw = resp
 
         return response
+        
+    

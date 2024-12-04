@@ -23,8 +23,7 @@ class SpreadsheetSheetFilter(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateSpreadsheetSheetFilterRequest,
-               option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterResponse:
+    def create(self, request: CreateSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,34 +36,33 @@ class SpreadsheetSheetFilter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateSpreadsheetSheetFilterResponse)
+        response: CreateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateSpreadsheetSheetFilterRequest,
-                      option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterResponse:
+    async def acreate(self, request: CreateSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateSpreadsheetSheetFilterResponse)
+        response: CreateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
-
-    def delete(self, request: DeleteSpreadsheetSheetFilterRequest,
-               option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterResponse:
+        
+    def delete(self, request: DeleteSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,34 +75,33 @@ class SpreadsheetSheetFilter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteSpreadsheetSheetFilterResponse)
+        response: DeleteSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteSpreadsheetSheetFilterRequest,
-                      option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterResponse:
+    async def adelete(self, request: DeleteSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteSpreadsheetSheetFilterResponse)
+        response: DeleteSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
-
-    def get(self, request: GetSpreadsheetSheetFilterRequest,
-            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterResponse:
+        
+    def get(self, request: GetSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,34 +114,33 @@ class SpreadsheetSheetFilter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GetSpreadsheetSheetFilterResponse)
+        response: GetSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetSpreadsheetSheetFilterRequest,
-                   option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterResponse:
+    async def aget(self, request: GetSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GetSpreadsheetSheetFilterResponse)
+        response: GetSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
-
-    def update(self, request: UpdateSpreadsheetSheetFilterRequest,
-               option: Optional[RequestOption] = None) -> UpdateSpreadsheetSheetFilterResponse:
+        
+    def update(self, request: UpdateSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> UpdateSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,28 +153,30 @@ class SpreadsheetSheetFilter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        UpdateSpreadsheetSheetFilterResponse)
+        response: UpdateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate(self, request: UpdateSpreadsheetSheetFilterRequest,
-                      option: Optional[RequestOption] = None) -> UpdateSpreadsheetSheetFilterResponse:
+    async def aupdate(self, request: UpdateSpreadsheetSheetFilterRequest, option: Optional[RequestOption] = None) -> UpdateSpreadsheetSheetFilterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        UpdateSpreadsheetSheetFilterResponse)
+        response: UpdateSpreadsheetSheetFilterResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateSpreadsheetSheetFilterResponse)
         response.raw = resp
 
         return response
+        
+    

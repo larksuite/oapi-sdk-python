@@ -27,22 +27,18 @@ class User(object):
 class UserBuilder(object):
     def __init__(self) -> None:
         self._user = User()
-
     def user_id(self, user_id: str) -> "UserBuilder":
         self._user.user_id = user_id
         return self
-
     def name(self, name: str) -> "UserBuilder":
         self._user.name = name
         return self
-
     def email(self, email: str) -> "UserBuilder":
         self._user.email = email
         return self
-
     def avatar_url(self, avatar_url: str) -> "UserBuilder":
         self._user.avatar_url = avatar_url
         return self
-
+    
     def build(self) -> "User":
         return self._user

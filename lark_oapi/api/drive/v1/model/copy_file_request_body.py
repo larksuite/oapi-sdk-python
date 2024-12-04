@@ -28,22 +28,18 @@ class CopyFileRequestBody(object):
 class CopyFileRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._copy_file_request_body = CopyFileRequestBody()
-
     def name(self, name: str) -> "CopyFileRequestBodyBuilder":
         self._copy_file_request_body.name = name
         return self
-
     def type(self, type: str) -> "CopyFileRequestBodyBuilder":
         self._copy_file_request_body.type = type
         return self
-
     def folder_token(self, folder_token: str) -> "CopyFileRequestBodyBuilder":
         self._copy_file_request_body.folder_token = folder_token
         return self
-
     def extra(self, extra: List[Property]) -> "CopyFileRequestBodyBuilder":
         self._copy_file_request_body.extra = extra
         return self
-
+    
     def build(self) -> "CopyFileRequestBody":
         return self._copy_file_request_body

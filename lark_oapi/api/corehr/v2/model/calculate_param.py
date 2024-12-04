@@ -36,38 +36,30 @@ class CalculateParam(object):
 class CalculateParamBuilder(object):
     def __init__(self) -> None:
         self._calculate_param = CalculateParam()
-
     def department_id(self, department_id: str) -> "CalculateParamBuilder":
         self._calculate_param.department_id = department_id
         return self
-
     def employee_type_id(self, employee_type_id: str) -> "CalculateParamBuilder":
         self._calculate_param.employee_type_id = employee_type_id
         return self
-
     def work_location_id(self, work_location_id: str) -> "CalculateParamBuilder":
         self._calculate_param.work_location_id = work_location_id
         return self
-
     def social_security_city_id(self, social_security_city_id: str) -> "CalculateParamBuilder":
         self._calculate_param.social_security_city_id = social_security_city_id
         return self
-
     def job_family_id(self, job_family_id: str) -> "CalculateParamBuilder":
         self._calculate_param.job_family_id = job_family_id
         return self
-
     def job_level_id(self, job_level_id: str) -> "CalculateParamBuilder":
         self._calculate_param.job_level_id = job_level_id
         return self
-
     def job_id(self, job_id: str) -> "CalculateParamBuilder":
         self._calculate_param.job_id = job_id
         return self
-
     def matching_rule_dimension(self, matching_rule_dimension: List[DimensionValue]) -> "CalculateParamBuilder":
         self._calculate_param.matching_rule_dimension = matching_rule_dimension
         return self
-
+    
     def build(self) -> "CalculateParam":
         return self._calculate_param

@@ -25,18 +25,15 @@ class ReservePermissionChecker(object):
 class ReservePermissionCheckerBuilder(object):
     def __init__(self) -> None:
         self._reserve_permission_checker = ReservePermissionChecker()
-
     def check_field(self, check_field: int) -> "ReservePermissionCheckerBuilder":
         self._reserve_permission_checker.check_field = check_field
         return self
-
     def check_mode(self, check_mode: int) -> "ReservePermissionCheckerBuilder":
         self._reserve_permission_checker.check_mode = check_mode
         return self
-
     def check_list(self, check_list: List[str]) -> "ReservePermissionCheckerBuilder":
         self._reserve_permission_checker.check_list = check_list
         return self
-
+    
     def build(self) -> "ReservePermissionChecker":
         return self._reserve_permission_checker

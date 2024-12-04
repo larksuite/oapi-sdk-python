@@ -22,10 +22,9 @@ class GetAppSkillResponseBody(object):
 class GetAppSkillResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_app_skill_response_body = GetAppSkillResponseBody()
-
     def skill(self, skill: Skill) -> "GetAppSkillResponseBodyBuilder":
         self._get_app_skill_response_body.skill = skill
         return self
-
+    
     def build(self) -> "GetAppSkillResponseBody":
         return self._get_app_skill_response_body

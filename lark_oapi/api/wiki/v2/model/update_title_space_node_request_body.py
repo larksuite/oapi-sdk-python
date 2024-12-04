@@ -21,10 +21,9 @@ class UpdateTitleSpaceNodeRequestBody(object):
 class UpdateTitleSpaceNodeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_title_space_node_request_body = UpdateTitleSpaceNodeRequestBody()
-
     def title(self, title: str) -> "UpdateTitleSpaceNodeRequestBodyBuilder":
         self._update_title_space_node_request_body.title = title
         return self
-
+    
     def build(self) -> "UpdateTitleSpaceNodeRequestBody":
         return self._update_title_space_node_request_body

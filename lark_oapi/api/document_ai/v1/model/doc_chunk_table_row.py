@@ -22,10 +22,9 @@ class DocChunkTableRow(object):
 class DocChunkTableRowBuilder(object):
     def __init__(self) -> None:
         self._doc_chunk_table_row = DocChunkTableRow()
-
     def row_cells(self, row_cells: List[DocChunkTableCell]) -> "DocChunkTableRowBuilder":
         self._doc_chunk_table_row.row_cells = row_cells
         return self
-
+    
     def build(self) -> "DocChunkTableRow":
         return self._doc_chunk_table_row

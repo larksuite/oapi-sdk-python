@@ -26,18 +26,15 @@ class UnderauditlistApplicationResponseBody(object):
 class UnderauditlistApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._underauditlist_application_response_body = UnderauditlistApplicationResponseBody()
-
     def items(self, items: List[Application]) -> "UnderauditlistApplicationResponseBodyBuilder":
         self._underauditlist_application_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "UnderauditlistApplicationResponseBodyBuilder":
         self._underauditlist_application_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "UnderauditlistApplicationResponseBodyBuilder":
         self._underauditlist_application_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "UnderauditlistApplicationResponseBody":
         return self._underauditlist_application_response_body

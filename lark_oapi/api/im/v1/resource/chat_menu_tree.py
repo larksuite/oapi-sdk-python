@@ -23,8 +23,7 @@ class ChatMenuTree(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateChatMenuTreeRequest,
-               option: Optional[RequestOption] = None) -> CreateChatMenuTreeResponse:
+    def create(self, request: CreateChatMenuTreeRequest, option: Optional[RequestOption] = None) -> CreateChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,32 +36,33 @@ class ChatMenuTree(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatMenuTreeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateChatMenuTreeRequest,
-                      option: Optional[RequestOption] = None) -> CreateChatMenuTreeResponse:
+    async def acreate(self, request: CreateChatMenuTreeRequest, option: Optional[RequestOption] = None) -> CreateChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateChatMenuTreeResponse)
         response.raw = resp
 
         return response
-
-    def delete(self, request: DeleteChatMenuTreeRequest,
-               option: Optional[RequestOption] = None) -> DeleteChatMenuTreeResponse:
+        
+    def delete(self, request: DeleteChatMenuTreeRequest, option: Optional[RequestOption] = None) -> DeleteChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,30 +75,32 @@ class ChatMenuTree(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteChatMenuTreeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteChatMenuTreeRequest,
-                      option: Optional[RequestOption] = None) -> DeleteChatMenuTreeResponse:
+    async def adelete(self, request: DeleteChatMenuTreeRequest, option: Optional[RequestOption] = None) -> DeleteChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteChatMenuTreeResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetChatMenuTreeRequest, option: Optional[RequestOption] = None) -> GetChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
@@ -112,32 +114,33 @@ class ChatMenuTree(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatMenuTreeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetChatMenuTreeRequest,
-                   option: Optional[RequestOption] = None) -> GetChatMenuTreeResponse:
+    async def aget(self, request: GetChatMenuTreeRequest, option: Optional[RequestOption] = None) -> GetChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetChatMenuTreeResponse)
         response.raw = resp
 
         return response
-
-    def sort(self, request: SortChatMenuTreeRequest,
-             option: Optional[RequestOption] = None) -> SortChatMenuTreeResponse:
+        
+    def sort(self, request: SortChatMenuTreeRequest, option: Optional[RequestOption] = None) -> SortChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
 
@@ -150,26 +153,30 @@ class ChatMenuTree(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SortChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), SortChatMenuTreeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asort(self, request: SortChatMenuTreeRequest,
-                    option: Optional[RequestOption] = None) -> SortChatMenuTreeResponse:
+    async def asort(self, request: SortChatMenuTreeRequest, option: Optional[RequestOption] = None) -> SortChatMenuTreeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SortChatMenuTreeResponse = JSON.unmarshal(str(resp.content, UTF_8), SortChatMenuTreeResponse)
         response.raw = resp
 
         return response
+        
+    

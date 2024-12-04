@@ -23,14 +23,12 @@ class BatchSendProgress(object):
 class BatchSendProgressBuilder(object):
     def __init__(self) -> None:
         self._batch_send_progress = BatchSendProgress()
-
     def send_count(self, send_count: str) -> "BatchSendProgressBuilder":
         self._batch_send_progress.send_count = send_count
         return self
-
     def total_send_count(self, total_send_count: str) -> "BatchSendProgressBuilder":
         self._batch_send_progress.total_send_count = total_send_count
         return self
-
+    
     def build(self) -> "BatchSendProgress":
         return self._batch_send_progress

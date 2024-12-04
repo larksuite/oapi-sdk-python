@@ -40,46 +40,36 @@ class GwRequest(object):
 class GwRequestBuilder(object):
     def __init__(self) -> None:
         self._gw_request = GwRequest()
-
     def host(self, host: str) -> "GwRequestBuilder":
         self._gw_request.host = host
         return self
-
     def path(self, path: str) -> "GwRequestBuilder":
         self._gw_request.path = path
         return self
-
     def path_params(self, path_params: List[Param]) -> "GwRequestBuilder":
         self._gw_request.path_params = path_params
         return self
-
     def query(self, query: str) -> "GwRequestBuilder":
         self._gw_request.query = query
         return self
-
     def method(self, method: str) -> "GwRequestBuilder":
         self._gw_request.method = method
         return self
-
     def user_agent(self, user_agent: str) -> "GwRequestBuilder":
         self._gw_request.user_agent = user_agent
         return self
-
     def client_ip(self, client_ip: str) -> "GwRequestBuilder":
         self._gw_request.client_ip = client_ip
         return self
-
     def referer(self, referer: str) -> "GwRequestBuilder":
         self._gw_request.referer = referer
         return self
-
     def origin(self, origin: str) -> "GwRequestBuilder":
         self._gw_request.origin = origin
         return self
-
     def header(self, header: str) -> "GwRequestBuilder":
         self._gw_request.header = header
         return self
-
+    
     def build(self) -> "GwRequest":
         return self._gw_request

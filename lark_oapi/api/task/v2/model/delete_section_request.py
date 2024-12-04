@@ -23,11 +23,12 @@ class DeleteSectionRequestBuilder(object):
         delete_section_request.uri = "/open-apis/task/v2/sections/:section_guid"
         delete_section_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_section_request: DeleteSectionRequest = delete_section_request
-
+    
     def section_guid(self, section_guid: str) -> "DeleteSectionRequestBuilder":
         self._delete_section_request.section_guid = section_guid
         self._delete_section_request.paths["section_guid"] = str(section_guid)
         return self
+    
 
     def build(self) -> DeleteSectionRequest:
         return self._delete_section_request

@@ -23,14 +23,12 @@ class DepartmentHrbp(object):
 class DepartmentHrbpBuilder(object):
     def __init__(self) -> None:
         self._department_hrbp = DepartmentHrbp()
-
     def department_id(self, department_id: str) -> "DepartmentHrbpBuilder":
         self._department_hrbp.department_id = department_id
         return self
-
     def hrbp_ids(self, hrbp_ids: List[str]) -> "DepartmentHrbpBuilder":
         self._department_hrbp.hrbp_ids = hrbp_ids
         return self
-
+    
     def build(self) -> "DepartmentHrbp":
         return self._department_hrbp

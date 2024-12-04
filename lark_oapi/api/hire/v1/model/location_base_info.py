@@ -31,30 +31,24 @@ class LocationBaseInfo(object):
 class LocationBaseInfoBuilder(object):
     def __init__(self) -> None:
         self._location_base_info = LocationBaseInfo()
-
     def code(self, code: str) -> "LocationBaseInfoBuilder":
         self._location_base_info.code = code
         return self
-
     def name(self, name: str) -> "LocationBaseInfoBuilder":
         self._location_base_info.name = name
         return self
-
     def en_name(self, en_name: str) -> "LocationBaseInfoBuilder":
         self._location_base_info.en_name = en_name
         return self
-
     def location_type(self, location_type: int) -> "LocationBaseInfoBuilder":
         self._location_base_info.location_type = location_type
         return self
-
     def i18n_name(self, i18n_name: str) -> "LocationBaseInfoBuilder":
         self._location_base_info.i18n_name = i18n_name
         return self
-
     def py_name(self, py_name: str) -> "LocationBaseInfoBuilder":
         self._location_base_info.py_name = py_name
         return self
-
+    
     def build(self) -> "LocationBaseInfo":
         return self._location_base_info

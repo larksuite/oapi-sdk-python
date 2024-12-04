@@ -10,44 +10,45 @@ from .model.p2_meeting_room_meeting_room_updated_v1 import P2MeetingRoomMeetingR
 
 
 class P2MeetingRoomMeetingRoomCreatedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomCreatedV1]):
-    def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomCreatedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomCreatedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2MeetingRoomMeetingRoomCreatedV1]:
-        return P2MeetingRoomMeetingRoomCreatedV1
+	def type(self) -> Type[P2MeetingRoomMeetingRoomCreatedV1]:
+		return P2MeetingRoomMeetingRoomCreatedV1
 
-    def do(self, data: P2MeetingRoomMeetingRoomCreatedV1) -> None:
-        self.f(data)
+	def do(self, data: P2MeetingRoomMeetingRoomCreatedV1) -> None:
+		self.f(data)
 
 
 class P2MeetingRoomMeetingRoomDeletedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomDeletedV1]):
-    def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomDeletedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomDeletedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2MeetingRoomMeetingRoomDeletedV1]:
-        return P2MeetingRoomMeetingRoomDeletedV1
+	def type(self) -> Type[P2MeetingRoomMeetingRoomDeletedV1]:
+		return P2MeetingRoomMeetingRoomDeletedV1
 
-    def do(self, data: P2MeetingRoomMeetingRoomDeletedV1) -> None:
-        self.f(data)
+	def do(self, data: P2MeetingRoomMeetingRoomDeletedV1) -> None:
+		self.f(data)
 
 
 class P2MeetingRoomMeetingRoomStatusChangedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomStatusChangedV1]):
-    def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomStatusChangedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomStatusChangedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2MeetingRoomMeetingRoomStatusChangedV1]:
-        return P2MeetingRoomMeetingRoomStatusChangedV1
+	def type(self) -> Type[P2MeetingRoomMeetingRoomStatusChangedV1]:
+		return P2MeetingRoomMeetingRoomStatusChangedV1
 
-    def do(self, data: P2MeetingRoomMeetingRoomStatusChangedV1) -> None:
-        self.f(data)
+	def do(self, data: P2MeetingRoomMeetingRoomStatusChangedV1) -> None:
+		self.f(data)
 
 
 class P2MeetingRoomMeetingRoomUpdatedV1Processor(IEventProcessor[P2MeetingRoomMeetingRoomUpdatedV1]):
-    def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomUpdatedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2MeetingRoomMeetingRoomUpdatedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2MeetingRoomMeetingRoomUpdatedV1]:
-        return P2MeetingRoomMeetingRoomUpdatedV1
+	def type(self) -> Type[P2MeetingRoomMeetingRoomUpdatedV1]:
+		return P2MeetingRoomMeetingRoomUpdatedV1
 
-    def do(self, data: P2MeetingRoomMeetingRoomUpdatedV1) -> None:
-        self.f(data)
+	def do(self, data: P2MeetingRoomMeetingRoomUpdatedV1) -> None:
+		self.f(data)
+

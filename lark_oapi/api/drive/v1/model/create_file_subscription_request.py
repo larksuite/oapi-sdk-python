@@ -25,12 +25,12 @@ class CreateFileSubscriptionRequestBuilder(object):
         create_file_subscription_request.uri = "/open-apis/drive/v1/files/:file_token/subscriptions"
         create_file_subscription_request.token_types = {AccessTokenType.USER}
         self._create_file_subscription_request: CreateFileSubscriptionRequest = create_file_subscription_request
-
+    
     def file_token(self, file_token: str) -> "CreateFileSubscriptionRequestBuilder":
         self._create_file_subscription_request.file_token = file_token
         self._create_file_subscription_request.paths["file_token"] = str(file_token)
         return self
-
+    
     def request_body(self, request_body: FileSubscription) -> "CreateFileSubscriptionRequestBuilder":
         self._create_file_subscription_request.request_body = request_body
         self._create_file_subscription_request.body = request_body

@@ -25,18 +25,15 @@ class UserSetting(object):
 class UserSettingBuilder(object):
     def __init__(self) -> None:
         self._user_setting = UserSetting()
-
     def user_id(self, user_id: str) -> "UserSettingBuilder":
         self._user_setting.user_id = user_id
         return self
-
     def face_key(self, face_key: str) -> "UserSettingBuilder":
         self._user_setting.face_key = face_key
         return self
-
     def face_key_update_time(self, face_key_update_time: str) -> "UserSettingBuilder":
         self._user_setting.face_key_update_time = face_key_update_time
         return self
-
+    
     def build(self) -> "UserSetting":
         return self._user_setting

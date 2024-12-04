@@ -38,38 +38,30 @@ class SocialArchiveItem(object):
 class SocialArchiveItemBuilder(object):
     def __init__(self) -> None:
         self._social_archive_item = SocialArchiveItem()
-
     def insurance_id(self, insurance_id: str) -> "SocialArchiveItemBuilder":
         self._social_archive_item.insurance_id = insurance_id
         return self
-
     def insurance_name(self, insurance_name: I18n) -> "SocialArchiveItemBuilder":
         self._social_archive_item.insurance_name = insurance_name
         return self
-
     def company_deduction(self, company_deduction: str) -> "SocialArchiveItemBuilder":
         self._social_archive_item.company_deduction = company_deduction
         return self
-
     def company_setting(self, company_setting: SocialPlanItemSetting) -> "SocialArchiveItemBuilder":
         self._social_archive_item.company_setting = company_setting
         return self
-
     def personal_deduction(self, personal_deduction: str) -> "SocialArchiveItemBuilder":
         self._social_archive_item.personal_deduction = personal_deduction
         return self
-
     def personal_setting(self, personal_setting: SocialPlanItemSetting) -> "SocialArchiveItemBuilder":
         self._social_archive_item.personal_setting = personal_setting
         return self
-
     def payment_frequency(self, payment_frequency: str) -> "SocialArchiveItemBuilder":
         self._social_archive_item.payment_frequency = payment_frequency
         return self
-
     def payment_months(self, payment_months: List[int]) -> "SocialArchiveItemBuilder":
         self._social_archive_item.payment_months = payment_months
         return self
-
+    
     def build(self) -> "SocialArchiveItem":
         return self._social_archive_item

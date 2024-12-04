@@ -29,26 +29,21 @@ class CreateMailgroupPermissionMemberResponseBody(object):
 class CreateMailgroupPermissionMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_mailgroup_permission_member_response_body = CreateMailgroupPermissionMemberResponseBody()
-
     def permission_member_id(self, permission_member_id: str) -> "CreateMailgroupPermissionMemberResponseBodyBuilder":
         self._create_mailgroup_permission_member_response_body.permission_member_id = permission_member_id
         return self
-
     def user_id(self, user_id: str) -> "CreateMailgroupPermissionMemberResponseBodyBuilder":
         self._create_mailgroup_permission_member_response_body.user_id = user_id
         return self
-
     def department_id(self, department_id: str) -> "CreateMailgroupPermissionMemberResponseBodyBuilder":
         self._create_mailgroup_permission_member_response_body.department_id = department_id
         return self
-
     def email(self, email: str) -> "CreateMailgroupPermissionMemberResponseBodyBuilder":
         self._create_mailgroup_permission_member_response_body.email = email
         return self
-
     def type(self, type: str) -> "CreateMailgroupPermissionMemberResponseBodyBuilder":
         self._create_mailgroup_permission_member_response_body.type = type
         return self
-
+    
     def build(self) -> "CreateMailgroupPermissionMemberResponseBody":
         return self._create_mailgroup_permission_member_response_body

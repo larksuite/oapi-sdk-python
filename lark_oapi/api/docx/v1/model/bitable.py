@@ -23,14 +23,12 @@ class Bitable(object):
 class BitableBuilder(object):
     def __init__(self) -> None:
         self._bitable = Bitable()
-
     def token(self, token: str) -> "BitableBuilder":
         self._bitable.token = token
         return self
-
     def view_type(self, view_type: int) -> "BitableBuilder":
         self._bitable.view_type = view_type
         return self
-
+    
     def build(self) -> "Bitable":
         return self._bitable

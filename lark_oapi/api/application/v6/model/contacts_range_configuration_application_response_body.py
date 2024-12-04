@@ -26,19 +26,15 @@ class ContactsRangeConfigurationApplicationResponseBody(object):
 class ContactsRangeConfigurationApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._contacts_range_configuration_application_response_body = ContactsRangeConfigurationApplicationResponseBody()
-
-    def contacts_range(self,
-                       contacts_range: ApplicationAppContactsRange) -> "ContactsRangeConfigurationApplicationResponseBodyBuilder":
+    def contacts_range(self, contacts_range: ApplicationAppContactsRange) -> "ContactsRangeConfigurationApplicationResponseBodyBuilder":
         self._contacts_range_configuration_application_response_body.contacts_range = contacts_range
         return self
-
     def has_more(self, has_more: bool) -> "ContactsRangeConfigurationApplicationResponseBodyBuilder":
         self._contacts_range_configuration_application_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ContactsRangeConfigurationApplicationResponseBodyBuilder":
         self._contacts_range_configuration_application_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "ContactsRangeConfigurationApplicationResponseBody":
         return self._contacts_range_configuration_application_response_body

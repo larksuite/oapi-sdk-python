@@ -19,6 +19,6 @@ class Text(object):
 class TextBuilder(object):
     def __init__(self) -> None:
         self._text = Text()
-
+    
     def build(self) -> "Text":
         return self._text

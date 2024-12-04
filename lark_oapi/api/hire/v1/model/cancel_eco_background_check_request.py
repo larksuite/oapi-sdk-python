@@ -24,9 +24,8 @@ class CancelEcoBackgroundCheckRequestBuilder(object):
         cancel_eco_background_check_request.uri = "/open-apis/hire/v1/eco_background_checks/cancel"
         cancel_eco_background_check_request.token_types = {AccessTokenType.TENANT}
         self._cancel_eco_background_check_request: CancelEcoBackgroundCheckRequest = cancel_eco_background_check_request
-
-    def request_body(self,
-                     request_body: CancelEcoBackgroundCheckRequestBody) -> "CancelEcoBackgroundCheckRequestBuilder":
+    
+    def request_body(self, request_body: CancelEcoBackgroundCheckRequestBody) -> "CancelEcoBackgroundCheckRequestBuilder":
         self._cancel_eco_background_check_request.request_body = request_body
         self._cancel_eco_background_check_request.body = request_body
         return self

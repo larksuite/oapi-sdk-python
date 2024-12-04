@@ -21,8 +21,7 @@ class AgentSchedules(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete(self, request: DeleteAgentSchedulesRequest,
-               option: Optional[RequestOption] = None) -> DeleteAgentSchedulesResponse:
+    def delete(self, request: DeleteAgentSchedulesRequest, option: Optional[RequestOption] = None) -> DeleteAgentSchedulesResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,32 +34,33 @@ class AgentSchedules(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteAgentSchedulesResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAgentSchedulesResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteAgentSchedulesRequest,
-                      option: Optional[RequestOption] = None) -> DeleteAgentSchedulesResponse:
+    async def adelete(self, request: DeleteAgentSchedulesRequest, option: Optional[RequestOption] = None) -> DeleteAgentSchedulesResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteAgentSchedulesResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAgentSchedulesResponse)
         response.raw = resp
 
         return response
-
-    def get(self, request: GetAgentSchedulesRequest,
-            option: Optional[RequestOption] = None) -> GetAgentSchedulesResponse:
+        
+    def get(self, request: GetAgentSchedulesRequest, option: Optional[RequestOption] = None) -> GetAgentSchedulesResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,32 +73,33 @@ class AgentSchedules(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetAgentSchedulesResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgentSchedulesResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetAgentSchedulesRequest,
-                   option: Optional[RequestOption] = None) -> GetAgentSchedulesResponse:
+    async def aget(self, request: GetAgentSchedulesRequest, option: Optional[RequestOption] = None) -> GetAgentSchedulesResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetAgentSchedulesResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgentSchedulesResponse)
         response.raw = resp
 
         return response
-
-    def patch(self, request: PatchAgentSchedulesRequest,
-              option: Optional[RequestOption] = None) -> PatchAgentSchedulesResponse:
+        
+    def patch(self, request: PatchAgentSchedulesRequest, option: Optional[RequestOption] = None) -> PatchAgentSchedulesResponse:
         if option is None:
             option = RequestOption()
 
@@ -111,26 +112,30 @@ class AgentSchedules(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchAgentSchedulesResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentSchedulesResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchAgentSchedulesRequest,
-                     option: Optional[RequestOption] = None) -> PatchAgentSchedulesResponse:
+    async def apatch(self, request: PatchAgentSchedulesRequest, option: Optional[RequestOption] = None) -> PatchAgentSchedulesResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchAgentSchedulesResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchAgentSchedulesResponse)
         response.raw = resp
 
         return response
+        
+    

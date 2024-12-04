@@ -26,17 +26,17 @@ class PatchCompanyRequestBuilder(object):
         patch_company_request.uri = "/open-apis/corehr/v1/companies/:company_id"
         patch_company_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._patch_company_request: PatchCompanyRequest = patch_company_request
-
+    
     def client_token(self, client_token: str) -> "PatchCompanyRequestBuilder":
         self._patch_company_request.client_token = client_token
         self._patch_company_request.add_query("client_token", client_token)
         return self
-
+    
     def company_id(self, company_id: str) -> "PatchCompanyRequestBuilder":
         self._patch_company_request.company_id = company_id
         self._patch_company_request.paths["company_id"] = str(company_id)
         return self
-
+    
     def request_body(self, request_body: Company) -> "PatchCompanyRequestBuilder":
         self._patch_company_request.request_body = request_body
         self._patch_company_request.body = request_body

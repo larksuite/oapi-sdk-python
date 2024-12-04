@@ -26,17 +26,17 @@ class UpdateEntityRequestBuilder(object):
         update_entity_request.uri = "/open-apis/lingo/v1/entities/:entity_id"
         update_entity_request.token_types = {AccessTokenType.TENANT}
         self._update_entity_request: UpdateEntityRequest = update_entity_request
-
+    
     def user_id_type(self, user_id_type: str) -> "UpdateEntityRequestBuilder":
         self._update_entity_request.user_id_type = user_id_type
         self._update_entity_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def entity_id(self, entity_id: str) -> "UpdateEntityRequestBuilder":
         self._update_entity_request.entity_id = entity_id
         self._update_entity_request.paths["entity_id"] = str(entity_id)
         return self
-
+    
     def request_body(self, request_body: Entity) -> "UpdateEntityRequestBuilder":
         self._update_entity_request.request_body = request_body
         self._update_entity_request.body = request_body

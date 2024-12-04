@@ -27,22 +27,18 @@ class RuleDetail(object):
 class RuleDetailBuilder(object):
     def __init__(self) -> None:
         self._rule_detail = RuleDetail()
-
     def effective_time(self, effective_time: int) -> "RuleDetailBuilder":
         self._rule_detail.effective_time = effective_time
         return self
-
     def expiration_time(self, expiration_time: int) -> "RuleDetailBuilder":
         self._rule_detail.expiration_time = expiration_time
         return self
-
     def anniversary(self, anniversary: int) -> "RuleDetailBuilder":
         self._rule_detail.anniversary = anniversary
         return self
-
     def effective_period(self, effective_period: int) -> "RuleDetailBuilder":
         self._rule_detail.effective_period = effective_period
         return self
-
+    
     def build(self) -> "RuleDetail":
         return self._rule_detail

@@ -34,34 +34,27 @@ class VendorCompanyView(object):
 class VendorCompanyViewBuilder(object):
     def __init__(self) -> None:
         self._vendor_company_view = VendorCompanyView()
-
     def id(self, id: int) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.id = id
         return self
-
     def company_code(self, company_code: str) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.company_code = company_code
         return self
-
     def gl_account(self, gl_account: str) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.gl_account = gl_account
         return self
-
     def vendor_site_code(self, vendor_site_code: str) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.vendor_site_code = vendor_site_code
         return self
-
     def payment_term(self, payment_term: str) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.payment_term = payment_term
         return self
-
     def down_payment_term(self, down_payment_term: str) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.down_payment_term = down_payment_term
         return self
-
     def extend_info(self, extend_info: List[ExtendField]) -> "VendorCompanyViewBuilder":
         self._vendor_company_view.extend_info = extend_info
         return self
-
+    
     def build(self) -> "VendorCompanyView":
         return self._vendor_company_view

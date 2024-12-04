@@ -19,8 +19,7 @@ class TenantAccessToken(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTenantAccessTokenRequest,
-               option: Optional[RequestOption] = None) -> CreateTenantAccessTokenResponse:
+    def create(self, request: CreateTenantAccessTokenRequest, option: Optional[RequestOption] = None) -> CreateTenantAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class TenantAccessToken(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   CreateTenantAccessTokenResponse)
+        response: CreateTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTenantAccessTokenResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateTenantAccessTokenRequest,
-                      option: Optional[RequestOption] = None) -> CreateTenantAccessTokenResponse:
+    async def acreate(self, request: CreateTenantAccessTokenRequest, option: Optional[RequestOption] = None) -> CreateTenantAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   CreateTenantAccessTokenResponse)
+        response: CreateTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTenantAccessTokenResponse)
         response.raw = resp
 
         return response
-
-    def internal(self, request: InternalTenantAccessTokenRequest,
-                 option: Optional[RequestOption] = None) -> InternalTenantAccessTokenResponse:
+        
+    def internal(self, request: InternalTenantAccessTokenRequest, option: Optional[RequestOption] = None) -> InternalTenantAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class TenantAccessToken(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: InternalTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     InternalTenantAccessTokenResponse)
+        response: InternalTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), InternalTenantAccessTokenResponse)
         response.raw = resp
 
         return response
+        
 
-    async def ainternal(self, request: InternalTenantAccessTokenRequest,
-                        option: Optional[RequestOption] = None) -> InternalTenantAccessTokenResponse:
+    async def ainternal(self, request: InternalTenantAccessTokenRequest, option: Optional[RequestOption] = None) -> InternalTenantAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: InternalTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     InternalTenantAccessTokenResponse)
+        response: InternalTenantAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), InternalTenantAccessTokenResponse)
         response.raw = resp
 
         return response
+        
+    

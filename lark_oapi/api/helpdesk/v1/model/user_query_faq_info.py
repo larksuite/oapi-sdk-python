@@ -23,14 +23,12 @@ class UserQueryFaqInfo(object):
 class UserQueryFaqInfoBuilder(object):
     def __init__(self) -> None:
         self._user_query_faq_info = UserQueryFaqInfo()
-
     def id(self, id: str) -> "UserQueryFaqInfoBuilder":
         self._user_query_faq_info.id = id
         return self
-
     def score(self, score: float) -> "UserQueryFaqInfoBuilder":
         self._user_query_faq_info.score = score
         return self
-
+    
     def build(self) -> "UserQueryFaqInfo":
         return self._user_query_faq_info

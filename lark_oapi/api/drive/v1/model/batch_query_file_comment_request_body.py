@@ -21,10 +21,9 @@ class BatchQueryFileCommentRequestBody(object):
 class BatchQueryFileCommentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_file_comment_request_body = BatchQueryFileCommentRequestBody()
-
     def comment_ids(self, comment_ids: List[str]) -> "BatchQueryFileCommentRequestBodyBuilder":
         self._batch_query_file_comment_request_body.comment_ids = comment_ids
         return self
-
+    
     def build(self) -> "BatchQueryFileCommentRequestBody":
         return self._batch_query_file_comment_request_body

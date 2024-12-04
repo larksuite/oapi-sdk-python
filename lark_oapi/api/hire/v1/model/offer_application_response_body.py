@@ -22,10 +22,9 @@ class OfferApplicationResponseBody(object):
 class OfferApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._offer_application_response_body = OfferApplicationResponseBody()
-
     def offer(self, offer: ApplicationOffer) -> "OfferApplicationResponseBodyBuilder":
         self._offer_application_response_body.offer = offer
         return self
-
+    
     def build(self) -> "OfferApplicationResponseBody":
         return self._offer_application_response_body

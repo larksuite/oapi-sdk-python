@@ -31,30 +31,24 @@ class AilySession(object):
 class AilySessionBuilder(object):
     def __init__(self) -> None:
         self._aily_session = AilySession()
-
     def id(self, id: str) -> "AilySessionBuilder":
         self._aily_session.id = id
         return self
-
     def created_at(self, created_at: int) -> "AilySessionBuilder":
         self._aily_session.created_at = created_at
         return self
-
     def modified_at(self, modified_at: int) -> "AilySessionBuilder":
         self._aily_session.modified_at = modified_at
         return self
-
     def created_by(self, created_by: str) -> "AilySessionBuilder":
         self._aily_session.created_by = created_by
         return self
-
     def channel_context(self, channel_context: str) -> "AilySessionBuilder":
         self._aily_session.channel_context = channel_context
         return self
-
     def metadata(self, metadata: str) -> "AilySessionBuilder":
         self._aily_session.metadata = metadata
         return self
-
+    
     def build(self) -> "AilySession":
         return self._aily_session

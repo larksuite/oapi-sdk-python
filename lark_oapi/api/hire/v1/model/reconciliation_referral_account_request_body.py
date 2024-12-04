@@ -26,18 +26,15 @@ class ReconciliationReferralAccountRequestBody(object):
 class ReconciliationReferralAccountRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._reconciliation_referral_account_request_body = ReconciliationReferralAccountRequestBody()
-
     def start_trans_time(self, start_trans_time: str) -> "ReconciliationReferralAccountRequestBodyBuilder":
         self._reconciliation_referral_account_request_body.start_trans_time = start_trans_time
         return self
-
     def end_trans_time(self, end_trans_time: str) -> "ReconciliationReferralAccountRequestBodyBuilder":
         self._reconciliation_referral_account_request_body.end_trans_time = end_trans_time
         return self
-
     def trade_details(self, trade_details: List[TradeDetail]) -> "ReconciliationReferralAccountRequestBodyBuilder":
         self._reconciliation_referral_account_request_body.trade_details = trade_details
         return self
-
+    
     def build(self) -> "ReconciliationReferralAccountRequestBody":
         return self._reconciliation_referral_account_request_body

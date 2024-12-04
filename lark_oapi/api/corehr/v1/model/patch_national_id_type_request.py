@@ -26,17 +26,17 @@ class PatchNationalIdTypeRequestBuilder(object):
         patch_national_id_type_request.uri = "/open-apis/corehr/v1/national_id_types/:national_id_type_id"
         patch_national_id_type_request.token_types = {AccessTokenType.TENANT}
         self._patch_national_id_type_request: PatchNationalIdTypeRequest = patch_national_id_type_request
-
+    
     def client_token(self, client_token: str) -> "PatchNationalIdTypeRequestBuilder":
         self._patch_national_id_type_request.client_token = client_token
         self._patch_national_id_type_request.add_query("client_token", client_token)
         return self
-
+    
     def national_id_type_id(self, national_id_type_id: str) -> "PatchNationalIdTypeRequestBuilder":
         self._patch_national_id_type_request.national_id_type_id = national_id_type_id
         self._patch_national_id_type_request.paths["national_id_type_id"] = str(national_id_type_id)
         return self
-
+    
     def request_body(self, request_body: NationalIdType) -> "PatchNationalIdTypeRequestBuilder":
         self._patch_national_id_type_request.request_body = request_body
         self._patch_national_id_type_request.body = request_body

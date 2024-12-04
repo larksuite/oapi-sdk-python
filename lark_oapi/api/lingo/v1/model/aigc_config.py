@@ -23,14 +23,12 @@ class AigcConfig(object):
 class AigcConfigBuilder(object):
     def __init__(self) -> None:
         self._aigc_config = AigcConfig()
-
     def need_review(self, need_review: bool) -> "AigcConfigBuilder":
         self._aigc_config.need_review = need_review
         return self
-
     def repo_id(self, repo_id: int) -> "AigcConfigBuilder":
         self._aigc_config.repo_id = repo_id
         return self
-
+    
     def build(self) -> "AigcConfig":
         return self._aigc_config

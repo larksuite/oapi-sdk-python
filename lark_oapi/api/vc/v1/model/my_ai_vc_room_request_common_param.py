@@ -30,26 +30,21 @@ class MyAiVcRoomRequestCommonParam(object):
 class MyAiVcRoomRequestCommonParamBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_room_request_common_param = MyAiVcRoomRequestCommonParam()
-
     def language(self, language: str) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.language = language
         return self
-
     def utc_offset(self, utc_offset: str) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.utc_offset = utc_offset
         return self
-
     def room_id(self, room_id: str) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.room_id = room_id
         return self
-
     def client_version(self, client_version: str) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.client_version = client_version
         return self
-
     def openapi_history(self, openapi_history: MyAiRoomOpenapiResponse) -> "MyAiVcRoomRequestCommonParamBuilder":
         self._my_ai_vc_room_request_common_param.openapi_history = openapi_history
         return self
-
+    
     def build(self) -> "MyAiVcRoomRequestCommonParam":
         return self._my_ai_vc_room_request_common_param

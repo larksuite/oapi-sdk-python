@@ -104,6 +104,7 @@ from .trusteeship_urls import *
 from .url_detail import *
 from .user import *
 from .user_id import *
+from .widget_instance import *
 from .create_approval_request import *
 from .get_approval_request import *
 from .subscribe_approval_request import *

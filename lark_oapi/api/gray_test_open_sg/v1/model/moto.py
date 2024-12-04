@@ -27,22 +27,18 @@ class Moto(object):
 class MotoBuilder(object):
     def __init__(self) -> None:
         self._moto = Moto()
-
     def moto_id(self, moto_id: str) -> "MotoBuilder":
         self._moto.moto_id = moto_id
         return self
-
     def id(self, id: str) -> "MotoBuilder":
         self._moto.id = id
         return self
-
     def user_name(self, user_name: str) -> "MotoBuilder":
         self._moto.user_name = user_name
         return self
-
     def type(self, type: str) -> "MotoBuilder":
         self._moto.type = type
         return self
-
+    
     def build(self) -> "Moto":
         return self._moto

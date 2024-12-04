@@ -29,22 +29,18 @@ class CustomWorkplaceAccessData(object):
 class CustomWorkplaceAccessDataBuilder(object):
     def __init__(self) -> None:
         self._custom_workplace_access_data = CustomWorkplaceAccessData()
-
     def custom_workplace_id(self, custom_workplace_id: str) -> "CustomWorkplaceAccessDataBuilder":
         self._custom_workplace_access_data.custom_workplace_id = custom_workplace_id
         return self
-
     def access_data(self, access_data: AccessData) -> "CustomWorkplaceAccessDataBuilder":
         self._custom_workplace_access_data.access_data = access_data
         return self
-
     def date(self, date: str) -> "CustomWorkplaceAccessDataBuilder":
         self._custom_workplace_access_data.date = date
         return self
-
     def custom_workplace_name(self, custom_workplace_name: List[I18nName]) -> "CustomWorkplaceAccessDataBuilder":
         self._custom_workplace_access_data.custom_workplace_name = custom_workplace_name
         return self
-
+    
     def build(self) -> "CustomWorkplaceAccessData":
         return self._custom_workplace_access_data

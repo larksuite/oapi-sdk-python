@@ -22,10 +22,9 @@ class CreateByResumeWebsiteDeliveryResponseBody(object):
 class CreateByResumeWebsiteDeliveryResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_by_resume_website_delivery_response_body = CreateByResumeWebsiteDeliveryResponseBody()
-
     def delivery(self, delivery: WebsiteDeliveryDto) -> "CreateByResumeWebsiteDeliveryResponseBodyBuilder":
         self._create_by_resume_website_delivery_response_body.delivery = delivery
         return self
-
+    
     def build(self) -> "CreateByResumeWebsiteDeliveryResponseBody":
         return self._create_by_resume_website_delivery_response_body

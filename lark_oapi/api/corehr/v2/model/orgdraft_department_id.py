@@ -23,14 +23,12 @@ class OrgdraftDepartmentId(object):
 class OrgdraftDepartmentIdBuilder(object):
     def __init__(self) -> None:
         self._orgdraft_department_id = OrgdraftDepartmentId()
-
     def department_id(self, department_id: str) -> "OrgdraftDepartmentIdBuilder":
         self._orgdraft_department_id.department_id = department_id
         return self
-
     def draft_department_id(self, draft_department_id: str) -> "OrgdraftDepartmentIdBuilder":
         self._orgdraft_department_id.draft_department_id = draft_department_id
         return self
-
+    
     def build(self) -> "OrgdraftDepartmentId":
         return self._orgdraft_department_id

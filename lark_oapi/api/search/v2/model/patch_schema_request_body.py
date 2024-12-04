@@ -25,14 +25,12 @@ class PatchSchemaRequestBody(object):
 class PatchSchemaRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_schema_request_body = PatchSchemaRequestBody()
-
     def display(self, display: SchemaDisplay) -> "PatchSchemaRequestBodyBuilder":
         self._patch_schema_request_body.display = display
         return self
-
     def properties(self, properties: List[PatchSchemaProperty]) -> "PatchSchemaRequestBodyBuilder":
         self._patch_schema_request_body.properties = properties
         return self
-
+    
     def build(self) -> "PatchSchemaRequestBody":
         return self._patch_schema_request_body

@@ -23,14 +23,12 @@ class ProfileSettingCitizenshipStatus(object):
 class ProfileSettingCitizenshipStatusBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_citizenship_status = ProfileSettingCitizenshipStatus()
-
     def country_region(self, country_region: str) -> "ProfileSettingCitizenshipStatusBuilder":
         self._profile_setting_citizenship_status.country_region = country_region
         return self
-
     def citizenship_status(self, citizenship_status: str) -> "ProfileSettingCitizenshipStatusBuilder":
         self._profile_setting_citizenship_status.citizenship_status = citizenship_status
         return self
-
+    
     def build(self) -> "ProfileSettingCitizenshipStatus":
         return self._profile_setting_citizenship_status

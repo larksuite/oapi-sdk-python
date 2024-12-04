@@ -37,42 +37,33 @@ class SearchWebsiteJobPostRequestBody(object):
 class SearchWebsiteJobPostRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_website_job_post_request_body = SearchWebsiteJobPostRequestBody()
-
     def job_type_id_list(self, job_type_id_list: List[str]) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.job_type_id_list = job_type_id_list
         return self
-
     def city_code_list(self, city_code_list: List[str]) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.city_code_list = city_code_list
         return self
-
     def job_function_id_list(self, job_function_id_list: List[str]) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.job_function_id_list = job_function_id_list
         return self
-
     def subject_id_list(self, subject_id_list: List[str]) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.subject_id_list = subject_id_list
         return self
-
     def keyword(self, keyword: str) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.keyword = keyword
         return self
-
     def update_start_time(self, update_start_time: str) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.update_start_time = update_start_time
         return self
-
     def update_end_time(self, update_end_time: str) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.update_end_time = update_end_time
         return self
-
     def create_start_time(self, create_start_time: str) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.create_start_time = create_start_time
         return self
-
     def create_end_time(self, create_end_time: str) -> "SearchWebsiteJobPostRequestBodyBuilder":
         self._search_website_job_post_request_body.create_end_time = create_end_time
         return self
-
+    
     def build(self) -> "SearchWebsiteJobPostRequestBody":
         return self._search_website_job_post_request_body

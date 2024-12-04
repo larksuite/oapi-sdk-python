@@ -22,10 +22,9 @@ class GetContractResponseBody(object):
 class GetContractResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_contract_response_body = GetContractResponseBody()
-
     def contract(self, contract: Contract) -> "GetContractResponseBodyBuilder":
         self._get_contract_response_body.contract = contract
         return self
-
+    
     def build(self) -> "GetContractResponseBody":
         return self._get_contract_response_body

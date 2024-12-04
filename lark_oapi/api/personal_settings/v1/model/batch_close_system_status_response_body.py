@@ -22,11 +22,9 @@ class BatchCloseSystemStatusResponseBody(object):
 class BatchCloseSystemStatusResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_close_system_status_response_body = BatchCloseSystemStatusResponseBody()
-
-    def result_list(self, result_list: List[
-        SystemStatusUserCloseResultEntity]) -> "BatchCloseSystemStatusResponseBodyBuilder":
+    def result_list(self, result_list: List[SystemStatusUserCloseResultEntity]) -> "BatchCloseSystemStatusResponseBodyBuilder":
         self._batch_close_system_status_response_body.result_list = result_list
         return self
-
+    
     def build(self) -> "BatchCloseSystemStatusResponseBody":
         return self._batch_close_system_status_response_body

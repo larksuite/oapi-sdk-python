@@ -36,30 +36,24 @@ class InterviewAddress(object):
 class InterviewAddressBuilder(object):
     def __init__(self) -> None:
         self._interview_address = InterviewAddress()
-
     def id(self, id: str) -> "InterviewAddressBuilder":
         self._interview_address.id = id
         return self
-
     def name(self, name: I18n) -> "InterviewAddressBuilder":
         self._interview_address.name = name
         return self
-
     def district(self, district: CodeNameObject) -> "InterviewAddressBuilder":
         self._interview_address.district = district
         return self
-
     def city(self, city: CodeNameObject) -> "InterviewAddressBuilder":
         self._interview_address.city = city
         return self
-
     def state(self, state: CodeNameObject) -> "InterviewAddressBuilder":
         self._interview_address.state = state
         return self
-
     def country(self, country: CodeNameObject) -> "InterviewAddressBuilder":
         self._interview_address.country = country
         return self
-
+    
     def build(self) -> "InterviewAddress":
         return self._interview_address

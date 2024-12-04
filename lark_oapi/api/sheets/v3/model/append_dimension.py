@@ -25,18 +25,15 @@ class AppendDimension(object):
 class AppendDimensionBuilder(object):
     def __init__(self) -> None:
         self._append_dimension = AppendDimension()
-
     def major_dimension(self, major_dimension: str) -> "AppendDimensionBuilder":
         self._append_dimension.major_dimension = major_dimension
         return self
-
     def length(self, length: int) -> "AppendDimensionBuilder":
         self._append_dimension.length = length
         return self
-
     def inherit_from_before(self, inherit_from_before: bool) -> "AppendDimensionBuilder":
         self._append_dimension.inherit_from_before = inherit_from_before
         return self
-
+    
     def build(self) -> "AppendDimension":
         return self._append_dimension

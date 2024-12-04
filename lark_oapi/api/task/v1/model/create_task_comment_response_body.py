@@ -22,10 +22,9 @@ class CreateTaskCommentResponseBody(object):
 class CreateTaskCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_task_comment_response_body = CreateTaskCommentResponseBody()
-
     def comment(self, comment: Comment) -> "CreateTaskCommentResponseBodyBuilder":
         self._create_task_comment_response_body.comment = comment
         return self
-
+    
     def build(self) -> "CreateTaskCommentResponseBody":
         return self._create_task_comment_response_body

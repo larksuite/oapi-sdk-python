@@ -22,10 +22,9 @@ class CreateSpreadsheetSheetFloatImageResponseBody(object):
 class CreateSpreadsheetSheetFloatImageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_spreadsheet_sheet_float_image_response_body = CreateSpreadsheetSheetFloatImageResponseBody()
-
     def float_image(self, float_image: FloatImage) -> "CreateSpreadsheetSheetFloatImageResponseBodyBuilder":
         self._create_spreadsheet_sheet_float_image_response_body.float_image = float_image
         return self
-
+    
     def build(self) -> "CreateSpreadsheetSheetFloatImageResponseBody":
         return self._create_spreadsheet_sheet_float_image_response_body

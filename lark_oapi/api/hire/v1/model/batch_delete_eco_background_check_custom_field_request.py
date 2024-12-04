@@ -3,8 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_delete_eco_background_check_custom_field_request_body import \
-    BatchDeleteEcoBackgroundCheckCustomFieldRequestBody
+from .batch_delete_eco_background_check_custom_field_request_body import BatchDeleteEcoBackgroundCheckCustomFieldRequestBody
 
 
 class BatchDeleteEcoBackgroundCheckCustomFieldRequest(BaseRequest):
@@ -25,9 +24,8 @@ class BatchDeleteEcoBackgroundCheckCustomFieldRequestBuilder(object):
         batch_delete_eco_background_check_custom_field_request.uri = "/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete"
         batch_delete_eco_background_check_custom_field_request.token_types = {AccessTokenType.TENANT}
         self._batch_delete_eco_background_check_custom_field_request: BatchDeleteEcoBackgroundCheckCustomFieldRequest = batch_delete_eco_background_check_custom_field_request
-
-    def request_body(self,
-                     request_body: BatchDeleteEcoBackgroundCheckCustomFieldRequestBody) -> "BatchDeleteEcoBackgroundCheckCustomFieldRequestBuilder":
+    
+    def request_body(self, request_body: BatchDeleteEcoBackgroundCheckCustomFieldRequestBody) -> "BatchDeleteEcoBackgroundCheckCustomFieldRequestBuilder":
         self._batch_delete_eco_background_check_custom_field_request.request_body = request_body
         self._batch_delete_eco_background_check_custom_field_request.body = request_body
         return self

@@ -17,8 +17,7 @@ class AppRecommendRule(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAppRecommendRuleRequest,
-             option: Optional[RequestOption] = None) -> ListAppRecommendRuleResponse:
+    def list(self, request: ListAppRecommendRuleRequest, option: Optional[RequestOption] = None) -> ListAppRecommendRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class AppRecommendRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAppRecommendRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppRecommendRuleResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListAppRecommendRuleRequest,
-                    option: Optional[RequestOption] = None) -> ListAppRecommendRuleResponse:
+    async def alist(self, request: ListAppRecommendRuleRequest, option: Optional[RequestOption] = None) -> ListAppRecommendRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAppRecommendRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppRecommendRuleResponse)
         response.raw = resp
 
         return response
+        
+    

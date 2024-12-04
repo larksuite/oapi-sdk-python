@@ -45,54 +45,42 @@ class InstanceTimeline(object):
 class InstanceTimelineBuilder(object):
     def __init__(self) -> None:
         self._instance_timeline = InstanceTimeline()
-
     def type(self, type: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.type = type
         return self
-
     def create_time(self, create_time: int) -> "InstanceTimelineBuilder":
         self._instance_timeline.create_time = create_time
         return self
-
     def user_id(self, user_id: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.user_id = user_id
         return self
-
     def open_id(self, open_id: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.open_id = open_id
         return self
-
     def user_id_list(self, user_id_list: List[str]) -> "InstanceTimelineBuilder":
         self._instance_timeline.user_id_list = user_id_list
         return self
-
     def open_id_list(self, open_id_list: List[str]) -> "InstanceTimelineBuilder":
         self._instance_timeline.open_id_list = open_id_list
         return self
-
     def task_id(self, task_id: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.task_id = task_id
         return self
-
     def comment(self, comment: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.comment = comment
         return self
-
     def cc_user_list(self, cc_user_list: List[InstanceCcUser]) -> "InstanceTimelineBuilder":
         self._instance_timeline.cc_user_list = cc_user_list
         return self
-
     def ext(self, ext: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.ext = ext
         return self
-
     def node_key(self, node_key: str) -> "InstanceTimelineBuilder":
         self._instance_timeline.node_key = node_key
         return self
-
     def files(self, files: List[File]) -> "InstanceTimelineBuilder":
         self._instance_timeline.files = files
         return self
-
+    
     def build(self) -> "InstanceTimeline":
         return self._instance_timeline

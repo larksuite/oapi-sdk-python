@@ -25,21 +25,22 @@ class DeleteAppTableViewRequestBuilder(object):
         delete_app_table_view_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
         delete_app_table_view_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._delete_app_table_view_request: DeleteAppTableViewRequest = delete_app_table_view_request
-
+    
     def app_token(self, app_token: str) -> "DeleteAppTableViewRequestBuilder":
         self._delete_app_table_view_request.app_token = app_token
         self._delete_app_table_view_request.paths["app_token"] = str(app_token)
         return self
-
+    
     def table_id(self, table_id: str) -> "DeleteAppTableViewRequestBuilder":
         self._delete_app_table_view_request.table_id = table_id
         self._delete_app_table_view_request.paths["table_id"] = str(table_id)
         return self
-
+    
     def view_id(self, view_id: str) -> "DeleteAppTableViewRequestBuilder":
         self._delete_app_table_view_request.view_id = view_id
         self._delete_app_table_view_request.paths["view_id"] = str(view_id)
         return self
+    
 
     def build(self) -> DeleteAppTableViewRequest:
         return self._delete_app_table_view_request

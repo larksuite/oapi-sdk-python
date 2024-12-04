@@ -17,8 +17,7 @@ class TransferReason(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryTransferReasonRequest,
-              option: Optional[RequestOption] = None) -> QueryTransferReasonResponse:
+    def query(self, request: QueryTransferReasonRequest, option: Optional[RequestOption] = None) -> QueryTransferReasonResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class TransferReason(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryTransferReasonResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTransferReasonResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryTransferReasonRequest,
-                     option: Optional[RequestOption] = None) -> QueryTransferReasonResponse:
+    async def aquery(self, request: QueryTransferReasonRequest, option: Optional[RequestOption] = None) -> QueryTransferReasonResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryTransferReasonResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTransferReasonResponse)
         response.raw = resp
 
         return response
+        
+    

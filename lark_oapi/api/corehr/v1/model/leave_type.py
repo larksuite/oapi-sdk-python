@@ -37,38 +37,30 @@ class LeaveType(object):
 class LeaveTypeBuilder(object):
     def __init__(self) -> None:
         self._leave_type = LeaveType()
-
     def leave_type_id(self, leave_type_id: str) -> "LeaveTypeBuilder":
         self._leave_type.leave_type_id = leave_type_id
         return self
-
     def leave_type_name(self, leave_type_name: List[I18n]) -> "LeaveTypeBuilder":
         self._leave_type.leave_type_name = leave_type_name
         return self
-
     def status(self, status: int) -> "LeaveTypeBuilder":
         self._leave_type.status = status
         return self
-
     def leave_subtype_list(self, leave_subtype_list: List[LeaveSubtype]) -> "LeaveTypeBuilder":
         self._leave_type.leave_subtype_list = leave_subtype_list
         return self
-
     def created_at(self, created_at: str) -> "LeaveTypeBuilder":
         self._leave_type.created_at = created_at
         return self
-
     def created_by(self, created_by: str) -> "LeaveTypeBuilder":
         self._leave_type.created_by = created_by
         return self
-
     def updated_at(self, updated_at: str) -> "LeaveTypeBuilder":
         self._leave_type.updated_at = updated_at
         return self
-
     def updated_by(self, updated_by: str) -> "LeaveTypeBuilder":
         self._leave_type.updated_by = updated_by
         return self
-
+    
     def build(self) -> "LeaveType":
         return self._leave_type

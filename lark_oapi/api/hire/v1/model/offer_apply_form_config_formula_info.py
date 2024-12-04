@@ -26,18 +26,15 @@ class OfferApplyFormConfigFormulaInfo(object):
 class OfferApplyFormConfigFormulaInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form_config_formula_info = OfferApplyFormConfigFormulaInfo()
-
     def value(self, value: str) -> "OfferApplyFormConfigFormulaInfoBuilder":
         self._offer_apply_form_config_formula_info.value = value
         return self
-
     def result(self, result: int) -> "OfferApplyFormConfigFormulaInfoBuilder":
         self._offer_apply_form_config_formula_info.result = result
         return self
-
     def extra_map(self, extra_map: List[OfferApplyFormFormulaExtraMapInfo]) -> "OfferApplyFormConfigFormulaInfoBuilder":
         self._offer_apply_form_config_formula_info.extra_map = extra_map
         return self
-
+    
     def build(self) -> "OfferApplyFormConfigFormulaInfo":
         return self._offer_apply_form_config_formula_info

@@ -28,22 +28,18 @@ class JobFunction(object):
 class JobFunctionBuilder(object):
     def __init__(self) -> None:
         self._job_function = JobFunction()
-
     def id(self, id: str) -> "JobFunctionBuilder":
         self._job_function.id = id
         return self
-
     def name(self, name: I18n) -> "JobFunctionBuilder":
         self._job_function.name = name
         return self
-
     def active_status(self, active_status: int) -> "JobFunctionBuilder":
         self._job_function.active_status = active_status
         return self
-
     def parent_id(self, parent_id: str) -> "JobFunctionBuilder":
         self._job_function.parent_id = parent_id
         return self
-
+    
     def build(self) -> "JobFunction":
         return self._job_function

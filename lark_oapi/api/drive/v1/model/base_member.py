@@ -29,26 +29,21 @@ class BaseMember(object):
 class BaseMemberBuilder(object):
     def __init__(self) -> None:
         self._base_member = BaseMember()
-
     def member_type(self, member_type: str) -> "BaseMemberBuilder":
         self._base_member.member_type = member_type
         return self
-
     def member_id(self, member_id: str) -> "BaseMemberBuilder":
         self._base_member.member_id = member_id
         return self
-
     def perm(self, perm: str) -> "BaseMemberBuilder":
         self._base_member.perm = perm
         return self
-
     def perm_type(self, perm_type: str) -> "BaseMemberBuilder":
         self._base_member.perm_type = perm_type
         return self
-
     def type(self, type: str) -> "BaseMemberBuilder":
         self._base_member.type = type
         return self
-
+    
     def build(self) -> "BaseMember":
         return self._base_member

@@ -28,23 +28,18 @@ class TalentCompetitionInfo(object):
 class TalentCompetitionInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_competition_info = TalentCompetitionInfo()
-
     def id(self, id: str) -> "TalentCompetitionInfoBuilder":
         self._talent_competition_info.id = id
         return self
-
     def name(self, name: str) -> "TalentCompetitionInfoBuilder":
         self._talent_competition_info.name = name
         return self
-
     def desc(self, desc: str) -> "TalentCompetitionInfoBuilder":
         self._talent_competition_info.desc = desc
         return self
-
-    def customized_data_list(self,
-                             customized_data_list: List[TalentCustomizedDataChild]) -> "TalentCompetitionInfoBuilder":
+    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentCompetitionInfoBuilder":
         self._talent_competition_info.customized_data_list = customized_data_list
         return self
-
+    
     def build(self) -> "TalentCompetitionInfo":
         return self._talent_competition_info

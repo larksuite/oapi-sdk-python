@@ -24,16 +24,17 @@ class GetProcessRequestBuilder(object):
         get_process_request.uri = "/open-apis/corehr/v2/processes/:process_id"
         get_process_request.token_types = {AccessTokenType.TENANT}
         self._get_process_request: GetProcessRequest = get_process_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetProcessRequestBuilder":
         self._get_process_request.user_id_type = user_id_type
         self._get_process_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def process_id(self, process_id: str) -> "GetProcessRequestBuilder":
         self._get_process_request.process_id = process_id
         self._get_process_request.paths["process_id"] = str(process_id)
         return self
+    
 
     def build(self) -> GetProcessRequest:
         return self._get_process_request

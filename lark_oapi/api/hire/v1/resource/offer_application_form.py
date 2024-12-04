@@ -19,8 +19,7 @@ class OfferApplicationForm(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetOfferApplicationFormRequest,
-            option: Optional[RequestOption] = None) -> GetOfferApplicationFormResponse:
+    def get(self, request: GetOfferApplicationFormRequest, option: Optional[RequestOption] = None) -> GetOfferApplicationFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class OfferApplicationForm(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   GetOfferApplicationFormResponse)
+        response: GetOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferApplicationFormResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetOfferApplicationFormRequest,
-                   option: Optional[RequestOption] = None) -> GetOfferApplicationFormResponse:
+    async def aget(self, request: GetOfferApplicationFormRequest, option: Optional[RequestOption] = None) -> GetOfferApplicationFormResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   GetOfferApplicationFormResponse)
+        response: GetOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferApplicationFormResponse)
         response.raw = resp
 
         return response
-
-    def list(self, request: ListOfferApplicationFormRequest,
-             option: Optional[RequestOption] = None) -> ListOfferApplicationFormResponse:
+        
+    def list(self, request: ListOfferApplicationFormRequest, option: Optional[RequestOption] = None) -> ListOfferApplicationFormResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class OfferApplicationForm(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListOfferApplicationFormResponse)
+        response: ListOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8), ListOfferApplicationFormResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListOfferApplicationFormRequest,
-                    option: Optional[RequestOption] = None) -> ListOfferApplicationFormResponse:
+    async def alist(self, request: ListOfferApplicationFormRequest, option: Optional[RequestOption] = None) -> ListOfferApplicationFormResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListOfferApplicationFormResponse)
+        response: ListOfferApplicationFormResponse = JSON.unmarshal(str(resp.content, UTF_8), ListOfferApplicationFormResponse)
         response.raw = resp
 
         return response
+        
+    

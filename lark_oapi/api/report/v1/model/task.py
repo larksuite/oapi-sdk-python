@@ -42,50 +42,39 @@ class Task(object):
 class TaskBuilder(object):
     def __init__(self) -> None:
         self._task = Task()
-
     def task_id(self, task_id: int) -> "TaskBuilder":
         self._task.task_id = task_id
         return self
-
     def rule_name(self, rule_name: str) -> "TaskBuilder":
         self._task.rule_name = rule_name
         return self
-
     def from_user_id(self, from_user_id: int) -> "TaskBuilder":
         self._task.from_user_id = from_user_id
         return self
-
     def from_user_name(self, from_user_name: str) -> "TaskBuilder":
         self._task.from_user_name = from_user_name
         return self
-
     def department_name(self, department_name: str) -> "TaskBuilder":
         self._task.department_name = department_name
         return self
-
     def commit_time(self, commit_time: int) -> "TaskBuilder":
         self._task.commit_time = commit_time
         return self
-
     def form_contents(self, form_contents: List[FormContent]) -> "TaskBuilder":
         self._task.form_contents = form_contents
         return self
-
     def rule_id(self, rule_id: int) -> "TaskBuilder":
         self._task.rule_id = rule_id
         return self
-
     def department_ids(self, department_ids: List[int]) -> "TaskBuilder":
         self._task.department_ids = department_ids
         return self
-
     def to_user_ids(self, to_user_ids: List[int]) -> "TaskBuilder":
         self._task.to_user_ids = to_user_ids
         return self
-
     def to_user_names(self, to_user_names: List[str]) -> "TaskBuilder":
         self._task.to_user_names = to_user_names
         return self
-
+    
     def build(self) -> "Task":
         return self._task

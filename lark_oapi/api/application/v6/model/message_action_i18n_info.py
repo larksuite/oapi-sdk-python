@@ -23,14 +23,12 @@ class MessageActionI18nInfo(object):
 class MessageActionI18nInfoBuilder(object):
     def __init__(self) -> None:
         self._message_action_i18n_info = MessageActionI18nInfo()
-
     def i18n_key(self, i18n_key: str) -> "MessageActionI18nInfoBuilder":
         self._message_action_i18n_info.i18n_key = i18n_key
         return self
-
     def name(self, name: str) -> "MessageActionI18nInfoBuilder":
         self._message_action_i18n_info.name = name
         return self
-
+    
     def build(self) -> "MessageActionI18nInfo":
         return self._message_action_i18n_info

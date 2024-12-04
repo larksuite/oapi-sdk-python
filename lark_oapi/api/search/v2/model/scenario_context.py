@@ -34,30 +34,24 @@ class ScenarioContext(object):
 class ScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._scenario_context = ScenarioContext()
-
     def extra(self, extra: ScenarioContextExtra) -> "ScenarioContextBuilder":
         self._scenario_context.extra = extra
         return self
-
     def system_info(self, system_info: SystemInfo) -> "ScenarioContextBuilder":
         self._scenario_context.system_info = system_info
         return self
-
     def memory(self, memory: List[MemoryMessage]) -> "ScenarioContextBuilder":
         self._scenario_context.memory = memory
         return self
-
     def scenario(self, scenario: str) -> "ScenarioContextBuilder":
         self._scenario_context.scenario = scenario
         return self
-
     def work_mode(self, work_mode: int) -> "ScenarioContextBuilder":
         self._scenario_context.work_mode = work_mode
         return self
-
     def tool_raw_instruction(self, tool_raw_instruction: str) -> "ScenarioContextBuilder":
         self._scenario_context.tool_raw_instruction = tool_raw_instruction
         return self
-
+    
     def build(self) -> "ScenarioContext":
         return self._scenario_context

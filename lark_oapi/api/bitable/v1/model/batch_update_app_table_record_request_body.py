@@ -22,10 +22,9 @@ class BatchUpdateAppTableRecordRequestBody(object):
 class BatchUpdateAppTableRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_update_app_table_record_request_body = BatchUpdateAppTableRecordRequestBody()
-
     def records(self, records: List[AppTableRecord]) -> "BatchUpdateAppTableRecordRequestBodyBuilder":
         self._batch_update_app_table_record_request_body.records = records
         return self
-
+    
     def build(self) -> "BatchUpdateAppTableRecordRequestBody":
         return self._batch_update_app_table_record_request_body

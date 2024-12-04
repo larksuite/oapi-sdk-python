@@ -23,14 +23,12 @@ class Contact(object):
 class ContactBuilder(object):
     def __init__(self) -> None:
         self._contact = Contact()
-
     def contact_type(self, contact_type: int) -> "ContactBuilder":
         self._contact.contact_type = contact_type
         return self
-
     def contact_name(self, contact_name: str) -> "ContactBuilder":
         self._contact.contact_name = contact_name
         return self
-
+    
     def build(self) -> "Contact":
         return self._contact

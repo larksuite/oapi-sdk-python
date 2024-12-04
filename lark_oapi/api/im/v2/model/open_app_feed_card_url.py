@@ -27,22 +27,18 @@ class OpenAppFeedCardUrl(object):
 class OpenAppFeedCardUrlBuilder(object):
     def __init__(self) -> None:
         self._open_app_feed_card_url = OpenAppFeedCardUrl()
-
     def url(self, url: str) -> "OpenAppFeedCardUrlBuilder":
         self._open_app_feed_card_url.url = url
         return self
-
     def android_url(self, android_url: str) -> "OpenAppFeedCardUrlBuilder":
         self._open_app_feed_card_url.android_url = android_url
         return self
-
     def ios_url(self, ios_url: str) -> "OpenAppFeedCardUrlBuilder":
         self._open_app_feed_card_url.ios_url = ios_url
         return self
-
     def pc_url(self, pc_url: str) -> "OpenAppFeedCardUrlBuilder":
         self._open_app_feed_card_url.pc_url = pc_url
         return self
-
+    
     def build(self) -> "OpenAppFeedCardUrl":
         return self._open_app_feed_card_url

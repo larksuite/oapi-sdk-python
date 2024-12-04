@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class SearchGroupRequestBody(object):
     _types = {
         "group_name": str,
+        "exactly_matched": bool,
     }
 
     def __init__(self, d=None):
         self.group_name: Optional[str] = None
+        self.exactly_matched: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -21,10 +23,12 @@ class SearchGroupRequestBody(object):
 class SearchGroupRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_group_request_body = SearchGroupRequestBody()
-
     def group_name(self, group_name: str) -> "SearchGroupRequestBodyBuilder":
         self._search_group_request_body.group_name = group_name
         return self
-
+    def exactly_matched(self, exactly_matched: bool) -> "SearchGroupRequestBodyBuilder":
+        self._search_group_request_body.exactly_matched = exactly_matched
+        return self
+    
     def build(self) -> "SearchGroupRequestBody":
         return self._search_group_request_body

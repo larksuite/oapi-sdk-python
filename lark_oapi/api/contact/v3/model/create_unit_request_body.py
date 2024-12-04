@@ -25,18 +25,15 @@ class CreateUnitRequestBody(object):
 class CreateUnitRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_unit_request_body = CreateUnitRequestBody()
-
     def unit_id(self, unit_id: str) -> "CreateUnitRequestBodyBuilder":
         self._create_unit_request_body.unit_id = unit_id
         return self
-
     def name(self, name: str) -> "CreateUnitRequestBodyBuilder":
         self._create_unit_request_body.name = name
         return self
-
     def unit_type(self, unit_type: str) -> "CreateUnitRequestBodyBuilder":
         self._create_unit_request_body.unit_type = unit_type
         return self
-
+    
     def build(self) -> "CreateUnitRequestBody":
         return self._create_unit_request_body

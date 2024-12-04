@@ -21,6 +21,7 @@ def main():
                       .stage_name("阶段报告")
                       .stage_time("1660123456789")
                       .result("通过")
+                      .operator_role(1)
                       .report_file_list([])
                       .build()) \
         .build()
@@ -56,6 +57,7 @@ async def amain():
                       .stage_name("阶段报告")
                       .stage_time("1660123456789")
                       .result("通过")
+                      .operator_role(1)
                       .report_file_list([])
                       .build()) \
         .build()

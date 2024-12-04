@@ -25,18 +25,15 @@ class SystemStatusSyncI18nExplain(object):
 class SystemStatusSyncI18nExplainBuilder(object):
     def __init__(self) -> None:
         self._system_status_sync_i18n_explain = SystemStatusSyncI18nExplain()
-
     def zh_cn(self, zh_cn: str) -> "SystemStatusSyncI18nExplainBuilder":
         self._system_status_sync_i18n_explain.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "SystemStatusSyncI18nExplainBuilder":
         self._system_status_sync_i18n_explain.en_us = en_us
         return self
-
     def ja_jp(self, ja_jp: str) -> "SystemStatusSyncI18nExplainBuilder":
         self._system_status_sync_i18n_explain.ja_jp = ja_jp
         return self
-
+    
     def build(self) -> "SystemStatusSyncI18nExplain":
         return self._system_status_sync_i18n_explain

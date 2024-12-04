@@ -22,10 +22,9 @@ class CreateShortcutFileResponseBody(object):
 class CreateShortcutFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_shortcut_file_response_body = CreateShortcutFileResponseBody()
-
     def succ_shortcut_node(self, succ_shortcut_node: File) -> "CreateShortcutFileResponseBodyBuilder":
         self._create_shortcut_file_response_body.succ_shortcut_node = succ_shortcut_node
         return self
-
+    
     def build(self) -> "CreateShortcutFileResponseBody":
         return self._create_shortcut_file_response_body

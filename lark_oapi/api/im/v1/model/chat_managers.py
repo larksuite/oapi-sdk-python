@@ -21,10 +21,9 @@ class ChatManagers(object):
 class ChatManagersBuilder(object):
     def __init__(self) -> None:
         self._chat_managers = ChatManagers()
-
     def manager_id(self, manager_id: int) -> "ChatManagersBuilder":
         self._chat_managers.manager_id = manager_id
         return self
-
+    
     def build(self) -> "ChatManagers":
         return self._chat_managers

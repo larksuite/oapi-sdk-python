@@ -25,12 +25,12 @@ class UpdateTripartiteAgreementRequestBuilder(object):
         update_tripartite_agreement_request.uri = "/open-apis/hire/v1/tripartite_agreements/:tripartite_agreement_id"
         update_tripartite_agreement_request.token_types = {AccessTokenType.TENANT}
         self._update_tripartite_agreement_request: UpdateTripartiteAgreementRequest = update_tripartite_agreement_request
-
+    
     def tripartite_agreement_id(self, tripartite_agreement_id: str) -> "UpdateTripartiteAgreementRequestBuilder":
         self._update_tripartite_agreement_request.tripartite_agreement_id = tripartite_agreement_id
         self._update_tripartite_agreement_request.paths["tripartite_agreement_id"] = str(tripartite_agreement_id)
         return self
-
+    
     def request_body(self, request_body: TripartiteAgreementInfo) -> "UpdateTripartiteAgreementRequestBuilder":
         self._update_tripartite_agreement_request.request_body = request_body
         self._update_tripartite_agreement_request.body = request_body

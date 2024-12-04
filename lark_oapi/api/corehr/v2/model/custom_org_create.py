@@ -44,46 +44,36 @@ class CustomOrgCreate(object):
 class CustomOrgCreateBuilder(object):
     def __init__(self) -> None:
         self._custom_org_create = CustomOrgCreate()
-
     def object_api_name(self, object_api_name: str) -> "CustomOrgCreateBuilder":
         self._custom_org_create.object_api_name = object_api_name
         return self
-
     def names(self, names: List[I18n]) -> "CustomOrgCreateBuilder":
         self._custom_org_create.names = names
         return self
-
     def code(self, code: str) -> "CustomOrgCreateBuilder":
         self._custom_org_create.code = code
         return self
-
     def parent_id(self, parent_id: str) -> "CustomOrgCreateBuilder":
         self._custom_org_create.parent_id = parent_id
         return self
-
     def manager_ids(self, manager_ids: List[str]) -> "CustomOrgCreateBuilder":
         self._custom_org_create.manager_ids = manager_ids
         return self
-
     def description(self, description: List[I18n]) -> "CustomOrgCreateBuilder":
         self._custom_org_create.description = description
         return self
-
     def effective_time(self, effective_time: str) -> "CustomOrgCreateBuilder":
         self._custom_org_create.effective_time = effective_time
         return self
-
     def org_roles(self, org_roles: List[OrgRoleUpdate]) -> "CustomOrgCreateBuilder":
         self._custom_org_create.org_roles = org_roles
         return self
-
     def match_rule_groups(self, match_rule_groups: List[MatchRules]) -> "CustomOrgCreateBuilder":
         self._custom_org_create.match_rule_groups = match_rule_groups
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgCreateBuilder":
         self._custom_org_create.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "CustomOrgCreate":
         return self._custom_org_create

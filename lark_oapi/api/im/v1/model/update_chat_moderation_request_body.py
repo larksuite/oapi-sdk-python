@@ -25,18 +25,15 @@ class UpdateChatModerationRequestBody(object):
 class UpdateChatModerationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_chat_moderation_request_body = UpdateChatModerationRequestBody()
-
     def moderation_setting(self, moderation_setting: str) -> "UpdateChatModerationRequestBodyBuilder":
         self._update_chat_moderation_request_body.moderation_setting = moderation_setting
         return self
-
     def moderator_added_list(self, moderator_added_list: List[str]) -> "UpdateChatModerationRequestBodyBuilder":
         self._update_chat_moderation_request_body.moderator_added_list = moderator_added_list
         return self
-
     def moderator_removed_list(self, moderator_removed_list: List[str]) -> "UpdateChatModerationRequestBodyBuilder":
         self._update_chat_moderation_request_body.moderator_removed_list = moderator_removed_list
         return self
-
+    
     def build(self) -> "UpdateChatModerationRequestBody":
         return self._update_chat_moderation_request_body

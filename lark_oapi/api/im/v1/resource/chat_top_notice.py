@@ -19,8 +19,7 @@ class ChatTopNotice(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest,
-                          option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:
+    def delete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest, option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class ChatTopNotice(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteTopNoticeChatTopNoticeResponse)
+        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTopNoticeChatTopNoticeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest,
-                                 option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:
+    async def adelete_top_notice(self, request: DeleteTopNoticeChatTopNoticeRequest, option: Optional[RequestOption] = None) -> DeleteTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteTopNoticeChatTopNoticeResponse)
+        response: DeleteTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTopNoticeChatTopNoticeResponse)
         response.raw = resp
 
         return response
-
-    def put_top_notice(self, request: PutTopNoticeChatTopNoticeRequest,
-                       option: Optional[RequestOption] = None) -> PutTopNoticeChatTopNoticeResponse:
+        
+    def put_top_notice(self, request: PutTopNoticeChatTopNoticeRequest, option: Optional[RequestOption] = None) -> PutTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class ChatTopNotice(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     PutTopNoticeChatTopNoticeResponse)
+        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8), PutTopNoticeChatTopNoticeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aput_top_notice(self, request: PutTopNoticeChatTopNoticeRequest,
-                              option: Optional[RequestOption] = None) -> PutTopNoticeChatTopNoticeResponse:
+    async def aput_top_notice(self, request: PutTopNoticeChatTopNoticeRequest, option: Optional[RequestOption] = None) -> PutTopNoticeChatTopNoticeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     PutTopNoticeChatTopNoticeResponse)
+        response: PutTopNoticeChatTopNoticeResponse = JSON.unmarshal(str(resp.content, UTF_8), PutTopNoticeChatTopNoticeResponse)
         response.raw = resp
 
         return response
+        
+    

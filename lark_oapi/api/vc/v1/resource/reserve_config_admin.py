@@ -19,8 +19,7 @@ class ReserveConfigAdmin(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetReserveConfigAdminRequest,
-            option: Optional[RequestOption] = None) -> GetReserveConfigAdminResponse:
+    def get(self, request: GetReserveConfigAdminRequest, option: Optional[RequestOption] = None) -> GetReserveConfigAdminResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class ReserveConfigAdmin(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetReserveConfigAdminResponse)
+        response: GetReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveConfigAdminResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetReserveConfigAdminRequest,
-                   option: Optional[RequestOption] = None) -> GetReserveConfigAdminResponse:
+    async def aget(self, request: GetReserveConfigAdminRequest, option: Optional[RequestOption] = None) -> GetReserveConfigAdminResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetReserveConfigAdminResponse)
+        response: GetReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8), GetReserveConfigAdminResponse)
         response.raw = resp
 
         return response
-
-    def patch(self, request: PatchReserveConfigAdminRequest,
-              option: Optional[RequestOption] = None) -> PatchReserveConfigAdminResponse:
+        
+    def patch(self, request: PatchReserveConfigAdminRequest, option: Optional[RequestOption] = None) -> PatchReserveConfigAdminResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class ReserveConfigAdmin(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   PatchReserveConfigAdminResponse)
+        response: PatchReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchReserveConfigAdminResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchReserveConfigAdminRequest,
-                     option: Optional[RequestOption] = None) -> PatchReserveConfigAdminResponse:
+    async def apatch(self, request: PatchReserveConfigAdminRequest, option: Optional[RequestOption] = None) -> PatchReserveConfigAdminResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   PatchReserveConfigAdminResponse)
+        response: PatchReserveConfigAdminResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchReserveConfigAdminResponse)
         response.raw = resp
 
         return response
+        
+    

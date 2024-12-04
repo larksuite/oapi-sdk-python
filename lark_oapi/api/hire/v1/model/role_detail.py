@@ -43,46 +43,36 @@ class RoleDetail(object):
 class RoleDetailBuilder(object):
     def __init__(self) -> None:
         self._role_detail = RoleDetail()
-
     def id(self, id: str) -> "RoleDetailBuilder":
         self._role_detail.id = id
         return self
-
     def name(self, name: I18n) -> "RoleDetailBuilder":
         self._role_detail.name = name
         return self
-
     def description(self, description: I18n) -> "RoleDetailBuilder":
         self._role_detail.description = description
         return self
-
     def modify_time(self, modify_time: str) -> "RoleDetailBuilder":
         self._role_detail.modify_time = modify_time
         return self
-
     def role_status(self, role_status: int) -> "RoleDetailBuilder":
         self._role_detail.role_status = role_status
         return self
-
     def role_type(self, role_type: int) -> "RoleDetailBuilder":
         self._role_detail.role_type = role_type
         return self
-
     def scope_of_application(self, scope_of_application: int) -> "RoleDetailBuilder":
         self._role_detail.scope_of_application = scope_of_application
         return self
-
     def has_business_management_scope(self, has_business_management_scope: bool) -> "RoleDetailBuilder":
         self._role_detail.has_business_management_scope = has_business_management_scope
         return self
-
     def socail_permission_collection(self, socail_permission_collection: PermissionCollection) -> "RoleDetailBuilder":
         self._role_detail.socail_permission_collection = socail_permission_collection
         return self
-
     def campus_permission_collection(self, campus_permission_collection: PermissionCollection) -> "RoleDetailBuilder":
         self._role_detail.campus_permission_collection = campus_permission_collection
         return self
-
+    
     def build(self) -> "RoleDetail":
         return self._role_detail

@@ -30,28 +30,21 @@ class BatchDeleteCalendarEventAttendeeRequestBody(object):
 class BatchDeleteCalendarEventAttendeeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_calendar_event_attendee_request_body = BatchDeleteCalendarEventAttendeeRequestBody()
-
     def attendee_ids(self, attendee_ids: List[str]) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
         self._batch_delete_calendar_event_attendee_request_body.attendee_ids = attendee_ids
         return self
-
-    def delete_ids(self,
-                   delete_ids: List[CalendarEventAttendeeId]) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
+    def delete_ids(self, delete_ids: List[CalendarEventAttendeeId]) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
         self._batch_delete_calendar_event_attendee_request_body.delete_ids = delete_ids
         return self
-
     def need_notification(self, need_notification: bool) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
         self._batch_delete_calendar_event_attendee_request_body.need_notification = need_notification
         return self
-
-    def instance_start_time_admin(self,
-                                  instance_start_time_admin: str) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
+    def instance_start_time_admin(self, instance_start_time_admin: str) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
         self._batch_delete_calendar_event_attendee_request_body.instance_start_time_admin = instance_start_time_admin
         return self
-
     def is_enable_admin(self, is_enable_admin: bool) -> "BatchDeleteCalendarEventAttendeeRequestBodyBuilder":
         self._batch_delete_calendar_event_attendee_request_body.is_enable_admin = is_enable_admin
         return self
-
+    
     def build(self) -> "BatchDeleteCalendarEventAttendeeRequestBody":
         return self._batch_delete_calendar_event_attendee_request_body

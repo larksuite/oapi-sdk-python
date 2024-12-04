@@ -26,18 +26,15 @@ class JobDetailTag(object):
 class JobDetailTagBuilder(object):
     def __init__(self) -> None:
         self._job_detail_tag = JobDetailTag()
-
     def id(self, id: str) -> "JobDetailTagBuilder":
         self._job_detail_tag.id = id
         return self
-
     def name(self, name: I18n) -> "JobDetailTagBuilder":
         self._job_detail_tag.name = name
         return self
-
     def order(self, order: int) -> "JobDetailTagBuilder":
         self._job_detail_tag.order = order
         return self
-
+    
     def build(self) -> "JobDetailTag":
         return self._job_detail_tag

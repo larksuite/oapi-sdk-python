@@ -38,34 +38,27 @@ class WorkExperienceInfo(object):
 class WorkExperienceInfoBuilder(object):
     def __init__(self) -> None:
         self._work_experience_info = WorkExperienceInfo()
-
     def company_organization(self, company_organization: List[I18n]) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.company_organization = company_organization
         return self
-
     def department(self, department: List[I18n]) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.department = department
         return self
-
     def job(self, job: List[I18n]) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.job = job
         return self
-
     def description(self, description: List[I18n]) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.description = description
         return self
-
     def start_date(self, start_date: str) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.start_date = start_date
         return self
-
     def end_date(self, end_date: str) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.end_date = end_date
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "WorkExperienceInfoBuilder":
         self._work_experience_info.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "WorkExperienceInfo":
         return self._work_experience_info

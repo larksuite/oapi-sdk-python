@@ -11,6 +11,7 @@ from .background_check_target import *
 from .bank_account import *
 from .bp_role_organization import *
 from .bpm_dataengine_i18n import *
+from .calculated_field_setting import *
 from .calendar_date_by_date_filter import *
 from .common_schema_config import *
 from .common_schema_option import *

@@ -44,47 +44,36 @@ class ApplicationOffer(object):
 class ApplicationOfferBuilder(object):
     def __init__(self) -> None:
         self._application_offer = ApplicationOffer()
-
     def id(self, id: str) -> "ApplicationOfferBuilder":
         self._application_offer.id = id
         return self
-
     def application_id(self, application_id: str) -> "ApplicationOfferBuilder":
         self._application_offer.application_id = application_id
         return self
-
     def basic_info(self, basic_info: ApplicationOfferBasicInfo) -> "ApplicationOfferBuilder":
         self._application_offer.basic_info = basic_info
         return self
-
     def salary_plan(self, salary_plan: ApplicationOfferSalaryPlan) -> "ApplicationOfferBuilder":
         self._application_offer.salary_plan = salary_plan
         return self
-
     def schema_id(self, schema_id: str) -> "ApplicationOfferBuilder":
         self._application_offer.schema_id = schema_id
         return self
-
     def offer_status(self, offer_status: int) -> "ApplicationOfferBuilder":
         self._application_offer.offer_status = offer_status
         return self
-
     def job_info(self, job_info: OfferJobInfo) -> "ApplicationOfferBuilder":
         self._application_offer.job_info = job_info
         return self
-
-    def customized_module_list(self,
-                               customized_module_list: List[ApplicationOfferCustomModule]) -> "ApplicationOfferBuilder":
+    def customized_module_list(self, customized_module_list: List[ApplicationOfferCustomModule]) -> "ApplicationOfferBuilder":
         self._application_offer.customized_module_list = customized_module_list
         return self
-
     def job_requirement_id(self, job_requirement_id: str) -> "ApplicationOfferBuilder":
         self._application_offer.job_requirement_id = job_requirement_id
         return self
-
     def offer_send_record_list(self, offer_send_record_list: List[OfferSendRecord]) -> "ApplicationOfferBuilder":
         self._application_offer.offer_send_record_list = offer_send_record_list
         return self
-
+    
     def build(self) -> "ApplicationOffer":
         return self._application_offer

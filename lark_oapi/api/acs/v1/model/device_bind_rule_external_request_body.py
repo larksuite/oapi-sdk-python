@@ -23,14 +23,12 @@ class DeviceBindRuleExternalRequestBody(object):
 class DeviceBindRuleExternalRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._device_bind_rule_external_request_body = DeviceBindRuleExternalRequestBody()
-
     def device_id(self, device_id: int) -> "DeviceBindRuleExternalRequestBodyBuilder":
         self._device_bind_rule_external_request_body.device_id = device_id
         return self
-
     def rule_ids(self, rule_ids: List[str]) -> "DeviceBindRuleExternalRequestBodyBuilder":
         self._device_bind_rule_external_request_body.rule_ids = rule_ids
         return self
-
+    
     def build(self) -> "DeviceBindRuleExternalRequestBody":
         return self._device_bind_rule_external_request_body

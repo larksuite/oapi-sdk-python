@@ -23,14 +23,12 @@ class SnsInfo(object):
 class SnsInfoBuilder(object):
     def __init__(self) -> None:
         self._sns_info = SnsInfo()
-
     def link(self, link: str) -> "SnsInfoBuilder":
         self._sns_info.link = link
         return self
-
     def sns_type(self, sns_type: int) -> "SnsInfoBuilder":
         self._sns_info.sns_type = sns_type
         return self
-
+    
     def build(self) -> "SnsInfo":
         return self._sns_info

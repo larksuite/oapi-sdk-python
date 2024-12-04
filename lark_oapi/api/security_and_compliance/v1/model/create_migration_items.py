@@ -26,18 +26,15 @@ class CreateMigrationItems(object):
 class CreateMigrationItemsBuilder(object):
     def __init__(self) -> None:
         self._create_migration_items = CreateMigrationItems()
-
     def task_id(self, task_id: str) -> "CreateMigrationItemsBuilder":
         self._create_migration_items.task_id = task_id
         return self
-
     def task_status(self, task_status: str) -> "CreateMigrationItemsBuilder":
         self._create_migration_items.task_status = task_status
         return self
-
     def entity(self, entity: CreateMigrationEntity) -> "CreateMigrationItemsBuilder":
         self._create_migration_items.entity = entity
         return self
-
+    
     def build(self) -> "CreateMigrationItems":
         return self._create_migration_items

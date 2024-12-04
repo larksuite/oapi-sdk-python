@@ -27,22 +27,18 @@ class FileUploadInfo(object):
 class FileUploadInfoBuilder(object):
     def __init__(self) -> None:
         self._file_upload_info = FileUploadInfo()
-
     def file_name(self, file_name: str) -> "FileUploadInfoBuilder":
         self._file_upload_info.file_name = file_name
         return self
-
     def parent_type(self, parent_type: str) -> "FileUploadInfoBuilder":
         self._file_upload_info.parent_type = parent_type
         return self
-
     def parent_node(self, parent_node: str) -> "FileUploadInfoBuilder":
         self._file_upload_info.parent_node = parent_node
         return self
-
     def size(self, size: int) -> "FileUploadInfoBuilder":
         self._file_upload_info.size = size
         return self
-
+    
     def build(self) -> "FileUploadInfo":
         return self._file_upload_info

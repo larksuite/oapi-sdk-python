@@ -23,14 +23,12 @@ class BottomBorderStyle(object):
 class BottomBorderStyleBuilder(object):
     def __init__(self) -> None:
         self._bottom_border_style = BottomBorderStyle()
-
     def style(self, style: str) -> "BottomBorderStyleBuilder":
         self._bottom_border_style.style = style
         return self
-
     def color(self, color: str) -> "BottomBorderStyleBuilder":
         self._bottom_border_style.color = color
         return self
-
+    
     def build(self) -> "BottomBorderStyle":
         return self._bottom_border_style

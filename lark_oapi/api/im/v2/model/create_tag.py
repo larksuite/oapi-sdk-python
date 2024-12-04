@@ -26,18 +26,15 @@ class CreateTag(object):
 class CreateTagBuilder(object):
     def __init__(self) -> None:
         self._create_tag = CreateTag()
-
     def tag_type(self, tag_type: str) -> "CreateTagBuilder":
         self._create_tag.tag_type = tag_type
         return self
-
     def name(self, name: str) -> "CreateTagBuilder":
         self._create_tag.name = name
         return self
-
     def i18n_names(self, i18n_names: List[TagI18nName]) -> "CreateTagBuilder":
         self._create_tag.i18n_names = i18n_names
         return self
-
+    
     def build(self) -> "CreateTag":
         return self._create_tag

@@ -23,14 +23,12 @@ class FilterItem(object):
 class FilterItemBuilder(object):
     def __init__(self) -> None:
         self._filter_item = FilterItem()
-
     def filter_type(self, filter_type: str) -> "FilterItemBuilder":
         self._filter_item.filter_type = filter_type
         return self
-
     def filter_ids(self, filter_ids: List[str]) -> "FilterItemBuilder":
         self._filter_item.filter_ids = filter_ids
         return self
-
+    
     def build(self) -> "FilterItem":
         return self._filter_item

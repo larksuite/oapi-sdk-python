@@ -36,34 +36,27 @@ class SignatureTemplateCustomField(object):
 class SignatureTemplateCustomFieldBuilder(object):
     def __init__(self) -> None:
         self._signature_template_custom_field = SignatureTemplateCustomField()
-
     def label(self, label: List[I18n]) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.label = label
         return self
-
     def apiname(self, apiname: str) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.apiname = apiname
         return self
-
     def custom_field_type(self, custom_field_type: Enum) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.custom_field_type = custom_field_type
         return self
-
     def used(self, used: bool) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.used = used
         return self
-
     def is_required(self, is_required: bool) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.is_required = is_required
         return self
-
     def custom_desc(self, custom_desc: str) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.custom_desc = custom_desc
         return self
-
     def common_info(self, common_info: SignatureTemplateCommonFieldInfo) -> "SignatureTemplateCustomFieldBuilder":
         self._signature_template_custom_field.common_info = common_info
         return self
-
+    
     def build(self) -> "SignatureTemplateCustomField":
         return self._signature_template_custom_field

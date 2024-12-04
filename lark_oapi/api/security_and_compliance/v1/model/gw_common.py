@@ -36,38 +36,30 @@ class GwCommon(object):
 class GwCommonBuilder(object):
     def __init__(self) -> None:
         self._gw_common = GwCommon()
-
     def locale(self, locale: str) -> "GwCommonBuilder":
         self._gw_common.locale = locale
         return self
-
     def report_time(self, report_time: int) -> "GwCommonBuilder":
         self._gw_common.report_time = report_time
         return self
-
     def session_uuid(self, session_uuid: str) -> "GwCommonBuilder":
         self._gw_common.session_uuid = session_uuid
         return self
-
     def terminal_type(self, terminal_type: int) -> "GwCommonBuilder":
         self._gw_common.terminal_type = terminal_type
         return self
-
     def user_id(self, user_id: UserId) -> "GwCommonBuilder":
         self._gw_common.user_id = user_id
         return self
-
     def openplatform_app_id(self, openplatform_app_id: int) -> "GwCommonBuilder":
         self._gw_common.openplatform_app_id = openplatform_app_id
         return self
-
     def request_id(self, request_id: str) -> "GwCommonBuilder":
         self._gw_common.request_id = request_id
         return self
-
     def log_id(self, log_id: str) -> "GwCommonBuilder":
         self._gw_common.log_id = log_id
         return self
-
+    
     def build(self) -> "GwCommon":
         return self._gw_common

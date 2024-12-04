@@ -29,26 +29,21 @@ class AilyMention(object):
 class AilyMentionBuilder(object):
     def __init__(self) -> None:
         self._aily_mention = AilyMention()
-
     def entity_id(self, entity_id: str) -> "AilyMentionBuilder":
         self._aily_mention.entity_id = entity_id
         return self
-
     def identity_provider(self, identity_provider: str) -> "AilyMentionBuilder":
         self._aily_mention.identity_provider = identity_provider
         return self
-
     def key(self, key: str) -> "AilyMentionBuilder":
         self._aily_mention.key = key
         return self
-
     def name(self, name: str) -> "AilyMentionBuilder":
         self._aily_mention.name = name
         return self
-
     def aily_id(self, aily_id: str) -> "AilyMentionBuilder":
         self._aily_mention.aily_id = aily_id
         return self
-
+    
     def build(self) -> "AilyMention":
         return self._aily_mention

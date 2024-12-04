@@ -23,14 +23,12 @@ class DataValidationValue(object):
 class DataValidationValueBuilder(object):
     def __init__(self) -> None:
         self._data_validation_value = DataValidationValue()
-
     def option_value(self, option_value: str) -> "DataValidationValueBuilder":
         self._data_validation_value.option_value = option_value
         return self
-
     def option_color(self, option_color: str) -> "DataValidationValueBuilder":
         self._data_validation_value.option_color = option_color
         return self
-
+    
     def build(self) -> "DataValidationValue":
         return self._data_validation_value

@@ -23,11 +23,12 @@ class GetFileRequestBuilder(object):
         get_file_request.uri = "/open-apis/corehr/v1/files/:id"
         get_file_request.token_types = {AccessTokenType.TENANT}
         self._get_file_request: GetFileRequest = get_file_request
-
+    
     def id(self, id: str) -> "GetFileRequestBuilder":
         self._get_file_request.id = id
         self._get_file_request.paths["id"] = str(id)
         return self
+    
 
     def build(self) -> GetFileRequest:
         return self._get_file_request

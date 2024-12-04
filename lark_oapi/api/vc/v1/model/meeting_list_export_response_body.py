@@ -21,10 +21,9 @@ class MeetingListExportResponseBody(object):
 class MeetingListExportResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._meeting_list_export_response_body = MeetingListExportResponseBody()
-
     def task_id(self, task_id: str) -> "MeetingListExportResponseBodyBuilder":
         self._meeting_list_export_response_body.task_id = task_id
         return self
-
+    
     def build(self) -> "MeetingListExportResponseBody":
         return self._meeting_list_export_response_body

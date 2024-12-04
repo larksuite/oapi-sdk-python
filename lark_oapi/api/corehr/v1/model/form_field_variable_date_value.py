@@ -21,10 +21,9 @@ class FormFieldVariableDateValue(object):
 class FormFieldVariableDateValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_date_value = FormFieldVariableDateValue()
-
     def value(self, value: int) -> "FormFieldVariableDateValueBuilder":
         self._form_field_variable_date_value.value = value
         return self
-
+    
     def build(self) -> "FormFieldVariableDateValue":
         return self._form_field_variable_date_value

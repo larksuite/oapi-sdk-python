@@ -23,14 +23,12 @@ class TableMergeInfo(object):
 class TableMergeInfoBuilder(object):
     def __init__(self) -> None:
         self._table_merge_info = TableMergeInfo()
-
     def row_span(self, row_span: int) -> "TableMergeInfoBuilder":
         self._table_merge_info.row_span = row_span
         return self
-
     def col_span(self, col_span: int) -> "TableMergeInfoBuilder":
         self._table_merge_info.col_span = col_span
         return self
-
+    
     def build(self) -> "TableMergeInfo":
         return self._table_merge_info

@@ -29,26 +29,21 @@ class ExchangeBinding(object):
 class ExchangeBindingBuilder(object):
     def __init__(self) -> None:
         self._exchange_binding = ExchangeBinding()
-
     def admin_account(self, admin_account: str) -> "ExchangeBindingBuilder":
         self._exchange_binding.admin_account = admin_account
         return self
-
     def exchange_account(self, exchange_account: str) -> "ExchangeBindingBuilder":
         self._exchange_binding.exchange_account = exchange_account
         return self
-
     def user_id(self, user_id: str) -> "ExchangeBindingBuilder":
         self._exchange_binding.user_id = user_id
         return self
-
     def status(self, status: str) -> "ExchangeBindingBuilder":
         self._exchange_binding.status = status
         return self
-
     def exchange_binding_id(self, exchange_binding_id: str) -> "ExchangeBindingBuilder":
         self._exchange_binding.exchange_binding_id = exchange_binding_id
         return self
-
+    
     def build(self) -> "ExchangeBinding":
         return self._exchange_binding

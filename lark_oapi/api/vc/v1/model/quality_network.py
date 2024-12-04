@@ -35,38 +35,30 @@ class QualityNetwork(object):
 class QualityNetworkBuilder(object):
     def __init__(self) -> None:
         self._quality_network = QualityNetwork()
-
     def time(self, time: str) -> "QualityNetworkBuilder":
         self._quality_network.time = time
         return self
-
     def network_delay(self, network_delay: str) -> "QualityNetworkBuilder":
         self._quality_network.network_delay = network_delay
         return self
-
     def bitrate_received(self, bitrate_received: str) -> "QualityNetworkBuilder":
         self._quality_network.bitrate_received = bitrate_received
         return self
-
     def packet_loss_avg_received(self, packet_loss_avg_received: str) -> "QualityNetworkBuilder":
         self._quality_network.packet_loss_avg_received = packet_loss_avg_received
         return self
-
     def packet_loss_max_received(self, packet_loss_max_received: str) -> "QualityNetworkBuilder":
         self._quality_network.packet_loss_max_received = packet_loss_max_received
         return self
-
     def bitrate_sent(self, bitrate_sent: str) -> "QualityNetworkBuilder":
         self._quality_network.bitrate_sent = bitrate_sent
         return self
-
     def packet_loss_avg_sent(self, packet_loss_avg_sent: str) -> "QualityNetworkBuilder":
         self._quality_network.packet_loss_avg_sent = packet_loss_avg_sent
         return self
-
     def packet_loss_max_sent(self, packet_loss_max_sent: str) -> "QualityNetworkBuilder":
         self._quality_network.packet_loss_max_sent = packet_loss_max_sent
         return self
-
+    
     def build(self) -> "QualityNetwork":
         return self._quality_network

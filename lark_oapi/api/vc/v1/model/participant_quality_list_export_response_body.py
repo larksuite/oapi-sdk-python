@@ -21,10 +21,9 @@ class ParticipantQualityListExportResponseBody(object):
 class ParticipantQualityListExportResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._participant_quality_list_export_response_body = ParticipantQualityListExportResponseBody()
-
     def task_id(self, task_id: str) -> "ParticipantQualityListExportResponseBodyBuilder":
         self._participant_quality_list_export_response_body.task_id = task_id
         return self
-
+    
     def build(self) -> "ParticipantQualityListExportResponseBody":
         return self._participant_quality_list_export_response_body

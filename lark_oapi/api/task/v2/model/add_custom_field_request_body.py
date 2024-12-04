@@ -23,14 +23,12 @@ class AddCustomFieldRequestBody(object):
 class AddCustomFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_custom_field_request_body = AddCustomFieldRequestBody()
-
     def resource_type(self, resource_type: str) -> "AddCustomFieldRequestBodyBuilder":
         self._add_custom_field_request_body.resource_type = resource_type
         return self
-
     def resource_id(self, resource_id: str) -> "AddCustomFieldRequestBodyBuilder":
         self._add_custom_field_request_body.resource_id = resource_id
         return self
-
+    
     def build(self) -> "AddCustomFieldRequestBody":
         return self._add_custom_field_request_body

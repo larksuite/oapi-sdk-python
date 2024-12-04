@@ -22,6 +22,7 @@ class ListScopeRequestBuilder(object):
         list_scope_request.uri = "/open-apis/application/v6/scopes"
         list_scope_request.token_types = {AccessTokenType.TENANT}
         self._list_scope_request: ListScopeRequest = list_scope_request
+    
 
     def build(self) -> ListScopeRequest:
         return self._list_scope_request

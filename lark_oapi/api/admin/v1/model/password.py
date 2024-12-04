@@ -21,10 +21,9 @@ class Password(object):
 class PasswordBuilder(object):
     def __init__(self) -> None:
         self._password = Password()
-
     def ent_email_password(self, ent_email_password: str) -> "PasswordBuilder":
         self._password.ent_email_password = ent_email_password
         return self
-
+    
     def build(self) -> "Password":
         return self._password

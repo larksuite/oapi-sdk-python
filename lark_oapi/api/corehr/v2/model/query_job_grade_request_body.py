@@ -25,18 +25,15 @@ class QueryJobGradeRequestBody(object):
 class QueryJobGradeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_job_grade_request_body = QueryJobGradeRequestBody()
-
     def ids(self, ids: List[str]) -> "QueryJobGradeRequestBodyBuilder":
         self._query_job_grade_request_body.ids = ids
         return self
-
     def codes(self, codes: List[str]) -> "QueryJobGradeRequestBodyBuilder":
         self._query_job_grade_request_body.codes = codes
         return self
-
     def active(self, active: bool) -> "QueryJobGradeRequestBodyBuilder":
         self._query_job_grade_request_body.active = active
         return self
-
+    
     def build(self) -> "QueryJobGradeRequestBody":
         return self._query_job_grade_request_body

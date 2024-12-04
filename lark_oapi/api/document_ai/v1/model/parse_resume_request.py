@@ -24,7 +24,7 @@ class ParseResumeRequestBuilder(object):
         parse_resume_request.uri = "/open-apis/document_ai/v1/resume/parse"
         parse_resume_request.token_types = {AccessTokenType.TENANT}
         self._parse_resume_request: ParseResumeRequest = parse_resume_request
-
+    
     def request_body(self, request_body: ParseResumeRequestBody) -> "ParseResumeRequestBuilder":
         self._parse_resume_request.request_body = request_body
         self._parse_resume_request.body = request_body

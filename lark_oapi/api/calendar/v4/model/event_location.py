@@ -27,22 +27,18 @@ class EventLocation(object):
 class EventLocationBuilder(object):
     def __init__(self) -> None:
         self._event_location = EventLocation()
-
     def name(self, name: str) -> "EventLocationBuilder":
         self._event_location.name = name
         return self
-
     def address(self, address: str) -> "EventLocationBuilder":
         self._event_location.address = address
         return self
-
     def latitude(self, latitude: float) -> "EventLocationBuilder":
         self._event_location.latitude = latitude
         return self
-
     def longitude(self, longitude: float) -> "EventLocationBuilder":
         self._event_location.longitude = longitude
         return self
-
+    
     def build(self) -> "EventLocation":
         return self._event_location

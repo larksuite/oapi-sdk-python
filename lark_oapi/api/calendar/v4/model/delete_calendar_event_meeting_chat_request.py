@@ -25,21 +25,22 @@ class DeleteCalendarEventMeetingChatRequestBuilder(object):
         delete_calendar_event_meeting_chat_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/meeting_chat"
         delete_calendar_event_meeting_chat_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_calendar_event_meeting_chat_request: DeleteCalendarEventMeetingChatRequest = delete_calendar_event_meeting_chat_request
-
+    
     def meeting_chat_id(self, meeting_chat_id: str) -> "DeleteCalendarEventMeetingChatRequestBuilder":
         self._delete_calendar_event_meeting_chat_request.meeting_chat_id = meeting_chat_id
         self._delete_calendar_event_meeting_chat_request.add_query("meeting_chat_id", meeting_chat_id)
         return self
-
+    
     def calendar_id(self, calendar_id: str) -> "DeleteCalendarEventMeetingChatRequestBuilder":
         self._delete_calendar_event_meeting_chat_request.calendar_id = calendar_id
         self._delete_calendar_event_meeting_chat_request.paths["calendar_id"] = str(calendar_id)
         return self
-
+    
     def event_id(self, event_id: str) -> "DeleteCalendarEventMeetingChatRequestBuilder":
         self._delete_calendar_event_meeting_chat_request.event_id = event_id
         self._delete_calendar_event_meeting_chat_request.paths["event_id"] = str(event_id)
         return self
+    
 
     def build(self) -> DeleteCalendarEventMeetingChatRequest:
         return self._delete_calendar_event_meeting_chat_request

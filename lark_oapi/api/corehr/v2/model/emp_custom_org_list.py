@@ -34,34 +34,27 @@ class EmpCustomOrgList(object):
 class EmpCustomOrgListBuilder(object):
     def __init__(self) -> None:
         self._emp_custom_org_list = EmpCustomOrgList()
-
     def custom_org_list(self, custom_org_list: List[CustomOrgList]) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.custom_org_list = custom_org_list
         return self
-
     def effective_time(self, effective_time: str) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.effective_time = effective_time
         return self
-
     def start_reason(self, start_reason: str) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.start_reason = start_reason
         return self
-
     def job_data_custom_org_id(self, job_data_custom_org_id: str) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.job_data_custom_org_id = job_data_custom_org_id
         return self
-
     def version_id(self, version_id: str) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.version_id = version_id
         return self
-
     def object_api_name(self, object_api_name: str) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.object_api_name = object_api_name
         return self
-
     def user_id(self, user_id: str) -> "EmpCustomOrgListBuilder":
         self._emp_custom_org_list.user_id = user_id
         return self
-
+    
     def build(self) -> "EmpCustomOrgList":
         return self._emp_custom_org_list

@@ -31,26 +31,21 @@ class OpenAppFeedCardButton(object):
 class OpenAppFeedCardButtonBuilder(object):
     def __init__(self) -> None:
         self._open_app_feed_card_button = OpenAppFeedCardButton()
-
     def multi_url(self, multi_url: OpenAppFeedCardUrl) -> "OpenAppFeedCardButtonBuilder":
         self._open_app_feed_card_button.multi_url = multi_url
         return self
-
     def action_type(self, action_type: str) -> "OpenAppFeedCardButtonBuilder":
         self._open_app_feed_card_button.action_type = action_type
         return self
-
     def text(self, text: OpenAppFeedCardText) -> "OpenAppFeedCardButtonBuilder":
         self._open_app_feed_card_button.text = text
         return self
-
     def button_type(self, button_type: str) -> "OpenAppFeedCardButtonBuilder":
         self._open_app_feed_card_button.button_type = button_type
         return self
-
     def action_map(self, action_map: Dict[str, str]) -> "OpenAppFeedCardButtonBuilder":
         self._open_app_feed_card_button.action_map = action_map
         return self
-
+    
     def build(self) -> "OpenAppFeedCardButton":
         return self._open_app_feed_card_button

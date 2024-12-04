@@ -30,26 +30,21 @@ class DepartmentParentInfo(object):
 class DepartmentParentInfoBuilder(object):
     def __init__(self) -> None:
         self._department_parent_info = DepartmentParentInfo()
-
     def department_id(self, department_id: str) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.department_id = department_id
         return self
-
     def department_name(self, department_name: List[I18n]) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.department_name = department_name
         return self
-
     def parent_department_id(self, parent_department_id: str) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.parent_department_id = parent_department_id
         return self
-
     def active(self, active: bool) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.active = active
         return self
-
     def is_root(self, is_root: bool) -> "DepartmentParentInfoBuilder":
         self._department_parent_info.is_root = is_root
         return self
-
+    
     def build(self) -> "DepartmentParentInfo":
         return self._department_parent_info

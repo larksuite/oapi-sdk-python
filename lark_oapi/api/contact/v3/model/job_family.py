@@ -35,34 +35,27 @@ class JobFamily(object):
 class JobFamilyBuilder(object):
     def __init__(self) -> None:
         self._job_family = JobFamily()
-
     def name(self, name: str) -> "JobFamilyBuilder":
         self._job_family.name = name
         return self
-
     def description(self, description: str) -> "JobFamilyBuilder":
         self._job_family.description = description
         return self
-
     def parent_job_family_id(self, parent_job_family_id: str) -> "JobFamilyBuilder":
         self._job_family.parent_job_family_id = parent_job_family_id
         return self
-
     def status(self, status: bool) -> "JobFamilyBuilder":
         self._job_family.status = status
         return self
-
     def i18n_name(self, i18n_name: List[I18nContent]) -> "JobFamilyBuilder":
         self._job_family.i18n_name = i18n_name
         return self
-
     def i18n_description(self, i18n_description: List[I18nContent]) -> "JobFamilyBuilder":
         self._job_family.i18n_description = i18n_description
         return self
-
     def job_family_id(self, job_family_id: str) -> "JobFamilyBuilder":
         self._job_family.job_family_id = job_family_id
         return self
-
+    
     def build(self) -> "JobFamily":
         return self._job_family

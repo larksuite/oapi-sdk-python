@@ -27,18 +27,15 @@ class DataValidationRule(object):
 class DataValidationRuleBuilder(object):
     def __init__(self) -> None:
         self._data_validation_rule = DataValidationRule()
-
     def type(self, type: str) -> "DataValidationRuleBuilder":
         self._data_validation_rule.type = type
         return self
-
     def single_option(self, single_option: SingleOption) -> "DataValidationRuleBuilder":
         self._data_validation_rule.single_option = single_option
         return self
-
     def multiple_option(self, multiple_option: MultipleOption) -> "DataValidationRuleBuilder":
         self._data_validation_rule.multiple_option = multiple_option
         return self
-
+    
     def build(self) -> "DataValidationRule":
         return self._data_validation_rule

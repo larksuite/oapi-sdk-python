@@ -22,10 +22,9 @@ class GetAilySessionRunResponseBody(object):
 class GetAilySessionRunResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_aily_session_run_response_body = GetAilySessionRunResponseBody()
-
     def run(self, run: Run) -> "GetAilySessionRunResponseBodyBuilder":
         self._get_aily_session_run_response_body.run = run
         return self
-
+    
     def build(self) -> "GetAilySessionRunResponseBody":
         return self._get_aily_session_run_response_body

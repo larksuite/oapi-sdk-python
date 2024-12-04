@@ -24,14 +24,12 @@ class CompanyIdAndName(object):
 class CompanyIdAndNameBuilder(object):
     def __init__(self) -> None:
         self._company_id_and_name = CompanyIdAndName()
-
     def company_id(self, company_id: str) -> "CompanyIdAndNameBuilder":
         self._company_id_and_name.company_id = company_id
         return self
-
     def company_name(self, company_name: List[I18n]) -> "CompanyIdAndNameBuilder":
         self._company_id_and_name.company_name = company_name
         return self
-
+    
     def build(self) -> "CompanyIdAndName":
         return self._company_id_and_name

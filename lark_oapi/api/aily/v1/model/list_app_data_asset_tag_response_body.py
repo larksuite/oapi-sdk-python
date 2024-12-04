@@ -26,18 +26,15 @@ class ListAppDataAssetTagResponseBody(object):
 class ListAppDataAssetTagResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_data_asset_tag_response_body = ListAppDataAssetTagResponseBody()
-
     def items(self, items: List[DataAssetTag]) -> "ListAppDataAssetTagResponseBodyBuilder":
         self._list_app_data_asset_tag_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListAppDataAssetTagResponseBodyBuilder":
         self._list_app_data_asset_tag_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListAppDataAssetTagResponseBodyBuilder":
         self._list_app_data_asset_tag_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListAppDataAssetTagResponseBody":
         return self._list_app_data_asset_tag_response_body

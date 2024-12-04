@@ -24,14 +24,12 @@ class OldDepartmentObject(object):
 class OldDepartmentObjectBuilder(object):
     def __init__(self) -> None:
         self._old_department_object = OldDepartmentObject()
-
     def status(self, status: DepartmentStatus) -> "OldDepartmentObjectBuilder":
         self._old_department_object.status = status
         return self
-
     def open_department_id(self, open_department_id: str) -> "OldDepartmentObjectBuilder":
         self._old_department_object.open_department_id = open_department_id
         return self
-
+    
     def build(self) -> "OldDepartmentObject":
         return self._old_department_object

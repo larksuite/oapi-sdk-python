@@ -26,17 +26,17 @@ class PatchRoomRequestBuilder(object):
         patch_room_request.uri = "/open-apis/vc/v1/rooms/:room_id"
         patch_room_request.token_types = {AccessTokenType.TENANT}
         self._patch_room_request: PatchRoomRequest = patch_room_request
-
+    
     def user_id_type(self, user_id_type: str) -> "PatchRoomRequestBuilder":
         self._patch_room_request.user_id_type = user_id_type
         self._patch_room_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def room_id(self, room_id: str) -> "PatchRoomRequestBuilder":
         self._patch_room_request.room_id = room_id
         self._patch_room_request.paths["room_id"] = str(room_id)
         return self
-
+    
     def request_body(self, request_body: Room) -> "PatchRoomRequestBuilder":
         self._patch_room_request.request_body = request_body
         self._patch_room_request.body = request_body

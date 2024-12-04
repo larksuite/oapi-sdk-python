@@ -19,6 +19,6 @@ class AppRoleTableRoleFieldPerm(object):
 class AppRoleTableRoleFieldPermBuilder(object):
     def __init__(self) -> None:
         self._app_role_table_role_field_perm = AppRoleTableRoleFieldPerm()
-
+    
     def build(self) -> "AppRoleTableRoleFieldPerm":
         return self._app_role_table_role_field_perm

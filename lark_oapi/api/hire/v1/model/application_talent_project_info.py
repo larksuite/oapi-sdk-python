@@ -33,34 +33,27 @@ class ApplicationTalentProjectInfo(object):
 class ApplicationTalentProjectInfoBuilder(object):
     def __init__(self) -> None:
         self._application_talent_project_info = ApplicationTalentProjectInfo()
-
     def id(self, id: str) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.id = id
         return self
-
     def name(self, name: str) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.name = name
         return self
-
     def role(self, role: str) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.role = role
         return self
-
     def link(self, link: str) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.link = link
         return self
-
     def desc(self, desc: str) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.desc = desc
         return self
-
     def start_time(self, start_time: int) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "ApplicationTalentProjectInfoBuilder":
         self._application_talent_project_info.end_time = end_time
         return self
-
+    
     def build(self) -> "ApplicationTalentProjectInfo":
         return self._application_talent_project_info

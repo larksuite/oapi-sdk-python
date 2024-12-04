@@ -22,10 +22,9 @@ class RecognizedEntities(object):
 class RecognizedEntitiesBuilder(object):
     def __init__(self) -> None:
         self._recognized_entities = RecognizedEntities()
-
     def entities(self, entities: List[RecognizedEntity]) -> "RecognizedEntitiesBuilder":
         self._recognized_entities.entities = entities
         return self
-
+    
     def build(self) -> "RecognizedEntities":
         return self._recognized_entities

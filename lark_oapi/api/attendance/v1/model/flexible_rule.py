@@ -23,14 +23,12 @@ class FlexibleRule(object):
 class FlexibleRuleBuilder(object):
     def __init__(self) -> None:
         self._flexible_rule = FlexibleRule()
-
     def flexible_early_minutes(self, flexible_early_minutes: int) -> "FlexibleRuleBuilder":
         self._flexible_rule.flexible_early_minutes = flexible_early_minutes
         return self
-
     def flexible_late_minutes(self, flexible_late_minutes: int) -> "FlexibleRuleBuilder":
         self._flexible_rule.flexible_late_minutes = flexible_late_minutes
         return self
-
+    
     def build(self) -> "FlexibleRule":
         return self._flexible_rule

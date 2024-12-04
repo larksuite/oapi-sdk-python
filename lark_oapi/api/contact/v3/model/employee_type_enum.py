@@ -32,30 +32,24 @@ class EmployeeTypeEnum(object):
 class EmployeeTypeEnumBuilder(object):
     def __init__(self) -> None:
         self._employee_type_enum = EmployeeTypeEnum()
-
     def enum_id(self, enum_id: str) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.enum_id = enum_id
         return self
-
     def enum_value(self, enum_value: int) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.enum_value = enum_value
         return self
-
     def content(self, content: str) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.content = content
         return self
-
     def enum_type(self, enum_type: int) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.enum_type = enum_type
         return self
-
     def enum_status(self, enum_status: int) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.enum_status = enum_status
         return self
-
     def i18n_content(self, i18n_content: List[I18nContent]) -> "EmployeeTypeEnumBuilder":
         self._employee_type_enum.i18n_content = i18n_content
         return self
-
+    
     def build(self) -> "EmployeeTypeEnum":
         return self._employee_type_enum

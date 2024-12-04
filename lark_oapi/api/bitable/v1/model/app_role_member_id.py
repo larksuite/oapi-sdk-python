@@ -23,14 +23,12 @@ class AppRoleMemberId(object):
 class AppRoleMemberIdBuilder(object):
     def __init__(self) -> None:
         self._app_role_member_id = AppRoleMemberId()
-
     def type(self, type: str) -> "AppRoleMemberIdBuilder":
         self._app_role_member_id.type = type
         return self
-
     def id(self, id: str) -> "AppRoleMemberIdBuilder":
         self._app_role_member_id.id = id
         return self
-
+    
     def build(self) -> "AppRoleMemberId":
         return self._app_role_member_id

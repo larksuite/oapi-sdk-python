@@ -23,14 +23,12 @@ class UpdateMessageRequestBody(object):
 class UpdateMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_message_request_body = UpdateMessageRequestBody()
-
     def msg_type(self, msg_type: str) -> "UpdateMessageRequestBodyBuilder":
         self._update_message_request_body.msg_type = msg_type
         return self
-
     def content(self, content: str) -> "UpdateMessageRequestBodyBuilder":
         self._update_message_request_body.content = content
         return self
-
+    
     def build(self) -> "UpdateMessageRequestBody":
         return self._update_message_request_body

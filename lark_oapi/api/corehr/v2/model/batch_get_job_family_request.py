@@ -24,7 +24,7 @@ class BatchGetJobFamilyRequestBuilder(object):
         batch_get_job_family_request.uri = "/open-apis/corehr/v2/job_families/batch_get"
         batch_get_job_family_request.token_types = {AccessTokenType.TENANT}
         self._batch_get_job_family_request: BatchGetJobFamilyRequest = batch_get_job_family_request
-
+    
     def request_body(self, request_body: BatchGetJobFamilyRequestBody) -> "BatchGetJobFamilyRequestBuilder":
         self._batch_get_job_family_request.request_body = request_body
         self._batch_get_job_family_request.body = request_body

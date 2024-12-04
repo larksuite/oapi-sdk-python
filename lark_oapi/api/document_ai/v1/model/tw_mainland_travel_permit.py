@@ -22,10 +22,9 @@ class TwMainlandTravelPermit(object):
 class TwMainlandTravelPermitBuilder(object):
     def __init__(self) -> None:
         self._tw_mainland_travel_permit = TwMainlandTravelPermit()
-
     def entities(self, entities: List[TwMainlandTravelPermitEntity]) -> "TwMainlandTravelPermitBuilder":
         self._tw_mainland_travel_permit.entities = entities
         return self
-
+    
     def build(self) -> "TwMainlandTravelPermit":
         return self._tw_mainland_travel_permit

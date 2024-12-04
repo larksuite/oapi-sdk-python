@@ -25,19 +25,15 @@ class BatchDeleteEcoBackgroundCheckPackageRequestBody(object):
 class BatchDeleteEcoBackgroundCheckPackageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_eco_background_check_package_request_body = BatchDeleteEcoBackgroundCheckPackageRequestBody()
-
     def account_id(self, account_id: str) -> "BatchDeleteEcoBackgroundCheckPackageRequestBodyBuilder":
         self._batch_delete_eco_background_check_package_request_body.account_id = account_id
         return self
-
     def package_id_list(self, package_id_list: List[str]) -> "BatchDeleteEcoBackgroundCheckPackageRequestBodyBuilder":
         self._batch_delete_eco_background_check_package_request_body.package_id_list = package_id_list
         return self
-
-    def additional_item_id_list(self, additional_item_id_list: List[
-        str]) -> "BatchDeleteEcoBackgroundCheckPackageRequestBodyBuilder":
+    def additional_item_id_list(self, additional_item_id_list: List[str]) -> "BatchDeleteEcoBackgroundCheckPackageRequestBodyBuilder":
         self._batch_delete_eco_background_check_package_request_body.additional_item_id_list = additional_item_id_list
         return self
-
+    
     def build(self) -> "BatchDeleteEcoBackgroundCheckPackageRequestBody":
         return self._batch_delete_eco_background_check_package_request_body

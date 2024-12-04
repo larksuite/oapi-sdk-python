@@ -23,14 +23,12 @@ class MyAiComment(object):
 class MyAiCommentBuilder(object):
     def __init__(self) -> None:
         self._my_ai_comment = MyAiComment()
-
     def user_name(self, user_name: str) -> "MyAiCommentBuilder":
         self._my_ai_comment.user_name = user_name
         return self
-
     def comment(self, comment: str) -> "MyAiCommentBuilder":
         self._my_ai_comment.comment = comment
         return self
-
+    
     def build(self) -> "MyAiComment":
         return self._my_ai_comment

@@ -25,12 +25,12 @@ class ParentsDepartmentRequestBuilder(object):
         parents_department_request.uri = "/open-apis/corehr/v2/departments/parents"
         parents_department_request.token_types = {AccessTokenType.TENANT}
         self._parents_department_request: ParentsDepartmentRequest = parents_department_request
-
+    
     def department_id_type(self, department_id_type: str) -> "ParentsDepartmentRequestBuilder":
         self._parents_department_request.department_id_type = department_id_type
         self._parents_department_request.add_query("department_id_type", department_id_type)
         return self
-
+    
     def request_body(self, request_body: ParentsDepartmentRequestBody) -> "ParentsDepartmentRequestBuilder":
         self._parents_department_request.request_body = request_body
         self._parents_department_request.body = request_body

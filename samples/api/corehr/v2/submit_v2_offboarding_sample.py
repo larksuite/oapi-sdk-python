@@ -27,6 +27,7 @@ def main():
                       .block_reason_explanation("xx 年 xx 月 xx 日因 xx 原因红线")
                       .custom_fields([])
                       .retain_account(False)
+                      .is_transfer_with_workforce(False)
                       .build()) \
         .build()
 
@@ -67,6 +68,7 @@ async def amain():
                       .block_reason_explanation("xx 年 xx 月 xx 日因 xx 原因红线")
                       .custom_fields([])
                       .retain_account(False)
+                      .is_transfer_with_workforce(False)
                       .build()) \
         .build()
 

@@ -23,14 +23,12 @@ class ScoreCalculationConfig(object):
 class ScoreCalculationConfigBuilder(object):
     def __init__(self) -> None:
         self._score_calculation_config = ScoreCalculationConfig()
-
     def enabled(self, enabled: bool) -> "ScoreCalculationConfigBuilder":
         self._score_calculation_config.enabled = enabled
         return self
-
     def calculation_mode(self, calculation_mode: int) -> "ScoreCalculationConfigBuilder":
         self._score_calculation_config.calculation_mode = calculation_mode
         return self
-
+    
     def build(self) -> "ScoreCalculationConfig":
         return self._score_calculation_config

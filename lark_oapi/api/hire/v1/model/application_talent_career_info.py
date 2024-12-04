@@ -33,34 +33,27 @@ class ApplicationTalentCareerInfo(object):
 class ApplicationTalentCareerInfoBuilder(object):
     def __init__(self) -> None:
         self._application_talent_career_info = ApplicationTalentCareerInfo()
-
     def id(self, id: str) -> "ApplicationTalentCareerInfoBuilder":
         self._application_talent_career_info.id = id
         return self
-
     def company(self, company: str) -> "ApplicationTalentCareerInfoBuilder":
         self._application_talent_career_info.company = company
         return self
-
     def title(self, title: str) -> "ApplicationTalentCareerInfoBuilder":
         self._application_talent_career_info.title = title
         return self
-
     def desc(self, desc: str) -> "ApplicationTalentCareerInfoBuilder":
         self._application_talent_career_info.desc = desc
         return self
-
     def start_time(self, start_time: str) -> "ApplicationTalentCareerInfoBuilder":
         self._application_talent_career_info.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "ApplicationTalentCareerInfoBuilder":
         self._application_talent_career_info.end_time = end_time
         return self
-
     def tag_list(self, tag_list: List[int]) -> "ApplicationTalentCareerInfoBuilder":
         self._application_talent_career_info.tag_list = tag_list
         return self
-
+    
     def build(self) -> "ApplicationTalentCareerInfo":
         return self._application_talent_career_info

@@ -27,22 +27,18 @@ class VaultExportFile(object):
 class VaultExportFileBuilder(object):
     def __init__(self) -> None:
         self._vault_export_file = VaultExportFile()
-
     def name(self, name: str) -> "VaultExportFileBuilder":
         self._vault_export_file.name = name
         return self
-
     def size(self, size: str) -> "VaultExportFileBuilder":
         self._vault_export_file.size = size
         return self
-
     def url(self, url: str) -> "VaultExportFileBuilder":
         self._vault_export_file.url = url
         return self
-
     def download_url(self, download_url: str) -> "VaultExportFileBuilder":
         self._vault_export_file.download_url = download_url
         return self
-
+    
     def build(self) -> "VaultExportFile":
         return self._vault_export_file

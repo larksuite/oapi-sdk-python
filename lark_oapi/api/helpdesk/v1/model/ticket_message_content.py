@@ -27,22 +27,18 @@ class TicketMessageContent(object):
 class TicketMessageContentBuilder(object):
     def __init__(self) -> None:
         self._ticket_message_content = TicketMessageContent()
-
     def content(self, content: str) -> "TicketMessageContentBuilder":
         self._ticket_message_content.content = content
         return self
-
     def msg_type(self, msg_type: str) -> "TicketMessageContentBuilder":
         self._ticket_message_content.msg_type = msg_type
         return self
-
     def image_keys(self, image_keys: List[str]) -> "TicketMessageContentBuilder":
         self._ticket_message_content.image_keys = image_keys
         return self
-
     def image_key(self, image_key: str) -> "TicketMessageContentBuilder":
         self._ticket_message_content.image_key = image_key
         return self
-
+    
     def build(self) -> "TicketMessageContent":
         return self._ticket_message_content

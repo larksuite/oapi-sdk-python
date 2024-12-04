@@ -28,21 +28,15 @@ class CheckWhiteBlackListApplicationVisibilityResponseBody(object):
 class CheckWhiteBlackListApplicationVisibilityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._check_white_black_list_application_visibility_response_body = CheckWhiteBlackListApplicationVisibilityResponseBody()
-
-    def user_visibility_list(self, user_visibility_list: List[
-        ApplicationVisibilityUserWhiteBlackInfo]) -> "CheckWhiteBlackListApplicationVisibilityResponseBodyBuilder":
+    def user_visibility_list(self, user_visibility_list: List[ApplicationVisibilityUserWhiteBlackInfo]) -> "CheckWhiteBlackListApplicationVisibilityResponseBodyBuilder":
         self._check_white_black_list_application_visibility_response_body.user_visibility_list = user_visibility_list
         return self
-
-    def department_visibility_list(self, department_visibility_list: List[
-        ApplicationVisibilityDepartmentWhiteBlackInfo]) -> "CheckWhiteBlackListApplicationVisibilityResponseBodyBuilder":
+    def department_visibility_list(self, department_visibility_list: List[ApplicationVisibilityDepartmentWhiteBlackInfo]) -> "CheckWhiteBlackListApplicationVisibilityResponseBodyBuilder":
         self._check_white_black_list_application_visibility_response_body.department_visibility_list = department_visibility_list
         return self
-
-    def group_visibility_list(self, group_visibility_list: List[
-        ApplicationVisibilityGroupWhiteBlackInfo]) -> "CheckWhiteBlackListApplicationVisibilityResponseBodyBuilder":
+    def group_visibility_list(self, group_visibility_list: List[ApplicationVisibilityGroupWhiteBlackInfo]) -> "CheckWhiteBlackListApplicationVisibilityResponseBodyBuilder":
         self._check_white_black_list_application_visibility_response_body.group_visibility_list = group_visibility_list
         return self
-
+    
     def build(self) -> "CheckWhiteBlackListApplicationVisibilityResponseBody":
         return self._check_white_black_list_application_visibility_response_body

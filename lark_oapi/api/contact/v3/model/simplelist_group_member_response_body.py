@@ -26,18 +26,15 @@ class SimplelistGroupMemberResponseBody(object):
 class SimplelistGroupMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._simplelist_group_member_response_body = SimplelistGroupMemberResponseBody()
-
     def memberlist(self, memberlist: List[Memberlist]) -> "SimplelistGroupMemberResponseBodyBuilder":
         self._simplelist_group_member_response_body.memberlist = memberlist
         return self
-
     def page_token(self, page_token: str) -> "SimplelistGroupMemberResponseBodyBuilder":
         self._simplelist_group_member_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "SimplelistGroupMemberResponseBodyBuilder":
         self._simplelist_group_member_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "SimplelistGroupMemberResponseBody":
         return self._simplelist_group_member_response_body

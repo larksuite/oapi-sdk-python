@@ -17,8 +17,7 @@ class AccessRecordAccessPhoto(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetAccessRecordAccessPhotoRequest,
-            option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:
+    def get(self, request: GetAccessRecordAccessPhotoRequest, option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,7 +30,7 @@ class AccessRecordAccessPhoto(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetAccessRecordAccessPhotoResponse = GetAccessRecordAccessPhotoResponse()
@@ -44,18 +43,20 @@ class AccessRecordAccessPhoto(object):
 
         response.raw = resp
         return response
+        
 
-    async def aget(self, request: GetAccessRecordAccessPhotoRequest,
-                   option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:
+    async def aget(self, request: GetAccessRecordAccessPhotoRequest, option: Optional[RequestOption] = None) -> GetAccessRecordAccessPhotoResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetAccessRecordAccessPhotoResponse = GetAccessRecordAccessPhotoResponse()
@@ -68,3 +69,5 @@ class AccessRecordAccessPhoto(object):
 
         response.raw = resp
         return response
+        
+    

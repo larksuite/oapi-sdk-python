@@ -22,11 +22,9 @@ class ReconciliationReferralAccountResponseBody(object):
 class ReconciliationReferralAccountResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._reconciliation_referral_account_response_body = ReconciliationReferralAccountResponseBody()
-
-    def check_failed_list(self, check_failed_list: List[
-        CheckFailedAccountInfo]) -> "ReconciliationReferralAccountResponseBodyBuilder":
+    def check_failed_list(self, check_failed_list: List[CheckFailedAccountInfo]) -> "ReconciliationReferralAccountResponseBodyBuilder":
         self._reconciliation_referral_account_response_body.check_failed_list = check_failed_list
         return self
-
+    
     def build(self) -> "ReconciliationReferralAccountResponseBody":
         return self._reconciliation_referral_account_response_body

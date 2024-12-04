@@ -24,14 +24,12 @@ class JobCustomizedOption(object):
 class JobCustomizedOptionBuilder(object):
     def __init__(self) -> None:
         self._job_customized_option = JobCustomizedOption()
-
     def key(self, key: str) -> "JobCustomizedOptionBuilder":
         self._job_customized_option.key = key
         return self
-
     def name(self, name: I18n) -> "JobCustomizedOptionBuilder":
         self._job_customized_option.name = name
         return self
-
+    
     def build(self) -> "JobCustomizedOption":
         return self._job_customized_option

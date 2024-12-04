@@ -23,14 +23,12 @@ class MoveFileRequestBody(object):
 class MoveFileRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._move_file_request_body = MoveFileRequestBody()
-
     def type(self, type: str) -> "MoveFileRequestBodyBuilder":
         self._move_file_request_body.type = type
         return self
-
     def folder_token(self, folder_token: str) -> "MoveFileRequestBodyBuilder":
         self._move_file_request_body.folder_token = folder_token
         return self
-
+    
     def build(self) -> "MoveFileRequestBody":
         return self._move_file_request_body

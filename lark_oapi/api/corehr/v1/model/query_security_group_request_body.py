@@ -8,10 +8,14 @@ from .bp_role_organization import BpRoleOrganization
 class QuerySecurityGroupRequestBody(object):
     _types = {
         "item_list": List[BpRoleOrganization],
+        "updated_at_gte": str,
+        "updated_at_lte": str,
     }
 
     def __init__(self, d=None):
         self.item_list: Optional[List[BpRoleOrganization]] = None
+        self.updated_at_gte: Optional[str] = None
+        self.updated_at_lte: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -22,10 +26,15 @@ class QuerySecurityGroupRequestBody(object):
 class QuerySecurityGroupRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_security_group_request_body = QuerySecurityGroupRequestBody()
-
     def item_list(self, item_list: List[BpRoleOrganization]) -> "QuerySecurityGroupRequestBodyBuilder":
         self._query_security_group_request_body.item_list = item_list
         return self
-
+    def updated_at_gte(self, updated_at_gte: str) -> "QuerySecurityGroupRequestBodyBuilder":
+        self._query_security_group_request_body.updated_at_gte = updated_at_gte
+        return self
+    def updated_at_lte(self, updated_at_lte: str) -> "QuerySecurityGroupRequestBodyBuilder":
+        self._query_security_group_request_body.updated_at_lte = updated_at_lte
+        return self
+    
     def build(self) -> "QuerySecurityGroupRequestBody":
         return self._query_security_group_request_body

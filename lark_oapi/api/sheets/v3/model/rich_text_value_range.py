@@ -24,14 +24,12 @@ class RichTextValueRange(object):
 class RichTextValueRangeBuilder(object):
     def __init__(self) -> None:
         self._rich_text_value_range = RichTextValueRange()
-
     def range(self, range: str) -> "RichTextValueRangeBuilder":
         self._rich_text_value_range.range = range
         return self
-
     def values(self, values: List[list]) -> "RichTextValueRangeBuilder":
         self._rich_text_value_range.values = values
         return self
-
+    
     def build(self) -> "RichTextValueRange":
         return self._rich_text_value_range

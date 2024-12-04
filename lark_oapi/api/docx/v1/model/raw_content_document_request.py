@@ -24,16 +24,17 @@ class RawContentDocumentRequestBuilder(object):
         raw_content_document_request.uri = "/open-apis/docx/v1/documents/:document_id/raw_content"
         raw_content_document_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._raw_content_document_request: RawContentDocumentRequest = raw_content_document_request
-
+    
     def lang(self, lang: int) -> "RawContentDocumentRequestBuilder":
         self._raw_content_document_request.lang = lang
         self._raw_content_document_request.add_query("lang", lang)
         return self
-
+    
     def document_id(self, document_id: str) -> "RawContentDocumentRequestBuilder":
         self._raw_content_document_request.document_id = document_id
         self._raw_content_document_request.paths["document_id"] = str(document_id)
         return self
+    
 
     def build(self) -> RawContentDocumentRequest:
         return self._raw_content_document_request

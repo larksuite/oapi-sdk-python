@@ -6,9 +6,11 @@ from lark_oapi.core.construct import init
 
 class UrgentCommonHeader(object):
     _types = {
+        "bot_id": str,
     }
 
     def __init__(self, d=None):
+        self.bot_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -19,6 +21,9 @@ class UrgentCommonHeader(object):
 class UrgentCommonHeaderBuilder(object):
     def __init__(self) -> None:
         self._urgent_common_header = UrgentCommonHeader()
-
+    def bot_id(self, bot_id: str) -> "UrgentCommonHeaderBuilder":
+        self._urgent_common_header.bot_id = bot_id
+        return self
+    
     def build(self) -> "UrgentCommonHeader":
         return self._urgent_common_header

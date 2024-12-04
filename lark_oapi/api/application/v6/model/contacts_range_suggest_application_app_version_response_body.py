@@ -22,11 +22,9 @@ class ContactsRangeSuggestApplicationAppVersionResponseBody(object):
 class ContactsRangeSuggestApplicationAppVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._contacts_range_suggest_application_app_version_response_body = ContactsRangeSuggestApplicationAppVersionResponseBody()
-
-    def contacts_range(self,
-                       contacts_range: ApplicationAppContactsRange) -> "ContactsRangeSuggestApplicationAppVersionResponseBodyBuilder":
+    def contacts_range(self, contacts_range: ApplicationAppContactsRange) -> "ContactsRangeSuggestApplicationAppVersionResponseBodyBuilder":
         self._contacts_range_suggest_application_app_version_response_body.contacts_range = contacts_range
         return self
-
+    
     def build(self) -> "ContactsRangeSuggestApplicationAppVersionResponseBody":
         return self._contacts_range_suggest_application_app_version_response_body

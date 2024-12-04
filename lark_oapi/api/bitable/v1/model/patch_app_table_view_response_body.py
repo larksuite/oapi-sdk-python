@@ -22,10 +22,9 @@ class PatchAppTableViewResponseBody(object):
 class PatchAppTableViewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_app_table_view_response_body = PatchAppTableViewResponseBody()
-
     def view(self, view: AppTableView) -> "PatchAppTableViewResponseBodyBuilder":
         self._patch_app_table_view_response_body.view = view
         return self
-
+    
     def build(self) -> "PatchAppTableViewResponseBody":
         return self._patch_app_table_view_response_body

@@ -27,22 +27,18 @@ class UrlDetail(object):
 class UrlDetailBuilder(object):
     def __init__(self) -> None:
         self._url_detail = UrlDetail()
-
     def origin_url(self, origin_url: str) -> "UrlDetailBuilder":
         self._url_detail.origin_url = origin_url
         return self
-
     def url(self, url: str) -> "UrlDetailBuilder":
         self._url_detail.url = url
         return self
-
     def code(self, code: str) -> "UrlDetailBuilder":
         self._url_detail.code = code
         return self
-
     def message(self, message: str) -> "UrlDetailBuilder":
         self._url_detail.message = message
         return self
-
+    
     def build(self) -> "UrlDetail":
         return self._url_detail

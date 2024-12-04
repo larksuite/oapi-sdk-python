@@ -26,18 +26,15 @@ class SearchPreHireResponseBody(object):
 class SearchPreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_pre_hire_response_body = SearchPreHireResponseBody()
-
     def items(self, items: List[PreHire]) -> "SearchPreHireResponseBodyBuilder":
         self._search_pre_hire_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "SearchPreHireResponseBodyBuilder":
         self._search_pre_hire_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "SearchPreHireResponseBodyBuilder":
         self._search_pre_hire_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "SearchPreHireResponseBody":
         return self._search_pre_hire_response_body

@@ -25,18 +25,15 @@ class DepartmentI18nName(object):
 class DepartmentI18nNameBuilder(object):
     def __init__(self) -> None:
         self._department_i18n_name = DepartmentI18nName()
-
     def zh_cn(self, zh_cn: str) -> "DepartmentI18nNameBuilder":
         self._department_i18n_name.zh_cn = zh_cn
         return self
-
     def ja_jp(self, ja_jp: str) -> "DepartmentI18nNameBuilder":
         self._department_i18n_name.ja_jp = ja_jp
         return self
-
     def en_us(self, en_us: str) -> "DepartmentI18nNameBuilder":
         self._department_i18n_name.en_us = en_us
         return self
-
+    
     def build(self) -> "DepartmentI18nName":
         return self._department_i18n_name

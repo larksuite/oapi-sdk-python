@@ -25,14 +25,12 @@ class OfferInfoV2(object):
 class OfferInfoV2Builder(object):
     def __init__(self) -> None:
         self._offer_info_v2 = OfferInfoV2()
-
     def offer_basic(self, offer_basic: OfferBasicInfoV2) -> "OfferInfoV2Builder":
         self._offer_info_v2.offer_basic = offer_basic
         return self
-
     def offer_salary(self, offer_salary: OfferSalaryInfoV2) -> "OfferInfoV2Builder":
         self._offer_info_v2.offer_salary = offer_salary
         return self
-
+    
     def build(self) -> "OfferInfoV2":
         return self._offer_info_v2

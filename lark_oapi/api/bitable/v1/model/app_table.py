@@ -25,18 +25,15 @@ class AppTable(object):
 class AppTableBuilder(object):
     def __init__(self) -> None:
         self._app_table = AppTable()
-
     def table_id(self, table_id: str) -> "AppTableBuilder":
         self._app_table.table_id = table_id
         return self
-
     def revision(self, revision: int) -> "AppTableBuilder":
         self._app_table.revision = revision
         return self
-
     def name(self, name: str) -> "AppTableBuilder":
         self._app_table.name = name
         return self
-
+    
     def build(self) -> "AppTable":
         return self._app_table

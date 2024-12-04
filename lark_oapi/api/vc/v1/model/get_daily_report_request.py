@@ -25,21 +25,22 @@ class GetDailyReportRequestBuilder(object):
         get_daily_report_request.uri = "/open-apis/vc/v1/reports/get_daily"
         get_daily_report_request.token_types = {AccessTokenType.TENANT}
         self._get_daily_report_request: GetDailyReportRequest = get_daily_report_request
-
+    
     def start_time(self, start_time: int) -> "GetDailyReportRequestBuilder":
         self._get_daily_report_request.start_time = start_time
         self._get_daily_report_request.add_query("start_time", start_time)
         return self
-
+    
     def end_time(self, end_time: int) -> "GetDailyReportRequestBuilder":
         self._get_daily_report_request.end_time = end_time
         self._get_daily_report_request.add_query("end_time", end_time)
         return self
-
+    
     def unit(self, unit: int) -> "GetDailyReportRequestBuilder":
         self._get_daily_report_request.unit = unit
         self._get_daily_report_request.add_query("unit", unit)
         return self
+    
 
     def build(self) -> GetDailyReportRequest:
         return self._get_daily_report_request

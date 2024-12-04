@@ -29,32 +29,32 @@ class PatchApplicationAppVersionRequestBuilder(object):
         patch_application_app_version_request.uri = "/open-apis/application/v6/applications/:app_id/app_versions/:version_id"
         patch_application_app_version_request.token_types = {AccessTokenType.TENANT}
         self._patch_application_app_version_request: PatchApplicationAppVersionRequest = patch_application_app_version_request
-
+    
     def user_id_type(self, user_id_type: str) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.user_id_type = user_id_type
         self._patch_application_app_version_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def operator_id(self, operator_id: int) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.operator_id = operator_id
         self._patch_application_app_version_request.add_query("operator_id", operator_id)
         return self
-
+    
     def reject_reason(self, reject_reason: str) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.reject_reason = reject_reason
         self._patch_application_app_version_request.add_query("reject_reason", reject_reason)
         return self
-
+    
     def app_id(self, app_id: str) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.app_id = app_id
         self._patch_application_app_version_request.paths["app_id"] = str(app_id)
         return self
-
+    
     def version_id(self, version_id: int) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.version_id = version_id
         self._patch_application_app_version_request.paths["version_id"] = str(version_id)
         return self
-
+    
     def request_body(self, request_body: ApplicationAppVersion) -> "PatchApplicationAppVersionRequestBuilder":
         self._patch_application_app_version_request.request_body = request_body
         self._patch_application_app_version_request.body = request_body

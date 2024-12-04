@@ -22,10 +22,9 @@ class RecognizeBankCardResponseBody(object):
 class RecognizeBankCardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_bank_card_response_body = RecognizeBankCardResponseBody()
-
     def bank_card(self, bank_card: BankCard) -> "RecognizeBankCardResponseBodyBuilder":
         self._recognize_bank_card_response_body.bank_card = bank_card
         return self
-
+    
     def build(self) -> "RecognizeBankCardResponseBody":
         return self._recognize_bank_card_response_body

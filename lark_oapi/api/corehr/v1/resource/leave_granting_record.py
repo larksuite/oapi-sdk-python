@@ -19,8 +19,7 @@ class LeaveGrantingRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateLeaveGrantingRecordRequest,
-               option: Optional[RequestOption] = None) -> CreateLeaveGrantingRecordResponse:
+    def create(self, request: CreateLeaveGrantingRecordRequest, option: Optional[RequestOption] = None) -> CreateLeaveGrantingRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class LeaveGrantingRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateLeaveGrantingRecordResponse)
+        response: CreateLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateLeaveGrantingRecordResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateLeaveGrantingRecordRequest,
-                      option: Optional[RequestOption] = None) -> CreateLeaveGrantingRecordResponse:
+    async def acreate(self, request: CreateLeaveGrantingRecordRequest, option: Optional[RequestOption] = None) -> CreateLeaveGrantingRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     CreateLeaveGrantingRecordResponse)
+        response: CreateLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateLeaveGrantingRecordResponse)
         response.raw = resp
 
         return response
-
-    def delete(self, request: DeleteLeaveGrantingRecordRequest,
-               option: Optional[RequestOption] = None) -> DeleteLeaveGrantingRecordResponse:
+        
+    def delete(self, request: DeleteLeaveGrantingRecordRequest, option: Optional[RequestOption] = None) -> DeleteLeaveGrantingRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class LeaveGrantingRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteLeaveGrantingRecordResponse)
+        response: DeleteLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteLeaveGrantingRecordResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteLeaveGrantingRecordRequest,
-                      option: Optional[RequestOption] = None) -> DeleteLeaveGrantingRecordResponse:
+    async def adelete(self, request: DeleteLeaveGrantingRecordRequest, option: Optional[RequestOption] = None) -> DeleteLeaveGrantingRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     DeleteLeaveGrantingRecordResponse)
+        response: DeleteLeaveGrantingRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteLeaveGrantingRecordResponse)
         response.raw = resp
 
         return response
+        
+    

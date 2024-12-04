@@ -26,18 +26,15 @@ class WithdrawReferralAccountResponseBody(object):
 class WithdrawReferralAccountResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._withdraw_referral_account_response_body = WithdrawReferralAccountResponseBody()
-
     def external_order_id(self, external_order_id: str) -> "WithdrawReferralAccountResponseBodyBuilder":
         self._withdraw_referral_account_response_body.external_order_id = external_order_id
         return self
-
     def trans_time(self, trans_time: str) -> "WithdrawReferralAccountResponseBodyBuilder":
         self._withdraw_referral_account_response_body.trans_time = trans_time
         return self
-
     def withdrawal_details(self, withdrawal_details: BonusAmount) -> "WithdrawReferralAccountResponseBodyBuilder":
         self._withdraw_referral_account_response_body.withdrawal_details = withdrawal_details
         return self
-
+    
     def build(self) -> "WithdrawReferralAccountResponseBody":
         return self._withdraw_referral_account_response_body

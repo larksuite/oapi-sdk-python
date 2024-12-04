@@ -26,18 +26,15 @@ class OperationLogEntity(object):
 class OperationLogEntityBuilder(object):
     def __init__(self) -> None:
         self._operation_log_entity = OperationLogEntity()
-
     def opt_type(self, opt_type: str) -> "OperationLogEntityBuilder":
         self._operation_log_entity.opt_type = opt_type
         return self
-
     def fields(self, fields: List[OperationLogEntityField]) -> "OperationLogEntityBuilder":
         self._operation_log_entity.fields = fields
         return self
-
     def employment_id(self, employment_id: str) -> "OperationLogEntityBuilder":
         self._operation_log_entity.employment_id = employment_id
         return self
-
+    
     def build(self) -> "OperationLogEntity":
         return self._operation_log_entity

@@ -34,34 +34,27 @@ class Kr(object):
 class KrBuilder(object):
     def __init__(self) -> None:
         self._kr = Kr()
-
     def id(self, id: int) -> "KrBuilder":
         self._kr.id = id
         return self
-
     def pos(self, pos: str) -> "KrBuilder":
         self._kr.pos = pos
         return self
-
     def score(self, score: str) -> "KrBuilder":
         self._kr.score = score
         return self
-
     def weight(self, weight: str) -> "KrBuilder":
         self._kr.weight = weight
         return self
-
     def content(self, content: KrContent) -> "KrBuilder":
         self._kr.content = content
         return self
-
     def create_time(self, create_time: int) -> "KrBuilder":
         self._kr.create_time = create_time
         return self
-
     def modify_time(self, modify_time: int) -> "KrBuilder":
         self._kr.modify_time = modify_time
         return self
-
+    
     def build(self) -> "Kr":
         return self._kr

@@ -23,14 +23,12 @@ class NativeRegion(object):
 class NativeRegionBuilder(object):
     def __init__(self) -> None:
         self._native_region = NativeRegion()
-
     def iso_code(self, iso_code: str) -> "NativeRegionBuilder":
         self._native_region.iso_code = iso_code
         return self
-
     def name(self, name: str) -> "NativeRegionBuilder":
         self._native_region.name = name
         return self
-
+    
     def build(self) -> "NativeRegion":
         return self._native_region

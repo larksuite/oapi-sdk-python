@@ -31,30 +31,24 @@ class Category(object):
 class CategoryBuilder(object):
     def __init__(self) -> None:
         self._category = Category()
-
     def category_id(self, category_id: str) -> "CategoryBuilder":
         self._category.category_id = category_id
         return self
-
     def id(self, id: str) -> "CategoryBuilder":
         self._category.id = id
         return self
-
     def name(self, name: str) -> "CategoryBuilder":
         self._category.name = name
         return self
-
     def parent_id(self, parent_id: str) -> "CategoryBuilder":
         self._category.parent_id = parent_id
         return self
-
     def helpdesk_id(self, helpdesk_id: str) -> "CategoryBuilder":
         self._category.helpdesk_id = helpdesk_id
         return self
-
     def language(self, language: str) -> "CategoryBuilder":
         self._category.language = language
         return self
-
+    
     def build(self) -> "Category":
         return self._category

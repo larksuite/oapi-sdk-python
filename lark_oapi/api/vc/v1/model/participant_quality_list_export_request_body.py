@@ -31,30 +31,24 @@ class ParticipantQualityListExportRequestBody(object):
 class ParticipantQualityListExportRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._participant_quality_list_export_request_body = ParticipantQualityListExportRequestBody()
-
     def meeting_start_time(self, meeting_start_time: int) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.meeting_start_time = meeting_start_time
         return self
-
     def meeting_end_time(self, meeting_end_time: int) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.meeting_end_time = meeting_end_time
         return self
-
     def meeting_no(self, meeting_no: str) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.meeting_no = meeting_no
         return self
-
     def join_time(self, join_time: int) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.join_time = join_time
         return self
-
     def user_id(self, user_id: str) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.user_id = user_id
         return self
-
     def room_id(self, room_id: str) -> "ParticipantQualityListExportRequestBodyBuilder":
         self._participant_quality_list_export_request_body.room_id = room_id
         return self
-
+    
     def build(self) -> "ParticipantQualityListExportRequestBody":
         return self._participant_quality_list_export_request_body

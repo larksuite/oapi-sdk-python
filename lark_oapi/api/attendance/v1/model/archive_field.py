@@ -25,18 +25,15 @@ class ArchiveField(object):
 class ArchiveFieldBuilder(object):
     def __init__(self) -> None:
         self._archive_field = ArchiveField()
-
     def code(self, code: str) -> "ArchiveFieldBuilder":
         self._archive_field.code = code
         return self
-
     def title(self, title: str) -> "ArchiveFieldBuilder":
         self._archive_field.title = title
         return self
-
     def upper_titles(self, upper_titles: List[str]) -> "ArchiveFieldBuilder":
         self._archive_field.upper_titles = upper_titles
         return self
-
+    
     def build(self) -> "ArchiveField":
         return self._archive_field

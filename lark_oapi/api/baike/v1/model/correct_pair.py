@@ -25,18 +25,15 @@ class CorrectPair(object):
 class CorrectPairBuilder(object):
     def __init__(self) -> None:
         self._correct_pair = CorrectPair()
-
     def source_text(self, source_text: str) -> "CorrectPairBuilder":
         self._correct_pair.source_text = source_text
         return self
-
     def target_text(self, target_text: str) -> "CorrectPairBuilder":
         self._correct_pair.target_text = target_text
         return self
-
     def total(self, total: int) -> "CorrectPairBuilder":
         self._correct_pair.total = total
         return self
-
+    
     def build(self) -> "CorrectPair":
         return self._correct_pair

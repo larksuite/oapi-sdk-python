@@ -21,10 +21,9 @@ class Rating(object):
 class RatingBuilder(object):
     def __init__(self) -> None:
         self._rating = Rating()
-
     def symbol(self, symbol: str) -> "RatingBuilder":
         self._rating.symbol = symbol
         return self
-
+    
     def build(self) -> "Rating":
         return self._rating

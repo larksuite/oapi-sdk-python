@@ -26,18 +26,15 @@ class SearchWebsiteJobPostResponseBody(object):
 class SearchWebsiteJobPostResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_website_job_post_response_body = SearchWebsiteJobPostResponseBody()
-
     def items(self, items: List[WebsiteJobPost]) -> "SearchWebsiteJobPostResponseBodyBuilder":
         self._search_website_job_post_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "SearchWebsiteJobPostResponseBodyBuilder":
         self._search_website_job_post_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "SearchWebsiteJobPostResponseBodyBuilder":
         self._search_website_job_post_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "SearchWebsiteJobPostResponseBody":
         return self._search_website_job_post_response_body

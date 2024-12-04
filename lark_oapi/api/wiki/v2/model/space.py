@@ -31,30 +31,24 @@ class Space(object):
 class SpaceBuilder(object):
     def __init__(self) -> None:
         self._space = Space()
-
     def name(self, name: str) -> "SpaceBuilder":
         self._space.name = name
         return self
-
     def description(self, description: str) -> "SpaceBuilder":
         self._space.description = description
         return self
-
     def space_id(self, space_id: str) -> "SpaceBuilder":
         self._space.space_id = space_id
         return self
-
     def space_type(self, space_type: str) -> "SpaceBuilder":
         self._space.space_type = space_type
         return self
-
     def visibility(self, visibility: str) -> "SpaceBuilder":
         self._space.visibility = visibility
         return self
-
     def open_sharing(self, open_sharing: str) -> "SpaceBuilder":
         self._space.open_sharing = open_sharing
         return self
-
+    
     def build(self) -> "Space":
         return self._space

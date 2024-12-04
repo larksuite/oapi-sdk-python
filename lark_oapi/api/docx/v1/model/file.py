@@ -25,18 +25,15 @@ class File(object):
 class FileBuilder(object):
     def __init__(self) -> None:
         self._file = File()
-
     def token(self, token: str) -> "FileBuilder":
         self._file.token = token
         return self
-
     def name(self, name: str) -> "FileBuilder":
         self._file.name = name
         return self
-
     def view_type(self, view_type: int) -> "FileBuilder":
         self._file.view_type = view_type
         return self
-
+    
     def build(self) -> "File":
         return self._file

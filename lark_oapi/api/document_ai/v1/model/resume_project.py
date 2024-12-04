@@ -33,34 +33,27 @@ class ResumeProject(object):
 class ResumeProjectBuilder(object):
     def __init__(self) -> None:
         self._resume_project = ResumeProject()
-
     def name(self, name: str) -> "ResumeProjectBuilder":
         self._resume_project.name = name
         return self
-
     def title(self, title: str) -> "ResumeProjectBuilder":
         self._resume_project.title = title
         return self
-
     def start_date(self, start_date: str) -> "ResumeProjectBuilder":
         self._resume_project.start_date = start_date
         return self
-
     def start_time(self, start_time: str) -> "ResumeProjectBuilder":
         self._resume_project.start_time = start_time
         return self
-
     def end_date(self, end_date: str) -> "ResumeProjectBuilder":
         self._resume_project.end_date = end_date
         return self
-
     def end_time(self, end_time: str) -> "ResumeProjectBuilder":
         self._resume_project.end_time = end_time
         return self
-
     def description(self, description: str) -> "ResumeProjectBuilder":
         self._resume_project.description = description
         return self
-
+    
     def build(self) -> "ResumeProject":
         return self._resume_project

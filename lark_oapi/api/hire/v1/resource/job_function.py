@@ -30,26 +30,30 @@ class JobFunction(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListJobFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobFunctionResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListJobFunctionRequest,
-                    option: Optional[RequestOption] = None) -> ListJobFunctionResponse:
+    async def alist(self, request: ListJobFunctionRequest, option: Optional[RequestOption] = None) -> ListJobFunctionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListJobFunctionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobFunctionResponse)
         response.raw = resp
 
         return response
+        
+    

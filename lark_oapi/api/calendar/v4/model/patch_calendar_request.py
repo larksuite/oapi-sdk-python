@@ -25,12 +25,12 @@ class PatchCalendarRequestBuilder(object):
         patch_calendar_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id"
         patch_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._patch_calendar_request: PatchCalendarRequest = patch_calendar_request
-
+    
     def calendar_id(self, calendar_id: str) -> "PatchCalendarRequestBuilder":
         self._patch_calendar_request.calendar_id = calendar_id
         self._patch_calendar_request.paths["calendar_id"] = str(calendar_id)
         return self
-
+    
     def request_body(self, request_body: Calendar) -> "PatchCalendarRequestBuilder":
         self._patch_calendar_request.request_body = request_body
         self._patch_calendar_request.body = request_body

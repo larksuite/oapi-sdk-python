@@ -22,10 +22,9 @@ class ManageableInstanceItem(object):
 class ManageableInstanceItemBuilder(object):
     def __init__(self) -> None:
         self._manageable_instance_item = ManageableInstanceItem()
-
     def instance(self, instance: ManageableInstanceNode) -> "ManageableInstanceItemBuilder":
         self._manageable_instance_item.instance = instance
         return self
-
+    
     def build(self) -> "ManageableInstanceItem":
         return self._manageable_instance_item

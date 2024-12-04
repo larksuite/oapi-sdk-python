@@ -23,13 +23,12 @@ class DeleteTicketCustomizedFieldRequestBuilder(object):
         delete_ticket_customized_field_request.uri = "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
         delete_ticket_customized_field_request.token_types = {AccessTokenType.USER}
         self._delete_ticket_customized_field_request: DeleteTicketCustomizedFieldRequest = delete_ticket_customized_field_request
-
-    def ticket_customized_field_id(self,
-                                   ticket_customized_field_id: str) -> "DeleteTicketCustomizedFieldRequestBuilder":
+    
+    def ticket_customized_field_id(self, ticket_customized_field_id: str) -> "DeleteTicketCustomizedFieldRequestBuilder":
         self._delete_ticket_customized_field_request.ticket_customized_field_id = ticket_customized_field_id
-        self._delete_ticket_customized_field_request.paths["ticket_customized_field_id"] = str(
-            ticket_customized_field_id)
+        self._delete_ticket_customized_field_request.paths["ticket_customized_field_id"] = str(ticket_customized_field_id)
         return self
+    
 
     def build(self) -> DeleteTicketCustomizedFieldRequest:
         return self._delete_ticket_customized_field_request

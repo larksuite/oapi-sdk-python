@@ -23,14 +23,12 @@ class UserStatsDataFeature(object):
 class UserStatsDataFeatureBuilder(object):
     def __init__(self) -> None:
         self._user_stats_data_feature = UserStatsDataFeature()
-
     def key(self, key: str) -> "UserStatsDataFeatureBuilder":
         self._user_stats_data_feature.key = key
         return self
-
     def value(self, value: str) -> "UserStatsDataFeatureBuilder":
         self._user_stats_data_feature.value = value
         return self
-
+    
     def build(self) -> "UserStatsDataFeature":
         return self._user_stats_data_feature

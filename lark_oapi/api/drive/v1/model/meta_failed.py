@@ -23,14 +23,12 @@ class MetaFailed(object):
 class MetaFailedBuilder(object):
     def __init__(self) -> None:
         self._meta_failed = MetaFailed()
-
     def token(self, token: str) -> "MetaFailedBuilder":
         self._meta_failed.token = token
         return self
-
     def code(self, code: int) -> "MetaFailedBuilder":
         self._meta_failed.code = code
         return self
-
+    
     def build(self) -> "MetaFailed":
         return self._meta_failed

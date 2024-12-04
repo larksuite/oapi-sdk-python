@@ -28,22 +28,18 @@ class TalentSnsInfo(object):
 class TalentSnsInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_sns_info = TalentSnsInfo()
-
     def id(self, id: str) -> "TalentSnsInfoBuilder":
         self._talent_sns_info.id = id
         return self
-
     def sns_type(self, sns_type: int) -> "TalentSnsInfoBuilder":
         self._talent_sns_info.sns_type = sns_type
         return self
-
     def link(self, link: str) -> "TalentSnsInfoBuilder":
         self._talent_sns_info.link = link
         return self
-
     def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentSnsInfoBuilder":
         self._talent_sns_info.customized_data_list = customized_data_list
         return self
-
+    
     def build(self) -> "TalentSnsInfo":
         return self._talent_sns_info

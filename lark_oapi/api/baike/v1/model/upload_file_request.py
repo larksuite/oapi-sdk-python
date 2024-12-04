@@ -24,7 +24,7 @@ class UploadFileRequestBuilder(object):
         upload_file_request.uri = "/open-apis/baike/v1/files/upload"
         upload_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._upload_file_request: UploadFileRequest = upload_file_request
-
+    
     def request_body(self, request_body: File) -> "UploadFileRequestBuilder":
         self._upload_file_request.request_body = request_body
         self._upload_file_request.body = request_body

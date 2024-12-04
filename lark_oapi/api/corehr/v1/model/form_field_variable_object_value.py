@@ -23,14 +23,12 @@ class FormFieldVariableObjectValue(object):
 class FormFieldVariableObjectValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_object_value = FormFieldVariableObjectValue()
-
     def value(self, value: str) -> "FormFieldVariableObjectValueBuilder":
         self._form_field_variable_object_value.value = value
         return self
-
     def wk_api_name(self, wk_api_name: str) -> "FormFieldVariableObjectValueBuilder":
         self._form_field_variable_object_value.wk_api_name = wk_api_name
         return self
-
+    
     def build(self) -> "FormFieldVariableObjectValue":
         return self._form_field_variable_object_value

@@ -21,10 +21,9 @@ class ParseResumeRequestBody(object):
 class ParseResumeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._parse_resume_request_body = ParseResumeRequestBody()
-
     def file(self, file: IO[Any]) -> "ParseResumeRequestBodyBuilder":
         self._parse_resume_request_body.file = file
         return self
-
+    
     def build(self) -> "ParseResumeRequestBody":
         return self._parse_resume_request_body

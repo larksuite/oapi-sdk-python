@@ -25,18 +25,15 @@ class SpecialFocusUnread(object):
 class SpecialFocusUnreadBuilder(object):
     def __init__(self) -> None:
         self._special_focus_unread = SpecialFocusUnread()
-
     def id(self, id: str) -> "SpecialFocusUnreadBuilder":
         self._special_focus_unread.id = id
         return self
-
     def id_type(self, id_type: str) -> "SpecialFocusUnreadBuilder":
         self._special_focus_unread.id_type = id_type
         return self
-
     def unread_count(self, unread_count: str) -> "SpecialFocusUnreadBuilder":
         self._special_focus_unread.unread_count = unread_count
         return self
-
+    
     def build(self) -> "SpecialFocusUnread":
         return self._special_focus_unread

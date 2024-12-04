@@ -24,14 +24,12 @@ class CreateGroupRequestBody(object):
 class CreateGroupRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_group_request_body = CreateGroupRequestBody()
-
     def group(self, group: Group) -> "CreateGroupRequestBodyBuilder":
         self._create_group_request_body.group = group
         return self
-
     def operator_id(self, operator_id: str) -> "CreateGroupRequestBodyBuilder":
         self._create_group_request_body.operator_id = operator_id
         return self
-
+    
     def build(self) -> "CreateGroupRequestBody":
         return self._create_group_request_body

@@ -24,14 +24,12 @@ class MetaRequest(object):
 class MetaRequestBuilder(object):
     def __init__(self) -> None:
         self._meta_request = MetaRequest()
-
     def request_docs(self, request_docs: List[RequestDoc]) -> "MetaRequestBuilder":
         self._meta_request.request_docs = request_docs
         return self
-
     def with_url(self, with_url: bool) -> "MetaRequestBuilder":
         self._meta_request.with_url = with_url
         return self
-
+    
     def build(self) -> "MetaRequest":
         return self._meta_request

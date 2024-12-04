@@ -23,14 +23,12 @@ class UpdateTaskCommentRequestBody(object):
 class UpdateTaskCommentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_task_comment_request_body = UpdateTaskCommentRequestBody()
-
     def content(self, content: str) -> "UpdateTaskCommentRequestBodyBuilder":
         self._update_task_comment_request_body.content = content
         return self
-
     def rich_content(self, rich_content: str) -> "UpdateTaskCommentRequestBodyBuilder":
         self._update_task_comment_request_body.rich_content = rich_content
         return self
-
+    
     def build(self) -> "UpdateTaskCommentRequestBody":
         return self._update_task_comment_request_body

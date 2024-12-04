@@ -25,18 +25,15 @@ class Nationality(object):
 class NationalityBuilder(object):
     def __init__(self) -> None:
         self._nationality = Nationality()
-
     def nationality_code(self, nationality_code: str) -> "NationalityBuilder":
         self._nationality.nationality_code = nationality_code
         return self
-
     def name(self, name: str) -> "NationalityBuilder":
         self._nationality.name = name
         return self
-
     def en_name(self, en_name: str) -> "NationalityBuilder":
         self._nationality.en_name = en_name
         return self
-
+    
     def build(self) -> "Nationality":
         return self._nationality

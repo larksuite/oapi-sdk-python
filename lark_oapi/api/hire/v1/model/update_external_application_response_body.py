@@ -22,11 +22,9 @@ class UpdateExternalApplicationResponseBody(object):
 class UpdateExternalApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_external_application_response_body = UpdateExternalApplicationResponseBody()
-
-    def external_application(self,
-                             external_application: ExternalApplication) -> "UpdateExternalApplicationResponseBodyBuilder":
+    def external_application(self, external_application: ExternalApplication) -> "UpdateExternalApplicationResponseBodyBuilder":
         self._update_external_application_response_body.external_application = external_application
         return self
-
+    
     def build(self) -> "UpdateExternalApplicationResponseBody":
         return self._update_external_application_response_body

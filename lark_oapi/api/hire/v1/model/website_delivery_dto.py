@@ -33,34 +33,27 @@ class WebsiteDeliveryDto(object):
 class WebsiteDeliveryDtoBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_dto = WebsiteDeliveryDto()
-
     def application_id(self, application_id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.application_id = application_id
         return self
-
     def id(self, id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.id = id
         return self
-
     def job_id(self, job_id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.job_id = job_id
         return self
-
     def job_post_id(self, job_post_id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.job_post_id = job_post_id
         return self
-
     def portal_resume_id(self, portal_resume_id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.portal_resume_id = portal_resume_id
         return self
-
     def user_id(self, user_id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.user_id = user_id
         return self
-
     def talent_id(self, talent_id: str) -> "WebsiteDeliveryDtoBuilder":
         self._website_delivery_dto.talent_id = talent_id
         return self
-
+    
     def build(self) -> "WebsiteDeliveryDto":
         return self._website_delivery_dto

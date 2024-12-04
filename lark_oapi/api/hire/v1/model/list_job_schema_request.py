@@ -25,21 +25,22 @@ class ListJobSchemaRequestBuilder(object):
         list_job_schema_request.uri = "/open-apis/hire/v1/job_schemas"
         list_job_schema_request.token_types = {AccessTokenType.TENANT}
         self._list_job_schema_request: ListJobSchemaRequest = list_job_schema_request
-
+    
     def page_token(self, page_token: str) -> "ListJobSchemaRequestBuilder":
         self._list_job_schema_request.page_token = page_token
         self._list_job_schema_request.add_query("page_token", page_token)
         return self
-
+    
     def page_size(self, page_size: int) -> "ListJobSchemaRequestBuilder":
         self._list_job_schema_request.page_size = page_size
         self._list_job_schema_request.add_query("page_size", page_size)
         return self
-
+    
     def scenario(self, scenario: int) -> "ListJobSchemaRequestBuilder":
         self._list_job_schema_request.scenario = scenario
         self._list_job_schema_request.add_query("scenario", scenario)
         return self
+    
 
     def build(self) -> ListJobSchemaRequest:
         return self._list_job_schema_request

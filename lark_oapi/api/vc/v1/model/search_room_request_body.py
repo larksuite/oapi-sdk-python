@@ -31,30 +31,24 @@ class SearchRoomRequestBody(object):
 class SearchRoomRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_room_request_body = SearchRoomRequestBody()
-
     def custom_room_ids(self, custom_room_ids: List[str]) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.custom_room_ids = custom_room_ids
         return self
-
     def keyword(self, keyword: str) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.keyword = keyword
         return self
-
     def room_level_id(self, room_level_id: str) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.room_level_id = room_level_id
         return self
-
     def search_level_name(self, search_level_name: bool) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.search_level_name = search_level_name
         return self
-
     def page_size(self, page_size: int) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.page_size = page_size
         return self
-
     def page_token(self, page_token: str) -> "SearchRoomRequestBodyBuilder":
         self._search_room_request_body.page_token = page_token
         return self
-
+    
     def build(self) -> "SearchRoomRequestBody":
         return self._search_room_request_body

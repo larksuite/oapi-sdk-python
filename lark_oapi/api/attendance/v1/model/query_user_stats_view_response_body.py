@@ -22,10 +22,9 @@ class QueryUserStatsViewResponseBody(object):
 class QueryUserStatsViewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_stats_view_response_body = QueryUserStatsViewResponseBody()
-
     def view(self, view: UserStatsView) -> "QueryUserStatsViewResponseBodyBuilder":
         self._query_user_stats_view_response_body.view = view
         return self
-
+    
     def build(self) -> "QueryUserStatsViewResponseBody":
         return self._query_user_stats_view_response_body

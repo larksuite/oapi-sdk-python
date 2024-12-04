@@ -27,18 +27,15 @@ class RagAnswerResponse(object):
 class RagAnswerResponseBuilder(object):
     def __init__(self) -> None:
         self._rag_answer_response = RagAnswerResponse()
-
     def answer(self, answer: str) -> "RagAnswerResponseBuilder":
         self._rag_answer_response.answer = answer
         return self
-
     def passages(self, passages: List[Passage]) -> "RagAnswerResponseBuilder":
         self._rag_answer_response.passages = passages
         return self
-
     def probe(self, probe: RagProbe) -> "RagAnswerResponseBuilder":
         self._rag_answer_response.probe = probe
         return self
-
+    
     def build(self) -> "RagAnswerResponse":
         return self._rag_answer_response

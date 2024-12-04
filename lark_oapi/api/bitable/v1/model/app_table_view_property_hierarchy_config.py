@@ -21,10 +21,9 @@ class AppTableViewPropertyHierarchyConfig(object):
 class AppTableViewPropertyHierarchyConfigBuilder(object):
     def __init__(self) -> None:
         self._app_table_view_property_hierarchy_config = AppTableViewPropertyHierarchyConfig()
-
     def field_id(self, field_id: str) -> "AppTableViewPropertyHierarchyConfigBuilder":
         self._app_table_view_property_hierarchy_config.field_id = field_id
         return self
-
+    
     def build(self) -> "AppTableViewPropertyHierarchyConfig":
         return self._app_table_view_property_hierarchy_config

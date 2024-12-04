@@ -21,10 +21,9 @@ class MailgroupManager(object):
 class MailgroupManagerBuilder(object):
     def __init__(self) -> None:
         self._mailgroup_manager = MailgroupManager()
-
     def user_id(self, user_id: str) -> "MailgroupManagerBuilder":
         self._mailgroup_manager.user_id = user_id
         return self
-
+    
     def build(self) -> "MailgroupManager":
         return self._mailgroup_manager

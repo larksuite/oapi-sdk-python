@@ -25,12 +25,12 @@ class CreateLocationRequestBuilder(object):
         create_location_request.uri = "/open-apis/corehr/v1/locations"
         create_location_request.token_types = {AccessTokenType.TENANT}
         self._create_location_request: CreateLocationRequest = create_location_request
-
+    
     def client_token(self, client_token: str) -> "CreateLocationRequestBuilder":
         self._create_location_request.client_token = client_token
         self._create_location_request.add_query("client_token", client_token)
         return self
-
+    
     def request_body(self, request_body: Location) -> "CreateLocationRequestBuilder":
         self._create_location_request.request_body = request_body
         self._create_location_request.body = request_body

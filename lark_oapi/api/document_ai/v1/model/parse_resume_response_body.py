@@ -22,10 +22,9 @@ class ParseResumeResponseBody(object):
 class ParseResumeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._parse_resume_response_body = ParseResumeResponseBody()
-
     def resumes(self, resumes: List[Resume]) -> "ParseResumeResponseBodyBuilder":
         self._parse_resume_response_body.resumes = resumes
         return self
-
+    
     def build(self) -> "ParseResumeResponseBody":
         return self._parse_resume_response_body

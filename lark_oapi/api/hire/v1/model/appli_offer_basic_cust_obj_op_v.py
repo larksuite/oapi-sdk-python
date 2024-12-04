@@ -23,14 +23,12 @@ class AppliOfferBasicCustObjOpV(object):
 class AppliOfferBasicCustObjOpVBuilder(object):
     def __init__(self) -> None:
         self._appli_offer_basic_cust_obj_op_v = AppliOfferBasicCustObjOpV()
-
     def zh_cn(self, zh_cn: str) -> "AppliOfferBasicCustObjOpVBuilder":
         self._appli_offer_basic_cust_obj_op_v.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "AppliOfferBasicCustObjOpVBuilder":
         self._appli_offer_basic_cust_obj_op_v.en_us = en_us
         return self
-
+    
     def build(self) -> "AppliOfferBasicCustObjOpV":
         return self._appli_offer_basic_cust_obj_op_v

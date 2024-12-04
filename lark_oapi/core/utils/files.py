@@ -1,5 +1,6 @@
-import cgi
 import io
+from email.message import Message
+from email.policy import default
 from typing import Any, Dict, Optional
 
 from lark_oapi.core import Content_Disposition
@@ -8,12 +9,19 @@ from lark_oapi.core import Content_Disposition
 class Files(object):
     @staticmethod
     def parse_file_name(headers: Dict[str, str]) -> Optional[str]:
-        media_type = headers.get(Content_Disposition)
-        if media_type is None:
+        content_disposition = headers.get(Content_Disposition)
+        if content_disposition is None:
             return None
-        _, params = cgi.parse_header(media_type)
-        file_name = params["filename"]
-        return file_name.encode('ISO-8859-1').decode()
+
+        message = Message(policy=default)
+        message[Content_Disposition] = content_disposition
+
+        params = dict(message.get_params(header=Content_Disposition, unquote=True))
+
+        file_name = params.get("filename")
+        if file_name is not None:
+            return file_name.encode('ISO-8859-1').decode()
+        return None
 
     @staticmethod
     def parse_form_data(obj: Any) -> Dict[str, Any]:

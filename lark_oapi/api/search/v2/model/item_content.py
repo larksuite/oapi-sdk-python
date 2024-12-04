@@ -23,14 +23,12 @@ class ItemContent(object):
 class ItemContentBuilder(object):
     def __init__(self) -> None:
         self._item_content = ItemContent()
-
     def format(self, format: str) -> "ItemContentBuilder":
         self._item_content.format = format
         return self
-
     def content_data(self, content_data: str) -> "ItemContentBuilder":
         self._item_content.content_data = content_data
         return self
-
+    
     def build(self) -> "ItemContent":
         return self._item_content

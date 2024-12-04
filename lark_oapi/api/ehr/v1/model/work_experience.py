@@ -31,30 +31,24 @@ class WorkExperience(object):
 class WorkExperienceBuilder(object):
     def __init__(self) -> None:
         self._work_experience = WorkExperience()
-
     def company(self, company: str) -> "WorkExperienceBuilder":
         self._work_experience.company = company
         return self
-
     def department(self, department: str) -> "WorkExperienceBuilder":
         self._work_experience.department = department
         return self
-
     def job(self, job: str) -> "WorkExperienceBuilder":
         self._work_experience.job = job
         return self
-
     def start(self, start: str) -> "WorkExperienceBuilder":
         self._work_experience.start = start
         return self
-
     def end(self, end: str) -> "WorkExperienceBuilder":
         self._work_experience.end = end
         return self
-
     def description(self, description: str) -> "WorkExperienceBuilder":
         self._work_experience.description = description
         return self
-
+    
     def build(self) -> "WorkExperience":
         return self._work_experience

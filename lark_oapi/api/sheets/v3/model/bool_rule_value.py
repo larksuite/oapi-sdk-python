@@ -27,22 +27,18 @@ class BoolRuleValue(object):
 class BoolRuleValueBuilder(object):
     def __init__(self) -> None:
         self._bool_rule_value = BoolRuleValue()
-
     def type(self, type: str) -> "BoolRuleValueBuilder":
         self._bool_rule_value.type = type
         return self
-
     def number(self, number: str) -> "BoolRuleValueBuilder":
         self._bool_rule_value.number = number
         return self
-
     def text(self, text: str) -> "BoolRuleValueBuilder":
         self._bool_rule_value.text = text
         return self
-
     def time_period(self, time_period: str) -> "BoolRuleValueBuilder":
         self._bool_rule_value.time_period = time_period
         return self
-
+    
     def build(self) -> "BoolRuleValue":
         return self._bool_rule_value

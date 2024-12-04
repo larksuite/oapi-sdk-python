@@ -23,14 +23,12 @@ class DeleteRecord(object):
 class DeleteRecordBuilder(object):
     def __init__(self) -> None:
         self._delete_record = DeleteRecord()
-
     def deleted(self, deleted: bool) -> "DeleteRecordBuilder":
         self._delete_record.deleted = deleted
         return self
-
     def record_id(self, record_id: str) -> "DeleteRecordBuilder":
         self._delete_record.record_id = record_id
         return self
-
+    
     def build(self) -> "DeleteRecord":
         return self._delete_record

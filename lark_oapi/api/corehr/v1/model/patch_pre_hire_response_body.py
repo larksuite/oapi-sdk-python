@@ -22,10 +22,9 @@ class PatchPreHireResponseBody(object):
 class PatchPreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_pre_hire_response_body = PatchPreHireResponseBody()
-
     def pre_hire(self, pre_hire: PreHire) -> "PatchPreHireResponseBodyBuilder":
         self._patch_pre_hire_response_body.pre_hire = pre_hire
         return self
-
+    
     def build(self) -> "PatchPreHireResponseBody":
         return self._patch_pre_hire_response_body

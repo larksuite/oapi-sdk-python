@@ -25,14 +25,13 @@ class SubmitApproveNotificationRequestBuilder(object):
         submit_approve_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id/submit_approve"
         submit_approve_notification_request.token_types = {AccessTokenType.USER}
         self._submit_approve_notification_request: SubmitApproveNotificationRequest = submit_approve_notification_request
-
+    
     def notification_id(self, notification_id: str) -> "SubmitApproveNotificationRequestBuilder":
         self._submit_approve_notification_request.notification_id = notification_id
         self._submit_approve_notification_request.paths["notification_id"] = str(notification_id)
         return self
-
-    def request_body(self,
-                     request_body: SubmitApproveNotificationRequestBody) -> "SubmitApproveNotificationRequestBuilder":
+    
+    def request_body(self, request_body: SubmitApproveNotificationRequestBody) -> "SubmitApproveNotificationRequestBuilder":
         self._submit_approve_notification_request.request_body = request_body
         self._submit_approve_notification_request.body = request_body
         return self

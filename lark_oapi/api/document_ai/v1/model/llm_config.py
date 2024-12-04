@@ -36,38 +36,30 @@ class LlmConfig(object):
 class LlmConfigBuilder(object):
     def __init__(self) -> None:
         self._llm_config = LlmConfig()
-
     def model(self, model: str) -> "LlmConfigBuilder":
         self._llm_config.model = model
         return self
-
     def messages(self, messages: List[LlmMessage]) -> "LlmConfigBuilder":
         self._llm_config.messages = messages
         return self
-
     def max_tokens(self, max_tokens: int) -> "LlmConfigBuilder":
         self._llm_config.max_tokens = max_tokens
         return self
-
     def message_type(self, message_type: str) -> "LlmConfigBuilder":
         self._llm_config.message_type = message_type
         return self
-
     def n(self, n: int) -> "LlmConfigBuilder":
         self._llm_config.n = n
         return self
-
     def temperature(self, temperature: float) -> "LlmConfigBuilder":
         self._llm_config.temperature = temperature
         return self
-
     def presence_penalty(self, presence_penalty: float) -> "LlmConfigBuilder":
         self._llm_config.presence_penalty = presence_penalty
         return self
-
     def frequency_penalty(self, frequency_penalty: float) -> "LlmConfigBuilder":
         self._llm_config.frequency_penalty = frequency_penalty
         return self
-
+    
     def build(self) -> "LlmConfig":
         return self._llm_config

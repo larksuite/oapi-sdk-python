@@ -22,10 +22,9 @@ class BatchCreateUserFlowRequestBody(object):
 class BatchCreateUserFlowRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_user_flow_request_body = BatchCreateUserFlowRequestBody()
-
     def flow_records(self, flow_records: List[UserFlow]) -> "BatchCreateUserFlowRequestBodyBuilder":
         self._batch_create_user_flow_request_body.flow_records = flow_records
         return self
-
+    
     def build(self) -> "BatchCreateUserFlowRequestBody":
         return self._batch_create_user_flow_request_body

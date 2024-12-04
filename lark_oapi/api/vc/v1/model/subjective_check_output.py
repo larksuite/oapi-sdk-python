@@ -28,23 +28,18 @@ class SubjectiveCheckOutput(object):
 class SubjectiveCheckOutputBuilder(object):
     def __init__(self) -> None:
         self._subjective_check_output = SubjectiveCheckOutput()
-
     def keypoints(self, keypoints: List[str]) -> "SubjectiveCheckOutputBuilder":
         self._subjective_check_output.keypoints = keypoints
         return self
-
-    def key_point_match_details(self,
-                                key_point_match_details: List[KeyPointMatchDetails]) -> "SubjectiveCheckOutputBuilder":
+    def key_point_match_details(self, key_point_match_details: List[KeyPointMatchDetails]) -> "SubjectiveCheckOutputBuilder":
         self._subjective_check_output.key_point_match_details = key_point_match_details
         return self
-
     def user_prompt_outputs(self, user_prompt_outputs: List[str]) -> "SubjectiveCheckOutputBuilder":
         self._subjective_check_output.user_prompt_outputs = user_prompt_outputs
         return self
-
     def status_code(self, status_code: int) -> "SubjectiveCheckOutputBuilder":
         self._subjective_check_output.status_code = status_code
         return self
-
+    
     def build(self) -> "SubjectiveCheckOutput":
         return self._subjective_check_output

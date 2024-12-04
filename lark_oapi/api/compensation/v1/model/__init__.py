@@ -3,6 +3,7 @@ from .archive import *
 from .archive_detail import *
 from .archive_indicator import *
 from .archive_item import *
+from .archive_item_value import *
 from .change_reason import *
 from .department_id import *
 from .formula import *

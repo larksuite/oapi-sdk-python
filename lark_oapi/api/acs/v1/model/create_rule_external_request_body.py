@@ -22,10 +22,9 @@ class CreateRuleExternalRequestBody(object):
 class CreateRuleExternalRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_rule_external_request_body = CreateRuleExternalRequestBody()
-
     def rule(self, rule: Rule) -> "CreateRuleExternalRequestBodyBuilder":
         self._create_rule_external_request_body.rule = rule
         return self
-
+    
     def build(self) -> "CreateRuleExternalRequestBody":
         return self._create_rule_external_request_body

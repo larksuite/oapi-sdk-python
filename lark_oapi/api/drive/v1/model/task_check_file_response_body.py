@@ -21,10 +21,9 @@ class TaskCheckFileResponseBody(object):
 class TaskCheckFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._task_check_file_response_body = TaskCheckFileResponseBody()
-
     def status(self, status: str) -> "TaskCheckFileResponseBodyBuilder":
         self._task_check_file_response_body.status = status
         return self
-
+    
     def build(self) -> "TaskCheckFileResponseBody":
         return self._task_check_file_response_body

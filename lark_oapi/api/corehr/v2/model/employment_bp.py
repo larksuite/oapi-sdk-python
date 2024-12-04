@@ -25,18 +25,15 @@ class EmploymentBp(object):
 class EmploymentBpBuilder(object):
     def __init__(self) -> None:
         self._employment_bp = EmploymentBp()
-
     def employment_id(self, employment_id: str) -> "EmploymentBpBuilder":
         self._employment_bp.employment_id = employment_id
         return self
-
     def hrbp_ids(self, hrbp_ids: List[str]) -> "EmploymentBpBuilder":
         self._employment_bp.hrbp_ids = hrbp_ids
         return self
-
     def location_bp_ids(self, location_bp_ids: List[str]) -> "EmploymentBpBuilder":
         self._employment_bp.location_bp_ids = location_bp_ids
         return self
-
+    
     def build(self) -> "EmploymentBp":
         return self._employment_bp

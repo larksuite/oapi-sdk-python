@@ -23,14 +23,12 @@ class ObjectiveIdWithKrId(object):
 class ObjectiveIdWithKrIdBuilder(object):
     def __init__(self) -> None:
         self._objective_id_with_kr_id = ObjectiveIdWithKrId()
-
     def objective_id(self, objective_id: int) -> "ObjectiveIdWithKrIdBuilder":
         self._objective_id_with_kr_id.objective_id = objective_id
         return self
-
     def kr_ids(self, kr_ids: List[int]) -> "ObjectiveIdWithKrIdBuilder":
         self._objective_id_with_kr_id.kr_ids = kr_ids
         return self
-
+    
     def build(self) -> "ObjectiveIdWithKrId":
         return self._objective_id_with_kr_id

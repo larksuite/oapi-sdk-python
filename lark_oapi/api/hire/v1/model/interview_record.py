@@ -16,6 +16,8 @@ class InterviewRecord(object):
         "id": str,
         "user_id": str,
         "content": str,
+        "min_job_level_id": str,
+        "max_job_level_id": str,
         "commit_status": int,
         "feedback_submit_time": int,
         "conclusion": int,
@@ -32,6 +34,8 @@ class InterviewRecord(object):
         self.id: Optional[str] = None
         self.user_id: Optional[str] = None
         self.content: Optional[str] = None
+        self.min_job_level_id: Optional[str] = None
+        self.max_job_level_id: Optional[str] = None
         self.commit_status: Optional[int] = None
         self.feedback_submit_time: Optional[int] = None
         self.conclusion: Optional[int] = None
@@ -52,59 +56,51 @@ class InterviewRecord(object):
 class InterviewRecordBuilder(object):
     def __init__(self) -> None:
         self._interview_record = InterviewRecord()
-
     def id(self, id: str) -> "InterviewRecordBuilder":
         self._interview_record.id = id
         return self
-
     def user_id(self, user_id: str) -> "InterviewRecordBuilder":
         self._interview_record.user_id = user_id
         return self
-
     def content(self, content: str) -> "InterviewRecordBuilder":
         self._interview_record.content = content
         return self
-
+    def min_job_level_id(self, min_job_level_id: str) -> "InterviewRecordBuilder":
+        self._interview_record.min_job_level_id = min_job_level_id
+        return self
+    def max_job_level_id(self, max_job_level_id: str) -> "InterviewRecordBuilder":
+        self._interview_record.max_job_level_id = max_job_level_id
+        return self
     def commit_status(self, commit_status: int) -> "InterviewRecordBuilder":
         self._interview_record.commit_status = commit_status
         return self
-
     def feedback_submit_time(self, feedback_submit_time: int) -> "InterviewRecordBuilder":
         self._interview_record.feedback_submit_time = feedback_submit_time
         return self
-
     def conclusion(self, conclusion: int) -> "InterviewRecordBuilder":
         self._interview_record.conclusion = conclusion
         return self
-
     def interview_score(self, interview_score: InterviewScore) -> "InterviewRecordBuilder":
         self._interview_record.interview_score = interview_score
         return self
-
     def assessment_score(self, assessment_score: AssessmentScoreInfo) -> "InterviewRecordBuilder":
         self._interview_record.assessment_score = assessment_score
         return self
-
     def question_list(self, question_list: List[InterviewQuestion]) -> "InterviewRecordBuilder":
         self._interview_record.question_list = question_list
         return self
-
     def code_question_list(self, code_question_list: List[InterviewQuestion]) -> "InterviewRecordBuilder":
         self._interview_record.code_question_list = code_question_list
         return self
-
     def interviewer(self, interviewer: IdNameObject) -> "InterviewRecordBuilder":
         self._interview_record.interviewer = interviewer
         return self
-
     def image_list(self, image_list: List[AttachmentV2]) -> "InterviewRecordBuilder":
         self._interview_record.image_list = image_list
         return self
-
-    def dimension_assessment_list(self, dimension_assessment_list: List[
-        InterviewDimensionAssessment]) -> "InterviewRecordBuilder":
+    def dimension_assessment_list(self, dimension_assessment_list: List[InterviewDimensionAssessment]) -> "InterviewRecordBuilder":
         self._interview_record.dimension_assessment_list = dimension_assessment_list
         return self
-
+    
     def build(self) -> "InterviewRecord":
         return self._interview_record

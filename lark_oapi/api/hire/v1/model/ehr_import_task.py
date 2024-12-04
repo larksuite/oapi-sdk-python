@@ -25,18 +25,15 @@ class EhrImportTask(object):
 class EhrImportTaskBuilder(object):
     def __init__(self) -> None:
         self._ehr_import_task = EhrImportTask()
-
     def fail_reason(self, fail_reason: str) -> "EhrImportTaskBuilder":
         self._ehr_import_task.fail_reason = fail_reason
         return self
-
     def redirect_url(self, redirect_url: str) -> "EhrImportTaskBuilder":
         self._ehr_import_task.redirect_url = redirect_url
         return self
-
     def state(self, state: int) -> "EhrImportTaskBuilder":
         self._ehr_import_task.state = state
         return self
-
+    
     def build(self) -> "EhrImportTask":
         return self._ehr_import_task

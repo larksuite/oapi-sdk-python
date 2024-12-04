@@ -23,14 +23,12 @@ class FieldGroup(object):
 class FieldGroupBuilder(object):
     def __init__(self) -> None:
         self._field_group = FieldGroup()
-
     def writable(self, writable: List[str]) -> "FieldGroupBuilder":
         self._field_group.writable = writable
         return self
-
     def readable(self, readable: List[str]) -> "FieldGroupBuilder":
         self._field_group.readable = readable
         return self
-
+    
     def build(self) -> "FieldGroup":
         return self._field_group

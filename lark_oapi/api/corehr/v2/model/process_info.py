@@ -23,14 +23,12 @@ class ProcessInfo(object):
 class ProcessInfoBuilder(object):
     def __init__(self) -> None:
         self._process_info = ProcessInfo()
-
     def process_id(self, process_id: str) -> "ProcessInfoBuilder":
         self._process_info.process_id = process_id
         return self
-
     def approval_group_status(self, approval_group_status: str) -> "ProcessInfoBuilder":
         self._process_info.approval_group_status = approval_group_status
         return self
-
+    
     def build(self) -> "ProcessInfo":
         return self._process_info

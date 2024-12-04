@@ -22,10 +22,9 @@ class PatchJobLevelResponseBody(object):
 class PatchJobLevelResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_job_level_response_body = PatchJobLevelResponseBody()
-
     def job_level(self, job_level: JobLevel) -> "PatchJobLevelResponseBodyBuilder":
         self._patch_job_level_response_body.job_level = job_level
         return self
-
+    
     def build(self) -> "PatchJobLevelResponseBody":
         return self._patch_job_level_response_body

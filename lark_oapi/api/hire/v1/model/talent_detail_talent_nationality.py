@@ -24,14 +24,12 @@ class TalentDetailTalentNationality(object):
 class TalentDetailTalentNationalityBuilder(object):
     def __init__(self) -> None:
         self._talent_detail_talent_nationality = TalentDetailTalentNationality()
-
     def nationality_code(self, nationality_code: str) -> "TalentDetailTalentNationalityBuilder":
         self._talent_detail_talent_nationality.nationality_code = nationality_code
         return self
-
     def name(self, name: I18n) -> "TalentDetailTalentNationalityBuilder":
         self._talent_detail_talent_nationality.name = name
         return self
-
+    
     def build(self) -> "TalentDetailTalentNationality":
         return self._talent_detail_talent_nationality

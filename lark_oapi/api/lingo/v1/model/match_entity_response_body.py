@@ -22,10 +22,9 @@ class MatchEntityResponseBody(object):
 class MatchEntityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._match_entity_response_body = MatchEntityResponseBody()
-
     def results(self, results: List[MatchInfo]) -> "MatchEntityResponseBodyBuilder":
         self._match_entity_response_body.results = results
         return self
-
+    
     def build(self) -> "MatchEntityResponseBody":
         return self._match_entity_response_body

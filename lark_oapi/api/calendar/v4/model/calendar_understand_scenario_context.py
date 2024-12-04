@@ -29,22 +29,18 @@ class CalendarUnderstandScenarioContext(object):
 class CalendarUnderstandScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._calendar_understand_scenario_context = CalendarUnderstandScenarioContext()
-
     def scenario(self, scenario: str) -> "CalendarUnderstandScenarioContextBuilder":
         self._calendar_understand_scenario_context.scenario = scenario
         return self
-
     def work_mode(self, work_mode: int) -> "CalendarUnderstandScenarioContextBuilder":
         self._calendar_understand_scenario_context.work_mode = work_mode
         return self
-
     def extra(self, extra: CalendarUnderstandExtra) -> "CalendarUnderstandScenarioContextBuilder":
         self._calendar_understand_scenario_context.extra = extra
         return self
-
     def system_info(self, system_info: SystemInfo) -> "CalendarUnderstandScenarioContextBuilder":
         self._calendar_understand_scenario_context.system_info = system_info
         return self
-
+    
     def build(self) -> "CalendarUnderstandScenarioContext":
         return self._calendar_understand_scenario_context

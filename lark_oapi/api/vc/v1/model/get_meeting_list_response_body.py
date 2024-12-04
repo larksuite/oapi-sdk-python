@@ -26,18 +26,15 @@ class GetMeetingListResponseBody(object):
 class GetMeetingListResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_meeting_list_response_body = GetMeetingListResponseBody()
-
     def meeting_list(self, meeting_list: List[MeetingInfo]) -> "GetMeetingListResponseBodyBuilder":
         self._get_meeting_list_response_body.meeting_list = meeting_list
         return self
-
     def page_token(self, page_token: str) -> "GetMeetingListResponseBodyBuilder":
         self._get_meeting_list_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "GetMeetingListResponseBodyBuilder":
         self._get_meeting_list_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "GetMeetingListResponseBody":
         return self._get_meeting_list_response_body

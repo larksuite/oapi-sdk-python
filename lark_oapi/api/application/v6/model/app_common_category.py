@@ -23,14 +23,12 @@ class AppCommonCategory(object):
 class AppCommonCategoryBuilder(object):
     def __init__(self) -> None:
         self._app_common_category = AppCommonCategory()
-
     def i18n_key(self, i18n_key: str) -> "AppCommonCategoryBuilder":
         self._app_common_category.i18n_key = i18n_key
         return self
-
     def category(self, category: str) -> "AppCommonCategoryBuilder":
         self._app_common_category.category = category
         return self
-
+    
     def build(self) -> "AppCommonCategory":
         return self._app_common_category

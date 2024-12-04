@@ -26,18 +26,15 @@ class JobDetailLevel(object):
 class JobDetailLevelBuilder(object):
     def __init__(self) -> None:
         self._job_detail_level = JobDetailLevel()
-
     def id(self, id: str) -> "JobDetailLevelBuilder":
         self._job_detail_level.id = id
         return self
-
     def name(self, name: I18n) -> "JobDetailLevelBuilder":
         self._job_detail_level.name = name
         return self
-
     def active_status(self, active_status: int) -> "JobDetailLevelBuilder":
         self._job_detail_level.active_status = active_status
         return self
-
+    
     def build(self) -> "JobDetailLevel":
         return self._job_detail_level

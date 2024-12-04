@@ -25,21 +25,22 @@ class ListPreHireRequestBuilder(object):
         list_pre_hire_request.uri = "/open-apis/corehr/v1/pre_hires"
         list_pre_hire_request.token_types = {AccessTokenType.TENANT}
         self._list_pre_hire_request: ListPreHireRequest = list_pre_hire_request
-
+    
     def page_token(self, page_token: str) -> "ListPreHireRequestBuilder":
         self._list_pre_hire_request.page_token = page_token
         self._list_pre_hire_request.add_query("page_token", page_token)
         return self
-
+    
     def page_size(self, page_size: str) -> "ListPreHireRequestBuilder":
         self._list_pre_hire_request.page_size = page_size
         self._list_pre_hire_request.add_query("page_size", page_size)
         return self
-
+    
     def pre_hire_ids(self, pre_hire_ids: List[str]) -> "ListPreHireRequestBuilder":
         self._list_pre_hire_request.pre_hire_ids = pre_hire_ids
         self._list_pre_hire_request.add_query("pre_hire_ids", pre_hire_ids)
         return self
+    
 
     def build(self) -> ListPreHireRequest:
         return self._list_pre_hire_request

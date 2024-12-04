@@ -22,10 +22,9 @@ class RemoveMembersTaskRequestBody(object):
 class RemoveMembersTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_members_task_request_body = RemoveMembersTaskRequestBody()
-
     def members(self, members: List[Member]) -> "RemoveMembersTaskRequestBodyBuilder":
         self._remove_members_task_request_body.members = members
         return self
-
+    
     def build(self) -> "RemoveMembersTaskRequestBody":
         return self._remove_members_task_request_body

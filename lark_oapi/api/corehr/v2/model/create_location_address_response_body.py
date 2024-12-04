@@ -21,10 +21,9 @@ class CreateLocationAddressResponseBody(object):
 class CreateLocationAddressResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_location_address_response_body = CreateLocationAddressResponseBody()
-
     def address_id(self, address_id: str) -> "CreateLocationAddressResponseBodyBuilder":
         self._create_location_address_response_body.address_id = address_id
         return self
-
+    
     def build(self) -> "CreateLocationAddressResponseBody":
         return self._create_location_address_response_body

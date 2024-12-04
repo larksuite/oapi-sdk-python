@@ -25,12 +25,12 @@ class UploadFileRequestBuilder(object):
         upload_file_request.uri = "/open-apis/attendance/v1/files/upload"
         upload_file_request.token_types = {AccessTokenType.TENANT}
         self._upload_file_request: UploadFileRequest = upload_file_request
-
+    
     def file_name(self, file_name: str) -> "UploadFileRequestBuilder":
         self._upload_file_request.file_name = file_name
         self._upload_file_request.add_query("file_name", file_name)
         return self
-
+    
     def request_body(self, request_body: UploadFileRequestBody) -> "UploadFileRequestBuilder":
         self._upload_file_request.request_body = request_body
         self._upload_file_request.body = request_body

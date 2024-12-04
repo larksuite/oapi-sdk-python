@@ -26,18 +26,15 @@ class SignatureMetaInfo(object):
 class SignatureMetaInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_meta_info = SignatureMetaInfo()
-
     def api_name(self, api_name: str) -> "SignatureMetaInfoBuilder":
         self._signature_meta_info.api_name = api_name
         return self
-
     def wk_id(self, wk_id: str) -> "SignatureMetaInfoBuilder":
         self._signature_meta_info.wk_id = wk_id
         return self
-
     def label(self, label: List[I18n]) -> "SignatureMetaInfoBuilder":
         self._signature_meta_info.label = label
         return self
-
+    
     def build(self) -> "SignatureMetaInfo":
         return self._signature_meta_info

@@ -23,14 +23,12 @@ class WorkforcePlanEaiDetail(object):
 class WorkforcePlanEaiDetailBuilder(object):
     def __init__(self) -> None:
         self._workforce_plan_eai_detail = WorkforcePlanEaiDetail()
-
     def date(self, date: str) -> "WorkforcePlanEaiDetailBuilder":
         self._workforce_plan_eai_detail.date = date
         return self
-
     def estimated_active_individuals(self, estimated_active_individuals: str) -> "WorkforcePlanEaiDetailBuilder":
         self._workforce_plan_eai_detail.estimated_active_individuals = estimated_active_individuals
         return self
-
+    
     def build(self) -> "WorkforcePlanEaiDetail":
         return self._workforce_plan_eai_detail

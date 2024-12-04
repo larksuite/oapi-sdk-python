@@ -21,10 +21,9 @@ class MyAiVcMeetingSuggestQuestionResult(object):
 class MyAiVcMeetingSuggestQuestionResultBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_meeting_suggest_question_result = MyAiVcMeetingSuggestQuestionResult()
-
     def present(self, present: str) -> "MyAiVcMeetingSuggestQuestionResultBuilder":
         self._my_ai_vc_meeting_suggest_question_result.present = present
         return self
-
+    
     def build(self) -> "MyAiVcMeetingSuggestQuestionResult":
         return self._my_ai_vc_meeting_suggest_question_result

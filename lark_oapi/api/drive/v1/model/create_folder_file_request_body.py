@@ -23,14 +23,12 @@ class CreateFolderFileRequestBody(object):
 class CreateFolderFileRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_folder_file_request_body = CreateFolderFileRequestBody()
-
     def name(self, name: str) -> "CreateFolderFileRequestBodyBuilder":
         self._create_folder_file_request_body.name = name
         return self
-
     def folder_token(self, folder_token: str) -> "CreateFolderFileRequestBodyBuilder":
         self._create_folder_file_request_body.folder_token = folder_token
         return self
-
+    
     def build(self) -> "CreateFolderFileRequestBody":
         return self._create_folder_file_request_body

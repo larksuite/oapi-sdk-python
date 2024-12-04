@@ -23,14 +23,12 @@ class FieldVariableValueToObject(object):
 class FieldVariableValueToObjectBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_to_object = FieldVariableValueToObject()
-
     def wk_id(self, wk_id: str) -> "FieldVariableValueToObjectBuilder":
         self._field_variable_value_to_object.wk_id = wk_id
         return self
-
     def wk_api_name(self, wk_api_name: str) -> "FieldVariableValueToObjectBuilder":
         self._field_variable_value_to_object.wk_api_name = wk_api_name
         return self
-
+    
     def build(self) -> "FieldVariableValueToObject":
         return self._field_variable_value_to_object

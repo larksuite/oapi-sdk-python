@@ -28,27 +28,27 @@ class PatchEmploymentRequestBuilder(object):
         patch_employment_request.uri = "/open-apis/corehr/v1/employments/:employment_id"
         patch_employment_request.token_types = {AccessTokenType.TENANT}
         self._patch_employment_request: PatchEmploymentRequest = patch_employment_request
-
+    
     def client_token(self, client_token: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.client_token = client_token
         self._patch_employment_request.add_query("client_token", client_token)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.user_id_type = user_id_type
         self._patch_employment_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def department_id_type(self, department_id_type: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.department_id_type = department_id_type
         self._patch_employment_request.add_query("department_id_type", department_id_type)
         return self
-
+    
     def employment_id(self, employment_id: str) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.employment_id = employment_id
         self._patch_employment_request.paths["employment_id"] = str(employment_id)
         return self
-
+    
     def request_body(self, request_body: Employment) -> "PatchEmploymentRequestBuilder":
         self._patch_employment_request.request_body = request_body
         self._patch_employment_request.body = request_body

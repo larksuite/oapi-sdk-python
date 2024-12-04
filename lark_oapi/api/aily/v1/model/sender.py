@@ -29,26 +29,21 @@ class Sender(object):
 class SenderBuilder(object):
     def __init__(self) -> None:
         self._sender = Sender()
-
     def id(self, id: int) -> "SenderBuilder":
         self._sender.id = id
         return self
-
     def sender_type(self, sender_type: str) -> "SenderBuilder":
         self._sender.sender_type = sender_type
         return self
-
     def name(self, name: str) -> "SenderBuilder":
         self._sender.name = name
         return self
-
     def desc(self, desc: str) -> "SenderBuilder":
         self._sender.desc = desc
         return self
-
     def sender_id(self, sender_id: str) -> "SenderBuilder":
         self._sender.sender_id = sender_id
         return self
-
+    
     def build(self) -> "Sender":
         return self._sender

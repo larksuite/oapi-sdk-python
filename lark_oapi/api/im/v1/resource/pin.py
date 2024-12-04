@@ -34,12 +34,13 @@ class Pin(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreatePinResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePinResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreatePinRequest, option: Optional[RequestOption] = None) -> CreatePinResponse:
         if option is None:
@@ -48,15 +49,17 @@ class Pin(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreatePinResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePinResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeletePinRequest, option: Optional[RequestOption] = None) -> DeletePinResponse:
         if option is None:
             option = RequestOption()
@@ -70,12 +73,13 @@ class Pin(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeletePinResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePinResponse)
         response.raw = resp
 
         return response
+        
 
     async def adelete(self, request: DeletePinRequest, option: Optional[RequestOption] = None) -> DeletePinResponse:
         if option is None:
@@ -84,15 +88,17 @@ class Pin(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeletePinResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePinResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListPinRequest, option: Optional[RequestOption] = None) -> ListPinResponse:
         if option is None:
             option = RequestOption()
@@ -106,12 +112,13 @@ class Pin(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListPinResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPinResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListPinRequest, option: Optional[RequestOption] = None) -> ListPinResponse:
         if option is None:
@@ -120,11 +127,15 @@ class Pin(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListPinResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPinResponse)
         response.raw = resp
 
         return response
+        
+    

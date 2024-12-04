@@ -25,18 +25,15 @@ class Event(object):
 class EventBuilder(object):
     def __init__(self) -> None:
         self._event = Event()
-
     def event_type(self, event_type: str) -> "EventBuilder":
         self._event.event_type = event_type
         return self
-
     def event_name(self, event_name: str) -> "EventBuilder":
         self._event.event_name = event_name
         return self
-
     def event_description(self, event_description: str) -> "EventBuilder":
         self._event.event_description = event_description
         return self
-
+    
     def build(self) -> "Event":
         return self._event

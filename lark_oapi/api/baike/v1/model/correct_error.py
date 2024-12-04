@@ -26,18 +26,15 @@ class CorrectError(object):
 class CorrectErrorBuilder(object):
     def __init__(self) -> None:
         self._correct_error = CorrectError()
-
     def type(self, type: int) -> "CorrectErrorBuilder":
         self._correct_error.type = type
         return self
-
     def total(self, total: int) -> "CorrectErrorBuilder":
         self._correct_error.total = total
         return self
-
     def correct_pairs(self, correct_pairs: List[CorrectPair]) -> "CorrectErrorBuilder":
         self._correct_error.correct_pairs = correct_pairs
         return self
-
+    
     def build(self) -> "CorrectError":
         return self._correct_error

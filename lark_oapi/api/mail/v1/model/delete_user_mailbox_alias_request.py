@@ -24,16 +24,17 @@ class DeleteUserMailboxAliasRequestBuilder(object):
         delete_user_mailbox_alias_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases/:alias_id"
         delete_user_mailbox_alias_request.token_types = {AccessTokenType.TENANT}
         self._delete_user_mailbox_alias_request: DeleteUserMailboxAliasRequest = delete_user_mailbox_alias_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "DeleteUserMailboxAliasRequestBuilder":
         self._delete_user_mailbox_alias_request.user_mailbox_id = user_mailbox_id
         self._delete_user_mailbox_alias_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def alias_id(self, alias_id: str) -> "DeleteUserMailboxAliasRequestBuilder":
         self._delete_user_mailbox_alias_request.alias_id = alias_id
         self._delete_user_mailbox_alias_request.paths["alias_id"] = str(alias_id)
         return self
+    
 
     def build(self) -> DeleteUserMailboxAliasRequest:
         return self._delete_user_mailbox_alias_request

@@ -28,22 +28,18 @@ class WorkCity(object):
 class WorkCityBuilder(object):
     def __init__(self) -> None:
         self._work_city = WorkCity()
-
     def work_city_id(self, work_city_id: str) -> "WorkCityBuilder":
         self._work_city.work_city_id = work_city_id
         return self
-
     def name(self, name: str) -> "WorkCityBuilder":
         self._work_city.name = name
         return self
-
     def i18n_name(self, i18n_name: List[I18nContent]) -> "WorkCityBuilder":
         self._work_city.i18n_name = i18n_name
         return self
-
     def status(self, status: bool) -> "WorkCityBuilder":
         self._work_city.status = status
         return self
-
+    
     def build(self) -> "WorkCity":
         return self._work_city

@@ -25,18 +25,15 @@ class ExternalBackgroundCheckAttachment(object):
 class ExternalBackgroundCheckAttachmentBuilder(object):
     def __init__(self) -> None:
         self._external_background_check_attachment = ExternalBackgroundCheckAttachment()
-
     def id(self, id: str) -> "ExternalBackgroundCheckAttachmentBuilder":
         self._external_background_check_attachment.id = id
         return self
-
     def name(self, name: str) -> "ExternalBackgroundCheckAttachmentBuilder":
         self._external_background_check_attachment.name = name
         return self
-
     def size(self, size: int) -> "ExternalBackgroundCheckAttachmentBuilder":
         self._external_background_check_attachment.size = size
         return self
-
+    
     def build(self) -> "ExternalBackgroundCheckAttachment":
         return self._external_background_check_attachment

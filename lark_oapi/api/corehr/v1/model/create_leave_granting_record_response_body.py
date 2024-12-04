@@ -22,11 +22,9 @@ class CreateLeaveGrantingRecordResponseBody(object):
 class CreateLeaveGrantingRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_leave_granting_record_response_body = CreateLeaveGrantingRecordResponseBody()
-
-    def leave_granting_record(self,
-                              leave_granting_record: LeaveGrantingRecord) -> "CreateLeaveGrantingRecordResponseBodyBuilder":
+    def leave_granting_record(self, leave_granting_record: LeaveGrantingRecord) -> "CreateLeaveGrantingRecordResponseBodyBuilder":
         self._create_leave_granting_record_response_body.leave_granting_record = leave_granting_record
         return self
-
+    
     def build(self) -> "CreateLeaveGrantingRecordResponseBody":
         return self._create_leave_granting_record_response_body

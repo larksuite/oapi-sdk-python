@@ -26,17 +26,17 @@ class PatchCustomFieldOptionRequestBuilder(object):
         patch_custom_field_option_request.uri = "/open-apis/task/v2/custom_fields/:custom_field_guid/options/:option_guid"
         patch_custom_field_option_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._patch_custom_field_option_request: PatchCustomFieldOptionRequest = patch_custom_field_option_request
-
+    
     def custom_field_guid(self, custom_field_guid: str) -> "PatchCustomFieldOptionRequestBuilder":
         self._patch_custom_field_option_request.custom_field_guid = custom_field_guid
         self._patch_custom_field_option_request.paths["custom_field_guid"] = str(custom_field_guid)
         return self
-
+    
     def option_guid(self, option_guid: str) -> "PatchCustomFieldOptionRequestBuilder":
         self._patch_custom_field_option_request.option_guid = option_guid
         self._patch_custom_field_option_request.paths["option_guid"] = str(option_guid)
         return self
-
+    
     def request_body(self, request_body: PatchCustomFieldOptionRequestBody) -> "PatchCustomFieldOptionRequestBuilder":
         self._patch_custom_field_option_request.request_body = request_body
         self._patch_custom_field_option_request.body = request_body

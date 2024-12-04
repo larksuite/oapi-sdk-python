@@ -23,11 +23,12 @@ class DeleteContractRequestBuilder(object):
         delete_contract_request.uri = "/open-apis/corehr/v1/contracts/:contract_id"
         delete_contract_request.token_types = {AccessTokenType.TENANT}
         self._delete_contract_request: DeleteContractRequest = delete_contract_request
-
+    
     def contract_id(self, contract_id: str) -> "DeleteContractRequestBuilder":
         self._delete_contract_request.contract_id = contract_id
         self._delete_contract_request.paths["contract_id"] = str(contract_id)
         return self
+    
 
     def build(self) -> DeleteContractRequest:
         return self._delete_contract_request

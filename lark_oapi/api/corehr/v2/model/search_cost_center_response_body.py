@@ -26,18 +26,15 @@ class SearchCostCenterResponseBody(object):
 class SearchCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_cost_center_response_body = SearchCostCenterResponseBody()
-
     def items(self, items: List[CostCenterVersion]) -> "SearchCostCenterResponseBodyBuilder":
         self._search_cost_center_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "SearchCostCenterResponseBodyBuilder":
         self._search_cost_center_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "SearchCostCenterResponseBodyBuilder":
         self._search_cost_center_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "SearchCostCenterResponseBody":
         return self._search_cost_center_response_body

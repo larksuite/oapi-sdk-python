@@ -31,30 +31,24 @@ class Attachment(object):
 class AttachmentBuilder(object):
     def __init__(self) -> None:
         self._attachment = Attachment()
-
     def file_token(self, file_token: str) -> "AttachmentBuilder":
         self._attachment.file_token = file_token
         return self
-
     def name(self, name: str) -> "AttachmentBuilder":
         self._attachment.name = name
         return self
-
     def type(self, type: str) -> "AttachmentBuilder":
         self._attachment.type = type
         return self
-
     def size(self, size: int) -> "AttachmentBuilder":
         self._attachment.size = size
         return self
-
     def url(self, url: str) -> "AttachmentBuilder":
         self._attachment.url = url
         return self
-
     def tmp_url(self, tmp_url: str) -> "AttachmentBuilder":
         self._attachment.tmp_url = tmp_url
         return self
-
+    
     def build(self) -> "Attachment":
         return self._attachment

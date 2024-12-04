@@ -25,18 +25,15 @@ class I18nMeta(object):
 class I18nMetaBuilder(object):
     def __init__(self) -> None:
         self._i18n_meta = I18nMeta()
-
     def zh_cn(self, zh_cn: str) -> "I18nMetaBuilder":
         self._i18n_meta.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "I18nMetaBuilder":
         self._i18n_meta.en_us = en_us
         return self
-
     def ja_jp(self, ja_jp: str) -> "I18nMetaBuilder":
         self._i18n_meta.ja_jp = ja_jp
         return self
-
+    
     def build(self) -> "I18nMeta":
         return self._i18n_meta

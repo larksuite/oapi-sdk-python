@@ -31,30 +31,24 @@ class MyAiVcMeetingExtra(object):
 class MyAiVcMeetingExtraBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_meeting_extra = MyAiVcMeetingExtra()
-
     def vc_meeting_id(self, vc_meeting_id: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.vc_meeting_id = vc_meeting_id
         return self
-
     def vc_locale(self, vc_locale: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.vc_locale = vc_locale
         return self
-
     def vc_applink_host(self, vc_applink_host: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.vc_applink_host = vc_applink_host
         return self
-
     def vc_app_version(self, vc_app_version: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.vc_app_version = vc_app_version
         return self
-
     def vc_feature_config(self, vc_feature_config: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.vc_feature_config = vc_feature_config
         return self
-
     def quick_execute_param_rich_tag(self, quick_execute_param_rich_tag: str) -> "MyAiVcMeetingExtraBuilder":
         self._my_ai_vc_meeting_extra.quick_execute_param_rich_tag = quick_execute_param_rich_tag
         return self
-
+    
     def build(self) -> "MyAiVcMeetingExtra":
         return self._my_ai_vc_meeting_extra

@@ -21,10 +21,9 @@ class EventTime(object):
 class EventTimeBuilder(object):
     def __init__(self) -> None:
         self._event_time = EventTime()
-
     def time_stamp(self, time_stamp: str) -> "EventTimeBuilder":
         self._event_time.time_stamp = time_stamp
         return self
-
+    
     def build(self) -> "EventTime":
         return self._event_time

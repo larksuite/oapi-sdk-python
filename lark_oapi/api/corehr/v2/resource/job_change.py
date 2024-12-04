@@ -17,8 +17,7 @@ class JobChange(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchJobChangeRequest,
-               option: Optional[RequestOption] = None) -> SearchJobChangeResponse:
+    def search(self, request: SearchJobChangeRequest, option: Optional[RequestOption] = None) -> SearchJobChangeResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class JobChange(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchJobChangeResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchJobChangeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asearch(self, request: SearchJobChangeRequest,
-                      option: Optional[RequestOption] = None) -> SearchJobChangeResponse:
+    async def asearch(self, request: SearchJobChangeRequest, option: Optional[RequestOption] = None) -> SearchJobChangeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchJobChangeResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchJobChangeResponse)
         response.raw = resp
 
         return response
+        
+    

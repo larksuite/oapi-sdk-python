@@ -41,50 +41,39 @@ class WikiPassageParam(object):
 class WikiPassageParamBuilder(object):
     def __init__(self) -> None:
         self._wiki_passage_param = WikiPassageParam()
-
     def searchable(self, searchable: bool) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.searchable = searchable
         return self
-
     def space_ids(self, space_ids: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.space_ids = space_ids
         return self
-
     def obj_ids(self, obj_ids: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.obj_ids = obj_ids
         return self
-
     def wiki_tokens(self, wiki_tokens: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.wiki_tokens = wiki_tokens
         return self
-
     def node_tokens(self, node_tokens: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.node_tokens = node_tokens
         return self
-
     def excluded_space_ids(self, excluded_space_ids: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_space_ids = excluded_space_ids
         return self
-
     def excluded_obj_ids(self, excluded_obj_ids: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_obj_ids = excluded_obj_ids
         return self
-
     def excluded_wiki_tokens(self, excluded_wiki_tokens: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_wiki_tokens = excluded_wiki_tokens
         return self
-
     def excluded_node_tokens(self, excluded_node_tokens: List[str]) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.excluded_node_tokens = excluded_node_tokens
         return self
-
     def enable_cross_tenant(self, enable_cross_tenant: bool) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.enable_cross_tenant = enable_cross_tenant
         return self
-
     def only_search_public(self, only_search_public: bool) -> "WikiPassageParamBuilder":
         self._wiki_passage_param.only_search_public = only_search_public
         return self
-
+    
     def build(self) -> "WikiPassageParam":
         return self._wiki_passage_param

@@ -26,18 +26,15 @@ class EcoExamCreateEventCandidateInfo(object):
 class EcoExamCreateEventCandidateInfoBuilder(object):
     def __init__(self) -> None:
         self._eco_exam_create_event_candidate_info = EcoExamCreateEventCandidateInfo()
-
     def name(self, name: str) -> "EcoExamCreateEventCandidateInfoBuilder":
         self._eco_exam_create_event_candidate_info.name = name
         return self
-
     def mobile(self, mobile: EcoExamCreateEventMobile) -> "EcoExamCreateEventCandidateInfoBuilder":
         self._eco_exam_create_event_candidate_info.mobile = mobile
         return self
-
     def email(self, email: str) -> "EcoExamCreateEventCandidateInfoBuilder":
         self._eco_exam_create_event_candidate_info.email = email
         return self
-
+    
     def build(self) -> "EcoExamCreateEventCandidateInfo":
         return self._eco_exam_create_event_candidate_info

@@ -25,18 +25,15 @@ class DepartmentUnit(object):
 class DepartmentUnitBuilder(object):
     def __init__(self) -> None:
         self._department_unit = DepartmentUnit()
-
     def unit_id(self, unit_id: str) -> "DepartmentUnitBuilder":
         self._department_unit.unit_id = unit_id
         return self
-
     def unit_type(self, unit_type: str) -> "DepartmentUnitBuilder":
         self._department_unit.unit_type = unit_type
         return self
-
     def unit_name(self, unit_name: str) -> "DepartmentUnitBuilder":
         self._department_unit.unit_name = unit_name
         return self
-
+    
     def build(self) -> "DepartmentUnit":
         return self._department_unit

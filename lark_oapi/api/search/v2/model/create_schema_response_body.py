@@ -22,10 +22,9 @@ class CreateSchemaResponseBody(object):
 class CreateSchemaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_schema_response_body = CreateSchemaResponseBody()
-
     def schema(self, schema: Schema) -> "CreateSchemaResponseBodyBuilder":
         self._create_schema_response_body.schema = schema
         return self
-
+    
     def build(self) -> "CreateSchemaResponseBody":
         return self._create_schema_response_body

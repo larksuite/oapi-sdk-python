@@ -25,12 +25,12 @@ class CreateAppFeedCardRequestBuilder(object):
         create_app_feed_card_request.uri = "/open-apis/im/v2/app_feed_card"
         create_app_feed_card_request.token_types = {AccessTokenType.TENANT}
         self._create_app_feed_card_request: CreateAppFeedCardRequest = create_app_feed_card_request
-
+    
     def user_id_type(self, user_id_type: str) -> "CreateAppFeedCardRequestBuilder":
         self._create_app_feed_card_request.user_id_type = user_id_type
         self._create_app_feed_card_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: CreateAppFeedCardRequestBody) -> "CreateAppFeedCardRequestBuilder":
         self._create_app_feed_card_request.request_body = request_body
         self._create_app_feed_card_request.body = request_body

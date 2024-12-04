@@ -22,10 +22,9 @@ class CopyFileResponseBody(object):
 class CopyFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._copy_file_response_body = CopyFileResponseBody()
-
     def file(self, file: File) -> "CopyFileResponseBodyBuilder":
         self._copy_file_response_body.file = file
         return self
-
+    
     def build(self) -> "CopyFileResponseBody":
         return self._copy_file_response_body

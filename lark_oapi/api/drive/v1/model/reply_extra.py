@@ -21,10 +21,9 @@ class ReplyExtra(object):
 class ReplyExtraBuilder(object):
     def __init__(self) -> None:
         self._reply_extra = ReplyExtra()
-
     def image_list(self, image_list: List[str]) -> "ReplyExtraBuilder":
         self._reply_extra.image_list = image_list
         return self
-
+    
     def build(self) -> "ReplyExtra":
         return self._reply_extra

@@ -25,18 +25,15 @@ class ApplicationTalentSnsInfo(object):
 class ApplicationTalentSnsInfoBuilder(object):
     def __init__(self) -> None:
         self._application_talent_sns_info = ApplicationTalentSnsInfo()
-
     def id(self, id: str) -> "ApplicationTalentSnsInfoBuilder":
         self._application_talent_sns_info.id = id
         return self
-
     def sns_type(self, sns_type: int) -> "ApplicationTalentSnsInfoBuilder":
         self._application_talent_sns_info.sns_type = sns_type
         return self
-
     def link(self, link: str) -> "ApplicationTalentSnsInfoBuilder":
         self._application_talent_sns_info.link = link
         return self
-
+    
     def build(self) -> "ApplicationTalentSnsInfo":
         return self._application_talent_sns_info

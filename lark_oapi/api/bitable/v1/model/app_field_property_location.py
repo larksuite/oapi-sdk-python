@@ -21,10 +21,9 @@ class AppFieldPropertyLocation(object):
 class AppFieldPropertyLocationBuilder(object):
     def __init__(self) -> None:
         self._app_field_property_location = AppFieldPropertyLocation()
-
     def input_type(self, input_type: str) -> "AppFieldPropertyLocationBuilder":
         self._app_field_property_location.input_type = input_type
         return self
-
+    
     def build(self) -> "AppFieldPropertyLocation":
         return self._app_field_property_location

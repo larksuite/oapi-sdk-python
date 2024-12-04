@@ -22,10 +22,9 @@ class StyleRanges(object):
 class StyleRangesBuilder(object):
     def __init__(self) -> None:
         self._style_ranges = StyleRanges()
-
     def style_ranges(self, style_ranges: List[Style]) -> "StyleRangesBuilder":
         self._style_ranges.style_ranges = style_ranges
         return self
-
+    
     def build(self) -> "StyleRanges":
         return self._style_ranges

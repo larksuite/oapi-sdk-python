@@ -25,14 +25,12 @@ class Navigate(object):
 class NavigateBuilder(object):
     def __init__(self) -> None:
         self._navigate = Navigate()
-
     def pc(self, pc: NavigateMeta) -> "NavigateBuilder":
         self._navigate.pc = pc
         return self
-
     def mobile(self, mobile: NavigateMeta) -> "NavigateBuilder":
         self._navigate.mobile = mobile
         return self
-
+    
     def build(self) -> "Navigate":
         return self._navigate

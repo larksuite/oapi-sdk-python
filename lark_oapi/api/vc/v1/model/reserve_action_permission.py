@@ -24,15 +24,12 @@ class ReserveActionPermission(object):
 class ReserveActionPermissionBuilder(object):
     def __init__(self) -> None:
         self._reserve_action_permission = ReserveActionPermission()
-
     def permission(self, permission: int) -> "ReserveActionPermissionBuilder":
         self._reserve_action_permission.permission = permission
         return self
-
-    def permission_checkers(self,
-                            permission_checkers: List[ReservePermissionChecker]) -> "ReserveActionPermissionBuilder":
+    def permission_checkers(self, permission_checkers: List[ReservePermissionChecker]) -> "ReserveActionPermissionBuilder":
         self._reserve_action_permission.permission_checkers = permission_checkers
         return self
-
+    
     def build(self) -> "ReserveActionPermission":
         return self._reserve_action_permission

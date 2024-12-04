@@ -24,14 +24,12 @@ class ConditionalFormatRule(object):
 class ConditionalFormatRuleBuilder(object):
     def __init__(self) -> None:
         self._conditional_format_rule = ConditionalFormatRule()
-
     def boolean_rule(self, boolean_rule: BooleanRuleCondition) -> "ConditionalFormatRuleBuilder":
         self._conditional_format_rule.boolean_rule = boolean_rule
         return self
-
     def type(self, type: str) -> "ConditionalFormatRuleBuilder":
         self._conditional_format_rule.type = type
         return self
-
+    
     def build(self) -> "ConditionalFormatRule":
         return self._conditional_format_rule

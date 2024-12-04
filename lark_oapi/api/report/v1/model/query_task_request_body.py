@@ -31,30 +31,24 @@ class QueryTaskRequestBody(object):
 class QueryTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_task_request_body = QueryTaskRequestBody()
-
     def commit_start_time(self, commit_start_time: int) -> "QueryTaskRequestBodyBuilder":
         self._query_task_request_body.commit_start_time = commit_start_time
         return self
-
     def commit_end_time(self, commit_end_time: int) -> "QueryTaskRequestBodyBuilder":
         self._query_task_request_body.commit_end_time = commit_end_time
         return self
-
     def rule_id(self, rule_id: int) -> "QueryTaskRequestBodyBuilder":
         self._query_task_request_body.rule_id = rule_id
         return self
-
     def user_id(self, user_id: str) -> "QueryTaskRequestBodyBuilder":
         self._query_task_request_body.user_id = user_id
         return self
-
     def page_token(self, page_token: str) -> "QueryTaskRequestBodyBuilder":
         self._query_task_request_body.page_token = page_token
         return self
-
     def page_size(self, page_size: int) -> "QueryTaskRequestBodyBuilder":
         self._query_task_request_body.page_size = page_size
         return self
-
+    
     def build(self) -> "QueryTaskRequestBody":
         return self._query_task_request_body

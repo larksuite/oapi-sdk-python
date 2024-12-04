@@ -23,11 +23,12 @@ class GetJobTitleRequestBuilder(object):
         get_job_title_request.uri = "/open-apis/contact/v3/job_titles/:job_title_id"
         get_job_title_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_job_title_request: GetJobTitleRequest = get_job_title_request
-
+    
     def job_title_id(self, job_title_id: str) -> "GetJobTitleRequestBuilder":
         self._get_job_title_request.job_title_id = job_title_id
         self._get_job_title_request.paths["job_title_id"] = str(job_title_id)
         return self
+    
 
     def build(self) -> GetJobTitleRequest:
         return self._get_job_title_request

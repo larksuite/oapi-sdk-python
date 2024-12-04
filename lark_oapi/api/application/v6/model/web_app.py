@@ -23,14 +23,12 @@ class WebApp(object):
 class WebAppBuilder(object):
     def __init__(self) -> None:
         self._web_app = WebApp()
-
     def pc_url(self, pc_url: str) -> "WebAppBuilder":
         self._web_app.pc_url = pc_url
         return self
-
     def mobile_url(self, mobile_url: str) -> "WebAppBuilder":
         self._web_app.mobile_url = mobile_url
         return self
-
+    
     def build(self) -> "WebApp":
         return self._web_app

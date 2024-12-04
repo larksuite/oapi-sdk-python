@@ -23,14 +23,12 @@ class ObjectSetting(object):
 class ObjectSettingBuilder(object):
     def __init__(self) -> None:
         self._object_setting = ObjectSetting()
-
     def display_name(self, display_name: str) -> "ObjectSettingBuilder":
         self._object_setting.display_name = display_name
         return self
-
     def field_orders(self, field_orders: List[str]) -> "ObjectSettingBuilder":
         self._object_setting.field_orders = field_orders
         return self
-
+    
     def build(self) -> "ObjectSetting":
         return self._object_setting

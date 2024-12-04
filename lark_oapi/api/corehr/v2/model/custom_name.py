@@ -23,14 +23,12 @@ class CustomName(object):
 class CustomNameBuilder(object):
     def __init__(self) -> None:
         self._custom_name = CustomName()
-
     def zh_cn(self, zh_cn: str) -> "CustomNameBuilder":
         self._custom_name.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "CustomNameBuilder":
         self._custom_name.en_us = en_us
         return self
-
+    
     def build(self) -> "CustomName":
         return self._custom_name

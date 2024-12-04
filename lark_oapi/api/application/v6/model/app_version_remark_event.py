@@ -26,18 +26,15 @@ class AppVersionRemarkEvent(object):
 class AppVersionRemarkEventBuilder(object):
     def __init__(self) -> None:
         self._app_version_remark_event = AppVersionRemarkEvent()
-
     def remark(self, remark: str) -> "AppVersionRemarkEventBuilder":
         self._app_version_remark_event.remark = remark
         return self
-
     def update_remark(self, update_remark: str) -> "AppVersionRemarkEventBuilder":
         self._app_version_remark_event.update_remark = update_remark
         return self
-
     def visibility(self, visibility: AppVisibilityEvent) -> "AppVersionRemarkEventBuilder":
         self._app_version_remark_event.visibility = visibility
         return self
-
+    
     def build(self) -> "AppVersionRemarkEvent":
         return self._app_version_remark_event

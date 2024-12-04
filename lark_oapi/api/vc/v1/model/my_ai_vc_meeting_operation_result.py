@@ -21,10 +21,9 @@ class MyAiVcMeetingOperationResult(object):
 class MyAiVcMeetingOperationResultBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_meeting_operation_result = MyAiVcMeetingOperationResult()
-
     def meeting_operation_reply(self, meeting_operation_reply: str) -> "MyAiVcMeetingOperationResultBuilder":
         self._my_ai_vc_meeting_operation_result.meeting_operation_reply = meeting_operation_reply
         return self
-
+    
     def build(self) -> "MyAiVcMeetingOperationResult":
         return self._my_ai_vc_meeting_operation_result

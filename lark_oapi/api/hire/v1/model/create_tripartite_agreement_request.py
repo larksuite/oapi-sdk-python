@@ -24,7 +24,7 @@ class CreateTripartiteAgreementRequestBuilder(object):
         create_tripartite_agreement_request.uri = "/open-apis/hire/v1/tripartite_agreements"
         create_tripartite_agreement_request.token_types = {AccessTokenType.TENANT}
         self._create_tripartite_agreement_request: CreateTripartiteAgreementRequest = create_tripartite_agreement_request
-
+    
     def request_body(self, request_body: TripartiteAgreementInfo) -> "CreateTripartiteAgreementRequestBuilder":
         self._create_tripartite_agreement_request.request_body = request_body
         self._create_tripartite_agreement_request.body = request_body

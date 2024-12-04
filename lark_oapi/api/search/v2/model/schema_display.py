@@ -24,14 +24,12 @@ class SchemaDisplay(object):
 class SchemaDisplayBuilder(object):
     def __init__(self) -> None:
         self._schema_display = SchemaDisplay()
-
     def card_key(self, card_key: str) -> "SchemaDisplayBuilder":
         self._schema_display.card_key = card_key
         return self
-
     def fields_mapping(self, fields_mapping: List[SchemaDisplayFieldMapping]) -> "SchemaDisplayBuilder":
         self._schema_display.fields_mapping = fields_mapping
         return self
-
+    
     def build(self) -> "SchemaDisplay":
         return self._schema_display

@@ -22,10 +22,9 @@ class SelectSetting(object):
 class SelectSettingBuilder(object):
     def __init__(self) -> None:
         self._select_setting = SelectSetting()
-
     def options(self, options: List[Option]) -> "SelectSettingBuilder":
         self._select_setting.options = options
         return self
-
+    
     def build(self) -> "SelectSetting":
         return self._select_setting

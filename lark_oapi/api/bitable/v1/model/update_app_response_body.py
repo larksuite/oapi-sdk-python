@@ -22,10 +22,9 @@ class UpdateAppResponseBody(object):
 class UpdateAppResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_app_response_body = UpdateAppResponseBody()
-
     def app(self, app: DisplayAppV2) -> "UpdateAppResponseBodyBuilder":
         self._update_app_response_body.app = app
         return self
-
+    
     def build(self) -> "UpdateAppResponseBody":
         return self._update_app_response_body

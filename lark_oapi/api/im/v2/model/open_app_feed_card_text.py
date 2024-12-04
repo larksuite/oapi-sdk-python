@@ -21,10 +21,9 @@ class OpenAppFeedCardText(object):
 class OpenAppFeedCardTextBuilder(object):
     def __init__(self) -> None:
         self._open_app_feed_card_text = OpenAppFeedCardText()
-
     def text(self, text: str) -> "OpenAppFeedCardTextBuilder":
         self._open_app_feed_card_text.text = text
         return self
-
+    
     def build(self) -> "OpenAppFeedCardText":
         return self._open_app_feed_card_text

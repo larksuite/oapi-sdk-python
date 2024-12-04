@@ -10,6 +10,8 @@ class ScenarioContextExtra(object):
         "model_key": str,
         "specified_obj_ids": str,
         "suggest_query_id": str,
+        "button_send_message_info": str,
+        "button_regenerate_message": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +19,8 @@ class ScenarioContextExtra(object):
         self.model_key: Optional[str] = None
         self.specified_obj_ids: Optional[str] = None
         self.suggest_query_id: Optional[str] = None
+        self.button_send_message_info: Optional[str] = None
+        self.button_regenerate_message: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -27,22 +31,24 @@ class ScenarioContextExtra(object):
 class ScenarioContextExtraBuilder(object):
     def __init__(self) -> None:
         self._scenario_context_extra = ScenarioContextExtra()
-
     def grounding_id(self, grounding_id: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.grounding_id = grounding_id
         return self
-
     def model_key(self, model_key: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.model_key = model_key
         return self
-
     def specified_obj_ids(self, specified_obj_ids: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.specified_obj_ids = specified_obj_ids
         return self
-
     def suggest_query_id(self, suggest_query_id: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.suggest_query_id = suggest_query_id
         return self
-
+    def button_send_message_info(self, button_send_message_info: str) -> "ScenarioContextExtraBuilder":
+        self._scenario_context_extra.button_send_message_info = button_send_message_info
+        return self
+    def button_regenerate_message(self, button_regenerate_message: str) -> "ScenarioContextExtraBuilder":
+        self._scenario_context_extra.button_regenerate_message = button_regenerate_message
+        return self
+    
     def build(self) -> "ScenarioContextExtra":
         return self._scenario_context_extra

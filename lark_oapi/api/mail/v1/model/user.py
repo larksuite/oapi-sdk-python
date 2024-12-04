@@ -25,18 +25,15 @@ class User(object):
 class UserBuilder(object):
     def __init__(self) -> None:
         self._user = User()
-
     def email(self, email: str) -> "UserBuilder":
         self._user.email = email
         return self
-
     def status(self, status: int) -> "UserBuilder":
         self._user.status = status
         return self
-
     def type(self, type: int) -> "UserBuilder":
         self._user.type = type
         return self
-
+    
     def build(self) -> "User":
         return self._user

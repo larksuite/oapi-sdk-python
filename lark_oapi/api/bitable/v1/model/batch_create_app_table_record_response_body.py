@@ -22,10 +22,9 @@ class BatchCreateAppTableRecordResponseBody(object):
 class BatchCreateAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_app_table_record_response_body = BatchCreateAppTableRecordResponseBody()
-
     def records(self, records: List[AppTableRecord]) -> "BatchCreateAppTableRecordResponseBodyBuilder":
         self._batch_create_app_table_record_response_body.records = records
         return self
-
+    
     def build(self) -> "BatchCreateAppTableRecordResponseBody":
         return self._batch_create_app_table_record_response_body

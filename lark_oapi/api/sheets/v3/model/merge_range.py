@@ -27,22 +27,18 @@ class MergeRange(object):
 class MergeRangeBuilder(object):
     def __init__(self) -> None:
         self._merge_range = MergeRange()
-
     def start_row_index(self, start_row_index: int) -> "MergeRangeBuilder":
         self._merge_range.start_row_index = start_row_index
         return self
-
     def end_row_index(self, end_row_index: int) -> "MergeRangeBuilder":
         self._merge_range.end_row_index = end_row_index
         return self
-
     def start_column_index(self, start_column_index: int) -> "MergeRangeBuilder":
         self._merge_range.start_column_index = start_column_index
         return self
-
     def end_column_index(self, end_column_index: int) -> "MergeRangeBuilder":
         self._merge_range.end_column_index = end_column_index
         return self
-
+    
     def build(self) -> "MergeRange":
         return self._merge_range

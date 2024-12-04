@@ -23,14 +23,12 @@ class SiteResumeSns(object):
 class SiteResumeSnsBuilder(object):
     def __init__(self) -> None:
         self._site_resume_sns = SiteResumeSns()
-
     def sns_type(self, sns_type: str) -> "SiteResumeSnsBuilder":
         self._site_resume_sns.sns_type = sns_type
         return self
-
     def link(self, link: str) -> "SiteResumeSnsBuilder":
         self._site_resume_sns.link = link
         return self
-
+    
     def build(self) -> "SiteResumeSns":
         return self._site_resume_sns

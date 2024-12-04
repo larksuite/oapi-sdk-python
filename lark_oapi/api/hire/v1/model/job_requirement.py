@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .job_requirement_customized_data import JobRequirementCustomizedData
+from .job_requirement_update_option import JobRequirementUpdateOption
 
 
 class JobRequirement(object):
@@ -34,6 +35,8 @@ class JobRequirement(object):
         "job_type_id": str,
         "job_id_list": List[str],
         "employment_job_id": str,
+        "position_id": str,
+        "update_option": JobRequirementUpdateOption,
     }
 
     def __init__(self, d=None):
@@ -64,6 +67,8 @@ class JobRequirement(object):
         self.job_type_id: Optional[str] = None
         self.job_id_list: Optional[List[str]] = None
         self.employment_job_id: Optional[str] = None
+        self.position_id: Optional[str] = None
+        self.update_option: Optional[JobRequirementUpdateOption] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -181,6 +186,14 @@ class JobRequirementBuilder(object):
 
     def employment_job_id(self, employment_job_id: str) -> "JobRequirementBuilder":
         self._job_requirement.employment_job_id = employment_job_id
+        return self
+
+    def position_id(self, position_id: str) -> "JobRequirementBuilder":
+        self._job_requirement.position_id = position_id
+        return self
+
+    def update_option(self, update_option: JobRequirementUpdateOption) -> "JobRequirementBuilder":
+        self._job_requirement.update_option = update_option
         return self
 
     def build(self) -> "JobRequirement":

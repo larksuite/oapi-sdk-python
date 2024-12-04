@@ -23,11 +23,12 @@ class GetNationalIdTypeRequestBuilder(object):
         get_national_id_type_request.uri = "/open-apis/corehr/v1/national_id_types/:national_id_type_id"
         get_national_id_type_request.token_types = {AccessTokenType.TENANT}
         self._get_national_id_type_request: GetNationalIdTypeRequest = get_national_id_type_request
-
+    
     def national_id_type_id(self, national_id_type_id: str) -> "GetNationalIdTypeRequestBuilder":
         self._get_national_id_type_request.national_id_type_id = national_id_type_id
         self._get_national_id_type_request.paths["national_id_type_id"] = str(national_id_type_id)
         return self
+    
 
     def build(self) -> GetNationalIdTypeRequest:
         return self._get_national_id_type_request

@@ -25,18 +25,15 @@ class EcoBackgroundCheckPackageData(object):
 class EcoBackgroundCheckPackageDataBuilder(object):
     def __init__(self) -> None:
         self._eco_background_check_package_data = EcoBackgroundCheckPackageData()
-
     def id(self, id: str) -> "EcoBackgroundCheckPackageDataBuilder":
         self._eco_background_check_package_data.id = id
         return self
-
     def name(self, name: str) -> "EcoBackgroundCheckPackageDataBuilder":
         self._eco_background_check_package_data.name = name
         return self
-
     def description(self, description: str) -> "EcoBackgroundCheckPackageDataBuilder":
         self._eco_background_check_package_data.description = description
         return self
-
+    
     def build(self) -> "EcoBackgroundCheckPackageData":
         return self._eco_background_check_package_data

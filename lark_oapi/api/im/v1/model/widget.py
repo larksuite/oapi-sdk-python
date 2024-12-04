@@ -26,18 +26,15 @@ class Widget(object):
 class WidgetBuilder(object):
     def __init__(self) -> None:
         self._widget = Widget()
-
     def widget_id(self, widget_id: int) -> "WidgetBuilder":
         self._widget.widget_id = widget_id
         return self
-
     def widget_type(self, widget_type: str) -> "WidgetBuilder":
         self._widget.widget_type = widget_type
         return self
-
     def widget_url(self, widget_url: WidgetUrl) -> "WidgetBuilder":
         self._widget.widget_url = widget_url
         return self
-
+    
     def build(self) -> "Widget":
         return self._widget

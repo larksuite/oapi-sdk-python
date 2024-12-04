@@ -23,14 +23,12 @@ class IframeComponent(object):
 class IframeComponentBuilder(object):
     def __init__(self) -> None:
         self._iframe_component = IframeComponent()
-
     def iframe_type(self, iframe_type: int) -> "IframeComponentBuilder":
         self._iframe_component.iframe_type = iframe_type
         return self
-
     def url(self, url: str) -> "IframeComponentBuilder":
         self._iframe_component.url = url
         return self
-
+    
     def build(self) -> "IframeComponent":
         return self._iframe_component

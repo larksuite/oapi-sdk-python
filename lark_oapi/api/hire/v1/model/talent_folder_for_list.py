@@ -25,18 +25,15 @@ class TalentFolderForList(object):
 class TalentFolderForListBuilder(object):
     def __init__(self) -> None:
         self._talent_folder_for_list = TalentFolderForList()
-
     def folder_id(self, folder_id: str) -> "TalentFolderForListBuilder":
         self._talent_folder_for_list.folder_id = folder_id
         return self
-
     def folder_name(self, folder_name: str) -> "TalentFolderForListBuilder":
         self._talent_folder_for_list.folder_name = folder_name
         return self
-
     def owner_id(self, owner_id: str) -> "TalentFolderForListBuilder":
         self._talent_folder_for_list.owner_id = owner_id
         return self
-
+    
     def build(self) -> "TalentFolderForList":
         return self._talent_folder_for_list

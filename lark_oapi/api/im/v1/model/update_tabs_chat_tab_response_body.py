@@ -22,10 +22,9 @@ class UpdateTabsChatTabResponseBody(object):
 class UpdateTabsChatTabResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_tabs_chat_tab_response_body = UpdateTabsChatTabResponseBody()
-
     def chat_tabs(self, chat_tabs: List[ChatTab]) -> "UpdateTabsChatTabResponseBodyBuilder":
         self._update_tabs_chat_tab_response_body.chat_tabs = chat_tabs
         return self
-
+    
     def build(self) -> "UpdateTabsChatTabResponseBody":
         return self._update_tabs_chat_tab_response_body

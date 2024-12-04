@@ -23,11 +23,12 @@ class GetAppRequestBuilder(object):
         get_app_request.uri = "/open-apis/bitable/v1/apps/:app_token"
         get_app_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_app_request: GetAppRequest = get_app_request
-
+    
     def app_token(self, app_token: str) -> "GetAppRequestBuilder":
         self._get_app_request.app_token = app_token
         self._get_app_request.paths["app_token"] = str(app_token)
         return self
+    
 
     def build(self) -> GetAppRequest:
         return self._get_app_request

@@ -25,12 +25,12 @@ class DelReportArchiveRuleRequestBuilder(object):
         del_report_archive_rule_request.uri = "/open-apis/attendance/v1/archive_rule/del_report"
         del_report_archive_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._del_report_archive_rule_request: DelReportArchiveRuleRequest = del_report_archive_rule_request
-
+    
     def employee_type(self, employee_type: str) -> "DelReportArchiveRuleRequestBuilder":
         self._del_report_archive_rule_request.employee_type = employee_type
         self._del_report_archive_rule_request.add_query("employee_type", employee_type)
         return self
-
+    
     def request_body(self, request_body: DelReportArchiveRuleRequestBody) -> "DelReportArchiveRuleRequestBuilder":
         self._del_report_archive_rule_request.request_body = request_body
         self._del_report_archive_rule_request.body = request_body

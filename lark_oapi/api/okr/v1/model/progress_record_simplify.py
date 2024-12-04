@@ -21,10 +21,9 @@ class ProgressRecordSimplify(object):
 class ProgressRecordSimplifyBuilder(object):
     def __init__(self) -> None:
         self._progress_record_simplify = ProgressRecordSimplify()
-
     def id(self, id: int) -> "ProgressRecordSimplifyBuilder":
         self._progress_record_simplify.id = id
         return self
-
+    
     def build(self) -> "ProgressRecordSimplify":
         return self._progress_record_simplify

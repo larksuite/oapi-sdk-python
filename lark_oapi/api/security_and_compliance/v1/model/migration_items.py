@@ -28,22 +28,18 @@ class MigrationItems(object):
 class MigrationItemsBuilder(object):
     def __init__(self) -> None:
         self._migration_items = MigrationItems()
-
     def task_id(self, task_id: str) -> "MigrationItemsBuilder":
         self._migration_items.task_id = task_id
         return self
-
     def task_status(self, task_status: str) -> "MigrationItemsBuilder":
         self._migration_items.task_status = task_status
         return self
-
     def entity(self, entity: MigrationEntity) -> "MigrationItemsBuilder":
         self._migration_items.entity = entity
         return self
-
     def message(self, message: str) -> "MigrationItemsBuilder":
         self._migration_items.message = message
         return self
-
+    
     def build(self) -> "MigrationItems":
         return self._migration_items

@@ -28,22 +28,18 @@ class WorkplaceTenantNotification(object):
 class WorkplaceTenantNotificationBuilder(object):
     def __init__(self) -> None:
         self._workplace_tenant_notification = WorkplaceTenantNotification()
-
     def notification_id(self, notification_id: str) -> "WorkplaceTenantNotificationBuilder":
         self._workplace_tenant_notification.notification_id = notification_id
         return self
-
     def content(self, content: str) -> "WorkplaceTenantNotificationBuilder":
         self._workplace_tenant_notification.content = content
         return self
-
     def expire_time(self, expire_time: int) -> "WorkplaceTenantNotificationBuilder":
         self._workplace_tenant_notification.expire_time = expire_time
         return self
-
     def rule(self, rule: Rule) -> "WorkplaceTenantNotificationBuilder":
         self._workplace_tenant_notification.rule = rule
         return self
-
+    
     def build(self) -> "WorkplaceTenantNotification":
         return self._workplace_tenant_notification

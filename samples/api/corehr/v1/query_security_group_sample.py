@@ -17,6 +17,8 @@ def main():
         .department_id_type("people_corehr_department_id") \
         .request_body(QuerySecurityGroupRequestBody.builder()
                       .item_list([])
+                      .updated_at_gte("1729773628")
+                      .updated_at_lte("1729773628")
                       .build()) \
         .build()
 
@@ -47,6 +49,8 @@ async def amain():
         .department_id_type("people_corehr_department_id") \
         .request_body(QuerySecurityGroupRequestBody.builder()
                       .item_list([])
+                      .updated_at_gte("1729773628")
+                      .updated_at_lte("1729773628")
                       .build()) \
         .build()
 

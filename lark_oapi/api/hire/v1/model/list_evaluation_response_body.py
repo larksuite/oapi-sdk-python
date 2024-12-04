@@ -26,18 +26,15 @@ class ListEvaluationResponseBody(object):
 class ListEvaluationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_evaluation_response_body = ListEvaluationResponseBody()
-
     def has_more(self, has_more: bool) -> "ListEvaluationResponseBodyBuilder":
         self._list_evaluation_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListEvaluationResponseBodyBuilder":
         self._list_evaluation_response_body.page_token = page_token
         return self
-
     def items(self, items: List[Evaluation]) -> "ListEvaluationResponseBodyBuilder":
         self._list_evaluation_response_body.items = items
         return self
-
+    
     def build(self) -> "ListEvaluationResponseBody":
         return self._list_evaluation_response_body

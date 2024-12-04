@@ -9,12 +9,14 @@ class DataAssetImportKnowledgeLarkDoc(object):
         "type": str,
         "token": str,
         "with_sub_docs": bool,
+        "url": str,
     }
 
     def __init__(self, d=None):
         self.type: Optional[str] = None
         self.token: Optional[str] = None
         self.with_sub_docs: Optional[bool] = None
+        self.url: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -25,18 +27,18 @@ class DataAssetImportKnowledgeLarkDoc(object):
 class DataAssetImportKnowledgeLarkDocBuilder(object):
     def __init__(self) -> None:
         self._data_asset_import_knowledge_lark_doc = DataAssetImportKnowledgeLarkDoc()
-
     def type(self, type: str) -> "DataAssetImportKnowledgeLarkDocBuilder":
         self._data_asset_import_knowledge_lark_doc.type = type
         return self
-
     def token(self, token: str) -> "DataAssetImportKnowledgeLarkDocBuilder":
         self._data_asset_import_knowledge_lark_doc.token = token
         return self
-
     def with_sub_docs(self, with_sub_docs: bool) -> "DataAssetImportKnowledgeLarkDocBuilder":
         self._data_asset_import_knowledge_lark_doc.with_sub_docs = with_sub_docs
         return self
-
+    def url(self, url: str) -> "DataAssetImportKnowledgeLarkDocBuilder":
+        self._data_asset_import_knowledge_lark_doc.url = url
+        return self
+    
     def build(self) -> "DataAssetImportKnowledgeLarkDoc":
         return self._data_asset_import_knowledge_lark_doc

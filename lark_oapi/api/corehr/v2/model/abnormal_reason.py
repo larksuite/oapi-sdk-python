@@ -26,18 +26,15 @@ class AbnormalReason(object):
 class AbnormalReasonBuilder(object):
     def __init__(self) -> None:
         self._abnormal_reason = AbnormalReason()
-
     def id(self, id: str) -> "AbnormalReasonBuilder":
         self._abnormal_reason.id = id
         return self
-
     def type(self, type: int) -> "AbnormalReasonBuilder":
         self._abnormal_reason.type = type
         return self
-
     def i18n_elements(self, i18n_elements: List[AbnormalReasonI18nElement]) -> "AbnormalReasonBuilder":
         self._abnormal_reason.i18n_elements = i18n_elements
         return self
-
+    
     def build(self) -> "AbnormalReason":
         return self._abnormal_reason

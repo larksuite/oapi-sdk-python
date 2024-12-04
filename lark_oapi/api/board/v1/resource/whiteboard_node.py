@@ -17,8 +17,7 @@ class WhiteboardNode(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListWhiteboardNodeRequest,
-             option: Optional[RequestOption] = None) -> ListWhiteboardNodeResponse:
+    def list(self, request: ListWhiteboardNodeRequest, option: Optional[RequestOption] = None) -> ListWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class WhiteboardNode(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWhiteboardNodeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListWhiteboardNodeRequest,
-                    option: Optional[RequestOption] = None) -> ListWhiteboardNodeResponse:
+    async def alist(self, request: ListWhiteboardNodeRequest, option: Optional[RequestOption] = None) -> ListWhiteboardNodeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListWhiteboardNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWhiteboardNodeResponse)
         response.raw = resp
 
         return response
+        
+    

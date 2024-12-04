@@ -22,10 +22,9 @@ class UpdateDraftResponseBody(object):
 class UpdateDraftResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_draft_response_body = UpdateDraftResponseBody()
-
     def draft(self, draft: Draft) -> "UpdateDraftResponseBodyBuilder":
         self._update_draft_response_body.draft = draft
         return self
-
+    
     def build(self) -> "UpdateDraftResponseBody":
         return self._update_draft_response_body

@@ -31,8 +31,7 @@ class Unit(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def bind_department(self, request: BindDepartmentUnitRequest,
-                        option: Optional[RequestOption] = None) -> BindDepartmentUnitResponse:
+    def bind_department(self, request: BindDepartmentUnitRequest, option: Optional[RequestOption] = None) -> BindDepartmentUnitResponse:
         if option is None:
             option = RequestOption()
 
@@ -45,30 +44,32 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: BindDepartmentUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), BindDepartmentUnitResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abind_department(self, request: BindDepartmentUnitRequest,
-                               option: Optional[RequestOption] = None) -> BindDepartmentUnitResponse:
+    async def abind_department(self, request: BindDepartmentUnitRequest, option: Optional[RequestOption] = None) -> BindDepartmentUnitResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: BindDepartmentUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), BindDepartmentUnitResponse)
         response.raw = resp
 
         return response
-
+        
     def create(self, request: CreateUnitRequest, option: Optional[RequestOption] = None) -> CreateUnitResponse:
         if option is None:
             option = RequestOption()
@@ -82,12 +83,13 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUnitResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreateUnitRequest, option: Optional[RequestOption] = None) -> CreateUnitResponse:
         if option is None:
@@ -96,15 +98,17 @@ class Unit(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUnitResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeleteUnitRequest, option: Optional[RequestOption] = None) -> DeleteUnitResponse:
         if option is None:
             option = RequestOption()
@@ -118,12 +122,13 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUnitResponse)
         response.raw = resp
 
         return response
+        
 
     async def adelete(self, request: DeleteUnitRequest, option: Optional[RequestOption] = None) -> DeleteUnitResponse:
         if option is None:
@@ -132,15 +137,17 @@ class Unit(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUnitResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetUnitRequest, option: Optional[RequestOption] = None) -> GetUnitResponse:
         if option is None:
             option = RequestOption()
@@ -154,12 +161,13 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUnitResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetUnitRequest, option: Optional[RequestOption] = None) -> GetUnitResponse:
         if option is None:
@@ -168,15 +176,17 @@ class Unit(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUnitResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListUnitRequest, option: Optional[RequestOption] = None) -> ListUnitResponse:
         if option is None:
             option = RequestOption()
@@ -190,12 +200,13 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUnitResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListUnitRequest, option: Optional[RequestOption] = None) -> ListUnitResponse:
         if option is None:
@@ -204,17 +215,18 @@ class Unit(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUnitResponse)
         response.raw = resp
 
         return response
-
-    def list_department(self, request: ListDepartmentUnitRequest,
-                        option: Optional[RequestOption] = None) -> ListDepartmentUnitResponse:
+        
+    def list_department(self, request: ListDepartmentUnitRequest, option: Optional[RequestOption] = None) -> ListDepartmentUnitResponse:
         if option is None:
             option = RequestOption()
 
@@ -227,30 +239,32 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListDepartmentUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDepartmentUnitResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist_department(self, request: ListDepartmentUnitRequest,
-                               option: Optional[RequestOption] = None) -> ListDepartmentUnitResponse:
+    async def alist_department(self, request: ListDepartmentUnitRequest, option: Optional[RequestOption] = None) -> ListDepartmentUnitResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListDepartmentUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDepartmentUnitResponse)
         response.raw = resp
 
         return response
-
+        
     def patch(self, request: PatchUnitRequest, option: Optional[RequestOption] = None) -> PatchUnitResponse:
         if option is None:
             option = RequestOption()
@@ -264,12 +278,13 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUnitResponse)
         response.raw = resp
 
         return response
+        
 
     async def apatch(self, request: PatchUnitRequest, option: Optional[RequestOption] = None) -> PatchUnitResponse:
         if option is None:
@@ -278,17 +293,18 @@ class Unit(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUnitResponse)
         response.raw = resp
 
         return response
-
-    def unbind_department(self, request: UnbindDepartmentUnitRequest,
-                          option: Optional[RequestOption] = None) -> UnbindDepartmentUnitResponse:
+        
+    def unbind_department(self, request: UnbindDepartmentUnitRequest, option: Optional[RequestOption] = None) -> UnbindDepartmentUnitResponse:
         if option is None:
             option = RequestOption()
 
@@ -301,26 +317,30 @@ class Unit(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UnbindDepartmentUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), UnbindDepartmentUnitResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aunbind_department(self, request: UnbindDepartmentUnitRequest,
-                                 option: Optional[RequestOption] = None) -> UnbindDepartmentUnitResponse:
+    async def aunbind_department(self, request: UnbindDepartmentUnitRequest, option: Optional[RequestOption] = None) -> UnbindDepartmentUnitResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UnbindDepartmentUnitResponse = JSON.unmarshal(str(resp.content, UTF_8), UnbindDepartmentUnitResponse)
         response.raw = resp
 
         return response
+        
+    

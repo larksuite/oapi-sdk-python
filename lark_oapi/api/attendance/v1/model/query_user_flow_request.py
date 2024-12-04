@@ -26,17 +26,17 @@ class QueryUserFlowRequestBuilder(object):
         query_user_flow_request.uri = "/open-apis/attendance/v1/user_flows/query"
         query_user_flow_request.token_types = {AccessTokenType.TENANT}
         self._query_user_flow_request: QueryUserFlowRequest = query_user_flow_request
-
+    
     def employee_type(self, employee_type: str) -> "QueryUserFlowRequestBuilder":
         self._query_user_flow_request.employee_type = employee_type
         self._query_user_flow_request.add_query("employee_type", employee_type)
         return self
-
+    
     def include_terminated_user(self, include_terminated_user: bool) -> "QueryUserFlowRequestBuilder":
         self._query_user_flow_request.include_terminated_user = include_terminated_user
         self._query_user_flow_request.add_query("include_terminated_user", include_terminated_user)
         return self
-
+    
     def request_body(self, request_body: QueryUserFlowRequestBody) -> "QueryUserFlowRequestBuilder":
         self._query_user_flow_request.request_body = request_body
         self._query_user_flow_request.body = request_body

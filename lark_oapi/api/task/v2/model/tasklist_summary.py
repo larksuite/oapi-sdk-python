@@ -23,14 +23,12 @@ class TasklistSummary(object):
 class TasklistSummaryBuilder(object):
     def __init__(self) -> None:
         self._tasklist_summary = TasklistSummary()
-
     def guid(self, guid: str) -> "TasklistSummaryBuilder":
         self._tasklist_summary.guid = guid
         return self
-
     def name(self, name: str) -> "TasklistSummaryBuilder":
         self._tasklist_summary.name = name
         return self
-
+    
     def build(self) -> "TasklistSummary":
         return self._tasklist_summary

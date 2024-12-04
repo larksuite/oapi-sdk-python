@@ -25,18 +25,15 @@ class FeedCardDisplayRuleFailedItem(object):
 class FeedCardDisplayRuleFailedItemBuilder(object):
     def __init__(self) -> None:
         self._feed_card_display_rule_failed_item = FeedCardDisplayRuleFailedItem()
-
     def id(self, id: str) -> "FeedCardDisplayRuleFailedItemBuilder":
         self._feed_card_display_rule_failed_item.id = id
         return self
-
     def error_code(self, error_code: int) -> "FeedCardDisplayRuleFailedItemBuilder":
         self._feed_card_display_rule_failed_item.error_code = error_code
         return self
-
     def error_message(self, error_message: str) -> "FeedCardDisplayRuleFailedItemBuilder":
         self._feed_card_display_rule_failed_item.error_message = error_message
         return self
-
+    
     def build(self) -> "FeedCardDisplayRuleFailedItem":
         return self._feed_card_display_rule_failed_item

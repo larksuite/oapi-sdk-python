@@ -27,22 +27,18 @@ class ManageableDefinition(object):
 class ManageableDefinitionBuilder(object):
     def __init__(self) -> None:
         self._manageable_definition = ManageableDefinition()
-
     def approval_code(self, approval_code: str) -> "ManageableDefinitionBuilder":
         self._manageable_definition.approval_code = approval_code
         return self
-
     def approval_name(self, approval_name: str) -> "ManageableDefinitionBuilder":
         self._manageable_definition.approval_name = approval_name
         return self
-
     def approval_status(self, approval_status: str) -> "ManageableDefinitionBuilder":
         self._manageable_definition.approval_status = approval_status
         return self
-
     def approval_admin_ids(self, approval_admin_ids: List[str]) -> "ManageableDefinitionBuilder":
         self._manageable_definition.approval_admin_ids = approval_admin_ids
         return self
-
+    
     def build(self) -> "ManageableDefinition":
         return self._manageable_definition

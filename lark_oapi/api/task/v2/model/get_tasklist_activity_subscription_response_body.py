@@ -22,11 +22,9 @@ class GetTasklistActivitySubscriptionResponseBody(object):
 class GetTasklistActivitySubscriptionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_tasklist_activity_subscription_response_body = GetTasklistActivitySubscriptionResponseBody()
-
-    def activity_subscription(self,
-                              activity_subscription: TasklistActivitySubscription) -> "GetTasklistActivitySubscriptionResponseBodyBuilder":
+    def activity_subscription(self, activity_subscription: TasklistActivitySubscription) -> "GetTasklistActivitySubscriptionResponseBodyBuilder":
         self._get_tasklist_activity_subscription_response_body.activity_subscription = activity_subscription
         return self
-
+    
     def build(self) -> "GetTasklistActivitySubscriptionResponseBody":
         return self._get_tasklist_activity_subscription_response_body

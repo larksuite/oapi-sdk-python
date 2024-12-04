@@ -26,18 +26,15 @@ class EventMessageReader(object):
 class EventMessageReaderBuilder(object):
     def __init__(self) -> None:
         self._event_message_reader = EventMessageReader()
-
     def reader_id(self, reader_id: UserId) -> "EventMessageReaderBuilder":
         self._event_message_reader.reader_id = reader_id
         return self
-
     def read_time(self, read_time: str) -> "EventMessageReaderBuilder":
         self._event_message_reader.read_time = read_time
         return self
-
     def tenant_key(self, tenant_key: str) -> "EventMessageReaderBuilder":
         self._event_message_reader.tenant_key = tenant_key
         return self
-
+    
     def build(self) -> "EventMessageReader":
         return self._event_message_reader

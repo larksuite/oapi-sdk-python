@@ -22,10 +22,9 @@ class PatchTaskResponseBody(object):
 class PatchTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_task_response_body = PatchTaskResponseBody()
-
     def task(self, task: Task) -> "PatchTaskResponseBodyBuilder":
         self._patch_task_response_body.task = task
         return self
-
+    
     def build(self) -> "PatchTaskResponseBody":
         return self._patch_task_response_body

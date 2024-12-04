@@ -21,10 +21,9 @@ class CreatePermissionPublicPasswordResponseBody(object):
 class CreatePermissionPublicPasswordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_permission_public_password_response_body = CreatePermissionPublicPasswordResponseBody()
-
     def password(self, password: str) -> "CreatePermissionPublicPasswordResponseBodyBuilder":
         self._create_permission_public_password_response_body.password = password
         return self
-
+    
     def build(self) -> "CreatePermissionPublicPasswordResponseBody":
         return self._create_permission_public_password_response_body

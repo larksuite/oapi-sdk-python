@@ -30,26 +30,21 @@ class PreviousEmployer(object):
 class PreviousEmployerBuilder(object):
     def __init__(self) -> None:
         self._previous_employer = PreviousEmployer()
-
     def id(self, id: str) -> "PreviousEmployerBuilder":
         self._previous_employer.id = id
         return self
-
     def employer_name(self, employer_name: str) -> "PreviousEmployerBuilder":
         self._previous_employer.employer_name = employer_name
         return self
-
     def employer_reference_number(self, employer_reference_number: str) -> "PreviousEmployerBuilder":
         self._previous_employer.employer_reference_number = employer_reference_number
         return self
-
     def employment_order(self, employment_order: int) -> "PreviousEmployerBuilder":
         self._previous_employer.employment_order = employment_order
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PreviousEmployerBuilder":
         self._previous_employer.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "PreviousEmployer":
         return self._previous_employer

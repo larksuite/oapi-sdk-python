@@ -21,10 +21,9 @@ class PatchAppTableResponseBody(object):
 class PatchAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_app_table_response_body = PatchAppTableResponseBody()
-
     def name(self, name: str) -> "PatchAppTableResponseBodyBuilder":
         self._patch_app_table_response_body.name = name
         return self
-
+    
     def build(self) -> "PatchAppTableResponseBody":
         return self._patch_app_table_response_body

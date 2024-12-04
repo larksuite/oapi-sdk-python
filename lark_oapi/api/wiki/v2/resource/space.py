@@ -36,12 +36,13 @@ class Space(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpaceResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreateSpaceRequest, option: Optional[RequestOption] = None) -> CreateSpaceResponse:
         if option is None:
@@ -50,15 +51,17 @@ class Space(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpaceResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetSpaceRequest, option: Optional[RequestOption] = None) -> GetSpaceResponse:
         if option is None:
             option = RequestOption()
@@ -72,12 +75,13 @@ class Space(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpaceResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetSpaceRequest, option: Optional[RequestOption] = None) -> GetSpaceResponse:
         if option is None:
@@ -86,15 +90,17 @@ class Space(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpaceResponse)
         response.raw = resp
 
         return response
-
+        
     def get_node(self, request: GetNodeSpaceRequest, option: Optional[RequestOption] = None) -> GetNodeSpaceResponse:
         if option is None:
             option = RequestOption()
@@ -108,30 +114,32 @@ class Space(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetNodeSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNodeSpaceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget_node(self, request: GetNodeSpaceRequest,
-                        option: Optional[RequestOption] = None) -> GetNodeSpaceResponse:
+    async def aget_node(self, request: GetNodeSpaceRequest, option: Optional[RequestOption] = None) -> GetNodeSpaceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetNodeSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetNodeSpaceResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListSpaceRequest, option: Optional[RequestOption] = None) -> ListSpaceResponse:
         if option is None:
             option = RequestOption()
@@ -145,12 +153,13 @@ class Space(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListSpaceRequest, option: Optional[RequestOption] = None) -> ListSpaceResponse:
         if option is None:
@@ -159,11 +168,15 @@ class Space(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListSpaceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSpaceResponse)
         response.raw = resp
 
         return response
+        
+    

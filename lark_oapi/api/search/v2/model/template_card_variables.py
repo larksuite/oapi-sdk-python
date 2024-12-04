@@ -19,6 +19,6 @@ class TemplateCardVariables(object):
 class TemplateCardVariablesBuilder(object):
     def __init__(self) -> None:
         self._template_card_variables = TemplateCardVariables()
-
+    
     def build(self) -> "TemplateCardVariables":
         return self._template_card_variables

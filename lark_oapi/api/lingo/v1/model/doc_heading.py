@@ -23,14 +23,12 @@ class DocHeading(object):
 class DocHeadingBuilder(object):
     def __init__(self) -> None:
         self._doc_heading = DocHeading()
-
     def text(self, text: str) -> "DocHeadingBuilder":
         self._doc_heading.text = text
         return self
-
     def heading_level(self, heading_level: int) -> "DocHeadingBuilder":
         self._doc_heading.heading_level = heading_level
         return self
-
+    
     def build(self) -> "DocHeading":
         return self._doc_heading

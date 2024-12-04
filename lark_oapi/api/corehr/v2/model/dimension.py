@@ -31,26 +31,21 @@ class Dimension(object):
 class DimensionBuilder(object):
     def __init__(self) -> None:
         self._dimension = Dimension()
-
     def name(self, name: List[I18n]) -> "DimensionBuilder":
         self._dimension.name = name
         return self
-
     def api_name(self, api_name: str) -> "DimensionBuilder":
         self._dimension.api_name = api_name
         return self
-
     def field_type(self, field_type: str) -> "DimensionBuilder":
         self._dimension.field_type = field_type
         return self
-
     def required(self, required: bool) -> "DimensionBuilder":
         self._dimension.required = required
         return self
-
     def enum_value(self, enum_value: List[Enum]) -> "DimensionBuilder":
         self._dimension.enum_value = enum_value
         return self
-
+    
     def build(self) -> "Dimension":
         return self._dimension

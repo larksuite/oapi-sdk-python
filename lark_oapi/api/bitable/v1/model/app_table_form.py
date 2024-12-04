@@ -31,30 +31,24 @@ class AppTableForm(object):
 class AppTableFormBuilder(object):
     def __init__(self) -> None:
         self._app_table_form = AppTableForm()
-
     def name(self, name: str) -> "AppTableFormBuilder":
         self._app_table_form.name = name
         return self
-
     def description(self, description: str) -> "AppTableFormBuilder":
         self._app_table_form.description = description
         return self
-
     def shared(self, shared: bool) -> "AppTableFormBuilder":
         self._app_table_form.shared = shared
         return self
-
     def shared_url(self, shared_url: str) -> "AppTableFormBuilder":
         self._app_table_form.shared_url = shared_url
         return self
-
     def shared_limit(self, shared_limit: str) -> "AppTableFormBuilder":
         self._app_table_form.shared_limit = shared_limit
         return self
-
     def submit_limit_once(self, submit_limit_once: bool) -> "AppTableFormBuilder":
         self._app_table_form.submit_limit_once = submit_limit_once
         return self
-
+    
     def build(self) -> "AppTableForm":
         return self._app_table_form

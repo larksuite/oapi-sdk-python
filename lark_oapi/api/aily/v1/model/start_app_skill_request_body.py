@@ -24,14 +24,12 @@ class StartAppSkillRequestBody(object):
 class StartAppSkillRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._start_app_skill_request_body = StartAppSkillRequestBody()
-
     def global_variable(self, global_variable: SkillGlobalVariable) -> "StartAppSkillRequestBodyBuilder":
         self._start_app_skill_request_body.global_variable = global_variable
         return self
-
     def input(self, input: str) -> "StartAppSkillRequestBodyBuilder":
         self._start_app_skill_request_body.input = input
         return self
-
+    
     def build(self) -> "StartAppSkillRequestBody":
         return self._start_app_skill_request_body

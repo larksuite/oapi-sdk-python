@@ -26,18 +26,15 @@ class ListTodoResponseBody(object):
 class ListTodoResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_todo_response_body = ListTodoResponseBody()
-
     def items(self, items: List[Todo]) -> "ListTodoResponseBodyBuilder":
         self._list_todo_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "ListTodoResponseBodyBuilder":
         self._list_todo_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListTodoResponseBodyBuilder":
         self._list_todo_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "ListTodoResponseBody":
         return self._list_todo_response_body

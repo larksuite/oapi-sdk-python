@@ -22,10 +22,9 @@ class CancelAilySessionRunResponseBody(object):
 class CancelAilySessionRunResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._cancel_aily_session_run_response_body = CancelAilySessionRunResponseBody()
-
     def run(self, run: Run) -> "CancelAilySessionRunResponseBodyBuilder":
         self._cancel_aily_session_run_response_body.run = run
         return self
-
+    
     def build(self) -> "CancelAilySessionRunResponseBody":
         return self._cancel_aily_session_run_response_body

@@ -27,22 +27,18 @@ class JobRequirementSimple(object):
 class JobRequirementSimpleBuilder(object):
     def __init__(self) -> None:
         self._job_requirement_simple = JobRequirementSimple()
-
     def id(self, id: str) -> "JobRequirementSimpleBuilder":
         self._job_requirement_simple.id = id
         return self
-
     def short_code(self, short_code: str) -> "JobRequirementSimpleBuilder":
         self._job_requirement_simple.short_code = short_code
         return self
-
     def name(self, name: str) -> "JobRequirementSimpleBuilder":
         self._job_requirement_simple.name = name
         return self
-
     def department_id(self, department_id: str) -> "JobRequirementSimpleBuilder":
         self._job_requirement_simple.department_id = department_id
         return self
-
+    
     def build(self) -> "JobRequirementSimple":
         return self._job_requirement_simple

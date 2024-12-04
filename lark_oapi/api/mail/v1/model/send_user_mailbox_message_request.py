@@ -25,12 +25,12 @@ class SendUserMailboxMessageRequestBuilder(object):
         send_user_mailbox_message_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/send"
         send_user_mailbox_message_request.token_types = {AccessTokenType.USER}
         self._send_user_mailbox_message_request: SendUserMailboxMessageRequest = send_user_mailbox_message_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "SendUserMailboxMessageRequestBuilder":
         self._send_user_mailbox_message_request.user_mailbox_id = user_mailbox_id
         self._send_user_mailbox_message_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def request_body(self, request_body: Message) -> "SendUserMailboxMessageRequestBuilder":
         self._send_user_mailbox_message_request.request_body = request_body
         self._send_user_mailbox_message_request.body = request_body

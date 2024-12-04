@@ -21,10 +21,9 @@ class SearchRoomLevelResponseBody(object):
 class SearchRoomLevelResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_room_level_response_body = SearchRoomLevelResponseBody()
-
     def level_ids(self, level_ids: List[str]) -> "SearchRoomLevelResponseBodyBuilder":
         self._search_room_level_response_body.level_ids = level_ids
         return self
-
+    
     def build(self) -> "SearchRoomLevelResponseBody":
         return self._search_room_level_response_body

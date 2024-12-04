@@ -31,26 +31,21 @@ class TalentTag(object):
 class TalentTagBuilder(object):
     def __init__(self) -> None:
         self._talent_tag = TalentTag()
-
     def id(self, id: str) -> "TalentTagBuilder":
         self._talent_tag.id = id
         return self
-
     def name(self, name: I18n) -> "TalentTagBuilder":
         self._talent_tag.name = name
         return self
-
     def description(self, description: I18n) -> "TalentTagBuilder":
         self._talent_tag.description = description
         return self
-
     def type(self, type: int) -> "TalentTagBuilder":
         self._talent_tag.type = type
         return self
-
     def active_status(self, active_status: int) -> "TalentTagBuilder":
         self._talent_tag.active_status = active_status
         return self
-
+    
     def build(self) -> "TalentTag":
         return self._talent_tag

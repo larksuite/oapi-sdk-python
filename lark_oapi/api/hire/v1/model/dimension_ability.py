@@ -27,18 +27,15 @@ class DimensionAbility(object):
 class DimensionAbilityBuilder(object):
     def __init__(self) -> None:
         self._dimension_ability = DimensionAbility()
-
     def id(self, id: str) -> "DimensionAbilityBuilder":
         self._dimension_ability.id = id
         return self
-
     def name(self, name: I18n) -> "DimensionAbilityBuilder":
         self._dimension_ability.name = name
         return self
-
     def description(self, description: I18n) -> "DimensionAbilityBuilder":
         self._dimension_ability.description = description
         return self
-
+    
     def build(self) -> "DimensionAbility":
         return self._dimension_ability

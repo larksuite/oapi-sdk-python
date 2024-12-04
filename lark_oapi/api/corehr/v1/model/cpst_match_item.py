@@ -26,18 +26,15 @@ class CpstMatchItem(object):
 class CpstMatchItemBuilder(object):
     def __init__(self) -> None:
         self._cpst_match_item = CpstMatchItem()
-
     def standard_id(self, standard_id: str) -> "CpstMatchItemBuilder":
         self._cpst_match_item.standard_id = standard_id
         return self
-
     def grade(self, grade: CpstGrade) -> "CpstMatchItemBuilder":
         self._cpst_match_item.grade = grade
         return self
-
     def effective_time(self, effective_time: str) -> "CpstMatchItemBuilder":
         self._cpst_match_item.effective_time = effective_time
         return self
-
+    
     def build(self) -> "CpstMatchItem":
         return self._cpst_match_item

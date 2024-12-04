@@ -27,31 +27,32 @@ class ListAppTableFormFieldRequestBuilder(object):
         list_app_table_form_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields"
         list_app_table_form_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_app_table_form_field_request: ListAppTableFormFieldRequest = list_app_table_form_field_request
-
+    
     def page_size(self, page_size: int) -> "ListAppTableFormFieldRequestBuilder":
         self._list_app_table_form_field_request.page_size = page_size
         self._list_app_table_form_field_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListAppTableFormFieldRequestBuilder":
         self._list_app_table_form_field_request.page_token = page_token
         self._list_app_table_form_field_request.add_query("page_token", page_token)
         return self
-
+    
     def app_token(self, app_token: str) -> "ListAppTableFormFieldRequestBuilder":
         self._list_app_table_form_field_request.app_token = app_token
         self._list_app_table_form_field_request.paths["app_token"] = str(app_token)
         return self
-
+    
     def table_id(self, table_id: str) -> "ListAppTableFormFieldRequestBuilder":
         self._list_app_table_form_field_request.table_id = table_id
         self._list_app_table_form_field_request.paths["table_id"] = str(table_id)
         return self
-
+    
     def form_id(self, form_id: str) -> "ListAppTableFormFieldRequestBuilder":
         self._list_app_table_form_field_request.form_id = form_id
         self._list_app_table_form_field_request.paths["form_id"] = str(form_id)
         return self
+    
 
     def build(self) -> ListAppTableFormFieldRequest:
         return self._list_app_table_form_field_request

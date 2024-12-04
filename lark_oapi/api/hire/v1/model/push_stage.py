@@ -19,6 +19,6 @@ class PushStage(object):
 class PushStageBuilder(object):
     def __init__(self) -> None:
         self._push_stage = PushStage()
-
+    
     def build(self) -> "PushStage":
         return self._push_stage

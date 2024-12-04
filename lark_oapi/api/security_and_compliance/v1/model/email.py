@@ -31,30 +31,24 @@ class Email(object):
 class EmailBuilder(object):
     def __init__(self) -> None:
         self._email = Email()
-
     def id(self, id: str) -> "EmailBuilder":
         self._email.id = id
         return self
-
     def title(self, title: str) -> "EmailBuilder":
         self._email.title = title
         return self
-
     def owner_type(self, owner_type: int) -> "EmailBuilder":
         self._email.owner_type = owner_type
         return self
-
     def create_time(self, create_time: int) -> "EmailBuilder":
         self._email.create_time = create_time
         return self
-
     def owner_user_id(self, owner_user_id: str) -> "EmailBuilder":
         self._email.owner_user_id = owner_user_id
         return self
-
     def owner_address(self, owner_address: str) -> "EmailBuilder":
         self._email.owner_address = owner_address
         return self
-
+    
     def build(self) -> "Email":
         return self._email

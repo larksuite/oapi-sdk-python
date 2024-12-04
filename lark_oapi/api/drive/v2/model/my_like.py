@@ -31,30 +31,24 @@ class MyLike(object):
 class MyLikeBuilder(object):
     def __init__(self) -> None:
         self._my_like = MyLike()
-
     def last_liked_time(self, last_liked_time: int) -> "MyLikeBuilder":
         self._my_like.last_liked_time = last_liked_time
         return self
-
     def file_token(self, file_token: str) -> "MyLikeBuilder":
         self._my_like.file_token = file_token
         return self
-
     def file_type(self, file_type: str) -> "MyLikeBuilder":
         self._my_like.file_type = file_type
         return self
-
     def file_name(self, file_name: str) -> "MyLikeBuilder":
         self._my_like.file_name = file_name
         return self
-
     def file_url(self, file_url: str) -> "MyLikeBuilder":
         self._my_like.file_url = file_url
         return self
-
     def file_is_deleted(self, file_is_deleted: bool) -> "MyLikeBuilder":
         self._my_like.file_is_deleted = file_is_deleted
         return self
-
+    
     def build(self) -> "MyLike":
         return self._my_like

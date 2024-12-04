@@ -21,10 +21,9 @@ class PatchUnitRequestBody(object):
 class PatchUnitRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_unit_request_body = PatchUnitRequestBody()
-
     def name(self, name: str) -> "PatchUnitRequestBodyBuilder":
         self._patch_unit_request_body.name = name
         return self
-
+    
     def build(self) -> "PatchUnitRequestBody":
         return self._patch_unit_request_body

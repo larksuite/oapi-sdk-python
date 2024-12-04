@@ -26,18 +26,15 @@ class ObjectData(object):
 class ObjectDataBuilder(object):
     def __init__(self) -> None:
         self._object_data = ObjectData()
-
     def object_name(self, object_name: str) -> "ObjectDataBuilder":
         self._object_data.object_name = object_name
         return self
-
     def id(self, id: str) -> "ObjectDataBuilder":
         self._object_data.id = id
         return self
-
     def field_list(self, field_list: List[ObjectFieldData]) -> "ObjectDataBuilder":
         self._object_data.field_list = field_list
         return self
-
+    
     def build(self) -> "ObjectData":
         return self._object_data

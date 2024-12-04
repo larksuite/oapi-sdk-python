@@ -47,62 +47,48 @@ class OvertimeDetail(object):
 class OvertimeDetailBuilder(object):
     def __init__(self) -> None:
         self._overtime_detail = OvertimeDetail()
-
     def id(self, id: int) -> "OvertimeDetailBuilder":
         self._overtime_detail.id = id
         return self
-
     def user_id(self, user_id: str) -> "OvertimeDetailBuilder":
         self._overtime_detail.user_id = user_id
         return self
-
     def start_time(self, start_time: str) -> "OvertimeDetailBuilder":
         self._overtime_detail.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "OvertimeDetailBuilder":
         self._overtime_detail.end_time = end_time
         return self
-
     def duration(self, duration: str) -> "OvertimeDetailBuilder":
         self._overtime_detail.duration = duration
         return self
-
     def unit(self, unit: int) -> "OvertimeDetailBuilder":
         self._overtime_detail.unit = unit
         return self
-
     def date_type(self, date_type: int) -> "OvertimeDetailBuilder":
         self._overtime_detail.date_type = date_type
         return self
-
     def settle_type(self, settle_type: int) -> "OvertimeDetailBuilder":
         self._overtime_detail.settle_type = settle_type
         return self
-
     def effective_time(self, effective_time: int) -> "OvertimeDetailBuilder":
         self._overtime_detail.effective_time = effective_time
         return self
-
     def progress_start_time(self, progress_start_time: int) -> "OvertimeDetailBuilder":
         self._overtime_detail.progress_start_time = progress_start_time
         return self
-
     def date(self, date: str) -> "OvertimeDetailBuilder":
         self._overtime_detail.date = date
         return self
-
     def update_time(self, update_time: str) -> "OvertimeDetailBuilder":
         self._overtime_detail.update_time = update_time
         return self
-
     def is_time_bank(self, is_time_bank: bool) -> "OvertimeDetailBuilder":
         self._overtime_detail.is_time_bank = is_time_bank
         return self
-
     def instance_id(self, instance_id: int) -> "OvertimeDetailBuilder":
         self._overtime_detail.instance_id = instance_id
         return self
-
+    
     def build(self) -> "OvertimeDetail":
         return self._overtime_detail

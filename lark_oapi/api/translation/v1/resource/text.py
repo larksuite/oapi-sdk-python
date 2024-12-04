@@ -32,12 +32,13 @@ class Text(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DetectTextResponse = JSON.unmarshal(str(resp.content, UTF_8), DetectTextResponse)
         response.raw = resp
 
         return response
+        
 
     async def adetect(self, request: DetectTextRequest, option: Optional[RequestOption] = None) -> DetectTextResponse:
         if option is None:
@@ -46,15 +47,17 @@ class Text(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DetectTextResponse = JSON.unmarshal(str(resp.content, UTF_8), DetectTextResponse)
         response.raw = resp
 
         return response
-
+        
     def translate(self, request: TranslateTextRequest, option: Optional[RequestOption] = None) -> TranslateTextResponse:
         if option is None:
             option = RequestOption()
@@ -68,26 +71,30 @@ class Text(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: TranslateTextResponse = JSON.unmarshal(str(resp.content, UTF_8), TranslateTextResponse)
         response.raw = resp
 
         return response
+        
 
-    async def atranslate(self, request: TranslateTextRequest,
-                         option: Optional[RequestOption] = None) -> TranslateTextResponse:
+    async def atranslate(self, request: TranslateTextRequest, option: Optional[RequestOption] = None) -> TranslateTextResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: TranslateTextResponse = JSON.unmarshal(str(resp.content, UTF_8), TranslateTextResponse)
         response.raw = resp
 
         return response
+        
+    

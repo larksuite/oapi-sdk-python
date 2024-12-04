@@ -26,18 +26,15 @@ class File(object):
 class FileBuilder(object):
     def __init__(self) -> None:
         self._file = File()
-
     def file_token(self, file_token: str) -> "FileBuilder":
         self._file.file_token = file_token
         return self
-
     def name(self, name: str) -> "FileBuilder":
         self._file.name = name
         return self
-
     def segment_style(self, segment_style: SegmentStyle) -> "FileBuilder":
         self._file.segment_style = segment_style
         return self
-
+    
     def build(self) -> "File":
         return self._file

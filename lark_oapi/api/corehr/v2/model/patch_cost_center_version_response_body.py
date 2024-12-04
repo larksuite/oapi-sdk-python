@@ -22,10 +22,9 @@ class PatchCostCenterVersionResponseBody(object):
 class PatchCostCenterVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_cost_center_version_response_body = PatchCostCenterVersionResponseBody()
-
     def version(self, version: CostCenterVersion) -> "PatchCostCenterVersionResponseBodyBuilder":
         self._patch_cost_center_version_response_body.version = version
         return self
-
+    
     def build(self) -> "PatchCostCenterVersionResponseBody":
         return self._patch_cost_center_version_response_body

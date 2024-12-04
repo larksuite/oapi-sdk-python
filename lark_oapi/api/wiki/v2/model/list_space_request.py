@@ -25,21 +25,22 @@ class ListSpaceRequestBuilder(object):
         list_space_request.uri = "/open-apis/wiki/v2/spaces"
         list_space_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_space_request: ListSpaceRequest = list_space_request
-
+    
     def page_size(self, page_size: int) -> "ListSpaceRequestBuilder":
         self._list_space_request.page_size = page_size
         self._list_space_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListSpaceRequestBuilder":
         self._list_space_request.page_token = page_token
         self._list_space_request.add_query("page_token", page_token)
         return self
-
+    
     def lang(self, lang: str) -> "ListSpaceRequestBuilder":
         self._list_space_request.lang = lang
         self._list_space_request.add_query("lang", lang)
         return self
+    
 
     def build(self) -> ListSpaceRequest:
         return self._list_space_request

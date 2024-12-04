@@ -21,10 +21,9 @@ class Reminder(object):
 class ReminderBuilder(object):
     def __init__(self) -> None:
         self._reminder = Reminder()
-
     def minutes(self, minutes: int) -> "ReminderBuilder":
         self._reminder.minutes = minutes
         return self
-
+    
     def build(self) -> "Reminder":
         return self._reminder

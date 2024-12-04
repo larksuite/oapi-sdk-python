@@ -24,14 +24,12 @@ class CreateShortcutFileRequestBody(object):
 class CreateShortcutFileRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_shortcut_file_request_body = CreateShortcutFileRequestBody()
-
     def parent_token(self, parent_token: str) -> "CreateShortcutFileRequestBodyBuilder":
         self._create_shortcut_file_request_body.parent_token = parent_token
         return self
-
     def refer_entity(self, refer_entity: ReferEntity) -> "CreateShortcutFileRequestBodyBuilder":
         self._create_shortcut_file_request_body.refer_entity = refer_entity
         return self
-
+    
     def build(self) -> "CreateShortcutFileRequestBody":
         return self._create_shortcut_file_request_body

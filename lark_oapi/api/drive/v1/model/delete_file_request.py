@@ -24,16 +24,17 @@ class DeleteFileRequestBuilder(object):
         delete_file_request.uri = "/open-apis/drive/v1/files/:file_token"
         delete_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_file_request: DeleteFileRequest = delete_file_request
-
+    
     def type(self, type: str) -> "DeleteFileRequestBuilder":
         self._delete_file_request.type = type
         self._delete_file_request.add_query("type", type)
         return self
-
+    
     def file_token(self, file_token: str) -> "DeleteFileRequestBuilder":
         self._delete_file_request.file_token = file_token
         self._delete_file_request.paths["file_token"] = str(file_token)
         return self
+    
 
     def build(self) -> DeleteFileRequest:
         return self._delete_file_request

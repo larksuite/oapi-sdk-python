@@ -32,7 +32,7 @@ class UserFace(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetUserFaceResponse = GetUserFaceResponse()
@@ -45,6 +45,7 @@ class UserFace(object):
 
         response.raw = resp
         return response
+        
 
     async def aget(self, request: GetUserFaceRequest, option: Optional[RequestOption] = None) -> GetUserFaceResponse:
         if option is None:
@@ -53,9 +54,11 @@ class UserFace(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetUserFaceResponse = GetUserFaceResponse()
@@ -68,7 +71,7 @@ class UserFace(object):
 
         response.raw = resp
         return response
-
+        
     def update(self, request: UpdateUserFaceRequest, option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
         if option is None:
             option = RequestOption()
@@ -81,32 +84,36 @@ class UserFace(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
+            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateUserFaceResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserFaceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate(self, request: UpdateUserFaceRequest,
-                      option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
+    async def aupdate(self, request: UpdateUserFaceRequest, option: Optional[RequestOption] = None) -> UpdateUserFaceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateUserFaceResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateUserFaceResponse)
         response.raw = resp
 
         return response
+        
+    

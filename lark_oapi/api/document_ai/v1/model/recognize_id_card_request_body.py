@@ -21,10 +21,9 @@ class RecognizeIdCardRequestBody(object):
 class RecognizeIdCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_id_card_request_body = RecognizeIdCardRequestBody()
-
     def file(self, file: IO[Any]) -> "RecognizeIdCardRequestBodyBuilder":
         self._recognize_id_card_request_body.file = file
         return self
-
+    
     def build(self) -> "RecognizeIdCardRequestBody":
         return self._recognize_id_card_request_body

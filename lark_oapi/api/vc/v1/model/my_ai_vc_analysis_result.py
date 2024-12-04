@@ -21,10 +21,9 @@ class MyAiVcAnalysisResult(object):
 class MyAiVcAnalysisResultBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_analysis_result = MyAiVcAnalysisResult()
-
     def reply(self, reply: str) -> "MyAiVcAnalysisResultBuilder":
         self._my_ai_vc_analysis_result.reply = reply
         return self
-
+    
     def build(self) -> "MyAiVcAnalysisResult":
         return self._my_ai_vc_analysis_result

@@ -28,22 +28,18 @@ class LocationCity(object):
 class LocationCityBuilder(object):
     def __init__(self) -> None:
         self._location_city = LocationCity()
-
     def city_code(self, city_code: str) -> "LocationCityBuilder":
         self._location_city.city_code = city_code
         return self
-
     def state_code(self, state_code: str) -> "LocationCityBuilder":
         self._location_city.state_code = state_code
         return self
-
     def country_code(self, country_code: str) -> "LocationCityBuilder":
         self._location_city.country_code = country_code
         return self
-
     def city_name_info(self, city_name_info: LocationNameInfo) -> "LocationCityBuilder":
         self._location_city.city_name_info = city_name_info
         return self
-
+    
     def build(self) -> "LocationCity":
         return self._location_city

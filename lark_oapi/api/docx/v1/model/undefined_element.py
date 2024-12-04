@@ -19,6 +19,6 @@ class UndefinedElement(object):
 class UndefinedElementBuilder(object):
     def __init__(self) -> None:
         self._undefined_element = UndefinedElement()
-
+    
     def build(self) -> "UndefinedElement":
         return self._undefined_element

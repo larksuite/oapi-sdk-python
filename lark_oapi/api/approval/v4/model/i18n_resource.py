@@ -26,18 +26,15 @@ class I18nResource(object):
 class I18nResourceBuilder(object):
     def __init__(self) -> None:
         self._i18n_resource = I18nResource()
-
     def locale(self, locale: str) -> "I18nResourceBuilder":
         self._i18n_resource.locale = locale
         return self
-
     def texts(self, texts: List[I18nResourceText]) -> "I18nResourceBuilder":
         self._i18n_resource.texts = texts
         return self
-
     def is_default(self, is_default: bool) -> "I18nResourceBuilder":
         self._i18n_resource.is_default = is_default
         return self
-
+    
     def build(self) -> "I18nResource":
         return self._i18n_resource

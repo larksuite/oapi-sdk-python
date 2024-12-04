@@ -41,42 +41,33 @@ class AppliOfferOnboardProfileAdd(object):
 class AppliOfferOnboardProfileAddBuilder(object):
     def __init__(self) -> None:
         self._appli_offer_onboard_profile_add = AppliOfferOnboardProfileAdd()
-
     def id(self, id: str) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.id = id
         return self
-
     def name(self, name: str) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.name = name
         return self
-
     def en_name(self, en_name: str) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.en_name = en_name
         return self
-
     def district(self, district: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.district = district
         return self
-
     def city(self, city: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.city = city
         return self
-
     def state(self, state: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.state = state
         return self
-
     def country(self, country: AppliOfferOnboardProfileCity) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.country = country
         return self
-
     def usage_id_list(self, usage_id_list: List[str]) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.usage_id_list = usage_id_list
         return self
-
     def active_status(self, active_status: int) -> "AppliOfferOnboardProfileAddBuilder":
         self._appli_offer_onboard_profile_add.active_status = active_status
         return self
-
+    
     def build(self) -> "AppliOfferOnboardProfileAdd":
         return self._appli_offer_onboard_profile_add

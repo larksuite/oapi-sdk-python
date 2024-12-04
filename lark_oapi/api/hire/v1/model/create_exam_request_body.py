@@ -29,26 +29,21 @@ class CreateExamRequestBody(object):
 class CreateExamRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_exam_request_body = CreateExamRequestBody()
-
     def application_id(self, application_id: str) -> "CreateExamRequestBodyBuilder":
         self._create_exam_request_body.application_id = application_id
         return self
-
     def exam_resource_name(self, exam_resource_name: str) -> "CreateExamRequestBodyBuilder":
         self._create_exam_request_body.exam_resource_name = exam_resource_name
         return self
-
     def score(self, score: float) -> "CreateExamRequestBodyBuilder":
         self._create_exam_request_body.score = score
         return self
-
     def uuid(self, uuid: str) -> "CreateExamRequestBodyBuilder":
         self._create_exam_request_body.uuid = uuid
         return self
-
     def operator_id(self, operator_id: str) -> "CreateExamRequestBodyBuilder":
         self._create_exam_request_body.operator_id = operator_id
         return self
-
+    
     def build(self) -> "CreateExamRequestBody":
         return self._create_exam_request_body

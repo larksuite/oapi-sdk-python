@@ -27,22 +27,18 @@ class ExtractCopy(object):
 class ExtractCopyBuilder(object):
     def __init__(self) -> None:
         self._extract_copy = ExtractCopy()
-
     def copy_num(self, copy_num: int) -> "ExtractCopyBuilder":
         self._extract_copy.copy_num = copy_num
         return self
-
     def original_copy(self, original_copy: str) -> "ExtractCopyBuilder":
         self._extract_copy.original_copy = original_copy
         return self
-
     def key(self, key: str) -> "ExtractCopyBuilder":
         self._extract_copy.key = key
         return self
-
     def text(self, text: str) -> "ExtractCopyBuilder":
         self._extract_copy.text = text
         return self
-
+    
     def build(self) -> "ExtractCopy":
         return self._extract_copy

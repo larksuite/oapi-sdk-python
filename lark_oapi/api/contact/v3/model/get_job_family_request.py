@@ -23,11 +23,12 @@ class GetJobFamilyRequestBuilder(object):
         get_job_family_request.uri = "/open-apis/contact/v3/job_families/:job_family_id"
         get_job_family_request.token_types = {AccessTokenType.TENANT}
         self._get_job_family_request: GetJobFamilyRequest = get_job_family_request
-
+    
     def job_family_id(self, job_family_id: str) -> "GetJobFamilyRequestBuilder":
         self._get_job_family_request.job_family_id = job_family_id
         self._get_job_family_request.paths["job_family_id"] = str(job_family_id)
         return self
+    
 
     def build(self) -> GetJobFamilyRequest:
         return self._get_job_family_request

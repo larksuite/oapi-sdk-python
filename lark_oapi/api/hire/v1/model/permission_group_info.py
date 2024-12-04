@@ -24,14 +24,12 @@ class PermissionGroupInfo(object):
 class PermissionGroupInfoBuilder(object):
     def __init__(self) -> None:
         self._permission_group_info = PermissionGroupInfo()
-
     def permission_ids(self, permission_ids: List[str]) -> "PermissionGroupInfoBuilder":
         self._permission_group_info.permission_ids = permission_ids
         return self
-
     def scope_rule(self, scope_rule: PermissionScopeRule) -> "PermissionGroupInfoBuilder":
         self._permission_group_info.scope_rule = scope_rule
         return self
-
+    
     def build(self) -> "PermissionGroupInfo":
         return self._permission_group_info

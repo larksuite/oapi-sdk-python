@@ -19,6 +19,6 @@ class DocContainer(object):
 class DocContainerBuilder(object):
     def __init__(self) -> None:
         self._doc_container = DocContainer()
-
+    
     def build(self) -> "DocContainer":
         return self._doc_container

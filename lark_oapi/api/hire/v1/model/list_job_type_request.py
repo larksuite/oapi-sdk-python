@@ -24,16 +24,17 @@ class ListJobTypeRequestBuilder(object):
         list_job_type_request.uri = "/open-apis/hire/v1/job_types"
         list_job_type_request.token_types = {AccessTokenType.TENANT}
         self._list_job_type_request: ListJobTypeRequest = list_job_type_request
-
+    
     def page_size(self, page_size: int) -> "ListJobTypeRequestBuilder":
         self._list_job_type_request.page_size = page_size
         self._list_job_type_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListJobTypeRequestBuilder":
         self._list_job_type_request.page_token = page_token
         self._list_job_type_request.add_query("page_token", page_token)
         return self
+    
 
     def build(self) -> ListJobTypeRequest:
         return self._list_job_type_request

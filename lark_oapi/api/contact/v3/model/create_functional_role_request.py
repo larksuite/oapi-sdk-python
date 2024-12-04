@@ -24,7 +24,7 @@ class CreateFunctionalRoleRequestBuilder(object):
         create_functional_role_request.uri = "/open-apis/contact/v3/functional_roles"
         create_functional_role_request.token_types = {AccessTokenType.TENANT}
         self._create_functional_role_request: CreateFunctionalRoleRequest = create_functional_role_request
-
+    
     def request_body(self, request_body: CreateFunctionalRoleRequestBody) -> "CreateFunctionalRoleRequestBuilder":
         self._create_functional_role_request.request_body = request_body
         self._create_functional_role_request.body = request_body

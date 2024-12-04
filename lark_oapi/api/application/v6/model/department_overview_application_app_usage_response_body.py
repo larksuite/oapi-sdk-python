@@ -26,19 +26,15 @@ class DepartmentOverviewApplicationAppUsageResponseBody(object):
 class DepartmentOverviewApplicationAppUsageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._department_overview_application_app_usage_response_body = DepartmentOverviewApplicationAppUsageResponseBody()
-
     def has_more(self, has_more: bool) -> "DepartmentOverviewApplicationAppUsageResponseBodyBuilder":
         self._department_overview_application_app_usage_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "DepartmentOverviewApplicationAppUsageResponseBodyBuilder":
         self._department_overview_application_app_usage_response_body.page_token = page_token
         return self
-
-    def items(self,
-              items: List[ApplicationDepartmentAppUsage]) -> "DepartmentOverviewApplicationAppUsageResponseBodyBuilder":
+    def items(self, items: List[ApplicationDepartmentAppUsage]) -> "DepartmentOverviewApplicationAppUsageResponseBodyBuilder":
         self._department_overview_application_app_usage_response_body.items = items
         return self
-
+    
     def build(self) -> "DepartmentOverviewApplicationAppUsageResponseBody":
         return self._department_overview_application_app_usage_response_body

@@ -17,6 +17,7 @@ class CreateChatResponseBody(object):
         "owner_id_type": str,
         "urgent_setting": str,
         "video_conference_setting": str,
+        "pin_manage_setting": str,
         "add_member_permission": str,
         "share_card_permission": str,
         "at_all_permission": str,
@@ -31,6 +32,8 @@ class CreateChatResponseBody(object):
         "leave_message_visibility": str,
         "membership_approval": str,
         "moderation_permission": str,
+        "labels": List[str],
+        "toolkit_ids": List[int],
         "restricted_mode_setting": RestrictedModeSetting,
         "hide_member_count_setting": str,
     }
@@ -45,6 +48,7 @@ class CreateChatResponseBody(object):
         self.owner_id_type: Optional[str] = None
         self.urgent_setting: Optional[str] = None
         self.video_conference_setting: Optional[str] = None
+        self.pin_manage_setting: Optional[str] = None
         self.add_member_permission: Optional[str] = None
         self.share_card_permission: Optional[str] = None
         self.at_all_permission: Optional[str] = None
@@ -59,6 +63,8 @@ class CreateChatResponseBody(object):
         self.leave_message_visibility: Optional[str] = None
         self.membership_approval: Optional[str] = None
         self.moderation_permission: Optional[str] = None
+        self.labels: Optional[List[str]] = None
+        self.toolkit_ids: Optional[List[int]] = None
         self.restricted_mode_setting: Optional[RestrictedModeSetting] = None
         self.hide_member_count_setting: Optional[str] = None
         init(self, d, self._types)
@@ -71,107 +77,90 @@ class CreateChatResponseBody(object):
 class CreateChatResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_chat_response_body = CreateChatResponseBody()
-
     def chat_id(self, chat_id: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.chat_id = chat_id
         return self
-
     def avatar(self, avatar: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.avatar = avatar
         return self
-
     def name(self, name: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.name = name
         return self
-
     def description(self, description: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.description = description
         return self
-
     def i18n_names(self, i18n_names: I18nNames) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.i18n_names = i18n_names
         return self
-
     def owner_id(self, owner_id: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.owner_id = owner_id
         return self
-
     def owner_id_type(self, owner_id_type: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.owner_id_type = owner_id_type
         return self
-
     def urgent_setting(self, urgent_setting: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.urgent_setting = urgent_setting
         return self
-
     def video_conference_setting(self, video_conference_setting: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.video_conference_setting = video_conference_setting
         return self
-
+    def pin_manage_setting(self, pin_manage_setting: str) -> "CreateChatResponseBodyBuilder":
+        self._create_chat_response_body.pin_manage_setting = pin_manage_setting
+        return self
     def add_member_permission(self, add_member_permission: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.add_member_permission = add_member_permission
         return self
-
     def share_card_permission(self, share_card_permission: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.share_card_permission = share_card_permission
         return self
-
     def at_all_permission(self, at_all_permission: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.at_all_permission = at_all_permission
         return self
-
     def edit_permission(self, edit_permission: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.edit_permission = edit_permission
         return self
-
     def group_message_type(self, group_message_type: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.group_message_type = group_message_type
         return self
-
     def chat_mode(self, chat_mode: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.chat_mode = chat_mode
         return self
-
     def chat_type(self, chat_type: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.chat_type = chat_type
         return self
-
     def chat_tag(self, chat_tag: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.chat_tag = chat_tag
         return self
-
     def external(self, external: bool) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.external = external
         return self
-
     def tenant_key(self, tenant_key: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.tenant_key = tenant_key
         return self
-
     def join_message_visibility(self, join_message_visibility: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.join_message_visibility = join_message_visibility
         return self
-
     def leave_message_visibility(self, leave_message_visibility: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.leave_message_visibility = leave_message_visibility
         return self
-
     def membership_approval(self, membership_approval: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.membership_approval = membership_approval
         return self
-
     def moderation_permission(self, moderation_permission: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.moderation_permission = moderation_permission
         return self
-
-    def restricted_mode_setting(self,
-                                restricted_mode_setting: RestrictedModeSetting) -> "CreateChatResponseBodyBuilder":
+    def labels(self, labels: List[str]) -> "CreateChatResponseBodyBuilder":
+        self._create_chat_response_body.labels = labels
+        return self
+    def toolkit_ids(self, toolkit_ids: List[int]) -> "CreateChatResponseBodyBuilder":
+        self._create_chat_response_body.toolkit_ids = toolkit_ids
+        return self
+    def restricted_mode_setting(self, restricted_mode_setting: RestrictedModeSetting) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.restricted_mode_setting = restricted_mode_setting
         return self
-
     def hide_member_count_setting(self, hide_member_count_setting: str) -> "CreateChatResponseBodyBuilder":
         self._create_chat_response_body.hide_member_count_setting = hide_member_count_setting
         return self
-
+    
     def build(self) -> "CreateChatResponseBody":
         return self._create_chat_response_body

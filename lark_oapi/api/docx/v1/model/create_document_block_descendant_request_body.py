@@ -26,18 +26,15 @@ class CreateDocumentBlockDescendantRequestBody(object):
 class CreateDocumentBlockDescendantRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_document_block_descendant_request_body = CreateDocumentBlockDescendantRequestBody()
-
     def children_id(self, children_id: List[str]) -> "CreateDocumentBlockDescendantRequestBodyBuilder":
         self._create_document_block_descendant_request_body.children_id = children_id
         return self
-
     def index(self, index: int) -> "CreateDocumentBlockDescendantRequestBodyBuilder":
         self._create_document_block_descendant_request_body.index = index
         return self
-
     def descendants(self, descendants: List[Block]) -> "CreateDocumentBlockDescendantRequestBodyBuilder":
         self._create_document_block_descendant_request_body.descendants = descendants
         return self
-
+    
     def build(self) -> "CreateDocumentBlockDescendantRequestBody":
         return self._create_document_block_descendant_request_body

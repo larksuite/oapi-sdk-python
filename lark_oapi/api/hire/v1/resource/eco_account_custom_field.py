@@ -21,8 +21,7 @@ class EcoAccountCustomField(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteEcoAccountCustomFieldRequest,
-                     option: Optional[RequestOption] = None) -> BatchDeleteEcoAccountCustomFieldResponse:
+    def batch_delete(self, request: BatchDeleteEcoAccountCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchDeleteEcoAccountCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,34 +34,33 @@ class EcoAccountCustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchDeleteEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            BatchDeleteEcoAccountCustomFieldResponse)
+        response: BatchDeleteEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteEcoAccountCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_delete(self, request: BatchDeleteEcoAccountCustomFieldRequest,
-                            option: Optional[RequestOption] = None) -> BatchDeleteEcoAccountCustomFieldResponse:
+    async def abatch_delete(self, request: BatchDeleteEcoAccountCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchDeleteEcoAccountCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchDeleteEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            BatchDeleteEcoAccountCustomFieldResponse)
+        response: BatchDeleteEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteEcoAccountCustomFieldResponse)
         response.raw = resp
 
         return response
-
-    def batch_update(self, request: BatchUpdateEcoAccountCustomFieldRequest,
-                     option: Optional[RequestOption] = None) -> BatchUpdateEcoAccountCustomFieldResponse:
+        
+    def batch_update(self, request: BatchUpdateEcoAccountCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchUpdateEcoAccountCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,34 +73,33 @@ class EcoAccountCustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchUpdateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            BatchUpdateEcoAccountCustomFieldResponse)
+        response: BatchUpdateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateEcoAccountCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_update(self, request: BatchUpdateEcoAccountCustomFieldRequest,
-                            option: Optional[RequestOption] = None) -> BatchUpdateEcoAccountCustomFieldResponse:
+    async def abatch_update(self, request: BatchUpdateEcoAccountCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchUpdateEcoAccountCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchUpdateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            BatchUpdateEcoAccountCustomFieldResponse)
+        response: BatchUpdateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateEcoAccountCustomFieldResponse)
         response.raw = resp
 
         return response
-
-    def create(self, request: CreateEcoAccountCustomFieldRequest,
-               option: Optional[RequestOption] = None) -> CreateEcoAccountCustomFieldResponse:
+        
+    def create(self, request: CreateEcoAccountCustomFieldRequest, option: Optional[RequestOption] = None) -> CreateEcoAccountCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,28 +112,30 @@ class EcoAccountCustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       CreateEcoAccountCustomFieldResponse)
+        response: CreateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEcoAccountCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateEcoAccountCustomFieldRequest,
-                      option: Optional[RequestOption] = None) -> CreateEcoAccountCustomFieldResponse:
+    async def acreate(self, request: CreateEcoAccountCustomFieldRequest, option: Optional[RequestOption] = None) -> CreateEcoAccountCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       CreateEcoAccountCustomFieldResponse)
+        response: CreateEcoAccountCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEcoAccountCustomFieldResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -22,10 +22,9 @@ class BatchDeleteAppRoleMemberRequestBody(object):
 class BatchDeleteAppRoleMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_app_role_member_request_body = BatchDeleteAppRoleMemberRequestBody()
-
     def member_list(self, member_list: List[AppRoleMemberId]) -> "BatchDeleteAppRoleMemberRequestBodyBuilder":
         self._batch_delete_app_role_member_request_body.member_list = member_list
         return self
-
+    
     def build(self) -> "BatchDeleteAppRoleMemberRequestBody":
         return self._batch_delete_app_role_member_request_body

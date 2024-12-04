@@ -24,14 +24,12 @@ class DimensionInfoData(object):
 class DimensionInfoDataBuilder(object):
     def __init__(self) -> None:
         self._dimension_info_data = DimensionInfoData()
-
     def dimension_key(self, dimension_key: str) -> "DimensionInfoDataBuilder":
         self._dimension_info_data.dimension_key = dimension_key
         return self
-
     def dimension_info(self, dimension_info: DimensionInfo) -> "DimensionInfoDataBuilder":
         self._dimension_info_data.dimension_info = dimension_info
         return self
-
+    
     def build(self) -> "DimensionInfoData":
         return self._dimension_info_data

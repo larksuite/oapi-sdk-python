@@ -21,10 +21,9 @@ class FormFieldVariableDepartmentValue(object):
 class FormFieldVariableDepartmentValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_department_value = FormFieldVariableDepartmentValue()
-
     def value(self, value: str) -> "FormFieldVariableDepartmentValueBuilder":
         self._form_field_variable_department_value.value = value
         return self
-
+    
     def build(self) -> "FormFieldVariableDepartmentValue":
         return self._form_field_variable_department_value

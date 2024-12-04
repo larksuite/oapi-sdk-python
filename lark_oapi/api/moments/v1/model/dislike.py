@@ -29,26 +29,21 @@ class Dislike(object):
 class DislikeBuilder(object):
     def __init__(self) -> None:
         self._dislike = Dislike()
-
     def entity_type(self, entity_type: int) -> "DislikeBuilder":
         self._dislike.entity_type = entity_type
         return self
-
     def entity_id(self, entity_id: str) -> "DislikeBuilder":
         self._dislike.entity_id = entity_id
         return self
-
     def create_time(self, create_time: str) -> "DislikeBuilder":
         self._dislike.create_time = create_time
         return self
-
     def user_id(self, user_id: str) -> "DislikeBuilder":
         self._dislike.user_id = user_id
         return self
-
     def id(self, id: str) -> "DislikeBuilder":
         self._dislike.id = id
         return self
-
+    
     def build(self) -> "Dislike":
         return self._dislike

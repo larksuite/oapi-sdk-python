@@ -23,14 +23,12 @@ class CustomOrgWithRate(object):
 class CustomOrgWithRateBuilder(object):
     def __init__(self) -> None:
         self._custom_org_with_rate = CustomOrgWithRate()
-
     def id(self, id: str) -> "CustomOrgWithRateBuilder":
         self._custom_org_with_rate.id = id
         return self
-
     def rate(self, rate: str) -> "CustomOrgWithRateBuilder":
         self._custom_org_with_rate.rate = rate
         return self
-
+    
     def build(self) -> "CustomOrgWithRate":
         return self._custom_org_with_rate

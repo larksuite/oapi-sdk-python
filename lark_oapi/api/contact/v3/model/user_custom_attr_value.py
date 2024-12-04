@@ -36,38 +36,30 @@ class UserCustomAttrValue(object):
 class UserCustomAttrValueBuilder(object):
     def __init__(self) -> None:
         self._user_custom_attr_value = UserCustomAttrValue()
-
     def text(self, text: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.text = text
         return self
-
     def url(self, url: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.url = url
         return self
-
     def pc_url(self, pc_url: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.pc_url = pc_url
         return self
-
     def option_id(self, option_id: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.option_id = option_id
         return self
-
     def option_value(self, option_value: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.option_value = option_value
         return self
-
     def name(self, name: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.name = name
         return self
-
     def picture_url(self, picture_url: str) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.picture_url = picture_url
         return self
-
     def generic_user(self, generic_user: CustomAttrGenericUser) -> "UserCustomAttrValueBuilder":
         self._user_custom_attr_value.generic_user = generic_user
         return self
-
+    
     def build(self) -> "UserCustomAttrValue":
         return self._user_custom_attr_value

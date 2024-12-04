@@ -29,22 +29,18 @@ class ResidentTax(object):
 class ResidentTaxBuilder(object):
     def __init__(self) -> None:
         self._resident_tax = ResidentTax()
-
     def year_resident_tax(self, year_resident_tax: str) -> "ResidentTaxBuilder":
         self._resident_tax.year_resident_tax = year_resident_tax
         return self
-
     def resident_status(self, resident_status: Enum) -> "ResidentTaxBuilder":
         self._resident_tax.resident_status = resident_status
         return self
-
     def tax_country_region_id(self, tax_country_region_id: str) -> "ResidentTaxBuilder":
         self._resident_tax.tax_country_region_id = tax_country_region_id
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "ResidentTaxBuilder":
         self._resident_tax.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "ResidentTax":
         return self._resident_tax

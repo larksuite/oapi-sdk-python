@@ -22,10 +22,9 @@ class CreateCustomFieldResponseBody(object):
 class CreateCustomFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_custom_field_response_body = CreateCustomFieldResponseBody()
-
     def custom_field(self, custom_field: CustomField) -> "CreateCustomFieldResponseBodyBuilder":
         self._create_custom_field_response_body.custom_field = custom_field
         return self
-
+    
     def build(self) -> "CreateCustomFieldResponseBody":
         return self._create_custom_field_response_body

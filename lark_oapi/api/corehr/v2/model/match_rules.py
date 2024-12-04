@@ -22,10 +22,9 @@ class MatchRules(object):
 class MatchRulesBuilder(object):
     def __init__(self) -> None:
         self._match_rules = MatchRules()
-
     def match_rules(self, match_rules: List[MatchRule]) -> "MatchRulesBuilder":
         self._match_rules.match_rules = match_rules
         return self
-
+    
     def build(self) -> "MatchRules":
         return self._match_rules

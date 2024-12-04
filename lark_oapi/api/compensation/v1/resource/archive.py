@@ -30,26 +30,30 @@ class Archive(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryArchiveResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryArchiveRequest,
-                     option: Optional[RequestOption] = None) -> QueryArchiveResponse:
+    async def aquery(self, request: QueryArchiveRequest, option: Optional[RequestOption] = None) -> QueryArchiveResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryArchiveResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryArchiveResponse)
         response.raw = resp
 
         return response
+        
+    

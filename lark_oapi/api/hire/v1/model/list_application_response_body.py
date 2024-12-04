@@ -25,18 +25,15 @@ class ListApplicationResponseBody(object):
 class ListApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_application_response_body = ListApplicationResponseBody()
-
     def items(self, items: List[str]) -> "ListApplicationResponseBodyBuilder":
         self._list_application_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListApplicationResponseBodyBuilder":
         self._list_application_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListApplicationResponseBodyBuilder":
         self._list_application_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListApplicationResponseBody":
         return self._list_application_response_body

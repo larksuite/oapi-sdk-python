@@ -21,10 +21,9 @@ class RecognizeBusinessCardRequestBody(object):
 class RecognizeBusinessCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_business_card_request_body = RecognizeBusinessCardRequestBody()
-
     def file(self, file: IO[Any]) -> "RecognizeBusinessCardRequestBodyBuilder":
         self._recognize_business_card_request_body.file = file
         return self
-
+    
     def build(self) -> "RecognizeBusinessCardRequestBody":
         return self._recognize_business_card_request_body

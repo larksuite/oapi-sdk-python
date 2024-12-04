@@ -31,22 +31,18 @@ class BorderStyle(object):
 class BorderStyleBuilder(object):
     def __init__(self) -> None:
         self._border_style = BorderStyle()
-
     def top(self, top: TopBorderStyle) -> "BorderStyleBuilder":
         self._border_style.top = top
         return self
-
     def left(self, left: LeftBorderStyle) -> "BorderStyleBuilder":
         self._border_style.left = left
         return self
-
     def right(self, right: RightBorderStyle) -> "BorderStyleBuilder":
         self._border_style.right = right
         return self
-
     def bottom(self, bottom: BottomBorderStyle) -> "BorderStyleBuilder":
         self._border_style.bottom = bottom
         return self
-
+    
     def build(self) -> "BorderStyle":
         return self._border_style

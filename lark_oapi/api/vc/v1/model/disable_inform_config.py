@@ -29,22 +29,18 @@ class DisableInformConfig(object):
 class DisableInformConfigBuilder(object):
     def __init__(self) -> None:
         self._disable_inform_config = DisableInformConfig()
-
     def if_cover_child_scope(self, if_cover_child_scope: bool) -> "DisableInformConfigBuilder":
         self._disable_inform_config.if_cover_child_scope = if_cover_child_scope
         return self
-
     def if_inform(self, if_inform: bool) -> "DisableInformConfigBuilder":
         self._disable_inform_config.if_inform = if_inform
         return self
-
     def informed_users(self, informed_users: List[SubscribeUser]) -> "DisableInformConfigBuilder":
         self._disable_inform_config.informed_users = informed_users
         return self
-
     def informed_depts(self, informed_depts: List[SubscribeDepartment]) -> "DisableInformConfigBuilder":
         self._disable_inform_config.informed_depts = informed_depts
         return self
-
+    
     def build(self) -> "DisableInformConfig":
         return self._disable_inform_config

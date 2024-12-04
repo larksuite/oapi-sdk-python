@@ -26,18 +26,15 @@ class ListMessageReactionResponseBody(object):
 class ListMessageReactionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_message_reaction_response_body = ListMessageReactionResponseBody()
-
     def items(self, items: List[MessageReaction]) -> "ListMessageReactionResponseBodyBuilder":
         self._list_message_reaction_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "ListMessageReactionResponseBodyBuilder":
         self._list_message_reaction_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListMessageReactionResponseBodyBuilder":
         self._list_message_reaction_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "ListMessageReactionResponseBody":
         return self._list_message_reaction_response_body

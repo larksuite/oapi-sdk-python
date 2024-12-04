@@ -19,6 +19,6 @@ class Setting(object):
 class SettingBuilder(object):
     def __init__(self) -> None:
         self._setting = Setting()
-
+    
     def build(self) -> "Setting":
         return self._setting

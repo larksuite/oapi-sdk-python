@@ -23,14 +23,12 @@ class SiteResumeIdentification(object):
 class SiteResumeIdentificationBuilder(object):
     def __init__(self) -> None:
         self._site_resume_identification = SiteResumeIdentification()
-
     def identification_type(self, identification_type: str) -> "SiteResumeIdentificationBuilder":
         self._site_resume_identification.identification_type = identification_type
         return self
-
     def code(self, code: str) -> "SiteResumeIdentificationBuilder":
         self._site_resume_identification.code = code
         return self
-
+    
     def build(self) -> "SiteResumeIdentification":
         return self._site_resume_identification

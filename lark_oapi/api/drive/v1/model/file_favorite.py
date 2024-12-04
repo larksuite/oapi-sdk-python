@@ -19,6 +19,6 @@ class FileFavorite(object):
 class FileFavoriteBuilder(object):
     def __init__(self) -> None:
         self._file_favorite = FileFavorite()
-
+    
     def build(self) -> "FileFavorite":
         return self._file_favorite

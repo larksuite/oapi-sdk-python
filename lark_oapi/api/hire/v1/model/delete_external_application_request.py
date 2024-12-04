@@ -24,16 +24,17 @@ class DeleteExternalApplicationRequestBuilder(object):
         delete_external_application_request.uri = "/open-apis/hire/v1/external_applications/:external_application_id"
         delete_external_application_request.token_types = {AccessTokenType.TENANT}
         self._delete_external_application_request: DeleteExternalApplicationRequest = delete_external_application_request
-
+    
     def talent_id(self, talent_id: str) -> "DeleteExternalApplicationRequestBuilder":
         self._delete_external_application_request.talent_id = talent_id
         self._delete_external_application_request.add_query("talent_id", talent_id)
         return self
-
+    
     def external_application_id(self, external_application_id: str) -> "DeleteExternalApplicationRequestBuilder":
         self._delete_external_application_request.external_application_id = external_application_id
         self._delete_external_application_request.paths["external_application_id"] = str(external_application_id)
         return self
+    
 
     def build(self) -> DeleteExternalApplicationRequest:
         return self._delete_external_application_request

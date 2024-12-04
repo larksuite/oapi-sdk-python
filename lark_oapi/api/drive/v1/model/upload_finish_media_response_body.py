@@ -21,10 +21,9 @@ class UploadFinishMediaResponseBody(object):
 class UploadFinishMediaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_finish_media_response_body = UploadFinishMediaResponseBody()
-
     def file_token(self, file_token: str) -> "UploadFinishMediaResponseBodyBuilder":
         self._upload_finish_media_response_body.file_token = file_token
         return self
-
+    
     def build(self) -> "UploadFinishMediaResponseBody":
         return self._upload_finish_media_response_body

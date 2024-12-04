@@ -23,11 +23,12 @@ class CloseJobRequestBuilder(object):
         close_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/close"
         close_job_request.token_types = {AccessTokenType.TENANT}
         self._close_job_request: CloseJobRequest = close_job_request
-
+    
     def job_id(self, job_id: str) -> "CloseJobRequestBuilder":
         self._close_job_request.job_id = job_id
         self._close_job_request.paths["job_id"] = str(job_id)
         return self
+    
 
     def build(self) -> CloseJobRequest:
         return self._close_job_request

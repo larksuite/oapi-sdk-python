@@ -26,18 +26,15 @@ class ListAccessRecordResponseBody(object):
 class ListAccessRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_access_record_response_body = ListAccessRecordResponseBody()
-
     def items(self, items: List[AccessRecord]) -> "ListAccessRecordResponseBodyBuilder":
         self._list_access_record_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListAccessRecordResponseBodyBuilder":
         self._list_access_record_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListAccessRecordResponseBodyBuilder":
         self._list_access_record_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListAccessRecordResponseBody":
         return self._list_access_record_response_body

@@ -27,22 +27,18 @@ class FileSearch(object):
 class FileSearchBuilder(object):
     def __init__(self) -> None:
         self._file_search = FileSearch()
-
     def docs_token(self, docs_token: str) -> "FileSearchBuilder":
         self._file_search.docs_token = docs_token
         return self
-
     def docs_type(self, docs_type: str) -> "FileSearchBuilder":
         self._file_search.docs_type = docs_type
         return self
-
     def title(self, title: str) -> "FileSearchBuilder":
         self._file_search.title = title
         return self
-
     def owner_id(self, owner_id: str) -> "FileSearchBuilder":
         self._file_search.owner_id = owner_id
         return self
-
+    
     def build(self) -> "FileSearch":
         return self._file_search

@@ -25,12 +25,12 @@ class CreateCustomFieldRequestBuilder(object):
         create_custom_field_request.uri = "/open-apis/task/v2/custom_fields"
         create_custom_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_custom_field_request: CreateCustomFieldRequest = create_custom_field_request
-
+    
     def user_id_type(self, user_id_type: str) -> "CreateCustomFieldRequestBuilder":
         self._create_custom_field_request.user_id_type = user_id_type
         self._create_custom_field_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: InputCustomField) -> "CreateCustomFieldRequestBuilder":
         self._create_custom_field_request.request_body = request_body
         self._create_custom_field_request.body = request_body

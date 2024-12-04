@@ -38,42 +38,33 @@ class DeleteUserRequestBody(object):
 class DeleteUserRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_user_request_body = DeleteUserRequestBody()
-
     def department_chat_acceptor_user_id(self, department_chat_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.department_chat_acceptor_user_id = department_chat_acceptor_user_id
         return self
-
     def external_chat_acceptor_user_id(self, external_chat_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.external_chat_acceptor_user_id = external_chat_acceptor_user_id
         return self
-
     def docs_acceptor_user_id(self, docs_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.docs_acceptor_user_id = docs_acceptor_user_id
         return self
-
     def calendar_acceptor_user_id(self, calendar_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.calendar_acceptor_user_id = calendar_acceptor_user_id
         return self
-
     def application_acceptor_user_id(self, application_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.application_acceptor_user_id = application_acceptor_user_id
         return self
-
     def minutes_acceptor_user_id(self, minutes_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.minutes_acceptor_user_id = minutes_acceptor_user_id
         return self
-
     def survey_acceptor_user_id(self, survey_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.survey_acceptor_user_id = survey_acceptor_user_id
         return self
-
     def email_acceptor(self, email_acceptor: ResourceAcceptor) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.email_acceptor = email_acceptor
         return self
-
     def anycross_acceptor_user_id(self, anycross_acceptor_user_id: str) -> "DeleteUserRequestBodyBuilder":
         self._delete_user_request_body.anycross_acceptor_user_id = anycross_acceptor_user_id
         return self
-
+    
     def build(self) -> "DeleteUserRequestBody":
         return self._delete_user_request_body

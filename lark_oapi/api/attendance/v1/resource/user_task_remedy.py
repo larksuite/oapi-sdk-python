@@ -21,8 +21,7 @@ class UserTaskRemedy(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateUserTaskRemedyRequest,
-               option: Optional[RequestOption] = None) -> CreateUserTaskRemedyResponse:
+    def create(self, request: CreateUserTaskRemedyRequest, option: Optional[RequestOption] = None) -> CreateUserTaskRemedyResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,32 +34,33 @@ class UserTaskRemedy(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserTaskRemedyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateUserTaskRemedyRequest,
-                      option: Optional[RequestOption] = None) -> CreateUserTaskRemedyResponse:
+    async def acreate(self, request: CreateUserTaskRemedyRequest, option: Optional[RequestOption] = None) -> CreateUserTaskRemedyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateUserTaskRemedyResponse)
         response.raw = resp
 
         return response
-
-    def query(self, request: QueryUserTaskRemedyRequest,
-              option: Optional[RequestOption] = None) -> QueryUserTaskRemedyResponse:
+        
+    def query(self, request: QueryUserTaskRemedyRequest, option: Optional[RequestOption] = None) -> QueryUserTaskRemedyResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,32 +73,33 @@ class UserTaskRemedy(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserTaskRemedyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryUserTaskRemedyRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserTaskRemedyResponse:
+    async def aquery(self, request: QueryUserTaskRemedyRequest, option: Optional[RequestOption] = None) -> QueryUserTaskRemedyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserTaskRemedyResponse)
         response.raw = resp
 
         return response
-
-    def query_user_allowed_remedys(self, request: QueryUserAllowedRemedysUserTaskRemedyRequest, option: Optional[
-        RequestOption] = None) -> QueryUserAllowedRemedysUserTaskRemedyResponse:
+        
+    def query_user_allowed_remedys(self, request: QueryUserAllowedRemedysUserTaskRemedyRequest, option: Optional[RequestOption] = None) -> QueryUserAllowedRemedysUserTaskRemedyResponse:
         if option is None:
             option = RequestOption()
 
@@ -111,28 +112,30 @@ class UserTaskRemedy(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryUserAllowedRemedysUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                 QueryUserAllowedRemedysUserTaskRemedyResponse)
+        response: QueryUserAllowedRemedysUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserAllowedRemedysUserTaskRemedyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery_user_allowed_remedys(self, request: QueryUserAllowedRemedysUserTaskRemedyRequest, option: Optional[
-        RequestOption] = None) -> QueryUserAllowedRemedysUserTaskRemedyResponse:
+    async def aquery_user_allowed_remedys(self, request: QueryUserAllowedRemedysUserTaskRemedyRequest, option: Optional[RequestOption] = None) -> QueryUserAllowedRemedysUserTaskRemedyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryUserAllowedRemedysUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                 QueryUserAllowedRemedysUserTaskRemedyResponse)
+        response: QueryUserAllowedRemedysUserTaskRemedyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserAllowedRemedysUserTaskRemedyResponse)
         response.raw = resp
 
         return response
+        
+    

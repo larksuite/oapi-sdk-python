@@ -21,10 +21,9 @@ class ToolkitRedirectLink(object):
 class ToolkitRedirectLinkBuilder(object):
     def __init__(self) -> None:
         self._toolkit_redirect_link = ToolkitRedirectLink()
-
     def url(self, url: str) -> "ToolkitRedirectLinkBuilder":
         self._toolkit_redirect_link.url = url
         return self
-
+    
     def build(self) -> "ToolkitRedirectLink":
         return self._toolkit_redirect_link

@@ -22,6 +22,7 @@ class ListPeriodRuleRequestBuilder(object):
         list_period_rule_request.uri = "/open-apis/okr/v1/period_rules"
         list_period_rule_request.token_types = {AccessTokenType.TENANT}
         self._list_period_rule_request: ListPeriodRuleRequest = list_period_rule_request
+    
 
     def build(self) -> ListPeriodRuleRequest:
         return self._list_period_rule_request

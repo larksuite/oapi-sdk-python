@@ -27,22 +27,18 @@ class ListMember(object):
 class ListMemberBuilder(object):
     def __init__(self) -> None:
         self._list_member = ListMember()
-
     def member_id_type(self, member_id_type: str) -> "ListMemberBuilder":
         self._list_member.member_id_type = member_id_type
         return self
-
     def member_id(self, member_id: str) -> "ListMemberBuilder":
         self._list_member.member_id = member_id
         return self
-
     def name(self, name: str) -> "ListMemberBuilder":
         self._list_member.name = name
         return self
-
     def tenant_key(self, tenant_key: str) -> "ListMemberBuilder":
         self._list_member.tenant_key = tenant_key
         return self
-
+    
     def build(self) -> "ListMember":
         return self._list_member

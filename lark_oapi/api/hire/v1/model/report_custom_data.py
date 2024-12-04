@@ -28,18 +28,15 @@ class ReportCustomData(object):
 class ReportCustomDataBuilder(object):
     def __init__(self) -> None:
         self._report_custom_data = ReportCustomData()
-
     def name(self, name: I18n) -> "ReportCustomDataBuilder":
         self._report_custom_data.name = name
         return self
-
     def value(self, value: I18n) -> "ReportCustomDataBuilder":
         self._report_custom_data.value = value
         return self
-
     def description(self, description: I18n) -> "ReportCustomDataBuilder":
         self._report_custom_data.description = description
         return self
-
+    
     def build(self) -> "ReportCustomData":
         return self._report_custom_data

@@ -27,22 +27,18 @@ class UserOrder(object):
 class UserOrderBuilder(object):
     def __init__(self) -> None:
         self._user_order = UserOrder()
-
     def department_id(self, department_id: str) -> "UserOrderBuilder":
         self._user_order.department_id = department_id
         return self
-
     def user_order(self, user_order: int) -> "UserOrderBuilder":
         self._user_order.user_order = user_order
         return self
-
     def department_order(self, department_order: int) -> "UserOrderBuilder":
         self._user_order.department_order = department_order
         return self
-
     def is_primary_dept(self, is_primary_dept: bool) -> "UserOrderBuilder":
         self._user_order.is_primary_dept = is_primary_dept
         return self
-
+    
     def build(self) -> "UserOrder":
         return self._user_order

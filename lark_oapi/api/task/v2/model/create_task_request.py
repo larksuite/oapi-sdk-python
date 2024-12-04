@@ -25,12 +25,12 @@ class CreateTaskRequestBuilder(object):
         create_task_request.uri = "/open-apis/task/v2/tasks"
         create_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_task_request: CreateTaskRequest = create_task_request
-
+    
     def user_id_type(self, user_id_type: str) -> "CreateTaskRequestBuilder":
         self._create_task_request.user_id_type = user_id_type
         self._create_task_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: InputTask) -> "CreateTaskRequestBuilder":
         self._create_task_request.request_body = request_body
         self._create_task_request.body = request_body

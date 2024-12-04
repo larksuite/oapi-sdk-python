@@ -29,26 +29,21 @@ class ProfileSettingFile(object):
 class ProfileSettingFileBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_file = ProfileSettingFile()
-
     def file_id(self, file_id: str) -> "ProfileSettingFileBuilder":
         self._profile_setting_file.file_id = file_id
         return self
-
     def mime_type(self, mime_type: str) -> "ProfileSettingFileBuilder":
         self._profile_setting_file.mime_type = mime_type
         return self
-
     def name(self, name: str) -> "ProfileSettingFileBuilder":
         self._profile_setting_file.name = name
         return self
-
     def size(self, size: int) -> "ProfileSettingFileBuilder":
         self._profile_setting_file.size = size
         return self
-
     def token(self, token: str) -> "ProfileSettingFileBuilder":
         self._profile_setting_file.token = token
         return self
-
+    
     def build(self) -> "ProfileSettingFile":
         return self._profile_setting_file

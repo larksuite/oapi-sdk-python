@@ -27,22 +27,18 @@ class WkCalendarDate(object):
 class WkCalendarDateBuilder(object):
     def __init__(self) -> None:
         self._wk_calendar_date = WkCalendarDate()
-
     def calendar_id(self, calendar_id: str) -> "WkCalendarDateBuilder":
         self._wk_calendar_date.calendar_id = calendar_id
         return self
-
     def date(self, date: str) -> "WkCalendarDateBuilder":
         self._wk_calendar_date.date = date
         return self
-
     def date_type(self, date_type: str) -> "WkCalendarDateBuilder":
         self._wk_calendar_date.date_type = date_type
         return self
-
     def id(self, id: str) -> "WkCalendarDateBuilder":
         self._wk_calendar_date.id = id
         return self
-
+    
     def build(self) -> "WkCalendarDate":
         return self._wk_calendar_date

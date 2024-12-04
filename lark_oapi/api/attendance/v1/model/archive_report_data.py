@@ -28,22 +28,18 @@ class ArchiveReportData(object):
 class ArchiveReportDataBuilder(object):
     def __init__(self) -> None:
         self._archive_report_data = ArchiveReportData()
-
     def member_id(self, member_id: str) -> "ArchiveReportDataBuilder":
         self._archive_report_data.member_id = member_id
         return self
-
     def start_time(self, start_time: str) -> "ArchiveReportDataBuilder":
         self._archive_report_data.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "ArchiveReportDataBuilder":
         self._archive_report_data.end_time = end_time
         return self
-
     def field_datas(self, field_datas: List[ArchiveFieldData]) -> "ArchiveReportDataBuilder":
         self._archive_report_data.field_datas = field_datas
         return self
-
+    
     def build(self) -> "ArchiveReportData":
         return self._archive_report_data

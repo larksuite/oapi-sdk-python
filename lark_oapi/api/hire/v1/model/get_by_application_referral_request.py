@@ -24,16 +24,17 @@ class GetByApplicationReferralRequestBuilder(object):
         get_by_application_referral_request.uri = "/open-apis/hire/v1/referrals/get_by_application"
         get_by_application_referral_request.token_types = {AccessTokenType.TENANT}
         self._get_by_application_referral_request: GetByApplicationReferralRequest = get_by_application_referral_request
-
+    
     def application_id(self, application_id: str) -> "GetByApplicationReferralRequestBuilder":
         self._get_by_application_referral_request.application_id = application_id
         self._get_by_application_referral_request.add_query("application_id", application_id)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "GetByApplicationReferralRequestBuilder":
         self._get_by_application_referral_request.user_id_type = user_id_type
         self._get_by_application_referral_request.add_query("user_id_type", user_id_type)
         return self
+    
 
     def build(self) -> GetByApplicationReferralRequest:
         return self._get_by_application_referral_request

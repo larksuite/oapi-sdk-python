@@ -28,22 +28,18 @@ class OkrSimple(object):
 class OkrSimpleBuilder(object):
     def __init__(self) -> None:
         self._okr_simple = OkrSimple()
-
     def name(self, name: OkrName) -> "OkrSimpleBuilder":
         self._okr_simple.name = name
         return self
-
     def okr_id(self, okr_id: str) -> "OkrSimpleBuilder":
         self._okr_simple.okr_id = okr_id
         return self
-
     def period_id(self, period_id: str) -> "OkrSimpleBuilder":
         self._okr_simple.period_id = period_id
         return self
-
     def period_type(self, period_type: str) -> "OkrSimpleBuilder":
         self._okr_simple.period_type = period_type
         return self
-
+    
     def build(self) -> "OkrSimple":
         return self._okr_simple

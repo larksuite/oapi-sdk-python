@@ -21,10 +21,9 @@ class IsInChatChatMembersResponseBody(object):
 class IsInChatChatMembersResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._is_in_chat_chat_members_response_body = IsInChatChatMembersResponseBody()
-
     def is_in_chat(self, is_in_chat: bool) -> "IsInChatChatMembersResponseBodyBuilder":
         self._is_in_chat_chat_members_response_body.is_in_chat = is_in_chat
         return self
-
+    
     def build(self) -> "IsInChatChatMembersResponseBody":
         return self._is_in_chat_chat_members_response_body

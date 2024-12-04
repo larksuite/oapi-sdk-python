@@ -22,10 +22,9 @@ class GetWorkCityResponseBody(object):
 class GetWorkCityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_work_city_response_body = GetWorkCityResponseBody()
-
     def work_city(self, work_city: WorkCity) -> "GetWorkCityResponseBodyBuilder":
         self._get_work_city_response_body.work_city = work_city
         return self
-
+    
     def build(self) -> "GetWorkCityResponseBody":
         return self._get_work_city_response_body

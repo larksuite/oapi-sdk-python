@@ -31,30 +31,24 @@ class TaskApprove(object):
 class TaskApproveBuilder(object):
     def __init__(self) -> None:
         self._task_approve = TaskApprove()
-
     def approval_code(self, approval_code: str) -> "TaskApproveBuilder":
         self._task_approve.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "TaskApproveBuilder":
         self._task_approve.instance_code = instance_code
         return self
-
     def user_id(self, user_id: str) -> "TaskApproveBuilder":
         self._task_approve.user_id = user_id
         return self
-
     def comment(self, comment: str) -> "TaskApproveBuilder":
         self._task_approve.comment = comment
         return self
-
     def task_id(self, task_id: str) -> "TaskApproveBuilder":
         self._task_approve.task_id = task_id
         return self
-
     def form(self, form: str) -> "TaskApproveBuilder":
         self._task_approve.form = form
         return self
-
+    
     def build(self) -> "TaskApprove":
         return self._task_approve

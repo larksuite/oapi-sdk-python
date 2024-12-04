@@ -29,26 +29,21 @@ class Pin(object):
 class PinBuilder(object):
     def __init__(self) -> None:
         self._pin = Pin()
-
     def message_id(self, message_id: str) -> "PinBuilder":
         self._pin.message_id = message_id
         return self
-
     def chat_id(self, chat_id: str) -> "PinBuilder":
         self._pin.chat_id = chat_id
         return self
-
     def operator_id(self, operator_id: str) -> "PinBuilder":
         self._pin.operator_id = operator_id
         return self
-
     def operator_id_type(self, operator_id_type: str) -> "PinBuilder":
         self._pin.operator_id_type = operator_id_type
         return self
-
     def create_time(self, create_time: str) -> "PinBuilder":
         self._pin.create_time = create_time
         return self
-
+    
     def build(self) -> "Pin":
         return self._pin

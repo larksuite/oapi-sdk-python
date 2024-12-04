@@ -26,18 +26,15 @@ class AgencySupplierAdmin(object):
 class AgencySupplierAdminBuilder(object):
     def __init__(self) -> None:
         self._agency_supplier_admin = AgencySupplierAdmin()
-
     def user_id(self, user_id: str) -> "AgencySupplierAdminBuilder":
         self._agency_supplier_admin.user_id = user_id
         return self
-
     def name(self, name: I18n) -> "AgencySupplierAdminBuilder":
         self._agency_supplier_admin.name = name
         return self
-
     def email(self, email: str) -> "AgencySupplierAdminBuilder":
         self._agency_supplier_admin.email = email
         return self
-
+    
     def build(self) -> "AgencySupplierAdmin":
         return self._agency_supplier_admin

@@ -33,34 +33,27 @@ class MeetingSettings(object):
 class MeetingSettingsBuilder(object):
     def __init__(self) -> None:
         self._meeting_settings = MeetingSettings()
-
     def owner_id(self, owner_id: int) -> "MeetingSettingsBuilder":
         self._meeting_settings.owner_id = owner_id
         return self
-
     def join_meeting_permission(self, join_meeting_permission: str) -> "MeetingSettingsBuilder":
         self._meeting_settings.join_meeting_permission = join_meeting_permission
         return self
-
     def password(self, password: str) -> "MeetingSettingsBuilder":
         self._meeting_settings.password = password
         return self
-
     def assign_hosts(self, assign_hosts: List[int]) -> "MeetingSettingsBuilder":
         self._meeting_settings.assign_hosts = assign_hosts
         return self
-
     def auto_record(self, auto_record: bool) -> "MeetingSettingsBuilder":
         self._meeting_settings.auto_record = auto_record
         return self
-
     def open_lobby(self, open_lobby: bool) -> "MeetingSettingsBuilder":
         self._meeting_settings.open_lobby = open_lobby
         return self
-
     def allow_attendees_start(self, allow_attendees_start: bool) -> "MeetingSettingsBuilder":
         self._meeting_settings.allow_attendees_start = allow_attendees_start
         return self
-
+    
     def build(self) -> "MeetingSettings":
         return self._meeting_settings

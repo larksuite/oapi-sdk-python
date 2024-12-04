@@ -22,10 +22,9 @@ class ListUserMailboxAliasResponseBody(object):
 class ListUserMailboxAliasResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_user_mailbox_alias_response_body = ListUserMailboxAliasResponseBody()
-
     def items(self, items: List[EmailAlias]) -> "ListUserMailboxAliasResponseBodyBuilder":
         self._list_user_mailbox_alias_response_body.items = items
         return self
-
+    
     def build(self) -> "ListUserMailboxAliasResponseBody":
         return self._list_user_mailbox_alias_response_body

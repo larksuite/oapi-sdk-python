@@ -25,18 +25,15 @@ class BackgroundCheckOrderProcessInfo(object):
 class BackgroundCheckOrderProcessInfoBuilder(object):
     def __init__(self) -> None:
         self._background_check_order_process_info = BackgroundCheckOrderProcessInfo()
-
     def process(self, process: str) -> "BackgroundCheckOrderProcessInfoBuilder":
         self._background_check_order_process_info.process = process
         return self
-
     def update_time(self, update_time: str) -> "BackgroundCheckOrderProcessInfoBuilder":
         self._background_check_order_process_info.update_time = update_time
         return self
-
     def en_process(self, en_process: str) -> "BackgroundCheckOrderProcessInfoBuilder":
         self._background_check_order_process_info.en_process = en_process
         return self
-
+    
     def build(self) -> "BackgroundCheckOrderProcessInfo":
         return self._background_check_order_process_info

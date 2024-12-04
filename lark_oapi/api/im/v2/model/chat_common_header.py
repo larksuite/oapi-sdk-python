@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class ChatCommonHeader(object):
     _types = {
         "chat_id": str,
+        "bot_id": str,
     }
 
     def __init__(self, d=None):
         self.chat_id: Optional[str] = None
+        self.bot_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -21,10 +23,12 @@ class ChatCommonHeader(object):
 class ChatCommonHeaderBuilder(object):
     def __init__(self) -> None:
         self._chat_common_header = ChatCommonHeader()
-
     def chat_id(self, chat_id: str) -> "ChatCommonHeaderBuilder":
         self._chat_common_header.chat_id = chat_id
         return self
-
+    def bot_id(self, bot_id: str) -> "ChatCommonHeaderBuilder":
+        self._chat_common_header.bot_id = bot_id
+        return self
+    
     def build(self) -> "ChatCommonHeader":
         return self._chat_common_header

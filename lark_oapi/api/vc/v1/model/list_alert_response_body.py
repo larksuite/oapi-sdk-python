@@ -26,18 +26,15 @@ class ListAlertResponseBody(object):
 class ListAlertResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_alert_response_body = ListAlertResponseBody()
-
     def has_more(self, has_more: bool) -> "ListAlertResponseBodyBuilder":
         self._list_alert_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListAlertResponseBodyBuilder":
         self._list_alert_response_body.page_token = page_token
         return self
-
     def items(self, items: List[Alert]) -> "ListAlertResponseBodyBuilder":
         self._list_alert_response_body.items = items
         return self
-
+    
     def build(self) -> "ListAlertResponseBody":
         return self._list_alert_response_body

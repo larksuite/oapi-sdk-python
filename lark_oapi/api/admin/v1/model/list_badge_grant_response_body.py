@@ -26,18 +26,15 @@ class ListBadgeGrantResponseBody(object):
 class ListBadgeGrantResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_badge_grant_response_body = ListBadgeGrantResponseBody()
-
     def grants(self, grants: List[Grant]) -> "ListBadgeGrantResponseBodyBuilder":
         self._list_badge_grant_response_body.grants = grants
         return self
-
     def page_token(self, page_token: str) -> "ListBadgeGrantResponseBodyBuilder":
         self._list_badge_grant_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListBadgeGrantResponseBodyBuilder":
         self._list_badge_grant_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListBadgeGrantResponseBody":
         return self._list_badge_grant_response_body

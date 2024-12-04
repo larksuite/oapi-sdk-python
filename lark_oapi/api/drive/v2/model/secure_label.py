@@ -23,14 +23,12 @@ class SecureLabel(object):
 class SecureLabelBuilder(object):
     def __init__(self) -> None:
         self._secure_label = SecureLabel()
-
     def id(self, id: int) -> "SecureLabelBuilder":
         self._secure_label.id = id
         return self
-
     def name(self, name: str) -> "SecureLabelBuilder":
         self._secure_label.name = name
         return self
-
+    
     def build(self) -> "SecureLabel":
         return self._secure_label

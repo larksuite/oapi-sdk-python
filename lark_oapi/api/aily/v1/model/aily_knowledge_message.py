@@ -21,10 +21,9 @@ class AilyKnowledgeMessage(object):
 class AilyKnowledgeMessageBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_message = AilyKnowledgeMessage()
-
     def content(self, content: str) -> "AilyKnowledgeMessageBuilder":
         self._aily_knowledge_message.content = content
         return self
-
+    
     def build(self) -> "AilyKnowledgeMessage":
         return self._aily_knowledge_message

@@ -34,34 +34,27 @@ class File(object):
 class FileBuilder(object):
     def __init__(self) -> None:
         self._file = File()
-
     def title(self, title: str) -> "FileBuilder":
         self._file.title = title
         return self
-
     def type(self, type: str) -> "FileBuilder":
         self._file.type = type
         return self
-
     def owner(self, owner: User) -> "FileBuilder":
         self._file.owner = owner
         return self
-
     def size(self, size: str) -> "FileBuilder":
         self._file.size = size
         return self
-
     def last_op_time(self, last_op_time: str) -> "FileBuilder":
         self._file.last_op_time = last_op_time
         return self
-
     def status(self, status: str) -> "FileBuilder":
         self._file.status = status
         return self
-
     def token(self, token: str) -> "FileBuilder":
         self._file.token = token
         return self
-
+    
     def build(self) -> "File":
         return self._file

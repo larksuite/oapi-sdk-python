@@ -22,10 +22,9 @@ class BatchDeleteFunctionalRoleMemberResponseBody(object):
 class BatchDeleteFunctionalRoleMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_functional_role_member_response_body = BatchDeleteFunctionalRoleMemberResponseBody()
-
     def result(self, result: List[FunctionalRoleMemberResult]) -> "BatchDeleteFunctionalRoleMemberResponseBodyBuilder":
         self._batch_delete_functional_role_member_response_body.result = result
         return self
-
+    
     def build(self) -> "BatchDeleteFunctionalRoleMemberResponseBody":
         return self._batch_delete_functional_role_member_response_body

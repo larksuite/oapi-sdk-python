@@ -23,14 +23,12 @@ class MaterialDeleteResult(object):
 class MaterialDeleteResultBuilder(object):
     def __init__(self) -> None:
         self._material_delete_result = MaterialDeleteResult()
-
     def file_token(self, file_token: str) -> "MaterialDeleteResultBuilder":
         self._material_delete_result.file_token = file_token
         return self
-
     def result(self, result: int) -> "MaterialDeleteResultBuilder":
         self._material_delete_result.result = result
         return self
-
+    
     def build(self) -> "MaterialDeleteResult":
         return self._material_delete_result

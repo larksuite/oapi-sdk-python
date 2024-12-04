@@ -31,30 +31,24 @@ class SiteResumeCareer(object):
 class SiteResumeCareerBuilder(object):
     def __init__(self) -> None:
         self._site_resume_career = SiteResumeCareer()
-
     def company(self, company: str) -> "SiteResumeCareerBuilder":
         self._site_resume_career.company = company
         return self
-
     def title(self, title: str) -> "SiteResumeCareerBuilder":
         self._site_resume_career.title = title
         return self
-
     def career_type(self, career_type: str) -> "SiteResumeCareerBuilder":
         self._site_resume_career.career_type = career_type
         return self
-
     def description(self, description: str) -> "SiteResumeCareerBuilder":
         self._site_resume_career.description = description
         return self
-
     def start_time(self, start_time: str) -> "SiteResumeCareerBuilder":
         self._site_resume_career.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "SiteResumeCareerBuilder":
         self._site_resume_career.end_time = end_time
         return self
-
+    
     def build(self) -> "SiteResumeCareer":
         return self._site_resume_career

@@ -25,18 +25,15 @@ class UnbindDepartmentUnitRequestBody(object):
 class UnbindDepartmentUnitRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._unbind_department_unit_request_body = UnbindDepartmentUnitRequestBody()
-
     def unit_id(self, unit_id: str) -> "UnbindDepartmentUnitRequestBodyBuilder":
         self._unbind_department_unit_request_body.unit_id = unit_id
         return self
-
     def department_id(self, department_id: str) -> "UnbindDepartmentUnitRequestBodyBuilder":
         self._unbind_department_unit_request_body.department_id = department_id
         return self
-
     def department_id_type(self, department_id_type: str) -> "UnbindDepartmentUnitRequestBodyBuilder":
         self._unbind_department_unit_request_body.department_id_type = department_id_type
         return self
-
+    
     def build(self) -> "UnbindDepartmentUnitRequestBody":
         return self._unbind_department_unit_request_body

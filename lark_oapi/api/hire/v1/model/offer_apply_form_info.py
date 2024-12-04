@@ -27,18 +27,15 @@ class OfferApplyFormInfo(object):
 class OfferApplyFormInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form_info = OfferApplyFormInfo()
-
     def id(self, id: str) -> "OfferApplyFormInfoBuilder":
         self._offer_apply_form_info.id = id
         return self
-
     def name(self, name: I18n) -> "OfferApplyFormInfoBuilder":
         self._offer_apply_form_info.name = name
         return self
-
     def schema(self, schema: OfferApplyFormSchema) -> "OfferApplyFormInfoBuilder":
         self._offer_apply_form_info.schema = schema
         return self
-
+    
     def build(self) -> "OfferApplyFormInfo":
         return self._offer_apply_form_info

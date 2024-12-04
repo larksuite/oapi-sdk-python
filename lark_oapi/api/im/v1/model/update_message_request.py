@@ -25,12 +25,12 @@ class UpdateMessageRequestBuilder(object):
         update_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         update_message_request.token_types = {AccessTokenType.TENANT}
         self._update_message_request: UpdateMessageRequest = update_message_request
-
+    
     def message_id(self, message_id: str) -> "UpdateMessageRequestBuilder":
         self._update_message_request.message_id = message_id
         self._update_message_request.paths["message_id"] = str(message_id)
         return self
-
+    
     def request_body(self, request_body: UpdateMessageRequestBody) -> "UpdateMessageRequestBuilder":
         self._update_message_request.request_body = request_body
         self._update_message_request.body = request_body

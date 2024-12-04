@@ -24,14 +24,12 @@ class SocialArchive(object):
 class SocialArchiveBuilder(object):
     def __init__(self) -> None:
         self._social_archive = SocialArchive()
-
     def user_id(self, user_id: str) -> "SocialArchiveBuilder":
         self._social_archive.user_id = user_id
         return self
-
     def details(self, details: List[SocialArchiveDetail]) -> "SocialArchiveBuilder":
         self._social_archive.details = details
         return self
-
+    
     def build(self) -> "SocialArchive":
         return self._social_archive

@@ -24,16 +24,17 @@ class ConfigJobRequestBuilder(object):
         config_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/config"
         config_job_request.token_types = {AccessTokenType.TENANT}
         self._config_job_request: ConfigJobRequest = config_job_request
-
+    
     def user_id_type(self, user_id_type: str) -> "ConfigJobRequestBuilder":
         self._config_job_request.user_id_type = user_id_type
         self._config_job_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def job_id(self, job_id: str) -> "ConfigJobRequestBuilder":
         self._config_job_request.job_id = job_id
         self._config_job_request.paths["job_id"] = str(job_id)
         return self
+    
 
     def build(self) -> ConfigJobRequest:
         return self._config_job_request

@@ -23,14 +23,12 @@ class Reminder(object):
 class ReminderBuilder(object):
     def __init__(self) -> None:
         self._reminder = Reminder()
-
     def id(self, id: int) -> "ReminderBuilder":
         self._reminder.id = id
         return self
-
     def relative_fire_minute(self, relative_fire_minute: int) -> "ReminderBuilder":
         self._reminder.relative_fire_minute = relative_fire_minute
         return self
-
+    
     def build(self) -> "Reminder":
         return self._reminder

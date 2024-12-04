@@ -9,11 +9,15 @@ class ListWorkforcePlanResponseBody(object):
     _types = {
         "items": List[WorkforcePlan],
         "total": int,
+        "page_token": str,
+        "has_more": bool,
     }
 
     def __init__(self, d=None):
         self.items: Optional[List[WorkforcePlan]] = None
         self.total: Optional[int] = None
+        self.page_token: Optional[str] = None
+        self.has_more: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,14 +28,18 @@ class ListWorkforcePlanResponseBody(object):
 class ListWorkforcePlanResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_workforce_plan_response_body = ListWorkforcePlanResponseBody()
-
     def items(self, items: List[WorkforcePlan]) -> "ListWorkforcePlanResponseBodyBuilder":
         self._list_workforce_plan_response_body.items = items
         return self
-
     def total(self, total: int) -> "ListWorkforcePlanResponseBodyBuilder":
         self._list_workforce_plan_response_body.total = total
         return self
-
+    def page_token(self, page_token: str) -> "ListWorkforcePlanResponseBodyBuilder":
+        self._list_workforce_plan_response_body.page_token = page_token
+        return self
+    def has_more(self, has_more: bool) -> "ListWorkforcePlanResponseBodyBuilder":
+        self._list_workforce_plan_response_body.has_more = has_more
+        return self
+    
     def build(self) -> "ListWorkforcePlanResponseBody":
         return self._list_workforce_plan_response_body

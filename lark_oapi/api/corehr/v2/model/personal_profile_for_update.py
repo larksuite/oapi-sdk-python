@@ -24,14 +24,12 @@ class PersonalProfileForUpdate(object):
 class PersonalProfileForUpdateBuilder(object):
     def __init__(self) -> None:
         self._personal_profile_for_update = PersonalProfileForUpdate()
-
     def personal_profile_type(self, personal_profile_type: str) -> "PersonalProfileForUpdateBuilder":
         self._personal_profile_for_update.personal_profile_type = personal_profile_type
         return self
-
     def files(self, files: List[File]) -> "PersonalProfileForUpdateBuilder":
         self._personal_profile_for_update.files = files
         return self
-
+    
     def build(self) -> "PersonalProfileForUpdate":
         return self._personal_profile_for_update

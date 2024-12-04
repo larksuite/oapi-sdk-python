@@ -48,54 +48,42 @@ class CustomOrg(object):
 class CustomOrgBuilder(object):
     def __init__(self) -> None:
         self._custom_org = CustomOrg()
-
     def object_api_name(self, object_api_name: str) -> "CustomOrgBuilder":
         self._custom_org.object_api_name = object_api_name
         return self
-
     def names(self, names: List[I18n]) -> "CustomOrgBuilder":
         self._custom_org.names = names
         return self
-
     def code(self, code: str) -> "CustomOrgBuilder":
         self._custom_org.code = code
         return self
-
     def parent_id(self, parent_id: str) -> "CustomOrgBuilder":
         self._custom_org.parent_id = parent_id
         return self
-
     def manager_ids(self, manager_ids: List[str]) -> "CustomOrgBuilder":
         self._custom_org.manager_ids = manager_ids
         return self
-
     def description(self, description: List[I18n]) -> "CustomOrgBuilder":
         self._custom_org.description = description
         return self
-
     def effective_time(self, effective_time: str) -> "CustomOrgBuilder":
         self._custom_org.effective_time = effective_time
         return self
-
     def org_roles(self, org_roles: List[OrgRole]) -> "CustomOrgBuilder":
         self._custom_org.org_roles = org_roles
         return self
-
     def match_rule_groups(self, match_rule_groups: List[MatchRules]) -> "CustomOrgBuilder":
         self._custom_org.match_rule_groups = match_rule_groups
         return self
-
     def active(self, active: bool) -> "CustomOrgBuilder":
         self._custom_org.active = active
         return self
-
     def org_id(self, org_id: str) -> "CustomOrgBuilder":
         self._custom_org.org_id = org_id
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "CustomOrgBuilder":
         self._custom_org.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "CustomOrg":
         return self._custom_org

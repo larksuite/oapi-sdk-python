@@ -21,10 +21,9 @@ class TransitTaskPreHireRequestBody(object):
 class TransitTaskPreHireRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._transit_task_pre_hire_request_body = TransitTaskPreHireRequestBody()
-
     def task_id(self, task_id: str) -> "TransitTaskPreHireRequestBodyBuilder":
         self._transit_task_pre_hire_request_body.task_id = task_id
         return self
-
+    
     def build(self) -> "TransitTaskPreHireRequestBody":
         return self._transit_task_pre_hire_request_body

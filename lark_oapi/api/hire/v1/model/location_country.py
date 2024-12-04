@@ -24,14 +24,12 @@ class LocationCountry(object):
 class LocationCountryBuilder(object):
     def __init__(self) -> None:
         self._location_country = LocationCountry()
-
     def country_code(self, country_code: str) -> "LocationCountryBuilder":
         self._location_country.country_code = country_code
         return self
-
     def country_name_info(self, country_name_info: LocationNameInfo) -> "LocationCountryBuilder":
         self._location_country.country_name_info = country_name_info
         return self
-
+    
     def build(self) -> "LocationCountry":
         return self._location_country

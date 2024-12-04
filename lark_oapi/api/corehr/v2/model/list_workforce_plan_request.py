@@ -24,16 +24,21 @@ class ListWorkforcePlanRequestBuilder(object):
         list_workforce_plan_request.uri = "/open-apis/corehr/v2/workforce_plans"
         list_workforce_plan_request.token_types = {AccessTokenType.TENANT}
         self._list_workforce_plan_request: ListWorkforcePlanRequest = list_workforce_plan_request
-
+    
+    
+    
     def get_all_plan(self, get_all_plan: bool) -> "ListWorkforcePlanRequestBuilder":
         self._list_workforce_plan_request.get_all_plan = get_all_plan
         self._list_workforce_plan_request.add_query("get_all_plan", get_all_plan)
         return self
-
+    
     def active(self, active: bool) -> "ListWorkforcePlanRequestBuilder":
         self._list_workforce_plan_request.active = active
         self._list_workforce_plan_request.add_query("active", active)
         return self
+    
+    
+    
 
     def build(self) -> ListWorkforcePlanRequest:
         return self._list_workforce_plan_request

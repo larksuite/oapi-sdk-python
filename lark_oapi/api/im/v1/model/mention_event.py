@@ -28,22 +28,18 @@ class MentionEvent(object):
 class MentionEventBuilder(object):
     def __init__(self) -> None:
         self._mention_event = MentionEvent()
-
     def key(self, key: str) -> "MentionEventBuilder":
         self._mention_event.key = key
         return self
-
     def id(self, id: UserId) -> "MentionEventBuilder":
         self._mention_event.id = id
         return self
-
     def name(self, name: str) -> "MentionEventBuilder":
         self._mention_event.name = name
         return self
-
     def tenant_key(self, tenant_key: str) -> "MentionEventBuilder":
         self._mention_event.tenant_key = tenant_key
         return self
-
+    
     def build(self) -> "MentionEvent":
         return self._mention_event

@@ -26,19 +26,15 @@ class BitableTableRecordActionField(object):
 class BitableTableRecordActionFieldBuilder(object):
     def __init__(self) -> None:
         self._bitable_table_record_action_field = BitableTableRecordActionField()
-
     def field_id(self, field_id: str) -> "BitableTableRecordActionFieldBuilder":
         self._bitable_table_record_action_field.field_id = field_id
         return self
-
     def field_value(self, field_value: str) -> "BitableTableRecordActionFieldBuilder":
         self._bitable_table_record_action_field.field_value = field_value
         return self
-
-    def field_identity_value(self,
-                             field_identity_value: BitableTableRecordActionFieldIdentity) -> "BitableTableRecordActionFieldBuilder":
+    def field_identity_value(self, field_identity_value: BitableTableRecordActionFieldIdentity) -> "BitableTableRecordActionFieldBuilder":
         self._bitable_table_record_action_field.field_identity_value = field_identity_value
         return self
-
+    
     def build(self) -> "BitableTableRecordActionField":
         return self._bitable_table_record_action_field

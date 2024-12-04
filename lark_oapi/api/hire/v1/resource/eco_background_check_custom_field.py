@@ -9,14 +9,10 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_delete_eco_background_check_custom_field_request import \
-    BatchDeleteEcoBackgroundCheckCustomFieldRequest
-from ..model.batch_delete_eco_background_check_custom_field_response import \
-    BatchDeleteEcoBackgroundCheckCustomFieldResponse
-from ..model.batch_update_eco_background_check_custom_field_request import \
-    BatchUpdateEcoBackgroundCheckCustomFieldRequest
-from ..model.batch_update_eco_background_check_custom_field_response import \
-    BatchUpdateEcoBackgroundCheckCustomFieldResponse
+from ..model.batch_delete_eco_background_check_custom_field_request import BatchDeleteEcoBackgroundCheckCustomFieldRequest
+from ..model.batch_delete_eco_background_check_custom_field_response import BatchDeleteEcoBackgroundCheckCustomFieldResponse
+from ..model.batch_update_eco_background_check_custom_field_request import BatchUpdateEcoBackgroundCheckCustomFieldRequest
+from ..model.batch_update_eco_background_check_custom_field_response import BatchUpdateEcoBackgroundCheckCustomFieldResponse
 from ..model.create_eco_background_check_custom_field_request import CreateEcoBackgroundCheckCustomFieldRequest
 from ..model.create_eco_background_check_custom_field_response import CreateEcoBackgroundCheckCustomFieldResponse
 
@@ -25,8 +21,7 @@ class EcoBackgroundCheckCustomField(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_delete(self, request: BatchDeleteEcoBackgroundCheckCustomFieldRequest,
-                     option: Optional[RequestOption] = None) -> BatchDeleteEcoBackgroundCheckCustomFieldResponse:
+    def batch_delete(self, request: BatchDeleteEcoBackgroundCheckCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchDeleteEcoBackgroundCheckCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,34 +34,33 @@ class EcoBackgroundCheckCustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchDeleteEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    BatchDeleteEcoBackgroundCheckCustomFieldResponse)
+        response: BatchDeleteEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteEcoBackgroundCheckCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_delete(self, request: BatchDeleteEcoBackgroundCheckCustomFieldRequest,
-                            option: Optional[RequestOption] = None) -> BatchDeleteEcoBackgroundCheckCustomFieldResponse:
+    async def abatch_delete(self, request: BatchDeleteEcoBackgroundCheckCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchDeleteEcoBackgroundCheckCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchDeleteEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    BatchDeleteEcoBackgroundCheckCustomFieldResponse)
+        response: BatchDeleteEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteEcoBackgroundCheckCustomFieldResponse)
         response.raw = resp
 
         return response
-
-    def batch_update(self, request: BatchUpdateEcoBackgroundCheckCustomFieldRequest,
-                     option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckCustomFieldResponse:
+        
+    def batch_update(self, request: BatchUpdateEcoBackgroundCheckCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,34 +73,33 @@ class EcoBackgroundCheckCustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchUpdateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    BatchUpdateEcoBackgroundCheckCustomFieldResponse)
+        response: BatchUpdateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateEcoBackgroundCheckCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_update(self, request: BatchUpdateEcoBackgroundCheckCustomFieldRequest,
-                            option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckCustomFieldResponse:
+    async def abatch_update(self, request: BatchUpdateEcoBackgroundCheckCustomFieldRequest, option: Optional[RequestOption] = None) -> BatchUpdateEcoBackgroundCheckCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchUpdateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                    BatchUpdateEcoBackgroundCheckCustomFieldResponse)
+        response: BatchUpdateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateEcoBackgroundCheckCustomFieldResponse)
         response.raw = resp
 
         return response
-
-    def create(self, request: CreateEcoBackgroundCheckCustomFieldRequest,
-               option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckCustomFieldResponse:
+        
+    def create(self, request: CreateEcoBackgroundCheckCustomFieldRequest, option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,28 +112,30 @@ class EcoBackgroundCheckCustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               CreateEcoBackgroundCheckCustomFieldResponse)
+        response: CreateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEcoBackgroundCheckCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateEcoBackgroundCheckCustomFieldRequest,
-                      option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckCustomFieldResponse:
+    async def acreate(self, request: CreateEcoBackgroundCheckCustomFieldRequest, option: Optional[RequestOption] = None) -> CreateEcoBackgroundCheckCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               CreateEcoBackgroundCheckCustomFieldResponse)
+        response: CreateEcoBackgroundCheckCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEcoBackgroundCheckCustomFieldResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -26,17 +26,17 @@ class PatchJobFamilyRequestBuilder(object):
         patch_job_family_request.uri = "/open-apis/corehr/v1/job_families/:job_family_id"
         patch_job_family_request.token_types = {AccessTokenType.TENANT}
         self._patch_job_family_request: PatchJobFamilyRequest = patch_job_family_request
-
+    
     def client_token(self, client_token: str) -> "PatchJobFamilyRequestBuilder":
         self._patch_job_family_request.client_token = client_token
         self._patch_job_family_request.add_query("client_token", client_token)
         return self
-
+    
     def job_family_id(self, job_family_id: str) -> "PatchJobFamilyRequestBuilder":
         self._patch_job_family_request.job_family_id = job_family_id
         self._patch_job_family_request.paths["job_family_id"] = str(job_family_id)
         return self
-
+    
     def request_body(self, request_body: JobFamily) -> "PatchJobFamilyRequestBuilder":
         self._patch_job_family_request.request_body = request_body
         self._patch_job_family_request.body = request_body

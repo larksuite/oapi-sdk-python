@@ -23,14 +23,12 @@ class ClassificationFilter(object):
 class ClassificationFilterBuilder(object):
     def __init__(self) -> None:
         self._classification_filter = ClassificationFilter()
-
     def include(self, include: List[str]) -> "ClassificationFilterBuilder":
         self._classification_filter.include = include
         return self
-
     def exclude(self, exclude: List[str]) -> "ClassificationFilterBuilder":
         self._classification_filter.exclude = exclude
         return self
-
+    
     def build(self) -> "ClassificationFilter":
         return self._classification_filter

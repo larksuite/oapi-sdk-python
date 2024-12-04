@@ -32,30 +32,24 @@ class RoomDigitalSignage(object):
 class RoomDigitalSignageBuilder(object):
     def __init__(self) -> None:
         self._room_digital_signage = RoomDigitalSignage()
-
     def if_cover_child_scope(self, if_cover_child_scope: bool) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.if_cover_child_scope = if_cover_child_scope
         return self
-
     def enable(self, enable: bool) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.enable = enable
         return self
-
     def mute(self, mute: bool) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.mute = mute
         return self
-
     def start_display(self, start_display: int) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.start_display = start_display
         return self
-
     def stop_display(self, stop_display: int) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.stop_display = stop_display
         return self
-
     def materials(self, materials: List[RoomDigitalSignageMaterial]) -> "RoomDigitalSignageBuilder":
         self._room_digital_signage.materials = materials
         return self
-
+    
     def build(self) -> "RoomDigitalSignage":
         return self._room_digital_signage

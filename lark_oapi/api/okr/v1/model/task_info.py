@@ -29,26 +29,21 @@ class TaskInfo(object):
 class TaskInfoBuilder(object):
     def __init__(self) -> None:
         self._task_info = TaskInfo()
-
     def task_id(self, task_id: str) -> "TaskInfoBuilder":
         self._task_info.task_id = task_id
         return self
-
     def app_token(self, app_token: str) -> "TaskInfoBuilder":
         self._task_info.app_token = app_token
         return self
-
     def user_id(self, user_id: str) -> "TaskInfoBuilder":
         self._task_info.user_id = user_id
         return self
-
     def okr_id(self, okr_id: str) -> "TaskInfoBuilder":
         self._task_info.okr_id = okr_id
         return self
-
     def period_id(self, period_id: str) -> "TaskInfoBuilder":
         self._task_info.period_id = period_id
         return self
-
+    
     def build(self) -> "TaskInfo":
         return self._task_info

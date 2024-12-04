@@ -23,14 +23,12 @@ class CpstI18n(object):
 class CpstI18nBuilder(object):
     def __init__(self) -> None:
         self._cpst_i18n = CpstI18n()
-
     def zh_cn(self, zh_cn: str) -> "CpstI18nBuilder":
         self._cpst_i18n.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "CpstI18nBuilder":
         self._cpst_i18n.en_us = en_us
         return self
-
+    
     def build(self) -> "CpstI18n":
         return self._cpst_i18n

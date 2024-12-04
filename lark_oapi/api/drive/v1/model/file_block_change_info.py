@@ -25,18 +25,15 @@ class FileBlockChangeInfo(object):
 class FileBlockChangeInfoBuilder(object):
     def __init__(self) -> None:
         self._file_block_change_info = FileBlockChangeInfo()
-
     def block_token(self, block_token: str) -> "FileBlockChangeInfoBuilder":
         self._file_block_change_info.block_token = block_token
         return self
-
     def block_token_type(self, block_token_type: str) -> "FileBlockChangeInfoBuilder":
         self._file_block_change_info.block_token_type = block_token_type
         return self
-
     def rev_ranges(self, rev_ranges: List[int]) -> "FileBlockChangeInfoBuilder":
         self._file_block_change_info.rev_ranges = rev_ranges
         return self
-
+    
     def build(self) -> "FileBlockChangeInfo":
         return self._file_block_change_info

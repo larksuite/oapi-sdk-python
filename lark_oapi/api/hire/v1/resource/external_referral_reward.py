@@ -19,8 +19,7 @@ class ExternalReferralReward(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateExternalReferralRewardRequest,
-               option: Optional[RequestOption] = None) -> CreateExternalReferralRewardResponse:
+    def create(self, request: CreateExternalReferralRewardRequest, option: Optional[RequestOption] = None) -> CreateExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class ExternalReferralReward(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateExternalReferralRewardResponse)
+        response: CreateExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalReferralRewardResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateExternalReferralRewardRequest,
-                      option: Optional[RequestOption] = None) -> CreateExternalReferralRewardResponse:
+    async def acreate(self, request: CreateExternalReferralRewardRequest, option: Optional[RequestOption] = None) -> CreateExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        CreateExternalReferralRewardResponse)
+        response: CreateExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalReferralRewardResponse)
         response.raw = resp
 
         return response
-
-    def delete(self, request: DeleteExternalReferralRewardRequest,
-               option: Optional[RequestOption] = None) -> DeleteExternalReferralRewardResponse:
+        
+    def delete(self, request: DeleteExternalReferralRewardRequest, option: Optional[RequestOption] = None) -> DeleteExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class ExternalReferralReward(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteExternalReferralRewardResponse)
+        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalReferralRewardResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteExternalReferralRewardRequest,
-                      option: Optional[RequestOption] = None) -> DeleteExternalReferralRewardResponse:
+    async def adelete(self, request: DeleteExternalReferralRewardRequest, option: Optional[RequestOption] = None) -> DeleteExternalReferralRewardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                        DeleteExternalReferralRewardResponse)
+        response: DeleteExternalReferralRewardResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalReferralRewardResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -25,12 +25,12 @@ class PatchAgentSkillRequestBuilder(object):
         patch_agent_skill_request.uri = "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
         patch_agent_skill_request.token_types = {AccessTokenType.USER}
         self._patch_agent_skill_request: PatchAgentSkillRequest = patch_agent_skill_request
-
+    
     def agent_skill_id(self, agent_skill_id: str) -> "PatchAgentSkillRequestBuilder":
         self._patch_agent_skill_request.agent_skill_id = agent_skill_id
         self._patch_agent_skill_request.paths["agent_skill_id"] = str(agent_skill_id)
         return self
-
+    
     def request_body(self, request_body: PatchAgentSkillRequestBody) -> "PatchAgentSkillRequestBuilder":
         self._patch_agent_skill_request.request_body = request_body
         self._patch_agent_skill_request.body = request_body

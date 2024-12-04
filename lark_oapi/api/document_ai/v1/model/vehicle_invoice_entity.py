@@ -23,14 +23,12 @@ class VehicleInvoiceEntity(object):
 class VehicleInvoiceEntityBuilder(object):
     def __init__(self) -> None:
         self._vehicle_invoice_entity = VehicleInvoiceEntity()
-
     def type(self, type: str) -> "VehicleInvoiceEntityBuilder":
         self._vehicle_invoice_entity.type = type
         return self
-
     def value(self, value: str) -> "VehicleInvoiceEntityBuilder":
         self._vehicle_invoice_entity.value = value
         return self
-
+    
     def build(self) -> "VehicleInvoiceEntity":
         return self._vehicle_invoice_entity

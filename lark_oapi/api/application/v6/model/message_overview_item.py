@@ -29,26 +29,21 @@ class MessageOverviewItem(object):
 class MessageOverviewItemBuilder(object):
     def __init__(self) -> None:
         self._message_overview_item = MessageOverviewItem()
-
     def page_view(self, page_view: int) -> "MessageOverviewItemBuilder":
         self._message_overview_item.page_view = page_view
         return self
-
     def unique_visitor(self, unique_visitor: int) -> "MessageOverviewItemBuilder":
         self._message_overview_item.unique_visitor = unique_visitor
         return self
-
     def chat_type(self, chat_type: str) -> "MessageOverviewItemBuilder":
         self._message_overview_item.chat_type = chat_type
         return self
-
     def message_type(self, message_type: str) -> "MessageOverviewItemBuilder":
         self._message_overview_item.message_type = message_type
         return self
-
     def event_type(self, event_type: str) -> "MessageOverviewItemBuilder":
         self._message_overview_item.event_type = event_type
         return self
-
+    
     def build(self) -> "MessageOverviewItem":
         return self._message_overview_item

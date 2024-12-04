@@ -24,7 +24,7 @@ class BasicRecognizeImageRequestBuilder(object):
         basic_recognize_image_request.uri = "/open-apis/optical_char_recognition/v1/image/basic_recognize"
         basic_recognize_image_request.token_types = {AccessTokenType.TENANT}
         self._basic_recognize_image_request: BasicRecognizeImageRequest = basic_recognize_image_request
-
+    
     def request_body(self, request_body: BasicRecognizeImageRequestBody) -> "BasicRecognizeImageRequestBuilder":
         self._basic_recognize_image_request.request_body = request_body
         self._basic_recognize_image_request.body = request_body

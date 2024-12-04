@@ -22,10 +22,9 @@ class GetRuleExternalResponseBody(object):
 class GetRuleExternalResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_rule_external_response_body = GetRuleExternalResponseBody()
-
     def rules(self, rules: List[Rule]) -> "GetRuleExternalResponseBodyBuilder":
         self._get_rule_external_response_body.rules = rules
         return self
-
+    
     def build(self) -> "GetRuleExternalResponseBody":
         return self._get_rule_external_response_body

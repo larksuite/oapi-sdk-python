@@ -31,30 +31,24 @@ class FileLike(object):
 class FileLikeBuilder(object):
     def __init__(self) -> None:
         self._file_like = FileLike()
-
     def user_id(self, user_id: int) -> "FileLikeBuilder":
         self._file_like.user_id = user_id
         return self
-
     def last_liked_time(self, last_liked_time: int) -> "FileLikeBuilder":
         self._file_like.last_liked_time = last_liked_time
         return self
-
     def user_name(self, user_name: str) -> "FileLikeBuilder":
         self._file_like.user_name = user_name
         return self
-
     def user_en_name(self, user_en_name: str) -> "FileLikeBuilder":
         self._file_like.user_en_name = user_en_name
         return self
-
     def user_avatar_url(self, user_avatar_url: str) -> "FileLikeBuilder":
         self._file_like.user_avatar_url = user_avatar_url
         return self
-
     def user_is_desensitized(self, user_is_desensitized: bool) -> "FileLikeBuilder":
         self._file_like.user_is_desensitized = user_is_desensitized
         return self
-
+    
     def build(self) -> "FileLike":
         return self._file_like

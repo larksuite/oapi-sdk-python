@@ -32,30 +32,24 @@ class Document(object):
 class DocumentBuilder(object):
     def __init__(self) -> None:
         self._document = Document()
-
     def token(self, token: str) -> "DocumentBuilder":
         self._document.token = token
         return self
-
     def title(self, title: str) -> "DocumentBuilder":
         self._document.title = title
         return self
-
     def update_time(self, update_time: int) -> "DocumentBuilder":
         self._document.update_time = update_time
         return self
-
     def object_status(self, object_status: int) -> "DocumentBuilder":
         self._document.object_status = object_status
         return self
-
     def object_type(self, object_type: int) -> "DocumentBuilder":
         self._document.object_type = object_type
         return self
-
     def owner(self, owner: SimpleUser) -> "DocumentBuilder":
         self._document.owner = owner
         return self
-
+    
     def build(self) -> "Document":
         return self._document

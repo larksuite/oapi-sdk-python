@@ -31,30 +31,24 @@ class MeetingAbility(object):
 class MeetingAbilityBuilder(object):
     def __init__(self) -> None:
         self._meeting_ability = MeetingAbility()
-
     def use_video(self, use_video: bool) -> "MeetingAbilityBuilder":
         self._meeting_ability.use_video = use_video
         return self
-
     def use_audio(self, use_audio: bool) -> "MeetingAbilityBuilder":
         self._meeting_ability.use_audio = use_audio
         return self
-
     def use_share_screen(self, use_share_screen: bool) -> "MeetingAbilityBuilder":
         self._meeting_ability.use_share_screen = use_share_screen
         return self
-
     def use_follow_screen(self, use_follow_screen: bool) -> "MeetingAbilityBuilder":
         self._meeting_ability.use_follow_screen = use_follow_screen
         return self
-
     def use_recording(self, use_recording: bool) -> "MeetingAbilityBuilder":
         self._meeting_ability.use_recording = use_recording
         return self
-
     def use_pstn(self, use_pstn: bool) -> "MeetingAbilityBuilder":
         self._meeting_ability.use_pstn = use_pstn
         return self
-
+    
     def build(self) -> "MeetingAbility":
         return self._meeting_ability

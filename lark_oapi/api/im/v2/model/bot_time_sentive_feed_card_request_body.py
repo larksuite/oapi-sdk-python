@@ -6,11 +6,13 @@ from lark_oapi.core.construct import init
 
 class BotTimeSentiveFeedCardRequestBody(object):
     _types = {
+        "bot_id": str,
         "time_sensitive": bool,
         "user_ids": List[str],
     }
 
     def __init__(self, d=None):
+        self.bot_id: Optional[str] = None
         self.time_sensitive: Optional[bool] = None
         self.user_ids: Optional[List[str]] = None
         init(self, d, self._types)
@@ -23,14 +25,15 @@ class BotTimeSentiveFeedCardRequestBody(object):
 class BotTimeSentiveFeedCardRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._bot_time_sentive_feed_card_request_body = BotTimeSentiveFeedCardRequestBody()
-
+    def bot_id(self, bot_id: str) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
+        self._bot_time_sentive_feed_card_request_body.bot_id = bot_id
+        return self
     def time_sensitive(self, time_sensitive: bool) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
         self._bot_time_sentive_feed_card_request_body.time_sensitive = time_sensitive
         return self
-
     def user_ids(self, user_ids: List[str]) -> "BotTimeSentiveFeedCardRequestBodyBuilder":
         self._bot_time_sentive_feed_card_request_body.user_ids = user_ids
         return self
-
+    
     def build(self) -> "BotTimeSentiveFeedCardRequestBody":
         return self._bot_time_sentive_feed_card_request_body

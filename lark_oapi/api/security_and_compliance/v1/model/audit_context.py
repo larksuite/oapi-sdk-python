@@ -33,26 +33,21 @@ class AuditContext(object):
 class AuditContextBuilder(object):
     def __init__(self) -> None:
         self._audit_context = AuditContext()
-
     def terminal_type(self, terminal_type: int) -> "AuditContextBuilder":
         self._audit_context.terminal_type = terminal_type
         return self
-
     def ios_context(self, ios_context: AuditIosContext) -> "AuditContextBuilder":
         self._audit_context.ios_context = ios_context
         return self
-
     def pc_context(self, pc_context: AuditPcContext) -> "AuditContextBuilder":
         self._audit_context.pc_context = pc_context
         return self
-
     def web_context(self, web_context: AuditWebContext) -> "AuditContextBuilder":
         self._audit_context.web_context = web_context
         return self
-
     def android_context(self, android_context: AuditAndroidContext) -> "AuditContextBuilder":
         self._audit_context.android_context = android_context
         return self
-
+    
     def build(self) -> "AuditContext":
         return self._audit_context

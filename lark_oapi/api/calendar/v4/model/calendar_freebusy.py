@@ -25,18 +25,15 @@ class CalendarFreebusy(object):
 class CalendarFreebusyBuilder(object):
     def __init__(self) -> None:
         self._calendar_freebusy = CalendarFreebusy()
-
     def start_time(self, start_time: str) -> "CalendarFreebusyBuilder":
         self._calendar_freebusy.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "CalendarFreebusyBuilder":
         self._calendar_freebusy.end_time = end_time
         return self
-
     def calendar_id(self, calendar_id: str) -> "CalendarFreebusyBuilder":
         self._calendar_freebusy.calendar_id = calendar_id
         return self
-
+    
     def build(self) -> "CalendarFreebusy":
         return self._calendar_freebusy

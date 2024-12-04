@@ -29,23 +29,18 @@ class CreateDocumentBlockDescendantResponseBody(object):
 class CreateDocumentBlockDescendantResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_document_block_descendant_response_body = CreateDocumentBlockDescendantResponseBody()
-
     def children(self, children: List[Block]) -> "CreateDocumentBlockDescendantResponseBodyBuilder":
         self._create_document_block_descendant_response_body.children = children
         return self
-
     def document_revision_id(self, document_revision_id: int) -> "CreateDocumentBlockDescendantResponseBodyBuilder":
         self._create_document_block_descendant_response_body.document_revision_id = document_revision_id
         return self
-
     def client_token(self, client_token: str) -> "CreateDocumentBlockDescendantResponseBodyBuilder":
         self._create_document_block_descendant_response_body.client_token = client_token
         return self
-
-    def block_id_relations(self, block_id_relations: List[
-        BlockIdRelation]) -> "CreateDocumentBlockDescendantResponseBodyBuilder":
+    def block_id_relations(self, block_id_relations: List[BlockIdRelation]) -> "CreateDocumentBlockDescendantResponseBodyBuilder":
         self._create_document_block_descendant_response_body.block_id_relations = block_id_relations
         return self
-
+    
     def build(self) -> "CreateDocumentBlockDescendantResponseBody":
         return self._create_document_block_descendant_response_body

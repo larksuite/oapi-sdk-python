@@ -17,8 +17,7 @@ class MessageResource(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetMessageResourceRequest,
-            option: Optional[RequestOption] = None) -> GetMessageResourceResponse:
+    def get(self, request: GetMessageResourceRequest, option: Optional[RequestOption] = None) -> GetMessageResourceResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,7 +30,7 @@ class MessageResource(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetMessageResourceResponse = GetMessageResourceResponse()
@@ -44,18 +43,20 @@ class MessageResource(object):
 
         response.raw = resp
         return response
+        
 
-    async def aget(self, request: GetMessageResourceRequest,
-                   option: Optional[RequestOption] = None) -> GetMessageResourceResponse:
+    async def aget(self, request: GetMessageResourceRequest, option: Optional[RequestOption] = None) -> GetMessageResourceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetMessageResourceResponse = GetMessageResourceResponse()
@@ -68,3 +69,5 @@ class MessageResource(object):
 
         response.raw = resp
         return response
+        
+    

@@ -24,14 +24,12 @@ class DimensionValue(object):
 class DimensionValueBuilder(object):
     def __init__(self) -> None:
         self._dimension_value = DimensionValue()
-
     def dimension_api_name(self, dimension_api_name: str) -> "DimensionValueBuilder":
         self._dimension_value.dimension_api_name = dimension_api_name
         return self
-
     def dimension_value(self, dimension_value: CustomValue) -> "DimensionValueBuilder":
         self._dimension_value.dimension_value = dimension_value
         return self
-
+    
     def build(self) -> "DimensionValue":
         return self._dimension_value

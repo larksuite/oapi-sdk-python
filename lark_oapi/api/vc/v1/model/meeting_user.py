@@ -23,14 +23,12 @@ class MeetingUser(object):
 class MeetingUserBuilder(object):
     def __init__(self) -> None:
         self._meeting_user = MeetingUser()
-
     def id(self, id: str) -> "MeetingUserBuilder":
         self._meeting_user.id = id
         return self
-
     def user_type(self, user_type: int) -> "MeetingUserBuilder":
         self._meeting_user.user_type = user_type
         return self
-
+    
     def build(self) -> "MeetingUser":
         return self._meeting_user

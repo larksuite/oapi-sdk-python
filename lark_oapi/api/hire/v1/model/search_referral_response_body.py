@@ -22,10 +22,9 @@ class SearchReferralResponseBody(object):
 class SearchReferralResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_referral_response_body = SearchReferralResponseBody()
-
     def items(self, items: List[ReferralInfo]) -> "SearchReferralResponseBodyBuilder":
         self._search_referral_response_body.items = items
         return self
-
+    
     def build(self) -> "SearchReferralResponseBody":
         return self._search_referral_response_body

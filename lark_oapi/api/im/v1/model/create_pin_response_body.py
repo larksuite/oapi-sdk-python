@@ -22,10 +22,9 @@ class CreatePinResponseBody(object):
 class CreatePinResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_pin_response_body = CreatePinResponseBody()
-
     def pin(self, pin: Pin) -> "CreatePinResponseBodyBuilder":
         self._create_pin_response_body.pin = pin
         return self
-
+    
     def build(self) -> "CreatePinResponseBody":
         return self._create_pin_response_body

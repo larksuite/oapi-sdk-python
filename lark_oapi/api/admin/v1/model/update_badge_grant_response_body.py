@@ -22,10 +22,9 @@ class UpdateBadgeGrantResponseBody(object):
 class UpdateBadgeGrantResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_badge_grant_response_body = UpdateBadgeGrantResponseBody()
-
     def grant(self, grant: Grant) -> "UpdateBadgeGrantResponseBodyBuilder":
         self._update_badge_grant_response_body.grant = grant
         return self
-
+    
     def build(self) -> "UpdateBadgeGrantResponseBody":
         return self._update_badge_grant_response_body

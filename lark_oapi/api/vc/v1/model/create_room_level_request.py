@@ -24,7 +24,7 @@ class CreateRoomLevelRequestBuilder(object):
         create_room_level_request.uri = "/open-apis/vc/v1/room_levels"
         create_room_level_request.token_types = {AccessTokenType.TENANT}
         self._create_room_level_request: CreateRoomLevelRequest = create_room_level_request
-
+    
     def request_body(self, request_body: RoomLevel) -> "CreateRoomLevelRequestBuilder":
         self._create_room_level_request.request_body = request_body
         self._create_room_level_request.body = request_body

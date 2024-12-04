@@ -24,7 +24,7 @@ class CreateMailgroupRequestBuilder(object):
         create_mailgroup_request.uri = "/open-apis/mail/v1/mailgroups"
         create_mailgroup_request.token_types = {AccessTokenType.TENANT}
         self._create_mailgroup_request: CreateMailgroupRequest = create_mailgroup_request
-
+    
     def request_body(self, request_body: Mailgroup) -> "CreateMailgroupRequestBuilder":
         self._create_mailgroup_request.request_body = request_body
         self._create_mailgroup_request.body = request_body

@@ -25,18 +25,15 @@ class AssessmentScoreInfo(object):
 class AssessmentScoreInfoBuilder(object):
     def __init__(self) -> None:
         self._assessment_score_info = AssessmentScoreInfo()
-
     def calculate_type(self, calculate_type: int) -> "AssessmentScoreInfoBuilder":
         self._assessment_score_info.calculate_type = calculate_type
         return self
-
     def score(self, score: float) -> "AssessmentScoreInfoBuilder":
         self._assessment_score_info.score = score
         return self
-
     def full_score(self, full_score: int) -> "AssessmentScoreInfoBuilder":
         self._assessment_score_info.full_score = full_score
         return self
-
+    
     def build(self) -> "AssessmentScoreInfo":
         return self._assessment_score_info

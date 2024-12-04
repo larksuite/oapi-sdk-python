@@ -22,11 +22,9 @@ class CreateExternalApplicationResponseBody(object):
 class CreateExternalApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_external_application_response_body = CreateExternalApplicationResponseBody()
-
-    def external_application(self,
-                             external_application: ExternalApplication) -> "CreateExternalApplicationResponseBodyBuilder":
+    def external_application(self, external_application: ExternalApplication) -> "CreateExternalApplicationResponseBodyBuilder":
         self._create_external_application_response_body.external_application = external_application
         return self
-
+    
     def build(self) -> "CreateExternalApplicationResponseBody":
         return self._create_external_application_response_body

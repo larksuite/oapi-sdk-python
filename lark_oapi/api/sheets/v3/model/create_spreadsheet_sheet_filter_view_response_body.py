@@ -22,10 +22,9 @@ class CreateSpreadsheetSheetFilterViewResponseBody(object):
 class CreateSpreadsheetSheetFilterViewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_spreadsheet_sheet_filter_view_response_body = CreateSpreadsheetSheetFilterViewResponseBody()
-
     def filter_view(self, filter_view: FilterView) -> "CreateSpreadsheetSheetFilterViewResponseBodyBuilder":
         self._create_spreadsheet_sheet_filter_view_response_body.filter_view = filter_view
         return self
-
+    
     def build(self) -> "CreateSpreadsheetSheetFilterViewResponseBody":
         return self._create_spreadsheet_sheet_filter_view_response_body

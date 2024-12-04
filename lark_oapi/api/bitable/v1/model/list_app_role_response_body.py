@@ -28,22 +28,18 @@ class ListAppRoleResponseBody(object):
 class ListAppRoleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_role_response_body = ListAppRoleResponseBody()
-
     def items(self, items: List[AppRole]) -> "ListAppRoleResponseBodyBuilder":
         self._list_app_role_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListAppRoleResponseBodyBuilder":
         self._list_app_role_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListAppRoleResponseBodyBuilder":
         self._list_app_role_response_body.has_more = has_more
         return self
-
     def total(self, total: int) -> "ListAppRoleResponseBodyBuilder":
         self._list_app_role_response_body.total = total
         return self
-
+    
     def build(self) -> "ListAppRoleResponseBody":
         return self._list_app_role_response_body

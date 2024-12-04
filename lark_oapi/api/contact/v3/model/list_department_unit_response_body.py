@@ -26,18 +26,15 @@ class ListDepartmentUnitResponseBody(object):
 class ListDepartmentUnitResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_department_unit_response_body = ListDepartmentUnitResponseBody()
-
     def departmentlist(self, departmentlist: List[UnitDepartment]) -> "ListDepartmentUnitResponseBodyBuilder":
         self._list_department_unit_response_body.departmentlist = departmentlist
         return self
-
     def has_more(self, has_more: bool) -> "ListDepartmentUnitResponseBodyBuilder":
         self._list_department_unit_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListDepartmentUnitResponseBodyBuilder":
         self._list_department_unit_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "ListDepartmentUnitResponseBody":
         return self._list_department_unit_response_body

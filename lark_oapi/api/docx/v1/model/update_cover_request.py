@@ -22,10 +22,9 @@ class UpdateCoverRequest(object):
 class UpdateCoverRequestBuilder(object):
     def __init__(self) -> None:
         self._update_cover_request = UpdateCoverRequest()
-
     def cover(self, cover: DocumentCover) -> "UpdateCoverRequestBuilder":
         self._update_cover_request.cover = cover
         return self
-
+    
     def build(self) -> "UpdateCoverRequest":
         return self._update_cover_request

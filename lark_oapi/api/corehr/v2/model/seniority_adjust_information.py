@@ -8,22 +8,20 @@ from .custom_field_data import CustomFieldData
 
 class SeniorityAdjustInformation(object):
     _types = {
-        "id": str,
         "seniority_adjustment_type": Enum,
         "start_date": str,
         "end_date": str,
-        "reasons_for_seniority_adjustment": str,
         "seniority_adjustment": float,
+        "reasons_for_seniority_adjustment": str,
         "custom_fields": List[CustomFieldData],
     }
 
     def __init__(self, d=None):
-        self.id: Optional[str] = None
         self.seniority_adjustment_type: Optional[Enum] = None
         self.start_date: Optional[str] = None
         self.end_date: Optional[str] = None
-        self.reasons_for_seniority_adjustment: Optional[str] = None
         self.seniority_adjustment: Optional[float] = None
+        self.reasons_for_seniority_adjustment: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
@@ -35,35 +33,24 @@ class SeniorityAdjustInformation(object):
 class SeniorityAdjustInformationBuilder(object):
     def __init__(self) -> None:
         self._seniority_adjust_information = SeniorityAdjustInformation()
-
-    def id(self, id: str) -> "SeniorityAdjustInformationBuilder":
-        self._seniority_adjust_information.id = id
-        return self
-
     def seniority_adjustment_type(self, seniority_adjustment_type: Enum) -> "SeniorityAdjustInformationBuilder":
         self._seniority_adjust_information.seniority_adjustment_type = seniority_adjustment_type
         return self
-
     def start_date(self, start_date: str) -> "SeniorityAdjustInformationBuilder":
         self._seniority_adjust_information.start_date = start_date
         return self
-
     def end_date(self, end_date: str) -> "SeniorityAdjustInformationBuilder":
         self._seniority_adjust_information.end_date = end_date
         return self
-
-    def reasons_for_seniority_adjustment(self,
-                                         reasons_for_seniority_adjustment: str) -> "SeniorityAdjustInformationBuilder":
-        self._seniority_adjust_information.reasons_for_seniority_adjustment = reasons_for_seniority_adjustment
-        return self
-
     def seniority_adjustment(self, seniority_adjustment: float) -> "SeniorityAdjustInformationBuilder":
         self._seniority_adjust_information.seniority_adjustment = seniority_adjustment
         return self
-
+    def reasons_for_seniority_adjustment(self, reasons_for_seniority_adjustment: str) -> "SeniorityAdjustInformationBuilder":
+        self._seniority_adjust_information.reasons_for_seniority_adjustment = reasons_for_seniority_adjustment
+        return self
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "SeniorityAdjustInformationBuilder":
         self._seniority_adjust_information.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "SeniorityAdjustInformation":
         return self._seniority_adjust_information

@@ -8,11 +8,13 @@ class ProcessRevokeAndWithdraw(object):
     _types = {
         "user_id": str,
         "reason": str,
+        "system_user": bool,
     }
 
     def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.reason: Optional[str] = None
+        self.system_user: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,14 +25,15 @@ class ProcessRevokeAndWithdraw(object):
 class ProcessRevokeAndWithdrawBuilder(object):
     def __init__(self) -> None:
         self._process_revoke_and_withdraw = ProcessRevokeAndWithdraw()
-
     def user_id(self, user_id: str) -> "ProcessRevokeAndWithdrawBuilder":
         self._process_revoke_and_withdraw.user_id = user_id
         return self
-
     def reason(self, reason: str) -> "ProcessRevokeAndWithdrawBuilder":
         self._process_revoke_and_withdraw.reason = reason
         return self
-
+    def system_user(self, system_user: bool) -> "ProcessRevokeAndWithdrawBuilder":
+        self._process_revoke_and_withdraw.system_user = system_user
+        return self
+    
     def build(self) -> "ProcessRevokeAndWithdraw":
         return self._process_revoke_and_withdraw

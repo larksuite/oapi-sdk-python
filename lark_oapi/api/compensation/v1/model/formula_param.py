@@ -23,14 +23,12 @@ class FormulaParam(object):
 class FormulaParamBuilder(object):
     def __init__(self) -> None:
         self._formula_param = FormulaParam()
-
     def ref_type(self, ref_type: int) -> "FormulaParamBuilder":
         self._formula_param.ref_type = ref_type
         return self
-
     def id(self, id: str) -> "FormulaParamBuilder":
         self._formula_param.id = id
         return self
-
+    
     def build(self) -> "FormulaParam":
         return self._formula_param

@@ -22,10 +22,9 @@ class PatchJobFamilyResponseBody(object):
 class PatchJobFamilyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_job_family_response_body = PatchJobFamilyResponseBody()
-
     def job_family(self, job_family: JobFamily) -> "PatchJobFamilyResponseBodyBuilder":
         self._patch_job_family_response_body.job_family = job_family
         return self
-
+    
     def build(self) -> "PatchJobFamilyResponseBody":
         return self._patch_job_family_response_body

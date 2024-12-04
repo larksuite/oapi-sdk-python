@@ -25,18 +25,15 @@ class CreatePublicMailboxMemberResponseBody(object):
 class CreatePublicMailboxMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_public_mailbox_member_response_body = CreatePublicMailboxMemberResponseBody()
-
     def member_id(self, member_id: str) -> "CreatePublicMailboxMemberResponseBodyBuilder":
         self._create_public_mailbox_member_response_body.member_id = member_id
         return self
-
     def user_id(self, user_id: str) -> "CreatePublicMailboxMemberResponseBodyBuilder":
         self._create_public_mailbox_member_response_body.user_id = user_id
         return self
-
     def type(self, type: str) -> "CreatePublicMailboxMemberResponseBodyBuilder":
         self._create_public_mailbox_member_response_body.type = type
         return self
-
+    
     def build(self) -> "CreatePublicMailboxMemberResponseBody":
         return self._create_public_mailbox_member_response_body

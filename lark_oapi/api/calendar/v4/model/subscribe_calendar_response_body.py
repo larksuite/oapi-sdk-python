@@ -22,10 +22,9 @@ class SubscribeCalendarResponseBody(object):
 class SubscribeCalendarResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._subscribe_calendar_response_body = SubscribeCalendarResponseBody()
-
     def calendar(self, calendar: Calendar) -> "SubscribeCalendarResponseBodyBuilder":
         self._subscribe_calendar_response_body.calendar = calendar
         return self
-
+    
     def build(self) -> "SubscribeCalendarResponseBody":
         return self._subscribe_calendar_response_body

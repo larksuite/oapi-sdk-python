@@ -6,11 +6,11 @@ from lark_oapi.core.construct import init
 
 class GetSubscribeFileResponseBody(object):
     _types = {
-        "is_subseribe": bool,
+        "is_subscribe": bool,
     }
 
     def __init__(self, d=None):
-        self.is_subseribe: Optional[bool] = None
+        self.is_subscribe: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -21,10 +21,9 @@ class GetSubscribeFileResponseBody(object):
 class GetSubscribeFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_subscribe_file_response_body = GetSubscribeFileResponseBody()
-
-    def is_subseribe(self, is_subseribe: bool) -> "GetSubscribeFileResponseBodyBuilder":
-        self._get_subscribe_file_response_body.is_subseribe = is_subseribe
+    def is_subscribe(self, is_subscribe: bool) -> "GetSubscribeFileResponseBodyBuilder":
+        self._get_subscribe_file_response_body.is_subscribe = is_subscribe
         return self
-
+    
     def build(self) -> "GetSubscribeFileResponseBody":
         return self._get_subscribe_file_response_body

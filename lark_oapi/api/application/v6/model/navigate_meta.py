@@ -25,18 +25,15 @@ class NavigateMeta(object):
 class NavigateMetaBuilder(object):
     def __init__(self) -> None:
         self._navigate_meta = NavigateMeta()
-
     def version(self, version: str) -> "NavigateMetaBuilder":
         self._navigate_meta.version = version
         return self
-
     def image_url(self, image_url: str) -> "NavigateMetaBuilder":
         self._navigate_meta.image_url = image_url
         return self
-
     def hover_image_url(self, hover_image_url: str) -> "NavigateMetaBuilder":
         self._navigate_meta.hover_image_url = hover_image_url
         return self
-
+    
     def build(self) -> "NavigateMeta":
         return self._navigate_meta

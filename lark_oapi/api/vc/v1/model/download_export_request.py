@@ -23,11 +23,12 @@ class DownloadExportRequestBuilder(object):
         download_export_request.uri = "/open-apis/vc/v1/exports/download"
         download_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._download_export_request: DownloadExportRequest = download_export_request
-
+    
     def file_token(self, file_token: str) -> "DownloadExportRequestBuilder":
         self._download_export_request.file_token = file_token
         self._download_export_request.add_query("file_token", file_token)
         return self
+    
 
     def build(self) -> DownloadExportRequest:
         return self._download_export_request

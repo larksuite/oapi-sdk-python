@@ -41,46 +41,36 @@ class BackgroundCheckTarget(object):
 class BackgroundCheckTargetBuilder(object):
     def __init__(self) -> None:
         self._background_check_target = BackgroundCheckTarget()
-
     def id(self, id: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.id = id
         return self
-
     def first_name(self, first_name: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.first_name = first_name
         return self
-
     def last_name(self, last_name: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.last_name = last_name
         return self
-
     def email(self, email: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.email = email
         return self
-
     def work_country(self, work_country: BackgroundCheckCountry) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.work_country = work_country
         return self
-
     def work_city(self, work_city: BackgroundCheckCity) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.work_city = work_city
         return self
-
     def job_title(self, job_title: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.job_title = job_title
         return self
-
     def offer_hr_email(self, offer_hr_email: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.offer_hr_email = offer_hr_email
         return self
-
     def biz_unit(self, biz_unit: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.biz_unit = biz_unit
         return self
-
     def offer_hr_department_id(self, offer_hr_department_id: str) -> "BackgroundCheckTargetBuilder":
         self._background_check_target.offer_hr_department_id = offer_hr_department_id
         return self
-
+    
     def build(self) -> "BackgroundCheckTarget":
         return self._background_check_target

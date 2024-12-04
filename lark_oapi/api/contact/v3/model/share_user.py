@@ -28,22 +28,18 @@ class ShareUser(object):
 class ShareUserBuilder(object):
     def __init__(self) -> None:
         self._share_user = ShareUser()
-
     def open_id(self, open_id: str) -> "ShareUserBuilder":
         self._share_user.open_id = open_id
         return self
-
     def name(self, name: str) -> "ShareUserBuilder":
         self._share_user.name = name
         return self
-
     def en_name(self, en_name: str) -> "ShareUserBuilder":
         self._share_user.en_name = en_name
         return self
-
     def avatar(self, avatar: AvatarInfo) -> "ShareUserBuilder":
         self._share_user.avatar = avatar
         return self
-
+    
     def build(self) -> "ShareUser":
         return self._share_user

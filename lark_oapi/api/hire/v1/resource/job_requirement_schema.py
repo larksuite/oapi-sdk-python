@@ -17,8 +17,7 @@ class JobRequirementSchema(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListJobRequirementSchemaRequest,
-             option: Optional[RequestOption] = None) -> ListJobRequirementSchemaResponse:
+    def list(self, request: ListJobRequirementSchemaRequest, option: Optional[RequestOption] = None) -> ListJobRequirementSchemaResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class JobRequirementSchema(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListJobRequirementSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListJobRequirementSchemaResponse)
+        response: ListJobRequirementSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobRequirementSchemaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListJobRequirementSchemaRequest,
-                    option: Optional[RequestOption] = None) -> ListJobRequirementSchemaResponse:
+    async def alist(self, request: ListJobRequirementSchemaRequest, option: Optional[RequestOption] = None) -> ListJobRequirementSchemaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListJobRequirementSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    ListJobRequirementSchemaResponse)
+        response: ListJobRequirementSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobRequirementSchemaResponse)
         response.raw = resp
 
         return response
+        
+    

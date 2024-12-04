@@ -27,22 +27,18 @@ class SeperatePassage(object):
 class SeperatePassageBuilder(object):
     def __init__(self) -> None:
         self._seperate_passage = SeperatePassage()
-
     def passage_id(self, passage_id: str) -> "SeperatePassageBuilder":
         self._seperate_passage.passage_id = passage_id
         return self
-
     def obj_id(self, obj_id: str) -> "SeperatePassageBuilder":
         self._seperate_passage.obj_id = obj_id
         return self
-
     def content(self, content: str) -> "SeperatePassageBuilder":
         self._seperate_passage.content = content
         return self
-
     def num_tokens(self, num_tokens: int) -> "SeperatePassageBuilder":
         self._seperate_passage.num_tokens = num_tokens
         return self
-
+    
     def build(self) -> "SeperatePassage":
         return self._seperate_passage

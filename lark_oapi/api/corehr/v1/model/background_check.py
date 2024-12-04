@@ -36,38 +36,30 @@ class BackgroundCheck(object):
 class BackgroundCheckBuilder(object):
     def __init__(self) -> None:
         self._background_check = BackgroundCheck()
-
     def id(self, id: str) -> "BackgroundCheckBuilder":
         self._background_check.id = id
         return self
-
     def package(self, package: int) -> "BackgroundCheckBuilder":
         self._background_check.package = package
         return self
-
     def status(self, status: int) -> "BackgroundCheckBuilder":
         self._background_check.status = status
         return self
-
     def created_time(self, created_time: str) -> "BackgroundCheckBuilder":
         self._background_check.created_time = created_time
         return self
-
     def modified_time(self, modified_time: str) -> "BackgroundCheckBuilder":
         self._background_check.modified_time = modified_time
         return self
-
     def target_id(self, target_id: str) -> "BackgroundCheckBuilder":
         self._background_check.target_id = target_id
         return self
-
     def outcome(self, outcome: int) -> "BackgroundCheckBuilder":
         self._background_check.outcome = outcome
         return self
-
     def report(self, report: BackgroundCheckReportObject) -> "BackgroundCheckBuilder":
         self._background_check.report = report
         return self
-
+    
     def build(self) -> "BackgroundCheck":
         return self._background_check

@@ -26,17 +26,17 @@ class PatchLeaveAccrualRecordRequestBuilder(object):
         patch_leave_accrual_record_request.uri = "/open-apis/attendance/v1/leave_accrual_record/:leave_id"
         patch_leave_accrual_record_request.token_types = {AccessTokenType.TENANT}
         self._patch_leave_accrual_record_request: PatchLeaveAccrualRecordRequest = patch_leave_accrual_record_request
-
+    
     def user_id_type(self, user_id_type: str) -> "PatchLeaveAccrualRecordRequestBuilder":
         self._patch_leave_accrual_record_request.user_id_type = user_id_type
         self._patch_leave_accrual_record_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def leave_id(self, leave_id: str) -> "PatchLeaveAccrualRecordRequestBuilder":
         self._patch_leave_accrual_record_request.leave_id = leave_id
         self._patch_leave_accrual_record_request.paths["leave_id"] = str(leave_id)
         return self
-
+    
     def request_body(self, request_body: PatchLeaveAccrualRecordRequestBody) -> "PatchLeaveAccrualRecordRequestBuilder":
         self._patch_leave_accrual_record_request.request_body = request_body
         self._patch_leave_accrual_record_request.body = request_body

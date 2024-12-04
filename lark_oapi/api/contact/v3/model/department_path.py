@@ -24,14 +24,12 @@ class DepartmentPath(object):
 class DepartmentPathBuilder(object):
     def __init__(self) -> None:
         self._department_path = DepartmentPath()
-
     def department_ids(self, department_ids: List[str]) -> "DepartmentPathBuilder":
         self._department_path.department_ids = department_ids
         return self
-
     def department_path_name(self, department_path_name: DepartmentPathName) -> "DepartmentPathBuilder":
         self._department_path.department_path_name = department_path_name
         return self
-
+    
     def build(self) -> "DepartmentPath":
         return self._department_path

@@ -23,14 +23,12 @@ class Rule(object):
 class RuleBuilder(object):
     def __init__(self) -> None:
         self._rule = Rule()
-
     def is_all_visible(self, is_all_visible: bool) -> "RuleBuilder":
         self._rule.is_all_visible = is_all_visible
         return self
-
     def visible_department_ids(self, visible_department_ids: List[str]) -> "RuleBuilder":
         self._rule.visible_department_ids = visible_department_ids
         return self
-
+    
     def build(self) -> "Rule":
         return self._rule

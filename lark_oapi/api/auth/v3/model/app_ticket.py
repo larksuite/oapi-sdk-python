@@ -19,6 +19,6 @@ class AppTicket(object):
 class AppTicketBuilder(object):
     def __init__(self) -> None:
         self._app_ticket = AppTicket()
-
+    
     def build(self) -> "AppTicket":
         return self._app_ticket

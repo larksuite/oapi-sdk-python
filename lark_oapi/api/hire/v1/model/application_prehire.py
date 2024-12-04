@@ -33,26 +33,21 @@ class ApplicationPrehire(object):
 class ApplicationPrehireBuilder(object):
     def __init__(self) -> None:
         self._application_prehire = ApplicationPrehire()
-
     def id(self, id: str) -> "ApplicationPrehireBuilder":
         self._application_prehire.id = id
         return self
-
     def basic_info(self, basic_info: ApplicationBasicInfo) -> "ApplicationPrehireBuilder":
         self._application_prehire.basic_info = basic_info
         return self
-
     def talent(self, talent: ApplicationTalent) -> "ApplicationPrehireBuilder":
         self._application_prehire.talent = talent
         return self
-
     def job(self, job: ApplicationJob) -> "ApplicationPrehireBuilder":
         self._application_prehire.job = job
         return self
-
     def offer(self, offer: ApplicationPrehireOffer) -> "ApplicationPrehireBuilder":
         self._application_prehire.offer = offer
         return self
-
+    
     def build(self) -> "ApplicationPrehire":
         return self._application_prehire

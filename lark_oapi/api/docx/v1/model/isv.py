@@ -23,14 +23,12 @@ class Isv(object):
 class IsvBuilder(object):
     def __init__(self) -> None:
         self._isv = Isv()
-
     def component_id(self, component_id: str) -> "IsvBuilder":
         self._isv.component_id = component_id
         return self
-
     def component_type_id(self, component_type_id: str) -> "IsvBuilder":
         self._isv.component_type_id = component_type_id
         return self
-
+    
     def build(self) -> "Isv":
         return self._isv

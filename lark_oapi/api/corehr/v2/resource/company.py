@@ -34,32 +34,33 @@ class Company(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ActiveCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveCompanyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aactive(self, request: ActiveCompanyRequest,
-                      option: Optional[RequestOption] = None) -> ActiveCompanyResponse:
+    async def aactive(self, request: ActiveCompanyRequest, option: Optional[RequestOption] = None) -> ActiveCompanyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ActiveCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), ActiveCompanyResponse)
         response.raw = resp
 
         return response
-
-    def batch_get(self, request: BatchGetCompanyRequest,
-                  option: Optional[RequestOption] = None) -> BatchGetCompanyResponse:
+        
+    def batch_get(self, request: BatchGetCompanyRequest, option: Optional[RequestOption] = None) -> BatchGetCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -72,32 +73,33 @@ class Company(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchGetCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetCompanyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_get(self, request: BatchGetCompanyRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetCompanyResponse:
+    async def abatch_get(self, request: BatchGetCompanyRequest, option: Optional[RequestOption] = None) -> BatchGetCompanyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchGetCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetCompanyResponse)
         response.raw = resp
 
         return response
-
-    def query_recent_change(self, request: QueryRecentChangeCompanyRequest,
-                            option: Optional[RequestOption] = None) -> QueryRecentChangeCompanyResponse:
+        
+    def query_recent_change(self, request: QueryRecentChangeCompanyRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeCompanyResponse:
         if option is None:
             option = RequestOption()
 
@@ -110,28 +112,30 @@ class Company(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    QueryRecentChangeCompanyResponse)
+        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeCompanyResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery_recent_change(self, request: QueryRecentChangeCompanyRequest,
-                                   option: Optional[RequestOption] = None) -> QueryRecentChangeCompanyResponse:
+    async def aquery_recent_change(self, request: QueryRecentChangeCompanyRequest, option: Optional[RequestOption] = None) -> QueryRecentChangeCompanyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    QueryRecentChangeCompanyResponse)
+        response: QueryRecentChangeCompanyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeCompanyResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -24,14 +24,12 @@ class TemplateWorkplaceAccessData(object):
 class TemplateWorkplaceAccessDataBuilder(object):
     def __init__(self) -> None:
         self._template_workplace_access_data = TemplateWorkplaceAccessData()
-
     def tpl_id(self, tpl_id: str) -> "TemplateWorkplaceAccessDataBuilder":
         self._template_workplace_access_data.tpl_id = tpl_id
         return self
-
     def access_data(self, access_data: AccessData) -> "TemplateWorkplaceAccessDataBuilder":
         self._template_workplace_access_data.access_data = access_data
         return self
-
+    
     def build(self) -> "TemplateWorkplaceAccessData":
         return self._template_workplace_access_data

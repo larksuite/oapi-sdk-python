@@ -25,12 +25,12 @@ class CreateWebsiteSiteUserRequestBuilder(object):
         create_website_site_user_request.uri = "/open-apis/hire/v1/websites/:website_id/site_users"
         create_website_site_user_request.token_types = {AccessTokenType.TENANT}
         self._create_website_site_user_request: CreateWebsiteSiteUserRequest = create_website_site_user_request
-
+    
     def website_id(self, website_id: str) -> "CreateWebsiteSiteUserRequestBuilder":
         self._create_website_site_user_request.website_id = website_id
         self._create_website_site_user_request.paths["website_id"] = str(website_id)
         return self
-
+    
     def request_body(self, request_body: WebsiteUser) -> "CreateWebsiteSiteUserRequestBuilder":
         self._create_website_site_user_request.request_body = request_body
         self._create_website_site_user_request.body = request_body

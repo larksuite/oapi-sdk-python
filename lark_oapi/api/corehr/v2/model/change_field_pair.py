@@ -25,14 +25,12 @@ class ChangeFieldPair(object):
 class ChangeFieldPairBuilder(object):
     def __init__(self) -> None:
         self._change_field_pair = ChangeFieldPair()
-
     def origin_value(self, origin_value: CustomFieldData) -> "ChangeFieldPairBuilder":
         self._change_field_pair.origin_value = origin_value
         return self
-
     def target_value(self, target_value: CustomFieldData) -> "ChangeFieldPairBuilder":
         self._change_field_pair.target_value = target_value
         return self
-
+    
     def build(self) -> "ChangeFieldPair":
         return self._change_field_pair

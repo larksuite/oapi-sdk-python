@@ -23,11 +23,12 @@ class DeleteRoomRequestBuilder(object):
         delete_room_request.uri = "/open-apis/vc/v1/rooms/:room_id"
         delete_room_request.token_types = {AccessTokenType.TENANT}
         self._delete_room_request: DeleteRoomRequest = delete_room_request
-
+    
     def room_id(self, room_id: str) -> "DeleteRoomRequestBuilder":
         self._delete_room_request.room_id = room_id
         self._delete_room_request.paths["room_id"] = str(room_id)
         return self
+    
 
     def build(self) -> DeleteRoomRequest:
         return self._delete_room_request

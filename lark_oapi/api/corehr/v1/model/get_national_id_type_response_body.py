@@ -22,10 +22,9 @@ class GetNationalIdTypeResponseBody(object):
 class GetNationalIdTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_national_id_type_response_body = GetNationalIdTypeResponseBody()
-
     def national_id_type(self, national_id_type: NationalIdType) -> "GetNationalIdTypeResponseBodyBuilder":
         self._get_national_id_type_response_body.national_id_type = national_id_type
         return self
-
+    
     def build(self) -> "GetNationalIdTypeResponseBody":
         return self._get_national_id_type_response_body

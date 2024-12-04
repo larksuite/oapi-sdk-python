@@ -25,18 +25,15 @@ class Group(object):
 class GroupBuilder(object):
     def __init__(self) -> None:
         self._group = Group()
-
     def id(self, id: str) -> "GroupBuilder":
         self._group.id = id
         return self
-
     def name(self, name: str) -> "GroupBuilder":
         self._group.name = name
         return self
-
     def avatar_url(self, avatar_url: str) -> "GroupBuilder":
         self._group.avatar_url = avatar_url
         return self
-
+    
     def build(self) -> "Group":
         return self._group

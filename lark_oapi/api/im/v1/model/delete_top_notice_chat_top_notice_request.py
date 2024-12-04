@@ -23,11 +23,12 @@ class DeleteTopNoticeChatTopNoticeRequestBuilder(object):
         delete_top_notice_chat_top_notice_request.uri = "/open-apis/im/v1/chats/:chat_id/top_notice/delete_top_notice"
         delete_top_notice_chat_top_notice_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_top_notice_chat_top_notice_request: DeleteTopNoticeChatTopNoticeRequest = delete_top_notice_chat_top_notice_request
-
+    
     def chat_id(self, chat_id: str) -> "DeleteTopNoticeChatTopNoticeRequestBuilder":
         self._delete_top_notice_chat_top_notice_request.chat_id = chat_id
         self._delete_top_notice_chat_top_notice_request.paths["chat_id"] = str(chat_id)
         return self
+    
 
     def build(self) -> DeleteTopNoticeChatTopNoticeRequest:
         return self._delete_top_notice_chat_top_notice_request

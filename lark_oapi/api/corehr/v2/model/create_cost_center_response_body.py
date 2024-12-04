@@ -22,10 +22,9 @@ class CreateCostCenterResponseBody(object):
 class CreateCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_cost_center_response_body = CreateCostCenterResponseBody()
-
     def cost_center(self, cost_center: CostCenter) -> "CreateCostCenterResponseBodyBuilder":
         self._create_cost_center_response_body.cost_center = cost_center
         return self
-
+    
     def build(self) -> "CreateCostCenterResponseBody":
         return self._create_cost_center_response_body

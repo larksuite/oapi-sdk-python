@@ -51,62 +51,48 @@ class FieldVariableValueTo(object):
 class FieldVariableValueToBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_to = FieldVariableValueTo()
-
     def text_value(self, text_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.text_value = text_value
         return self
-
     def bool_value(self, bool_value: bool) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.bool_value = bool_value
         return self
-
     def number_value(self, number_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.number_value = number_value
         return self
-
     def enum_value(self, enum_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.enum_value = enum_value
         return self
-
     def date_value(self, date_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.date_value = date_value
         return self
-
     def date_time_value(self, date_time_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.date_time_value = date_time_value
         return self
-
     def i18n_value(self, i18n_value: FieldVariableValueI18n) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.i18n_value = i18n_value
         return self
-
     def object_value(self, object_value: FieldVariableValueToObject) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.object_value = object_value
         return self
-
     def user_value(self, user_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.user_value = user_value
         return self
-
     def department_value(self, department_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.department_value = department_value
         return self
-
     def record_values(self, record_values: List[FieldVariableValueToRecord]) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.record_values = record_values
         return self
-
     def employment_value(self, employment_value: str) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.employment_value = employment_value
         return self
-
     def list_values(self, list_values: List[str]) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.list_values = list_values
         return self
-
     def file_value(self, file_value: FieldVariableValueToFile) -> "FieldVariableValueToBuilder":
         self._field_variable_value_to.file_value = file_value
         return self
-
+    
     def build(self) -> "FieldVariableValueTo":
         return self._field_variable_value_to

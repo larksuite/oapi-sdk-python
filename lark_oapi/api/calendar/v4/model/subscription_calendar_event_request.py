@@ -23,11 +23,12 @@ class SubscriptionCalendarEventRequestBuilder(object):
         subscription_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
         subscription_calendar_event_request.token_types = {AccessTokenType.USER}
         self._subscription_calendar_event_request: SubscriptionCalendarEventRequest = subscription_calendar_event_request
-
+    
     def calendar_id(self, calendar_id: str) -> "SubscriptionCalendarEventRequestBuilder":
         self._subscription_calendar_event_request.calendar_id = calendar_id
         self._subscription_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
+    
 
     def build(self) -> SubscriptionCalendarEventRequest:
         return self._subscription_calendar_event_request

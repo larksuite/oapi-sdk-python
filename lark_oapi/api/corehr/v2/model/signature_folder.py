@@ -32,27 +32,21 @@ class SignatureFolder(object):
 class SignatureFolderBuilder(object):
     def __init__(self) -> None:
         self._signature_folder = SignatureFolder()
-
     def biz_type(self, biz_type: Enum) -> "SignatureFolderBuilder":
         self._signature_folder.biz_type = biz_type
         return self
-
     def owner_info(self, owner_info: SignatureHumanInfo) -> "SignatureFolderBuilder":
         self._signature_folder.owner_info = owner_info
         return self
-
-    def signature_template_fields(self, signature_template_fields: List[
-        SignatureTemplateIdWithSystemAndCustomField]) -> "SignatureFolderBuilder":
+    def signature_template_fields(self, signature_template_fields: List[SignatureTemplateIdWithSystemAndCustomField]) -> "SignatureFolderBuilder":
         self._signature_folder.signature_template_fields = signature_template_fields
         return self
-
     def unique_key(self, unique_key: int) -> "SignatureFolderBuilder":
         self._signature_folder.unique_key = unique_key
         return self
-
     def biz_process_id(self, biz_process_id: str) -> "SignatureFolderBuilder":
         self._signature_folder.biz_process_id = biz_process_id
         return self
-
+    
     def build(self) -> "SignatureFolder":
         return self._signature_folder

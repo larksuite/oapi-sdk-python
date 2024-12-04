@@ -27,22 +27,18 @@ class SkillCall(object):
 class SkillCallBuilder(object):
     def __init__(self) -> None:
         self._skill_call = SkillCall()
-
     def skill_call_id(self, skill_call_id: str) -> "SkillCallBuilder":
         self._skill_call.skill_call_id = skill_call_id
         return self
-
     def input(self, input: str) -> "SkillCallBuilder":
         self._skill_call.input = input
         return self
-
     def waiting_type(self, waiting_type: str) -> "SkillCallBuilder":
         self._skill_call.waiting_type = waiting_type
         return self
-
     def input_dsl(self, input_dsl: str) -> "SkillCallBuilder":
         self._skill_call.input_dsl = input_dsl
         return self
-
+    
     def build(self) -> "SkillCall":
         return self._skill_call

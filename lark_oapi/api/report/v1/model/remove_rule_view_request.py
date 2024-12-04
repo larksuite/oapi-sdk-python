@@ -26,17 +26,17 @@ class RemoveRuleViewRequestBuilder(object):
         remove_rule_view_request.uri = "/open-apis/report/v1/rules/:rule_id/views/remove"
         remove_rule_view_request.token_types = {AccessTokenType.TENANT}
         self._remove_rule_view_request: RemoveRuleViewRequest = remove_rule_view_request
-
+    
     def user_id_type(self, user_id_type: str) -> "RemoveRuleViewRequestBuilder":
         self._remove_rule_view_request.user_id_type = user_id_type
         self._remove_rule_view_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def rule_id(self, rule_id: str) -> "RemoveRuleViewRequestBuilder":
         self._remove_rule_view_request.rule_id = rule_id
         self._remove_rule_view_request.paths["rule_id"] = str(rule_id)
         return self
-
+    
     def request_body(self, request_body: RemoveRuleViewRequestBody) -> "RemoveRuleViewRequestBuilder":
         self._remove_rule_view_request.request_body = request_body
         self._remove_rule_view_request.body = request_body

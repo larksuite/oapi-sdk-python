@@ -24,14 +24,12 @@ class SocialPlanScope(object):
 class SocialPlanScopeBuilder(object):
     def __init__(self) -> None:
         self._social_plan_scope = SocialPlanScope()
-
     def is_all(self, is_all: bool) -> "SocialPlanScopeBuilder":
         self._social_plan_scope.is_all = is_all
         return self
-
     def rules(self, rules: List[list]) -> "SocialPlanScopeBuilder":
         self._social_plan_scope.rules = rules
         return self
-
+    
     def build(self) -> "SocialPlanScope":
         return self._social_plan_scope

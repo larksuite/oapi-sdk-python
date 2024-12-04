@@ -23,11 +23,12 @@ class DeleteMessageRequestBuilder(object):
         delete_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         delete_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_message_request: DeleteMessageRequest = delete_message_request
-
+    
     def message_id(self, message_id: str) -> "DeleteMessageRequestBuilder":
         self._delete_message_request.message_id = message_id
         self._delete_message_request.paths["message_id"] = str(message_id)
         return self
+    
 
     def build(self) -> DeleteMessageRequest:
         return self._delete_message_request

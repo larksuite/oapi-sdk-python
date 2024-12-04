@@ -44,54 +44,42 @@ class Comment(object):
 class CommentBuilder(object):
     def __init__(self) -> None:
         self._comment = Comment()
-
     def user_id(self, user_id: str) -> "CommentBuilder":
         self._comment.user_id = user_id
         return self
-
     def content(self, content: str) -> "CommentBuilder":
         self._comment.content = content
         return self
-
     def image_key(self, image_key: str) -> "CommentBuilder":
         self._comment.image_key = image_key
         return self
-
     def is_hot(self, is_hot: bool) -> "CommentBuilder":
         self._comment.is_hot = is_hot
         return self
-
     def reaction_set(self, reaction_set: ReactionSet) -> "CommentBuilder":
         self._comment.reaction_set = reaction_set
         return self
-
     def id(self, id: str) -> "CommentBuilder":
         self._comment.id = id
         return self
-
     def create_time(self, create_time: str) -> "CommentBuilder":
         self._comment.create_time = create_time
         return self
-
     def post_id(self, post_id: str) -> "CommentBuilder":
         self._comment.post_id = post_id
         return self
-
     def reply_comment_id(self, reply_comment_id: str) -> "CommentBuilder":
         self._comment.reply_comment_id = reply_comment_id
         return self
-
     def root_comment_id(self, root_comment_id: str) -> "CommentBuilder":
         self._comment.root_comment_id = root_comment_id
         return self
-
     def cid(self, cid: str) -> "CommentBuilder":
         self._comment.cid = cid
         return self
-
     def user_type(self, user_type: int) -> "CommentBuilder":
         self._comment.user_type = user_type
         return self
-
+    
     def build(self) -> "Comment":
         return self._comment

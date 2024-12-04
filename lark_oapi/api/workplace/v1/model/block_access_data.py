@@ -26,18 +26,15 @@ class BlockAccessData(object):
 class BlockAccessDataBuilder(object):
     def __init__(self) -> None:
         self._block_access_data = BlockAccessData()
-
     def date(self, date: str) -> "BlockAccessDataBuilder":
         self._block_access_data.date = date
         return self
-
     def block_id(self, block_id: str) -> "BlockAccessDataBuilder":
         self._block_access_data.block_id = block_id
         return self
-
     def access_data(self, access_data: AccessData) -> "BlockAccessDataBuilder":
         self._block_access_data.access_data = access_data
         return self
-
+    
     def build(self) -> "BlockAccessData":
         return self._block_access_data

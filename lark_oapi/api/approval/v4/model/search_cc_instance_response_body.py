@@ -28,22 +28,18 @@ class SearchCcInstanceResponseBody(object):
 class SearchCcInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_cc_instance_response_body = SearchCcInstanceResponseBody()
-
     def count(self, count: int) -> "SearchCcInstanceResponseBodyBuilder":
         self._search_cc_instance_response_body.count = count
         return self
-
     def cc_list(self, cc_list: List[CcSearchItem]) -> "SearchCcInstanceResponseBodyBuilder":
         self._search_cc_instance_response_body.cc_list = cc_list
         return self
-
     def page_token(self, page_token: str) -> "SearchCcInstanceResponseBodyBuilder":
         self._search_cc_instance_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "SearchCcInstanceResponseBodyBuilder":
         self._search_cc_instance_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "SearchCcInstanceResponseBody":
         return self._search_cc_instance_response_body

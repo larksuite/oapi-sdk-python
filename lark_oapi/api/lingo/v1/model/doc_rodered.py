@@ -21,10 +21,9 @@ class DocRodered(object):
 class DocRoderedBuilder(object):
     def __init__(self) -> None:
         self._doc_rodered = DocRodered()
-
     def text(self, text: str) -> "DocRoderedBuilder":
         self._doc_rodered.text = text
         return self
-
+    
     def build(self) -> "DocRodered":
         return self._doc_rodered

@@ -17,8 +17,7 @@ class VatInvoice(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeVatInvoiceRequest,
-                  option: Optional[RequestOption] = None) -> RecognizeVatInvoiceResponse:
+    def recognize(self, request: RecognizeVatInvoiceRequest, option: Optional[RequestOption] = None) -> RecognizeVatInvoiceResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,32 +29,36 @@ class VatInvoice(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
+            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: RecognizeVatInvoiceResponse = JSON.unmarshal(str(resp.content, UTF_8), RecognizeVatInvoiceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def arecognize(self, request: RecognizeVatInvoiceRequest,
-                         option: Optional[RequestOption] = None) -> RecognizeVatInvoiceResponse:
+    async def arecognize(self, request: RecognizeVatInvoiceRequest, option: Optional[RequestOption] = None) -> RecognizeVatInvoiceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: RecognizeVatInvoiceResponse = JSON.unmarshal(str(resp.content, UTF_8), RecognizeVatInvoiceResponse)
         response.raw = resp
 
         return response
+        
+    

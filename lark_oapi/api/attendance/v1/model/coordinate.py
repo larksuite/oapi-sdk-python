@@ -25,18 +25,15 @@ class Coordinate(object):
 class CoordinateBuilder(object):
     def __init__(self) -> None:
         self._coordinate = Coordinate()
-
     def longitude(self, longitude: float) -> "CoordinateBuilder":
         self._coordinate.longitude = longitude
         return self
-
     def latitude(self, latitude: float) -> "CoordinateBuilder":
         self._coordinate.latitude = latitude
         return self
-
     def accuracy(self, accuracy: float) -> "CoordinateBuilder":
         self._coordinate.accuracy = accuracy
         return self
-
+    
     def build(self) -> "Coordinate":
         return self._coordinate

@@ -22,10 +22,9 @@ class ListScopeResponseBody(object):
 class ListScopeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_scope_response_body = ListScopeResponseBody()
-
     def scopes(self, scopes: List[Scope]) -> "ListScopeResponseBodyBuilder":
         self._list_scope_response_body.scopes = scopes
         return self
-
+    
     def build(self) -> "ListScopeResponseBody":
         return self._list_scope_response_body

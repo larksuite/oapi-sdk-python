@@ -17,6 +17,8 @@ from ..model.get_group_request import GetGroupRequest
 from ..model.get_group_response import GetGroupResponse
 from ..model.list_group_request import ListGroupRequest
 from ..model.list_group_response import ListGroupResponse
+from ..model.list_user_group_request import ListUserGroupRequest
+from ..model.list_user_group_response import ListUserGroupResponse
 from ..model.search_group_request import SearchGroupRequest
 from ..model.search_group_response import SearchGroupResponse
 
@@ -38,12 +40,13 @@ class Group(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateGroupResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreateGroupRequest, option: Optional[RequestOption] = None) -> CreateGroupResponse:
         if option is None:
@@ -52,15 +55,17 @@ class Group(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateGroupResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeleteGroupRequest, option: Optional[RequestOption] = None) -> DeleteGroupResponse:
         if option is None:
             option = RequestOption()
@@ -74,12 +79,13 @@ class Group(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteGroupResponse)
         response.raw = resp
 
         return response
+        
 
     async def adelete(self, request: DeleteGroupRequest, option: Optional[RequestOption] = None) -> DeleteGroupResponse:
         if option is None:
@@ -88,15 +94,17 @@ class Group(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteGroupResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetGroupRequest, option: Optional[RequestOption] = None) -> GetGroupResponse:
         if option is None:
             option = RequestOption()
@@ -110,12 +118,13 @@ class Group(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), GetGroupResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetGroupRequest, option: Optional[RequestOption] = None) -> GetGroupResponse:
         if option is None:
@@ -124,15 +133,17 @@ class Group(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), GetGroupResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListGroupRequest, option: Optional[RequestOption] = None) -> ListGroupResponse:
         if option is None:
             option = RequestOption()
@@ -146,12 +157,13 @@ class Group(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListGroupResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListGroupRequest, option: Optional[RequestOption] = None) -> ListGroupResponse:
         if option is None:
@@ -160,15 +172,56 @@ class Group(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListGroupResponse)
         response.raw = resp
 
         return response
+        
+    def list_user(self, request: ListUserGroupRequest, option: Optional[RequestOption] = None) -> ListUserGroupResponse:
+        if option is None:
+            option = RequestOption()
 
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+        
+        # 反序列化
+        response: ListUserGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserGroupResponse)
+        response.raw = resp
+
+        return response
+        
+
+    async def alist_user(self, request: ListUserGroupRequest, option: Optional[RequestOption] = None) -> ListUserGroupResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+        
+        # 反序列化
+        response: ListUserGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserGroupResponse)
+        response.raw = resp
+
+        return response
+        
     def search(self, request: SearchGroupRequest, option: Optional[RequestOption] = None) -> SearchGroupResponse:
         if option is None:
             option = RequestOption()
@@ -182,12 +235,13 @@ class Group(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchGroupResponse)
         response.raw = resp
 
         return response
+        
 
     async def asearch(self, request: SearchGroupRequest, option: Optional[RequestOption] = None) -> SearchGroupResponse:
         if option is None:
@@ -196,11 +250,15 @@ class Group(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchGroupResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchGroupResponse)
         response.raw = resp
 
         return response
+        
+    

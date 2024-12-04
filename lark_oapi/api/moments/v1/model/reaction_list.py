@@ -23,14 +23,12 @@ class ReactionList(object):
 class ReactionListBuilder(object):
     def __init__(self) -> None:
         self._reaction_list = ReactionList()
-
     def type(self, type: str) -> "ReactionListBuilder":
         self._reaction_list.type = type
         return self
-
     def count(self, count: int) -> "ReactionListBuilder":
         self._reaction_list.count = count
         return self
-
+    
     def build(self) -> "ReactionList":
         return self._reaction_list

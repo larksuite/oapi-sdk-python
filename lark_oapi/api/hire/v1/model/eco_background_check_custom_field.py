@@ -24,15 +24,12 @@ class EcoBackgroundCheckCustomField(object):
 class EcoBackgroundCheckCustomFieldBuilder(object):
     def __init__(self) -> None:
         self._eco_background_check_custom_field = EcoBackgroundCheckCustomField()
-
     def account_id(self, account_id: str) -> "EcoBackgroundCheckCustomFieldBuilder":
         self._eco_background_check_custom_field.account_id = account_id
         return self
-
-    def custom_field_list(self, custom_field_list: List[
-        EcoBackgroundCheckCustomFieldData]) -> "EcoBackgroundCheckCustomFieldBuilder":
+    def custom_field_list(self, custom_field_list: List[EcoBackgroundCheckCustomFieldData]) -> "EcoBackgroundCheckCustomFieldBuilder":
         self._eco_background_check_custom_field.custom_field_list = custom_field_list
         return self
-
+    
     def build(self) -> "EcoBackgroundCheckCustomField":
         return self._eco_background_check_custom_field

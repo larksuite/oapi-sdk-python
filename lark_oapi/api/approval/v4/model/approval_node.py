@@ -41,42 +41,33 @@ class ApprovalNode(object):
 class ApprovalNodeBuilder(object):
     def __init__(self) -> None:
         self._approval_node = ApprovalNode()
-
     def id(self, id: str) -> "ApprovalNodeBuilder":
         self._approval_node.id = id
         return self
-
     def name(self, name: str) -> "ApprovalNodeBuilder":
         self._approval_node.name = name
         return self
-
     def node_type(self, node_type: str) -> "ApprovalNodeBuilder":
         self._approval_node.node_type = node_type
         return self
-
     def approver(self, approver: List[ApprovalApproverCcer]) -> "ApprovalNodeBuilder":
         self._approval_node.approver = approver
         return self
-
     def ccer(self, ccer: List[ApprovalApproverCcer]) -> "ApprovalNodeBuilder":
         self._approval_node.ccer = ccer
         return self
-
     def privilege_field(self, privilege_field: FieldGroup) -> "ApprovalNodeBuilder":
         self._approval_node.privilege_field = privilege_field
         return self
-
     def approver_chosen_multi(self, approver_chosen_multi: bool) -> "ApprovalNodeBuilder":
         self._approval_node.approver_chosen_multi = approver_chosen_multi
         return self
-
     def approver_chosen_range(self, approver_chosen_range: List[ApproverRange]) -> "ApprovalNodeBuilder":
         self._approval_node.approver_chosen_range = approver_chosen_range
         return self
-
     def starter_assignee(self, starter_assignee: str) -> "ApprovalNodeBuilder":
         self._approval_node.starter_assignee = starter_assignee
         return self
-
+    
     def build(self) -> "ApprovalNode":
         return self._approval_node

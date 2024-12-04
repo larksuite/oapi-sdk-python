@@ -23,14 +23,12 @@ class WorkEmailCheckResult(object):
 class WorkEmailCheckResultBuilder(object):
     def __init__(self) -> None:
         self._work_email_check_result = WorkEmailCheckResult()
-
     def work_email(self, work_email: str) -> "WorkEmailCheckResultBuilder":
         self._work_email_check_result.work_email = work_email
         return self
-
     def success(self, success: bool) -> "WorkEmailCheckResultBuilder":
         self._work_email_check_result.success = success
         return self
-
+    
     def build(self) -> "WorkEmailCheckResult":
         return self._work_email_check_result

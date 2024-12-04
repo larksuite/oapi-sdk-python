@@ -22,10 +22,9 @@ class GetEmployeeResponseBody(object):
 class GetEmployeeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_employee_response_body = GetEmployeeResponseBody()
-
     def employee(self, employee: Employee) -> "GetEmployeeResponseBodyBuilder":
         self._get_employee_response_body.employee = employee
         return self
-
+    
     def build(self) -> "GetEmployeeResponseBody":
         return self._get_employee_response_body

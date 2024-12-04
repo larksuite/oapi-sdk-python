@@ -21,10 +21,9 @@ class SchemaEnumOptions(object):
 class SchemaEnumOptionsBuilder(object):
     def __init__(self) -> None:
         self._schema_enum_options = SchemaEnumOptions()
-
     def possible_values(self, possible_values: List[str]) -> "SchemaEnumOptionsBuilder":
         self._schema_enum_options.possible_values = possible_values
         return self
-
+    
     def build(self) -> "SchemaEnumOptions":
         return self._schema_enum_options

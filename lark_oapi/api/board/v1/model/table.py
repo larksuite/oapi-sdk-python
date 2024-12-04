@@ -27,18 +27,15 @@ class Table(object):
 class TableBuilder(object):
     def __init__(self) -> None:
         self._table = Table()
-
     def meta(self, meta: TableMeta) -> "TableBuilder":
         self._table.meta = meta
         return self
-
     def title(self, title: str) -> "TableBuilder":
         self._table.title = title
         return self
-
     def cells(self, cells: List[TableCell]) -> "TableBuilder":
         self._table.cells = cells
         return self
-
+    
     def build(self) -> "Table":
         return self._table

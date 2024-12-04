@@ -39,46 +39,36 @@ class GetFileVersionResponseBody(object):
 class GetFileVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_file_version_response_body = GetFileVersionResponseBody()
-
     def name(self, name: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.name = name
         return self
-
     def version(self, version: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.version = version
         return self
-
     def parent_token(self, parent_token: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.parent_token = parent_token
         return self
-
     def owner_id(self, owner_id: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.owner_id = owner_id
         return self
-
     def creator_id(self, creator_id: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.creator_id = creator_id
         return self
-
     def create_time(self, create_time: int) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.create_time = create_time
         return self
-
     def update_time(self, update_time: int) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.update_time = update_time
         return self
-
     def status(self, status: int) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.status = status
         return self
-
     def obj_type(self, obj_type: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.obj_type = obj_type
         return self
-
     def parent_type(self, parent_type: str) -> "GetFileVersionResponseBodyBuilder":
         self._get_file_version_response_body.parent_type = parent_type
         return self
-
+    
     def build(self) -> "GetFileVersionResponseBody":
         return self._get_file_version_response_body

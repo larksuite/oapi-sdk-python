@@ -21,10 +21,9 @@ class DocumentAuthor(object):
 class DocumentAuthorBuilder(object):
     def __init__(self) -> None:
         self._document_author = DocumentAuthor()
-
     def user_id(self, user_id: str) -> "DocumentAuthorBuilder":
         self._document_author.user_id = user_id
         return self
-
+    
     def build(self) -> "DocumentAuthor":
         return self._document_author

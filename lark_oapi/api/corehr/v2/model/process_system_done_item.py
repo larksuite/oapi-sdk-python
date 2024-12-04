@@ -42,46 +42,36 @@ class ProcessSystemDoneItem(object):
 class ProcessSystemDoneItemBuilder(object):
     def __init__(self) -> None:
         self._process_system_done_item = ProcessSystemDoneItem()
-
     def approver_id(self, approver_id: str) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.approver_id = approver_id
         return self
-
     def type(self, type: int) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.type = type
         return self
-
     def status(self, status: int) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.status = status
         return self
-
     def links(self, links: ProcessLink) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.links = links
         return self
-
     def operator_name(self, operator_name: DataengineI18n) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.operator_name = operator_name
         return self
-
     def node_name(self, node_name: DataengineI18n) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.node_name = node_name
         return self
-
     def create_time(self, create_time: str) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.create_time = create_time
         return self
-
     def complete_time(self, complete_time: str) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.complete_time = complete_time
         return self
-
     def node_definition_id(self, node_definition_id: str) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.node_definition_id = node_definition_id
         return self
-
     def approval_opinion(self, approval_opinion: str) -> "ProcessSystemDoneItemBuilder":
         self._process_system_done_item.approval_opinion = approval_opinion
         return self
-
+    
     def build(self) -> "ProcessSystemDoneItem":
         return self._process_system_done_item

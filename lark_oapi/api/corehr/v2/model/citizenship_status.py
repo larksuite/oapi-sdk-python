@@ -33,30 +33,24 @@ class CitizenshipStatus(object):
 class CitizenshipStatusBuilder(object):
     def __init__(self) -> None:
         self._citizenship_status = CitizenshipStatus()
-
     def id(self, id: str) -> "CitizenshipStatusBuilder":
         self._citizenship_status.id = id
         return self
-
     def country_region_id(self, country_region_id: str) -> "CitizenshipStatusBuilder":
         self._citizenship_status.country_region_id = country_region_id
         return self
-
     def active(self, active: bool) -> "CitizenshipStatusBuilder":
         self._citizenship_status.active = active
         return self
-
     def name(self, name: List[I18n]) -> "CitizenshipStatusBuilder":
         self._citizenship_status.name = name
         return self
-
     def citizenship_status(self, citizenship_status: List[I18n]) -> "CitizenshipStatusBuilder":
         self._citizenship_status.citizenship_status = citizenship_status
         return self
-
     def view_order(self, view_order: int) -> "CitizenshipStatusBuilder":
         self._citizenship_status.view_order = view_order
         return self
-
+    
     def build(self) -> "CitizenshipStatus":
         return self._citizenship_status

@@ -27,22 +27,18 @@ class RegistrationBasicInfo(object):
 class RegistrationBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._registration_basic_info = RegistrationBasicInfo()
-
     def id(self, id: str) -> "RegistrationBasicInfoBuilder":
         self._registration_basic_info.id = id
         return self
-
     def registration_time(self, registration_time: int) -> "RegistrationBasicInfoBuilder":
         self._registration_basic_info.registration_time = registration_time
         return self
-
     def download_url(self, download_url: str) -> "RegistrationBasicInfoBuilder":
         self._registration_basic_info.download_url = download_url
         return self
-
     def scenario(self, scenario: int) -> "RegistrationBasicInfoBuilder":
         self._registration_basic_info.scenario = scenario
         return self
-
+    
     def build(self) -> "RegistrationBasicInfo":
         return self._registration_basic_info

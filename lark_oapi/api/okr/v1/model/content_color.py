@@ -27,22 +27,18 @@ class ContentColor(object):
 class ContentColorBuilder(object):
     def __init__(self) -> None:
         self._content_color = ContentColor()
-
     def red(self, red: int) -> "ContentColorBuilder":
         self._content_color.red = red
         return self
-
     def green(self, green: int) -> "ContentColorBuilder":
         self._content_color.green = green
         return self
-
     def blue(self, blue: int) -> "ContentColorBuilder":
         self._content_color.blue = blue
         return self
-
     def alpha(self, alpha: float) -> "ContentColorBuilder":
         self._content_color.alpha = alpha
         return self
-
+    
     def build(self) -> "ContentColor":
         return self._content_color

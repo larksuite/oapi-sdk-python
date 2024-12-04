@@ -23,14 +23,12 @@ class AppVersionId(object):
 class AppVersionIdBuilder(object):
     def __init__(self) -> None:
         self._app_version_id = AppVersionId()
-
     def version(self, version: str) -> "AppVersionIdBuilder":
         self._app_version_id.version = version
         return self
-
     def version_id(self, version_id: str) -> "AppVersionIdBuilder":
         self._app_version_id.version_id = version_id
         return self
-
+    
     def build(self) -> "AppVersionId":
         return self._app_version_id

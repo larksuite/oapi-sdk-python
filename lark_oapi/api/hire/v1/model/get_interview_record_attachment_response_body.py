@@ -22,10 +22,9 @@ class GetInterviewRecordAttachmentResponseBody(object):
 class GetInterviewRecordAttachmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_interview_record_attachment_response_body = GetInterviewRecordAttachmentResponseBody()
-
     def attachment(self, attachment: AttachmentInfo) -> "GetInterviewRecordAttachmentResponseBodyBuilder":
         self._get_interview_record_attachment_response_body.attachment = attachment
         return self
-
+    
     def build(self) -> "GetInterviewRecordAttachmentResponseBody":
         return self._get_interview_record_attachment_response_body

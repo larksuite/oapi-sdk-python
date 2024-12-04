@@ -26,17 +26,17 @@ class PatchProbationAssessmentRequestBuilder(object):
         patch_probation_assessment_request.uri = "/open-apis/corehr/v2/probation/assessments/:assessment_id"
         patch_probation_assessment_request.token_types = {AccessTokenType.TENANT}
         self._patch_probation_assessment_request: PatchProbationAssessmentRequest = patch_probation_assessment_request
-
+    
     def client_token(self, client_token: str) -> "PatchProbationAssessmentRequestBuilder":
         self._patch_probation_assessment_request.client_token = client_token
         self._patch_probation_assessment_request.add_query("client_token", client_token)
         return self
-
+    
     def assessment_id(self, assessment_id: str) -> "PatchProbationAssessmentRequestBuilder":
         self._patch_probation_assessment_request.assessment_id = assessment_id
         self._patch_probation_assessment_request.paths["assessment_id"] = str(assessment_id)
         return self
-
+    
     def request_body(self, request_body: AssessmentForCreate) -> "PatchProbationAssessmentRequestBuilder":
         self._patch_probation_assessment_request.request_body = request_body
         self._patch_probation_assessment_request.body = request_body

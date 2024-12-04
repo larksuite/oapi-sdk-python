@@ -30,26 +30,30 @@ class Okr(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchGetOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetOkrResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_get(self, request: BatchGetOkrRequest,
-                         option: Optional[RequestOption] = None) -> BatchGetOkrResponse:
+    async def abatch_get(self, request: BatchGetOkrRequest, option: Optional[RequestOption] = None) -> BatchGetOkrResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchGetOkrResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetOkrResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -28,22 +28,18 @@ class ListAppTableResponseBody(object):
 class ListAppTableResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_table_response_body = ListAppTableResponseBody()
-
     def has_more(self, has_more: bool) -> "ListAppTableResponseBodyBuilder":
         self._list_app_table_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListAppTableResponseBodyBuilder":
         self._list_app_table_response_body.page_token = page_token
         return self
-
     def total(self, total: int) -> "ListAppTableResponseBodyBuilder":
         self._list_app_table_response_body.total = total
         return self
-
     def items(self, items: List[AppTable]) -> "ListAppTableResponseBodyBuilder":
         self._list_app_table_response_body.items = items
         return self
-
+    
     def build(self) -> "ListAppTableResponseBody":
         return self._list_app_table_response_body

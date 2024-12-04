@@ -40,46 +40,36 @@ class OfferSalaryInfoV2(object):
 class OfferSalaryInfoV2Builder(object):
     def __init__(self) -> None:
         self._offer_salary_info_v2 = OfferSalaryInfoV2()
-
     def id(self, id: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.id = id
         return self
-
     def salary_status(self, salary_status: int) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.salary_status = salary_status
         return self
-
     def probation_salary_percentage(self, probation_salary_percentage: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.probation_salary_percentage = probation_salary_percentage
         return self
-
     def award_salary_multiple(self, award_salary_multiple: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.award_salary_multiple = award_salary_multiple
         return self
-
     def option_shares(self, option_shares: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.option_shares = option_shares
         return self
-
     def quarterly_bonus(self, quarterly_bonus: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.quarterly_bonus = quarterly_bonus
         return self
-
     def half_year_bonus(self, half_year_bonus: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.half_year_bonus = half_year_bonus
         return self
-
     def total_annual_cash(self, total_annual_cash: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.total_annual_cash = total_annual_cash
         return self
-
     def customize_info_list(self, customize_info_list: List[ApplicationOfferCustomValue]) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.customize_info_list = customize_info_list
         return self
-
     def create_time(self, create_time: str) -> "OfferSalaryInfoV2Builder":
         self._offer_salary_info_v2.create_time = create_time
         return self
-
+    
     def build(self) -> "OfferSalaryInfoV2":
         return self._offer_salary_info_v2

@@ -29,22 +29,18 @@ class MultipleOption(object):
 class MultipleOptionBuilder(object):
     def __init__(self) -> None:
         self._multiple_option = MultipleOption()
-
     def type(self, type: str) -> "MultipleOptionBuilder":
         self._multiple_option.type = type
         return self
-
     def range(self, range: str) -> "MultipleOptionBuilder":
         self._multiple_option.range = range
         return self
-
     def data_validation_values(self, data_validation_values: List[DataValidationValue]) -> "MultipleOptionBuilder":
         self._multiple_option.data_validation_values = data_validation_values
         return self
-
     def properties(self, properties: OptionProperties) -> "MultipleOptionBuilder":
         self._multiple_option.properties = properties
         return self
-
+    
     def build(self) -> "MultipleOption":
         return self._multiple_option

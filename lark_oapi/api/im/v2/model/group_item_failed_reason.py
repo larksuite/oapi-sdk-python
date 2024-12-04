@@ -26,18 +26,15 @@ class GroupItemFailedReason(object):
 class GroupItemFailedReasonBuilder(object):
     def __init__(self) -> None:
         self._group_item_failed_reason = GroupItemFailedReason()
-
     def item(self, item: FeedGroupItem) -> "GroupItemFailedReasonBuilder":
         self._group_item_failed_reason.item = item
         return self
-
     def error_code(self, error_code: int) -> "GroupItemFailedReasonBuilder":
         self._group_item_failed_reason.error_code = error_code
         return self
-
     def error_message(self, error_message: str) -> "GroupItemFailedReasonBuilder":
         self._group_item_failed_reason.error_message = error_message
         return self
-
+    
     def build(self) -> "GroupItemFailedReason":
         return self._group_item_failed_reason

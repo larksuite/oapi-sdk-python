@@ -27,22 +27,18 @@ class AilySender(object):
 class AilySenderBuilder(object):
     def __init__(self) -> None:
         self._aily_sender = AilySender()
-
     def entity_id(self, entity_id: str) -> "AilySenderBuilder":
         self._aily_sender.entity_id = entity_id
         return self
-
     def identity_provider(self, identity_provider: str) -> "AilySenderBuilder":
         self._aily_sender.identity_provider = identity_provider
         return self
-
     def sender_type(self, sender_type: str) -> "AilySenderBuilder":
         self._aily_sender.sender_type = sender_type
         return self
-
     def aily_id(self, aily_id: str) -> "AilySenderBuilder":
         self._aily_sender.aily_id = aily_id
         return self
-
+    
     def build(self) -> "AilySender":
         return self._aily_sender

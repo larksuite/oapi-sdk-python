@@ -23,14 +23,12 @@ class Collaborator(object):
 class CollaboratorBuilder(object):
     def __init__(self) -> None:
         self._collaborator = Collaborator()
-
     def id(self, id: str) -> "CollaboratorBuilder":
         self._collaborator.id = id
         return self
-
     def id_list(self, id_list: List[str]) -> "CollaboratorBuilder":
         self._collaborator.id_list = id_list
         return self
-
+    
     def build(self) -> "Collaborator":
         return self._collaborator

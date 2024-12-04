@@ -22,10 +22,9 @@ class GetPostResponseBody(object):
 class GetPostResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_post_response_body = GetPostResponseBody()
-
     def post(self, post: Post) -> "GetPostResponseBodyBuilder":
         self._get_post_response_body.post = post
         return self
-
+    
     def build(self) -> "GetPostResponseBody":
         return self._get_post_response_body

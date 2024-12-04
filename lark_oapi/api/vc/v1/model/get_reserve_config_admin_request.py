@@ -25,21 +25,22 @@ class GetReserveConfigAdminRequestBuilder(object):
         get_reserve_config_admin_request.uri = "/open-apis/vc/v1/reserve_configs/:reserve_config_id/admin"
         get_reserve_config_admin_request.token_types = {AccessTokenType.TENANT}
         self._get_reserve_config_admin_request: GetReserveConfigAdminRequest = get_reserve_config_admin_request
-
+    
     def scope_type(self, scope_type: int) -> "GetReserveConfigAdminRequestBuilder":
         self._get_reserve_config_admin_request.scope_type = scope_type
         self._get_reserve_config_admin_request.add_query("scope_type", scope_type)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "GetReserveConfigAdminRequestBuilder":
         self._get_reserve_config_admin_request.user_id_type = user_id_type
         self._get_reserve_config_admin_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def reserve_config_id(self, reserve_config_id: str) -> "GetReserveConfigAdminRequestBuilder":
         self._get_reserve_config_admin_request.reserve_config_id = reserve_config_id
         self._get_reserve_config_admin_request.paths["reserve_config_id"] = str(reserve_config_id)
         return self
+    
 
     def build(self) -> GetReserveConfigAdminRequest:
         return self._get_reserve_config_admin_request
