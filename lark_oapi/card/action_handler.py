@@ -97,6 +97,8 @@ class CardActionHandler(HttpHandler):
         return plaintext
 
     def _verify_sign(self, request: RawRequest) -> None:
+        if self._verification_token is None or self._verification_token == "":
+            return
         timestamp = request.headers.get(LARK_REQUEST_TIMESTAMP)
         nonce = request.headers.get(LARK_REQUEST_NONCE)
         signature = request.headers.get(LARK_REQUEST_SIGNATURE)

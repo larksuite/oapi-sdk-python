@@ -72,7 +72,7 @@ class EventDispatcherHandler(HttpHandler):
                 context.type = context.event.get("type")
 
             # 校验 token
-            if self._verification_token != context.token:
+            if context.token is not None and self._verification_token != context.token:
                 raise AccessDeniedException("invalid verification_token")
 
             if URL_VERIFICATION == context.type:
@@ -165,6 +165,8 @@ class EventDispatcherHandler(HttpHandler):
         return plaintext
 
     def _verify_sign(self, request: RawRequest) -> None:
+        if self._encrypt_key is None or self._encrypt_key == "":
+            return
         timestamp = request.headers.get(LARK_REQUEST_TIMESTAMP)
         nonce = request.headers.get(LARK_REQUEST_NONCE)
         signature = request.headers.get(LARK_REQUEST_SIGNATURE)
