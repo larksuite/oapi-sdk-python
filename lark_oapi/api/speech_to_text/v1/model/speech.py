@@ -23,12 +23,14 @@ class Speech(object):
 class SpeechBuilder(object):
     def __init__(self) -> None:
         self._speech = Speech()
+
     def speech(self, speech: str) -> "SpeechBuilder":
         self._speech.speech = speech
         return self
+
     def speech_key(self, speech_key: str) -> "SpeechBuilder":
         self._speech.speech_key = speech_key
         return self
-    
+
     def build(self) -> "Speech":
         return self._speech

@@ -25,15 +25,18 @@ class Administrator(object):
 class AdministratorBuilder(object):
     def __init__(self) -> None:
         self._administrator = Administrator()
+
     def user_id(self, user_id: int) -> "AdministratorBuilder":
         self._administrator.user_id = user_id
         return self
+
     def is_super_administrator(self, is_super_administrator: bool) -> "AdministratorBuilder":
         self._administrator.is_super_administrator = is_super_administrator
         return self
+
     def is_administrator(self, is_administrator: bool) -> "AdministratorBuilder":
         self._administrator.is_administrator = is_administrator
         return self
-    
+
     def build(self) -> "Administrator":
         return self._administrator

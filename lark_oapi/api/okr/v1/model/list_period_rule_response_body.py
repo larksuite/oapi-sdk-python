@@ -22,9 +22,10 @@ class ListPeriodRuleResponseBody(object):
 class ListPeriodRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_period_rule_response_body = ListPeriodRuleResponseBody()
+
     def period_rules(self, period_rules: List[PeriodRule]) -> "ListPeriodRuleResponseBodyBuilder":
         self._list_period_rule_response_body.period_rules = period_rules
         return self
-    
+
     def build(self) -> "ListPeriodRuleResponseBody":
         return self._list_period_rule_response_body

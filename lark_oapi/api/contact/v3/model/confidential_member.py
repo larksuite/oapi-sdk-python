@@ -23,12 +23,14 @@ class ConfidentialMember(object):
 class ConfidentialMemberBuilder(object):
     def __init__(self) -> None:
         self._confidential_member = ConfidentialMember()
+
     def user_id(self, user_id: int) -> "ConfidentialMemberBuilder":
         self._confidential_member.user_id = user_id
         return self
+
     def is_confidential(self, is_confidential: bool) -> "ConfidentialMemberBuilder":
         self._confidential_member.is_confidential = is_confidential
         return self
-    
+
     def build(self) -> "ConfidentialMember":
         return self._confidential_member

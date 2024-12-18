@@ -23,12 +23,14 @@ class RoomMeta(object):
 class RoomMetaBuilder(object):
     def __init__(self) -> None:
         self._room_meta = RoomMeta()
+
     def name(self, name: str) -> "RoomMetaBuilder":
         self._room_meta.name = name
         return self
+
     def room_id(self, room_id: str) -> "RoomMetaBuilder":
         self._room_meta.room_id = room_id
         return self
-    
+
     def build(self) -> "RoomMeta":
         return self._room_meta

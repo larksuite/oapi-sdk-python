@@ -21,9 +21,10 @@ class NlsModelConfig(object):
 class NlsModelConfigBuilder(object):
     def __init__(self) -> None:
         self._nls_model_config = NlsModelConfig()
+
     def model_name(self, model_name: str) -> "NlsModelConfigBuilder":
         self._nls_model_config.model_name = model_name
         return self
-    
+
     def build(self) -> "NlsModelConfig":
         return self._nls_model_config

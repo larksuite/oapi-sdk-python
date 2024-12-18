@@ -2,17 +2,20 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .kv_entity import KvEntity
 
 
 class VatEntity(object):
     _types = {
         "type": str,
         "value": str,
+        "items": List[list],
     }
 
     def __init__(self, d=None):
         self.type: Optional[str] = None
         self.value: Optional[str] = None
+        self.items: Optional[List[list]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,12 +26,18 @@ class VatEntity(object):
 class VatEntityBuilder(object):
     def __init__(self) -> None:
         self._vat_entity = VatEntity()
+
     def type(self, type: str) -> "VatEntityBuilder":
         self._vat_entity.type = type
         return self
+
     def value(self, value: str) -> "VatEntityBuilder":
         self._vat_entity.value = value
         return self
-    
+
+    def items(self, items: List[list]) -> "VatEntityBuilder":
+        self._vat_entity.items = items
+        return self
+
     def build(self) -> "VatEntity":
         return self._vat_entity

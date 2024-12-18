@@ -34,27 +34,34 @@ class SetRoomConfigRequestBody(object):
 class SetRoomConfigRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._set_room_config_request_body = SetRoomConfigRequestBody()
+
     def scope(self, scope: int) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.scope = scope
         return self
+
     def country_id(self, country_id: str) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.country_id = country_id
         return self
+
     def district_id(self, district_id: str) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.district_id = district_id
         return self
+
     def building_id(self, building_id: str) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.building_id = building_id
         return self
+
     def floor_name(self, floor_name: str) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.floor_name = floor_name
         return self
+
     def room_id(self, room_id: str) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.room_id = room_id
         return self
+
     def room_config(self, room_config: RoomConfig) -> "SetRoomConfigRequestBodyBuilder":
         self._set_room_config_request_body.room_config = room_config
         return self
-    
+
     def build(self) -> "SetRoomConfigRequestBody":
         return self._set_room_config_request_body

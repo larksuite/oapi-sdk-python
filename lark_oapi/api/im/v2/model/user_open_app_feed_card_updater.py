@@ -26,15 +26,18 @@ class UserOpenAppFeedCardUpdater(object):
 class UserOpenAppFeedCardUpdaterBuilder(object):
     def __init__(self) -> None:
         self._user_open_app_feed_card_updater = UserOpenAppFeedCardUpdater()
+
     def app_feed_card(self, app_feed_card: OpenAppFeedCard) -> "UserOpenAppFeedCardUpdaterBuilder":
         self._user_open_app_feed_card_updater.app_feed_card = app_feed_card
         return self
+
     def user_id(self, user_id: str) -> "UserOpenAppFeedCardUpdaterBuilder":
         self._user_open_app_feed_card_updater.user_id = user_id
         return self
+
     def update_fields(self, update_fields: List[str]) -> "UserOpenAppFeedCardUpdaterBuilder":
         self._user_open_app_feed_card_updater.update_fields = update_fields
         return self
-    
+
     def build(self) -> "UserOpenAppFeedCardUpdater":
         return self._user_open_app_feed_card_updater

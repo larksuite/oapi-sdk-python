@@ -25,12 +25,12 @@ class UpdateEmployeeTypeEnumRequestBuilder(object):
         update_employee_type_enum_request.uri = "/open-apis/contact/v3/employee_type_enums/:enum_id"
         update_employee_type_enum_request.token_types = {AccessTokenType.TENANT}
         self._update_employee_type_enum_request: UpdateEmployeeTypeEnumRequest = update_employee_type_enum_request
-    
+
     def enum_id(self, enum_id: str) -> "UpdateEmployeeTypeEnumRequestBuilder":
         self._update_employee_type_enum_request.enum_id = enum_id
         self._update_employee_type_enum_request.paths["enum_id"] = str(enum_id)
         return self
-    
+
     def request_body(self, request_body: EmployeeTypeEnum) -> "UpdateEmployeeTypeEnumRequestBuilder":
         self._update_employee_type_enum_request.request_body = request_body
         self._update_employee_type_enum_request.body = request_body

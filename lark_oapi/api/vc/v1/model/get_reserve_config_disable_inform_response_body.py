@@ -22,9 +22,10 @@ class GetReserveConfigDisableInformResponseBody(object):
 class GetReserveConfigDisableInformResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_reserve_config_disable_inform_response_body = GetReserveConfigDisableInformResponseBody()
+
     def disable_inform(self, disable_inform: DisableInformConfig) -> "GetReserveConfigDisableInformResponseBodyBuilder":
         self._get_reserve_config_disable_inform_response_body.disable_inform = disable_inform
         return self
-    
+
     def build(self) -> "GetReserveConfigDisableInformResponseBody":
         return self._get_reserve_config_disable_inform_response_body

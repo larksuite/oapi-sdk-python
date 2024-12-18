@@ -31,21 +31,26 @@ class UserStatsDataCell(object):
 class UserStatsDataCellBuilder(object):
     def __init__(self) -> None:
         self._user_stats_data_cell = UserStatsDataCell()
+
     def code(self, code: str) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.code = code
         return self
+
     def value(self, value: str) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.value = value
         return self
+
     def features(self, features: List[UserStatsDataFeature]) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.features = features
         return self
+
     def title(self, title: str) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.title = title
         return self
+
     def duration_num(self, duration_num: UserStatsDataDuration) -> "UserStatsDataCellBuilder":
         self._user_stats_data_cell.duration_num = duration_num
         return self
-    
+
     def build(self) -> "UserStatsDataCell":
         return self._user_stats_data_cell

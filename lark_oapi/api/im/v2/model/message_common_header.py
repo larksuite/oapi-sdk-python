@@ -21,9 +21,10 @@ class MessageCommonHeader(object):
 class MessageCommonHeaderBuilder(object):
     def __init__(self) -> None:
         self._message_common_header = MessageCommonHeader()
+
     def bot_id(self, bot_id: str) -> "MessageCommonHeaderBuilder":
         self._message_common_header.bot_id = bot_id
         return self
-    
+
     def build(self) -> "MessageCommonHeader":
         return self._message_common_header

@@ -33,27 +33,34 @@ class SourceSetting(object):
 class SourceSettingBuilder(object):
     def __init__(self) -> None:
         self._source_setting = SourceSetting()
+
     def api_id(self, api_id: str) -> "SourceSettingBuilder":
         self._source_setting.api_id = api_id
         return self
+
     def api_name(self, api_name: str) -> "SourceSettingBuilder":
         self._source_setting.api_name = api_name
         return self
+
     def label(self, label: Dict[str, str]) -> "SourceSettingBuilder":
         self._source_setting.label = label
         return self
+
     def from_type(self, from_type: str) -> "SourceSettingBuilder":
         self._source_setting.from_type = from_type
         return self
+
     def auth_key(self, auth_key: str) -> "SourceSettingBuilder":
         self._source_setting.auth_key = auth_key
         return self
+
     def auth_name(self, auth_name: Dict[str, str]) -> "SourceSettingBuilder":
         self._source_setting.auth_name = auth_name
         return self
+
     def data_source_integration_type(self, data_source_integration_type: str) -> "SourceSettingBuilder":
         self._source_setting.data_source_integration_type = data_source_integration_type
         return self
-    
+
     def build(self) -> "SourceSetting":
         return self._source_setting

@@ -26,15 +26,18 @@ class GetFileStatisticsResponseBody(object):
 class GetFileStatisticsResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_file_statistics_response_body = GetFileStatisticsResponseBody()
+
     def file_token(self, file_token: str) -> "GetFileStatisticsResponseBodyBuilder":
         self._get_file_statistics_response_body.file_token = file_token
         return self
+
     def file_type(self, file_type: str) -> "GetFileStatisticsResponseBodyBuilder":
         self._get_file_statistics_response_body.file_type = file_type
         return self
+
     def statistics(self, statistics: FileStatistics) -> "GetFileStatisticsResponseBodyBuilder":
         self._get_file_statistics_response_body.statistics = statistics
         return self
-    
+
     def build(self) -> "GetFileStatisticsResponseBody":
         return self._get_file_statistics_response_body

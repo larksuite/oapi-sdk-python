@@ -23,12 +23,14 @@ class AclScope(object):
 class AclScopeBuilder(object):
     def __init__(self) -> None:
         self._acl_scope = AclScope()
+
     def type(self, type: str) -> "AclScopeBuilder":
         self._acl_scope.type = type
         return self
+
     def user_id(self, user_id: str) -> "AclScopeBuilder":
         self._acl_scope.user_id = user_id
         return self
-    
+
     def build(self) -> "AclScope":
         return self._acl_scope

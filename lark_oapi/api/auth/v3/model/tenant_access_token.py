@@ -19,6 +19,6 @@ class TenantAccessToken(object):
 class TenantAccessTokenBuilder(object):
     def __init__(self) -> None:
         self._tenant_access_token = TenantAccessToken()
-    
+
     def build(self) -> "TenantAccessToken":
         return self._tenant_access_token

@@ -118,150 +118,199 @@ class OfferInfo(object):
 class OfferInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_info = OfferInfo()
+
     def offer_id(self, offer_id: str) -> "OfferInfoBuilder":
         self._offer_info.offer_id = offer_id
         return self
+
     def offer_hr_id(self, offer_hr_id: str) -> "OfferInfoBuilder":
         self._offer_info.offer_hr_id = offer_hr_id
         return self
+
     def department_id(self, department_id: str) -> "OfferInfoBuilder":
         self._offer_info.department_id = department_id
         return self
+
     def direct_leader_id(self, direct_leader_id: str) -> "OfferInfoBuilder":
         self._offer_info.direct_leader_id = direct_leader_id
         return self
+
     def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "OfferInfoBuilder":
         self._offer_info.dotted_line_manager_id = dotted_line_manager_id
         return self
+
     def job_id(self, job_id: str) -> "OfferInfoBuilder":
         self._offer_info.job_id = job_id
         return self
+
     def job_family_id(self, job_family_id: str) -> "OfferInfoBuilder":
         self._offer_info.job_family_id = job_family_id
         return self
+
     def job_level_id(self, job_level_id: str) -> "OfferInfoBuilder":
         self._offer_info.job_level_id = job_level_id
         return self
+
     def job_title(self, job_title: str) -> "OfferInfoBuilder":
         self._offer_info.job_title = job_title
         return self
+
     def probation_start_date(self, probation_start_date: str) -> "OfferInfoBuilder":
         self._offer_info.probation_start_date = probation_start_date
         return self
+
     def probation_end_date(self, probation_end_date: str) -> "OfferInfoBuilder":
         self._offer_info.probation_end_date = probation_end_date
         return self
+
     def contract_start_date(self, contract_start_date: str) -> "OfferInfoBuilder":
         self._offer_info.contract_start_date = contract_start_date
         return self
+
     def contract_end_date(self, contract_end_date: str) -> "OfferInfoBuilder":
         self._offer_info.contract_end_date = contract_end_date
         return self
+
     def duration_period(self, duration_period: float) -> "OfferInfoBuilder":
         self._offer_info.duration_period = duration_period
         return self
+
     def duration_unit(self, duration_unit: str) -> "OfferInfoBuilder":
         self._offer_info.duration_unit = duration_unit
         return self
+
     def onboarding_date(self, onboarding_date: str) -> "OfferInfoBuilder":
         self._offer_info.onboarding_date = onboarding_date
         return self
+
     def onboarding_location_id(self, onboarding_location_id: str) -> "OfferInfoBuilder":
         self._offer_info.onboarding_location_id = onboarding_location_id
         return self
+
     def office_location_id(self, office_location_id: str) -> "OfferInfoBuilder":
         self._offer_info.office_location_id = office_location_id
         return self
+
     def recruitment_type_id(self, recruitment_type_id: str) -> "OfferInfoBuilder":
         self._offer_info.recruitment_type_id = recruitment_type_id
         return self
+
     def probation_period(self, probation_period: str) -> "OfferInfoBuilder":
         self._offer_info.probation_period = probation_period
         return self
+
     def employee_type_id(self, employee_type_id: str) -> "OfferInfoBuilder":
         self._offer_info.employee_type_id = employee_type_id
         return self
+
     def employee_subtype_id(self, employee_subtype_id: str) -> "OfferInfoBuilder":
         self._offer_info.employee_subtype_id = employee_subtype_id
         return self
+
     def employment_type_id(self, employment_type_id: str) -> "OfferInfoBuilder":
         self._offer_info.employment_type_id = employment_type_id
         return self
+
     def work_email(self, work_email: str) -> "OfferInfoBuilder":
         self._offer_info.work_email = work_email
         return self
+
     def duration_type_id(self, duration_type_id: str) -> "OfferInfoBuilder":
         self._offer_info.duration_type_id = duration_type_id
         return self
+
     def signing_type_id(self, signing_type_id: str) -> "OfferInfoBuilder":
         self._offer_info.signing_type_id = signing_type_id
         return self
+
     def entry_mode(self, entry_mode: str) -> "OfferInfoBuilder":
         self._offer_info.entry_mode = entry_mode
         return self
+
     def social_security_city_id(self, social_security_city_id: str) -> "OfferInfoBuilder":
         self._offer_info.social_security_city_id = social_security_city_id
         return self
+
     def contract_type(self, contract_type: str) -> "OfferInfoBuilder":
         self._offer_info.contract_type = contract_type
         return self
+
     def company(self, company: str) -> "OfferInfoBuilder":
         self._offer_info.company = company
         return self
+
     def cost_center_rate(self, cost_center_rate: List[JobDataCostCenter]) -> "OfferInfoBuilder":
         self._offer_info.cost_center_rate = cost_center_rate
         return self
+
     def job_grade_id(self, job_grade_id: str) -> "OfferInfoBuilder":
         self._offer_info.job_grade_id = job_grade_id
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "OfferInfoBuilder":
         self._offer_info.custom_fields = custom_fields
         return self
+
     def service_company(self, service_company: str) -> "OfferInfoBuilder":
         self._offer_info.service_company = service_company
         return self
+
     def work_shift(self, work_shift: str) -> "OfferInfoBuilder":
         self._offer_info.work_shift = work_shift
         return self
+
     def compensation_type(self, compensation_type: str) -> "OfferInfoBuilder":
         self._offer_info.compensation_type = compensation_type
         return self
+
     def work_location_id(self, work_location_id: str) -> "OfferInfoBuilder":
         self._offer_info.work_location_id = work_location_id
         return self
+
     def onboarding_address_id(self, onboarding_address_id: str) -> "OfferInfoBuilder":
         self._offer_info.onboarding_address_id = onboarding_address_id
         return self
+
     def office_address_id(self, office_address_id: str) -> "OfferInfoBuilder":
         self._offer_info.office_address_id = office_address_id
         return self
+
     def position_id(self, position_id: str) -> "OfferInfoBuilder":
         self._offer_info.position_id = position_id
         return self
+
     def working_calendar_id(self, working_calendar_id: str) -> "OfferInfoBuilder":
         self._offer_info.working_calendar_id = working_calendar_id
         return self
+
     def working_hours_type(self, working_hours_type: str) -> "OfferInfoBuilder":
         self._offer_info.working_hours_type = working_hours_type
         return self
+
     def pay_group_id(self, pay_group_id: str) -> "OfferInfoBuilder":
         self._offer_info.pay_group_id = pay_group_id
         return self
+
     def flow_id(self, flow_id: str) -> "OfferInfoBuilder":
         self._offer_info.flow_id = flow_id
         return self
+
     def check_in_time(self, check_in_time: str) -> "OfferInfoBuilder":
         self._offer_info.check_in_time = check_in_time
         return self
+
     def check_in_method(self, check_in_method: str) -> "OfferInfoBuilder":
         self._offer_info.check_in_method = check_in_method
         return self
+
     def seniority_date(self, seniority_date: str) -> "OfferInfoBuilder":
         self._offer_info.seniority_date = seniority_date
         return self
-    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[PrehireSeniorityAdjustInformation]) -> "OfferInfoBuilder":
+
+    def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
+        PrehireSeniorityAdjustInformation]) -> "OfferInfoBuilder":
         self._offer_info.seniority_adjust_information_list = seniority_adjust_information_list
         return self
-    
+
     def build(self) -> "OfferInfo":
         return self._offer_info

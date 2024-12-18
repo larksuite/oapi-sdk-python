@@ -27,15 +27,18 @@ class WorkforcePlanDetailRow(object):
 class WorkforcePlanDetailRowBuilder(object):
     def __init__(self) -> None:
         self._workforce_plan_detail_row = WorkforcePlanDetailRow()
+
     def dimensions(self, dimensions: List[DimensionEntity]) -> "WorkforcePlanDetailRowBuilder":
         self._workforce_plan_detail_row.dimensions = dimensions
         return self
+
     def eai_details(self, eai_details: List[WorkforcePlanEaiDetail]) -> "WorkforcePlanDetailRowBuilder":
         self._workforce_plan_detail_row.eai_details = eai_details
         return self
+
     def plan_value(self, plan_value: str) -> "WorkforcePlanDetailRowBuilder":
         self._workforce_plan_detail_row.plan_value = plan_value
         return self
-    
+
     def build(self) -> "WorkforcePlanDetailRow":
         return self._workforce_plan_detail_row

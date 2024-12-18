@@ -37,30 +37,38 @@ class MyaiReply(object):
 class MyaiReplyBuilder(object):
     def __init__(self) -> None:
         self._myai_reply = MyaiReply()
+
     def reply(self, reply: str) -> "MyaiReplyBuilder":
         self._myai_reply.reply = reply
         return self
+
     def start_time(self, start_time: str) -> "MyaiReplyBuilder":
         self._myai_reply.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "MyaiReplyBuilder":
         self._myai_reply.end_time = end_time
         return self
+
     def rooms(self, rooms: List[RoomMeta]) -> "MyaiReplyBuilder":
         self._myai_reply.rooms = rooms
         return self
+
     def summary(self, summary: str) -> "MyaiReplyBuilder":
         self._myai_reply.summary = summary
         return self
+
     def participants(self, participants: List[UserMeta]) -> "MyaiReplyBuilder":
         self._myai_reply.participants = participants
         return self
+
     def event_id(self, event_id: str) -> "MyaiReplyBuilder":
         self._myai_reply.event_id = event_id
         return self
+
     def recurrence_rule(self, recurrence_rule: str) -> "MyaiReplyBuilder":
         self._myai_reply.recurrence_rule = recurrence_rule
         return self
-    
+
     def build(self) -> "MyaiReply":
         return self._myai_reply

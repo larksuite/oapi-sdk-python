@@ -22,9 +22,10 @@ class GetOfferResponseBody(object):
 class GetOfferResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_offer_response_body = GetOfferResponseBody()
+
     def offer(self, offer: Offer) -> "GetOfferResponseBodyBuilder":
         self._get_offer_response_body.offer = offer
         return self
-    
+
     def build(self) -> "GetOfferResponseBody":
         return self._get_offer_response_body

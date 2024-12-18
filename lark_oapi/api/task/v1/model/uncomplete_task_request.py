@@ -23,12 +23,11 @@ class UncompleteTaskRequestBuilder(object):
         uncomplete_task_request.uri = "/open-apis/task/v1/tasks/:task_id/uncomplete"
         uncomplete_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._uncomplete_task_request: UncompleteTaskRequest = uncomplete_task_request
-    
+
     def task_id(self, task_id: str) -> "UncompleteTaskRequestBuilder":
         self._uncomplete_task_request.task_id = task_id
         self._uncomplete_task_request.paths["task_id"] = str(task_id)
         return self
-    
 
     def build(self) -> UncompleteTaskRequest:
         return self._uncomplete_task_request

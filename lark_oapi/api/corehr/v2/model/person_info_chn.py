@@ -33,24 +33,30 @@ class PersonInfoChn(object):
 class PersonInfoChnBuilder(object):
     def __init__(self) -> None:
         self._person_info_chn = PersonInfoChn()
+
     def native_region(self, native_region: str) -> "PersonInfoChnBuilder":
         self._person_info_chn.native_region = native_region
         return self
+
     def hukou_type(self, hukou_type: Enum) -> "PersonInfoChnBuilder":
         self._person_info_chn.hukou_type = hukou_type
         return self
+
     def hukou_location(self, hukou_location: str) -> "PersonInfoChnBuilder":
         self._person_info_chn.hukou_location = hukou_location
         return self
+
     def first_entry_time(self, first_entry_time: str) -> "PersonInfoChnBuilder":
         self._person_info_chn.first_entry_time = first_entry_time
         return self
+
     def leave_time(self, leave_time: str) -> "PersonInfoChnBuilder":
         self._person_info_chn.leave_time = leave_time
         return self
+
     def political_affiliations(self, political_affiliations: List[Enum]) -> "PersonInfoChnBuilder":
         self._person_info_chn.political_affiliations = political_affiliations
         return self
-    
+
     def build(self) -> "PersonInfoChn":
         return self._person_info_chn

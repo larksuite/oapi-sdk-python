@@ -25,22 +25,21 @@ class GetActiveMeetingReserveRequestBuilder(object):
         get_active_meeting_reserve_request.uri = "/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting"
         get_active_meeting_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_active_meeting_reserve_request: GetActiveMeetingReserveRequest = get_active_meeting_reserve_request
-    
+
     def with_participants(self, with_participants: bool) -> "GetActiveMeetingReserveRequestBuilder":
         self._get_active_meeting_reserve_request.with_participants = with_participants
         self._get_active_meeting_reserve_request.add_query("with_participants", with_participants)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "GetActiveMeetingReserveRequestBuilder":
         self._get_active_meeting_reserve_request.user_id_type = user_id_type
         self._get_active_meeting_reserve_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def reserve_id(self, reserve_id: int) -> "GetActiveMeetingReserveRequestBuilder":
         self._get_active_meeting_reserve_request.reserve_id = reserve_id
         self._get_active_meeting_reserve_request.paths["reserve_id"] = str(reserve_id)
         return self
-    
 
     def build(self) -> GetActiveMeetingReserveRequest:
         return self._get_active_meeting_reserve_request

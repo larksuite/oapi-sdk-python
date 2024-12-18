@@ -40,13 +40,12 @@ class Meeting(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: EndMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), EndMeetingResponse)
         response.raw = resp
 
         return response
-        
 
     async def aend(self, request: EndMeetingRequest, option: Optional[RequestOption] = None) -> EndMeetingResponse:
         if option is None:
@@ -55,17 +54,15 @@ class Meeting(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: EndMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), EndMeetingResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetMeetingRequest, option: Optional[RequestOption] = None) -> GetMeetingResponse:
         if option is None:
             option = RequestOption()
@@ -79,13 +76,12 @@ class Meeting(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetMeetingRequest, option: Optional[RequestOption] = None) -> GetMeetingResponse:
         if option is None:
@@ -94,17 +90,15 @@ class Meeting(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingResponse)
         response.raw = resp
 
         return response
-        
+
     def invite(self, request: InviteMeetingRequest, option: Optional[RequestOption] = None) -> InviteMeetingResponse:
         if option is None:
             option = RequestOption()
@@ -118,32 +112,30 @@ class Meeting(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: InviteMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), InviteMeetingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def ainvite(self, request: InviteMeetingRequest, option: Optional[RequestOption] = None) -> InviteMeetingResponse:
+    async def ainvite(self, request: InviteMeetingRequest,
+                      option: Optional[RequestOption] = None) -> InviteMeetingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: InviteMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), InviteMeetingResponse)
         response.raw = resp
 
         return response
-        
+
     def kickout(self, request: KickoutMeetingRequest, option: Optional[RequestOption] = None) -> KickoutMeetingResponse:
         if option is None:
             option = RequestOption()
@@ -157,33 +149,32 @@ class Meeting(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: KickoutMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), KickoutMeetingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def akickout(self, request: KickoutMeetingRequest, option: Optional[RequestOption] = None) -> KickoutMeetingResponse:
+    async def akickout(self, request: KickoutMeetingRequest,
+                       option: Optional[RequestOption] = None) -> KickoutMeetingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: KickoutMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), KickoutMeetingResponse)
         response.raw = resp
 
         return response
-        
-    def list_by_no(self, request: ListByNoMeetingRequest, option: Optional[RequestOption] = None) -> ListByNoMeetingResponse:
+
+    def list_by_no(self, request: ListByNoMeetingRequest,
+                   option: Optional[RequestOption] = None) -> ListByNoMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -196,33 +187,32 @@ class Meeting(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListByNoMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), ListByNoMeetingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist_by_no(self, request: ListByNoMeetingRequest, option: Optional[RequestOption] = None) -> ListByNoMeetingResponse:
+    async def alist_by_no(self, request: ListByNoMeetingRequest,
+                          option: Optional[RequestOption] = None) -> ListByNoMeetingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListByNoMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), ListByNoMeetingResponse)
         response.raw = resp
 
         return response
-        
-    def set_host(self, request: SetHostMeetingRequest, option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
+
+    def set_host(self, request: SetHostMeetingRequest,
+                 option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
         if option is None:
             option = RequestOption()
 
@@ -235,30 +225,26 @@ class Meeting(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SetHostMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SetHostMeetingResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aset_host(self, request: SetHostMeetingRequest, option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
+    async def aset_host(self, request: SetHostMeetingRequest,
+                        option: Optional[RequestOption] = None) -> SetHostMeetingResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SetHostMeetingResponse = JSON.unmarshal(str(resp.content, UTF_8), SetHostMeetingResponse)
         response.raw = resp
 
         return response
-        
-    

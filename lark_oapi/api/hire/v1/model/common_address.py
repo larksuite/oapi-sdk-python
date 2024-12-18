@@ -36,24 +36,30 @@ class CommonAddress(object):
 class CommonAddressBuilder(object):
     def __init__(self) -> None:
         self._common_address = CommonAddress()
+
     def id(self, id: str) -> "CommonAddressBuilder":
         self._common_address.id = id
         return self
+
     def name(self, name: I18n) -> "CommonAddressBuilder":
         self._common_address.name = name
         return self
+
     def district(self, district: CodeNameObject) -> "CommonAddressBuilder":
         self._common_address.district = district
         return self
+
     def city(self, city: CodeNameObject) -> "CommonAddressBuilder":
         self._common_address.city = city
         return self
+
     def state(self, state: CodeNameObject) -> "CommonAddressBuilder":
         self._common_address.state = state
         return self
+
     def country(self, country: CodeNameObject) -> "CommonAddressBuilder":
         self._common_address.country = country
         return self
-    
+
     def build(self) -> "CommonAddress":
         return self._common_address

@@ -24,8 +24,9 @@ class BatchUpdateEcoBackgroundCheckPackageRequestBuilder(object):
         batch_update_eco_background_check_package_request.uri = "/open-apis/hire/v1/eco_background_check_packages/batch_update"
         batch_update_eco_background_check_package_request.token_types = {AccessTokenType.TENANT}
         self._batch_update_eco_background_check_package_request: BatchUpdateEcoBackgroundCheckPackageRequest = batch_update_eco_background_check_package_request
-    
-    def request_body(self, request_body: EcoBackgroundCheckPackage) -> "BatchUpdateEcoBackgroundCheckPackageRequestBuilder":
+
+    def request_body(self,
+                     request_body: EcoBackgroundCheckPackage) -> "BatchUpdateEcoBackgroundCheckPackageRequestBuilder":
         self._batch_update_eco_background_check_package_request.request_body = request_body
         self._batch_update_eco_background_check_package_request.body = request_body
         return self

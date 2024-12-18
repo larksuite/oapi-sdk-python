@@ -28,18 +28,22 @@ class GetChatModerationResponseBody(object):
 class GetChatModerationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_chat_moderation_response_body = GetChatModerationResponseBody()
+
     def moderation_setting(self, moderation_setting: str) -> "GetChatModerationResponseBodyBuilder":
         self._get_chat_moderation_response_body.moderation_setting = moderation_setting
         return self
+
     def page_token(self, page_token: str) -> "GetChatModerationResponseBodyBuilder":
         self._get_chat_moderation_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "GetChatModerationResponseBodyBuilder":
         self._get_chat_moderation_response_body.has_more = has_more
         return self
+
     def items(self, items: List[ListModerator]) -> "GetChatModerationResponseBodyBuilder":
         self._get_chat_moderation_response_body.items = items
         return self
-    
+
     def build(self) -> "GetChatModerationResponseBody":
         return self._get_chat_moderation_response_body

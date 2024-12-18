@@ -1,6 +1,7 @@
 import io
 from email.message import Message
 from email.policy import default
+from email.utils import decode_rfc2231, unquote
 from typing import Any, Dict, Optional
 
 from lark_oapi.core import Content_Disposition
@@ -13,15 +14,29 @@ class Files(object):
         if content_disposition is None:
             return None
 
-        message = Message(policy=default)
-        message[Content_Disposition] = content_disposition
+        parts = content_disposition.split(';')
+        params = {}
 
-        params = dict(message.get_params(header=Content_Disposition, unquote=True))
+        for part in parts:
+            if '=' in part:
+                k, v = part.strip().split('=', 1)
+                params[k] = v.strip(' "')
 
-        file_name = params.get("filename")
-        if file_name is not None:
-            return file_name.encode('ISO-8859-1').decode()
-        return None
+        if 'filename*' in params:
+            # Decode RFC2231 encoded format
+            filename = decode_rfc2231(params['filename*'])[2]
+        elif 'filename' in params:
+            # Handle possible encoding issues with a basic unquote
+            filename = unquote(params['filename'])
+            # or try to decode using utf-8 if it seems like a valid utf-8 string
+            try:
+                filename = filename.encode('latin1').decode('utf-8')
+            except (UnicodeEncodeError, UnicodeDecodeError):
+                pass
+        else:
+            filename = None
+
+        return filename
 
     @staticmethod
     def parse_form_data(obj: Any) -> Dict[str, Any]:

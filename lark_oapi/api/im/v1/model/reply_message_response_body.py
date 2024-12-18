@@ -50,48 +50,62 @@ class ReplyMessageResponseBody(object):
 class ReplyMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._reply_message_response_body = ReplyMessageResponseBody()
+
     def message_id(self, message_id: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.message_id = message_id
         return self
+
     def root_id(self, root_id: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.root_id = root_id
         return self
+
     def parent_id(self, parent_id: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.parent_id = parent_id
         return self
+
     def thread_id(self, thread_id: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.thread_id = thread_id
         return self
+
     def msg_type(self, msg_type: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.msg_type = msg_type
         return self
+
     def create_time(self, create_time: int) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.create_time = create_time
         return self
+
     def update_time(self, update_time: int) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.update_time = update_time
         return self
+
     def deleted(self, deleted: bool) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.deleted = deleted
         return self
+
     def updated(self, updated: bool) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.updated = updated
         return self
+
     def chat_id(self, chat_id: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.chat_id = chat_id
         return self
+
     def sender(self, sender: Sender) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.sender = sender
         return self
+
     def body(self, body: MessageBody) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.body = body
         return self
+
     def mentions(self, mentions: List[Mention]) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.mentions = mentions
         return self
+
     def upper_message_id(self, upper_message_id: str) -> "ReplyMessageResponseBodyBuilder":
         self._reply_message_response_body.upper_message_id = upper_message_id
         return self
-    
+
     def build(self) -> "ReplyMessageResponseBody":
         return self._reply_message_response_body

@@ -25,15 +25,18 @@ class NotificationUser(object):
 class NotificationUserBuilder(object):
     def __init__(self) -> None:
         self._notification_user = NotificationUser()
+
     def user_id(self, user_id: str) -> "NotificationUserBuilder":
         self._notification_user.user_id = user_id
         return self
+
     def avatar_url(self, avatar_url: str) -> "NotificationUserBuilder":
         self._notification_user.avatar_url = avatar_url
         return self
+
     def name(self, name: str) -> "NotificationUserBuilder":
         self._notification_user.name = name
         return self
-    
+
     def build(self) -> "NotificationUser":
         return self._notification_user

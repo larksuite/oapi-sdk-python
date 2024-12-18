@@ -23,12 +23,14 @@ class TimeRange(object):
 class TimeRangeBuilder(object):
     def __init__(self) -> None:
         self._time_range = TimeRange()
+
     def start(self, start: int) -> "TimeRangeBuilder":
         self._time_range.start = start
         return self
+
     def end(self, end: int) -> "TimeRangeBuilder":
         self._time_range.end = end
         return self
-    
+
     def build(self) -> "TimeRange":
         return self._time_range

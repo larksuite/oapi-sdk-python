@@ -23,7 +23,8 @@ class EmployeesAdditionalJob(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch(self, request: BatchEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> BatchEmployeesAdditionalJobResponse:
+    def batch(self, request: BatchEmployeesAdditionalJobRequest,
+              option: Optional[RequestOption] = None) -> BatchEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class EmployeesAdditionalJob(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchEmployeesAdditionalJobResponse)
+        response: BatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch(self, request: BatchEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> BatchEmployeesAdditionalJobResponse:
+    async def abatch(self, request: BatchEmployeesAdditionalJobRequest,
+                     option: Optional[RequestOption] = None) -> BatchEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchEmployeesAdditionalJobResponse)
+        response: BatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> CreateEmployeesAdditionalJobResponse:
+
+    def create(self, request: CreateEmployeesAdditionalJobRequest,
+               option: Optional[RequestOption] = None) -> CreateEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,34 @@ class EmployeesAdditionalJob(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEmployeesAdditionalJobResponse)
+        response: CreateEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        CreateEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> CreateEmployeesAdditionalJobResponse:
+    async def acreate(self, request: CreateEmployeesAdditionalJobRequest,
+                      option: Optional[RequestOption] = None) -> CreateEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateEmployeesAdditionalJobResponse)
+        response: CreateEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        CreateEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> DeleteEmployeesAdditionalJobResponse:
+
+    def delete(self, request: DeleteEmployeesAdditionalJobRequest,
+               option: Optional[RequestOption] = None) -> DeleteEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +117,34 @@ class EmployeesAdditionalJob(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteEmployeesAdditionalJobResponse)
+        response: DeleteEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        DeleteEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> DeleteEmployeesAdditionalJobResponse:
+    async def adelete(self, request: DeleteEmployeesAdditionalJobRequest,
+                      option: Optional[RequestOption] = None) -> DeleteEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteEmployeesAdditionalJobResponse)
+        response: DeleteEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        DeleteEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
-    def patch(self, request: PatchEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> PatchEmployeesAdditionalJobResponse:
+
+    def patch(self, request: PatchEmployeesAdditionalJobRequest,
+              option: Optional[RequestOption] = None) -> PatchEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +157,28 @@ class EmployeesAdditionalJob(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmployeesAdditionalJobResponse)
+        response: PatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       PatchEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchEmployeesAdditionalJobRequest, option: Optional[RequestOption] = None) -> PatchEmployeesAdditionalJobResponse:
+    async def apatch(self, request: PatchEmployeesAdditionalJobRequest,
+                     option: Optional[RequestOption] = None) -> PatchEmployeesAdditionalJobResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmployeesAdditionalJobResponse)
+        response: PatchEmployeesAdditionalJobResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       PatchEmployeesAdditionalJobResponse)
         response.raw = resp
 
         return response
-        
-    

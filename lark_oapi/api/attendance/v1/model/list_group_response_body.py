@@ -26,15 +26,18 @@ class ListGroupResponseBody(object):
 class ListGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_group_response_body = ListGroupResponseBody()
+
     def group_list(self, group_list: List[GroupMeta]) -> "ListGroupResponseBodyBuilder":
         self._list_group_response_body.group_list = group_list
         return self
+
     def page_token(self, page_token: str) -> "ListGroupResponseBodyBuilder":
         self._list_group_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListGroupResponseBodyBuilder":
         self._list_group_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListGroupResponseBody":
         return self._list_group_response_body

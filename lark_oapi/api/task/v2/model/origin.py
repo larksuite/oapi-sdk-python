@@ -25,12 +25,14 @@ class Origin(object):
 class OriginBuilder(object):
     def __init__(self) -> None:
         self._origin = Origin()
+
     def platform_i18n_name(self, platform_i18n_name: I18nText) -> "OriginBuilder":
         self._origin.platform_i18n_name = platform_i18n_name
         return self
+
     def href(self, href: Href) -> "OriginBuilder":
         self._origin.href = href
         return self
-    
+
     def build(self) -> "Origin":
         return self._origin

@@ -25,15 +25,18 @@ class FileConfig(object):
 class FileConfigBuilder(object):
     def __init__(self) -> None:
         self._file_config = FileConfig()
+
     def file_id(self, file_id: str) -> "FileConfigBuilder":
         self._file_config.file_id = file_id
         return self
+
     def format(self, format: str) -> "FileConfigBuilder":
         self._file_config.format = format
         return self
+
     def engine_type(self, engine_type: str) -> "FileConfigBuilder":
         self._file_config.engine_type = engine_type
         return self
-    
+
     def build(self) -> "FileConfig":
         return self._file_config

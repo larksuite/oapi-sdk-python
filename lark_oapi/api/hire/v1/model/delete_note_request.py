@@ -23,12 +23,11 @@ class DeleteNoteRequestBuilder(object):
         delete_note_request.uri = "/open-apis/hire/v1/notes/:note_id"
         delete_note_request.token_types = {AccessTokenType.TENANT}
         self._delete_note_request: DeleteNoteRequest = delete_note_request
-    
+
     def note_id(self, note_id: str) -> "DeleteNoteRequestBuilder":
         self._delete_note_request.note_id = note_id
         self._delete_note_request.paths["note_id"] = str(note_id)
         return self
-    
 
     def build(self) -> DeleteNoteRequest:
         return self._delete_note_request

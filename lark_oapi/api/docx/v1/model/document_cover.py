@@ -25,15 +25,18 @@ class DocumentCover(object):
 class DocumentCoverBuilder(object):
     def __init__(self) -> None:
         self._document_cover = DocumentCover()
+
     def token(self, token: str) -> "DocumentCoverBuilder":
         self._document_cover.token = token
         return self
+
     def offset_ratio_x(self, offset_ratio_x: float) -> "DocumentCoverBuilder":
         self._document_cover.offset_ratio_x = offset_ratio_x
         return self
+
     def offset_ratio_y(self, offset_ratio_y: float) -> "DocumentCoverBuilder":
         self._document_cover.offset_ratio_y = offset_ratio_y
         return self
-    
+
     def build(self) -> "DocumentCover":
         return self._document_cover

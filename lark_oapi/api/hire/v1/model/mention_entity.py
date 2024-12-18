@@ -23,12 +23,14 @@ class MentionEntity(object):
 class MentionEntityBuilder(object):
     def __init__(self) -> None:
         self._mention_entity = MentionEntity()
+
     def offset(self, offset: int) -> "MentionEntityBuilder":
         self._mention_entity.offset = offset
         return self
+
     def user_id(self, user_id: str) -> "MentionEntityBuilder":
         self._mention_entity.user_id = user_id
         return self
-    
+
     def build(self) -> "MentionEntity":
         return self._mention_entity

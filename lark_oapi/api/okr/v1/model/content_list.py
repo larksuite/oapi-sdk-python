@@ -25,15 +25,18 @@ class ContentList(object):
 class ContentListBuilder(object):
     def __init__(self) -> None:
         self._content_list = ContentList()
+
     def type(self, type: str) -> "ContentListBuilder":
         self._content_list.type = type
         return self
+
     def indent_level(self, indent_level: int) -> "ContentListBuilder":
         self._content_list.indent_level = indent_level
         return self
+
     def number(self, number: int) -> "ContentListBuilder":
         self._content_list.number = number
         return self
-    
+
     def build(self) -> "ContentList":
         return self._content_list

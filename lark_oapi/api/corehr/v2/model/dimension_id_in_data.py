@@ -23,12 +23,14 @@ class DimensionIdInData(object):
 class DimensionIdInDataBuilder(object):
     def __init__(self) -> None:
         self._dimension_id_in_data = DimensionIdInData()
+
     def dimension_key(self, dimension_key: str) -> "DimensionIdInDataBuilder":
         self._dimension_id_in_data.dimension_key = dimension_key
         return self
+
     def dimension_ids(self, dimension_ids: List[str]) -> "DimensionIdInDataBuilder":
         self._dimension_id_in_data.dimension_ids = dimension_ids
         return self
-    
+
     def build(self) -> "DimensionIdInData":
         return self._dimension_id_in_data

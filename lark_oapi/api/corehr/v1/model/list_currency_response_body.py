@@ -26,15 +26,18 @@ class ListCurrencyResponseBody(object):
 class ListCurrencyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_currency_response_body = ListCurrencyResponseBody()
+
     def items(self, items: List[Currency]) -> "ListCurrencyResponseBodyBuilder":
         self._list_currency_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "ListCurrencyResponseBodyBuilder":
         self._list_currency_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListCurrencyResponseBodyBuilder":
         self._list_currency_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListCurrencyResponseBody":
         return self._list_currency_response_body

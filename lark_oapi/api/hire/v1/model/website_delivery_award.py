@@ -28,18 +28,22 @@ class WebsiteDeliveryAward(object):
 class WebsiteDeliveryAwardBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_award = WebsiteDeliveryAward()
+
     def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryAwardBuilder":
         self._website_delivery_award.customized_data = customized_data
         return self
+
     def desc(self, desc: str) -> "WebsiteDeliveryAwardBuilder":
         self._website_delivery_award.desc = desc
         return self
+
     def title(self, title: str) -> "WebsiteDeliveryAwardBuilder":
         self._website_delivery_award.title = title
         return self
+
     def award_time(self, award_time: int) -> "WebsiteDeliveryAwardBuilder":
         self._website_delivery_award.award_time = award_time
         return self
-    
+
     def build(self) -> "WebsiteDeliveryAward":
         return self._website_delivery_award

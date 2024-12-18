@@ -29,21 +29,26 @@ class FeedGroupRuleCondItem(object):
 class FeedGroupRuleCondItemBuilder(object):
     def __init__(self) -> None:
         self._feed_group_rule_cond_item = FeedGroupRuleCondItem()
+
     def type(self, type: str) -> "FeedGroupRuleCondItemBuilder":
         self._feed_group_rule_cond_item.type = type
         return self
+
     def operator(self, operator: str) -> "FeedGroupRuleCondItemBuilder":
         self._feed_group_rule_cond_item.operator = operator
         return self
+
     def keyword(self, keyword: str) -> "FeedGroupRuleCondItemBuilder":
         self._feed_group_rule_cond_item.keyword = keyword
         return self
+
     def user_id(self, user_id: str) -> "FeedGroupRuleCondItemBuilder":
         self._feed_group_rule_cond_item.user_id = user_id
         return self
+
     def chat_type(self, chat_type: str) -> "FeedGroupRuleCondItemBuilder":
         self._feed_group_rule_cond_item.chat_type = chat_type
         return self
-    
+
     def build(self) -> "FeedGroupRuleCondItem":
         return self._feed_group_rule_cond_item

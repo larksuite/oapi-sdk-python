@@ -24,12 +24,14 @@ class FilterInfo(object):
 class FilterInfoBuilder(object):
     def __init__(self) -> None:
         self._filter_info = FilterInfo()
+
     def col(self, col: str) -> "FilterInfoBuilder":
         self._filter_info.col = col
         return self
+
     def conditions(self, conditions: List[Condition]) -> "FilterInfoBuilder":
         self._filter_info.conditions = conditions
         return self
-    
+
     def build(self) -> "FilterInfo":
         return self._filter_info

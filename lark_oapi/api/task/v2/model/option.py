@@ -27,18 +27,22 @@ class Option(object):
 class OptionBuilder(object):
     def __init__(self) -> None:
         self._option = Option()
+
     def guid(self, guid: str) -> "OptionBuilder":
         self._option.guid = guid
         return self
+
     def name(self, name: str) -> "OptionBuilder":
         self._option.name = name
         return self
+
     def color_index(self, color_index: int) -> "OptionBuilder":
         self._option.color_index = color_index
         return self
+
     def is_hidden(self, is_hidden: bool) -> "OptionBuilder":
         self._option.is_hidden = is_hidden
         return self
-    
+
     def build(self) -> "Option":
         return self._option

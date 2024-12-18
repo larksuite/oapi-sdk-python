@@ -30,13 +30,12 @@ class Rule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRuleResponse)
         response.raw = resp
 
         return response
-        
 
     async def aquery(self, request: QueryRuleRequest, option: Optional[RequestOption] = None) -> QueryRuleResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Rule(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRuleResponse)
         response.raw = resp
 
         return response
-        
-    

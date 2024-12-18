@@ -29,21 +29,26 @@ class AppTableFormField(object):
 class AppTableFormFieldBuilder(object):
     def __init__(self) -> None:
         self._app_table_form_field = AppTableFormField()
+
     def field_id(self, field_id: str) -> "AppTableFormFieldBuilder":
         self._app_table_form_field.field_id = field_id
         return self
+
     def title(self, title: str) -> "AppTableFormFieldBuilder":
         self._app_table_form_field.title = title
         return self
+
     def description(self, description: str) -> "AppTableFormFieldBuilder":
         self._app_table_form_field.description = description
         return self
+
     def required(self, required: bool) -> "AppTableFormFieldBuilder":
         self._app_table_form_field.required = required
         return self
+
     def visible(self, visible: bool) -> "AppTableFormFieldBuilder":
         self._app_table_form_field.visible = visible
         return self
-    
+
     def build(self) -> "AppTableFormField":
         return self._app_table_form_field

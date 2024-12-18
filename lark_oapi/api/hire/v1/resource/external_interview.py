@@ -23,7 +23,8 @@ class ExternalInterview(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryExternalInterviewRequest, option: Optional[RequestOption] = None) -> BatchQueryExternalInterviewResponse:
+    def batch_query(self, request: BatchQueryExternalInterviewRequest,
+                    option: Optional[RequestOption] = None) -> BatchQueryExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class ExternalInterview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchQueryExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryExternalInterviewResponse)
+        response: BatchQueryExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchQueryExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_query(self, request: BatchQueryExternalInterviewRequest, option: Optional[RequestOption] = None) -> BatchQueryExternalInterviewResponse:
+    async def abatch_query(self, request: BatchQueryExternalInterviewRequest,
+                           option: Optional[RequestOption] = None) -> BatchQueryExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchQueryExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryExternalInterviewResponse)
+        response: BatchQueryExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                       BatchQueryExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateExternalInterviewRequest, option: Optional[RequestOption] = None) -> CreateExternalInterviewResponse:
+
+    def create(self, request: CreateExternalInterviewRequest,
+               option: Optional[RequestOption] = None) -> CreateExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,34 @@ class ExternalInterview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalInterviewResponse)
+        response: CreateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   CreateExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateExternalInterviewRequest, option: Optional[RequestOption] = None) -> CreateExternalInterviewResponse:
+    async def acreate(self, request: CreateExternalInterviewRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalInterviewResponse)
+        response: CreateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   CreateExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteExternalInterviewRequest, option: Optional[RequestOption] = None) -> DeleteExternalInterviewResponse:
+
+    def delete(self, request: DeleteExternalInterviewRequest,
+               option: Optional[RequestOption] = None) -> DeleteExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +117,34 @@ class ExternalInterview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalInterviewResponse)
+        response: DeleteExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   DeleteExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteExternalInterviewRequest, option: Optional[RequestOption] = None) -> DeleteExternalInterviewResponse:
+    async def adelete(self, request: DeleteExternalInterviewRequest,
+                      option: Optional[RequestOption] = None) -> DeleteExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalInterviewResponse)
+        response: DeleteExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   DeleteExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateExternalInterviewRequest, option: Optional[RequestOption] = None) -> UpdateExternalInterviewResponse:
+
+    def update(self, request: UpdateExternalInterviewRequest,
+               option: Optional[RequestOption] = None) -> UpdateExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +157,28 @@ class ExternalInterview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateExternalInterviewResponse)
+        response: UpdateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   UpdateExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateExternalInterviewRequest, option: Optional[RequestOption] = None) -> UpdateExternalInterviewResponse:
+    async def aupdate(self, request: UpdateExternalInterviewRequest,
+                      option: Optional[RequestOption] = None) -> UpdateExternalInterviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateExternalInterviewResponse)
+        response: UpdateExternalInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   UpdateExternalInterviewResponse)
         response.raw = resp
 
         return response
-        
-    

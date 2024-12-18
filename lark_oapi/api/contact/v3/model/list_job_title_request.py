@@ -24,17 +24,16 @@ class ListJobTitleRequestBuilder(object):
         list_job_title_request.uri = "/open-apis/contact/v3/job_titles"
         list_job_title_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_job_title_request: ListJobTitleRequest = list_job_title_request
-    
+
     def page_size(self, page_size: int) -> "ListJobTitleRequestBuilder":
         self._list_job_title_request.page_size = page_size
         self._list_job_title_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListJobTitleRequestBuilder":
         self._list_job_title_request.page_token = page_token
         self._list_job_title_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListJobTitleRequest:
         return self._list_job_title_request

@@ -22,9 +22,11 @@ class GetBizEntityTagRelationResponseBody(object):
 class GetBizEntityTagRelationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_biz_entity_tag_relation_response_body = GetBizEntityTagRelationResponseBody()
-    def tag_info_with_bind_versions(self, tag_info_with_bind_versions: List[TagInfoWithBindVersion]) -> "GetBizEntityTagRelationResponseBodyBuilder":
+
+    def tag_info_with_bind_versions(self, tag_info_with_bind_versions: List[
+        TagInfoWithBindVersion]) -> "GetBizEntityTagRelationResponseBodyBuilder":
         self._get_biz_entity_tag_relation_response_body.tag_info_with_bind_versions = tag_info_with_bind_versions
         return self
-    
+
     def build(self) -> "GetBizEntityTagRelationResponseBody":
         return self._get_biz_entity_tag_relation_response_body

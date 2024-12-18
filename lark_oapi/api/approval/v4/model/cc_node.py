@@ -40,36 +40,46 @@ class CcNode(object):
 class CcNodeBuilder(object):
     def __init__(self) -> None:
         self._cc_node = CcNode()
+
     def cc_id(self, cc_id: str) -> "CcNodeBuilder":
         self._cc_node.cc_id = cc_id
         return self
+
     def user_id(self, user_id: str) -> "CcNodeBuilder":
         self._cc_node.user_id = user_id
         return self
+
     def open_id(self, open_id: str) -> "CcNodeBuilder":
         self._cc_node.open_id = open_id
         return self
+
     def links(self, links: ExternalInstanceLink) -> "CcNodeBuilder":
         self._cc_node.links = links
         return self
+
     def read_status(self, read_status: str) -> "CcNodeBuilder":
         self._cc_node.read_status = read_status
         return self
+
     def extra(self, extra: str) -> "CcNodeBuilder":
         self._cc_node.extra = extra
         return self
+
     def title(self, title: str) -> "CcNodeBuilder":
         self._cc_node.title = title
         return self
+
     def create_time(self, create_time: int) -> "CcNodeBuilder":
         self._cc_node.create_time = create_time
         return self
+
     def update_time(self, update_time: int) -> "CcNodeBuilder":
         self._cc_node.update_time = update_time
         return self
+
     def display_method(self, display_method: str) -> "CcNodeBuilder":
         self._cc_node.display_method = display_method
         return self
-    
+
     def build(self) -> "CcNode":
         return self._cc_node

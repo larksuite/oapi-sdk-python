@@ -25,22 +25,21 @@ class RemoveRoleAssignAuthorizationRequestBuilder(object):
         remove_role_assign_authorization_request.uri = "/open-apis/corehr/v1/authorizations/remove_role_assign"
         remove_role_assign_authorization_request.token_types = {AccessTokenType.TENANT}
         self._remove_role_assign_authorization_request: RemoveRoleAssignAuthorizationRequest = remove_role_assign_authorization_request
-    
+
     def employment_id(self, employment_id: str) -> "RemoveRoleAssignAuthorizationRequestBuilder":
         self._remove_role_assign_authorization_request.employment_id = employment_id
         self._remove_role_assign_authorization_request.add_query("employment_id", employment_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "RemoveRoleAssignAuthorizationRequestBuilder":
         self._remove_role_assign_authorization_request.user_id_type = user_id_type
         self._remove_role_assign_authorization_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def role_id(self, role_id: str) -> "RemoveRoleAssignAuthorizationRequestBuilder":
         self._remove_role_assign_authorization_request.role_id = role_id
         self._remove_role_assign_authorization_request.add_query("role_id", role_id)
         return self
-    
 
     def build(self) -> RemoveRoleAssignAuthorizationRequest:
         return self._remove_role_assign_authorization_request

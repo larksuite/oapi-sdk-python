@@ -37,30 +37,38 @@ class Section(object):
 class SectionBuilder(object):
     def __init__(self) -> None:
         self._section = Section()
+
     def guid(self, guid: str) -> "SectionBuilder":
         self._section.guid = guid
         return self
+
     def name(self, name: str) -> "SectionBuilder":
         self._section.name = name
         return self
+
     def resource_type(self, resource_type: str) -> "SectionBuilder":
         self._section.resource_type = resource_type
         return self
+
     def is_default(self, is_default: bool) -> "SectionBuilder":
         self._section.is_default = is_default
         return self
+
     def creator(self, creator: Member) -> "SectionBuilder":
         self._section.creator = creator
         return self
+
     def tasklist(self, tasklist: TasklistSummary) -> "SectionBuilder":
         self._section.tasklist = tasklist
         return self
+
     def created_at(self, created_at: int) -> "SectionBuilder":
         self._section.created_at = created_at
         return self
+
     def updated_at(self, updated_at: int) -> "SectionBuilder":
         self._section.updated_at = updated_at
         return self
-    
+
     def build(self) -> "Section":
         return self._section

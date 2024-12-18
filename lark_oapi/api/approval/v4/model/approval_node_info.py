@@ -36,30 +36,38 @@ class ApprovalNodeInfo(object):
 class ApprovalNodeInfoBuilder(object):
     def __init__(self) -> None:
         self._approval_node_info = ApprovalNodeInfo()
+
     def name(self, name: str) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.name = name
         return self
+
     def need_approver(self, need_approver: bool) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.need_approver = need_approver
         return self
+
     def node_id(self, node_id: str) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.node_id = node_id
         return self
+
     def custom_node_id(self, custom_node_id: str) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.custom_node_id = custom_node_id
         return self
+
     def node_type(self, node_type: str) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.node_type = node_type
         return self
+
     def approver_chosen_multi(self, approver_chosen_multi: bool) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.approver_chosen_multi = approver_chosen_multi
         return self
+
     def approver_chosen_range(self, approver_chosen_range: List[ApproverChosenRange]) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.approver_chosen_range = approver_chosen_range
         return self
+
     def require_signature(self, require_signature: bool) -> "ApprovalNodeInfoBuilder":
         self._approval_node_info.require_signature = require_signature
         return self
-    
+
     def build(self) -> "ApprovalNodeInfo":
         return self._approval_node_info

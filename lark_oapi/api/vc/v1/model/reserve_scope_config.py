@@ -29,18 +29,22 @@ class ReserveScopeConfig(object):
 class ReserveScopeConfigBuilder(object):
     def __init__(self) -> None:
         self._reserve_scope_config = ReserveScopeConfig()
+
     def if_cover_child_scope(self, if_cover_child_scope: bool) -> "ReserveScopeConfigBuilder":
         self._reserve_scope_config.if_cover_child_scope = if_cover_child_scope
         return self
+
     def allow_all_users(self, allow_all_users: int) -> "ReserveScopeConfigBuilder":
         self._reserve_scope_config.allow_all_users = allow_all_users
         return self
+
     def allow_users(self, allow_users: List[SubscribeUser]) -> "ReserveScopeConfigBuilder":
         self._reserve_scope_config.allow_users = allow_users
         return self
+
     def allow_depts(self, allow_depts: List[SubscribeDepartment]) -> "ReserveScopeConfigBuilder":
         self._reserve_scope_config.allow_depts = allow_depts
         return self
-    
+
     def build(self) -> "ReserveScopeConfig":
         return self._reserve_scope_config

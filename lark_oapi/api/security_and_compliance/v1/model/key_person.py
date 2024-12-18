@@ -27,18 +27,22 @@ class KeyPerson(object):
 class KeyPersonBuilder(object):
     def __init__(self) -> None:
         self._key_person = KeyPerson()
+
     def key_person_id(self, key_person_id: str) -> "KeyPersonBuilder":
         self._key_person.key_person_id = key_person_id
         return self
+
     def name(self, name: str) -> "KeyPersonBuilder":
         self._key_person.name = name
         return self
+
     def email(self, email: str) -> "KeyPersonBuilder":
         self._key_person.email = email
         return self
+
     def avatar_url(self, avatar_url: str) -> "KeyPersonBuilder":
         self._key_person.avatar_url = avatar_url
         return self
-    
+
     def build(self) -> "KeyPerson":
         return self._key_person

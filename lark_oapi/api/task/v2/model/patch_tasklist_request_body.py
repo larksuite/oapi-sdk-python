@@ -26,15 +26,18 @@ class PatchTasklistRequestBody(object):
 class PatchTasklistRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_tasklist_request_body = PatchTasklistRequestBody()
+
     def tasklist(self, tasklist: InputTasklist) -> "PatchTasklistRequestBodyBuilder":
         self._patch_tasklist_request_body.tasklist = tasklist
         return self
+
     def update_fields(self, update_fields: List[str]) -> "PatchTasklistRequestBodyBuilder":
         self._patch_tasklist_request_body.update_fields = update_fields
         return self
+
     def origin_owner_to_role(self, origin_owner_to_role: str) -> "PatchTasklistRequestBodyBuilder":
         self._patch_tasklist_request_body.origin_owner_to_role = origin_owner_to_role
         return self
-    
+
     def build(self) -> "PatchTasklistRequestBody":
         return self._patch_tasklist_request_body

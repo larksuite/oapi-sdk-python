@@ -23,12 +23,14 @@ class DimensionProperties(object):
 class DimensionPropertiesBuilder(object):
     def __init__(self) -> None:
         self._dimension_properties = DimensionProperties()
+
     def hidden(self, hidden: bool) -> "DimensionPropertiesBuilder":
         self._dimension_properties.hidden = hidden
         return self
+
     def pixel_size(self, pixel_size: int) -> "DimensionPropertiesBuilder":
         self._dimension_properties.pixel_size = pixel_size
         return self
-    
+
     def build(self) -> "DimensionProperties":
         return self._dimension_properties

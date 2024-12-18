@@ -26,15 +26,18 @@ class ListIndicatorResponseBody(object):
 class ListIndicatorResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_indicator_response_body = ListIndicatorResponseBody()
+
     def items(self, items: List[Indicator]) -> "ListIndicatorResponseBodyBuilder":
         self._list_indicator_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListIndicatorResponseBodyBuilder":
         self._list_indicator_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListIndicatorResponseBodyBuilder":
         self._list_indicator_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListIndicatorResponseBody":
         return self._list_indicator_response_body

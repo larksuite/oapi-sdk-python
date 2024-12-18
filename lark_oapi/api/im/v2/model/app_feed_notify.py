@@ -25,15 +25,18 @@ class AppFeedNotify(object):
 class AppFeedNotifyBuilder(object):
     def __init__(self) -> None:
         self._app_feed_notify = AppFeedNotify()
+
     def close_notify(self, close_notify: bool) -> "AppFeedNotifyBuilder":
         self._app_feed_notify.close_notify = close_notify
         return self
+
     def custom_sound_text(self, custom_sound_text: str) -> "AppFeedNotifyBuilder":
         self._app_feed_notify.custom_sound_text = custom_sound_text
         return self
+
     def with_custom_sound(self, with_custom_sound: bool) -> "AppFeedNotifyBuilder":
         self._app_feed_notify.with_custom_sound = with_custom_sound
         return self
-    
+
     def build(self) -> "AppFeedNotify":
         return self._app_feed_notify

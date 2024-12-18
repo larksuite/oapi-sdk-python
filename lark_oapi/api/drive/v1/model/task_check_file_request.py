@@ -23,12 +23,11 @@ class TaskCheckFileRequestBuilder(object):
         task_check_file_request.uri = "/open-apis/drive/v1/files/task_check"
         task_check_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._task_check_file_request: TaskCheckFileRequest = task_check_file_request
-    
+
     def task_id(self, task_id: str) -> "TaskCheckFileRequestBuilder":
         self._task_check_file_request.task_id = task_id
         self._task_check_file_request.add_query("task_id", task_id)
         return self
-    
 
     def build(self) -> TaskCheckFileRequest:
         return self._task_check_file_request

@@ -22,9 +22,10 @@ class PatchCalendarResponseBody(object):
 class PatchCalendarResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_calendar_response_body = PatchCalendarResponseBody()
+
     def calendar(self, calendar: Calendar) -> "PatchCalendarResponseBodyBuilder":
         self._patch_calendar_response_body.calendar = calendar
         return self
-    
+
     def build(self) -> "PatchCalendarResponseBody":
         return self._patch_calendar_response_body

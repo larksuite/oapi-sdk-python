@@ -25,15 +25,18 @@ class QueryUserStatsViewRequestBody(object):
 class QueryUserStatsViewRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_stats_view_request_body = QueryUserStatsViewRequestBody()
+
     def locale(self, locale: str) -> "QueryUserStatsViewRequestBodyBuilder":
         self._query_user_stats_view_request_body.locale = locale
         return self
+
     def stats_type(self, stats_type: str) -> "QueryUserStatsViewRequestBodyBuilder":
         self._query_user_stats_view_request_body.stats_type = stats_type
         return self
+
     def user_id(self, user_id: str) -> "QueryUserStatsViewRequestBodyBuilder":
         self._query_user_stats_view_request_body.user_id = user_id
         return self
-    
+
     def build(self) -> "QueryUserStatsViewRequestBody":
         return self._query_user_stats_view_request_body

@@ -24,17 +24,16 @@ class ListCompanyRequestBuilder(object):
         list_company_request.uri = "/open-apis/corehr/v1/companies"
         list_company_request.token_types = {AccessTokenType.TENANT}
         self._list_company_request: ListCompanyRequest = list_company_request
-    
+
     def page_token(self, page_token: str) -> "ListCompanyRequestBuilder":
         self._list_company_request.page_token = page_token
         self._list_company_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: str) -> "ListCompanyRequestBuilder":
         self._list_company_request.page_size = page_size
         self._list_company_request.add_query("page_size", page_size)
         return self
-    
 
     def build(self) -> ListCompanyRequest:
         return self._list_company_request

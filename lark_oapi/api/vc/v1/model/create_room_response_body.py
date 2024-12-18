@@ -22,9 +22,10 @@ class CreateRoomResponseBody(object):
 class CreateRoomResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_room_response_body = CreateRoomResponseBody()
+
     def room(self, room: Room) -> "CreateRoomResponseBodyBuilder":
         self._create_room_response_body.room = room
         return self
-    
+
     def build(self) -> "CreateRoomResponseBody":
         return self._create_room_response_body

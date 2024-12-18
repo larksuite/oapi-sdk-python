@@ -23,12 +23,14 @@ class TagI18nName(object):
 class TagI18nNameBuilder(object):
     def __init__(self) -> None:
         self._tag_i18n_name = TagI18nName()
+
     def locale(self, locale: str) -> "TagI18nNameBuilder":
         self._tag_i18n_name.locale = locale
         return self
+
     def name(self, name: str) -> "TagI18nNameBuilder":
         self._tag_i18n_name.name = name
         return self
-    
+
     def build(self) -> "TagI18nName":
         return self._tag_i18n_name

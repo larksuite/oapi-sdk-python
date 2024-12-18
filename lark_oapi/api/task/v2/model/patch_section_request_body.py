@@ -24,12 +24,14 @@ class PatchSectionRequestBody(object):
 class PatchSectionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_section_request_body = PatchSectionRequestBody()
+
     def section(self, section: InputSection) -> "PatchSectionRequestBodyBuilder":
         self._patch_section_request_body.section = section
         return self
+
     def update_fields(self, update_fields: List[str]) -> "PatchSectionRequestBodyBuilder":
         self._patch_section_request_body.update_fields = update_fields
         return self
-    
+
     def build(self) -> "PatchSectionRequestBody":
         return self._patch_section_request_body

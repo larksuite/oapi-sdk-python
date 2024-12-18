@@ -23,12 +23,14 @@ class RuleActionItem(object):
 class RuleActionItemBuilder(object):
     def __init__(self) -> None:
         self._rule_action_item = RuleActionItem()
+
     def type(self, type: int) -> "RuleActionItemBuilder":
         self._rule_action_item.type = type
         return self
+
     def input(self, input: str) -> "RuleActionItemBuilder":
         self._rule_action_item.input = input
         return self
-    
+
     def build(self) -> "RuleActionItem":
         return self._rule_action_item

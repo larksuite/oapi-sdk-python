@@ -23,12 +23,14 @@ class ResumeCertificate(object):
 class ResumeCertificateBuilder(object):
     def __init__(self) -> None:
         self._resume_certificate = ResumeCertificate()
+
     def name(self, name: str) -> "ResumeCertificateBuilder":
         self._resume_certificate.name = name
         return self
+
     def desc(self, desc: str) -> "ResumeCertificateBuilder":
         self._resume_certificate.desc = desc
         return self
-    
+
     def build(self) -> "ResumeCertificate":
         return self._resume_certificate

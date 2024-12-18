@@ -61,60 +61,78 @@ class Instance(object):
 class InstanceBuilder(object):
     def __init__(self) -> None:
         self._instance = Instance()
+
     def event_id(self, event_id: str) -> "InstanceBuilder":
         self._instance.event_id = event_id
         return self
+
     def summary(self, summary: str) -> "InstanceBuilder":
         self._instance.summary = summary
         return self
+
     def description(self, description: str) -> "InstanceBuilder":
         self._instance.description = description
         return self
+
     def start_time(self, start_time: TimeInfo) -> "InstanceBuilder":
         self._instance.start_time = start_time
         return self
+
     def end_time(self, end_time: TimeInfo) -> "InstanceBuilder":
         self._instance.end_time = end_time
         return self
+
     def status(self, status: str) -> "InstanceBuilder":
         self._instance.status = status
         return self
+
     def is_exception(self, is_exception: bool) -> "InstanceBuilder":
         self._instance.is_exception = is_exception
         return self
+
     def app_link(self, app_link: str) -> "InstanceBuilder":
         self._instance.app_link = app_link
         return self
+
     def organizer_calendar_id(self, organizer_calendar_id: str) -> "InstanceBuilder":
         self._instance.organizer_calendar_id = organizer_calendar_id
         return self
+
     def vchat(self, vchat: Vchat) -> "InstanceBuilder":
         self._instance.vchat = vchat
         return self
+
     def visibility(self, visibility: str) -> "InstanceBuilder":
         self._instance.visibility = visibility
         return self
+
     def attendee_ability(self, attendee_ability: str) -> "InstanceBuilder":
         self._instance.attendee_ability = attendee_ability
         return self
+
     def free_busy_status(self, free_busy_status: str) -> "InstanceBuilder":
         self._instance.free_busy_status = free_busy_status
         return self
+
     def location(self, location: EventLocation) -> "InstanceBuilder":
         self._instance.location = location
         return self
+
     def color(self, color: int) -> "InstanceBuilder":
         self._instance.color = color
         return self
+
     def recurring_event_id(self, recurring_event_id: str) -> "InstanceBuilder":
         self._instance.recurring_event_id = recurring_event_id
         return self
+
     def event_organizer(self, event_organizer: EventOrganizer) -> "InstanceBuilder":
         self._instance.event_organizer = event_organizer
         return self
+
     def attendees(self, attendees: List[CalendarEventAttendee]) -> "InstanceBuilder":
         self._instance.attendees = attendees
         return self
-    
+
     def build(self) -> "Instance":
         return self._instance

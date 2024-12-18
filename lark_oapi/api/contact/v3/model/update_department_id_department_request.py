@@ -26,18 +26,19 @@ class UpdateDepartmentIdDepartmentRequestBuilder(object):
         update_department_id_department_request.uri = "/open-apis/contact/v3/departments/:department_id/update_department_id"
         update_department_id_department_request.token_types = {AccessTokenType.TENANT}
         self._update_department_id_department_request: UpdateDepartmentIdDepartmentRequest = update_department_id_department_request
-    
+
     def department_id_type(self, department_id_type: str) -> "UpdateDepartmentIdDepartmentRequestBuilder":
         self._update_department_id_department_request.department_id_type = department_id_type
         self._update_department_id_department_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def department_id(self, department_id: str) -> "UpdateDepartmentIdDepartmentRequestBuilder":
         self._update_department_id_department_request.department_id = department_id
         self._update_department_id_department_request.paths["department_id"] = str(department_id)
         return self
-    
-    def request_body(self, request_body: UpdateDepartmentIdDepartmentRequestBody) -> "UpdateDepartmentIdDepartmentRequestBuilder":
+
+    def request_body(self,
+                     request_body: UpdateDepartmentIdDepartmentRequestBody) -> "UpdateDepartmentIdDepartmentRequestBuilder":
         self._update_department_id_department_request.request_body = request_body
         self._update_department_id_department_request.body = request_body
         return self

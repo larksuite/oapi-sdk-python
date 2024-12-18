@@ -26,15 +26,18 @@ class DataPermission(object):
 class DataPermissionBuilder(object):
     def __init__(self) -> None:
         self._data_permission = DataPermission()
+
     def id(self, id: str) -> "DataPermissionBuilder":
         self._data_permission.id = id
         return self
+
     def name(self, name: I18n) -> "DataPermissionBuilder":
         self._data_permission.name = name
         return self
+
     def select_status(self, select_status: int) -> "DataPermissionBuilder":
         self._data_permission.select_status = select_status
         return self
-    
+
     def build(self) -> "DataPermission":
         return self._data_permission

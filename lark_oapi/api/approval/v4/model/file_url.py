@@ -23,12 +23,14 @@ class FileUrl(object):
 class FileUrlBuilder(object):
     def __init__(self) -> None:
         self._file_url = FileUrl()
+
     def name(self, name: str) -> "FileUrlBuilder":
         self._file_url.name = name
         return self
+
     def url(self, url: str) -> "FileUrlBuilder":
         self._file_url.url = url
         return self
-    
+
     def build(self) -> "FileUrl":
         return self._file_url

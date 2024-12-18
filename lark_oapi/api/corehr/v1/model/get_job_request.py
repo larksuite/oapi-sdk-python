@@ -23,12 +23,11 @@ class GetJobRequestBuilder(object):
         get_job_request.uri = "/open-apis/corehr/v1/jobs/:job_id"
         get_job_request.token_types = {AccessTokenType.TENANT}
         self._get_job_request: GetJobRequest = get_job_request
-    
+
     def job_id(self, job_id: str) -> "GetJobRequestBuilder":
         self._get_job_request.job_id = job_id
         self._get_job_request.paths["job_id"] = str(job_id)
         return self
-    
 
     def build(self) -> GetJobRequest:
         return self._get_job_request

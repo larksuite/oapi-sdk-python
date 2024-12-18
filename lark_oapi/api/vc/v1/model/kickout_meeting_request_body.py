@@ -22,9 +22,10 @@ class KickoutMeetingRequestBody(object):
 class KickoutMeetingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._kickout_meeting_request_body = KickoutMeetingRequestBody()
+
     def kickout_users(self, kickout_users: List[MeetingUser]) -> "KickoutMeetingRequestBodyBuilder":
         self._kickout_meeting_request_body.kickout_users = kickout_users
         return self
-    
+
     def build(self) -> "KickoutMeetingRequestBody":
         return self._kickout_meeting_request_body

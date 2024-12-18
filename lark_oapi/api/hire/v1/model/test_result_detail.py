@@ -23,12 +23,14 @@ class TestResultDetail(object):
 class TestResultDetailBuilder(object):
     def __init__(self) -> None:
         self._test_result_detail = TestResultDetail()
+
     def subject(self, subject: str) -> "TestResultDetailBuilder":
         self._test_result_detail.subject = subject
         return self
+
     def result(self, result: str) -> "TestResultDetailBuilder":
         self._test_result_detail.result = result
         return self
-    
+
     def build(self) -> "TestResultDetail":
         return self._test_result_detail

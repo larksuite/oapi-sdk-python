@@ -36,30 +36,38 @@ class SubmitProbationRequestBody(object):
 class SubmitProbationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._submit_probation_request_body = SubmitProbationRequestBody()
+
     def employment_id(self, employment_id: str) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.employment_id = employment_id
         return self
+
     def conversion_mode(self, conversion_mode: int) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.conversion_mode = conversion_mode
         return self
+
     def actual_probation_end_date(self, actual_probation_end_date: str) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.actual_probation_end_date = actual_probation_end_date
         return self
+
     def submission_type(self, submission_type: str) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.submission_type = submission_type
         return self
+
     def initiator_id(self, initiator_id: str) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.initiator_id = initiator_id
         return self
+
     def notes(self, notes: str) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.notes = notes
         return self
+
     def self_review(self, self_review: str) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.self_review = self_review
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "SubmitProbationRequestBodyBuilder":
         self._submit_probation_request_body.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "SubmitProbationRequestBody":
         return self._submit_probation_request_body

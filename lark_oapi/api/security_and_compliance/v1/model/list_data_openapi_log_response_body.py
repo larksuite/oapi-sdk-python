@@ -26,15 +26,18 @@ class ListDataOpenapiLogResponseBody(object):
 class ListDataOpenapiLogResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_data_openapi_log_response_body = ListDataOpenapiLogResponseBody()
+
     def items(self, items: List[OpenapiLog]) -> "ListDataOpenapiLogResponseBodyBuilder":
         self._list_data_openapi_log_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListDataOpenapiLogResponseBodyBuilder":
         self._list_data_openapi_log_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListDataOpenapiLogResponseBodyBuilder":
         self._list_data_openapi_log_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListDataOpenapiLogResponseBody":
         return self._list_data_openapi_log_response_body

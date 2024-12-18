@@ -105,6 +105,9 @@ from .get_app_table_view_request import *
 from .list_app_table_view_request import *
 from .patch_app_table_view_request_body import *
 from .patch_app_table_view_request import *
+from .list_app_workflow_request import *
+from .update_app_workflow_request_body import *
+from .update_app_workflow_request import *
 from .copy_app_response_body import *
 from .copy_app_response import *
 from .create_app_response_body import *
@@ -185,3 +188,6 @@ from .list_app_table_view_response_body import *
 from .list_app_table_view_response import *
 from .patch_app_table_view_response_body import *
 from .patch_app_table_view_response import *
+from .list_app_workflow_response_body import *
+from .list_app_workflow_response import *
+from .update_app_workflow_response import *

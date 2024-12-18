@@ -21,9 +21,10 @@ class DatetimeSetting(object):
 class DatetimeSettingBuilder(object):
     def __init__(self) -> None:
         self._datetime_setting = DatetimeSetting()
+
     def format(self, format: str) -> "DatetimeSettingBuilder":
         self._datetime_setting.format = format
         return self
-    
+
     def build(self) -> "DatetimeSetting":
         return self._datetime_setting

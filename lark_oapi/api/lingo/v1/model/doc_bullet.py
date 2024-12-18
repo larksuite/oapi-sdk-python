@@ -21,9 +21,10 @@ class DocBullet(object):
 class DocBulletBuilder(object):
     def __init__(self) -> None:
         self._doc_bullet = DocBullet()
+
     def text(self, text: str) -> "DocBulletBuilder":
         self._doc_bullet.text = text
         return self
-    
+
     def build(self) -> "DocBullet":
         return self._doc_bullet

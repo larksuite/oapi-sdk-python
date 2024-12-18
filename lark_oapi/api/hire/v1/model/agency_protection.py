@@ -37,30 +37,38 @@ class AgencyProtection(object):
 class AgencyProtectionBuilder(object):
     def __init__(self) -> None:
         self._agency_protection = AgencyProtection()
+
     def protection_type(self, protection_type: int) -> "AgencyProtectionBuilder":
         self._agency_protection.protection_type = protection_type
         return self
+
     def application_id(self, application_id: str) -> "AgencyProtectionBuilder":
         self._agency_protection.application_id = application_id
         return self
+
     def start_time(self, start_time: str) -> "AgencyProtectionBuilder":
         self._agency_protection.start_time = start_time
         return self
+
     def expire_time(self, expire_time: str) -> "AgencyProtectionBuilder":
         self._agency_protection.expire_time = expire_time
         return self
+
     def agency_supplier_id(self, agency_supplier_id: str) -> "AgencyProtectionBuilder":
         self._agency_protection.agency_supplier_id = agency_supplier_id
         return self
+
     def agency_supplier_name(self, agency_supplier_name: I18n) -> "AgencyProtectionBuilder":
         self._agency_protection.agency_supplier_name = agency_supplier_name
         return self
+
     def agency_supplier_user_id(self, agency_supplier_user_id: str) -> "AgencyProtectionBuilder":
         self._agency_protection.agency_supplier_user_id = agency_supplier_user_id
         return self
+
     def agency_supplier_user_name(self, agency_supplier_user_name: I18n) -> "AgencyProtectionBuilder":
         self._agency_protection.agency_supplier_user_name = agency_supplier_user_name
         return self
-    
+
     def build(self) -> "AgencyProtection":
         return self._agency_protection

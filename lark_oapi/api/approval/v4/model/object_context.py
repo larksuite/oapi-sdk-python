@@ -23,12 +23,14 @@ class ObjectContext(object):
 class ObjectContextBuilder(object):
     def __init__(self) -> None:
         self._object_context = ObjectContext()
+
     def type(self, type: str) -> "ObjectContextBuilder":
         self._object_context.type = type
         return self
+
     def biz_id(self, biz_id: str) -> "ObjectContextBuilder":
         self._object_context.biz_id = biz_id
         return self
-    
+
     def build(self) -> "ObjectContext":
         return self._object_context

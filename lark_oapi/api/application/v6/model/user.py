@@ -22,9 +22,10 @@ class User(object):
 class UserBuilder(object):
     def __init__(self) -> None:
         self._user = User()
+
     def user_id(self, user_id: UserId) -> "UserBuilder":
         self._user.user_id = user_id
         return self
-    
+
     def build(self) -> "User":
         return self._user

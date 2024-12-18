@@ -23,12 +23,14 @@ class TokenType(object):
 class TokenTypeBuilder(object):
     def __init__(self) -> None:
         self._token_type = TokenType()
+
     def token(self, token: str) -> "TokenTypeBuilder":
         self._token_type.token = token
         return self
+
     def type(self, type: str) -> "TokenTypeBuilder":
         self._token_type.type = type
         return self
-    
+
     def build(self) -> "TokenType":
         return self._token_type

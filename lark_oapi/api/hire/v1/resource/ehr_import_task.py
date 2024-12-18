@@ -17,7 +17,8 @@ class EhrImportTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def patch(self, request: PatchEhrImportTaskRequest, option: Optional[RequestOption] = None) -> PatchEhrImportTaskResponse:
+    def patch(self, request: PatchEhrImportTaskRequest,
+              option: Optional[RequestOption] = None) -> PatchEhrImportTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,26 @@ class EhrImportTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchEhrImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEhrImportTaskResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchEhrImportTaskRequest, option: Optional[RequestOption] = None) -> PatchEhrImportTaskResponse:
+    async def apatch(self, request: PatchEhrImportTaskRequest,
+                     option: Optional[RequestOption] = None) -> PatchEhrImportTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchEhrImportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEhrImportTaskResponse)
         response.raw = resp
 
         return response
-        
-    

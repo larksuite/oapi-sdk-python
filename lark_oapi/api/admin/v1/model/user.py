@@ -25,15 +25,18 @@ class User(object):
 class UserBuilder(object):
     def __init__(self) -> None:
         self._user = User()
+
     def name(self, name: str) -> "UserBuilder":
         self._user.name = name
         return self
+
     def avatar(self, avatar: str) -> "UserBuilder":
         self._user.avatar = avatar
         return self
+
     def id(self, id: str) -> "UserBuilder":
         self._user.id = id
         return self
-    
+
     def build(self) -> "User":
         return self._user

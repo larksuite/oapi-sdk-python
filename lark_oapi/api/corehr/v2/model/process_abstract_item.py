@@ -25,12 +25,14 @@ class ProcessAbstractItem(object):
 class ProcessAbstractItemBuilder(object):
     def __init__(self) -> None:
         self._process_abstract_item = ProcessAbstractItem()
+
     def name(self, name: DataengineI18n) -> "ProcessAbstractItemBuilder":
         self._process_abstract_item.name = name
         return self
+
     def value(self, value: DataengineI18n) -> "ProcessAbstractItemBuilder":
         self._process_abstract_item.value = value
         return self
-    
+
     def build(self) -> "ProcessAbstractItem":
         return self._process_abstract_item

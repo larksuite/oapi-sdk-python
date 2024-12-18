@@ -24,7 +24,7 @@ class CheckExternalInstanceRequestBuilder(object):
         check_external_instance_request.uri = "/open-apis/approval/v4/external_instances/check"
         check_external_instance_request.token_types = {AccessTokenType.TENANT}
         self._check_external_instance_request: CheckExternalInstanceRequest = check_external_instance_request
-    
+
     def request_body(self, request_body: CheckExternalInstanceRequestBody) -> "CheckExternalInstanceRequestBuilder":
         self._check_external_instance_request.request_body = request_body
         self._check_external_instance_request.body = request_body

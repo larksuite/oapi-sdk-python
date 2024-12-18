@@ -31,21 +31,26 @@ class JobGradeUpdate(object):
 class JobGradeUpdateBuilder(object):
     def __init__(self) -> None:
         self._job_grade_update = JobGradeUpdate()
+
     def grade_order(self, grade_order: int) -> "JobGradeUpdateBuilder":
         self._job_grade_update.grade_order = grade_order
         return self
+
     def code(self, code: str) -> "JobGradeUpdateBuilder":
         self._job_grade_update.code = code
         return self
+
     def names(self, names: List[I18n]) -> "JobGradeUpdateBuilder":
         self._job_grade_update.names = names
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "JobGradeUpdateBuilder":
         self._job_grade_update.descriptions = descriptions
         return self
+
     def active(self, active: bool) -> "JobGradeUpdateBuilder":
         self._job_grade_update.active = active
         return self
-    
+
     def build(self) -> "JobGradeUpdate":
         return self._job_grade_update

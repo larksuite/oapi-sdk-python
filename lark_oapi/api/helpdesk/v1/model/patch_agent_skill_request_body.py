@@ -22,9 +22,10 @@ class PatchAgentSkillRequestBody(object):
 class PatchAgentSkillRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_agent_skill_request_body = PatchAgentSkillRequestBody()
+
     def agent_skill(self, agent_skill: AgentSkill) -> "PatchAgentSkillRequestBodyBuilder":
         self._patch_agent_skill_request_body.agent_skill = agent_skill
         return self
-    
+
     def build(self) -> "PatchAgentSkillRequestBody":
         return self._patch_agent_skill_request_body

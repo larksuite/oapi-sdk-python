@@ -23,12 +23,11 @@ class GetMeetingRecordingRequestBuilder(object):
         get_meeting_recording_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/recording"
         get_meeting_recording_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_meeting_recording_request: GetMeetingRecordingRequest = get_meeting_recording_request
-    
+
     def meeting_id(self, meeting_id: int) -> "GetMeetingRecordingRequestBuilder":
         self._get_meeting_recording_request.meeting_id = meeting_id
         self._get_meeting_recording_request.paths["meeting_id"] = str(meeting_id)
         return self
-    
 
     def build(self) -> GetMeetingRecordingRequest:
         return self._get_meeting_recording_request

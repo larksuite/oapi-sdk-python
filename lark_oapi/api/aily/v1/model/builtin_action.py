@@ -27,18 +27,22 @@ class BuiltinAction(object):
 class BuiltinActionBuilder(object):
     def __init__(self) -> None:
         self._builtin_action = BuiltinAction()
+
     def builtin_action_type(self, builtin_action_type: str) -> "BuiltinActionBuilder":
         self._builtin_action.builtin_action_type = builtin_action_type
         return self
+
     def enable(self, enable: bool) -> "BuiltinActionBuilder":
         self._builtin_action.enable = enable
         return self
+
     def action_status(self, action_status: str) -> "BuiltinActionBuilder":
         self._builtin_action.action_status = action_status
         return self
+
     def extra(self, extra: str) -> "BuiltinActionBuilder":
         self._builtin_action.extra = extra
         return self
-    
+
     def build(self) -> "BuiltinAction":
         return self._builtin_action

@@ -23,12 +23,14 @@ class MailAddress(object):
 class MailAddressBuilder(object):
     def __init__(self) -> None:
         self._mail_address = MailAddress()
+
     def mail_address(self, mail_address: str) -> "MailAddressBuilder":
         self._mail_address.mail_address = mail_address
         return self
+
     def name(self, name: str) -> "MailAddressBuilder":
         self._mail_address.name = name
         return self
-    
+
     def build(self) -> "MailAddress":
         return self._mail_address

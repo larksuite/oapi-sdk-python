@@ -25,22 +25,21 @@ class ReserveScopeReserveConfigRequestBuilder(object):
         reserve_scope_reserve_config_request.uri = "/open-apis/vc/v1/reserve_configs/reserve_scope"
         reserve_scope_reserve_config_request.token_types = {AccessTokenType.TENANT}
         self._reserve_scope_reserve_config_request: ReserveScopeReserveConfigRequest = reserve_scope_reserve_config_request
-    
+
     def scope_id(self, scope_id: str) -> "ReserveScopeReserveConfigRequestBuilder":
         self._reserve_scope_reserve_config_request.scope_id = scope_id
         self._reserve_scope_reserve_config_request.add_query("scope_id", scope_id)
         return self
-    
+
     def scope_type(self, scope_type: int) -> "ReserveScopeReserveConfigRequestBuilder":
         self._reserve_scope_reserve_config_request.scope_type = scope_type
         self._reserve_scope_reserve_config_request.add_query("scope_type", scope_type)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "ReserveScopeReserveConfigRequestBuilder":
         self._reserve_scope_reserve_config_request.user_id_type = user_id_type
         self._reserve_scope_reserve_config_request.add_query("user_id_type", user_id_type)
         return self
-    
 
     def build(self) -> ReserveScopeReserveConfigRequest:
         return self._reserve_scope_reserve_config_request

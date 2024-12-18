@@ -26,15 +26,18 @@ class PresentDataCallbackDialogRequest(object):
 class PresentDataCallbackDialogRequestBuilder(object):
     def __init__(self) -> None:
         self._present_data_callback_dialog_request = PresentDataCallbackDialogRequest()
+
     def message_id(self, message_id: str) -> "PresentDataCallbackDialogRequestBuilder":
         self._present_data_callback_dialog_request.message_id = message_id
         return self
+
     def status(self, status: Status) -> "PresentDataCallbackDialogRequestBuilder":
         self._present_data_callback_dialog_request.status = status
         return self
+
     def callback_info(self, callback_info: str) -> "PresentDataCallbackDialogRequestBuilder":
         self._present_data_callback_dialog_request.callback_info = callback_info
         return self
-    
+
     def build(self) -> "PresentDataCallbackDialogRequest":
         return self._present_data_callback_dialog_request

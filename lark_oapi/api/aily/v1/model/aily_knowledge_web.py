@@ -23,12 +23,14 @@ class AilyKnowledgeWeb(object):
 class AilyKnowledgeWebBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_web = AilyKnowledgeWeb()
+
     def url(self, url: str) -> "AilyKnowledgeWebBuilder":
         self._aily_knowledge_web.url = url
         return self
+
     def title(self, title: str) -> "AilyKnowledgeWebBuilder":
         self._aily_knowledge_web.title = title
         return self
-    
+
     def build(self) -> "AilyKnowledgeWeb":
         return self._aily_knowledge_web

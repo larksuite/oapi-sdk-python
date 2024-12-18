@@ -23,12 +23,14 @@ class ReserveAssignHost(object):
 class ReserveAssignHostBuilder(object):
     def __init__(self) -> None:
         self._reserve_assign_host = ReserveAssignHost()
+
     def user_type(self, user_type: int) -> "ReserveAssignHostBuilder":
         self._reserve_assign_host.user_type = user_type
         return self
+
     def id(self, id: str) -> "ReserveAssignHostBuilder":
         self._reserve_assign_host.id = id
         return self
-    
+
     def build(self) -> "ReserveAssignHost":
         return self._reserve_assign_host

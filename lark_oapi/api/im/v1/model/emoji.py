@@ -21,9 +21,10 @@ class Emoji(object):
 class EmojiBuilder(object):
     def __init__(self) -> None:
         self._emoji = Emoji()
+
     def emoji_type(self, emoji_type: str) -> "EmojiBuilder":
         self._emoji.emoji_type = emoji_type
         return self
-    
+
     def build(self) -> "Emoji":
         return self._emoji

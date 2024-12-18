@@ -24,12 +24,14 @@ class AppFieldPropertyAutoSerial(object):
 class AppFieldPropertyAutoSerialBuilder(object):
     def __init__(self) -> None:
         self._app_field_property_auto_serial = AppFieldPropertyAutoSerial()
+
     def type(self, type: str) -> "AppFieldPropertyAutoSerialBuilder":
         self._app_field_property_auto_serial.type = type
         return self
+
     def options(self, options: List[AppFieldPropertyAutoSerialOptions]) -> "AppFieldPropertyAutoSerialBuilder":
         self._app_field_property_auto_serial.options = options
         return self
-    
+
     def build(self) -> "AppFieldPropertyAutoSerial":
         return self._app_field_property_auto_serial

@@ -26,15 +26,18 @@ class BasicDepartment(object):
 class BasicDepartmentBuilder(object):
     def __init__(self) -> None:
         self._basic_department = BasicDepartment()
+
     def id(self, id: str) -> "BasicDepartmentBuilder":
         self._basic_department.id = id
         return self
+
     def id_v2(self, id_v2: str) -> "BasicDepartmentBuilder":
         self._basic_department.id_v2 = id_v2
         return self
+
     def department_name(self, department_name: List[I18n]) -> "BasicDepartmentBuilder":
         self._basic_department.department_name = department_name
         return self
-    
+
     def build(self) -> "BasicDepartment":
         return self._basic_department

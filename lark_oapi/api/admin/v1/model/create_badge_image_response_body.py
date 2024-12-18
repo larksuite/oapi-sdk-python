@@ -21,9 +21,10 @@ class CreateBadgeImageResponseBody(object):
 class CreateBadgeImageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_badge_image_response_body = CreateBadgeImageResponseBody()
+
     def image_key(self, image_key: str) -> "CreateBadgeImageResponseBodyBuilder":
         self._create_badge_image_response_body.image_key = image_key
         return self
-    
+
     def build(self) -> "CreateBadgeImageResponseBody":
         return self._create_badge_image_response_body

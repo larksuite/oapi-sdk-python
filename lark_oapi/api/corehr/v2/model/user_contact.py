@@ -23,12 +23,14 @@ class UserContact(object):
 class UserContactBuilder(object):
     def __init__(self) -> None:
         self._user_contact = UserContact()
+
     def user_ids(self, user_ids: List[str]) -> "UserContactBuilder":
         self._user_contact.user_ids = user_ids
         return self
+
     def mobile(self, mobile: str) -> "UserContactBuilder":
         self._user_contact.mobile = mobile
         return self
-    
+
     def build(self) -> "UserContact":
         return self._user_contact

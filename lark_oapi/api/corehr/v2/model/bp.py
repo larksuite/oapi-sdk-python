@@ -23,12 +23,14 @@ class Bp(object):
 class BpBuilder(object):
     def __init__(self) -> None:
         self._bp = Bp()
+
     def department_id(self, department_id: str) -> "BpBuilder":
         self._bp.department_id = department_id
         return self
+
     def hrbp_id(self, hrbp_id: str) -> "BpBuilder":
         self._bp.hrbp_id = hrbp_id
         return self
-    
+
     def build(self) -> "Bp":
         return self._bp

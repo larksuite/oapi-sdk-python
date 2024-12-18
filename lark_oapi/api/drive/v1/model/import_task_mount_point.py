@@ -23,12 +23,14 @@ class ImportTaskMountPoint(object):
 class ImportTaskMountPointBuilder(object):
     def __init__(self) -> None:
         self._import_task_mount_point = ImportTaskMountPoint()
+
     def mount_type(self, mount_type: int) -> "ImportTaskMountPointBuilder":
         self._import_task_mount_point.mount_type = mount_type
         return self
+
     def mount_key(self, mount_key: str) -> "ImportTaskMountPointBuilder":
         self._import_task_mount_point.mount_key = mount_key
         return self
-    
+
     def build(self) -> "ImportTaskMountPoint":
         return self._import_task_mount_point

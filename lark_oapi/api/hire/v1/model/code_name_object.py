@@ -24,12 +24,14 @@ class CodeNameObject(object):
 class CodeNameObjectBuilder(object):
     def __init__(self) -> None:
         self._code_name_object = CodeNameObject()
+
     def code(self, code: str) -> "CodeNameObjectBuilder":
         self._code_name_object.code = code
         return self
+
     def name(self, name: I18n) -> "CodeNameObjectBuilder":
         self._code_name_object.name = name
         return self
-    
+
     def build(self) -> "CodeNameObject":
         return self._code_name_object

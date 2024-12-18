@@ -28,18 +28,22 @@ class CustomFieldData(object):
 class CustomFieldDataBuilder(object):
     def __init__(self) -> None:
         self._custom_field_data = CustomFieldData()
+
     def custom_api_name(self, custom_api_name: str) -> "CustomFieldDataBuilder":
         self._custom_field_data.custom_api_name = custom_api_name
         return self
+
     def name(self, name: CustomName) -> "CustomFieldDataBuilder":
         self._custom_field_data.name = name
         return self
+
     def type(self, type: int) -> "CustomFieldDataBuilder":
         self._custom_field_data.type = type
         return self
+
     def value(self, value: str) -> "CustomFieldDataBuilder":
         self._custom_field_data.value = value
         return self
-    
+
     def build(self) -> "CustomFieldData":
         return self._custom_field_data

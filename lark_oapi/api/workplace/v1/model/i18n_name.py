@@ -23,12 +23,14 @@ class I18nName(object):
 class I18nNameBuilder(object):
     def __init__(self) -> None:
         self._i18n_name = I18nName()
+
     def language(self, language: str) -> "I18nNameBuilder":
         self._i18n_name.language = language
         return self
+
     def name(self, name: str) -> "I18nNameBuilder":
         self._i18n_name.name = name
         return self
-    
+
     def build(self) -> "I18nName":
         return self._i18n_name

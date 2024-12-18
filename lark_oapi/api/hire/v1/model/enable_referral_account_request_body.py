@@ -21,9 +21,10 @@ class EnableReferralAccountRequestBody(object):
 class EnableReferralAccountRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._enable_referral_account_request_body = EnableReferralAccountRequestBody()
+
     def referral_account_id(self, referral_account_id: str) -> "EnableReferralAccountRequestBodyBuilder":
         self._enable_referral_account_request_body.referral_account_id = referral_account_id
         return self
-    
+
     def build(self) -> "EnableReferralAccountRequestBody":
         return self._enable_referral_account_request_body

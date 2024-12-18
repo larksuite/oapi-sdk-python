@@ -23,7 +23,8 @@ class ArchiveRule(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def del_report(self, request: DelReportArchiveRuleRequest, option: Optional[RequestOption] = None) -> DelReportArchiveRuleResponse:
+    def del_report(self, request: DelReportArchiveRuleRequest,
+                   option: Optional[RequestOption] = None) -> DelReportArchiveRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,32 +37,30 @@ class ArchiveRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DelReportArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), DelReportArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adel_report(self, request: DelReportArchiveRuleRequest, option: Optional[RequestOption] = None) -> DelReportArchiveRuleResponse:
+    async def adel_report(self, request: DelReportArchiveRuleRequest,
+                          option: Optional[RequestOption] = None) -> DelReportArchiveRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DelReportArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), DelReportArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListArchiveRuleRequest, option: Optional[RequestOption] = None) -> ListArchiveRuleResponse:
         if option is None:
             option = RequestOption()
@@ -75,33 +74,32 @@ class ArchiveRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListArchiveRuleRequest, option: Optional[RequestOption] = None) -> ListArchiveRuleResponse:
+    async def alist(self, request: ListArchiveRuleRequest,
+                    option: Optional[RequestOption] = None) -> ListArchiveRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
-    def upload_report(self, request: UploadReportArchiveRuleRequest, option: Optional[RequestOption] = None) -> UploadReportArchiveRuleResponse:
+
+    def upload_report(self, request: UploadReportArchiveRuleRequest,
+                      option: Optional[RequestOption] = None) -> UploadReportArchiveRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +112,34 @@ class ArchiveRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UploadReportArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadReportArchiveRuleResponse)
+        response: UploadReportArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   UploadReportArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupload_report(self, request: UploadReportArchiveRuleRequest, option: Optional[RequestOption] = None) -> UploadReportArchiveRuleResponse:
+    async def aupload_report(self, request: UploadReportArchiveRuleRequest,
+                             option: Optional[RequestOption] = None) -> UploadReportArchiveRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UploadReportArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadReportArchiveRuleResponse)
+        response: UploadReportArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   UploadReportArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
-    def user_stats_fields_query(self, request: UserStatsFieldsQueryArchiveRuleRequest, option: Optional[RequestOption] = None) -> UserStatsFieldsQueryArchiveRuleResponse:
+
+    def user_stats_fields_query(self, request: UserStatsFieldsQueryArchiveRuleRequest,
+                                option: Optional[RequestOption] = None) -> UserStatsFieldsQueryArchiveRuleResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +152,28 @@ class ArchiveRule(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UserStatsFieldsQueryArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), UserStatsFieldsQueryArchiveRuleResponse)
+        response: UserStatsFieldsQueryArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           UserStatsFieldsQueryArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
 
-    async def auser_stats_fields_query(self, request: UserStatsFieldsQueryArchiveRuleRequest, option: Optional[RequestOption] = None) -> UserStatsFieldsQueryArchiveRuleResponse:
+    async def auser_stats_fields_query(self, request: UserStatsFieldsQueryArchiveRuleRequest, option: Optional[
+        RequestOption] = None) -> UserStatsFieldsQueryArchiveRuleResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UserStatsFieldsQueryArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8), UserStatsFieldsQueryArchiveRuleResponse)
+        response: UserStatsFieldsQueryArchiveRuleResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           UserStatsFieldsQueryArchiveRuleResponse)
         response.raw = resp
 
         return response
-        
-    

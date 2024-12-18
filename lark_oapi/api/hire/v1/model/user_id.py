@@ -25,15 +25,18 @@ class UserId(object):
 class UserIdBuilder(object):
     def __init__(self) -> None:
         self._user_id = UserId()
+
     def user_id(self, user_id: str) -> "UserIdBuilder":
         self._user_id.user_id = user_id
         return self
+
     def open_id(self, open_id: str) -> "UserIdBuilder":
         self._user_id.open_id = open_id
         return self
+
     def union_id(self, union_id: str) -> "UserIdBuilder":
         self._user_id.union_id = union_id
         return self
-    
+
     def build(self) -> "UserId":
         return self._user_id

@@ -39,36 +39,46 @@ class GetCalendarResponseBody(object):
 class GetCalendarResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_calendar_response_body = GetCalendarResponseBody()
+
     def calendar_id(self, calendar_id: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.calendar_id = calendar_id
         return self
+
     def summary(self, summary: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.summary = summary
         return self
+
     def description(self, description: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.description = description
         return self
+
     def permissions(self, permissions: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.permissions = permissions
         return self
+
     def color(self, color: int) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.color = color
         return self
+
     def type(self, type: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.type = type
         return self
+
     def summary_alias(self, summary_alias: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.summary_alias = summary_alias
         return self
+
     def is_deleted(self, is_deleted: bool) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.is_deleted = is_deleted
         return self
+
     def is_third_party(self, is_third_party: bool) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.is_third_party = is_third_party
         return self
+
     def role(self, role: str) -> "GetCalendarResponseBodyBuilder":
         self._get_calendar_response_body.role = role
         return self
-    
+
     def build(self) -> "GetCalendarResponseBody":
         return self._get_calendar_response_body

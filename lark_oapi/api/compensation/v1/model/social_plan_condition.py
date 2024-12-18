@@ -25,15 +25,18 @@ class SocialPlanCondition(object):
 class SocialPlanConditionBuilder(object):
     def __init__(self) -> None:
         self._social_plan_condition = SocialPlanCondition()
+
     def left_type(self, left_type: int) -> "SocialPlanConditionBuilder":
         self._social_plan_condition.left_type = left_type
         return self
+
     def operator(self, operator: int) -> "SocialPlanConditionBuilder":
         self._social_plan_condition.operator = operator
         return self
+
     def right_values(self, right_values: List[str]) -> "SocialPlanConditionBuilder":
         self._social_plan_condition.right_values = right_values
         return self
-    
+
     def build(self) -> "SocialPlanCondition":
         return self._social_plan_condition

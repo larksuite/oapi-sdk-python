@@ -26,15 +26,18 @@ class Doc(object):
 class DocBuilder(object):
     def __init__(self) -> None:
         self._doc = Doc()
+
     def doc_id(self, doc_id: str) -> "DocBuilder":
         self._doc.doc_id = doc_id
         return self
+
     def filter_data(self, filter_data: str) -> "DocBuilder":
         self._doc.filter_data = filter_data
         return self
+
     def chunks(self, chunks: List[Chunk]) -> "DocBuilder":
         self._doc.chunks = chunks
         return self
-    
+
     def build(self) -> "Doc":
         return self._doc

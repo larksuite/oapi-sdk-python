@@ -23,12 +23,14 @@ class ResendAppTicketRequestBody(object):
 class ResendAppTicketRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._resend_app_ticket_request_body = ResendAppTicketRequestBody()
+
     def app_id(self, app_id: str) -> "ResendAppTicketRequestBodyBuilder":
         self._resend_app_ticket_request_body.app_id = app_id
         return self
+
     def app_secret(self, app_secret: str) -> "ResendAppTicketRequestBodyBuilder":
         self._resend_app_ticket_request_body.app_secret = app_secret
         return self
-    
+
     def build(self) -> "ResendAppTicketRequestBody":
         return self._resend_app_ticket_request_body

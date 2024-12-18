@@ -24,7 +24,7 @@ class QueryOffboardingRequestBuilder(object):
         query_offboarding_request.uri = "/open-apis/corehr/v1/offboardings/query"
         query_offboarding_request.token_types = {AccessTokenType.TENANT}
         self._query_offboarding_request: QueryOffboardingRequest = query_offboarding_request
-    
+
     def request_body(self, request_body: QueryOffboardingRequestBody) -> "QueryOffboardingRequestBuilder":
         self._query_offboarding_request.request_body = request_body
         self._query_offboarding_request.body = request_body

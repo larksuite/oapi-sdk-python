@@ -31,18 +31,22 @@ class TaskSearchItem(object):
 class TaskSearchItemBuilder(object):
     def __init__(self) -> None:
         self._task_search_item = TaskSearchItem()
+
     def approval(self, approval: InstanceSearchApproval) -> "TaskSearchItemBuilder":
         self._task_search_item.approval = approval
         return self
+
     def group(self, group: InstanceSearchGroup) -> "TaskSearchItemBuilder":
         self._task_search_item.group = group
         return self
+
     def instance(self, instance: InstanceSearchNode) -> "TaskSearchItemBuilder":
         self._task_search_item.instance = instance
         return self
+
     def task(self, task: TaskSearchNode) -> "TaskSearchItemBuilder":
         self._task_search_item.task = task
         return self
-    
+
     def build(self) -> "TaskSearchItem":
         return self._task_search_item

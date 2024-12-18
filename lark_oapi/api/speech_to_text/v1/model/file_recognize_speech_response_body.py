@@ -21,9 +21,10 @@ class FileRecognizeSpeechResponseBody(object):
 class FileRecognizeSpeechResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._file_recognize_speech_response_body = FileRecognizeSpeechResponseBody()
+
     def recognition_text(self, recognition_text: str) -> "FileRecognizeSpeechResponseBodyBuilder":
         self._file_recognize_speech_response_body.recognition_text = recognition_text
         return self
-    
+
     def build(self) -> "FileRecognizeSpeechResponseBody":
         return self._file_recognize_speech_response_body

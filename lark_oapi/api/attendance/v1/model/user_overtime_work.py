@@ -43,42 +43,54 @@ class UserOvertimeWork(object):
 class UserOvertimeWorkBuilder(object):
     def __init__(self) -> None:
         self._user_overtime_work = UserOvertimeWork()
+
     def approval_id(self, approval_id: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.approval_id = approval_id
         return self
+
     def duration(self, duration: float) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.duration = duration
         return self
+
     def unit(self, unit: int) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.unit = unit
         return self
+
     def category(self, category: int) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.category = category
         return self
+
     def type(self, type: int) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.type = type
         return self
+
     def start_time(self, start_time: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.end_time = end_time
         return self
+
     def reason(self, reason: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.reason = reason
         return self
+
     def idempotent_id(self, idempotent_id: str) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.idempotent_id = idempotent_id
         return self
+
     def correct_process_id(self, correct_process_id: List[str]) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.correct_process_id = correct_process_id
         return self
+
     def cancel_process_id(self, cancel_process_id: List[str]) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.cancel_process_id = cancel_process_id
         return self
+
     def process_id(self, process_id: List[str]) -> "UserOvertimeWorkBuilder":
         self._user_overtime_work.process_id = process_id
         return self
-    
+
     def build(self) -> "UserOvertimeWork":
         return self._user_overtime_work

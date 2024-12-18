@@ -30,13 +30,12 @@ class Approver(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListApproverResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApproverResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListApproverRequest, option: Optional[RequestOption] = None) -> ListApproverResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Approver(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListApproverResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApproverResponse)
         response.raw = resp
 
         return response
-        
-    

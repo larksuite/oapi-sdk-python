@@ -26,15 +26,18 @@ class SearchJobPublishRecordResponseBody(object):
 class SearchJobPublishRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_job_publish_record_response_body = SearchJobPublishRecordResponseBody()
+
     def items(self, items: List[WebsiteJobPost]) -> "SearchJobPublishRecordResponseBodyBuilder":
         self._search_job_publish_record_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "SearchJobPublishRecordResponseBodyBuilder":
         self._search_job_publish_record_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "SearchJobPublishRecordResponseBodyBuilder":
         self._search_job_publish_record_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "SearchJobPublishRecordResponseBody":
         return self._search_job_publish_record_response_body

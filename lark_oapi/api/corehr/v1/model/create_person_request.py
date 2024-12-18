@@ -25,12 +25,12 @@ class CreatePersonRequestBuilder(object):
         create_person_request.uri = "/open-apis/corehr/v1/persons"
         create_person_request.token_types = {AccessTokenType.TENANT}
         self._create_person_request: CreatePersonRequest = create_person_request
-    
+
     def client_token(self, client_token: str) -> "CreatePersonRequestBuilder":
         self._create_person_request.client_token = client_token
         self._create_person_request.add_query("client_token", client_token)
         return self
-    
+
     def request_body(self, request_body: Person) -> "CreatePersonRequestBuilder":
         self._create_person_request.request_body = request_body
         self._create_person_request.body = request_body

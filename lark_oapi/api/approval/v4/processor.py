@@ -7,12 +7,11 @@ from .model.p2_approval_approval_updated_v4 import P2ApprovalApprovalUpdatedV4
 
 
 class P2ApprovalApprovalUpdatedV4Processor(IEventProcessor[P2ApprovalApprovalUpdatedV4]):
-	def __init__(self, f: Callable[[P2ApprovalApprovalUpdatedV4], None]):
-		self.f = f
+    def __init__(self, f: Callable[[P2ApprovalApprovalUpdatedV4], None]):
+        self.f = f
 
-	def type(self) -> Type[P2ApprovalApprovalUpdatedV4]:
-		return P2ApprovalApprovalUpdatedV4
+    def type(self) -> Type[P2ApprovalApprovalUpdatedV4]:
+        return P2ApprovalApprovalUpdatedV4
 
-	def do(self, data: P2ApprovalApprovalUpdatedV4) -> None:
-		self.f(data)
-
+    def do(self, data: P2ApprovalApprovalUpdatedV4) -> None:
+        self.f(data)

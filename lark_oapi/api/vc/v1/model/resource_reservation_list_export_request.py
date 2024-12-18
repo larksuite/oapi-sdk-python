@@ -24,8 +24,9 @@ class ResourceReservationListExportRequestBuilder(object):
         resource_reservation_list_export_request.uri = "/open-apis/vc/v1/exports/resource_reservation_list"
         resource_reservation_list_export_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._resource_reservation_list_export_request: ResourceReservationListExportRequest = resource_reservation_list_export_request
-    
-    def request_body(self, request_body: ResourceReservationListExportRequestBody) -> "ResourceReservationListExportRequestBuilder":
+
+    def request_body(self,
+                     request_body: ResourceReservationListExportRequestBody) -> "ResourceReservationListExportRequestBuilder":
         self._resource_reservation_list_export_request.request_body = request_body
         self._resource_reservation_list_export_request.body = request_body
         return self

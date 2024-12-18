@@ -38,33 +38,42 @@ class CustomFieldValue(object):
 class CustomFieldValueBuilder(object):
     def __init__(self) -> None:
         self._custom_field_value = CustomFieldValue()
+
     def guid(self, guid: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.guid = guid
         return self
+
     def type(self, type: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.type = type
         return self
+
     def number_value(self, number_value: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.number_value = number_value
         return self
+
     def datetime_value(self, datetime_value: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.datetime_value = datetime_value
         return self
+
     def member_value(self, member_value: List[Member]) -> "CustomFieldValueBuilder":
         self._custom_field_value.member_value = member_value
         return self
+
     def single_select_value(self, single_select_value: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.single_select_value = single_select_value
         return self
+
     def multi_select_value(self, multi_select_value: List[str]) -> "CustomFieldValueBuilder":
         self._custom_field_value.multi_select_value = multi_select_value
         return self
+
     def name(self, name: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.name = name
         return self
+
     def text_value(self, text_value: str) -> "CustomFieldValueBuilder":
         self._custom_field_value.text_value = text_value
         return self
-    
+
     def build(self) -> "CustomFieldValue":
         return self._custom_field_value

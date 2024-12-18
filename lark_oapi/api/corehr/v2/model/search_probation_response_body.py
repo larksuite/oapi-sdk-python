@@ -26,15 +26,18 @@ class SearchProbationResponseBody(object):
 class SearchProbationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_probation_response_body = SearchProbationResponseBody()
+
     def items(self, items: List[ProbationInfo]) -> "SearchProbationResponseBodyBuilder":
         self._search_probation_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchProbationResponseBodyBuilder":
         self._search_probation_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchProbationResponseBodyBuilder":
         self._search_probation_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchProbationResponseBody":
         return self._search_probation_response_body

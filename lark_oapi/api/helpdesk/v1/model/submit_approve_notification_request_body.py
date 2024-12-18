@@ -21,9 +21,10 @@ class SubmitApproveNotificationRequestBody(object):
 class SubmitApproveNotificationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._submit_approve_notification_request_body = SubmitApproveNotificationRequestBody()
+
     def reason(self, reason: str) -> "SubmitApproveNotificationRequestBodyBuilder":
         self._submit_approve_notification_request_body.reason = reason
         return self
-    
+
     def build(self) -> "SubmitApproveNotificationRequestBody":
         return self._submit_approve_notification_request_body

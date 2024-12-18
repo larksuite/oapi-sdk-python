@@ -25,6 +25,8 @@ from .file import *
 from .file_list import *
 from .grant import *
 from .i18n import *
+from .operator_detail import *
+from .operator_name import *
 from .password import *
 from .rule_detail import *
 from .splash_page_stat import *
@@ -34,6 +36,7 @@ from .user_annual_report import *
 from .user_report2021 import *
 from .user_report2022 import *
 from .user_report2023 import *
+from .user_report2024 import *
 from .list_admin_dept_stat_request import *
 from .list_admin_user_stat_request import *
 from .list_audit_info_request import *

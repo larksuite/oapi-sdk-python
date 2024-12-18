@@ -26,15 +26,18 @@ class OperationLogListRespItem(object):
 class OperationLogListRespItemBuilder(object):
     def __init__(self) -> None:
         self._operation_log_list_resp_item = OperationLogListRespItem()
+
     def operator_id(self, operator_id: str) -> "OperationLogListRespItemBuilder":
         self._operation_log_list_resp_item.operator_id = operator_id
         return self
+
     def opt_time(self, opt_time: str) -> "OperationLogListRespItemBuilder":
         self._operation_log_list_resp_item.opt_time = opt_time
         return self
+
     def entities(self, entities: List[OperationLogEntity]) -> "OperationLogListRespItemBuilder":
         self._operation_log_list_resp_item.entities = entities
         return self
-    
+
     def build(self) -> "OperationLogListRespItem":
         return self._operation_log_list_resp_item

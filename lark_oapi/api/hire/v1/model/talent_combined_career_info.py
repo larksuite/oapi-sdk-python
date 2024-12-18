@@ -36,30 +36,39 @@ class TalentCombinedCareerInfo(object):
 class TalentCombinedCareerInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_combined_career_info = TalentCombinedCareerInfo()
+
     def id(self, id: str) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.id = id
         return self
+
     def company(self, company: str) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.company = company
         return self
+
     def title(self, title: str) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.title = title
         return self
+
     def desc(self, desc: str) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.desc = desc
         return self
+
     def start_time(self, start_time: str) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.end_time = end_time
         return self
+
     def career_type(self, career_type: int) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.career_type = career_type
         return self
-    def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedCareerInfoBuilder":
+
+    def customized_data(self,
+                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedCareerInfoBuilder":
         self._talent_combined_career_info.customized_data = customized_data
         return self
-    
+
     def build(self) -> "TalentCombinedCareerInfo":
         return self._talent_combined_career_info

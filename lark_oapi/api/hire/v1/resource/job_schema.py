@@ -30,30 +30,26 @@ class JobSchema(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListJobSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobSchemaResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListJobSchemaRequest, option: Optional[RequestOption] = None) -> ListJobSchemaResponse:
+    async def alist(self, request: ListJobSchemaRequest,
+                    option: Optional[RequestOption] = None) -> ListJobSchemaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListJobSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobSchemaResponse)
         response.raw = resp
 
         return response
-        
-    

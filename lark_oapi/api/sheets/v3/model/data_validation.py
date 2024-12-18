@@ -28,18 +28,22 @@ class DataValidation(object):
 class DataValidationBuilder(object):
     def __init__(self) -> None:
         self._data_validation = DataValidation()
+
     def data_validation_id(self, data_validation_id: int) -> "DataValidationBuilder":
         self._data_validation.data_validation_id = data_validation_id
         return self
+
     def data_validation_rule(self, data_validation_rule: DataValidationRule) -> "DataValidationBuilder":
         self._data_validation.data_validation_rule = data_validation_rule
         return self
+
     def strict(self, strict: str) -> "DataValidationBuilder":
         self._data_validation.strict = strict
         return self
+
     def help_text(self, help_text: str) -> "DataValidationBuilder":
         self._data_validation.help_text = help_text
         return self
-    
+
     def build(self) -> "DataValidation":
         return self._data_validation

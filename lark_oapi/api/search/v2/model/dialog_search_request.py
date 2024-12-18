@@ -33,24 +33,30 @@ class DialogSearchRequest(object):
 class DialogSearchRequestBuilder(object):
     def __init__(self) -> None:
         self._dialog_search_request = DialogSearchRequest()
+
     def tool_raw_instruction(self, tool_raw_instruction: str) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.tool_raw_instruction = tool_raw_instruction
         return self
+
     def scenario_context_schema_version(self, scenario_context_schema_version: str) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.scenario_context_schema_version = scenario_context_schema_version
         return self
+
     def scenario_context(self, scenario_context: ScenarioContext) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.scenario_context = scenario_context
         return self
+
     def agent_type(self, agent_type: int) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.agent_type = agent_type
         return self
+
     def response_type(self, response_type: int) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.response_type = response_type
         return self
+
     def passage_param(self, passage_param: PassageParam) -> "DialogSearchRequestBuilder":
         self._dialog_search_request.passage_param = passage_param
         return self
-    
+
     def build(self) -> "DialogSearchRequest":
         return self._dialog_search_request

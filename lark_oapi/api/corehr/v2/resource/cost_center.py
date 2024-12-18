@@ -23,7 +23,8 @@ class CostCenter(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateCostCenterRequest, option: Optional[RequestOption] = None) -> CreateCostCenterResponse:
+    def create(self, request: CreateCostCenterRequest,
+               option: Optional[RequestOption] = None) -> CreateCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,32 @@ class CostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCostCenterResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateCostCenterRequest, option: Optional[RequestOption] = None) -> CreateCostCenterResponse:
+    async def acreate(self, request: CreateCostCenterRequest,
+                      option: Optional[RequestOption] = None) -> CreateCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCostCenterResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteCostCenterRequest, option: Optional[RequestOption] = None) -> DeleteCostCenterResponse:
+
+    def delete(self, request: DeleteCostCenterRequest,
+               option: Optional[RequestOption] = None) -> DeleteCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,32 +75,30 @@ class CostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCostCenterResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteCostCenterRequest, option: Optional[RequestOption] = None) -> DeleteCostCenterResponse:
+    async def adelete(self, request: DeleteCostCenterRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCostCenterResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchCostCenterRequest, option: Optional[RequestOption] = None) -> PatchCostCenterResponse:
         if option is None:
             option = RequestOption()
@@ -114,33 +112,32 @@ class CostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCostCenterResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchCostCenterRequest, option: Optional[RequestOption] = None) -> PatchCostCenterResponse:
+    async def apatch(self, request: PatchCostCenterRequest,
+                     option: Optional[RequestOption] = None) -> PatchCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCostCenterResponse)
         response.raw = resp
 
         return response
-        
-    def search(self, request: SearchCostCenterRequest, option: Optional[RequestOption] = None) -> SearchCostCenterResponse:
+
+    def search(self, request: SearchCostCenterRequest,
+               option: Optional[RequestOption] = None) -> SearchCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +150,26 @@ class CostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCostCenterResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchCostCenterRequest, option: Optional[RequestOption] = None) -> SearchCostCenterResponse:
+    async def asearch(self, request: SearchCostCenterRequest,
+                      option: Optional[RequestOption] = None) -> SearchCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCostCenterResponse)
         response.raw = resp
 
         return response
-        
-    

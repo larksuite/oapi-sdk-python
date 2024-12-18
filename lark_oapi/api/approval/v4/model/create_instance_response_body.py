@@ -21,9 +21,10 @@ class CreateInstanceResponseBody(object):
 class CreateInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_instance_response_body = CreateInstanceResponseBody()
+
     def instance_code(self, instance_code: str) -> "CreateInstanceResponseBodyBuilder":
         self._create_instance_response_body.instance_code = instance_code
         return self
-    
+
     def build(self) -> "CreateInstanceResponseBody":
         return self._create_instance_response_body

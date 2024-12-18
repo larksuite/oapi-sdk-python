@@ -22,9 +22,10 @@ class CreateTaskSubtaskResponseBody(object):
 class CreateTaskSubtaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_task_subtask_response_body = CreateTaskSubtaskResponseBody()
+
     def subtask(self, subtask: Task) -> "CreateTaskSubtaskResponseBodyBuilder":
         self._create_task_subtask_response_body.subtask = subtask
         return self
-    
+
     def build(self) -> "CreateTaskSubtaskResponseBody":
         return self._create_task_subtask_response_body

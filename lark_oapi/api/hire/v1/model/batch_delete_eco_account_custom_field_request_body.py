@@ -23,12 +23,15 @@ class BatchDeleteEcoAccountCustomFieldRequestBody(object):
 class BatchDeleteEcoAccountCustomFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_eco_account_custom_field_request_body = BatchDeleteEcoAccountCustomFieldRequestBody()
+
     def scope(self, scope: int) -> "BatchDeleteEcoAccountCustomFieldRequestBodyBuilder":
         self._batch_delete_eco_account_custom_field_request_body.scope = scope
         return self
-    def custom_field_key_list(self, custom_field_key_list: List[str]) -> "BatchDeleteEcoAccountCustomFieldRequestBodyBuilder":
+
+    def custom_field_key_list(self,
+                              custom_field_key_list: List[str]) -> "BatchDeleteEcoAccountCustomFieldRequestBodyBuilder":
         self._batch_delete_eco_account_custom_field_request_body.custom_field_key_list = custom_field_key_list
         return self
-    
+
     def build(self) -> "BatchDeleteEcoAccountCustomFieldRequestBody":
         return self._batch_delete_eco_account_custom_field_request_body

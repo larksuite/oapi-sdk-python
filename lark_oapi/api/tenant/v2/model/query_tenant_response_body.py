@@ -22,9 +22,10 @@ class QueryTenantResponseBody(object):
 class QueryTenantResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_tenant_response_body = QueryTenantResponseBody()
+
     def tenant(self, tenant: Tenant) -> "QueryTenantResponseBodyBuilder":
         self._query_tenant_response_body.tenant = tenant
         return self
-    
+
     def build(self) -> "QueryTenantResponseBody":
         return self._query_tenant_response_body

@@ -22,9 +22,10 @@ class RecognizeChinesePassportResponseBody(object):
 class RecognizeChinesePassportResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_chinese_passport_response_body = RecognizeChinesePassportResponseBody()
+
     def chinese_passport(self, chinese_passport: ChinesePassport) -> "RecognizeChinesePassportResponseBodyBuilder":
         self._recognize_chinese_passport_response_body.chinese_passport = chinese_passport
         return self
-    
+
     def build(self) -> "RecognizeChinesePassportResponseBody":
         return self._recognize_chinese_passport_response_body

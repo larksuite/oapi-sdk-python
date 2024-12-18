@@ -48,39 +48,53 @@ class ApplicationOfferOnboardProfile(object):
 class ApplicationOfferOnboardProfileBuilder(object):
     def __init__(self) -> None:
         self._application_offer_onboard_profile = ApplicationOfferOnboardProfile()
+
     def offer_id(self, offer_id: str) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.offer_id = offer_id
         return self
+
     def department(self, department: Department) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.department = department
         return self
+
     def recruitment_type(self, recruitment_type: RecruitmentType) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.recruitment_type = recruitment_type
         return self
+
     def sequence(self, sequence: Sequence) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.sequence = sequence
         return self
+
     def level(self, level: Level) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.level = level
         return self
-    def onboard_address(self, onboard_address: ApplicationOfferOnboardProfileAddress) -> "ApplicationOfferOnboardProfileBuilder":
+
+    def onboard_address(self,
+                        onboard_address: ApplicationOfferOnboardProfileAddress) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.onboard_address = onboard_address
         return self
-    def work_address(self, work_address: ApplicationOfferOnboardProfileAddress) -> "ApplicationOfferOnboardProfileBuilder":
+
+    def work_address(self,
+                     work_address: ApplicationOfferOnboardProfileAddress) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.work_address = work_address
         return self
+
     def leader(self, leader: ApplicationOfferBasicInfoUser) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.leader = leader
         return self
-    def is_work_address_same_to_onboard(self, is_work_address_same_to_onboard: bool) -> "ApplicationOfferOnboardProfileBuilder":
+
+    def is_work_address_same_to_onboard(self,
+                                        is_work_address_same_to_onboard: bool) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.is_work_address_same_to_onboard = is_work_address_same_to_onboard
         return self
+
     def probation_month(self, probation_month: int) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.probation_month = probation_month
         return self
+
     def contract_year(self, contract_year: int) -> "ApplicationOfferOnboardProfileBuilder":
         self._application_offer_onboard_profile.contract_year = contract_year
         return self
-    
+
     def build(self) -> "ApplicationOfferOnboardProfile":
         return self._application_offer_onboard_profile

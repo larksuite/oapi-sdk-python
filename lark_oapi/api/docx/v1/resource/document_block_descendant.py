@@ -17,7 +17,8 @@ class DocumentBlockDescendant(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateDocumentBlockDescendantRequest, option: Optional[RequestOption] = None) -> CreateDocumentBlockDescendantResponse:
+    def create(self, request: CreateDocumentBlockDescendantRequest,
+               option: Optional[RequestOption] = None) -> CreateDocumentBlockDescendantResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class DocumentBlockDescendant(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateDocumentBlockDescendantResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDocumentBlockDescendantResponse)
+        response: CreateDocumentBlockDescendantResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         CreateDocumentBlockDescendantResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateDocumentBlockDescendantRequest, option: Optional[RequestOption] = None) -> CreateDocumentBlockDescendantResponse:
+    async def acreate(self, request: CreateDocumentBlockDescendantRequest,
+                      option: Optional[RequestOption] = None) -> CreateDocumentBlockDescendantResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateDocumentBlockDescendantResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDocumentBlockDescendantResponse)
+        response: CreateDocumentBlockDescendantResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         CreateDocumentBlockDescendantResponse)
         response.raw = resp
 
         return response
-        
-    

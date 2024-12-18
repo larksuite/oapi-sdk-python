@@ -34,27 +34,34 @@ class Questionnaire(object):
 class QuestionnaireBuilder(object):
     def __init__(self) -> None:
         self._questionnaire = Questionnaire()
+
     def questionnaire_id(self, questionnaire_id: str) -> "QuestionnaireBuilder":
         self._questionnaire.questionnaire_id = questionnaire_id
         return self
+
     def application_id(self, application_id: str) -> "QuestionnaireBuilder":
         self._questionnaire.application_id = application_id
         return self
+
     def interview_id(self, interview_id: str) -> "QuestionnaireBuilder":
         self._questionnaire.interview_id = interview_id
         return self
+
     def version(self, version: int) -> "QuestionnaireBuilder":
         self._questionnaire.version = version
         return self
+
     def questions(self, questions: List[Question]) -> "QuestionnaireBuilder":
         self._questionnaire.questions = questions
         return self
+
     def has_answers(self, has_answers: bool) -> "QuestionnaireBuilder":
         self._questionnaire.has_answers = has_answers
         return self
+
     def update_time(self, update_time: str) -> "QuestionnaireBuilder":
         self._questionnaire.update_time = update_time
         return self
-    
+
     def build(self) -> "Questionnaire":
         return self._questionnaire

@@ -26,15 +26,18 @@ class ListSystemStatusResponseBody(object):
 class ListSystemStatusResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_system_status_response_body = ListSystemStatusResponseBody()
+
     def items(self, items: List[SystemStatus]) -> "ListSystemStatusResponseBodyBuilder":
         self._list_system_status_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListSystemStatusResponseBodyBuilder":
         self._list_system_status_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListSystemStatusResponseBodyBuilder":
         self._list_system_status_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListSystemStatusResponseBody":
         return self._list_system_status_response_body

@@ -24,12 +24,14 @@ class PhoneNumberAndAreaCode(object):
 class PhoneNumberAndAreaCodeBuilder(object):
     def __init__(self) -> None:
         self._phone_number_and_area_code = PhoneNumberAndAreaCode()
+
     def area_code(self, area_code: Enum) -> "PhoneNumberAndAreaCodeBuilder":
         self._phone_number_and_area_code.area_code = area_code
         return self
+
     def phone_number(self, phone_number: str) -> "PhoneNumberAndAreaCodeBuilder":
         self._phone_number_and_area_code.phone_number = phone_number
         return self
-    
+
     def build(self) -> "PhoneNumberAndAreaCode":
         return self._phone_number_and_area_code

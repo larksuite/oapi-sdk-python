@@ -23,12 +23,14 @@ class FoodManageEntity(object):
 class FoodManageEntityBuilder(object):
     def __init__(self) -> None:
         self._food_manage_entity = FoodManageEntity()
+
     def type(self, type: str) -> "FoodManageEntityBuilder":
         self._food_manage_entity.type = type
         return self
+
     def value(self, value: str) -> "FoodManageEntityBuilder":
         self._food_manage_entity.value = value
         return self
-    
+
     def build(self) -> "FoodManageEntity":
         return self._food_manage_entity

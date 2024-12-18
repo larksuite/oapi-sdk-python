@@ -25,15 +25,18 @@ class TaskUrls(object):
 class TaskUrlsBuilder(object):
     def __init__(self) -> None:
         self._task_urls = TaskUrls()
+
     def helpdesk(self, helpdesk: str) -> "TaskUrlsBuilder":
         self._task_urls.helpdesk = helpdesk
         return self
+
     def mobile(self, mobile: str) -> "TaskUrlsBuilder":
         self._task_urls.mobile = mobile
         return self
+
     def pc(self, pc: str) -> "TaskUrlsBuilder":
         self._task_urls.pc = pc
         return self
-    
+
     def build(self) -> "TaskUrls":
         return self._task_urls

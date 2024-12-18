@@ -26,15 +26,18 @@ class QrCodeDimension(object):
 class QrCodeDimensionBuilder(object):
     def __init__(self) -> None:
         self._qr_code_dimension = QrCodeDimension()
+
     def api_name(self, api_name: str) -> "QrCodeDimensionBuilder":
         self._qr_code_dimension.api_name = api_name
         return self
+
     def display_name(self, display_name: I18nV2) -> "QrCodeDimensionBuilder":
         self._qr_code_dimension.display_name = display_name
         return self
+
     def type(self, type: int) -> "QrCodeDimensionBuilder":
         self._qr_code_dimension.type = type
         return self
-    
+
     def build(self) -> "QrCodeDimension":
         return self._qr_code_dimension

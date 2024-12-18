@@ -29,21 +29,26 @@ class ModelParam(object):
 class ModelParamBuilder(object):
     def __init__(self) -> None:
         self._model_param = ModelParam()
+
     def encoder_name(self, encoder_name: str) -> "ModelParamBuilder":
         self._model_param.encoder_name = encoder_name
         return self
+
     def ranker_name(self, ranker_name: str) -> "ModelParamBuilder":
         self._model_param.ranker_name = ranker_name
         return self
+
     def filter_name(self, filter_name: str) -> "ModelParamBuilder":
         self._model_param.filter_name = filter_name
         return self
+
     def booster_name(self, booster_name: str) -> "ModelParamBuilder":
         self._model_param.booster_name = booster_name
         return self
+
     def passage_language(self, passage_language: str) -> "ModelParamBuilder":
         self._model_param.passage_language = passage_language
         return self
-    
+
     def build(self) -> "ModelParam":
         return self._model_param

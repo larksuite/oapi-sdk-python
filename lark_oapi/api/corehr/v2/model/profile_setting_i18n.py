@@ -23,12 +23,14 @@ class ProfileSettingI18n(object):
 class ProfileSettingI18nBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_i18n = ProfileSettingI18n()
+
     def zh_cn(self, zh_cn: str) -> "ProfileSettingI18nBuilder":
         self._profile_setting_i18n.zh_cn = zh_cn
         return self
+
     def en_us(self, en_us: str) -> "ProfileSettingI18nBuilder":
         self._profile_setting_i18n.en_us = en_us
         return self
-    
+
     def build(self) -> "ProfileSettingI18n":
         return self._profile_setting_i18n

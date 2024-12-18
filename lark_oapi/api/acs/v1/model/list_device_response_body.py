@@ -22,9 +22,10 @@ class ListDeviceResponseBody(object):
 class ListDeviceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_device_response_body = ListDeviceResponseBody()
+
     def items(self, items: List[Device]) -> "ListDeviceResponseBodyBuilder":
         self._list_device_response_body.items = items
         return self
-    
+
     def build(self) -> "ListDeviceResponseBody":
         return self._list_device_response_body

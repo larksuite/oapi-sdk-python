@@ -23,12 +23,14 @@ class SchemaPredefineEnumStruct(object):
 class SchemaPredefineEnumStructBuilder(object):
     def __init__(self) -> None:
         self._schema_predefine_enum_struct = SchemaPredefineEnumStruct()
+
     def name(self, name: str) -> "SchemaPredefineEnumStructBuilder":
         self._schema_predefine_enum_struct.name = name
         return self
+
     def text(self, text: str) -> "SchemaPredefineEnumStructBuilder":
         self._schema_predefine_enum_struct.text = text
         return self
-    
+
     def build(self) -> "SchemaPredefineEnumStruct":
         return self._schema_predefine_enum_struct

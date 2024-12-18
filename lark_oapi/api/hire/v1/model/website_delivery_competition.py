@@ -26,15 +26,19 @@ class WebsiteDeliveryCompetition(object):
 class WebsiteDeliveryCompetitionBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_competition = WebsiteDeliveryCompetition()
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryCompetitionBuilder":
+
+    def customized_data(self,
+                        customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryCompetitionBuilder":
         self._website_delivery_competition.customized_data = customized_data
         return self
+
     def desc(self, desc: str) -> "WebsiteDeliveryCompetitionBuilder":
         self._website_delivery_competition.desc = desc
         return self
+
     def name(self, name: str) -> "WebsiteDeliveryCompetitionBuilder":
         self._website_delivery_competition.name = name
         return self
-    
+
     def build(self) -> "WebsiteDeliveryCompetition":
         return self._website_delivery_competition

@@ -28,18 +28,22 @@ class AppMessageTrendItem(object):
 class AppMessageTrendItemBuilder(object):
     def __init__(self) -> None:
         self._app_message_trend_item = AppMessageTrendItem()
+
     def chat_type(self, chat_type: str) -> "AppMessageTrendItemBuilder":
         self._app_message_trend_item.chat_type = chat_type
         return self
+
     def event_type(self, event_type: str) -> "AppMessageTrendItemBuilder":
         self._app_message_trend_item.event_type = event_type
         return self
+
     def message_type(self, message_type: str) -> "AppMessageTrendItemBuilder":
         self._app_message_trend_item.message_type = message_type
         return self
+
     def trend(self, trend: List[UsageTrendItem]) -> "AppMessageTrendItemBuilder":
         self._app_message_trend_item.trend = trend
         return self
-    
+
     def build(self) -> "AppMessageTrendItem":
         return self._app_message_trend_item

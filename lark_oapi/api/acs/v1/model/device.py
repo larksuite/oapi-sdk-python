@@ -28,18 +28,22 @@ class Device(object):
 class DeviceBuilder(object):
     def __init__(self) -> None:
         self._device = Device()
+
     def device_id(self, device_id: int) -> "DeviceBuilder":
         self._device.device_id = device_id
         return self
+
     def device_name(self, device_name: str) -> "DeviceBuilder":
         self._device.device_name = device_name
         return self
+
     def device_sn(self, device_sn: str) -> "DeviceBuilder":
         self._device.device_sn = device_sn
         return self
+
     def property(self, property: Property) -> "DeviceBuilder":
         self._device.property = property
         return self
-    
+
     def build(self) -> "Device":
         return self._device

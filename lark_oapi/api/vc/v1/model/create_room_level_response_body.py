@@ -22,9 +22,10 @@ class CreateRoomLevelResponseBody(object):
 class CreateRoomLevelResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_room_level_response_body = CreateRoomLevelResponseBody()
+
     def room_level(self, room_level: RoomLevel) -> "CreateRoomLevelResponseBodyBuilder":
         self._create_room_level_response_body.room_level = room_level
         return self
-    
+
     def build(self) -> "CreateRoomLevelResponseBody":
         return self._create_room_level_response_body

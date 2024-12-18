@@ -34,6 +34,7 @@ from .hkm_mainland_travel_permit_entity import *
 from .id_card import *
 from .id_entity import *
 from .image_detail import *
+from .kv_entity import *
 from .llm_config import *
 from .llm_content import *
 from .llm_detail import *

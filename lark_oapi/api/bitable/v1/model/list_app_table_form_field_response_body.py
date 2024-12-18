@@ -28,18 +28,22 @@ class ListAppTableFormFieldResponseBody(object):
 class ListAppTableFormFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_table_form_field_response_body = ListAppTableFormFieldResponseBody()
+
     def items(self, items: List[AppTableFormField]) -> "ListAppTableFormFieldResponseBodyBuilder":
         self._list_app_table_form_field_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListAppTableFormFieldResponseBodyBuilder":
         self._list_app_table_form_field_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListAppTableFormFieldResponseBodyBuilder":
         self._list_app_table_form_field_response_body.has_more = has_more
         return self
+
     def total(self, total: int) -> "ListAppTableFormFieldResponseBodyBuilder":
         self._list_app_table_form_field_response_body.total = total
         return self
-    
+
     def build(self) -> "ListAppTableFormFieldResponseBody":
         return self._list_app_table_form_field_response_body

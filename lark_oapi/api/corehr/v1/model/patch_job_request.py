@@ -26,17 +26,17 @@ class PatchJobRequestBuilder(object):
         patch_job_request.uri = "/open-apis/corehr/v1/jobs/:job_id"
         patch_job_request.token_types = {AccessTokenType.TENANT}
         self._patch_job_request: PatchJobRequest = patch_job_request
-    
+
     def client_token(self, client_token: str) -> "PatchJobRequestBuilder":
         self._patch_job_request.client_token = client_token
         self._patch_job_request.add_query("client_token", client_token)
         return self
-    
+
     def job_id(self, job_id: str) -> "PatchJobRequestBuilder":
         self._patch_job_request.job_id = job_id
         self._patch_job_request.paths["job_id"] = str(job_id)
         return self
-    
+
     def request_body(self, request_body: Job) -> "PatchJobRequestBuilder":
         self._patch_job_request.request_body = request_body
         self._patch_job_request.body = request_body

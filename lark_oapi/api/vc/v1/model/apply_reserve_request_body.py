@@ -26,15 +26,18 @@ class ApplyReserveRequestBody(object):
 class ApplyReserveRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._apply_reserve_request_body = ApplyReserveRequestBody()
+
     def end_time(self, end_time: int) -> "ApplyReserveRequestBodyBuilder":
         self._apply_reserve_request_body.end_time = end_time
         return self
+
     def owner_id(self, owner_id: str) -> "ApplyReserveRequestBodyBuilder":
         self._apply_reserve_request_body.owner_id = owner_id
         return self
+
     def meeting_settings(self, meeting_settings: ReserveMeetingSetting) -> "ApplyReserveRequestBodyBuilder":
         self._apply_reserve_request_body.meeting_settings = meeting_settings
         return self
-    
+
     def build(self) -> "ApplyReserveRequestBody":
         return self._apply_reserve_request_body

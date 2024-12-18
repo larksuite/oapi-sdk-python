@@ -17,7 +17,8 @@ class BasicInfoLanguage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchBasicInfoLanguageRequest, option: Optional[RequestOption] = None) -> SearchBasicInfoLanguageResponse:
+    def search(self, request: SearchBasicInfoLanguageRequest,
+               option: Optional[RequestOption] = None) -> SearchBasicInfoLanguageResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class BasicInfoLanguage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: SearchBasicInfoLanguageResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoLanguageResponse)
+        response: SearchBasicInfoLanguageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   SearchBasicInfoLanguageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchBasicInfoLanguageRequest, option: Optional[RequestOption] = None) -> SearchBasicInfoLanguageResponse:
+    async def asearch(self, request: SearchBasicInfoLanguageRequest,
+                      option: Optional[RequestOption] = None) -> SearchBasicInfoLanguageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: SearchBasicInfoLanguageResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchBasicInfoLanguageResponse)
+        response: SearchBasicInfoLanguageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   SearchBasicInfoLanguageResponse)
         response.raw = resp
 
         return response
-        
-    

@@ -21,9 +21,10 @@ class UsageUser(object):
 class UsageUserBuilder(object):
     def __init__(self) -> None:
         self._usage_user = UsageUser()
+
     def user_id(self, user_id: str) -> "UsageUserBuilder":
         self._usage_user.user_id = user_id
         return self
-    
+
     def build(self) -> "UsageUser":
         return self._usage_user

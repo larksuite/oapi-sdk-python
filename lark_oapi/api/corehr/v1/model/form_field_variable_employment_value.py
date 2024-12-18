@@ -23,12 +23,14 @@ class FormFieldVariableEmploymentValue(object):
 class FormFieldVariableEmploymentValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_employment_value = FormFieldVariableEmploymentValue()
+
     def value(self, value: str) -> "FormFieldVariableEmploymentValueBuilder":
         self._form_field_variable_employment_value.value = value
         return self
+
     def user_id(self, user_id: str) -> "FormFieldVariableEmploymentValueBuilder":
         self._form_field_variable_employment_value.user_id = user_id
         return self
-    
+
     def build(self) -> "FormFieldVariableEmploymentValue":
         return self._form_field_variable_employment_value

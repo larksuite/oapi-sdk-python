@@ -25,15 +25,18 @@ class AbnormalReasonElement(object):
 class AbnormalReasonElementBuilder(object):
     def __init__(self) -> None:
         self._abnormal_reason_element = AbnormalReasonElement()
+
     def tag(self, tag: str) -> "AbnormalReasonElementBuilder":
         self._abnormal_reason_element.tag = tag
         return self
+
     def text(self, text: str) -> "AbnormalReasonElementBuilder":
         self._abnormal_reason_element.text = text
         return self
+
     def href(self, href: str) -> "AbnormalReasonElementBuilder":
         self._abnormal_reason_element.href = href
         return self
-    
+
     def build(self) -> "AbnormalReasonElement":
         return self._abnormal_reason_element

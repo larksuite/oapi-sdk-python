@@ -24,12 +24,14 @@ class CustomCompleteItem(object):
 class CustomCompleteItemBuilder(object):
     def __init__(self) -> None:
         self._custom_complete_item = CustomCompleteItem()
+
     def href(self, href: str) -> "CustomCompleteItemBuilder":
         self._custom_complete_item.href = href
         return self
+
     def tip(self, tip: I18nText) -> "CustomCompleteItemBuilder":
         self._custom_complete_item.tip = tip
         return self
-    
+
     def build(self) -> "CustomCompleteItem":
         return self._custom_complete_item

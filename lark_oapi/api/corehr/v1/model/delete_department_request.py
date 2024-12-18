@@ -23,12 +23,11 @@ class DeleteDepartmentRequestBuilder(object):
         delete_department_request.uri = "/open-apis/corehr/v1/departments/:department_id"
         delete_department_request.token_types = {AccessTokenType.TENANT}
         self._delete_department_request: DeleteDepartmentRequest = delete_department_request
-    
+
     def department_id(self, department_id: str) -> "DeleteDepartmentRequestBuilder":
         self._delete_department_request.department_id = department_id
         self._delete_department_request.paths["department_id"] = str(department_id)
         return self
-    
 
     def build(self) -> DeleteDepartmentRequest:
         return self._delete_department_request

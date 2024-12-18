@@ -21,9 +21,10 @@ class DocsLink(object):
 class DocsLinkBuilder(object):
     def __init__(self) -> None:
         self._docs_link = DocsLink()
+
     def url(self, url: str) -> "DocsLinkBuilder":
         self._docs_link.url = url
         return self
-    
+
     def build(self) -> "DocsLink":
         return self._docs_link

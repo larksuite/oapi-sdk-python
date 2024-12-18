@@ -26,15 +26,18 @@ class ListAppSkillResponseBody(object):
 class ListAppSkillResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_skill_response_body = ListAppSkillResponseBody()
+
     def skills(self, skills: List[Skill]) -> "ListAppSkillResponseBodyBuilder":
         self._list_app_skill_response_body.skills = skills
         return self
+
     def page_token(self, page_token: str) -> "ListAppSkillResponseBodyBuilder":
         self._list_app_skill_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListAppSkillResponseBodyBuilder":
         self._list_app_skill_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListAppSkillResponseBody":
         return self._list_app_skill_response_body

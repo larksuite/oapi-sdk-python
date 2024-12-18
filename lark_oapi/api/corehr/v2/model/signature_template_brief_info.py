@@ -61,57 +61,75 @@ class SignatureTemplateBriefInfo(object):
 class SignatureTemplateBriefInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_template_brief_info = SignatureTemplateBriefInfo()
+
     def id(self, id: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.id = id
         return self
+
     def label(self, label: List[I18n]) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.label = label
         return self
+
     def category(self, category: Enum) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.category = category
         return self
+
     def usage(self, usage: Enum) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.usage = usage
         return self
+
     def signatory_labels(self, signatory_labels: List[SignatureSignatoryLabel]) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.signatory_labels = signatory_labels
         return self
+
     def active(self, active: bool) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.active = active
         return self
+
     def create_by(self, create_by: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.create_by = create_by
         return self
+
     def modify_by(self, modify_by: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.modify_by = modify_by
         return self
+
     def applicability(self, applicability: Enum) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.applicability = applicability
         return self
+
     def creation_method(self, creation_method: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.creation_method = creation_method
         return self
+
     def version(self, version: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.version = version
         return self
+
     def update_time(self, update_time: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.update_time = update_time
         return self
+
     def create_time(self, create_time: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.create_time = create_time
         return self
+
     def template_setting(self, template_setting: SignatureTemplateSetting) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.template_setting = template_setting
         return self
-    def template_region_info(self, template_region_info: SignatureTemplateRegionInfo) -> "SignatureTemplateBriefInfoBuilder":
+
+    def template_region_info(self,
+                             template_region_info: SignatureTemplateRegionInfo) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.template_region_info = template_region_info
         return self
+
     def template_code(self, template_code: str) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.template_code = template_code
         return self
+
     def template_desc(self, template_desc: List[I18n]) -> "SignatureTemplateBriefInfoBuilder":
         self._signature_template_brief_info.template_desc = template_desc
         return self
-    
+
     def build(self) -> "SignatureTemplateBriefInfo":
         return self._signature_template_brief_info

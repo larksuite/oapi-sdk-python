@@ -23,12 +23,14 @@ class MyaiCardStatus(object):
 class MyaiCardStatusBuilder(object):
     def __init__(self) -> None:
         self._myai_card_status = MyaiCardStatus()
+
     def from_status(self, from_status: str) -> "MyaiCardStatusBuilder":
         self._myai_card_status.from_status = from_status
         return self
+
     def to_status(self, to_status: str) -> "MyaiCardStatusBuilder":
         self._myai_card_status.to_status = to_status
         return self
-    
+
     def build(self) -> "MyaiCardStatus":
         return self._myai_card_status

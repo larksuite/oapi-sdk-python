@@ -36,27 +36,34 @@ class ProcessCcItem(object):
 class ProcessCcItemBuilder(object):
     def __init__(self) -> None:
         self._process_cc_item = ProcessCcItem()
+
     def approver_id(self, approver_id: str) -> "ProcessCcItemBuilder":
         self._process_cc_item.approver_id = approver_id
         return self
+
     def links(self, links: ProcessLink) -> "ProcessCcItemBuilder":
         self._process_cc_item.links = links
         return self
+
     def operator_id(self, operator_id: str) -> "ProcessCcItemBuilder":
         self._process_cc_item.operator_id = operator_id
         return self
+
     def operator_name(self, operator_name: DataengineI18n) -> "ProcessCcItemBuilder":
         self._process_cc_item.operator_name = operator_name
         return self
+
     def node_name(self, node_name: DataengineI18n) -> "ProcessCcItemBuilder":
         self._process_cc_item.node_name = node_name
         return self
+
     def create_time(self, create_time: str) -> "ProcessCcItemBuilder":
         self._process_cc_item.create_time = create_time
         return self
+
     def node_definition_id(self, node_definition_id: str) -> "ProcessCcItemBuilder":
         self._process_cc_item.node_definition_id = node_definition_id
         return self
-    
+
     def build(self) -> "ProcessCcItem":
         return self._process_cc_item

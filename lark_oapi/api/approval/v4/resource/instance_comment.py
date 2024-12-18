@@ -23,7 +23,8 @@ class InstanceComment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateInstanceCommentRequest, option: Optional[RequestOption] = None) -> CreateInstanceCommentResponse:
+    def create(self, request: CreateInstanceCommentRequest,
+               option: Optional[RequestOption] = None) -> CreateInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class InstanceComment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateInstanceCommentResponse)
+        response: CreateInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CreateInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateInstanceCommentRequest, option: Optional[RequestOption] = None) -> CreateInstanceCommentResponse:
+    async def acreate(self, request: CreateInstanceCommentRequest,
+                      option: Optional[RequestOption] = None) -> CreateInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateInstanceCommentResponse)
+        response: CreateInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 CreateInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteInstanceCommentRequest, option: Optional[RequestOption] = None) -> DeleteInstanceCommentResponse:
+
+    def delete(self, request: DeleteInstanceCommentRequest,
+               option: Optional[RequestOption] = None) -> DeleteInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,34 @@ class InstanceComment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteInstanceCommentResponse)
+        response: DeleteInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 DeleteInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteInstanceCommentRequest, option: Optional[RequestOption] = None) -> DeleteInstanceCommentResponse:
+    async def adelete(self, request: DeleteInstanceCommentRequest,
+                      option: Optional[RequestOption] = None) -> DeleteInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteInstanceCommentResponse)
+        response: DeleteInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 DeleteInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListInstanceCommentRequest, option: Optional[RequestOption] = None) -> ListInstanceCommentResponse:
+
+    def list(self, request: ListInstanceCommentRequest,
+             option: Optional[RequestOption] = None) -> ListInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +117,32 @@ class InstanceComment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListInstanceCommentRequest, option: Optional[RequestOption] = None) -> ListInstanceCommentResponse:
+    async def alist(self, request: ListInstanceCommentRequest,
+                    option: Optional[RequestOption] = None) -> ListInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
-    def remove(self, request: RemoveInstanceCommentRequest, option: Optional[RequestOption] = None) -> RemoveInstanceCommentResponse:
+
+    def remove(self, request: RemoveInstanceCommentRequest,
+               option: Optional[RequestOption] = None) -> RemoveInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +155,28 @@ class InstanceComment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: RemoveInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveInstanceCommentResponse)
+        response: RemoveInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 RemoveInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aremove(self, request: RemoveInstanceCommentRequest, option: Optional[RequestOption] = None) -> RemoveInstanceCommentResponse:
+    async def aremove(self, request: RemoveInstanceCommentRequest,
+                      option: Optional[RequestOption] = None) -> RemoveInstanceCommentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: RemoveInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveInstanceCommentResponse)
+        response: RemoveInstanceCommentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 RemoveInstanceCommentResponse)
         response.raw = resp
 
         return response
-        
-    

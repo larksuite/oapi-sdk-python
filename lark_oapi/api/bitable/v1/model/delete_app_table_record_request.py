@@ -25,22 +25,21 @@ class DeleteAppTableRecordRequestBuilder(object):
         delete_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
         delete_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._delete_app_table_record_request: DeleteAppTableRecordRequest = delete_app_table_record_request
-    
+
     def app_token(self, app_token: str) -> "DeleteAppTableRecordRequestBuilder":
         self._delete_app_table_record_request.app_token = app_token
         self._delete_app_table_record_request.paths["app_token"] = str(app_token)
         return self
-    
+
     def table_id(self, table_id: str) -> "DeleteAppTableRecordRequestBuilder":
         self._delete_app_table_record_request.table_id = table_id
         self._delete_app_table_record_request.paths["table_id"] = str(table_id)
         return self
-    
+
     def record_id(self, record_id: str) -> "DeleteAppTableRecordRequestBuilder":
         self._delete_app_table_record_request.record_id = record_id
         self._delete_app_table_record_request.paths["record_id"] = str(record_id)
         return self
-    
 
     def build(self) -> DeleteAppTableRecordRequest:
         return self._delete_app_table_record_request

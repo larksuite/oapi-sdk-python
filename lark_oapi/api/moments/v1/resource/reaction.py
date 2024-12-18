@@ -14,5 +14,3 @@ from requests_toolbelt import MultipartEncoder
 class Reaction(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
-
-    

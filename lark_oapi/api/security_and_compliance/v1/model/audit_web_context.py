@@ -23,12 +23,14 @@ class AuditWebContext(object):
 class AuditWebContextBuilder(object):
     def __init__(self) -> None:
         self._audit_web_context = AuditWebContext()
+
     def user_agent(self, user_agent: str) -> "AuditWebContextBuilder":
         self._audit_web_context.user_agent = user_agent
         return self
+
     def i_p(self, i_p: str) -> "AuditWebContextBuilder":
         self._audit_web_context.i_p = i_p
         return self
-    
+
     def build(self) -> "AuditWebContext":
         return self._audit_web_context

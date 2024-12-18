@@ -32,13 +32,12 @@ class JobTitle(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobTitleResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetJobTitleRequest, option: Optional[RequestOption] = None) -> GetJobTitleResponse:
         if option is None:
@@ -47,17 +46,15 @@ class JobTitle(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobTitleResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListJobTitleRequest, option: Optional[RequestOption] = None) -> ListJobTitleResponse:
         if option is None:
             option = RequestOption()
@@ -71,13 +68,12 @@ class JobTitle(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobTitleResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListJobTitleRequest, option: Optional[RequestOption] = None) -> ListJobTitleResponse:
         if option is None:
@@ -86,15 +82,11 @@ class JobTitle(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListJobTitleResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobTitleResponse)
         response.raw = resp
 
         return response
-        
-    

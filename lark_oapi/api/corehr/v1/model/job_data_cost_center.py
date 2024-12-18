@@ -26,15 +26,18 @@ class JobDataCostCenter(object):
 class JobDataCostCenterBuilder(object):
     def __init__(self) -> None:
         self._job_data_cost_center = JobDataCostCenter()
+
     def cost_center_id(self, cost_center_id: str) -> "JobDataCostCenterBuilder":
         self._job_data_cost_center.cost_center_id = cost_center_id
         return self
+
     def rate(self, rate: int) -> "JobDataCostCenterBuilder":
         self._job_data_cost_center.rate = rate
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "JobDataCostCenterBuilder":
         self._job_data_cost_center.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "JobDataCostCenter":
         return self._job_data_cost_center

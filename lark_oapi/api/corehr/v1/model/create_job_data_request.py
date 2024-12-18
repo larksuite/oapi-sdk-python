@@ -27,22 +27,22 @@ class CreateJobDataRequestBuilder(object):
         create_job_data_request.uri = "/open-apis/corehr/v1/job_datas"
         create_job_data_request.token_types = {AccessTokenType.TENANT}
         self._create_job_data_request: CreateJobDataRequest = create_job_data_request
-    
+
     def client_token(self, client_token: str) -> "CreateJobDataRequestBuilder":
         self._create_job_data_request.client_token = client_token
         self._create_job_data_request.add_query("client_token", client_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateJobDataRequestBuilder":
         self._create_job_data_request.user_id_type = user_id_type
         self._create_job_data_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "CreateJobDataRequestBuilder":
         self._create_job_data_request.department_id_type = department_id_type
         self._create_job_data_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def request_body(self, request_body: JobData) -> "CreateJobDataRequestBuilder":
         self._create_job_data_request.request_body = request_body
         self._create_job_data_request.body = request_body

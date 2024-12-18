@@ -25,7 +25,8 @@ class AppRoleMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateAppRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateAppRoleMemberResponse:
+    def batch_create(self, request: BatchCreateAppRoleMemberRequest,
+                     option: Optional[RequestOption] = None) -> BatchCreateAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,33 +39,34 @@ class AppRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchCreateAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAppRoleMemberResponse)
+        response: BatchCreateAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchCreateAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_create(self, request: BatchCreateAppRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateAppRoleMemberResponse:
+    async def abatch_create(self, request: BatchCreateAppRoleMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchCreateAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchCreateAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAppRoleMemberResponse)
+        response: BatchCreateAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchCreateAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
-    def batch_delete(self, request: BatchDeleteAppRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchDeleteAppRoleMemberResponse:
+
+    def batch_delete(self, request: BatchDeleteAppRoleMemberRequest,
+                     option: Optional[RequestOption] = None) -> BatchDeleteAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,33 +79,34 @@ class AppRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteAppRoleMemberResponse)
+        response: BatchDeleteAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchDeleteAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_delete(self, request: BatchDeleteAppRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchDeleteAppRoleMemberResponse:
+    async def abatch_delete(self, request: BatchDeleteAppRoleMemberRequest,
+                            option: Optional[RequestOption] = None) -> BatchDeleteAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchDeleteAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDeleteAppRoleMemberResponse)
+        response: BatchDeleteAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    BatchDeleteAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateAppRoleMemberRequest, option: Optional[RequestOption] = None) -> CreateAppRoleMemberResponse:
+
+    def create(self, request: CreateAppRoleMemberRequest,
+               option: Optional[RequestOption] = None) -> CreateAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,33 +119,32 @@ class AppRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateAppRoleMemberRequest, option: Optional[RequestOption] = None) -> CreateAppRoleMemberResponse:
+    async def acreate(self, request: CreateAppRoleMemberRequest,
+                      option: Optional[RequestOption] = None) -> CreateAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteAppRoleMemberRequest, option: Optional[RequestOption] = None) -> DeleteAppRoleMemberResponse:
+
+    def delete(self, request: DeleteAppRoleMemberRequest,
+               option: Optional[RequestOption] = None) -> DeleteAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,33 +157,32 @@ class AppRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteAppRoleMemberRequest, option: Optional[RequestOption] = None) -> DeleteAppRoleMemberResponse:
+    async def adelete(self, request: DeleteAppRoleMemberRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListAppRoleMemberRequest, option: Optional[RequestOption] = None) -> ListAppRoleMemberResponse:
+
+    def list(self, request: ListAppRoleMemberRequest,
+             option: Optional[RequestOption] = None) -> ListAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,30 +195,26 @@ class AppRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListAppRoleMemberRequest, option: Optional[RequestOption] = None) -> ListAppRoleMemberResponse:
+    async def alist(self, request: ListAppRoleMemberRequest,
+                    option: Optional[RequestOption] = None) -> ListAppRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListAppRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppRoleMemberResponse)
         response.raw = resp
 
         return response
-        
-    

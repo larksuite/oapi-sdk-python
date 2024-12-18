@@ -22,9 +22,10 @@ class CreateJobRequirementResponseBody(object):
 class CreateJobRequirementResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_job_requirement_response_body = CreateJobRequirementResponseBody()
+
     def job_requirement(self, job_requirement: JobRequirementDto) -> "CreateJobRequirementResponseBodyBuilder":
         self._create_job_requirement_response_body.job_requirement = job_requirement
         return self
-    
+
     def build(self) -> "CreateJobRequirementResponseBody":
         return self._create_job_requirement_response_body

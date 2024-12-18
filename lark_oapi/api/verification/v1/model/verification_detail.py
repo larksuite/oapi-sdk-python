@@ -35,30 +35,38 @@ class VerificationDetail(object):
 class VerificationDetailBuilder(object):
     def __init__(self) -> None:
         self._verification_detail = VerificationDetail()
+
     def verification_type(self, verification_type: int) -> "VerificationDetailBuilder":
         self._verification_detail.verification_type = verification_type
         return self
+
     def verification_source(self, verification_source: int) -> "VerificationDetailBuilder":
         self._verification_detail.verification_source = verification_source
         return self
+
     def org_name(self, org_name: str) -> "VerificationDetailBuilder":
         self._verification_detail.org_name = org_name
         return self
+
     def usci(self, usci: str) -> "VerificationDetailBuilder":
         self._verification_detail.usci = usci
         return self
+
     def org_type(self, org_type: int) -> "VerificationDetailBuilder":
         self._verification_detail.org_type = org_type
         return self
+
     def legal_person_name(self, legal_person_name: str) -> "VerificationDetailBuilder":
         self._verification_detail.legal_person_name = legal_person_name
         return self
+
     def enterprise_license(self, enterprise_license: str) -> "VerificationDetailBuilder":
         self._verification_detail.enterprise_license = enterprise_license
         return self
+
     def verification_letter(self, verification_letter: str) -> "VerificationDetailBuilder":
         self._verification_detail.verification_letter = verification_letter
         return self
-    
+
     def build(self) -> "VerificationDetail":
         return self._verification_detail

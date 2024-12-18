@@ -22,9 +22,10 @@ class CreateAppTableRequestBody(object):
 class CreateAppTableRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_table_request_body = CreateAppTableRequestBody()
+
     def table(self, table: ReqTable) -> "CreateAppTableRequestBodyBuilder":
         self._create_app_table_request_body.table = table
         return self
-    
+
     def build(self) -> "CreateAppTableRequestBody":
         return self._create_app_table_request_body

@@ -22,9 +22,10 @@ class UploadAttachmentResponseBody(object):
 class UploadAttachmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_attachment_response_body = UploadAttachmentResponseBody()
+
     def items(self, items: List[Attachment]) -> "UploadAttachmentResponseBodyBuilder":
         self._upload_attachment_response_body.items = items
         return self
-    
+
     def build(self) -> "UploadAttachmentResponseBody":
         return self._upload_attachment_response_body

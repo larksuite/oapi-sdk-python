@@ -25,12 +25,14 @@ class GetScopeConfigResponseBody(object):
 class GetScopeConfigResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_scope_config_response_body = GetScopeConfigResponseBody()
+
     def current_config(self, current_config: ScopeConfig) -> "GetScopeConfigResponseBodyBuilder":
         self._get_scope_config_response_body.current_config = current_config
         return self
+
     def origin_configs(self, origin_configs: List[ScopeConfig]) -> "GetScopeConfigResponseBodyBuilder":
         self._get_scope_config_response_body.origin_configs = origin_configs
         return self
-    
+
     def build(self) -> "GetScopeConfigResponseBody":
         return self._get_scope_config_response_body

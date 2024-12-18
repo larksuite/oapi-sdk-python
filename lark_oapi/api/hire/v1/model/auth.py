@@ -24,12 +24,14 @@ class Auth(object):
 class AuthBuilder(object):
     def __init__(self) -> None:
         self._auth = Auth()
+
     def id(self, id: str) -> "AuthBuilder":
         self._auth.id = id
         return self
+
     def name(self, name: I18n) -> "AuthBuilder":
         self._auth.name = name
         return self
-    
+
     def build(self) -> "Auth":
         return self._auth

@@ -22,9 +22,10 @@ class GetReserveResponseBody(object):
 class GetReserveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_reserve_response_body = GetReserveResponseBody()
+
     def reserve(self, reserve: Reserve) -> "GetReserveResponseBodyBuilder":
         self._get_reserve_response_body.reserve = reserve
         return self
-    
+
     def build(self) -> "GetReserveResponseBody":
         return self._get_reserve_response_body

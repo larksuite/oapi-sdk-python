@@ -23,12 +23,14 @@ class Schedule(object):
 class ScheduleBuilder(object):
     def __init__(self) -> None:
         self._schedule = Schedule()
+
     def group_id(self, group_id: str) -> "ScheduleBuilder":
         self._schedule.group_id = group_id
         return self
+
     def shifts(self, shifts: List[str]) -> "ScheduleBuilder":
         self._schedule.shifts = shifts
         return self
-    
+
     def build(self) -> "Schedule":
         return self._schedule

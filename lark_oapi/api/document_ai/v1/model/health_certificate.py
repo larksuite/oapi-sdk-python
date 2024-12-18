@@ -22,9 +22,10 @@ class HealthCertificate(object):
 class HealthCertificateBuilder(object):
     def __init__(self) -> None:
         self._health_certificate = HealthCertificate()
+
     def entities(self, entities: List[HealthCertificateEntity]) -> "HealthCertificateBuilder":
         self._health_certificate.entities = entities
         return self
-    
+
     def build(self) -> "HealthCertificate":
         return self._health_certificate

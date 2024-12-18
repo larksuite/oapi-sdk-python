@@ -29,18 +29,22 @@ class CalendarAclEvent(object):
 class CalendarAclEventBuilder(object):
     def __init__(self) -> None:
         self._calendar_acl_event = CalendarAclEvent()
+
     def acl_id(self, acl_id: str) -> "CalendarAclEventBuilder":
         self._calendar_acl_event.acl_id = acl_id
         return self
+
     def role(self, role: str) -> "CalendarAclEventBuilder":
         self._calendar_acl_event.role = role
         return self
+
     def scope(self, scope: AclScopeEvent) -> "CalendarAclEventBuilder":
         self._calendar_acl_event.scope = scope
         return self
+
     def user_id_list(self, user_id_list: List[UserId]) -> "CalendarAclEventBuilder":
         self._calendar_acl_event.user_id_list = user_id_list
         return self
-    
+
     def build(self) -> "CalendarAclEvent":
         return self._calendar_acl_event

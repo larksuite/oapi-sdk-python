@@ -24,12 +24,14 @@ class ReportData(object):
 class ReportDataBuilder(object):
     def __init__(self) -> None:
         self._report_data = ReportData()
+
     def user_id(self, user_id: str) -> "ReportDataBuilder":
         self._report_data.user_id = user_id
         return self
+
     def field_data(self, field_data: Dict[str, ReportValue]) -> "ReportDataBuilder":
         self._report_data.field_data = field_data
         return self
-    
+
     def build(self) -> "ReportData":
         return self._report_data

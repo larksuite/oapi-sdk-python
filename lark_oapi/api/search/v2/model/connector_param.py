@@ -23,12 +23,14 @@ class ConnectorParam(object):
 class ConnectorParamBuilder(object):
     def __init__(self) -> None:
         self._connector_param = ConnectorParam()
+
     def callback_user_id_type(self, callback_user_id_type: int) -> "ConnectorParamBuilder":
         self._connector_param.callback_user_id_type = callback_user_id_type
         return self
+
     def callback_endpoint(self, callback_endpoint: str) -> "ConnectorParamBuilder":
         self._connector_param.callback_endpoint = callback_endpoint
         return self
-    
+
     def build(self) -> "ConnectorParam":
         return self._connector_param

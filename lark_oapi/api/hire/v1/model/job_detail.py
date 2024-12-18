@@ -46,33 +46,42 @@ class JobDetail(object):
 class JobDetailBuilder(object):
     def __init__(self) -> None:
         self._job_detail = JobDetail()
+
     def basic_info(self, basic_info: JobDetailBasicInfo) -> "JobDetailBuilder":
         self._job_detail.basic_info = basic_info
         return self
+
     def recruiter(self, recruiter: JobUserInfo) -> "JobDetailBuilder":
         self._job_detail.recruiter = recruiter
         return self
+
     def assistant_list(self, assistant_list: List[JobUserInfo]) -> "JobDetailBuilder":
         self._job_detail.assistant_list = assistant_list
         return self
+
     def hiring_manager_list(self, hiring_manager_list: List[JobUserInfo]) -> "JobDetailBuilder":
         self._job_detail.hiring_manager_list = hiring_manager_list
         return self
+
     def job_requirement_list(self, job_requirement_list: List[JobRequirementSimple]) -> "JobDetailBuilder":
         self._job_detail.job_requirement_list = job_requirement_list
         return self
+
     def address_list(self, address_list: List[CommonAddress]) -> "JobDetailBuilder":
         self._job_detail.address_list = address_list
         return self
+
     def job_config(self, job_config: JobConfigDetail) -> "JobDetailBuilder":
         self._job_detail.job_config = job_config
         return self
+
     def storefront_list(self, storefront_list: List[JobStorefront]) -> "JobDetailBuilder":
         self._job_detail.storefront_list = storefront_list
         return self
+
     def tag_list(self, tag_list: List[JobDetailTag]) -> "JobDetailBuilder":
         self._job_detail.tag_list = tag_list
         return self
-    
+
     def build(self) -> "JobDetail":
         return self._job_detail

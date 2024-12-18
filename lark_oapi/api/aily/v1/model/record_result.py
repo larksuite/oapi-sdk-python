@@ -28,18 +28,22 @@ class RecordResult(object):
 class RecordResultBuilder(object):
     def __init__(self) -> None:
         self._record_result = RecordResult()
+
     def success(self, success: bool) -> "RecordResultBuilder":
         self._record_result.success = success
         return self
+
     def primary_key_value(self, primary_key_value: str) -> "RecordResultBuilder":
         self._record_result.primary_key_value = primary_key_value
         return self
+
     def errors(self, errors: List[RecordError]) -> "RecordResultBuilder":
         self._record_result.errors = errors
         return self
+
     def _id(self, _id: str) -> "RecordResultBuilder":
         self._record_result._id = _id
         return self
-    
+
     def build(self) -> "RecordResult":
         return self._record_result

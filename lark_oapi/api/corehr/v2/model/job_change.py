@@ -45,42 +45,54 @@ class JobChange(object):
 class JobChangeBuilder(object):
     def __init__(self) -> None:
         self._job_change = JobChange()
+
     def job_change_id(self, job_change_id: str) -> "JobChangeBuilder":
         self._job_change.job_change_id = job_change_id
         return self
+
     def employment_id(self, employment_id: str) -> "JobChangeBuilder":
         self._job_change.employment_id = employment_id
         return self
+
     def status(self, status: str) -> "JobChangeBuilder":
         self._job_change.status = status
         return self
+
     def transfer_type_unique_identifier(self, transfer_type_unique_identifier: str) -> "JobChangeBuilder":
         self._job_change.transfer_type_unique_identifier = transfer_type_unique_identifier
         return self
+
     def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: str) -> "JobChangeBuilder":
         self._job_change.transfer_reason_unique_identifier = transfer_reason_unique_identifier
         return self
+
     def process_id(self, process_id: str) -> "JobChangeBuilder":
         self._job_change.process_id = process_id
         return self
+
     def effective_date(self, effective_date: str) -> "JobChangeBuilder":
         self._job_change.effective_date = effective_date
         return self
+
     def created_time(self, created_time: str) -> "JobChangeBuilder":
         self._job_change.created_time = created_time
         return self
+
     def updated_time(self, updated_time: str) -> "JobChangeBuilder":
         self._job_change.updated_time = updated_time
         return self
+
     def transfer_info(self, transfer_info: TransferInfo) -> "JobChangeBuilder":
         self._job_change.transfer_info = transfer_info
         return self
+
     def is_adjust_salary(self, is_adjust_salary: bool) -> "JobChangeBuilder":
         self._job_change.is_adjust_salary = is_adjust_salary
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "JobChangeBuilder":
         self._job_change.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "JobChange":
         return self._job_change

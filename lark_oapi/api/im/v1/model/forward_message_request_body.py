@@ -21,9 +21,10 @@ class ForwardMessageRequestBody(object):
 class ForwardMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._forward_message_request_body = ForwardMessageRequestBody()
+
     def receive_id(self, receive_id: str) -> "ForwardMessageRequestBodyBuilder":
         self._forward_message_request_body.receive_id = receive_id
         return self
-    
+
     def build(self) -> "ForwardMessageRequestBody":
         return self._forward_message_request_body

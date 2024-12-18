@@ -23,12 +23,14 @@ class Richtext(object):
 class RichtextBuilder(object):
     def __init__(self) -> None:
         self._richtext = Richtext()
+
     def content(self, content: str) -> "RichtextBuilder":
         self._richtext.content = content
         return self
+
     def type(self, type: str) -> "RichtextBuilder":
         self._richtext.type = type
         return self
-    
+
     def build(self) -> "Richtext":
         return self._richtext

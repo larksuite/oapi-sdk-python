@@ -24,12 +24,14 @@ class EmployeeJobData(object):
 class EmployeeJobDataBuilder(object):
     def __init__(self) -> None:
         self._employee_job_data = EmployeeJobData()
+
     def employment_id(self, employment_id: str) -> "EmployeeJobDataBuilder":
         self._employee_job_data.employment_id = employment_id
         return self
+
     def job_datas(self, job_datas: List[JobData]) -> "EmployeeJobDataBuilder":
         self._employee_job_data.job_datas = job_datas
         return self
-    
+
     def build(self) -> "EmployeeJobData":
         return self._employee_job_data

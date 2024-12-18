@@ -27,23 +27,24 @@ class SearchTalentOperationLogRequestBuilder(object):
         search_talent_operation_log_request.uri = "/open-apis/hire/v1/talent_operation_logs/search"
         search_talent_operation_log_request.token_types = {AccessTokenType.TENANT}
         self._search_talent_operation_log_request: SearchTalentOperationLogRequest = search_talent_operation_log_request
-    
+
     def page_token(self, page_token: str) -> "SearchTalentOperationLogRequestBuilder":
         self._search_talent_operation_log_request.page_token = page_token
         self._search_talent_operation_log_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "SearchTalentOperationLogRequestBuilder":
         self._search_talent_operation_log_request.page_size = page_size
         self._search_talent_operation_log_request.add_query("page_size", page_size)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "SearchTalentOperationLogRequestBuilder":
         self._search_talent_operation_log_request.user_id_type = user_id_type
         self._search_talent_operation_log_request.add_query("user_id_type", user_id_type)
         return self
-    
-    def request_body(self, request_body: SearchTalentOperationLogRequestBody) -> "SearchTalentOperationLogRequestBuilder":
+
+    def request_body(self,
+                     request_body: SearchTalentOperationLogRequestBody) -> "SearchTalentOperationLogRequestBuilder":
         self._search_talent_operation_log_request.request_body = request_body
         self._search_talent_operation_log_request.body = request_body
         return self

@@ -27,18 +27,22 @@ class Acceptance(object):
 class AcceptanceBuilder(object):
     def __init__(self) -> None:
         self._acceptance = Acceptance()
+
     def operator_type(self, operator_type: int) -> "AcceptanceBuilder":
         self._acceptance.operator_type = operator_type
         return self
+
     def conclusion(self, conclusion: int) -> "AcceptanceBuilder":
         self._acceptance.conclusion = conclusion
         return self
+
     def memo(self, memo: str) -> "AcceptanceBuilder":
         self._acceptance.memo = memo
         return self
+
     def operate_time(self, operate_time: str) -> "AcceptanceBuilder":
         self._acceptance.operate_time = operate_time
         return self
-    
+
     def build(self) -> "Acceptance":
         return self._acceptance

@@ -24,8 +24,9 @@ class CreateEcoBackgroundCheckCustomFieldRequestBuilder(object):
         create_eco_background_check_custom_field_request.uri = "/open-apis/hire/v1/eco_background_check_custom_fields"
         create_eco_background_check_custom_field_request.token_types = {AccessTokenType.TENANT}
         self._create_eco_background_check_custom_field_request: CreateEcoBackgroundCheckCustomFieldRequest = create_eco_background_check_custom_field_request
-    
-    def request_body(self, request_body: EcoBackgroundCheckCustomField) -> "CreateEcoBackgroundCheckCustomFieldRequestBuilder":
+
+    def request_body(self,
+                     request_body: EcoBackgroundCheckCustomField) -> "CreateEcoBackgroundCheckCustomFieldRequestBuilder":
         self._create_eco_background_check_custom_field_request.request_body = request_body
         self._create_eco_background_check_custom_field_request.body = request_body
         return self

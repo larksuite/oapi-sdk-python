@@ -22,9 +22,10 @@ class BatchGetOkrResponseBody(object):
 class BatchGetOkrResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_okr_response_body = BatchGetOkrResponseBody()
+
     def okr_list(self, okr_list: List[OkrBatch]) -> "BatchGetOkrResponseBodyBuilder":
         self._batch_get_okr_response_body.okr_list = okr_list
         return self
-    
+
     def build(self) -> "BatchGetOkrResponseBody":
         return self._batch_get_okr_response_body

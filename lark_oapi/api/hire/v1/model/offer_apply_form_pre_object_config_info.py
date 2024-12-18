@@ -25,15 +25,18 @@ class OfferApplyFormPreObjectConfigInfo(object):
 class OfferApplyFormPreObjectConfigInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form_pre_object_config_info = OfferApplyFormPreObjectConfigInfo()
+
     def id(self, id: str) -> "OfferApplyFormPreObjectConfigInfoBuilder":
         self._offer_apply_form_pre_object_config_info.id = id
         return self
+
     def operator(self, operator: int) -> "OfferApplyFormPreObjectConfigInfoBuilder":
         self._offer_apply_form_pre_object_config_info.operator = operator
         return self
+
     def value(self, value: List[str]) -> "OfferApplyFormPreObjectConfigInfoBuilder":
         self._offer_apply_form_pre_object_config_info.value = value
         return self
-    
+
     def build(self) -> "OfferApplyFormPreObjectConfigInfo":
         return self._offer_apply_form_pre_object_config_info

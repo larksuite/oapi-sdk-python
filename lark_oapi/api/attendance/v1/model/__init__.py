@@ -45,9 +45,11 @@ from .punch_member import *
 from .punch_special_date_shift import *
 from .punch_time_rule import *
 from .punch_time_simple_rule import *
+from .region_place import *
 from .report_data import *
 from .report_value import *
 from .rest_rule import *
+from .rest_time_flexible_config import *
 from .scan_wifi_info import *
 from .schedule import *
 from .scope_group import *
@@ -118,6 +120,8 @@ from .query_user_approval_request_body import *
 from .query_user_approval_request import *
 from .batch_create_user_daily_shift_request_body import *
 from .batch_create_user_daily_shift_request import *
+from .batch_create_temp_user_daily_shift_request_body import *
+from .batch_create_temp_user_daily_shift_request import *
 from .query_user_daily_shift_request_body import *
 from .query_user_daily_shift_request import *
 from .batch_create_user_flow_request_body import *
@@ -186,6 +190,8 @@ from .query_user_approval_response_body import *
 from .query_user_approval_response import *
 from .batch_create_user_daily_shift_response_body import *
 from .batch_create_user_daily_shift_response import *
+from .batch_create_temp_user_daily_shift_response_body import *
+from .batch_create_temp_user_daily_shift_response import *
 from .query_user_daily_shift_response_body import *
 from .query_user_daily_shift_response import *
 from .batch_create_user_flow_response_body import *

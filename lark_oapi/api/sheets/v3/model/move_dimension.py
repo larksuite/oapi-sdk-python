@@ -24,12 +24,14 @@ class MoveDimension(object):
 class MoveDimensionBuilder(object):
     def __init__(self) -> None:
         self._move_dimension = MoveDimension()
+
     def source(self, source: Dimension) -> "MoveDimensionBuilder":
         self._move_dimension.source = source
         return self
+
     def destination_index(self, destination_index: int) -> "MoveDimensionBuilder":
         self._move_dimension.destination_index = destination_index
         return self
-    
+
     def build(self) -> "MoveDimension":
         return self._move_dimension

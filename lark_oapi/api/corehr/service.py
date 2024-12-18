@@ -9,4 +9,3 @@ class CorehrService(object):
     def __init__(self, config: Config) -> None:
         self.v1: V1 = V1(config)
         self.v2: V2 = V2(config)
-

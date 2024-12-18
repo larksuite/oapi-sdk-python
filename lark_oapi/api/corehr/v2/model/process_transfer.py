@@ -29,21 +29,26 @@ class ProcessTransfer(object):
 class ProcessTransferBuilder(object):
     def __init__(self) -> None:
         self._process_transfer = ProcessTransfer()
+
     def operator(self, operator: str) -> "ProcessTransferBuilder":
         self._process_transfer.operator = operator
         return self
+
     def to_user_id(self, to_user_id: str) -> "ProcessTransferBuilder":
         self._process_transfer.to_user_id = to_user_id
         return self
+
     def approver_ids(self, approver_ids: List[str]) -> "ProcessTransferBuilder":
         self._process_transfer.approver_ids = approver_ids
         return self
+
     def remark(self, remark: str) -> "ProcessTransferBuilder":
         self._process_transfer.remark = remark
         return self
+
     def system_user(self, system_user: bool) -> "ProcessTransferBuilder":
         self._process_transfer.system_user = system_user
         return self
-    
+
     def build(self) -> "ProcessTransfer":
         return self._process_transfer

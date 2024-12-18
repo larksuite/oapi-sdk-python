@@ -7,4 +7,3 @@ from .v4.version import V4
 class CalendarService(object):
     def __init__(self, config: Config) -> None:
         self.v4: V4 = V4(config)
-

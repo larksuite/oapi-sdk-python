@@ -29,21 +29,26 @@ class GetLeaveEmployExpireRecordRequestBody(object):
 class GetLeaveEmployExpireRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._get_leave_employ_expire_record_request_body = GetLeaveEmployExpireRecordRequestBody()
+
     def employment_id(self, employment_id: str) -> "GetLeaveEmployExpireRecordRequestBodyBuilder":
         self._get_leave_employ_expire_record_request_body.employment_id = employment_id
         return self
+
     def leave_type_id(self, leave_type_id: str) -> "GetLeaveEmployExpireRecordRequestBodyBuilder":
         self._get_leave_employ_expire_record_request_body.leave_type_id = leave_type_id
         return self
+
     def start_expiration_date(self, start_expiration_date: str) -> "GetLeaveEmployExpireRecordRequestBodyBuilder":
         self._get_leave_employ_expire_record_request_body.start_expiration_date = start_expiration_date
         return self
+
     def end_expiration_date(self, end_expiration_date: str) -> "GetLeaveEmployExpireRecordRequestBodyBuilder":
         self._get_leave_employ_expire_record_request_body.end_expiration_date = end_expiration_date
         return self
+
     def time_offset(self, time_offset: int) -> "GetLeaveEmployExpireRecordRequestBodyBuilder":
         self._get_leave_employ_expire_record_request_body.time_offset = time_offset
         return self
-    
+
     def build(self) -> "GetLeaveEmployExpireRecordRequestBody":
         return self._get_leave_employ_expire_record_request_body

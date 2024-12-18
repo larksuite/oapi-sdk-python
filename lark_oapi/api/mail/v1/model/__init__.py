@@ -21,6 +21,7 @@ from .rule_condition_item import *
 from .subscriber import *
 from .user import *
 from .user_id import *
+from .user_info import *
 from .create_mailgroup_request import *
 from .delete_mailgroup_request import *
 from .get_mailgroup_request import *

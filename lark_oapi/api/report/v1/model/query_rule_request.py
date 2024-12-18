@@ -25,22 +25,21 @@ class QueryRuleRequestBuilder(object):
         query_rule_request.uri = "/open-apis/report/v1/rules/query"
         query_rule_request.token_types = {AccessTokenType.TENANT}
         self._query_rule_request: QueryRuleRequest = query_rule_request
-    
+
     def rule_name(self, rule_name: str) -> "QueryRuleRequestBuilder":
         self._query_rule_request.rule_name = rule_name
         self._query_rule_request.add_query("rule_name", rule_name)
         return self
-    
+
     def include_deleted(self, include_deleted: int) -> "QueryRuleRequestBuilder":
         self._query_rule_request.include_deleted = include_deleted
         self._query_rule_request.add_query("include_deleted", include_deleted)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "QueryRuleRequestBuilder":
         self._query_rule_request.user_id_type = user_id_type
         self._query_rule_request.add_query("user_id_type", user_id_type)
         return self
-    
 
     def build(self) -> QueryRuleRequest:
         return self._query_rule_request

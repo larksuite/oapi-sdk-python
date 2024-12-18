@@ -25,15 +25,18 @@ class TalentInterviewRegistrationSimple(object):
 class TalentInterviewRegistrationSimpleBuilder(object):
     def __init__(self) -> None:
         self._talent_interview_registration_simple = TalentInterviewRegistrationSimple()
+
     def id(self, id: str) -> "TalentInterviewRegistrationSimpleBuilder":
         self._talent_interview_registration_simple.id = id
         return self
+
     def registration_time(self, registration_time: int) -> "TalentInterviewRegistrationSimpleBuilder":
         self._talent_interview_registration_simple.registration_time = registration_time
         return self
+
     def download_url(self, download_url: str) -> "TalentInterviewRegistrationSimpleBuilder":
         self._talent_interview_registration_simple.download_url = download_url
         return self
-    
+
     def build(self) -> "TalentInterviewRegistrationSimple":
         return self._talent_interview_registration_simple

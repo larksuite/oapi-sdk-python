@@ -26,15 +26,18 @@ class ListJobRequirementResponseBody(object):
 class ListJobRequirementResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_job_requirement_response_body = ListJobRequirementResponseBody()
+
     def has_more(self, has_more: bool) -> "ListJobRequirementResponseBodyBuilder":
         self._list_job_requirement_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListJobRequirementResponseBodyBuilder":
         self._list_job_requirement_response_body.page_token = page_token
         return self
+
     def items(self, items: List[JobRequirementDto]) -> "ListJobRequirementResponseBodyBuilder":
         self._list_job_requirement_response_body.items = items
         return self
-    
+
     def build(self) -> "ListJobRequirementResponseBody":
         return self._list_job_requirement_response_body

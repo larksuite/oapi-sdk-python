@@ -26,15 +26,18 @@ class PatchSchemaProperty(object):
 class PatchSchemaPropertyBuilder(object):
     def __init__(self) -> None:
         self._patch_schema_property = PatchSchemaProperty()
+
     def name(self, name: str) -> "PatchSchemaPropertyBuilder":
         self._patch_schema_property.name = name
         return self
+
     def desc(self, desc: str) -> "PatchSchemaPropertyBuilder":
         self._patch_schema_property.desc = desc
         return self
+
     def answer_option(self, answer_option: SchemaFieldAnswerOption) -> "PatchSchemaPropertyBuilder":
         self._patch_schema_property.answer_option = answer_option
         return self
-    
+
     def build(self) -> "PatchSchemaProperty":
         return self._patch_schema_property

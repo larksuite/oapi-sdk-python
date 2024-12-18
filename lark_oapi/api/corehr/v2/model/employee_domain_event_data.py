@@ -31,24 +31,30 @@ class EmployeeDomainEventData(object):
 class EmployeeDomainEventDataBuilder(object):
     def __init__(self) -> None:
         self._employee_domain_event_data = EmployeeDomainEventData()
+
     def id(self, id: str) -> "EmployeeDomainEventDataBuilder":
         self._employee_domain_event_data.id = id
         return self
+
     def entity(self, entity: str) -> "EmployeeDomainEventDataBuilder":
         self._employee_domain_event_data.entity = entity
         return self
+
     def agg_entity(self, agg_entity: str) -> "EmployeeDomainEventDataBuilder":
         self._employee_domain_event_data.agg_entity = agg_entity
         return self
+
     def agg_entity_id(self, agg_entity_id: str) -> "EmployeeDomainEventDataBuilder":
         self._employee_domain_event_data.agg_entity_id = agg_entity_id
         return self
+
     def opt_type(self, opt_type: int) -> "EmployeeDomainEventDataBuilder":
         self._employee_domain_event_data.opt_type = opt_type
         return self
+
     def fields(self, fields: List[str]) -> "EmployeeDomainEventDataBuilder":
         self._employee_domain_event_data.fields = fields
         return self
-    
+
     def build(self) -> "EmployeeDomainEventData":
         return self._employee_domain_event_data

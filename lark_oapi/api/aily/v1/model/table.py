@@ -32,24 +32,30 @@ class Table(object):
 class TableBuilder(object):
     def __init__(self) -> None:
         self._table = Table()
+
     def table_type(self, table_type: str) -> "TableBuilder":
         self._table.table_type = table_type
         return self
+
     def api_name(self, api_name: str) -> "TableBuilder":
         self._table.api_name = api_name
         return self
+
     def label(self, label: Dict[str, str]) -> "TableBuilder":
         self._table.label = label
         return self
+
     def access_items(self, access_items: List[str]) -> "TableBuilder":
         self._table.access_items = access_items
         return self
+
     def ai_description(self, ai_description: str) -> "TableBuilder":
         self._table.ai_description = ai_description
         return self
+
     def fields(self, fields: List[Field]) -> "TableBuilder":
         self._table.fields = fields
         return self
-    
+
     def build(self) -> "Table":
         return self._table

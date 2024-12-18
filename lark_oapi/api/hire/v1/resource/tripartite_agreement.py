@@ -23,7 +23,8 @@ class TripartiteAgreement(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> CreateTripartiteAgreementResponse:
+    def create(self, request: CreateTripartiteAgreementRequest,
+               option: Optional[RequestOption] = None) -> CreateTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class TripartiteAgreement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTripartiteAgreementResponse)
+        response: CreateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     CreateTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> CreateTripartiteAgreementResponse:
+    async def acreate(self, request: CreateTripartiteAgreementRequest,
+                      option: Optional[RequestOption] = None) -> CreateTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateTripartiteAgreementResponse)
+        response: CreateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     CreateTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> DeleteTripartiteAgreementResponse:
+
+    def delete(self, request: DeleteTripartiteAgreementRequest,
+               option: Optional[RequestOption] = None) -> DeleteTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,34 @@ class TripartiteAgreement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTripartiteAgreementResponse)
+        response: DeleteTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     DeleteTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> DeleteTripartiteAgreementResponse:
+    async def adelete(self, request: DeleteTripartiteAgreementRequest,
+                      option: Optional[RequestOption] = None) -> DeleteTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteTripartiteAgreementResponse)
+        response: DeleteTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     DeleteTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
-    def list(self, request: ListTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> ListTripartiteAgreementResponse:
+
+    def list(self, request: ListTripartiteAgreementRequest,
+             option: Optional[RequestOption] = None) -> ListTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +117,34 @@ class TripartiteAgreement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTripartiteAgreementResponse)
+        response: ListTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   ListTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> ListTripartiteAgreementResponse:
+    async def alist(self, request: ListTripartiteAgreementRequest,
+                    option: Optional[RequestOption] = None) -> ListTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTripartiteAgreementResponse)
+        response: ListTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   ListTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> UpdateTripartiteAgreementResponse:
+
+    def update(self, request: UpdateTripartiteAgreementRequest,
+               option: Optional[RequestOption] = None) -> UpdateTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +157,28 @@ class TripartiteAgreement(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTripartiteAgreementResponse)
+        response: UpdateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     UpdateTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateTripartiteAgreementRequest, option: Optional[RequestOption] = None) -> UpdateTripartiteAgreementResponse:
+    async def aupdate(self, request: UpdateTripartiteAgreementRequest,
+                      option: Optional[RequestOption] = None) -> UpdateTripartiteAgreementResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: UpdateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateTripartiteAgreementResponse)
+        response: UpdateTripartiteAgreementResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     UpdateTripartiteAgreementResponse)
         response.raw = resp
 
         return response
-        
-    

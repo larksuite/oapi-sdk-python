@@ -22,9 +22,10 @@ class CreateExternalInstanceResponseBody(object):
 class CreateExternalInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_external_instance_response_body = CreateExternalInstanceResponseBody()
+
     def data(self, data: ExternalInstance) -> "CreateExternalInstanceResponseBodyBuilder":
         self._create_external_instance_response_body.data = data
         return self
-    
+
     def build(self) -> "CreateExternalInstanceResponseBody":
         return self._create_external_instance_response_body

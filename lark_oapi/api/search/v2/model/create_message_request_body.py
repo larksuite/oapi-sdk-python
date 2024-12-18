@@ -37,33 +37,42 @@ class CreateMessageRequestBody(object):
 class CreateMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_message_request_body = CreateMessageRequestBody()
+
     def query(self, query: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.query = query
         return self
+
     def from_ids(self, from_ids: List[int]) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.from_ids = from_ids
         return self
+
     def chat_ids(self, chat_ids: List[int]) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.chat_ids = chat_ids
         return self
+
     def message_type(self, message_type: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.message_type = message_type
         return self
+
     def at_chatter_ids(self, at_chatter_ids: List[int]) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.at_chatter_ids = at_chatter_ids
         return self
+
     def from_type(self, from_type: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.from_type = from_type
         return self
+
     def chat_type(self, chat_type: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.chat_type = chat_type
         return self
+
     def start_time(self, start_time: int) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.end_time = end_time
         return self
-    
+
     def build(self) -> "CreateMessageRequestBody":
         return self._create_message_request_body

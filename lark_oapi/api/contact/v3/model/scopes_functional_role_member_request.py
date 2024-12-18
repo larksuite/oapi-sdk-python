@@ -27,23 +27,24 @@ class ScopesFunctionalRoleMemberRequestBuilder(object):
         scopes_functional_role_member_request.uri = "/open-apis/contact/v3/functional_roles/:role_id/members/scopes"
         scopes_functional_role_member_request.token_types = {AccessTokenType.TENANT}
         self._scopes_functional_role_member_request: ScopesFunctionalRoleMemberRequest = scopes_functional_role_member_request
-    
+
     def user_id_type(self, user_id_type: str) -> "ScopesFunctionalRoleMemberRequestBuilder":
         self._scopes_functional_role_member_request.user_id_type = user_id_type
         self._scopes_functional_role_member_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "ScopesFunctionalRoleMemberRequestBuilder":
         self._scopes_functional_role_member_request.department_id_type = department_id_type
         self._scopes_functional_role_member_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def role_id(self, role_id: str) -> "ScopesFunctionalRoleMemberRequestBuilder":
         self._scopes_functional_role_member_request.role_id = role_id
         self._scopes_functional_role_member_request.paths["role_id"] = str(role_id)
         return self
-    
-    def request_body(self, request_body: ScopesFunctionalRoleMemberRequestBody) -> "ScopesFunctionalRoleMemberRequestBuilder":
+
+    def request_body(self,
+                     request_body: ScopesFunctionalRoleMemberRequestBody) -> "ScopesFunctionalRoleMemberRequestBuilder":
         self._scopes_functional_role_member_request.request_body = request_body
         self._scopes_functional_role_member_request.body = request_body
         return self

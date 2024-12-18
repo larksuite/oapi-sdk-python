@@ -24,12 +24,14 @@ class SearchCalendarResponseBody(object):
 class SearchCalendarResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_calendar_response_body = SearchCalendarResponseBody()
+
     def items(self, items: List[Calendar]) -> "SearchCalendarResponseBodyBuilder":
         self._search_calendar_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchCalendarResponseBodyBuilder":
         self._search_calendar_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "SearchCalendarResponseBody":
         return self._search_calendar_response_body

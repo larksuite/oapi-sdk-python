@@ -26,15 +26,18 @@ class ReserveCallee(object):
 class ReserveCalleeBuilder(object):
     def __init__(self) -> None:
         self._reserve_callee = ReserveCallee()
+
     def id(self, id: str) -> "ReserveCalleeBuilder":
         self._reserve_callee.id = id
         return self
+
     def user_type(self, user_type: int) -> "ReserveCalleeBuilder":
         self._reserve_callee.user_type = user_type
         return self
+
     def pstn_sip_info(self, pstn_sip_info: PstnSipInfo) -> "ReserveCalleeBuilder":
         self._reserve_callee.pstn_sip_info = pstn_sip_info
         return self
-    
+
     def build(self) -> "ReserveCallee":
         return self._reserve_callee

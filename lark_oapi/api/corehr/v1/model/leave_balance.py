@@ -48,48 +48,62 @@ class LeaveBalance(object):
 class LeaveBalanceBuilder(object):
     def __init__(self) -> None:
         self._leave_balance = LeaveBalance()
+
     def leave_type_id(self, leave_type_id: str) -> "LeaveBalanceBuilder":
         self._leave_balance.leave_type_id = leave_type_id
         return self
+
     def leave_type_name(self, leave_type_name: List[I18n]) -> "LeaveBalanceBuilder":
         self._leave_balance.leave_type_name = leave_type_name
         return self
+
     def historical_cycles_left(self, historical_cycles_left: str) -> "LeaveBalanceBuilder":
         self._leave_balance.historical_cycles_left = historical_cycles_left
         return self
+
     def this_cycle_total(self, this_cycle_total: str) -> "LeaveBalanceBuilder":
         self._leave_balance.this_cycle_total = this_cycle_total
         return self
+
     def this_cycle_taken(self, this_cycle_taken: str) -> "LeaveBalanceBuilder":
         self._leave_balance.this_cycle_taken = this_cycle_taken
         return self
+
     def leave_balance(self, leave_balance: str) -> "LeaveBalanceBuilder":
         self._leave_balance.leave_balance = leave_balance
         return self
+
     def leave_duration_unit(self, leave_duration_unit: int) -> "LeaveBalanceBuilder":
         self._leave_balance.leave_duration_unit = leave_duration_unit
         return self
+
     def history_cycle_accrual(self, history_cycle_accrual: str) -> "LeaveBalanceBuilder":
         self._leave_balance.history_cycle_accrual = history_cycle_accrual
         return self
+
     def balance_in_current_cycle(self, balance_in_current_cycle: str) -> "LeaveBalanceBuilder":
         self._leave_balance.balance_in_current_cycle = balance_in_current_cycle
         return self
+
     def taken(self, taken: str) -> "LeaveBalanceBuilder":
         self._leave_balance.taken = taken
         return self
+
     def taken_history_cycle(self, taken_history_cycle: str) -> "LeaveBalanceBuilder":
         self._leave_balance.taken_history_cycle = taken_history_cycle
         return self
+
     def offboarding_balance(self, offboarding_balance: str) -> "LeaveBalanceBuilder":
         self._leave_balance.offboarding_balance = offboarding_balance
         return self
+
     def taken_current_date(self, taken_current_date: str) -> "LeaveBalanceBuilder":
         self._leave_balance.taken_current_date = taken_current_date
         return self
+
     def offboarding_granted(self, offboarding_granted: str) -> "LeaveBalanceBuilder":
         self._leave_balance.offboarding_granted = offboarding_granted
         return self
-    
+
     def build(self) -> "LeaveBalance":
         return self._leave_balance

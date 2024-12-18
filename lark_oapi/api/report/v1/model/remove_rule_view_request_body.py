@@ -21,9 +21,10 @@ class RemoveRuleViewRequestBody(object):
 class RemoveRuleViewRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_rule_view_request_body = RemoveRuleViewRequestBody()
+
     def user_ids(self, user_ids: List[str]) -> "RemoveRuleViewRequestBodyBuilder":
         self._remove_rule_view_request_body.user_ids = user_ids
         return self
-    
+
     def build(self) -> "RemoveRuleViewRequestBody":
         return self._remove_rule_view_request_body

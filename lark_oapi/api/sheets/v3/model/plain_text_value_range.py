@@ -23,12 +23,14 @@ class PlainTextValueRange(object):
 class PlainTextValueRangeBuilder(object):
     def __init__(self) -> None:
         self._plain_text_value_range = PlainTextValueRange()
+
     def range(self, range: str) -> "PlainTextValueRangeBuilder":
         self._plain_text_value_range.range = range
         return self
+
     def values(self, values: List[list]) -> "PlainTextValueRangeBuilder":
         self._plain_text_value_range.values = values
         return self
-    
+
     def build(self) -> "PlainTextValueRange":
         return self._plain_text_value_range

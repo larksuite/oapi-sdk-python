@@ -26,15 +26,18 @@ class JobDetailCategory(object):
 class JobDetailCategoryBuilder(object):
     def __init__(self) -> None:
         self._job_detail_category = JobDetailCategory()
+
     def id(self, id: str) -> "JobDetailCategoryBuilder":
         self._job_detail_category.id = id
         return self
+
     def name(self, name: I18n) -> "JobDetailCategoryBuilder":
         self._job_detail_category.name = name
         return self
+
     def active_status(self, active_status: int) -> "JobDetailCategoryBuilder":
         self._job_detail_category.active_status = active_status
         return self
-    
+
     def build(self) -> "JobDetailCategory":
         return self._job_detail_category

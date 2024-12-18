@@ -29,32 +29,32 @@ class CreateAppTableRecordRequestBuilder(object):
         create_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
         create_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_app_table_record_request: CreateAppTableRecordRequest = create_app_table_record_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateAppTableRecordRequestBuilder":
         self._create_app_table_record_request.user_id_type = user_id_type
         self._create_app_table_record_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def client_token(self, client_token: str) -> "CreateAppTableRecordRequestBuilder":
         self._create_app_table_record_request.client_token = client_token
         self._create_app_table_record_request.add_query("client_token", client_token)
         return self
-    
+
     def ignore_consistency_check(self, ignore_consistency_check: bool) -> "CreateAppTableRecordRequestBuilder":
         self._create_app_table_record_request.ignore_consistency_check = ignore_consistency_check
         self._create_app_table_record_request.add_query("ignore_consistency_check", ignore_consistency_check)
         return self
-    
+
     def app_token(self, app_token: str) -> "CreateAppTableRecordRequestBuilder":
         self._create_app_table_record_request.app_token = app_token
         self._create_app_table_record_request.paths["app_token"] = str(app_token)
         return self
-    
+
     def table_id(self, table_id: str) -> "CreateAppTableRecordRequestBuilder":
         self._create_app_table_record_request.table_id = table_id
         self._create_app_table_record_request.paths["table_id"] = str(table_id)
         return self
-    
+
     def request_body(self, request_body: AppTableRecord) -> "CreateAppTableRecordRequestBuilder":
         self._create_app_table_record_request.request_body = request_body
         self._create_app_table_record_request.body = request_body

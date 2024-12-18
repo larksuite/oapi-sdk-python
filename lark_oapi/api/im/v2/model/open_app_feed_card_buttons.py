@@ -22,9 +22,10 @@ class OpenAppFeedCardButtons(object):
 class OpenAppFeedCardButtonsBuilder(object):
     def __init__(self) -> None:
         self._open_app_feed_card_buttons = OpenAppFeedCardButtons()
+
     def buttons(self, buttons: List[OpenAppFeedCardButton]) -> "OpenAppFeedCardButtonsBuilder":
         self._open_app_feed_card_buttons.buttons = buttons
         return self
-    
+
     def build(self) -> "OpenAppFeedCardButtons":
         return self._open_app_feed_card_buttons

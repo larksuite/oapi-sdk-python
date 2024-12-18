@@ -28,15 +28,18 @@ class Scope(object):
 class ScopeBuilder(object):
     def __init__(self) -> None:
         self._scope = Scope()
+
     def departments(self, departments: List[Department]) -> "ScopeBuilder":
         self._scope.departments = departments
         return self
+
     def users(self, users: List[User]) -> "ScopeBuilder":
         self._scope.users = users
         return self
+
     def user_groups(self, user_groups: List[UserGroup]) -> "ScopeBuilder":
         self._scope.user_groups = user_groups
         return self
-    
+
     def build(self) -> "Scope":
         return self._scope

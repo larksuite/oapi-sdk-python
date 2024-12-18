@@ -48,48 +48,62 @@ class Post(object):
 class PostBuilder(object):
     def __init__(self) -> None:
         self._post = Post()
+
     def user_id(self, user_id: str) -> "PostBuilder":
         self._post.user_id = user_id
         return self
+
     def content(self, content: str) -> "PostBuilder":
         self._post.content = content
         return self
+
     def image_key_list(self, image_key_list: List[str]) -> "PostBuilder":
         self._post.image_key_list = image_key_list
         return self
+
     def media_file_token(self, media_file_token: str) -> "PostBuilder":
         self._post.media_file_token = media_file_token
         return self
+
     def comment_count(self, comment_count: int) -> "PostBuilder":
         self._post.comment_count = comment_count
         return self
+
     def reaction_set(self, reaction_set: ReactionSet) -> "PostBuilder":
         self._post.reaction_set = reaction_set
         return self
+
     def id(self, id: str) -> "PostBuilder":
         self._post.id = id
         return self
+
     def create_time(self, create_time: str) -> "PostBuilder":
         self._post.create_time = create_time
         return self
+
     def media_cover_image_key(self, media_cover_image_key: str) -> "PostBuilder":
         self._post.media_cover_image_key = media_cover_image_key
         return self
+
     def cid(self, cid: str) -> "PostBuilder":
         self._post.cid = cid
         return self
+
     def category_ids(self, category_ids: List[str]) -> "PostBuilder":
         self._post.category_ids = category_ids
         return self
+
     def link(self, link: str) -> "PostBuilder":
         self._post.link = link
         return self
+
     def user_type(self, user_type: int) -> "PostBuilder":
         self._post.user_type = user_type
         return self
+
     def dislike_count(self, dislike_count: int) -> "PostBuilder":
         self._post.dislike_count = dislike_count
         return self
-    
+
     def build(self) -> "Post":
         return self._post

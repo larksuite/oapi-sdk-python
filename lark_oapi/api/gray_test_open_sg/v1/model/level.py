@@ -25,15 +25,18 @@ class Level(object):
 class LevelBuilder(object):
     def __init__(self) -> None:
         self._level = Level()
+
     def level(self, level: str) -> "LevelBuilder":
         self._level.level = level
         return self
+
     def body(self, body: str) -> "LevelBuilder":
         self._level.body = body
         return self
+
     def type(self, type: str) -> "LevelBuilder":
         self._level.type = type
         return self
-    
+
     def build(self) -> "Level":
         return self._level

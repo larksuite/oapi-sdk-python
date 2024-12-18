@@ -25,12 +25,12 @@ class CreateVisitorRequestBuilder(object):
         create_visitor_request.uri = "/open-apis/acs/v1/visitors"
         create_visitor_request.token_types = {AccessTokenType.USER}
         self._create_visitor_request: CreateVisitorRequest = create_visitor_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateVisitorRequestBuilder":
         self._create_visitor_request.user_id_type = user_id_type
         self._create_visitor_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: CreateVisitorRequestBody) -> "CreateVisitorRequestBuilder":
         self._create_visitor_request.request_body = request_body
         self._create_visitor_request.body = request_body

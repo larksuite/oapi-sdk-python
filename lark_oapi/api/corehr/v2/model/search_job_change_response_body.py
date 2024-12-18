@@ -26,15 +26,18 @@ class SearchJobChangeResponseBody(object):
 class SearchJobChangeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_job_change_response_body = SearchJobChangeResponseBody()
+
     def items(self, items: List[JobChange]) -> "SearchJobChangeResponseBodyBuilder":
         self._search_job_change_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "SearchJobChangeResponseBodyBuilder":
         self._search_job_change_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "SearchJobChangeResponseBodyBuilder":
         self._search_job_change_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "SearchJobChangeResponseBody":
         return self._search_job_change_response_body

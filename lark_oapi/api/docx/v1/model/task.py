@@ -23,12 +23,14 @@ class Task(object):
 class TaskBuilder(object):
     def __init__(self) -> None:
         self._task = Task()
+
     def task_id(self, task_id: str) -> "TaskBuilder":
         self._task.task_id = task_id
         return self
+
     def folded(self, folded: bool) -> "TaskBuilder":
         self._task.folded = folded
         return self
-    
+
     def build(self) -> "Task":
         return self._task

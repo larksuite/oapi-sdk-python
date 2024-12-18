@@ -43,39 +43,50 @@ class Item(object):
 class ItemBuilder(object):
     def __init__(self) -> None:
         self._item = Item()
+
     def id(self, id: str) -> "ItemBuilder":
         self._item.id = id
         return self
+
     def name(self, name: str) -> "ItemBuilder":
         self._item.name = name
         return self
+
     def description(self, description: str) -> "ItemBuilder":
         self._item.description = description
         return self
+
     def category_id(self, category_id: str) -> "ItemBuilder":
         self._item.category_id = category_id
         return self
+
     def value_type(self, value_type: str) -> "ItemBuilder":
         self._item.value_type = value_type
         return self
+
     def pay_off_frequency_type(self, pay_off_frequency_type: str) -> "ItemBuilder":
         self._item.pay_off_frequency_type = pay_off_frequency_type
         return self
+
     def decimal_places(self, decimal_places: int) -> "ItemBuilder":
         self._item.decimal_places = decimal_places
         return self
+
     def active_status(self, active_status: int) -> "ItemBuilder":
         self._item.active_status = active_status
         return self
+
     def i18n_names(self, i18n_names: List[I18nContent]) -> "ItemBuilder":
         self._item.i18n_names = i18n_names
         return self
+
     def i18n_descriptions(self, i18n_descriptions: List[I18nContent]) -> "ItemBuilder":
         self._item.i18n_descriptions = i18n_descriptions
         return self
+
     def item_type(self, item_type: str) -> "ItemBuilder":
         self._item.item_type = item_type
         return self
-    
+
     def build(self) -> "Item":
         return self._item

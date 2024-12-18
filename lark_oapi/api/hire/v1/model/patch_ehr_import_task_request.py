@@ -25,12 +25,12 @@ class PatchEhrImportTaskRequestBuilder(object):
         patch_ehr_import_task_request.uri = "/open-apis/hire/v1/ehr_import_tasks/:ehr_import_task_id"
         patch_ehr_import_task_request.token_types = {AccessTokenType.TENANT}
         self._patch_ehr_import_task_request: PatchEhrImportTaskRequest = patch_ehr_import_task_request
-    
+
     def ehr_import_task_id(self, ehr_import_task_id: str) -> "PatchEhrImportTaskRequestBuilder":
         self._patch_ehr_import_task_request.ehr_import_task_id = ehr_import_task_id
         self._patch_ehr_import_task_request.paths["ehr_import_task_id"] = str(ehr_import_task_id)
         return self
-    
+
     def request_body(self, request_body: EhrImportTask) -> "PatchEhrImportTaskRequestBuilder":
         self._patch_ehr_import_task_request.request_body = request_body
         self._patch_ehr_import_task_request.body = request_body

@@ -21,9 +21,10 @@ class DocCode(object):
 class DocCodeBuilder(object):
     def __init__(self) -> None:
         self._doc_code = DocCode()
+
     def text(self, text: str) -> "DocCodeBuilder":
         self._doc_code.text = text
         return self
-    
+
     def build(self) -> "DocCode":
         return self._doc_code

@@ -25,15 +25,18 @@ class SiteResumeWork(object):
 class SiteResumeWorkBuilder(object):
     def __init__(self) -> None:
         self._site_resume_work = SiteResumeWork()
+
     def link(self, link: str) -> "SiteResumeWorkBuilder":
         self._site_resume_work.link = link
         return self
+
     def description(self, description: str) -> "SiteResumeWorkBuilder":
         self._site_resume_work.description = description
         return self
+
     def site_attachment_id(self, site_attachment_id: str) -> "SiteResumeWorkBuilder":
         self._site_resume_work.site_attachment_id = site_attachment_id
         return self
-    
+
     def build(self) -> "SiteResumeWork":
         return self._site_resume_work

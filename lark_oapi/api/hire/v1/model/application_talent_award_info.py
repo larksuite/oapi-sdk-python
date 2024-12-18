@@ -27,18 +27,22 @@ class ApplicationTalentAwardInfo(object):
 class ApplicationTalentAwardInfoBuilder(object):
     def __init__(self) -> None:
         self._application_talent_award_info = ApplicationTalentAwardInfo()
+
     def id(self, id: str) -> "ApplicationTalentAwardInfoBuilder":
         self._application_talent_award_info.id = id
         return self
+
     def title(self, title: str) -> "ApplicationTalentAwardInfoBuilder":
         self._application_talent_award_info.title = title
         return self
+
     def award_time(self, award_time: int) -> "ApplicationTalentAwardInfoBuilder":
         self._application_talent_award_info.award_time = award_time
         return self
+
     def desc(self, desc: str) -> "ApplicationTalentAwardInfoBuilder":
         self._application_talent_award_info.desc = desc
         return self
-    
+
     def build(self) -> "ApplicationTalentAwardInfo":
         return self._application_talent_award_info

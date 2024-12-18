@@ -23,12 +23,11 @@ class GetProcessFormVariableDataRequestBuilder(object):
         get_process_form_variable_data_request.uri = "/open-apis/corehr/v1/processes/:process_id/form_variable_data"
         get_process_form_variable_data_request.token_types = {AccessTokenType.TENANT}
         self._get_process_form_variable_data_request: GetProcessFormVariableDataRequest = get_process_form_variable_data_request
-    
+
     def process_id(self, process_id: str) -> "GetProcessFormVariableDataRequestBuilder":
         self._get_process_form_variable_data_request.process_id = process_id
         self._get_process_form_variable_data_request.paths["process_id"] = str(process_id)
         return self
-    
 
     def build(self) -> GetProcessFormVariableDataRequest:
         return self._get_process_form_variable_data_request

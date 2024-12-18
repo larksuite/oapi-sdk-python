@@ -32,13 +32,12 @@ class Currency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCurrencyResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetCurrencyRequest, option: Optional[RequestOption] = None) -> GetCurrencyResponse:
         if option is None:
@@ -47,17 +46,15 @@ class Currency(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCurrencyResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListCurrencyRequest, option: Optional[RequestOption] = None) -> ListCurrencyResponse:
         if option is None:
             option = RequestOption()
@@ -71,13 +68,12 @@ class Currency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCurrencyResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListCurrencyRequest, option: Optional[RequestOption] = None) -> ListCurrencyResponse:
         if option is None:
@@ -86,15 +82,11 @@ class Currency(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListCurrencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCurrencyResponse)
         response.raw = resp
 
         return response
-        
-    

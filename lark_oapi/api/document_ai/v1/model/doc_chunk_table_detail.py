@@ -26,15 +26,18 @@ class DocChunkTableDetail(object):
 class DocChunkTableDetailBuilder(object):
     def __init__(self) -> None:
         self._doc_chunk_table_detail = DocChunkTableDetail()
+
     def table_idx(self, table_idx: int) -> "DocChunkTableDetailBuilder":
         self._doc_chunk_table_detail.table_idx = table_idx
         return self
+
     def text(self, text: str) -> "DocChunkTableDetailBuilder":
         self._doc_chunk_table_detail.text = text
         return self
+
     def cells(self, cells: List[DocChunkTableRow]) -> "DocChunkTableDetailBuilder":
         self._doc_chunk_table_detail.cells = cells
         return self
-    
+
     def build(self) -> "DocChunkTableDetail":
         return self._doc_chunk_table_detail

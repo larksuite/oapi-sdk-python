@@ -26,15 +26,18 @@ class DataAssetImportKnowledgeWiki(object):
 class DataAssetImportKnowledgeWikiBuilder(object):
     def __init__(self) -> None:
         self._data_asset_import_knowledge_wiki = DataAssetImportKnowledgeWiki()
+
     def space_id(self, space_id: str) -> "DataAssetImportKnowledgeWikiBuilder":
         self._data_asset_import_knowledge_wiki.space_id = space_id
         return self
+
     def sub_docs(self, sub_docs: List[DataAssetImportKnowledgeWikiSubDoc]) -> "DataAssetImportKnowledgeWikiBuilder":
         self._data_asset_import_knowledge_wiki.sub_docs = sub_docs
         return self
+
     def url(self, url: str) -> "DataAssetImportKnowledgeWikiBuilder":
         self._data_asset_import_knowledge_wiki.url = url
         return self
-    
+
     def build(self) -> "DataAssetImportKnowledgeWiki":
         return self._data_asset_import_knowledge_wiki

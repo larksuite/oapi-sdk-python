@@ -36,24 +36,30 @@ class BaseAddressV2(object):
 class BaseAddressV2Builder(object):
     def __init__(self) -> None:
         self._base_address_v2 = BaseAddressV2()
+
     def id(self, id: str) -> "BaseAddressV2Builder":
         self._base_address_v2.id = id
         return self
+
     def name(self, name: I18n) -> "BaseAddressV2Builder":
         self._base_address_v2.name = name
         return self
+
     def district(self, district: BaseLocation) -> "BaseAddressV2Builder":
         self._base_address_v2.district = district
         return self
+
     def city(self, city: BaseLocation) -> "BaseAddressV2Builder":
         self._base_address_v2.city = city
         return self
+
     def state(self, state: BaseLocation) -> "BaseAddressV2Builder":
         self._base_address_v2.state = state
         return self
+
     def country(self, country: BaseLocation) -> "BaseAddressV2Builder":
         self._base_address_v2.country = country
         return self
-    
+
     def build(self) -> "BaseAddressV2":
         return self._base_address_v2

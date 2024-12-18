@@ -28,18 +28,22 @@ class MentionUser(object):
 class MentionUserBuilder(object):
     def __init__(self) -> None:
         self._mention_user = MentionUser()
+
     def name(self, name: str) -> "MentionUserBuilder":
         self._mention_user.name = name
         return self
+
     def user_id(self, user_id: str) -> "MentionUserBuilder":
         self._mention_user.user_id = user_id
         return self
+
     def notify(self, notify: bool) -> "MentionUserBuilder":
         self._mention_user.notify = notify
         return self
+
     def segment_style(self, segment_style: SegmentStyle) -> "MentionUserBuilder":
         self._mention_user.segment_style = segment_style
         return self
-    
+
     def build(self) -> "MentionUser":
         return self._mention_user

@@ -23,12 +23,14 @@ class Owner(object):
 class OwnerBuilder(object):
     def __init__(self) -> None:
         self._owner = Owner()
+
     def member_type(self, member_type: str) -> "OwnerBuilder":
         self._owner.member_type = member_type
         return self
+
     def member_id(self, member_id: str) -> "OwnerBuilder":
         self._owner.member_id = member_id
         return self
-    
+
     def build(self) -> "Owner":
         return self._owner

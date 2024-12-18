@@ -24,7 +24,7 @@ class CreateExternalInstanceRequestBuilder(object):
         create_external_instance_request.uri = "/open-apis/approval/v4/external_instances"
         create_external_instance_request.token_types = {AccessTokenType.TENANT}
         self._create_external_instance_request: CreateExternalInstanceRequest = create_external_instance_request
-    
+
     def request_body(self, request_body: ExternalInstance) -> "CreateExternalInstanceRequestBuilder":
         self._create_external_instance_request.request_body = request_body
         self._create_external_instance_request.body = request_body

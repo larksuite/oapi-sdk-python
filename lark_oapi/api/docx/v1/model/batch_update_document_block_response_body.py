@@ -26,15 +26,18 @@ class BatchUpdateDocumentBlockResponseBody(object):
 class BatchUpdateDocumentBlockResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_update_document_block_response_body = BatchUpdateDocumentBlockResponseBody()
+
     def blocks(self, blocks: List[Block]) -> "BatchUpdateDocumentBlockResponseBodyBuilder":
         self._batch_update_document_block_response_body.blocks = blocks
         return self
+
     def document_revision_id(self, document_revision_id: int) -> "BatchUpdateDocumentBlockResponseBodyBuilder":
         self._batch_update_document_block_response_body.document_revision_id = document_revision_id
         return self
+
     def client_token(self, client_token: str) -> "BatchUpdateDocumentBlockResponseBodyBuilder":
         self._batch_update_document_block_response_body.client_token = client_token
         return self
-    
+
     def build(self) -> "BatchUpdateDocumentBlockResponseBody":
         return self._batch_update_document_block_response_body

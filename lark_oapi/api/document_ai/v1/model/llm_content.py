@@ -23,12 +23,14 @@ class LlmContent(object):
 class LlmContentBuilder(object):
     def __init__(self) -> None:
         self._llm_content = LlmContent()
+
     def type(self, type: str) -> "LlmContentBuilder":
         self._llm_content.type = type
         return self
+
     def content(self, content: str) -> "LlmContentBuilder":
         self._llm_content.content = content
         return self
-    
+
     def build(self) -> "LlmContent":
         return self._llm_content

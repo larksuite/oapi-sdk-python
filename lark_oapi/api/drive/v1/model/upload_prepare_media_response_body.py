@@ -25,15 +25,18 @@ class UploadPrepareMediaResponseBody(object):
 class UploadPrepareMediaResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_prepare_media_response_body = UploadPrepareMediaResponseBody()
+
     def upload_id(self, upload_id: str) -> "UploadPrepareMediaResponseBodyBuilder":
         self._upload_prepare_media_response_body.upload_id = upload_id
         return self
+
     def block_size(self, block_size: int) -> "UploadPrepareMediaResponseBodyBuilder":
         self._upload_prepare_media_response_body.block_size = block_size
         return self
+
     def block_num(self, block_num: int) -> "UploadPrepareMediaResponseBodyBuilder":
         self._upload_prepare_media_response_body.block_num = block_num
         return self
-    
+
     def build(self) -> "UploadPrepareMediaResponseBody":
         return self._upload_prepare_media_response_body

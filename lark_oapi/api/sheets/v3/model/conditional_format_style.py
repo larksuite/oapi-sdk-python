@@ -31,24 +31,30 @@ class ConditionalFormatStyle(object):
 class ConditionalFormatStyleBuilder(object):
     def __init__(self) -> None:
         self._conditional_format_style = ConditionalFormatStyle()
+
     def background_color(self, background_color: str) -> "ConditionalFormatStyleBuilder":
         self._conditional_format_style.background_color = background_color
         return self
+
     def foreground_color(self, foreground_color: str) -> "ConditionalFormatStyleBuilder":
         self._conditional_format_style.foreground_color = foreground_color
         return self
+
     def underline(self, underline: bool) -> "ConditionalFormatStyleBuilder":
         self._conditional_format_style.underline = underline
         return self
+
     def bold(self, bold: bool) -> "ConditionalFormatStyleBuilder":
         self._conditional_format_style.bold = bold
         return self
+
     def italic(self, italic: bool) -> "ConditionalFormatStyleBuilder":
         self._conditional_format_style.italic = italic
         return self
+
     def strikethrough(self, strikethrough: bool) -> "ConditionalFormatStyleBuilder":
         self._conditional_format_style.strikethrough = strikethrough
         return self
-    
+
     def build(self) -> "ConditionalFormatStyle":
         return self._conditional_format_style

@@ -33,27 +33,34 @@ class ApplicationOwner(object):
 class ApplicationOwnerBuilder(object):
     def __init__(self) -> None:
         self._application_owner = ApplicationOwner()
+
     def type(self, type: int) -> "ApplicationOwnerBuilder":
         self._application_owner.type = type
         return self
+
     def owner_id(self, owner_id: str) -> "ApplicationOwnerBuilder":
         self._application_owner.owner_id = owner_id
         return self
+
     def name(self, name: str) -> "ApplicationOwnerBuilder":
         self._application_owner.name = name
         return self
+
     def help_desk(self, help_desk: str) -> "ApplicationOwnerBuilder":
         self._application_owner.help_desk = help_desk
         return self
+
     def email(self, email: str) -> "ApplicationOwnerBuilder":
         self._application_owner.email = email
         return self
+
     def phone(self, phone: str) -> "ApplicationOwnerBuilder":
         self._application_owner.phone = phone
         return self
+
     def customer_service_account(self, customer_service_account: str) -> "ApplicationOwnerBuilder":
         self._application_owner.customer_service_account = customer_service_account
         return self
-    
+
     def build(self) -> "ApplicationOwner":
         return self._application_owner

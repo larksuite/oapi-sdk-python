@@ -22,9 +22,11 @@ class CheckExternalInstanceResponseBody(object):
 class CheckExternalInstanceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._check_external_instance_response_body = CheckExternalInstanceResponseBody()
-    def diff_instances(self, diff_instances: List[ExteranlInstanceCheckResponse]) -> "CheckExternalInstanceResponseBodyBuilder":
+
+    def diff_instances(self, diff_instances: List[
+        ExteranlInstanceCheckResponse]) -> "CheckExternalInstanceResponseBodyBuilder":
         self._check_external_instance_response_body.diff_instances = diff_instances
         return self
-    
+
     def build(self) -> "CheckExternalInstanceResponseBody":
         return self._check_external_instance_response_body

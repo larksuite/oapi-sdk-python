@@ -8,3 +8,4 @@ from .app_table_form import *
 from .app_table_form_field import *
 from .app_table_record import *
 from .app_table_view import *
+from .app_workflow import *

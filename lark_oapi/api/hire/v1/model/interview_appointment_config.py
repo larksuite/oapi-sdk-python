@@ -24,12 +24,15 @@ class InterviewAppointmentConfig(object):
 class InterviewAppointmentConfigBuilder(object):
     def __init__(self) -> None:
         self._interview_appointment_config = InterviewAppointmentConfig()
-    def enable_interview_appointment_by_interviewer(self, enable_interview_appointment_by_interviewer: bool) -> "InterviewAppointmentConfigBuilder":
+
+    def enable_interview_appointment_by_interviewer(self,
+                                                    enable_interview_appointment_by_interviewer: bool) -> "InterviewAppointmentConfigBuilder":
         self._interview_appointment_config.enable_interview_appointment_by_interviewer = enable_interview_appointment_by_interviewer
         return self
+
     def config(self, config: InterviewAppointmentConfigContent) -> "InterviewAppointmentConfigBuilder":
         self._interview_appointment_config.config = config
         return self
-    
+
     def build(self) -> "InterviewAppointmentConfig":
         return self._interview_appointment_config

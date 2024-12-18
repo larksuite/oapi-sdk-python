@@ -29,18 +29,22 @@ class Account(object):
 class AccountBuilder(object):
     def __init__(self) -> None:
         self._account = Account()
+
     def account_id(self, account_id: str) -> "AccountBuilder":
         self._account.account_id = account_id
         return self
+
     def assets(self, assets: Assets) -> "AccountBuilder":
         self._account.assets = assets
         return self
+
     def status(self, status: int) -> "AccountBuilder":
         self._account.status = status
         return self
+
     def referrer(self, referrer: AccountReferrer) -> "AccountBuilder":
         self._account.referrer = referrer
         return self
-    
+
     def build(self) -> "Account":
         return self._account

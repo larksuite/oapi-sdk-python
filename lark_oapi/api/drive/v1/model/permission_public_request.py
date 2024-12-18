@@ -31,24 +31,30 @@ class PermissionPublicRequest(object):
 class PermissionPublicRequestBuilder(object):
     def __init__(self) -> None:
         self._permission_public_request = PermissionPublicRequest()
+
     def external_access(self, external_access: bool) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.external_access = external_access
         return self
+
     def security_entity(self, security_entity: str) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.security_entity = security_entity
         return self
+
     def comment_entity(self, comment_entity: str) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.comment_entity = comment_entity
         return self
+
     def share_entity(self, share_entity: str) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.share_entity = share_entity
         return self
+
     def link_share_entity(self, link_share_entity: str) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.link_share_entity = link_share_entity
         return self
+
     def invite_external(self, invite_external: bool) -> "PermissionPublicRequestBuilder":
         self._permission_public_request.invite_external = invite_external
         return self
-    
+
     def build(self) -> "PermissionPublicRequest":
         return self._permission_public_request

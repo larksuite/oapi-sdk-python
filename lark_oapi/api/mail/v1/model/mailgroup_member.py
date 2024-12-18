@@ -29,21 +29,26 @@ class MailgroupMember(object):
 class MailgroupMemberBuilder(object):
     def __init__(self) -> None:
         self._mailgroup_member = MailgroupMember()
+
     def member_id(self, member_id: str) -> "MailgroupMemberBuilder":
         self._mailgroup_member.member_id = member_id
         return self
+
     def email(self, email: str) -> "MailgroupMemberBuilder":
         self._mailgroup_member.email = email
         return self
+
     def user_id(self, user_id: str) -> "MailgroupMemberBuilder":
         self._mailgroup_member.user_id = user_id
         return self
+
     def department_id(self, department_id: str) -> "MailgroupMemberBuilder":
         self._mailgroup_member.department_id = department_id
         return self
+
     def type(self, type: str) -> "MailgroupMemberBuilder":
         self._mailgroup_member.type = type
         return self
-    
+
     def build(self) -> "MailgroupMember":
         return self._mailgroup_member

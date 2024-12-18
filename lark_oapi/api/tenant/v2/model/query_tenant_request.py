@@ -22,7 +22,6 @@ class QueryTenantRequestBuilder(object):
         query_tenant_request.uri = "/open-apis/tenant/v2/tenant/query"
         query_tenant_request.token_types = {AccessTokenType.TENANT}
         self._query_tenant_request: QueryTenantRequest = query_tenant_request
-    
 
     def build(self) -> QueryTenantRequest:
         return self._query_tenant_request

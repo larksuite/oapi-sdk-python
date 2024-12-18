@@ -24,12 +24,14 @@ class PatchCommentRequestBody(object):
 class PatchCommentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_comment_request_body = PatchCommentRequestBody()
+
     def comment(self, comment: InputComment) -> "PatchCommentRequestBodyBuilder":
         self._patch_comment_request_body.comment = comment
         return self
+
     def update_fields(self, update_fields: List[str]) -> "PatchCommentRequestBodyBuilder":
         self._patch_comment_request_body.update_fields = update_fields
         return self
-    
+
     def build(self) -> "PatchCommentRequestBody":
         return self._patch_comment_request_body

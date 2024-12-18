@@ -21,9 +21,10 @@ class PostStatistics(object):
 class PostStatisticsBuilder(object):
     def __init__(self) -> None:
         self._post_statistics = PostStatistics()
+
     def share_count(self, share_count: int) -> "PostStatisticsBuilder":
         self._post_statistics.share_count = share_count
         return self
-    
+
     def build(self) -> "PostStatistics":
         return self._post_statistics

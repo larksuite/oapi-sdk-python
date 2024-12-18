@@ -54,57 +54,74 @@ class LocationAddressCreate(object):
 class LocationAddressCreateBuilder(object):
     def __init__(self) -> None:
         self._location_address_create = LocationAddressCreate()
+
     def country_region_id(self, country_region_id: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.country_region_id = country_region_id
         return self
+
     def region_id(self, region_id: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.region_id = region_id
         return self
+
     def city_id(self, city_id: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.city_id = city_id
         return self
+
     def distinct_id(self, distinct_id: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.distinct_id = distinct_id
         return self
+
     def local_address_line1(self, local_address_line1: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line1 = local_address_line1
         return self
+
     def local_address_line2(self, local_address_line2: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line2 = local_address_line2
         return self
+
     def local_address_line3(self, local_address_line3: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line3 = local_address_line3
         return self
+
     def local_address_line4(self, local_address_line4: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line4 = local_address_line4
         return self
+
     def local_address_line5(self, local_address_line5: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line5 = local_address_line5
         return self
+
     def local_address_line6(self, local_address_line6: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line6 = local_address_line6
         return self
+
     def local_address_line7(self, local_address_line7: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line7 = local_address_line7
         return self
+
     def local_address_line8(self, local_address_line8: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line8 = local_address_line8
         return self
+
     def local_address_line9(self, local_address_line9: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.local_address_line9 = local_address_line9
         return self
+
     def postal_code(self, postal_code: str) -> "LocationAddressCreateBuilder":
         self._location_address_create.postal_code = postal_code
         return self
+
     def address_types(self, address_types: List[Enum]) -> "LocationAddressCreateBuilder":
         self._location_address_create.address_types = address_types
         return self
+
     def is_primary(self, is_primary: bool) -> "LocationAddressCreateBuilder":
         self._location_address_create.is_primary = is_primary
         return self
+
     def is_public(self, is_public: bool) -> "LocationAddressCreateBuilder":
         self._location_address_create.is_public = is_public
         return self
-    
+
     def build(self) -> "LocationAddressCreate":
         return self._location_address_create

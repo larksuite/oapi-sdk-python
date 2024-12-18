@@ -24,12 +24,14 @@ class TagInfoWithBindVersion(object):
 class TagInfoWithBindVersionBuilder(object):
     def __init__(self) -> None:
         self._tag_info_with_bind_version = TagInfoWithBindVersion()
+
     def tag_info(self, tag_info: TagInfo) -> "TagInfoWithBindVersionBuilder":
         self._tag_info_with_bind_version.tag_info = tag_info
         return self
+
     def bind_version(self, bind_version: str) -> "TagInfoWithBindVersionBuilder":
         self._tag_info_with_bind_version.bind_version = bind_version
         return self
-    
+
     def build(self) -> "TagInfoWithBindVersion":
         return self._tag_info_with_bind_version

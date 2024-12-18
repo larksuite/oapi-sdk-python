@@ -31,24 +31,30 @@ class AdminDeptExtContactStat(object):
 class AdminDeptExtContactStatBuilder(object):
     def __init__(self) -> None:
         self._admin_dept_ext_contact_stat = AdminDeptExtContactStat()
+
     def date(self, date: str) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.date = date
         return self
+
     def department_id(self, department_id: str) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.department_id = department_id
         return self
+
     def department_name(self, department_name: str) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.department_name = department_name
         return self
+
     def has_ref_contact_ucnt(self, has_ref_contact_ucnt: str) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.has_ref_contact_ucnt = has_ref_contact_ucnt
         return self
+
     def ref_contact_ucnt(self, ref_contact_ucnt: str) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.ref_contact_ucnt = ref_contact_ucnt
         return self
+
     def ref_contact_tcnt(self, ref_contact_tcnt: str) -> "AdminDeptExtContactStatBuilder":
         self._admin_dept_ext_contact_stat.ref_contact_tcnt = ref_contact_tcnt
         return self
-    
+
     def build(self) -> "AdminDeptExtContactStat":
         return self._admin_dept_ext_contact_stat

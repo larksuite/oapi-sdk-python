@@ -23,12 +23,14 @@ class Cash(object):
 class CashBuilder(object):
     def __init__(self) -> None:
         self._cash = Cash()
+
     def currency_type(self, currency_type: str) -> "CashBuilder":
         self._cash.currency_type = currency_type
         return self
+
     def amount(self, amount: float) -> "CashBuilder":
         self._cash.amount = amount
         return self
-    
+
     def build(self) -> "Cash":
         return self._cash

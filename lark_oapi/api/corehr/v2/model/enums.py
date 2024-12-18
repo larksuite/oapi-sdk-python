@@ -24,12 +24,14 @@ class Enums(object):
 class EnumsBuilder(object):
     def __init__(self) -> None:
         self._enums = Enums()
+
     def enum_apiname(self, enum_apiname: str) -> "EnumsBuilder":
         self._enums.enum_apiname = enum_apiname
         return self
+
     def enum_items(self, enum_items: List[EnumField]) -> "EnumsBuilder":
         self._enums.enum_items = enum_items
         return self
-    
+
     def build(self) -> "Enums":
         return self._enums

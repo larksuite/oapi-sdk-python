@@ -24,8 +24,9 @@ class SearchDiversityInclusionRequestBuilder(object):
         search_diversity_inclusion_request.uri = "/open-apis/hire/v1/applications/diversity_inclusions/search"
         search_diversity_inclusion_request.token_types = {AccessTokenType.TENANT}
         self._search_diversity_inclusion_request: SearchDiversityInclusionRequest = search_diversity_inclusion_request
-    
-    def request_body(self, request_body: SearchDiversityInclusionRequestBody) -> "SearchDiversityInclusionRequestBuilder":
+
+    def request_body(self,
+                     request_body: SearchDiversityInclusionRequestBody) -> "SearchDiversityInclusionRequestBuilder":
         self._search_diversity_inclusion_request.request_body = request_body
         self._search_diversity_inclusion_request.body = request_body
         return self

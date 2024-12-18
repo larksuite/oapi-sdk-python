@@ -25,22 +25,21 @@ class ListDataSourceRequestBuilder(object):
         list_data_source_request.uri = "/open-apis/search/v2/data_sources"
         list_data_source_request.token_types = {AccessTokenType.TENANT}
         self._list_data_source_request: ListDataSourceRequest = list_data_source_request
-    
+
     def view(self, view: int) -> "ListDataSourceRequestBuilder":
         self._list_data_source_request.view = view
         self._list_data_source_request.add_query("view", view)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListDataSourceRequestBuilder":
         self._list_data_source_request.page_size = page_size
         self._list_data_source_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListDataSourceRequestBuilder":
         self._list_data_source_request.page_token = page_token
         self._list_data_source_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListDataSourceRequest:
         return self._list_data_source_request

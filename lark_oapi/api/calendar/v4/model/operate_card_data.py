@@ -23,12 +23,14 @@ class OperateCardData(object):
 class OperateCardDataBuilder(object):
     def __init__(self) -> None:
         self._operate_card_data = OperateCardData()
+
     def meeting_url(self, meeting_url: str) -> "OperateCardDataBuilder":
         self._operate_card_data.meeting_url = meeting_url
         return self
+
     def meeting_no(self, meeting_no: str) -> "OperateCardDataBuilder":
         self._operate_card_data.meeting_no = meeting_no
         return self
-    
+
     def build(self) -> "OperateCardData":
         return self._operate_card_data

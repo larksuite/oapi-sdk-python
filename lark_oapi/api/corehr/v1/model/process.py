@@ -21,9 +21,10 @@ class Process(object):
 class ProcessBuilder(object):
     def __init__(self) -> None:
         self._process = Process()
+
     def id(self, id: str) -> "ProcessBuilder":
         self._process.id = id
         return self
-    
+
     def build(self) -> "Process":
         return self._process

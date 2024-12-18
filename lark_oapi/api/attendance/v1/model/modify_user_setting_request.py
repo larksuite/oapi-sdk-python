@@ -25,12 +25,12 @@ class ModifyUserSettingRequestBuilder(object):
         modify_user_setting_request.uri = "/open-apis/attendance/v1/user_settings/modify"
         modify_user_setting_request.token_types = {AccessTokenType.TENANT}
         self._modify_user_setting_request: ModifyUserSettingRequest = modify_user_setting_request
-    
+
     def employee_type(self, employee_type: str) -> "ModifyUserSettingRequestBuilder":
         self._modify_user_setting_request.employee_type = employee_type
         self._modify_user_setting_request.add_query("employee_type", employee_type)
         return self
-    
+
     def request_body(self, request_body: ModifyUserSettingRequestBody) -> "ModifyUserSettingRequestBuilder":
         self._modify_user_setting_request.request_body = request_body
         self._modify_user_setting_request.body = request_body

@@ -24,17 +24,16 @@ class GetMotoRequestBuilder(object):
         get_moto_request.uri = "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
         get_moto_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_moto_request: GetMotoRequest = get_moto_request
-    
+
     def body_level(self, body_level: str) -> "GetMotoRequestBuilder":
         self._get_moto_request.body_level = body_level
         self._get_moto_request.add_query("body_level", body_level)
         return self
-    
+
     def moto_id(self, moto_id: str) -> "GetMotoRequestBuilder":
         self._get_moto_request.moto_id = moto_id
         self._get_moto_request.paths["moto_id"] = str(moto_id)
         return self
-    
 
     def build(self) -> GetMotoRequest:
         return self._get_moto_request

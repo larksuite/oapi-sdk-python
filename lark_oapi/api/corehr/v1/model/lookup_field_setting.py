@@ -23,12 +23,14 @@ class LookupFieldSetting(object):
 class LookupFieldSettingBuilder(object):
     def __init__(self) -> None:
         self._lookup_field_setting = LookupFieldSetting()
+
     def lookup_obj_api_name(self, lookup_obj_api_name: str) -> "LookupFieldSettingBuilder":
         self._lookup_field_setting.lookup_obj_api_name = lookup_obj_api_name
         return self
+
     def is_multiple(self, is_multiple: bool) -> "LookupFieldSettingBuilder":
         self._lookup_field_setting.is_multiple = is_multiple
         return self
-    
+
     def build(self) -> "LookupFieldSetting":
         return self._lookup_field_setting

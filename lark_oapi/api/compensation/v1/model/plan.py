@@ -28,18 +28,22 @@ class Plan(object):
 class PlanBuilder(object):
     def __init__(self) -> None:
         self._plan = Plan()
+
     def plan_id(self, plan_id: str) -> "PlanBuilder":
         self._plan.plan_id = plan_id
         return self
+
     def plan_tid(self, plan_tid: str) -> "PlanBuilder":
         self._plan.plan_tid = plan_tid
         return self
+
     def name(self, name: I18n) -> "PlanBuilder":
         self._plan.name = name
         return self
+
     def people_id(self, people_id: int) -> "PlanBuilder":
         self._plan.people_id = people_id
         return self
-    
+
     def build(self) -> "Plan":
         return self._plan

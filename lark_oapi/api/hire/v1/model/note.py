@@ -42,39 +42,50 @@ class Note(object):
 class NoteBuilder(object):
     def __init__(self) -> None:
         self._note = Note()
+
     def id(self, id: str) -> "NoteBuilder":
         self._note.id = id
         return self
+
     def talent_id(self, talent_id: str) -> "NoteBuilder":
         self._note.talent_id = talent_id
         return self
+
     def application_id(self, application_id: str) -> "NoteBuilder":
         self._note.application_id = application_id
         return self
+
     def is_private(self, is_private: bool) -> "NoteBuilder":
         self._note.is_private = is_private
         return self
+
     def create_time(self, create_time: int) -> "NoteBuilder":
         self._note.create_time = create_time
         return self
+
     def modify_time(self, modify_time: int) -> "NoteBuilder":
         self._note.modify_time = modify_time
         return self
+
     def creator_id(self, creator_id: str) -> "NoteBuilder":
         self._note.creator_id = creator_id
         return self
+
     def content(self, content: str) -> "NoteBuilder":
         self._note.content = content
         return self
+
     def privacy(self, privacy: int) -> "NoteBuilder":
         self._note.privacy = privacy
         return self
+
     def notify_mentioned_user(self, notify_mentioned_user: bool) -> "NoteBuilder":
         self._note.notify_mentioned_user = notify_mentioned_user
         return self
+
     def mention_entity_list(self, mention_entity_list: List[MentionEntity]) -> "NoteBuilder":
         self._note.mention_entity_list = mention_entity_list
         return self
-    
+
     def build(self) -> "Note":
         return self._note

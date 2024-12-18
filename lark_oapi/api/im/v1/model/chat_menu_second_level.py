@@ -24,12 +24,14 @@ class ChatMenuSecondLevel(object):
 class ChatMenuSecondLevelBuilder(object):
     def __init__(self) -> None:
         self._chat_menu_second_level = ChatMenuSecondLevel()
+
     def chat_menu_second_level_id(self, chat_menu_second_level_id: int) -> "ChatMenuSecondLevelBuilder":
         self._chat_menu_second_level.chat_menu_second_level_id = chat_menu_second_level_id
         return self
+
     def chat_menu_item(self, chat_menu_item: ChatMenuItem) -> "ChatMenuSecondLevelBuilder":
         self._chat_menu_second_level.chat_menu_item = chat_menu_item
         return self
-    
+
     def build(self) -> "ChatMenuSecondLevel":
         return self._chat_menu_second_level

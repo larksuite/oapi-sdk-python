@@ -21,9 +21,10 @@ class Person(object):
 class PersonBuilder(object):
     def __init__(self) -> None:
         self._person = Person()
+
     def user_id(self, user_id: str) -> "PersonBuilder":
         self._person.user_id = user_id
         return self
-    
+
     def build(self) -> "Person":
         return self._person

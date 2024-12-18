@@ -21,9 +21,10 @@ class Channel(object):
 class ChannelBuilder(object):
     def __init__(self) -> None:
         self._channel = Channel()
+
     def variables(self, variables: str) -> "ChannelBuilder":
         self._channel.variables = variables
         return self
-    
+
     def build(self) -> "Channel":
         return self._channel

@@ -22,9 +22,10 @@ class QuerySessionResponseBody(object):
 class QuerySessionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_session_response_body = QuerySessionResponseBody()
+
     def mask_sessions(self, mask_sessions: List[MaskSession]) -> "QuerySessionResponseBodyBuilder":
         self._query_session_response_body.mask_sessions = mask_sessions
         return self
-    
+
     def build(self) -> "QuerySessionResponseBody":
         return self._query_session_response_body

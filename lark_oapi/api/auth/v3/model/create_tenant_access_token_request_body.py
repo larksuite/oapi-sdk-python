@@ -23,12 +23,14 @@ class CreateTenantAccessTokenRequestBody(object):
 class CreateTenantAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_tenant_access_token_request_body = CreateTenantAccessTokenRequestBody()
+
     def app_access_token(self, app_access_token: str) -> "CreateTenantAccessTokenRequestBodyBuilder":
         self._create_tenant_access_token_request_body.app_access_token = app_access_token
         return self
+
     def tenant_key(self, tenant_key: str) -> "CreateTenantAccessTokenRequestBodyBuilder":
         self._create_tenant_access_token_request_body.tenant_key = tenant_key
         return self
-    
+
     def build(self) -> "CreateTenantAccessTokenRequestBody":
         return self._create_tenant_access_token_request_body

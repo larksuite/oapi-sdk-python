@@ -22,9 +22,10 @@ class CreateVisitorRequestBody(object):
 class CreateVisitorRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_visitor_request_body = CreateVisitorRequestBody()
+
     def user(self, user: UserExternal) -> "CreateVisitorRequestBodyBuilder":
         self._create_visitor_request_body.user = user
         return self
-    
+
     def build(self) -> "CreateVisitorRequestBody":
         return self._create_visitor_request_body

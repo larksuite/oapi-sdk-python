@@ -22,9 +22,10 @@ class CreateMotoResponseBody(object):
 class CreateMotoResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_moto_response_body = CreateMotoResponseBody()
+
     def moto(self, moto: Moto) -> "CreateMotoResponseBodyBuilder":
         self._create_moto_response_body.moto = moto
         return self
-    
+
     def build(self) -> "CreateMotoResponseBody":
         return self._create_moto_response_body

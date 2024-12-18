@@ -23,12 +23,14 @@ class DataAssetFile(object):
 class DataAssetFileBuilder(object):
     def __init__(self) -> None:
         self._data_asset_file = DataAssetFile()
+
     def token(self, token: str) -> "DataAssetFileBuilder":
         self._data_asset_file.token = token
         return self
+
     def mime_type(self, mime_type: str) -> "DataAssetFileBuilder":
         self._data_asset_file.mime_type = mime_type
         return self
-    
+
     def build(self) -> "DataAssetFile":
         return self._data_asset_file

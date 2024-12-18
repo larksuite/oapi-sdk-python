@@ -32,21 +32,26 @@ class CellStyle(object):
 class CellStyleBuilder(object):
     def __init__(self) -> None:
         self._cell_style = CellStyle()
+
     def font_style(self, font_style: CellFontStyle) -> "CellStyleBuilder":
         self._cell_style.font_style = font_style
         return self
+
     def border_style(self, border_style: BorderStyle) -> "CellStyleBuilder":
         self._cell_style.border_style = border_style
         return self
+
     def alignment_style(self, alignment_style: AlignmentStyle) -> "CellStyleBuilder":
         self._cell_style.alignment_style = alignment_style
         return self
+
     def wrap_strategy(self, wrap_strategy: str) -> "CellStyleBuilder":
         self._cell_style.wrap_strategy = wrap_strategy
         return self
+
     def format(self, format: str) -> "CellStyleBuilder":
         self._cell_style.format = format
         return self
-    
+
     def build(self) -> "CellStyle":
         return self._cell_style

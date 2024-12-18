@@ -22,9 +22,10 @@ class RemoveDependenciesTaskResponseBody(object):
 class RemoveDependenciesTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_dependencies_task_response_body = RemoveDependenciesTaskResponseBody()
+
     def dependencies(self, dependencies: List[TaskDependency]) -> "RemoveDependenciesTaskResponseBodyBuilder":
         self._remove_dependencies_task_response_body.dependencies = dependencies
         return self
-    
+
     def build(self) -> "RemoveDependenciesTaskResponseBody":
         return self._remove_dependencies_task_response_body

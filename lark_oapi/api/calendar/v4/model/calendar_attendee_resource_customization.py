@@ -26,15 +26,18 @@ class CalendarAttendeeResourceCustomization(object):
 class CalendarAttendeeResourceCustomizationBuilder(object):
     def __init__(self) -> None:
         self._calendar_attendee_resource_customization = CalendarAttendeeResourceCustomization()
+
     def index_key(self, index_key: str) -> "CalendarAttendeeResourceCustomizationBuilder":
         self._calendar_attendee_resource_customization.index_key = index_key
         return self
+
     def input_content(self, input_content: str) -> "CalendarAttendeeResourceCustomizationBuilder":
         self._calendar_attendee_resource_customization.input_content = input_content
         return self
+
     def options(self, options: List[CustomizationOption]) -> "CalendarAttendeeResourceCustomizationBuilder":
         self._calendar_attendee_resource_customization.options = options
         return self
-    
+
     def build(self) -> "CalendarAttendeeResourceCustomization":
         return self._calendar_attendee_resource_customization

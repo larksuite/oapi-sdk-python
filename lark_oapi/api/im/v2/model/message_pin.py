@@ -21,9 +21,10 @@ class MessagePin(object):
 class MessagePinBuilder(object):
     def __init__(self) -> None:
         self._message_pin = MessagePin()
+
     def message_id(self, message_id: str) -> "MessagePinBuilder":
         self._message_pin.message_id = message_id
         return self
-    
+
     def build(self) -> "MessagePin":
         return self._message_pin

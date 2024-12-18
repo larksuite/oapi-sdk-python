@@ -23,12 +23,11 @@ class DeleteProgressRecordRequestBuilder(object):
         delete_progress_record_request.uri = "/open-apis/okr/v1/progress_records/:progress_id"
         delete_progress_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_progress_record_request: DeleteProgressRecordRequest = delete_progress_record_request
-    
+
     def progress_id(self, progress_id: int) -> "DeleteProgressRecordRequestBuilder":
         self._delete_progress_record_request.progress_id = progress_id
         self._delete_progress_record_request.paths["progress_id"] = str(progress_id)
         return self
-    
 
     def build(self) -> DeleteProgressRecordRequest:
         return self._delete_progress_record_request

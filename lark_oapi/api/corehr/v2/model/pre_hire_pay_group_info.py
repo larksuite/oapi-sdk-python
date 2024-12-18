@@ -24,12 +24,14 @@ class PreHirePayGroupInfo(object):
 class PreHirePayGroupInfoBuilder(object):
     def __init__(self) -> None:
         self._pre_hire_pay_group_info = PreHirePayGroupInfo()
+
     def name(self, name: List[I18n]) -> "PreHirePayGroupInfoBuilder":
         self._pre_hire_pay_group_info.name = name
         return self
+
     def id(self, id: str) -> "PreHirePayGroupInfoBuilder":
         self._pre_hire_pay_group_info.id = id
         return self
-    
+
     def build(self) -> "PreHirePayGroupInfo":
         return self._pre_hire_pay_group_info

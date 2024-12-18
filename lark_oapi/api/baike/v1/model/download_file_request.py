@@ -23,12 +23,11 @@ class DownloadFileRequestBuilder(object):
         download_file_request.uri = "/open-apis/baike/v1/files/:file_token/download"
         download_file_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._download_file_request: DownloadFileRequest = download_file_request
-    
+
     def file_token(self, file_token: str) -> "DownloadFileRequestBuilder":
         self._download_file_request.file_token = file_token
         self._download_file_request.paths["file_token"] = str(file_token)
         return self
-    
 
     def build(self) -> DownloadFileRequest:
         return self._download_file_request

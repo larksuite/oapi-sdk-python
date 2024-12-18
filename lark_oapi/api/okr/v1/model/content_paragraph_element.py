@@ -30,18 +30,22 @@ class ContentParagraphElement(object):
 class ContentParagraphElementBuilder(object):
     def __init__(self) -> None:
         self._content_paragraph_element = ContentParagraphElement()
+
     def type(self, type: str) -> "ContentParagraphElementBuilder":
         self._content_paragraph_element.type = type
         return self
+
     def text_run(self, text_run: ContentTextRun) -> "ContentParagraphElementBuilder":
         self._content_paragraph_element.text_run = text_run
         return self
+
     def docs_link(self, docs_link: ContentDocsLink) -> "ContentParagraphElementBuilder":
         self._content_paragraph_element.docs_link = docs_link
         return self
+
     def person(self, person: ContentPerson) -> "ContentParagraphElementBuilder":
         self._content_paragraph_element.person = person
         return self
-    
+
     def build(self) -> "ContentParagraphElement":
         return self._content_paragraph_element

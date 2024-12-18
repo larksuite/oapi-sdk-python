@@ -23,12 +23,14 @@ class MatchInfo(object):
 class MatchInfoBuilder(object):
     def __init__(self) -> None:
         self._match_info = MatchInfo()
+
     def entity_id(self, entity_id: str) -> "MatchInfoBuilder":
         self._match_info.entity_id = entity_id
         return self
+
     def type(self, type: int) -> "MatchInfoBuilder":
         self._match_info.type = type
         return self
-    
+
     def build(self) -> "MatchInfo":
         return self._match_info

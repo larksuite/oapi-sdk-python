@@ -23,12 +23,14 @@ class AddManagersChatManagersResponseBody(object):
 class AddManagersChatManagersResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._add_managers_chat_managers_response_body = AddManagersChatManagersResponseBody()
+
     def chat_managers(self, chat_managers: List[str]) -> "AddManagersChatManagersResponseBodyBuilder":
         self._add_managers_chat_managers_response_body.chat_managers = chat_managers
         return self
+
     def chat_bot_managers(self, chat_bot_managers: List[str]) -> "AddManagersChatManagersResponseBodyBuilder":
         self._add_managers_chat_managers_response_body.chat_bot_managers = chat_bot_managers
         return self
-    
+
     def build(self) -> "AddManagersChatManagersResponseBody":
         return self._add_managers_chat_managers_response_body

@@ -23,12 +23,14 @@ class MyAiPresentCardVariables(object):
 class MyAiPresentCardVariablesBuilder(object):
     def __init__(self) -> None:
         self._my_ai_present_card_variables = MyAiPresentCardVariables()
+
     def prologue(self, prologue: str) -> "MyAiPresentCardVariablesBuilder":
         self._my_ai_present_card_variables.prologue = prologue
         return self
+
     def quick_actions(self, quick_actions: str) -> "MyAiPresentCardVariablesBuilder":
         self._my_ai_present_card_variables.quick_actions = quick_actions
         return self
-    
+
     def build(self) -> "MyAiPresentCardVariables":
         return self._my_ai_present_card_variables

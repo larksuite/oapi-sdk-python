@@ -23,12 +23,14 @@ class MeetingChat(object):
 class MeetingChatBuilder(object):
     def __init__(self) -> None:
         self._meeting_chat = MeetingChat()
+
     def meeting_chat_id(self, meeting_chat_id: str) -> "MeetingChatBuilder":
         self._meeting_chat.meeting_chat_id = meeting_chat_id
         return self
+
     def applink(self, applink: str) -> "MeetingChatBuilder":
         self._meeting_chat.applink = applink
         return self
-    
+
     def build(self) -> "MeetingChat":
         return self._meeting_chat

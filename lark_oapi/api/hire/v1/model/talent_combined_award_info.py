@@ -30,21 +30,27 @@ class TalentCombinedAwardInfo(object):
 class TalentCombinedAwardInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_combined_award_info = TalentCombinedAwardInfo()
+
     def id(self, id: str) -> "TalentCombinedAwardInfoBuilder":
         self._talent_combined_award_info.id = id
         return self
+
     def title(self, title: str) -> "TalentCombinedAwardInfoBuilder":
         self._talent_combined_award_info.title = title
         return self
+
     def award_time(self, award_time: str) -> "TalentCombinedAwardInfoBuilder":
         self._talent_combined_award_info.award_time = award_time
         return self
+
     def desc(self, desc: str) -> "TalentCombinedAwardInfoBuilder":
         self._talent_combined_award_info.desc = desc
         return self
-    def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedAwardInfoBuilder":
+
+    def customized_data(self,
+                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedAwardInfoBuilder":
         self._talent_combined_award_info.customized_data = customized_data
         return self
-    
+
     def build(self) -> "TalentCombinedAwardInfo":
         return self._talent_combined_award_info

@@ -30,21 +30,27 @@ class MeetingSecuritySetting(object):
 class MeetingSecuritySettingBuilder(object):
     def __init__(self) -> None:
         self._meeting_security_setting = MeetingSecuritySetting()
+
     def security_level(self, security_level: int) -> "MeetingSecuritySettingBuilder":
         self._meeting_security_setting.security_level = security_level
         return self
+
     def group_ids(self, group_ids: List[str]) -> "MeetingSecuritySettingBuilder":
         self._meeting_security_setting.group_ids = group_ids
         return self
+
     def user_ids(self, user_ids: List[UserId]) -> "MeetingSecuritySettingBuilder":
         self._meeting_security_setting.user_ids = user_ids
         return self
+
     def room_ids(self, room_ids: List[str]) -> "MeetingSecuritySettingBuilder":
         self._meeting_security_setting.room_ids = room_ids
         return self
-    def has_set_security_contacts_and_group(self, has_set_security_contacts_and_group: bool) -> "MeetingSecuritySettingBuilder":
+
+    def has_set_security_contacts_and_group(self,
+                                            has_set_security_contacts_and_group: bool) -> "MeetingSecuritySettingBuilder":
         self._meeting_security_setting.has_set_security_contacts_and_group = has_set_security_contacts_and_group
         return self
-    
+
     def build(self) -> "MeetingSecuritySetting":
         return self._meeting_security_setting

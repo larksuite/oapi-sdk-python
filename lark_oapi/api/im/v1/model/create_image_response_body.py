@@ -21,9 +21,10 @@ class CreateImageResponseBody(object):
 class CreateImageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_image_response_body = CreateImageResponseBody()
+
     def image_key(self, image_key: str) -> "CreateImageResponseBodyBuilder":
         self._create_image_response_body.image_key = image_key
         return self
-    
+
     def build(self) -> "CreateImageResponseBody":
         return self._create_image_response_body

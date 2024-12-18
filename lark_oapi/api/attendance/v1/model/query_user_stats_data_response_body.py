@@ -24,12 +24,14 @@ class QueryUserStatsDataResponseBody(object):
 class QueryUserStatsDataResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_stats_data_response_body = QueryUserStatsDataResponseBody()
+
     def user_datas(self, user_datas: List[UserStatsData]) -> "QueryUserStatsDataResponseBodyBuilder":
         self._query_user_stats_data_response_body.user_datas = user_datas
         return self
+
     def invalid_user_list(self, invalid_user_list: List[str]) -> "QueryUserStatsDataResponseBodyBuilder":
         self._query_user_stats_data_response_body.invalid_user_list = invalid_user_list
         return self
-    
+
     def build(self) -> "QueryUserStatsDataResponseBody":
         return self._query_user_stats_data_response_body

@@ -22,6 +22,7 @@ def main():
         .page_size(10) \
         .page_token("2") \
         .target_geo("cn") \
+        .with_product_version(True) \
         .build()
 
     # 发起请求
@@ -56,6 +57,7 @@ async def amain():
         .page_size(10) \
         .page_token("2") \
         .target_geo("cn") \
+        .with_product_version(True) \
         .build()
 
     # 发起请求

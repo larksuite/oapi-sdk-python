@@ -21,9 +21,10 @@ class MemberSetting(object):
 class MemberSettingBuilder(object):
     def __init__(self) -> None:
         self._member_setting = MemberSetting()
+
     def multi(self, multi: bool) -> "MemberSettingBuilder":
         self._member_setting.multi = multi
         return self
-    
+
     def build(self) -> "MemberSetting":
         return self._member_setting

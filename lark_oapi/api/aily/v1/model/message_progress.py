@@ -24,12 +24,14 @@ class MessageProgress(object):
 class MessageProgressBuilder(object):
     def __init__(self) -> None:
         self._message_progress = MessageProgress()
+
     def progress_type(self, progress_type: str) -> "MessageProgressBuilder":
         self._message_progress.progress_type = progress_type
         return self
+
     def progress_items(self, progress_items: List[ProgressItem]) -> "MessageProgressBuilder":
         self._message_progress.progress_items = progress_items
         return self
-    
+
     def build(self) -> "MessageProgress":
         return self._message_progress

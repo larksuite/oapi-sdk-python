@@ -34,27 +34,34 @@ class Intent(object):
 class IntentBuilder(object):
     def __init__(self) -> None:
         self._intent = Intent()
+
     def id(self, id: int) -> "IntentBuilder":
         self._intent.id = id
         return self
+
     def created_at(self, created_at: int) -> "IntentBuilder":
         self._intent.created_at = created_at
         return self
+
     def session_id(self, session_id: int) -> "IntentBuilder":
         self._intent.session_id = session_id
         return self
+
     def status(self, status: str) -> "IntentBuilder":
         self._intent.status = status
         return self
+
     def sub_status(self, sub_status: str) -> "IntentBuilder":
         self._intent.sub_status = sub_status
         return self
+
     def channel_type(self, channel_type: str) -> "IntentBuilder":
         self._intent.channel_type = channel_type
         return self
+
     def error(self, error: MessageError) -> "IntentBuilder":
         self._intent.error = error
         return self
-    
+
     def build(self) -> "Intent":
         return self._intent

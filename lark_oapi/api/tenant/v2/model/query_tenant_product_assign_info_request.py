@@ -22,7 +22,6 @@ class QueryTenantProductAssignInfoRequestBuilder(object):
         query_tenant_product_assign_info_request.uri = "/open-apis/tenant/v2/tenant/assign_info_list/query"
         query_tenant_product_assign_info_request.token_types = {AccessTokenType.TENANT}
         self._query_tenant_product_assign_info_request: QueryTenantProductAssignInfoRequest = query_tenant_product_assign_info_request
-    
 
     def build(self) -> QueryTenantProductAssignInfoRequest:
         return self._query_tenant_product_assign_info_request

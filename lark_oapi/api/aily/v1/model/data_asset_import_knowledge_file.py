@@ -29,21 +29,26 @@ class DataAssetImportKnowledgeFile(object):
 class DataAssetImportKnowledgeFileBuilder(object):
     def __init__(self) -> None:
         self._data_asset_import_knowledge_file = DataAssetImportKnowledgeFile()
+
     def title(self, title: str) -> "DataAssetImportKnowledgeFileBuilder":
         self._data_asset_import_knowledge_file.title = title
         return self
+
     def token(self, token: str) -> "DataAssetImportKnowledgeFileBuilder":
         self._data_asset_import_knowledge_file.token = token
         return self
+
     def content(self, content: str) -> "DataAssetImportKnowledgeFileBuilder":
         self._data_asset_import_knowledge_file.content = content
         return self
+
     def mime_type(self, mime_type: str) -> "DataAssetImportKnowledgeFileBuilder":
         self._data_asset_import_knowledge_file.mime_type = mime_type
         return self
+
     def url(self, url: str) -> "DataAssetImportKnowledgeFileBuilder":
         self._data_asset_import_knowledge_file.url = url
         return self
-    
+
     def build(self) -> "DataAssetImportKnowledgeFile":
         return self._data_asset_import_knowledge_file

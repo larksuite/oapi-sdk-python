@@ -25,12 +25,12 @@ class QueryUserApprovalRequestBuilder(object):
         query_user_approval_request.uri = "/open-apis/attendance/v1/user_approvals/query"
         query_user_approval_request.token_types = {AccessTokenType.TENANT}
         self._query_user_approval_request: QueryUserApprovalRequest = query_user_approval_request
-    
+
     def employee_type(self, employee_type: str) -> "QueryUserApprovalRequestBuilder":
         self._query_user_approval_request.employee_type = employee_type
         self._query_user_approval_request.add_query("employee_type", employee_type)
         return self
-    
+
     def request_body(self, request_body: QueryUserApprovalRequestBody) -> "QueryUserApprovalRequestBuilder":
         self._query_user_approval_request.request_body = request_body
         self._query_user_approval_request.body = request_body

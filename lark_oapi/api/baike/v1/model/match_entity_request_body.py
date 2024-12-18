@@ -21,9 +21,10 @@ class MatchEntityRequestBody(object):
 class MatchEntityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._match_entity_request_body = MatchEntityRequestBody()
+
     def word(self, word: str) -> "MatchEntityRequestBodyBuilder":
         self._match_entity_request_body.word = word
         return self
-    
+
     def build(self) -> "MatchEntityRequestBody":
         return self._match_entity_request_body

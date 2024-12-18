@@ -23,12 +23,14 @@ class ChatTopNotice(object):
 class ChatTopNoticeBuilder(object):
     def __init__(self) -> None:
         self._chat_top_notice = ChatTopNotice()
+
     def action_type(self, action_type: str) -> "ChatTopNoticeBuilder":
         self._chat_top_notice.action_type = action_type
         return self
+
     def message_id(self, message_id: str) -> "ChatTopNoticeBuilder":
         self._chat_top_notice.message_id = message_id
         return self
-    
+
     def build(self) -> "ChatTopNotice":
         return self._chat_top_notice

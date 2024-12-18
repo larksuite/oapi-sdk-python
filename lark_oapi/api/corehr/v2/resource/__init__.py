@@ -35,8 +35,14 @@ from .probation_assessment import *
 from .process import *
 from .process_approver import *
 from .process_cc import *
+from .process_extra import *
 from .process_form_variable_data import *
 from .process_node import *
 from .process_status import *
+from .process_transfer import *
+from .process_revoke import *
+from .process_withdraw import *
+from .report_detail_row import *
 from .workforce_plan import *
 from .workforce_plan_detail import *
+from .workforce_plan_detail_row import *

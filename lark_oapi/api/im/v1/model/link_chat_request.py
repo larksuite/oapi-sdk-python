@@ -25,12 +25,12 @@ class LinkChatRequestBuilder(object):
         link_chat_request.uri = "/open-apis/im/v1/chats/:chat_id/link"
         link_chat_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._link_chat_request: LinkChatRequest = link_chat_request
-    
+
     def chat_id(self, chat_id: str) -> "LinkChatRequestBuilder":
         self._link_chat_request.chat_id = chat_id
         self._link_chat_request.paths["chat_id"] = str(chat_id)
         return self
-    
+
     def request_body(self, request_body: LinkChatRequestBody) -> "LinkChatRequestBuilder":
         self._link_chat_request.request_body = request_body
         self._link_chat_request.body = request_body

@@ -23,12 +23,14 @@ class PunchSpecialDateShift(object):
 class PunchSpecialDateShiftBuilder(object):
     def __init__(self) -> None:
         self._punch_special_date_shift = PunchSpecialDateShift()
+
     def punch_day(self, punch_day: int) -> "PunchSpecialDateShiftBuilder":
         self._punch_special_date_shift.punch_day = punch_day
         return self
+
     def shift_id(self, shift_id: str) -> "PunchSpecialDateShiftBuilder":
         self._punch_special_date_shift.shift_id = shift_id
         return self
-    
+
     def build(self) -> "PunchSpecialDateShift":
         return self._punch_special_date_shift

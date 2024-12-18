@@ -29,21 +29,26 @@ class GetCategoryResponseBody(object):
 class GetCategoryResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_category_response_body = GetCategoryResponseBody()
+
     def category_id(self, category_id: str) -> "GetCategoryResponseBodyBuilder":
         self._get_category_response_body.category_id = category_id
         return self
+
     def id(self, id: str) -> "GetCategoryResponseBodyBuilder":
         self._get_category_response_body.id = id
         return self
+
     def name(self, name: str) -> "GetCategoryResponseBodyBuilder":
         self._get_category_response_body.name = name
         return self
+
     def helpdesk_id(self, helpdesk_id: str) -> "GetCategoryResponseBodyBuilder":
         self._get_category_response_body.helpdesk_id = helpdesk_id
         return self
+
     def language(self, language: str) -> "GetCategoryResponseBodyBuilder":
         self._get_category_response_body.language = language
         return self
-    
+
     def build(self) -> "GetCategoryResponseBody":
         return self._get_category_response_body

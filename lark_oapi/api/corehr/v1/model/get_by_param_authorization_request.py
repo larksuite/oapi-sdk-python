@@ -24,17 +24,16 @@ class GetByParamAuthorizationRequestBuilder(object):
         get_by_param_authorization_request.uri = "/open-apis/corehr/v1/authorizations/get_by_param"
         get_by_param_authorization_request.token_types = {AccessTokenType.TENANT}
         self._get_by_param_authorization_request: GetByParamAuthorizationRequest = get_by_param_authorization_request
-    
+
     def employment_id(self, employment_id: str) -> "GetByParamAuthorizationRequestBuilder":
         self._get_by_param_authorization_request.employment_id = employment_id
         self._get_by_param_authorization_request.add_query("employment_id", employment_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "GetByParamAuthorizationRequestBuilder":
         self._get_by_param_authorization_request.user_id_type = user_id_type
         self._get_by_param_authorization_request.add_query("user_id_type", user_id_type)
         return self
-    
 
     def build(self) -> GetByParamAuthorizationRequest:
         return self._get_by_param_authorization_request

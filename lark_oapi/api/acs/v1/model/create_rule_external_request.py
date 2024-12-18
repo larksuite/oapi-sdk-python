@@ -26,17 +26,17 @@ class CreateRuleExternalRequestBuilder(object):
         create_rule_external_request.uri = "/open-apis/acs/v1/rule_external"
         create_rule_external_request.token_types = {AccessTokenType.USER}
         self._create_rule_external_request: CreateRuleExternalRequest = create_rule_external_request
-    
+
     def rule_id(self, rule_id: int) -> "CreateRuleExternalRequestBuilder":
         self._create_rule_external_request.rule_id = rule_id
         self._create_rule_external_request.add_query("rule_id", rule_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateRuleExternalRequestBuilder":
         self._create_rule_external_request.user_id_type = user_id_type
         self._create_rule_external_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: CreateRuleExternalRequestBody) -> "CreateRuleExternalRequestBuilder":
         self._create_rule_external_request.request_body = request_body
         self._create_rule_external_request.body = request_body

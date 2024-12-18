@@ -23,12 +23,14 @@ class RunError(object):
 class RunErrorBuilder(object):
     def __init__(self) -> None:
         self._run_error = RunError()
+
     def code(self, code: str) -> "RunErrorBuilder":
         self._run_error.code = code
         return self
+
     def message(self, message: str) -> "RunErrorBuilder":
         self._run_error.message = message
         return self
-    
+
     def build(self) -> "RunError":
         return self._run_error

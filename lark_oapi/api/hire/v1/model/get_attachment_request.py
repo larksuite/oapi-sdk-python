@@ -24,17 +24,16 @@ class GetAttachmentRequestBuilder(object):
         get_attachment_request.uri = "/open-apis/hire/v1/attachments/:attachment_id"
         get_attachment_request.token_types = {AccessTokenType.TENANT}
         self._get_attachment_request: GetAttachmentRequest = get_attachment_request
-    
+
     def type(self, type: int) -> "GetAttachmentRequestBuilder":
         self._get_attachment_request.type = type
         self._get_attachment_request.add_query("type", type)
         return self
-    
+
     def attachment_id(self, attachment_id: str) -> "GetAttachmentRequestBuilder":
         self._get_attachment_request.attachment_id = attachment_id
         self._get_attachment_request.paths["attachment_id"] = str(attachment_id)
         return self
-    
 
     def build(self) -> GetAttachmentRequest:
         return self._get_attachment_request

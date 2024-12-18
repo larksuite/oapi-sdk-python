@@ -28,18 +28,22 @@ class JobTitle(object):
 class JobTitleBuilder(object):
     def __init__(self) -> None:
         self._job_title = JobTitle()
+
     def job_title_id(self, job_title_id: str) -> "JobTitleBuilder":
         self._job_title.job_title_id = job_title_id
         return self
+
     def name(self, name: str) -> "JobTitleBuilder":
         self._job_title.name = name
         return self
+
     def i18n_name(self, i18n_name: List[I18nContent]) -> "JobTitleBuilder":
         self._job_title.i18n_name = i18n_name
         return self
+
     def status(self, status: bool) -> "JobTitleBuilder":
         self._job_title.status = status
         return self
-    
+
     def build(self) -> "JobTitle":
         return self._job_title

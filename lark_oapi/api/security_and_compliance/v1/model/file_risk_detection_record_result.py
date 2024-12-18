@@ -23,12 +23,14 @@ class FileRiskDetectionRecordResult(object):
 class FileRiskDetectionRecordResultBuilder(object):
     def __init__(self) -> None:
         self._file_risk_detection_record_result = FileRiskDetectionRecordResult()
+
     def status(self, status: str) -> "FileRiskDetectionRecordResultBuilder":
         self._file_risk_detection_record_result.status = status
         return self
+
     def risk_tag(self, risk_tag: str) -> "FileRiskDetectionRecordResultBuilder":
         self._file_risk_detection_record_result.risk_tag = risk_tag
         return self
-    
+
     def build(self) -> "FileRiskDetectionRecordResult":
         return self._file_risk_detection_record_result

@@ -44,36 +44,47 @@ class DimensionAssessment(object):
 class DimensionAssessmentBuilder(object):
     def __init__(self) -> None:
         self._dimension_assessment = DimensionAssessment()
-    def interview_feedback_form_dimension_id(self, interview_feedback_form_dimension_id: str) -> "DimensionAssessmentBuilder":
+
+    def interview_feedback_form_dimension_id(self,
+                                             interview_feedback_form_dimension_id: str) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.interview_feedback_form_dimension_id = interview_feedback_form_dimension_id
         return self
+
     def dimension_name(self, dimension_name: I18n) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.dimension_name = dimension_name
         return self
+
     def dimension_type(self, dimension_type: int) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.dimension_type = dimension_type
         return self
+
     def weight(self, weight: float) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.weight = weight
         return self
+
     def dimension_content(self, dimension_content: str) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.dimension_content = dimension_content
         return self
+
     def dimension_option(self, dimension_option: DimensionOption) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.dimension_option = dimension_option
         return self
+
     def dimension_options(self, dimension_options: List[DimensionOption]) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.dimension_options = dimension_options
         return self
+
     def dimension_score(self, dimension_score: int) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.dimension_score = dimension_score
         return self
+
     def recommended_job_level(self, recommended_job_level: RecommendedJobLevel) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.recommended_job_level = recommended_job_level
         return self
+
     def question_assessments(self, question_assessments: List[QuestionAssessment]) -> "DimensionAssessmentBuilder":
         self._dimension_assessment.question_assessments = question_assessments
         return self
-    
+
     def build(self) -> "DimensionAssessment":
         return self._dimension_assessment

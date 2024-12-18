@@ -25,12 +25,12 @@ class PatchCategoryRequestBuilder(object):
         patch_category_request.uri = "/open-apis/helpdesk/v1/categories/:id"
         patch_category_request.token_types = {AccessTokenType.USER}
         self._patch_category_request: PatchCategoryRequest = patch_category_request
-    
+
     def id(self, id: str) -> "PatchCategoryRequestBuilder":
         self._patch_category_request.id = id
         self._patch_category_request.paths["id"] = str(id)
         return self
-    
+
     def request_body(self, request_body: Category) -> "PatchCategoryRequestBuilder":
         self._patch_category_request.request_body = request_body
         self._patch_category_request.body = request_body

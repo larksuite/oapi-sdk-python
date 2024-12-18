@@ -21,9 +21,10 @@ class UpdateApplicationManagementRequestBody(object):
 class UpdateApplicationManagementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_application_management_request_body = UpdateApplicationManagementRequestBody()
+
     def enable(self, enable: bool) -> "UpdateApplicationManagementRequestBodyBuilder":
         self._update_application_management_request_body.enable = enable
         return self
-    
+
     def build(self) -> "UpdateApplicationManagementRequestBody":
         return self._update_application_management_request_body

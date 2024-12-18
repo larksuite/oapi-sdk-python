@@ -24,8 +24,9 @@ class GenerateCaldavConfSettingRequestBuilder(object):
         generate_caldav_conf_setting_request.uri = "/open-apis/calendar/v4/settings/generate_caldav_conf"
         generate_caldav_conf_setting_request.token_types = {AccessTokenType.USER}
         self._generate_caldav_conf_setting_request: GenerateCaldavConfSettingRequest = generate_caldav_conf_setting_request
-    
-    def request_body(self, request_body: GenerateCaldavConfSettingRequestBody) -> "GenerateCaldavConfSettingRequestBuilder":
+
+    def request_body(self,
+                     request_body: GenerateCaldavConfSettingRequestBody) -> "GenerateCaldavConfSettingRequestBuilder":
         self._generate_caldav_conf_setting_request.request_body = request_body
         self._generate_caldav_conf_setting_request.body = request_body
         return self

@@ -25,15 +25,18 @@ class GroupFailedReason(object):
 class GroupFailedReasonBuilder(object):
     def __init__(self) -> None:
         self._group_failed_reason = GroupFailedReason()
+
     def group_id(self, group_id: str) -> "GroupFailedReasonBuilder":
         self._group_failed_reason.group_id = group_id
         return self
+
     def error_code(self, error_code: int) -> "GroupFailedReasonBuilder":
         self._group_failed_reason.error_code = error_code
         return self
+
     def error_message(self, error_message: str) -> "GroupFailedReasonBuilder":
         self._group_failed_reason.error_message = error_message
         return self
-    
+
     def build(self) -> "GroupFailedReason":
         return self._group_failed_reason

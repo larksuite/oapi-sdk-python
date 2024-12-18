@@ -26,17 +26,17 @@ class CreateTaskFollowerRequestBuilder(object):
         create_task_follower_request.uri = "/open-apis/task/v1/tasks/:task_id/followers"
         create_task_follower_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_task_follower_request: CreateTaskFollowerRequest = create_task_follower_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateTaskFollowerRequestBuilder":
         self._create_task_follower_request.user_id_type = user_id_type
         self._create_task_follower_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def task_id(self, task_id: str) -> "CreateTaskFollowerRequestBuilder":
         self._create_task_follower_request.task_id = task_id
         self._create_task_follower_request.paths["task_id"] = str(task_id)
         return self
-    
+
     def request_body(self, request_body: Follower) -> "CreateTaskFollowerRequestBuilder":
         self._create_task_follower_request.request_body = request_body
         self._create_task_follower_request.body = request_body

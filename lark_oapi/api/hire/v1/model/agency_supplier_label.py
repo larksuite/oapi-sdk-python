@@ -24,12 +24,14 @@ class AgencySupplierLabel(object):
 class AgencySupplierLabelBuilder(object):
     def __init__(self) -> None:
         self._agency_supplier_label = AgencySupplierLabel()
+
     def id(self, id: str) -> "AgencySupplierLabelBuilder":
         self._agency_supplier_label.id = id
         return self
+
     def name(self, name: I18n) -> "AgencySupplierLabelBuilder":
         self._agency_supplier_label.name = name
         return self
-    
+
     def build(self) -> "AgencySupplierLabel":
         return self._agency_supplier_label

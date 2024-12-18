@@ -26,15 +26,18 @@ class SearchDepartmentResponseBody(object):
 class SearchDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_department_response_body = SearchDepartmentResponseBody()
+
     def items(self, items: List[Department]) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchDepartmentResponseBodyBuilder":
         self._search_department_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchDepartmentResponseBody":
         return self._search_department_response_body

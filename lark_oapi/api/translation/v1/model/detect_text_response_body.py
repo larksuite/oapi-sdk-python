@@ -21,9 +21,10 @@ class DetectTextResponseBody(object):
 class DetectTextResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._detect_text_response_body = DetectTextResponseBody()
+
     def language(self, language: str) -> "DetectTextResponseBodyBuilder":
         self._detect_text_response_body.language = language
         return self
-    
+
     def build(self) -> "DetectTextResponseBody":
         return self._detect_text_response_body

@@ -26,17 +26,17 @@ class UpdateUserStatsViewRequestBuilder(object):
         update_user_stats_view_request.uri = "/open-apis/attendance/v1/user_stats_views/:user_stats_view_id"
         update_user_stats_view_request.token_types = {AccessTokenType.TENANT}
         self._update_user_stats_view_request: UpdateUserStatsViewRequest = update_user_stats_view_request
-    
+
     def employee_type(self, employee_type: str) -> "UpdateUserStatsViewRequestBuilder":
         self._update_user_stats_view_request.employee_type = employee_type
         self._update_user_stats_view_request.add_query("employee_type", employee_type)
         return self
-    
+
     def user_stats_view_id(self, user_stats_view_id: str) -> "UpdateUserStatsViewRequestBuilder":
         self._update_user_stats_view_request.user_stats_view_id = user_stats_view_id
         self._update_user_stats_view_request.paths["user_stats_view_id"] = str(user_stats_view_id)
         return self
-    
+
     def request_body(self, request_body: UpdateUserStatsViewRequestBody) -> "UpdateUserStatsViewRequestBuilder":
         self._update_user_stats_view_request.request_body = request_body
         self._update_user_stats_view_request.body = request_body

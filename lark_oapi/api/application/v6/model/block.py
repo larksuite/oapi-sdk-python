@@ -30,21 +30,26 @@ class Block(object):
 class BlockBuilder(object):
     def __init__(self) -> None:
         self._block = Block()
+
     def block_type_id(self, block_type_id: str) -> "BlockBuilder":
         self._block.block_type_id = block_type_id
         return self
+
     def version_id(self, version_id: str) -> "BlockBuilder":
         self._block.version_id = version_id
         return self
+
     def i18n(self, i18n: List[BlockI18nInfo]) -> "BlockBuilder":
         self._block.i18n = i18n
         return self
+
     def mobile_icon_url(self, mobile_icon_url: str) -> "BlockBuilder":
         self._block.mobile_icon_url = mobile_icon_url
         return self
+
     def pc_icon_url(self, pc_icon_url: str) -> "BlockBuilder":
         self._block.pc_icon_url = pc_icon_url
         return self
-    
+
     def build(self) -> "Block":
         return self._block

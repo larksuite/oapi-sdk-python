@@ -50,42 +50,54 @@ class CustomField(object):
 class CustomFieldBuilder(object):
     def __init__(self) -> None:
         self._custom_field = CustomField()
+
     def guid(self, guid: str) -> "CustomFieldBuilder":
         self._custom_field.guid = guid
         return self
+
     def name(self, name: str) -> "CustomFieldBuilder":
         self._custom_field.name = name
         return self
+
     def type(self, type: str) -> "CustomFieldBuilder":
         self._custom_field.type = type
         return self
+
     def number_setting(self, number_setting: NumberSetting) -> "CustomFieldBuilder":
         self._custom_field.number_setting = number_setting
         return self
+
     def member_setting(self, member_setting: MemberSetting) -> "CustomFieldBuilder":
         self._custom_field.member_setting = member_setting
         return self
+
     def datetime_setting(self, datetime_setting: DatetimeSetting) -> "CustomFieldBuilder":
         self._custom_field.datetime_setting = datetime_setting
         return self
+
     def single_select_setting(self, single_select_setting: SelectSetting) -> "CustomFieldBuilder":
         self._custom_field.single_select_setting = single_select_setting
         return self
+
     def multi_select_setting(self, multi_select_setting: SelectSetting) -> "CustomFieldBuilder":
         self._custom_field.multi_select_setting = multi_select_setting
         return self
+
     def creator(self, creator: Member) -> "CustomFieldBuilder":
         self._custom_field.creator = creator
         return self
+
     def created_at(self, created_at: str) -> "CustomFieldBuilder":
         self._custom_field.created_at = created_at
         return self
+
     def updated_at(self, updated_at: str) -> "CustomFieldBuilder":
         self._custom_field.updated_at = updated_at
         return self
+
     def text_setting(self, text_setting: TextSetting) -> "CustomFieldBuilder":
         self._custom_field.text_setting = text_setting
         return self
-    
+
     def build(self) -> "CustomField":
         return self._custom_field

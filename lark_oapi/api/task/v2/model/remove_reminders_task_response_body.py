@@ -22,9 +22,10 @@ class RemoveRemindersTaskResponseBody(object):
 class RemoveRemindersTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_reminders_task_response_body = RemoveRemindersTaskResponseBody()
+
     def task(self, task: Task) -> "RemoveRemindersTaskResponseBodyBuilder":
         self._remove_reminders_task_response_body.task = task
         return self
-    
+
     def build(self) -> "RemoveRemindersTaskResponseBody":
         return self._remove_reminders_task_response_body

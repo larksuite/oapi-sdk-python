@@ -23,12 +23,14 @@ class SiteName(object):
 class SiteNameBuilder(object):
     def __init__(self) -> None:
         self._site_name = SiteName()
+
     def zh_cn(self, zh_cn: str) -> "SiteNameBuilder":
         self._site_name.zh_cn = zh_cn
         return self
+
     def en_us(self, en_us: str) -> "SiteNameBuilder":
         self._site_name.en_us = en_us
         return self
-    
+
     def build(self) -> "SiteName":
         return self._site_name

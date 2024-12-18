@@ -34,13 +34,12 @@ class User(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetUserResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetUserRequest, option: Optional[RequestOption] = None) -> GetUserResponse:
         if option is None:
@@ -49,17 +48,15 @@ class User(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetUserResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListUserRequest, option: Optional[RequestOption] = None) -> ListUserResponse:
         if option is None:
             option = RequestOption()
@@ -73,13 +70,12 @@ class User(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListUserResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListUserRequest, option: Optional[RequestOption] = None) -> ListUserResponse:
         if option is None:
@@ -88,17 +84,15 @@ class User(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListUserResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchUserRequest, option: Optional[RequestOption] = None) -> PatchUserResponse:
         if option is None:
             option = RequestOption()
@@ -112,13 +106,12 @@ class User(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchUserResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUserResponse)
         response.raw = resp
 
         return response
-        
 
     async def apatch(self, request: PatchUserRequest, option: Optional[RequestOption] = None) -> PatchUserResponse:
         if option is None:
@@ -127,15 +120,11 @@ class User(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchUserResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchUserResponse)
         response.raw = resp
 
         return response
-        
-    

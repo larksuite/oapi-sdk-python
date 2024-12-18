@@ -22,9 +22,10 @@ class CreateSpaceResponseBody(object):
 class CreateSpaceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_space_response_body = CreateSpaceResponseBody()
+
     def space(self, space: Space) -> "CreateSpaceResponseBodyBuilder":
         self._create_space_response_body.space = space
         return self
-    
+
     def build(self) -> "CreateSpaceResponseBody":
         return self._create_space_response_body

@@ -33,27 +33,34 @@ class ConnectorLogData(object):
 class ConnectorLogDataBuilder(object):
     def __init__(self) -> None:
         self._connector_log_data = ConnectorLogData()
+
     def date_time(self, date_time: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.date_time = date_time
         return self
+
     def data(self, data: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.data = data
         return self
+
     def level(self, level: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.level = level
         return self
+
     def pod(self, pod: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.pod = pod
         return self
+
     def location(self, location: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.location = location
         return self
+
     def type(self, type: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.type = type
         return self
+
     def version(self, version: str) -> "ConnectorLogDataBuilder":
         self._connector_log_data.version = version
         return self
-    
+
     def build(self) -> "ConnectorLogData":
         return self._connector_log_data

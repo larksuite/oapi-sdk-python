@@ -21,9 +21,10 @@ class WidgetUrl(object):
 class WidgetUrlBuilder(object):
     def __init__(self) -> None:
         self._widget_url = WidgetUrl()
+
     def url(self, url: str) -> "WidgetUrlBuilder":
         self._widget_url.url = url
         return self
-    
+
     def build(self) -> "WidgetUrl":
         return self._widget_url

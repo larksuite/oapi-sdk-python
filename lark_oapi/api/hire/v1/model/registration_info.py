@@ -23,12 +23,14 @@ class RegistrationInfo(object):
 class RegistrationInfoBuilder(object):
     def __init__(self) -> None:
         self._registration_info = RegistrationInfo()
+
     def schema_id(self, schema_id: str) -> "RegistrationInfoBuilder":
         self._registration_info.schema_id = schema_id
         return self
+
     def name(self, name: str) -> "RegistrationInfoBuilder":
         self._registration_info.name = name
         return self
-    
+
     def build(self) -> "RegistrationInfo":
         return self._registration_info

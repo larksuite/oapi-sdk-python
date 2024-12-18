@@ -23,12 +23,14 @@ class LanguageInfo(object):
 class LanguageInfoBuilder(object):
     def __init__(self) -> None:
         self._language_info = LanguageInfo()
+
     def language(self, language: int) -> "LanguageInfoBuilder":
         self._language_info.language = language
         return self
+
     def proficiency(self, proficiency: int) -> "LanguageInfoBuilder":
         self._language_info.proficiency = proficiency
         return self
-    
+
     def build(self) -> "LanguageInfo":
         return self._language_info

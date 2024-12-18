@@ -22,9 +22,10 @@ class ExtractEntityResponseBody(object):
 class ExtractEntityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._extract_entity_response_body = ExtractEntityResponseBody()
+
     def entity_word(self, entity_word: List[EntityWord]) -> "ExtractEntityResponseBodyBuilder":
         self._extract_entity_response_body.entity_word = entity_word
         return self
-    
+
     def build(self) -> "ExtractEntityResponseBody":
         return self._extract_entity_response_body

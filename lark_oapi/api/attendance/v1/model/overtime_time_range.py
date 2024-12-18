@@ -23,12 +23,14 @@ class OvertimeTimeRange(object):
 class OvertimeTimeRangeBuilder(object):
     def __init__(self) -> None:
         self._overtime_time_range = OvertimeTimeRange()
+
     def start_time(self, start_time: str) -> "OvertimeTimeRangeBuilder":
         self._overtime_time_range.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "OvertimeTimeRangeBuilder":
         self._overtime_time_range.end_time = end_time
         return self
-    
+
     def build(self) -> "OvertimeTimeRange":
         return self._overtime_time_range

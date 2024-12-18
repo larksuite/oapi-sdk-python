@@ -22,7 +22,6 @@ class AgentEmailAgentRequestBuilder(object):
         agent_email_agent_request.uri = "/open-apis/helpdesk/v1/agent_emails"
         agent_email_agent_request.token_types = {AccessTokenType.TENANT}
         self._agent_email_agent_request: AgentEmailAgentRequest = agent_email_agent_request
-    
 
     def build(self) -> AgentEmailAgentRequest:
         return self._agent_email_agent_request

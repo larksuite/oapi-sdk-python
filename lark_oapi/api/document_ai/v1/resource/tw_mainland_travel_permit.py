@@ -17,7 +17,8 @@ class TwMainlandTravelPermit(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def recognize(self, request: RecognizeTwMainlandTravelPermitRequest, option: Optional[RequestOption] = None) -> RecognizeTwMainlandTravelPermitResponse:
+    def recognize(self, request: RecognizeTwMainlandTravelPermitRequest,
+                  option: Optional[RequestOption] = None) -> RecognizeTwMainlandTravelPermitResponse:
         if option is None:
             option = RequestOption()
 
@@ -29,36 +30,34 @@ class TwMainlandTravelPermit(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
-            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8), RecognizeTwMainlandTravelPermitResponse)
+        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           RecognizeTwMainlandTravelPermitResponse)
         response.raw = resp
 
         return response
-        
 
-    async def arecognize(self, request: RecognizeTwMainlandTravelPermitRequest, option: Optional[RequestOption] = None) -> RecognizeTwMainlandTravelPermitResponse:
+    async def arecognize(self, request: RecognizeTwMainlandTravelPermitRequest,
+                         option: Optional[RequestOption] = None) -> RecognizeTwMainlandTravelPermitResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8), RecognizeTwMainlandTravelPermitResponse)
+        response: RecognizeTwMainlandTravelPermitResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           RecognizeTwMainlandTravelPermitResponse)
         response.raw = resp
 
         return response
-        
-    

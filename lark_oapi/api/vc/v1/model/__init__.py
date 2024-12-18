@@ -22,6 +22,7 @@ from .meeting_event_meeting import *
 from .meeting_event_user import *
 from .meeting_info import *
 from .meeting_invite_status import *
+from .meeting_named_user import *
 from .meeting_participant import *
 from .meeting_participant_result import *
 from .meeting_security_setting import *

@@ -25,15 +25,18 @@ class TalentNationality(object):
 class TalentNationalityBuilder(object):
     def __init__(self) -> None:
         self._talent_nationality = TalentNationality()
+
     def nationality_code(self, nationality_code: str) -> "TalentNationalityBuilder":
         self._talent_nationality.nationality_code = nationality_code
         return self
+
     def zh_name(self, zh_name: str) -> "TalentNationalityBuilder":
         self._talent_nationality.zh_name = zh_name
         return self
+
     def en_name(self, en_name: str) -> "TalentNationalityBuilder":
         self._talent_nationality.en_name = en_name
         return self
-    
+
     def build(self) -> "TalentNationality":
         return self._talent_nationality

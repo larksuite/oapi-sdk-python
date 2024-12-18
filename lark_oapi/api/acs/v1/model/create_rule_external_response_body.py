@@ -21,9 +21,10 @@ class CreateRuleExternalResponseBody(object):
 class CreateRuleExternalResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_rule_external_response_body = CreateRuleExternalResponseBody()
+
     def rule_id(self, rule_id: int) -> "CreateRuleExternalResponseBodyBuilder":
         self._create_rule_external_response_body.rule_id = rule_id
         return self
-    
+
     def build(self) -> "CreateRuleExternalResponseBody":
         return self._create_rule_external_response_body

@@ -25,12 +25,14 @@ class StreamRecognizeSpeechRequestBody(object):
 class StreamRecognizeSpeechRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._stream_recognize_speech_request_body = StreamRecognizeSpeechRequestBody()
+
     def speech(self, speech: Speech) -> "StreamRecognizeSpeechRequestBodyBuilder":
         self._stream_recognize_speech_request_body.speech = speech
         return self
+
     def config(self, config: StreamConfig) -> "StreamRecognizeSpeechRequestBodyBuilder":
         self._stream_recognize_speech_request_body.config = config
         return self
-    
+
     def build(self) -> "StreamRecognizeSpeechRequestBody":
         return self._stream_recognize_speech_request_body

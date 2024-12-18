@@ -22,9 +22,10 @@ class GetUserResponseBody(object):
 class GetUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_user_response_body = GetUserResponseBody()
+
     def user(self, user: User) -> "GetUserResponseBodyBuilder":
         self._get_user_response_body.user = user
         return self
-    
+
     def build(self) -> "GetUserResponseBody":
         return self._get_user_response_body

@@ -21,9 +21,10 @@ class DocUser(object):
 class DocUserBuilder(object):
     def __init__(self) -> None:
         self._doc_user = DocUser()
+
     def user_id(self, user_id: int) -> "DocUserBuilder":
         self._doc_user.user_id = user_id
         return self
-    
+
     def build(self) -> "DocUser":
         return self._doc_user

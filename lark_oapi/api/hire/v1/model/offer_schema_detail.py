@@ -31,21 +31,26 @@ class OfferSchemaDetail(object):
 class OfferSchemaDetailBuilder(object):
     def __init__(self) -> None:
         self._offer_schema_detail = OfferSchemaDetail()
+
     def id(self, id: str) -> "OfferSchemaDetailBuilder":
         self._offer_schema_detail.id = id
         return self
+
     def name(self, name: OfferSchemaName) -> "OfferSchemaDetailBuilder":
         self._offer_schema_detail.name = name
         return self
+
     def type(self, type: str) -> "OfferSchemaDetailBuilder":
         self._offer_schema_detail.type = type
         return self
+
     def is_customized(self, is_customized: bool) -> "OfferSchemaDetailBuilder":
         self._offer_schema_detail.is_customized = is_customized
         return self
+
     def option_list(self, option_list: List[OfferSchemaDetailOption]) -> "OfferSchemaDetailBuilder":
         self._offer_schema_detail.option_list = option_list
         return self
-    
+
     def build(self) -> "OfferSchemaDetail":
         return self._offer_schema_detail

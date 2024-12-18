@@ -23,12 +23,14 @@ class TaskDependency(object):
 class TaskDependencyBuilder(object):
     def __init__(self) -> None:
         self._task_dependency = TaskDependency()
+
     def type(self, type: str) -> "TaskDependencyBuilder":
         self._task_dependency.type = type
         return self
+
     def task_guid(self, task_guid: str) -> "TaskDependencyBuilder":
         self._task_dependency.task_guid = task_guid
         return self
-    
+
     def build(self) -> "TaskDependency":
         return self._task_dependency

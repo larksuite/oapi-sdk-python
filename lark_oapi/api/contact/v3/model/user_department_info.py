@@ -25,15 +25,18 @@ class UserDepartmentInfo(object):
 class UserDepartmentInfoBuilder(object):
     def __init__(self) -> None:
         self._user_department_info = UserDepartmentInfo()
+
     def department_id(self, department_id: int) -> "UserDepartmentInfoBuilder":
         self._user_department_info.department_id = department_id
         return self
+
     def user_order(self, user_order: int) -> "UserDepartmentInfoBuilder":
         self._user_department_info.user_order = user_order
         return self
+
     def department_order(self, department_order: int) -> "UserDepartmentInfoBuilder":
         self._user_department_info.department_order = department_order
         return self
-    
+
     def build(self) -> "UserDepartmentInfo":
         return self._user_department_info

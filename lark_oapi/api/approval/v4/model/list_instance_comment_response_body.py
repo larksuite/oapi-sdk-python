@@ -22,9 +22,10 @@ class ListInstanceCommentResponseBody(object):
 class ListInstanceCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_instance_comment_response_body = ListInstanceCommentResponseBody()
+
     def comments(self, comments: List[Comment]) -> "ListInstanceCommentResponseBodyBuilder":
         self._list_instance_comment_response_body.comments = comments
         return self
-    
+
     def build(self) -> "ListInstanceCommentResponseBody":
         return self._list_instance_comment_response_body

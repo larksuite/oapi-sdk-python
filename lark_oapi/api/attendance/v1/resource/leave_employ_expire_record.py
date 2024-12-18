@@ -17,7 +17,8 @@ class LeaveEmployExpireRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetLeaveEmployExpireRecordRequest, option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:
+    def get(self, request: GetLeaveEmployExpireRecordRequest,
+            option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class LeaveEmployExpireRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetLeaveEmployExpireRecordResponse)
+        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      GetLeaveEmployExpireRecordResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetLeaveEmployExpireRecordRequest, option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:
+    async def aget(self, request: GetLeaveEmployExpireRecordRequest,
+                   option: Optional[RequestOption] = None) -> GetLeaveEmployExpireRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), GetLeaveEmployExpireRecordResponse)
+        response: GetLeaveEmployExpireRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      GetLeaveEmployExpireRecordResponse)
         response.raw = resp
 
         return response
-        
-    

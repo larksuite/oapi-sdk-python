@@ -27,18 +27,22 @@ class File(object):
 class FileBuilder(object):
     def __init__(self) -> None:
         self._file = File()
+
     def url(self, url: str) -> "FileBuilder":
         self._file.url = url
         return self
+
     def file_size(self, file_size: int) -> "FileBuilder":
         self._file.file_size = file_size
         return self
+
     def title(self, title: str) -> "FileBuilder":
         self._file.title = title
         return self
+
     def type(self, type: str) -> "FileBuilder":
         self._file.type = type
         return self
-    
+
     def build(self) -> "File":
         return self._file

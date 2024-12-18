@@ -22,9 +22,10 @@ class CreateChatMenuTreeResponseBody(object):
 class CreateChatMenuTreeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_chat_menu_tree_response_body = CreateChatMenuTreeResponseBody()
+
     def menu_tree(self, menu_tree: ChatMenuTree) -> "CreateChatMenuTreeResponseBodyBuilder":
         self._create_chat_menu_tree_response_body.menu_tree = menu_tree
         return self
-    
+
     def build(self) -> "CreateChatMenuTreeResponseBody":
         return self._create_chat_menu_tree_response_body

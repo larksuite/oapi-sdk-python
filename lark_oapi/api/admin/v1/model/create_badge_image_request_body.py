@@ -23,12 +23,14 @@ class CreateBadgeImageRequestBody(object):
 class CreateBadgeImageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_badge_image_request_body = CreateBadgeImageRequestBody()
+
     def image_file(self, image_file: IO[Any]) -> "CreateBadgeImageRequestBodyBuilder":
         self._create_badge_image_request_body.image_file = image_file
         return self
+
     def image_type(self, image_type: int) -> "CreateBadgeImageRequestBodyBuilder":
         self._create_badge_image_request_body.image_type = image_type
         return self
-    
+
     def build(self) -> "CreateBadgeImageRequestBody":
         return self._create_badge_image_request_body

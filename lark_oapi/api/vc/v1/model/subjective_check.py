@@ -24,12 +24,14 @@ class SubjectiveCheck(object):
 class SubjectiveCheckBuilder(object):
     def __init__(self) -> None:
         self._subjective_check = SubjectiveCheck()
+
     def key_points(self, key_points: List[KeyPoint]) -> "SubjectiveCheckBuilder":
         self._subjective_check.key_points = key_points
         return self
+
     def user_input_prompts(self, user_input_prompts: List[str]) -> "SubjectiveCheckBuilder":
         self._subjective_check.user_input_prompts = user_input_prompts
         return self
-    
+
     def build(self) -> "SubjectiveCheck":
         return self._subjective_check

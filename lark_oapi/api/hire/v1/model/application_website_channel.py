@@ -24,12 +24,14 @@ class ApplicationWebsiteChannel(object):
 class ApplicationWebsiteChannelBuilder(object):
     def __init__(self) -> None:
         self._application_website_channel = ApplicationWebsiteChannel()
+
     def channel_id(self, channel_id: str) -> "ApplicationWebsiteChannelBuilder":
         self._application_website_channel.channel_id = channel_id
         return self
+
     def channel_name(self, channel_name: I18n) -> "ApplicationWebsiteChannelBuilder":
         self._application_website_channel.channel_name = channel_name
         return self
-    
+
     def build(self) -> "ApplicationWebsiteChannel":
         return self._application_website_channel

@@ -28,37 +28,36 @@ class GetCalendarEventRequestBuilder(object):
         get_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
         get_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_calendar_event_request: GetCalendarEventRequest = get_calendar_event_request
-    
+
     def need_meeting_settings(self, need_meeting_settings: bool) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.need_meeting_settings = need_meeting_settings
         self._get_calendar_event_request.add_query("need_meeting_settings", need_meeting_settings)
         return self
-    
+
     def need_attendee(self, need_attendee: bool) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.need_attendee = need_attendee
         self._get_calendar_event_request.add_query("need_attendee", need_attendee)
         return self
-    
+
     def max_attendee_num(self, max_attendee_num: int) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.max_attendee_num = max_attendee_num
         self._get_calendar_event_request.add_query("max_attendee_num", max_attendee_num)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.user_id_type = user_id_type
         self._get_calendar_event_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def calendar_id(self, calendar_id: str) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.calendar_id = calendar_id
         self._get_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
-    
+
     def event_id(self, event_id: str) -> "GetCalendarEventRequestBuilder":
         self._get_calendar_event_request.event_id = event_id
         self._get_calendar_event_request.paths["event_id"] = str(event_id)
         return self
-    
 
     def build(self) -> GetCalendarEventRequest:
         return self._get_calendar_event_request

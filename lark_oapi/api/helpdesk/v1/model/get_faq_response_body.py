@@ -22,9 +22,10 @@ class GetFaqResponseBody(object):
 class GetFaqResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_faq_response_body = GetFaqResponseBody()
+
     def faq(self, faq: Faq) -> "GetFaqResponseBodyBuilder":
         self._get_faq_response_body.faq = faq
         return self
-    
+
     def build(self) -> "GetFaqResponseBody":
         return self._get_faq_response_body

@@ -23,12 +23,14 @@ class KeyPointMatchDetail(object):
 class KeyPointMatchDetailBuilder(object):
     def __init__(self) -> None:
         self._key_point_match_detail = KeyPointMatchDetail()
+
     def start_timestamp(self, start_timestamp: str) -> "KeyPointMatchDetailBuilder":
         self._key_point_match_detail.start_timestamp = start_timestamp
         return self
+
     def matched_text(self, matched_text: str) -> "KeyPointMatchDetailBuilder":
         self._key_point_match_detail.matched_text = matched_text
         return self
-    
+
     def build(self) -> "KeyPointMatchDetail":
         return self._key_point_match_detail

@@ -31,24 +31,30 @@ class Property(object):
 class PropertyBuilder(object):
     def __init__(self) -> None:
         self._property = Property()
+
     def version(self, version: str) -> "PropertyBuilder":
         self._property.version = version
         return self
+
     def current_device_face_count(self, current_device_face_count: int) -> "PropertyBuilder":
         self._property.current_device_face_count = current_device_face_count
         return self
+
     def max_face_capacity(self, max_face_capacity: int) -> "PropertyBuilder":
         self._property.max_face_capacity = max_face_capacity
         return self
+
     def online_status(self, online_status: int) -> "PropertyBuilder":
         self._property.online_status = online_status
         return self
+
     def device_name(self, device_name: str) -> "PropertyBuilder":
         self._property.device_name = device_name
         return self
+
     def is_clock_in(self, is_clock_in: bool) -> "PropertyBuilder":
         self._property.is_clock_in = is_clock_in
         return self
-    
+
     def build(self) -> "Property":
         return self._property

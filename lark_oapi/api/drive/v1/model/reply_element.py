@@ -30,18 +30,22 @@ class ReplyElement(object):
 class ReplyElementBuilder(object):
     def __init__(self) -> None:
         self._reply_element = ReplyElement()
+
     def type(self, type: str) -> "ReplyElementBuilder":
         self._reply_element.type = type
         return self
+
     def text_run(self, text_run: TextRun) -> "ReplyElementBuilder":
         self._reply_element.text_run = text_run
         return self
+
     def docs_link(self, docs_link: DocsLink) -> "ReplyElementBuilder":
         self._reply_element.docs_link = docs_link
         return self
+
     def person(self, person: Person) -> "ReplyElementBuilder":
         self._reply_element.person = person
         return self
-    
+
     def build(self) -> "ReplyElement":
         return self._reply_element

@@ -22,9 +22,10 @@ class MgetRoomLevelResponseBody(object):
 class MgetRoomLevelResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._mget_room_level_response_body = MgetRoomLevelResponseBody()
+
     def items(self, items: List[RoomLevel]) -> "MgetRoomLevelResponseBodyBuilder":
         self._mget_room_level_response_body.items = items
         return self
-    
+
     def build(self) -> "MgetRoomLevelResponseBody":
         return self._mget_room_level_response_body

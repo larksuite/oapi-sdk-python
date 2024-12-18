@@ -23,12 +23,14 @@ class DeviceExternal(object):
 class DeviceExternalBuilder(object):
     def __init__(self) -> None:
         self._device_external = DeviceExternal()
+
     def id(self, id: int) -> "DeviceExternalBuilder":
         self._device_external.id = id
         return self
+
     def name(self, name: str) -> "DeviceExternalBuilder":
         self._device_external.name = name
         return self
-    
+
     def build(self) -> "DeviceExternal":
         return self._device_external

@@ -24,7 +24,7 @@ class RemoveToFolderTalentRequestBuilder(object):
         remove_to_folder_talent_request.uri = "/open-apis/hire/v1/talents/remove_to_folder"
         remove_to_folder_talent_request.token_types = {AccessTokenType.TENANT}
         self._remove_to_folder_talent_request: RemoveToFolderTalentRequest = remove_to_folder_talent_request
-    
+
     def request_body(self, request_body: RemoveToFolderTalentRequestBody) -> "RemoveToFolderTalentRequestBuilder":
         self._remove_to_folder_talent_request.request_body = request_body
         self._remove_to_folder_talent_request.body = request_body

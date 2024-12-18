@@ -34,27 +34,35 @@ class ExternalInterview(object):
 class ExternalInterviewBuilder(object):
     def __init__(self) -> None:
         self._external_interview = ExternalInterview()
+
     def external_id(self, external_id: str) -> "ExternalInterviewBuilder":
         self._external_interview.external_id = external_id
         return self
+
     def external_application_id(self, external_application_id: str) -> "ExternalInterviewBuilder":
         self._external_interview.external_application_id = external_application_id
         return self
+
     def id(self, id: str) -> "ExternalInterviewBuilder":
         self._external_interview.id = id
         return self
+
     def participate_status(self, participate_status: int) -> "ExternalInterviewBuilder":
         self._external_interview.participate_status = participate_status
         return self
+
     def begin_time(self, begin_time: int) -> "ExternalInterviewBuilder":
         self._external_interview.begin_time = begin_time
         return self
+
     def end_time(self, end_time: int) -> "ExternalInterviewBuilder":
         self._external_interview.end_time = end_time
         return self
-    def interview_assessments(self, interview_assessments: List[ExternalInterviewAssessment]) -> "ExternalInterviewBuilder":
+
+    def interview_assessments(self,
+                              interview_assessments: List[ExternalInterviewAssessment]) -> "ExternalInterviewBuilder":
         self._external_interview.interview_assessments = interview_assessments
         return self
-    
+
     def build(self) -> "ExternalInterview":
         return self._external_interview

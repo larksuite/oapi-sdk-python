@@ -27,18 +27,22 @@ class FilterRuleValue(object):
 class FilterRuleValueBuilder(object):
     def __init__(self) -> None:
         self._filter_rule_value = FilterRuleValue()
+
     def type(self, type: int) -> "FilterRuleValueBuilder":
         self._filter_rule_value.type = type
         return self
+
     def value(self, value: str) -> "FilterRuleValueBuilder":
         self._filter_rule_value.value = value
         return self
+
     def lookup_value(self, lookup_value: str) -> "FilterRuleValueBuilder":
         self._filter_rule_value.lookup_value = lookup_value
         return self
+
     def lookup_type(self, lookup_type: str) -> "FilterRuleValueBuilder":
         self._filter_rule_value.lookup_type = lookup_type
         return self
-    
+
     def build(self) -> "FilterRuleValue":
         return self._filter_rule_value

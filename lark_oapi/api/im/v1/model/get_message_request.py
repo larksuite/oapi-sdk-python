@@ -24,17 +24,16 @@ class GetMessageRequestBuilder(object):
         get_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         get_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_message_request: GetMessageRequest = get_message_request
-    
+
     def user_id_type(self, user_id_type: str) -> "GetMessageRequestBuilder":
         self._get_message_request.user_id_type = user_id_type
         self._get_message_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def message_id(self, message_id: str) -> "GetMessageRequestBuilder":
         self._get_message_request.message_id = message_id
         self._get_message_request.paths["message_id"] = str(message_id)
         return self
-    
 
     def build(self) -> GetMessageRequest:
         return self._get_message_request

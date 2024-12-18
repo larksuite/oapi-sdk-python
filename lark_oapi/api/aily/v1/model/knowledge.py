@@ -61,57 +61,74 @@ class Knowledge(object):
 class KnowledgeBuilder(object):
     def __init__(self) -> None:
         self._knowledge = Knowledge()
+
     def id(self, id: str) -> "KnowledgeBuilder":
         self._knowledge.id = id
         return self
+
     def knowledge_base_id(self, knowledge_base_id: str) -> "KnowledgeBuilder":
         self._knowledge.knowledge_base_id = knowledge_base_id
         return self
+
     def status(self, status: str) -> "KnowledgeBuilder":
         self._knowledge.status = status
         return self
+
     def title(self, title: str) -> "KnowledgeBuilder":
         self._knowledge.title = title
         return self
+
     def type(self, type: str) -> "KnowledgeBuilder":
         self._knowledge.type = type
         return self
+
     def file(self, file: AilyKnowledgeFile) -> "KnowledgeBuilder":
         self._knowledge.file = file
         return self
+
     def docs(self, docs: AilyKnowledgeDocs) -> "KnowledgeBuilder":
         self._knowledge.docs = docs
         return self
+
     def wiki_space(self, wiki_space: AilyKnowledgeWikiSpace) -> "KnowledgeBuilder":
         self._knowledge.wiki_space = wiki_space
         return self
+
     def folder(self, folder: AilyKnowledgeFolder) -> "KnowledgeBuilder":
         self._knowledge.folder = folder
         return self
+
     def helpdesk(self, helpdesk: AilyKnowledgeHelpdesk) -> "KnowledgeBuilder":
         self._knowledge.helpdesk = helpdesk
         return self
+
     def datatable(self, datatable: AilyKnowledgeDatatable) -> "KnowledgeBuilder":
         self._knowledge.datatable = datatable
         return self
+
     def dataset(self, dataset: AilyKnowledgeDataset) -> "KnowledgeBuilder":
         self._knowledge.dataset = dataset
         return self
+
     def web(self, web: AilyKnowledgeWeb) -> "KnowledgeBuilder":
         self._knowledge.web = web
         return self
+
     def chunk_count(self, chunk_count: int) -> "KnowledgeBuilder":
         self._knowledge.chunk_count = chunk_count
         return self
+
     def create_time(self, create_time: int) -> "KnowledgeBuilder":
         self._knowledge.create_time = create_time
         return self
+
     def update_time(self, update_time: int) -> "KnowledgeBuilder":
         self._knowledge.update_time = update_time
         return self
+
     def fail_message(self, fail_message: str) -> "KnowledgeBuilder":
         self._knowledge.fail_message = fail_message
         return self
-    
+
     def build(self) -> "Knowledge":
         return self._knowledge

@@ -23,12 +23,11 @@ class DeleteAgentSchedulesRequestBuilder(object):
         delete_agent_schedules_request.uri = "/open-apis/helpdesk/v1/agents/:agent_id/schedules"
         delete_agent_schedules_request.token_types = {AccessTokenType.USER}
         self._delete_agent_schedules_request: DeleteAgentSchedulesRequest = delete_agent_schedules_request
-    
+
     def agent_id(self, agent_id: str) -> "DeleteAgentSchedulesRequestBuilder":
         self._delete_agent_schedules_request.agent_id = agent_id
         self._delete_agent_schedules_request.paths["agent_id"] = str(agent_id)
         return self
-    
 
     def build(self) -> DeleteAgentSchedulesRequest:
         return self._delete_agent_schedules_request

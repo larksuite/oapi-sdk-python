@@ -29,21 +29,26 @@ class TripartiteAgreementInfo(object):
 class TripartiteAgreementInfoBuilder(object):
     def __init__(self) -> None:
         self._tripartite_agreement_info = TripartiteAgreementInfo()
+
     def id(self, id: str) -> "TripartiteAgreementInfoBuilder":
         self._tripartite_agreement_info.id = id
         return self
+
     def application_id(self, application_id: str) -> "TripartiteAgreementInfoBuilder":
         self._tripartite_agreement_info.application_id = application_id
         return self
+
     def state(self, state: int) -> "TripartiteAgreementInfoBuilder":
         self._tripartite_agreement_info.state = state
         return self
+
     def create_time(self, create_time: str) -> "TripartiteAgreementInfoBuilder":
         self._tripartite_agreement_info.create_time = create_time
         return self
+
     def modify_time(self, modify_time: str) -> "TripartiteAgreementInfoBuilder":
         self._tripartite_agreement_info.modify_time = modify_time
         return self
-    
+
     def build(self) -> "TripartiteAgreementInfo":
         return self._tripartite_agreement_info

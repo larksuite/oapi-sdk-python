@@ -25,15 +25,18 @@ class ApplicationTalentCompetitionInfo(object):
 class ApplicationTalentCompetitionInfoBuilder(object):
     def __init__(self) -> None:
         self._application_talent_competition_info = ApplicationTalentCompetitionInfo()
+
     def id(self, id: str) -> "ApplicationTalentCompetitionInfoBuilder":
         self._application_talent_competition_info.id = id
         return self
+
     def name(self, name: str) -> "ApplicationTalentCompetitionInfoBuilder":
         self._application_talent_competition_info.name = name
         return self
+
     def desc(self, desc: str) -> "ApplicationTalentCompetitionInfoBuilder":
         self._application_talent_competition_info.desc = desc
         return self
-    
+
     def build(self) -> "ApplicationTalentCompetitionInfo":
         return self._application_talent_competition_info

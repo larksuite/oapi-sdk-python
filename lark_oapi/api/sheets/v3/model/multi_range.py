@@ -21,9 +21,10 @@ class MultiRange(object):
 class MultiRangeBuilder(object):
     def __init__(self) -> None:
         self._multi_range = MultiRange()
+
     def ranges(self, ranges: List[str]) -> "MultiRangeBuilder":
         self._multi_range.ranges = ranges
         return self
-    
+
     def build(self) -> "MultiRange":
         return self._multi_range

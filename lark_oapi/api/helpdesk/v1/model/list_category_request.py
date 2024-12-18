@@ -25,22 +25,21 @@ class ListCategoryRequestBuilder(object):
         list_category_request.uri = "/open-apis/helpdesk/v1/categories"
         list_category_request.token_types = {AccessTokenType.TENANT}
         self._list_category_request: ListCategoryRequest = list_category_request
-    
+
     def lang(self, lang: str) -> "ListCategoryRequestBuilder":
         self._list_category_request.lang = lang
         self._list_category_request.add_query("lang", lang)
         return self
-    
+
     def order_by(self, order_by: int) -> "ListCategoryRequestBuilder":
         self._list_category_request.order_by = order_by
         self._list_category_request.add_query("order_by", order_by)
         return self
-    
+
     def asc(self, asc: bool) -> "ListCategoryRequestBuilder":
         self._list_category_request.asc = asc
         self._list_category_request.add_query("asc", asc)
         return self
-    
 
     def build(self) -> ListCategoryRequest:
         return self._list_category_request

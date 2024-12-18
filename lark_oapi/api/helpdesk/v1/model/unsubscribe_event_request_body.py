@@ -22,9 +22,10 @@ class UnsubscribeEventRequestBody(object):
 class UnsubscribeEventRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._unsubscribe_event_request_body = UnsubscribeEventRequestBody()
+
     def events(self, events: List[Event]) -> "UnsubscribeEventRequestBodyBuilder":
         self._unsubscribe_event_request_body.events = events
         return self
-    
+
     def build(self) -> "UnsubscribeEventRequestBody":
         return self._unsubscribe_event_request_body

@@ -23,12 +23,14 @@ class DlpHitPolicy(object):
 class DlpHitPolicyBuilder(object):
     def __init__(self) -> None:
         self._dlp_hit_policy = DlpHitPolicy()
+
     def policy_id(self, policy_id: int) -> "DlpHitPolicyBuilder":
         self._dlp_hit_policy.policy_id = policy_id
         return self
+
     def policy_name(self, policy_name: str) -> "DlpHitPolicyBuilder":
         self._dlp_hit_policy.policy_name = policy_name
         return self
-    
+
     def build(self) -> "DlpHitPolicy":
         return self._dlp_hit_policy

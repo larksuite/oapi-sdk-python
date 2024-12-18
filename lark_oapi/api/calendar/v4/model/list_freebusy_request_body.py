@@ -31,24 +31,30 @@ class ListFreebusyRequestBody(object):
 class ListFreebusyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._list_freebusy_request_body = ListFreebusyRequestBody()
+
     def time_min(self, time_min: str) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.time_min = time_min
         return self
+
     def time_max(self, time_max: str) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.time_max = time_max
         return self
+
     def user_id(self, user_id: str) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.user_id = user_id
         return self
+
     def room_id(self, room_id: str) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.room_id = room_id
         return self
+
     def include_external_calendar(self, include_external_calendar: bool) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.include_external_calendar = include_external_calendar
         return self
+
     def only_busy(self, only_busy: bool) -> "ListFreebusyRequestBodyBuilder":
         self._list_freebusy_request_body.only_busy = only_busy
         return self
-    
+
     def build(self) -> "ListFreebusyRequestBody":
         return self._list_freebusy_request_body

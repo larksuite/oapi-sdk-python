@@ -25,22 +25,21 @@ class ListRoomLevelRequestBuilder(object):
         list_room_level_request.uri = "/open-apis/vc/v1/room_levels"
         list_room_level_request.token_types = {AccessTokenType.TENANT}
         self._list_room_level_request: ListRoomLevelRequest = list_room_level_request
-    
+
     def room_level_id(self, room_level_id: str) -> "ListRoomLevelRequestBuilder":
         self._list_room_level_request.room_level_id = room_level_id
         self._list_room_level_request.add_query("room_level_id", room_level_id)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListRoomLevelRequestBuilder":
         self._list_room_level_request.page_size = page_size
         self._list_room_level_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListRoomLevelRequestBuilder":
         self._list_room_level_request.page_token = page_token
         self._list_room_level_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListRoomLevelRequest:
         return self._list_room_level_request

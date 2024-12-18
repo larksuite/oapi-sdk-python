@@ -26,15 +26,18 @@ class EnumFieldOption(object):
 class EnumFieldOptionBuilder(object):
     def __init__(self) -> None:
         self._enum_field_option = EnumFieldOption()
+
     def option_api_name(self, option_api_name: str) -> "EnumFieldOptionBuilder":
         self._enum_field_option.option_api_name = option_api_name
         return self
+
     def active(self, active: bool) -> "EnumFieldOptionBuilder":
         self._enum_field_option.active = active
         return self
+
     def name(self, name: Name) -> "EnumFieldOptionBuilder":
         self._enum_field_option.name = name
         return self
-    
+
     def build(self) -> "EnumFieldOption":
         return self._enum_field_option

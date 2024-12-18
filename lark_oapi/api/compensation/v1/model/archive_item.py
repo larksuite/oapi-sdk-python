@@ -25,15 +25,18 @@ class ArchiveItem(object):
 class ArchiveItemBuilder(object):
     def __init__(self) -> None:
         self._archive_item = ArchiveItem()
+
     def item_id(self, item_id: str) -> "ArchiveItemBuilder":
         self._archive_item.item_id = item_id
         return self
+
     def item_result(self, item_result: str) -> "ArchiveItemBuilder":
         self._archive_item.item_result = item_result
         return self
+
     def item_result_regular(self, item_result_regular: str) -> "ArchiveItemBuilder":
         self._archive_item.item_result_regular = item_result_regular
         return self
-    
+
     def build(self) -> "ArchiveItem":
         return self._archive_item

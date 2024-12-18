@@ -28,18 +28,22 @@ class OfferSchema(object):
 class OfferSchemaBuilder(object):
     def __init__(self) -> None:
         self._offer_schema = OfferSchema()
+
     def id(self, id: str) -> "OfferSchemaBuilder":
         self._offer_schema.id = id
         return self
+
     def scenario(self, scenario: int) -> "OfferSchemaBuilder":
         self._offer_schema.scenario = scenario
         return self
+
     def version(self, version: int) -> "OfferSchemaBuilder":
         self._offer_schema.version = version
         return self
+
     def object_list(self, object_list: List[OfferSchemaDetail]) -> "OfferSchemaBuilder":
         self._offer_schema.object_list = object_list
         return self
-    
+
     def build(self) -> "OfferSchema":
         return self._offer_schema

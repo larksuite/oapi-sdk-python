@@ -32,24 +32,30 @@ class WebsiteDeliveryCareer(object):
 class WebsiteDeliveryCareerBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_career = WebsiteDeliveryCareer()
+
     def desc(self, desc: str) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.desc = desc
         return self
+
     def end_time(self, end_time: int) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.end_time = end_time
         return self
+
     def start_time(self, start_time: int) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.start_time = start_time
         return self
+
     def title(self, title: str) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.title = title
         return self
+
     def company(self, company: str) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.company = company
         return self
+
     def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryCareerBuilder":
         self._website_delivery_career.customized_data = customized_data
         return self
-    
+
     def build(self) -> "WebsiteDeliveryCareer":
         return self._website_delivery_career

@@ -43,30 +43,38 @@ class TextElement(object):
 class TextElementBuilder(object):
     def __init__(self) -> None:
         self._text_element = TextElement()
+
     def text_run(self, text_run: TextRun) -> "TextElementBuilder":
         self._text_element.text_run = text_run
         return self
+
     def mention_user(self, mention_user: MentionUser) -> "TextElementBuilder":
         self._text_element.mention_user = mention_user
         return self
+
     def mention_doc(self, mention_doc: MentionDoc) -> "TextElementBuilder":
         self._text_element.mention_doc = mention_doc
         return self
+
     def reminder(self, reminder: Reminder) -> "TextElementBuilder":
         self._text_element.reminder = reminder
         return self
+
     def file(self, file: InlineFile) -> "TextElementBuilder":
         self._text_element.file = file
         return self
+
     def undefined(self, undefined: UndefinedElement) -> "TextElementBuilder":
         self._text_element.undefined = undefined
         return self
+
     def inline_block(self, inline_block: InlineBlock) -> "TextElementBuilder":
         self._text_element.inline_block = inline_block
         return self
+
     def equation(self, equation: Equation) -> "TextElementBuilder":
         self._text_element.equation = equation
         return self
-    
+
     def build(self) -> "TextElement":
         return self._text_element

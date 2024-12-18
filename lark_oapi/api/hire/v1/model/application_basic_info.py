@@ -31,21 +31,26 @@ class ApplicationBasicInfo(object):
 class ApplicationBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._application_basic_info = ApplicationBasicInfo()
+
     def stage(self, stage: ApplicationStage) -> "ApplicationBasicInfoBuilder":
         self._application_basic_info.stage = stage
         return self
+
     def referral(self, referral: ApplicationReferral) -> "ApplicationBasicInfoBuilder":
         self._application_basic_info.referral = referral
         return self
+
     def active_status(self, active_status: int) -> "ApplicationBasicInfoBuilder":
         self._application_basic_info.active_status = active_status
         return self
+
     def biz_create_time(self, biz_create_time: int) -> "ApplicationBasicInfoBuilder":
         self._application_basic_info.biz_create_time = biz_create_time
         return self
+
     def biz_modify_time(self, biz_modify_time: int) -> "ApplicationBasicInfoBuilder":
         self._application_basic_info.biz_modify_time = biz_modify_time
         return self
-    
+
     def build(self) -> "ApplicationBasicInfo":
         return self._application_basic_info

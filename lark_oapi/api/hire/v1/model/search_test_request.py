@@ -27,22 +27,22 @@ class SearchTestRequestBuilder(object):
         search_test_request.uri = "/open-apis/hire/v1/tests/search"
         search_test_request.token_types = {AccessTokenType.TENANT}
         self._search_test_request: SearchTestRequest = search_test_request
-    
+
     def page_token(self, page_token: str) -> "SearchTestRequestBuilder":
         self._search_test_request.page_token = page_token
         self._search_test_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "SearchTestRequestBuilder":
         self._search_test_request.page_size = page_size
         self._search_test_request.add_query("page_size", page_size)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "SearchTestRequestBuilder":
         self._search_test_request.user_id_type = user_id_type
         self._search_test_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: SearchTestRequestBody) -> "SearchTestRequestBuilder":
         self._search_test_request.request_body = request_body
         self._search_test_request.body = request_body

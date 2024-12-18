@@ -25,15 +25,18 @@ class FormContent(object):
 class FormContentBuilder(object):
     def __init__(self) -> None:
         self._form_content = FormContent()
+
     def field_id(self, field_id: str) -> "FormContentBuilder":
         self._form_content.field_id = field_id
         return self
+
     def field_name(self, field_name: str) -> "FormContentBuilder":
         self._form_content.field_name = field_name
         return self
+
     def field_value(self, field_value: str) -> "FormContentBuilder":
         self._form_content.field_value = field_value
         return self
-    
+
     def build(self) -> "FormContent":
         return self._form_content

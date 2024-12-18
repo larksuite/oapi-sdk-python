@@ -25,12 +25,12 @@ class UnbindUserAuthDataRelationRequestBuilder(object):
         unbind_user_auth_data_relation_request.uri = "/open-apis/mdm/v1/user_auth_data_relations/unbind"
         unbind_user_auth_data_relation_request.token_types = {AccessTokenType.TENANT}
         self._unbind_user_auth_data_relation_request: UnbindUserAuthDataRelationRequest = unbind_user_auth_data_relation_request
-    
+
     def user_id_type(self, user_id_type: str) -> "UnbindUserAuthDataRelationRequestBuilder":
         self._unbind_user_auth_data_relation_request.user_id_type = user_id_type
         self._unbind_user_auth_data_relation_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: UserAuthDataRelation) -> "UnbindUserAuthDataRelationRequestBuilder":
         self._unbind_user_auth_data_relation_request.request_body = request_body
         self._unbind_user_auth_data_relation_request.body = request_body

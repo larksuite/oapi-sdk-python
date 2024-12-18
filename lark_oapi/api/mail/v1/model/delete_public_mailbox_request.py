@@ -23,12 +23,11 @@ class DeletePublicMailboxRequestBuilder(object):
         delete_public_mailbox_request.uri = "/open-apis/mail/v1/public_mailboxes/:public_mailbox_id"
         delete_public_mailbox_request.token_types = {AccessTokenType.TENANT}
         self._delete_public_mailbox_request: DeletePublicMailboxRequest = delete_public_mailbox_request
-    
+
     def public_mailbox_id(self, public_mailbox_id: str) -> "DeletePublicMailboxRequestBuilder":
         self._delete_public_mailbox_request.public_mailbox_id = public_mailbox_id
         self._delete_public_mailbox_request.paths["public_mailbox_id"] = str(public_mailbox_id)
         return self
-    
 
     def build(self) -> DeletePublicMailboxRequest:
         return self._delete_public_mailbox_request

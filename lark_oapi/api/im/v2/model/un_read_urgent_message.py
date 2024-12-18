@@ -37,33 +37,42 @@ class UnReadUrgentMessage(object):
 class UnReadUrgentMessageBuilder(object):
     def __init__(self) -> None:
         self._un_read_urgent_message = UnReadUrgentMessage()
+
     def id(self, id: str) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.id = id
         return self
+
     def message_id(self, message_id: str) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.message_id = message_id
         return self
+
     def chatter_id(self, chatter_id: str) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.chatter_id = chatter_id
         return self
+
     def status(self, status: int) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.status = status
         return self
+
     def confirm_time(self, confirm_time: str) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.confirm_time = confirm_time
         return self
+
     def send_time(self, send_time: str) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.send_time = send_time
         return self
+
     def type(self, type: int) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.type = type
         return self
+
     def from_id(self, from_id: str) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.from_id = from_id
         return self
+
     def chat_id(self, chat_id: str) -> "UnReadUrgentMessageBuilder":
         self._un_read_urgent_message.chat_id = chat_id
         return self
-    
+
     def build(self) -> "UnReadUrgentMessage":
         return self._un_read_urgent_message

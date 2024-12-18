@@ -21,9 +21,10 @@ class MyAiVcRoomExtra(object):
 class MyAiVcRoomExtraBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_room_extra = MyAiVcRoomExtra()
+
     def calendar_info(self, calendar_info: str) -> "MyAiVcRoomExtraBuilder":
         self._my_ai_vc_room_extra.calendar_info = calendar_info
         return self
-    
+
     def build(self) -> "MyAiVcRoomExtra":
         return self._my_ai_vc_room_extra

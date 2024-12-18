@@ -25,15 +25,18 @@ class FailedReason(object):
 class FailedReasonBuilder(object):
     def __init__(self) -> None:
         self._failed_reason = FailedReason()
+
     def error_code(self, error_code: int) -> "FailedReasonBuilder":
         self._failed_reason.error_code = error_code
         return self
+
     def error_message(self, error_message: str) -> "FailedReasonBuilder":
         self._failed_reason.error_message = error_message
         return self
+
     def user_id(self, user_id: str) -> "FailedReasonBuilder":
         self._failed_reason.user_id = user_id
         return self
-    
+
     def build(self) -> "FailedReason":
         return self._failed_reason

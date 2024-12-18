@@ -21,9 +21,10 @@ class ClearStyleMultiRange(object):
 class ClearStyleMultiRangeBuilder(object):
     def __init__(self) -> None:
         self._clear_style_multi_range = ClearStyleMultiRange()
+
     def ranges(self, ranges: List[str]) -> "ClearStyleMultiRangeBuilder":
         self._clear_style_multi_range.ranges = ranges
         return self
-    
+
     def build(self) -> "ClearStyleMultiRange":
         return self._clear_style_multi_range

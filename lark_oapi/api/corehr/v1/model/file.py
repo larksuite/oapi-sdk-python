@@ -21,9 +21,10 @@ class File(object):
 class FileBuilder(object):
     def __init__(self) -> None:
         self._file = File()
+
     def id(self, id: str) -> "FileBuilder":
         self._file.id = id
         return self
-    
+
     def build(self) -> "File":
         return self._file

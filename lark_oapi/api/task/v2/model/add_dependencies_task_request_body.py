@@ -22,9 +22,10 @@ class AddDependenciesTaskRequestBody(object):
 class AddDependenciesTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_dependencies_task_request_body = AddDependenciesTaskRequestBody()
+
     def dependencies(self, dependencies: List[TaskDependency]) -> "AddDependenciesTaskRequestBodyBuilder":
         self._add_dependencies_task_request_body.dependencies = dependencies
         return self
-    
+
     def build(self) -> "AddDependenciesTaskRequestBody":
         return self._add_dependencies_task_request_body

@@ -25,15 +25,18 @@ class ApproverInfo(object):
 class ApproverInfoBuilder(object):
     def __init__(self) -> None:
         self._approver_info = ApproverInfo()
+
     def approver_id(self, approver_id: str) -> "ApproverInfoBuilder":
         self._approver_info.approver_id = approver_id
         return self
+
     def process_id(self, process_id: str) -> "ApproverInfoBuilder":
         self._approver_info.process_id = process_id
         return self
+
     def approver_status(self, approver_status: int) -> "ApproverInfoBuilder":
         self._approver_info.approver_status = approver_status
         return self
-    
+
     def build(self) -> "ApproverInfo":
         return self._approver_info

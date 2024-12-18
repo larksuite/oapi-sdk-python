@@ -26,15 +26,18 @@ class ListPublicMailboxResponseBody(object):
 class ListPublicMailboxResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_public_mailbox_response_body = ListPublicMailboxResponseBody()
+
     def has_more(self, has_more: bool) -> "ListPublicMailboxResponseBodyBuilder":
         self._list_public_mailbox_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListPublicMailboxResponseBodyBuilder":
         self._list_public_mailbox_response_body.page_token = page_token
         return self
+
     def items(self, items: List[PublicMailbox]) -> "ListPublicMailboxResponseBodyBuilder":
         self._list_public_mailbox_response_body.items = items
         return self
-    
+
     def build(self) -> "ListPublicMailboxResponseBody":
         return self._list_public_mailbox_response_body

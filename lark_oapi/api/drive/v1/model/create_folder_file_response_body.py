@@ -23,12 +23,14 @@ class CreateFolderFileResponseBody(object):
 class CreateFolderFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_folder_file_response_body = CreateFolderFileResponseBody()
+
     def token(self, token: str) -> "CreateFolderFileResponseBodyBuilder":
         self._create_folder_file_response_body.token = token
         return self
+
     def url(self, url: str) -> "CreateFolderFileResponseBodyBuilder":
         self._create_folder_file_response_body.url = url
         return self
-    
+
     def build(self) -> "CreateFolderFileResponseBody":
         return self._create_folder_file_response_body

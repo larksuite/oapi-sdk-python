@@ -34,24 +34,31 @@ class EcoBackgroundCheckCustomFieldData(object):
 class EcoBackgroundCheckCustomFieldDataBuilder(object):
     def __init__(self) -> None:
         self._eco_background_check_custom_field_data = EcoBackgroundCheckCustomFieldData()
+
     def type(self, type: str) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.type = type
         return self
+
     def key(self, key: str) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.key = key
         return self
+
     def name(self, name: I18n) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.name = name
         return self
+
     def is_required(self, is_required: bool) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.is_required = is_required
         return self
+
     def description(self, description: I18n) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.description = description
         return self
-    def options(self, options: List[EcoBackgroundCheckCustomFieldDataOption]) -> "EcoBackgroundCheckCustomFieldDataBuilder":
+
+    def options(self,
+                options: List[EcoBackgroundCheckCustomFieldDataOption]) -> "EcoBackgroundCheckCustomFieldDataBuilder":
         self._eco_background_check_custom_field_data.options = options
         return self
-    
+
     def build(self) -> "EcoBackgroundCheckCustomFieldData":
         return self._eco_background_check_custom_field_data

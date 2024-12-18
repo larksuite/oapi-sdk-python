@@ -25,12 +25,12 @@ class StartMeetingRecordingRequestBuilder(object):
         start_meeting_recording_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/recording/start"
         start_meeting_recording_request.token_types = {AccessTokenType.USER}
         self._start_meeting_recording_request: StartMeetingRecordingRequest = start_meeting_recording_request
-    
+
     def meeting_id(self, meeting_id: int) -> "StartMeetingRecordingRequestBuilder":
         self._start_meeting_recording_request.meeting_id = meeting_id
         self._start_meeting_recording_request.paths["meeting_id"] = str(meeting_id)
         return self
-    
+
     def request_body(self, request_body: StartMeetingRecordingRequestBody) -> "StartMeetingRecordingRequestBuilder":
         self._start_meeting_recording_request.request_body = request_body
         self._start_meeting_recording_request.body = request_body

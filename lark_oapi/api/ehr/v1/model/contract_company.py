@@ -23,12 +23,14 @@ class ContractCompany(object):
 class ContractCompanyBuilder(object):
     def __init__(self) -> None:
         self._contract_company = ContractCompany()
+
     def id(self, id: int) -> "ContractCompanyBuilder":
         self._contract_company.id = id
         return self
+
     def name(self, name: str) -> "ContractCompanyBuilder":
         self._contract_company.name = name
         return self
-    
+
     def build(self) -> "ContractCompany":
         return self._contract_company

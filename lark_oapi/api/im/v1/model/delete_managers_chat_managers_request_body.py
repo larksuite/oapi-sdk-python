@@ -21,9 +21,10 @@ class DeleteManagersChatManagersRequestBody(object):
 class DeleteManagersChatManagersRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_managers_chat_managers_request_body = DeleteManagersChatManagersRequestBody()
+
     def manager_ids(self, manager_ids: List[str]) -> "DeleteManagersChatManagersRequestBodyBuilder":
         self._delete_managers_chat_managers_request_body.manager_ids = manager_ids
         return self
-    
+
     def build(self) -> "DeleteManagersChatManagersRequestBody":
         return self._delete_managers_chat_managers_request_body

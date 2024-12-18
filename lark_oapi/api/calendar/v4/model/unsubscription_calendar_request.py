@@ -22,7 +22,6 @@ class UnsubscriptionCalendarRequestBuilder(object):
         unsubscription_calendar_request.uri = "/open-apis/calendar/v4/calendars/unsubscription"
         unsubscription_calendar_request.token_types = {AccessTokenType.USER}
         self._unsubscription_calendar_request: UnsubscriptionCalendarRequest = unsubscription_calendar_request
-    
 
     def build(self) -> UnsubscriptionCalendarRequest:
         return self._unsubscription_calendar_request

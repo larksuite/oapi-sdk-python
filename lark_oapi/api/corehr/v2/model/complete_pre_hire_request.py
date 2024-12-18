@@ -23,12 +23,11 @@ class CompletePreHireRequestBuilder(object):
         complete_pre_hire_request.uri = "/open-apis/corehr/v2/pre_hires/:pre_hire_id/complete"
         complete_pre_hire_request.token_types = {AccessTokenType.TENANT}
         self._complete_pre_hire_request: CompletePreHireRequest = complete_pre_hire_request
-    
+
     def pre_hire_id(self, pre_hire_id: str) -> "CompletePreHireRequestBuilder":
         self._complete_pre_hire_request.pre_hire_id = pre_hire_id
         self._complete_pre_hire_request.paths["pre_hire_id"] = str(pre_hire_id)
         return self
-    
 
     def build(self) -> CompletePreHireRequest:
         return self._complete_pre_hire_request

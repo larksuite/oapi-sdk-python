@@ -16,6 +16,7 @@ class P2CorehrApprovalGroupsUpdatedV2Data(object):
         "created_by": str,
         "draft_id": str,
         "draft_status": int,
+        "approval_group_status_v2": int,
     }
 
     def __init__(self, d=None):
@@ -28,6 +29,7 @@ class P2CorehrApprovalGroupsUpdatedV2Data(object):
         self.created_by: Optional[str] = None
         self.draft_id: Optional[str] = None
         self.draft_status: Optional[int] = None
+        self.approval_group_status_v2: Optional[int] = None
         init(self, d, self._types)
 
 

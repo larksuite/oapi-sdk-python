@@ -26,15 +26,18 @@ class AilyKnowledgeWikiSpace(object):
 class AilyKnowledgeWikiSpaceBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_wiki_space = AilyKnowledgeWikiSpace()
+
     def title(self, title: str) -> "AilyKnowledgeWikiSpaceBuilder":
         self._aily_knowledge_wiki_space.title = title
         return self
+
     def space_id(self, space_id: str) -> "AilyKnowledgeWikiSpaceBuilder":
         self._aily_knowledge_wiki_space.space_id = space_id
         return self
+
     def sub_docs(self, sub_docs: List[AilyKnowledgeDocs]) -> "AilyKnowledgeWikiSpaceBuilder":
         self._aily_knowledge_wiki_space.sub_docs = sub_docs
         return self
-    
+
     def build(self) -> "AilyKnowledgeWikiSpace":
         return self._aily_knowledge_wiki_space

@@ -23,12 +23,14 @@ class AllowedEditModes(object):
 class AllowedEditModesBuilder(object):
     def __init__(self) -> None:
         self._allowed_edit_modes = AllowedEditModes()
+
     def manual(self, manual: bool) -> "AllowedEditModesBuilder":
         self._allowed_edit_modes.manual = manual
         return self
+
     def scan(self, scan: bool) -> "AllowedEditModesBuilder":
         self._allowed_edit_modes.scan = scan
         return self
-    
+
     def build(self) -> "AllowedEditModes":
         return self._allowed_edit_modes

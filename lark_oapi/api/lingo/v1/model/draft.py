@@ -24,12 +24,14 @@ class Draft(object):
 class DraftBuilder(object):
     def __init__(self) -> None:
         self._draft = Draft()
+
     def draft_id(self, draft_id: int) -> "DraftBuilder":
         self._draft.draft_id = draft_id
         return self
+
     def entity(self, entity: Entity) -> "DraftBuilder":
         self._draft.entity = entity
         return self
-    
+
     def build(self) -> "Draft":
         return self._draft

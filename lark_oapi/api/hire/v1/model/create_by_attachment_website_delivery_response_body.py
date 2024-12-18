@@ -21,9 +21,10 @@ class CreateByAttachmentWebsiteDeliveryResponseBody(object):
 class CreateByAttachmentWebsiteDeliveryResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_by_attachment_website_delivery_response_body = CreateByAttachmentWebsiteDeliveryResponseBody()
+
     def task_id(self, task_id: str) -> "CreateByAttachmentWebsiteDeliveryResponseBodyBuilder":
         self._create_by_attachment_website_delivery_response_body.task_id = task_id
         return self
-    
+
     def build(self) -> "CreateByAttachmentWebsiteDeliveryResponseBody":
         return self._create_by_attachment_website_delivery_response_body

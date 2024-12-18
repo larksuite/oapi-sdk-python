@@ -23,12 +23,11 @@ class DeleteJobRequirementRequestBuilder(object):
         delete_job_requirement_request.uri = "/open-apis/hire/v1/job_requirements/:job_requirement_id"
         delete_job_requirement_request.token_types = {AccessTokenType.TENANT}
         self._delete_job_requirement_request: DeleteJobRequirementRequest = delete_job_requirement_request
-    
+
     def job_requirement_id(self, job_requirement_id: str) -> "DeleteJobRequirementRequestBuilder":
         self._delete_job_requirement_request.job_requirement_id = job_requirement_id
         self._delete_job_requirement_request.paths["job_requirement_id"] = str(job_requirement_id)
         return self
-    
 
     def build(self) -> DeleteJobRequirementRequest:
         return self._delete_job_requirement_request

@@ -19,6 +19,6 @@ class ChatAnnouncement(object):
 class ChatAnnouncementBuilder(object):
     def __init__(self) -> None:
         self._chat_announcement = ChatAnnouncement()
-    
+
     def build(self) -> "ChatAnnouncement":
         return self._chat_announcement

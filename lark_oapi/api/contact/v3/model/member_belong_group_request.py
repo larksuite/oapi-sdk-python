@@ -27,32 +27,31 @@ class MemberBelongGroupRequestBuilder(object):
         member_belong_group_request.uri = "/open-apis/contact/v3/group/member_belong"
         member_belong_group_request.token_types = {AccessTokenType.TENANT}
         self._member_belong_group_request: MemberBelongGroupRequest = member_belong_group_request
-    
+
     def member_id(self, member_id: str) -> "MemberBelongGroupRequestBuilder":
         self._member_belong_group_request.member_id = member_id
         self._member_belong_group_request.add_query("member_id", member_id)
         return self
-    
+
     def member_id_type(self, member_id_type: str) -> "MemberBelongGroupRequestBuilder":
         self._member_belong_group_request.member_id_type = member_id_type
         self._member_belong_group_request.add_query("member_id_type", member_id_type)
         return self
-    
+
     def group_type(self, group_type: int) -> "MemberBelongGroupRequestBuilder":
         self._member_belong_group_request.group_type = group_type
         self._member_belong_group_request.add_query("group_type", group_type)
         return self
-    
+
     def page_size(self, page_size: int) -> "MemberBelongGroupRequestBuilder":
         self._member_belong_group_request.page_size = page_size
         self._member_belong_group_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "MemberBelongGroupRequestBuilder":
         self._member_belong_group_request.page_token = page_token
         self._member_belong_group_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> MemberBelongGroupRequest:
         return self._member_belong_group_request

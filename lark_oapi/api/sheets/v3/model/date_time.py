@@ -21,9 +21,10 @@ class DateTime(object):
 class DateTimeBuilder(object):
     def __init__(self) -> None:
         self._date_time = DateTime()
+
     def date_time(self, date_time: str) -> "DateTimeBuilder":
         self._date_time.date_time = date_time
         return self
-    
+
     def build(self) -> "DateTime":
         return self._date_time

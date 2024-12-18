@@ -25,15 +25,18 @@ class OkrDetailObjectiveAlign(object):
 class OkrDetailObjectiveAlignBuilder(object):
     def __init__(self) -> None:
         self._okr_detail_objective_align = OkrDetailObjectiveAlign()
+
     def id(self, id: int) -> "OkrDetailObjectiveAlignBuilder":
         self._okr_detail_objective_align.id = id
         return self
+
     def okr_id(self, okr_id: int) -> "OkrDetailObjectiveAlignBuilder":
         self._okr_detail_objective_align.okr_id = okr_id
         return self
+
     def user_id(self, user_id: str) -> "OkrDetailObjectiveAlignBuilder":
         self._okr_detail_objective_align.user_id = user_id
         return self
-    
+
     def build(self) -> "OkrDetailObjectiveAlign":
         return self._okr_detail_objective_align

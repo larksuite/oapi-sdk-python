@@ -21,9 +21,10 @@ class CompletePreHireResponseBody(object):
 class CompletePreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._complete_pre_hire_response_body = CompletePreHireResponseBody()
+
     def success(self, success: bool) -> "CompletePreHireResponseBodyBuilder":
         self._complete_pre_hire_response_body.success = success
         return self
-    
+
     def build(self) -> "CompletePreHireResponseBody":
         return self._complete_pre_hire_response_body

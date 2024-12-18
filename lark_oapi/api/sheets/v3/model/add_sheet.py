@@ -23,12 +23,14 @@ class AddSheet(object):
 class AddSheetBuilder(object):
     def __init__(self) -> None:
         self._add_sheet = AddSheet()
+
     def title(self, title: str) -> "AddSheetBuilder":
         self._add_sheet.title = title
         return self
+
     def index(self, index: int) -> "AddSheetBuilder":
         self._add_sheet.index = index
         return self
-    
+
     def build(self) -> "AddSheet":
         return self._add_sheet

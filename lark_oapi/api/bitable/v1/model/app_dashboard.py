@@ -23,12 +23,14 @@ class AppDashboard(object):
 class AppDashboardBuilder(object):
     def __init__(self) -> None:
         self._app_dashboard = AppDashboard()
+
     def block_id(self, block_id: str) -> "AppDashboardBuilder":
         self._app_dashboard.block_id = block_id
         return self
+
     def name(self, name: str) -> "AppDashboardBuilder":
         self._app_dashboard.name = name
         return self
-    
+
     def build(self) -> "AppDashboard":
         return self._app_dashboard

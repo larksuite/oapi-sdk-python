@@ -23,12 +23,14 @@ class IdInfo(object):
 class IdInfoBuilder(object):
     def __init__(self) -> None:
         self._id_info = IdInfo()
+
     def id(self, id: str) -> "IdInfoBuilder":
         self._id_info.id = id
         return self
+
     def target_id(self, target_id: str) -> "IdInfoBuilder":
         self._id_info.target_id = target_id
         return self
-    
+
     def build(self) -> "IdInfo":
         return self._id_info

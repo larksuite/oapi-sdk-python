@@ -22,9 +22,10 @@ class BatchQueryFileCommentResponseBody(object):
 class BatchQueryFileCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_file_comment_response_body = BatchQueryFileCommentResponseBody()
+
     def items(self, items: List[FileComment]) -> "BatchQueryFileCommentResponseBodyBuilder":
         self._batch_query_file_comment_response_body.items = items
         return self
-    
+
     def build(self) -> "BatchQueryFileCommentResponseBody":
         return self._batch_query_file_comment_response_body

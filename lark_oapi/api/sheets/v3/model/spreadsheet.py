@@ -27,18 +27,22 @@ class Spreadsheet(object):
 class SpreadsheetBuilder(object):
     def __init__(self) -> None:
         self._spreadsheet = Spreadsheet()
+
     def title(self, title: str) -> "SpreadsheetBuilder":
         self._spreadsheet.title = title
         return self
+
     def folder_token(self, folder_token: str) -> "SpreadsheetBuilder":
         self._spreadsheet.folder_token = folder_token
         return self
+
     def url(self, url: str) -> "SpreadsheetBuilder":
         self._spreadsheet.url = url
         return self
+
     def spreadsheet_token(self, spreadsheet_token: str) -> "SpreadsheetBuilder":
         self._spreadsheet.spreadsheet_token = spreadsheet_token
         return self
-    
+
     def build(self) -> "Spreadsheet":
         return self._spreadsheet

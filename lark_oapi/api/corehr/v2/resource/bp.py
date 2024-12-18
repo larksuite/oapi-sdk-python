@@ -19,7 +19,8 @@ class Bp(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_by_department(self, request: GetByDepartmentBpRequest, option: Optional[RequestOption] = None) -> GetByDepartmentBpResponse:
+    def get_by_department(self, request: GetByDepartmentBpRequest,
+                          option: Optional[RequestOption] = None) -> GetByDepartmentBpResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,32 +33,30 @@ class Bp(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetByDepartmentBpResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByDepartmentBpResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget_by_department(self, request: GetByDepartmentBpRequest, option: Optional[RequestOption] = None) -> GetByDepartmentBpResponse:
+    async def aget_by_department(self, request: GetByDepartmentBpRequest,
+                                 option: Optional[RequestOption] = None) -> GetByDepartmentBpResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetByDepartmentBpResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByDepartmentBpResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListBpRequest, option: Optional[RequestOption] = None) -> ListBpResponse:
         if option is None:
             option = RequestOption()
@@ -71,13 +70,12 @@ class Bp(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListBpResponse = JSON.unmarshal(str(resp.content, UTF_8), ListBpResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListBpRequest, option: Optional[RequestOption] = None) -> ListBpResponse:
         if option is None:
@@ -86,15 +84,11 @@ class Bp(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListBpResponse = JSON.unmarshal(str(resp.content, UTF_8), ListBpResponse)
         response.raw = resp
 
         return response
-        
-    

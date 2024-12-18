@@ -41,33 +41,42 @@ class SocialPlan(object):
 class SocialPlanBuilder(object):
     def __init__(self) -> None:
         self._social_plan = SocialPlan()
+
     def plan_id(self, plan_id: str) -> "SocialPlanBuilder":
         self._social_plan.plan_id = plan_id
         return self
+
     def plan_tid(self, plan_tid: str) -> "SocialPlanBuilder":
         self._social_plan.plan_tid = plan_tid
         return self
+
     def name(self, name: I18n) -> "SocialPlanBuilder":
         self._social_plan.name = name
         return self
+
     def effective_date(self, effective_date: str) -> "SocialPlanBuilder":
         self._social_plan.effective_date = effective_date
         return self
+
     def active(self, active: bool) -> "SocialPlanBuilder":
         self._social_plan.active = active
         return self
+
     def insurance_type(self, insurance_type: str) -> "SocialPlanBuilder":
         self._social_plan.insurance_type = insurance_type
         return self
+
     def scope(self, scope: SocialPlanScope) -> "SocialPlanBuilder":
         self._social_plan.scope = scope
         return self
+
     def item_detail(self, item_detail: List[SocialPlanItemDetail]) -> "SocialPlanBuilder":
         self._social_plan.item_detail = item_detail
         return self
+
     def remark(self, remark: I18n) -> "SocialPlanBuilder":
         self._social_plan.remark = remark
         return self
-    
+
     def build(self) -> "SocialPlan":
         return self._social_plan

@@ -22,9 +22,10 @@ class GetAccountAssetsReferralAccountResponseBody(object):
 class GetAccountAssetsReferralAccountResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_account_assets_referral_account_response_body = GetAccountAssetsReferralAccountResponseBody()
+
     def account(self, account: Account) -> "GetAccountAssetsReferralAccountResponseBodyBuilder":
         self._get_account_assets_referral_account_response_body.account = account
         return self
-    
+
     def build(self) -> "GetAccountAssetsReferralAccountResponseBody":
         return self._get_account_assets_referral_account_response_body

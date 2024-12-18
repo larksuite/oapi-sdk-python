@@ -25,15 +25,18 @@ class MetricTable(object):
 class MetricTableBuilder(object):
     def __init__(self) -> None:
         self._metric_table = MetricTable()
+
     def metric_table_id(self, metric_table_id: str) -> "MetricTableBuilder":
         self._metric_table.metric_table_id = metric_table_id
         return self
+
     def metric_table_name(self, metric_table_name: str) -> "MetricTableBuilder":
         self._metric_table.metric_table_name = metric_table_name
         return self
+
     def period_id(self, period_id: str) -> "MetricTableBuilder":
         self._metric_table.period_id = period_id
         return self
-    
+
     def build(self) -> "MetricTable":
         return self._metric_table

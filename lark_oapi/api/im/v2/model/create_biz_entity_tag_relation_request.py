@@ -24,8 +24,9 @@ class CreateBizEntityTagRelationRequestBuilder(object):
         create_biz_entity_tag_relation_request.uri = "/open-apis/im/v2/biz_entity_tag_relation"
         create_biz_entity_tag_relation_request.token_types = {AccessTokenType.TENANT}
         self._create_biz_entity_tag_relation_request: CreateBizEntityTagRelationRequest = create_biz_entity_tag_relation_request
-    
-    def request_body(self, request_body: CreateBizEntityTagRelationRequestBody) -> "CreateBizEntityTagRelationRequestBuilder":
+
+    def request_body(self,
+                     request_body: CreateBizEntityTagRelationRequestBody) -> "CreateBizEntityTagRelationRequestBuilder":
         self._create_biz_entity_tag_relation_request.request_body = request_body
         self._create_biz_entity_tag_relation_request.body = request_body
         return self

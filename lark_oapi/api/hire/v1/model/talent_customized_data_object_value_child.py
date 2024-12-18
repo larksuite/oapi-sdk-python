@@ -23,12 +23,14 @@ class TalentCustomizedDataObjectValueChild(object):
 class TalentCustomizedDataObjectValueChildBuilder(object):
     def __init__(self) -> None:
         self._talent_customized_data_object_value_child = TalentCustomizedDataObjectValueChild()
+
     def object_id(self, object_id: str) -> "TalentCustomizedDataObjectValueChildBuilder":
         self._talent_customized_data_object_value_child.object_id = object_id
         return self
+
     def value(self, value: str) -> "TalentCustomizedDataObjectValueChildBuilder":
         self._talent_customized_data_object_value_child.value = value
         return self
-    
+
     def build(self) -> "TalentCustomizedDataObjectValueChild":
         return self._talent_customized_data_object_value_child

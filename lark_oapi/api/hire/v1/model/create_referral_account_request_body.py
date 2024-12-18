@@ -24,12 +24,14 @@ class CreateReferralAccountRequestBody(object):
 class CreateReferralAccountRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_referral_account_request_body = CreateReferralAccountRequestBody()
+
     def mobile(self, mobile: Mobile) -> "CreateReferralAccountRequestBodyBuilder":
         self._create_referral_account_request_body.mobile = mobile
         return self
+
     def email(self, email: str) -> "CreateReferralAccountRequestBodyBuilder":
         self._create_referral_account_request_body.email = email
         return self
-    
+
     def build(self) -> "CreateReferralAccountRequestBody":
         return self._create_referral_account_request_body

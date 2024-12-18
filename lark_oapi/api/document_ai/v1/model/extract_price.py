@@ -25,15 +25,18 @@ class ExtractPrice(object):
 class ExtractPriceBuilder(object):
     def __init__(self) -> None:
         self._extract_price = ExtractPrice()
+
     def contract_price(self, contract_price: float) -> "ExtractPriceBuilder":
         self._extract_price.contract_price = contract_price
         return self
+
     def contract_price_original(self, contract_price_original: str) -> "ExtractPriceBuilder":
         self._extract_price.contract_price_original = contract_price_original
         return self
+
     def text(self, text: str) -> "ExtractPriceBuilder":
         self._extract_price.text = text
         return self
-    
+
     def build(self) -> "ExtractPrice":
         return self._extract_price

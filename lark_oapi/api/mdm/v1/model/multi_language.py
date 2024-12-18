@@ -23,12 +23,14 @@ class MultiLanguage(object):
 class MultiLanguageBuilder(object):
     def __init__(self) -> None:
         self._multi_language = MultiLanguage()
+
     def language(self, language: str) -> "MultiLanguageBuilder":
         self._multi_language.language = language
         return self
+
     def value(self, value: str) -> "MultiLanguageBuilder":
         self._multi_language.value = value
         return self
-    
+
     def build(self) -> "MultiLanguage":
         return self._multi_language

@@ -22,9 +22,10 @@ class CreateAppTableViewResponseBody(object):
 class CreateAppTableViewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_table_view_response_body = CreateAppTableViewResponseBody()
+
     def view(self, view: AppTableView) -> "CreateAppTableViewResponseBodyBuilder":
         self._create_app_table_view_response_body.view = view
         return self
-    
+
     def build(self) -> "CreateAppTableViewResponseBody":
         return self._create_app_table_view_response_body

@@ -23,12 +23,14 @@ class UpdateGridProperties(object):
 class UpdateGridPropertiesBuilder(object):
     def __init__(self) -> None:
         self._update_grid_properties = UpdateGridProperties()
+
     def frozen_row_count(self, frozen_row_count: int) -> "UpdateGridPropertiesBuilder":
         self._update_grid_properties.frozen_row_count = frozen_row_count
         return self
+
     def frozen_column_count(self, frozen_column_count: int) -> "UpdateGridPropertiesBuilder":
         self._update_grid_properties.frozen_column_count = frozen_column_count
         return self
-    
+
     def build(self) -> "UpdateGridProperties":
         return self._update_grid_properties

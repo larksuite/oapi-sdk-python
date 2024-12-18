@@ -25,12 +25,12 @@ class TerminateApplicationRequestBuilder(object):
         terminate_application_request.uri = "/open-apis/hire/v1/applications/:application_id/terminate"
         terminate_application_request.token_types = {AccessTokenType.TENANT}
         self._terminate_application_request: TerminateApplicationRequest = terminate_application_request
-    
+
     def application_id(self, application_id: str) -> "TerminateApplicationRequestBuilder":
         self._terminate_application_request.application_id = application_id
         self._terminate_application_request.paths["application_id"] = str(application_id)
         return self
-    
+
     def request_body(self, request_body: TerminateApplicationRequestBody) -> "TerminateApplicationRequestBuilder":
         self._terminate_application_request.request_body = request_body
         self._terminate_application_request.body = request_body

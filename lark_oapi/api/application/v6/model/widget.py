@@ -19,6 +19,6 @@ class Widget(object):
 class WidgetBuilder(object):
     def __init__(self) -> None:
         self._widget = Widget()
-    
+
     def build(self) -> "Widget":
         return self._widget

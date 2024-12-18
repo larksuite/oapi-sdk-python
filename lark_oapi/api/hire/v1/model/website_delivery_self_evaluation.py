@@ -24,12 +24,15 @@ class WebsiteDeliverySelfEvaluation(object):
 class WebsiteDeliverySelfEvaluationBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_self_evaluation = WebsiteDeliverySelfEvaluation()
+
     def content(self, content: str) -> "WebsiteDeliverySelfEvaluationBuilder":
         self._website_delivery_self_evaluation.content = content
         return self
-    def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliverySelfEvaluationBuilder":
+
+    def customized_data(self,
+                        customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliverySelfEvaluationBuilder":
         self._website_delivery_self_evaluation.customized_data = customized_data
         return self
-    
+
     def build(self) -> "WebsiteDeliverySelfEvaluation":
         return self._website_delivery_self_evaluation

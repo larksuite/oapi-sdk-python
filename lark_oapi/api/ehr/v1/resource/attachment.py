@@ -30,7 +30,7 @@ class Attachment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetAttachmentResponse = GetAttachmentResponse()
@@ -43,20 +43,18 @@ class Attachment(object):
 
         response.raw = resp
         return response
-        
 
-    async def aget(self, request: GetAttachmentRequest, option: Optional[RequestOption] = None) -> GetAttachmentResponse:
+    async def aget(self, request: GetAttachmentRequest,
+                   option: Optional[RequestOption] = None) -> GetAttachmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetAttachmentResponse = GetAttachmentResponse()
@@ -69,5 +67,3 @@ class Attachment(object):
 
         response.raw = resp
         return response
-        
-    

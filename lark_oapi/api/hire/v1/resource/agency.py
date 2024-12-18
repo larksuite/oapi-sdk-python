@@ -29,7 +29,8 @@ class Agency(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryAgencyRequest, option: Optional[RequestOption] = None) -> BatchQueryAgencyResponse:
+    def batch_query(self, request: BatchQueryAgencyRequest,
+                    option: Optional[RequestOption] = None) -> BatchQueryAgencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -42,32 +43,30 @@ class Agency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchQueryAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryAgencyResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_query(self, request: BatchQueryAgencyRequest, option: Optional[RequestOption] = None) -> BatchQueryAgencyResponse:
+    async def abatch_query(self, request: BatchQueryAgencyRequest,
+                           option: Optional[RequestOption] = None) -> BatchQueryAgencyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: BatchQueryAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryAgencyResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetAgencyRequest, option: Optional[RequestOption] = None) -> GetAgencyResponse:
         if option is None:
             option = RequestOption()
@@ -81,13 +80,12 @@ class Agency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgencyResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetAgencyRequest, option: Optional[RequestOption] = None) -> GetAgencyResponse:
         if option is None:
@@ -96,18 +94,17 @@ class Agency(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgencyResponse)
         response.raw = resp
 
         return response
-        
-    def get_agency_account(self, request: GetAgencyAccountAgencyRequest, option: Optional[RequestOption] = None) -> GetAgencyAccountAgencyResponse:
+
+    def get_agency_account(self, request: GetAgencyAccountAgencyRequest,
+                           option: Optional[RequestOption] = None) -> GetAgencyAccountAgencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -120,33 +117,34 @@ class Agency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgencyAccountAgencyResponse)
+        response: GetAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  GetAgencyAccountAgencyResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget_agency_account(self, request: GetAgencyAccountAgencyRequest, option: Optional[RequestOption] = None) -> GetAgencyAccountAgencyResponse:
+    async def aget_agency_account(self, request: GetAgencyAccountAgencyRequest,
+                                  option: Optional[RequestOption] = None) -> GetAgencyAccountAgencyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAgencyAccountAgencyResponse)
+        response: GetAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                  GetAgencyAccountAgencyResponse)
         response.raw = resp
 
         return response
-        
-    def operate_agency_account(self, request: OperateAgencyAccountAgencyRequest, option: Optional[RequestOption] = None) -> OperateAgencyAccountAgencyResponse:
+
+    def operate_agency_account(self, request: OperateAgencyAccountAgencyRequest,
+                               option: Optional[RequestOption] = None) -> OperateAgencyAccountAgencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -159,32 +157,32 @@ class Agency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: OperateAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), OperateAgencyAccountAgencyResponse)
+        response: OperateAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      OperateAgencyAccountAgencyResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aoperate_agency_account(self, request: OperateAgencyAccountAgencyRequest, option: Optional[RequestOption] = None) -> OperateAgencyAccountAgencyResponse:
+    async def aoperate_agency_account(self, request: OperateAgencyAccountAgencyRequest,
+                                      option: Optional[RequestOption] = None) -> OperateAgencyAccountAgencyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: OperateAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), OperateAgencyAccountAgencyResponse)
+        response: OperateAgencyAccountAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                      OperateAgencyAccountAgencyResponse)
         response.raw = resp
 
         return response
-        
+
     def protect(self, request: ProtectAgencyRequest, option: Optional[RequestOption] = None) -> ProtectAgencyResponse:
         if option is None:
             option = RequestOption()
@@ -198,33 +196,32 @@ class Agency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ProtectAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ProtectAgencyResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aprotect(self, request: ProtectAgencyRequest, option: Optional[RequestOption] = None) -> ProtectAgencyResponse:
+    async def aprotect(self, request: ProtectAgencyRequest,
+                       option: Optional[RequestOption] = None) -> ProtectAgencyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ProtectAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ProtectAgencyResponse)
         response.raw = resp
 
         return response
-        
-    def protect_search(self, request: ProtectSearchAgencyRequest, option: Optional[RequestOption] = None) -> ProtectSearchAgencyResponse:
+
+    def protect_search(self, request: ProtectSearchAgencyRequest,
+                       option: Optional[RequestOption] = None) -> ProtectSearchAgencyResponse:
         if option is None:
             option = RequestOption()
 
@@ -237,32 +234,30 @@ class Agency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ProtectSearchAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ProtectSearchAgencyResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aprotect_search(self, request: ProtectSearchAgencyRequest, option: Optional[RequestOption] = None) -> ProtectSearchAgencyResponse:
+    async def aprotect_search(self, request: ProtectSearchAgencyRequest,
+                              option: Optional[RequestOption] = None) -> ProtectSearchAgencyResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ProtectSearchAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), ProtectSearchAgencyResponse)
         response.raw = resp
 
         return response
-        
+
     def query(self, request: QueryAgencyRequest, option: Optional[RequestOption] = None) -> QueryAgencyResponse:
         if option is None:
             option = RequestOption()
@@ -276,13 +271,12 @@ class Agency(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryAgencyResponse)
         response.raw = resp
 
         return response
-        
 
     async def aquery(self, request: QueryAgencyRequest, option: Optional[RequestOption] = None) -> QueryAgencyResponse:
         if option is None:
@@ -291,15 +285,11 @@ class Agency(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryAgencyResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryAgencyResponse)
         response.raw = resp
 
         return response
-        
-    

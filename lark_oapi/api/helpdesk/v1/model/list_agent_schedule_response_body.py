@@ -22,9 +22,10 @@ class ListAgentScheduleResponseBody(object):
 class ListAgentScheduleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_agent_schedule_response_body = ListAgentScheduleResponseBody()
+
     def agent_schedules(self, agent_schedules: List[AgentSchedule]) -> "ListAgentScheduleResponseBodyBuilder":
         self._list_agent_schedule_response_body.agent_schedules = agent_schedules
         return self
-    
+
     def build(self) -> "ListAgentScheduleResponseBody":
         return self._list_agent_schedule_response_body

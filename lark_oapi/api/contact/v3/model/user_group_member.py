@@ -19,6 +19,6 @@ class UserGroupMember(object):
 class UserGroupMemberBuilder(object):
     def __init__(self) -> None:
         self._user_group_member = UserGroupMember()
-    
+
     def build(self) -> "UserGroupMember":
         return self._user_group_member

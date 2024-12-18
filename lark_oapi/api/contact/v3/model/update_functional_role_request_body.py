@@ -21,9 +21,10 @@ class UpdateFunctionalRoleRequestBody(object):
 class UpdateFunctionalRoleRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_functional_role_request_body = UpdateFunctionalRoleRequestBody()
+
     def role_name(self, role_name: str) -> "UpdateFunctionalRoleRequestBodyBuilder":
         self._update_functional_role_request_body.role_name = role_name
         return self
-    
+
     def build(self) -> "UpdateFunctionalRoleRequestBody":
         return self._update_functional_role_request_body

@@ -39,30 +39,38 @@ class InterviewRecordV2(object):
 class InterviewRecordV2Builder(object):
     def __init__(self) -> None:
         self._interview_record_v2 = InterviewRecordV2()
+
     def id(self, id: str) -> "InterviewRecordV2Builder":
         self._interview_record_v2.id = id
         return self
+
     def feedback_form_id(self, feedback_form_id: str) -> "InterviewRecordV2Builder":
         self._interview_record_v2.feedback_form_id = feedback_form_id
         return self
+
     def commit_status(self, commit_status: int) -> "InterviewRecordV2Builder":
         self._interview_record_v2.commit_status = commit_status
         return self
+
     def submit_time(self, submit_time: str) -> "InterviewRecordV2Builder":
         self._interview_record_v2.submit_time = submit_time
         return self
+
     def record_score(self, record_score: RecordScore) -> "InterviewRecordV2Builder":
         self._interview_record_v2.record_score = record_score
         return self
+
     def interviewer(self, interviewer: BasicUserInfo) -> "InterviewRecordV2Builder":
         self._interview_record_v2.interviewer = interviewer
         return self
+
     def attachments(self, attachments: List[InterviewAttachment]) -> "InterviewRecordV2Builder":
         self._interview_record_v2.attachments = attachments
         return self
+
     def module_assessments(self, module_assessments: List[ModuleAssessment]) -> "InterviewRecordV2Builder":
         self._interview_record_v2.module_assessments = module_assessments
         return self
-    
+
     def build(self) -> "InterviewRecordV2":
         return self._interview_record_v2

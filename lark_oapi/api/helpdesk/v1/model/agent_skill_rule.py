@@ -31,24 +31,30 @@ class AgentSkillRule(object):
 class AgentSkillRuleBuilder(object):
     def __init__(self) -> None:
         self._agent_skill_rule = AgentSkillRule()
+
     def id(self, id: str) -> "AgentSkillRuleBuilder":
         self._agent_skill_rule.id = id
         return self
+
     def selected_operator(self, selected_operator: int) -> "AgentSkillRuleBuilder":
         self._agent_skill_rule.selected_operator = selected_operator
         return self
+
     def operator_options(self, operator_options: List[int]) -> "AgentSkillRuleBuilder":
         self._agent_skill_rule.operator_options = operator_options
         return self
+
     def operand(self, operand: str) -> "AgentSkillRuleBuilder":
         self._agent_skill_rule.operand = operand
         return self
+
     def category(self, category: int) -> "AgentSkillRuleBuilder":
         self._agent_skill_rule.category = category
         return self
+
     def display_name(self, display_name: str) -> "AgentSkillRuleBuilder":
         self._agent_skill_rule.display_name = display_name
         return self
-    
+
     def build(self) -> "AgentSkillRule":
         return self._agent_skill_rule

@@ -22,9 +22,11 @@ class GetDetailApplicationResponseBody(object):
 class GetDetailApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_detail_application_response_body = GetDetailApplicationResponseBody()
-    def application_detail(self, application_detail: ApplicationDetailInfo) -> "GetDetailApplicationResponseBodyBuilder":
+
+    def application_detail(self,
+                           application_detail: ApplicationDetailInfo) -> "GetDetailApplicationResponseBodyBuilder":
         self._get_detail_application_response_body.application_detail = application_detail
         return self
-    
+
     def build(self) -> "GetDetailApplicationResponseBody":
         return self._get_detail_application_response_body

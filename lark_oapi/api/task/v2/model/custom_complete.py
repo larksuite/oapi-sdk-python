@@ -28,15 +28,18 @@ class CustomComplete(object):
 class CustomCompleteBuilder(object):
     def __init__(self) -> None:
         self._custom_complete = CustomComplete()
+
     def pc(self, pc: CustomCompleteItem) -> "CustomCompleteBuilder":
         self._custom_complete.pc = pc
         return self
+
     def ios(self, ios: CustomCompleteItem) -> "CustomCompleteBuilder":
         self._custom_complete.ios = ios
         return self
+
     def android(self, android: CustomCompleteItem) -> "CustomCompleteBuilder":
         self._custom_complete.android = android
         return self
-    
+
     def build(self) -> "CustomComplete":
         return self._custom_complete

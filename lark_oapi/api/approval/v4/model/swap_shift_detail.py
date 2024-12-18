@@ -25,15 +25,18 @@ class SwapShiftDetail(object):
 class SwapShiftDetailBuilder(object):
     def __init__(self) -> None:
         self._swap_shift_detail = SwapShiftDetail()
+
     def date(self, date: str) -> "SwapShiftDetailBuilder":
         self._swap_shift_detail.date = date
         return self
+
     def return_date(self, return_date: str) -> "SwapShiftDetailBuilder":
         self._swap_shift_detail.return_date = return_date
         return self
+
     def shfit_id(self, shfit_id: str) -> "SwapShiftDetailBuilder":
         self._swap_shift_detail.shfit_id = shfit_id
         return self
-    
+
     def build(self) -> "SwapShiftDetail":
         return self._swap_shift_detail

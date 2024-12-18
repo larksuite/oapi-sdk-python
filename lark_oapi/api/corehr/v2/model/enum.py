@@ -24,12 +24,14 @@ class Enum(object):
 class EnumBuilder(object):
     def __init__(self) -> None:
         self._enum = Enum()
+
     def enum_name(self, enum_name: str) -> "EnumBuilder":
         self._enum.enum_name = enum_name
         return self
+
     def display(self, display: List[I18n]) -> "EnumBuilder":
         self._enum.display = display
         return self
-    
+
     def build(self) -> "Enum":
         return self._enum

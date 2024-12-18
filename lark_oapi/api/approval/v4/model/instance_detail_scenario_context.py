@@ -25,12 +25,14 @@ class InstanceDetailScenarioContext(object):
 class InstanceDetailScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._instance_detail_scenario_context = InstanceDetailScenarioContext()
+
     def object(self, object: ObjectContext) -> "InstanceDetailScenarioContextBuilder":
         self._instance_detail_scenario_context.object = object
         return self
+
     def extra(self, extra: MyAiInstanceDetailExtra) -> "InstanceDetailScenarioContextBuilder":
         self._instance_detail_scenario_context.extra = extra
         return self
-    
+
     def build(self) -> "InstanceDetailScenarioContext":
         return self._instance_detail_scenario_context

@@ -45,39 +45,50 @@ class LocationUpdate(object):
 class LocationUpdateBuilder(object):
     def __init__(self) -> None:
         self._location_update = LocationUpdate()
+
     def parent_id(self, parent_id: str) -> "LocationUpdateBuilder":
         self._location_update.parent_id = parent_id
         return self
+
     def names(self, names: List[I18n]) -> "LocationUpdateBuilder":
         self._location_update.names = names
         return self
+
     def active(self, active: bool) -> "LocationUpdateBuilder":
         self._location_update.active = active
         return self
+
     def effective_time(self, effective_time: str) -> "LocationUpdateBuilder":
         self._location_update.effective_time = effective_time
         return self
+
     def code(self, code: str) -> "LocationUpdateBuilder":
         self._location_update.code = code
         return self
+
     def descriptions(self, descriptions: List[I18n]) -> "LocationUpdateBuilder":
         self._location_update.descriptions = descriptions
         return self
+
     def location_usages(self, location_usages: List[Enum]) -> "LocationUpdateBuilder":
         self._location_update.location_usages = location_usages
         return self
+
     def working_hours_type_id(self, working_hours_type_id: str) -> "LocationUpdateBuilder":
         self._location_update.working_hours_type_id = working_hours_type_id
         return self
+
     def locale(self, locale: Enum) -> "LocationUpdateBuilder":
         self._location_update.locale = locale
         return self
+
     def time_zone_id(self, time_zone_id: str) -> "LocationUpdateBuilder":
         self._location_update.time_zone_id = time_zone_id
         return self
+
     def display_language_id(self, display_language_id: str) -> "LocationUpdateBuilder":
         self._location_update.display_language_id = display_language_id
         return self
-    
+
     def build(self) -> "LocationUpdate":
         return self._location_update

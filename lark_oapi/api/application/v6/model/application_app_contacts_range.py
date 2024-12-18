@@ -24,12 +24,14 @@ class ApplicationAppContactsRange(object):
 class ApplicationAppContactsRangeBuilder(object):
     def __init__(self) -> None:
         self._application_app_contacts_range = ApplicationAppContactsRange()
+
     def contacts_scope_type(self, contacts_scope_type: str) -> "ApplicationAppContactsRangeBuilder":
         self._application_app_contacts_range.contacts_scope_type = contacts_scope_type
         return self
+
     def visible_list(self, visible_list: AppVisibleList) -> "ApplicationAppContactsRangeBuilder":
         self._application_app_contacts_range.visible_list = visible_list
         return self
-    
+
     def build(self) -> "ApplicationAppContactsRange":
         return self._application_app_contacts_range

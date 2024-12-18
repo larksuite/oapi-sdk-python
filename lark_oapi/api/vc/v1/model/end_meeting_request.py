@@ -23,12 +23,11 @@ class EndMeetingRequestBuilder(object):
         end_meeting_request.uri = "/open-apis/vc/v1/meetings/:meeting_id/end"
         end_meeting_request.token_types = {AccessTokenType.USER}
         self._end_meeting_request: EndMeetingRequest = end_meeting_request
-    
+
     def meeting_id(self, meeting_id: int) -> "EndMeetingRequestBuilder":
         self._end_meeting_request.meeting_id = meeting_id
         self._end_meeting_request.paths["meeting_id"] = str(meeting_id)
         return self
-    
 
     def build(self) -> EndMeetingRequest:
         return self._end_meeting_request

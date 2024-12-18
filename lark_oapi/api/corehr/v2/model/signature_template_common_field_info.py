@@ -24,12 +24,14 @@ class SignatureTemplateCommonFieldInfo(object):
 class SignatureTemplateCommonFieldInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_template_common_field_info = SignatureTemplateCommonFieldInfo()
+
     def source(self, source: Enum) -> "SignatureTemplateCommonFieldInfoBuilder":
         self._signature_template_common_field_info.source = source
         return self
+
     def apiname(self, apiname: str) -> "SignatureTemplateCommonFieldInfoBuilder":
         self._signature_template_common_field_info.apiname = apiname
         return self
-    
+
     def build(self) -> "SignatureTemplateCommonFieldInfo":
         return self._signature_template_common_field_info

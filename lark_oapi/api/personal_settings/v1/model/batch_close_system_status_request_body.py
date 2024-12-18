@@ -21,9 +21,10 @@ class BatchCloseSystemStatusRequestBody(object):
 class BatchCloseSystemStatusRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_close_system_status_request_body = BatchCloseSystemStatusRequestBody()
+
     def user_list(self, user_list: List[str]) -> "BatchCloseSystemStatusRequestBodyBuilder":
         self._batch_close_system_status_request_body.user_list = user_list
         return self
-    
+
     def build(self) -> "BatchCloseSystemStatusRequestBody":
         return self._batch_close_system_status_request_body

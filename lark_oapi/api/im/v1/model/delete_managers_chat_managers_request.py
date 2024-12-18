@@ -26,18 +26,19 @@ class DeleteManagersChatManagersRequestBuilder(object):
         delete_managers_chat_managers_request.uri = "/open-apis/im/v1/chats/:chat_id/managers/delete_managers"
         delete_managers_chat_managers_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._delete_managers_chat_managers_request: DeleteManagersChatManagersRequest = delete_managers_chat_managers_request
-    
+
     def member_id_type(self, member_id_type: str) -> "DeleteManagersChatManagersRequestBuilder":
         self._delete_managers_chat_managers_request.member_id_type = member_id_type
         self._delete_managers_chat_managers_request.add_query("member_id_type", member_id_type)
         return self
-    
+
     def chat_id(self, chat_id: str) -> "DeleteManagersChatManagersRequestBuilder":
         self._delete_managers_chat_managers_request.chat_id = chat_id
         self._delete_managers_chat_managers_request.paths["chat_id"] = str(chat_id)
         return self
-    
-    def request_body(self, request_body: DeleteManagersChatManagersRequestBody) -> "DeleteManagersChatManagersRequestBuilder":
+
+    def request_body(self,
+                     request_body: DeleteManagersChatManagersRequestBody) -> "DeleteManagersChatManagersRequestBuilder":
         self._delete_managers_chat_managers_request.request_body = request_body
         self._delete_managers_chat_managers_request.body = request_body
         return self

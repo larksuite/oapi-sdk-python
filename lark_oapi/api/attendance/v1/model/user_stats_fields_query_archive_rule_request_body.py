@@ -27,18 +27,22 @@ class UserStatsFieldsQueryArchiveRuleRequestBody(object):
 class UserStatsFieldsQueryArchiveRuleRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._user_stats_fields_query_archive_rule_request_body = UserStatsFieldsQueryArchiveRuleRequestBody()
+
     def locale(self, locale: str) -> "UserStatsFieldsQueryArchiveRuleRequestBodyBuilder":
         self._user_stats_fields_query_archive_rule_request_body.locale = locale
         return self
+
     def month(self, month: str) -> "UserStatsFieldsQueryArchiveRuleRequestBodyBuilder":
         self._user_stats_fields_query_archive_rule_request_body.month = month
         return self
+
     def archive_rule_id(self, archive_rule_id: str) -> "UserStatsFieldsQueryArchiveRuleRequestBodyBuilder":
         self._user_stats_fields_query_archive_rule_request_body.archive_rule_id = archive_rule_id
         return self
+
     def operator_id(self, operator_id: str) -> "UserStatsFieldsQueryArchiveRuleRequestBodyBuilder":
         self._user_stats_fields_query_archive_rule_request_body.operator_id = operator_id
         return self
-    
+
     def build(self) -> "UserStatsFieldsQueryArchiveRuleRequestBody":
         return self._user_stats_fields_query_archive_rule_request_body

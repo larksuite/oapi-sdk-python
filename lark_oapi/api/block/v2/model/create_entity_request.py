@@ -24,7 +24,7 @@ class CreateEntityRequestBuilder(object):
         create_entity_request.uri = "/open-apis/block/v2/entities"
         create_entity_request.token_types = {AccessTokenType.TENANT}
         self._create_entity_request: CreateEntityRequest = create_entity_request
-    
+
     def request_body(self, request_body: CreateEntityRequestBody) -> "CreateEntityRequestBuilder":
         self._create_entity_request.request_body = request_body
         self._create_entity_request.body = request_body

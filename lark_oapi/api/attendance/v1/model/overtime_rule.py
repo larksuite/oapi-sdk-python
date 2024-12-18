@@ -23,12 +23,14 @@ class OvertimeRule(object):
 class OvertimeRuleBuilder(object):
     def __init__(self) -> None:
         self._overtime_rule = OvertimeRule()
+
     def on_overtime(self, on_overtime: str) -> "OvertimeRuleBuilder":
         self._overtime_rule.on_overtime = on_overtime
         return self
+
     def off_overtime(self, off_overtime: str) -> "OvertimeRuleBuilder":
         self._overtime_rule.off_overtime = off_overtime
         return self
-    
+
     def build(self) -> "OvertimeRule":
         return self._overtime_rule

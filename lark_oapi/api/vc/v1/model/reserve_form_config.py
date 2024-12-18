@@ -33,24 +33,30 @@ class ReserveFormConfig(object):
 class ReserveFormConfigBuilder(object):
     def __init__(self) -> None:
         self._reserve_form_config = ReserveFormConfig()
+
     def if_cover_child_scope(self, if_cover_child_scope: bool) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.if_cover_child_scope = if_cover_child_scope
         return self
+
     def reserve_form(self, reserve_form: bool) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.reserve_form = reserve_form
         return self
+
     def notified_users(self, notified_users: List[SubscribeUser]) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.notified_users = notified_users
         return self
+
     def notified_time(self, notified_time: int) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.notified_time = notified_time
         return self
+
     def time_unit(self, time_unit: int) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.time_unit = time_unit
         return self
+
     def custom_list(self, custom_list: List[CustomList]) -> "ReserveFormConfigBuilder":
         self._reserve_form_config.custom_list = custom_list
         return self
-    
+
     def build(self) -> "ReserveFormConfig":
         return self._reserve_form_config

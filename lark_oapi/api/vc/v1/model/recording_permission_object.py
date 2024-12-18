@@ -25,15 +25,18 @@ class RecordingPermissionObject(object):
 class RecordingPermissionObjectBuilder(object):
     def __init__(self) -> None:
         self._recording_permission_object = RecordingPermissionObject()
+
     def id(self, id: str) -> "RecordingPermissionObjectBuilder":
         self._recording_permission_object.id = id
         return self
+
     def type(self, type: int) -> "RecordingPermissionObjectBuilder":
         self._recording_permission_object.type = type
         return self
+
     def permission(self, permission: int) -> "RecordingPermissionObjectBuilder":
         self._recording_permission_object.permission = permission
         return self
-    
+
     def build(self) -> "RecordingPermissionObject":
         return self._recording_permission_object

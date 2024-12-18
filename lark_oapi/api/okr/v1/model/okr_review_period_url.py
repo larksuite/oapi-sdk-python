@@ -23,12 +23,14 @@ class OkrReviewPeriodUrl(object):
 class OkrReviewPeriodUrlBuilder(object):
     def __init__(self) -> None:
         self._okr_review_period_url = OkrReviewPeriodUrl()
+
     def url(self, url: str) -> "OkrReviewPeriodUrlBuilder":
         self._okr_review_period_url.url = url
         return self
+
     def create_time(self, create_time: int) -> "OkrReviewPeriodUrlBuilder":
         self._okr_review_period_url.create_time = create_time
         return self
-    
+
     def build(self) -> "OkrReviewPeriodUrl":
         return self._okr_review_period_url

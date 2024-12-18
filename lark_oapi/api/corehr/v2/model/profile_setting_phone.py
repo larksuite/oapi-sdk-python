@@ -23,12 +23,14 @@ class ProfileSettingPhone(object):
 class ProfileSettingPhoneBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_phone = ProfileSettingPhone()
+
     def international_area_code(self, international_area_code: str) -> "ProfileSettingPhoneBuilder":
         self._profile_setting_phone.international_area_code = international_area_code
         return self
+
     def phone_number(self, phone_number: str) -> "ProfileSettingPhoneBuilder":
         self._profile_setting_phone.phone_number = phone_number
         return self
-    
+
     def build(self) -> "ProfileSettingPhone":
         return self._profile_setting_phone

@@ -21,9 +21,10 @@ class InsertTableColumnRequest(object):
 class InsertTableColumnRequestBuilder(object):
     def __init__(self) -> None:
         self._insert_table_column_request = InsertTableColumnRequest()
+
     def column_index(self, column_index: int) -> "InsertTableColumnRequestBuilder":
         self._insert_table_column_request.column_index = column_index
         return self
-    
+
     def build(self) -> "InsertTableColumnRequest":
         return self._insert_table_column_request

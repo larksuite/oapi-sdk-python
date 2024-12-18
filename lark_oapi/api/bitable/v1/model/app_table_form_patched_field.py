@@ -29,21 +29,26 @@ class AppTableFormPatchedField(object):
 class AppTableFormPatchedFieldBuilder(object):
     def __init__(self) -> None:
         self._app_table_form_patched_field = AppTableFormPatchedField()
+
     def pre_field_id(self, pre_field_id: str) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.pre_field_id = pre_field_id
         return self
+
     def title(self, title: str) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.title = title
         return self
+
     def description(self, description: str) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.description = description
         return self
+
     def required(self, required: bool) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.required = required
         return self
+
     def visible(self, visible: bool) -> "AppTableFormPatchedFieldBuilder":
         self._app_table_form_patched_field.visible = visible
         return self
-    
+
     def build(self) -> "AppTableFormPatchedField":
         return self._app_table_form_patched_field

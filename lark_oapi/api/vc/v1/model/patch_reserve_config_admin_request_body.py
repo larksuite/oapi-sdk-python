@@ -24,12 +24,15 @@ class PatchReserveConfigAdminRequestBody(object):
 class PatchReserveConfigAdminRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_reserve_config_admin_request_body = PatchReserveConfigAdminRequestBody()
+
     def scope_type(self, scope_type: int) -> "PatchReserveConfigAdminRequestBodyBuilder":
         self._patch_reserve_config_admin_request_body.scope_type = scope_type
         return self
-    def reserve_admin_config(self, reserve_admin_config: ReserveAdminConfig) -> "PatchReserveConfigAdminRequestBodyBuilder":
+
+    def reserve_admin_config(self,
+                             reserve_admin_config: ReserveAdminConfig) -> "PatchReserveConfigAdminRequestBodyBuilder":
         self._patch_reserve_config_admin_request_body.reserve_admin_config = reserve_admin_config
         return self
-    
+
     def build(self) -> "PatchReserveConfigAdminRequestBody":
         return self._patch_reserve_config_admin_request_body

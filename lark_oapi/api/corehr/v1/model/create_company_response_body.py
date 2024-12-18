@@ -22,9 +22,10 @@ class CreateCompanyResponseBody(object):
 class CreateCompanyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_company_response_body = CreateCompanyResponseBody()
+
     def company(self, company: Company) -> "CreateCompanyResponseBodyBuilder":
         self._create_company_response_body.company = company
         return self
-    
+
     def build(self) -> "CreateCompanyResponseBody":
         return self._create_company_response_body

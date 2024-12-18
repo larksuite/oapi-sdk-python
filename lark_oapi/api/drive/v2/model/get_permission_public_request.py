@@ -24,17 +24,16 @@ class GetPermissionPublicRequestBuilder(object):
         get_permission_public_request.uri = "/open-apis/drive/v2/permissions/:token/public"
         get_permission_public_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_permission_public_request: GetPermissionPublicRequest = get_permission_public_request
-    
+
     def type(self, type: str) -> "GetPermissionPublicRequestBuilder":
         self._get_permission_public_request.type = type
         self._get_permission_public_request.add_query("type", type)
         return self
-    
+
     def token(self, token: str) -> "GetPermissionPublicRequestBuilder":
         self._get_permission_public_request.token = token
         self._get_permission_public_request.paths["token"] = str(token)
         return self
-    
 
     def build(self) -> GetPermissionPublicRequest:
         return self._get_permission_public_request

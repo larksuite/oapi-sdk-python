@@ -23,12 +23,14 @@ class CreateCalendarEventMeetingChatResponseBody(object):
 class CreateCalendarEventMeetingChatResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_calendar_event_meeting_chat_response_body = CreateCalendarEventMeetingChatResponseBody()
+
     def meeting_chat_id(self, meeting_chat_id: str) -> "CreateCalendarEventMeetingChatResponseBodyBuilder":
         self._create_calendar_event_meeting_chat_response_body.meeting_chat_id = meeting_chat_id
         return self
+
     def applink(self, applink: str) -> "CreateCalendarEventMeetingChatResponseBodyBuilder":
         self._create_calendar_event_meeting_chat_response_body.applink = applink
         return self
-    
+
     def build(self) -> "CreateCalendarEventMeetingChatResponseBody":
         return self._create_calendar_event_meeting_chat_response_body

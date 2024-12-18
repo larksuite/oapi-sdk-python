@@ -25,15 +25,18 @@ class Sequence(object):
 class SequenceBuilder(object):
     def __init__(self) -> None:
         self._sequence = Sequence()
+
     def id(self, id: str) -> "SequenceBuilder":
         self._sequence.id = id
         return self
+
     def name(self, name: str) -> "SequenceBuilder":
         self._sequence.name = name
         return self
+
     def en_name(self, en_name: str) -> "SequenceBuilder":
         self._sequence.en_name = en_name
         return self
-    
+
     def build(self) -> "Sequence":
         return self._sequence

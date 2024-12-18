@@ -28,18 +28,22 @@ class StartProcessParam(object):
 class StartProcessParamBuilder(object):
     def __init__(self) -> None:
         self._start_process_param = StartProcessParam()
+
     def flow_definition_id(self, flow_definition_id: str) -> "StartProcessParamBuilder":
         self._start_process_param.flow_definition_id = flow_definition_id
         return self
+
     def initiator_id(self, initiator_id: str) -> "StartProcessParamBuilder":
         self._start_process_param.initiator_id = initiator_id
         return self
+
     def system_initiator(self, system_initiator: bool) -> "StartProcessParamBuilder":
         self._start_process_param.system_initiator = system_initiator
         return self
+
     def flow_data(self, flow_data: List[ProcessFormVariableV2]) -> "StartProcessParamBuilder":
         self._start_process_param.flow_data = flow_data
         return self
-    
+
     def build(self) -> "StartProcessParam":
         return self._start_process_param

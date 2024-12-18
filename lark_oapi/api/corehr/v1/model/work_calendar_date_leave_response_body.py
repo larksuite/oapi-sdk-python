@@ -22,9 +22,10 @@ class WorkCalendarDateLeaveResponseBody(object):
 class WorkCalendarDateLeaveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._work_calendar_date_leave_response_body = WorkCalendarDateLeaveResponseBody()
+
     def calendar_dates(self, calendar_dates: List[WkCalendarDate]) -> "WorkCalendarDateLeaveResponseBodyBuilder":
         self._work_calendar_date_leave_response_body.calendar_dates = calendar_dates
         return self
-    
+
     def build(self) -> "WorkCalendarDateLeaveResponseBody":
         return self._work_calendar_date_leave_response_body

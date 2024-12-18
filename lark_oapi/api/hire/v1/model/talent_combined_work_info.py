@@ -30,21 +30,27 @@ class TalentCombinedWorkInfo(object):
 class TalentCombinedWorkInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_combined_work_info = TalentCombinedWorkInfo()
+
     def id(self, id: str) -> "TalentCombinedWorkInfoBuilder":
         self._talent_combined_work_info.id = id
         return self
+
     def link(self, link: str) -> "TalentCombinedWorkInfoBuilder":
         self._talent_combined_work_info.link = link
         return self
+
     def desc(self, desc: str) -> "TalentCombinedWorkInfoBuilder":
         self._talent_combined_work_info.desc = desc
         return self
+
     def attachment_id(self, attachment_id: str) -> "TalentCombinedWorkInfoBuilder":
         self._talent_combined_work_info.attachment_id = attachment_id
         return self
-    def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedWorkInfoBuilder":
+
+    def customized_data(self,
+                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedWorkInfoBuilder":
         self._talent_combined_work_info.customized_data = customized_data
         return self
-    
+
     def build(self) -> "TalentCombinedWorkInfo":
         return self._talent_combined_work_info

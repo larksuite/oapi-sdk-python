@@ -25,15 +25,18 @@ class SearchReferralRequestBody(object):
 class SearchReferralRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_referral_request_body = SearchReferralRequestBody()
+
     def talent_id(self, talent_id: str) -> "SearchReferralRequestBodyBuilder":
         self._search_referral_request_body.talent_id = talent_id
         return self
+
     def start_time(self, start_time: str) -> "SearchReferralRequestBodyBuilder":
         self._search_referral_request_body.start_time = start_time
         return self
+
     def end_time(self, end_time: str) -> "SearchReferralRequestBodyBuilder":
         self._search_referral_request_body.end_time = end_time
         return self
-    
+
     def build(self) -> "SearchReferralRequestBody":
         return self._search_referral_request_body

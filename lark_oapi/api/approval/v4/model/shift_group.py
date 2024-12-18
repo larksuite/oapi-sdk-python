@@ -36,30 +36,38 @@ class ShiftGroup(object):
 class ShiftGroupBuilder(object):
     def __init__(self) -> None:
         self._shift_group = ShiftGroup()
+
     def type(self, type: str) -> "ShiftGroupBuilder":
         self._shift_group.type = type
         return self
+
     def instance_code(self, instance_code: str) -> "ShiftGroupBuilder":
         self._shift_group.instance_code = instance_code
         return self
+
     def user_id(self, user_id: str) -> "ShiftGroupBuilder":
         self._shift_group.user_id = user_id
         return self
+
     def swap_shift_user_id(self, swap_shift_user_id: str) -> "ShiftGroupBuilder":
         self._shift_group.swap_shift_user_id = swap_shift_user_id
         return self
+
     def start_time(self, start_time: int) -> "ShiftGroupBuilder":
         self._shift_group.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "ShiftGroupBuilder":
         self._shift_group.end_time = end_time
         return self
+
     def shift_reason(self, shift_reason: str) -> "ShiftGroupBuilder":
         self._shift_group.shift_reason = shift_reason
         return self
+
     def swap_shift_details(self, swap_shift_details: List[SwapShiftDetail]) -> "ShiftGroupBuilder":
         self._shift_group.swap_shift_details = swap_shift_details
         return self
-    
+
     def build(self) -> "ShiftGroup":
         return self._shift_group

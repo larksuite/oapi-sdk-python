@@ -29,21 +29,26 @@ class DisplayApp(object):
 class DisplayAppBuilder(object):
     def __init__(self) -> None:
         self._display_app = DisplayApp()
+
     def app_token(self, app_token: str) -> "DisplayAppBuilder":
         self._display_app.app_token = app_token
         return self
+
     def name(self, name: str) -> "DisplayAppBuilder":
         self._display_app.name = name
         return self
+
     def revision(self, revision: int) -> "DisplayAppBuilder":
         self._display_app.revision = revision
         return self
+
     def is_advanced(self, is_advanced: bool) -> "DisplayAppBuilder":
         self._display_app.is_advanced = is_advanced
         return self
+
     def time_zone(self, time_zone: str) -> "DisplayAppBuilder":
         self._display_app.time_zone = time_zone
         return self
-    
+
     def build(self) -> "DisplayApp":
         return self._display_app

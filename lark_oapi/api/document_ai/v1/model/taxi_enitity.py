@@ -23,12 +23,14 @@ class TaxiEnitity(object):
 class TaxiEnitityBuilder(object):
     def __init__(self) -> None:
         self._taxi_enitity = TaxiEnitity()
+
     def type(self, type: str) -> "TaxiEnitityBuilder":
         self._taxi_enitity.type = type
         return self
+
     def value(self, value: str) -> "TaxiEnitityBuilder":
         self._taxi_enitity.value = value
         return self
-    
+
     def build(self) -> "TaxiEnitity":
         return self._taxi_enitity

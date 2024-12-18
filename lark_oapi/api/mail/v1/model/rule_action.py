@@ -22,9 +22,10 @@ class RuleAction(object):
 class RuleActionBuilder(object):
     def __init__(self) -> None:
         self._rule_action = RuleAction()
+
     def items(self, items: List[RuleActionItem]) -> "RuleActionBuilder":
         self._rule_action.items = items
         return self
-    
+
     def build(self) -> "RuleAction":
         return self._rule_action

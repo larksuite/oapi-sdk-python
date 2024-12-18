@@ -33,24 +33,30 @@ class ChangeReason(object):
 class ChangeReasonBuilder(object):
     def __init__(self) -> None:
         self._change_reason = ChangeReason()
+
     def id(self, id: str) -> "ChangeReasonBuilder":
         self._change_reason.id = id
         return self
+
     def name(self, name: str) -> "ChangeReasonBuilder":
         self._change_reason.name = name
         return self
+
     def note(self, note: str) -> "ChangeReasonBuilder":
         self._change_reason.note = note
         return self
+
     def active_status(self, active_status: int) -> "ChangeReasonBuilder":
         self._change_reason.active_status = active_status
         return self
+
     def i18n_names(self, i18n_names: List[I18nContent]) -> "ChangeReasonBuilder":
         self._change_reason.i18n_names = i18n_names
         return self
+
     def i18n_notes(self, i18n_notes: List[I18nContent]) -> "ChangeReasonBuilder":
         self._change_reason.i18n_notes = i18n_notes
         return self
-    
+
     def build(self) -> "ChangeReason":
         return self._change_reason

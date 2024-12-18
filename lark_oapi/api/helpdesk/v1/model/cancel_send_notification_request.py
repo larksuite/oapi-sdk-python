@@ -25,12 +25,12 @@ class CancelSendNotificationRequestBuilder(object):
         cancel_send_notification_request.uri = "/open-apis/helpdesk/v1/notifications/:notification_id/cancel_send"
         cancel_send_notification_request.token_types = {AccessTokenType.USER}
         self._cancel_send_notification_request: CancelSendNotificationRequest = cancel_send_notification_request
-    
+
     def notification_id(self, notification_id: str) -> "CancelSendNotificationRequestBuilder":
         self._cancel_send_notification_request.notification_id = notification_id
         self._cancel_send_notification_request.paths["notification_id"] = str(notification_id)
         return self
-    
+
     def request_body(self, request_body: CancelSendNotificationRequestBody) -> "CancelSendNotificationRequestBuilder":
         self._cancel_send_notification_request.request_body = request_body
         self._cancel_send_notification_request.body = request_body

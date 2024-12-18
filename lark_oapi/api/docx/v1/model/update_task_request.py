@@ -23,12 +23,14 @@ class UpdateTaskRequest(object):
 class UpdateTaskRequestBuilder(object):
     def __init__(self) -> None:
         self._update_task_request = UpdateTaskRequest()
+
     def task_id(self, task_id: str) -> "UpdateTaskRequestBuilder":
         self._update_task_request.task_id = task_id
         return self
+
     def folded(self, folded: bool) -> "UpdateTaskRequestBuilder":
         self._update_task_request.folded = folded
         return self
-    
+
     def build(self) -> "UpdateTaskRequest":
         return self._update_task_request

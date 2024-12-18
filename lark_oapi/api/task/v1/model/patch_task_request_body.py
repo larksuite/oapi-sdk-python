@@ -24,12 +24,14 @@ class PatchTaskRequestBody(object):
 class PatchTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_task_request_body = PatchTaskRequestBody()
+
     def task(self, task: Task) -> "PatchTaskRequestBodyBuilder":
         self._patch_task_request_body.task = task
         return self
+
     def update_fields(self, update_fields: List[str]) -> "PatchTaskRequestBodyBuilder":
         self._patch_task_request_body.update_fields = update_fields
         return self
-    
+
     def build(self) -> "PatchTaskRequestBody":
         return self._patch_task_request_body

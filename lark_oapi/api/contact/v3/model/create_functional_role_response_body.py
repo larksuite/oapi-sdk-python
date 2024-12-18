@@ -21,9 +21,10 @@ class CreateFunctionalRoleResponseBody(object):
 class CreateFunctionalRoleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_functional_role_response_body = CreateFunctionalRoleResponseBody()
+
     def role_id(self, role_id: str) -> "CreateFunctionalRoleResponseBodyBuilder":
         self._create_functional_role_response_body.role_id = role_id
         return self
-    
+
     def build(self) -> "CreateFunctionalRoleResponseBody":
         return self._create_functional_role_response_body

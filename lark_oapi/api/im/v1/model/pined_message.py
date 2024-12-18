@@ -25,12 +25,14 @@ class PinedMessage(object):
 class PinedMessageBuilder(object):
     def __init__(self) -> None:
         self._pined_message = PinedMessage()
+
     def pin(self, pin: Pin) -> "PinedMessageBuilder":
         self._pined_message.pin = pin
         return self
+
     def message(self, message: Message) -> "PinedMessageBuilder":
         self._pined_message.message = message
         return self
-    
+
     def build(self) -> "PinedMessage":
         return self._pined_message

@@ -24,12 +24,14 @@ class Find(object):
 class FindBuilder(object):
     def __init__(self) -> None:
         self._find = Find()
+
     def find_condition(self, find_condition: FindCondition) -> "FindBuilder":
         self._find.find_condition = find_condition
         return self
+
     def find(self, find: str) -> "FindBuilder":
         self._find.find = find
         return self
-    
+
     def build(self) -> "Find":
         return self._find

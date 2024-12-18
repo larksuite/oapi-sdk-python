@@ -21,9 +21,10 @@ class SortTabsChatTabRequestBody(object):
 class SortTabsChatTabRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._sort_tabs_chat_tab_request_body = SortTabsChatTabRequestBody()
+
     def tab_ids(self, tab_ids: List[str]) -> "SortTabsChatTabRequestBodyBuilder":
         self._sort_tabs_chat_tab_request_body.tab_ids = tab_ids
         return self
-    
+
     def build(self) -> "SortTabsChatTabRequestBody":
         return self._sort_tabs_chat_tab_request_body

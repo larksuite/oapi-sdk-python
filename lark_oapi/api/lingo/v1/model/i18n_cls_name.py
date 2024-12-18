@@ -23,12 +23,14 @@ class I18nClsName(object):
 class I18nClsNameBuilder(object):
     def __init__(self) -> None:
         self._i18n_cls_name = I18nClsName()
+
     def language(self, language: int) -> "I18nClsNameBuilder":
         self._i18n_cls_name.language = language
         return self
+
     def name(self, name: str) -> "I18nClsNameBuilder":
         self._i18n_cls_name.name = name
         return self
-    
+
     def build(self) -> "I18nClsName":
         return self._i18n_cls_name

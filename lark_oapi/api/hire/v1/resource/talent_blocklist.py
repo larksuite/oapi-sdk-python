@@ -17,7 +17,8 @@ class TalentBlocklist(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def change_talent_block(self, request: ChangeTalentBlockTalentBlocklistRequest, option: Optional[RequestOption] = None) -> ChangeTalentBlockTalentBlocklistResponse:
+    def change_talent_block(self, request: ChangeTalentBlockTalentBlocklistRequest,
+                            option: Optional[RequestOption] = None) -> ChangeTalentBlockTalentBlocklistResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class TalentBlocklist(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(str(resp.content, UTF_8), ChangeTalentBlockTalentBlocklistResponse)
+        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            ChangeTalentBlockTalentBlocklistResponse)
         response.raw = resp
 
         return response
-        
 
-    async def achange_talent_block(self, request: ChangeTalentBlockTalentBlocklistRequest, option: Optional[RequestOption] = None) -> ChangeTalentBlockTalentBlocklistResponse:
+    async def achange_talent_block(self, request: ChangeTalentBlockTalentBlocklistRequest,
+                                   option: Optional[RequestOption] = None) -> ChangeTalentBlockTalentBlocklistResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(str(resp.content, UTF_8), ChangeTalentBlockTalentBlocklistResponse)
+        response: ChangeTalentBlockTalentBlocklistResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            ChangeTalentBlockTalentBlocklistResponse)
         response.raw = resp
 
         return response
-        
-    

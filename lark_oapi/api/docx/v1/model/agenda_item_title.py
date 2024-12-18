@@ -24,12 +24,14 @@ class AgendaItemTitle(object):
 class AgendaItemTitleBuilder(object):
     def __init__(self) -> None:
         self._agenda_item_title = AgendaItemTitle()
+
     def elements(self, elements: List[AgendaTitleElement]) -> "AgendaItemTitleBuilder":
         self._agenda_item_title.elements = elements
         return self
+
     def align(self, align: int) -> "AgendaItemTitleBuilder":
         self._agenda_item_title.align = align
         return self
-    
+
     def build(self) -> "AgendaItemTitle":
         return self._agenda_item_title

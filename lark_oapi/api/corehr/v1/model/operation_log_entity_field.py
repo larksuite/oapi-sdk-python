@@ -25,15 +25,18 @@ class OperationLogEntityField(object):
 class OperationLogEntityFieldBuilder(object):
     def __init__(self) -> None:
         self._operation_log_entity_field = OperationLogEntityField()
+
     def field(self, field: str) -> "OperationLogEntityFieldBuilder":
         self._operation_log_entity_field.field = field
         return self
+
     def before(self, before: str) -> "OperationLogEntityFieldBuilder":
         self._operation_log_entity_field.before = before
         return self
+
     def after(self, after: str) -> "OperationLogEntityFieldBuilder":
         self._operation_log_entity_field.after = after
         return self
-    
+
     def build(self) -> "OperationLogEntityField":
         return self._operation_log_entity_field

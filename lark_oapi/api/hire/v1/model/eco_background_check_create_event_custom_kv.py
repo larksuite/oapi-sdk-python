@@ -23,12 +23,14 @@ class EcoBackgroundCheckCreateEventCustomKv(object):
 class EcoBackgroundCheckCreateEventCustomKvBuilder(object):
     def __init__(self) -> None:
         self._eco_background_check_create_event_custom_kv = EcoBackgroundCheckCreateEventCustomKv()
+
     def key(self, key: str) -> "EcoBackgroundCheckCreateEventCustomKvBuilder":
         self._eco_background_check_create_event_custom_kv.key = key
         return self
+
     def value(self, value: str) -> "EcoBackgroundCheckCreateEventCustomKvBuilder":
         self._eco_background_check_create_event_custom_kv.value = value
         return self
-    
+
     def build(self) -> "EcoBackgroundCheckCreateEventCustomKv":
         return self._eco_background_check_create_event_custom_kv

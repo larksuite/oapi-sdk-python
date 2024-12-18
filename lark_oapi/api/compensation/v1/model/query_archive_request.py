@@ -27,22 +27,22 @@ class QueryArchiveRequestBuilder(object):
         query_archive_request.uri = "/open-apis/compensation/v1/archives/query"
         query_archive_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._query_archive_request: QueryArchiveRequest = query_archive_request
-    
+
     def page_size(self, page_size: int) -> "QueryArchiveRequestBuilder":
         self._query_archive_request.page_size = page_size
         self._query_archive_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "QueryArchiveRequestBuilder":
         self._query_archive_request.page_token = page_token
         self._query_archive_request.add_query("page_token", page_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "QueryArchiveRequestBuilder":
         self._query_archive_request.user_id_type = user_id_type
         self._query_archive_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: QueryArchiveRequestBody) -> "QueryArchiveRequestBuilder":
         self._query_archive_request.request_body = request_body
         self._query_archive_request.body = request_body

@@ -21,9 +21,10 @@ class CreateExportTaskResponseBody(object):
 class CreateExportTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_export_task_response_body = CreateExportTaskResponseBody()
+
     def ticket(self, ticket: str) -> "CreateExportTaskResponseBodyBuilder":
         self._create_export_task_response_body.ticket = ticket
         return self
-    
+
     def build(self) -> "CreateExportTaskResponseBody":
         return self._create_export_task_response_body

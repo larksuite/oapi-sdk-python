@@ -22,9 +22,10 @@ class CommonSchemaConfig(object):
 class CommonSchemaConfigBuilder(object):
     def __init__(self) -> None:
         self._common_schema_config = CommonSchemaConfig()
+
     def options(self, options: List[CommonSchemaOption]) -> "CommonSchemaConfigBuilder":
         self._common_schema_config.options = options
         return self
-    
+
     def build(self) -> "CommonSchemaConfig":
         return self._common_schema_config

@@ -27,23 +27,24 @@ class BatchDeleteCalendarEventAttendeeRequestBuilder(object):
         batch_delete_calendar_event_attendee_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
         batch_delete_calendar_event_attendee_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._batch_delete_calendar_event_attendee_request: BatchDeleteCalendarEventAttendeeRequest = batch_delete_calendar_event_attendee_request
-    
+
     def user_id_type(self, user_id_type: str) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
         self._batch_delete_calendar_event_attendee_request.user_id_type = user_id_type
         self._batch_delete_calendar_event_attendee_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def calendar_id(self, calendar_id: str) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
         self._batch_delete_calendar_event_attendee_request.calendar_id = calendar_id
         self._batch_delete_calendar_event_attendee_request.paths["calendar_id"] = str(calendar_id)
         return self
-    
+
     def event_id(self, event_id: str) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
         self._batch_delete_calendar_event_attendee_request.event_id = event_id
         self._batch_delete_calendar_event_attendee_request.paths["event_id"] = str(event_id)
         return self
-    
-    def request_body(self, request_body: BatchDeleteCalendarEventAttendeeRequestBody) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
+
+    def request_body(self,
+                     request_body: BatchDeleteCalendarEventAttendeeRequestBody) -> "BatchDeleteCalendarEventAttendeeRequestBuilder":
         self._batch_delete_calendar_event_attendee_request.request_body = request_body
         self._batch_delete_calendar_event_attendee_request.body = request_body
         return self

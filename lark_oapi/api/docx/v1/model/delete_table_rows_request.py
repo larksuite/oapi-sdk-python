@@ -23,12 +23,14 @@ class DeleteTableRowsRequest(object):
 class DeleteTableRowsRequestBuilder(object):
     def __init__(self) -> None:
         self._delete_table_rows_request = DeleteTableRowsRequest()
+
     def row_start_index(self, row_start_index: int) -> "DeleteTableRowsRequestBuilder":
         self._delete_table_rows_request.row_start_index = row_start_index
         return self
+
     def row_end_index(self, row_end_index: int) -> "DeleteTableRowsRequestBuilder":
         self._delete_table_rows_request.row_end_index = row_end_index
         return self
-    
+
     def build(self) -> "DeleteTableRowsRequest":
         return self._delete_table_rows_request

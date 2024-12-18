@@ -25,15 +25,18 @@ class CreateIdentityRequestBody(object):
 class CreateIdentityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_identity_request_body = CreateIdentityRequestBody()
+
     def identity_name(self, identity_name: str) -> "CreateIdentityRequestBodyBuilder":
         self._create_identity_request_body.identity_name = identity_name
         return self
+
     def identity_code(self, identity_code: str) -> "CreateIdentityRequestBodyBuilder":
         self._create_identity_request_body.identity_code = identity_code
         return self
+
     def mobile(self, mobile: str) -> "CreateIdentityRequestBodyBuilder":
         self._create_identity_request_body.mobile = mobile
         return self
-    
+
     def build(self) -> "CreateIdentityRequestBody":
         return self._create_identity_request_body

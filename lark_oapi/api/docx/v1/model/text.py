@@ -25,12 +25,14 @@ class Text(object):
 class TextBuilder(object):
     def __init__(self) -> None:
         self._text = Text()
+
     def style(self, style: TextStyle) -> "TextBuilder":
         self._text.style = style
         return self
+
     def elements(self, elements: List[TextElement]) -> "TextBuilder":
         self._text.elements = elements
         return self
-    
+
     def build(self) -> "Text":
         return self._text

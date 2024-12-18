@@ -22,9 +22,10 @@ class BatchGetLocationResponseBody(object):
 class BatchGetLocationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_location_response_body = BatchGetLocationResponseBody()
+
     def items(self, items: List[Location]) -> "BatchGetLocationResponseBodyBuilder":
         self._batch_get_location_response_body.items = items
         return self
-    
+
     def build(self) -> "BatchGetLocationResponseBody":
         return self._batch_get_location_response_body

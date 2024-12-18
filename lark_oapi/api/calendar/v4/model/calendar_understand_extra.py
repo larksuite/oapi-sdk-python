@@ -25,15 +25,18 @@ class CalendarUnderstandExtra(object):
 class CalendarUnderstandExtraBuilder(object):
     def __init__(self) -> None:
         self._calendar_understand_extra = CalendarUnderstandExtra()
+
     def ai_task_id(self, ai_task_id: str) -> "CalendarUnderstandExtraBuilder":
         self._calendar_understand_extra.ai_task_id = ai_task_id
         return self
+
     def event_uid(self, event_uid: str) -> "CalendarUnderstandExtraBuilder":
         self._calendar_understand_extra.event_uid = event_uid
         return self
+
     def origin_time(self, origin_time: str) -> "CalendarUnderstandExtraBuilder":
         self._calendar_understand_extra.origin_time = origin_time
         return self
-    
+
     def build(self) -> "CalendarUnderstandExtra":
         return self._calendar_understand_extra

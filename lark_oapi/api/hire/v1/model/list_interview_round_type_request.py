@@ -23,12 +23,11 @@ class ListInterviewRoundTypeRequestBuilder(object):
         list_interview_round_type_request.uri = "/open-apis/hire/v1/interview_round_types"
         list_interview_round_type_request.token_types = {AccessTokenType.TENANT}
         self._list_interview_round_type_request: ListInterviewRoundTypeRequest = list_interview_round_type_request
-    
+
     def process_type(self, process_type: int) -> "ListInterviewRoundTypeRequestBuilder":
         self._list_interview_round_type_request.process_type = process_type
         self._list_interview_round_type_request.add_query("process_type", process_type)
         return self
-    
 
     def build(self) -> ListInterviewRoundTypeRequest:
         return self._list_interview_round_type_request

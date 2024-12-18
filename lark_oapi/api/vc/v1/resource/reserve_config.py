@@ -19,7 +19,8 @@ class ReserveConfig(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def patch(self, request: PatchReserveConfigRequest, option: Optional[RequestOption] = None) -> PatchReserveConfigResponse:
+    def patch(self, request: PatchReserveConfigRequest,
+              option: Optional[RequestOption] = None) -> PatchReserveConfigResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,33 +33,32 @@ class ReserveConfig(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchReserveConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchReserveConfigResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchReserveConfigRequest, option: Optional[RequestOption] = None) -> PatchReserveConfigResponse:
+    async def apatch(self, request: PatchReserveConfigRequest,
+                     option: Optional[RequestOption] = None) -> PatchReserveConfigResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchReserveConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchReserveConfigResponse)
         response.raw = resp
 
         return response
-        
-    def reserve_scope(self, request: ReserveScopeReserveConfigRequest, option: Optional[RequestOption] = None) -> ReserveScopeReserveConfigResponse:
+
+    def reserve_scope(self, request: ReserveScopeReserveConfigRequest,
+                      option: Optional[RequestOption] = None) -> ReserveScopeReserveConfigResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,30 +71,28 @@ class ReserveConfig(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ReserveScopeReserveConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), ReserveScopeReserveConfigResponse)
+        response: ReserveScopeReserveConfigResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     ReserveScopeReserveConfigResponse)
         response.raw = resp
 
         return response
-        
 
-    async def areserve_scope(self, request: ReserveScopeReserveConfigRequest, option: Optional[RequestOption] = None) -> ReserveScopeReserveConfigResponse:
+    async def areserve_scope(self, request: ReserveScopeReserveConfigRequest,
+                             option: Optional[RequestOption] = None) -> ReserveScopeReserveConfigResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ReserveScopeReserveConfigResponse = JSON.unmarshal(str(resp.content, UTF_8), ReserveScopeReserveConfigResponse)
+        response: ReserveScopeReserveConfigResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     ReserveScopeReserveConfigResponse)
         response.raw = resp
 
         return response
-        
-    

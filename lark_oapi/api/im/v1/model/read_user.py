@@ -27,18 +27,22 @@ class ReadUser(object):
 class ReadUserBuilder(object):
     def __init__(self) -> None:
         self._read_user = ReadUser()
+
     def user_id_type(self, user_id_type: str) -> "ReadUserBuilder":
         self._read_user.user_id_type = user_id_type
         return self
+
     def user_id(self, user_id: str) -> "ReadUserBuilder":
         self._read_user.user_id = user_id
         return self
+
     def timestamp(self, timestamp: str) -> "ReadUserBuilder":
         self._read_user.timestamp = timestamp
         return self
+
     def tenant_key(self, tenant_key: str) -> "ReadUserBuilder":
         self._read_user.tenant_key = tenant_key
         return self
-    
+
     def build(self) -> "ReadUser":
         return self._read_user

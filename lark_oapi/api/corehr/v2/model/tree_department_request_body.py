@@ -25,15 +25,18 @@ class TreeDepartmentRequestBody(object):
 class TreeDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._tree_department_request_body = TreeDepartmentRequestBody()
+
     def department_id(self, department_id: str) -> "TreeDepartmentRequestBodyBuilder":
         self._tree_department_request_body.department_id = department_id
         return self
+
     def need_inactive(self, need_inactive: bool) -> "TreeDepartmentRequestBodyBuilder":
         self._tree_department_request_body.need_inactive = need_inactive
         return self
+
     def effective_date(self, effective_date: str) -> "TreeDepartmentRequestBodyBuilder":
         self._tree_department_request_body.effective_date = effective_date
         return self
-    
+
     def build(self) -> "TreeDepartmentRequestBody":
         return self._tree_department_request_body

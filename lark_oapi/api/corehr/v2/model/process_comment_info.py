@@ -28,18 +28,22 @@ class ProcessCommentInfo(object):
 class ProcessCommentInfoBuilder(object):
     def __init__(self) -> None:
         self._process_comment_info = ProcessCommentInfo()
+
     def commentor_id(self, commentor_id: str) -> "ProcessCommentInfoBuilder":
         self._process_comment_info.commentor_id = commentor_id
         return self
+
     def commentor_name(self, commentor_name: DataengineI18n) -> "ProcessCommentInfoBuilder":
         self._process_comment_info.commentor_name = commentor_name
         return self
+
     def comment_time(self, comment_time: str) -> "ProcessCommentInfoBuilder":
         self._process_comment_info.comment_time = comment_time
         return self
+
     def comment_msg(self, comment_msg: str) -> "ProcessCommentInfoBuilder":
         self._process_comment_info.comment_msg = comment_msg
         return self
-    
+
     def build(self) -> "ProcessCommentInfo":
         return self._process_comment_info

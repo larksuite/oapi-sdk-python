@@ -23,12 +23,14 @@ class Feature(object):
 class FeatureBuilder(object):
     def __init__(self) -> None:
         self._feature = Feature()
+
     def card(self, card: int) -> "FeatureBuilder":
         self._feature.card = card
         return self
+
     def face_uploaded(self, face_uploaded: bool) -> "FeatureBuilder":
         self._feature.face_uploaded = face_uploaded
         return self
-    
+
     def build(self) -> "Feature":
         return self._feature

@@ -22,9 +22,10 @@ class OverviewApplicationAppUsageResponseBody(object):
 class OverviewApplicationAppUsageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._overview_application_app_usage_response_body = OverviewApplicationAppUsageResponseBody()
+
     def items(self, items: List[ApplicationAppUsage]) -> "OverviewApplicationAppUsageResponseBodyBuilder":
         self._overview_application_app_usage_response_body.items = items
         return self
-    
+
     def build(self) -> "OverviewApplicationAppUsageResponseBody":
         return self._overview_application_app_usage_response_body

@@ -58,45 +58,60 @@ class FormFieldVariableListObject(object):
 class FormFieldVariableListObjectBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_list_object = FormFieldVariableListObject()
+
     def text_value(self, text_value: FormFieldVariableTextValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.text_value = text_value
         return self
+
     def number_value(self, number_value: FormFieldVariableNumberValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.number_value = number_value
         return self
+
     def date_value(self, date_value: FormFieldVariableDateValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.date_value = date_value
         return self
-    def employment_value(self, employment_value: FormFieldVariableEmploymentValue) -> "FormFieldVariableListObjectBuilder":
+
+    def employment_value(self,
+                         employment_value: FormFieldVariableEmploymentValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.employment_value = employment_value
         return self
+
     def date_time_value(self, date_time_value: FormFieldVariableDatetimeValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.date_time_value = date_time_value
         return self
+
     def enum_value(self, enum_value: FormFieldVariableEnumValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.enum_value = enum_value
         return self
+
     def null_value(self, null_value: FormFieldVariableNullValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.null_value = null_value
         return self
+
     def bool_value(self, bool_value: FormFieldVariableBoolValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.bool_value = bool_value
         return self
-    def department_value(self, department_value: FormFieldVariableDepartmentValue) -> "FormFieldVariableListObjectBuilder":
+
+    def department_value(self,
+                         department_value: FormFieldVariableDepartmentValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.department_value = department_value
         return self
+
     def file_value(self, file_value: FormFieldVariableFileValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.file_value = file_value
         return self
+
     def i18n_value(self, i18n_value: FormFieldVariableI18nValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.i18n_value = i18n_value
         return self
+
     def object_value(self, object_value: FormFieldVariableObjectValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.object_value = object_value
         return self
+
     def record_value(self, record_value: FormFieldVariableRecordValue) -> "FormFieldVariableListObjectBuilder":
         self._form_field_variable_list_object.record_value = record_value
         return self
-    
+
     def build(self) -> "FormFieldVariableListObject":
         return self._form_field_variable_list_object

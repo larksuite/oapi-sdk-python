@@ -24,8 +24,9 @@ class OperateAgencyAccountAgencyRequestBuilder(object):
         operate_agency_account_agency_request.uri = "/open-apis/hire/v1/agencies/operate_agency_account"
         operate_agency_account_agency_request.token_types = {AccessTokenType.TENANT}
         self._operate_agency_account_agency_request: OperateAgencyAccountAgencyRequest = operate_agency_account_agency_request
-    
-    def request_body(self, request_body: OperateAgencyAccountAgencyRequestBody) -> "OperateAgencyAccountAgencyRequestBuilder":
+
+    def request_body(self,
+                     request_body: OperateAgencyAccountAgencyRequestBody) -> "OperateAgencyAccountAgencyRequestBuilder":
         self._operate_agency_account_agency_request.request_body = request_body
         self._operate_agency_account_agency_request.body = request_body
         return self

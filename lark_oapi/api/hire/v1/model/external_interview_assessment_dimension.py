@@ -33,27 +33,34 @@ class ExternalInterviewAssessmentDimension(object):
 class ExternalInterviewAssessmentDimensionBuilder(object):
     def __init__(self) -> None:
         self._external_interview_assessment_dimension = ExternalInterviewAssessmentDimension()
+
     def score(self, score: int) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.score = score
         return self
+
     def option(self, option: str) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.option = option
         return self
+
     def options(self, options: List[str]) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.options = options
         return self
+
     def content(self, content: str) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.content = content
         return self
+
     def assessment_type(self, assessment_type: int) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.assessment_type = assessment_type
         return self
+
     def title(self, title: str) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.title = title
         return self
+
     def description(self, description: str) -> "ExternalInterviewAssessmentDimensionBuilder":
         self._external_interview_assessment_dimension.description = description
         return self
-    
+
     def build(self) -> "ExternalInterviewAssessmentDimension":
         return self._external_interview_assessment_dimension

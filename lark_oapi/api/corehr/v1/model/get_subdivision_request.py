@@ -23,12 +23,11 @@ class GetSubdivisionRequestBuilder(object):
         get_subdivision_request.uri = "/open-apis/corehr/v1/subdivisions/:subdivision_id"
         get_subdivision_request.token_types = {AccessTokenType.TENANT}
         self._get_subdivision_request: GetSubdivisionRequest = get_subdivision_request
-    
+
     def subdivision_id(self, subdivision_id: str) -> "GetSubdivisionRequestBuilder":
         self._get_subdivision_request.subdivision_id = subdivision_id
         self._get_subdivision_request.paths["subdivision_id"] = str(subdivision_id)
         return self
-    
 
     def build(self) -> GetSubdivisionRequest:
         return self._get_subdivision_request

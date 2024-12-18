@@ -23,12 +23,11 @@ class GetAttachmentRequestBuilder(object):
         get_attachment_request.uri = "/open-apis/ehr/v1/attachments/:token"
         get_attachment_request.token_types = {AccessTokenType.TENANT}
         self._get_attachment_request: GetAttachmentRequest = get_attachment_request
-    
+
     def token(self, token: str) -> "GetAttachmentRequestBuilder":
         self._get_attachment_request.token = token
         self._get_attachment_request.paths["token"] = str(token)
         return self
-    
 
     def build(self) -> GetAttachmentRequest:
         return self._get_attachment_request

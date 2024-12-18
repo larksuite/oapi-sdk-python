@@ -26,17 +26,17 @@ class CreateTaskSubtaskRequestBuilder(object):
         create_task_subtask_request.uri = "/open-apis/task/v2/tasks/:task_guid/subtasks"
         create_task_subtask_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_task_subtask_request: CreateTaskSubtaskRequest = create_task_subtask_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateTaskSubtaskRequestBuilder":
         self._create_task_subtask_request.user_id_type = user_id_type
         self._create_task_subtask_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def task_guid(self, task_guid: str) -> "CreateTaskSubtaskRequestBuilder":
         self._create_task_subtask_request.task_guid = task_guid
         self._create_task_subtask_request.paths["task_guid"] = str(task_guid)
         return self
-    
+
     def request_body(self, request_body: InputTask) -> "CreateTaskSubtaskRequestBuilder":
         self._create_task_subtask_request.request_body = request_body
         self._create_task_subtask_request.body = request_body

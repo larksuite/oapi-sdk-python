@@ -38,30 +38,38 @@ class ProcessTodoItem(object):
 class ProcessTodoItemBuilder(object):
     def __init__(self) -> None:
         self._process_todo_item = ProcessTodoItem()
+
     def approver_id(self, approver_id: str) -> "ProcessTodoItemBuilder":
         self._process_todo_item.approver_id = approver_id
         return self
+
     def type(self, type: int) -> "ProcessTodoItemBuilder":
         self._process_todo_item.type = type
         return self
+
     def links(self, links: ProcessLink) -> "ProcessTodoItemBuilder":
         self._process_todo_item.links = links
         return self
+
     def operator_id(self, operator_id: str) -> "ProcessTodoItemBuilder":
         self._process_todo_item.operator_id = operator_id
         return self
+
     def operator_name(self, operator_name: DataengineI18n) -> "ProcessTodoItemBuilder":
         self._process_todo_item.operator_name = operator_name
         return self
+
     def node_name(self, node_name: DataengineI18n) -> "ProcessTodoItemBuilder":
         self._process_todo_item.node_name = node_name
         return self
+
     def create_time(self, create_time: str) -> "ProcessTodoItemBuilder":
         self._process_todo_item.create_time = create_time
         return self
+
     def node_definition_id(self, node_definition_id: str) -> "ProcessTodoItemBuilder":
         self._process_todo_item.node_definition_id = node_definition_id
         return self
-    
+
     def build(self) -> "ProcessTodoItem":
         return self._process_todo_item

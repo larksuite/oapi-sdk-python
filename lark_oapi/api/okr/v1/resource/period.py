@@ -34,32 +34,30 @@ class Period(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreatePeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePeriodResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreatePeriodRequest, option: Optional[RequestOption] = None) -> CreatePeriodResponse:
+    async def acreate(self, request: CreatePeriodRequest,
+                      option: Optional[RequestOption] = None) -> CreatePeriodResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreatePeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePeriodResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListPeriodRequest, option: Optional[RequestOption] = None) -> ListPeriodResponse:
         if option is None:
             option = RequestOption()
@@ -73,13 +71,12 @@ class Period(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListPeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPeriodResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListPeriodRequest, option: Optional[RequestOption] = None) -> ListPeriodResponse:
         if option is None:
@@ -88,17 +85,15 @@ class Period(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListPeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPeriodResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchPeriodRequest, option: Optional[RequestOption] = None) -> PatchPeriodResponse:
         if option is None:
             option = RequestOption()
@@ -112,13 +107,12 @@ class Period(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchPeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPeriodResponse)
         response.raw = resp
 
         return response
-        
 
     async def apatch(self, request: PatchPeriodRequest, option: Optional[RequestOption] = None) -> PatchPeriodResponse:
         if option is None:
@@ -127,15 +121,11 @@ class Period(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchPeriodResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPeriodResponse)
         response.raw = resp
 
         return response
-        
-    

@@ -26,17 +26,17 @@ class PatchFileSubscriptionRequestBuilder(object):
         patch_file_subscription_request.uri = "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
         patch_file_subscription_request.token_types = {AccessTokenType.USER}
         self._patch_file_subscription_request: PatchFileSubscriptionRequest = patch_file_subscription_request
-    
+
     def file_token(self, file_token: str) -> "PatchFileSubscriptionRequestBuilder":
         self._patch_file_subscription_request.file_token = file_token
         self._patch_file_subscription_request.paths["file_token"] = str(file_token)
         return self
-    
+
     def subscription_id(self, subscription_id: str) -> "PatchFileSubscriptionRequestBuilder":
         self._patch_file_subscription_request.subscription_id = subscription_id
         self._patch_file_subscription_request.paths["subscription_id"] = str(subscription_id)
         return self
-    
+
     def request_body(self, request_body: PatchFileSubscriptionRequestBody) -> "PatchFileSubscriptionRequestBuilder":
         self._patch_file_subscription_request.request_body = request_body
         self._patch_file_subscription_request.body = request_body

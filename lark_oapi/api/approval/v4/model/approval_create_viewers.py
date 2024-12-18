@@ -25,15 +25,18 @@ class ApprovalCreateViewers(object):
 class ApprovalCreateViewersBuilder(object):
     def __init__(self) -> None:
         self._approval_create_viewers = ApprovalCreateViewers()
+
     def viewer_type(self, viewer_type: str) -> "ApprovalCreateViewersBuilder":
         self._approval_create_viewers.viewer_type = viewer_type
         return self
+
     def viewer_user_id(self, viewer_user_id: str) -> "ApprovalCreateViewersBuilder":
         self._approval_create_viewers.viewer_user_id = viewer_user_id
         return self
+
     def viewer_department_id(self, viewer_department_id: str) -> "ApprovalCreateViewersBuilder":
         self._approval_create_viewers.viewer_department_id = viewer_department_id
         return self
-    
+
     def build(self) -> "ApprovalCreateViewers":
         return self._approval_create_viewers

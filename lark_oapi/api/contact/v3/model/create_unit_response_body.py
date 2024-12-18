@@ -21,9 +21,10 @@ class CreateUnitResponseBody(object):
 class CreateUnitResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_unit_response_body = CreateUnitResponseBody()
+
     def unit_id(self, unit_id: str) -> "CreateUnitResponseBodyBuilder":
         self._create_unit_response_body.unit_id = unit_id
         return self
-    
+
     def build(self) -> "CreateUnitResponseBody":
         return self._create_unit_response_body

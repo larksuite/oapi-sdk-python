@@ -22,9 +22,11 @@ class QueryUserAllowedRemedysUserTaskRemedyResponseBody(object):
 class QueryUserAllowedRemedysUserTaskRemedyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_allowed_remedys_user_task_remedy_response_body = QueryUserAllowedRemedysUserTaskRemedyResponseBody()
-    def user_allowed_remedys(self, user_allowed_remedys: List[UserAllowedRemedy]) -> "QueryUserAllowedRemedysUserTaskRemedyResponseBodyBuilder":
+
+    def user_allowed_remedys(self, user_allowed_remedys: List[
+        UserAllowedRemedy]) -> "QueryUserAllowedRemedysUserTaskRemedyResponseBodyBuilder":
         self._query_user_allowed_remedys_user_task_remedy_response_body.user_allowed_remedys = user_allowed_remedys
         return self
-    
+
     def build(self) -> "QueryUserAllowedRemedysUserTaskRemedyResponseBody":
         return self._query_user_allowed_remedys_user_task_remedy_response_body

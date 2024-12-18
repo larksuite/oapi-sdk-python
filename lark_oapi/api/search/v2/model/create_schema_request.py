@@ -25,12 +25,12 @@ class CreateSchemaRequestBuilder(object):
         create_schema_request.uri = "/open-apis/search/v2/schemas"
         create_schema_request.token_types = {AccessTokenType.TENANT}
         self._create_schema_request: CreateSchemaRequest = create_schema_request
-    
+
     def validate_only(self, validate_only: bool) -> "CreateSchemaRequestBuilder":
         self._create_schema_request.validate_only = validate_only
         self._create_schema_request.add_query("validate_only", validate_only)
         return self
-    
+
     def request_body(self, request_body: Schema) -> "CreateSchemaRequestBuilder":
         self._create_schema_request.request_body = request_body
         self._create_schema_request.body = request_body

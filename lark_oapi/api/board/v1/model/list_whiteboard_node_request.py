@@ -23,12 +23,11 @@ class ListWhiteboardNodeRequestBuilder(object):
         list_whiteboard_node_request.uri = "/open-apis/board/v1/whiteboards/:whiteboard_id/nodes"
         list_whiteboard_node_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_whiteboard_node_request: ListWhiteboardNodeRequest = list_whiteboard_node_request
-    
+
     def whiteboard_id(self, whiteboard_id: str) -> "ListWhiteboardNodeRequestBuilder":
         self._list_whiteboard_node_request.whiteboard_id = whiteboard_id
         self._list_whiteboard_node_request.paths["whiteboard_id"] = str(whiteboard_id)
         return self
-    
 
     def build(self) -> ListWhiteboardNodeRequest:
         return self._list_whiteboard_node_request

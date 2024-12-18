@@ -21,9 +21,10 @@ class EmployeeConversionInfo(object):
 class EmployeeConversionInfoBuilder(object):
     def __init__(self) -> None:
         self._employee_conversion_info = EmployeeConversionInfo()
+
     def actual_conversion_time(self, actual_conversion_time: int) -> "EmployeeConversionInfoBuilder":
         self._employee_conversion_info.actual_conversion_time = actual_conversion_time
         return self
-    
+
     def build(self) -> "EmployeeConversionInfo":
         return self._employee_conversion_info

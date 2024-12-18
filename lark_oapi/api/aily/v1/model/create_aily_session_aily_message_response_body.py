@@ -22,9 +22,10 @@ class CreateAilySessionAilyMessageResponseBody(object):
 class CreateAilySessionAilyMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_aily_session_aily_message_response_body = CreateAilySessionAilyMessageResponseBody()
+
     def message(self, message: AilyMessage) -> "CreateAilySessionAilyMessageResponseBodyBuilder":
         self._create_aily_session_aily_message_response_body.message = message
         return self
-    
+
     def build(self) -> "CreateAilySessionAilyMessageResponseBody":
         return self._create_aily_session_aily_message_response_body

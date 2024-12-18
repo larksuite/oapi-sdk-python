@@ -23,12 +23,11 @@ class DeleteChatRequestBuilder(object):
         delete_chat_request.uri = "/open-apis/im/v1/chats/:chat_id"
         delete_chat_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._delete_chat_request: DeleteChatRequest = delete_chat_request
-    
+
     def chat_id(self, chat_id: str) -> "DeleteChatRequestBuilder":
         self._delete_chat_request.chat_id = chat_id
         self._delete_chat_request.paths["chat_id"] = str(chat_id)
         return self
-    
 
     def build(self) -> DeleteChatRequest:
         return self._delete_chat_request

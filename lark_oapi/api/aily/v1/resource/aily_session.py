@@ -23,7 +23,8 @@ class AilySession(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateAilySessionRequest, option: Optional[RequestOption] = None) -> CreateAilySessionResponse:
+    def create(self, request: CreateAilySessionRequest,
+               option: Optional[RequestOption] = None) -> CreateAilySessionResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,32 @@ class AilySession(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAilySessionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateAilySessionRequest, option: Optional[RequestOption] = None) -> CreateAilySessionResponse:
+    async def acreate(self, request: CreateAilySessionRequest,
+                      option: Optional[RequestOption] = None) -> CreateAilySessionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateAilySessionResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteAilySessionRequest, option: Optional[RequestOption] = None) -> DeleteAilySessionResponse:
+
+    def delete(self, request: DeleteAilySessionRequest,
+               option: Optional[RequestOption] = None) -> DeleteAilySessionResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,32 +75,30 @@ class AilySession(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAilySessionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteAilySessionRequest, option: Optional[RequestOption] = None) -> DeleteAilySessionResponse:
+    async def adelete(self, request: DeleteAilySessionRequest,
+                      option: Optional[RequestOption] = None) -> DeleteAilySessionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteAilySessionResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetAilySessionRequest, option: Optional[RequestOption] = None) -> GetAilySessionResponse:
         if option is None:
             option = RequestOption()
@@ -114,33 +112,32 @@ class AilySession(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAilySessionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetAilySessionRequest, option: Optional[RequestOption] = None) -> GetAilySessionResponse:
+    async def aget(self, request: GetAilySessionRequest,
+                   option: Optional[RequestOption] = None) -> GetAilySessionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAilySessionResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateAilySessionRequest, option: Optional[RequestOption] = None) -> UpdateAilySessionResponse:
+
+    def update(self, request: UpdateAilySessionRequest,
+               option: Optional[RequestOption] = None) -> UpdateAilySessionResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +150,26 @@ class AilySession(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAilySessionResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateAilySessionRequest, option: Optional[RequestOption] = None) -> UpdateAilySessionResponse:
+    async def aupdate(self, request: UpdateAilySessionRequest,
+                      option: Optional[RequestOption] = None) -> UpdateAilySessionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateAilySessionResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateAilySessionResponse)
         response.raw = resp
 
         return response
-        
-    

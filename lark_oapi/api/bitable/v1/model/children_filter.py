@@ -24,12 +24,14 @@ class ChildrenFilter(object):
 class ChildrenFilterBuilder(object):
     def __init__(self) -> None:
         self._children_filter = ChildrenFilter()
+
     def conjunction(self, conjunction: str) -> "ChildrenFilterBuilder":
         self._children_filter.conjunction = conjunction
         return self
+
     def conditions(self, conditions: List[Condition]) -> "ChildrenFilterBuilder":
         self._children_filter.conditions = conditions
         return self
-    
+
     def build(self) -> "ChildrenFilter":
         return self._children_filter

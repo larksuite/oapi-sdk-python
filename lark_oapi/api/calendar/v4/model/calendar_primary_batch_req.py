@@ -21,9 +21,10 @@ class CalendarPrimaryBatchReq(object):
 class CalendarPrimaryBatchReqBuilder(object):
     def __init__(self) -> None:
         self._calendar_primary_batch_req = CalendarPrimaryBatchReq()
+
     def user_ids(self, user_ids: List[str]) -> "CalendarPrimaryBatchReqBuilder":
         self._calendar_primary_batch_req.user_ids = user_ids
         return self
-    
+
     def build(self) -> "CalendarPrimaryBatchReq":
         return self._calendar_primary_batch_req

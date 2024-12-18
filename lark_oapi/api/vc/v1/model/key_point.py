@@ -23,12 +23,14 @@ class KeyPoint(object):
 class KeyPointBuilder(object):
     def __init__(self) -> None:
         self._key_point = KeyPoint()
+
     def name(self, name: str) -> "KeyPointBuilder":
         self._key_point.name = name
         return self
+
     def description(self, description: str) -> "KeyPointBuilder":
         self._key_point.description = description
         return self
-    
+
     def build(self) -> "KeyPoint":
         return self._key_point

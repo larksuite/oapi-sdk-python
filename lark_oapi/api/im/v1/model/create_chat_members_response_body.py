@@ -25,15 +25,18 @@ class CreateChatMembersResponseBody(object):
 class CreateChatMembersResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_chat_members_response_body = CreateChatMembersResponseBody()
+
     def invalid_id_list(self, invalid_id_list: List[str]) -> "CreateChatMembersResponseBodyBuilder":
         self._create_chat_members_response_body.invalid_id_list = invalid_id_list
         return self
+
     def not_existed_id_list(self, not_existed_id_list: List[str]) -> "CreateChatMembersResponseBodyBuilder":
         self._create_chat_members_response_body.not_existed_id_list = not_existed_id_list
         return self
+
     def pending_approval_id_list(self, pending_approval_id_list: List[str]) -> "CreateChatMembersResponseBodyBuilder":
         self._create_chat_members_response_body.pending_approval_id_list = pending_approval_id_list
         return self
-    
+
     def build(self) -> "CreateChatMembersResponseBody":
         return self._create_chat_members_response_body

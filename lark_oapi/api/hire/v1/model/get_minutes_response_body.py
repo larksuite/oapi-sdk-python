@@ -26,15 +26,18 @@ class GetMinutesResponseBody(object):
 class GetMinutesResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_minutes_response_body = GetMinutesResponseBody()
+
     def minutes(self, minutes: Minutes) -> "GetMinutesResponseBodyBuilder":
         self._get_minutes_response_body.minutes = minutes
         return self
+
     def page_token(self, page_token: str) -> "GetMinutesResponseBodyBuilder":
         self._get_minutes_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "GetMinutesResponseBodyBuilder":
         self._get_minutes_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "GetMinutesResponseBody":
         return self._get_minutes_response_body

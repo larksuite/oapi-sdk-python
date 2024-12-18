@@ -23,12 +23,14 @@ class MessageLink(object):
 class MessageLinkBuilder(object):
     def __init__(self) -> None:
         self._message_link = MessageLink()
+
     def token(self, token: str) -> "MessageLinkBuilder":
         self._message_link.token = token
         return self
+
     def token_url(self, token_url: str) -> "MessageLinkBuilder":
         self._message_link.token_url = token_url
         return self
-    
+
     def build(self) -> "MessageLink":
         return self._message_link

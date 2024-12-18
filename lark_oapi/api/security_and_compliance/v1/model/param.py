@@ -23,12 +23,14 @@ class Param(object):
 class ParamBuilder(object):
     def __init__(self) -> None:
         self._param = Param()
+
     def key(self, key: str) -> "ParamBuilder":
         self._param.key = key
         return self
+
     def value(self, value: str) -> "ParamBuilder":
         self._param.value = value
         return self
-    
+
     def build(self) -> "Param":
         return self._param

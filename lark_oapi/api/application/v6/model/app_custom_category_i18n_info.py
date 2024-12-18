@@ -23,12 +23,14 @@ class AppCustomCategoryI18nInfo(object):
 class AppCustomCategoryI18nInfoBuilder(object):
     def __init__(self) -> None:
         self._app_custom_category_i18n_info = AppCustomCategoryI18nInfo()
+
     def i18n_key(self, i18n_key: str) -> "AppCustomCategoryI18nInfoBuilder":
         self._app_custom_category_i18n_info.i18n_key = i18n_key
         return self
+
     def name(self, name: str) -> "AppCustomCategoryI18nInfoBuilder":
         self._app_custom_category_i18n_info.name = name
         return self
-    
+
     def build(self) -> "AppCustomCategoryI18nInfo":
         return self._app_custom_category_i18n_info

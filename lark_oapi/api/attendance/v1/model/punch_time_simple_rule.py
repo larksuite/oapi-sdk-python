@@ -23,12 +23,14 @@ class PunchTimeSimpleRule(object):
 class PunchTimeSimpleRuleBuilder(object):
     def __init__(self) -> None:
         self._punch_time_simple_rule = PunchTimeSimpleRule()
+
     def on_time(self, on_time: str) -> "PunchTimeSimpleRuleBuilder":
         self._punch_time_simple_rule.on_time = on_time
         return self
+
     def off_time(self, off_time: str) -> "PunchTimeSimpleRuleBuilder":
         self._punch_time_simple_rule.off_time = off_time
         return self
-    
+
     def build(self) -> "PunchTimeSimpleRule":
         return self._punch_time_simple_rule

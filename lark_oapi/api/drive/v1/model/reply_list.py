@@ -22,9 +22,10 @@ class ReplyList(object):
 class ReplyListBuilder(object):
     def __init__(self) -> None:
         self._reply_list = ReplyList()
+
     def replies(self, replies: List[FileCommentReply]) -> "ReplyListBuilder":
         self._reply_list.replies = replies
         return self
-    
+
     def build(self) -> "ReplyList":
         return self._reply_list

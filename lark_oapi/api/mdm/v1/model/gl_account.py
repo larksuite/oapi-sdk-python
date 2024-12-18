@@ -32,24 +32,30 @@ class GlAccount(object):
 class GlAccountBuilder(object):
     def __init__(self) -> None:
         self._gl_account = GlAccount()
+
     def gl_account_uid(self, gl_account_uid: str) -> "GlAccountBuilder":
         self._gl_account.gl_account_uid = gl_account_uid
         return self
+
     def gl_account(self, gl_account: str) -> "GlAccountBuilder":
         self._gl_account.gl_account = gl_account
         return self
+
     def gl_account_name(self, gl_account_name: str) -> "GlAccountBuilder":
         self._gl_account.gl_account_name = gl_account_name
         return self
+
     def i18n_gl_account_name(self, i18n_gl_account_name: List[I18nStruct]) -> "GlAccountBuilder":
         self._gl_account.i18n_gl_account_name = i18n_gl_account_name
         return self
+
     def type(self, type: str) -> "GlAccountBuilder":
         self._gl_account.type = type
         return self
+
     def valid_to(self, valid_to: str) -> "GlAccountBuilder":
         self._gl_account.valid_to = valid_to
         return self
-    
+
     def build(self) -> "GlAccount":
         return self._gl_account

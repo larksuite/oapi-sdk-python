@@ -22,9 +22,10 @@ class ReadUserBatchMessageResponseBody(object):
 class ReadUserBatchMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._read_user_batch_message_response_body = ReadUserBatchMessageResponseBody()
+
     def read_user(self, read_user: BatchMessageReadUser) -> "ReadUserBatchMessageResponseBodyBuilder":
         self._read_user_batch_message_response_body.read_user = read_user
         return self
-    
+
     def build(self) -> "ReadUserBatchMessageResponseBody":
         return self._read_user_batch_message_response_body

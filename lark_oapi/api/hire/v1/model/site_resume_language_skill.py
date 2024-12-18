@@ -23,12 +23,14 @@ class SiteResumeLanguageSkill(object):
 class SiteResumeLanguageSkillBuilder(object):
     def __init__(self) -> None:
         self._site_resume_language_skill = SiteResumeLanguageSkill()
+
     def language(self, language: str) -> "SiteResumeLanguageSkillBuilder":
         self._site_resume_language_skill.language = language
         return self
+
     def proficiency(self, proficiency: str) -> "SiteResumeLanguageSkillBuilder":
         self._site_resume_language_skill.proficiency = proficiency
         return self
-    
+
     def build(self) -> "SiteResumeLanguageSkill":
         return self._site_resume_language_skill

@@ -21,9 +21,10 @@ class MyAiSimpleCommandResult(object):
 class MyAiSimpleCommandResultBuilder(object):
     def __init__(self) -> None:
         self._my_ai_simple_command_result = MyAiSimpleCommandResult()
+
     def content(self, content: str) -> "MyAiSimpleCommandResultBuilder":
         self._my_ai_simple_command_result.content = content
         return self
-    
+
     def build(self) -> "MyAiSimpleCommandResult":
         return self._my_ai_simple_command_result

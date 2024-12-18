@@ -21,9 +21,10 @@ class BatchDeleteEcoBackgroundCheckCustomFieldRequestBody(object):
 class BatchDeleteEcoBackgroundCheckCustomFieldRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_eco_background_check_custom_field_request_body = BatchDeleteEcoBackgroundCheckCustomFieldRequestBody()
+
     def account_id(self, account_id: str) -> "BatchDeleteEcoBackgroundCheckCustomFieldRequestBodyBuilder":
         self._batch_delete_eco_background_check_custom_field_request_body.account_id = account_id
         return self
-    
+
     def build(self) -> "BatchDeleteEcoBackgroundCheckCustomFieldRequestBody":
         return self._batch_delete_eco_background_check_custom_field_request_body

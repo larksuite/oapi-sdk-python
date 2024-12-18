@@ -30,21 +30,26 @@ class Object(object):
 class ObjectBuilder(object):
     def __init__(self) -> None:
         self._object = Object()
+
     def object_api_name(self, object_api_name: str) -> "ObjectBuilder":
         self._object.object_api_name = object_api_name
         return self
+
     def name(self, name: Name) -> "ObjectBuilder":
         self._object.name = name
         return self
+
     def is_open(self, is_open: bool) -> "ObjectBuilder":
         self._object.is_open = is_open
         return self
+
     def create_time(self, create_time: str) -> "ObjectBuilder":
         self._object.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "ObjectBuilder":
         self._object.update_time = update_time
         return self
-    
+
     def build(self) -> "Object":
         return self._object

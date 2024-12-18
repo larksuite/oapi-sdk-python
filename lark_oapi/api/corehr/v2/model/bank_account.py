@@ -64,66 +64,86 @@ class BankAccount(object):
 class BankAccountBuilder(object):
     def __init__(self) -> None:
         self._bank_account = BankAccount()
+
     def bank_name(self, bank_name: str) -> "BankAccountBuilder":
         self._bank_account.bank_name = bank_name
         return self
+
     def bank_account_number(self, bank_account_number: str) -> "BankAccountBuilder":
         self._bank_account.bank_account_number = bank_account_number
         return self
+
     def account_holder(self, account_holder: str) -> "BankAccountBuilder":
         self._bank_account.account_holder = account_holder
         return self
+
     def bank(self, bank: Enum) -> "BankAccountBuilder":
         self._bank_account.bank = bank
         return self
+
     def bank_identification_code(self, bank_identification_code: str) -> "BankAccountBuilder":
         self._bank_account.bank_identification_code = bank_identification_code
         return self
+
     def branch_name(self, branch_name: str) -> "BankAccountBuilder":
         self._bank_account.branch_name = branch_name
         return self
+
     def bank_id(self, bank_id: str) -> "BankAccountBuilder":
         self._bank_account.bank_id = bank_id
         return self
+
     def branch_id(self, branch_id: str) -> "BankAccountBuilder":
         self._bank_account.branch_id = branch_id
         return self
+
     def bank_id_v2(self, bank_id_v2: str) -> "BankAccountBuilder":
         self._bank_account.bank_id_v2 = bank_id_v2
         return self
+
     def branch_id_v2(self, branch_id_v2: str) -> "BankAccountBuilder":
         self._bank_account.branch_id_v2 = branch_id_v2
         return self
+
     def country_region_id(self, country_region_id: str) -> "BankAccountBuilder":
         self._bank_account.country_region_id = country_region_id
         return self
+
     def bank_account_usage(self, bank_account_usage: List[Enum]) -> "BankAccountBuilder":
         self._bank_account.bank_account_usage = bank_account_usage
         return self
+
     def bank_account_type(self, bank_account_type: Enum) -> "BankAccountBuilder":
         self._bank_account.bank_account_type = bank_account_type
         return self
+
     def payment_type(self, payment_type: Enum) -> "BankAccountBuilder":
         self._bank_account.payment_type = payment_type
         return self
+
     def payment_rate(self, payment_rate: str) -> "BankAccountBuilder":
         self._bank_account.payment_rate = payment_rate
         return self
+
     def payment_amount(self, payment_amount: str) -> "BankAccountBuilder":
         self._bank_account.payment_amount = payment_amount
         return self
+
     def priority(self, priority: int) -> "BankAccountBuilder":
         self._bank_account.priority = priority
         return self
+
     def currency_id(self, currency_id: str) -> "BankAccountBuilder":
         self._bank_account.currency_id = currency_id
         return self
+
     def i_b_a_n(self, i_b_a_n: str) -> "BankAccountBuilder":
         self._bank_account.i_b_a_n = i_b_a_n
         return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "BankAccountBuilder":
         self._bank_account.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "BankAccount":
         return self._bank_account

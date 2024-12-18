@@ -22,9 +22,10 @@ class ConvertCommonDataIdResponseBody(object):
 class ConvertCommonDataIdResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._convert_common_data_id_response_body = ConvertCommonDataIdResponseBody()
+
     def items(self, items: List[IdInfo]) -> "ConvertCommonDataIdResponseBodyBuilder":
         self._convert_common_data_id_response_body.items = items
         return self
-    
+
     def build(self) -> "ConvertCommonDataIdResponseBody":
         return self._convert_common_data_id_response_body

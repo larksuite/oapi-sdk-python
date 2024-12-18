@@ -23,12 +23,14 @@ class ContentDocsLink(object):
 class ContentDocsLinkBuilder(object):
     def __init__(self) -> None:
         self._content_docs_link = ContentDocsLink()
+
     def url(self, url: str) -> "ContentDocsLinkBuilder":
         self._content_docs_link.url = url
         return self
+
     def title(self, title: str) -> "ContentDocsLinkBuilder":
         self._content_docs_link.title = title
         return self
-    
+
     def build(self) -> "ContentDocsLink":
         return self._content_docs_link

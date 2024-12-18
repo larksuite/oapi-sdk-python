@@ -26,17 +26,17 @@ class SearchBasicInfoLanguageRequestBuilder(object):
         search_basic_info_language_request.uri = "/open-apis/corehr/v2/basic_info/languages/search"
         search_basic_info_language_request.token_types = {AccessTokenType.TENANT}
         self._search_basic_info_language_request: SearchBasicInfoLanguageRequest = search_basic_info_language_request
-    
+
     def page_size(self, page_size: int) -> "SearchBasicInfoLanguageRequestBuilder":
         self._search_basic_info_language_request.page_size = page_size
         self._search_basic_info_language_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "SearchBasicInfoLanguageRequestBuilder":
         self._search_basic_info_language_request.page_token = page_token
         self._search_basic_info_language_request.add_query("page_token", page_token)
         return self
-    
+
     def request_body(self, request_body: SearchBasicInfoLanguageRequestBody) -> "SearchBasicInfoLanguageRequestBuilder":
         self._search_basic_info_language_request.request_body = request_body
         self._search_basic_info_language_request.body = request_body

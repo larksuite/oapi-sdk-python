@@ -21,9 +21,10 @@ class BasicRecognizeImageRequestBody(object):
 class BasicRecognizeImageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._basic_recognize_image_request_body = BasicRecognizeImageRequestBody()
+
     def image(self, image: str) -> "BasicRecognizeImageRequestBodyBuilder":
         self._basic_recognize_image_request_body.image = image
         return self
-    
+
     def build(self) -> "BasicRecognizeImageRequestBody":
         return self._basic_recognize_image_request_body

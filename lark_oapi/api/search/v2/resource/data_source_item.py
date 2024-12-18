@@ -21,7 +21,8 @@ class DataSourceItem(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateDataSourceItemRequest, option: Optional[RequestOption] = None) -> CreateDataSourceItemResponse:
+    def create(self, request: CreateDataSourceItemRequest,
+               option: Optional[RequestOption] = None) -> CreateDataSourceItemResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,33 +35,32 @@ class DataSourceItem(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateDataSourceItemResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDataSourceItemResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateDataSourceItemRequest, option: Optional[RequestOption] = None) -> CreateDataSourceItemResponse:
+    async def acreate(self, request: CreateDataSourceItemRequest,
+                      option: Optional[RequestOption] = None) -> CreateDataSourceItemResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateDataSourceItemResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDataSourceItemResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteDataSourceItemRequest, option: Optional[RequestOption] = None) -> DeleteDataSourceItemResponse:
+
+    def delete(self, request: DeleteDataSourceItemRequest,
+               option: Optional[RequestOption] = None) -> DeleteDataSourceItemResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,33 +73,32 @@ class DataSourceItem(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteDataSourceItemResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDataSourceItemResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteDataSourceItemRequest, option: Optional[RequestOption] = None) -> DeleteDataSourceItemResponse:
+    async def adelete(self, request: DeleteDataSourceItemRequest,
+                      option: Optional[RequestOption] = None) -> DeleteDataSourceItemResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteDataSourceItemResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDataSourceItemResponse)
         response.raw = resp
 
         return response
-        
-    def get(self, request: GetDataSourceItemRequest, option: Optional[RequestOption] = None) -> GetDataSourceItemResponse:
+
+    def get(self, request: GetDataSourceItemRequest,
+            option: Optional[RequestOption] = None) -> GetDataSourceItemResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,30 +111,26 @@ class DataSourceItem(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetDataSourceItemResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDataSourceItemResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetDataSourceItemRequest, option: Optional[RequestOption] = None) -> GetDataSourceItemResponse:
+    async def aget(self, request: GetDataSourceItemRequest,
+                   option: Optional[RequestOption] = None) -> GetDataSourceItemResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetDataSourceItemResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDataSourceItemResponse)
         response.raw = resp
 
         return response
-        
-    

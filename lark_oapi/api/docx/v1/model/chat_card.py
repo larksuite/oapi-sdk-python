@@ -23,12 +23,14 @@ class ChatCard(object):
 class ChatCardBuilder(object):
     def __init__(self) -> None:
         self._chat_card = ChatCard()
+
     def chat_id(self, chat_id: int) -> "ChatCardBuilder":
         self._chat_card.chat_id = chat_id
         return self
+
     def align(self, align: int) -> "ChatCardBuilder":
         self._chat_card.align = align
         return self
-    
+
     def build(self) -> "ChatCard":
         return self._chat_card

@@ -37,30 +37,38 @@ class OkrKeyResult(object):
 class OkrKeyResultBuilder(object):
     def __init__(self) -> None:
         self._okr_key_result = OkrKeyResult()
+
     def kr_id(self, kr_id: int) -> "OkrKeyResultBuilder":
         self._okr_key_result.kr_id = kr_id
         return self
+
     def confidential(self, confidential: bool) -> "OkrKeyResultBuilder":
         self._okr_key_result.confidential = confidential
         return self
+
     def position(self, position: int) -> "OkrKeyResultBuilder":
         self._okr_key_result.position = position
         return self
+
     def score(self, score: int) -> "OkrKeyResultBuilder":
         self._okr_key_result.score = score
         return self
+
     def visible(self, visible: bool) -> "OkrKeyResultBuilder":
         self._okr_key_result.visible = visible
         return self
+
     def weight(self, weight: float) -> "OkrKeyResultBuilder":
         self._okr_key_result.weight = weight
         return self
+
     def progress_rate(self, progress_rate: OkrProgressRate) -> "OkrKeyResultBuilder":
         self._okr_key_result.progress_rate = progress_rate
         return self
+
     def content(self, content: Text) -> "OkrKeyResultBuilder":
         self._okr_key_result.content = content
         return self
-    
+
     def build(self) -> "OkrKeyResult":
         return self._okr_key_result

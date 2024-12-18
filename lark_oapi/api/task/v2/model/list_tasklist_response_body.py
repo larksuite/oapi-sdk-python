@@ -26,15 +26,18 @@ class ListTasklistResponseBody(object):
 class ListTasklistResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_tasklist_response_body = ListTasklistResponseBody()
+
     def items(self, items: List[Tasklist]) -> "ListTasklistResponseBodyBuilder":
         self._list_tasklist_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "ListTasklistResponseBodyBuilder":
         self._list_tasklist_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListTasklistResponseBodyBuilder":
         self._list_tasklist_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListTasklistResponseBody":
         return self._list_tasklist_response_body

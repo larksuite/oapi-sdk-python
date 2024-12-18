@@ -27,18 +27,22 @@ class CreateBizEntityTagRelationRequestBody(object):
 class CreateBizEntityTagRelationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_biz_entity_tag_relation_request_body = CreateBizEntityTagRelationRequestBody()
+
     def tag_biz_type(self, tag_biz_type: str) -> "CreateBizEntityTagRelationRequestBodyBuilder":
         self._create_biz_entity_tag_relation_request_body.tag_biz_type = tag_biz_type
         return self
+
     def biz_entity_id(self, biz_entity_id: str) -> "CreateBizEntityTagRelationRequestBodyBuilder":
         self._create_biz_entity_tag_relation_request_body.biz_entity_id = biz_entity_id
         return self
+
     def tag_ids(self, tag_ids: List[str]) -> "CreateBizEntityTagRelationRequestBodyBuilder":
         self._create_biz_entity_tag_relation_request_body.tag_ids = tag_ids
         return self
+
     def bot_id(self, bot_id: str) -> "CreateBizEntityTagRelationRequestBodyBuilder":
         self._create_biz_entity_tag_relation_request_body.bot_id = bot_id
         return self
-    
+
     def build(self) -> "CreateBizEntityTagRelationRequestBody":
         return self._create_biz_entity_tag_relation_request_body

@@ -38,32 +38,30 @@ class Contract(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateContractResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateContractResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateContractRequest, option: Optional[RequestOption] = None) -> CreateContractResponse:
+    async def acreate(self, request: CreateContractRequest,
+                      option: Optional[RequestOption] = None) -> CreateContractResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateContractResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateContractResponse)
         response.raw = resp
 
         return response
-        
+
     def delete(self, request: DeleteContractRequest, option: Optional[RequestOption] = None) -> DeleteContractResponse:
         if option is None:
             option = RequestOption()
@@ -77,32 +75,30 @@ class Contract(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteContractResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteContractResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteContractRequest, option: Optional[RequestOption] = None) -> DeleteContractResponse:
+    async def adelete(self, request: DeleteContractRequest,
+                      option: Optional[RequestOption] = None) -> DeleteContractResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteContractResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteContractResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetContractRequest, option: Optional[RequestOption] = None) -> GetContractResponse:
         if option is None:
             option = RequestOption()
@@ -116,13 +112,12 @@ class Contract(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetContractResponse = JSON.unmarshal(str(resp.content, UTF_8), GetContractResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetContractRequest, option: Optional[RequestOption] = None) -> GetContractResponse:
         if option is None:
@@ -131,17 +126,15 @@ class Contract(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetContractResponse = JSON.unmarshal(str(resp.content, UTF_8), GetContractResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListContractRequest, option: Optional[RequestOption] = None) -> ListContractResponse:
         if option is None:
             option = RequestOption()
@@ -155,13 +148,12 @@ class Contract(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListContractResponse = JSON.unmarshal(str(resp.content, UTF_8), ListContractResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListContractRequest, option: Optional[RequestOption] = None) -> ListContractResponse:
         if option is None:
@@ -170,17 +162,15 @@ class Contract(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListContractResponse = JSON.unmarshal(str(resp.content, UTF_8), ListContractResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchContractRequest, option: Optional[RequestOption] = None) -> PatchContractResponse:
         if option is None:
             option = RequestOption()
@@ -194,30 +184,26 @@ class Contract(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchContractResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchContractResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchContractRequest, option: Optional[RequestOption] = None) -> PatchContractResponse:
+    async def apatch(self, request: PatchContractRequest,
+                     option: Optional[RequestOption] = None) -> PatchContractResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchContractResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchContractResponse)
         response.raw = resp
 
         return response
-        
-    

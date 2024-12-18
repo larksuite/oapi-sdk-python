@@ -26,15 +26,18 @@ class SearchRoomResponseBody(object):
 class SearchRoomResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_room_response_body = SearchRoomResponseBody()
+
     def rooms(self, rooms: List[Room]) -> "SearchRoomResponseBodyBuilder":
         self._search_room_response_body.rooms = rooms
         return self
+
     def page_token(self, page_token: str) -> "SearchRoomResponseBodyBuilder":
         self._search_room_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchRoomResponseBodyBuilder":
         self._search_room_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchRoomResponseBody":
         return self._search_room_response_body

@@ -21,9 +21,10 @@ class GridColumn(object):
 class GridColumnBuilder(object):
     def __init__(self) -> None:
         self._grid_column = GridColumn()
+
     def width_ratio(self, width_ratio: int) -> "GridColumnBuilder":
         self._grid_column.width_ratio = width_ratio
         return self
-    
+
     def build(self) -> "GridColumn":
         return self._grid_column

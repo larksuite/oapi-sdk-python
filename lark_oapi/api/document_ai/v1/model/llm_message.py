@@ -24,12 +24,14 @@ class LlmMessage(object):
 class LlmMessageBuilder(object):
     def __init__(self) -> None:
         self._llm_message = LlmMessage()
+
     def role(self, role: str) -> "LlmMessageBuilder":
         self._llm_message.role = role
         return self
+
     def contents(self, contents: List[LlmContent]) -> "LlmMessageBuilder":
         self._llm_message.contents = contents
         return self
-    
+
     def build(self) -> "LlmMessage":
         return self._llm_message

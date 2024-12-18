@@ -21,9 +21,10 @@ class MeetingRoom(object):
 class MeetingRoomBuilder(object):
     def __init__(self) -> None:
         self._meeting_room = MeetingRoom()
+
     def room_id(self, room_id: int) -> "MeetingRoomBuilder":
         self._meeting_room.room_id = room_id
         return self
-    
+
     def build(self) -> "MeetingRoom":
         return self._meeting_room

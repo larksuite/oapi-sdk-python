@@ -27,18 +27,22 @@ class AilyKnowledgeDocs(object):
 class AilyKnowledgeDocsBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_docs = AilyKnowledgeDocs()
+
     def title(self, title: str) -> "AilyKnowledgeDocsBuilder":
         self._aily_knowledge_docs.title = title
         return self
+
     def type(self, type: str) -> "AilyKnowledgeDocsBuilder":
         self._aily_knowledge_docs.type = type
         return self
+
     def token(self, token: str) -> "AilyKnowledgeDocsBuilder":
         self._aily_knowledge_docs.token = token
         return self
+
     def url(self, url: str) -> "AilyKnowledgeDocsBuilder":
         self._aily_knowledge_docs.url = url
         return self
-    
+
     def build(self) -> "AilyKnowledgeDocs":
         return self._aily_knowledge_docs

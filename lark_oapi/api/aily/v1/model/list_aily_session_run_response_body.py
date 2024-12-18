@@ -26,15 +26,18 @@ class ListAilySessionRunResponseBody(object):
 class ListAilySessionRunResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_aily_session_run_response_body = ListAilySessionRunResponseBody()
+
     def runs(self, runs: List[Run]) -> "ListAilySessionRunResponseBodyBuilder":
         self._list_aily_session_run_response_body.runs = runs
         return self
+
     def page_token(self, page_token: str) -> "ListAilySessionRunResponseBodyBuilder":
         self._list_aily_session_run_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListAilySessionRunResponseBodyBuilder":
         self._list_aily_session_run_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListAilySessionRunResponseBody":
         return self._list_aily_session_run_response_body

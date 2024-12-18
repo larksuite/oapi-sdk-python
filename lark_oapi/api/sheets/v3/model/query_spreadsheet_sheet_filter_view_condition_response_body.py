@@ -22,9 +22,10 @@ class QuerySpreadsheetSheetFilterViewConditionResponseBody(object):
 class QuerySpreadsheetSheetFilterViewConditionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_spreadsheet_sheet_filter_view_condition_response_body = QuerySpreadsheetSheetFilterViewConditionResponseBody()
+
     def items(self, items: List[FilterViewCondition]) -> "QuerySpreadsheetSheetFilterViewConditionResponseBodyBuilder":
         self._query_spreadsheet_sheet_filter_view_condition_response_body.items = items
         return self
-    
+
     def build(self) -> "QuerySpreadsheetSheetFilterViewConditionResponseBody":
         return self._query_spreadsheet_sheet_filter_view_condition_response_body

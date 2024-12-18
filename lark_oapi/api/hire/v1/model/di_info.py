@@ -34,27 +34,34 @@ class DiInfo(object):
 class DiInfoBuilder(object):
     def __init__(self) -> None:
         self._di_info = DiInfo()
+
     def id(self, id: str) -> "DiInfoBuilder":
         self._di_info.id = id
         return self
+
     def application_id(self, application_id: str) -> "DiInfoBuilder":
         self._di_info.application_id = application_id
         return self
+
     def talent_id(self, talent_id: str) -> "DiInfoBuilder":
         self._di_info.talent_id = talent_id
         return self
+
     def source_type(self, source_type: int) -> "DiInfoBuilder":
         self._di_info.source_type = source_type
         return self
+
     def create_time(self, create_time: str) -> "DiInfoBuilder":
         self._di_info.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "DiInfoBuilder":
         self._di_info.update_time = update_time
         return self
+
     def di_data(self, di_data: List[DiData]) -> "DiInfoBuilder":
         self._di_info.di_data = di_data
         return self
-    
+
     def build(self) -> "DiInfo":
         return self._di_info

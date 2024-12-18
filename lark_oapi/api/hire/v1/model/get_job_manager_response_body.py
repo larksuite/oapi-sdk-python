@@ -22,9 +22,10 @@ class GetJobManagerResponseBody(object):
 class GetJobManagerResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_job_manager_response_body = GetJobManagerResponseBody()
+
     def info(self, info: JobManager) -> "GetJobManagerResponseBodyBuilder":
         self._get_job_manager_response_body.info = info
         return self
-    
+
     def build(self) -> "GetJobManagerResponseBody":
         return self._get_job_manager_response_body

@@ -28,18 +28,22 @@ class UserStatsView(object):
 class UserStatsViewBuilder(object):
     def __init__(self) -> None:
         self._user_stats_view = UserStatsView()
+
     def view_id(self, view_id: str) -> "UserStatsViewBuilder":
         self._user_stats_view.view_id = view_id
         return self
+
     def stats_type(self, stats_type: str) -> "UserStatsViewBuilder":
         self._user_stats_view.stats_type = stats_type
         return self
+
     def user_id(self, user_id: str) -> "UserStatsViewBuilder":
         self._user_stats_view.user_id = user_id
         return self
+
     def items(self, items: List[Item]) -> "UserStatsViewBuilder":
         self._user_stats_view.items = items
         return self
-    
+
     def build(self) -> "UserStatsView":
         return self._user_stats_view

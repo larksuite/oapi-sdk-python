@@ -22,9 +22,10 @@ class CopySpaceNodeResponseBody(object):
 class CopySpaceNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._copy_space_node_response_body = CopySpaceNodeResponseBody()
+
     def node(self, node: Node) -> "CopySpaceNodeResponseBodyBuilder":
         self._copy_space_node_response_body.node = node
         return self
-    
+
     def build(self) -> "CopySpaceNodeResponseBody":
         return self._copy_space_node_response_body

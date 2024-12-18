@@ -29,21 +29,26 @@ class FindCondition(object):
 class FindConditionBuilder(object):
     def __init__(self) -> None:
         self._find_condition = FindCondition()
+
     def range(self, range: str) -> "FindConditionBuilder":
         self._find_condition.range = range
         return self
+
     def match_case(self, match_case: bool) -> "FindConditionBuilder":
         self._find_condition.match_case = match_case
         return self
+
     def match_entire_cell(self, match_entire_cell: bool) -> "FindConditionBuilder":
         self._find_condition.match_entire_cell = match_entire_cell
         return self
+
     def search_by_regex(self, search_by_regex: bool) -> "FindConditionBuilder":
         self._find_condition.search_by_regex = search_by_regex
         return self
+
     def include_formulas(self, include_formulas: bool) -> "FindConditionBuilder":
         self._find_condition.include_formulas = include_formulas
         return self
-    
+
     def build(self) -> "FindCondition":
         return self._find_condition

@@ -34,21 +34,28 @@ class SignatureTemplateContentInfo(object):
 class SignatureTemplateContentInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_template_content_info = SignatureTemplateContentInfo()
+
     def contents(self, contents: List[SignatureTemplateContentItem]) -> "SignatureTemplateContentInfoBuilder":
         self._signature_template_content_info.contents = contents
         return self
+
     def custom_fields(self, custom_fields: List[SignatureTemplateCustomField]) -> "SignatureTemplateContentInfoBuilder":
         self._signature_template_content_info.custom_fields = custom_fields
         return self
+
     def filter_fields(self, filter_fields: List[SignatureTemplateFilter]) -> "SignatureTemplateContentInfoBuilder":
         self._signature_template_content_info.filter_fields = filter_fields
         return self
-    def using_fields(self, using_fields: List[SignatureTemplateCommonFieldInfo]) -> "SignatureTemplateContentInfoBuilder":
+
+    def using_fields(self,
+                     using_fields: List[SignatureTemplateCommonFieldInfo]) -> "SignatureTemplateContentInfoBuilder":
         self._signature_template_content_info.using_fields = using_fields
         return self
-    def system_setting_fields(self, system_setting_fields: List[SignatureTemplateField]) -> "SignatureTemplateContentInfoBuilder":
+
+    def system_setting_fields(self, system_setting_fields: List[
+        SignatureTemplateField]) -> "SignatureTemplateContentInfoBuilder":
         self._signature_template_content_info.system_setting_fields = system_setting_fields
         return self
-    
+
     def build(self) -> "SignatureTemplateContentInfo":
         return self._signature_template_content_info

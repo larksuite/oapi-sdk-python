@@ -21,9 +21,10 @@ class LingoPassageParam(object):
 class LingoPassageParamBuilder(object):
     def __init__(self) -> None:
         self._lingo_passage_param = LingoPassageParam()
+
     def searchable(self, searchable: bool) -> "LingoPassageParamBuilder":
         self._lingo_passage_param.searchable = searchable
         return self
-    
+
     def build(self) -> "LingoPassageParam":
         return self._lingo_passage_param

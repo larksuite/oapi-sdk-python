@@ -24,17 +24,16 @@ class ListWebsiteRequestBuilder(object):
         list_website_request.uri = "/open-apis/hire/v1/websites"
         list_website_request.token_types = {AccessTokenType.TENANT}
         self._list_website_request: ListWebsiteRequest = list_website_request
-    
+
     def page_token(self, page_token: str) -> "ListWebsiteRequestBuilder":
         self._list_website_request.page_token = page_token
         self._list_website_request.add_query("page_token", page_token)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListWebsiteRequestBuilder":
         self._list_website_request.page_size = page_size
         self._list_website_request.add_query("page_size", page_size)
         return self
-    
 
     def build(self) -> ListWebsiteRequest:
         return self._list_website_request

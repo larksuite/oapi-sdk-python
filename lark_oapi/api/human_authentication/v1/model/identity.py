@@ -25,15 +25,18 @@ class Identity(object):
 class IdentityBuilder(object):
     def __init__(self) -> None:
         self._identity = Identity()
+
     def identity_name(self, identity_name: str) -> "IdentityBuilder":
         self._identity.identity_name = identity_name
         return self
+
     def identity_code(self, identity_code: str) -> "IdentityBuilder":
         self._identity.identity_code = identity_code
         return self
+
     def mobile(self, mobile: str) -> "IdentityBuilder":
         self._identity.mobile = mobile
         return self
-    
+
     def build(self) -> "Identity":
         return self._identity

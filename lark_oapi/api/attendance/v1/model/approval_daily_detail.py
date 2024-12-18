@@ -29,21 +29,26 @@ class ApprovalDailyDetail(object):
 class ApprovalDailyDetailBuilder(object):
     def __init__(self) -> None:
         self._approval_daily_detail = ApprovalDailyDetail()
+
     def date(self, date: str) -> "ApprovalDailyDetailBuilder":
         self._approval_daily_detail.date = date
         return self
+
     def duration(self, duration: str) -> "ApprovalDailyDetailBuilder":
         self._approval_daily_detail.duration = duration
         return self
+
     def overtime_unit(self, overtime_unit: int) -> "ApprovalDailyDetailBuilder":
         self._approval_daily_detail.overtime_unit = overtime_unit
         return self
+
     def overtime_date_type(self, overtime_date_type: int) -> "ApprovalDailyDetailBuilder":
         self._approval_daily_detail.overtime_date_type = overtime_date_type
         return self
+
     def settle_type_enum(self, settle_type_enum: int) -> "ApprovalDailyDetailBuilder":
         self._approval_daily_detail.settle_type_enum = settle_type_enum
         return self
-    
+
     def build(self) -> "ApprovalDailyDetail":
         return self._approval_daily_detail

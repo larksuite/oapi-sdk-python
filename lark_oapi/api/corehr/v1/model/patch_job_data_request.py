@@ -29,32 +29,32 @@ class PatchJobDataRequestBuilder(object):
         patch_job_data_request.uri = "/open-apis/corehr/v1/job_datas/:job_data_id"
         patch_job_data_request.token_types = {AccessTokenType.TENANT}
         self._patch_job_data_request: PatchJobDataRequest = patch_job_data_request
-    
+
     def client_token(self, client_token: str) -> "PatchJobDataRequestBuilder":
         self._patch_job_data_request.client_token = client_token
         self._patch_job_data_request.add_query("client_token", client_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "PatchJobDataRequestBuilder":
         self._patch_job_data_request.user_id_type = user_id_type
         self._patch_job_data_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def department_id_type(self, department_id_type: str) -> "PatchJobDataRequestBuilder":
         self._patch_job_data_request.department_id_type = department_id_type
         self._patch_job_data_request.add_query("department_id_type", department_id_type)
         return self
-    
+
     def strict_verify(self, strict_verify: str) -> "PatchJobDataRequestBuilder":
         self._patch_job_data_request.strict_verify = strict_verify
         self._patch_job_data_request.add_query("strict_verify", strict_verify)
         return self
-    
+
     def job_data_id(self, job_data_id: str) -> "PatchJobDataRequestBuilder":
         self._patch_job_data_request.job_data_id = job_data_id
         self._patch_job_data_request.paths["job_data_id"] = str(job_data_id)
         return self
-    
+
     def request_body(self, request_body: JobData) -> "PatchJobDataRequestBuilder":
         self._patch_job_data_request.request_body = request_body
         self._patch_job_data_request.body = request_body

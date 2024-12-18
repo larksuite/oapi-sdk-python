@@ -22,9 +22,10 @@ class AddMembersTasklistRequestBody(object):
 class AddMembersTasklistRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_members_tasklist_request_body = AddMembersTasklistRequestBody()
+
     def members(self, members: List[Member]) -> "AddMembersTasklistRequestBodyBuilder":
         self._add_members_tasklist_request_body.members = members
         return self
-    
+
     def build(self) -> "AddMembersTasklistRequestBody":
         return self._add_members_tasklist_request_body

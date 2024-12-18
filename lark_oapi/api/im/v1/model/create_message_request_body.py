@@ -27,18 +27,22 @@ class CreateMessageRequestBody(object):
 class CreateMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_message_request_body = CreateMessageRequestBody()
+
     def receive_id(self, receive_id: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.receive_id = receive_id
         return self
+
     def msg_type(self, msg_type: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.msg_type = msg_type
         return self
+
     def content(self, content: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.content = content
         return self
+
     def uuid(self, uuid: str) -> "CreateMessageRequestBodyBuilder":
         self._create_message_request_body.uuid = uuid
         return self
-    
+
     def build(self) -> "CreateMessageRequestBody":
         return self._create_message_request_body

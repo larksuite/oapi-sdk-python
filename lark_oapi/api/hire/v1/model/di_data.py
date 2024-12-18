@@ -24,12 +24,14 @@ class DiData(object):
 class DiDataBuilder(object):
     def __init__(self) -> None:
         self._di_data = DiData()
+
     def value(self, value: str) -> "DiDataBuilder":
         self._di_data.value = value
         return self
+
     def object_attribute(self, object_attribute: ObjectAttribute) -> "DiDataBuilder":
         self._di_data.object_attribute = object_attribute
         return self
-    
+
     def build(self) -> "DiData":
         return self._di_data

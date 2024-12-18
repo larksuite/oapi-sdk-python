@@ -32,24 +32,30 @@ class AilyMessageFile(object):
 class AilyMessageFileBuilder(object):
     def __init__(self) -> None:
         self._aily_message_file = AilyMessageFile()
+
     def id(self, id: str) -> "AilyMessageFileBuilder":
         self._aily_message_file.id = id
         return self
+
     def mime_type(self, mime_type: str) -> "AilyMessageFileBuilder":
         self._aily_message_file.mime_type = mime_type
         return self
+
     def file_name(self, file_name: str) -> "AilyMessageFileBuilder":
         self._aily_message_file.file_name = file_name
         return self
+
     def metadata(self, metadata: str) -> "AilyMessageFileBuilder":
         self._aily_message_file.metadata = metadata
         return self
+
     def created_at(self, created_at: int) -> "AilyMessageFileBuilder":
         self._aily_message_file.created_at = created_at
         return self
+
     def preview_url(self, preview_url: AilyMessageFilePreview) -> "AilyMessageFileBuilder":
         self._aily_message_file.preview_url = preview_url
         return self
-    
+
     def build(self) -> "AilyMessageFile":
         return self._aily_message_file

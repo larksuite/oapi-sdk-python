@@ -23,12 +23,14 @@ class CreateDocumentRequestBody(object):
 class CreateDocumentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_document_request_body = CreateDocumentRequestBody()
+
     def folder_token(self, folder_token: str) -> "CreateDocumentRequestBodyBuilder":
         self._create_document_request_body.folder_token = folder_token
         return self
+
     def title(self, title: str) -> "CreateDocumentRequestBodyBuilder":
         self._create_document_request_body.title = title
         return self
-    
+
     def build(self) -> "CreateDocumentRequestBody":
         return self._create_document_request_body

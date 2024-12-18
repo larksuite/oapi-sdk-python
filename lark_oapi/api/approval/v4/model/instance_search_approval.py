@@ -32,24 +32,30 @@ class InstanceSearchApproval(object):
 class InstanceSearchApprovalBuilder(object):
     def __init__(self) -> None:
         self._instance_search_approval = InstanceSearchApproval()
+
     def code(self, code: str) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.code = code
         return self
+
     def name(self, name: str) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.name = name
         return self
+
     def is_external(self, is_external: bool) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.is_external = is_external
         return self
+
     def external(self, external: InstanceSearchApprovalExternal) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.external = external
         return self
+
     def approval_id(self, approval_id: int) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.approval_id = approval_id
         return self
+
     def icon(self, icon: str) -> "InstanceSearchApprovalBuilder":
         self._instance_search_approval.icon = icon
         return self
-    
+
     def build(self) -> "InstanceSearchApproval":
         return self._instance_search_approval

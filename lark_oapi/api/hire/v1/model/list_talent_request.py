@@ -30,47 +30,46 @@ class ListTalentRequestBuilder(object):
         list_talent_request.uri = "/open-apis/hire/v1/talents"
         list_talent_request.token_types = {AccessTokenType.TENANT}
         self._list_talent_request: ListTalentRequest = list_talent_request
-    
+
     def keyword(self, keyword: str) -> "ListTalentRequestBuilder":
         self._list_talent_request.keyword = keyword
         self._list_talent_request.add_query("keyword", keyword)
         return self
-    
+
     def update_start_time(self, update_start_time: int) -> "ListTalentRequestBuilder":
         self._list_talent_request.update_start_time = update_start_time
         self._list_talent_request.add_query("update_start_time", update_start_time)
         return self
-    
+
     def update_end_time(self, update_end_time: int) -> "ListTalentRequestBuilder":
         self._list_talent_request.update_end_time = update_end_time
         self._list_talent_request.add_query("update_end_time", update_end_time)
         return self
-    
+
     def page_size(self, page_size: int) -> "ListTalentRequestBuilder":
         self._list_talent_request.page_size = page_size
         self._list_talent_request.add_query("page_size", page_size)
         return self
-    
+
     def sort_by(self, sort_by: int) -> "ListTalentRequestBuilder":
         self._list_talent_request.sort_by = sort_by
         self._list_talent_request.add_query("sort_by", sort_by)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListTalentRequestBuilder":
         self._list_talent_request.page_token = page_token
         self._list_talent_request.add_query("page_token", page_token)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "ListTalentRequestBuilder":
         self._list_talent_request.user_id_type = user_id_type
         self._list_talent_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def query_option(self, query_option: str) -> "ListTalentRequestBuilder":
         self._list_talent_request.query_option = query_option
         self._list_talent_request.add_query("query_option", query_option)
         return self
-    
 
     def build(self) -> ListTalentRequest:
         return self._list_talent_request

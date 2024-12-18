@@ -21,7 +21,8 @@ class TalentPool(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_change_talent_pool(self, request: BatchChangeTalentPoolTalentPoolRequest, option: Optional[RequestOption] = None) -> BatchChangeTalentPoolTalentPoolResponse:
+    def batch_change_talent_pool(self, request: BatchChangeTalentPoolTalentPoolRequest,
+                                 option: Optional[RequestOption] = None) -> BatchChangeTalentPoolTalentPoolResponse:
         if option is None:
             option = RequestOption()
 
@@ -34,33 +35,34 @@ class TalentPool(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchChangeTalentPoolTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchChangeTalentPoolTalentPoolResponse)
+        response: BatchChangeTalentPoolTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           BatchChangeTalentPoolTalentPoolResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_change_talent_pool(self, request: BatchChangeTalentPoolTalentPoolRequest, option: Optional[RequestOption] = None) -> BatchChangeTalentPoolTalentPoolResponse:
+    async def abatch_change_talent_pool(self, request: BatchChangeTalentPoolTalentPoolRequest, option: Optional[
+        RequestOption] = None) -> BatchChangeTalentPoolTalentPoolResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchChangeTalentPoolTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchChangeTalentPoolTalentPoolResponse)
+        response: BatchChangeTalentPoolTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           BatchChangeTalentPoolTalentPoolResponse)
         response.raw = resp
 
         return response
-        
-    def move_talent(self, request: MoveTalentTalentPoolRequest, option: Optional[RequestOption] = None) -> MoveTalentTalentPoolResponse:
+
+    def move_talent(self, request: MoveTalentTalentPoolRequest,
+                    option: Optional[RequestOption] = None) -> MoveTalentTalentPoolResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,33 +75,32 @@ class TalentPool(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: MoveTalentTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveTalentTalentPoolResponse)
         response.raw = resp
 
         return response
-        
 
-    async def amove_talent(self, request: MoveTalentTalentPoolRequest, option: Optional[RequestOption] = None) -> MoveTalentTalentPoolResponse:
+    async def amove_talent(self, request: MoveTalentTalentPoolRequest,
+                           option: Optional[RequestOption] = None) -> MoveTalentTalentPoolResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: MoveTalentTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveTalentTalentPoolResponse)
         response.raw = resp
 
         return response
-        
-    def search(self, request: SearchTalentPoolRequest, option: Optional[RequestOption] = None) -> SearchTalentPoolResponse:
+
+    def search(self, request: SearchTalentPoolRequest,
+               option: Optional[RequestOption] = None) -> SearchTalentPoolResponse:
         if option is None:
             option = RequestOption()
 
@@ -112,30 +113,26 @@ class TalentPool(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTalentPoolResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asearch(self, request: SearchTalentPoolRequest, option: Optional[RequestOption] = None) -> SearchTalentPoolResponse:
+    async def asearch(self, request: SearchTalentPoolRequest,
+                      option: Optional[RequestOption] = None) -> SearchTalentPoolResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SearchTalentPoolResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchTalentPoolResponse)
         response.raw = resp
 
         return response
-        
-    

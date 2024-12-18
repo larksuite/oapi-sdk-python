@@ -25,15 +25,18 @@ class TaskStatistics(object):
 class TaskStatisticsBuilder(object):
     def __init__(self) -> None:
         self._task_statistics = TaskStatistics()
+
     def total_tasks_count(self, total_tasks_count: int) -> "TaskStatisticsBuilder":
         self._task_statistics.total_tasks_count = total_tasks_count
         return self
+
     def total_completed_tasks_count(self, total_completed_tasks_count: int) -> "TaskStatisticsBuilder":
         self._task_statistics.total_completed_tasks_count = total_completed_tasks_count
         return self
+
     def total_uncompleted_tasks_count(self, total_uncompleted_tasks_count: int) -> "TaskStatisticsBuilder":
         self._task_statistics.total_uncompleted_tasks_count = total_uncompleted_tasks_count
         return self
-    
+
     def build(self) -> "TaskStatistics":
         return self._task_statistics

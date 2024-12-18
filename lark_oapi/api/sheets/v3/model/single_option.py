@@ -29,18 +29,22 @@ class SingleOption(object):
 class SingleOptionBuilder(object):
     def __init__(self) -> None:
         self._single_option = SingleOption()
+
     def type(self, type: str) -> "SingleOptionBuilder":
         self._single_option.type = type
         return self
+
     def range(self, range: str) -> "SingleOptionBuilder":
         self._single_option.range = range
         return self
+
     def data_validation_values(self, data_validation_values: List[DataValidationValue]) -> "SingleOptionBuilder":
         self._single_option.data_validation_values = data_validation_values
         return self
+
     def properties(self, properties: OptionProperties) -> "SingleOptionBuilder":
         self._single_option.properties = properties
         return self
-    
+
     def build(self) -> "SingleOption":
         return self._single_option

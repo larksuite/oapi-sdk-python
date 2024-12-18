@@ -24,12 +24,14 @@ class WorkforcePlanDetailReq(object):
 class WorkforcePlanDetailReqBuilder(object):
     def __init__(self) -> None:
         self._workforce_plan_detail_req = WorkforcePlanDetailReq()
+
     def workforce_plan_id(self, workforce_plan_id: str) -> "WorkforcePlanDetailReqBuilder":
         self._workforce_plan_detail_req.workforce_plan_id = workforce_plan_id
         return self
+
     def items(self, items: List[WorkforcePlanDetailRow]) -> "WorkforcePlanDetailReqBuilder":
         self._workforce_plan_detail_req.items = items
         return self
-    
+
     def build(self) -> "WorkforcePlanDetailReq":
         return self._workforce_plan_detail_req

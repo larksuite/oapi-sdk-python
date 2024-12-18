@@ -23,12 +23,14 @@ class FormFieldVariableDatetimeValue(object):
 class FormFieldVariableDatetimeValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_datetime_value = FormFieldVariableDatetimeValue()
+
     def value(self, value: int) -> "FormFieldVariableDatetimeValueBuilder":
         self._form_field_variable_datetime_value.value = value
         return self
+
     def zone(self, zone: str) -> "FormFieldVariableDatetimeValueBuilder":
         self._form_field_variable_datetime_value.zone = zone
         return self
-    
+
     def build(self) -> "FormFieldVariableDatetimeValue":
         return self._form_field_variable_datetime_value

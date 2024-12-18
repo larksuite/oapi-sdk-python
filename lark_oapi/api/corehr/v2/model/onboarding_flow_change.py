@@ -21,9 +21,10 @@ class OnboardingFlowChange(object):
 class OnboardingFlowChangeBuilder(object):
     def __init__(self) -> None:
         self._onboarding_flow_change = OnboardingFlowChange()
+
     def after_status(self, after_status: str) -> "OnboardingFlowChangeBuilder":
         self._onboarding_flow_change.after_status = after_status
         return self
-    
+
     def build(self) -> "OnboardingFlowChange":
         return self._onboarding_flow_change

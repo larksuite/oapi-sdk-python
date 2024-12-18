@@ -21,9 +21,10 @@ class MyAiSearchDefinitionScenarioContext(object):
 class MyAiSearchDefinitionScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._my_ai_search_definition_scenario_context = MyAiSearchDefinitionScenarioContext()
+
     def tool_raw_instruction(self, tool_raw_instruction: str) -> "MyAiSearchDefinitionScenarioContextBuilder":
         self._my_ai_search_definition_scenario_context.tool_raw_instruction = tool_raw_instruction
         return self
-    
+
     def build(self) -> "MyAiSearchDefinitionScenarioContext":
         return self._my_ai_search_definition_scenario_context

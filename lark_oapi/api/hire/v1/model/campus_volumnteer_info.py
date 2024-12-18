@@ -21,9 +21,10 @@ class CampusVolumnteerInfo(object):
 class CampusVolumnteerInfoBuilder(object):
     def __init__(self) -> None:
         self._campus_volumnteer_info = CampusVolumnteerInfo()
+
     def volunteer_seq(self, volunteer_seq: int) -> "CampusVolumnteerInfoBuilder":
         self._campus_volumnteer_info.volunteer_seq = volunteer_seq
         return self
-    
+
     def build(self) -> "CampusVolumnteerInfo":
         return self._campus_volumnteer_info

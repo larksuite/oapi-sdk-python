@@ -21,9 +21,10 @@ class DocText(object):
 class DocTextBuilder(object):
     def __init__(self) -> None:
         self._doc_text = DocText()
+
     def text(self, text: str) -> "DocTextBuilder":
         self._doc_text.text = text
         return self
-    
+
     def build(self) -> "DocText":
         return self._doc_text

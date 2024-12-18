@@ -32,24 +32,31 @@ class SeniorityAdjustInformationEdit(object):
 class SeniorityAdjustInformationEditBuilder(object):
     def __init__(self) -> None:
         self._seniority_adjust_information_edit = SeniorityAdjustInformationEdit()
+
     def seniority_adjustment_type(self, seniority_adjustment_type: str) -> "SeniorityAdjustInformationEditBuilder":
         self._seniority_adjust_information_edit.seniority_adjustment_type = seniority_adjustment_type
         return self
+
     def start_date(self, start_date: str) -> "SeniorityAdjustInformationEditBuilder":
         self._seniority_adjust_information_edit.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "SeniorityAdjustInformationEditBuilder":
         self._seniority_adjust_information_edit.end_date = end_date
         return self
-    def reasons_for_seniority_adjustment(self, reasons_for_seniority_adjustment: str) -> "SeniorityAdjustInformationEditBuilder":
+
+    def reasons_for_seniority_adjustment(self,
+                                         reasons_for_seniority_adjustment: str) -> "SeniorityAdjustInformationEditBuilder":
         self._seniority_adjust_information_edit.reasons_for_seniority_adjustment = reasons_for_seniority_adjustment
         return self
+
     def seniority_adjustment(self, seniority_adjustment: float) -> "SeniorityAdjustInformationEditBuilder":
         self._seniority_adjust_information_edit.seniority_adjustment = seniority_adjustment
         return self
+
     def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "SeniorityAdjustInformationEditBuilder":
         self._seniority_adjust_information_edit.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "SeniorityAdjustInformationEdit":
         return self._seniority_adjust_information_edit

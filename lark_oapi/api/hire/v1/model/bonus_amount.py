@@ -29,18 +29,22 @@ class BonusAmount(object):
 class BonusAmountBuilder(object):
     def __init__(self) -> None:
         self._bonus_amount = BonusAmount()
+
     def bonus_type(self, bonus_type: int) -> "BonusAmountBuilder":
         self._bonus_amount.bonus_type = bonus_type
         return self
+
     def point_bonus(self, point_bonus: int) -> "BonusAmountBuilder":
         self._bonus_amount.point_bonus = point_bonus
         return self
+
     def cash(self, cash: Cash) -> "BonusAmountBuilder":
         self._bonus_amount.cash = cash
         return self
+
     def cash_bonus(self, cash_bonus: List[Cash]) -> "BonusAmountBuilder":
         self._bonus_amount.cash_bonus = cash_bonus
         return self
-    
+
     def build(self) -> "BonusAmount":
         return self._bonus_amount

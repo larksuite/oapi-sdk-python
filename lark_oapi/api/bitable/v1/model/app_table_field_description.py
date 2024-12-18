@@ -23,12 +23,14 @@ class AppTableFieldDescription(object):
 class AppTableFieldDescriptionBuilder(object):
     def __init__(self) -> None:
         self._app_table_field_description = AppTableFieldDescription()
+
     def disable_sync(self, disable_sync: bool) -> "AppTableFieldDescriptionBuilder":
         self._app_table_field_description.disable_sync = disable_sync
         return self
+
     def text(self, text: str) -> "AppTableFieldDescriptionBuilder":
         self._app_table_field_description.text = text
         return self
-    
+
     def build(self) -> "AppTableFieldDescription":
         return self._app_table_field_description

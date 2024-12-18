@@ -21,9 +21,10 @@ class SearchCalendarRequestBody(object):
 class SearchCalendarRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_calendar_request_body = SearchCalendarRequestBody()
+
     def query(self, query: str) -> "SearchCalendarRequestBodyBuilder":
         self._search_calendar_request_body.query = query
         return self
-    
+
     def build(self) -> "SearchCalendarRequestBody":
         return self._search_calendar_request_body

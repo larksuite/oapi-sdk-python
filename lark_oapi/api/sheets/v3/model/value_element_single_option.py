@@ -23,12 +23,14 @@ class ValueElementSingleOption(object):
 class ValueElementSingleOptionBuilder(object):
     def __init__(self) -> None:
         self._value_element_single_option = ValueElementSingleOption()
+
     def data_validation_id(self, data_validation_id: int) -> "ValueElementSingleOptionBuilder":
         self._value_element_single_option.data_validation_id = data_validation_id
         return self
+
     def data_validiton_value(self, data_validiton_value: str) -> "ValueElementSingleOptionBuilder":
         self._value_element_single_option.data_validiton_value = data_validiton_value
         return self
-    
+
     def build(self) -> "ValueElementSingleOption":
         return self._value_element_single_option

@@ -22,9 +22,10 @@ class ContentBlock(object):
 class ContentBlockBuilder(object):
     def __init__(self) -> None:
         self._content_block = ContentBlock()
+
     def blocks(self, blocks: List[ContentBlockElement]) -> "ContentBlockBuilder":
         self._content_block.blocks = blocks
         return self
-    
+
     def build(self) -> "ContentBlock":
         return self._content_block

@@ -9,11 +9,13 @@ class P2CorehrCommonDataMetaDataUpdatedV1Data(object):
     _types = {
         "api_name": str,
         "field_changes": List[str],
+        "metadata_type": str,
     }
 
     def __init__(self, d=None):
         self.api_name: Optional[str] = None
         self.field_changes: Optional[List[str]] = None
+        self.metadata_type: Optional[str] = None
         init(self, d, self._types)
 
 

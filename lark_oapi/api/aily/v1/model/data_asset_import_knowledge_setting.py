@@ -34,21 +34,28 @@ class DataAssetImportKnowledgeSetting(object):
 class DataAssetImportKnowledgeSettingBuilder(object):
     def __init__(self) -> None:
         self._data_asset_import_knowledge_setting = DataAssetImportKnowledgeSetting()
+
     def chunk_setting(self, chunk_setting: DataAssetKnowledgeChunkSetting) -> "DataAssetImportKnowledgeSettingBuilder":
         self._data_asset_import_knowledge_setting.chunk_setting = chunk_setting
         return self
+
     def file(self, file: DataAssetImportKnowledgeFile) -> "DataAssetImportKnowledgeSettingBuilder":
         self._data_asset_import_knowledge_setting.file = file
         return self
+
     def lark_doc(self, lark_doc: DataAssetImportKnowledgeLarkDoc) -> "DataAssetImportKnowledgeSettingBuilder":
         self._data_asset_import_knowledge_setting.lark_doc = lark_doc
         return self
-    def lark_wiki_space(self, lark_wiki_space: DataAssetImportKnowledgeWiki) -> "DataAssetImportKnowledgeSettingBuilder":
+
+    def lark_wiki_space(self,
+                        lark_wiki_space: DataAssetImportKnowledgeWiki) -> "DataAssetImportKnowledgeSettingBuilder":
         self._data_asset_import_knowledge_setting.lark_wiki_space = lark_wiki_space
         return self
-    def lark_helpdesk(self, lark_helpdesk: DataAssetImportKnowledgeHelpdesk) -> "DataAssetImportKnowledgeSettingBuilder":
+
+    def lark_helpdesk(self,
+                      lark_helpdesk: DataAssetImportKnowledgeHelpdesk) -> "DataAssetImportKnowledgeSettingBuilder":
         self._data_asset_import_knowledge_setting.lark_helpdesk = lark_helpdesk
         return self
-    
+
     def build(self) -> "DataAssetImportKnowledgeSetting":
         return self._data_asset_import_knowledge_setting

@@ -26,15 +26,18 @@ class ListRoomResponseBody(object):
 class ListRoomResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_room_response_body = ListRoomResponseBody()
+
     def rooms(self, rooms: List[Room]) -> "ListRoomResponseBodyBuilder":
         self._list_room_response_body.rooms = rooms
         return self
+
     def page_token(self, page_token: str) -> "ListRoomResponseBodyBuilder":
         self._list_room_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListRoomResponseBodyBuilder":
         self._list_room_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListRoomResponseBody":
         return self._list_room_response_body

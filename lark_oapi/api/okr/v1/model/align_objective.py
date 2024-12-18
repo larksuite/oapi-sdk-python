@@ -25,15 +25,18 @@ class AlignObjective(object):
 class AlignObjectiveBuilder(object):
     def __init__(self) -> None:
         self._align_objective = AlignObjective()
+
     def id(self, id: int) -> "AlignObjectiveBuilder":
         self._align_objective.id = id
         return self
+
     def okr_id(self, okr_id: int) -> "AlignObjectiveBuilder":
         self._align_objective.okr_id = okr_id
         return self
+
     def user_id(self, user_id: str) -> "AlignObjectiveBuilder":
         self._align_objective.user_id = user_id
         return self
-    
+
     def build(self) -> "AlignObjective":
         return self._align_objective

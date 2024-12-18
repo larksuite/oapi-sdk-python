@@ -23,12 +23,14 @@ class ChatCommonHeader(object):
 class ChatCommonHeaderBuilder(object):
     def __init__(self) -> None:
         self._chat_common_header = ChatCommonHeader()
+
     def chat_id(self, chat_id: str) -> "ChatCommonHeaderBuilder":
         self._chat_common_header.chat_id = chat_id
         return self
+
     def bot_id(self, bot_id: str) -> "ChatCommonHeaderBuilder":
         self._chat_common_header.bot_id = bot_id
         return self
-    
+
     def build(self) -> "ChatCommonHeader":
         return self._chat_common_header

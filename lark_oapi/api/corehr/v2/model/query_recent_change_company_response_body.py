@@ -27,18 +27,22 @@ class QueryRecentChangeCompanyResponseBody(object):
 class QueryRecentChangeCompanyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_recent_change_company_response_body = QueryRecentChangeCompanyResponseBody()
+
     def company_ids(self, company_ids: List[str]) -> "QueryRecentChangeCompanyResponseBodyBuilder":
         self._query_recent_change_company_response_body.company_ids = company_ids
         return self
+
     def page_token(self, page_token: str) -> "QueryRecentChangeCompanyResponseBodyBuilder":
         self._query_recent_change_company_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "QueryRecentChangeCompanyResponseBodyBuilder":
         self._query_recent_change_company_response_body.has_more = has_more
         return self
+
     def deleted_company_ids(self, deleted_company_ids: List[str]) -> "QueryRecentChangeCompanyResponseBodyBuilder":
         self._query_recent_change_company_response_body.deleted_company_ids = deleted_company_ids
         return self
-    
+
     def build(self) -> "QueryRecentChangeCompanyResponseBody":
         return self._query_recent_change_company_response_body

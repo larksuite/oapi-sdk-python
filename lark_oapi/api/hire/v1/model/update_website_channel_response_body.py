@@ -27,18 +27,22 @@ class UpdateWebsiteChannelResponseBody(object):
 class UpdateWebsiteChannelResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_website_channel_response_body = UpdateWebsiteChannelResponseBody()
+
     def id(self, id: str) -> "UpdateWebsiteChannelResponseBodyBuilder":
         self._update_website_channel_response_body.id = id
         return self
+
     def name(self, name: str) -> "UpdateWebsiteChannelResponseBodyBuilder":
         self._update_website_channel_response_body.name = name
         return self
+
     def link(self, link: str) -> "UpdateWebsiteChannelResponseBodyBuilder":
         self._update_website_channel_response_body.link = link
         return self
+
     def code(self, code: str) -> "UpdateWebsiteChannelResponseBodyBuilder":
         self._update_website_channel_response_body.code = code
         return self
-    
+
     def build(self) -> "UpdateWebsiteChannelResponseBody":
         return self._update_website_channel_response_body

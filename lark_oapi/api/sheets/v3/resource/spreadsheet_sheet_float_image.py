@@ -25,7 +25,8 @@ class SpreadsheetSheetFloatImage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFloatImageResponse:
+    def create(self, request: CreateSpreadsheetSheetFloatImageRequest,
+               option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,33 +39,34 @@ class SpreadsheetSheetFloatImage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpreadsheetSheetFloatImageResponse)
+        response: CreateSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            CreateSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFloatImageResponse:
+    async def acreate(self, request: CreateSpreadsheetSheetFloatImageRequest,
+                      option: Optional[RequestOption] = None) -> CreateSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSpreadsheetSheetFloatImageResponse)
+        response: CreateSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            CreateSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFloatImageResponse:
+
+    def delete(self, request: DeleteSpreadsheetSheetFloatImageRequest,
+               option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,33 +79,34 @@ class SpreadsheetSheetFloatImage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpreadsheetSheetFloatImageResponse)
+        response: DeleteSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            DeleteSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFloatImageResponse:
+    async def adelete(self, request: DeleteSpreadsheetSheetFloatImageRequest,
+                      option: Optional[RequestOption] = None) -> DeleteSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: DeleteSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSpreadsheetSheetFloatImageResponse)
+        response: DeleteSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                            DeleteSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
-    def get(self, request: GetSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFloatImageResponse:
+
+    def get(self, request: GetSpreadsheetSheetFloatImageRequest,
+            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -116,33 +119,34 @@ class SpreadsheetSheetFloatImage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetSheetFloatImageResponse)
+        response: GetSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         GetSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFloatImageResponse:
+    async def aget(self, request: GetSpreadsheetSheetFloatImageRequest,
+                   option: Optional[RequestOption] = None) -> GetSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetSheetFloatImageResponse)
+        response: GetSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         GetSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
-    def patch(self, request: PatchSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFloatImageResponse:
+
+    def patch(self, request: PatchSpreadsheetSheetFloatImageRequest,
+              option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,33 +159,34 @@ class SpreadsheetSheetFloatImage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSpreadsheetSheetFloatImageResponse)
+        response: PatchSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           PatchSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchSpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFloatImageResponse:
+    async def apatch(self, request: PatchSpreadsheetSheetFloatImageRequest,
+                     option: Optional[RequestOption] = None) -> PatchSpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: PatchSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSpreadsheetSheetFloatImageResponse)
+        response: PatchSpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           PatchSpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
-    def query(self, request: QuerySpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFloatImageResponse:
+
+    def query(self, request: QuerySpreadsheetSheetFloatImageRequest,
+              option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
@@ -194,30 +199,28 @@ class SpreadsheetSheetFloatImage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: QuerySpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySpreadsheetSheetFloatImageResponse)
+        response: QuerySpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           QuerySpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aquery(self, request: QuerySpreadsheetSheetFloatImageRequest, option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFloatImageResponse:
+    async def aquery(self, request: QuerySpreadsheetSheetFloatImageRequest,
+                     option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetFloatImageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: QuerySpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySpreadsheetSheetFloatImageResponse)
+        response: QuerySpreadsheetSheetFloatImageResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           QuerySpreadsheetSheetFloatImageResponse)
         response.raw = resp
 
         return response
-        
-    

@@ -25,12 +25,12 @@ class UpdateExternalApplicationRequestBuilder(object):
         update_external_application_request.uri = "/open-apis/hire/v1/external_applications/:external_application_id"
         update_external_application_request.token_types = {AccessTokenType.TENANT}
         self._update_external_application_request: UpdateExternalApplicationRequest = update_external_application_request
-    
+
     def external_application_id(self, external_application_id: str) -> "UpdateExternalApplicationRequestBuilder":
         self._update_external_application_request.external_application_id = external_application_id
         self._update_external_application_request.paths["external_application_id"] = str(external_application_id)
         return self
-    
+
     def request_body(self, request_body: ExternalApplication) -> "UpdateExternalApplicationRequestBuilder":
         self._update_external_application_request.request_body = request_body
         self._update_external_application_request.body = request_body

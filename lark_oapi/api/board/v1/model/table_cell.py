@@ -31,21 +31,26 @@ class TableCell(object):
 class TableCellBuilder(object):
     def __init__(self) -> None:
         self._table_cell = TableCell()
+
     def row_index(self, row_index: int) -> "TableCellBuilder":
         self._table_cell.row_index = row_index
         return self
+
     def col_index(self, col_index: int) -> "TableCellBuilder":
         self._table_cell.col_index = col_index
         return self
+
     def merge_info(self, merge_info: TableCellMergeInfo) -> "TableCellBuilder":
         self._table_cell.merge_info = merge_info
         return self
+
     def children(self, children: List[str]) -> "TableCellBuilder":
         self._table_cell.children = children
         return self
+
     def text(self, text: Text) -> "TableCellBuilder":
         self._table_cell.text = text
         return self
-    
+
     def build(self) -> "TableCell":
         return self._table_cell

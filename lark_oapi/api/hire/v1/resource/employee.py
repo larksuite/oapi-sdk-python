@@ -34,13 +34,12 @@ class Employee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEmployeeResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetEmployeeRequest, option: Optional[RequestOption] = None) -> GetEmployeeResponse:
         if option is None:
@@ -49,18 +48,17 @@ class Employee(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetEmployeeResponse)
         response.raw = resp
 
         return response
-        
-    def get_by_application(self, request: GetByApplicationEmployeeRequest, option: Optional[RequestOption] = None) -> GetByApplicationEmployeeResponse:
+
+    def get_by_application(self, request: GetByApplicationEmployeeRequest,
+                           option: Optional[RequestOption] = None) -> GetByApplicationEmployeeResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,32 +71,32 @@ class Employee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetByApplicationEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByApplicationEmployeeResponse)
+        response: GetByApplicationEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    GetByApplicationEmployeeResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget_by_application(self, request: GetByApplicationEmployeeRequest, option: Optional[RequestOption] = None) -> GetByApplicationEmployeeResponse:
+    async def aget_by_application(self, request: GetByApplicationEmployeeRequest,
+                                  option: Optional[RequestOption] = None) -> GetByApplicationEmployeeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetByApplicationEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByApplicationEmployeeResponse)
+        response: GetByApplicationEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    GetByApplicationEmployeeResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchEmployeeRequest, option: Optional[RequestOption] = None) -> PatchEmployeeResponse:
         if option is None:
             option = RequestOption()
@@ -112,30 +110,26 @@ class Employee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmployeeResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchEmployeeRequest, option: Optional[RequestOption] = None) -> PatchEmployeeResponse:
+    async def apatch(self, request: PatchEmployeeRequest,
+                     option: Optional[RequestOption] = None) -> PatchEmployeeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchEmployeeResponse)
         response.raw = resp
 
         return response
-        
-    

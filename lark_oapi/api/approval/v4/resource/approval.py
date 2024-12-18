@@ -36,32 +36,30 @@ class Approval(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateApprovalResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateApprovalRequest, option: Optional[RequestOption] = None) -> CreateApprovalResponse:
+    async def acreate(self, request: CreateApprovalRequest,
+                      option: Optional[RequestOption] = None) -> CreateApprovalResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateApprovalResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetApprovalRequest, option: Optional[RequestOption] = None) -> GetApprovalResponse:
         if option is None:
             option = RequestOption()
@@ -75,13 +73,12 @@ class Approval(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApprovalResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetApprovalRequest, option: Optional[RequestOption] = None) -> GetApprovalResponse:
         if option is None:
@@ -90,18 +87,17 @@ class Approval(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApprovalResponse)
         response.raw = resp
 
         return response
-        
-    def subscribe(self, request: SubscribeApprovalRequest, option: Optional[RequestOption] = None) -> SubscribeApprovalResponse:
+
+    def subscribe(self, request: SubscribeApprovalRequest,
+                  option: Optional[RequestOption] = None) -> SubscribeApprovalResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +110,32 @@ class Approval(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: SubscribeApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeApprovalResponse)
         response.raw = resp
 
         return response
-        
 
-    async def asubscribe(self, request: SubscribeApprovalRequest, option: Optional[RequestOption] = None) -> SubscribeApprovalResponse:
+    async def asubscribe(self, request: SubscribeApprovalRequest,
+                         option: Optional[RequestOption] = None) -> SubscribeApprovalResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: SubscribeApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeApprovalResponse)
         response.raw = resp
 
         return response
-        
-    def unsubscribe(self, request: UnsubscribeApprovalRequest, option: Optional[RequestOption] = None) -> UnsubscribeApprovalResponse:
+
+    def unsubscribe(self, request: UnsubscribeApprovalRequest,
+                    option: Optional[RequestOption] = None) -> UnsubscribeApprovalResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +148,26 @@ class Approval(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UnsubscribeApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscribeApprovalResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aunsubscribe(self, request: UnsubscribeApprovalRequest, option: Optional[RequestOption] = None) -> UnsubscribeApprovalResponse:
+    async def aunsubscribe(self, request: UnsubscribeApprovalRequest,
+                           option: Optional[RequestOption] = None) -> UnsubscribeApprovalResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UnsubscribeApprovalResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscribeApprovalResponse)
         response.raw = resp
 
         return response
-        
-    

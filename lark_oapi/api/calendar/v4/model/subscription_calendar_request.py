@@ -22,7 +22,6 @@ class SubscriptionCalendarRequestBuilder(object):
         subscription_calendar_request.uri = "/open-apis/calendar/v4/calendars/subscription"
         subscription_calendar_request.token_types = {AccessTokenType.USER}
         self._subscription_calendar_request: SubscriptionCalendarRequest = subscription_calendar_request
-    
 
     def build(self) -> SubscriptionCalendarRequest:
         return self._subscription_calendar_request

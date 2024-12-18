@@ -22,9 +22,10 @@ class UpdateChatButtonResponseBody(object):
 class UpdateChatButtonResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_chat_button_response_body = UpdateChatButtonResponseBody()
+
     def failed_user_reasons(self, failed_user_reasons: List[FailedReason]) -> "UpdateChatButtonResponseBodyBuilder":
         self._update_chat_button_response_body.failed_user_reasons = failed_user_reasons
         return self
-    
+
     def build(self) -> "UpdateChatButtonResponseBody":
         return self._update_chat_button_response_body

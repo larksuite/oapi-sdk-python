@@ -17,7 +17,8 @@ class OidcRefreshAccessToken(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateOidcRefreshAccessTokenRequest, option: Optional[RequestOption] = None) -> CreateOidcRefreshAccessTokenResponse:
+    def create(self, request: CreateOidcRefreshAccessTokenRequest,
+               option: Optional[RequestOption] = None) -> CreateOidcRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class OidcRefreshAccessToken(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateOidcRefreshAccessTokenResponse)
+        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        CreateOidcRefreshAccessTokenResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateOidcRefreshAccessTokenRequest, option: Optional[RequestOption] = None) -> CreateOidcRefreshAccessTokenResponse:
+    async def acreate(self, request: CreateOidcRefreshAccessTokenRequest,
+                      option: Optional[RequestOption] = None) -> CreateOidcRefreshAccessTokenResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateOidcRefreshAccessTokenResponse)
+        response: CreateOidcRefreshAccessTokenResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        CreateOidcRefreshAccessTokenResponse)
         response.raw = resp
 
         return response
-        
-    

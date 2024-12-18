@@ -22,9 +22,10 @@ class GetByDepartmentBpResponseBody(object):
 class GetByDepartmentBpResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_by_department_bp_response_body = GetByDepartmentBpResponseBody()
+
     def items(self, items: List[DepartmentHrbp]) -> "GetByDepartmentBpResponseBodyBuilder":
         self._get_by_department_bp_response_body.items = items
         return self
-    
+
     def build(self) -> "GetByDepartmentBpResponseBody":
         return self._get_by_department_bp_response_body

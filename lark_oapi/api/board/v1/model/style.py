@@ -31,24 +31,30 @@ class Style(object):
 class StyleBuilder(object):
     def __init__(self) -> None:
         self._style = Style()
+
     def fill_opacity(self, fill_opacity: float) -> "StyleBuilder":
         self._style.fill_opacity = fill_opacity
         return self
+
     def border_style(self, border_style: str) -> "StyleBuilder":
         self._style.border_style = border_style
         return self
+
     def border_width(self, border_width: str) -> "StyleBuilder":
         self._style.border_width = border_width
         return self
+
     def border_opacity(self, border_opacity: float) -> "StyleBuilder":
         self._style.border_opacity = border_opacity
         return self
+
     def h_flip(self, h_flip: bool) -> "StyleBuilder":
         self._style.h_flip = h_flip
         return self
+
     def v_flip(self, v_flip: bool) -> "StyleBuilder":
         self._style.v_flip = v_flip
         return self
-    
+
     def build(self) -> "Style":
         return self._style

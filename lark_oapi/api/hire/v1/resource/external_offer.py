@@ -23,7 +23,8 @@ class ExternalOffer(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryExternalOfferRequest, option: Optional[RequestOption] = None) -> BatchQueryExternalOfferResponse:
+    def batch_query(self, request: BatchQueryExternalOfferRequest,
+                    option: Optional[RequestOption] = None) -> BatchQueryExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
@@ -36,33 +37,34 @@ class ExternalOffer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchQueryExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryExternalOfferResponse)
+        response: BatchQueryExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   BatchQueryExternalOfferResponse)
         response.raw = resp
 
         return response
-        
 
-    async def abatch_query(self, request: BatchQueryExternalOfferRequest, option: Optional[RequestOption] = None) -> BatchQueryExternalOfferResponse:
+    async def abatch_query(self, request: BatchQueryExternalOfferRequest,
+                           option: Optional[RequestOption] = None) -> BatchQueryExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
-
-        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: BatchQueryExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryExternalOfferResponse)
+        response: BatchQueryExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                   BatchQueryExternalOfferResponse)
         response.raw = resp
 
         return response
-        
-    def create(self, request: CreateExternalOfferRequest, option: Optional[RequestOption] = None) -> CreateExternalOfferResponse:
+
+    def create(self, request: CreateExternalOfferRequest,
+               option: Optional[RequestOption] = None) -> CreateExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,33 +77,32 @@ class ExternalOffer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalOfferResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateExternalOfferRequest, option: Optional[RequestOption] = None) -> CreateExternalOfferResponse:
+    async def acreate(self, request: CreateExternalOfferRequest,
+                      option: Optional[RequestOption] = None) -> CreateExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalOfferResponse)
         response.raw = resp
 
         return response
-        
-    def delete(self, request: DeleteExternalOfferRequest, option: Optional[RequestOption] = None) -> DeleteExternalOfferResponse:
+
+    def delete(self, request: DeleteExternalOfferRequest,
+               option: Optional[RequestOption] = None) -> DeleteExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
@@ -114,33 +115,32 @@ class ExternalOffer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalOfferResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteExternalOfferRequest, option: Optional[RequestOption] = None) -> DeleteExternalOfferResponse:
+    async def adelete(self, request: DeleteExternalOfferRequest,
+                      option: Optional[RequestOption] = None) -> DeleteExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteExternalOfferResponse)
         response.raw = resp
 
         return response
-        
-    def update(self, request: UpdateExternalOfferRequest, option: Optional[RequestOption] = None) -> UpdateExternalOfferResponse:
+
+    def update(self, request: UpdateExternalOfferRequest,
+               option: Optional[RequestOption] = None) -> UpdateExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
@@ -153,30 +153,26 @@ class ExternalOffer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateExternalOfferResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aupdate(self, request: UpdateExternalOfferRequest, option: Optional[RequestOption] = None) -> UpdateExternalOfferResponse:
+    async def aupdate(self, request: UpdateExternalOfferRequest,
+                      option: Optional[RequestOption] = None) -> UpdateExternalOfferResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: UpdateExternalOfferResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateExternalOfferResponse)
         response.raw = resp
 
         return response
-        
-    

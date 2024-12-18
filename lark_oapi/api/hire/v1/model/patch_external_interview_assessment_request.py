@@ -25,13 +25,16 @@ class PatchExternalInterviewAssessmentRequestBuilder(object):
         patch_external_interview_assessment_request.uri = "/open-apis/hire/v1/external_interview_assessments/:external_interview_assessment_id"
         patch_external_interview_assessment_request.token_types = {AccessTokenType.TENANT}
         self._patch_external_interview_assessment_request: PatchExternalInterviewAssessmentRequest = patch_external_interview_assessment_request
-    
-    def external_interview_assessment_id(self, external_interview_assessment_id: str) -> "PatchExternalInterviewAssessmentRequestBuilder":
+
+    def external_interview_assessment_id(self,
+                                         external_interview_assessment_id: str) -> "PatchExternalInterviewAssessmentRequestBuilder":
         self._patch_external_interview_assessment_request.external_interview_assessment_id = external_interview_assessment_id
-        self._patch_external_interview_assessment_request.paths["external_interview_assessment_id"] = str(external_interview_assessment_id)
+        self._patch_external_interview_assessment_request.paths["external_interview_assessment_id"] = str(
+            external_interview_assessment_id)
         return self
-    
-    def request_body(self, request_body: ExternalInterviewAssessment) -> "PatchExternalInterviewAssessmentRequestBuilder":
+
+    def request_body(self,
+                     request_body: ExternalInterviewAssessment) -> "PatchExternalInterviewAssessmentRequestBuilder":
         self._patch_external_interview_assessment_request.request_body = request_body
         self._patch_external_interview_assessment_request.body = request_body
         return self

@@ -17,7 +17,8 @@ class InterviewRecordAttachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetInterviewRecordAttachmentRequest, option: Optional[RequestOption] = None) -> GetInterviewRecordAttachmentResponse:
+    def get(self, request: GetInterviewRecordAttachmentRequest,
+            option: Optional[RequestOption] = None) -> GetInterviewRecordAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class InterviewRecordAttachment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetInterviewRecordAttachmentResponse)
+        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        GetInterviewRecordAttachmentResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aget(self, request: GetInterviewRecordAttachmentRequest, option: Optional[RequestOption] = None) -> GetInterviewRecordAttachmentResponse:
+    async def aget(self, request: GetInterviewRecordAttachmentRequest,
+                   option: Optional[RequestOption] = None) -> GetInterviewRecordAttachmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetInterviewRecordAttachmentResponse)
+        response: GetInterviewRecordAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        GetInterviewRecordAttachmentResponse)
         response.raw = resp
 
         return response
-        
-    

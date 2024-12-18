@@ -26,15 +26,18 @@ class ListExternalTaskResponseBody(object):
 class ListExternalTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_external_task_response_body = ListExternalTaskResponseBody()
+
     def data(self, data: List[ExternalTaskList]) -> "ListExternalTaskResponseBodyBuilder":
         self._list_external_task_response_body.data = data
         return self
+
     def page_token(self, page_token: str) -> "ListExternalTaskResponseBodyBuilder":
         self._list_external_task_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListExternalTaskResponseBodyBuilder":
         self._list_external_task_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListExternalTaskResponseBody":
         return self._list_external_task_response_body

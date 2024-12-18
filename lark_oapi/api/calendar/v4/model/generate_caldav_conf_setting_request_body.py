@@ -21,9 +21,10 @@ class GenerateCaldavConfSettingRequestBody(object):
 class GenerateCaldavConfSettingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._generate_caldav_conf_setting_request_body = GenerateCaldavConfSettingRequestBody()
+
     def device_name(self, device_name: str) -> "GenerateCaldavConfSettingRequestBodyBuilder":
         self._generate_caldav_conf_setting_request_body.device_name = device_name
         return self
-    
+
     def build(self) -> "GenerateCaldavConfSettingRequestBody":
         return self._generate_caldav_conf_setting_request_body

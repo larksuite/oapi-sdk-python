@@ -21,9 +21,10 @@ class CompositeShape(object):
 class CompositeShapeBuilder(object):
     def __init__(self) -> None:
         self._composite_shape = CompositeShape()
+
     def type(self, type: str) -> "CompositeShapeBuilder":
         self._composite_shape.type = type
         return self
-    
+
     def build(self) -> "CompositeShape":
         return self._composite_shape

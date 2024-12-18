@@ -21,9 +21,10 @@ class ExecuteSendNotificationRequestBody(object):
 class ExecuteSendNotificationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._execute_send_notification_request_body = ExecuteSendNotificationRequestBody()
+
     def send_at(self, send_at: str) -> "ExecuteSendNotificationRequestBodyBuilder":
         self._execute_send_notification_request_body.send_at = send_at
         return self
-    
+
     def build(self) -> "ExecuteSendNotificationRequestBody":
         return self._execute_send_notification_request_body

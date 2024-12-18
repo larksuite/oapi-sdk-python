@@ -23,12 +23,14 @@ class OrgRoleUpdate(object):
 class OrgRoleUpdateBuilder(object):
     def __init__(self) -> None:
         self._org_role_update = OrgRoleUpdate()
+
     def api_name(self, api_name: str) -> "OrgRoleUpdateBuilder":
         self._org_role_update.api_name = api_name
         return self
+
     def employment_ids(self, employment_ids: List[str]) -> "OrgRoleUpdateBuilder":
         self._org_role_update.employment_ids = employment_ids
         return self
-    
+
     def build(self) -> "OrgRoleUpdate":
         return self._org_role_update

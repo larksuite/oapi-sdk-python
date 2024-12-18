@@ -23,12 +23,14 @@ class DocxSource(object):
 class DocxSourceBuilder(object):
     def __init__(self) -> None:
         self._docx_source = DocxSource()
+
     def token(self, token: str) -> "DocxSourceBuilder":
         self._docx_source.token = token
         return self
+
     def block_id(self, block_id: str) -> "DocxSourceBuilder":
         self._docx_source.block_id = block_id
         return self
-    
+
     def build(self) -> "DocxSource":
         return self._docx_source

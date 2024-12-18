@@ -21,9 +21,10 @@ class UrgentCommonHeader(object):
 class UrgentCommonHeaderBuilder(object):
     def __init__(self) -> None:
         self._urgent_common_header = UrgentCommonHeader()
+
     def bot_id(self, bot_id: str) -> "UrgentCommonHeaderBuilder":
         self._urgent_common_header.bot_id = bot_id
         return self
-    
+
     def build(self) -> "UrgentCommonHeader":
         return self._urgent_common_header

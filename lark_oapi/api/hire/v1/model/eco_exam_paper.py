@@ -24,12 +24,14 @@ class EcoExamPaper(object):
 class EcoExamPaperBuilder(object):
     def __init__(self) -> None:
         self._eco_exam_paper = EcoExamPaper()
+
     def account_id(self, account_id: str) -> "EcoExamPaperBuilder":
         self._eco_exam_paper.account_id = account_id
         return self
+
     def paper_list(self, paper_list: List[EcoExamPaperData]) -> "EcoExamPaperBuilder":
         self._eco_exam_paper.paper_list = paper_list
         return self
-    
+
     def build(self) -> "EcoExamPaper":
         return self._eco_exam_paper

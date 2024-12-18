@@ -23,12 +23,14 @@ class ImageInfo(object):
 class ImageInfoBuilder(object):
     def __init__(self) -> None:
         self._image_info = ImageInfo()
+
     def file_token(self, file_token: str) -> "ImageInfoBuilder":
         self._image_info.file_token = file_token
         return self
+
     def url(self, url: str) -> "ImageInfoBuilder":
         self._image_info.url = url
         return self
-    
+
     def build(self) -> "ImageInfo":
         return self._image_info

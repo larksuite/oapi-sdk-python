@@ -25,15 +25,18 @@ class SearchTestRequestBody(object):
 class SearchTestRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_test_request_body = SearchTestRequestBody()
+
     def application_id_list(self, application_id_list: List[str]) -> "SearchTestRequestBodyBuilder":
         self._search_test_request_body.application_id_list = application_id_list
         return self
+
     def test_start_time_min(self, test_start_time_min: str) -> "SearchTestRequestBodyBuilder":
         self._search_test_request_body.test_start_time_min = test_start_time_min
         return self
+
     def test_start_time_max(self, test_start_time_max: str) -> "SearchTestRequestBodyBuilder":
         self._search_test_request_body.test_start_time_max = test_start_time_max
         return self
-    
+
     def build(self) -> "SearchTestRequestBody":
         return self._search_test_request_body

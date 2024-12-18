@@ -31,21 +31,26 @@ class Email(object):
 class EmailBuilder(object):
     def __init__(self) -> None:
         self._email = Email()
+
     def email(self, email: str) -> "EmailBuilder":
         self._email.email = email
         return self
+
     def is_primary(self, is_primary: bool) -> "EmailBuilder":
         self._email.is_primary = is_primary
         return self
+
     def is_public(self, is_public: bool) -> "EmailBuilder":
         self._email.is_public = is_public
         return self
+
     def email_usage(self, email_usage: Enum) -> "EmailBuilder":
         self._email.email_usage = email_usage
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmailBuilder":
         self._email.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "Email":
         return self._email

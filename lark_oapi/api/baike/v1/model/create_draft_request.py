@@ -25,12 +25,12 @@ class CreateDraftRequestBuilder(object):
         create_draft_request.uri = "/open-apis/baike/v1/drafts"
         create_draft_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_draft_request: CreateDraftRequest = create_draft_request
-    
+
     def user_id_type(self, user_id_type: str) -> "CreateDraftRequestBuilder":
         self._create_draft_request.user_id_type = user_id_type
         self._create_draft_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: Entity) -> "CreateDraftRequestBuilder":
         self._create_draft_request.request_body = request_body
         self._create_draft_request.body = request_body

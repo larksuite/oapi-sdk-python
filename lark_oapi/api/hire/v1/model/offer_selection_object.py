@@ -24,12 +24,14 @@ class OfferSelectionObject(object):
 class OfferSelectionObjectBuilder(object):
     def __init__(self) -> None:
         self._offer_selection_object = OfferSelectionObject()
+
     def schema_version(self, schema_version: int) -> "OfferSelectionObjectBuilder":
         self._offer_selection_object.schema_version = schema_version
         return self
+
     def option_list(self, option_list: List[OfferSchemaDetailOption]) -> "OfferSelectionObjectBuilder":
         self._offer_selection_object.option_list = option_list
         return self
-    
+
     def build(self) -> "OfferSelectionObject":
         return self._offer_selection_object

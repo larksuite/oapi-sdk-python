@@ -21,9 +21,10 @@ class DataArchivingUser(object):
 class DataArchivingUserBuilder(object):
     def __init__(self) -> None:
         self._data_archiving_user = DataArchivingUser()
+
     def user_ids(self, user_ids: List[str]) -> "DataArchivingUserBuilder":
         self._data_archiving_user.user_ids = user_ids
         return self
-    
+
     def build(self) -> "DataArchivingUser":
         return self._data_archiving_user

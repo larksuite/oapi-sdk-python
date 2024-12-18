@@ -24,7 +24,7 @@ class CreateUnitRequestBuilder(object):
         create_unit_request.uri = "/open-apis/contact/v3/unit"
         create_unit_request.token_types = {AccessTokenType.TENANT}
         self._create_unit_request: CreateUnitRequest = create_unit_request
-    
+
     def request_body(self, request_body: CreateUnitRequestBody) -> "CreateUnitRequestBuilder":
         self._create_unit_request.request_body = request_body
         self._create_unit_request.body = request_body

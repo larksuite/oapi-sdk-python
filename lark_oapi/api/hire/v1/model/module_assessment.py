@@ -33,24 +33,30 @@ class ModuleAssessment(object):
 class ModuleAssessmentBuilder(object):
     def __init__(self) -> None:
         self._module_assessment = ModuleAssessment()
+
     def interview_feedback_form_module_id(self, interview_feedback_form_module_id: str) -> "ModuleAssessmentBuilder":
         self._module_assessment.interview_feedback_form_module_id = interview_feedback_form_module_id
         return self
+
     def module_name(self, module_name: I18n) -> "ModuleAssessmentBuilder":
         self._module_assessment.module_name = module_name
         return self
+
     def module_type(self, module_type: int) -> "ModuleAssessmentBuilder":
         self._module_assessment.module_type = module_type
         return self
+
     def module_weight(self, module_weight: float) -> "ModuleAssessmentBuilder":
         self._module_assessment.module_weight = module_weight
         return self
+
     def module_score(self, module_score: float) -> "ModuleAssessmentBuilder":
         self._module_assessment.module_score = module_score
         return self
+
     def dimension_assessments(self, dimension_assessments: List[DimensionAssessment]) -> "ModuleAssessmentBuilder":
         self._module_assessment.dimension_assessments = dimension_assessments
         return self
-    
+
     def build(self) -> "ModuleAssessment":
         return self._module_assessment

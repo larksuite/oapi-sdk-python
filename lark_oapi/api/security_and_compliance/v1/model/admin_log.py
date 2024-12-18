@@ -35,30 +35,38 @@ class AdminLog(object):
 class AdminLogBuilder(object):
     def __init__(self) -> None:
         self._admin_log = AdminLog()
+
     def unique_id(self, unique_id: str) -> "AdminLogBuilder":
         self._admin_log.unique_id = unique_id
         return self
+
     def user_id(self, user_id: str) -> "AdminLogBuilder":
         self._admin_log.user_id = user_id
         return self
+
     def category_name(self, category_name: str) -> "AdminLogBuilder":
         self._admin_log.category_name = category_name
         return self
+
     def event_name(self, event_name: str) -> "AdminLogBuilder":
         self._admin_log.event_name = event_name
         return self
+
     def ip_address(self, ip_address: str) -> "AdminLogBuilder":
         self._admin_log.ip_address = ip_address
         return self
+
     def create_time(self, create_time: str) -> "AdminLogBuilder":
         self._admin_log.create_time = create_time
         return self
+
     def content(self, content: str) -> "AdminLogBuilder":
         self._admin_log.content = content
         return self
+
     def operation_status(self, operation_status: int) -> "AdminLogBuilder":
         self._admin_log.operation_status = operation_status
         return self
-    
+
     def build(self) -> "AdminLog":
         return self._admin_log

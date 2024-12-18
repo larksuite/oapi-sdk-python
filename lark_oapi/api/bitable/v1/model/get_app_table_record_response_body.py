@@ -22,9 +22,10 @@ class GetAppTableRecordResponseBody(object):
 class GetAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_app_table_record_response_body = GetAppTableRecordResponseBody()
+
     def record(self, record: AppTableRecord) -> "GetAppTableRecordResponseBodyBuilder":
         self._get_app_table_record_response_body.record = record
         return self
-    
+
     def build(self) -> "GetAppTableRecordResponseBody":
         return self._get_app_table_record_response_body

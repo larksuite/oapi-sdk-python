@@ -26,15 +26,18 @@ class PatchDataValidation(object):
 class PatchDataValidationBuilder(object):
     def __init__(self) -> None:
         self._patch_data_validation = PatchDataValidation()
+
     def data_validation_rule(self, data_validation_rule: DataValidationRule) -> "PatchDataValidationBuilder":
         self._patch_data_validation.data_validation_rule = data_validation_rule
         return self
+
     def strict(self, strict: bool) -> "PatchDataValidationBuilder":
         self._patch_data_validation.strict = strict
         return self
+
     def help_text(self, help_text: str) -> "PatchDataValidationBuilder":
         self._patch_data_validation.help_text = help_text
         return self
-    
+
     def build(self) -> "PatchDataValidation":
         return self._patch_data_validation

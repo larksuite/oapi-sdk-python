@@ -38,32 +38,30 @@ class Category(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCategoryResponse)
         response.raw = resp
 
         return response
-        
 
-    async def acreate(self, request: CreateCategoryRequest, option: Optional[RequestOption] = None) -> CreateCategoryResponse:
+    async def acreate(self, request: CreateCategoryRequest,
+                      option: Optional[RequestOption] = None) -> CreateCategoryResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCategoryResponse)
         response.raw = resp
 
         return response
-        
+
     def delete(self, request: DeleteCategoryRequest, option: Optional[RequestOption] = None) -> DeleteCategoryResponse:
         if option is None:
             option = RequestOption()
@@ -77,32 +75,30 @@ class Category(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCategoryResponse)
         response.raw = resp
 
         return response
-        
 
-    async def adelete(self, request: DeleteCategoryRequest, option: Optional[RequestOption] = None) -> DeleteCategoryResponse:
+    async def adelete(self, request: DeleteCategoryRequest,
+                      option: Optional[RequestOption] = None) -> DeleteCategoryResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: DeleteCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteCategoryResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetCategoryRequest, option: Optional[RequestOption] = None) -> GetCategoryResponse:
         if option is None:
             option = RequestOption()
@@ -116,13 +112,12 @@ class Category(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCategoryResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetCategoryRequest, option: Optional[RequestOption] = None) -> GetCategoryResponse:
         if option is None:
@@ -131,17 +126,15 @@ class Category(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCategoryResponse)
         response.raw = resp
 
         return response
-        
+
     def list(self, request: ListCategoryRequest, option: Optional[RequestOption] = None) -> ListCategoryResponse:
         if option is None:
             option = RequestOption()
@@ -155,13 +148,12 @@ class Category(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCategoryResponse)
         response.raw = resp
 
         return response
-        
 
     async def alist(self, request: ListCategoryRequest, option: Optional[RequestOption] = None) -> ListCategoryResponse:
         if option is None:
@@ -170,17 +162,15 @@ class Category(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCategoryResponse)
         response.raw = resp
 
         return response
-        
+
     def patch(self, request: PatchCategoryRequest, option: Optional[RequestOption] = None) -> PatchCategoryResponse:
         if option is None:
             option = RequestOption()
@@ -194,30 +184,26 @@ class Category(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCategoryResponse)
         response.raw = resp
 
         return response
-        
 
-    async def apatch(self, request: PatchCategoryRequest, option: Optional[RequestOption] = None) -> PatchCategoryResponse:
+    async def apatch(self, request: PatchCategoryRequest,
+                     option: Optional[RequestOption] = None) -> PatchCategoryResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: PatchCategoryResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCategoryResponse)
         response.raw = resp
 
         return response
-        
-    

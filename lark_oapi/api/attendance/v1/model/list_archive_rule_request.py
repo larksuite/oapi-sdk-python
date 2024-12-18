@@ -24,17 +24,16 @@ class ListArchiveRuleRequestBuilder(object):
         list_archive_rule_request.uri = "/open-apis/attendance/v1/archive_rule"
         list_archive_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_archive_rule_request: ListArchiveRuleRequest = list_archive_rule_request
-    
+
     def page_size(self, page_size: int) -> "ListArchiveRuleRequestBuilder":
         self._list_archive_rule_request.page_size = page_size
         self._list_archive_rule_request.add_query("page_size", page_size)
         return self
-    
+
     def page_token(self, page_token: str) -> "ListArchiveRuleRequestBuilder":
         self._list_archive_rule_request.page_token = page_token
         self._list_archive_rule_request.add_query("page_token", page_token)
         return self
-    
 
     def build(self) -> ListArchiveRuleRequest:
         return self._list_archive_rule_request

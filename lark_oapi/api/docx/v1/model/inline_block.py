@@ -24,12 +24,14 @@ class InlineBlock(object):
 class InlineBlockBuilder(object):
     def __init__(self) -> None:
         self._inline_block = InlineBlock()
+
     def block_id(self, block_id: str) -> "InlineBlockBuilder":
         self._inline_block.block_id = block_id
         return self
+
     def text_element_style(self, text_element_style: TextElementStyle) -> "InlineBlockBuilder":
         self._inline_block.text_element_style = text_element_style
         return self
-    
+
     def build(self) -> "InlineBlock":
         return self._inline_block

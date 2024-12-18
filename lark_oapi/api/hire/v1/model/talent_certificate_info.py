@@ -28,18 +28,23 @@ class TalentCertificateInfo(object):
 class TalentCertificateInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_certificate_info = TalentCertificateInfo()
+
     def id(self, id: str) -> "TalentCertificateInfoBuilder":
         self._talent_certificate_info.id = id
         return self
+
     def name(self, name: str) -> "TalentCertificateInfoBuilder":
         self._talent_certificate_info.name = name
         return self
+
     def desc(self, desc: str) -> "TalentCertificateInfoBuilder":
         self._talent_certificate_info.desc = desc
         return self
-    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "TalentCertificateInfoBuilder":
+
+    def customized_data_list(self,
+                             customized_data_list: List[TalentCustomizedDataChild]) -> "TalentCertificateInfoBuilder":
         self._talent_certificate_info.customized_data_list = customized_data_list
         return self
-    
+
     def build(self) -> "TalentCertificateInfo":
         return self._talent_certificate_info

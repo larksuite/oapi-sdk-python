@@ -26,15 +26,18 @@ class OpenapiOption(object):
 class OpenapiOptionBuilder(object):
     def __init__(self) -> None:
         self._openapi_option = OpenapiOption()
+
     def http_method(self, http_method: str) -> "OpenapiOptionBuilder":
         self._openapi_option.http_method = http_method
         return self
+
     def url_pattern(self, url_pattern: str) -> "OpenapiOptionBuilder":
         self._openapi_option.url_pattern = url_pattern
         return self
+
     def accessibility(self, accessibility: Accessibility) -> "OpenapiOptionBuilder":
         self._openapi_option.accessibility = accessibility
         return self
-    
+
     def build(self) -> "OpenapiOption":
         return self._openapi_option

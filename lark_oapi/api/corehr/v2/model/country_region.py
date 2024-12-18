@@ -35,27 +35,34 @@ class CountryRegion(object):
 class CountryRegionBuilder(object):
     def __init__(self) -> None:
         self._country_region = CountryRegion()
+
     def country_region_id(self, country_region_id: str) -> "CountryRegionBuilder":
         self._country_region.country_region_id = country_region_id
         return self
+
     def name(self, name: List[I18n]) -> "CountryRegionBuilder":
         self._country_region.name = name
         return self
+
     def full_name(self, full_name: List[I18n]) -> "CountryRegionBuilder":
         self._country_region.full_name = full_name
         return self
+
     def alpha_2_code(self, alpha_2_code: str) -> "CountryRegionBuilder":
         self._country_region.alpha_2_code = alpha_2_code
         return self
+
     def alpha_3_code(self, alpha_3_code: str) -> "CountryRegionBuilder":
         self._country_region.alpha_3_code = alpha_3_code
         return self
+
     def global_code(self, global_code: str) -> "CountryRegionBuilder":
         self._country_region.global_code = global_code
         return self
+
     def status(self, status: int) -> "CountryRegionBuilder":
         self._country_region.status = status
         return self
-    
+
     def build(self) -> "CountryRegion":
         return self._country_region

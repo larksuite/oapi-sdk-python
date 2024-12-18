@@ -24,17 +24,16 @@ class GetTaskRequestBuilder(object):
         get_task_request.uri = "/open-apis/wiki/v2/tasks/:task_id"
         get_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_task_request: GetTaskRequest = get_task_request
-    
+
     def task_type(self, task_type: str) -> "GetTaskRequestBuilder":
         self._get_task_request.task_type = task_type
         self._get_task_request.add_query("task_type", task_type)
         return self
-    
+
     def task_id(self, task_id: str) -> "GetTaskRequestBuilder":
         self._get_task_request.task_id = task_id
         self._get_task_request.paths["task_id"] = str(task_id)
         return self
-    
 
     def build(self) -> GetTaskRequest:
         return self._get_task_request

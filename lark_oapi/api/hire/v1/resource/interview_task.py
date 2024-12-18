@@ -17,7 +17,8 @@ class InterviewTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListInterviewTaskRequest, option: Optional[RequestOption] = None) -> ListInterviewTaskResponse:
+    def list(self, request: ListInterviewTaskRequest,
+             option: Optional[RequestOption] = None) -> ListInterviewTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,26 @@ class InterviewTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: ListInterviewTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInterviewTaskResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListInterviewTaskRequest, option: Optional[RequestOption] = None) -> ListInterviewTaskResponse:
+    async def alist(self, request: ListInterviewTaskRequest,
+                    option: Optional[RequestOption] = None) -> ListInterviewTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: ListInterviewTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInterviewTaskResponse)
         response.raw = resp
 
         return response
-        
-    

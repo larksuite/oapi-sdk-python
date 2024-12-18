@@ -25,12 +25,14 @@ class QrCodeDimensionValue(object):
 class QrCodeDimensionValueBuilder(object):
     def __init__(self) -> None:
         self._qr_code_dimension_value = QrCodeDimensionValue()
+
     def dimension(self, dimension: QrCodeDimension) -> "QrCodeDimensionValueBuilder":
         self._qr_code_dimension_value.dimension = dimension
         return self
+
     def value(self, value: QrCodeValue) -> "QrCodeDimensionValueBuilder":
         self._qr_code_dimension_value.value = value
         return self
-    
+
     def build(self) -> "QrCodeDimensionValue":
         return self._qr_code_dimension_value

@@ -21,9 +21,10 @@ class CreateFileResponseBody(object):
 class CreateFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_file_response_body = CreateFileResponseBody()
+
     def file_key(self, file_key: str) -> "CreateFileResponseBodyBuilder":
         self._create_file_response_body.file_key = file_key
         return self
-    
+
     def build(self) -> "CreateFileResponseBody":
         return self._create_file_response_body

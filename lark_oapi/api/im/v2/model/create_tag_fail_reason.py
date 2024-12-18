@@ -21,9 +21,10 @@ class CreateTagFailReason(object):
 class CreateTagFailReasonBuilder(object):
     def __init__(self) -> None:
         self._create_tag_fail_reason = CreateTagFailReason()
+
     def duplicate_id(self, duplicate_id: str) -> "CreateTagFailReasonBuilder":
         self._create_tag_fail_reason.duplicate_id = duplicate_id
         return self
-    
+
     def build(self) -> "CreateTagFailReason":
         return self._create_tag_fail_reason

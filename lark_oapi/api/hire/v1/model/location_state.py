@@ -26,15 +26,18 @@ class LocationState(object):
 class LocationStateBuilder(object):
     def __init__(self) -> None:
         self._location_state = LocationState()
+
     def state_code(self, state_code: str) -> "LocationStateBuilder":
         self._location_state.state_code = state_code
         return self
+
     def country_code(self, country_code: str) -> "LocationStateBuilder":
         self._location_state.country_code = country_code
         return self
+
     def state_name_info(self, state_name_info: LocationNameInfo) -> "LocationStateBuilder":
         self._location_state.state_name_info = state_name_info
         return self
-    
+
     def build(self) -> "LocationState":
         return self._location_state

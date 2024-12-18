@@ -24,7 +24,7 @@ class CreateJobLevelRequestBuilder(object):
         create_job_level_request.uri = "/open-apis/contact/v3/job_levels"
         create_job_level_request.token_types = {AccessTokenType.TENANT}
         self._create_job_level_request: CreateJobLevelRequest = create_job_level_request
-    
+
     def request_body(self, request_body: JobLevel) -> "CreateJobLevelRequestBuilder":
         self._create_job_level_request.request_body = request_body
         self._create_job_level_request.body = request_body

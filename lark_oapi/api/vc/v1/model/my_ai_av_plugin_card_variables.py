@@ -21,9 +21,10 @@ class MyAiAvPluginCardVariables(object):
 class MyAiAvPluginCardVariablesBuilder(object):
     def __init__(self) -> None:
         self._my_ai_av_plugin_card_variables = MyAiAvPluginCardVariables()
+
     def content(self, content: str) -> "MyAiAvPluginCardVariablesBuilder":
         self._my_ai_av_plugin_card_variables.content = content
         return self
-    
+
     def build(self) -> "MyAiAvPluginCardVariables":
         return self._my_ai_av_plugin_card_variables

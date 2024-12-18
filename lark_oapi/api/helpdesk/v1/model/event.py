@@ -23,12 +23,14 @@ class Event(object):
 class EventBuilder(object):
     def __init__(self) -> None:
         self._event = Event()
+
     def type(self, type: str) -> "EventBuilder":
         self._event.type = type
         return self
+
     def subtype(self, subtype: str) -> "EventBuilder":
         self._event.subtype = subtype
         return self
-    
+
     def build(self) -> "Event":
         return self._event

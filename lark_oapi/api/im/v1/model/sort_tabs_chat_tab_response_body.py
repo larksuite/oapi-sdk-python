@@ -22,9 +22,10 @@ class SortTabsChatTabResponseBody(object):
 class SortTabsChatTabResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._sort_tabs_chat_tab_response_body = SortTabsChatTabResponseBody()
+
     def chat_tabs(self, chat_tabs: List[ChatTab]) -> "SortTabsChatTabResponseBodyBuilder":
         self._sort_tabs_chat_tab_response_body.chat_tabs = chat_tabs
         return self
-    
+
     def build(self) -> "SortTabsChatTabResponseBody":
         return self._sort_tabs_chat_tab_response_body

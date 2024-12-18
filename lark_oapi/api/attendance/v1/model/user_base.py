@@ -23,12 +23,14 @@ class UserBase(object):
 class UserBaseBuilder(object):
     def __init__(self) -> None:
         self._user_base = UserBase()
+
     def user_id(self, user_id: str) -> "UserBaseBuilder":
         self._user_base.user_id = user_id
         return self
+
     def department_ids(self, department_ids: List[str]) -> "UserBaseBuilder":
         self._user_base.department_ids = department_ids
         return self
-    
+
     def build(self) -> "UserBase":
         return self._user_base

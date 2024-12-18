@@ -40,33 +40,42 @@ class SecurityGroup(object):
 class SecurityGroupBuilder(object):
     def __init__(self) -> None:
         self._security_group = SecurityGroup()
+
     def id(self, id: str) -> "SecurityGroupBuilder":
         self._security_group.id = id
         return self
+
     def code(self, code: str) -> "SecurityGroupBuilder":
         self._security_group.code = code
         return self
+
     def name(self, name: Name) -> "SecurityGroupBuilder":
         self._security_group.name = name
         return self
+
     def active_status(self, active_status: int) -> "SecurityGroupBuilder":
         self._security_group.active_status = active_status
         return self
+
     def description(self, description: Name) -> "SecurityGroupBuilder":
         self._security_group.description = description
         return self
+
     def group_type(self, group_type: int) -> "SecurityGroupBuilder":
         self._security_group.group_type = group_type
         return self
+
     def created_by(self, created_by: str) -> "SecurityGroupBuilder":
         self._security_group.created_by = created_by
         return self
+
     def update_time(self, update_time: str) -> "SecurityGroupBuilder":
         self._security_group.update_time = update_time
         return self
+
     def org_truncation(self, org_truncation: List[OrgTruncation]) -> "SecurityGroupBuilder":
         self._security_group.org_truncation = org_truncation
         return self
-    
+
     def build(self) -> "SecurityGroup":
         return self._security_group

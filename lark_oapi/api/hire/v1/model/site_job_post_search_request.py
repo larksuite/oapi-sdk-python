@@ -31,24 +31,30 @@ class SiteJobPostSearchRequest(object):
 class SiteJobPostSearchRequestBuilder(object):
     def __init__(self) -> None:
         self._site_job_post_search_request = SiteJobPostSearchRequest()
+
     def keyword(self, keyword: str) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.keyword = keyword
         return self
+
     def offset(self, offset: int) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.offset = offset
         return self
+
     def limit(self, limit: int) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.limit = limit
         return self
+
     def job_type_id_list(self, job_type_id_list: List[str]) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.job_type_id_list = job_type_id_list
         return self
+
     def city_code_list(self, city_code_list: List[str]) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.city_code_list = city_code_list
         return self
+
     def site_id(self, site_id: str) -> "SiteJobPostSearchRequestBuilder":
         self._site_job_post_search_request.site_id = site_id
         return self
-    
+
     def build(self) -> "SiteJobPostSearchRequest":
         return self._site_job_post_search_request

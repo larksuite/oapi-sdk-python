@@ -26,15 +26,19 @@ class AppTableViewPropertyFilterInfo(object):
 class AppTableViewPropertyFilterInfoBuilder(object):
     def __init__(self) -> None:
         self._app_table_view_property_filter_info = AppTableViewPropertyFilterInfo()
+
     def conjunction(self, conjunction: str) -> "AppTableViewPropertyFilterInfoBuilder":
         self._app_table_view_property_filter_info.conjunction = conjunction
         return self
-    def conditions(self, conditions: List[AppTableViewPropertyFilterInfoCondition]) -> "AppTableViewPropertyFilterInfoBuilder":
+
+    def conditions(self, conditions: List[
+        AppTableViewPropertyFilterInfoCondition]) -> "AppTableViewPropertyFilterInfoBuilder":
         self._app_table_view_property_filter_info.conditions = conditions
         return self
+
     def condition_omitted(self, condition_omitted: bool) -> "AppTableViewPropertyFilterInfoBuilder":
         self._app_table_view_property_filter_info.condition_omitted = condition_omitted
         return self
-    
+
     def build(self) -> "AppTableViewPropertyFilterInfo":
         return self._app_table_view_property_filter_info

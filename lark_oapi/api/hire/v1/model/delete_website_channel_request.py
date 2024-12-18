@@ -24,17 +24,16 @@ class DeleteWebsiteChannelRequestBuilder(object):
         delete_website_channel_request.uri = "/open-apis/hire/v1/websites/:website_id/channels/:channel_id"
         delete_website_channel_request.token_types = {AccessTokenType.TENANT}
         self._delete_website_channel_request: DeleteWebsiteChannelRequest = delete_website_channel_request
-    
+
     def website_id(self, website_id: str) -> "DeleteWebsiteChannelRequestBuilder":
         self._delete_website_channel_request.website_id = website_id
         self._delete_website_channel_request.paths["website_id"] = str(website_id)
         return self
-    
+
     def channel_id(self, channel_id: str) -> "DeleteWebsiteChannelRequestBuilder":
         self._delete_website_channel_request.channel_id = channel_id
         self._delete_website_channel_request.paths["channel_id"] = str(channel_id)
         return self
-    
 
     def build(self) -> DeleteWebsiteChannelRequest:
         return self._delete_website_channel_request

@@ -27,7 +27,8 @@ class Export(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download(self, request: DownloadExportRequest, option: Optional[RequestOption] = None) -> DownloadExportResponse:
+    def download(self, request: DownloadExportRequest,
+                 option: Optional[RequestOption] = None) -> DownloadExportResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,7 +41,7 @@ class Export(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadExportResponse = DownloadExportResponse()
@@ -53,20 +54,18 @@ class Export(object):
 
         response.raw = resp
         return response
-        
 
-    async def adownload(self, request: DownloadExportRequest, option: Optional[RequestOption] = None) -> DownloadExportResponse:
+    async def adownload(self, request: DownloadExportRequest,
+                        option: Optional[RequestOption] = None) -> DownloadExportResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadExportResponse = DownloadExportResponse()
@@ -79,7 +78,7 @@ class Export(object):
 
         response.raw = resp
         return response
-        
+
     def get(self, request: GetExportRequest, option: Optional[RequestOption] = None) -> GetExportResponse:
         if option is None:
             option = RequestOption()
@@ -93,13 +92,12 @@ class Export(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: GetExportResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportResponse)
         response.raw = resp
 
         return response
-        
 
     async def aget(self, request: GetExportRequest, option: Optional[RequestOption] = None) -> GetExportResponse:
         if option is None:
@@ -108,18 +106,17 @@ class Export(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: GetExportResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportResponse)
         response.raw = resp
 
         return response
-        
-    def meeting_list(self, request: MeetingListExportRequest, option: Optional[RequestOption] = None) -> MeetingListExportResponse:
+
+    def meeting_list(self, request: MeetingListExportRequest,
+                     option: Optional[RequestOption] = None) -> MeetingListExportResponse:
         if option is None:
             option = RequestOption()
 
@@ -132,33 +129,32 @@ class Export(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: MeetingListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), MeetingListExportResponse)
         response.raw = resp
 
         return response
-        
 
-    async def ameeting_list(self, request: MeetingListExportRequest, option: Optional[RequestOption] = None) -> MeetingListExportResponse:
+    async def ameeting_list(self, request: MeetingListExportRequest,
+                            option: Optional[RequestOption] = None) -> MeetingListExportResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: MeetingListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), MeetingListExportResponse)
         response.raw = resp
 
         return response
-        
-    def participant_list(self, request: ParticipantListExportRequest, option: Optional[RequestOption] = None) -> ParticipantListExportResponse:
+
+    def participant_list(self, request: ParticipantListExportRequest,
+                         option: Optional[RequestOption] = None) -> ParticipantListExportResponse:
         if option is None:
             option = RequestOption()
 
@@ -171,33 +167,34 @@ class Export(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ParticipantListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ParticipantListExportResponse)
+        response: ParticipantListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 ParticipantListExportResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aparticipant_list(self, request: ParticipantListExportRequest, option: Optional[RequestOption] = None) -> ParticipantListExportResponse:
+    async def aparticipant_list(self, request: ParticipantListExportRequest,
+                                option: Optional[RequestOption] = None) -> ParticipantListExportResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ParticipantListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ParticipantListExportResponse)
+        response: ParticipantListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                 ParticipantListExportResponse)
         response.raw = resp
 
         return response
-        
-    def participant_quality_list(self, request: ParticipantQualityListExportRequest, option: Optional[RequestOption] = None) -> ParticipantQualityListExportResponse:
+
+    def participant_quality_list(self, request: ParticipantQualityListExportRequest,
+                                 option: Optional[RequestOption] = None) -> ParticipantQualityListExportResponse:
         if option is None:
             option = RequestOption()
 
@@ -210,33 +207,34 @@ class Export(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ParticipantQualityListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ParticipantQualityListExportResponse)
+        response: ParticipantQualityListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        ParticipantQualityListExportResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aparticipant_quality_list(self, request: ParticipantQualityListExportRequest, option: Optional[RequestOption] = None) -> ParticipantQualityListExportResponse:
+    async def aparticipant_quality_list(self, request: ParticipantQualityListExportRequest,
+                                        option: Optional[RequestOption] = None) -> ParticipantQualityListExportResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ParticipantQualityListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ParticipantQualityListExportResponse)
+        response: ParticipantQualityListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        ParticipantQualityListExportResponse)
         response.raw = resp
 
         return response
-        
-    def resource_reservation_list(self, request: ResourceReservationListExportRequest, option: Optional[RequestOption] = None) -> ResourceReservationListExportResponse:
+
+    def resource_reservation_list(self, request: ResourceReservationListExportRequest,
+                                  option: Optional[RequestOption] = None) -> ResourceReservationListExportResponse:
         if option is None:
             option = RequestOption()
 
@@ -249,30 +247,28 @@ class Export(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ResourceReservationListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ResourceReservationListExportResponse)
+        response: ResourceReservationListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         ResourceReservationListExportResponse)
         response.raw = resp
 
         return response
-        
 
-    async def aresource_reservation_list(self, request: ResourceReservationListExportRequest, option: Optional[RequestOption] = None) -> ResourceReservationListExportResponse:
+    async def aresource_reservation_list(self, request: ResourceReservationListExportRequest, option: Optional[
+        RequestOption] = None) -> ResourceReservationListExportResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ResourceReservationListExportResponse = JSON.unmarshal(str(resp.content, UTF_8), ResourceReservationListExportResponse)
+        response: ResourceReservationListExportResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                         ResourceReservationListExportResponse)
         response.raw = resp
 
         return response
-        
-    

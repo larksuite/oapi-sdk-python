@@ -39,36 +39,46 @@ class ListChat(object):
 class ListChatBuilder(object):
     def __init__(self) -> None:
         self._list_chat = ListChat()
+
     def chat_id(self, chat_id: str) -> "ListChatBuilder":
         self._list_chat.chat_id = chat_id
         return self
+
     def avatar(self, avatar: str) -> "ListChatBuilder":
         self._list_chat.avatar = avatar
         return self
+
     def name(self, name: str) -> "ListChatBuilder":
         self._list_chat.name = name
         return self
+
     def description(self, description: str) -> "ListChatBuilder":
         self._list_chat.description = description
         return self
+
     def owner_id(self, owner_id: str) -> "ListChatBuilder":
         self._list_chat.owner_id = owner_id
         return self
+
     def owner_id_type(self, owner_id_type: str) -> "ListChatBuilder":
         self._list_chat.owner_id_type = owner_id_type
         return self
+
     def external(self, external: bool) -> "ListChatBuilder":
         self._list_chat.external = external
         return self
+
     def tenant_key(self, tenant_key: str) -> "ListChatBuilder":
         self._list_chat.tenant_key = tenant_key
         return self
+
     def labels(self, labels: List[str]) -> "ListChatBuilder":
         self._list_chat.labels = labels
         return self
+
     def chat_status(self, chat_status: str) -> "ListChatBuilder":
         self._list_chat.chat_status = chat_status
         return self
-    
+
     def build(self) -> "ListChat":
         return self._list_chat

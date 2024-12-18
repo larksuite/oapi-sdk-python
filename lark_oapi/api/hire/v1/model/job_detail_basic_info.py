@@ -96,102 +96,134 @@ class JobDetailBasicInfo(object):
 class JobDetailBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._job_detail_basic_info = JobDetailBasicInfo()
+
     def id(self, id: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.id = id
         return self
+
     def title(self, title: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.title = title
         return self
+
     def description(self, description: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.description = description
         return self
+
     def code(self, code: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.code = code
         return self
+
     def requirement(self, requirement: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.requirement = requirement
         return self
+
     def recruitment_type(self, recruitment_type: JobDetailRecruitmentType) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.recruitment_type = recruitment_type
         return self
+
     def department(self, department: JobDetailDepartment) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.department = department
         return self
+
     def min_job_level(self, min_job_level: JobDetailLevel) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.min_job_level = min_job_level
         return self
+
     def max_job_level(self, max_job_level: JobDetailLevel) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.max_job_level = max_job_level
         return self
+
     def highlight_list(self, highlight_list: List[JobDetailHighlight]) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.highlight_list = highlight_list
         return self
+
     def job_category(self, job_category: JobDetailCategory) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.job_category = job_category
         return self
+
     def job_type(self, job_type: JobDetailType) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.job_type = job_type
         return self
+
     def active_status(self, active_status: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.active_status = active_status
         return self
+
     def creator_id(self, creator_id: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.creator_id = creator_id
         return self
+
     def create_time(self, create_time: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.create_time = create_time
         return self
+
     def update_time(self, update_time: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.update_time = update_time
         return self
+
     def process_type(self, process_type: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.process_type = process_type
         return self
+
     def process_id(self, process_id: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.process_id = process_id
         return self
+
     def process_name(self, process_name: I18n) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.process_name = process_name
         return self
+
     def customized_data_list(self, customized_data_list: List[JobCustomizedData]) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.customized_data_list = customized_data_list
         return self
+
     def job_function(self, job_function: IdNameObject) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.job_function = job_function
         return self
+
     def subject(self, subject: IdNameObject) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.subject = subject
         return self
+
     def head_count(self, head_count: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.head_count = head_count
         return self
+
     def experience(self, experience: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.experience = experience
         return self
+
     def expiry_time(self, expiry_time: str) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.expiry_time = expiry_time
         return self
+
     def min_salary(self, min_salary: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.min_salary = min_salary
         return self
+
     def max_salary(self, max_salary: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.max_salary = max_salary
         return self
+
     def required_degree(self, required_degree: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.required_degree = required_degree
         return self
+
     def city_list(self, city_list: List[CodeNameObject]) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.city_list = city_list
         return self
+
     def job_attribute(self, job_attribute: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.job_attribute = job_attribute
         return self
+
     def target_major_list(self, target_major_list: List[JobDetailTargetMajorInfo]) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.target_major_list = target_major_list
         return self
+
     def storefront_mode(self, storefront_mode: int) -> "JobDetailBasicInfoBuilder":
         self._job_detail_basic_info.storefront_mode = storefront_mode
         return self
-    
+
     def build(self) -> "JobDetailBasicInfo":
         return self._job_detail_basic_info

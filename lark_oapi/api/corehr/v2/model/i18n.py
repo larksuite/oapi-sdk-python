@@ -23,12 +23,14 @@ class I18n(object):
 class I18nBuilder(object):
     def __init__(self) -> None:
         self._i18n = I18n()
+
     def lang(self, lang: str) -> "I18nBuilder":
         self._i18n.lang = lang
         return self
+
     def value(self, value: str) -> "I18nBuilder":
         self._i18n.value = value
         return self
-    
+
     def build(self) -> "I18n":
         return self._i18n

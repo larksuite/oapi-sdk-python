@@ -23,12 +23,14 @@ class AilyKnowledgeHelpdesk(object):
 class AilyKnowledgeHelpdeskBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_helpdesk = AilyKnowledgeHelpdesk()
+
     def helpdesk_id(self, helpdesk_id: str) -> "AilyKnowledgeHelpdeskBuilder":
         self._aily_knowledge_helpdesk.helpdesk_id = helpdesk_id
         return self
+
     def title(self, title: str) -> "AilyKnowledgeHelpdeskBuilder":
         self._aily_knowledge_helpdesk.title = title
         return self
-    
+
     def build(self) -> "AilyKnowledgeHelpdesk":
         return self._aily_knowledge_helpdesk

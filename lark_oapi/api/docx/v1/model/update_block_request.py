@@ -69,57 +69,75 @@ class UpdateBlockRequest(object):
 class UpdateBlockRequestBuilder(object):
     def __init__(self) -> None:
         self._update_block_request = UpdateBlockRequest()
+
     def update_text_elements(self, update_text_elements: UpdateTextElementsRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_text_elements = update_text_elements
         return self
+
     def update_text_style(self, update_text_style: UpdateTextStyleRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_text_style = update_text_style
         return self
+
     def update_table_property(self, update_table_property: UpdateTablePropertyRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_table_property = update_table_property
         return self
+
     def insert_table_row(self, insert_table_row: InsertTableRowRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.insert_table_row = insert_table_row
         return self
+
     def insert_table_column(self, insert_table_column: InsertTableColumnRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.insert_table_column = insert_table_column
         return self
+
     def delete_table_rows(self, delete_table_rows: DeleteTableRowsRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.delete_table_rows = delete_table_rows
         return self
+
     def delete_table_columns(self, delete_table_columns: DeleteTableColumnsRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.delete_table_columns = delete_table_columns
         return self
+
     def merge_table_cells(self, merge_table_cells: MergeTableCellsRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.merge_table_cells = merge_table_cells
         return self
+
     def unmerge_table_cells(self, unmerge_table_cells: UnmergeTableCellsRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.unmerge_table_cells = unmerge_table_cells
         return self
+
     def insert_grid_column(self, insert_grid_column: InsertGridColumnRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.insert_grid_column = insert_grid_column
         return self
+
     def delete_grid_column(self, delete_grid_column: DeleteGridColumnRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.delete_grid_column = delete_grid_column
         return self
-    def update_grid_column_width_ratio(self, update_grid_column_width_ratio: UpdateGridColumnWidthRatioRequest) -> "UpdateBlockRequestBuilder":
+
+    def update_grid_column_width_ratio(self,
+                                       update_grid_column_width_ratio: UpdateGridColumnWidthRatioRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_grid_column_width_ratio = update_grid_column_width_ratio
         return self
+
     def replace_image(self, replace_image: ReplaceImageRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.replace_image = replace_image
         return self
+
     def replace_file(self, replace_file: ReplaceFileRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.replace_file = replace_file
         return self
+
     def block_id(self, block_id: str) -> "UpdateBlockRequestBuilder":
         self._update_block_request.block_id = block_id
         return self
+
     def update_text(self, update_text: UpdateTextRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_text = update_text
         return self
+
     def update_task(self, update_task: UpdateTaskRequest) -> "UpdateBlockRequestBuilder":
         self._update_block_request.update_task = update_task
         return self
-    
+
     def build(self) -> "UpdateBlockRequest":
         return self._update_block_request

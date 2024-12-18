@@ -26,18 +26,19 @@ class GetLeaveEmployExpireRecordRequestBuilder(object):
         get_leave_employ_expire_record_request.uri = "/open-apis/attendance/v1/leave_employ_expire_records/:leave_id"
         get_leave_employ_expire_record_request.token_types = {AccessTokenType.TENANT}
         self._get_leave_employ_expire_record_request: GetLeaveEmployExpireRecordRequest = get_leave_employ_expire_record_request
-    
+
     def user_id_type(self, user_id_type: str) -> "GetLeaveEmployExpireRecordRequestBuilder":
         self._get_leave_employ_expire_record_request.user_id_type = user_id_type
         self._get_leave_employ_expire_record_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def leave_id(self, leave_id: str) -> "GetLeaveEmployExpireRecordRequestBuilder":
         self._get_leave_employ_expire_record_request.leave_id = leave_id
         self._get_leave_employ_expire_record_request.paths["leave_id"] = str(leave_id)
         return self
-    
-    def request_body(self, request_body: GetLeaveEmployExpireRecordRequestBody) -> "GetLeaveEmployExpireRecordRequestBuilder":
+
+    def request_body(self,
+                     request_body: GetLeaveEmployExpireRecordRequestBody) -> "GetLeaveEmployExpireRecordRequestBuilder":
         self._get_leave_employ_expire_record_request.request_body = request_body
         self._get_leave_employ_expire_record_request.body = request_body
         return self

@@ -23,12 +23,14 @@ class VehicleEntity(object):
 class VehicleEntityBuilder(object):
     def __init__(self) -> None:
         self._vehicle_entity = VehicleEntity()
+
     def type(self, type: str) -> "VehicleEntityBuilder":
         self._vehicle_entity.type = type
         return self
+
     def value(self, value: str) -> "VehicleEntityBuilder":
         self._vehicle_entity.value = value
         return self
-    
+
     def build(self) -> "VehicleEntity":
         return self._vehicle_entity

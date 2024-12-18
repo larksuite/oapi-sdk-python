@@ -30,21 +30,26 @@ class SocialInsurance(object):
 class SocialInsuranceBuilder(object):
     def __init__(self) -> None:
         self._social_insurance = SocialInsurance()
+
     def id(self, id: str) -> "SocialInsuranceBuilder":
         self._social_insurance.id = id
         return self
+
     def name(self, name: I18n) -> "SocialInsuranceBuilder":
         self._social_insurance.name = name
         return self
+
     def insurance_type(self, insurance_type: str) -> "SocialInsuranceBuilder":
         self._social_insurance.insurance_type = insurance_type
         return self
+
     def active(self, active: bool) -> "SocialInsuranceBuilder":
         self._social_insurance.active = active
         return self
+
     def is_system(self, is_system: bool) -> "SocialInsuranceBuilder":
         self._social_insurance.is_system = is_system
         return self
-    
+
     def build(self) -> "SocialInsurance":
         return self._social_insurance

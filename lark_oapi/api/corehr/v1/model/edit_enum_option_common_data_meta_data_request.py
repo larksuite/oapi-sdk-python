@@ -25,13 +25,14 @@ class EditEnumOptionCommonDataMetaDataRequestBuilder(object):
         edit_enum_option_common_data_meta_data_request.uri = "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option"
         edit_enum_option_common_data_meta_data_request.token_types = {AccessTokenType.TENANT}
         self._edit_enum_option_common_data_meta_data_request: EditEnumOptionCommonDataMetaDataRequest = edit_enum_option_common_data_meta_data_request
-    
+
     def client_token(self, client_token: str) -> "EditEnumOptionCommonDataMetaDataRequestBuilder":
         self._edit_enum_option_common_data_meta_data_request.client_token = client_token
         self._edit_enum_option_common_data_meta_data_request.add_query("client_token", client_token)
         return self
-    
-    def request_body(self, request_body: EditEnumOptionCommonDataMetaDataRequestBody) -> "EditEnumOptionCommonDataMetaDataRequestBuilder":
+
+    def request_body(self,
+                     request_body: EditEnumOptionCommonDataMetaDataRequestBody) -> "EditEnumOptionCommonDataMetaDataRequestBuilder":
         self._edit_enum_option_common_data_meta_data_request.request_body = request_body
         self._edit_enum_option_common_data_meta_data_request.body = request_body
         return self

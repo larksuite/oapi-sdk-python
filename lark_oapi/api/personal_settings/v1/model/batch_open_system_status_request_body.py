@@ -22,9 +22,10 @@ class BatchOpenSystemStatusRequestBody(object):
 class BatchOpenSystemStatusRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_open_system_status_request_body = BatchOpenSystemStatusRequestBody()
+
     def user_list(self, user_list: List[SystemStatusUserOpenParam]) -> "BatchOpenSystemStatusRequestBodyBuilder":
         self._batch_open_system_status_request_body.user_list = user_list
         return self
-    
+
     def build(self) -> "BatchOpenSystemStatusRequestBody":
         return self._batch_open_system_status_request_body

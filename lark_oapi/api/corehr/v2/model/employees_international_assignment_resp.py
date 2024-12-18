@@ -76,84 +76,114 @@ class EmployeesInternationalAssignmentResp(object):
 class EmployeesInternationalAssignmentRespBuilder(object):
     def __init__(self) -> None:
         self._employees_international_assignment_resp = EmployeesInternationalAssignmentResp()
+
     def work_location_id(self, work_location_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.work_location_id = work_location_id
         return self
+
     def service_company(self, service_company: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.service_company = service_company
         return self
+
     def work_shift(self, work_shift: Enum) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.work_shift = work_shift
         return self
+
     def working_hours_type_id(self, working_hours_type_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.working_hours_type_id = working_hours_type_id
         return self
+
     def employee_type_id(self, employee_type_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.employee_type_id = employee_type_id
         return self
+
     def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.weekly_working_hours_v2 = weekly_working_hours_v2
         return self
+
     def department_id(self, department_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.department_id = department_id
         return self
+
     def job_id(self, job_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.job_id = job_id
         return self
+
     def job_family_id(self, job_family_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.job_family_id = job_family_id
         return self
+
     def job_level_id(self, job_level_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.job_level_id = job_level_id
         return self
+
     def job_grade_id(self, job_grade_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.job_grade_id = job_grade_id
         return self
+
     def compensation_type(self, compensation_type: Enum) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.compensation_type = compensation_type
         return self
+
     def direct_manager_id(self, direct_manager_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.direct_manager_id = direct_manager_id
         return self
+
     def dotted_line_manager_id(self, dotted_line_manager_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.dotted_line_manager_id = dotted_line_manager_id
         return self
+
     def work_calendar_id(self, work_calendar_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.work_calendar_id = work_calendar_id
         return self
+
     def position_id(self, position_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.position_id = position_id
         return self
+
     def employment_id(self, employment_id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.employment_id = employment_id
         return self
+
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.custom_fields = custom_fields
         return self
-    def international_assignment_reason(self, international_assignment_reason: str) -> "EmployeesInternationalAssignmentRespBuilder":
+
+    def international_assignment_reason(self,
+                                        international_assignment_reason: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.international_assignment_reason = international_assignment_reason
         return self
+
     def description(self, description: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.description = description
         return self
-    def international_assignment_expected_end_date(self, international_assignment_expected_end_date: str) -> "EmployeesInternationalAssignmentRespBuilder":
+
+    def international_assignment_expected_end_date(self,
+                                                   international_assignment_expected_end_date: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.international_assignment_expected_end_date = international_assignment_expected_end_date
         return self
-    def international_assignment_status(self, international_assignment_status: Enum) -> "EmployeesInternationalAssignmentRespBuilder":
+
+    def international_assignment_status(self,
+                                        international_assignment_status: Enum) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.international_assignment_status = international_assignment_status
         return self
-    def international_assignment_type(self, international_assignment_type: Enum) -> "EmployeesInternationalAssignmentRespBuilder":
+
+    def international_assignment_type(self,
+                                      international_assignment_type: Enum) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.international_assignment_type = international_assignment_type
         return self
+
     def effective_time(self, effective_time: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.effective_time = effective_time
         return self
+
     def expiration_time(self, expiration_time: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.expiration_time = expiration_time
         return self
+
     def id(self, id: str) -> "EmployeesInternationalAssignmentRespBuilder":
         self._employees_international_assignment_resp.id = id
         return self
-    
+
     def build(self) -> "EmployeesInternationalAssignmentResp":
         return self._employees_international_assignment_resp

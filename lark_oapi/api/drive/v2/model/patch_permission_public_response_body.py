@@ -22,9 +22,10 @@ class PatchPermissionPublicResponseBody(object):
 class PatchPermissionPublicResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_permission_public_response_body = PatchPermissionPublicResponseBody()
+
     def permission_public(self, permission_public: PermissionPublic) -> "PatchPermissionPublicResponseBodyBuilder":
         self._patch_permission_public_response_body.permission_public = permission_public
         return self
-    
+
     def build(self) -> "PatchPermissionPublicResponseBody":
         return self._patch_permission_public_response_body

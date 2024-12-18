@@ -26,15 +26,18 @@ class ApplicationResumeSource(object):
 class ApplicationResumeSourceBuilder(object):
     def __init__(self) -> None:
         self._application_resume_source = ApplicationResumeSource()
+
     def id(self, id: str) -> "ApplicationResumeSourceBuilder":
         self._application_resume_source.id = id
         return self
+
     def name(self, name: I18n) -> "ApplicationResumeSourceBuilder":
         self._application_resume_source.name = name
         return self
+
     def resume_source_type(self, resume_source_type: int) -> "ApplicationResumeSourceBuilder":
         self._application_resume_source.resume_source_type = resume_source_type
         return self
-    
+
     def build(self) -> "ApplicationResumeSource":
         return self._application_resume_source

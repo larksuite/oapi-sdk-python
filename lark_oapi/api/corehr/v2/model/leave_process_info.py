@@ -25,15 +25,18 @@ class LeaveProcessInfo(object):
 class LeaveProcessInfoBuilder(object):
     def __init__(self) -> None:
         self._leave_process_info = LeaveProcessInfo()
+
     def process_id(self, process_id: str) -> "LeaveProcessInfoBuilder":
         self._leave_process_info.process_id = process_id
         return self
+
     def process_status(self, process_status: str) -> "LeaveProcessInfoBuilder":
         self._leave_process_info.process_status = process_status
         return self
+
     def process_apply_time(self, process_apply_time: str) -> "LeaveProcessInfoBuilder":
         self._leave_process_info.process_apply_time = process_apply_time
         return self
-    
+
     def build(self) -> "LeaveProcessInfo":
         return self._leave_process_info

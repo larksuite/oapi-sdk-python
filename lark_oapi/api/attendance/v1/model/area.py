@@ -29,18 +29,22 @@ class Area(object):
 class AreaBuilder(object):
     def __init__(self) -> None:
         self._area = Area()
+
     def type(self, type: str) -> "AreaBuilder":
         self._area.type = type
         return self
+
     def center(self, center: Coordinate) -> "AreaBuilder":
         self._area.center = center
         return self
+
     def radius(self, radius: int) -> "AreaBuilder":
         self._area.radius = radius
         return self
+
     def coords(self, coords: List[Coordinate]) -> "AreaBuilder":
         self._area.coords = coords
         return self
-    
+
     def build(self) -> "Area":
         return self._area

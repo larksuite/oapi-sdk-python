@@ -26,15 +26,18 @@ class ListSecurityGroupResponseBody(object):
 class ListSecurityGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_security_group_response_body = ListSecurityGroupResponseBody()
+
     def items(self, items: List[SecurityGroup]) -> "ListSecurityGroupResponseBodyBuilder":
         self._list_security_group_response_body.items = items
         return self
+
     def has_more(self, has_more: bool) -> "ListSecurityGroupResponseBodyBuilder":
         self._list_security_group_response_body.has_more = has_more
         return self
+
     def page_token(self, page_token: str) -> "ListSecurityGroupResponseBodyBuilder":
         self._list_security_group_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListSecurityGroupResponseBody":
         return self._list_security_group_response_body

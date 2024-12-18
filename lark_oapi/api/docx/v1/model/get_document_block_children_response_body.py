@@ -26,15 +26,18 @@ class GetDocumentBlockChildrenResponseBody(object):
 class GetDocumentBlockChildrenResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_document_block_children_response_body = GetDocumentBlockChildrenResponseBody()
+
     def items(self, items: List[Block]) -> "GetDocumentBlockChildrenResponseBodyBuilder":
         self._get_document_block_children_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "GetDocumentBlockChildrenResponseBodyBuilder":
         self._get_document_block_children_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "GetDocumentBlockChildrenResponseBodyBuilder":
         self._get_document_block_children_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "GetDocumentBlockChildrenResponseBody":
         return self._get_document_block_children_response_body

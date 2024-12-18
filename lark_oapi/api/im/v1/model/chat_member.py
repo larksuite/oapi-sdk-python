@@ -21,9 +21,10 @@ class ChatMember(object):
 class ChatMemberBuilder(object):
     def __init__(self) -> None:
         self._chat_member = ChatMember()
+
     def user_id(self, user_id: str) -> "ChatMemberBuilder":
         self._chat_member.user_id = user_id
         return self
-    
+
     def build(self) -> "ChatMember":
         return self._chat_member

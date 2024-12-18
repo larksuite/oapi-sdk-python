@@ -21,9 +21,10 @@ class PatchAgentRequestBody(object):
 class PatchAgentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_agent_request_body = PatchAgentRequestBody()
+
     def status(self, status: int) -> "PatchAgentRequestBodyBuilder":
         self._patch_agent_request_body.status = status
         return self
-    
+
     def build(self) -> "PatchAgentRequestBody":
         return self._patch_agent_request_body

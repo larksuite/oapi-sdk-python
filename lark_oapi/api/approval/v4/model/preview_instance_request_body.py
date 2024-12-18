@@ -33,27 +33,34 @@ class PreviewInstanceRequestBody(object):
 class PreviewInstanceRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._preview_instance_request_body = PreviewInstanceRequestBody()
+
     def user_id(self, user_id: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.user_id = user_id
         return self
+
     def approval_code(self, approval_code: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.approval_code = approval_code
         return self
+
     def department_id(self, department_id: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.department_id = department_id
         return self
+
     def form(self, form: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.form = form
         return self
+
     def instance_code(self, instance_code: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.instance_code = instance_code
         return self
+
     def locale(self, locale: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.locale = locale
         return self
+
     def task_id(self, task_id: str) -> "PreviewInstanceRequestBodyBuilder":
         self._preview_instance_request_body.task_id = task_id
         return self
-    
+
     def build(self) -> "PreviewInstanceRequestBody":
         return self._preview_instance_request_body

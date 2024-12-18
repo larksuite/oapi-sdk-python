@@ -24,12 +24,14 @@ class ListEntityResponseBody(object):
 class ListEntityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_entity_response_body = ListEntityResponseBody()
+
     def entities(self, entities: List[Entity]) -> "ListEntityResponseBodyBuilder":
         self._list_entity_response_body.entities = entities
         return self
+
     def page_token(self, page_token: str) -> "ListEntityResponseBodyBuilder":
         self._list_entity_response_body.page_token = page_token
         return self
-    
+
     def build(self) -> "ListEntityResponseBody":
         return self._list_entity_response_body

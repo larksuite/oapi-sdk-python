@@ -22,9 +22,10 @@ class ListWhiteboardNodeResponseBody(object):
 class ListWhiteboardNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_whiteboard_node_response_body = ListWhiteboardNodeResponseBody()
+
     def nodes(self, nodes: List[WhiteboardNode]) -> "ListWhiteboardNodeResponseBodyBuilder":
         self._list_whiteboard_node_response_body.nodes = nodes
         return self
-    
+
     def build(self) -> "ListWhiteboardNodeResponseBody":
         return self._list_whiteboard_node_response_body

@@ -25,15 +25,18 @@ class Condition(object):
 class ConditionBuilder(object):
     def __init__(self) -> None:
         self._condition = Condition()
+
     def filter_type(self, filter_type: str) -> "ConditionBuilder":
         self._condition.filter_type = filter_type
         return self
+
     def compare_type(self, compare_type: str) -> "ConditionBuilder":
         self._condition.compare_type = compare_type
         return self
+
     def expected(self, expected: List[str]) -> "ConditionBuilder":
         self._condition.expected = expected
         return self
-    
+
     def build(self) -> "Condition":
         return self._condition

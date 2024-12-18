@@ -22,9 +22,10 @@ class CreateWebsiteSiteUserResponseBody(object):
 class CreateWebsiteSiteUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_website_site_user_response_body = CreateWebsiteSiteUserResponseBody()
+
     def site_user(self, site_user: WebsiteUser) -> "CreateWebsiteSiteUserResponseBodyBuilder":
         self._create_website_site_user_response_body.site_user = site_user
         return self
-    
+
     def build(self) -> "CreateWebsiteSiteUserResponseBody":
         return self._create_website_site_user_response_body

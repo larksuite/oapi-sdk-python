@@ -21,9 +21,10 @@ class RecognizeBusinessLicenseRequestBody(object):
 class RecognizeBusinessLicenseRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_business_license_request_body = RecognizeBusinessLicenseRequestBody()
+
     def file(self, file: IO[Any]) -> "RecognizeBusinessLicenseRequestBodyBuilder":
         self._recognize_business_license_request_body.file = file
         return self
-    
+
     def build(self) -> "RecognizeBusinessLicenseRequestBody":
         return self._recognize_business_license_request_body

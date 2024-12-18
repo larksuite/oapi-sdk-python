@@ -29,21 +29,26 @@ class BatchGetIdTalentRequestBody(object):
 class BatchGetIdTalentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_id_talent_request_body = BatchGetIdTalentRequestBody()
+
     def mobile_code(self, mobile_code: str) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.mobile_code = mobile_code
         return self
+
     def mobile_number_list(self, mobile_number_list: List[str]) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.mobile_number_list = mobile_number_list
         return self
+
     def email_list(self, email_list: List[str]) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.email_list = email_list
         return self
+
     def identification_type(self, identification_type: int) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.identification_type = identification_type
         return self
+
     def identification_number_list(self, identification_number_list: List[str]) -> "BatchGetIdTalentRequestBodyBuilder":
         self._batch_get_id_talent_request_body.identification_number_list = identification_number_list
         return self
-    
+
     def build(self) -> "BatchGetIdTalentRequestBody":
         return self._batch_get_id_talent_request_body

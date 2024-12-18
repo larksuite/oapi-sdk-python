@@ -32,24 +32,30 @@ class Reminder(object):
 class ReminderBuilder(object):
     def __init__(self) -> None:
         self._reminder = Reminder()
+
     def create_user_id(self, create_user_id: str) -> "ReminderBuilder":
         self._reminder.create_user_id = create_user_id
         return self
+
     def is_notify(self, is_notify: bool) -> "ReminderBuilder":
         self._reminder.is_notify = is_notify
         return self
+
     def is_whole_day(self, is_whole_day: bool) -> "ReminderBuilder":
         self._reminder.is_whole_day = is_whole_day
         return self
+
     def expire_time(self, expire_time: int) -> "ReminderBuilder":
         self._reminder.expire_time = expire_time
         return self
+
     def notify_time(self, notify_time: int) -> "ReminderBuilder":
         self._reminder.notify_time = notify_time
         return self
+
     def text_element_style(self, text_element_style: TextElementStyle) -> "ReminderBuilder":
         self._reminder.text_element_style = text_element_style
         return self
-    
+
     def build(self) -> "Reminder":
         return self._reminder

@@ -23,12 +23,14 @@ class Accessibility(object):
 class AccessibilityBuilder(object):
     def __init__(self) -> None:
         self._accessibility = Accessibility()
+
     def reason(self, reason: str) -> "AccessibilityBuilder":
         self._accessibility.reason = reason
         return self
+
     def state(self, state: str) -> "AccessibilityBuilder":
         self._accessibility.state = state
         return self
-    
+
     def build(self) -> "Accessibility":
         return self._accessibility

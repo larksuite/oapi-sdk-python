@@ -29,21 +29,26 @@ class Person(object):
 class PersonBuilder(object):
     def __init__(self) -> None:
         self._person = Person()
+
     def id(self, id: str) -> "PersonBuilder":
         self._person.id = id
         return self
+
     def name(self, name: str) -> "PersonBuilder":
         self._person.name = name
         return self
+
     def en_name(self, en_name: str) -> "PersonBuilder":
         self._person.en_name = en_name
         return self
+
     def email(self, email: str) -> "PersonBuilder":
         self._person.email = email
         return self
+
     def avatar_url(self, avatar_url: str) -> "PersonBuilder":
         self._person.avatar_url = avatar_url
         return self
-    
+
     def build(self) -> "Person":
         return self._person

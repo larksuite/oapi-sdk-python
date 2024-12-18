@@ -23,12 +23,14 @@ class SearchBasicInfoLanguageRequestBody(object):
 class SearchBasicInfoLanguageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_language_request_body = SearchBasicInfoLanguageRequestBody()
+
     def language_id_list(self, language_id_list: List[str]) -> "SearchBasicInfoLanguageRequestBodyBuilder":
         self._search_basic_info_language_request_body.language_id_list = language_id_list
         return self
+
     def status_list(self, status_list: List[int]) -> "SearchBasicInfoLanguageRequestBodyBuilder":
         self._search_basic_info_language_request_body.status_list = status_list
         return self
-    
+
     def build(self) -> "SearchBasicInfoLanguageRequestBody":
         return self._search_basic_info_language_request_body

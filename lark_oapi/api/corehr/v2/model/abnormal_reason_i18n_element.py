@@ -24,12 +24,14 @@ class AbnormalReasonI18nElement(object):
 class AbnormalReasonI18nElementBuilder(object):
     def __init__(self) -> None:
         self._abnormal_reason_i18n_element = AbnormalReasonI18nElement()
+
     def lang(self, lang: str) -> "AbnormalReasonI18nElementBuilder":
         self._abnormal_reason_i18n_element.lang = lang
         return self
+
     def elements(self, elements: List[AbnormalReasonElement]) -> "AbnormalReasonI18nElementBuilder":
         self._abnormal_reason_i18n_element.elements = elements
         return self
-    
+
     def build(self) -> "AbnormalReasonI18nElement":
         return self._abnormal_reason_i18n_element

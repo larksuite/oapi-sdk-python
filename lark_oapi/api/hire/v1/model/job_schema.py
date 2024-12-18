@@ -29,18 +29,22 @@ class JobSchema(object):
 class JobSchemaBuilder(object):
     def __init__(self) -> None:
         self._job_schema = JobSchema()
+
     def id(self, id: str) -> "JobSchemaBuilder":
         self._job_schema.id = id
         return self
+
     def name(self, name: I18n) -> "JobSchemaBuilder":
         self._job_schema.name = name
         return self
+
     def scenario_type(self, scenario_type: int) -> "JobSchemaBuilder":
         self._job_schema.scenario_type = scenario_type
         return self
+
     def object_list(self, object_list: List[CommonSchema]) -> "JobSchemaBuilder":
         self._job_schema.object_list = object_list
         return self
-    
+
     def build(self) -> "JobSchema":
         return self._job_schema

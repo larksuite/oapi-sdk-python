@@ -24,17 +24,16 @@ class DeleteLocationAddressRequestBuilder(object):
         delete_location_address_request.uri = "/open-apis/corehr/v2/locations/:location_id/addresses/:address_id"
         delete_location_address_request.token_types = {AccessTokenType.TENANT}
         self._delete_location_address_request: DeleteLocationAddressRequest = delete_location_address_request
-    
+
     def location_id(self, location_id: str) -> "DeleteLocationAddressRequestBuilder":
         self._delete_location_address_request.location_id = location_id
         self._delete_location_address_request.paths["location_id"] = str(location_id)
         return self
-    
+
     def address_id(self, address_id: str) -> "DeleteLocationAddressRequestBuilder":
         self._delete_location_address_request.address_id = address_id
         self._delete_location_address_request.paths["address_id"] = str(address_id)
         return self
-    
 
     def build(self) -> DeleteLocationAddressRequest:
         return self._delete_location_address_request

@@ -35,27 +35,34 @@ class Badge(object):
 class BadgeBuilder(object):
     def __init__(self) -> None:
         self._badge = Badge()
+
     def id(self, id: str) -> "BadgeBuilder":
         self._badge.id = id
         return self
+
     def name(self, name: str) -> "BadgeBuilder":
         self._badge.name = name
         return self
+
     def explanation(self, explanation: str) -> "BadgeBuilder":
         self._badge.explanation = explanation
         return self
+
     def detail_image(self, detail_image: str) -> "BadgeBuilder":
         self._badge.detail_image = detail_image
         return self
+
     def show_image(self, show_image: str) -> "BadgeBuilder":
         self._badge.show_image = show_image
         return self
+
     def i18n_name(self, i18n_name: I18n) -> "BadgeBuilder":
         self._badge.i18n_name = i18n_name
         return self
+
     def i18n_explanation(self, i18n_explanation: I18n) -> "BadgeBuilder":
         self._badge.i18n_explanation = i18n_explanation
         return self
-    
+
     def build(self) -> "Badge":
         return self._badge

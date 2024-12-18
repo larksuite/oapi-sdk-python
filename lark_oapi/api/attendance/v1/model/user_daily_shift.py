@@ -31,24 +31,30 @@ class UserDailyShift(object):
 class UserDailyShiftBuilder(object):
     def __init__(self) -> None:
         self._user_daily_shift = UserDailyShift()
+
     def group_id(self, group_id: str) -> "UserDailyShiftBuilder":
         self._user_daily_shift.group_id = group_id
         return self
+
     def shift_id(self, shift_id: str) -> "UserDailyShiftBuilder":
         self._user_daily_shift.shift_id = shift_id
         return self
+
     def month(self, month: int) -> "UserDailyShiftBuilder":
         self._user_daily_shift.month = month
         return self
+
     def user_id(self, user_id: str) -> "UserDailyShiftBuilder":
         self._user_daily_shift.user_id = user_id
         return self
+
     def day_no(self, day_no: int) -> "UserDailyShiftBuilder":
         self._user_daily_shift.day_no = day_no
         return self
+
     def is_clear_schedule(self, is_clear_schedule: bool) -> "UserDailyShiftBuilder":
         self._user_daily_shift.is_clear_schedule = is_clear_schedule
         return self
-    
+
     def build(self) -> "UserDailyShift":
         return self._user_daily_shift

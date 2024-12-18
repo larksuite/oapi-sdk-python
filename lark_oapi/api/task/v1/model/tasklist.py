@@ -19,6 +19,6 @@ class Tasklist(object):
 class TasklistBuilder(object):
     def __init__(self) -> None:
         self._tasklist = Tasklist()
-    
+
     def build(self) -> "Tasklist":
         return self._tasklist

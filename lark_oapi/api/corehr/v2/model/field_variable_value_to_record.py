@@ -23,12 +23,14 @@ class FieldVariableValueToRecord(object):
 class FieldVariableValueToRecordBuilder(object):
     def __init__(self) -> None:
         self._field_variable_value_to_record = FieldVariableValueToRecord()
+
     def variable_api_name(self, variable_api_name: str) -> "FieldVariableValueToRecordBuilder":
         self._field_variable_value_to_record.variable_api_name = variable_api_name
         return self
+
     def sub_value_key(self, sub_value_key: str) -> "FieldVariableValueToRecordBuilder":
         self._field_variable_value_to_record.sub_value_key = sub_value_key
         return self
-    
+
     def build(self) -> "FieldVariableValueToRecord":
         return self._field_variable_value_to_record

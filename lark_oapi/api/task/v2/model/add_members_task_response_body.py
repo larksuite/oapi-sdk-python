@@ -22,9 +22,10 @@ class AddMembersTaskResponseBody(object):
 class AddMembersTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._add_members_task_response_body = AddMembersTaskResponseBody()
+
     def task(self, task: Task) -> "AddMembersTaskResponseBodyBuilder":
         self._add_members_task_response_body.task = task
         return self
-    
+
     def build(self) -> "AddMembersTaskResponseBody":
         return self._add_members_task_response_body

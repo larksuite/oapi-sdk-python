@@ -67,60 +67,79 @@ class Talent(object):
 class TalentBuilder(object):
     def __init__(self) -> None:
         self._talent = Talent()
+
     def id(self, id: str) -> "TalentBuilder":
         self._talent.id = id
         return self
+
     def is_in_agency_period(self, is_in_agency_period: bool) -> "TalentBuilder":
         self._talent.is_in_agency_period = is_in_agency_period
         return self
+
     def is_onboarded(self, is_onboarded: bool) -> "TalentBuilder":
         self._talent.is_onboarded = is_onboarded
         return self
+
     def basic_info(self, basic_info: TalentBasicInfo) -> "TalentBuilder":
         self._talent.basic_info = basic_info
         return self
+
     def education_list(self, education_list: List[TalentEducationInfo]) -> "TalentBuilder":
         self._talent.education_list = education_list
         return self
+
     def career_list(self, career_list: List[TalentCareerInfo]) -> "TalentBuilder":
         self._talent.career_list = career_list
         return self
+
     def project_list(self, project_list: List[TalentProjectInfo]) -> "TalentBuilder":
         self._talent.project_list = project_list
         return self
+
     def works_list(self, works_list: List[TalentWorksInfo]) -> "TalentBuilder":
         self._talent.works_list = works_list
         return self
+
     def award_list(self, award_list: List[TalentAwardInfo]) -> "TalentBuilder":
         self._talent.award_list = award_list
         return self
+
     def language_list(self, language_list: List[TalentLanguageInfo]) -> "TalentBuilder":
         self._talent.language_list = language_list
         return self
+
     def sns_list(self, sns_list: List[TalentSnsInfo]) -> "TalentBuilder":
         self._talent.sns_list = sns_list
         return self
+
     def resume_source_list(self, resume_source_list: List[TalentResumeSource]) -> "TalentBuilder":
         self._talent.resume_source_list = resume_source_list
         return self
-    def interview_registration_list(self, interview_registration_list: List[TalentInterviewRegistrationSimple]) -> "TalentBuilder":
+
+    def interview_registration_list(self, interview_registration_list: List[
+        TalentInterviewRegistrationSimple]) -> "TalentBuilder":
         self._talent.interview_registration_list = interview_registration_list
         return self
+
     def registration_list(self, registration_list: List[RegistrationBasicInfo]) -> "TalentBuilder":
         self._talent.registration_list = registration_list
         return self
+
     def resume_attachment_id_list(self, resume_attachment_id_list: List[str]) -> "TalentBuilder":
         self._talent.resume_attachment_id_list = resume_attachment_id_list
         return self
+
     def customized_data_list(self, customized_data_list: List[TalentCustomizedData]) -> "TalentBuilder":
         self._talent.customized_data_list = customized_data_list
         return self
+
     def top_degree(self, top_degree: int) -> "TalentBuilder":
         self._talent.top_degree = top_degree
         return self
+
     def first_degree(self, first_degree: int) -> "TalentBuilder":
         self._talent.first_degree = first_degree
         return self
-    
+
     def build(self) -> "Talent":
         return self._talent

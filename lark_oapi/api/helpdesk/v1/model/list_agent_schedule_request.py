@@ -23,12 +23,11 @@ class ListAgentScheduleRequestBuilder(object):
         list_agent_schedule_request.uri = "/open-apis/helpdesk/v1/agent_schedules"
         list_agent_schedule_request.token_types = {AccessTokenType.TENANT}
         self._list_agent_schedule_request: ListAgentScheduleRequest = list_agent_schedule_request
-    
+
     def status(self, status: List[int]) -> "ListAgentScheduleRequestBuilder":
         self._list_agent_schedule_request.status = status
         self._list_agent_schedule_request.add_query("status", status)
         return self
-    
 
     def build(self) -> ListAgentScheduleRequest:
         return self._list_agent_schedule_request

@@ -19,6 +19,6 @@ class View(object):
 class ViewBuilder(object):
     def __init__(self) -> None:
         self._view = View()
-    
+
     def build(self) -> "View":
         return self._view

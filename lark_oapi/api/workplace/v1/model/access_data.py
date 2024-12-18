@@ -23,12 +23,14 @@ class AccessData(object):
 class AccessDataBuilder(object):
     def __init__(self) -> None:
         self._access_data = AccessData()
+
     def pv(self, pv: int) -> "AccessDataBuilder":
         self._access_data.pv = pv
         return self
+
     def uv(self, uv: int) -> "AccessDataBuilder":
         self._access_data.uv = uv
         return self
-    
+
     def build(self) -> "AccessData":
         return self._access_data

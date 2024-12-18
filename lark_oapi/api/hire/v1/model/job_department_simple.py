@@ -24,12 +24,14 @@ class JobDepartmentSimple(object):
 class JobDepartmentSimpleBuilder(object):
     def __init__(self) -> None:
         self._job_department_simple = JobDepartmentSimple()
+
     def id(self, id: str) -> "JobDepartmentSimpleBuilder":
         self._job_department_simple.id = id
         return self
+
     def name(self, name: I18n) -> "JobDepartmentSimpleBuilder":
         self._job_department_simple.name = name
         return self
-    
+
     def build(self) -> "JobDepartmentSimple":
         return self._job_department_simple

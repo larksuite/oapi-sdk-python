@@ -25,15 +25,18 @@ class ApplicationStageTime(object):
 class ApplicationStageTimeBuilder(object):
     def __init__(self) -> None:
         self._application_stage_time = ApplicationStageTime()
+
     def stage_id(self, stage_id: str) -> "ApplicationStageTimeBuilder":
         self._application_stage_time.stage_id = stage_id
         return self
+
     def enter_time(self, enter_time: str) -> "ApplicationStageTimeBuilder":
         self._application_stage_time.enter_time = enter_time
         return self
+
     def exit_time(self, exit_time: str) -> "ApplicationStageTimeBuilder":
         self._application_stage_time.exit_time = exit_time
         return self
-    
+
     def build(self) -> "ApplicationStageTime":
         return self._application_stage_time

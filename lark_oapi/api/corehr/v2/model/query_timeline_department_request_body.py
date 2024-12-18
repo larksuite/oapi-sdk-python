@@ -25,15 +25,18 @@ class QueryTimelineDepartmentRequestBody(object):
 class QueryTimelineDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_timeline_department_request_body = QueryTimelineDepartmentRequestBody()
+
     def department_ids(self, department_ids: List[str]) -> "QueryTimelineDepartmentRequestBodyBuilder":
         self._query_timeline_department_request_body.department_ids = department_ids
         return self
+
     def effective_date(self, effective_date: str) -> "QueryTimelineDepartmentRequestBodyBuilder":
         self._query_timeline_department_request_body.effective_date = effective_date
         return self
+
     def fields(self, fields: List[str]) -> "QueryTimelineDepartmentRequestBodyBuilder":
         self._query_timeline_department_request_body.fields = fields
         return self
-    
+
     def build(self) -> "QueryTimelineDepartmentRequestBody":
         return self._query_timeline_department_request_body

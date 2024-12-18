@@ -22,9 +22,10 @@ class VatInvoice(object):
 class VatInvoiceBuilder(object):
     def __init__(self) -> None:
         self._vat_invoice = VatInvoice()
+
     def entities(self, entities: List[VatEntity]) -> "VatInvoiceBuilder":
         self._vat_invoice.entities = entities
         return self
-    
+
     def build(self) -> "VatInvoice":
         return self._vat_invoice

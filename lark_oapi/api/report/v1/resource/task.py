@@ -30,13 +30,12 @@ class Task(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTaskResponse)
         response.raw = resp
 
         return response
-        
 
     async def aquery(self, request: QueryTaskRequest, option: Optional[RequestOption] = None) -> QueryTaskResponse:
         if option is None:
@@ -45,15 +44,11 @@ class Task(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: QueryTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTaskResponse)
         response.raw = resp
 
         return response
-        
-    

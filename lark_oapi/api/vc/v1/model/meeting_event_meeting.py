@@ -47,42 +47,54 @@ class MeetingEventMeeting(object):
 class MeetingEventMeetingBuilder(object):
     def __init__(self) -> None:
         self._meeting_event_meeting = MeetingEventMeeting()
+
     def id(self, id: int) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.id = id
         return self
+
     def topic(self, topic: str) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.topic = topic
         return self
+
     def meeting_no(self, meeting_no: str) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.meeting_no = meeting_no
         return self
+
     def meeting_source(self, meeting_source: int) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.meeting_source = meeting_source
         return self
+
     def start_time(self, start_time: int) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.start_time = start_time
         return self
+
     def end_time(self, end_time: int) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.end_time = end_time
         return self
+
     def host_user(self, host_user: MeetingEventUser) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.host_user = host_user
         return self
+
     def owner(self, owner: MeetingEventUser) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.owner = owner
         return self
+
     def calendar_event_id(self, calendar_event_id: str) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.calendar_event_id = calendar_event_id
         return self
+
     def meeting_sub_type(self, meeting_sub_type: int) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.meeting_sub_type = meeting_sub_type
         return self
+
     def security_setting(self, security_setting: MeetingSecuritySetting) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.security_setting = security_setting
         return self
+
     def webinar_setting(self, webinar_setting: MeetingWebinarSetting) -> "MeetingEventMeetingBuilder":
         self._meeting_event_meeting.webinar_setting = webinar_setting
         return self
-    
+
     def build(self) -> "MeetingEventMeeting":
         return self._meeting_event_meeting

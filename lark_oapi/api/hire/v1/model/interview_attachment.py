@@ -27,18 +27,22 @@ class InterviewAttachment(object):
 class InterviewAttachmentBuilder(object):
     def __init__(self) -> None:
         self._interview_attachment = InterviewAttachment()
+
     def file_id(self, file_id: str) -> "InterviewAttachmentBuilder":
         self._interview_attachment.file_id = file_id
         return self
+
     def file_name(self, file_name: str) -> "InterviewAttachmentBuilder":
         self._interview_attachment.file_name = file_name
         return self
+
     def content_type(self, content_type: str) -> "InterviewAttachmentBuilder":
         self._interview_attachment.content_type = content_type
         return self
+
     def create_time(self, create_time: str) -> "InterviewAttachmentBuilder":
         self._interview_attachment.create_time = create_time
         return self
-    
+
     def build(self) -> "InterviewAttachment":
         return self._interview_attachment

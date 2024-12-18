@@ -23,12 +23,14 @@ class Term(object):
 class TermBuilder(object):
     def __init__(self) -> None:
         self._term = Term()
+
     def from_(self, from_: str) -> "TermBuilder":
         self._term.from_ = from_
         return self
+
     def to(self, to: str) -> "TermBuilder":
         self._term.to = to
         return self
-    
+
     def build(self) -> "Term":
         return self._term

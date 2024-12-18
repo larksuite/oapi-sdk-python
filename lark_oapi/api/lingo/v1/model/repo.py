@@ -23,12 +23,14 @@ class Repo(object):
 class RepoBuilder(object):
     def __init__(self) -> None:
         self._repo = Repo()
+
     def id(self, id: int) -> "RepoBuilder":
         self._repo.id = id
         return self
+
     def name(self, name: str) -> "RepoBuilder":
         self._repo.name = name
         return self
-    
+
     def build(self) -> "Repo":
         return self._repo

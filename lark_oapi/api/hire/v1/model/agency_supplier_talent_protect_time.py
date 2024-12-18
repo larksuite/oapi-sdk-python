@@ -25,15 +25,18 @@ class AgencySupplierTalentProtectTime(object):
 class AgencySupplierTalentProtectTimeBuilder(object):
     def __init__(self) -> None:
         self._agency_supplier_talent_protect_time = AgencySupplierTalentProtectTime()
+
     def day(self, day: int) -> "AgencySupplierTalentProtectTimeBuilder":
         self._agency_supplier_talent_protect_time.day = day
         return self
+
     def use_default(self, use_default: bool) -> "AgencySupplierTalentProtectTimeBuilder":
         self._agency_supplier_talent_protect_time.use_default = use_default
         return self
+
     def forever(self, forever: bool) -> "AgencySupplierTalentProtectTimeBuilder":
         self._agency_supplier_talent_protect_time.forever = forever
         return self
-    
+
     def build(self) -> "AgencySupplierTalentProtectTime":
         return self._agency_supplier_talent_protect_time

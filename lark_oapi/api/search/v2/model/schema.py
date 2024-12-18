@@ -27,15 +27,18 @@ class Schema(object):
 class SchemaBuilder(object):
     def __init__(self) -> None:
         self._schema = Schema()
+
     def properties(self, properties: List[SchemaProperty]) -> "SchemaBuilder":
         self._schema.properties = properties
         return self
+
     def display(self, display: SchemaDisplay) -> "SchemaBuilder":
         self._schema.display = display
         return self
+
     def schema_id(self, schema_id: str) -> "SchemaBuilder":
         self._schema.schema_id = schema_id
         return self
-    
+
     def build(self) -> "Schema":
         return self._schema

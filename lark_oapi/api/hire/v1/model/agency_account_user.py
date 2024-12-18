@@ -28,18 +28,22 @@ class AgencyAccountUser(object):
 class AgencyAccountUserBuilder(object):
     def __init__(self) -> None:
         self._agency_account_user = AgencyAccountUser()
+
     def user_id(self, user_id: str) -> "AgencyAccountUserBuilder":
         self._agency_account_user.user_id = user_id
         return self
+
     def name(self, name: I18n) -> "AgencyAccountUserBuilder":
         self._agency_account_user.name = name
         return self
+
     def email(self, email: str) -> "AgencyAccountUserBuilder":
         self._agency_account_user.email = email
         return self
+
     def mobile(self, mobile: str) -> "AgencyAccountUserBuilder":
         self._agency_account_user.mobile = mobile
         return self
-    
+
     def build(self) -> "AgencyAccountUser":
         return self._agency_account_user

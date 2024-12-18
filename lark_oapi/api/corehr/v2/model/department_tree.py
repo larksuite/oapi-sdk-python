@@ -25,15 +25,18 @@ class DepartmentTree(object):
 class DepartmentTreeBuilder(object):
     def __init__(self) -> None:
         self._department_tree = DepartmentTree()
+
     def id(self, id: str) -> "DepartmentTreeBuilder":
         self._department_tree.id = id
         return self
+
     def level(self, level: int) -> "DepartmentTreeBuilder":
         self._department_tree.level = level
         return self
+
     def children(self, children: List[str]) -> "DepartmentTreeBuilder":
         self._department_tree.children = children
         return self
-    
+
     def build(self) -> "DepartmentTree":
         return self._department_tree

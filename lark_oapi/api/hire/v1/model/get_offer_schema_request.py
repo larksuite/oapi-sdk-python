@@ -23,12 +23,11 @@ class GetOfferSchemaRequestBuilder(object):
         get_offer_schema_request.uri = "/open-apis/hire/v1/offer_schemas/:offer_schema_id"
         get_offer_schema_request.token_types = {AccessTokenType.TENANT}
         self._get_offer_schema_request: GetOfferSchemaRequest = get_offer_schema_request
-    
+
     def offer_schema_id(self, offer_schema_id: str) -> "GetOfferSchemaRequestBuilder":
         self._get_offer_schema_request.offer_schema_id = offer_schema_id
         self._get_offer_schema_request.paths["offer_schema_id"] = str(offer_schema_id)
         return self
-    
 
     def build(self) -> GetOfferSchemaRequest:
         return self._get_offer_schema_request

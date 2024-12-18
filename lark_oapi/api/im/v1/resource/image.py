@@ -31,17 +31,15 @@ class Image(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
-            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImageResponse)
         response.raw = resp
 
         return response
-        
 
     async def acreate(self, request: CreateImageRequest, option: Optional[RequestOption] = None) -> CreateImageResponse:
         if option is None:
@@ -50,19 +48,18 @@ class Image(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
         response: CreateImageResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateImageResponse)
         response.raw = resp
 
         return response
-        
+
     def get(self, request: GetImageRequest, option: Optional[RequestOption] = None) -> GetImageResponse:
         if option is None:
             option = RequestOption()
@@ -76,7 +73,7 @@ class Image(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetImageResponse = GetImageResponse()
@@ -89,7 +86,6 @@ class Image(object):
 
         response.raw = resp
         return response
-        
 
     async def aget(self, request: GetImageRequest, option: Optional[RequestOption] = None) -> GetImageResponse:
         if option is None:
@@ -98,11 +94,9 @@ class Image(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: GetImageResponse = GetImageResponse()
@@ -115,5 +109,3 @@ class Image(object):
 
         response.raw = resp
         return response
-        
-    

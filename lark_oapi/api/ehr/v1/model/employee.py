@@ -27,15 +27,18 @@ class Employee(object):
 class EmployeeBuilder(object):
     def __init__(self) -> None:
         self._employee = Employee()
+
     def user_id(self, user_id: str) -> "EmployeeBuilder":
         self._employee.user_id = user_id
         return self
+
     def system_fields(self, system_fields: SystemFields) -> "EmployeeBuilder":
         self._employee.system_fields = system_fields
         return self
+
     def custom_fields(self, custom_fields: List[CustomFields]) -> "EmployeeBuilder":
         self._employee.custom_fields = custom_fields
         return self
-    
+
     def build(self) -> "Employee":
         return self._employee

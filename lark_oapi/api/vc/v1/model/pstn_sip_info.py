@@ -23,12 +23,14 @@ class PstnSipInfo(object):
 class PstnSipInfoBuilder(object):
     def __init__(self) -> None:
         self._pstn_sip_info = PstnSipInfo()
+
     def nickname(self, nickname: str) -> "PstnSipInfoBuilder":
         self._pstn_sip_info.nickname = nickname
         return self
+
     def main_address(self, main_address: str) -> "PstnSipInfoBuilder":
         self._pstn_sip_info.main_address = main_address
         return self
-    
+
     def build(self) -> "PstnSipInfo":
         return self._pstn_sip_info

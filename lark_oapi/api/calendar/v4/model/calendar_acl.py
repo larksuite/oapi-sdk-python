@@ -26,15 +26,18 @@ class CalendarAcl(object):
 class CalendarAclBuilder(object):
     def __init__(self) -> None:
         self._calendar_acl = CalendarAcl()
+
     def acl_id(self, acl_id: str) -> "CalendarAclBuilder":
         self._calendar_acl.acl_id = acl_id
         return self
+
     def role(self, role: str) -> "CalendarAclBuilder":
         self._calendar_acl.role = role
         return self
+
     def scope(self, scope: AclScope) -> "CalendarAclBuilder":
         self._calendar_acl.scope = scope
         return self
-    
+
     def build(self) -> "CalendarAcl":
         return self._calendar_acl

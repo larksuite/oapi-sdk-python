@@ -34,6 +34,7 @@ def main():
                       .shift_attendance_time_config(ShiftAttendanceTimeConfig.builder().build())
                       .late_off_late_on_setting(LateOffLateOnSetting.builder().build())
                       .id("6919358778597097404")
+                      .rest_time_flexible_configs([])
                       .build()) \
         .build()
 
@@ -81,6 +82,7 @@ async def amain():
                       .shift_attendance_time_config(ShiftAttendanceTimeConfig.builder().build())
                       .late_off_late_on_setting(LateOffLateOnSetting.builder().build())
                       .id("6919358778597097404")
+                      .rest_time_flexible_configs([])
                       .build()) \
         .build()
 

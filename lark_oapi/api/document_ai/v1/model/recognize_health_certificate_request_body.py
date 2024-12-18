@@ -21,9 +21,10 @@ class RecognizeHealthCertificateRequestBody(object):
 class RecognizeHealthCertificateRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_health_certificate_request_body = RecognizeHealthCertificateRequestBody()
+
     def file(self, file: IO[Any]) -> "RecognizeHealthCertificateRequestBodyBuilder":
         self._recognize_health_certificate_request_body.file = file
         return self
-    
+
     def build(self) -> "RecognizeHealthCertificateRequestBody":
         return self._recognize_health_certificate_request_body

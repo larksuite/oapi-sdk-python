@@ -24,12 +24,14 @@ class DimensionInfo(object):
 class DimensionInfoBuilder(object):
     def __init__(self) -> None:
         self._dimension_info = DimensionInfo()
+
     def id(self, id: str) -> "DimensionInfoBuilder":
         self._dimension_info.id = id
         return self
+
     def name(self, name: List[I18n]) -> "DimensionInfoBuilder":
         self._dimension_info.name = name
         return self
-    
+
     def build(self) -> "DimensionInfo":
         return self._dimension_info

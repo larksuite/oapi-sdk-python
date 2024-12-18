@@ -21,9 +21,10 @@ class DownloadToken(object):
 class DownloadTokenBuilder(object):
     def __init__(self) -> None:
         self._download_token = DownloadToken()
+
     def token(self, token: str) -> "DownloadTokenBuilder":
         self._download_token.token = token
         return self
-    
+
     def build(self) -> "DownloadToken":
         return self._download_token

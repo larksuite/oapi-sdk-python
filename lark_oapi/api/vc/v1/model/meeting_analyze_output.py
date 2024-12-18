@@ -29,18 +29,22 @@ class MeetingAnalyzeOutput(object):
 class MeetingAnalyzeOutputBuilder(object):
     def __init__(self) -> None:
         self._meeting_analyze_output = MeetingAnalyzeOutput()
+
     def meeting_id(self, meeting_id: str) -> "MeetingAnalyzeOutputBuilder":
         self._meeting_analyze_output.meeting_id = meeting_id
         return self
+
     def check_status_code(self, check_status_code: int) -> "MeetingAnalyzeOutputBuilder":
         self._meeting_analyze_output.check_status_code = check_status_code
         return self
+
     def objective_check_output(self, objective_check_output: ObjectiveCheckOutput) -> "MeetingAnalyzeOutputBuilder":
         self._meeting_analyze_output.objective_check_output = objective_check_output
         return self
+
     def subjective_check_output(self, subjective_check_output: SubjectiveCheckOutput) -> "MeetingAnalyzeOutputBuilder":
         self._meeting_analyze_output.subjective_check_output = subjective_check_output
         return self
-    
+
     def build(self) -> "MeetingAnalyzeOutput":
         return self._meeting_analyze_output

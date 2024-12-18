@@ -23,12 +23,14 @@ class ScopeValue(object):
 class ScopeValueBuilder(object):
     def __init__(self) -> None:
         self._scope_value = ScopeValue()
+
     def key(self, key: str) -> "ScopeValueBuilder":
         self._scope_value.key = key
         return self
+
     def name(self, name: str) -> "ScopeValueBuilder":
         self._scope_value.name = name
         return self
-    
+
     def build(self) -> "ScopeValue":
         return self._scope_value

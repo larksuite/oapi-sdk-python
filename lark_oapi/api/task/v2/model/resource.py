@@ -23,12 +23,14 @@ class Resource(object):
 class ResourceBuilder(object):
     def __init__(self) -> None:
         self._resource = Resource()
+
     def type(self, type: str) -> "ResourceBuilder":
         self._resource.type = type
         return self
+
     def id(self, id: str) -> "ResourceBuilder":
         self._resource.id = id
         return self
-    
+
     def build(self) -> "Resource":
         return self._resource

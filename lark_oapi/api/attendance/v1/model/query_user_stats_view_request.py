@@ -25,12 +25,12 @@ class QueryUserStatsViewRequestBuilder(object):
         query_user_stats_view_request.uri = "/open-apis/attendance/v1/user_stats_views/query"
         query_user_stats_view_request.token_types = {AccessTokenType.TENANT}
         self._query_user_stats_view_request: QueryUserStatsViewRequest = query_user_stats_view_request
-    
+
     def employee_type(self, employee_type: str) -> "QueryUserStatsViewRequestBuilder":
         self._query_user_stats_view_request.employee_type = employee_type
         self._query_user_stats_view_request.add_query("employee_type", employee_type)
         return self
-    
+
     def request_body(self, request_body: QueryUserStatsViewRequestBody) -> "QueryUserStatsViewRequestBuilder":
         self._query_user_stats_view_request.request_body = request_body
         self._query_user_stats_view_request.body = request_body

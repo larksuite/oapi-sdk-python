@@ -25,12 +25,14 @@ class MyAiVcRoomScenarioContext(object):
 class MyAiVcRoomScenarioContextBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_room_scenario_context = MyAiVcRoomScenarioContext()
+
     def plugins(self, plugins: List[MyAiPluginContext]) -> "MyAiVcRoomScenarioContextBuilder":
         self._my_ai_vc_room_scenario_context.plugins = plugins
         return self
+
     def extra(self, extra: MyAiVcRoomExtra) -> "MyAiVcRoomScenarioContextBuilder":
         self._my_ai_vc_room_scenario_context.extra = extra
         return self
-    
+
     def build(self) -> "MyAiVcRoomScenarioContext":
         return self._my_ai_vc_room_scenario_context

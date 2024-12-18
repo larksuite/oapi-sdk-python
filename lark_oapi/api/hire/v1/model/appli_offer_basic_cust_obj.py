@@ -31,21 +31,26 @@ class AppliOfferBasicCustObj(object):
 class AppliOfferBasicCustObjBuilder(object):
     def __init__(self) -> None:
         self._appli_offer_basic_cust_obj = AppliOfferBasicCustObj()
+
     def id(self, id: str) -> "AppliOfferBasicCustObjBuilder":
         self._appli_offer_basic_cust_obj.id = id
         return self
+
     def name(self, name: OfferSchemaName) -> "AppliOfferBasicCustObjBuilder":
         self._appli_offer_basic_cust_obj.name = name
         return self
+
     def type(self, type: str) -> "AppliOfferBasicCustObjBuilder":
         self._appli_offer_basic_cust_obj.type = type
         return self
+
     def value(self, value: str) -> "AppliOfferBasicCustObjBuilder":
         self._appli_offer_basic_cust_obj.value = value
         return self
+
     def option_value_list(self, option_value_list: List[AppliOfferBasicCustObjOpV]) -> "AppliOfferBasicCustObjBuilder":
         self._appli_offer_basic_cust_obj.option_value_list = option_value_list
         return self
-    
+
     def build(self) -> "AppliOfferBasicCustObj":
         return self._appli_offer_basic_cust_obj

@@ -33,27 +33,34 @@ class OvertimeApplyDetail(object):
 class OvertimeApplyDetailBuilder(object):
     def __init__(self) -> None:
         self._overtime_apply_detail = OvertimeApplyDetail()
+
     def user_id(self, user_id: str) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.user_id = user_id
         return self
+
     def date(self, date: str) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.date = date
         return self
+
     def date_type(self, date_type: int) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.date_type = date_type
         return self
+
     def duration(self, duration: str) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.duration = duration
         return self
+
     def unit(self, unit: int) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.unit = unit
         return self
+
     def is_time_bank(self, is_time_bank: bool) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.is_time_bank = is_time_bank
         return self
+
     def update_time(self, update_time: str) -> "OvertimeApplyDetailBuilder":
         self._overtime_apply_detail.update_time = update_time
         return self
-    
+
     def build(self) -> "OvertimeApplyDetail":
         return self._overtime_apply_detail

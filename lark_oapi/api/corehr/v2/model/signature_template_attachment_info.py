@@ -25,15 +25,18 @@ class SignatureTemplateAttachmentInfo(object):
 class SignatureTemplateAttachmentInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_template_attachment_info = SignatureTemplateAttachmentInfo()
+
     def id(self, id: str) -> "SignatureTemplateAttachmentInfoBuilder":
         self._signature_template_attachment_info.id = id
         return self
+
     def name(self, name: str) -> "SignatureTemplateAttachmentInfoBuilder":
         self._signature_template_attachment_info.name = name
         return self
+
     def size(self, size: int) -> "SignatureTemplateAttachmentInfoBuilder":
         self._signature_template_attachment_info.size = size
         return self
-    
+
     def build(self) -> "SignatureTemplateAttachmentInfo":
         return self._signature_template_attachment_info

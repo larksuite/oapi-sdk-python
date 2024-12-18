@@ -24,12 +24,14 @@ class TradeDetail(object):
 class TradeDetailBuilder(object):
     def __init__(self) -> None:
         self._trade_detail = TradeDetail()
+
     def account_id(self, account_id: str) -> "TradeDetailBuilder":
         self._trade_detail.account_id = account_id
         return self
+
     def total_recharge_reward_info(self, total_recharge_reward_info: BonusAmount) -> "TradeDetailBuilder":
         self._trade_detail.total_recharge_reward_info = total_recharge_reward_info
         return self
-    
+
     def build(self) -> "TradeDetail":
         return self._trade_detail

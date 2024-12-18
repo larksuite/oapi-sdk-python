@@ -26,15 +26,18 @@ class Field(object):
 class FieldBuilder(object):
     def __init__(self) -> None:
         self._field = Field()
+
     def code(self, code: str) -> "FieldBuilder":
         self._field.code = code
         return self
+
     def title(self, title: str) -> "FieldBuilder":
         self._field.title = title
         return self
+
     def child_fields(self, child_fields: List[ChildField]) -> "FieldBuilder":
         self._field.child_fields = child_fields
         return self
-    
+
     def build(self) -> "Field":
         return self._field

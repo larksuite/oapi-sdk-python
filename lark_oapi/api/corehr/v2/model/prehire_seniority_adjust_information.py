@@ -2,7 +2,6 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .object_field_data import ObjectFieldData
 
 
 class PrehireSeniorityAdjustInformation(object):
@@ -12,7 +11,6 @@ class PrehireSeniorityAdjustInformation(object):
         "reasons_for_seniority_adjustment": str,
         "start_date": str,
         "end_date": str,
-        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -21,7 +19,6 @@ class PrehireSeniorityAdjustInformation(object):
         self.reasons_for_seniority_adjustment: Optional[str] = None
         self.start_date: Optional[str] = None
         self.end_date: Optional[str] = None
-        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -32,24 +29,27 @@ class PrehireSeniorityAdjustInformation(object):
 class PrehireSeniorityAdjustInformationBuilder(object):
     def __init__(self) -> None:
         self._prehire_seniority_adjust_information = PrehireSeniorityAdjustInformation()
+
     def seniority_adjustment(self, seniority_adjustment: float) -> "PrehireSeniorityAdjustInformationBuilder":
         self._prehire_seniority_adjust_information.seniority_adjustment = seniority_adjustment
         return self
+
     def seniority_adjustment_type(self, seniority_adjustment_type: str) -> "PrehireSeniorityAdjustInformationBuilder":
         self._prehire_seniority_adjust_information.seniority_adjustment_type = seniority_adjustment_type
         return self
-    def reasons_for_seniority_adjustment(self, reasons_for_seniority_adjustment: str) -> "PrehireSeniorityAdjustInformationBuilder":
+
+    def reasons_for_seniority_adjustment(self,
+                                         reasons_for_seniority_adjustment: str) -> "PrehireSeniorityAdjustInformationBuilder":
         self._prehire_seniority_adjust_information.reasons_for_seniority_adjustment = reasons_for_seniority_adjustment
         return self
+
     def start_date(self, start_date: str) -> "PrehireSeniorityAdjustInformationBuilder":
         self._prehire_seniority_adjust_information.start_date = start_date
         return self
+
     def end_date(self, end_date: str) -> "PrehireSeniorityAdjustInformationBuilder":
         self._prehire_seniority_adjust_information.end_date = end_date
         return self
-    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PrehireSeniorityAdjustInformationBuilder":
-        self._prehire_seniority_adjust_information.custom_fields = custom_fields
-        return self
-    
+
     def build(self) -> "PrehireSeniorityAdjustInformation":
         return self._prehire_seniority_adjust_information

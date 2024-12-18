@@ -29,21 +29,26 @@ class TalentBasicInfoV2(object):
 class TalentBasicInfoV2Builder(object):
     def __init__(self) -> None:
         self._talent_basic_info_v2 = TalentBasicInfoV2()
+
     def id(self, id: str) -> "TalentBasicInfoV2Builder":
         self._talent_basic_info_v2.id = id
         return self
+
     def name(self, name: str) -> "TalentBasicInfoV2Builder":
         self._talent_basic_info_v2.name = name
         return self
+
     def mobile_code(self, mobile_code: str) -> "TalentBasicInfoV2Builder":
         self._talent_basic_info_v2.mobile_code = mobile_code
         return self
+
     def mobile_number(self, mobile_number: str) -> "TalentBasicInfoV2Builder":
         self._talent_basic_info_v2.mobile_number = mobile_number
         return self
+
     def email(self, email: str) -> "TalentBasicInfoV2Builder":
         self._talent_basic_info_v2.email = email
         return self
-    
+
     def build(self) -> "TalentBasicInfoV2":
         return self._talent_basic_info_v2

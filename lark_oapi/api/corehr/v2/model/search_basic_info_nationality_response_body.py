@@ -26,15 +26,18 @@ class SearchBasicInfoNationalityResponseBody(object):
 class SearchBasicInfoNationalityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_nationality_response_body = SearchBasicInfoNationalityResponseBody()
+
     def items(self, items: List[Nationality]) -> "SearchBasicInfoNationalityResponseBodyBuilder":
         self._search_basic_info_nationality_response_body.items = items
         return self
+
     def page_token(self, page_token: str) -> "SearchBasicInfoNationalityResponseBodyBuilder":
         self._search_basic_info_nationality_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "SearchBasicInfoNationalityResponseBodyBuilder":
         self._search_basic_info_nationality_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "SearchBasicInfoNationalityResponseBody":
         return self._search_basic_info_nationality_response_body

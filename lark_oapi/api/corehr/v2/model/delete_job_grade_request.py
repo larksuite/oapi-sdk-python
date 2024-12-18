@@ -23,12 +23,11 @@ class DeleteJobGradeRequestBuilder(object):
         delete_job_grade_request.uri = "/open-apis/corehr/v2/job_grades/:job_grade_id"
         delete_job_grade_request.token_types = {AccessTokenType.TENANT}
         self._delete_job_grade_request: DeleteJobGradeRequest = delete_job_grade_request
-    
+
     def job_grade_id(self, job_grade_id: str) -> "DeleteJobGradeRequestBuilder":
         self._delete_job_grade_request.job_grade_id = job_grade_id
         self._delete_job_grade_request.paths["job_grade_id"] = str(job_grade_id)
         return self
-    
 
     def build(self) -> DeleteJobGradeRequest:
         return self._delete_job_grade_request

@@ -23,12 +23,14 @@ class TaskAssignee(object):
 class TaskAssigneeBuilder(object):
     def __init__(self) -> None:
         self._task_assignee = TaskAssignee()
+
     def id(self, id: str) -> "TaskAssigneeBuilder":
         self._task_assignee.id = id
         return self
+
     def completed_at(self, completed_at: int) -> "TaskAssigneeBuilder":
         self._task_assignee.completed_at = completed_at
         return self
-    
+
     def build(self) -> "TaskAssignee":
         return self._task_assignee

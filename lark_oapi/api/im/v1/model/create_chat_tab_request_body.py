@@ -22,9 +22,10 @@ class CreateChatTabRequestBody(object):
 class CreateChatTabRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_chat_tab_request_body = CreateChatTabRequestBody()
+
     def chat_tabs(self, chat_tabs: List[ChatTab]) -> "CreateChatTabRequestBodyBuilder":
         self._create_chat_tab_request_body.chat_tabs = chat_tabs
         return self
-    
+
     def build(self) -> "CreateChatTabRequestBody":
         return self._create_chat_tab_request_body

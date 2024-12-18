@@ -47,39 +47,50 @@ class ApprovalCreate(object):
 class ApprovalCreateBuilder(object):
     def __init__(self) -> None:
         self._approval_create = ApprovalCreate()
+
     def approval_name(self, approval_name: str) -> "ApprovalCreateBuilder":
         self._approval_create.approval_name = approval_name
         return self
+
     def approval_code(self, approval_code: str) -> "ApprovalCreateBuilder":
         self._approval_create.approval_code = approval_code
         return self
+
     def description(self, description: str) -> "ApprovalCreateBuilder":
         self._approval_create.description = description
         return self
+
     def viewers(self, viewers: List[ApprovalCreateViewers]) -> "ApprovalCreateBuilder":
         self._approval_create.viewers = viewers
         return self
+
     def form(self, form: ApprovalForm) -> "ApprovalCreateBuilder":
         self._approval_create.form = form
         return self
+
     def node_list(self, node_list: List[ApprovalNode]) -> "ApprovalCreateBuilder":
         self._approval_create.node_list = node_list
         return self
+
     def settings(self, settings: ApprovalSetting) -> "ApprovalCreateBuilder":
         self._approval_create.settings = settings
         return self
+
     def config(self, config: ApprovalConfig) -> "ApprovalCreateBuilder":
         self._approval_create.config = config
         return self
+
     def icon(self, icon: int) -> "ApprovalCreateBuilder":
         self._approval_create.icon = icon
         return self
+
     def i18n_resources(self, i18n_resources: List[I18nResource]) -> "ApprovalCreateBuilder":
         self._approval_create.i18n_resources = i18n_resources
         return self
+
     def process_manager_ids(self, process_manager_ids: List[str]) -> "ApprovalCreateBuilder":
         self._approval_create.process_manager_ids = process_manager_ids
         return self
-    
+
     def build(self) -> "ApprovalCreate":
         return self._approval_create

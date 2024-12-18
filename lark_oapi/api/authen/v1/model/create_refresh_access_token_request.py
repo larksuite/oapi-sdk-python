@@ -24,8 +24,9 @@ class CreateRefreshAccessTokenRequestBuilder(object):
         create_refresh_access_token_request.uri = "/open-apis/authen/v1/refresh_access_token"
         create_refresh_access_token_request.token_types = {AccessTokenType.APP}
         self._create_refresh_access_token_request: CreateRefreshAccessTokenRequest = create_refresh_access_token_request
-    
-    def request_body(self, request_body: CreateRefreshAccessTokenRequestBody) -> "CreateRefreshAccessTokenRequestBuilder":
+
+    def request_body(self,
+                     request_body: CreateRefreshAccessTokenRequestBody) -> "CreateRefreshAccessTokenRequestBuilder":
         self._create_refresh_access_token_request.request_body = request_body
         self._create_refresh_access_token_request.body = request_body
         return self

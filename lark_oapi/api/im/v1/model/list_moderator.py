@@ -25,15 +25,18 @@ class ListModerator(object):
 class ListModeratorBuilder(object):
     def __init__(self) -> None:
         self._list_moderator = ListModerator()
+
     def user_id_type(self, user_id_type: str) -> "ListModeratorBuilder":
         self._list_moderator.user_id_type = user_id_type
         return self
+
     def user_id(self, user_id: str) -> "ListModeratorBuilder":
         self._list_moderator.user_id = user_id
         return self
+
     def tenant_key(self, tenant_key: str) -> "ListModeratorBuilder":
         self._list_moderator.tenant_key = tenant_key
         return self
-    
+
     def build(self) -> "ListModerator":
         return self._list_moderator

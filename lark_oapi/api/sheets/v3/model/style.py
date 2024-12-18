@@ -24,12 +24,14 @@ class Style(object):
 class StyleBuilder(object):
     def __init__(self) -> None:
         self._style = Style()
+
     def range(self, range: str) -> "StyleBuilder":
         self._style.range = range
         return self
+
     def styles(self, styles: List[list]) -> "StyleBuilder":
         self._style.styles = styles
         return self
-    
+
     def build(self) -> "Style":
         return self._style

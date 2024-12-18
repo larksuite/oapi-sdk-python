@@ -31,21 +31,26 @@ class Document(object):
 class DocumentBuilder(object):
     def __init__(self) -> None:
         self._document = Document()
+
     def document_id(self, document_id: str) -> "DocumentBuilder":
         self._document.document_id = document_id
         return self
+
     def revision_id(self, revision_id: int) -> "DocumentBuilder":
         self._document.revision_id = revision_id
         return self
+
     def title(self, title: str) -> "DocumentBuilder":
         self._document.title = title
         return self
+
     def display_setting(self, display_setting: DocumentDisplaySetting) -> "DocumentBuilder":
         self._document.display_setting = display_setting
         return self
+
     def cover(self, cover: DocumentCover) -> "DocumentBuilder":
         self._document.cover = cover
         return self
-    
+
     def build(self) -> "Document":
         return self._document

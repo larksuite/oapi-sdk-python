@@ -22,9 +22,10 @@ class CreateTaskReminderResponseBody(object):
 class CreateTaskReminderResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_task_reminder_response_body = CreateTaskReminderResponseBody()
+
     def reminder(self, reminder: Reminder) -> "CreateTaskReminderResponseBodyBuilder":
         self._create_task_reminder_response_body.reminder = reminder
         return self
-    
+
     def build(self) -> "CreateTaskReminderResponseBody":
         return self._create_task_reminder_response_body

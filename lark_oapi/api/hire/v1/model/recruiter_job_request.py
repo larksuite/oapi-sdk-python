@@ -24,17 +24,16 @@ class RecruiterJobRequestBuilder(object):
         recruiter_job_request.uri = "/open-apis/hire/v1/jobs/:job_id/recruiter"
         recruiter_job_request.token_types = {AccessTokenType.TENANT}
         self._recruiter_job_request: RecruiterJobRequest = recruiter_job_request
-    
+
     def user_id_type(self, user_id_type: str) -> "RecruiterJobRequestBuilder":
         self._recruiter_job_request.user_id_type = user_id_type
         self._recruiter_job_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def job_id(self, job_id: str) -> "RecruiterJobRequestBuilder":
         self._recruiter_job_request.job_id = job_id
         self._recruiter_job_request.paths["job_id"] = str(job_id)
         return self
-    
 
     def build(self) -> RecruiterJobRequest:
         return self._recruiter_job_request

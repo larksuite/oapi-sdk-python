@@ -25,15 +25,18 @@ class RuleConditionItem(object):
 class RuleConditionItemBuilder(object):
     def __init__(self) -> None:
         self._rule_condition_item = RuleConditionItem()
+
     def type(self, type: int) -> "RuleConditionItemBuilder":
         self._rule_condition_item.type = type
         return self
+
     def operator(self, operator: int) -> "RuleConditionItemBuilder":
         self._rule_condition_item.operator = operator
         return self
+
     def input(self, input: str) -> "RuleConditionItemBuilder":
         self._rule_condition_item.input = input
         return self
-    
+
     def build(self) -> "RuleConditionItem":
         return self._rule_condition_item

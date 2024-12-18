@@ -23,12 +23,14 @@ class OvertimeClockCfg(object):
 class OvertimeClockCfgBuilder(object):
     def __init__(self) -> None:
         self._overtime_clock_cfg = OvertimeClockCfg()
+
     def allow_punch_approval(self, allow_punch_approval: bool) -> "OvertimeClockCfgBuilder":
         self._overtime_clock_cfg.allow_punch_approval = allow_punch_approval
         return self
+
     def need_clock_over_time_start_and_end(self, need_clock_over_time_start_and_end: bool) -> "OvertimeClockCfgBuilder":
         self._overtime_clock_cfg.need_clock_over_time_start_and_end = need_clock_over_time_start_and_end
         return self
-    
+
     def build(self) -> "OvertimeClockCfg":
         return self._overtime_clock_cfg

@@ -27,18 +27,22 @@ class WifiInfoEvent(object):
 class WifiInfoEventBuilder(object):
     def __init__(self) -> None:
         self._wifi_info_event = WifiInfoEvent()
+
     def ssid(self, ssid: str) -> "WifiInfoEventBuilder":
         self._wifi_info_event.ssid = ssid
         return self
+
     def bssid(self, bssid: str) -> "WifiInfoEventBuilder":
         self._wifi_info_event.bssid = bssid
         return self
+
     def lastssid(self, lastssid: str) -> "WifiInfoEventBuilder":
         self._wifi_info_event.lastssid = lastssid
         return self
+
     def lastbssid(self, lastbssid: str) -> "WifiInfoEventBuilder":
         self._wifi_info_event.lastbssid = lastbssid
         return self
-    
+
     def build(self) -> "WifiInfoEvent":
         return self._wifi_info_event

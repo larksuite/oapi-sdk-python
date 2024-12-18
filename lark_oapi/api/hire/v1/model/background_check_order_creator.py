@@ -21,9 +21,10 @@ class BackgroundCheckOrderCreator(object):
 class BackgroundCheckOrderCreatorBuilder(object):
     def __init__(self) -> None:
         self._background_check_order_creator = BackgroundCheckOrderCreator()
+
     def user_id(self, user_id: str) -> "BackgroundCheckOrderCreatorBuilder":
         self._background_check_order_creator.user_id = user_id
         return self
-    
+
     def build(self) -> "BackgroundCheckOrderCreator":
         return self._background_check_order_creator

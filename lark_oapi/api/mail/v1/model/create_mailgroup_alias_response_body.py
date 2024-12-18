@@ -22,9 +22,10 @@ class CreateMailgroupAliasResponseBody(object):
 class CreateMailgroupAliasResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_mailgroup_alias_response_body = CreateMailgroupAliasResponseBody()
+
     def mailgroup_alias(self, mailgroup_alias: EmailAlias) -> "CreateMailgroupAliasResponseBodyBuilder":
         self._create_mailgroup_alias_response_body.mailgroup_alias = mailgroup_alias
         return self
-    
+
     def build(self) -> "CreateMailgroupAliasResponseBody":
         return self._create_mailgroup_alias_response_body

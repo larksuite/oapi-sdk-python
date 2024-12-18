@@ -26,15 +26,18 @@ class AskAppKnowledgeRequestBody(object):
 class AskAppKnowledgeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._ask_app_knowledge_request_body = AskAppKnowledgeRequestBody()
+
     def message(self, message: AilyKnowledgeMessage) -> "AskAppKnowledgeRequestBodyBuilder":
         self._ask_app_knowledge_request_body.message = message
         return self
+
     def data_asset_ids(self, data_asset_ids: List[str]) -> "AskAppKnowledgeRequestBodyBuilder":
         self._ask_app_knowledge_request_body.data_asset_ids = data_asset_ids
         return self
+
     def data_asset_tag_ids(self, data_asset_tag_ids: List[str]) -> "AskAppKnowledgeRequestBodyBuilder":
         self._ask_app_knowledge_request_body.data_asset_tag_ids = data_asset_tag_ids
         return self
-    
+
     def build(self) -> "AskAppKnowledgeRequestBody":
         return self._ask_app_knowledge_request_body

@@ -17,7 +17,8 @@ class ApplicationInterview(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListApplicationInterviewRequest, option: Optional[RequestOption] = None) -> ListApplicationInterviewResponse:
+    def list(self, request: ListApplicationInterviewRequest,
+             option: Optional[RequestOption] = None) -> ListApplicationInterviewResponse:
         if option is None:
             option = RequestOption()
 
@@ -30,30 +31,28 @@ class ApplicationInterview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListApplicationInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationInterviewResponse)
+        response: ListApplicationInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    ListApplicationInterviewResponse)
         response.raw = resp
 
         return response
-        
 
-    async def alist(self, request: ListApplicationInterviewRequest, option: Optional[RequestOption] = None) -> ListApplicationInterviewResponse:
+    async def alist(self, request: ListApplicationInterviewRequest,
+                    option: Optional[RequestOption] = None) -> ListApplicationInterviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
-        
-
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-        
+
         # 反序列化
-        response: ListApplicationInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationInterviewResponse)
+        response: ListApplicationInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                    ListApplicationInterviewResponse)
         response.raw = resp
 
         return response
-        
-    

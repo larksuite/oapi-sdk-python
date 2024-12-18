@@ -24,12 +24,14 @@ class AppConfigVisibility(object):
 class AppConfigVisibilityBuilder(object):
     def __init__(self) -> None:
         self._app_config_visibility = AppConfigVisibility()
+
     def is_visible_to_all(self, is_visible_to_all: bool) -> "AppConfigVisibilityBuilder":
         self._app_config_visibility.is_visible_to_all = is_visible_to_all
         return self
+
     def visible_list(self, visible_list: AppVisibilityIdList) -> "AppConfigVisibilityBuilder":
         self._app_config_visibility.visible_list = visible_list
         return self
-    
+
     def build(self) -> "AppConfigVisibility":
         return self._app_config_visibility

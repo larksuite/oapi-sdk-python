@@ -23,12 +23,14 @@ class OpeningTimeValidDayExternal(object):
 class OpeningTimeValidDayExternalBuilder(object):
     def __init__(self) -> None:
         self._opening_time_valid_day_external = OpeningTimeValidDayExternal()
+
     def start_day(self, start_day: int) -> "OpeningTimeValidDayExternalBuilder":
         self._opening_time_valid_day_external.start_day = start_day
         return self
+
     def end_day(self, end_day: int) -> "OpeningTimeValidDayExternalBuilder":
         self._opening_time_valid_day_external.end_day = end_day
         return self
-    
+
     def build(self) -> "OpeningTimeValidDayExternal":
         return self._opening_time_valid_day_external

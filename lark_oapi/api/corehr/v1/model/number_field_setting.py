@@ -27,18 +27,22 @@ class NumberFieldSetting(object):
 class NumberFieldSettingBuilder(object):
     def __init__(self) -> None:
         self._number_field_setting = NumberFieldSetting()
+
     def number_field_type(self, number_field_type: int) -> "NumberFieldSettingBuilder":
         self._number_field_setting.number_field_type = number_field_type
         return self
+
     def decimal_places(self, decimal_places: int) -> "NumberFieldSettingBuilder":
         self._number_field_setting.decimal_places = decimal_places
         return self
+
     def round_type(self, round_type: int) -> "NumberFieldSettingBuilder":
         self._number_field_setting.round_type = round_type
         return self
+
     def decimal_total_places(self, decimal_total_places: int) -> "NumberFieldSettingBuilder":
         self._number_field_setting.decimal_total_places = decimal_total_places
         return self
-    
+
     def build(self) -> "NumberFieldSetting":
         return self._number_field_setting

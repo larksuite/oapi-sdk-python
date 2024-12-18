@@ -25,15 +25,18 @@ class Due(object):
 class DueBuilder(object):
     def __init__(self) -> None:
         self._due = Due()
+
     def time(self, time: int) -> "DueBuilder":
         self._due.time = time
         return self
+
     def timezone(self, timezone: str) -> "DueBuilder":
         self._due.timezone = timezone
         return self
+
     def is_all_day(self, is_all_day: bool) -> "DueBuilder":
         self._due.is_all_day = is_all_day
         return self
-    
+
     def build(self) -> "Due":
         return self._due

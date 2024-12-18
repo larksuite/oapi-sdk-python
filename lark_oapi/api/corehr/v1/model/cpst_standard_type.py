@@ -21,9 +21,10 @@ class CpstStandardType(object):
 class CpstStandardTypeBuilder(object):
     def __init__(self) -> None:
         self._cpst_standard_type = CpstStandardType()
+
     def api_name(self, api_name: str) -> "CpstStandardTypeBuilder":
         self._cpst_standard_type.api_name = api_name
         return self
-    
+
     def build(self) -> "CpstStandardType":
         return self._cpst_standard_type

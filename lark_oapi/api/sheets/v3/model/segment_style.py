@@ -24,12 +24,14 @@ class SegmentStyle(object):
 class SegmentStyleBuilder(object):
     def __init__(self) -> None:
         self._segment_style = SegmentStyle()
+
     def affected_text(self, affected_text: str) -> "SegmentStyleBuilder":
         self._segment_style.affected_text = affected_text
         return self
+
     def style(self, style: SegmentStyleStyle) -> "SegmentStyleBuilder":
         self._segment_style.style = style
         return self
-    
+
     def build(self) -> "SegmentStyle":
         return self._segment_style

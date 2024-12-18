@@ -24,17 +24,16 @@ class GetRuleExternalRequestBuilder(object):
         get_rule_external_request.uri = "/open-apis/acs/v1/rule_external"
         get_rule_external_request.token_types = {AccessTokenType.USER}
         self._get_rule_external_request: GetRuleExternalRequest = get_rule_external_request
-    
+
     def device_id(self, device_id: int) -> "GetRuleExternalRequestBuilder":
         self._get_rule_external_request.device_id = device_id
         self._get_rule_external_request.add_query("device_id", device_id)
         return self
-    
+
     def user_id_type(self, user_id_type: str) -> "GetRuleExternalRequestBuilder":
         self._get_rule_external_request.user_id_type = user_id_type
         self._get_rule_external_request.add_query("user_id_type", user_id_type)
         return self
-    
 
     def build(self) -> GetRuleExternalRequest:
         return self._get_rule_external_request

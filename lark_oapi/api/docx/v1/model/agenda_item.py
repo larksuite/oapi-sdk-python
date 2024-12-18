@@ -19,6 +19,6 @@ class AgendaItem(object):
 class AgendaItemBuilder(object):
     def __init__(self) -> None:
         self._agenda_item = AgendaItem()
-    
+
     def build(self) -> "AgendaItem":
         return self._agenda_item

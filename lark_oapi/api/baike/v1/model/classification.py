@@ -25,15 +25,18 @@ class Classification(object):
 class ClassificationBuilder(object):
     def __init__(self) -> None:
         self._classification = Classification()
+
     def id(self, id: str) -> "ClassificationBuilder":
         self._classification.id = id
         return self
+
     def name(self, name: str) -> "ClassificationBuilder":
         self._classification.name = name
         return self
+
     def father_id(self, father_id: str) -> "ClassificationBuilder":
         self._classification.father_id = father_id
         return self
-    
+
     def build(self) -> "Classification":
         return self._classification

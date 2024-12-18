@@ -29,18 +29,22 @@ class DeleteMessageReactionResponseBody(object):
 class DeleteMessageReactionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_message_reaction_response_body = DeleteMessageReactionResponseBody()
+
     def reaction_id(self, reaction_id: str) -> "DeleteMessageReactionResponseBodyBuilder":
         self._delete_message_reaction_response_body.reaction_id = reaction_id
         return self
+
     def operator(self, operator: Operator) -> "DeleteMessageReactionResponseBodyBuilder":
         self._delete_message_reaction_response_body.operator = operator
         return self
+
     def action_time(self, action_time: int) -> "DeleteMessageReactionResponseBodyBuilder":
         self._delete_message_reaction_response_body.action_time = action_time
         return self
+
     def reaction_type(self, reaction_type: Emoji) -> "DeleteMessageReactionResponseBodyBuilder":
         self._delete_message_reaction_response_body.reaction_type = reaction_type
         return self
-    
+
     def build(self) -> "DeleteMessageReactionResponseBody":
         return self._delete_message_reaction_response_body

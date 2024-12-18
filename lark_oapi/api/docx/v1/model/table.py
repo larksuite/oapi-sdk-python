@@ -24,12 +24,14 @@ class Table(object):
 class TableBuilder(object):
     def __init__(self) -> None:
         self._table = Table()
+
     def cells(self, cells: List[str]) -> "TableBuilder":
         self._table.cells = cells
         return self
+
     def property(self, property: TableProperty) -> "TableBuilder":
         self._table.property = property
         return self
-    
+
     def build(self) -> "Table":
         return self._table

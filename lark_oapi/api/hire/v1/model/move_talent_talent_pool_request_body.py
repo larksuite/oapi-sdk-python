@@ -23,12 +23,14 @@ class MoveTalentTalentPoolRequestBody(object):
 class MoveTalentTalentPoolRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._move_talent_talent_pool_request_body = MoveTalentTalentPoolRequestBody()
+
     def talent_id(self, talent_id: str) -> "MoveTalentTalentPoolRequestBodyBuilder":
         self._move_talent_talent_pool_request_body.talent_id = talent_id
         return self
+
     def add_type(self, add_type: int) -> "MoveTalentTalentPoolRequestBodyBuilder":
         self._move_talent_talent_pool_request_body.add_type = add_type
         return self
-    
+
     def build(self) -> "MoveTalentTalentPoolRequestBody":
         return self._move_talent_talent_pool_request_body

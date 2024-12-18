@@ -27,15 +27,18 @@ class InterviewAssessmentTemplate(object):
 class InterviewAssessmentTemplateBuilder(object):
     def __init__(self) -> None:
         self._interview_assessment_template = InterviewAssessmentTemplate()
+
     def id(self, id: str) -> "InterviewAssessmentTemplateBuilder":
         self._interview_assessment_template.id = id
         return self
+
     def name(self, name: I18n) -> "InterviewAssessmentTemplateBuilder":
         self._interview_assessment_template.name = name
         return self
+
     def args(self, args: InterviewAssessmentTemplateArgs) -> "InterviewAssessmentTemplateBuilder":
         self._interview_assessment_template.args = args
         return self
-    
+
     def build(self) -> "InterviewAssessmentTemplate":
         return self._interview_assessment_template

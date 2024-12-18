@@ -25,15 +25,18 @@ class ListOutboundIpResponseBody(object):
 class ListOutboundIpResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_outbound_ip_response_body = ListOutboundIpResponseBody()
+
     def ip_list(self, ip_list: List[str]) -> "ListOutboundIpResponseBodyBuilder":
         self._list_outbound_ip_response_body.ip_list = ip_list
         return self
+
     def page_token(self, page_token: str) -> "ListOutboundIpResponseBodyBuilder":
         self._list_outbound_ip_response_body.page_token = page_token
         return self
+
     def has_more(self, has_more: bool) -> "ListOutboundIpResponseBodyBuilder":
         self._list_outbound_ip_response_body.has_more = has_more
         return self
-    
+
     def build(self) -> "ListOutboundIpResponseBody":
         return self._list_outbound_ip_response_body

@@ -29,21 +29,26 @@ class AttachmentInfo(object):
 class AttachmentInfoBuilder(object):
     def __init__(self) -> None:
         self._attachment_info = AttachmentInfo()
+
     def id(self, id: str) -> "AttachmentInfoBuilder":
         self._attachment_info.id = id
         return self
+
     def url(self, url: str) -> "AttachmentInfoBuilder":
         self._attachment_info.url = url
         return self
+
     def name(self, name: str) -> "AttachmentInfoBuilder":
         self._attachment_info.name = name
         return self
+
     def mime(self, mime: str) -> "AttachmentInfoBuilder":
         self._attachment_info.mime = mime
         return self
+
     def create_time(self, create_time: str) -> "AttachmentInfoBuilder":
         self._attachment_info.create_time = create_time
         return self
-    
+
     def build(self) -> "AttachmentInfo":
         return self._attachment_info

@@ -22,9 +22,10 @@ class SearchGroupResponseBody(object):
 class SearchGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_group_response_body = SearchGroupResponseBody()
+
     def group_list(self, group_list: List[GroupMeta]) -> "SearchGroupResponseBodyBuilder":
         self._search_group_response_body.group_list = group_list
         return self
-    
+
     def build(self) -> "SearchGroupResponseBody":
         return self._search_group_response_body

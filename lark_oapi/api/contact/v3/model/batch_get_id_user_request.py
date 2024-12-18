@@ -25,12 +25,12 @@ class BatchGetIdUserRequestBuilder(object):
         batch_get_id_user_request.uri = "/open-apis/contact/v3/users/batch_get_id"
         batch_get_id_user_request.token_types = {AccessTokenType.TENANT}
         self._batch_get_id_user_request: BatchGetIdUserRequest = batch_get_id_user_request
-    
+
     def user_id_type(self, user_id_type: str) -> "BatchGetIdUserRequestBuilder":
         self._batch_get_id_user_request.user_id_type = user_id_type
         self._batch_get_id_user_request.add_query("user_id_type", user_id_type)
         return self
-    
+
     def request_body(self, request_body: BatchGetIdUserRequestBody) -> "BatchGetIdUserRequestBuilder":
         self._batch_get_id_user_request.request_body = request_body
         self._batch_get_id_user_request.body = request_body

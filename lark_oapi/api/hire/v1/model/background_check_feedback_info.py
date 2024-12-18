@@ -25,15 +25,18 @@ class BackgroundCheckFeedbackInfo(object):
 class BackgroundCheckFeedbackInfoBuilder(object):
     def __init__(self) -> None:
         self._background_check_feedback_info = BackgroundCheckFeedbackInfo()
+
     def feedback_id(self, feedback_id: str) -> "BackgroundCheckFeedbackInfoBuilder":
         self._background_check_feedback_info.feedback_id = feedback_id
         return self
+
     def attachment_url(self, attachment_url: str) -> "BackgroundCheckFeedbackInfoBuilder":
         self._background_check_feedback_info.attachment_url = attachment_url
         return self
+
     def result(self, result: str) -> "BackgroundCheckFeedbackInfoBuilder":
         self._background_check_feedback_info.result = result
         return self
-    
+
     def build(self) -> "BackgroundCheckFeedbackInfo":
         return self._background_check_feedback_info

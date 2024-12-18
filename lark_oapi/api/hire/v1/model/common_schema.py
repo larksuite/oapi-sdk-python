@@ -41,33 +41,42 @@ class CommonSchema(object):
 class CommonSchemaBuilder(object):
     def __init__(self) -> None:
         self._common_schema = CommonSchema()
+
     def id(self, id: str) -> "CommonSchemaBuilder":
         self._common_schema.id = id
         return self
+
     def name(self, name: I18n) -> "CommonSchemaBuilder":
         self._common_schema.name = name
         return self
+
     def description(self, description: I18n) -> "CommonSchemaBuilder":
         self._common_schema.description = description
         return self
+
     def setting(self, setting: CommonSchemaSetting) -> "CommonSchemaBuilder":
         self._common_schema.setting = setting
         return self
+
     def is_customized(self, is_customized: bool) -> "CommonSchemaBuilder":
         self._common_schema.is_customized = is_customized
         return self
+
     def is_required(self, is_required: bool) -> "CommonSchemaBuilder":
         self._common_schema.is_required = is_required
         return self
+
     def is_visible(self, is_visible: bool) -> "CommonSchemaBuilder":
         self._common_schema.is_visible = is_visible
         return self
+
     def active_status(self, active_status: int) -> "CommonSchemaBuilder":
         self._common_schema.active_status = active_status
         return self
+
     def children_list(self, children_list: List[CommonSchemaChild]) -> "CommonSchemaBuilder":
         self._common_schema.children_list = children_list
         return self
-    
+
     def build(self) -> "CommonSchema":
         return self._common_schema

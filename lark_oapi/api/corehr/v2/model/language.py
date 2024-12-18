@@ -28,18 +28,22 @@ class Language(object):
 class LanguageBuilder(object):
     def __init__(self) -> None:
         self._language = Language()
+
     def language_id(self, language_id: str) -> "LanguageBuilder":
         self._language.language_id = language_id
         return self
+
     def name(self, name: List[I18n]) -> "LanguageBuilder":
         self._language.name = name
         return self
+
     def ietf_language_tag(self, ietf_language_tag: str) -> "LanguageBuilder":
         self._language.ietf_language_tag = ietf_language_tag
         return self
+
     def status(self, status: int) -> "LanguageBuilder":
         self._language.status = status
         return self
-    
+
     def build(self) -> "Language":
         return self._language

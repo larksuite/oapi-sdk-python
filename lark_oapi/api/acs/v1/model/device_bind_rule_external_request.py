@@ -24,7 +24,7 @@ class DeviceBindRuleExternalRequestBuilder(object):
         device_bind_rule_external_request.uri = "/open-apis/acs/v1/rule_external/device_bind"
         device_bind_rule_external_request.token_types = {AccessTokenType.USER}
         self._device_bind_rule_external_request: DeviceBindRuleExternalRequest = device_bind_rule_external_request
-    
+
     def request_body(self, request_body: DeviceBindRuleExternalRequestBody) -> "DeviceBindRuleExternalRequestBuilder":
         self._device_bind_rule_external_request.request_body = request_body
         self._device_bind_rule_external_request.body = request_body

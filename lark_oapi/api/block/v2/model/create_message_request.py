@@ -24,7 +24,7 @@ class CreateMessageRequestBuilder(object):
         create_message_request.uri = "/open-apis/block/v2/message"
         create_message_request.token_types = {AccessTokenType.TENANT}
         self._create_message_request: CreateMessageRequest = create_message_request
-    
+
     def request_body(self, request_body: Message) -> "CreateMessageRequestBuilder":
         self._create_message_request.request_body = request_body
         self._create_message_request.body = request_body

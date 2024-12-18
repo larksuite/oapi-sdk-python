@@ -24,12 +24,14 @@ class OnboardingFlow(object):
 class OnboardingFlowBuilder(object):
     def __init__(self) -> None:
         self._onboarding_flow = OnboardingFlow()
+
     def id(self, id: str) -> "OnboardingFlowBuilder":
         self._onboarding_flow.id = id
         return self
+
     def name(self, name: I18nV2) -> "OnboardingFlowBuilder":
         self._onboarding_flow.name = name
         return self
-    
+
     def build(self) -> "OnboardingFlow":
         return self._onboarding_flow

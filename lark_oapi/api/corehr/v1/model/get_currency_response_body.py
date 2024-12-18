@@ -22,9 +22,10 @@ class GetCurrencyResponseBody(object):
 class GetCurrencyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_currency_response_body = GetCurrencyResponseBody()
+
     def currency(self, currency: Currency) -> "GetCurrencyResponseBodyBuilder":
         self._get_currency_response_body.currency = currency
         return self
-    
+
     def build(self) -> "GetCurrencyResponseBody":
         return self._get_currency_response_body

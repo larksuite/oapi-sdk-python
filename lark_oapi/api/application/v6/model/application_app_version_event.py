@@ -55,54 +55,70 @@ class ApplicationAppVersionEvent(object):
 class ApplicationAppVersionEventBuilder(object):
     def __init__(self) -> None:
         self._application_app_version_event = ApplicationAppVersionEvent()
+
     def app_id(self, app_id: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.app_id = app_id
         return self
+
     def version(self, version: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.version = version
         return self
+
     def version_id(self, version_id: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.version_id = version_id
         return self
+
     def app_name(self, app_name: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.app_name = app_name
         return self
+
     def avatar_url(self, avatar_url: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.avatar_url = avatar_url
         return self
+
     def description(self, description: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.description = description
         return self
+
     def scopes(self, scopes: List[AppScope]) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.scopes = scopes
         return self
+
     def back_home_url(self, back_home_url: str) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.back_home_url = back_home_url
         return self
+
     def i18n(self, i18n: List[AppI18nInfo]) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.i18n = i18n
         return self
+
     def common_categories(self, common_categories: List[str]) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.common_categories = common_categories
         return self
+
     def events(self, events: List[str]) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.events = events
         return self
+
     def status(self, status: int) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.status = status
         return self
+
     def create_time(self, create_time: int) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.create_time = create_time
         return self
+
     def publish_time(self, publish_time: int) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.publish_time = publish_time
         return self
+
     def ability(self, ability: AppAbility) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.ability = ability
         return self
+
     def remark(self, remark: AppVersionRemarkEvent) -> "ApplicationAppVersionEventBuilder":
         self._application_app_version_event.remark = remark
         return self
-    
+
     def build(self) -> "ApplicationAppVersionEvent":
         return self._application_app_version_event
