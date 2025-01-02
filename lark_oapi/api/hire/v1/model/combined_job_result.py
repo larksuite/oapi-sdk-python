@@ -8,6 +8,7 @@ from .job_manager import JobManager
 from .registration_schema_info import RegistrationSchemaInfo
 from .registration_schema_info import RegistrationSchemaInfo
 from .target_major_info import TargetMajorInfo
+from .registration_schema_info import RegistrationSchemaInfo
 
 
 class CombinedJobResult(object):
@@ -18,6 +19,7 @@ class CombinedJobResult(object):
         "interview_registration_schema_info": RegistrationSchemaInfo,
         "onboard_registration_schema_info": RegistrationSchemaInfo,
         "target_major_list": List[TargetMajorInfo],
+        "portal_website_apply_form_schema_info": RegistrationSchemaInfo,
     }
 
     def __init__(self, d=None):
@@ -27,6 +29,7 @@ class CombinedJobResult(object):
         self.interview_registration_schema_info: Optional[RegistrationSchemaInfo] = None
         self.onboard_registration_schema_info: Optional[RegistrationSchemaInfo] = None
         self.target_major_list: Optional[List[TargetMajorInfo]] = None
+        self.portal_website_apply_form_schema_info: Optional[RegistrationSchemaInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -62,6 +65,11 @@ class CombinedJobResultBuilder(object):
 
     def target_major_list(self, target_major_list: List[TargetMajorInfo]) -> "CombinedJobResultBuilder":
         self._combined_job_result.target_major_list = target_major_list
+        return self
+
+    def portal_website_apply_form_schema_info(self,
+                                              portal_website_apply_form_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
+        self._combined_job_result.portal_website_apply_form_schema_info = portal_website_apply_form_schema_info
         return self
 
     def build(self) -> "CombinedJobResult":

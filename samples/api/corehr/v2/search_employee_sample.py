@@ -59,7 +59,6 @@ def main():
                       .assignment_pay_group_id_list([])
                       .contract_type_list([])
                       .archive_cpst_plan_id_list([])
-                      .attendance_group_id_list([])
                       .build()) \
         .build()
 
@@ -132,7 +131,6 @@ async def amain():
                       .assignment_pay_group_id_list([])
                       .contract_type_list([])
                       .archive_cpst_plan_id_list([])
-                      .attendance_group_id_list([])
                       .build()) \
         .build()
 

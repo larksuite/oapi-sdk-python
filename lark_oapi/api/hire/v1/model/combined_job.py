@@ -40,6 +40,7 @@ class CombinedJob(object):
         "interview_registration_schema_id": str,
         "onboard_registration_schema_id": str,
         "target_major_id_list": List[str],
+        "portal_website_apply_form_schema_id": str,
     }
 
     def __init__(self, d=None):
@@ -75,6 +76,7 @@ class CombinedJob(object):
         self.interview_registration_schema_id: Optional[str] = None
         self.onboard_registration_schema_id: Optional[str] = None
         self.target_major_id_list: Optional[List[str]] = None
+        self.portal_website_apply_form_schema_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -212,6 +214,10 @@ class CombinedJobBuilder(object):
 
     def target_major_id_list(self, target_major_id_list: List[str]) -> "CombinedJobBuilder":
         self._combined_job.target_major_id_list = target_major_id_list
+        return self
+
+    def portal_website_apply_form_schema_id(self, portal_website_apply_form_schema_id: str) -> "CombinedJobBuilder":
+        self._combined_job.portal_website_apply_form_schema_id = portal_website_apply_form_schema_id
         return self
 
     def build(self) -> "CombinedJob":

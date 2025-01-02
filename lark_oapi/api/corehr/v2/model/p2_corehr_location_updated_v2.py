@@ -10,13 +10,13 @@ class P2CorehrLocationUpdatedV2Data(object):
     _types = {
         "location_id": str,
         "field_changes": List[str],
-        "sub_events": OrganizationDomainEventData,
+        "sub_events": List[OrganizationDomainEventData],
     }
 
     def __init__(self, d=None):
         self.location_id: Optional[str] = None
         self.field_changes: Optional[List[str]] = None
-        self.sub_events: Optional[OrganizationDomainEventData] = None
+        self.sub_events: Optional[List[OrganizationDomainEventData]] = None
         init(self, d, self._types)
 
 

@@ -49,6 +49,7 @@ def main():
                       .interview_registration_schema_id("6930815272790114324")
                       .onboard_registration_schema_id("6930815272790114325")
                       .target_major_id_list([])
+                      .portal_website_apply_form_schema_id("7397638158859323692")
                       .build()) \
         .build()
 
@@ -111,6 +112,7 @@ async def amain():
                       .interview_registration_schema_id("6930815272790114324")
                       .onboard_registration_schema_id("6930815272790114325")
                       .target_major_id_list([])
+                      .portal_website_apply_form_schema_id("7397638158859323692")
                       .build()) \
         .build()
 

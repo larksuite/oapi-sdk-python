@@ -213,6 +213,7 @@ from .interview_round_type_assessment_template import *
 from .interview_score import *
 from .interview_task import *
 from .interviewer import *
+from .interviewer_tag import *
 from .job import *
 from .job_manager import *
 from .job_recruiter import *

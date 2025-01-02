@@ -19,6 +19,8 @@ from ..model.patch_department_request import PatchDepartmentRequest
 from ..model.patch_department_response import PatchDepartmentResponse
 from ..model.query_multi_timeline_department_request import QueryMultiTimelineDepartmentRequest
 from ..model.query_multi_timeline_department_response import QueryMultiTimelineDepartmentResponse
+from ..model.query_operation_logs_department_request import QueryOperationLogsDepartmentRequest
+from ..model.query_operation_logs_department_response import QueryOperationLogsDepartmentResponse
 from ..model.query_recent_change_department_request import QueryRecentChangeDepartmentRequest
 from ..model.query_recent_change_department_response import QueryRecentChangeDepartmentResponse
 from ..model.query_timeline_department_request import QueryTimelineDepartmentRequest
@@ -220,6 +222,46 @@ class Department(object):
         # 反序列化
         response: QueryMultiTimelineDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
                                                                         QueryMultiTimelineDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    def query_operation_logs(self, request: QueryOperationLogsDepartmentRequest,
+                             option: Optional[RequestOption] = None) -> QueryOperationLogsDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryOperationLogsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        QueryOperationLogsDepartmentResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery_operation_logs(self, request: QueryOperationLogsDepartmentRequest,
+                                    option: Optional[RequestOption] = None) -> QueryOperationLogsDepartmentResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryOperationLogsDepartmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                        QueryOperationLogsDepartmentResponse)
         response.raw = resp
 
         return response

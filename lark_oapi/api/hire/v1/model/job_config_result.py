@@ -13,6 +13,7 @@ from .registration_info import RegistrationInfo
 from .job_config_round_type_result import JobConfigRoundTypeResult
 from .id_name_object import IdNameObject
 from .interview_appointment_config import InterviewAppointmentConfig
+from .registration_info import RegistrationInfo
 
 
 class JobConfigResult(object):
@@ -30,6 +31,7 @@ class JobConfigResult(object):
         "related_job_list": List[IdNameObject],
         "job_attribute": int,
         "interview_appointment_config": InterviewAppointmentConfig,
+        "portal_website_apply_form_schema_info": RegistrationInfo,
     }
 
     def __init__(self, d=None):
@@ -46,6 +48,7 @@ class JobConfigResult(object):
         self.related_job_list: Optional[List[IdNameObject]] = None
         self.job_attribute: Optional[int] = None
         self.interview_appointment_config: Optional[InterviewAppointmentConfig] = None
+        self.portal_website_apply_form_schema_info: Optional[RegistrationInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -109,6 +112,11 @@ class JobConfigResultBuilder(object):
     def interview_appointment_config(self,
                                      interview_appointment_config: InterviewAppointmentConfig) -> "JobConfigResultBuilder":
         self._job_config_result.interview_appointment_config = interview_appointment_config
+        return self
+
+    def portal_website_apply_form_schema_info(self,
+                                              portal_website_apply_form_schema_info: RegistrationInfo) -> "JobConfigResultBuilder":
+        self._job_config_result.portal_website_apply_form_schema_info = portal_website_apply_form_schema_info
         return self
 
     def build(self) -> "JobConfigResult":

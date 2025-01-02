@@ -47,7 +47,6 @@ class SearchEmployeeRequestBody(object):
         "assignment_pay_group_id_list": List[str],
         "contract_type_list": List[str],
         "archive_cpst_plan_id_list": List[str],
-        "attendance_group_id_list": List[str],
     }
 
     def __init__(self, d=None):
@@ -92,7 +91,6 @@ class SearchEmployeeRequestBody(object):
         self.assignment_pay_group_id_list: Optional[List[str]] = None
         self.contract_type_list: Optional[List[str]] = None
         self.archive_cpst_plan_id_list: Optional[List[str]] = None
-        self.attendance_group_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -277,10 +275,6 @@ class SearchEmployeeRequestBodyBuilder(object):
 
     def archive_cpst_plan_id_list(self, archive_cpst_plan_id_list: List[str]) -> "SearchEmployeeRequestBodyBuilder":
         self._search_employee_request_body.archive_cpst_plan_id_list = archive_cpst_plan_id_list
-        return self
-
-    def attendance_group_id_list(self, attendance_group_id_list: List[str]) -> "SearchEmployeeRequestBodyBuilder":
-        self._search_employee_request_body.attendance_group_id_list = attendance_group_id_list
         return self
 
     def build(self) -> "SearchEmployeeRequestBody":

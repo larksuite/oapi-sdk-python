@@ -11,6 +11,8 @@ class Test(object):
     _types = {
         "test_id": str,
         "application_id": str,
+        "talent_id": str,
+        "job_id": str,
         "test_paper_id": str,
         "test_paper_name": str,
         "test_paper_source_id": str,
@@ -25,12 +27,15 @@ class Test(object):
         "score": str,
         "score_submit_time": str,
         "reviewer": str,
+        "review_created_at": str,
         "created_at": str,
     }
 
     def __init__(self, d=None):
         self.test_id: Optional[str] = None
         self.application_id: Optional[str] = None
+        self.talent_id: Optional[str] = None
+        self.job_id: Optional[str] = None
         self.test_paper_id: Optional[str] = None
         self.test_paper_name: Optional[str] = None
         self.test_paper_source_id: Optional[str] = None
@@ -45,6 +50,7 @@ class Test(object):
         self.score: Optional[str] = None
         self.score_submit_time: Optional[str] = None
         self.reviewer: Optional[str] = None
+        self.review_created_at: Optional[str] = None
         self.created_at: Optional[str] = None
         init(self, d, self._types)
 
@@ -63,6 +69,14 @@ class TestBuilder(object):
 
     def application_id(self, application_id: str) -> "TestBuilder":
         self._test.application_id = application_id
+        return self
+
+    def talent_id(self, talent_id: str) -> "TestBuilder":
+        self._test.talent_id = talent_id
+        return self
+
+    def job_id(self, job_id: str) -> "TestBuilder":
+        self._test.job_id = job_id
         return self
 
     def test_paper_id(self, test_paper_id: str) -> "TestBuilder":
@@ -119,6 +133,10 @@ class TestBuilder(object):
 
     def reviewer(self, reviewer: str) -> "TestBuilder":
         self._test.reviewer = reviewer
+        return self
+
+    def review_created_at(self, review_created_at: str) -> "TestBuilder":
+        self._test.review_created_at = review_created_at
         return self
 
     def created_at(self, created_at: str) -> "TestBuilder":

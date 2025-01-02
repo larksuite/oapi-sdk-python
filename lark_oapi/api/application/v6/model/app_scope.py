@@ -9,12 +9,14 @@ class AppScope(object):
         "scope": str,
         "description": str,
         "level": int,
+        "token_types": List[str],
     }
 
     def __init__(self, d=None):
         self.scope: Optional[str] = None
         self.description: Optional[str] = None
         self.level: Optional[int] = None
+        self.token_types: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +38,10 @@ class AppScopeBuilder(object):
 
     def level(self, level: int) -> "AppScopeBuilder":
         self._app_scope.level = level
+        return self
+
+    def token_types(self, token_types: List[str]) -> "AppScopeBuilder":
+        self._app_scope.token_types = token_types
         return self
 
     def build(self) -> "AppScope":

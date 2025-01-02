@@ -29,6 +29,7 @@ def main():
                       .interview_round_type_conf_list([])
                       .related_job_id_list([])
                       .interview_appointment_config(InterviewAppointmentConfig.builder().build())
+                      .portal_website_apply_form_schema_id("6930815272790114324")
                       .build()) \
         .build()
 
@@ -71,6 +72,7 @@ async def amain():
                       .interview_round_type_conf_list([])
                       .related_job_id_list([])
                       .interview_appointment_config(InterviewAppointmentConfig.builder().build())
+                      .portal_website_apply_form_schema_id("6930815272790114324")
                       .build()) \
         .build()
 

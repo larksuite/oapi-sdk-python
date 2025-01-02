@@ -21,6 +21,7 @@ class JobConfig(object):
         "interview_round_type_conf_list": List[JobConfigRoundType],
         "related_job_id_list": List[str],
         "interview_appointment_config": InterviewAppointmentConfig,
+        "portal_website_apply_form_schema_id": str,
     }
 
     def __init__(self, d=None):
@@ -36,6 +37,7 @@ class JobConfig(object):
         self.interview_round_type_conf_list: Optional[List[JobConfigRoundType]] = None
         self.related_job_id_list: Optional[List[str]] = None
         self.interview_appointment_config: Optional[InterviewAppointmentConfig] = None
+        self.portal_website_apply_form_schema_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -96,6 +98,10 @@ class JobConfigBuilder(object):
     def interview_appointment_config(self,
                                      interview_appointment_config: InterviewAppointmentConfig) -> "JobConfigBuilder":
         self._job_config.interview_appointment_config = interview_appointment_config
+        return self
+
+    def portal_website_apply_form_schema_id(self, portal_website_apply_form_schema_id: str) -> "JobConfigBuilder":
+        self._job_config.portal_website_apply_form_schema_id = portal_website_apply_form_schema_id
         return self
 
     def build(self) -> "JobConfig":

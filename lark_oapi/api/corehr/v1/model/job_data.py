@@ -8,6 +8,7 @@ from .support_cost_center_item import SupportCostCenterItem
 from .object_field_data import ObjectFieldData
 from .enum import Enum
 from .enum import Enum
+from .enum import Enum
 
 
 class JobData(object):
@@ -43,6 +44,7 @@ class JobData(object):
         "service_company": str,
         "employee_subtype_id": str,
         "position_id": str,
+        "job_data_reason": Enum,
     }
 
     def __init__(self, d=None):
@@ -77,6 +79,7 @@ class JobData(object):
         self.service_company: Optional[str] = None
         self.employee_subtype_id: Optional[str] = None
         self.position_id: Optional[str] = None
+        self.job_data_reason: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -210,6 +213,10 @@ class JobDataBuilder(object):
 
     def position_id(self, position_id: str) -> "JobDataBuilder":
         self._job_data.position_id = position_id
+        return self
+
+    def job_data_reason(self, job_data_reason: Enum) -> "JobDataBuilder":
+        self._job_data.job_data_reason = job_data_reason
         return self
 
     def build(self) -> "JobData":

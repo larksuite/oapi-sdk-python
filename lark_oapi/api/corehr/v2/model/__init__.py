@@ -43,6 +43,7 @@ from .custom_org_with_rate import *
 from .custom_value import *
 from .dataengine_i18n import *
 from .department import *
+from .department_adjust_record import *
 from .department_change import *
 from .department_for_patch import *
 from .department_hrbp import *
@@ -60,6 +61,7 @@ from .dimension_info import *
 from .dimension_info_data import *
 from .dimension_value import *
 from .district import *
+from .draft_info import *
 from .education import *
 from .education_info import *
 from .email import *
@@ -351,6 +353,8 @@ from .parents_department_request import *
 from .patch_department_request import *
 from .query_multi_timeline_department_request_body import *
 from .query_multi_timeline_department_request import *
+from .query_operation_logs_department_request_body import *
+from .query_operation_logs_department_request import *
 from .query_recent_change_department_request import *
 from .query_timeline_department_request_body import *
 from .query_timeline_department_request import *
@@ -414,10 +418,14 @@ from .delete_pre_hire_request import *
 from .patch_pre_hire_request import *
 from .query_pre_hire_request_body import *
 from .query_pre_hire_request import *
+from .restore_flow_instance_pre_hire_request_body import *
+from .restore_flow_instance_pre_hire_request import *
 from .search_pre_hire_request_body import *
 from .search_pre_hire_request import *
 from .transit_task_pre_hire_request_body import *
 from .transit_task_pre_hire_request import *
+from .withdraw_onboarding_pre_hire_request_body import *
+from .withdraw_onboarding_pre_hire_request import *
 from .enable_disable_assessment_probation_request_body import *
 from .enable_disable_assessment_probation_request import *
 from .search_probation_request_body import *
@@ -504,6 +512,8 @@ from .parents_department_response import *
 from .patch_department_response import *
 from .query_multi_timeline_department_response_body import *
 from .query_multi_timeline_department_response import *
+from .query_operation_logs_department_response_body import *
+from .query_operation_logs_department_response import *
 from .query_recent_change_department_response_body import *
 from .query_recent_change_department_response import *
 from .query_timeline_department_response_body import *
@@ -576,10 +586,14 @@ from .patch_pre_hire_response_body import *
 from .patch_pre_hire_response import *
 from .query_pre_hire_response_body import *
 from .query_pre_hire_response import *
+from .restore_flow_instance_pre_hire_response_body import *
+from .restore_flow_instance_pre_hire_response import *
 from .search_pre_hire_response_body import *
 from .search_pre_hire_response import *
 from .transit_task_pre_hire_response_body import *
 from .transit_task_pre_hire_response import *
+from .withdraw_onboarding_pre_hire_response_body import *
+from .withdraw_onboarding_pre_hire_response import *
 from .enable_disable_assessment_probation_response import *
 from .search_probation_response_body import *
 from .search_probation_response import *

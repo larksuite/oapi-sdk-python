@@ -12,6 +12,7 @@ class ScenarioContextExtra(object):
         "suggest_query_id": str,
         "button_send_message_info": str,
         "button_regenerate_message": str,
+        "enterprise_qa_channel_info": str,
     }
 
     def __init__(self, d=None):
@@ -21,6 +22,7 @@ class ScenarioContextExtra(object):
         self.suggest_query_id: Optional[str] = None
         self.button_send_message_info: Optional[str] = None
         self.button_regenerate_message: Optional[str] = None
+        self.enterprise_qa_channel_info: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +56,10 @@ class ScenarioContextExtraBuilder(object):
 
     def button_regenerate_message(self, button_regenerate_message: str) -> "ScenarioContextExtraBuilder":
         self._scenario_context_extra.button_regenerate_message = button_regenerate_message
+        return self
+
+    def enterprise_qa_channel_info(self, enterprise_qa_channel_info: str) -> "ScenarioContextExtraBuilder":
+        self._scenario_context_extra.enterprise_qa_channel_info = enterprise_qa_channel_info
         return self
 
     def build(self) -> "ScenarioContextExtra":

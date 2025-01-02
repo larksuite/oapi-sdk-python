@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .enum import Enum
 from .i18n import I18n
 from .custom_field_data import CustomFieldData
 
@@ -12,6 +13,7 @@ class DepartmentTimeline(object):
         "id": str,
         "version_id": str,
         "names": List[I18n],
+        "sub_type": Enum,
         "parent_department_id": str,
         "manager": str,
         "code": str,
@@ -25,6 +27,7 @@ class DepartmentTimeline(object):
         self.id: Optional[str] = None
         self.version_id: Optional[str] = None
         self.names: Optional[List[I18n]] = None
+        self.sub_type: Optional[Enum] = None
         self.parent_department_id: Optional[str] = None
         self.manager: Optional[str] = None
         self.code: Optional[str] = None
@@ -53,6 +56,10 @@ class DepartmentTimelineBuilder(object):
 
     def names(self, names: List[I18n]) -> "DepartmentTimelineBuilder":
         self._department_timeline.names = names
+        return self
+
+    def sub_type(self, sub_type: Enum) -> "DepartmentTimelineBuilder":
+        self._department_timeline.sub_type = sub_type
         return self
 
     def parent_department_id(self, parent_department_id: str) -> "DepartmentTimelineBuilder":

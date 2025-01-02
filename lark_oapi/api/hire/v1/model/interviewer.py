@@ -8,11 +8,13 @@ class Interviewer(object):
     _types = {
         "user_id": str,
         "verify_status": int,
+        "tag_id_list": List[str],
     }
 
     def __init__(self, d=None):
         self.user_id: Optional[str] = None
         self.verify_status: Optional[int] = None
+        self.tag_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +32,10 @@ class InterviewerBuilder(object):
 
     def verify_status(self, verify_status: int) -> "InterviewerBuilder":
         self._interviewer.verify_status = verify_status
+        return self
+
+    def tag_id_list(self, tag_id_list: List[str]) -> "InterviewerBuilder":
+        self._interviewer.tag_id_list = tag_id_list
         return self
 
     def build(self) -> "Interviewer":

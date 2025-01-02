@@ -11,6 +11,7 @@ from .job_data_cost_center import JobDataCostCenter
 from .enum import Enum
 from .enum import Enum
 from .custom_field_data import CustomFieldData
+from .enum import Enum
 
 
 class JobData(object):
@@ -47,6 +48,7 @@ class JobData(object):
         "weekly_working_hours_v2": float,
         "weekly_working_hours": int,
         "employee_subtype_id": str,
+        "job_data_reason": Enum,
     }
 
     def __init__(self, d=None):
@@ -82,6 +84,7 @@ class JobData(object):
         self.weekly_working_hours_v2: Optional[float] = None
         self.weekly_working_hours: Optional[int] = None
         self.employee_subtype_id: Optional[str] = None
+        self.job_data_reason: Optional[Enum] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -219,6 +222,10 @@ class JobDataBuilder(object):
 
     def employee_subtype_id(self, employee_subtype_id: str) -> "JobDataBuilder":
         self._job_data.employee_subtype_id = employee_subtype_id
+        return self
+
+    def job_data_reason(self, job_data_reason: Enum) -> "JobDataBuilder":
+        self._job_data.job_data_reason = job_data_reason
         return self
 
     def build(self) -> "JobData":
