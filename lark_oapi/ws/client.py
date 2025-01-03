@@ -7,7 +7,6 @@ from urllib.parse import urlparse, parse_qs
 
 import requests
 import websockets
-from google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 
 from lark_oapi.core.cache import ExpiringCache
 from lark_oapi.core.const import UTF_8, FEISHU_DOMAIN
@@ -20,6 +19,7 @@ from lark_oapi.ws.const import *
 from lark_oapi.ws.enum import FrameType, MessageType
 from lark_oapi.ws.exception import *
 from lark_oapi.ws.model import *
+from lark_oapi.ws.pb.google.protobuf.internal.containers import RepeatedCompositeFieldContainer
 from lark_oapi.ws.pb.pbbp2_pb2 import Frame
 
 try:
