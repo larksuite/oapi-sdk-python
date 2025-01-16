@@ -5,6 +5,10 @@ from lark_oapi.core.construct import init
 from .job_data_cost_center import JobDataCostCenter
 from .object_field_data import ObjectFieldData
 from .prehire_seniority_adjust_information import PrehireSeniorityAdjustInformation
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
 
 
 class OfferInfo(object):
@@ -57,6 +61,15 @@ class OfferInfo(object):
         "check_in_method": str,
         "seniority_date": str,
         "seniority_adjust_information_list": List[PrehireSeniorityAdjustInformation],
+        "notice_period_probation_voluntary": NoticePeriodDetail,
+        "notice_period_probation_involuntary": NoticePeriodDetail,
+        "notice_period_positive_voluntary": NoticePeriodDetail,
+        "notice_period_positive_involuntary": NoticePeriodDetail,
+        "condition_worker": bool,
+        "non_compete_covenant": bool,
+        "company_sponsored_visa": bool,
+        "has_offer_salary": bool,
+        "work_station": str,
     }
 
     def __init__(self, d=None):
@@ -108,6 +121,15 @@ class OfferInfo(object):
         self.check_in_method: Optional[str] = None
         self.seniority_date: Optional[str] = None
         self.seniority_adjust_information_list: Optional[List[PrehireSeniorityAdjustInformation]] = None
+        self.notice_period_probation_voluntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_probation_involuntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_positive_voluntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_positive_involuntary: Optional[NoticePeriodDetail] = None
+        self.condition_worker: Optional[bool] = None
+        self.non_compete_covenant: Optional[bool] = None
+        self.company_sponsored_visa: Optional[bool] = None
+        self.has_offer_salary: Optional[bool] = None
+        self.work_station: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -310,6 +332,46 @@ class OfferInfoBuilder(object):
     def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
         PrehireSeniorityAdjustInformation]) -> "OfferInfoBuilder":
         self._offer_info.seniority_adjust_information_list = seniority_adjust_information_list
+        return self
+
+    def notice_period_probation_voluntary(self,
+                                          notice_period_probation_voluntary: NoticePeriodDetail) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_probation_voluntary = notice_period_probation_voluntary
+        return self
+
+    def notice_period_probation_involuntary(self,
+                                            notice_period_probation_involuntary: NoticePeriodDetail) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_probation_involuntary = notice_period_probation_involuntary
+        return self
+
+    def notice_period_positive_voluntary(self,
+                                         notice_period_positive_voluntary: NoticePeriodDetail) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_positive_voluntary = notice_period_positive_voluntary
+        return self
+
+    def notice_period_positive_involuntary(self,
+                                           notice_period_positive_involuntary: NoticePeriodDetail) -> "OfferInfoBuilder":
+        self._offer_info.notice_period_positive_involuntary = notice_period_positive_involuntary
+        return self
+
+    def condition_worker(self, condition_worker: bool) -> "OfferInfoBuilder":
+        self._offer_info.condition_worker = condition_worker
+        return self
+
+    def non_compete_covenant(self, non_compete_covenant: bool) -> "OfferInfoBuilder":
+        self._offer_info.non_compete_covenant = non_compete_covenant
+        return self
+
+    def company_sponsored_visa(self, company_sponsored_visa: bool) -> "OfferInfoBuilder":
+        self._offer_info.company_sponsored_visa = company_sponsored_visa
+        return self
+
+    def has_offer_salary(self, has_offer_salary: bool) -> "OfferInfoBuilder":
+        self._offer_info.has_offer_salary = has_offer_salary
+        return self
+
+    def work_station(self, work_station: str) -> "OfferInfoBuilder":
+        self._offer_info.work_station = work_station
         return self
 
     def build(self) -> "OfferInfo":

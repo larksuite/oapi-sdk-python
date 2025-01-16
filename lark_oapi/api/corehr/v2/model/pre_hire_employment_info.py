@@ -11,6 +11,10 @@ from .pre_hire_abnormal_reason import PreHireAbnormalReason
 from .enum import Enum
 from .enum import Enum
 from .prehire_seniority_adjust_information_query import PrehireSeniorityAdjustInformationQuery
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
 
 
 class PreHireEmploymentInfo(object):
@@ -45,6 +49,7 @@ class PreHireEmploymentInfo(object):
         "working_calendar_id": str,
         "updated_at": str,
         "suspected_rehiring": bool,
+        "condition_worker": bool,
         "custom_fields": List[CustomFieldData],
         "position_id": str,
         "company_manual_updated": bool,
@@ -68,6 +73,15 @@ class PreHireEmploymentInfo(object):
         "background_check_order_complete_time": str,
         "background_check_order_status": Enum,
         "seniority_adjust_information_list": List[PrehireSeniorityAdjustInformationQuery],
+        "notice_period_positive_voluntary": NoticePeriodDetail,
+        "notice_period_probation_involuntary": NoticePeriodDetail,
+        "notice_period_positive_involuntary": NoticePeriodDetail,
+        "notice_period_probation_voluntary": NoticePeriodDetail,
+        "working_hours_type_manual_updated": bool,
+        "is_over_due": bool,
+        "task_completed": bool,
+        "expected_graduate_date": str,
+        "service_company": str,
     }
 
     def __init__(self, d=None):
@@ -101,6 +115,7 @@ class PreHireEmploymentInfo(object):
         self.working_calendar_id: Optional[str] = None
         self.updated_at: Optional[str] = None
         self.suspected_rehiring: Optional[bool] = None
+        self.condition_worker: Optional[bool] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.position_id: Optional[str] = None
         self.company_manual_updated: Optional[bool] = None
@@ -124,6 +139,15 @@ class PreHireEmploymentInfo(object):
         self.background_check_order_complete_time: Optional[str] = None
         self.background_check_order_status: Optional[Enum] = None
         self.seniority_adjust_information_list: Optional[List[PrehireSeniorityAdjustInformationQuery]] = None
+        self.notice_period_positive_voluntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_probation_involuntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_positive_involuntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_probation_voluntary: Optional[NoticePeriodDetail] = None
+        self.working_hours_type_manual_updated: Optional[bool] = None
+        self.is_over_due: Optional[bool] = None
+        self.task_completed: Optional[bool] = None
+        self.expected_graduate_date: Optional[str] = None
+        self.service_company: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -255,6 +279,10 @@ class PreHireEmploymentInfoBuilder(object):
         self._pre_hire_employment_info.suspected_rehiring = suspected_rehiring
         return self
 
+    def condition_worker(self, condition_worker: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.condition_worker = condition_worker
+        return self
+
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.custom_fields = custom_fields
         return self
@@ -352,6 +380,47 @@ class PreHireEmploymentInfoBuilder(object):
     def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
         PrehireSeniorityAdjustInformationQuery]) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.seniority_adjust_information_list = seniority_adjust_information_list
+        return self
+
+    def notice_period_positive_voluntary(self,
+                                         notice_period_positive_voluntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_positive_voluntary = notice_period_positive_voluntary
+        return self
+
+    def notice_period_probation_involuntary(self,
+                                            notice_period_probation_involuntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_probation_involuntary = notice_period_probation_involuntary
+        return self
+
+    def notice_period_positive_involuntary(self,
+                                           notice_period_positive_involuntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_positive_involuntary = notice_period_positive_involuntary
+        return self
+
+    def notice_period_probation_voluntary(self,
+                                          notice_period_probation_voluntary: NoticePeriodDetail) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.notice_period_probation_voluntary = notice_period_probation_voluntary
+        return self
+
+    def working_hours_type_manual_updated(self,
+                                          working_hours_type_manual_updated: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.working_hours_type_manual_updated = working_hours_type_manual_updated
+        return self
+
+    def is_over_due(self, is_over_due: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.is_over_due = is_over_due
+        return self
+
+    def task_completed(self, task_completed: bool) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.task_completed = task_completed
+        return self
+
+    def expected_graduate_date(self, expected_graduate_date: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.expected_graduate_date = expected_graduate_date
+        return self
+
+    def service_company(self, service_company: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.service_company = service_company
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

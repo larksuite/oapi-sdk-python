@@ -16,6 +16,7 @@ class Name(object):
         "country_region_id": str,
         "custom_local_name": str,
         "custom_western_name": str,
+        "additional_name": str,
     }
 
     def __init__(self, d=None):
@@ -29,6 +30,7 @@ class Name(object):
         self.country_region_id: Optional[str] = None
         self.custom_local_name: Optional[str] = None
         self.custom_western_name: Optional[str] = None
+        self.additional_name: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -78,6 +80,10 @@ class NameBuilder(object):
 
     def custom_western_name(self, custom_western_name: str) -> "NameBuilder":
         self._name.custom_western_name = custom_western_name
+        return self
+
+    def additional_name(self, additional_name: str) -> "NameBuilder":
+        self._name.additional_name = additional_name
         return self
 
     def build(self) -> "Name":

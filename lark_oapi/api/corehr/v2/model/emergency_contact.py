@@ -22,6 +22,7 @@ class EmergencyContact(object):
         "custom_fields": List[CustomFieldData],
         "address": Address,
         "email": Email,
+        "is_primary": bool,
     }
 
     def __init__(self, d=None):
@@ -34,6 +35,7 @@ class EmergencyContact(object):
         self.custom_fields: Optional[List[CustomFieldData]] = None
         self.address: Optional[Address] = None
         self.email: Optional[Email] = None
+        self.is_primary: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -79,6 +81,10 @@ class EmergencyContactBuilder(object):
 
     def email(self, email: Email) -> "EmergencyContactBuilder":
         self._emergency_contact.email = email
+        return self
+
+    def is_primary(self, is_primary: bool) -> "EmergencyContactBuilder":
+        self._emergency_contact.is_primary = is_primary
         return self
 
     def build(self) -> "EmergencyContact":

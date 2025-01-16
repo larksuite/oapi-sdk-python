@@ -12,6 +12,7 @@ class ProfileSettingPersonalBasicInfo(object):
     _types = {
         "legal_name": ProfileSettingName,
         "preferred_name": ProfileSettingName,
+        "additional_name": str,
         "gender": str,
         "nationality_v2": str,
         "ethnicity_race": str,
@@ -37,6 +38,7 @@ class ProfileSettingPersonalBasicInfo(object):
     def __init__(self, d=None):
         self.legal_name: Optional[ProfileSettingName] = None
         self.preferred_name: Optional[ProfileSettingName] = None
+        self.additional_name: Optional[str] = None
         self.gender: Optional[str] = None
         self.nationality_v2: Optional[str] = None
         self.ethnicity_race: Optional[str] = None
@@ -74,6 +76,10 @@ class ProfileSettingPersonalBasicInfoBuilder(object):
 
     def preferred_name(self, preferred_name: ProfileSettingName) -> "ProfileSettingPersonalBasicInfoBuilder":
         self._profile_setting_personal_basic_info.preferred_name = preferred_name
+        return self
+
+    def additional_name(self, additional_name: str) -> "ProfileSettingPersonalBasicInfoBuilder":
+        self._profile_setting_personal_basic_info.additional_name = additional_name
         return self
 
     def gender(self, gender: str) -> "ProfileSettingPersonalBasicInfoBuilder":

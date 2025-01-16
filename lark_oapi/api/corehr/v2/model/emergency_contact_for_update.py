@@ -14,6 +14,7 @@ class EmergencyContactForUpdate(object):
         "phones": List[PhoneForUpdate],
         "address": AddressForUpdate,
         "email": EmailForUpdate,
+        "is_primary": bool,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class EmergencyContactForUpdate(object):
         self.phones: Optional[List[PhoneForUpdate]] = None
         self.address: Optional[AddressForUpdate] = None
         self.email: Optional[EmailForUpdate] = None
+        self.is_primary: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -51,6 +53,10 @@ class EmergencyContactForUpdateBuilder(object):
 
     def email(self, email: EmailForUpdate) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.email = email
+        return self
+
+    def is_primary(self, is_primary: bool) -> "EmergencyContactForUpdateBuilder":
+        self._emergency_contact_for_update.is_primary = is_primary
         return self
 
     def build(self) -> "EmergencyContactForUpdate":

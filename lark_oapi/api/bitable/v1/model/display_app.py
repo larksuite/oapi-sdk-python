@@ -11,6 +11,8 @@ class DisplayApp(object):
         "revision": int,
         "is_advanced": bool,
         "time_zone": str,
+        "formula_type": int,
+        "advance_version": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +21,8 @@ class DisplayApp(object):
         self.revision: Optional[int] = None
         self.is_advanced: Optional[bool] = None
         self.time_zone: Optional[str] = None
+        self.formula_type: Optional[int] = None
+        self.advance_version: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +52,14 @@ class DisplayAppBuilder(object):
 
     def time_zone(self, time_zone: str) -> "DisplayAppBuilder":
         self._display_app.time_zone = time_zone
+        return self
+
+    def formula_type(self, formula_type: int) -> "DisplayAppBuilder":
+        self._display_app.formula_type = formula_type
+        return self
+
+    def advance_version(self, advance_version: str) -> "DisplayAppBuilder":
+        self._display_app.advance_version = advance_version
         return self
 
     def build(self) -> "DisplayApp":

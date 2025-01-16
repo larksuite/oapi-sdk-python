@@ -17,6 +17,8 @@ from ..model.patch_job_grade_request import PatchJobGradeRequest
 from ..model.patch_job_grade_response import PatchJobGradeResponse
 from ..model.query_job_grade_request import QueryJobGradeRequest
 from ..model.query_job_grade_response import QueryJobGradeResponse
+from ..model.query_recent_change_job_grade_request import QueryRecentChangeJobGradeRequest
+from ..model.query_recent_change_job_grade_response import QueryRecentChangeJobGradeResponse
 
 
 class JobGrade(object):
@@ -167,6 +169,46 @@ class JobGrade(object):
 
         # 反序列化
         response: QueryJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryJobGradeResponse)
+        response.raw = resp
+
+        return response
+
+    def query_recent_change(self, request: QueryRecentChangeJobGradeRequest,
+                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryRecentChangeJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryRecentChangeJobGradeResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery_recent_change(self, request: QueryRecentChangeJobGradeRequest,
+                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobGradeResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryRecentChangeJobGradeResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                     QueryRecentChangeJobGradeResponse)
         response.raw = resp
 
         return response

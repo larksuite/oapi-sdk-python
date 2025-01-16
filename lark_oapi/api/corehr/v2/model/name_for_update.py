@@ -17,6 +17,7 @@ class NameForUpdate(object):
         "custom_western_name": str,
         "country_region": str,
         "name_type": str,
+        "additional_name": str,
     }
 
     def __init__(self, d=None):
@@ -31,6 +32,7 @@ class NameForUpdate(object):
         self.custom_western_name: Optional[str] = None
         self.country_region: Optional[str] = None
         self.name_type: Optional[str] = None
+        self.additional_name: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -84,6 +86,10 @@ class NameForUpdateBuilder(object):
 
     def name_type(self, name_type: str) -> "NameForUpdateBuilder":
         self._name_for_update.name_type = name_type
+        return self
+
+    def additional_name(self, additional_name: str) -> "NameForUpdateBuilder":
+        self._name_for_update.additional_name = additional_name
         return self
 
     def build(self) -> "NameForUpdate":

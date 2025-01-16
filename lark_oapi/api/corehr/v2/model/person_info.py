@@ -35,6 +35,7 @@ class PersonInfo(object):
         "phone_number": str,
         "legal_name": str,
         "preferred_name": str,
+        "additional_name": str,
         "preferred_local_full_name": str,
         "preferred_english_full_name": str,
         "name_list": List[PersonName],
@@ -97,6 +98,7 @@ class PersonInfo(object):
         self.phone_number: Optional[str] = None
         self.legal_name: Optional[str] = None
         self.preferred_name: Optional[str] = None
+        self.additional_name: Optional[str] = None
         self.preferred_local_full_name: Optional[str] = None
         self.preferred_english_full_name: Optional[str] = None
         self.name_list: Optional[List[PersonName]] = None
@@ -177,6 +179,10 @@ class PersonInfoBuilder(object):
 
     def preferred_name(self, preferred_name: str) -> "PersonInfoBuilder":
         self._person_info.preferred_name = preferred_name
+        return self
+
+    def additional_name(self, additional_name: str) -> "PersonInfoBuilder":
+        self._person_info.additional_name = additional_name
         return self
 
     def preferred_local_full_name(self, preferred_local_full_name: str) -> "PersonInfoBuilder":

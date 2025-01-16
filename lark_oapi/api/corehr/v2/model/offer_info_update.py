@@ -6,6 +6,10 @@ from .email_for_update import EmailForUpdate
 from .job_data_cost_center import JobDataCostCenter
 from .object_field_data import ObjectFieldData
 from .prehire_seniority_adjust_information_update import PrehireSeniorityAdjustInformationUpdate
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
+from .notice_period_detail import NoticePeriodDetail
 
 
 class OfferInfoUpdate(object):
@@ -54,6 +58,17 @@ class OfferInfoUpdate(object):
         "working_hours_type": str,
         "seniority_date": str,
         "seniority_adjust_information_list": List[PrehireSeniorityAdjustInformationUpdate],
+        "notice_period_probation_voluntary": NoticePeriodDetail,
+        "notice_period_probation_involuntary": NoticePeriodDetail,
+        "notice_period_positive_voluntary": NoticePeriodDetail,
+        "notice_period_positive_involuntary": NoticePeriodDetail,
+        "condition_worker": bool,
+        "company_sponsored_visa": bool,
+        "weekly_working_hours_v2": float,
+        "work_station": str,
+        "has_offer_salary": bool,
+        "service_company": str,
+        "non_compete_covenant": bool,
     }
 
     def __init__(self, d=None):
@@ -101,6 +116,17 @@ class OfferInfoUpdate(object):
         self.working_hours_type: Optional[str] = None
         self.seniority_date: Optional[str] = None
         self.seniority_adjust_information_list: Optional[List[PrehireSeniorityAdjustInformationUpdate]] = None
+        self.notice_period_probation_voluntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_probation_involuntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_positive_voluntary: Optional[NoticePeriodDetail] = None
+        self.notice_period_positive_involuntary: Optional[NoticePeriodDetail] = None
+        self.condition_worker: Optional[bool] = None
+        self.company_sponsored_visa: Optional[bool] = None
+        self.weekly_working_hours_v2: Optional[float] = None
+        self.work_station: Optional[str] = None
+        self.has_offer_salary: Optional[bool] = None
+        self.service_company: Optional[str] = None
+        self.non_compete_covenant: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -287,6 +313,54 @@ class OfferInfoUpdateBuilder(object):
     def seniority_adjust_information_list(self, seniority_adjust_information_list: List[
         PrehireSeniorityAdjustInformationUpdate]) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.seniority_adjust_information_list = seniority_adjust_information_list
+        return self
+
+    def notice_period_probation_voluntary(self,
+                                          notice_period_probation_voluntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_probation_voluntary = notice_period_probation_voluntary
+        return self
+
+    def notice_period_probation_involuntary(self,
+                                            notice_period_probation_involuntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_probation_involuntary = notice_period_probation_involuntary
+        return self
+
+    def notice_period_positive_voluntary(self,
+                                         notice_period_positive_voluntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_positive_voluntary = notice_period_positive_voluntary
+        return self
+
+    def notice_period_positive_involuntary(self,
+                                           notice_period_positive_involuntary: NoticePeriodDetail) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.notice_period_positive_involuntary = notice_period_positive_involuntary
+        return self
+
+    def condition_worker(self, condition_worker: bool) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.condition_worker = condition_worker
+        return self
+
+    def company_sponsored_visa(self, company_sponsored_visa: bool) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.company_sponsored_visa = company_sponsored_visa
+        return self
+
+    def weekly_working_hours_v2(self, weekly_working_hours_v2: float) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.weekly_working_hours_v2 = weekly_working_hours_v2
+        return self
+
+    def work_station(self, work_station: str) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.work_station = work_station
+        return self
+
+    def has_offer_salary(self, has_offer_salary: bool) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.has_offer_salary = has_offer_salary
+        return self
+
+    def service_company(self, service_company: str) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.service_company = service_company
+        return self
+
+    def non_compete_covenant(self, non_compete_covenant: bool) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.non_compete_covenant = non_compete_covenant
         return self
 
     def build(self) -> "OfferInfoUpdate":

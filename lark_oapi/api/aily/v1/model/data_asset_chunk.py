@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .data_asset_chunk_source_info import DataAssetChunkSourceInfo
 
 
 class DataAssetChunk(object):
@@ -11,6 +12,9 @@ class DataAssetChunk(object):
         "score": float,
         "data_asset_label": Dict[str, str],
         "data_asset_source_url": str,
+        "data_asset_data_source_type": str,
+        "data_asset_connect_type": str,
+        "source_info": DataAssetChunkSourceInfo,
     }
 
     def __init__(self, d=None):
@@ -19,6 +23,9 @@ class DataAssetChunk(object):
         self.score: Optional[float] = None
         self.data_asset_label: Optional[Dict[str, str]] = None
         self.data_asset_source_url: Optional[str] = None
+        self.data_asset_data_source_type: Optional[str] = None
+        self.data_asset_connect_type: Optional[str] = None
+        self.source_info: Optional[DataAssetChunkSourceInfo] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +55,18 @@ class DataAssetChunkBuilder(object):
 
     def data_asset_source_url(self, data_asset_source_url: str) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_source_url = data_asset_source_url
+        return self
+
+    def data_asset_data_source_type(self, data_asset_data_source_type: str) -> "DataAssetChunkBuilder":
+        self._data_asset_chunk.data_asset_data_source_type = data_asset_data_source_type
+        return self
+
+    def data_asset_connect_type(self, data_asset_connect_type: str) -> "DataAssetChunkBuilder":
+        self._data_asset_chunk.data_asset_connect_type = data_asset_connect_type
+        return self
+
+    def source_info(self, source_info: DataAssetChunkSourceInfo) -> "DataAssetChunkBuilder":
+        self._data_asset_chunk.source_info = source_info
         return self
 
     def build(self) -> "DataAssetChunk":

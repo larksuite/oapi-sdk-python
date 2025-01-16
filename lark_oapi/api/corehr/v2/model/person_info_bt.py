@@ -32,6 +32,7 @@ class PersonInfoBt(object):
         "person_id": str,
         "phone_number": str,
         "legal_name": str,
+        "additional_name": str,
         "preferred_name": str,
         "preferred_local_full_name": str,
         "preferred_english_full_name": str,
@@ -86,6 +87,7 @@ class PersonInfoBt(object):
         self.person_id: Optional[str] = None
         self.phone_number: Optional[str] = None
         self.legal_name: Optional[str] = None
+        self.additional_name: Optional[str] = None
         self.preferred_name: Optional[str] = None
         self.preferred_local_full_name: Optional[str] = None
         self.preferred_english_full_name: Optional[str] = None
@@ -155,6 +157,10 @@ class PersonInfoBtBuilder(object):
 
     def legal_name(self, legal_name: str) -> "PersonInfoBtBuilder":
         self._person_info_bt.legal_name = legal_name
+        return self
+
+    def additional_name(self, additional_name: str) -> "PersonInfoBtBuilder":
+        self._person_info_bt.additional_name = additional_name
         return self
 
     def preferred_name(self, preferred_name: str) -> "PersonInfoBtBuilder":

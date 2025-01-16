@@ -20,6 +20,7 @@ from .employee import *
 from .employees_additional_job import *
 from .employees_bp import *
 from .employees_job_data import *
+from .enum import *
 from .job import *
 from .job_change import *
 from .job_family import *

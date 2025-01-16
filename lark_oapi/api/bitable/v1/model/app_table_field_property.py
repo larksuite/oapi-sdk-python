@@ -7,6 +7,7 @@ from .app_field_property_auto_serial import AppFieldPropertyAutoSerial
 from .app_field_property_location import AppFieldPropertyLocation
 from .allowed_edit_modes import AllowedEditModes
 from .rating import Rating
+from .app_table_field_property_type import AppTableFieldPropertyType
 
 
 class AppTableFieldProperty(object):
@@ -28,6 +29,7 @@ class AppTableFieldProperty(object):
         "range_customize": bool,
         "currency_code": str,
         "rating": Rating,
+        "type": AppTableFieldPropertyType,
     }
 
     def __init__(self, d=None):
@@ -48,6 +50,7 @@ class AppTableFieldProperty(object):
         self.range_customize: Optional[bool] = None
         self.currency_code: Optional[str] = None
         self.rating: Optional[Rating] = None
+        self.type: Optional[AppTableFieldPropertyType] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -125,6 +128,10 @@ class AppTableFieldPropertyBuilder(object):
 
     def rating(self, rating: Rating) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.rating = rating
+        return self
+
+    def type(self, type: AppTableFieldPropertyType) -> "AppTableFieldPropertyBuilder":
+        self._app_table_field_property.type = type
         return self
 
     def build(self) -> "AppTableFieldProperty":

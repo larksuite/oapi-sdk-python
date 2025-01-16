@@ -40,26 +40,25 @@ from lark_oapi.ws.pb.google.protobuf.pyext import _message
 
 
 class GeneratedProtocolMessageType(_message.MessageMeta):
+    """Metaclass for protocol message classes created at runtime from Descriptors.
 
-  """Metaclass for protocol message classes created at runtime from Descriptors.
+    The protocol compiler currently uses this metaclass to create protocol
+    message classes at runtime.  Clients can also manually create their own
+    classes at runtime, as in this example:
 
-  The protocol compiler currently uses this metaclass to create protocol
-  message classes at runtime.  Clients can also manually create their own
-  classes at runtime, as in this example:
+    mydescriptor = Descriptor(.....)
+    factory = symbol_database.Default()
+    factory.pool.AddDescriptor(mydescriptor)
+    MyProtoClass = factory.GetPrototype(mydescriptor)
+    myproto_instance = MyProtoClass()
+    myproto.foo_field = 23
+    ...
 
-  mydescriptor = Descriptor(.....)
-  factory = symbol_database.Default()
-  factory.pool.AddDescriptor(mydescriptor)
-  MyProtoClass = factory.GetPrototype(mydescriptor)
-  myproto_instance = MyProtoClass()
-  myproto.foo_field = 23
-  ...
+    The above example will not work for nested types. If you wish to include them,
+    use reflection.MakeClass() instead of manually instantiating the class in
+    order to create the appropriate class structure.
+    """
 
-  The above example will not work for nested types. If you wish to include them,
-  use reflection.MakeClass() instead of manually instantiating the class in
-  order to create the appropriate class structure.
-  """
-
-  # Must be consistent with the protocol-compiler code in
-  # proto2/compiler/internal/generator.*.
-  _DESCRIPTOR_KEY = 'DESCRIPTOR'
+    # Must be consistent with the protocol-compiler code in
+    # proto2/compiler/internal/generator.*.
+    _DESCRIPTOR_KEY = 'DESCRIPTOR'

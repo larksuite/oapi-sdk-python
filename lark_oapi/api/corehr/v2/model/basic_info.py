@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .name import Name
 from .name import Name
+from .name import Name
 from .resident_tax_for_update import ResidentTaxForUpdate
 from .dependent_for_update import DependentForUpdate
 from .bank_account_for_update import BankAccountForUpdate
@@ -33,6 +34,7 @@ class BasicInfo(object):
         "worker_id": str,
         "user_geo": str,
         "legal_name": Name,
+        "additional_name": Name,
         "resident_tax_list": List[ResidentTaxForUpdate],
         "born_country_region": str,
         "is_disabled": bool,
@@ -53,6 +55,7 @@ class BasicInfo(object):
         "hukou_type": str,
         "hukou_location": str,
         "custom_fields": List[ObjectFieldData],
+        "expected_graduate_date": str,
     }
 
     def __init__(self, d=None):
@@ -73,6 +76,7 @@ class BasicInfo(object):
         self.worker_id: Optional[str] = None
         self.user_geo: Optional[str] = None
         self.legal_name: Optional[Name] = None
+        self.additional_name: Optional[Name] = None
         self.resident_tax_list: Optional[List[ResidentTaxForUpdate]] = None
         self.born_country_region: Optional[str] = None
         self.is_disabled: Optional[bool] = None
@@ -93,6 +97,7 @@ class BasicInfo(object):
         self.hukou_type: Optional[str] = None
         self.hukou_location: Optional[str] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
+        self.expected_graduate_date: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -170,6 +175,10 @@ class BasicInfoBuilder(object):
 
     def legal_name(self, legal_name: Name) -> "BasicInfoBuilder":
         self._basic_info.legal_name = legal_name
+        return self
+
+    def additional_name(self, additional_name: Name) -> "BasicInfoBuilder":
+        self._basic_info.additional_name = additional_name
         return self
 
     def resident_tax_list(self, resident_tax_list: List[ResidentTaxForUpdate]) -> "BasicInfoBuilder":
@@ -250,6 +259,10 @@ class BasicInfoBuilder(object):
 
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "BasicInfoBuilder":
         self._basic_info.custom_fields = custom_fields
+        return self
+
+    def expected_graduate_date(self, expected_graduate_date: str) -> "BasicInfoBuilder":
+        self._basic_info.expected_graduate_date = expected_graduate_date
         return self
 
     def build(self) -> "BasicInfo":

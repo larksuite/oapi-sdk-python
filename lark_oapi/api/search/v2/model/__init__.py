@@ -51,6 +51,8 @@ from .schema_tag_options import *
 from .schema_type_definitions import *
 from .schema_user_ids_option import *
 from .seperate_passage import *
+from .simple_get_related_users_request import *
+from .simple_related_user import *
 from .status import *
 from .system_info import *
 from .template_card_variables import *

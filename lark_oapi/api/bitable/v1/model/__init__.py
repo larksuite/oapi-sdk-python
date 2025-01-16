@@ -18,6 +18,8 @@ from .app_table_field import *
 from .app_table_field_description import *
 from .app_table_field_property import *
 from .app_table_field_property_option import *
+from .app_table_field_property_type import *
+from .app_table_field_property_type_ui_property import *
 from .app_table_field_for_list import *
 from .app_table_form import *
 from .app_table_form_field import *

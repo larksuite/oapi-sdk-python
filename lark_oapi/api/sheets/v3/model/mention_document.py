@@ -11,6 +11,7 @@ class MentionDocument(object):
         "object_type": str,
         "token": str,
         "segment_style": SegmentStyle,
+        "link": str,
     }
 
     def __init__(self, d=None):
@@ -18,6 +19,7 @@ class MentionDocument(object):
         self.object_type: Optional[str] = None
         self.token: Optional[str] = None
         self.segment_style: Optional[SegmentStyle] = None
+        self.link: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,6 +45,10 @@ class MentionDocumentBuilder(object):
 
     def segment_style(self, segment_style: SegmentStyle) -> "MentionDocumentBuilder":
         self._mention_document.segment_style = segment_style
+        return self
+
+    def link(self, link: str) -> "MentionDocumentBuilder":
+        self._mention_document.link = link
         return self
 
     def build(self) -> "MentionDocument":

@@ -16,6 +16,7 @@ class PersonName(object):
         "name_type": Enum,
         "local_first_name_2": str,
         "local_primary_2": str,
+        "additional_name": str,
         "additional_name_type": Enum,
         "first_name": str,
         "full_name": str,
@@ -42,6 +43,7 @@ class PersonName(object):
         self.name_type: Optional[Enum] = None
         self.local_first_name_2: Optional[str] = None
         self.local_primary_2: Optional[str] = None
+        self.additional_name: Optional[str] = None
         self.additional_name_type: Optional[Enum] = None
         self.first_name: Optional[str] = None
         self.full_name: Optional[str] = None
@@ -92,6 +94,10 @@ class PersonNameBuilder(object):
 
     def local_primary_2(self, local_primary_2: str) -> "PersonNameBuilder":
         self._person_name.local_primary_2 = local_primary_2
+        return self
+
+    def additional_name(self, additional_name: str) -> "PersonNameBuilder":
+        self._person_name.additional_name = additional_name
         return self
 
     def additional_name_type(self, additional_name_type: Enum) -> "PersonNameBuilder":

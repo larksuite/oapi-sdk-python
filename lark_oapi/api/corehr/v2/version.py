@@ -26,6 +26,7 @@ class V2(object):
         self.employees_additional_job: EmployeesAdditionalJob = EmployeesAdditionalJob(config)
         self.employees_bp: EmployeesBp = EmployeesBp(config)
         self.employees_job_data: EmployeesJobData = EmployeesJobData(config)
+        self.enum: Enum = Enum(config)
         self.job: Job = Job(config)
         self.job_change: JobChange = JobChange(config)
         self.job_family: JobFamily = JobFamily(config)

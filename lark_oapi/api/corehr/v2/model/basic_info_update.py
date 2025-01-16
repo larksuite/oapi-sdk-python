@@ -13,6 +13,8 @@ from .personal_profile_for_update import PersonalProfileForUpdate
 from .emergency_contact_for_update import EmergencyContactForUpdate
 from .address_for_update import AddressForUpdate
 from .object_field_data import ObjectFieldData
+from .work_experience_for_update import WorkExperienceForUpdate
+from .education_info_for_update import EducationInfoForUpdate
 
 
 class BasicInfoUpdate(object):
@@ -42,6 +44,13 @@ class BasicInfoUpdate(object):
         "native_region": str,
         "hukou_type": str,
         "hukou_location": str,
+        "gender_id": str,
+        "date_of_birth": str,
+        "date_entered_workforce": str,
+        "expected_graduate_date": str,
+        "citizenship_status_id_list": List[str],
+        "work_experience": List[WorkExperienceForUpdate],
+        "education_info": List[EducationInfoForUpdate],
     }
 
     def __init__(self, d=None):
@@ -70,6 +79,13 @@ class BasicInfoUpdate(object):
         self.native_region: Optional[str] = None
         self.hukou_type: Optional[str] = None
         self.hukou_location: Optional[str] = None
+        self.gender_id: Optional[str] = None
+        self.date_of_birth: Optional[str] = None
+        self.date_entered_workforce: Optional[str] = None
+        self.expected_graduate_date: Optional[str] = None
+        self.citizenship_status_id_list: Optional[List[str]] = None
+        self.work_experience: Optional[List[WorkExperienceForUpdate]] = None
+        self.education_info: Optional[List[EducationInfoForUpdate]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -180,6 +196,34 @@ class BasicInfoUpdateBuilder(object):
 
     def hukou_location(self, hukou_location: str) -> "BasicInfoUpdateBuilder":
         self._basic_info_update.hukou_location = hukou_location
+        return self
+
+    def gender_id(self, gender_id: str) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.gender_id = gender_id
+        return self
+
+    def date_of_birth(self, date_of_birth: str) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.date_of_birth = date_of_birth
+        return self
+
+    def date_entered_workforce(self, date_entered_workforce: str) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.date_entered_workforce = date_entered_workforce
+        return self
+
+    def expected_graduate_date(self, expected_graduate_date: str) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.expected_graduate_date = expected_graduate_date
+        return self
+
+    def citizenship_status_id_list(self, citizenship_status_id_list: List[str]) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.citizenship_status_id_list = citizenship_status_id_list
+        return self
+
+    def work_experience(self, work_experience: List[WorkExperienceForUpdate]) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.work_experience = work_experience
+        return self
+
+    def education_info(self, education_info: List[EducationInfoForUpdate]) -> "BasicInfoUpdateBuilder":
+        self._basic_info_update.education_info = education_info
         return self
 
     def build(self) -> "BasicInfoUpdate":

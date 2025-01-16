@@ -22,6 +22,7 @@ from .builtin_action import *
 from .channel import *
 from .data_asset import *
 from .data_asset_chunk import *
+from .data_asset_chunk_source_info import *
 from .data_asset_file import *
 from .data_asset_import_knowledge_file import *
 from .data_asset_import_knowledge_helpdesk import *

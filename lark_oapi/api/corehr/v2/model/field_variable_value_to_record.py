@@ -8,11 +8,13 @@ class FieldVariableValueToRecord(object):
     _types = {
         "variable_api_name": str,
         "sub_value_key": str,
+        "record_id": str,
     }
 
     def __init__(self, d=None):
         self.variable_api_name: Optional[str] = None
         self.sub_value_key: Optional[str] = None
+        self.record_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +32,10 @@ class FieldVariableValueToRecordBuilder(object):
 
     def sub_value_key(self, sub_value_key: str) -> "FieldVariableValueToRecordBuilder":
         self._field_variable_value_to_record.sub_value_key = sub_value_key
+        return self
+
+    def record_id(self, record_id: str) -> "FieldVariableValueToRecordBuilder":
+        self._field_variable_value_to_record.record_id = record_id
         return self
 
     def build(self) -> "FieldVariableValueToRecord":
