@@ -19,6 +19,8 @@ class ArchiveDetail(object):
         "effective_date": str,
         "expiration_date": str,
         "salary_level_id": str,
+        "created_time": str,
+        "updated_time": str,
         "archive_items": List[ArchiveItem],
         "archive_indicators": List[ArchiveIndicator],
     }
@@ -35,6 +37,8 @@ class ArchiveDetail(object):
         self.effective_date: Optional[str] = None
         self.expiration_date: Optional[str] = None
         self.salary_level_id: Optional[str] = None
+        self.created_time: Optional[str] = None
+        self.updated_time: Optional[str] = None
         self.archive_items: Optional[List[ArchiveItem]] = None
         self.archive_indicators: Optional[List[ArchiveIndicator]] = None
         init(self, d, self._types)
@@ -90,6 +94,14 @@ class ArchiveDetailBuilder(object):
 
     def salary_level_id(self, salary_level_id: str) -> "ArchiveDetailBuilder":
         self._archive_detail.salary_level_id = salary_level_id
+        return self
+
+    def created_time(self, created_time: str) -> "ArchiveDetailBuilder":
+        self._archive_detail.created_time = created_time
+        return self
+
+    def updated_time(self, updated_time: str) -> "ArchiveDetailBuilder":
+        self._archive_detail.updated_time = updated_time
         return self
 
     def archive_items(self, archive_items: List[ArchiveItem]) -> "ArchiveDetailBuilder":

@@ -37,6 +37,7 @@ class ApplicationOfferBasicInfo(object):
         "work_location_address_info": MasterLocationAddressInfo,
         "position_id": str,
         "job_offered": str,
+        "job_grade_id": str,
     }
 
     def __init__(self, d=None):
@@ -62,6 +63,7 @@ class ApplicationOfferBasicInfo(object):
         self.work_location_address_info: Optional[MasterLocationAddressInfo] = None
         self.position_id: Optional[str] = None
         self.job_offered: Optional[str] = None
+        self.job_grade_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -161,6 +163,10 @@ class ApplicationOfferBasicInfoBuilder(object):
 
     def job_offered(self, job_offered: str) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.job_offered = job_offered
+        return self
+
+    def job_grade_id(self, job_grade_id: str) -> "ApplicationOfferBasicInfoBuilder":
+        self._application_offer_basic_info.job_grade_id = job_grade_id
         return self
 
     def build(self) -> "ApplicationOfferBasicInfo":

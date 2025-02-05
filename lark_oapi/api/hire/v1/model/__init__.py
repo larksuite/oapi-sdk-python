@@ -69,6 +69,7 @@ from .application_talent_sns_info import *
 from .application_talent_works_info import *
 from .application_website_channel import *
 from .application_website_resume_source import *
+from .assess_interview_option import *
 from .assessment_score_info import *
 from .assets import *
 from .attachment import *
@@ -130,6 +131,7 @@ from .di_data import *
 from .di_info import *
 from .dimension_ability import *
 from .dimension_assessment import *
+from .dimension_assessment_request import *
 from .dimension_option import *
 from .dummy import *
 from .eco_account_custom_field import *
