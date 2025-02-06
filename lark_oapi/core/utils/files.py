@@ -1,8 +1,7 @@
 import io
-from email.message import Message
-from email.policy import default
-from email.utils import decode_rfc2231, unquote
+from email.utils import decode_rfc2231
 from typing import Any, Dict, Optional
+from urllib.parse import unquote
 
 from lark_oapi.core import Content_Disposition
 
@@ -25,6 +24,7 @@ class Files(object):
         if 'filename*' in params:
             # Decode RFC2231 encoded format
             filename = decode_rfc2231(params['filename*'])[2]
+            filename = unquote(filename)
         elif 'filename' in params:
             # Handle possible encoding issues with a basic unquote
             filename = unquote(params['filename'])
