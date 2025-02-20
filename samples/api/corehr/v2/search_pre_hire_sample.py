@@ -34,6 +34,7 @@ def main():
                       .employee_subtype_ids([])
                       .job_family_ids([])
                       .key_word("张三")
+                      .condition_worker(True)
                       .rehire("张三")
                       .fields([])
                       .build()) \
@@ -83,6 +84,7 @@ async def amain():
                       .employee_subtype_ids([])
                       .job_family_ids([])
                       .key_word("张三")
+                      .condition_worker(True)
                       .rehire("张三")
                       .fields([])
                       .build()) \

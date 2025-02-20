@@ -16,6 +16,7 @@ def main():
     request: CreateCostCenterRequest = CreateCostCenterRequest.builder() \
         .user_id_type("people_corehr_id") \
         .request_body(CostCenter.builder()
+                      .cost_center_version_id("6969828847121885087")
                       .name([])
                       .code("MDPD00000023")
                       .parent_cost_center_id("6862995757234914824")
@@ -51,6 +52,7 @@ async def amain():
     request: CreateCostCenterRequest = CreateCostCenterRequest.builder() \
         .user_id_type("people_corehr_id") \
         .request_body(CostCenter.builder()
+                      .cost_center_version_id("6969828847121885087")
                       .name([])
                       .code("MDPD00000023")
                       .parent_cost_center_id("6862995757234914824")

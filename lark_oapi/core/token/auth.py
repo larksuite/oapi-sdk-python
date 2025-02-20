@@ -32,7 +32,7 @@ def verify(config: Config, request: BaseRequest, option: RequestOption) -> None:
         else:
             if Strings.is_empty(option.tenant_key):
                 raise NoAuthorizationException("tenant_key not found")
-            tenant_access_token = TokenManager.get_isv_tenant_token(config, option.tenant_key)
+            tenant_access_token = TokenManager.get_isv_tenant_token(config, option.tenant_key, option.app_ticket)
         option.tenant_access_token = tenant_access_token
         request.token_types = {AccessTokenType.TENANT}
         return
@@ -42,7 +42,7 @@ def verify(config: Config, request: BaseRequest, option: RequestOption) -> None:
         if AppType.SELF == config.app_type:
             app_access_token = TokenManager.get_self_app_token(config)
         else:
-            app_access_token = TokenManager.get_isv_app_token(config)
+            app_access_token = TokenManager.get_isv_app_token(config, option.app_ticket)
         option.app_access_token = app_access_token
         request.token_types = {AccessTokenType.APP}
         return

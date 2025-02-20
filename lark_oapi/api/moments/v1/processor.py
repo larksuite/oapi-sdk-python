@@ -5,8 +5,6 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.event.processor import IEventProcessor
 from .model.p2_moments_comment_created_v1 import P2MomentsCommentCreatedV1
 from .model.p2_moments_comment_deleted_v1 import P2MomentsCommentDeletedV1
-from .model.p2_moments_dislike_created_v1 import P2MomentsDislikeCreatedV1
-from .model.p2_moments_dislike_deleted_v1 import P2MomentsDislikeDeletedV1
 from .model.p2_moments_post_created_v1 import P2MomentsPostCreatedV1
 from .model.p2_moments_post_deleted_v1 import P2MomentsPostDeletedV1
 from .model.p2_moments_post_statistics_updated_v1 import P2MomentsPostStatisticsUpdatedV1
@@ -33,28 +31,6 @@ class P2MomentsCommentDeletedV1Processor(IEventProcessor[P2MomentsCommentDeleted
         return P2MomentsCommentDeletedV1
 
     def do(self, data: P2MomentsCommentDeletedV1) -> None:
-        self.f(data)
-
-
-class P2MomentsDislikeCreatedV1Processor(IEventProcessor[P2MomentsDislikeCreatedV1]):
-    def __init__(self, f: Callable[[P2MomentsDislikeCreatedV1], None]):
-        self.f = f
-
-    def type(self) -> Type[P2MomentsDislikeCreatedV1]:
-        return P2MomentsDislikeCreatedV1
-
-    def do(self, data: P2MomentsDislikeCreatedV1) -> None:
-        self.f(data)
-
-
-class P2MomentsDislikeDeletedV1Processor(IEventProcessor[P2MomentsDislikeDeletedV1]):
-    def __init__(self, f: Callable[[P2MomentsDislikeDeletedV1], None]):
-        self.f = f
-
-    def type(self) -> Type[P2MomentsDislikeDeletedV1]:
-        return P2MomentsDislikeDeletedV1
-
-    def do(self, data: P2MomentsDislikeDeletedV1) -> None:
         self.f(data)
 
 

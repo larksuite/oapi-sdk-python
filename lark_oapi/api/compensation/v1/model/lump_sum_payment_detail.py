@@ -14,6 +14,7 @@ class LumpSumPaymentDetail(object):
         "issuance_way": str,
         "issuance_time": str,
         "currency_id": str,
+        "belong_time": str,
         "create_time": str,
         "modify_time": str,
     }
@@ -27,6 +28,7 @@ class LumpSumPaymentDetail(object):
         self.issuance_way: Optional[str] = None
         self.issuance_time: Optional[str] = None
         self.currency_id: Optional[str] = None
+        self.belong_time: Optional[str] = None
         self.create_time: Optional[str] = None
         self.modify_time: Optional[str] = None
         init(self, d, self._types)
@@ -70,6 +72,10 @@ class LumpSumPaymentDetailBuilder(object):
 
     def currency_id(self, currency_id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.currency_id = currency_id
+        return self
+
+    def belong_time(self, belong_time: str) -> "LumpSumPaymentDetailBuilder":
+        self._lump_sum_payment_detail.belong_time = belong_time
         return self
 
     def create_time(self, create_time: str) -> "LumpSumPaymentDetailBuilder":

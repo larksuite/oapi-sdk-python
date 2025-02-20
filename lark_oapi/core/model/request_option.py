@@ -3,6 +3,7 @@ from typing import Optional, Dict
 
 class RequestOption(object):
     def __init__(self):
+        self.app_ticket: Optional[str] = None
         self.tenant_key: Optional[str] = None  # 租户key, app_type = ISV 时需配置
         self.user_access_token: Optional[str] = None
         self.tenant_access_token: Optional[str] = None
@@ -18,6 +19,10 @@ class RequestOptionBuilder(object):
 
     def __init__(self) -> None:
         self._request_option: RequestOption = RequestOption()
+
+    def app_ticket(self, app_ticket: str) -> "RequestOptionBuilder":
+        self._request_option.app_ticket = app_ticket
+        return self
 
     def tenant_key(self, tenant_key: str) -> "RequestOptionBuilder":
         self._request_option.tenant_key = tenant_key

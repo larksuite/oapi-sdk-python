@@ -89,6 +89,7 @@ class EmployeeBt(object):
         "contract_type": Enum,
         "archive_cpst_plan_id": str,
         "attendance_group_id": str,
+        "whether_returnee": bool,
     }
 
     def __init__(self, d=None):
@@ -157,6 +158,7 @@ class EmployeeBt(object):
         self.contract_type: Optional[Enum] = None
         self.archive_cpst_plan_id: Optional[str] = None
         self.attendance_group_id: Optional[str] = None
+        self.whether_returnee: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -428,6 +430,10 @@ class EmployeeBtBuilder(object):
 
     def attendance_group_id(self, attendance_group_id: str) -> "EmployeeBtBuilder":
         self._employee_bt.attendance_group_id = attendance_group_id
+        return self
+
+    def whether_returnee(self, whether_returnee: bool) -> "EmployeeBtBuilder":
+        self._employee_bt.whether_returnee = whether_returnee
         return self
 
     def build(self) -> "EmployeeBt":

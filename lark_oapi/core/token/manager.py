@@ -72,19 +72,23 @@ class TokenManager(object):
         return token
 
     @staticmethod
-    def get_isv_app_token(config: Config) -> str:
+    def get_isv_app_token(config: Config, app_ticket: str) -> str:
         # 读缓存
         cache_key = f"isv_app_token:{config.app_id}"
         token = TokenManager.cache.get(cache_key)
         if Strings.is_not_empty(token):
             return token
 
+        if Strings.is_empty(app_ticket):
+            # TODO: get app ticket from ticket cache
+            pass
+
         # 缓存不存在则发起请求获取token
         req: CreateIsvAppTokenRequest = CreateIsvAppTokenRequest.builder() \
             .request_body(CreateTokenRequestBody.builder()
                           .app_id(config.app_id)
                           .app_secret(config.app_secret)
-                          .app_ticket(config.app_ticket).build()) \
+                          .app_ticket(app_ticket).build()) \
             .build()
         raw: RawResponse = Transport.execute(config, req)
         resp = JSON.unmarshal(str(raw.content, UTF_8), AccessTokenResponse)
@@ -100,17 +104,18 @@ class TokenManager(object):
         return token
 
     @staticmethod
-    def get_isv_tenant_token(config: Config, tenant_key: str) -> str:
+    def get_isv_tenant_token(config: Config, tenant_key: str, app_ticket: str) -> str:
         # 读缓存
         cache_key = f"isv_tenant_token:{config.app_id}:{tenant_key}"
         token = TokenManager.cache.get(cache_key)
         if Strings.is_not_empty(token):
             return token
 
+        app_token = TokenManager.get_isv_app_token(config, app_ticket)
         # 缓存不存在则发起请求获取token
         req: CreateIsvTenantTokenRequest = CreateIsvTenantTokenRequest.builder() \
             .request_body(CreateTokenRequestBody.builder()
-                          .app_access_token(config.app_id)
+                          .app_access_token(app_token)
                           .tenant_key(tenant_key).build()) \
             .build()
         raw: RawResponse = Transport.execute(config, req)

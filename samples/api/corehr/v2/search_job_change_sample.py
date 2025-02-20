@@ -27,6 +27,9 @@ def main():
                       .updated_time_start("1704084635000")
                       .updated_time_end("1704084635000")
                       .target_department_ids([])
+                      .transfer_type_unique_identifier([])
+                      .transfer_reason_unique_identifier([])
+                      .exception_statuses([])
                       .build()) \
         .build()
 
@@ -67,6 +70,9 @@ async def amain():
                       .updated_time_start("1704084635000")
                       .updated_time_end("1704084635000")
                       .target_department_ids([])
+                      .transfer_type_unique_identifier([])
+                      .transfer_reason_unique_identifier([])
+                      .exception_statuses([])
                       .build()) \
         .build()
 

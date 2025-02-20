@@ -21,6 +21,7 @@ class SearchPreHireRequestBody(object):
         "employee_subtype_ids": List[str],
         "job_family_ids": List[str],
         "key_word": str,
+        "condition_worker": bool,
         "rehire": str,
         "fields": List[str],
     }
@@ -41,6 +42,7 @@ class SearchPreHireRequestBody(object):
         self.employee_subtype_ids: Optional[List[str]] = None
         self.job_family_ids: Optional[List[str]] = None
         self.key_word: Optional[str] = None
+        self.condition_worker: Optional[bool] = None
         self.rehire: Optional[str] = None
         self.fields: Optional[List[str]] = None
         init(self, d, self._types)
@@ -112,6 +114,10 @@ class SearchPreHireRequestBodyBuilder(object):
 
     def key_word(self, key_word: str) -> "SearchPreHireRequestBodyBuilder":
         self._search_pre_hire_request_body.key_word = key_word
+        return self
+
+    def condition_worker(self, condition_worker: bool) -> "SearchPreHireRequestBodyBuilder":
+        self._search_pre_hire_request_body.condition_worker = condition_worker
         return self
 
     def rehire(self, rehire: str) -> "SearchPreHireRequestBodyBuilder":

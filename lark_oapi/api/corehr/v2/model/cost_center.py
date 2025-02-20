@@ -9,6 +9,7 @@ from .i18n import I18n
 class CostCenter(object):
     _types = {
         "cost_center_id": str,
+        "cost_center_version_id": str,
         "name": List[I18n],
         "code": str,
         "parent_cost_center_id": str,
@@ -22,6 +23,7 @@ class CostCenter(object):
 
     def __init__(self, d=None):
         self.cost_center_id: Optional[str] = None
+        self.cost_center_version_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.code: Optional[str] = None
         self.parent_cost_center_id: Optional[str] = None
@@ -44,6 +46,10 @@ class CostCenterBuilder(object):
 
     def cost_center_id(self, cost_center_id: str) -> "CostCenterBuilder":
         self._cost_center.cost_center_id = cost_center_id
+        return self
+
+    def cost_center_version_id(self, cost_center_version_id: str) -> "CostCenterBuilder":
+        self._cost_center.cost_center_version_id = cost_center_version_id
         return self
 
     def name(self, name: List[I18n]) -> "CostCenterBuilder":

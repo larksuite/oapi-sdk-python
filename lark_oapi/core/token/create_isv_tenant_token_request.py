@@ -23,7 +23,7 @@ class CreateIsvTenantTokenRequestBuilder(object):
             create_isv_tenant_token_request: CreateIsvTenantTokenRequest = CreateIsvTenantTokenRequest()
     ) -> None:
         create_isv_tenant_token_request.http_method = HttpMethod.POST
-        create_isv_tenant_token_request.uri = "/auth/v3/tenant_access_token"
+        create_isv_tenant_token_request.uri = "/open-apis/auth/v3/tenant_access_token"
         self.__create_isv_tenant_token_request: CreateIsvTenantTokenRequest = create_isv_tenant_token_request
 
     def request_body(self, request_body: CreateTokenRequestBody) -> "CreateIsvTenantTokenRequestBuilder":

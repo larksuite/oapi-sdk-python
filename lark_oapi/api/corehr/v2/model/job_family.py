@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
+from .i18n import I18n
 from .custom_field_data import CustomFieldData
 
 
@@ -15,6 +16,7 @@ class JobFamily(object):
         "effective_time": str,
         "expiration_time": str,
         "code": str,
+        "description": List[I18n],
         "custom_fields": List[CustomFieldData],
     }
 
@@ -26,6 +28,7 @@ class JobFamily(object):
         self.effective_time: Optional[str] = None
         self.expiration_time: Optional[str] = None
         self.code: Optional[str] = None
+        self.description: Optional[List[I18n]] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
         init(self, d, self._types)
 
@@ -64,6 +67,10 @@ class JobFamilyBuilder(object):
 
     def code(self, code: str) -> "JobFamilyBuilder":
         self._job_family.code = code
+        return self
+
+    def description(self, description: List[I18n]) -> "JobFamilyBuilder":
+        self._job_family.description = description
         return self
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "JobFamilyBuilder":

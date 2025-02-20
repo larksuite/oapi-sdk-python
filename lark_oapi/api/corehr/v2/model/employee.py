@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .employee_job_level import EmployeeJobLevel
+from .employee_pathway import EmployeePathway
 from .employee_job_family import EmployeeJobFamily
 from .position import Position
 from .job import Job
@@ -41,6 +42,8 @@ class Employee(object):
         "department_id_v2": str,
         "job_level_id": str,
         "job_level": EmployeeJobLevel,
+        "pathway_id": str,
+        "pathway": EmployeePathway,
         "job_grade_id": str,
         "work_location_id": str,
         "job_family_id": str,
@@ -119,6 +122,8 @@ class Employee(object):
         self.department_id_v2: Optional[str] = None
         self.job_level_id: Optional[str] = None
         self.job_level: Optional[EmployeeJobLevel] = None
+        self.pathway_id: Optional[str] = None
+        self.pathway: Optional[EmployeePathway] = None
         self.job_grade_id: Optional[str] = None
         self.work_location_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
@@ -236,6 +241,14 @@ class EmployeeBuilder(object):
 
     def job_level(self, job_level: EmployeeJobLevel) -> "EmployeeBuilder":
         self._employee.job_level = job_level
+        return self
+
+    def pathway_id(self, pathway_id: str) -> "EmployeeBuilder":
+        self._employee.pathway_id = pathway_id
+        return self
+
+    def pathway(self, pathway: EmployeePathway) -> "EmployeeBuilder":
+        self._employee.pathway = pathway
         return self
 
     def job_grade_id(self, job_grade_id: str) -> "EmployeeBuilder":

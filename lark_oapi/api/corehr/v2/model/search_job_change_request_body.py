@@ -14,6 +14,9 @@ class SearchJobChangeRequestBody(object):
         "updated_time_start": str,
         "updated_time_end": str,
         "target_department_ids": List[str],
+        "transfer_type_unique_identifier": List[str],
+        "transfer_reason_unique_identifier": List[str],
+        "exception_statuses": List[str],
     }
 
     def __init__(self, d=None):
@@ -25,6 +28,9 @@ class SearchJobChangeRequestBody(object):
         self.updated_time_start: Optional[str] = None
         self.updated_time_end: Optional[str] = None
         self.target_department_ids: Optional[List[str]] = None
+        self.transfer_type_unique_identifier: Optional[List[str]] = None
+        self.transfer_reason_unique_identifier: Optional[List[str]] = None
+        self.exception_statuses: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -66,6 +72,20 @@ class SearchJobChangeRequestBodyBuilder(object):
 
     def target_department_ids(self, target_department_ids: List[str]) -> "SearchJobChangeRequestBodyBuilder":
         self._search_job_change_request_body.target_department_ids = target_department_ids
+        return self
+
+    def transfer_type_unique_identifier(self, transfer_type_unique_identifier: List[
+        str]) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.transfer_type_unique_identifier = transfer_type_unique_identifier
+        return self
+
+    def transfer_reason_unique_identifier(self, transfer_reason_unique_identifier: List[
+        str]) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.transfer_reason_unique_identifier = transfer_reason_unique_identifier
+        return self
+
+    def exception_statuses(self, exception_statuses: List[str]) -> "SearchJobChangeRequestBodyBuilder":
+        self._search_job_change_request_body.exception_statuses = exception_statuses
         return self
 
     def build(self) -> "SearchJobChangeRequestBody":

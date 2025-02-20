@@ -11,6 +11,8 @@ from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.batch_create_user_flow_request import BatchCreateUserFlowRequest
 from ..model.batch_create_user_flow_response import BatchCreateUserFlowResponse
+from ..model.batch_del_user_flow_request import BatchDelUserFlowRequest
+from ..model.batch_del_user_flow_response import BatchDelUserFlowResponse
 from ..model.get_user_flow_request import GetUserFlowRequest
 from ..model.get_user_flow_response import GetUserFlowResponse
 from ..model.query_user_flow_request import QueryUserFlowRequest
@@ -55,6 +57,44 @@ class UserFlow(object):
 
         # 反序列化
         response: BatchCreateUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateUserFlowResponse)
+        response.raw = resp
+
+        return response
+
+    def batch_del(self, request: BatchDelUserFlowRequest,
+                  option: Optional[RequestOption] = None) -> BatchDelUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDelUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDelUserFlowResponse)
+        response.raw = resp
+
+        return response
+
+    async def abatch_del(self, request: BatchDelUserFlowRequest,
+                         option: Optional[RequestOption] = None) -> BatchDelUserFlowResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: BatchDelUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDelUserFlowResponse)
         response.raw = resp
 
         return response

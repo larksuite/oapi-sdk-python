@@ -3,9 +3,11 @@ from .app_recommend_rule import *
 from .application import *
 from .application_app_usage import *
 from .application_app_version import *
+from .application_collaborators import *
 from .application_contacts_range import *
 from .application_feedback import *
 from .application_management import *
+from .application_owner import *
 from .application_visibility import *
 from .bot import *
 from .scope import *

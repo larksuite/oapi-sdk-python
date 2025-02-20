@@ -23,7 +23,7 @@ class UploadReportArchiveRuleRequestBuilder(object):
         upload_report_archive_rule_request = UploadReportArchiveRuleRequest()
         upload_report_archive_rule_request.http_method = HttpMethod.POST
         upload_report_archive_rule_request.uri = "/open-apis/attendance/v1/archive_rule/upload_report"
-        upload_report_archive_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        upload_report_archive_rule_request.token_types = {AccessTokenType.TENANT}
         self._upload_report_archive_rule_request: UploadReportArchiveRuleRequest = upload_report_archive_rule_request
 
     def employee_type(self, employee_type: str) -> "UploadReportArchiveRuleRequestBuilder":

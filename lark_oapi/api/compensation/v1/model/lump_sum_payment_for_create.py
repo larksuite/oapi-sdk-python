@@ -13,7 +13,6 @@ class LumpSumPaymentForCreate(object):
         "binding_period": int,
         "currency_id": str,
         "issuance_frequency": int,
-        "grant_date": str,
         "item_id": str,
         "details": List[LumpSumPaymentDetailForCreate],
         "remark": str,
@@ -26,7 +25,6 @@ class LumpSumPaymentForCreate(object):
         self.binding_period: Optional[int] = None
         self.currency_id: Optional[str] = None
         self.issuance_frequency: Optional[int] = None
-        self.grant_date: Optional[str] = None
         self.item_id: Optional[str] = None
         self.details: Optional[List[LumpSumPaymentDetailForCreate]] = None
         self.remark: Optional[str] = None
@@ -63,10 +61,6 @@ class LumpSumPaymentForCreateBuilder(object):
 
     def issuance_frequency(self, issuance_frequency: int) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.issuance_frequency = issuance_frequency
-        return self
-
-    def grant_date(self, grant_date: str) -> "LumpSumPaymentForCreateBuilder":
-        self._lump_sum_payment_for_create.grant_date = grant_date
         return self
 
     def item_id(self, item_id: str) -> "LumpSumPaymentForCreateBuilder":

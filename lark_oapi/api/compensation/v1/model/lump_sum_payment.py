@@ -15,11 +15,13 @@ class LumpSumPayment(object):
         "binding_period": int,
         "currency_id": str,
         "issuance_frequency": int,
-        "grant_date": str,
         "item_id": str,
         "remark": str,
         "issuance_detail_text": I18n,
         "apply_source": int,
+        "return_amount_before_tax": str,
+        "return_amount_after_tax": str,
+        "binding_period_offboarding_type": str,
         "create_time": str,
         "modify_time": str,
         "details": List[LumpSumPaymentDetail],
@@ -33,11 +35,13 @@ class LumpSumPayment(object):
         self.binding_period: Optional[int] = None
         self.currency_id: Optional[str] = None
         self.issuance_frequency: Optional[int] = None
-        self.grant_date: Optional[str] = None
         self.item_id: Optional[str] = None
         self.remark: Optional[str] = None
         self.issuance_detail_text: Optional[I18n] = None
         self.apply_source: Optional[int] = None
+        self.return_amount_before_tax: Optional[str] = None
+        self.return_amount_after_tax: Optional[str] = None
+        self.binding_period_offboarding_type: Optional[str] = None
         self.create_time: Optional[str] = None
         self.modify_time: Optional[str] = None
         self.details: Optional[List[LumpSumPaymentDetail]] = None
@@ -80,10 +84,6 @@ class LumpSumPaymentBuilder(object):
         self._lump_sum_payment.issuance_frequency = issuance_frequency
         return self
 
-    def grant_date(self, grant_date: str) -> "LumpSumPaymentBuilder":
-        self._lump_sum_payment.grant_date = grant_date
-        return self
-
     def item_id(self, item_id: str) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.item_id = item_id
         return self
@@ -98,6 +98,18 @@ class LumpSumPaymentBuilder(object):
 
     def apply_source(self, apply_source: int) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.apply_source = apply_source
+        return self
+
+    def return_amount_before_tax(self, return_amount_before_tax: str) -> "LumpSumPaymentBuilder":
+        self._lump_sum_payment.return_amount_before_tax = return_amount_before_tax
+        return self
+
+    def return_amount_after_tax(self, return_amount_after_tax: str) -> "LumpSumPaymentBuilder":
+        self._lump_sum_payment.return_amount_after_tax = return_amount_after_tax
+        return self
+
+    def binding_period_offboarding_type(self, binding_period_offboarding_type: str) -> "LumpSumPaymentBuilder":
+        self._lump_sum_payment.binding_period_offboarding_type = binding_period_offboarding_type
         return self
 
     def create_time(self, create_time: str) -> "LumpSumPaymentBuilder":

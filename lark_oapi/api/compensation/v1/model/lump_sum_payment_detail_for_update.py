@@ -11,6 +11,7 @@ class LumpSumPaymentDetailForUpdate(object):
         "issuance_status": str,
         "issuance_way": str,
         "issuance_time": str,
+        "belong_time": str,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class LumpSumPaymentDetailForUpdate(object):
         self.issuance_status: Optional[str] = None
         self.issuance_way: Optional[str] = None
         self.issuance_time: Optional[str] = None
+        self.belong_time: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +50,10 @@ class LumpSumPaymentDetailForUpdateBuilder(object):
 
     def issuance_time(self, issuance_time: str) -> "LumpSumPaymentDetailForUpdateBuilder":
         self._lump_sum_payment_detail_for_update.issuance_time = issuance_time
+        return self
+
+    def belong_time(self, belong_time: str) -> "LumpSumPaymentDetailForUpdateBuilder":
+        self._lump_sum_payment_detail_for_update.belong_time = belong_time
         return self
 
     def build(self) -> "LumpSumPaymentDetailForUpdate":

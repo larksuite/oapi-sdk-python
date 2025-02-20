@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .anti_cheat_punch import AntiCheatPunch
 from .machine import Machine
 from .location import Location
 from .free_punch_cfg import FreePunchCfg
@@ -53,6 +54,7 @@ class Group(object):
         "face_live_need_action": bool,
         "face_downgrade": bool,
         "replace_basic_pic": bool,
+        "anti_cheat_punch_cfg": AntiCheatPunch,
         "machines": List[Machine],
         "gps_range": int,
         "locations": List[Location],
@@ -126,6 +128,7 @@ class Group(object):
         self.face_live_need_action: Optional[bool] = None
         self.face_downgrade: Optional[bool] = None
         self.replace_basic_pic: Optional[bool] = None
+        self.anti_cheat_punch_cfg: Optional[AntiCheatPunch] = None
         self.machines: Optional[List[Machine]] = None
         self.gps_range: Optional[int] = None
         self.locations: Optional[List[Location]] = None
@@ -310,6 +313,10 @@ class GroupBuilder(object):
 
     def replace_basic_pic(self, replace_basic_pic: bool) -> "GroupBuilder":
         self._group.replace_basic_pic = replace_basic_pic
+        return self
+
+    def anti_cheat_punch_cfg(self, anti_cheat_punch_cfg: AntiCheatPunch) -> "GroupBuilder":
+        self._group.anti_cheat_punch_cfg = anti_cheat_punch_cfg
         return self
 
     def machines(self, machines: List[Machine]) -> "GroupBuilder":

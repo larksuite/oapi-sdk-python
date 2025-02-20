@@ -36,6 +36,7 @@ class Employment(object):
         "on_probation": str,
         "probation_end_date": str,
         "primary_employment": bool,
+        "condition_worker": bool,
         "employment_status": Enum,
         "custom_fields": List[ObjectFieldData],
         "work_email_list": List[Email],
@@ -72,6 +73,7 @@ class Employment(object):
         self.on_probation: Optional[str] = None
         self.probation_end_date: Optional[str] = None
         self.primary_employment: Optional[bool] = None
+        self.condition_worker: Optional[bool] = None
         self.employment_status: Optional[Enum] = None
         self.custom_fields: Optional[List[ObjectFieldData]] = None
         self.work_email_list: Optional[List[Email]] = None
@@ -177,6 +179,10 @@ class EmploymentBuilder(object):
 
     def primary_employment(self, primary_employment: bool) -> "EmploymentBuilder":
         self._employment.primary_employment = primary_employment
+        return self
+
+    def condition_worker(self, condition_worker: bool) -> "EmploymentBuilder":
+        self._employment.condition_worker = condition_worker
         return self
 
     def employment_status(self, employment_status: Enum) -> "EmploymentBuilder":

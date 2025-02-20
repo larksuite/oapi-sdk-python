@@ -1,3 +1,4 @@
+from .anti_cheat_punch import *
 from .approval_daily_detail import *
 from .approval_info import *
 from .archive_field import *
@@ -126,6 +127,8 @@ from .query_user_daily_shift_request_body import *
 from .query_user_daily_shift_request import *
 from .batch_create_user_flow_request_body import *
 from .batch_create_user_flow_request import *
+from .batch_del_user_flow_request_body import *
+from .batch_del_user_flow_request import *
 from .get_user_flow_request import *
 from .query_user_flow_request_body import *
 from .query_user_flow_request import *
@@ -196,6 +199,8 @@ from .query_user_daily_shift_response_body import *
 from .query_user_daily_shift_response import *
 from .batch_create_user_flow_response_body import *
 from .batch_create_user_flow_response import *
+from .batch_del_user_flow_response_body import *
+from .batch_del_user_flow_response import *
 from .get_user_flow_response_body import *
 from .get_user_flow_response import *
 from .query_user_flow_response_body import *

@@ -25,6 +25,8 @@ from .citizenship_status import *
 from .city import *
 from .company import *
 from .company_id_and_name import *
+from .company_timeline import *
+from .company_version_data import *
 from .contract import *
 from .cost_center import *
 from .cost_center_version import *
@@ -73,6 +75,7 @@ from .emp_custom_org_list import *
 from .employee import *
 from .employee_job_family import *
 from .employee_job_level import *
+from .employee_pathway import *
 from .employee_bt import *
 from .employee_domain_event_data import *
 from .employee_international_assignment import *
@@ -120,10 +123,14 @@ from .job_data import *
 from .job_data_cost_center import *
 from .job_data_custom_org import *
 from .job_family import *
+from .job_family_timeline import *
+from .job_family_version_data import *
 from .job_grade import *
 from .job_grade_create import *
 from .job_grade_update import *
 from .job_level import *
+from .job_timeline import *
+from .job_version_data import *
 from .lang_text import *
 from .language import *
 from .leave_accrual_record import *
@@ -136,8 +143,10 @@ from .leave_request_detail import *
 from .location import *
 from .location_address_create import *
 from .location_address_update import *
+from .location_timeline import *
 from .location_update import *
 from .location_v2 import *
+from .location_version_data import *
 from .match_rule import *
 from .match_rules import *
 from .name import *
@@ -163,6 +172,9 @@ from .org_role_update import *
 from .organization_domain_event_data import *
 from .organization_op_log import *
 from .orgdraft_department_id import *
+from .pathway import *
+from .pathway_create import *
+from .pathway_update import *
 from .person_info import *
 from .person_info_bt import *
 from .person_info_chn import *
@@ -561,6 +573,7 @@ from .list_job_response_body import *
 from .list_job_response import *
 from .create_job_change_response_body import *
 from .create_job_change_response import *
+from .revoke_job_change_response_body import *
 from .revoke_job_change_response import *
 from .search_job_change_response_body import *
 from .search_job_change_response import *
@@ -653,6 +666,8 @@ from .p2_corehr_company_updated_v2 import *
 from .p2_corehr_cost_center_created_v2 import *
 from .p2_corehr_cost_center_deleted_v2 import *
 from .p2_corehr_cost_center_updated_v2 import *
+from .p2_corehr_department_created_v2 import *
+from .p2_corehr_department_updated_v2 import *
 from .p2_corehr_employee_domain_event_v2 import *
 from .p2_corehr_job_change_status_updated_v2 import *
 from .p2_corehr_job_change_updated_v2 import *

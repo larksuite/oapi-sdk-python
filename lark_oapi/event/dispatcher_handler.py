@@ -666,6 +666,20 @@ class EventDispatcherHandlerBuilder(object):
         self._processorMap["p2.corehr.cost_center.updated_v2"] = P2CorehrCostCenterUpdatedV2Processor(f)
         return self
 
+    def register_p2_corehr_department_created_v2(self, f: Callable[
+        [P2CorehrDepartmentCreatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.department.created_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.department.created_v2")
+        self._processorMap["p2.corehr.department.created_v2"] = P2CorehrDepartmentCreatedV2Processor(f)
+        return self
+
+    def register_p2_corehr_department_updated_v2(self, f: Callable[
+        [P2CorehrDepartmentUpdatedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.corehr.department.updated_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.corehr.department.updated_v2")
+        self._processorMap["p2.corehr.department.updated_v2"] = P2CorehrDepartmentUpdatedV2Processor(f)
+        return self
+
     def register_p2_corehr_employee_domain_event_v2(self, f: Callable[
         [P2CorehrEmployeeDomainEventV2], None]) -> "EventDispatcherHandlerBuilder":
         if "p2.corehr.employee.domain_event_v2" in self._processorMap:
@@ -1168,20 +1182,6 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.moments.comment.deleted_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.moments.comment.deleted_v1")
         self._processorMap["p2.moments.comment.deleted_v1"] = P2MomentsCommentDeletedV1Processor(f)
-        return self
-
-    def register_p2_moments_dislike_created_v1(self, f: Callable[
-        [P2MomentsDislikeCreatedV1], None]) -> "EventDispatcherHandlerBuilder":
-        if "p2.moments.dislike.created_v1" in self._processorMap:
-            raise EventException("processor already registered, type: p2.moments.dislike.created_v1")
-        self._processorMap["p2.moments.dislike.created_v1"] = P2MomentsDislikeCreatedV1Processor(f)
-        return self
-
-    def register_p2_moments_dislike_deleted_v1(self, f: Callable[
-        [P2MomentsDislikeDeletedV1], None]) -> "EventDispatcherHandlerBuilder":
-        if "p2.moments.dislike.deleted_v1" in self._processorMap:
-            raise EventException("processor already registered, type: p2.moments.dislike.deleted_v1")
-        self._processorMap["p2.moments.dislike.deleted_v1"] = P2MomentsDislikeDeletedV1Processor(f)
         return self
 
     def register_p2_moments_post_created_v1(self, f: Callable[

@@ -497,6 +497,8 @@ from .protect_agency_request import *
 from .protect_search_agency_request_body import *
 from .protect_search_agency_request import *
 from .query_agency_request import *
+from .cancel_onboard_application_request_body import *
+from .cancel_onboard_application_request import *
 from .create_application_request_body import *
 from .create_application_request import *
 from .get_application_request import *
@@ -724,6 +726,7 @@ from .protect_search_agency_response_body import *
 from .protect_search_agency_response import *
 from .query_agency_response_body import *
 from .query_agency_response import *
+from .cancel_onboard_application_response import *
 from .create_application_response_body import *
 from .create_application_response import *
 from .get_application_response_body import *

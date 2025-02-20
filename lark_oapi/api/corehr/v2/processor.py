@@ -10,6 +10,8 @@ from .model.p2_corehr_company_updated_v2 import P2CorehrCompanyUpdatedV2
 from .model.p2_corehr_cost_center_created_v2 import P2CorehrCostCenterCreatedV2
 from .model.p2_corehr_cost_center_deleted_v2 import P2CorehrCostCenterDeletedV2
 from .model.p2_corehr_cost_center_updated_v2 import P2CorehrCostCenterUpdatedV2
+from .model.p2_corehr_department_created_v2 import P2CorehrDepartmentCreatedV2
+from .model.p2_corehr_department_updated_v2 import P2CorehrDepartmentUpdatedV2
 from .model.p2_corehr_employee_domain_event_v2 import P2CorehrEmployeeDomainEventV2
 from .model.p2_corehr_job_change_status_updated_v2 import P2CorehrJobChangeStatusUpdatedV2
 from .model.p2_corehr_job_change_updated_v2 import P2CorehrJobChangeUpdatedV2
@@ -111,6 +113,28 @@ class P2CorehrCostCenterUpdatedV2Processor(IEventProcessor[P2CorehrCostCenterUpd
         return P2CorehrCostCenterUpdatedV2
 
     def do(self, data: P2CorehrCostCenterUpdatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrDepartmentCreatedV2Processor(IEventProcessor[P2CorehrDepartmentCreatedV2]):
+    def __init__(self, f: Callable[[P2CorehrDepartmentCreatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrDepartmentCreatedV2]:
+        return P2CorehrDepartmentCreatedV2
+
+    def do(self, data: P2CorehrDepartmentCreatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrDepartmentUpdatedV2Processor(IEventProcessor[P2CorehrDepartmentUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrDepartmentUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrDepartmentUpdatedV2]:
+        return P2CorehrDepartmentUpdatedV2
+
+    def do(self, data: P2CorehrDepartmentUpdatedV2) -> None:
         self.f(data)
 
 
