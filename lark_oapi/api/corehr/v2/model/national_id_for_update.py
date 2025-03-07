@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .object_field_data import ObjectFieldData
 
 
 class NationalIdForUpdate(object):
@@ -12,6 +13,7 @@ class NationalIdForUpdate(object):
         "issue_date": str,
         "expiration_date": str,
         "issued_by": str,
+        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -21,6 +23,7 @@ class NationalIdForUpdate(object):
         self.issue_date: Optional[str] = None
         self.expiration_date: Optional[str] = None
         self.issued_by: Optional[str] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -54,6 +57,10 @@ class NationalIdForUpdateBuilder(object):
 
     def issued_by(self, issued_by: str) -> "NationalIdForUpdateBuilder":
         self._national_id_for_update.issued_by = issued_by
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "NationalIdForUpdateBuilder":
+        self._national_id_for_update.custom_fields = custom_fields
         return self
 
     def build(self) -> "NationalIdForUpdate":

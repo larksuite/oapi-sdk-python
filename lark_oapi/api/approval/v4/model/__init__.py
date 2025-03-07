@@ -79,6 +79,7 @@ from .node_approver import *
 from .node_auto_approval import *
 from .node_cc import *
 from .object_context import *
+from .open_widget_instance import *
 from .preview_node import *
 from .reason import *
 from .remedy_group import *

@@ -1,3 +1,5 @@
+from .clock_in_abnormal_settings import *
+from .anti_cheat_config import *
 from .anti_cheat_punch import *
 from .approval_daily_detail import *
 from .approval_info import *

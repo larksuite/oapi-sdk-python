@@ -21,6 +21,7 @@ def main():
         .employee_type_id_type("people_admin_employee_type_id") \
         .request_body(ListByIdJobRequirementRequestBody.builder()
                       .id_list([])
+                      .short_code_list([])
                       .build()) \
         .build()
 
@@ -55,6 +56,7 @@ async def amain():
         .employee_type_id_type("people_admin_employee_type_id") \
         .request_body(ListByIdJobRequirementRequestBody.builder()
                       .id_list([])
+                      .short_code_list([])
                       .build()) \
         .build()
 

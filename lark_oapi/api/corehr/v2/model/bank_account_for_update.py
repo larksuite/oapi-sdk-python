@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .object_field_data import ObjectFieldData
 
 
 class BankAccountForUpdate(object):
@@ -13,6 +14,7 @@ class BankAccountForUpdate(object):
         "country_region_id": str,
         "bank_account_usages": List[str],
         "bank_account_type": str,
+        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -23,6 +25,7 @@ class BankAccountForUpdate(object):
         self.country_region_id: Optional[str] = None
         self.bank_account_usages: Optional[List[str]] = None
         self.bank_account_type: Optional[str] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -60,6 +63,10 @@ class BankAccountForUpdateBuilder(object):
 
     def bank_account_type(self, bank_account_type: str) -> "BankAccountForUpdateBuilder":
         self._bank_account_for_update.bank_account_type = bank_account_type
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "BankAccountForUpdateBuilder":
+        self._bank_account_for_update.custom_fields = custom_fields
         return self
 
     def build(self) -> "BankAccountForUpdate":

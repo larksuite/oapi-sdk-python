@@ -33,6 +33,7 @@ def main():
                       .recurrence("FREQ=DAILY;INTERVAL=1")
                       .schemas([])
                       .attachments([])
+                      .event_check_in(EventCheckIn.builder().build())
                       .build()) \
         .build()
 
@@ -79,6 +80,7 @@ async def amain():
                       .recurrence("FREQ=DAILY;INTERVAL=1")
                       .schemas([])
                       .attachments([])
+                      .event_check_in(EventCheckIn.builder().build())
                       .build()) \
         .build()
 

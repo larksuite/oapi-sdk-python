@@ -2,7 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .anti_cheat_punch import AntiCheatPunch
+from .anti_cheat_config import AntiCheatConfig
 from .machine import Machine
 from .location import Location
 from .free_punch_cfg import FreePunchCfg
@@ -15,6 +15,7 @@ from .leave_need_punch_cfg import LeaveNeedPunchCfg
 from .punch_member import PunchMember
 from .punch_member import PunchMember
 from .overtime_clock_cfg import OvertimeClockCfg
+from .clock_in_abnormal_settings import ClockInAbnormalSettings
 
 
 class Group(object):
@@ -54,7 +55,7 @@ class Group(object):
         "face_live_need_action": bool,
         "face_downgrade": bool,
         "replace_basic_pic": bool,
-        "anti_cheat_punch_cfg": AntiCheatPunch,
+        "anti_cheat_punch_config": AntiCheatConfig,
         "machines": List[Machine],
         "gps_range": int,
         "locations": List[Location],
@@ -90,6 +91,7 @@ class Group(object):
         "overtime_clock_cfg": OvertimeClockCfg,
         "new_calendar_id": str,
         "allow_apply_punch": bool,
+        "clock_in_abnormal_settings": ClockInAbnormalSettings,
     }
 
     def __init__(self, d=None):
@@ -128,7 +130,7 @@ class Group(object):
         self.face_live_need_action: Optional[bool] = None
         self.face_downgrade: Optional[bool] = None
         self.replace_basic_pic: Optional[bool] = None
-        self.anti_cheat_punch_cfg: Optional[AntiCheatPunch] = None
+        self.anti_cheat_punch_config: Optional[AntiCheatConfig] = None
         self.machines: Optional[List[Machine]] = None
         self.gps_range: Optional[int] = None
         self.locations: Optional[List[Location]] = None
@@ -164,6 +166,7 @@ class Group(object):
         self.overtime_clock_cfg: Optional[OvertimeClockCfg] = None
         self.new_calendar_id: Optional[str] = None
         self.allow_apply_punch: Optional[bool] = None
+        self.clock_in_abnormal_settings: Optional[ClockInAbnormalSettings] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -315,8 +318,8 @@ class GroupBuilder(object):
         self._group.replace_basic_pic = replace_basic_pic
         return self
 
-    def anti_cheat_punch_cfg(self, anti_cheat_punch_cfg: AntiCheatPunch) -> "GroupBuilder":
-        self._group.anti_cheat_punch_cfg = anti_cheat_punch_cfg
+    def anti_cheat_punch_config(self, anti_cheat_punch_config: AntiCheatConfig) -> "GroupBuilder":
+        self._group.anti_cheat_punch_config = anti_cheat_punch_config
         return self
 
     def machines(self, machines: List[Machine]) -> "GroupBuilder":
@@ -457,6 +460,10 @@ class GroupBuilder(object):
 
     def allow_apply_punch(self, allow_apply_punch: bool) -> "GroupBuilder":
         self._group.allow_apply_punch = allow_apply_punch
+        return self
+
+    def clock_in_abnormal_settings(self, clock_in_abnormal_settings: ClockInAbnormalSettings) -> "GroupBuilder":
+        self._group.clock_in_abnormal_settings = clock_in_abnormal_settings
         return self
 
     def build(self) -> "Group":

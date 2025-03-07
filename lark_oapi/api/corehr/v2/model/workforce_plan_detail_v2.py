@@ -4,6 +4,7 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .dimension_info_data import DimensionInfoData
 from .workforce_plan_eai_detail import WorkforcePlanEaiDetail
+from .workforce_plan_multi_period_value import WorkforcePlanMultiPeriodValue
 
 
 class WorkforcePlanDetailV2(object):
@@ -19,6 +20,7 @@ class WorkforcePlanDetailV2(object):
         "fulfillment_rate": str,
         "fulfillment_rate_including_individuals_to_be_added_and_removed": str,
         "estimated_active_individuals_details": List[WorkforcePlanEaiDetail],
+        "multi_period_values": List[WorkforcePlanMultiPeriodValue],
     }
 
     def __init__(self, d=None):
@@ -33,6 +35,7 @@ class WorkforcePlanDetailV2(object):
         self.fulfillment_rate: Optional[str] = None
         self.fulfillment_rate_including_individuals_to_be_added_and_removed: Optional[str] = None
         self.estimated_active_individuals_details: Optional[List[WorkforcePlanEaiDetail]] = None
+        self.multi_period_values: Optional[List[WorkforcePlanMultiPeriodValue]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -89,6 +92,11 @@ class WorkforcePlanDetailV2Builder(object):
     def estimated_active_individuals_details(self, estimated_active_individuals_details: List[
         WorkforcePlanEaiDetail]) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.estimated_active_individuals_details = estimated_active_individuals_details
+        return self
+
+    def multi_period_values(self,
+                            multi_period_values: List[WorkforcePlanMultiPeriodValue]) -> "WorkforcePlanDetailV2Builder":
+        self._workforce_plan_detail_v2.multi_period_values = multi_period_values
         return self
 
     def build(self) -> "WorkforcePlanDetailV2":

@@ -4,6 +4,8 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .field_variable_value_i18n import FieldVariableValueI18n
 from .field_variable_value_to_object import FieldVariableValueToObject
+from .field_variable_value_to_file_for_write import FieldVariableValueToFileForWrite
+from .field_variable_value_to_record import FieldVariableValueToRecord
 
 
 class FieldVariableValueToForReview(object):
@@ -19,6 +21,8 @@ class FieldVariableValueToForReview(object):
         "department_value": str,
         "employment_value": str,
         "list_values": List[str],
+        "file_value": FieldVariableValueToFileForWrite,
+        "record_values": List[FieldVariableValueToRecord],
     }
 
     def __init__(self, d=None):
@@ -33,6 +37,8 @@ class FieldVariableValueToForReview(object):
         self.department_value: Optional[str] = None
         self.employment_value: Optional[str] = None
         self.list_values: Optional[List[str]] = None
+        self.file_value: Optional[FieldVariableValueToFileForWrite] = None
+        self.record_values: Optional[List[FieldVariableValueToRecord]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -86,6 +92,14 @@ class FieldVariableValueToForReviewBuilder(object):
 
     def list_values(self, list_values: List[str]) -> "FieldVariableValueToForReviewBuilder":
         self._field_variable_value_to_for_review.list_values = list_values
+        return self
+
+    def file_value(self, file_value: FieldVariableValueToFileForWrite) -> "FieldVariableValueToForReviewBuilder":
+        self._field_variable_value_to_for_review.file_value = file_value
+        return self
+
+    def record_values(self, record_values: List[FieldVariableValueToRecord]) -> "FieldVariableValueToForReviewBuilder":
+        self._field_variable_value_to_for_review.record_values = record_values
         return self
 
     def build(self) -> "FieldVariableValueToForReview":

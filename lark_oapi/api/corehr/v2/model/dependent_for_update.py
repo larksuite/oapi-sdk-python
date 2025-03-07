@@ -6,6 +6,7 @@ from .national_id_for_update import NationalIdForUpdate
 from .phone_for_update import PhoneForUpdate
 from .address_for_update import AddressForUpdate
 from .file import File
+from .object_field_data import ObjectFieldData
 
 
 class DependentForUpdate(object):
@@ -23,6 +24,7 @@ class DependentForUpdate(object):
         "phone": PhoneForUpdate,
         "address": AddressForUpdate,
         "birth_certificate_of_children": List[File],
+        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -39,6 +41,7 @@ class DependentForUpdate(object):
         self.phone: Optional[PhoneForUpdate] = None
         self.address: Optional[AddressForUpdate] = None
         self.birth_certificate_of_children: Optional[List[File]] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -102,6 +105,10 @@ class DependentForUpdateBuilder(object):
 
     def birth_certificate_of_children(self, birth_certificate_of_children: List[File]) -> "DependentForUpdateBuilder":
         self._dependent_for_update.birth_certificate_of_children = birth_certificate_of_children
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DependentForUpdateBuilder":
+        self._dependent_for_update.custom_fields = custom_fields
         return self
 
     def build(self) -> "DependentForUpdate":

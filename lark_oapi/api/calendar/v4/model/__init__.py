@@ -20,10 +20,12 @@ from .calendar_understand_extra import *
 from .calendar_understand_scenario_context import *
 from .card_callback import *
 from .card_present import *
+from .check_in_time import *
 from .customization_option import *
 from .department_id import *
 from .event_brief_info_ai import *
 from .event_card import *
+from .event_check_in import *
 from .event_location import *
 from .event_organizer import *
 from .event_search_filter import *

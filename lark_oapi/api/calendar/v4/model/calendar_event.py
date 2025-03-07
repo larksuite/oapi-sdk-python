@@ -11,6 +11,7 @@ from .schema import Schema
 from .event_organizer import EventOrganizer
 from .calendar_event_attendee import CalendarEventAttendee
 from .attachment import Attachment
+from .event_check_in import EventCheckIn
 
 
 class CalendarEvent(object):
@@ -40,6 +41,7 @@ class CalendarEvent(object):
         "attendees": List[CalendarEventAttendee],
         "has_more_attendee": bool,
         "attachments": List[Attachment],
+        "event_check_in": EventCheckIn,
     }
 
     def __init__(self, d=None):
@@ -68,6 +70,7 @@ class CalendarEvent(object):
         self.attendees: Optional[List[CalendarEventAttendee]] = None
         self.has_more_attendee: Optional[bool] = None
         self.attachments: Optional[List[Attachment]] = None
+        self.event_check_in: Optional[EventCheckIn] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -177,6 +180,10 @@ class CalendarEventBuilder(object):
 
     def attachments(self, attachments: List[Attachment]) -> "CalendarEventBuilder":
         self._calendar_event.attachments = attachments
+        return self
+
+    def event_check_in(self, event_check_in: EventCheckIn) -> "CalendarEventBuilder":
+        self._calendar_event.event_check_in = event_check_in
         return self
 
     def build(self) -> "CalendarEvent":

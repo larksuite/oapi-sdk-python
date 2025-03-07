@@ -19,6 +19,7 @@ from .basic_job_data import *
 from .basic_person_info import *
 from .bp import *
 from .bpm_dataengine_i18n import *
+from .bpm_flow_info import *
 from .calculate_param import *
 from .change_field_pair import *
 from .citizenship_status import *
@@ -100,6 +101,7 @@ from .field_variable_value_i18n import *
 from .field_variable_value_to import *
 from .field_variable_value_to_enum import *
 from .field_variable_value_to_file import *
+from .field_variable_value_to_file_for_write import *
 from .field_variable_value_to_for_review import *
 from .field_variable_value_to_object import *
 from .field_variable_value_to_record import *
@@ -312,6 +314,7 @@ from .workforce_plan_detail_req import *
 from .workforce_plan_detail_row import *
 from .workforce_plan_detail_v2 import *
 from .workforce_plan_eai_detail import *
+from .workforce_plan_multi_period_value import *
 from .get_approval_groups_request import *
 from .open_query_department_change_list_by_ids_approval_groups_request_body import *
 from .open_query_department_change_list_by_ids_approval_groups_request import *
@@ -473,6 +476,8 @@ from .batch_save_report_detail_row_request import *
 from .list_workforce_plan_request import *
 from .batch_workforce_plan_detail_request_body import *
 from .batch_workforce_plan_detail_request import *
+from .batch_v2_workforce_plan_detail_request_body import *
+from .batch_v2_workforce_plan_detail_request import *
 from .batch_delete_workforce_plan_detail_row_request import *
 from .batch_save_workforce_plan_detail_row_request import *
 from .get_approval_groups_response_body import *
@@ -657,6 +662,8 @@ from .list_workforce_plan_response_body import *
 from .list_workforce_plan_response import *
 from .batch_workforce_plan_detail_response_body import *
 from .batch_workforce_plan_detail_response import *
+from .batch_v2_workforce_plan_detail_response_body import *
+from .batch_v2_workforce_plan_detail_response import *
 from .batch_delete_workforce_plan_detail_row_response import *
 from .batch_save_workforce_plan_detail_row_response import *
 from .p2_corehr_approval_groups_updated_v2 import *

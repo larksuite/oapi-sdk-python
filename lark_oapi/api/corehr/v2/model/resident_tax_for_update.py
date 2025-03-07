@@ -3,6 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .address_for_update import AddressForUpdate
+from .object_field_data import ObjectFieldData
 
 
 class ResidentTaxForUpdate(object):
@@ -12,6 +13,7 @@ class ResidentTaxForUpdate(object):
         "tax_address": AddressForUpdate,
         "resident_status_specification": str,
         "year_resident_tax": str,
+        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -20,6 +22,7 @@ class ResidentTaxForUpdate(object):
         self.tax_address: Optional[AddressForUpdate] = None
         self.resident_status_specification: Optional[str] = None
         self.year_resident_tax: Optional[str] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +52,10 @@ class ResidentTaxForUpdateBuilder(object):
 
     def year_resident_tax(self, year_resident_tax: str) -> "ResidentTaxForUpdateBuilder":
         self._resident_tax_for_update.year_resident_tax = year_resident_tax
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "ResidentTaxForUpdateBuilder":
+        self._resident_tax_for_update.custom_fields = custom_fields
         return self
 
     def build(self) -> "ResidentTaxForUpdate":

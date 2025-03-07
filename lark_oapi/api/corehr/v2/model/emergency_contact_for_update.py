@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from .phone_for_update import PhoneForUpdate
 from .address_for_update import AddressForUpdate
 from .email_for_update import EmailForUpdate
+from .object_field_data import ObjectFieldData
 
 
 class EmergencyContactForUpdate(object):
@@ -15,6 +16,7 @@ class EmergencyContactForUpdate(object):
         "address": AddressForUpdate,
         "email": EmailForUpdate,
         "is_primary": bool,
+        "custom_fields": List[ObjectFieldData],
     }
 
     def __init__(self, d=None):
@@ -24,6 +26,7 @@ class EmergencyContactForUpdate(object):
         self.address: Optional[AddressForUpdate] = None
         self.email: Optional[EmailForUpdate] = None
         self.is_primary: Optional[bool] = None
+        self.custom_fields: Optional[List[ObjectFieldData]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -57,6 +60,10 @@ class EmergencyContactForUpdateBuilder(object):
 
     def is_primary(self, is_primary: bool) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.is_primary = is_primary
+        return self
+
+    def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmergencyContactForUpdateBuilder":
+        self._emergency_contact_for_update.custom_fields = custom_fields
         return self
 
     def build(self) -> "EmergencyContactForUpdate":

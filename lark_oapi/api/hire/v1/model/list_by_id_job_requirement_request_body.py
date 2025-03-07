@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class ListByIdJobRequirementRequestBody(object):
     _types = {
         "id_list": List[str],
+        "short_code_list": List[str],
     }
 
     def __init__(self, d=None):
         self.id_list: Optional[List[str]] = None
+        self.short_code_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +26,10 @@ class ListByIdJobRequirementRequestBodyBuilder(object):
 
     def id_list(self, id_list: List[str]) -> "ListByIdJobRequirementRequestBodyBuilder":
         self._list_by_id_job_requirement_request_body.id_list = id_list
+        return self
+
+    def short_code_list(self, short_code_list: List[str]) -> "ListByIdJobRequirementRequestBodyBuilder":
+        self._list_by_id_job_requirement_request_body.short_code_list = short_code_list
         return self
 
     def build(self) -> "ListByIdJobRequirementRequestBody":
