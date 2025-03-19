@@ -30,17 +30,37 @@ class P2URLPreviewGet(EventContext):
         init(self, d, self._types)
 
 
+class URLPreviewGetInlineURL(object):
+    _types = {
+        "copy_url": str,
+        "ios": str,
+        "android": str,
+        "pc": str,
+        "web": str,
+    }
+
+    def __init__(self, d=None):
+        self.copy_url: Optional[str] = None
+        self.ios: Optional[str] = None
+        self.android: Optional[str] = None
+        self.pc: Optional[str] = None
+        self.web: Optional[str] = None
+        init(self, d, self._types)
+
+
 class URLPreviewGetInline(object):
     _types = {
         "title": str,
         "i18n_title": Dict[str, str],
         "image_key": str,
+        "url": URLPreviewGetInlineURL,
     }
 
     def __init__(self, d=None):
         self.title: Optional[str] = None
         self.i18n_title: Optional[Dict[str, str]] = None
         self.image_key: Optional[str] = None
+        self.url: Optional[URLPreviewGetInlineURL] = None
         init(self, d, self._types)
 
 
