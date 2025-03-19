@@ -16,11 +16,11 @@ def main():
     request: PatchTicketCustomizedFieldRequest = PatchTicketCustomizedFieldRequest.builder() \
         .ticket_customized_field_id("6948728206392295444") \
         .request_body(TicketCustomizedField.builder()
-                      .display_name("str")
-                      .position("str")
-                      .description("str")
-                      .visible(bool)
-                      .required(bool)
+                      .display_name("")
+                      .position("")
+                      .description("")
+                      .visible(True)
+                      .required(True)
                       .build()) \
         .build()
 
@@ -50,11 +50,11 @@ async def amain():
     request: PatchTicketCustomizedFieldRequest = PatchTicketCustomizedFieldRequest.builder() \
         .ticket_customized_field_id("6948728206392295444") \
         .request_body(TicketCustomizedField.builder()
-                      .display_name("str")
-                      .position("str")
-                      .description("str")
-                      .visible(bool)
-                      .required(bool)
+                      .display_name("")
+                      .position("")
+                      .description("")
+                      .visible(True)
+                      .required(True)
                       .build()) \
         .build()
 

@@ -21,6 +21,7 @@ class AilyMessage(object):
         "plain_text": str,
         "created_at": int,
         "status": str,
+        "reasoning_content": str,
     }
 
     def __init__(self, d=None):
@@ -36,6 +37,7 @@ class AilyMessage(object):
         self.plain_text: Optional[str] = None
         self.created_at: Optional[int] = None
         self.status: Optional[str] = None
+        self.reasoning_content: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -93,6 +95,10 @@ class AilyMessageBuilder(object):
 
     def status(self, status: str) -> "AilyMessageBuilder":
         self._aily_message.status = status
+        return self
+
+    def reasoning_content(self, reasoning_content: str) -> "AilyMessageBuilder":
+        self._aily_message.reasoning_content = reasoning_content
         return self
 
     def build(self) -> "AilyMessage":

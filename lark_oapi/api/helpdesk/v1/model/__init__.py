@@ -28,8 +28,10 @@ from .ticket_event import *
 from .ticket_event_update_info import *
 from .ticket_message_content import *
 from .ticket_message_event import *
+from .ticket_tag import *
 from .ticket_user import *
 from .ticket_user_event import *
+from .ticket_v2 import *
 from .user_customized_field import *
 from .user_id import *
 from .user_query_faq_info import *

@@ -5,6 +5,7 @@ from lark_oapi.core.construct import init
 from lark_oapi.event.context import EventContext
 from .onboarding_task_change import OnboardingTaskChange
 from .onboarding_flow_change import OnboardingFlowChange
+from .onboarding_flow import OnboardingFlow
 
 
 class P2CorehrPreHireOnboardingTaskChangedV2Data(object):
@@ -14,6 +15,7 @@ class P2CorehrPreHireOnboardingTaskChangedV2Data(object):
         "onboarding_task_changes": List[OnboardingTaskChange],
         "onboarding_flow_change": OnboardingFlowChange,
         "onboarding_flow_id": str,
+        "flow_info": OnboardingFlow,
     }
 
     def __init__(self, d=None):
@@ -22,6 +24,7 @@ class P2CorehrPreHireOnboardingTaskChangedV2Data(object):
         self.onboarding_task_changes: Optional[List[OnboardingTaskChange]] = None
         self.onboarding_flow_change: Optional[OnboardingFlowChange] = None
         self.onboarding_flow_id: Optional[str] = None
+        self.flow_info: Optional[OnboardingFlow] = None
         init(self, d, self._types)
 
 

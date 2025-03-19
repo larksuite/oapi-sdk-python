@@ -13,6 +13,12 @@ from .department_id import *
 from .dialog_search_request import *
 from .doc import *
 from .doc_passage_param import *
+from .enterprise_knowledge_source_helpdesk_param import *
+from .enterprise_knowledge_source_lingo_param import *
+from .enterprise_knowledge_source_message_param import *
+from .enterprise_knowledge_source_param import *
+from .enterprise_knowledge_source_space_param import *
+from .enterprise_knowledge_source_wiki_param import *
 from .filter_schema import *
 from .helpdesk_passage_param import *
 from .i18n_meta import *
@@ -20,6 +26,17 @@ from .item import *
 from .item_content import *
 from .item_metadata import *
 from .item_record import *
+from .knowledge_qa_enterprise_reference import *
+from .knowledge_qa_internet_reference import *
+from .knowledge_qa_reference import *
+from .knowledge_qa_search_request import *
+from .knowledge_source_answer_request import *
+from .knowledge_source_helpdesk_filter import *
+from .knowledge_source_message_filter import *
+from .knowledge_source_message_reject_filter import *
+from .knowledge_source_request_extra import *
+from .knowledge_source_space_filter import *
+from .knowledge_source_wiki_filter import *
 from .lingo_passage_param import *
 from .llm_model_config import *
 from .memory_message import *
@@ -33,6 +50,7 @@ from .passage_param import *
 from .patch_schema_property import *
 from .present import *
 from .present_data_callback_dialog_request import *
+from .rag_answer import *
 from .rag_answer_response import *
 from .rag_probe import *
 from .scenario_context import *
@@ -56,6 +74,7 @@ from .simple_related_user import *
 from .status import *
 from .system_info import *
 from .template_card_variables import *
+from .time_range import *
 from .user_info import *
 from .web_passage_param import *
 from .wiki_passage_param import *

@@ -69,6 +69,7 @@ class OfferInfoUpdate(object):
         "has_offer_salary": bool,
         "service_company": str,
         "non_compete_covenant": bool,
+        "pathway": str,
     }
 
     def __init__(self, d=None):
@@ -127,6 +128,7 @@ class OfferInfoUpdate(object):
         self.has_offer_salary: Optional[bool] = None
         self.service_company: Optional[str] = None
         self.non_compete_covenant: Optional[bool] = None
+        self.pathway: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -361,6 +363,10 @@ class OfferInfoUpdateBuilder(object):
 
     def non_compete_covenant(self, non_compete_covenant: bool) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.non_compete_covenant = non_compete_covenant
+        return self
+
+    def pathway(self, pathway: str) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.pathway = pathway
         return self
 
     def build(self) -> "OfferInfoUpdate":

@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class StartServiceTicketResponseBody(object):
     _types = {
         "chat_id": str,
+        "ticket_id": str,
     }
 
     def __init__(self, d=None):
         self.chat_id: Optional[str] = None
+        self.ticket_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -24,6 +26,10 @@ class StartServiceTicketResponseBodyBuilder(object):
 
     def chat_id(self, chat_id: str) -> "StartServiceTicketResponseBodyBuilder":
         self._start_service_ticket_response_body.chat_id = chat_id
+        return self
+
+    def ticket_id(self, ticket_id: str) -> "StartServiceTicketResponseBodyBuilder":
+        self._start_service_ticket_response_body.ticket_id = ticket_id
         return self
 
     def build(self) -> "StartServiceTicketResponseBody":

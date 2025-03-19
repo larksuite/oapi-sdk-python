@@ -20,6 +20,7 @@ class JobVersionData(object):
         "job_titles": List[I18n],
         "job_family_ids": List[str],
         "job_level_ids": List[str],
+        "pathway_id": str,
         "working_hours_type_id": str,
     }
 
@@ -35,6 +36,7 @@ class JobVersionData(object):
         self.job_titles: Optional[List[I18n]] = None
         self.job_family_ids: Optional[List[str]] = None
         self.job_level_ids: Optional[List[str]] = None
+        self.pathway_id: Optional[str] = None
         self.working_hours_type_id: Optional[str] = None
         init(self, d, self._types)
 
@@ -89,6 +91,10 @@ class JobVersionDataBuilder(object):
 
     def job_level_ids(self, job_level_ids: List[str]) -> "JobVersionDataBuilder":
         self._job_version_data.job_level_ids = job_level_ids
+        return self
+
+    def pathway_id(self, pathway_id: str) -> "JobVersionDataBuilder":
+        self._job_version_data.pathway_id = pathway_id
         return self
 
     def working_hours_type_id(self, working_hours_type_id: str) -> "JobVersionDataBuilder":

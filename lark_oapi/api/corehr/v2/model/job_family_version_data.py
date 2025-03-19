@@ -16,6 +16,7 @@ class JobFamilyVersionData(object):
         "active": bool,
         "descriptions": List[I18n],
         "parent_job_family_id": str,
+        "pathway_ids": List[str],
         "code": str,
     }
 
@@ -28,6 +29,7 @@ class JobFamilyVersionData(object):
         self.active: Optional[bool] = None
         self.descriptions: Optional[List[I18n]] = None
         self.parent_job_family_id: Optional[str] = None
+        self.pathway_ids: Optional[List[str]] = None
         self.code: Optional[str] = None
         init(self, d, self._types)
 
@@ -70,6 +72,10 @@ class JobFamilyVersionDataBuilder(object):
 
     def parent_job_family_id(self, parent_job_family_id: str) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.parent_job_family_id = parent_job_family_id
+        return self
+
+    def pathway_ids(self, pathway_ids: List[str]) -> "JobFamilyVersionDataBuilder":
+        self._job_family_version_data.pathway_ids = pathway_ids
         return self
 
     def code(self, code: str) -> "JobFamilyVersionDataBuilder":

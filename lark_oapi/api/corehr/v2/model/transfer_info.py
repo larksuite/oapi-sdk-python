@@ -76,6 +76,8 @@ class TransferInfo(object):
         "target_draft_position": str,
         "original_social_security_city": str,
         "target_social_security_city": str,
+        "original_pathway": str,
+        "target_pathway": str,
         "is_transfer_with_workforce": bool,
     }
 
@@ -144,6 +146,8 @@ class TransferInfo(object):
         self.target_draft_position: Optional[str] = None
         self.original_social_security_city: Optional[str] = None
         self.target_social_security_city: Optional[str] = None
+        self.original_pathway: Optional[str] = None
+        self.target_pathway: Optional[str] = None
         self.is_transfer_with_workforce: Optional[bool] = None
         init(self, d, self._types)
 
@@ -411,6 +415,14 @@ class TransferInfoBuilder(object):
 
     def target_social_security_city(self, target_social_security_city: str) -> "TransferInfoBuilder":
         self._transfer_info.target_social_security_city = target_social_security_city
+        return self
+
+    def original_pathway(self, original_pathway: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_pathway = original_pathway
+        return self
+
+    def target_pathway(self, target_pathway: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_pathway = target_pathway
         return self
 
     def is_transfer_with_workforce(self, is_transfer_with_workforce: bool) -> "TransferInfoBuilder":

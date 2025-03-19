@@ -82,6 +82,7 @@ class PreHireEmploymentInfo(object):
         "task_completed": bool,
         "expected_graduate_date": str,
         "service_company": str,
+        "pathway": str,
     }
 
     def __init__(self, d=None):
@@ -148,6 +149,7 @@ class PreHireEmploymentInfo(object):
         self.task_completed: Optional[bool] = None
         self.expected_graduate_date: Optional[str] = None
         self.service_company: Optional[str] = None
+        self.pathway: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -421,6 +423,10 @@ class PreHireEmploymentInfoBuilder(object):
 
     def service_company(self, service_company: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.service_company = service_company
+        return self
+
+    def pathway(self, pathway: str) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.pathway = pathway
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

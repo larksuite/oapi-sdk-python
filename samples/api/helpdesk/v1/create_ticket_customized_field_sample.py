@@ -15,16 +15,16 @@ def main():
     # 构造请求对象
     request: CreateTicketCustomizedFieldRequest = CreateTicketCustomizedFieldRequest.builder() \
         .request_body(TicketCustomizedField.builder()
-                      .helpdesk_id("str")
-                      .key_name("str")
-                      .display_name("str")
-                      .position("str")
-                      .field_type("str")
-                      .description("str")
-                      .visible(bool)
-                      .editable(bool)
-                      .required(bool)
-                      .dropdown_allow_multiple(bool)
+                      .helpdesk_id("7836004780707807251")
+                      .key_name("")
+                      .display_name("")
+                      .position("")
+                      .field_type("")
+                      .description("")
+                      .visible(True)
+                      .editable(True)
+                      .required(True)
+                      .dropdown_allow_multiple(True)
                       .build()) \
         .build()
 
@@ -53,16 +53,16 @@ async def amain():
     # 构造请求对象
     request: CreateTicketCustomizedFieldRequest = CreateTicketCustomizedFieldRequest.builder() \
         .request_body(TicketCustomizedField.builder()
-                      .helpdesk_id("str")
-                      .key_name("str")
-                      .display_name("str")
-                      .position("str")
-                      .field_type("str")
-                      .description("str")
-                      .visible(bool)
-                      .editable(bool)
-                      .required(bool)
-                      .dropdown_allow_multiple(bool)
+                      .helpdesk_id("7836004780707807251")
+                      .key_name("")
+                      .display_name("")
+                      .position("")
+                      .field_type("")
+                      .description("")
+                      .visible(True)
+                      .editable(True)
+                      .required(True)
+                      .dropdown_allow_multiple(True)
                       .build()) \
         .build()
 

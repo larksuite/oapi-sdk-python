@@ -44,6 +44,7 @@ class JobData(object):
         "service_company": str,
         "employee_subtype_id": str,
         "position_id": str,
+        "pathway_id": str,
         "job_data_reason": Enum,
     }
 
@@ -79,6 +80,7 @@ class JobData(object):
         self.service_company: Optional[str] = None
         self.employee_subtype_id: Optional[str] = None
         self.position_id: Optional[str] = None
+        self.pathway_id: Optional[str] = None
         self.job_data_reason: Optional[Enum] = None
         init(self, d, self._types)
 
@@ -213,6 +215,10 @@ class JobDataBuilder(object):
 
     def position_id(self, position_id: str) -> "JobDataBuilder":
         self._job_data.position_id = position_id
+        return self
+
+    def pathway_id(self, pathway_id: str) -> "JobDataBuilder":
+        self._job_data.pathway_id = pathway_id
         return self
 
     def job_data_reason(self, job_data_reason: Enum) -> "JobDataBuilder":

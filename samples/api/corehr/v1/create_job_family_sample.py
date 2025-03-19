@@ -19,8 +19,10 @@ def main():
                       .name([])
                       .active(True)
                       .parent_id("4698020757495316313")
+                      .pathway_ids([])
                       .effective_time("2020-05-01 00:00:00")
                       .code("123456")
+                      .description([])
                       .custom_fields([])
                       .build()) \
         .build()
@@ -54,8 +56,10 @@ async def amain():
                       .name([])
                       .active(True)
                       .parent_id("4698020757495316313")
+                      .pathway_ids([])
                       .effective_time("2020-05-01 00:00:00")
                       .code("123456")
+                      .description([])
                       .custom_fields([])
                       .build()) \
         .build()

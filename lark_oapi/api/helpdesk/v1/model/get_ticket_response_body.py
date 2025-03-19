@@ -2,16 +2,16 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
-from .ticket import Ticket
+from .ticket_v2 import TicketV2
 
 
 class GetTicketResponseBody(object):
     _types = {
-        "ticket": Ticket,
+        "ticket": TicketV2,
     }
 
     def __init__(self, d=None):
-        self.ticket: Optional[Ticket] = None
+        self.ticket: Optional[TicketV2] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -23,7 +23,7 @@ class GetTicketResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_ticket_response_body = GetTicketResponseBody()
 
-    def ticket(self, ticket: Ticket) -> "GetTicketResponseBodyBuilder":
+    def ticket(self, ticket: TicketV2) -> "GetTicketResponseBodyBuilder":
         self._get_ticket_response_body.ticket = ticket
         return self
 

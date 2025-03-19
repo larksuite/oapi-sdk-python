@@ -70,6 +70,7 @@ class OfferInfo(object):
         "company_sponsored_visa": bool,
         "has_offer_salary": bool,
         "work_station": str,
+        "pathway": str,
     }
 
     def __init__(self, d=None):
@@ -130,6 +131,7 @@ class OfferInfo(object):
         self.company_sponsored_visa: Optional[bool] = None
         self.has_offer_salary: Optional[bool] = None
         self.work_station: Optional[str] = None
+        self.pathway: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -372,6 +374,10 @@ class OfferInfoBuilder(object):
 
     def work_station(self, work_station: str) -> "OfferInfoBuilder":
         self._offer_info.work_station = work_station
+        return self
+
+    def pathway(self, pathway: str) -> "OfferInfoBuilder":
+        self._offer_info.pathway = pathway
         return self
 
     def build(self) -> "OfferInfo":

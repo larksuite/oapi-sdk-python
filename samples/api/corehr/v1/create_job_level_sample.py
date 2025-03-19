@@ -23,6 +23,7 @@ def main():
                       .active(True)
                       .custom_fields([])
                       .job_grade([])
+                      .pathway_ids([])
                       .build()) \
         .build()
 
@@ -59,6 +60,7 @@ async def amain():
                       .active(True)
                       .custom_fields([])
                       .job_grade([])
+                      .pathway_ids([])
                       .build()) \
         .build()
 

@@ -16,6 +16,7 @@ class Job(object):
         "description": List[I18n],
         "active": bool,
         "job_title": List[I18n],
+        "pathway_id": str,
         "job_family_id_list": List[str],
         "job_level_id_list": List[str],
         "working_hours_type_id": str,
@@ -31,6 +32,7 @@ class Job(object):
         self.description: Optional[List[I18n]] = None
         self.active: Optional[bool] = None
         self.job_title: Optional[List[I18n]] = None
+        self.pathway_id: Optional[str] = None
         self.job_family_id_list: Optional[List[str]] = None
         self.job_level_id_list: Optional[List[str]] = None
         self.working_hours_type_id: Optional[str] = None
@@ -70,6 +72,10 @@ class JobBuilder(object):
 
     def job_title(self, job_title: List[I18n]) -> "JobBuilder":
         self._job.job_title = job_title
+        return self
+
+    def pathway_id(self, pathway_id: str) -> "JobBuilder":
+        self._job.pathway_id = pathway_id
         return self
 
     def job_family_id_list(self, job_family_id_list: List[str]) -> "JobBuilder":

@@ -41,6 +41,7 @@ class CreateTransferInfo(object):
         "target_position": str,
         "target_social_security_city": str,
         "is_transfer_with_workforce": bool,
+        "target_pathway": str,
     }
 
     def __init__(self, d=None):
@@ -77,6 +78,7 @@ class CreateTransferInfo(object):
         self.target_position: Optional[str] = None
         self.target_social_security_city: Optional[str] = None
         self.is_transfer_with_workforce: Optional[bool] = None
+        self.target_pathway: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -219,6 +221,10 @@ class CreateTransferInfoBuilder(object):
 
     def is_transfer_with_workforce(self, is_transfer_with_workforce: bool) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.is_transfer_with_workforce = is_transfer_with_workforce
+        return self
+
+    def target_pathway(self, target_pathway: str) -> "CreateTransferInfoBuilder":
+        self._create_transfer_info.target_pathway = target_pathway
         return self
 
     def build(self) -> "CreateTransferInfo":
