@@ -9,6 +9,8 @@ from .profile_setting_emp_contract_record import ProfileSettingEmpContractRecord
 from .profile_setting_custom_group import ProfileSettingCustomGroup
 from .job_data_custom_org import JobDataCustomOrg
 from .seniority_adjust_information_edit import SeniorityAdjustInformationEdit
+from .default_cost_center_record import DefaultCostCenterRecord
+from .cost_allocation import CostAllocation
 
 
 class ProfileSettingEmploymentInfo(object):
@@ -20,6 +22,8 @@ class ProfileSettingEmploymentInfo(object):
         "custom_groups": List[ProfileSettingCustomGroup],
         "custom_org_groups": List[JobDataCustomOrg],
         "seniority_adjust_informations": List[SeniorityAdjustInformationEdit],
+        "default_cost_center": DefaultCostCenterRecord,
+        "cost_allocation": CostAllocation,
     }
 
     def __init__(self, d=None):
@@ -30,6 +34,8 @@ class ProfileSettingEmploymentInfo(object):
         self.custom_groups: Optional[List[ProfileSettingCustomGroup]] = None
         self.custom_org_groups: Optional[List[JobDataCustomOrg]] = None
         self.seniority_adjust_informations: Optional[List[SeniorityAdjustInformationEdit]] = None
+        self.default_cost_center: Optional[DefaultCostCenterRecord] = None
+        self.cost_allocation: Optional[CostAllocation] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -70,6 +76,15 @@ class ProfileSettingEmploymentInfoBuilder(object):
     def seniority_adjust_informations(self, seniority_adjust_informations: List[
         SeniorityAdjustInformationEdit]) -> "ProfileSettingEmploymentInfoBuilder":
         self._profile_setting_employment_info.seniority_adjust_informations = seniority_adjust_informations
+        return self
+
+    def default_cost_center(self,
+                            default_cost_center: DefaultCostCenterRecord) -> "ProfileSettingEmploymentInfoBuilder":
+        self._profile_setting_employment_info.default_cost_center = default_cost_center
+        return self
+
+    def cost_allocation(self, cost_allocation: CostAllocation) -> "ProfileSettingEmploymentInfoBuilder":
+        self._profile_setting_employment_info.cost_allocation = cost_allocation
         return self
 
     def build(self) -> "ProfileSettingEmploymentInfo":

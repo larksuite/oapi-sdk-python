@@ -11,6 +11,7 @@ class PreHireContractInfo(object):
         "contract_type": str,
         "duration_type": str,
         "signing_type": str,
+        "contract_file_ids": List[str],
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class PreHireContractInfo(object):
         self.contract_type: Optional[str] = None
         self.duration_type: Optional[str] = None
         self.signing_type: Optional[str] = None
+        self.contract_file_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -48,6 +50,10 @@ class PreHireContractInfoBuilder(object):
 
     def signing_type(self, signing_type: str) -> "PreHireContractInfoBuilder":
         self._pre_hire_contract_info.signing_type = signing_type
+        return self
+
+    def contract_file_ids(self, contract_file_ids: List[str]) -> "PreHireContractInfoBuilder":
+        self._pre_hire_contract_info.contract_file_ids = contract_file_ids
         return self
 
     def build(self) -> "PreHireContractInfo":

@@ -30,8 +30,10 @@ from .company_id_and_name import *
 from .company_timeline import *
 from .company_version_data import *
 from .contract import *
+from .cost_allocation import *
 from .cost_center import *
 from .cost_center_version import *
+from .cost_center_id import *
 from .country_region import *
 from .country_region_subdivision import *
 from .create_emp_custom_org import *
@@ -46,6 +48,8 @@ from .custom_org_update import *
 from .custom_org_with_rate import *
 from .custom_value import *
 from .dataengine_i18n import *
+from .default_cost_center import *
+from .default_cost_center_record import *
 from .department import *
 from .department_adjust_record import *
 from .department_change import *
@@ -79,6 +83,8 @@ from .employee_job_family import *
 from .employee_job_level import *
 from .employee_pathway import *
 from .employee_bt import *
+from .employee_cost_allocation import *
+from .employee_default_cost_center import *
 from .employee_domain_event_data import *
 from .employee_international_assignment import *
 from .employee_job_data import *
@@ -91,6 +97,8 @@ from .employees_international_assignment_req import *
 from .employees_international_assignment_resp import *
 from .employment import *
 from .employment_bp import *
+from .employment_cost_allocation import *
+from .employment_default_cost_center import *
 from .employment_leave_balance import *
 from .enum import *
 from .enum_field import *
@@ -125,6 +133,7 @@ from .job_change import *
 from .job_data import *
 from .job_data_cost_center import *
 from .job_data_custom_org import *
+from .job_data_id import *
 from .job_family import *
 from .job_family_timeline import *
 from .job_family_version_data import *
@@ -403,6 +412,7 @@ from .search_enum_request_body import *
 from .search_enum_request import *
 from .get_job_request import *
 from .list_job_request import *
+from .query_recent_change_job_request import *
 from .create_job_change_request_body import *
 from .create_job_change_request import *
 from .revoke_job_change_request_body import *
@@ -577,6 +587,8 @@ from .get_job_response_body import *
 from .get_job_response import *
 from .list_job_response_body import *
 from .list_job_response import *
+from .query_recent_change_job_response_body import *
+from .query_recent_change_job_response import *
 from .create_job_change_response_body import *
 from .create_job_change_response import *
 from .revoke_job_change_response_body import *

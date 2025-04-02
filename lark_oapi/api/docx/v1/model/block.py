@@ -51,6 +51,8 @@ from .agenda_item import AgendaItem
 from .agenda_item_title import AgendaItemTitle
 from .agenda_item_content import AgendaItemContent
 from .link_preview import LinkPreview
+from .source_synced import SourceSynced
+from .reference_synced import ReferenceSynced
 
 
 class Block(object):
@@ -109,6 +111,8 @@ class Block(object):
         "agenda_item_title": AgendaItemTitle,
         "agenda_item_content": AgendaItemContent,
         "link_preview": LinkPreview,
+        "source_synced": SourceSynced,
+        "reference_synced": ReferenceSynced,
     }
 
     def __init__(self, d=None):
@@ -166,6 +170,8 @@ class Block(object):
         self.agenda_item_title: Optional[AgendaItemTitle] = None
         self.agenda_item_content: Optional[AgendaItemContent] = None
         self.link_preview: Optional[LinkPreview] = None
+        self.source_synced: Optional[SourceSynced] = None
+        self.reference_synced: Optional[ReferenceSynced] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -391,6 +397,14 @@ class BlockBuilder(object):
 
     def link_preview(self, link_preview: LinkPreview) -> "BlockBuilder":
         self._block.link_preview = link_preview
+        return self
+
+    def source_synced(self, source_synced: SourceSynced) -> "BlockBuilder":
+        self._block.source_synced = source_synced
+        return self
+
+    def reference_synced(self, reference_synced: ReferenceSynced) -> "BlockBuilder":
+        self._block.reference_synced = reference_synced
         return self
 
     def build(self) -> "Block":

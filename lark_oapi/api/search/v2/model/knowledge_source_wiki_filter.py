@@ -7,14 +7,14 @@ from lark_oapi.core.construct import init
 class KnowledgeSourceWikiFilter(object):
     _types = {
         "wiki_tokens": List[str],
-        "node_ids": List[str],
-        "space_ids": List[str],
+        "node_tokens": List[str],
+        "space_ids": List[int],
     }
 
     def __init__(self, d=None):
         self.wiki_tokens: Optional[List[str]] = None
-        self.node_ids: Optional[List[str]] = None
-        self.space_ids: Optional[List[str]] = None
+        self.node_tokens: Optional[List[str]] = None
+        self.space_ids: Optional[List[int]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,11 +30,11 @@ class KnowledgeSourceWikiFilterBuilder(object):
         self._knowledge_source_wiki_filter.wiki_tokens = wiki_tokens
         return self
 
-    def node_ids(self, node_ids: List[str]) -> "KnowledgeSourceWikiFilterBuilder":
-        self._knowledge_source_wiki_filter.node_ids = node_ids
+    def node_tokens(self, node_tokens: List[str]) -> "KnowledgeSourceWikiFilterBuilder":
+        self._knowledge_source_wiki_filter.node_tokens = node_tokens
         return self
 
-    def space_ids(self, space_ids: List[str]) -> "KnowledgeSourceWikiFilterBuilder":
+    def space_ids(self, space_ids: List[int]) -> "KnowledgeSourceWikiFilterBuilder":
         self._knowledge_source_wiki_filter.space_ids = space_ids
         return self
 

@@ -3,20 +3,20 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .knowledge_source_space_filter import KnowledgeSourceSpaceFilter
-from .knowledge_source_space_filter import KnowledgeSourceSpaceFilter
+from .knowledge_source_space_reject import KnowledgeSourceSpaceReject
 
 
 class EnterpriseKnowledgeSourceSpaceParam(object):
     _types = {
         "searchable": bool,
         "filter": KnowledgeSourceSpaceFilter,
-        "reject": KnowledgeSourceSpaceFilter,
+        "reject": KnowledgeSourceSpaceReject,
     }
 
     def __init__(self, d=None):
         self.searchable: Optional[bool] = None
         self.filter: Optional[KnowledgeSourceSpaceFilter] = None
-        self.reject: Optional[KnowledgeSourceSpaceFilter] = None
+        self.reject: Optional[KnowledgeSourceSpaceReject] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,7 +36,7 @@ class EnterpriseKnowledgeSourceSpaceParamBuilder(object):
         self._enterprise_knowledge_source_space_param.filter = filter
         return self
 
-    def reject(self, reject: KnowledgeSourceSpaceFilter) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
+    def reject(self, reject: KnowledgeSourceSpaceReject) -> "EnterpriseKnowledgeSourceSpaceParamBuilder":
         self._enterprise_knowledge_source_space_param.reject = reject
         return self
 

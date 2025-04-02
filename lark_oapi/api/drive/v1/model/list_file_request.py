@@ -13,6 +13,7 @@ class ListFileRequest(BaseRequest):
         self.folder_token: Optional[str] = None
         self.order_by: Optional[str] = None
         self.direction: Optional[str] = None
+        self.option: Optional[str] = None
         self.user_id_type: Optional[str] = None
 
     @staticmethod
@@ -52,6 +53,11 @@ class ListFileRequestBuilder(object):
     def direction(self, direction: str) -> "ListFileRequestBuilder":
         self._list_file_request.direction = direction
         self._list_file_request.add_query("direction", direction)
+        return self
+
+    def option(self, option: str) -> "ListFileRequestBuilder":
+        self._list_file_request.option = option
+        self._list_file_request.add_query("option", option)
         return self
 
     def user_id_type(self, user_id_type: str) -> "ListFileRequestBuilder":

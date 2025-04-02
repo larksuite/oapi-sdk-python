@@ -16,6 +16,8 @@ from lark_oapi.api.hire.v1.processor import *
 from lark_oapi.api.im.v1.processor import *
 from lark_oapi.api.meeting_room.v1.processor import *
 from lark_oapi.api.moments.v1.processor import *
+from lark_oapi.api.payroll.v1.processor import *
+from lark_oapi.api.performance.v2.processor import *
 from lark_oapi.api.task.v1.processor import *
 from lark_oapi.api.vc.v1.processor import *
 from lark_oapi.core.const import *
@@ -1217,6 +1219,35 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.moments.reaction.deleted_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.moments.reaction.deleted_v1")
         self._processorMap["p2.moments.reaction.deleted_v1"] = P2MomentsReactionDeletedV1Processor(f)
+        return self
+
+    def register_p2_payroll_payment_activity_approved_v1(self, f: Callable[
+        [P2PayrollPaymentActivityApprovedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.payroll.payment_activity.approved_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.payroll.payment_activity.approved_v1")
+        self._processorMap["p2.payroll.payment_activity.approved_v1"] = P2PayrollPaymentActivityApprovedV1Processor(f)
+        return self
+
+    def register_p2_payroll_payment_activity_status_changed_v1(self, f: Callable[
+        [P2PayrollPaymentActivityStatusChangedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.payroll.payment_activity.status_changed_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.payroll.payment_activity.status_changed_v1")
+        self._processorMap[
+            "p2.payroll.payment_activity.status_changed_v1"] = P2PayrollPaymentActivityStatusChangedV1Processor(f)
+        return self
+
+    def register_p2_performance_review_data_changed_v2(self, f: Callable[
+        [P2PerformanceReviewDataChangedV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.performance.review_data.changed_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.performance.review_data.changed_v2")
+        self._processorMap["p2.performance.review_data.changed_v2"] = P2PerformanceReviewDataChangedV2Processor(f)
+        return self
+
+    def register_p2_performance_stage_task_open_result_v2(self, f: Callable[
+        [P2PerformanceStageTaskOpenResultV2], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.performance.stage_task.open_result_v2" in self._processorMap:
+            raise EventException("processor already registered, type: p2.performance.stage_task.open_result_v2")
+        self._processorMap["p2.performance.stage_task.open_result_v2"] = P2PerformanceStageTaskOpenResultV2Processor(f)
         return self
 
     def register_p2_task_task_update_tenant_v1(self, f: Callable[

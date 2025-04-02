@@ -63,6 +63,14 @@ class TransferInfo(object):
         "target_work_shift": str,
         "original_cost_center_rate": List[JobDataCostCenter],
         "target_cost_center_rate": List[JobDataCostCenter],
+        "target_allocation_expiration_time": str,
+        "original_allocation_expiration_time": str,
+        "target_allocation_effective_time": str,
+        "original_allocation_effective_time": str,
+        "original_default_cost_center": str,
+        "target_default_cost_center": str,
+        "original_is_default_cost_center_inherited": bool,
+        "target_is_default_cost_center_inherited": bool,
         "original_employment_change": TranferEmploymentInfo,
         "target_employment_change": TranferEmploymentInfo,
         "original_job_grade": str,
@@ -133,6 +141,14 @@ class TransferInfo(object):
         self.target_work_shift: Optional[str] = None
         self.original_cost_center_rate: Optional[List[JobDataCostCenter]] = None
         self.target_cost_center_rate: Optional[List[JobDataCostCenter]] = None
+        self.target_allocation_expiration_time: Optional[str] = None
+        self.original_allocation_expiration_time: Optional[str] = None
+        self.target_allocation_effective_time: Optional[str] = None
+        self.original_allocation_effective_time: Optional[str] = None
+        self.original_default_cost_center: Optional[str] = None
+        self.target_default_cost_center: Optional[str] = None
+        self.original_is_default_cost_center_inherited: Optional[bool] = None
+        self.target_is_default_cost_center_inherited: Optional[bool] = None
         self.original_employment_change: Optional[TranferEmploymentInfo] = None
         self.target_employment_change: Optional[TranferEmploymentInfo] = None
         self.original_job_grade: Optional[str] = None
@@ -363,6 +379,40 @@ class TransferInfoBuilder(object):
 
     def target_cost_center_rate(self, target_cost_center_rate: List[JobDataCostCenter]) -> "TransferInfoBuilder":
         self._transfer_info.target_cost_center_rate = target_cost_center_rate
+        return self
+
+    def target_allocation_expiration_time(self, target_allocation_expiration_time: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_allocation_expiration_time = target_allocation_expiration_time
+        return self
+
+    def original_allocation_expiration_time(self, original_allocation_expiration_time: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_allocation_expiration_time = original_allocation_expiration_time
+        return self
+
+    def target_allocation_effective_time(self, target_allocation_effective_time: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_allocation_effective_time = target_allocation_effective_time
+        return self
+
+    def original_allocation_effective_time(self, original_allocation_effective_time: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_allocation_effective_time = original_allocation_effective_time
+        return self
+
+    def original_default_cost_center(self, original_default_cost_center: str) -> "TransferInfoBuilder":
+        self._transfer_info.original_default_cost_center = original_default_cost_center
+        return self
+
+    def target_default_cost_center(self, target_default_cost_center: str) -> "TransferInfoBuilder":
+        self._transfer_info.target_default_cost_center = target_default_cost_center
+        return self
+
+    def original_is_default_cost_center_inherited(self,
+                                                  original_is_default_cost_center_inherited: bool) -> "TransferInfoBuilder":
+        self._transfer_info.original_is_default_cost_center_inherited = original_is_default_cost_center_inherited
+        return self
+
+    def target_is_default_cost_center_inherited(self,
+                                                target_is_default_cost_center_inherited: bool) -> "TransferInfoBuilder":
+        self._transfer_info.target_is_default_cost_center_inherited = target_is_default_cost_center_inherited
         return self
 
     def original_employment_change(self, original_employment_change: TranferEmploymentInfo) -> "TransferInfoBuilder":

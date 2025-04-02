@@ -10,6 +10,7 @@ class LeaveNeedPunchCfg(object):
         "late_minutes_as_lack": int,
         "early_minutes_as_early": int,
         "early_minutes_as_lack": int,
+        "not_during_shift": bool,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class LeaveNeedPunchCfg(object):
         self.late_minutes_as_lack: Optional[int] = None
         self.early_minutes_as_early: Optional[int] = None
         self.early_minutes_as_lack: Optional[int] = None
+        self.not_during_shift: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class LeaveNeedPunchCfgBuilder(object):
 
     def early_minutes_as_lack(self, early_minutes_as_lack: int) -> "LeaveNeedPunchCfgBuilder":
         self._leave_need_punch_cfg.early_minutes_as_lack = early_minutes_as_lack
+        return self
+
+    def not_during_shift(self, not_during_shift: bool) -> "LeaveNeedPunchCfgBuilder":
+        self._leave_need_punch_cfg.not_during_shift = not_during_shift
         return self
 
     def build(self) -> "LeaveNeedPunchCfg":

@@ -13,6 +13,8 @@ from ..model.get_job_request import GetJobRequest
 from ..model.get_job_response import GetJobResponse
 from ..model.list_job_request import ListJobRequest
 from ..model.list_job_response import ListJobResponse
+from ..model.query_recent_change_job_request import QueryRecentChangeJobRequest
+from ..model.query_recent_change_job_response import QueryRecentChangeJobResponse
 
 
 class Job(object):
@@ -87,6 +89,44 @@ class Job(object):
 
         # 反序列化
         response: ListJobResponse = JSON.unmarshal(str(resp.content, UTF_8), ListJobResponse)
+        response.raw = resp
+
+        return response
+
+    def query_recent_change(self, request: QueryRecentChangeJobRequest,
+                            option: Optional[RequestOption] = None) -> QueryRecentChangeJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: QueryRecentChangeJobResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobResponse)
+        response.raw = resp
+
+        return response
+
+    async def aquery_recent_change(self, request: QueryRecentChangeJobRequest,
+                                   option: Optional[RequestOption] = None) -> QueryRecentChangeJobResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: QueryRecentChangeJobResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryRecentChangeJobResponse)
         response.raw = resp
 
         return response

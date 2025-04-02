@@ -7,13 +7,11 @@ from .time_range import TimeRange
 
 class KnowledgeSourceMessageFilter(object):
     _types = {
-        "message_ids": List[str],
         "chat_ids": List[str],
         "time_range": TimeRange,
     }
 
     def __init__(self, d=None):
-        self.message_ids: Optional[List[str]] = None
         self.chat_ids: Optional[List[str]] = None
         self.time_range: Optional[TimeRange] = None
         init(self, d, self._types)
@@ -26,10 +24,6 @@ class KnowledgeSourceMessageFilter(object):
 class KnowledgeSourceMessageFilterBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_message_filter = KnowledgeSourceMessageFilter()
-
-    def message_ids(self, message_ids: List[str]) -> "KnowledgeSourceMessageFilterBuilder":
-        self._knowledge_source_message_filter.message_ids = message_ids
-        return self
 
     def chat_ids(self, chat_ids: List[str]) -> "KnowledgeSourceMessageFilterBuilder":
         self._knowledge_source_message_filter.chat_ids = chat_ids

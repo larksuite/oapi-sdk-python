@@ -8,11 +8,13 @@ class JobDataCostCenter(object):
     _types = {
         "cost_center_id": str,
         "rate": int,
+        "new_rate": float,
     }
 
     def __init__(self, d=None):
         self.cost_center_id: Optional[str] = None
         self.rate: Optional[int] = None
+        self.new_rate: Optional[float] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +32,10 @@ class JobDataCostCenterBuilder(object):
 
     def rate(self, rate: int) -> "JobDataCostCenterBuilder":
         self._job_data_cost_center.rate = rate
+        return self
+
+    def new_rate(self, new_rate: float) -> "JobDataCostCenterBuilder":
+        self._job_data_cost_center.new_rate = new_rate
         return self
 
     def build(self) -> "JobDataCostCenter":

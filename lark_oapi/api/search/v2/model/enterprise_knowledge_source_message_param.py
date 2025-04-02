@@ -3,20 +3,20 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .knowledge_source_message_filter import KnowledgeSourceMessageFilter
-from .knowledge_source_message_reject_filter import KnowledgeSourceMessageRejectFilter
+from .knowledge_source_message_reject import KnowledgeSourceMessageReject
 
 
 class EnterpriseKnowledgeSourceMessageParam(object):
     _types = {
         "searchable": bool,
         "filter": KnowledgeSourceMessageFilter,
-        "reject": KnowledgeSourceMessageRejectFilter,
+        "reject": KnowledgeSourceMessageReject,
     }
 
     def __init__(self, d=None):
         self.searchable: Optional[bool] = None
         self.filter: Optional[KnowledgeSourceMessageFilter] = None
-        self.reject: Optional[KnowledgeSourceMessageRejectFilter] = None
+        self.reject: Optional[KnowledgeSourceMessageReject] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,7 +36,7 @@ class EnterpriseKnowledgeSourceMessageParamBuilder(object):
         self._enterprise_knowledge_source_message_param.filter = filter
         return self
 
-    def reject(self, reject: KnowledgeSourceMessageRejectFilter) -> "EnterpriseKnowledgeSourceMessageParamBuilder":
+    def reject(self, reject: KnowledgeSourceMessageReject) -> "EnterpriseKnowledgeSourceMessageParamBuilder":
         self._enterprise_knowledge_source_message_param.reject = reject
         return self
 

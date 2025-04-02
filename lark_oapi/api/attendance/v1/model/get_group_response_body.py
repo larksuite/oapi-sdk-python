@@ -50,6 +50,7 @@ class GetGroupResponseBody(object):
         "show_cumulative_time": bool,
         "show_over_time": bool,
         "hide_staff_punch_time": bool,
+        "hide_clock_in_rule": bool,
         "face_punch": bool,
         "face_punch_cfg": int,
         "face_live_need_action": bool,
@@ -124,6 +125,7 @@ class GetGroupResponseBody(object):
         self.show_cumulative_time: Optional[bool] = None
         self.show_over_time: Optional[bool] = None
         self.hide_staff_punch_time: Optional[bool] = None
+        self.hide_clock_in_rule: Optional[bool] = None
         self.face_punch: Optional[bool] = None
         self.face_punch_cfg: Optional[int] = None
         self.face_live_need_action: Optional[bool] = None
@@ -294,6 +296,10 @@ class GetGroupResponseBodyBuilder(object):
 
     def hide_staff_punch_time(self, hide_staff_punch_time: bool) -> "GetGroupResponseBodyBuilder":
         self._get_group_response_body.hide_staff_punch_time = hide_staff_punch_time
+        return self
+
+    def hide_clock_in_rule(self, hide_clock_in_rule: bool) -> "GetGroupResponseBodyBuilder":
+        self._get_group_response_body.hide_clock_in_rule = hide_clock_in_rule
         return self
 
     def face_punch(self, face_punch: bool) -> "GetGroupResponseBodyBuilder":

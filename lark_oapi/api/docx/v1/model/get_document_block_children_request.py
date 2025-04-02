@@ -11,6 +11,7 @@ class GetDocumentBlockChildrenRequest(BaseRequest):
         self.document_revision_id: Optional[int] = None
         self.page_token: Optional[str] = None
         self.page_size: Optional[int] = None
+        self.with_descendants: Optional[bool] = None
         self.user_id_type: Optional[str] = None
         self.document_id: Optional[str] = None
         self.block_id: Optional[str] = None
@@ -42,6 +43,11 @@ class GetDocumentBlockChildrenRequestBuilder(object):
     def page_size(self, page_size: int) -> "GetDocumentBlockChildrenRequestBuilder":
         self._get_document_block_children_request.page_size = page_size
         self._get_document_block_children_request.add_query("page_size", page_size)
+        return self
+
+    def with_descendants(self, with_descendants: bool) -> "GetDocumentBlockChildrenRequestBuilder":
+        self._get_document_block_children_request.with_descendants = with_descendants
+        self._get_document_block_children_request.add_query("with_descendants", with_descendants)
         return self
 
     def user_id_type(self, user_id_type: str) -> "GetDocumentBlockChildrenRequestBuilder":

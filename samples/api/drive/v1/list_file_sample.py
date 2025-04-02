@@ -19,6 +19,7 @@ def main():
         .folder_token("fldbcO1UuPz8VwnpPx5a9abcef") \
         .order_by("EditedTime") \
         .direction("DESC") \
+        .option("get_all_children_unsort") \
         .user_id_type("user_id") \
         .build()
 
@@ -51,6 +52,7 @@ async def amain():
         .folder_token("fldbcO1UuPz8VwnpPx5a9abcef") \
         .order_by("EditedTime") \
         .direction("DESC") \
+        .option("get_all_children_unsort") \
         .user_id_type("user_id") \
         .build()
 

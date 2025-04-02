@@ -12,6 +12,8 @@ from .arrange_shift_group import *
 from .child_field import *
 from .child_item import *
 from .coordinate import *
+from .create_bpm_out_record import *
+from .create_bpm_remedy_records import *
 from .department_id import *
 from .duration_item import *
 from .field import *
@@ -38,6 +40,8 @@ from .location_setting import *
 from .machine import *
 from .member_status_change import *
 from .open_apply_time_range import *
+from .out_record import *
+from .out_time import *
 from .overtime_apply_detail import *
 from .overtime_approval import *
 from .overtime_clock_cfg import *
@@ -49,6 +53,7 @@ from .punch_special_date_shift import *
 from .punch_time_rule import *
 from .punch_time_simple_rule import *
 from .region_place import *
+from .remedy_record import *
 from .report_data import *
 from .report_value import *
 from .rest_rule import *
@@ -88,6 +93,8 @@ from .user_tmp_daily_shift import *
 from .user_trip import *
 from .wifi_info import *
 from .wifi_info_event import *
+from .work_time import *
+from .work_time_apply_data import *
 from .process_approval_info_request_body import *
 from .process_approval_info_request import *
 from .del_report_archive_rule_request_body import *

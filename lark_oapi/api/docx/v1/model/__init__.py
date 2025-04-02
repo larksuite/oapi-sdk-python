@@ -48,10 +48,12 @@ from .okr_progress import *
 from .okr_progress_rate import *
 from .okr_visible_setting import *
 from .quote_container import *
+from .reference_synced import *
 from .reminder import *
 from .replace_file_request import *
 from .replace_image_request import *
 from .sheet import *
+from .source_synced import *
 from .table import *
 from .table_cell import *
 from .table_merge_info import *
