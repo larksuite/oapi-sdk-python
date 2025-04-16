@@ -9,7 +9,7 @@ class EventLog(object):
         "mail_from": str,
         "rcpt_to": str,
         "smtp_message_id": str,
-        "event_type": str,
+        "event_type": int,
         "timestamp": int,
     }
 
@@ -17,7 +17,7 @@ class EventLog(object):
         self.mail_from: Optional[str] = None
         self.rcpt_to: Optional[str] = None
         self.smtp_message_id: Optional[str] = None
-        self.event_type: Optional[str] = None
+        self.event_type: Optional[int] = None
         self.timestamp: Optional[int] = None
         init(self, d, self._types)
 
@@ -42,7 +42,7 @@ class EventLogBuilder(object):
         self._event_log.smtp_message_id = smtp_message_id
         return self
 
-    def event_type(self, event_type: str) -> "EventLogBuilder":
+    def event_type(self, event_type: int) -> "EventLogBuilder":
         self._event_log.event_type = event_type
         return self
 

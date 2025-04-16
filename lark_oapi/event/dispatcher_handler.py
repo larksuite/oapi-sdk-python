@@ -14,6 +14,7 @@ from lark_oapi.api.drive.v1.processor import *
 from lark_oapi.api.helpdesk.v1.processor import *
 from lark_oapi.api.hire.v1.processor import *
 from lark_oapi.api.im.v1.processor import *
+from lark_oapi.api.mail.v1.processor import *
 from lark_oapi.api.meeting_room.v1.processor import *
 from lark_oapi.api.moments.v1.processor import *
 from lark_oapi.api.payroll.v1.processor import *
@@ -1141,6 +1142,14 @@ class EventDispatcherHandlerBuilder(object):
         if "p2.im.message.reaction.deleted_v1" in self._processorMap:
             raise EventException("processor already registered, type: p2.im.message.reaction.deleted_v1")
         self._processorMap["p2.im.message.reaction.deleted_v1"] = P2ImMessageReactionDeletedV1Processor(f)
+        return self
+
+    def register_p2_mail_user_mailbox_event_message_received_v1(self, f: Callable[
+        [P2MailUserMailboxEventMessageReceivedV1], None]) -> "EventDispatcherHandlerBuilder":
+        if "p2.mail.user_mailbox.event.message_received_v1" in self._processorMap:
+            raise EventException("processor already registered, type: p2.mail.user_mailbox.event.message_received_v1")
+        self._processorMap[
+            "p2.mail.user_mailbox.event.message_received_v1"] = P2MailUserMailboxEventMessageReceivedV1Processor(f)
         return self
 
     def register_p2_meeting_room_meeting_room_created_v1(self, f: Callable[

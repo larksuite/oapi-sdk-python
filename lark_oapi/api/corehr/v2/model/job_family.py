@@ -12,6 +12,7 @@ class JobFamily(object):
         "job_family_id": str,
         "name": List[I18n],
         "active": bool,
+        "selectable": bool,
         "parent_id": str,
         "pathway_ids": List[str],
         "effective_time": str,
@@ -25,6 +26,7 @@ class JobFamily(object):
         self.job_family_id: Optional[str] = None
         self.name: Optional[List[I18n]] = None
         self.active: Optional[bool] = None
+        self.selectable: Optional[bool] = None
         self.parent_id: Optional[str] = None
         self.pathway_ids: Optional[List[str]] = None
         self.effective_time: Optional[str] = None
@@ -53,6 +55,10 @@ class JobFamilyBuilder(object):
 
     def active(self, active: bool) -> "JobFamilyBuilder":
         self._job_family.active = active
+        return self
+
+    def selectable(self, selectable: bool) -> "JobFamilyBuilder":
+        self._job_family.selectable = selectable
         return self
 
     def parent_id(self, parent_id: str) -> "JobFamilyBuilder":

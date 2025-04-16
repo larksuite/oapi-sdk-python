@@ -36,6 +36,7 @@ from .dmp_change_event import *
 from .dmp_field import *
 from .dmp_original_data import *
 from .dmp_timeline_field import *
+from .donations_tax_data import *
 from .employee_info import *
 from .enum_object import *
 from .fail_info import *

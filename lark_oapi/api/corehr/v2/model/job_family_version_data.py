@@ -15,6 +15,7 @@ class JobFamilyVersionData(object):
         "expiration_date": str,
         "active": bool,
         "descriptions": List[I18n],
+        "selectable": bool,
         "parent_job_family_id": str,
         "pathway_ids": List[str],
         "code": str,
@@ -28,6 +29,7 @@ class JobFamilyVersionData(object):
         self.expiration_date: Optional[str] = None
         self.active: Optional[bool] = None
         self.descriptions: Optional[List[I18n]] = None
+        self.selectable: Optional[bool] = None
         self.parent_job_family_id: Optional[str] = None
         self.pathway_ids: Optional[List[str]] = None
         self.code: Optional[str] = None
@@ -68,6 +70,10 @@ class JobFamilyVersionDataBuilder(object):
 
     def descriptions(self, descriptions: List[I18n]) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.descriptions = descriptions
+        return self
+
+    def selectable(self, selectable: bool) -> "JobFamilyVersionDataBuilder":
+        self._job_family_version_data.selectable = selectable
         return self
 
     def parent_job_family_id(self, parent_job_family_id: str) -> "JobFamilyVersionDataBuilder":

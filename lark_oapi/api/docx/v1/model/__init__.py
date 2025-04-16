@@ -4,11 +4,13 @@ from .agenda_item import *
 from .agenda_item_content import *
 from .agenda_item_title import *
 from .agenda_title_element import *
+from .ai_template import *
 from .bitable import *
 from .block import *
 from .block_id_relation import *
 from .board import *
 from .callout import *
+from .caption import *
 from .chat_card import *
 from .delete_grid_column_request import *
 from .delete_table_columns_request import *
@@ -54,6 +56,7 @@ from .replace_file_request import *
 from .replace_image_request import *
 from .sheet import *
 from .source_synced import *
+from .sub_page_list import *
 from .table import *
 from .table_cell import *
 from .table_merge_info import *

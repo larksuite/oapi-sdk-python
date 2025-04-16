@@ -52,6 +52,7 @@ from .openapi_log_detail import *
 from .param import *
 from .security_log_error import *
 from .simple_user import *
+from .subscribe_audit_log_file import *
 from .task_status import *
 from .tenant import *
 from .tenant_third_party_encryption_app import *

@@ -29,6 +29,7 @@ class Application(object):
         "owner": ApplicationOwner,
         "mobile_default_ability": str,
         "pc_default_ability": str,
+        "secret": str,
     }
 
     def __init__(self, d=None):
@@ -52,6 +53,7 @@ class Application(object):
         self.owner: Optional[ApplicationOwner] = None
         self.mobile_default_ability: Optional[str] = None
         self.pc_default_ability: Optional[str] = None
+        self.secret: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -141,6 +143,10 @@ class ApplicationBuilder(object):
 
     def pc_default_ability(self, pc_default_ability: str) -> "ApplicationBuilder":
         self._application.pc_default_ability = pc_default_ability
+        return self
+
+    def secret(self, secret: str) -> "ApplicationBuilder":
+        self._application.secret = secret
         return self
 
     def build(self) -> "Application":

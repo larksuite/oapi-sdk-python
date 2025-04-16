@@ -9,12 +9,14 @@ class OfferAttachmentInfo(object):
         "id": str,
         "name": str,
         "size": int,
+        "common_attachment_id": str,
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[str] = None
         self.size: Optional[int] = None
+        self.common_attachment_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -36,6 +38,10 @@ class OfferAttachmentInfoBuilder(object):
 
     def size(self, size: int) -> "OfferAttachmentInfoBuilder":
         self._offer_attachment_info.size = size
+        return self
+
+    def common_attachment_id(self, common_attachment_id: str) -> "OfferAttachmentInfoBuilder":
+        self._offer_attachment_info.common_attachment_id = common_attachment_id
         return self
 
     def build(self) -> "OfferAttachmentInfo":

@@ -1,8 +1,8 @@
 from flask import Flask
 
 import lark_oapi as lark
-from event.callback.model.p2_card_action_trigger import P2CardActionTrigger, P2CardActionTriggerResponse
-from event.callback.model.p2_url_preview_get import P2URLPreviewGet, P2URLPreviewGetResponse
+from lark_oapi.event.callback.model.p2_card_action_trigger import P2CardActionTrigger, P2CardActionTriggerResponse
+from lark_oapi.event.callback.model.p2_url_preview_get import P2URLPreviewGet, P2URLPreviewGetResponse
 from lark_oapi.adapter.flask import *
 from lark_oapi.api.im.v1 import *
 

@@ -24,6 +24,7 @@ class OfferBasicInfo(object):
         "job_requirement_id": str,
         "job_process_type_id": int,
         "attachment_id_list": List[str],
+        "common_attachment_id_list": List[str],
         "attachment_description": str,
         "operator_user_id": str,
         "position_id": str,
@@ -49,6 +50,7 @@ class OfferBasicInfo(object):
         self.job_requirement_id: Optional[str] = None
         self.job_process_type_id: Optional[int] = None
         self.attachment_id_list: Optional[List[str]] = None
+        self.common_attachment_id_list: Optional[List[str]] = None
         self.attachment_description: Optional[str] = None
         self.operator_user_id: Optional[str] = None
         self.position_id: Optional[str] = None
@@ -131,6 +133,10 @@ class OfferBasicInfoBuilder(object):
 
     def attachment_id_list(self, attachment_id_list: List[str]) -> "OfferBasicInfoBuilder":
         self._offer_basic_info.attachment_id_list = attachment_id_list
+        return self
+
+    def common_attachment_id_list(self, common_attachment_id_list: List[str]) -> "OfferBasicInfoBuilder":
+        self._offer_basic_info.common_attachment_id_list = common_attachment_id_list
         return self
 
     def attachment_description(self, attachment_description: str) -> "OfferBasicInfoBuilder":

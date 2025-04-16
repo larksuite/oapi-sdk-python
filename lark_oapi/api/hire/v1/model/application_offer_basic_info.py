@@ -38,6 +38,7 @@ class ApplicationOfferBasicInfo(object):
         "position_id": str,
         "job_offered": str,
         "job_grade_id": str,
+        "common_attachment_id_list": List[str],
     }
 
     def __init__(self, d=None):
@@ -64,6 +65,7 @@ class ApplicationOfferBasicInfo(object):
         self.position_id: Optional[str] = None
         self.job_offered: Optional[str] = None
         self.job_grade_id: Optional[str] = None
+        self.common_attachment_id_list: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -167,6 +169,10 @@ class ApplicationOfferBasicInfoBuilder(object):
 
     def job_grade_id(self, job_grade_id: str) -> "ApplicationOfferBasicInfoBuilder":
         self._application_offer_basic_info.job_grade_id = job_grade_id
+        return self
+
+    def common_attachment_id_list(self, common_attachment_id_list: List[str]) -> "ApplicationOfferBasicInfoBuilder":
+        self._application_offer_basic_info.common_attachment_id_list = common_attachment_id_list
         return self
 
     def build(self) -> "ApplicationOfferBasicInfo":

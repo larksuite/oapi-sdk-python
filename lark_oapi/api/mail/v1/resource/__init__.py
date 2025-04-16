@@ -9,4 +9,9 @@ from .public_mailbox_member import *
 from .user import *
 from .user_mailbox import *
 from .user_mailbox_alias import *
+from .user_mailbox_event import *
+from .user_mailbox_folder import *
+from .user_mailbox_mail_contact import *
 from .user_mailbox_message import *
+from .user_mailbox_message_attachment import *
+from .user_mailbox_rule import *

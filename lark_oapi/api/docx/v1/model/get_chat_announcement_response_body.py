@@ -7,24 +7,28 @@ from lark_oapi.core.construct import init
 class GetChatAnnouncementResponseBody(object):
     _types = {
         "revision_id": int,
-        "create_time": str,
-        "update_time": str,
+        "create_time": int,
+        "update_time": int,
         "owner_id": str,
         "owner_id_type": str,
         "modifier_id": str,
         "modifier_id_type": str,
         "announcement_type": str,
+        "create_time_v2": str,
+        "update_time_v2": str,
     }
 
     def __init__(self, d=None):
         self.revision_id: Optional[int] = None
-        self.create_time: Optional[str] = None
-        self.update_time: Optional[str] = None
+        self.create_time: Optional[int] = None
+        self.update_time: Optional[int] = None
         self.owner_id: Optional[str] = None
         self.owner_id_type: Optional[str] = None
         self.modifier_id: Optional[str] = None
         self.modifier_id_type: Optional[str] = None
         self.announcement_type: Optional[str] = None
+        self.create_time_v2: Optional[str] = None
+        self.update_time_v2: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -40,11 +44,11 @@ class GetChatAnnouncementResponseBodyBuilder(object):
         self._get_chat_announcement_response_body.revision_id = revision_id
         return self
 
-    def create_time(self, create_time: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def create_time(self, create_time: int) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.create_time = create_time
         return self
 
-    def update_time(self, update_time: str) -> "GetChatAnnouncementResponseBodyBuilder":
+    def update_time(self, update_time: int) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.update_time = update_time
         return self
 
@@ -66,6 +70,14 @@ class GetChatAnnouncementResponseBodyBuilder(object):
 
     def announcement_type(self, announcement_type: str) -> "GetChatAnnouncementResponseBodyBuilder":
         self._get_chat_announcement_response_body.announcement_type = announcement_type
+        return self
+
+    def create_time_v2(self, create_time_v2: str) -> "GetChatAnnouncementResponseBodyBuilder":
+        self._get_chat_announcement_response_body.create_time_v2 = create_time_v2
+        return self
+
+    def update_time_v2(self, update_time_v2: str) -> "GetChatAnnouncementResponseBodyBuilder":
+        self._get_chat_announcement_response_body.update_time_v2 = update_time_v2
         return self
 
     def build(self) -> "GetChatAnnouncementResponseBody":
