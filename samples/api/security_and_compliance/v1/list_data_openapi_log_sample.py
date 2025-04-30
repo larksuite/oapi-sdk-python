@@ -5,72 +5,72 @@ from lark_oapi.api.security_and_compliance.v1 import *
 
 
 def main():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListDataOpenapiLogRequest = ListDataOpenapiLogRequest.builder() \
-		.request_body(ListOpenapiLogRequest.builder()
-					  .api_keys([])
-					  .start_time(1610613336)
-					  .end_time(1610613336)
-					  .app_id("cli_xxx")
-					  .page_size(20)
-					  .page_token("xxx")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: ListDataOpenapiLogRequest = ListDataOpenapiLogRequest.builder() \
+        .request_body(ListOpenapiLogRequest.builder()
+                      .api_keys([])
+                      .start_time(1610613336)
+                      .end_time(1610613336)
+                      .app_id("cli_xxx")
+                      .page_size(20)
+                      .page_token("xxx")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: ListDataOpenapiLogResponse = client.security_and_compliance.v1.openapi_log.list_data(request)
+    # 发起请求
+    response: ListDataOpenapiLogResponse = client.security_and_compliance.v1.openapi_log.list_data(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.security_and_compliance.v1.openapi_log.list_data failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.security_and_compliance.v1.openapi_log.list_data failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-	# 创建client
-	client = lark.Client.builder() \
-		.app_id(lark.APP_ID) \
-		.app_secret(lark.APP_SECRET) \
-		.log_level(lark.LogLevel.DEBUG) \
-		.build()
+    # 创建client
+    client = lark.Client.builder() \
+        .app_id(lark.APP_ID) \
+        .app_secret(lark.APP_SECRET) \
+        .log_level(lark.LogLevel.DEBUG) \
+        .build()
 
-	# 构造请求对象
-	request: ListDataOpenapiLogRequest = ListDataOpenapiLogRequest.builder() \
-		.request_body(ListOpenapiLogRequest.builder()
-					  .api_keys([])
-					  .start_time(1610613336)
-					  .end_time(1610613336)
-					  .app_id("cli_xxx")
-					  .page_size(20)
-					  .page_token("xxx")
-					  .build()) \
-		.build()
+    # 构造请求对象
+    request: ListDataOpenapiLogRequest = ListDataOpenapiLogRequest.builder() \
+        .request_body(ListOpenapiLogRequest.builder()
+                      .api_keys([])
+                      .start_time(1610613336)
+                      .end_time(1610613336)
+                      .app_id("cli_xxx")
+                      .page_size(20)
+                      .page_token("xxx")
+                      .build()) \
+        .build()
 
-	# 发起请求
-	response: ListDataOpenapiLogResponse = await client.security_and_compliance.v1.openapi_log.alist_data(request)
+    # 发起请求
+    response: ListDataOpenapiLogResponse = await client.security_and_compliance.v1.openapi_log.alist_data(request)
 
-	# 处理失败返回
-	if not response.success():
-		lark.logger.error(
-			f"client.security_and_compliance.v1.openapi_log.alist_data failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-		return
+    # 处理失败返回
+    if not response.success():
+        lark.logger.error(
+            f"client.security_and_compliance.v1.openapi_log.alist_data failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+        return
 
-	# 处理业务结果
-	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+    # 处理业务结果
+    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-	# asyncio.run(amain()) 异步方式
-	main()
+    # asyncio.run(amain()) 异步方式
+    main()

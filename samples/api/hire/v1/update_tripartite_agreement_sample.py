@@ -14,7 +14,7 @@ def main():
 
     # 构造请求对象
     request: UpdateTripartiteAgreementRequest = UpdateTripartiteAgreementRequest.builder() \
-        .tripartite_agreement_id("str") \
+        .tripartite_agreement_id("7084008015948283905") \
         .request_body(TripartiteAgreementInfo.builder()
                       .state(1)
                       .modify_time("1698292282661")
@@ -45,7 +45,7 @@ async def amain():
 
     # 构造请求对象
     request: UpdateTripartiteAgreementRequest = UpdateTripartiteAgreementRequest.builder() \
-        .tripartite_agreement_id("str") \
+        .tripartite_agreement_id("7084008015948283905") \
         .request_body(TripartiteAgreementInfo.builder()
                       .state(1)
                       .modify_time("1698292282661")

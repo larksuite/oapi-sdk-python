@@ -15,6 +15,8 @@ from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
+from .default_cost_center import DefaultCostCenter
+from .cost_allocation import CostAllocation
 
 
 class PreHireEmploymentInfo(object):
@@ -83,6 +85,8 @@ class PreHireEmploymentInfo(object):
         "expected_graduate_date": str,
         "service_company": str,
         "pathway": str,
+        "default_cost_center": DefaultCostCenter,
+        "cost_allocation": CostAllocation,
     }
 
     def __init__(self, d=None):
@@ -150,6 +154,8 @@ class PreHireEmploymentInfo(object):
         self.expected_graduate_date: Optional[str] = None
         self.service_company: Optional[str] = None
         self.pathway: Optional[str] = None
+        self.default_cost_center: Optional[DefaultCostCenter] = None
+        self.cost_allocation: Optional[CostAllocation] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -427,6 +433,14 @@ class PreHireEmploymentInfoBuilder(object):
 
     def pathway(self, pathway: str) -> "PreHireEmploymentInfoBuilder":
         self._pre_hire_employment_info.pathway = pathway
+        return self
+
+    def default_cost_center(self, default_cost_center: DefaultCostCenter) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.default_cost_center = default_cost_center
+        return self
+
+    def cost_allocation(self, cost_allocation: CostAllocation) -> "PreHireEmploymentInfoBuilder":
+        self._pre_hire_employment_info.cost_allocation = cost_allocation
         return self
 
     def build(self) -> "PreHireEmploymentInfo":

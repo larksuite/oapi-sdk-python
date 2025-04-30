@@ -57,6 +57,8 @@ from .delete_public_mailbox_request import *
 from .get_public_mailbox_request import *
 from .list_public_mailbox_request import *
 from .patch_public_mailbox_request import *
+from .remove_to_recycle_bin_public_mailbox_request_body import *
+from .remove_to_recycle_bin_public_mailbox_request import *
 from .update_public_mailbox_request import *
 from .create_public_mailbox_alias_request import *
 from .delete_public_mailbox_alias_request import *
@@ -149,6 +151,7 @@ from .list_public_mailbox_response_body import *
 from .list_public_mailbox_response import *
 from .patch_public_mailbox_response_body import *
 from .patch_public_mailbox_response import *
+from .remove_to_recycle_bin_public_mailbox_response import *
 from .update_public_mailbox_response_body import *
 from .update_public_mailbox_response import *
 from .create_public_mailbox_alias_response_body import *

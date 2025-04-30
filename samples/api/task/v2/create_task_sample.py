@@ -33,6 +33,7 @@ def main():
                       .is_milestone(False)
                       .custom_fields([])
                       .docx_source(DocxSource.builder().build())
+                      .positive_reminders([])
                       .build()) \
         .build()
 
@@ -79,6 +80,7 @@ async def amain():
                       .is_milestone(False)
                       .custom_fields([])
                       .docx_source(DocxSource.builder().build())
+                      .positive_reminders([])
                       .build()) \
         .build()
 

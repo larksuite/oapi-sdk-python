@@ -14,6 +14,8 @@ class LumpSumPaymentForCreate(object):
         "currency_id": str,
         "issuance_frequency": int,
         "item_id": str,
+        "reference_period_start_date": str,
+        "reference_period_end_date": str,
         "details": List[LumpSumPaymentDetailForCreate],
         "remark": str,
     }
@@ -26,6 +28,8 @@ class LumpSumPaymentForCreate(object):
         self.currency_id: Optional[str] = None
         self.issuance_frequency: Optional[int] = None
         self.item_id: Optional[str] = None
+        self.reference_period_start_date: Optional[str] = None
+        self.reference_period_end_date: Optional[str] = None
         self.details: Optional[List[LumpSumPaymentDetailForCreate]] = None
         self.remark: Optional[str] = None
         init(self, d, self._types)
@@ -65,6 +69,14 @@ class LumpSumPaymentForCreateBuilder(object):
 
     def item_id(self, item_id: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.item_id = item_id
+        return self
+
+    def reference_period_start_date(self, reference_period_start_date: str) -> "LumpSumPaymentForCreateBuilder":
+        self._lump_sum_payment_for_create.reference_period_start_date = reference_period_start_date
+        return self
+
+    def reference_period_end_date(self, reference_period_end_date: str) -> "LumpSumPaymentForCreateBuilder":
+        self._lump_sum_payment_for_create.reference_period_end_date = reference_period_end_date
         return self
 
     def details(self, details: List[LumpSumPaymentDetailForCreate]) -> "LumpSumPaymentForCreateBuilder":

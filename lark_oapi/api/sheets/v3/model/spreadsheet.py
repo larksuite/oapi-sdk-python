@@ -10,6 +10,7 @@ class Spreadsheet(object):
         "folder_token": str,
         "url": str,
         "spreadsheet_token": str,
+        "without_mount": bool,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class Spreadsheet(object):
         self.folder_token: Optional[str] = None
         self.url: Optional[str] = None
         self.spreadsheet_token: Optional[str] = None
+        self.without_mount: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class SpreadsheetBuilder(object):
 
     def spreadsheet_token(self, spreadsheet_token: str) -> "SpreadsheetBuilder":
         self._spreadsheet.spreadsheet_token = spreadsheet_token
+        return self
+
+    def without_mount(self, without_mount: bool) -> "SpreadsheetBuilder":
+        self._spreadsheet.without_mount = without_mount
         return self
 
     def build(self) -> "Spreadsheet":

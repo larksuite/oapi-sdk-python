@@ -10,6 +10,8 @@ from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
+from .prehire_default_cost_center_update import PrehireDefaultCostCenterUpdate
+from .cost_allocation import CostAllocation
 
 
 class OfferInfoUpdate(object):
@@ -70,6 +72,8 @@ class OfferInfoUpdate(object):
         "service_company": str,
         "non_compete_covenant": bool,
         "pathway": str,
+        "default_cost_center": PrehireDefaultCostCenterUpdate,
+        "cost_allocation": CostAllocation,
     }
 
     def __init__(self, d=None):
@@ -129,6 +133,8 @@ class OfferInfoUpdate(object):
         self.service_company: Optional[str] = None
         self.non_compete_covenant: Optional[bool] = None
         self.pathway: Optional[str] = None
+        self.default_cost_center: Optional[PrehireDefaultCostCenterUpdate] = None
+        self.cost_allocation: Optional[CostAllocation] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -367,6 +373,14 @@ class OfferInfoUpdateBuilder(object):
 
     def pathway(self, pathway: str) -> "OfferInfoUpdateBuilder":
         self._offer_info_update.pathway = pathway
+        return self
+
+    def default_cost_center(self, default_cost_center: PrehireDefaultCostCenterUpdate) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.default_cost_center = default_cost_center
+        return self
+
+    def cost_allocation(self, cost_allocation: CostAllocation) -> "OfferInfoUpdateBuilder":
+        self._offer_info_update.cost_allocation = cost_allocation
         return self
 
     def build(self) -> "OfferInfoUpdate":

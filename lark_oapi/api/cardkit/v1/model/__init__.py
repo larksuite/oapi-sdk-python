@@ -9,6 +9,9 @@ from .data import *
 from .department_id import *
 from .element import *
 from .header import *
+from .ka_card_template import *
+from .ka_card_template_old import *
+from .ka_card_template_variable import *
 from .operator import *
 from .params import *
 from .settings import *

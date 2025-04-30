@@ -16,6 +16,7 @@ from .create_bpm_out_record import *
 from .create_bpm_remedy_records import *
 from .department_id import *
 from .duration_item import *
+from .export_archive_user_record_req import *
 from .field import *
 from .file import *
 from .filter_item import *
@@ -25,6 +26,7 @@ from .group import *
 from .group_meta import *
 from .i18n_map import *
 from .i18n_names import *
+from .i18n_resource import *
 from .item import *
 from .lang_text import *
 from .late_off_late_on_rule import *
@@ -55,6 +57,8 @@ from .punch_time_simple_rule import *
 from .region_place import *
 from .remedy_record import *
 from .report_data import *
+from .report_field import *
+from .report_row import *
 from .report_value import *
 from .rest_rule import *
 from .rest_time_flexible_config import *

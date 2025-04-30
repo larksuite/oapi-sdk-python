@@ -17,6 +17,7 @@ class MatchCompensationStandardRequest(BaseRequest):
         self.work_location_id: Optional[str] = None
         self.company_id: Optional[str] = None
         self.job_family_id: Optional[str] = None
+        self.job_id: Optional[str] = None
         self.job_level_id: Optional[str] = None
         self.employee_type_id: Optional[str] = None
         self.recruitment_type: Optional[str] = None
@@ -82,6 +83,11 @@ class MatchCompensationStandardRequestBuilder(object):
     def job_family_id(self, job_family_id: str) -> "MatchCompensationStandardRequestBuilder":
         self._match_compensation_standard_request.job_family_id = job_family_id
         self._match_compensation_standard_request.add_query("job_family_id", job_family_id)
+        return self
+
+    def job_id(self, job_id: str) -> "MatchCompensationStandardRequestBuilder":
+        self._match_compensation_standard_request.job_id = job_id
+        self._match_compensation_standard_request.add_query("job_id", job_id)
         return self
 
     def job_level_id(self, job_level_id: str) -> "MatchCompensationStandardRequestBuilder":

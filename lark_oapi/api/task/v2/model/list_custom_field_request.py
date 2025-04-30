@@ -13,6 +13,7 @@ class ListCustomFieldRequest(BaseRequest):
         self.user_id_type: Optional[str] = None
         self.resource_type: Optional[str] = None
         self.resource_id: Optional[str] = None
+        self.update_msec: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListCustomFieldRequestBuilder":
@@ -51,6 +52,11 @@ class ListCustomFieldRequestBuilder(object):
     def resource_id(self, resource_id: str) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.resource_id = resource_id
         self._list_custom_field_request.add_query("resource_id", resource_id)
+        return self
+
+    def update_msec(self, update_msec: str) -> "ListCustomFieldRequestBuilder":
+        self._list_custom_field_request.update_msec = update_msec
+        self._list_custom_field_request.add_query("update_msec", update_msec)
         return self
 
     def build(self) -> ListCustomFieldRequest:

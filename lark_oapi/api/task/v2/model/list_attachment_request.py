@@ -13,6 +13,7 @@ class ListAttachmentRequest(BaseRequest):
         self.resource_type: Optional[str] = None
         self.resource_id: Optional[str] = None
         self.user_id_type: Optional[str] = None
+        self.updated_mesc: Optional[str] = None
 
     @staticmethod
     def builder() -> "ListAttachmentRequestBuilder":
@@ -51,6 +52,11 @@ class ListAttachmentRequestBuilder(object):
     def user_id_type(self, user_id_type: str) -> "ListAttachmentRequestBuilder":
         self._list_attachment_request.user_id_type = user_id_type
         self._list_attachment_request.add_query("user_id_type", user_id_type)
+        return self
+
+    def updated_mesc(self, updated_mesc: str) -> "ListAttachmentRequestBuilder":
+        self._list_attachment_request.updated_mesc = updated_mesc
+        self._list_attachment_request.add_query("updated_mesc", updated_mesc)
         return self
 
     def build(self) -> ListAttachmentRequest:

@@ -5,6 +5,10 @@ from lark_oapi.core.construct import init
 from .app_scope import AppScope
 from .app_i18n_info import AppI18nInfo
 from .application_owner import ApplicationOwner
+from .subscribed_event import SubscribedEvent
+from .callback import Callback
+from .event_and_callback_encrypt_strategy import EventAndCallbackEncryptStrategy
+from .app_config_security_item import AppConfigSecurityItem
 
 
 class Application(object):
@@ -30,6 +34,10 @@ class Application(object):
         "mobile_default_ability": str,
         "pc_default_ability": str,
         "secret": str,
+        "event": SubscribedEvent,
+        "callback": Callback,
+        "encryption": EventAndCallbackEncryptStrategy,
+        "security": AppConfigSecurityItem,
     }
 
     def __init__(self, d=None):
@@ -54,6 +62,10 @@ class Application(object):
         self.mobile_default_ability: Optional[str] = None
         self.pc_default_ability: Optional[str] = None
         self.secret: Optional[str] = None
+        self.event: Optional[SubscribedEvent] = None
+        self.callback: Optional[Callback] = None
+        self.encryption: Optional[EventAndCallbackEncryptStrategy] = None
+        self.security: Optional[AppConfigSecurityItem] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -147,6 +159,22 @@ class ApplicationBuilder(object):
 
     def secret(self, secret: str) -> "ApplicationBuilder":
         self._application.secret = secret
+        return self
+
+    def event(self, event: SubscribedEvent) -> "ApplicationBuilder":
+        self._application.event = event
+        return self
+
+    def callback(self, callback: Callback) -> "ApplicationBuilder":
+        self._application.callback = callback
+        return self
+
+    def encryption(self, encryption: EventAndCallbackEncryptStrategy) -> "ApplicationBuilder":
+        self._application.encryption = encryption
+        return self
+
+    def security(self, security: AppConfigSecurityItem) -> "ApplicationBuilder":
+        self._application.security = security
         return self
 
     def build(self) -> "Application":

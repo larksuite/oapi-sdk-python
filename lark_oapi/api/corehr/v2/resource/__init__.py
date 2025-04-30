@@ -13,8 +13,10 @@ from .basic_info_time_zone import *
 from .bp import *
 from .company import *
 from .contract import *
+from .cost_allocation import *
 from .cost_center import *
 from .cost_center_version import *
+from .default_cost_center import *
 from .department import *
 from .employee import *
 from .employees_additional_job import *

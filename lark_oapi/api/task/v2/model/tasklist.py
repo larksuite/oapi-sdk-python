@@ -17,6 +17,7 @@ class Tasklist(object):
         "url": str,
         "created_at": int,
         "updated_at": int,
+        "archive_msec": int,
     }
 
     def __init__(self, d=None):
@@ -28,6 +29,7 @@ class Tasklist(object):
         self.url: Optional[str] = None
         self.created_at: Optional[int] = None
         self.updated_at: Optional[int] = None
+        self.archive_msec: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -69,6 +71,10 @@ class TasklistBuilder(object):
 
     def updated_at(self, updated_at: int) -> "TasklistBuilder":
         self._tasklist.updated_at = updated_at
+        return self
+
+    def archive_msec(self, archive_msec: int) -> "TasklistBuilder":
+        self._tasklist.archive_msec = archive_msec
         return self
 
     def build(self) -> "Tasklist":

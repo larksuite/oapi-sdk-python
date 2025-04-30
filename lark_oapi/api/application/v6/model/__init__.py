@@ -7,6 +7,7 @@ from .app_admin_user import *
 from .app_badge import *
 from .app_collaborator import *
 from .app_common_category import *
+from .app_config_callback import *
 from .app_config_contacts_range import *
 from .app_config_event import *
 from .app_config_scope import *
@@ -52,6 +53,7 @@ from .application_visibility_user_white_black_info import *
 from .block import *
 from .block_i18n_info import *
 from .bot import *
+from .callback import *
 from .client_badge_num import *
 from .cloud_doc import *
 from .cloud_doc_i18n_info import *
@@ -72,6 +74,8 @@ from .openapi_option import *
 from .operator import *
 from .plus_menu import *
 from .scope import *
+from .security import *
+from .subscribed_event import *
 from .usage_overview_item import *
 from .usage_trend_item import *
 from .usage_user import *

@@ -18,6 +18,7 @@ def main():
         .request_body(InputTasklist.builder()
                       .name("年会工作任务清单")
                       .members([])
+                      .archive_tasklist(bool)
                       .build()) \
         .build()
 
@@ -49,6 +50,7 @@ async def amain():
         .request_body(InputTasklist.builder()
                       .name("年会工作任务清单")
                       .members([])
+                      .archive_tasklist(bool)
                       .build()) \
         .build()
 

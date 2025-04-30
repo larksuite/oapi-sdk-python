@@ -11,6 +11,7 @@ from .start import Start
 from .reminder import Reminder
 from .input_custom_field_value import InputCustomFieldValue
 from .docx_source import DocxSource
+from .reminder import Reminder
 
 
 class InputTask(object):
@@ -32,6 +33,7 @@ class InputTask(object):
         "is_milestone": bool,
         "custom_fields": List[InputCustomFieldValue],
         "docx_source": DocxSource,
+        "positive_reminders": List[Reminder],
     }
 
     def __init__(self, d=None):
@@ -52,6 +54,7 @@ class InputTask(object):
         self.is_milestone: Optional[bool] = None
         self.custom_fields: Optional[List[InputCustomFieldValue]] = None
         self.docx_source: Optional[DocxSource] = None
+        self.positive_reminders: Optional[List[Reminder]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -129,6 +132,10 @@ class InputTaskBuilder(object):
 
     def docx_source(self, docx_source: DocxSource) -> "InputTaskBuilder":
         self._input_task.docx_source = docx_source
+        return self
+
+    def positive_reminders(self, positive_reminders: List[Reminder]) -> "InputTaskBuilder":
+        self._input_task.positive_reminders = positive_reminders
         return self
 
     def build(self) -> "InputTask":

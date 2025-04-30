@@ -9,6 +9,8 @@ from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
 from .notice_period_detail import NoticePeriodDetail
+from .prehire_default_cost_center_update import PrehireDefaultCostCenterUpdate
+from .cost_allocation import CostAllocation
 
 
 class OfferInfo(object):
@@ -71,6 +73,8 @@ class OfferInfo(object):
         "has_offer_salary": bool,
         "work_station": str,
         "pathway": str,
+        "default_cost_center": PrehireDefaultCostCenterUpdate,
+        "cost_allocation": CostAllocation,
     }
 
     def __init__(self, d=None):
@@ -132,6 +136,8 @@ class OfferInfo(object):
         self.has_offer_salary: Optional[bool] = None
         self.work_station: Optional[str] = None
         self.pathway: Optional[str] = None
+        self.default_cost_center: Optional[PrehireDefaultCostCenterUpdate] = None
+        self.cost_allocation: Optional[CostAllocation] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -378,6 +384,14 @@ class OfferInfoBuilder(object):
 
     def pathway(self, pathway: str) -> "OfferInfoBuilder":
         self._offer_info.pathway = pathway
+        return self
+
+    def default_cost_center(self, default_cost_center: PrehireDefaultCostCenterUpdate) -> "OfferInfoBuilder":
+        self._offer_info.default_cost_center = default_cost_center
+        return self
+
+    def cost_allocation(self, cost_allocation: CostAllocation) -> "OfferInfoBuilder":
+        self._offer_info.cost_allocation = cost_allocation
         return self
 
     def build(self) -> "OfferInfo":

@@ -19,6 +19,8 @@ from ..model.list_public_mailbox_request import ListPublicMailboxRequest
 from ..model.list_public_mailbox_response import ListPublicMailboxResponse
 from ..model.patch_public_mailbox_request import PatchPublicMailboxRequest
 from ..model.patch_public_mailbox_response import PatchPublicMailboxResponse
+from ..model.remove_to_recycle_bin_public_mailbox_request import RemoveToRecycleBinPublicMailboxRequest
+from ..model.remove_to_recycle_bin_public_mailbox_response import RemoveToRecycleBinPublicMailboxResponse
 from ..model.update_public_mailbox_request import UpdatePublicMailboxRequest
 from ..model.update_public_mailbox_response import UpdatePublicMailboxResponse
 
@@ -212,6 +214,46 @@ class PublicMailbox(object):
 
         # 反序列化
         response: PatchPublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
+    def remove_to_recycle_bin(self, request: RemoveToRecycleBinPublicMailboxRequest,
+                              option: Optional[RequestOption] = None) -> RemoveToRecycleBinPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 添加 content-type
+        if request.body is not None:
+            option.headers[CONTENT_TYPE] = f"{APPLICATION_JSON}; charset=utf-8"
+
+        # 发起请求
+        resp: RawResponse = Transport.execute(self.config, request, option)
+
+        # 反序列化
+        response: RemoveToRecycleBinPublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           RemoveToRecycleBinPublicMailboxResponse)
+        response.raw = resp
+
+        return response
+
+    async def aremove_to_recycle_bin(self, request: RemoveToRecycleBinPublicMailboxRequest,
+                                     option: Optional[RequestOption] = None) -> RemoveToRecycleBinPublicMailboxResponse:
+        if option is None:
+            option = RequestOption()
+
+        # 鉴权、获取 token
+        verify(self.config, request, option)
+
+        # 发起请求
+        resp: RawResponse = await Transport.aexecute(self.config, request, option)
+
+        # 反序列化
+        response: RemoveToRecycleBinPublicMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8),
+                                                                           RemoveToRecycleBinPublicMailboxResponse)
         response.raw = resp
 
         return response

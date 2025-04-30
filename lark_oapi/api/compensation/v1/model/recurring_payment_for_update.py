@@ -13,6 +13,7 @@ class RecurringPaymentForUpdate(object):
         "currency_id": str,
         "issuance_type": str,
         "remark": str,
+        "issuance_country_region_id": str,
     }
 
     def __init__(self, d=None):
@@ -23,6 +24,7 @@ class RecurringPaymentForUpdate(object):
         self.currency_id: Optional[str] = None
         self.issuance_type: Optional[str] = None
         self.remark: Optional[str] = None
+        self.issuance_country_region_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -60,6 +62,10 @@ class RecurringPaymentForUpdateBuilder(object):
 
     def remark(self, remark: str) -> "RecurringPaymentForUpdateBuilder":
         self._recurring_payment_for_update.remark = remark
+        return self
+
+    def issuance_country_region_id(self, issuance_country_region_id: str) -> "RecurringPaymentForUpdateBuilder":
+        self._recurring_payment_for_update.issuance_country_region_id = issuance_country_region_id
         return self
 
     def build(self) -> "RecurringPaymentForUpdate":

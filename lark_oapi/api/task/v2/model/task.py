@@ -14,6 +14,7 @@ from .start import Start
 from .custom_field_value import CustomFieldValue
 from .task_dependency import TaskDependency
 from .task_assignee import TaskAssignee
+from .reminder import Reminder
 
 
 class Task(object):
@@ -46,6 +47,7 @@ class Task(object):
         "custom_fields": List[CustomFieldValue],
         "dependencies": List[TaskDependency],
         "assignee_related": List[TaskAssignee],
+        "positive_reminders": List[Reminder],
     }
 
     def __init__(self, d=None):
@@ -77,6 +79,7 @@ class Task(object):
         self.custom_fields: Optional[List[CustomFieldValue]] = None
         self.dependencies: Optional[List[TaskDependency]] = None
         self.assignee_related: Optional[List[TaskAssignee]] = None
+        self.positive_reminders: Optional[List[Reminder]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -198,6 +201,10 @@ class TaskBuilder(object):
 
     def assignee_related(self, assignee_related: List[TaskAssignee]) -> "TaskBuilder":
         self._task.assignee_related = assignee_related
+        return self
+
+    def positive_reminders(self, positive_reminders: List[Reminder]) -> "TaskBuilder":
+        self._task.positive_reminders = positive_reminders
         return self
 
     def build(self) -> "Task":

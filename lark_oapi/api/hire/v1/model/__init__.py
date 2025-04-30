@@ -996,7 +996,6 @@ from .create_tripartite_agreement_response import *
 from .delete_tripartite_agreement_response import *
 from .list_tripartite_agreement_response_body import *
 from .list_tripartite_agreement_response import *
-from .update_tripartite_agreement_response_body import *
 from .update_tripartite_agreement_response import *
 from .list_user_role_response_body import *
 from .list_user_role_response import *

@@ -19,6 +19,7 @@ def main():
         .user_id_type("open_id") \
         .resource_type("tasklist") \
         .resource_id("5ffbe0ca-6600-41e0-a634-2b38cbcf13b8") \
+        .update_msec("1") \
         .build()
 
     # 发起请求
@@ -50,6 +51,7 @@ async def amain():
         .user_id_type("open_id") \
         .resource_type("tasklist") \
         .resource_id("5ffbe0ca-6600-41e0-a634-2b38cbcf13b8") \
+        .update_msec("1") \
         .build()
 
     # 发起请求

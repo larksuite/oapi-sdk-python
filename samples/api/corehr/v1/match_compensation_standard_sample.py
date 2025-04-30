@@ -23,6 +23,7 @@ def main():
         .work_location_id("7094869485965870636") \
         .company_id("7091599096804394540") \
         .job_family_id("7039313681989502508") \
+        .job_id("7342883436321097257") \
         .job_level_id("7086415175263258156") \
         .employee_type_id("7039310401359775276") \
         .recruitment_type("experienced_professionals") \
@@ -65,6 +66,7 @@ async def amain():
         .work_location_id("7094869485965870636") \
         .company_id("7091599096804394540") \
         .job_family_id("7039313681989502508") \
+        .job_id("7342883436321097257") \
         .job_level_id("7086415175263258156") \
         .employee_type_id("7039310401359775276") \
         .recruitment_type("experienced_professionals") \

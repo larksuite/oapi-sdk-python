@@ -12,10 +12,14 @@ from .comments import *
 from .customized_field_display_item import *
 from .department_id import *
 from .event import *
+from .export_ticket_message_content import *
 from .faq import *
 from .faq_create_info import *
 from .faq_update_info import *
 from .i18n import *
+from .migration_ticket import *
+from .migration_ticket_comment import *
+from .migration_ticket_message import *
 from .notification import *
 from .notification_chat import *
 from .notification_department import *
@@ -28,6 +32,7 @@ from .ticket_event import *
 from .ticket_event_update_info import *
 from .ticket_message_content import *
 from .ticket_message_event import *
+from .ticket_message_export_entity import *
 from .ticket_tag import *
 from .ticket_user import *
 from .ticket_user_event import *

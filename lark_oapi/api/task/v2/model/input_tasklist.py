@@ -12,6 +12,7 @@ class InputTasklist(object):
         "client_token": str,
         "members": List[Member],
         "owner": Member,
+        "archive_tasklist": bool,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class InputTasklist(object):
         self.client_token: Optional[str] = None
         self.members: Optional[List[Member]] = None
         self.owner: Optional[Member] = None
+        self.archive_tasklist: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -44,6 +46,10 @@ class InputTasklistBuilder(object):
 
     def owner(self, owner: Member) -> "InputTasklistBuilder":
         self._input_tasklist.owner = owner
+        return self
+
+    def archive_tasklist(self, archive_tasklist: bool) -> "InputTasklistBuilder":
+        self._input_tasklist.archive_tasklist = archive_tasklist
         return self
 
     def build(self) -> "InputTasklist":

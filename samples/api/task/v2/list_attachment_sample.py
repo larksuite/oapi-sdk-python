@@ -19,6 +19,7 @@ def main():
         .resource_type("task") \
         .resource_id("9842501a-9f47-4ff5-a622-d319eeecb97f") \
         .user_id_type("open_id") \
+        .updated_mesc("123") \
         .build()
 
     # 发起请求
@@ -50,6 +51,7 @@ async def amain():
         .resource_type("task") \
         .resource_id("9842501a-9f47-4ff5-a622-d319eeecb97f") \
         .user_id_type("open_id") \
+        .updated_mesc("123") \
         .build()
 
     # 发起请求

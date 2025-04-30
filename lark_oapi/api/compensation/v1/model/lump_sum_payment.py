@@ -24,6 +24,8 @@ class LumpSumPayment(object):
         "binding_period_offboarding_type": str,
         "create_time": str,
         "modify_time": str,
+        "reference_period_start_date": str,
+        "reference_period_end_date": str,
         "details": List[LumpSumPaymentDetail],
     }
 
@@ -44,6 +46,8 @@ class LumpSumPayment(object):
         self.binding_period_offboarding_type: Optional[str] = None
         self.create_time: Optional[str] = None
         self.modify_time: Optional[str] = None
+        self.reference_period_start_date: Optional[str] = None
+        self.reference_period_end_date: Optional[str] = None
         self.details: Optional[List[LumpSumPaymentDetail]] = None
         init(self, d, self._types)
 
@@ -118,6 +122,14 @@ class LumpSumPaymentBuilder(object):
 
     def modify_time(self, modify_time: str) -> "LumpSumPaymentBuilder":
         self._lump_sum_payment.modify_time = modify_time
+        return self
+
+    def reference_period_start_date(self, reference_period_start_date: str) -> "LumpSumPaymentBuilder":
+        self._lump_sum_payment.reference_period_start_date = reference_period_start_date
+        return self
+
+    def reference_period_end_date(self, reference_period_end_date: str) -> "LumpSumPaymentBuilder":
+        self._lump_sum_payment.reference_period_end_date = reference_period_end_date
         return self
 
     def details(self, details: List[LumpSumPaymentDetail]) -> "LumpSumPaymentBuilder":
