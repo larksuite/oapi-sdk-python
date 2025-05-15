@@ -29,6 +29,7 @@ class Position(object):
         "effective_time": str,
         "expiration_time": str,
         "custom_fields": List[CustomFieldData],
+        "created_by": str,
     }
 
     def __init__(self, d=None):
@@ -52,6 +53,7 @@ class Position(object):
         self.effective_time: Optional[str] = None
         self.expiration_time: Optional[str] = None
         self.custom_fields: Optional[List[CustomFieldData]] = None
+        self.created_by: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -141,6 +143,10 @@ class PositionBuilder(object):
 
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "PositionBuilder":
         self._position.custom_fields = custom_fields
+        return self
+
+    def created_by(self, created_by: str) -> "PositionBuilder":
+        self._position.created_by = created_by
         return self
 
     def build(self) -> "Position":

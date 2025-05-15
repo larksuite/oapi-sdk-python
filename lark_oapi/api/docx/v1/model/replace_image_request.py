@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .caption import Caption
 
 
 class ReplaceImageRequest(object):
@@ -10,6 +11,7 @@ class ReplaceImageRequest(object):
         "width": int,
         "height": int,
         "align": int,
+        "caption": Caption,
     }
 
     def __init__(self, d=None):
@@ -17,6 +19,7 @@ class ReplaceImageRequest(object):
         self.width: Optional[int] = None
         self.height: Optional[int] = None
         self.align: Optional[int] = None
+        self.caption: Optional[Caption] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +45,10 @@ class ReplaceImageRequestBuilder(object):
 
     def align(self, align: int) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.align = align
+        return self
+
+    def caption(self, caption: Caption) -> "ReplaceImageRequestBuilder":
+        self._replace_image_request.caption = caption
         return self
 
     def build(self) -> "ReplaceImageRequest":

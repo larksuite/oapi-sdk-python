@@ -7,11 +7,13 @@ from lark_oapi.core.construct import init
 class OrgRoleUpdate(object):
     _types = {
         "api_name": str,
+        "security_group_id": str,
         "employment_ids": List[str],
     }
 
     def __init__(self, d=None):
         self.api_name: Optional[str] = None
+        self.security_group_id: Optional[str] = None
         self.employment_ids: Optional[List[str]] = None
         init(self, d, self._types)
 
@@ -26,6 +28,10 @@ class OrgRoleUpdateBuilder(object):
 
     def api_name(self, api_name: str) -> "OrgRoleUpdateBuilder":
         self._org_role_update.api_name = api_name
+        return self
+
+    def security_group_id(self, security_group_id: str) -> "OrgRoleUpdateBuilder":
+        self._org_role_update.security_group_id = security_group_id
         return self
 
     def employment_ids(self, employment_ids: List[str]) -> "OrgRoleUpdateBuilder":

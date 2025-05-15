@@ -12,6 +12,7 @@ class MentionDoc(object):
         "url": str,
         "title": str,
         "text_element_style": TextElementStyle,
+        "fallback_type": str,
     }
 
     def __init__(self, d=None):
@@ -20,6 +21,7 @@ class MentionDoc(object):
         self.url: Optional[str] = None
         self.title: Optional[str] = None
         self.text_element_style: Optional[TextElementStyle] = None
+        self.fallback_type: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +51,10 @@ class MentionDocBuilder(object):
 
     def text_element_style(self, text_element_style: TextElementStyle) -> "MentionDocBuilder":
         self._mention_doc.text_element_style = text_element_style
+        return self
+
+    def fallback_type(self, fallback_type: str) -> "MentionDocBuilder":
+        self._mention_doc.fallback_type = fallback_type
         return self
 
     def build(self) -> "MentionDoc":

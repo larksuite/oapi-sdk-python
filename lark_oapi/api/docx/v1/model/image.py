@@ -2,6 +2,7 @@
 
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
+from .caption import Caption
 
 
 class Image(object):
@@ -10,6 +11,7 @@ class Image(object):
         "height": int,
         "token": str,
         "align": int,
+        "caption": Caption,
     }
 
     def __init__(self, d=None):
@@ -17,6 +19,7 @@ class Image(object):
         self.height: Optional[int] = None
         self.token: Optional[str] = None
         self.align: Optional[int] = None
+        self.caption: Optional[Caption] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +45,10 @@ class ImageBuilder(object):
 
     def align(self, align: int) -> "ImageBuilder":
         self._image.align = align
+        return self
+
+    def caption(self, caption: Caption) -> "ImageBuilder":
+        self._image.caption = caption
         return self
 
     def build(self) -> "Image":

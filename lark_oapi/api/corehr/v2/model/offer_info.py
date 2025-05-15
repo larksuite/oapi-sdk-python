@@ -75,6 +75,7 @@ class OfferInfo(object):
         "pathway": str,
         "default_cost_center": PrehireDefaultCostCenterUpdate,
         "cost_allocation": CostAllocation,
+        "talent_id": str,
     }
 
     def __init__(self, d=None):
@@ -138,6 +139,7 @@ class OfferInfo(object):
         self.pathway: Optional[str] = None
         self.default_cost_center: Optional[PrehireDefaultCostCenterUpdate] = None
         self.cost_allocation: Optional[CostAllocation] = None
+        self.talent_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -392,6 +394,10 @@ class OfferInfoBuilder(object):
 
     def cost_allocation(self, cost_allocation: CostAllocation) -> "OfferInfoBuilder":
         self._offer_info.cost_allocation = cost_allocation
+        return self
+
+    def talent_id(self, talent_id: str) -> "OfferInfoBuilder":
+        self._offer_info.talent_id = talent_id
         return self
 
     def build(self) -> "OfferInfo":

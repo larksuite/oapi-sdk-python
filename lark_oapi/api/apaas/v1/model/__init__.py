@@ -14,6 +14,7 @@ from .audit_log_net_info import *
 from .audit_log_op_info import *
 from .avatar import *
 from .basic_info import *
+from .client_isv_tenant import *
 from .component_lib_basic import *
 from .component_lib_ref import *
 from .component_lib_version import *

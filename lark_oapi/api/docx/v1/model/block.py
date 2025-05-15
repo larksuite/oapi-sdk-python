@@ -53,6 +53,8 @@ from .agenda_item_content import AgendaItemContent
 from .link_preview import LinkPreview
 from .source_synced import SourceSynced
 from .reference_synced import ReferenceSynced
+from .sub_page_list import SubPageList
+from .ai_template import AiTemplate
 
 
 class Block(object):
@@ -113,6 +115,8 @@ class Block(object):
         "link_preview": LinkPreview,
         "source_synced": SourceSynced,
         "reference_synced": ReferenceSynced,
+        "sub_page_list": SubPageList,
+        "ai_template": AiTemplate,
     }
 
     def __init__(self, d=None):
@@ -172,6 +176,8 @@ class Block(object):
         self.link_preview: Optional[LinkPreview] = None
         self.source_synced: Optional[SourceSynced] = None
         self.reference_synced: Optional[ReferenceSynced] = None
+        self.sub_page_list: Optional[SubPageList] = None
+        self.ai_template: Optional[AiTemplate] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -405,6 +411,14 @@ class BlockBuilder(object):
 
     def reference_synced(self, reference_synced: ReferenceSynced) -> "BlockBuilder":
         self._block.reference_synced = reference_synced
+        return self
+
+    def sub_page_list(self, sub_page_list: SubPageList) -> "BlockBuilder":
+        self._block.sub_page_list = sub_page_list
+        return self
+
+    def ai_template(self, ai_template: AiTemplate) -> "BlockBuilder":
+        self._block.ai_template = ai_template
         return self
 
     def build(self) -> "Block":

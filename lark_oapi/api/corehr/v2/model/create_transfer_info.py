@@ -42,6 +42,10 @@ class CreateTransferInfo(object):
         "target_social_security_city": str,
         "is_transfer_with_workforce": bool,
         "target_pathway": str,
+        "target_allocation_effective_time": str,
+        "target_allocation_expiration_time": str,
+        "target_default_cost_center": str,
+        "target_is_default_cost_center_inherited": bool,
     }
 
     def __init__(self, d=None):
@@ -79,6 +83,10 @@ class CreateTransferInfo(object):
         self.target_social_security_city: Optional[str] = None
         self.is_transfer_with_workforce: Optional[bool] = None
         self.target_pathway: Optional[str] = None
+        self.target_allocation_effective_time: Optional[str] = None
+        self.target_allocation_expiration_time: Optional[str] = None
+        self.target_default_cost_center: Optional[str] = None
+        self.target_is_default_cost_center_inherited: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -225,6 +233,23 @@ class CreateTransferInfoBuilder(object):
 
     def target_pathway(self, target_pathway: str) -> "CreateTransferInfoBuilder":
         self._create_transfer_info.target_pathway = target_pathway
+        return self
+
+    def target_allocation_effective_time(self, target_allocation_effective_time: str) -> "CreateTransferInfoBuilder":
+        self._create_transfer_info.target_allocation_effective_time = target_allocation_effective_time
+        return self
+
+    def target_allocation_expiration_time(self, target_allocation_expiration_time: str) -> "CreateTransferInfoBuilder":
+        self._create_transfer_info.target_allocation_expiration_time = target_allocation_expiration_time
+        return self
+
+    def target_default_cost_center(self, target_default_cost_center: str) -> "CreateTransferInfoBuilder":
+        self._create_transfer_info.target_default_cost_center = target_default_cost_center
+        return self
+
+    def target_is_default_cost_center_inherited(self,
+                                                target_is_default_cost_center_inherited: bool) -> "CreateTransferInfoBuilder":
+        self._create_transfer_info.target_is_default_cost_center_inherited = target_is_default_cost_center_inherited
         return self
 
     def build(self) -> "CreateTransferInfo":

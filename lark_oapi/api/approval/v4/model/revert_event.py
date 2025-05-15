@@ -10,6 +10,7 @@ class RevertEvent(object):
         "instance_code": str,
         "operate_time": int,
         "status": str,
+        "approval_code": str,
     }
 
     def __init__(self, d=None):
@@ -17,6 +18,7 @@ class RevertEvent(object):
         self.instance_code: Optional[str] = None
         self.operate_time: Optional[int] = None
         self.status: Optional[str] = None
+        self.approval_code: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -42,6 +44,10 @@ class RevertEventBuilder(object):
 
     def status(self, status: str) -> "RevertEventBuilder":
         self._revert_event.status = status
+        return self
+
+    def approval_code(self, approval_code: str) -> "RevertEventBuilder":
+        self._revert_event.approval_code = approval_code
         return self
 
     def build(self) -> "RevertEvent":
