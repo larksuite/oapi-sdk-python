@@ -16,7 +16,7 @@ class BpmFlowInfo(object):
         "description": DataengineI18n,
         "biz_type": str,
         "biz_type_name": DataengineI18n,
-        "active": int,
+        "status": int,
         "creator_id": str,
         "creator_name": DataengineI18n,
         "create_time": str,
@@ -32,7 +32,7 @@ class BpmFlowInfo(object):
         self.description: Optional[DataengineI18n] = None
         self.biz_type: Optional[str] = None
         self.biz_type_name: Optional[DataengineI18n] = None
-        self.active: Optional[int] = None
+        self.status: Optional[int] = None
         self.creator_id: Optional[str] = None
         self.creator_name: Optional[DataengineI18n] = None
         self.create_time: Optional[str] = None
@@ -71,8 +71,8 @@ class BpmFlowInfoBuilder(object):
         self._bpm_flow_info.biz_type_name = biz_type_name
         return self
 
-    def active(self, active: int) -> "BpmFlowInfoBuilder":
-        self._bpm_flow_info.active = active
+    def status(self, status: int) -> "BpmFlowInfoBuilder":
+        self._bpm_flow_info.status = status
         return self
 
     def creator_id(self, creator_id: str) -> "BpmFlowInfoBuilder":

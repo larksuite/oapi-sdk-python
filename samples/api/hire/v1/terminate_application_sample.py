@@ -19,6 +19,12 @@ def main():
                       .termination_type(1)
                       .termination_reason_list([])
                       .termination_reason_note("不符合期望")
+                      .need_terminate_offer(False)
+                      .terminate_offer_operate_type(1)
+                      .cancel_offer_termination_type(1)
+                      .cancel_offer_termination_reason_list([])
+                      .candidate_reject_offer_termination_reason_list([])
+                      .need_withdraw_offer_approval(False)
                       .build()) \
         .build()
 
@@ -51,6 +57,12 @@ async def amain():
                       .termination_type(1)
                       .termination_reason_list([])
                       .termination_reason_note("不符合期望")
+                      .need_terminate_offer(False)
+                      .terminate_offer_operate_type(1)
+                      .cancel_offer_termination_type(1)
+                      .cancel_offer_termination_reason_list([])
+                      .candidate_reject_offer_termination_reason_list([])
+                      .need_withdraw_offer_approval(False)
                       .build()) \
         .build()
 

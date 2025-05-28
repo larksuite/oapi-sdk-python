@@ -5,9 +5,13 @@ from .archive_indicator import *
 from .archive_item import *
 from .archive_item_value import *
 from .change_reason import *
+from .currency import *
 from .department_id import *
 from .formula import *
 from .formula_param import *
+from .grade import *
+from .grade_standard_dimension import *
+from .grade_standard_value import *
 from .i18n import *
 from .i18n_content import *
 from .indicator import *
@@ -30,6 +34,9 @@ from .recurring_payment import *
 from .recurring_payment_for_create import *
 from .recurring_payment_for_update import *
 from .recurring_payment_operate_result import *
+from .salary_grade import *
+from .salary_level import *
+from .salary_level_type import *
 from .social_archive import *
 from .social_archive_adjust_record import *
 from .social_archive_detail import *
@@ -40,6 +47,11 @@ from .social_plan_condition import *
 from .social_plan_item_detail import *
 from .social_plan_item_setting import *
 from .social_plan_scope import *
+from .standard import *
+from .standard_dimension import *
+from .standard_reference_object import *
+from .standard_scope import *
+from .standard_scope_expression import *
 from .query_archive_request_body import *
 from .query_archive_request import *
 from .list_change_reason_request import *

@@ -10,6 +10,9 @@ from .model.p2_corehr_company_updated_v2 import P2CorehrCompanyUpdatedV2
 from .model.p2_corehr_cost_center_created_v2 import P2CorehrCostCenterCreatedV2
 from .model.p2_corehr_cost_center_deleted_v2 import P2CorehrCostCenterDeletedV2
 from .model.p2_corehr_cost_center_updated_v2 import P2CorehrCostCenterUpdatedV2
+from .model.p2_corehr_custom_org_created_v2 import P2CorehrCustomOrgCreatedV2
+from .model.p2_corehr_custom_org_deleted_v2 import P2CorehrCustomOrgDeletedV2
+from .model.p2_corehr_custom_org_updated_v2 import P2CorehrCustomOrgUpdatedV2
 from .model.p2_corehr_department_created_v2 import P2CorehrDepartmentCreatedV2
 from .model.p2_corehr_department_updated_v2 import P2CorehrDepartmentUpdatedV2
 from .model.p2_corehr_employee_domain_event_v2 import P2CorehrEmployeeDomainEventV2
@@ -113,6 +116,39 @@ class P2CorehrCostCenterUpdatedV2Processor(IEventProcessor[P2CorehrCostCenterUpd
         return P2CorehrCostCenterUpdatedV2
 
     def do(self, data: P2CorehrCostCenterUpdatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrCustomOrgCreatedV2Processor(IEventProcessor[P2CorehrCustomOrgCreatedV2]):
+    def __init__(self, f: Callable[[P2CorehrCustomOrgCreatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrCustomOrgCreatedV2]:
+        return P2CorehrCustomOrgCreatedV2
+
+    def do(self, data: P2CorehrCustomOrgCreatedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrCustomOrgDeletedV2Processor(IEventProcessor[P2CorehrCustomOrgDeletedV2]):
+    def __init__(self, f: Callable[[P2CorehrCustomOrgDeletedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrCustomOrgDeletedV2]:
+        return P2CorehrCustomOrgDeletedV2
+
+    def do(self, data: P2CorehrCustomOrgDeletedV2) -> None:
+        self.f(data)
+
+
+class P2CorehrCustomOrgUpdatedV2Processor(IEventProcessor[P2CorehrCustomOrgUpdatedV2]):
+    def __init__(self, f: Callable[[P2CorehrCustomOrgUpdatedV2], None]):
+        self.f = f
+
+    def type(self) -> Type[P2CorehrCustomOrgUpdatedV2]:
+        return P2CorehrCustomOrgUpdatedV2
+
+    def do(self, data: P2CorehrCustomOrgUpdatedV2) -> None:
         self.f(data)
 
 

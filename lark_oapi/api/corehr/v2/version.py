@@ -22,6 +22,7 @@ class V2(object):
         self.cost_allocation: CostAllocation = CostAllocation(config)
         self.cost_center: CostCenter = CostCenter(config)
         self.cost_center_version: CostCenterVersion = CostCenterVersion(config)
+        self.custom_org: CustomOrg = CustomOrg(config)
         self.default_cost_center: DefaultCostCenter = DefaultCostCenter(config)
         self.department: Department = Department(config)
         self.employee: Employee = Employee(config)

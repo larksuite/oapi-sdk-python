@@ -14,6 +14,7 @@ class Datasource(object):
         "active_status": int,
         "fields": List[DatasourceField],
         "i18n_description": List[I18nContent],
+        "data_period_type": int,
     }
 
     def __init__(self, d=None):
@@ -22,6 +23,7 @@ class Datasource(object):
         self.active_status: Optional[int] = None
         self.fields: Optional[List[DatasourceField]] = None
         self.i18n_description: Optional[List[I18nContent]] = None
+        self.data_period_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -51,6 +53,10 @@ class DatasourceBuilder(object):
 
     def i18n_description(self, i18n_description: List[I18nContent]) -> "DatasourceBuilder":
         self._datasource.i18n_description = i18n_description
+        return self
+
+    def data_period_type(self, data_period_type: int) -> "DatasourceBuilder":
+        self._datasource.data_period_type = data_period_type
         return self
 
     def build(self) -> "Datasource":

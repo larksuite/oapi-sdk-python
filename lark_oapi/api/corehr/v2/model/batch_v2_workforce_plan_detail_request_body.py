@@ -11,6 +11,8 @@ class BatchV2WorkforcePlanDetailRequestBody(object):
         "is_centralized_reporting_project": bool,
         "centralized_reporting_project_id": str,
         "dimension_id_in_datas": List[DimensionIdInData],
+        "include_missing_dimension_rows": bool,
+        "filter_all_zero_value_rows": bool,
     }
 
     def __init__(self, d=None):
@@ -18,6 +20,8 @@ class BatchV2WorkforcePlanDetailRequestBody(object):
         self.is_centralized_reporting_project: Optional[bool] = None
         self.centralized_reporting_project_id: Optional[str] = None
         self.dimension_id_in_datas: Optional[List[DimensionIdInData]] = None
+        self.include_missing_dimension_rows: Optional[bool] = None
+        self.filter_all_zero_value_rows: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -46,6 +50,16 @@ class BatchV2WorkforcePlanDetailRequestBodyBuilder(object):
     def dimension_id_in_datas(self, dimension_id_in_datas: List[
         DimensionIdInData]) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
         self._batch_v2_workforce_plan_detail_request_body.dimension_id_in_datas = dimension_id_in_datas
+        return self
+
+    def include_missing_dimension_rows(self,
+                                       include_missing_dimension_rows: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
+        self._batch_v2_workforce_plan_detail_request_body.include_missing_dimension_rows = include_missing_dimension_rows
+        return self
+
+    def filter_all_zero_value_rows(self,
+                                   filter_all_zero_value_rows: bool) -> "BatchV2WorkforcePlanDetailRequestBodyBuilder":
+        self._batch_v2_workforce_plan_detail_request_body.filter_all_zero_value_rows = filter_all_zero_value_rows
         return self
 
     def build(self) -> "BatchV2WorkforcePlanDetailRequestBody":

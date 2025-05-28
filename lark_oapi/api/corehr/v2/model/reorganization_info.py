@@ -15,6 +15,7 @@ from .enum import Enum
 from .orgdraft_department_id import OrgdraftDepartmentId
 from .orgdraft_department_id import OrgdraftDepartmentId
 from .change_field_pair import ChangeFieldPair
+from .orgrole_info import OrgroleInfo
 
 
 class ReorganizationInfo(object):
@@ -43,6 +44,7 @@ class ReorganizationInfo(object):
         "original_department_id_path": List[OrgdraftDepartmentId],
         "target_department_id_path": List[OrgdraftDepartmentId],
         "custom_fields": List[ChangeFieldPair],
+        "orgrole_infos": List[OrgroleInfo],
     }
 
     def __init__(self, d=None):
@@ -70,6 +72,7 @@ class ReorganizationInfo(object):
         self.original_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
         self.target_department_id_path: Optional[List[OrgdraftDepartmentId]] = None
         self.custom_fields: Optional[List[ChangeFieldPair]] = None
+        self.orgrole_infos: Optional[List[OrgroleInfo]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -177,6 +180,10 @@ class ReorganizationInfoBuilder(object):
 
     def custom_fields(self, custom_fields: List[ChangeFieldPair]) -> "ReorganizationInfoBuilder":
         self._reorganization_info.custom_fields = custom_fields
+        return self
+
+    def orgrole_infos(self, orgrole_infos: List[OrgroleInfo]) -> "ReorganizationInfoBuilder":
+        self._reorganization_info.orgrole_infos = orgrole_infos
         return self
 
     def build(self) -> "ReorganizationInfo":

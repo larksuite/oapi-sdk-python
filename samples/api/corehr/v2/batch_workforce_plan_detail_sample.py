@@ -27,6 +27,7 @@ def main():
                       .job_level_ids([])
                       .job_ids([])
                       .cost_center_ids([])
+                      .include_missing_dimension_rows(False)
                       .build()) \
         .build()
 
@@ -67,6 +68,7 @@ async def amain():
                       .job_level_ids([])
                       .job_ids([])
                       .cost_center_ids([])
+                      .include_missing_dimension_rows(False)
                       .build()) \
         .build()
 

@@ -8,6 +8,7 @@ from .app_field_property_location import AppFieldPropertyLocation
 from .allowed_edit_modes import AllowedEditModes
 from .rating import Rating
 from .app_table_field_property_type import AppTableFieldPropertyType
+from .app_table_field_property_lookup_filter import AppTableFieldPropertyLookupFilter
 
 
 class AppTableFieldProperty(object):
@@ -30,6 +31,7 @@ class AppTableFieldProperty(object):
         "currency_code": str,
         "rating": Rating,
         "type": AppTableFieldPropertyType,
+        "filter_info": AppTableFieldPropertyLookupFilter,
     }
 
     def __init__(self, d=None):
@@ -51,6 +53,7 @@ class AppTableFieldProperty(object):
         self.currency_code: Optional[str] = None
         self.rating: Optional[Rating] = None
         self.type: Optional[AppTableFieldPropertyType] = None
+        self.filter_info: Optional[AppTableFieldPropertyLookupFilter] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -132,6 +135,10 @@ class AppTableFieldPropertyBuilder(object):
 
     def type(self, type: AppTableFieldPropertyType) -> "AppTableFieldPropertyBuilder":
         self._app_table_field_property.type = type
+        return self
+
+    def filter_info(self, filter_info: AppTableFieldPropertyLookupFilter) -> "AppTableFieldPropertyBuilder":
+        self._app_table_field_property.filter_info = filter_info
         return self
 
     def build(self) -> "AppTableFieldProperty":

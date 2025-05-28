@@ -31,6 +31,7 @@ class WorkforcePlanDetail(object):
         "fulfillment_rate": str,
         "fulfillment_rate_including_individuals_to_be_added_and_removed": str,
         "estimated_active_individuals_detail": List[WorkforcePlanEaiDetail],
+        "is_missing_dimension": bool,
     }
 
     def __init__(self, d=None):
@@ -51,6 +52,7 @@ class WorkforcePlanDetail(object):
         self.fulfillment_rate: Optional[str] = None
         self.fulfillment_rate_including_individuals_to_be_added_and_removed: Optional[str] = None
         self.estimated_active_individuals_detail: Optional[List[WorkforcePlanEaiDetail]] = None
+        self.is_missing_dimension: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -131,6 +133,10 @@ class WorkforcePlanDetailBuilder(object):
     def estimated_active_individuals_detail(self, estimated_active_individuals_detail: List[
         WorkforcePlanEaiDetail]) -> "WorkforcePlanDetailBuilder":
         self._workforce_plan_detail.estimated_active_individuals_detail = estimated_active_individuals_detail
+        return self
+
+    def is_missing_dimension(self, is_missing_dimension: bool) -> "WorkforcePlanDetailBuilder":
+        self._workforce_plan_detail.is_missing_dimension = is_missing_dimension
         return self
 
     def build(self) -> "WorkforcePlanDetail":

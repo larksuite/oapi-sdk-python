@@ -18,6 +18,7 @@ class P2DriveFilePermissionMemberAppliedV1Data(object):
         "application_user_list": List[UserId],
         "application_chat_list": List[str],
         "application_department_list": List[str],
+        "application_remark": str,
         "permission": str,
         "subscriber_ids": List[UserId],
     }
@@ -30,6 +31,7 @@ class P2DriveFilePermissionMemberAppliedV1Data(object):
         self.application_user_list: Optional[List[UserId]] = None
         self.application_chat_list: Optional[List[str]] = None
         self.application_department_list: Optional[List[str]] = None
+        self.application_remark: Optional[str] = None
         self.permission: Optional[str] = None
         self.subscriber_ids: Optional[List[UserId]] = None
         init(self, d, self._types)

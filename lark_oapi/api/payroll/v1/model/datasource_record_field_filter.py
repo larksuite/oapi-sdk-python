@@ -8,11 +8,13 @@ class DatasourceRecordFieldFilter(object):
     _types = {
         "field_code": str,
         "field_values": List[str],
+        "operator": int,
     }
 
     def __init__(self, d=None):
         self.field_code: Optional[str] = None
         self.field_values: Optional[List[str]] = None
+        self.operator: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -30,6 +32,10 @@ class DatasourceRecordFieldFilterBuilder(object):
 
     def field_values(self, field_values: List[str]) -> "DatasourceRecordFieldFilterBuilder":
         self._datasource_record_field_filter.field_values = field_values
+        return self
+
+    def operator(self, operator: int) -> "DatasourceRecordFieldFilterBuilder":
+        self._datasource_record_field_filter.operator = operator
         return self
 
     def build(self) -> "DatasourceRecordFieldFilter":

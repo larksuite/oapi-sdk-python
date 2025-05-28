@@ -18,6 +18,9 @@ from .app_table_create_header import *
 from .app_table_field import *
 from .app_table_field_description import *
 from .app_table_field_property import *
+from .app_table_field_property_filter_info import *
+from .app_table_field_property_filter_info_condition import *
+from .app_table_field_property_lookup_filter import *
 from .app_table_field_property_option import *
 from .app_table_field_property_type import *
 from .app_table_field_property_type_ui_property import *

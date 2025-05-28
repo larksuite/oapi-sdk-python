@@ -21,6 +21,8 @@ class WorkforcePlanDetailV2(object):
         "fulfillment_rate_including_individuals_to_be_added_and_removed": str,
         "estimated_active_individuals_details": List[WorkforcePlanEaiDetail],
         "multi_period_values": List[WorkforcePlanMultiPeriodValue],
+        "is_missing_dimension": bool,
+        "is_all_zero_value": bool,
     }
 
     def __init__(self, d=None):
@@ -36,6 +38,8 @@ class WorkforcePlanDetailV2(object):
         self.fulfillment_rate_including_individuals_to_be_added_and_removed: Optional[str] = None
         self.estimated_active_individuals_details: Optional[List[WorkforcePlanEaiDetail]] = None
         self.multi_period_values: Optional[List[WorkforcePlanMultiPeriodValue]] = None
+        self.is_missing_dimension: Optional[bool] = None
+        self.is_all_zero_value: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -97,6 +101,14 @@ class WorkforcePlanDetailV2Builder(object):
     def multi_period_values(self,
                             multi_period_values: List[WorkforcePlanMultiPeriodValue]) -> "WorkforcePlanDetailV2Builder":
         self._workforce_plan_detail_v2.multi_period_values = multi_period_values
+        return self
+
+    def is_missing_dimension(self, is_missing_dimension: bool) -> "WorkforcePlanDetailV2Builder":
+        self._workforce_plan_detail_v2.is_missing_dimension = is_missing_dimension
+        return self
+
+    def is_all_zero_value(self, is_all_zero_value: bool) -> "WorkforcePlanDetailV2Builder":
+        self._workforce_plan_detail_v2.is_all_zero_value = is_all_zero_value
         return self
 
     def build(self) -> "WorkforcePlanDetailV2":

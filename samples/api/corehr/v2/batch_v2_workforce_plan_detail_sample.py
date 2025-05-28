@@ -21,6 +21,8 @@ def main():
                       .is_centralized_reporting_project(False)
                       .centralized_reporting_project_id("7140964208476371111")
                       .dimension_id_in_datas([])
+                      .include_missing_dimension_rows(False)
+                      .filter_all_zero_value_rows(False)
                       .build()) \
         .build()
 
@@ -55,6 +57,8 @@ async def amain():
                       .is_centralized_reporting_project(False)
                       .centralized_reporting_project_id("7140964208476371111")
                       .dimension_id_in_datas([])
+                      .include_missing_dimension_rows(False)
+                      .filter_all_zero_value_rows(False)
                       .build()) \
         .build()
 

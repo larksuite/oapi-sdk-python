@@ -8,6 +8,7 @@ from .ai_template import *
 from .bitable import *
 from .block import *
 from .block_id_relation import *
+from .block_id_to_image_url import *
 from .board import *
 from .callout import *
 from .caption import *

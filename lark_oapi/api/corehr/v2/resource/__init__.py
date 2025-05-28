@@ -16,6 +16,7 @@ from .contract import *
 from .cost_allocation import *
 from .cost_center import *
 from .cost_center_version import *
+from .custom_org import *
 from .default_cost_center import *
 from .department import *
 from .employee import *

@@ -16,6 +16,7 @@ class BatchWorkforcePlanDetailRequestBody(object):
         "job_level_ids": List[str],
         "job_ids": List[str],
         "cost_center_ids": List[str],
+        "include_missing_dimension_rows": bool,
     }
 
     def __init__(self, d=None):
@@ -29,6 +30,7 @@ class BatchWorkforcePlanDetailRequestBody(object):
         self.job_level_ids: Optional[List[str]] = None
         self.job_ids: Optional[List[str]] = None
         self.cost_center_ids: Optional[List[str]] = None
+        self.include_missing_dimension_rows: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -80,6 +82,11 @@ class BatchWorkforcePlanDetailRequestBodyBuilder(object):
 
     def cost_center_ids(self, cost_center_ids: List[str]) -> "BatchWorkforcePlanDetailRequestBodyBuilder":
         self._batch_workforce_plan_detail_request_body.cost_center_ids = cost_center_ids
+        return self
+
+    def include_missing_dimension_rows(self,
+                                       include_missing_dimension_rows: bool) -> "BatchWorkforcePlanDetailRequestBodyBuilder":
+        self._batch_workforce_plan_detail_request_body.include_missing_dimension_rows = include_missing_dimension_rows
         return self
 
     def build(self) -> "BatchWorkforcePlanDetailRequestBody":

@@ -20,6 +20,7 @@ def main():
                       .expiration_date("2023-01-01")
                       .termination_reason_id_list([])
                       .termination_reason_note("不符合期望")
+                      .cancel_offer_termination_type(1)
                       .build()) \
         .build()
 
@@ -53,6 +54,7 @@ async def amain():
                       .expiration_date("2023-01-01")
                       .termination_reason_id_list([])
                       .termination_reason_note("不符合期望")
+                      .cancel_offer_termination_type(1)
                       .build()) \
         .build()
 
