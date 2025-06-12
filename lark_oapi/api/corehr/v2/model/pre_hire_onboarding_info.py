@@ -12,6 +12,7 @@ class PreHireOnboardingInfo(object):
     _types = {
         "offer_id": str,
         "offer_hr_id": str,
+        "offer_hr_id_v2": str,
         "entry_mode": str,
         "onboarding_date": str,
         "ats_application_id": str,
@@ -30,6 +31,7 @@ class PreHireOnboardingInfo(object):
     def __init__(self, d=None):
         self.offer_id: Optional[str] = None
         self.offer_hr_id: Optional[str] = None
+        self.offer_hr_id_v2: Optional[str] = None
         self.entry_mode: Optional[str] = None
         self.onboarding_date: Optional[str] = None
         self.ats_application_id: Optional[str] = None
@@ -60,6 +62,10 @@ class PreHireOnboardingInfoBuilder(object):
 
     def offer_hr_id(self, offer_hr_id: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.offer_hr_id = offer_hr_id
+        return self
+
+    def offer_hr_id_v2(self, offer_hr_id_v2: str) -> "PreHireOnboardingInfoBuilder":
+        self._pre_hire_onboarding_info.offer_hr_id_v2 = offer_hr_id_v2
         return self
 
     def entry_mode(self, entry_mode: str) -> "PreHireOnboardingInfoBuilder":

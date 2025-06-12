@@ -3,9 +3,13 @@ from .attachment_download_url_item import *
 from .department_id import *
 from .email_alias import *
 from .event_log import *
+from .file_meta_info import *
 from .folder import *
 from .mail_address import *
 from .mail_contact import *
+from .mail_flow_rule_info import *
+from .mail_log import *
+from .mail_log_mail_info import *
 from .mailgroup import *
 from .mailgroup_manager import *
 from .mailgroup_member import *
@@ -22,6 +26,7 @@ from .subscriber import *
 from .user import *
 from .user_id import *
 from .user_info import *
+from .user_mail_entity import *
 from .create_mailgroup_request import *
 from .delete_mailgroup_request import *
 from .get_mailgroup_request import *

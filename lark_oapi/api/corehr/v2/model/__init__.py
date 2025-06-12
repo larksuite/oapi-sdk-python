@@ -435,6 +435,10 @@ from .delete_employees_additional_job_request import *
 from .patch_employees_additional_job_request import *
 from .batch_get_employees_bp_request_body import *
 from .batch_get_employees_bp_request import *
+from .create_employees_international_assignment_request import *
+from .delete_employees_international_assignment_request import *
+from .list_employees_international_assignment_request import *
+from .patch_employees_international_assignment_request import *
 from .batch_get_employees_job_data_request_body import *
 from .batch_get_employees_job_data_request import *
 from .query_employees_job_data_request_body import *
@@ -630,6 +634,13 @@ from .patch_employees_additional_job_response_body import *
 from .patch_employees_additional_job_response import *
 from .batch_get_employees_bp_response_body import *
 from .batch_get_employees_bp_response import *
+from .create_employees_international_assignment_response_body import *
+from .create_employees_international_assignment_response import *
+from .delete_employees_international_assignment_response import *
+from .list_employees_international_assignment_response_body import *
+from .list_employees_international_assignment_response import *
+from .patch_employees_international_assignment_response_body import *
+from .patch_employees_international_assignment_response import *
 from .batch_get_employees_job_data_response_body import *
 from .batch_get_employees_job_data_response import *
 from .query_employees_job_data_response_body import *

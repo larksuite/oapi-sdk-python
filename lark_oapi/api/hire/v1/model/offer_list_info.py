@@ -10,7 +10,7 @@ class OfferListInfo(object):
     _types = {
         "id": str,
         "job_info": OfferJobInfo,
-        "create_time": str,
+        "create_time": int,
         "offer_status": int,
         "offer_type": int,
         "employee_type": BaseBilingualWithId,
@@ -20,7 +20,7 @@ class OfferListInfo(object):
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.job_info: Optional[OfferJobInfo] = None
-        self.create_time: Optional[str] = None
+        self.create_time: Optional[int] = None
         self.offer_status: Optional[int] = None
         self.offer_type: Optional[int] = None
         self.employee_type: Optional[BaseBilingualWithId] = None
@@ -44,7 +44,7 @@ class OfferListInfoBuilder(object):
         self._offer_list_info.job_info = job_info
         return self
 
-    def create_time(self, create_time: str) -> "OfferListInfoBuilder":
+    def create_time(self, create_time: int) -> "OfferListInfoBuilder":
         self._offer_list_info.create_time = create_time
         return self
 

@@ -19,6 +19,7 @@ class OfferApplyFormObjectInfo(object):
         "need_approve": bool,
         "is_sensitive": bool,
         "object_type": int,
+        "object_type_v2": int,
         "config": OfferApplyFormObjectConfigInfo,
     }
 
@@ -33,6 +34,7 @@ class OfferApplyFormObjectInfo(object):
         self.need_approve: Optional[bool] = None
         self.is_sensitive: Optional[bool] = None
         self.object_type: Optional[int] = None
+        self.object_type_v2: Optional[int] = None
         self.config: Optional[OfferApplyFormObjectConfigInfo] = None
         init(self, d, self._types)
 
@@ -83,6 +85,10 @@ class OfferApplyFormObjectInfoBuilder(object):
 
     def object_type(self, object_type: int) -> "OfferApplyFormObjectInfoBuilder":
         self._offer_apply_form_object_info.object_type = object_type
+        return self
+
+    def object_type_v2(self, object_type_v2: int) -> "OfferApplyFormObjectInfoBuilder":
+        self._offer_apply_form_object_info.object_type_v2 = object_type_v2
         return self
 
     def config(self, config: OfferApplyFormObjectConfigInfo) -> "OfferApplyFormObjectInfoBuilder":

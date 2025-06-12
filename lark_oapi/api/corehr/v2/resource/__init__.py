@@ -22,6 +22,7 @@ from .department import *
 from .employee import *
 from .employees_additional_job import *
 from .employees_bp import *
+from .employees_international_assignment import *
 from .employees_job_data import *
 from .enum import *
 from .job import *

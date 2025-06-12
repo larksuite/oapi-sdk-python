@@ -16,6 +16,7 @@ class Field(object):
         "objective_text_qustion_title": I18n,
         "keyresult_text_qustion_title": I18n,
         "parent_field_id": str,
+        "kpi_template_id": str,
     }
 
     def __init__(self, d=None):
@@ -26,6 +27,7 @@ class Field(object):
         self.objective_text_qustion_title: Optional[I18n] = None
         self.keyresult_text_qustion_title: Optional[I18n] = None
         self.parent_field_id: Optional[str] = None
+        self.kpi_template_id: Optional[str] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -63,6 +65,10 @@ class FieldBuilder(object):
 
     def parent_field_id(self, parent_field_id: str) -> "FieldBuilder":
         self._field.parent_field_id = parent_field_id
+        return self
+
+    def kpi_template_id(self, kpi_template_id: str) -> "FieldBuilder":
+        self._field.kpi_template_id = kpi_template_id
         return self
 
     def build(self) -> "Field":

@@ -21,6 +21,7 @@ def main():
                       .user_id("6930815272790114324")
                       .resume_source_id("7115289562569591070")
                       .application_preferred_city_code_list([])
+                      .delivery_type(1)
                       .build()) \
         .build()
 
@@ -55,6 +56,7 @@ async def amain():
                       .user_id("6930815272790114324")
                       .resume_source_id("7115289562569591070")
                       .application_preferred_city_code_list([])
+                      .delivery_type(1)
                       .build()) \
         .build()
 

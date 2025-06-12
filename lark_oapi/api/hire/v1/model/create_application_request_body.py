@@ -11,6 +11,7 @@ class CreateApplicationRequestBody(object):
         "user_id": str,
         "resume_source_id": str,
         "application_preferred_city_code_list": List[str],
+        "delivery_type": int,
     }
 
     def __init__(self, d=None):
@@ -19,6 +20,7 @@ class CreateApplicationRequestBody(object):
         self.user_id: Optional[str] = None
         self.resume_source_id: Optional[str] = None
         self.application_preferred_city_code_list: Optional[List[str]] = None
+        self.delivery_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -49,6 +51,10 @@ class CreateApplicationRequestBodyBuilder(object):
     def application_preferred_city_code_list(self, application_preferred_city_code_list: List[
         str]) -> "CreateApplicationRequestBodyBuilder":
         self._create_application_request_body.application_preferred_city_code_list = application_preferred_city_code_list
+        return self
+
+    def delivery_type(self, delivery_type: int) -> "CreateApplicationRequestBodyBuilder":
+        self._create_application_request_body.delivery_type = delivery_type
         return self
 
     def build(self) -> "CreateApplicationRequestBody":

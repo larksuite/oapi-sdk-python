@@ -4,6 +4,8 @@ from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from .i18n import I18n
 from .cooperation_role import CooperationRole
+from .cooperation_user_role import CooperationUserRole
+from .cooperation_user_role import CooperationUserRole
 
 
 class CooperationProject(object):
@@ -11,12 +13,16 @@ class CooperationProject(object):
         "id": str,
         "name": I18n,
         "roles": List[CooperationRole],
+        "user_roles": List[CooperationUserRole],
+        "underling_roles": List[CooperationUserRole],
     }
 
     def __init__(self, d=None):
         self.id: Optional[str] = None
         self.name: Optional[I18n] = None
         self.roles: Optional[List[CooperationRole]] = None
+        self.user_roles: Optional[List[CooperationUserRole]] = None
+        self.underling_roles: Optional[List[CooperationUserRole]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -38,6 +44,14 @@ class CooperationProjectBuilder(object):
 
     def roles(self, roles: List[CooperationRole]) -> "CooperationProjectBuilder":
         self._cooperation_project.roles = roles
+        return self
+
+    def user_roles(self, user_roles: List[CooperationUserRole]) -> "CooperationProjectBuilder":
+        self._cooperation_project.user_roles = user_roles
+        return self
+
+    def underling_roles(self, underling_roles: List[CooperationUserRole]) -> "CooperationProjectBuilder":
+        self._cooperation_project.underling_roles = underling_roles
         return self
 
     def build(self) -> "CooperationProject":

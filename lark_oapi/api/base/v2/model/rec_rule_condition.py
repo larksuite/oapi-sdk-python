@@ -8,14 +8,14 @@ class RecRuleCondition(object):
     _types = {
         "field_name": str,
         "operator": str,
-        "values": List[str],
+        "value": List[str],
         "field_type": int,
     }
 
     def __init__(self, d=None):
         self.field_name: Optional[str] = None
         self.operator: Optional[str] = None
-        self.values: Optional[List[str]] = None
+        self.value: Optional[List[str]] = None
         self.field_type: Optional[int] = None
         init(self, d, self._types)
 
@@ -36,8 +36,8 @@ class RecRuleConditionBuilder(object):
         self._rec_rule_condition.operator = operator
         return self
 
-    def values(self, values: List[str]) -> "RecRuleConditionBuilder":
-        self._rec_rule_condition.values = values
+    def value(self, value: List[str]) -> "RecRuleConditionBuilder":
+        self._rec_rule_condition.value = value
         return self
 
     def field_type(self, field_type: int) -> "RecRuleConditionBuilder":

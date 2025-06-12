@@ -27,7 +27,7 @@ class CreateEmployeeRequestBuilder(object):
         create_employee_request = CreateEmployeeRequest()
         create_employee_request.http_method = HttpMethod.POST
         create_employee_request.uri = "/open-apis/corehr/v2/employees"
-        create_employee_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
+        create_employee_request.token_types = {AccessTokenType.TENANT}
         self._create_employee_request: CreateEmployeeRequest = create_employee_request
 
     def client_token(self, client_token: str) -> "CreateEmployeeRequestBuilder":
