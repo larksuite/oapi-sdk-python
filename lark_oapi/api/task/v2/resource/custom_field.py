@@ -40,32 +40,33 @@ class CustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: AddCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), AddCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aadd(self, request: AddCustomFieldRequest,
-                   option: Optional[RequestOption] = None) -> AddCustomFieldResponse:
+    async def aadd(self, request: AddCustomFieldRequest, option: Optional[RequestOption] = None) -> AddCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: AddCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), AddCustomFieldResponse)
         response.raw = resp
 
         return response
-
-    def create(self, request: CreateCustomFieldRequest,
-               option: Optional[RequestOption] = None) -> CreateCustomFieldResponse:
+        
+    def create(self, request: CreateCustomFieldRequest, option: Optional[RequestOption] = None) -> CreateCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -78,30 +79,32 @@ class CustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateCustomFieldRequest,
-                      option: Optional[RequestOption] = None) -> CreateCustomFieldResponse:
+    async def acreate(self, request: CreateCustomFieldRequest, option: Optional[RequestOption] = None) -> CreateCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateCustomFieldResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetCustomFieldRequest, option: Optional[RequestOption] = None) -> GetCustomFieldResponse:
         if option is None:
             option = RequestOption()
@@ -115,30 +118,32 @@ class CustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetCustomFieldRequest,
-                   option: Optional[RequestOption] = None) -> GetCustomFieldResponse:
+    async def aget(self, request: GetCustomFieldRequest, option: Optional[RequestOption] = None) -> GetCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), GetCustomFieldResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListCustomFieldRequest, option: Optional[RequestOption] = None) -> ListCustomFieldResponse:
         if option is None:
             option = RequestOption()
@@ -152,32 +157,33 @@ class CustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListCustomFieldRequest,
-                    option: Optional[RequestOption] = None) -> ListCustomFieldResponse:
+    async def alist(self, request: ListCustomFieldRequest, option: Optional[RequestOption] = None) -> ListCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCustomFieldResponse)
         response.raw = resp
 
         return response
-
-    def patch(self, request: PatchCustomFieldRequest,
-              option: Optional[RequestOption] = None) -> PatchCustomFieldResponse:
+        
+    def patch(self, request: PatchCustomFieldRequest, option: Optional[RequestOption] = None) -> PatchCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -190,32 +196,33 @@ class CustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchCustomFieldRequest,
-                     option: Optional[RequestOption] = None) -> PatchCustomFieldResponse:
+    async def apatch(self, request: PatchCustomFieldRequest, option: Optional[RequestOption] = None) -> PatchCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchCustomFieldResponse)
         response.raw = resp
 
         return response
-
-    def remove(self, request: RemoveCustomFieldRequest,
-               option: Optional[RequestOption] = None) -> RemoveCustomFieldResponse:
+        
+    def remove(self, request: RemoveCustomFieldRequest, option: Optional[RequestOption] = None) -> RemoveCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -228,26 +235,30 @@ class CustomField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: RemoveCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveCustomFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aremove(self, request: RemoveCustomFieldRequest,
-                      option: Optional[RequestOption] = None) -> RemoveCustomFieldResponse:
+    async def aremove(self, request: RemoveCustomFieldRequest, option: Optional[RequestOption] = None) -> RemoveCustomFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: RemoveCustomFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveCustomFieldResponse)
         response.raw = resp
 
         return response
+        
+    

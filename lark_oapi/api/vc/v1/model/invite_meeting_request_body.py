@@ -22,10 +22,9 @@ class InviteMeetingRequestBody(object):
 class InviteMeetingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._invite_meeting_request_body = InviteMeetingRequestBody()
-
     def invitees(self, invitees: List[MeetingUser]) -> "InviteMeetingRequestBodyBuilder":
         self._invite_meeting_request_body.invitees = invitees
         return self
-
+    
     def build(self) -> "InviteMeetingRequestBody":
         return self._invite_meeting_request_body

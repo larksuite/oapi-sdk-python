@@ -21,10 +21,9 @@ class AuditLogLoginInfo(object):
 class AuditLogLoginInfoBuilder(object):
     def __init__(self) -> None:
         self._audit_log_login_info = AuditLogLoginInfo()
-
     def login_type(self, login_type: str) -> "AuditLogLoginInfoBuilder":
         self._audit_log_login_info.login_type = login_type
         return self
-
+    
     def build(self) -> "AuditLogLoginInfo":
         return self._audit_log_login_info

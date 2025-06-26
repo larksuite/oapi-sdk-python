@@ -24,14 +24,12 @@ class SearchCalendarEventRequestBody(object):
 class SearchCalendarEventRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_calendar_event_request_body = SearchCalendarEventRequestBody()
-
     def query(self, query: str) -> "SearchCalendarEventRequestBodyBuilder":
         self._search_calendar_event_request_body.query = query
         return self
-
     def filter(self, filter: EventSearchFilter) -> "SearchCalendarEventRequestBodyBuilder":
         self._search_calendar_event_request_body.filter = filter
         return self
-
+    
     def build(self) -> "SearchCalendarEventRequestBody":
         return self._search_calendar_event_request_body

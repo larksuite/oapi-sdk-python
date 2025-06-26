@@ -24,9 +24,8 @@ class RecognizeBusinessLicenseRequestBuilder(object):
         recognize_business_license_request.uri = "/open-apis/document_ai/v1/business_license/recognize"
         recognize_business_license_request.token_types = {AccessTokenType.TENANT}
         self._recognize_business_license_request: RecognizeBusinessLicenseRequest = recognize_business_license_request
-
-    def request_body(self,
-                     request_body: RecognizeBusinessLicenseRequestBody) -> "RecognizeBusinessLicenseRequestBuilder":
+    
+    def request_body(self, request_body: RecognizeBusinessLicenseRequestBody) -> "RecognizeBusinessLicenseRequestBuilder":
         self._recognize_business_license_request.request_body = request_body
         self._recognize_business_license_request.body = request_body
         return self

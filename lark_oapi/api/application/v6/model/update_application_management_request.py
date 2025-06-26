@@ -25,14 +25,13 @@ class UpdateApplicationManagementRequestBuilder(object):
         update_application_management_request.uri = "/open-apis/application/v6/applications/:app_id/management"
         update_application_management_request.token_types = {AccessTokenType.TENANT}
         self._update_application_management_request: UpdateApplicationManagementRequest = update_application_management_request
-
+    
     def app_id(self, app_id: str) -> "UpdateApplicationManagementRequestBuilder":
         self._update_application_management_request.app_id = app_id
         self._update_application_management_request.paths["app_id"] = str(app_id)
         return self
-
-    def request_body(self,
-                     request_body: UpdateApplicationManagementRequestBody) -> "UpdateApplicationManagementRequestBuilder":
+    
+    def request_body(self, request_body: UpdateApplicationManagementRequestBody) -> "UpdateApplicationManagementRequestBuilder":
         self._update_application_management_request.request_body = request_body
         self._update_application_management_request.body = request_body
         return self

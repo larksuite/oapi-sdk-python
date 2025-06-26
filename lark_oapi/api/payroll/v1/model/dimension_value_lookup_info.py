@@ -25,18 +25,15 @@ class DimensionValueLookupInfo(object):
 class DimensionValueLookupInfoBuilder(object):
     def __init__(self) -> None:
         self._dimension_value_lookup_info = DimensionValueLookupInfo()
-
     def type(self, type: str) -> "DimensionValueLookupInfoBuilder":
         self._dimension_value_lookup_info.type = type
         return self
-
     def id(self, id: str) -> "DimensionValueLookupInfoBuilder":
         self._dimension_value_lookup_info.id = id
         return self
-
     def code(self, code: str) -> "DimensionValueLookupInfoBuilder":
         self._dimension_value_lookup_info.code = code
         return self
-
+    
     def build(self) -> "DimensionValueLookupInfo":
         return self._dimension_value_lookup_info

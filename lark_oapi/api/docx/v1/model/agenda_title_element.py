@@ -43,38 +43,30 @@ class AgendaTitleElement(object):
 class AgendaTitleElementBuilder(object):
     def __init__(self) -> None:
         self._agenda_title_element = AgendaTitleElement()
-
     def text_run(self, text_run: TextRun) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.text_run = text_run
         return self
-
     def mention_user(self, mention_user: MentionUser) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.mention_user = mention_user
         return self
-
     def mention_doc(self, mention_doc: MentionDoc) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.mention_doc = mention_doc
         return self
-
     def reminder(self, reminder: Reminder) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.reminder = reminder
         return self
-
     def file(self, file: InlineFile) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.file = file
         return self
-
     def undefined(self, undefined: UndefinedElement) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.undefined = undefined
         return self
-
     def inline_block(self, inline_block: InlineBlock) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.inline_block = inline_block
         return self
-
     def equation(self, equation: Equation) -> "AgendaTitleElementBuilder":
         self._agenda_title_element.equation = equation
         return self
-
+    
     def build(self) -> "AgendaTitleElement":
         return self._agenda_title_element

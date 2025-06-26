@@ -40,38 +40,30 @@ class JobStorefront(object):
 class JobStorefrontBuilder(object):
     def __init__(self) -> None:
         self._job_storefront = JobStorefront()
-
     def id(self, id: str) -> "JobStorefrontBuilder":
         self._job_storefront.id = id
         return self
-
     def name(self, name: I18n) -> "JobStorefrontBuilder":
         self._job_storefront.name = name
         return self
-
     def active_status(self, active_status: int) -> "JobStorefrontBuilder":
         self._job_storefront.active_status = active_status
         return self
-
     def department(self, department: JobDepartmentSimple) -> "JobStorefrontBuilder":
         self._job_storefront.department = department
         return self
-
     def address(self, address: CommonAddress) -> "JobStorefrontBuilder":
         self._job_storefront.address = address
         return self
-
     def manager(self, manager: JobUserInfo) -> "JobStorefrontBuilder":
         self._job_storefront.manager = manager
         return self
-
     def create_time(self, create_time: str) -> "JobStorefrontBuilder":
         self._job_storefront.create_time = create_time
         return self
-
     def remark(self, remark: I18n) -> "JobStorefrontBuilder":
         self._job_storefront.remark = remark
         return self
-
+    
     def build(self) -> "JobStorefront":
         return self._job_storefront

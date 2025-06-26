@@ -23,11 +23,12 @@ class ListTabsChatTabRequestBuilder(object):
         list_tabs_chat_tab_request.uri = "/open-apis/im/v1/chats/:chat_id/chat_tabs/list_tabs"
         list_tabs_chat_tab_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_tabs_chat_tab_request: ListTabsChatTabRequest = list_tabs_chat_tab_request
-
+    
     def chat_id(self, chat_id: str) -> "ListTabsChatTabRequestBuilder":
         self._list_tabs_chat_tab_request.chat_id = chat_id
         self._list_tabs_chat_tab_request.paths["chat_id"] = str(chat_id)
         return self
+    
 
     def build(self) -> ListTabsChatTabRequest:
         return self._list_tabs_chat_tab_request

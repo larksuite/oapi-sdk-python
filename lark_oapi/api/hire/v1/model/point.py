@@ -21,10 +21,9 @@ class Point(object):
 class PointBuilder(object):
     def __init__(self) -> None:
         self._point = Point()
-
     def amount(self, amount: int) -> "PointBuilder":
         self._point.amount = amount
         return self
-
+    
     def build(self) -> "Point":
         return self._point

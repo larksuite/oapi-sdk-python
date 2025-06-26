@@ -79,110 +79,84 @@ class InterviewExtendV2(object):
 class InterviewExtendV2Builder(object):
     def __init__(self) -> None:
         self._interview_extend_v2 = InterviewExtendV2()
-
     def id(self, id: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.id = id
         return self
-
     def begin_time(self, begin_time: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.begin_time = begin_time
         return self
-
     def end_time(self, end_time: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.end_time = end_time
         return self
-
     def round(self, round: int) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.round = round
         return self
-
     def interview_record_list(self, interview_record_list: List[InterviewRecordV2]) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.interview_record_list = interview_record_list
         return self
-
     def feedback_submit_time(self, feedback_submit_time: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.feedback_submit_time = feedback_submit_time
         return self
-
     def stage_id(self, stage_id: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.stage_id = stage_id
         return self
-
     def application_id(self, application_id: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.application_id = application_id
         return self
-
     def stage(self, stage: IdNameObject) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.stage = stage
         return self
-
     def creator(self, creator: IdNameObject) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.creator = creator
         return self
-
     def create_time(self, create_time: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.create_time = create_time
         return self
-
     def update_time(self, update_time: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.update_time = update_time
         return self
-
     def interview_round_summary(self, interview_round_summary: int) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.interview_round_summary = interview_round_summary
         return self
-
     def interview_arrangement_id(self, interview_arrangement_id: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.interview_arrangement_id = interview_arrangement_id
         return self
-
     def interview_type(self, interview_type: int) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.interview_type = interview_type
         return self
-
     def talent_time_zone(self, talent_time_zone: CodeNameObject) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.talent_time_zone = talent_time_zone
         return self
-
     def contact_user(self, contact_user: IdNameObject) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.contact_user = contact_user
         return self
-
     def contact_mobile(self, contact_mobile: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.contact_mobile = contact_mobile
         return self
-
     def remark(self, remark: str) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.remark = remark
         return self
-
     def address(self, address: BaseAddressV2) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.address = address
         return self
-
     def video_type(self, video_type: int) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.video_type = video_type
         return self
-
     def arrangement_status(self, arrangement_status: int) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.arrangement_status = arrangement_status
         return self
-
     def arrangement_type(self, arrangement_type: int) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.arrangement_type = arrangement_type
         return self
-
     def arrangement_appointment_kind(self, arrangement_appointment_kind: int) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.arrangement_appointment_kind = arrangement_appointment_kind
         return self
-
     def meeting_room_list(self, meeting_room_list: List[InterviewMeetingRoom]) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.meeting_room_list = meeting_room_list
         return self
-
     def interview_round_type(self, interview_round_type: IdNameObject) -> "InterviewExtendV2Builder":
         self._interview_extend_v2.interview_round_type = interview_round_type
         return self
-
+    
     def build(self) -> "InterviewExtendV2":
         return self._interview_extend_v2

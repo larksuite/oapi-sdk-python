@@ -21,10 +21,9 @@ class Attachment(object):
 class AttachmentBuilder(object):
     def __init__(self) -> None:
         self._attachment = Attachment()
-
     def file_id(self, file_id: str) -> "AttachmentBuilder":
         self._attachment.file_id = file_id
         return self
-
+    
     def build(self) -> "Attachment":
         return self._attachment

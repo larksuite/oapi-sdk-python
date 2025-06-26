@@ -24,14 +24,12 @@ class BankInfo(object):
 class BankInfoBuilder(object):
     def __init__(self) -> None:
         self._bank_info = BankInfo()
-
     def bank_type(self, bank_type: str) -> "BankInfoBuilder":
         self._bank_info.bank_type = bank_type
         return self
-
     def value(self, value: BankEntity) -> "BankInfoBuilder":
         self._bank_info.value = value
         return self
-
+    
     def build(self) -> "BankInfo":
         return self._bank_info

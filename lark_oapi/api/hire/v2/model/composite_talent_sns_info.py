@@ -26,19 +26,15 @@ class CompositeTalentSnsInfo(object):
 class CompositeTalentSnsInfoBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_sns_info = CompositeTalentSnsInfo()
-
     def sns_type(self, sns_type: int) -> "CompositeTalentSnsInfoBuilder":
         self._composite_talent_sns_info.sns_type = sns_type
         return self
-
     def link(self, link: str) -> "CompositeTalentSnsInfoBuilder":
         self._composite_talent_sns_info.link = link
         return self
-
-    def customized_data_list(self,
-                             customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentSnsInfoBuilder":
+    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentSnsInfoBuilder":
         self._composite_talent_sns_info.customized_data_list = customized_data_list
         return self
-
+    
     def build(self) -> "CompositeTalentSnsInfo":
         return self._composite_talent_sns_info

@@ -26,18 +26,15 @@ class ListFileLikeResponseBody(object):
 class ListFileLikeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_file_like_response_body = ListFileLikeResponseBody()
-
     def items(self, items: List[FileLike]) -> "ListFileLikeResponseBodyBuilder":
         self._list_file_like_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListFileLikeResponseBodyBuilder":
         self._list_file_like_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListFileLikeResponseBodyBuilder":
         self._list_file_like_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListFileLikeResponseBody":
         return self._list_file_like_response_body

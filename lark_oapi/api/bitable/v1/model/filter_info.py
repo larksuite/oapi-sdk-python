@@ -27,18 +27,15 @@ class FilterInfo(object):
 class FilterInfoBuilder(object):
     def __init__(self) -> None:
         self._filter_info = FilterInfo()
-
     def conjunction(self, conjunction: str) -> "FilterInfoBuilder":
         self._filter_info.conjunction = conjunction
         return self
-
     def conditions(self, conditions: List[Condition]) -> "FilterInfoBuilder":
         self._filter_info.conditions = conditions
         return self
-
     def children(self, children: List[ChildrenFilter]) -> "FilterInfoBuilder":
         self._filter_info.children = children
         return self
-
+    
     def build(self) -> "FilterInfo":
         return self._filter_info

@@ -5,62 +5,62 @@ from lark_oapi.api.approval.v4 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CheckExternalInstanceRequest = CheckExternalInstanceRequest.builder() \
-        .request_body(CheckExternalInstanceRequestBody.builder()
-                      .instances([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CheckExternalInstanceRequest = CheckExternalInstanceRequest.builder() \
+		.request_body(CheckExternalInstanceRequestBody.builder()
+					  .instances([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CheckExternalInstanceResponse = client.approval.v4.external_instance.check(request)
+	# 发起请求
+	response: CheckExternalInstanceResponse = client.approval.v4.external_instance.check(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.approval.v4.external_instance.check failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.approval.v4.external_instance.check failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CheckExternalInstanceRequest = CheckExternalInstanceRequest.builder() \
-        .request_body(CheckExternalInstanceRequestBody.builder()
-                      .instances([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CheckExternalInstanceRequest = CheckExternalInstanceRequest.builder() \
+		.request_body(CheckExternalInstanceRequestBody.builder()
+					  .instances([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CheckExternalInstanceResponse = await client.approval.v4.external_instance.acheck(request)
+	# 发起请求
+	response: CheckExternalInstanceResponse = await client.approval.v4.external_instance.acheck(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.approval.v4.external_instance.acheck failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.approval.v4.external_instance.acheck failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

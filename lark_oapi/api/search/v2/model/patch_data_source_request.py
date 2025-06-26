@@ -25,12 +25,12 @@ class PatchDataSourceRequestBuilder(object):
         patch_data_source_request.uri = "/open-apis/search/v2/data_sources/:data_source_id"
         patch_data_source_request.token_types = {AccessTokenType.TENANT}
         self._patch_data_source_request: PatchDataSourceRequest = patch_data_source_request
-
+    
     def data_source_id(self, data_source_id: str) -> "PatchDataSourceRequestBuilder":
         self._patch_data_source_request.data_source_id = data_source_id
         self._patch_data_source_request.paths["data_source_id"] = str(data_source_id)
         return self
-
+    
     def request_body(self, request_body: PatchDataSourceRequestBody) -> "PatchDataSourceRequestBuilder":
         self._patch_data_source_request.request_body = request_body
         self._patch_data_source_request.body = request_body

@@ -27,26 +27,23 @@ class BatchQueryExternalBackgroundCheckRequestBuilder(object):
         batch_query_external_background_check_request.uri = "/open-apis/hire/v1/external_background_checks/batch_query"
         batch_query_external_background_check_request.token_types = {AccessTokenType.TENANT}
         self._batch_query_external_background_check_request: BatchQueryExternalBackgroundCheckRequest = batch_query_external_background_check_request
-
-    def external_application_id(self,
-                                external_application_id: str) -> "BatchQueryExternalBackgroundCheckRequestBuilder":
+    
+    def external_application_id(self, external_application_id: str) -> "BatchQueryExternalBackgroundCheckRequestBuilder":
         self._batch_query_external_background_check_request.external_application_id = external_application_id
-        self._batch_query_external_background_check_request.add_query("external_application_id",
-                                                                      external_application_id)
+        self._batch_query_external_background_check_request.add_query("external_application_id", external_application_id)
         return self
-
+    
     def page_size(self, page_size: int) -> "BatchQueryExternalBackgroundCheckRequestBuilder":
         self._batch_query_external_background_check_request.page_size = page_size
         self._batch_query_external_background_check_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "BatchQueryExternalBackgroundCheckRequestBuilder":
         self._batch_query_external_background_check_request.page_token = page_token
         self._batch_query_external_background_check_request.add_query("page_token", page_token)
         return self
-
-    def request_body(self,
-                     request_body: BatchQueryExternalBackgroundCheckRequestBody) -> "BatchQueryExternalBackgroundCheckRequestBuilder":
+    
+    def request_body(self, request_body: BatchQueryExternalBackgroundCheckRequestBody) -> "BatchQueryExternalBackgroundCheckRequestBuilder":
         self._batch_query_external_background_check_request.request_body = request_body
         self._batch_query_external_background_check_request.body = request_body
         return self

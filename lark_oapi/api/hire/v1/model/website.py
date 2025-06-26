@@ -28,22 +28,18 @@ class Website(object):
 class WebsiteBuilder(object):
     def __init__(self) -> None:
         self._website = Website()
-
     def id(self, id: str) -> "WebsiteBuilder":
         self._website.id = id
         return self
-
     def name(self, name: I18n) -> "WebsiteBuilder":
         self._website.name = name
         return self
-
     def process_type_list(self, process_type_list: List[int]) -> "WebsiteBuilder":
         self._website.process_type_list = process_type_list
         return self
-
     def job_channel_id(self, job_channel_id: str) -> "WebsiteBuilder":
         self._website.job_channel_id = job_channel_id
         return self
-
+    
     def build(self) -> "Website":
         return self._website

@@ -26,18 +26,15 @@ class ListWorkingHoursTypeResponseBody(object):
 class ListWorkingHoursTypeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_working_hours_type_response_body = ListWorkingHoursTypeResponseBody()
-
     def items(self, items: List[WorkingHoursType]) -> "ListWorkingHoursTypeResponseBodyBuilder":
         self._list_working_hours_type_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "ListWorkingHoursTypeResponseBodyBuilder":
         self._list_working_hours_type_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListWorkingHoursTypeResponseBodyBuilder":
         self._list_working_hours_type_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "ListWorkingHoursTypeResponseBody":
         return self._list_working_hours_type_response_body

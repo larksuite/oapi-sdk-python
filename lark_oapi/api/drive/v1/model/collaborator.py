@@ -27,22 +27,18 @@ class Collaborator(object):
 class CollaboratorBuilder(object):
     def __init__(self) -> None:
         self._collaborator = Collaborator()
-
     def member_type(self, member_type: str) -> "CollaboratorBuilder":
         self._collaborator.member_type = member_type
         return self
-
     def member_open_id(self, member_open_id: str) -> "CollaboratorBuilder":
         self._collaborator.member_open_id = member_open_id
         return self
-
     def member_user_id(self, member_user_id: str) -> "CollaboratorBuilder":
         self._collaborator.member_user_id = member_user_id
         return self
-
     def perm(self, perm: str) -> "CollaboratorBuilder":
         self._collaborator.perm = perm
         return self
-
+    
     def build(self) -> "Collaborator":
         return self._collaborator

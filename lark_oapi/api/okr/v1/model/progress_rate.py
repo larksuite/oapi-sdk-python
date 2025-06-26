@@ -23,14 +23,12 @@ class ProgressRate(object):
 class ProgressRateBuilder(object):
     def __init__(self) -> None:
         self._progress_rate = ProgressRate()
-
     def percent(self, percent: int) -> "ProgressRateBuilder":
         self._progress_rate.percent = percent
         return self
-
     def status(self, status: int) -> "ProgressRateBuilder":
         self._progress_rate.status = status
         return self
-
+    
     def build(self) -> "ProgressRate":
         return self._progress_rate

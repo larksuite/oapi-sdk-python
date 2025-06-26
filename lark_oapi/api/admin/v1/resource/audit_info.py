@@ -30,26 +30,30 @@ class AuditInfo(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAuditInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAuditInfoResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListAuditInfoRequest,
-                    option: Optional[RequestOption] = None) -> ListAuditInfoResponse:
+    async def alist(self, request: ListAuditInfoRequest, option: Optional[RequestOption] = None) -> ListAuditInfoResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAuditInfoResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAuditInfoResponse)
         response.raw = resp
 
         return response
+        
+    

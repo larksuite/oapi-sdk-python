@@ -26,18 +26,15 @@ class BaseLocation(object):
 class BaseLocationBuilder(object):
     def __init__(self) -> None:
         self._base_location = BaseLocation()
-
     def name(self, name: I18n) -> "BaseLocationBuilder":
         self._base_location.name = name
         return self
-
     def code(self, code: str) -> "BaseLocationBuilder":
         self._base_location.code = code
         return self
-
     def location_type(self, location_type: int) -> "BaseLocationBuilder":
         self._base_location.location_type = location_type
         return self
-
+    
     def build(self) -> "BaseLocation":
         return self._base_location

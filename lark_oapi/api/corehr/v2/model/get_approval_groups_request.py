@@ -24,16 +24,17 @@ class GetApprovalGroupsRequestBuilder(object):
         get_approval_groups_request.uri = "/open-apis/corehr/v2/approval_groups/:process_id"
         get_approval_groups_request.token_types = {AccessTokenType.TENANT}
         self._get_approval_groups_request: GetApprovalGroupsRequest = get_approval_groups_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetApprovalGroupsRequestBuilder":
         self._get_approval_groups_request.user_id_type = user_id_type
         self._get_approval_groups_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def process_id(self, process_id: str) -> "GetApprovalGroupsRequestBuilder":
         self._get_approval_groups_request.process_id = process_id
         self._get_approval_groups_request.paths["process_id"] = str(process_id)
         return self
+    
 
     def build(self) -> GetApprovalGroupsRequest:
         return self._get_approval_groups_request

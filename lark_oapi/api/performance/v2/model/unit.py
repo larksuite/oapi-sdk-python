@@ -27,18 +27,15 @@ class Unit(object):
 class UnitBuilder(object):
     def __init__(self) -> None:
         self._unit = Unit()
-
     def unit_id(self, unit_id: str) -> "UnitBuilder":
         self._unit.unit_id = unit_id
         return self
-
     def name(self, name: I18n) -> "UnitBuilder":
         self._unit.name = name
         return self
-
     def fields(self, fields: List[Field]) -> "UnitBuilder":
         self._unit.fields = fields
         return self
-
+    
     def build(self) -> "Unit":
         return self._unit

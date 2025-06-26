@@ -27,22 +27,18 @@ class ProjectCompanyDeptMapping(object):
 class ProjectCompanyDeptMappingBuilder(object):
     def __init__(self) -> None:
         self._project_company_dept_mapping = ProjectCompanyDeptMapping()
-
     def project_union_id(self, project_union_id: str) -> "ProjectCompanyDeptMappingBuilder":
         self._project_company_dept_mapping.project_union_id = project_union_id
         return self
-
     def company_union_id(self, company_union_id: str) -> "ProjectCompanyDeptMappingBuilder":
         self._project_company_dept_mapping.company_union_id = company_union_id
         return self
-
     def is_all_department(self, is_all_department: bool) -> "ProjectCompanyDeptMappingBuilder":
         self._project_company_dept_mapping.is_all_department = is_all_department
         return self
-
     def department_union_id(self, department_union_id: str) -> "ProjectCompanyDeptMappingBuilder":
         self._project_company_dept_mapping.department_union_id = department_union_id
         return self
-
+    
     def build(self) -> "ProjectCompanyDeptMapping":
         return self._project_company_dept_mapping

@@ -25,12 +25,12 @@ class CancelApprovalInstanceRequestBuilder(object):
         cancel_approval_instance_request.uri = "/open-apis/apaas/v1/approval_instances/:approval_instance_id/cancel"
         cancel_approval_instance_request.token_types = {AccessTokenType.TENANT}
         self._cancel_approval_instance_request: CancelApprovalInstanceRequest = cancel_approval_instance_request
-
+    
     def approval_instance_id(self, approval_instance_id: str) -> "CancelApprovalInstanceRequestBuilder":
         self._cancel_approval_instance_request.approval_instance_id = approval_instance_id
         self._cancel_approval_instance_request.paths["approval_instance_id"] = str(approval_instance_id)
         return self
-
+    
     def request_body(self, request_body: CancelApprovalInstanceRequestBody) -> "CancelApprovalInstanceRequestBuilder":
         self._cancel_approval_instance_request.request_body = request_body
         self._cancel_approval_instance_request.body = request_body

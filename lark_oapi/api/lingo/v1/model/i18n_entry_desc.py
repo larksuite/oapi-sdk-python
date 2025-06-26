@@ -25,18 +25,15 @@ class I18nEntryDesc(object):
 class I18nEntryDescBuilder(object):
     def __init__(self) -> None:
         self._i18n_entry_desc = I18nEntryDesc()
-
     def language(self, language: int) -> "I18nEntryDescBuilder":
         self._i18n_entry_desc.language = language
         return self
-
     def description(self, description: str) -> "I18nEntryDescBuilder":
         self._i18n_entry_desc.description = description
         return self
-
     def rich_text(self, rich_text: str) -> "I18nEntryDescBuilder":
         self._i18n_entry_desc.rich_text = rich_text
         return self
-
+    
     def build(self) -> "I18nEntryDesc":
         return self._i18n_entry_desc

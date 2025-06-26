@@ -25,18 +25,15 @@ class UsageOverviewItem(object):
 class UsageOverviewItemBuilder(object):
     def __init__(self) -> None:
         self._usage_overview_item = UsageOverviewItem()
-
     def page_view(self, page_view: int) -> "UsageOverviewItemBuilder":
         self._usage_overview_item.page_view = page_view
         return self
-
     def unique_visitor(self, unique_visitor: int) -> "UsageOverviewItemBuilder":
         self._usage_overview_item.unique_visitor = unique_visitor
         return self
-
     def department_id(self, department_id: str) -> "UsageOverviewItemBuilder":
         self._usage_overview_item.department_id = department_id
         return self
-
+    
     def build(self) -> "UsageOverviewItem":
         return self._usage_overview_item

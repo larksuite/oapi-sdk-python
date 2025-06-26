@@ -30,26 +30,21 @@ class KnowledgeQaAnswerResponse(object):
 class KnowledgeQaAnswerResponseBuilder(object):
     def __init__(self) -> None:
         self._knowledge_qa_answer_response = KnowledgeQaAnswerResponse()
-
     def answer(self, answer: str) -> "KnowledgeQaAnswerResponseBuilder":
         self._knowledge_qa_answer_response.answer = answer
         return self
-
     def reasoning_content(self, reasoning_content: str) -> "KnowledgeQaAnswerResponseBuilder":
         self._knowledge_qa_answer_response.reasoning_content = reasoning_content
         return self
-
     def status_code(self, status_code: int) -> "KnowledgeQaAnswerResponseBuilder":
         self._knowledge_qa_answer_response.status_code = status_code
         return self
-
     def status_message(self, status_message: str) -> "KnowledgeQaAnswerResponseBuilder":
         self._knowledge_qa_answer_response.status_message = status_message
         return self
-
     def references(self, references: KnowledgeQaReference) -> "KnowledgeQaAnswerResponseBuilder":
         self._knowledge_qa_answer_response.references = references
         return self
-
+    
     def build(self) -> "KnowledgeQaAnswerResponse":
         return self._knowledge_qa_answer_response

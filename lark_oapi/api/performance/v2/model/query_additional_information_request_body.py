@@ -27,22 +27,18 @@ class QueryAdditionalInformationRequestBody(object):
 class QueryAdditionalInformationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_additional_information_request_body = QueryAdditionalInformationRequestBody()
-
     def semester_id(self, semester_id: str) -> "QueryAdditionalInformationRequestBodyBuilder":
         self._query_additional_information_request_body.semester_id = semester_id
         return self
-
     def item_ids(self, item_ids: List[str]) -> "QueryAdditionalInformationRequestBodyBuilder":
         self._query_additional_information_request_body.item_ids = item_ids
         return self
-
     def external_ids(self, external_ids: List[str]) -> "QueryAdditionalInformationRequestBodyBuilder":
         self._query_additional_information_request_body.external_ids = external_ids
         return self
-
     def reviewee_user_ids(self, reviewee_user_ids: List[str]) -> "QueryAdditionalInformationRequestBodyBuilder":
         self._query_additional_information_request_body.reviewee_user_ids = reviewee_user_ids
         return self
-
+    
     def build(self) -> "QueryAdditionalInformationRequestBody":
         return self._query_additional_information_request_body

@@ -33,34 +33,27 @@ class SetRoomAccessCodeRoomConfigRequestBody(object):
 class SetRoomAccessCodeRoomConfigRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._set_room_access_code_room_config_request_body = SetRoomAccessCodeRoomConfigRequestBody()
-
     def scope(self, scope: int) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.scope = scope
         return self
-
     def country_id(self, country_id: str) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.country_id = country_id
         return self
-
     def district_id(self, district_id: str) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.district_id = district_id
         return self
-
     def building_id(self, building_id: str) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.building_id = building_id
         return self
-
     def floor_name(self, floor_name: str) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.floor_name = floor_name
         return self
-
     def room_id(self, room_id: str) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.room_id = room_id
         return self
-
     def valid_day(self, valid_day: int) -> "SetRoomAccessCodeRoomConfigRequestBodyBuilder":
         self._set_room_access_code_room_config_request_body.valid_day = valid_day
         return self
-
+    
     def build(self) -> "SetRoomAccessCodeRoomConfigRequestBody":
         return self._set_room_access_code_room_config_request_body

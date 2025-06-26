@@ -25,12 +25,12 @@ class CreateEmployeeTypeRequestBuilder(object):
         create_employee_type_request.uri = "/open-apis/corehr/v1/employee_types"
         create_employee_type_request.token_types = {AccessTokenType.TENANT}
         self._create_employee_type_request: CreateEmployeeTypeRequest = create_employee_type_request
-
+    
     def client_token(self, client_token: str) -> "CreateEmployeeTypeRequestBuilder":
         self._create_employee_type_request.client_token = client_token
         self._create_employee_type_request.add_query("client_token", client_token)
         return self
-
+    
     def request_body(self, request_body: EmployeeType) -> "CreateEmployeeTypeRequestBuilder":
         self._create_employee_type_request.request_body = request_body
         self._create_employee_type_request.body = request_body

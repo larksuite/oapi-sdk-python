@@ -27,22 +27,18 @@ class UserAuthDataRelation(object):
 class UserAuthDataRelationBuilder(object):
     def __init__(self) -> None:
         self._user_auth_data_relation = UserAuthDataRelation()
-
     def root_dimension_type(self, root_dimension_type: str) -> "UserAuthDataRelationBuilder":
         self._user_auth_data_relation.root_dimension_type = root_dimension_type
         return self
-
     def sub_dimension_types(self, sub_dimension_types: List[str]) -> "UserAuthDataRelationBuilder":
         self._user_auth_data_relation.sub_dimension_types = sub_dimension_types
         return self
-
     def authorized_user_ids(self, authorized_user_ids: List[str]) -> "UserAuthDataRelationBuilder":
         self._user_auth_data_relation.authorized_user_ids = authorized_user_ids
         return self
-
     def uams_app_id(self, uams_app_id: str) -> "UserAuthDataRelationBuilder":
         self._user_auth_data_relation.uams_app_id = uams_app_id
         return self
-
+    
     def build(self) -> "UserAuthDataRelation":
         return self._user_auth_data_relation

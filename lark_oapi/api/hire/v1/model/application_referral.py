@@ -25,18 +25,15 @@ class ApplicationReferral(object):
 class ApplicationReferralBuilder(object):
     def __init__(self) -> None:
         self._application_referral = ApplicationReferral()
-
     def id(self, id: str) -> "ApplicationReferralBuilder":
         self._application_referral.id = id
         return self
-
     def name(self, name: str) -> "ApplicationReferralBuilder":
         self._application_referral.name = name
         return self
-
     def en_name(self, en_name: str) -> "ApplicationReferralBuilder":
         self._application_referral.en_name = en_name
         return self
-
+    
     def build(self) -> "ApplicationReferral":
         return self._application_referral

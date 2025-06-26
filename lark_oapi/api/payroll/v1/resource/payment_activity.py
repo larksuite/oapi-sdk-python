@@ -19,8 +19,7 @@ class PaymentActivity(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def archive(self, request: ArchivePaymentActivityRequest,
-                option: Optional[RequestOption] = None) -> ArchivePaymentActivityResponse:
+    def archive(self, request: ArchivePaymentActivityRequest, option: Optional[RequestOption] = None) -> ArchivePaymentActivityResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class PaymentActivity(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ArchivePaymentActivityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ArchivePaymentActivityResponse)
+        response: ArchivePaymentActivityResponse = JSON.unmarshal(str(resp.content, UTF_8), ArchivePaymentActivityResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aarchive(self, request: ArchivePaymentActivityRequest,
-                       option: Optional[RequestOption] = None) -> ArchivePaymentActivityResponse:
+    async def aarchive(self, request: ArchivePaymentActivityRequest, option: Optional[RequestOption] = None) -> ArchivePaymentActivityResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ArchivePaymentActivityResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ArchivePaymentActivityResponse)
+        response: ArchivePaymentActivityResponse = JSON.unmarshal(str(resp.content, UTF_8), ArchivePaymentActivityResponse)
         response.raw = resp
 
         return response
-
-    def list(self, request: ListPaymentActivityRequest,
-             option: Optional[RequestOption] = None) -> ListPaymentActivityResponse:
+        
+    def list(self, request: ListPaymentActivityRequest, option: Optional[RequestOption] = None) -> ListPaymentActivityResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,26 +71,30 @@ class PaymentActivity(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListPaymentActivityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPaymentActivityResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListPaymentActivityRequest,
-                    option: Optional[RequestOption] = None) -> ListPaymentActivityResponse:
+    async def alist(self, request: ListPaymentActivityRequest, option: Optional[RequestOption] = None) -> ListPaymentActivityResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListPaymentActivityResponse = JSON.unmarshal(str(resp.content, UTF_8), ListPaymentActivityResponse)
         response.raw = resp
 
         return response
+        
+    

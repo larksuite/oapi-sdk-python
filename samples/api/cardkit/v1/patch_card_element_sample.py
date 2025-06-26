@@ -5,70 +5,70 @@ from lark_oapi.api.cardkit.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: PatchCardElementRequest = PatchCardElementRequest.builder() \
-        .card_id("7355439197428236291") \
-        .element_id("elem_63529372") \
-        .request_body(PatchCardElementRequestBody.builder()
-                      .partial_element("")
-                      .uuid("191857678434")
-                      .sequence(1712578784)
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: PatchCardElementRequest = PatchCardElementRequest.builder() \
+		.card_id("7355439197428236291") \
+		.element_id("elem_63529372") \
+		.request_body(PatchCardElementRequestBody.builder()
+					  .partial_element("")
+					  .uuid("191857678434")
+					  .sequence(1712578784)
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: PatchCardElementResponse = client.cardkit.v1.card_element.patch(request)
+	# 发起请求
+	response: PatchCardElementResponse = client.cardkit.v1.card_element.patch(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.cardkit.v1.card_element.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.cardkit.v1.card_element.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: PatchCardElementRequest = PatchCardElementRequest.builder() \
-        .card_id("7355439197428236291") \
-        .element_id("elem_63529372") \
-        .request_body(PatchCardElementRequestBody.builder()
-                      .partial_element("")
-                      .uuid("191857678434")
-                      .sequence(1712578784)
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: PatchCardElementRequest = PatchCardElementRequest.builder() \
+		.card_id("7355439197428236291") \
+		.element_id("elem_63529372") \
+		.request_body(PatchCardElementRequestBody.builder()
+					  .partial_element("")
+					  .uuid("191857678434")
+					  .sequence(1712578784)
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: PatchCardElementResponse = await client.cardkit.v1.card_element.apatch(request)
+	# 发起请求
+	response: PatchCardElementResponse = await client.cardkit.v1.card_element.apatch(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.cardkit.v1.card_element.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.cardkit.v1.card_element.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

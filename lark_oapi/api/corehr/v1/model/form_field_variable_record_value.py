@@ -22,10 +22,9 @@ class FormFieldVariableRecordValue(object):
 class FormFieldVariableRecordValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_record_value = FormFieldVariableRecordValue()
-
     def values(self, values: FormFieldVariableRecordValueExample) -> "FormFieldVariableRecordValueBuilder":
         self._form_field_variable_record_value.values = values
         return self
-
+    
     def build(self) -> "FormFieldVariableRecordValue":
         return self._form_field_variable_record_value

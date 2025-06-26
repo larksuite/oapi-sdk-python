@@ -40,42 +40,33 @@ class Tasklist(object):
 class TasklistBuilder(object):
     def __init__(self) -> None:
         self._tasklist = Tasklist()
-
     def guid(self, guid: str) -> "TasklistBuilder":
         self._tasklist.guid = guid
         return self
-
     def name(self, name: str) -> "TasklistBuilder":
         self._tasklist.name = name
         return self
-
     def creator(self, creator: Member) -> "TasklistBuilder":
         self._tasklist.creator = creator
         return self
-
     def owner(self, owner: Member) -> "TasklistBuilder":
         self._tasklist.owner = owner
         return self
-
     def members(self, members: List[Member]) -> "TasklistBuilder":
         self._tasklist.members = members
         return self
-
     def url(self, url: str) -> "TasklistBuilder":
         self._tasklist.url = url
         return self
-
     def created_at(self, created_at: int) -> "TasklistBuilder":
         self._tasklist.created_at = created_at
         return self
-
     def updated_at(self, updated_at: int) -> "TasklistBuilder":
         self._tasklist.updated_at = updated_at
         return self
-
     def archive_msec(self, archive_msec: int) -> "TasklistBuilder":
         self._tasklist.archive_msec = archive_msec
         return self
-
+    
     def build(self) -> "Tasklist":
         return self._tasklist

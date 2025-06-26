@@ -24,7 +24,7 @@ class CreateSpaceRequestBuilder(object):
         create_space_request.uri = "/open-apis/wiki/v2/spaces"
         create_space_request.token_types = {AccessTokenType.USER}
         self._create_space_request: CreateSpaceRequest = create_space_request
-
+    
     def request_body(self, request_body: Space) -> "CreateSpaceRequestBuilder":
         self._create_space_request.request_body = request_body
         self._create_space_request.body = request_body

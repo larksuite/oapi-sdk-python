@@ -26,18 +26,15 @@ class UserTaskWfInstanceType(object):
 class UserTaskWfInstanceTypeBuilder(object):
     def __init__(self) -> None:
         self._user_task_wf_instance_type = UserTaskWfInstanceType()
-
     def id(self, id: str) -> "UserTaskWfInstanceTypeBuilder":
         self._user_task_wf_instance_type.id = id
         return self
-
     def label(self, label: List[I18n]) -> "UserTaskWfInstanceTypeBuilder":
         self._user_task_wf_instance_type.label = label
         return self
-
     def status(self, status: str) -> "UserTaskWfInstanceTypeBuilder":
         self._user_task_wf_instance_type.status = status
         return self
-
+    
     def build(self) -> "UserTaskWfInstanceType":
         return self._user_task_wf_instance_type

@@ -27,22 +27,18 @@ class AppRolesInfo(object):
 class AppRolesInfoBuilder(object):
     def __init__(self) -> None:
         self._app_roles_info = AppRolesInfo()
-
     def admins(self, admins: List[int]) -> "AppRolesInfoBuilder":
         self._app_roles_info.admins = admins
         return self
-
     def developers(self, developers: List[int]) -> "AppRolesInfoBuilder":
         self._app_roles_info.developers = developers
         return self
-
     def test_users(self, test_users: List[int]) -> "AppRolesInfoBuilder":
         self._app_roles_info.test_users = test_users
         return self
-
     def data_admins(self, data_admins: List[int]) -> "AppRolesInfoBuilder":
         self._app_roles_info.data_admins = data_admins
         return self
-
+    
     def build(self) -> "AppRolesInfo":
         return self._app_roles_info

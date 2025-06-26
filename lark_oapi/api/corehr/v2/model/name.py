@@ -41,50 +41,39 @@ class Name(object):
 class NameBuilder(object):
     def __init__(self) -> None:
         self._name = Name()
-
     def full_name(self, full_name: str) -> "NameBuilder":
         self._name.full_name = full_name
         return self
-
     def first_name(self, first_name: str) -> "NameBuilder":
         self._name.first_name = first_name
         return self
-
     def middle_name(self, middle_name: str) -> "NameBuilder":
         self._name.middle_name = middle_name
         return self
-
     def name_primary(self, name_primary: str) -> "NameBuilder":
         self._name.name_primary = name_primary
         return self
-
     def local_first_name(self, local_first_name: str) -> "NameBuilder":
         self._name.local_first_name = local_first_name
         return self
-
     def local_middle_name(self, local_middle_name: str) -> "NameBuilder":
         self._name.local_middle_name = local_middle_name
         return self
-
     def local_primary(self, local_primary: str) -> "NameBuilder":
         self._name.local_primary = local_primary
         return self
-
     def country_region_id(self, country_region_id: str) -> "NameBuilder":
         self._name.country_region_id = country_region_id
         return self
-
     def custom_local_name(self, custom_local_name: str) -> "NameBuilder":
         self._name.custom_local_name = custom_local_name
         return self
-
     def custom_western_name(self, custom_western_name: str) -> "NameBuilder":
         self._name.custom_western_name = custom_western_name
         return self
-
     def additional_name(self, additional_name: str) -> "NameBuilder":
         self._name.additional_name = additional_name
         return self
-
+    
     def build(self) -> "Name":
         return self._name

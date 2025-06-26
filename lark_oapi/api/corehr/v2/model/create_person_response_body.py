@@ -22,10 +22,9 @@ class CreatePersonResponseBody(object):
 class CreatePersonResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_person_response_body = CreatePersonResponseBody()
-
     def person(self, person: PersonInfo) -> "CreatePersonResponseBodyBuilder":
         self._create_person_response_body.person = person
         return self
-
+    
     def build(self) -> "CreatePersonResponseBody":
         return self._create_person_response_body

@@ -26,18 +26,15 @@ class FeedGroupCreator(object):
 class FeedGroupCreatorBuilder(object):
     def __init__(self) -> None:
         self._feed_group_creator = FeedGroupCreator()
-
     def type(self, type: str) -> "FeedGroupCreatorBuilder":
         self._feed_group_creator.type = type
         return self
-
     def name(self, name: str) -> "FeedGroupCreatorBuilder":
         self._feed_group_creator.name = name
         return self
-
     def rules(self, rules: FeedGroupRules) -> "FeedGroupCreatorBuilder":
         self._feed_group_creator.rules = rules
         return self
-
+    
     def build(self) -> "FeedGroupCreator":
         return self._feed_group_creator

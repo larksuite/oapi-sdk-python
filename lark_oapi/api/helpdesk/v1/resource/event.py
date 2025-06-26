@@ -19,8 +19,7 @@ class Event(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def subscribe(self, request: SubscribeEventRequest,
-                  option: Optional[RequestOption] = None) -> SubscribeEventResponse:
+    def subscribe(self, request: SubscribeEventRequest, option: Optional[RequestOption] = None) -> SubscribeEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,32 +32,33 @@ class Event(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SubscribeEventResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeEventResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asubscribe(self, request: SubscribeEventRequest,
-                         option: Optional[RequestOption] = None) -> SubscribeEventResponse:
+    async def asubscribe(self, request: SubscribeEventRequest, option: Optional[RequestOption] = None) -> SubscribeEventResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SubscribeEventResponse = JSON.unmarshal(str(resp.content, UTF_8), SubscribeEventResponse)
         response.raw = resp
 
         return response
-
-    def unsubscribe(self, request: UnsubscribeEventRequest,
-                    option: Optional[RequestOption] = None) -> UnsubscribeEventResponse:
+        
+    def unsubscribe(self, request: UnsubscribeEventRequest, option: Optional[RequestOption] = None) -> UnsubscribeEventResponse:
         if option is None:
             option = RequestOption()
 
@@ -71,26 +71,30 @@ class Event(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UnsubscribeEventResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscribeEventResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aunsubscribe(self, request: UnsubscribeEventRequest,
-                           option: Optional[RequestOption] = None) -> UnsubscribeEventResponse:
+    async def aunsubscribe(self, request: UnsubscribeEventRequest, option: Optional[RequestOption] = None) -> UnsubscribeEventResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UnsubscribeEventResponse = JSON.unmarshal(str(resp.content, UTF_8), UnsubscribeEventResponse)
         response.raw = resp
 
         return response
+        
+    

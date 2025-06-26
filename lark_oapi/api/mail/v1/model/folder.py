@@ -31,30 +31,24 @@ class Folder(object):
 class FolderBuilder(object):
     def __init__(self) -> None:
         self._folder = Folder()
-
     def id(self, id: str) -> "FolderBuilder":
         self._folder.id = id
         return self
-
     def name(self, name: str) -> "FolderBuilder":
         self._folder.name = name
         return self
-
     def parent_folder_id(self, parent_folder_id: int) -> "FolderBuilder":
         self._folder.parent_folder_id = parent_folder_id
         return self
-
     def folder_type(self, folder_type: int) -> "FolderBuilder":
         self._folder.folder_type = folder_type
         return self
-
     def unread_message_count(self, unread_message_count: int) -> "FolderBuilder":
         self._folder.unread_message_count = unread_message_count
         return self
-
     def unread_thread_count(self, unread_thread_count: int) -> "FolderBuilder":
         self._folder.unread_thread_count = unread_thread_count
         return self
-
+    
     def build(self) -> "Folder":
         return self._folder

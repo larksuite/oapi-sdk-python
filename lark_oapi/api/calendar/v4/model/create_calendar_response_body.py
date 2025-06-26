@@ -22,10 +22,9 @@ class CreateCalendarResponseBody(object):
 class CreateCalendarResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_calendar_response_body = CreateCalendarResponseBody()
-
     def calendar(self, calendar: Calendar) -> "CreateCalendarResponseBodyBuilder":
         self._create_calendar_response_body.calendar = calendar
         return self
-
+    
     def build(self) -> "CreateCalendarResponseBody":
         return self._create_calendar_response_body

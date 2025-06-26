@@ -25,18 +25,15 @@ class TalentResumeSource(object):
 class TalentResumeSourceBuilder(object):
     def __init__(self) -> None:
         self._talent_resume_source = TalentResumeSource()
-
     def id(self, id: str) -> "TalentResumeSourceBuilder":
         self._talent_resume_source.id = id
         return self
-
     def zh_name(self, zh_name: str) -> "TalentResumeSourceBuilder":
         self._talent_resume_source.zh_name = zh_name
         return self
-
     def en_name(self, en_name: str) -> "TalentResumeSourceBuilder":
         self._talent_resume_source.en_name = en_name
         return self
-
+    
     def build(self) -> "TalentResumeSource":
         return self._talent_resume_source

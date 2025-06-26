@@ -22,11 +22,9 @@ class GetReserveConfigAdminResponseBody(object):
 class GetReserveConfigAdminResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_reserve_config_admin_response_body = GetReserveConfigAdminResponseBody()
-
-    def reserve_admin_config(self,
-                             reserve_admin_config: ReserveAdminConfig) -> "GetReserveConfigAdminResponseBodyBuilder":
+    def reserve_admin_config(self, reserve_admin_config: ReserveAdminConfig) -> "GetReserveConfigAdminResponseBodyBuilder":
         self._get_reserve_config_admin_response_body.reserve_admin_config = reserve_admin_config
         return self
-
+    
     def build(self) -> "GetReserveConfigAdminResponseBody":
         return self._get_reserve_config_admin_response_body

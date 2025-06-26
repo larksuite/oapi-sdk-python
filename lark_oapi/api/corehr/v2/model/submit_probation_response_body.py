@@ -22,10 +22,9 @@ class SubmitProbationResponseBody(object):
 class SubmitProbationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._submit_probation_response_body = SubmitProbationResponseBody()
-
     def probation_info(self, probation_info: ProbationInfoForSubmit) -> "SubmitProbationResponseBodyBuilder":
         self._submit_probation_response_body.probation_info = probation_info
         return self
-
+    
     def build(self) -> "SubmitProbationResponseBody":
         return self._submit_probation_response_body

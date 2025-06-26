@@ -91,114 +91,84 @@ class GetTalentResponseBody(object):
 class GetTalentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_talent_response_body = GetTalentResponseBody()
-
     def talent_id(self, talent_id: str) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.talent_id = talent_id
         return self
-
     def basic_info(self, basic_info: CompositeTalentBasicInfo) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.basic_info = basic_info
         return self
-
     def education_list(self, education_list: List[CompositeTalentEducationInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.education_list = education_list
         return self
-
     def career_list(self, career_list: List[CompositeTalentCareerInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.career_list = career_list
         return self
-
     def project_list(self, project_list: List[CompositeTalentProjectInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.project_list = project_list
         return self
-
     def works_list(self, works_list: List[CompositeTalentWorksInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.works_list = works_list
         return self
-
     def award_list(self, award_list: List[CompositeTalentAwardInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.award_list = award_list
         return self
-
     def language_list(self, language_list: List[CompositeTalentLanguageInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.language_list = language_list
         return self
-
     def sns_list(self, sns_list: List[CompositeTalentSnsInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.sns_list = sns_list
         return self
-
     def resume_source_list(self, resume_source_list: List[TalentResumeSource]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.resume_source_list = resume_source_list
         return self
-
     def internship_list(self, internship_list: List[CompositeTalentInternshipInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.internship_list = internship_list
         return self
-
-    def customized_data_list(self, customized_data_list: List[
-        CompositeTalentCustomizedData]) -> "GetTalentResponseBodyBuilder":
+    def customized_data_list(self, customized_data_list: List[CompositeTalentCustomizedData]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.customized_data_list = customized_data_list
         return self
-
     def resume_attachment_id_list(self, resume_attachment_id_list: List[str]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.resume_attachment_id_list = resume_attachment_id_list
         return self
-
-    def resume_attachment_list(self,
-                               resume_attachment_list: List[TalentResumeAttachment]) -> "GetTalentResponseBodyBuilder":
+    def resume_attachment_list(self, resume_attachment_list: List[TalentResumeAttachment]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.resume_attachment_list = resume_attachment_list
         return self
-
-    def interview_registration_list(self, interview_registration_list: List[
-        TalentInterviewRegistrationSimple]) -> "GetTalentResponseBodyBuilder":
+    def interview_registration_list(self, interview_registration_list: List[TalentInterviewRegistrationSimple]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.interview_registration_list = interview_registration_list
         return self
-
     def registration_list(self, registration_list: List[RegistrationBasicInfo]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.registration_list = registration_list
         return self
-
     def is_onboarded(self, is_onboarded: bool) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.is_onboarded = is_onboarded
         return self
-
     def is_in_agency_period(self, is_in_agency_period: bool) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.is_in_agency_period = is_in_agency_period
         return self
-
     def top_degree(self, top_degree: int) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.top_degree = top_degree
         return self
-
     def talent_pool_id_list(self, talent_pool_id_list: List[str]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.talent_pool_id_list = talent_pool_id_list
         return self
-
-    def talent_folder_ref_list_v2(self,
-                                  talent_folder_ref_list_v2: List[TalentFolder]) -> "GetTalentResponseBodyBuilder":
+    def talent_folder_ref_list_v2(self, talent_folder_ref_list_v2: List[TalentFolder]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.talent_folder_ref_list_v2 = talent_folder_ref_list_v2
         return self
-
     def tag_list(self, tag_list: List[TalentTag]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.tag_list = tag_list
         return self
-
     def similar_info_v2(self, similar_info_v2: TalentSimilar) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.similar_info_v2 = similar_info_v2
         return self
-
     def block_info(self, block_info: TalentBlock) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.block_info = block_info
         return self
-
     def talent_pool_ref_list_v2(self, talent_pool_ref_list_v2: List[TalentPool]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.talent_pool_ref_list_v2 = talent_pool_ref_list_v2
         return self
-
     def note_list_v2(self, note_list_v2: List[TalentNote]) -> "GetTalentResponseBodyBuilder":
         self._get_talent_response_body.note_list_v2 = note_list_v2
         return self
-
+    
     def build(self) -> "GetTalentResponseBody":
         return self._get_talent_response_body

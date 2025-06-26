@@ -23,14 +23,12 @@ class CompetitionInfo(object):
 class CompetitionInfoBuilder(object):
     def __init__(self) -> None:
         self._competition_info = CompetitionInfo()
-
     def desc(self, desc: str) -> "CompetitionInfoBuilder":
         self._competition_info.desc = desc
         return self
-
     def name(self, name: str) -> "CompetitionInfoBuilder":
         self._competition_info.name = name
         return self
-
+    
     def build(self) -> "CompetitionInfo":
         return self._competition_info

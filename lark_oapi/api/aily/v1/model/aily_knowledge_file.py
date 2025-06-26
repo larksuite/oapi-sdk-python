@@ -27,22 +27,18 @@ class AilyKnowledgeFile(object):
 class AilyKnowledgeFileBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_file = AilyKnowledgeFile()
-
     def title(self, title: str) -> "AilyKnowledgeFileBuilder":
         self._aily_knowledge_file.title = title
         return self
-
     def mime_type(self, mime_type: str) -> "AilyKnowledgeFileBuilder":
         self._aily_knowledge_file.mime_type = mime_type
         return self
-
     def content(self, content: str) -> "AilyKnowledgeFileBuilder":
         self._aily_knowledge_file.content = content
         return self
-
     def source_url(self, source_url: str) -> "AilyKnowledgeFileBuilder":
         self._aily_knowledge_file.source_url = source_url
         return self
-
+    
     def build(self) -> "AilyKnowledgeFile":
         return self._aily_knowledge_file

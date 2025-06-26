@@ -21,10 +21,9 @@ class RecognizeFoodManageLicenseRequestBody(object):
 class RecognizeFoodManageLicenseRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_food_manage_license_request_body = RecognizeFoodManageLicenseRequestBody()
-
     def file(self, file: IO[Any]) -> "RecognizeFoodManageLicenseRequestBodyBuilder":
         self._recognize_food_manage_license_request_body.file = file
         return self
-
+    
     def build(self) -> "RecognizeFoodManageLicenseRequestBody":
         return self._recognize_food_manage_license_request_body

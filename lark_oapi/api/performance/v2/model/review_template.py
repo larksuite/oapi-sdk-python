@@ -35,30 +35,24 @@ class ReviewTemplate(object):
 class ReviewTemplateBuilder(object):
     def __init__(self) -> None:
         self._review_template = ReviewTemplate()
-
     def templates(self, templates: List[Template]) -> "ReviewTemplateBuilder":
         self._review_template.templates = templates
         return self
-
     def units(self, units: List[Unit]) -> "ReviewTemplateBuilder":
         self._review_template.units = units
         return self
-
     def review_template_id(self, review_template_id: str) -> "ReviewTemplateBuilder":
         self._review_template.review_template_id = review_template_id
         return self
-
     def name(self, name: I18n) -> "ReviewTemplateBuilder":
         self._review_template.name = name
         return self
-
     def description(self, description: I18n) -> "ReviewTemplateBuilder":
         self._review_template.description = description
         return self
-
     def status(self, status: str) -> "ReviewTemplateBuilder":
         self._review_template.status = status
         return self
-
+    
     def build(self) -> "ReviewTemplate":
         return self._review_template

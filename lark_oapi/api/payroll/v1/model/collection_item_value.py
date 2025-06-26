@@ -29,26 +29,21 @@ class CollectionItemValue(object):
 class CollectionItemValueBuilder(object):
     def __init__(self) -> None:
         self._collection_item_value = CollectionItemValue()
-
     def item_id(self, item_id: str) -> "CollectionItemValueBuilder":
         self._collection_item_value.item_id = item_id
         return self
-
     def value(self, value: str) -> "CollectionItemValueBuilder":
         self._collection_item_value.value = value
         return self
-
     def field_type(self, field_type: int) -> "CollectionItemValueBuilder":
         self._collection_item_value.field_type = field_type
         return self
-
     def currency_id(self, currency_id: str) -> "CollectionItemValueBuilder":
         self._collection_item_value.currency_id = currency_id
         return self
-
     def currency_code(self, currency_code: str) -> "CollectionItemValueBuilder":
         self._collection_item_value.currency_code = currency_code
         return self
-
+    
     def build(self) -> "CollectionItemValue":
         return self._collection_item_value

@@ -31,26 +31,21 @@ class TalentSchemaChildObject(object):
 class TalentSchemaChildObjectBuilder(object):
     def __init__(self) -> None:
         self._talent_schema_child_object = TalentSchemaChildObject()
-
     def id(self, id: str) -> "TalentSchemaChildObjectBuilder":
         self._talent_schema_child_object.id = id
         return self
-
     def active_status(self, active_status: int) -> "TalentSchemaChildObjectBuilder":
         self._talent_schema_child_object.active_status = active_status
         return self
-
     def is_customized(self, is_customized: bool) -> "TalentSchemaChildObjectBuilder":
         self._talent_schema_child_object.is_customized = is_customized
         return self
-
     def name(self, name: I18n) -> "TalentSchemaChildObjectBuilder":
         self._talent_schema_child_object.name = name
         return self
-
     def option_list(self, option_list: List[TalentSchemaOption]) -> "TalentSchemaChildObjectBuilder":
         self._talent_schema_child_object.option_list = option_list
         return self
-
+    
     def build(self) -> "TalentSchemaChildObject":
         return self._talent_schema_child_object

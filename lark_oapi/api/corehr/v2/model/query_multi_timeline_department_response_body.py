@@ -26,18 +26,15 @@ class QueryMultiTimelineDepartmentResponseBody(object):
 class QueryMultiTimelineDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_multi_timeline_department_response_body = QueryMultiTimelineDepartmentResponseBody()
-
     def items(self, items: List[DepartmentTimeline]) -> "QueryMultiTimelineDepartmentResponseBodyBuilder":
         self._query_multi_timeline_department_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "QueryMultiTimelineDepartmentResponseBodyBuilder":
         self._query_multi_timeline_department_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "QueryMultiTimelineDepartmentResponseBodyBuilder":
         self._query_multi_timeline_department_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "QueryMultiTimelineDepartmentResponseBody":
         return self._query_multi_timeline_department_response_body

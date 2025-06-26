@@ -26,17 +26,17 @@ class GetFileSubscriptionRequestBuilder(object):
         get_file_subscription_request.uri = "/open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
         get_file_subscription_request.token_types = {AccessTokenType.USER}
         self._get_file_subscription_request: GetFileSubscriptionRequest = get_file_subscription_request
-
+    
     def file_token(self, file_token: str) -> "GetFileSubscriptionRequestBuilder":
         self._get_file_subscription_request.file_token = file_token
         self._get_file_subscription_request.paths["file_token"] = str(file_token)
         return self
-
+    
     def subscription_id(self, subscription_id: str) -> "GetFileSubscriptionRequestBuilder":
         self._get_file_subscription_request.subscription_id = subscription_id
         self._get_file_subscription_request.paths["subscription_id"] = str(subscription_id)
         return self
-
+    
     def request_body(self, request_body: GetFileSubscriptionRequestBody) -> "GetFileSubscriptionRequestBuilder":
         self._get_file_subscription_request.request_body = request_body
         self._get_file_subscription_request.body = request_body

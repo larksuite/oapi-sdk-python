@@ -23,11 +23,12 @@ class PrimaryCalendarRequestBuilder(object):
         primary_calendar_request.uri = "/open-apis/calendar/v4/calendars/primary"
         primary_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._primary_calendar_request: PrimaryCalendarRequest = primary_calendar_request
-
+    
     def user_id_type(self, user_id_type: str) -> "PrimaryCalendarRequestBuilder":
         self._primary_calendar_request.user_id_type = user_id_type
         self._primary_calendar_request.add_query("user_id_type", user_id_type)
         return self
+    
 
     def build(self) -> PrimaryCalendarRequest:
         return self._primary_calendar_request

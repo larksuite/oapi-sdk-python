@@ -23,14 +23,12 @@ class CreateAccessTokenRequestBody(object):
 class CreateAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_access_token_request_body = CreateAccessTokenRequestBody()
-
     def grant_type(self, grant_type: str) -> "CreateAccessTokenRequestBodyBuilder":
         self._create_access_token_request_body.grant_type = grant_type
         return self
-
     def code(self, code: str) -> "CreateAccessTokenRequestBodyBuilder":
         self._create_access_token_request_body.code = code
         return self
-
+    
     def build(self) -> "CreateAccessTokenRequestBody":
         return self._create_access_token_request_body

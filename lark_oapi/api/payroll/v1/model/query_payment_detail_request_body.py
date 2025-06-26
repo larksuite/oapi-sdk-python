@@ -35,38 +35,30 @@ class QueryPaymentDetailRequestBody(object):
 class QueryPaymentDetailRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_payment_detail_request_body = QueryPaymentDetailRequestBody()
-
     def page_index(self, page_index: int) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.page_index = page_index
         return self
-
     def page_size(self, page_size: int) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.page_size = page_size
         return self
-
     def acct_item_ids(self, acct_item_ids: List[int]) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.acct_item_ids = acct_item_ids
         return self
-
     def employee_ids(self, employee_ids: List[str]) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.employee_ids = employee_ids
         return self
-
     def pay_period_start_date(self, pay_period_start_date: str) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.pay_period_start_date = pay_period_start_date
         return self
-
     def pay_period_end_date(self, pay_period_end_date: str) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.pay_period_end_date = pay_period_end_date
         return self
-
     def activity_ids(self, activity_ids: List[int]) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.activity_ids = activity_ids
         return self
-
     def include_segment_data(self, include_segment_data: bool) -> "QueryPaymentDetailRequestBodyBuilder":
         self._query_payment_detail_request_body.include_segment_data = include_segment_data
         return self
-
+    
     def build(self) -> "QueryPaymentDetailRequestBody":
         return self._query_payment_detail_request_body

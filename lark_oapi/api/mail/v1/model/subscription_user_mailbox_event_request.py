@@ -23,11 +23,12 @@ class SubscriptionUserMailboxEventRequestBuilder(object):
         subscription_user_mailbox_event_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/event/subscription"
         subscription_user_mailbox_event_request.token_types = {AccessTokenType.USER}
         self._subscription_user_mailbox_event_request: SubscriptionUserMailboxEventRequest = subscription_user_mailbox_event_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "SubscriptionUserMailboxEventRequestBuilder":
         self._subscription_user_mailbox_event_request.user_mailbox_id = user_mailbox_id
         self._subscription_user_mailbox_event_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
+    
 
     def build(self) -> SubscriptionUserMailboxEventRequest:
         return self._subscription_user_mailbox_event_request

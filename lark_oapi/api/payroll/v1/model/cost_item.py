@@ -26,18 +26,15 @@ class CostItem(object):
 class CostItemBuilder(object):
     def __init__(self) -> None:
         self._cost_item = CostItem()
-
     def id(self, id: str) -> "CostItemBuilder":
         self._cost_item.id = id
         return self
-
     def name(self, name: List[I18nContent]) -> "CostItemBuilder":
         self._cost_item.name = name
         return self
-
     def enable_correct(self, enable_correct: bool) -> "CostItemBuilder":
         self._cost_item.enable_correct = enable_correct
         return self
-
+    
     def build(self) -> "CostItem":
         return self._cost_item

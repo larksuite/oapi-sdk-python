@@ -25,18 +25,15 @@ class ConnectorInstanceRefInfo(object):
 class ConnectorInstanceRefInfoBuilder(object):
     def __init__(self) -> None:
         self._connector_instance_ref_info = ConnectorInstanceRefInfo()
-
     def source_api_name(self, source_api_name: str) -> "ConnectorInstanceRefInfoBuilder":
         self._connector_instance_ref_info.source_api_name = source_api_name
         return self
-
     def source_type(self, source_type: str) -> "ConnectorInstanceRefInfoBuilder":
         self._connector_instance_ref_info.source_type = source_type
         return self
-
     def extra(self, extra: Dict[str, str]) -> "ConnectorInstanceRefInfoBuilder":
         self._connector_instance_ref_info.extra = extra
         return self
-
+    
     def build(self) -> "ConnectorInstanceRefInfo":
         return self._connector_instance_ref_info

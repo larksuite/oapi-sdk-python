@@ -22,10 +22,9 @@ class ConnectorLog(object):
 class ConnectorLogBuilder(object):
     def __init__(self) -> None:
         self._connector_log = ConnectorLog()
-
     def log_data(self, log_data: List[ConnectorLogData]) -> "ConnectorLogBuilder":
         self._connector_log.log_data = log_data
         return self
-
+    
     def build(self) -> "ConnectorLog":
         return self._connector_log

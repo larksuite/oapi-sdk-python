@@ -22,10 +22,9 @@ class DeleteSpaceMemberResponseBody(object):
 class DeleteSpaceMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_space_member_response_body = DeleteSpaceMemberResponseBody()
-
     def member(self, member: Member) -> "DeleteSpaceMemberResponseBodyBuilder":
         self._delete_space_member_response_body.member = member
         return self
-
+    
     def build(self) -> "DeleteSpaceMemberResponseBody":
         return self._delete_space_member_response_body

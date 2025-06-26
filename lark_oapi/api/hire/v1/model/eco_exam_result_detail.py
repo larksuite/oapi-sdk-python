@@ -25,18 +25,15 @@ class EcoExamResultDetail(object):
 class EcoExamResultDetailBuilder(object):
     def __init__(self) -> None:
         self._eco_exam_result_detail = EcoExamResultDetail()
-
     def id(self, id: str) -> "EcoExamResultDetailBuilder":
         self._eco_exam_result_detail.id = id
         return self
-
     def name(self, name: str) -> "EcoExamResultDetailBuilder":
         self._eco_exam_result_detail.name = name
         return self
-
     def result(self, result: str) -> "EcoExamResultDetailBuilder":
         self._eco_exam_result_detail.result = result
         return self
-
+    
     def build(self) -> "EcoExamResultDetail":
         return self._eco_exam_result_detail

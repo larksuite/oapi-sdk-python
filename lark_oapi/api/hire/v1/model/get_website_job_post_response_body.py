@@ -22,10 +22,9 @@ class GetWebsiteJobPostResponseBody(object):
 class GetWebsiteJobPostResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_website_job_post_response_body = GetWebsiteJobPostResponseBody()
-
     def job_post(self, job_post: WebsiteJobPost) -> "GetWebsiteJobPostResponseBodyBuilder":
         self._get_website_job_post_response_body.job_post = job_post
         return self
-
+    
     def build(self) -> "GetWebsiteJobPostResponseBody":
         return self._get_website_job_post_response_body

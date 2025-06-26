@@ -27,22 +27,18 @@ class FilterSchema(object):
 class FilterSchemaBuilder(object):
     def __init__(self) -> None:
         self._filter_schema = FilterSchema()
-
     def field(self, field: str) -> "FilterSchemaBuilder":
         self._filter_schema.field = field
         return self
-
     def type(self, type: str) -> "FilterSchemaBuilder":
         self._filter_schema.type = type
         return self
-
     def default_val(self, default_val: str) -> "FilterSchemaBuilder":
         self._filter_schema.default_val = default_val
         return self
-
     def field_type(self, field_type: str) -> "FilterSchemaBuilder":
         self._filter_schema.field_type = field_type
         return self
-
+    
     def build(self) -> "FilterSchema":
         return self._filter_schema

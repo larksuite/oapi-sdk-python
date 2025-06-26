@@ -23,14 +23,12 @@ class CollectionDataPeriod(object):
 class CollectionDataPeriodBuilder(object):
     def __init__(self) -> None:
         self._collection_data_period = CollectionDataPeriod()
-
     def start_date(self, start_date: str) -> "CollectionDataPeriodBuilder":
         self._collection_data_period.start_date = start_date
         return self
-
     def end_date(self, end_date: str) -> "CollectionDataPeriodBuilder":
         self._collection_data_period.end_date = end_date
         return self
-
+    
     def build(self) -> "CollectionDataPeriod":
         return self._collection_data_period

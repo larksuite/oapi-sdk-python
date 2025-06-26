@@ -26,18 +26,15 @@ class SocialArchiveAdjustRecord(object):
 class SocialArchiveAdjustRecordBuilder(object):
     def __init__(self) -> None:
         self._social_archive_adjust_record = SocialArchiveAdjustRecord()
-
     def user_id(self, user_id: str) -> "SocialArchiveAdjustRecordBuilder":
         self._social_archive_adjust_record.user_id = user_id
         return self
-
     def record_type(self, record_type: str) -> "SocialArchiveAdjustRecordBuilder":
         self._social_archive_adjust_record.record_type = record_type
         return self
-
     def details(self, details: List[SocialArchiveDetail]) -> "SocialArchiveAdjustRecordBuilder":
         self._social_archive_adjust_record.details = details
         return self
-
+    
     def build(self) -> "SocialArchiveAdjustRecord":
         return self._social_archive_adjust_record

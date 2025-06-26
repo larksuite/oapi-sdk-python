@@ -23,14 +23,12 @@ class Device(object):
 class DeviceBuilder(object):
     def __init__(self) -> None:
         self._device = Device()
-
     def device_id(self, device_id: int) -> "DeviceBuilder":
         self._device.device_id = device_id
         return self
-
     def legacy_device_id(self, legacy_device_id: int) -> "DeviceBuilder":
         self._device.legacy_device_id = legacy_device_id
         return self
-
+    
     def build(self) -> "Device":
         return self._device

@@ -21,10 +21,9 @@ class CreateProbationAssessmentResponseBody(object):
 class CreateProbationAssessmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_probation_assessment_response_body = CreateProbationAssessmentResponseBody()
-
     def assessment_ids(self, assessment_ids: List[str]) -> "CreateProbationAssessmentResponseBodyBuilder":
         self._create_probation_assessment_response_body.assessment_ids = assessment_ids
         return self
-
+    
     def build(self) -> "CreateProbationAssessmentResponseBody":
         return self._create_probation_assessment_response_body

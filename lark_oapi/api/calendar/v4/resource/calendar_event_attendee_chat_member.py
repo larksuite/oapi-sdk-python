@@ -17,8 +17,7 @@ class CalendarEventAttendeeChatMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListCalendarEventAttendeeChatMemberRequest,
-             option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:
+    def list(self, request: ListCalendarEventAttendeeChatMemberRequest, option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class CalendarEventAttendeeChatMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               ListCalendarEventAttendeeChatMemberResponse)
+        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCalendarEventAttendeeChatMemberResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListCalendarEventAttendeeChatMemberRequest,
-                    option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:
+    async def alist(self, request: ListCalendarEventAttendeeChatMemberRequest, option: Optional[RequestOption] = None) -> ListCalendarEventAttendeeChatMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                               ListCalendarEventAttendeeChatMemberResponse)
+        response: ListCalendarEventAttendeeChatMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), ListCalendarEventAttendeeChatMemberResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -24,14 +24,12 @@ class ContentTextRun(object):
 class ContentTextRunBuilder(object):
     def __init__(self) -> None:
         self._content_text_run = ContentTextRun()
-
     def text(self, text: str) -> "ContentTextRunBuilder":
         self._content_text_run.text = text
         return self
-
     def style(self, style: ContentTextStyle) -> "ContentTextRunBuilder":
         self._content_text_run.style = style
         return self
-
+    
     def build(self) -> "ContentTextRun":
         return self._content_text_run

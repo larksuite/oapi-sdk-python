@@ -28,22 +28,18 @@ class Avatar(object):
 class AvatarBuilder(object):
     def __init__(self) -> None:
         self._avatar = Avatar()
-
     def source(self, source: str) -> "AvatarBuilder":
         self._avatar.source = source
         return self
-
     def color(self, color: str) -> "AvatarBuilder":
         self._avatar.color = color
         return self
-
     def contents(self, contents: List[I18n]) -> "AvatarBuilder":
         self._avatar.contents = contents
         return self
-
     def color_id(self, color_id: str) -> "AvatarBuilder":
         self._avatar.color_id = color_id
         return self
-
+    
     def build(self) -> "Avatar":
         return self._avatar

@@ -23,14 +23,12 @@ class ReferenceObject(object):
 class ReferenceObjectBuilder(object):
     def __init__(self) -> None:
         self._reference_object = ReferenceObject()
-
     def api_name(self, api_name: str) -> "ReferenceObjectBuilder":
         self._reference_object.api_name = api_name
         return self
-
     def id(self, id: str) -> "ReferenceObjectBuilder":
         self._reference_object.id = id
         return self
-
+    
     def build(self) -> "ReferenceObject":
         return self._reference_object

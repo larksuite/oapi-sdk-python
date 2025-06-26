@@ -27,22 +27,22 @@ class PatchLocationAddressRequestBuilder(object):
         patch_location_address_request.uri = "/open-apis/corehr/v2/locations/:location_id/addresses/:address_id"
         patch_location_address_request.token_types = {AccessTokenType.TENANT}
         self._patch_location_address_request: PatchLocationAddressRequest = patch_location_address_request
-
+    
     def client_token(self, client_token: str) -> "PatchLocationAddressRequestBuilder":
         self._patch_location_address_request.client_token = client_token
         self._patch_location_address_request.add_query("client_token", client_token)
         return self
-
+    
     def location_id(self, location_id: str) -> "PatchLocationAddressRequestBuilder":
         self._patch_location_address_request.location_id = location_id
         self._patch_location_address_request.paths["location_id"] = str(location_id)
         return self
-
+    
     def address_id(self, address_id: str) -> "PatchLocationAddressRequestBuilder":
         self._patch_location_address_request.address_id = address_id
         self._patch_location_address_request.paths["address_id"] = str(address_id)
         return self
-
+    
     def request_body(self, request_body: LocationAddressUpdate) -> "PatchLocationAddressRequestBuilder":
         self._patch_location_address_request.request_body = request_body
         self._patch_location_address_request.body = request_body

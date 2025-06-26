@@ -27,22 +27,22 @@ class SearchContractRequestBuilder(object):
         search_contract_request.uri = "/open-apis/corehr/v2/contracts/search"
         search_contract_request.token_types = {AccessTokenType.TENANT}
         self._search_contract_request: SearchContractRequest = search_contract_request
-
+    
     def page_size(self, page_size: int) -> "SearchContractRequestBuilder":
         self._search_contract_request.page_size = page_size
         self._search_contract_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "SearchContractRequestBuilder":
         self._search_contract_request.page_token = page_token
         self._search_contract_request.add_query("page_token", page_token)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "SearchContractRequestBuilder":
         self._search_contract_request.user_id_type = user_id_type
         self._search_contract_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: SearchContractRequestBody) -> "SearchContractRequestBuilder":
         self._search_contract_request.request_body = request_body
         self._search_contract_request.body = request_body

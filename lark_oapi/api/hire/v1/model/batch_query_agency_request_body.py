@@ -26,18 +26,15 @@ class BatchQueryAgencyRequestBody(object):
 class BatchQueryAgencyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_agency_request_body = BatchQueryAgencyRequestBody()
-
     def agency_supplier_id_list(self, agency_supplier_id_list: List[str]) -> "BatchQueryAgencyRequestBodyBuilder":
         self._batch_query_agency_request_body.agency_supplier_id_list = agency_supplier_id_list
         return self
-
     def keyword(self, keyword: str) -> "BatchQueryAgencyRequestBodyBuilder":
         self._batch_query_agency_request_body.keyword = keyword
         return self
-
     def filter_list(self, filter_list: List[CommonFilter]) -> "BatchQueryAgencyRequestBodyBuilder":
         self._batch_query_agency_request_body.filter_list = filter_list
         return self
-
+    
     def build(self) -> "BatchQueryAgencyRequestBody":
         return self._batch_query_agency_request_body

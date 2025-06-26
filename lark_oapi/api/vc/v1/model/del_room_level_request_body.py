@@ -23,14 +23,12 @@ class DelRoomLevelRequestBody(object):
 class DelRoomLevelRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._del_room_level_request_body = DelRoomLevelRequestBody()
-
     def room_level_id(self, room_level_id: str) -> "DelRoomLevelRequestBodyBuilder":
         self._del_room_level_request_body.room_level_id = room_level_id
         return self
-
     def delete_child(self, delete_child: bool) -> "DelRoomLevelRequestBodyBuilder":
         self._del_room_level_request_body.delete_child = delete_child
         return self
-
+    
     def build(self) -> "DelRoomLevelRequestBody":
         return self._del_room_level_request_body

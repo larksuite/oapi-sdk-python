@@ -23,14 +23,12 @@ class CalendarFreebusyError(object):
 class CalendarFreebusyErrorBuilder(object):
     def __init__(self) -> None:
         self._calendar_freebusy_error = CalendarFreebusyError()
-
     def calendar_id(self, calendar_id: str) -> "CalendarFreebusyErrorBuilder":
         self._calendar_freebusy_error.calendar_id = calendar_id
         return self
-
     def error_msg(self, error_msg: str) -> "CalendarFreebusyErrorBuilder":
         self._calendar_freebusy_error.error_msg = error_msg
         return self
-
+    
     def build(self) -> "CalendarFreebusyError":
         return self._calendar_freebusy_error

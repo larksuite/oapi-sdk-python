@@ -29,26 +29,21 @@ class ItemMetadata(object):
 class ItemMetadataBuilder(object):
     def __init__(self) -> None:
         self._item_metadata = ItemMetadata()
-
     def title(self, title: str) -> "ItemMetadataBuilder":
         self._item_metadata.title = title
         return self
-
     def source_url(self, source_url: str) -> "ItemMetadataBuilder":
         self._item_metadata.source_url = source_url
         return self
-
     def create_time(self, create_time: int) -> "ItemMetadataBuilder":
         self._item_metadata.create_time = create_time
         return self
-
     def update_time(self, update_time: int) -> "ItemMetadataBuilder":
         self._item_metadata.update_time = update_time
         return self
-
     def source_url_mobile(self, source_url_mobile: str) -> "ItemMetadataBuilder":
         self._item_metadata.source_url_mobile = source_url_mobile
         return self
-
+    
     def build(self) -> "ItemMetadata":
         return self._item_metadata

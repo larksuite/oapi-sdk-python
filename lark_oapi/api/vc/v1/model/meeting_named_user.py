@@ -25,18 +25,15 @@ class MeetingNamedUser(object):
 class MeetingNamedUserBuilder(object):
     def __init__(self) -> None:
         self._meeting_named_user = MeetingNamedUser()
-
     def id(self, id: str) -> "MeetingNamedUserBuilder":
         self._meeting_named_user.id = id
         return self
-
     def user_type(self, user_type: int) -> "MeetingNamedUserBuilder":
         self._meeting_named_user.user_type = user_type
         return self
-
     def in_meeting_name(self, in_meeting_name: str) -> "MeetingNamedUserBuilder":
         self._meeting_named_user.in_meeting_name = in_meeting_name
         return self
-
+    
     def build(self) -> "MeetingNamedUser":
         return self._meeting_named_user

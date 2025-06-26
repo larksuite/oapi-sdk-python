@@ -19,8 +19,7 @@ class ApplicationCollaborators(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetApplicationCollaboratorsRequest,
-            option: Optional[RequestOption] = None) -> GetApplicationCollaboratorsResponse:
+    def get(self, request: GetApplicationCollaboratorsRequest, option: Optional[RequestOption] = None) -> GetApplicationCollaboratorsResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class ApplicationCollaborators(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       GetApplicationCollaboratorsResponse)
+        response: GetApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationCollaboratorsResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetApplicationCollaboratorsRequest,
-                   option: Optional[RequestOption] = None) -> GetApplicationCollaboratorsResponse:
+    async def aget(self, request: GetApplicationCollaboratorsRequest, option: Optional[RequestOption] = None) -> GetApplicationCollaboratorsResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       GetApplicationCollaboratorsResponse)
+        response: GetApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationCollaboratorsResponse)
         response.raw = resp
 
         return response
-
-    def update(self, request: UpdateApplicationCollaboratorsRequest,
-               option: Optional[RequestOption] = None) -> UpdateApplicationCollaboratorsResponse:
+        
+    def update(self, request: UpdateApplicationCollaboratorsRequest, option: Optional[RequestOption] = None) -> UpdateApplicationCollaboratorsResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class ApplicationCollaborators(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdateApplicationCollaboratorsResponse)
+        response: UpdateApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateApplicationCollaboratorsResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate(self, request: UpdateApplicationCollaboratorsRequest,
-                      option: Optional[RequestOption] = None) -> UpdateApplicationCollaboratorsResponse:
+    async def aupdate(self, request: UpdateApplicationCollaboratorsRequest, option: Optional[RequestOption] = None) -> UpdateApplicationCollaboratorsResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdateApplicationCollaboratorsResponse)
+        response: UpdateApplicationCollaboratorsResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateApplicationCollaboratorsResponse)
         response.raw = resp
 
         return response
+        
+    

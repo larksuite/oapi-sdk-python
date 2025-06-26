@@ -5,86 +5,86 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SubmitV2OffboardingRequest = SubmitV2OffboardingRequest.builder() \
-        .user_id_type("people_corehr_id") \
-        .request_body(SubmitV2OffboardingRequestBody.builder()
-                      .offboarding_mode(1)
-                      .employment_id("6982509313466189342")
-                      .offboarding_date("2022-05-18")
-                      .offboarding_reason_unique_identifier("reason_for_offboarding_option8")
-                      .offboarding_reason_explanation("离职原因说明")
-                      .initiator_id("6982509313466189341")
-                      .add_block_list(False)
-                      .block_reason("红线")
-                      .block_reason_explanation("xx 年 xx 月 xx 日因 xx 原因红线")
-                      .custom_fields([])
-                      .retain_account(False)
-                      .is_transfer_with_workforce(False)
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SubmitV2OffboardingRequest = SubmitV2OffboardingRequest.builder() \
+		.user_id_type("people_corehr_id") \
+		.request_body(SubmitV2OffboardingRequestBody.builder()
+					  .offboarding_mode(1)
+					  .employment_id("6982509313466189342")
+					  .offboarding_date("2022-05-18")
+					  .offboarding_reason_unique_identifier("reason_for_offboarding_option8")
+					  .offboarding_reason_explanation("离职原因说明")
+					  .initiator_id("6982509313466189341")
+					  .add_block_list(False)
+					  .block_reason("红线")
+					  .block_reason_explanation("xx 年 xx 月 xx 日因 xx 原因红线")
+					  .custom_fields([])
+					  .retain_account(False)
+					  .is_transfer_with_workforce(False)
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SubmitV2OffboardingResponse = client.corehr.v2.offboarding.submit_v2(request)
+	# 发起请求
+	response: SubmitV2OffboardingResponse = client.corehr.v2.offboarding.submit_v2(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v2.offboarding.submit_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v2.offboarding.submit_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SubmitV2OffboardingRequest = SubmitV2OffboardingRequest.builder() \
-        .user_id_type("people_corehr_id") \
-        .request_body(SubmitV2OffboardingRequestBody.builder()
-                      .offboarding_mode(1)
-                      .employment_id("6982509313466189342")
-                      .offboarding_date("2022-05-18")
-                      .offboarding_reason_unique_identifier("reason_for_offboarding_option8")
-                      .offboarding_reason_explanation("离职原因说明")
-                      .initiator_id("6982509313466189341")
-                      .add_block_list(False)
-                      .block_reason("红线")
-                      .block_reason_explanation("xx 年 xx 月 xx 日因 xx 原因红线")
-                      .custom_fields([])
-                      .retain_account(False)
-                      .is_transfer_with_workforce(False)
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SubmitV2OffboardingRequest = SubmitV2OffboardingRequest.builder() \
+		.user_id_type("people_corehr_id") \
+		.request_body(SubmitV2OffboardingRequestBody.builder()
+					  .offboarding_mode(1)
+					  .employment_id("6982509313466189342")
+					  .offboarding_date("2022-05-18")
+					  .offboarding_reason_unique_identifier("reason_for_offboarding_option8")
+					  .offboarding_reason_explanation("离职原因说明")
+					  .initiator_id("6982509313466189341")
+					  .add_block_list(False)
+					  .block_reason("红线")
+					  .block_reason_explanation("xx 年 xx 月 xx 日因 xx 原因红线")
+					  .custom_fields([])
+					  .retain_account(False)
+					  .is_transfer_with_workforce(False)
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SubmitV2OffboardingResponse = await client.corehr.v2.offboarding.asubmit_v2(request)
+	# 发起请求
+	response: SubmitV2OffboardingResponse = await client.corehr.v2.offboarding.asubmit_v2(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v2.offboarding.asubmit_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v2.offboarding.asubmit_v2 failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

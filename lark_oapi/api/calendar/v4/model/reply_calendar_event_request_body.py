@@ -21,10 +21,9 @@ class ReplyCalendarEventRequestBody(object):
 class ReplyCalendarEventRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._reply_calendar_event_request_body = ReplyCalendarEventRequestBody()
-
     def rsvp_status(self, rsvp_status: str) -> "ReplyCalendarEventRequestBodyBuilder":
         self._reply_calendar_event_request_body.rsvp_status = rsvp_status
         return self
-
+    
     def build(self) -> "ReplyCalendarEventRequestBody":
         return self._reply_calendar_event_request_body

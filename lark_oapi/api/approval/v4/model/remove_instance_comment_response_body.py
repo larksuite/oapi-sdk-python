@@ -23,14 +23,12 @@ class RemoveInstanceCommentResponseBody(object):
 class RemoveInstanceCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_instance_comment_response_body = RemoveInstanceCommentResponseBody()
-
     def instance_id(self, instance_id: str) -> "RemoveInstanceCommentResponseBodyBuilder":
         self._remove_instance_comment_response_body.instance_id = instance_id
         return self
-
     def external_id(self, external_id: str) -> "RemoveInstanceCommentResponseBodyBuilder":
         self._remove_instance_comment_response_body.external_id = external_id
         return self
-
+    
     def build(self) -> "RemoveInstanceCommentResponseBody":
         return self._remove_instance_comment_response_body

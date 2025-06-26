@@ -65,78 +65,60 @@ class InputTask(object):
 class InputTaskBuilder(object):
     def __init__(self) -> None:
         self._input_task = InputTask()
-
     def summary(self, summary: str) -> "InputTaskBuilder":
         self._input_task.summary = summary
         return self
-
     def description(self, description: str) -> "InputTaskBuilder":
         self._input_task.description = description
         return self
-
     def due(self, due: Due) -> "InputTaskBuilder":
         self._input_task.due = due
         return self
-
     def origin(self, origin: Origin) -> "InputTaskBuilder":
         self._input_task.origin = origin
         return self
-
     def extra(self, extra: str) -> "InputTaskBuilder":
         self._input_task.extra = extra
         return self
-
     def completed_at(self, completed_at: int) -> "InputTaskBuilder":
         self._input_task.completed_at = completed_at
         return self
-
     def members(self, members: List[Member]) -> "InputTaskBuilder":
         self._input_task.members = members
         return self
-
     def repeat_rule(self, repeat_rule: str) -> "InputTaskBuilder":
         self._input_task.repeat_rule = repeat_rule
         return self
-
     def custom_complete(self, custom_complete: CustomComplete) -> "InputTaskBuilder":
         self._input_task.custom_complete = custom_complete
         return self
-
     def tasklists(self, tasklists: List[TaskInTasklistInfo]) -> "InputTaskBuilder":
         self._input_task.tasklists = tasklists
         return self
-
     def client_token(self, client_token: str) -> "InputTaskBuilder":
         self._input_task.client_token = client_token
         return self
-
     def start(self, start: Start) -> "InputTaskBuilder":
         self._input_task.start = start
         return self
-
     def reminders(self, reminders: List[Reminder]) -> "InputTaskBuilder":
         self._input_task.reminders = reminders
         return self
-
     def mode(self, mode: int) -> "InputTaskBuilder":
         self._input_task.mode = mode
         return self
-
     def is_milestone(self, is_milestone: bool) -> "InputTaskBuilder":
         self._input_task.is_milestone = is_milestone
         return self
-
     def custom_fields(self, custom_fields: List[InputCustomFieldValue]) -> "InputTaskBuilder":
         self._input_task.custom_fields = custom_fields
         return self
-
     def docx_source(self, docx_source: DocxSource) -> "InputTaskBuilder":
         self._input_task.docx_source = docx_source
         return self
-
     def positive_reminders(self, positive_reminders: List[Reminder]) -> "InputTaskBuilder":
         self._input_task.positive_reminders = positive_reminders
         return self
-
+    
     def build(self) -> "InputTask":
         return self._input_task

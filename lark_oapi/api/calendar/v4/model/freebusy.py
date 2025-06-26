@@ -23,14 +23,12 @@ class Freebusy(object):
 class FreebusyBuilder(object):
     def __init__(self) -> None:
         self._freebusy = Freebusy()
-
     def start_time(self, start_time: str) -> "FreebusyBuilder":
         self._freebusy.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "FreebusyBuilder":
         self._freebusy.end_time = end_time
         return self
-
+    
     def build(self) -> "Freebusy":
         return self._freebusy

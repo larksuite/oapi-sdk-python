@@ -21,10 +21,9 @@ class ContentPerson(object):
 class ContentPersonBuilder(object):
     def __init__(self) -> None:
         self._content_person = ContentPerson()
-
     def open_id(self, open_id: str) -> "ContentPersonBuilder":
         self._content_person.open_id = open_id
         return self
-
+    
     def build(self) -> "ContentPerson":
         return self._content_person

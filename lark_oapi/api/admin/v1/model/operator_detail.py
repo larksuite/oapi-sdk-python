@@ -24,14 +24,12 @@ class OperatorDetail(object):
 class OperatorDetailBuilder(object):
     def __init__(self) -> None:
         self._operator_detail = OperatorDetail()
-
     def operator_name(self, operator_name: OperatorName) -> "OperatorDetailBuilder":
         self._operator_detail.operator_name = operator_name
         return self
-
     def tenant_name(self, tenant_name: str) -> "OperatorDetailBuilder":
         self._operator_detail.tenant_name = tenant_name
         return self
-
+    
     def build(self) -> "OperatorDetail":
         return self._operator_detail

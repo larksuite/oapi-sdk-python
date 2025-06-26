@@ -28,22 +28,18 @@ class RegistrationSchema(object):
 class RegistrationSchemaBuilder(object):
     def __init__(self) -> None:
         self._registration_schema = RegistrationSchema()
-
     def id(self, id: str) -> "RegistrationSchemaBuilder":
         self._registration_schema.id = id
         return self
-
     def name(self, name: str) -> "RegistrationSchemaBuilder":
         self._registration_schema.name = name
         return self
-
     def scenarios(self, scenarios: List[int]) -> "RegistrationSchemaBuilder":
         self._registration_schema.scenarios = scenarios
         return self
-
     def objects(self, objects: List[CommonSchema]) -> "RegistrationSchemaBuilder":
         self._registration_schema.objects = objects
         return self
-
+    
     def build(self) -> "RegistrationSchema":
         return self._registration_schema

@@ -5,84 +5,84 @@ from lark_oapi.api.search.v2 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateMessageRequest = CreateMessageRequest.builder() \
-        .user_id_type("user_id") \
-        .page_size(20) \
-        .page_token("str") \
-        .request_body(CreateMessageRequestBody.builder()
-                      .query("测试消息")
-                      .from_ids([])
-                      .chat_ids([])
-                      .message_type("file")
-                      .at_chatter_ids([])
-                      .from_type("bot")
-                      .chat_type("group_chat")
-                      .start_time("1609296809")
-                      .end_time("1609296809")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateMessageRequest = CreateMessageRequest.builder() \
+		.user_id_type("user_id") \
+		.page_size(20) \
+		.page_token("str") \
+		.request_body(CreateMessageRequestBody.builder()
+					  .query("测试消息")
+					  .from_ids([])
+					  .chat_ids([])
+					  .message_type("file")
+					  .at_chatter_ids([])
+					  .from_type("bot")
+					  .chat_type("group_chat")
+					  .start_time("1609296809")
+					  .end_time("1609296809")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateMessageResponse = client.search.v2.message.create(request)
+	# 发起请求
+	response: CreateMessageResponse = client.search.v2.message.create(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.search.v2.message.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.search.v2.message.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateMessageRequest = CreateMessageRequest.builder() \
-        .user_id_type("user_id") \
-        .page_size(20) \
-        .page_token("str") \
-        .request_body(CreateMessageRequestBody.builder()
-                      .query("测试消息")
-                      .from_ids([])
-                      .chat_ids([])
-                      .message_type("file")
-                      .at_chatter_ids([])
-                      .from_type("bot")
-                      .chat_type("group_chat")
-                      .start_time("1609296809")
-                      .end_time("1609296809")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateMessageRequest = CreateMessageRequest.builder() \
+		.user_id_type("user_id") \
+		.page_size(20) \
+		.page_token("str") \
+		.request_body(CreateMessageRequestBody.builder()
+					  .query("测试消息")
+					  .from_ids([])
+					  .chat_ids([])
+					  .message_type("file")
+					  .at_chatter_ids([])
+					  .from_type("bot")
+					  .chat_type("group_chat")
+					  .start_time("1609296809")
+					  .end_time("1609296809")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateMessageResponse = await client.search.v2.message.acreate(request)
+	# 发起请求
+	response: CreateMessageResponse = await client.search.v2.message.acreate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.search.v2.message.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.search.v2.message.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

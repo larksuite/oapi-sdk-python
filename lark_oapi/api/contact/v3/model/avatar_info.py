@@ -27,22 +27,18 @@ class AvatarInfo(object):
 class AvatarInfoBuilder(object):
     def __init__(self) -> None:
         self._avatar_info = AvatarInfo()
-
     def avatar_72(self, avatar_72: str) -> "AvatarInfoBuilder":
         self._avatar_info.avatar_72 = avatar_72
         return self
-
     def avatar_240(self, avatar_240: str) -> "AvatarInfoBuilder":
         self._avatar_info.avatar_240 = avatar_240
         return self
-
     def avatar_640(self, avatar_640: str) -> "AvatarInfoBuilder":
         self._avatar_info.avatar_640 = avatar_640
         return self
-
     def avatar_origin(self, avatar_origin: str) -> "AvatarInfoBuilder":
         self._avatar_info.avatar_origin = avatar_origin
         return self
-
+    
     def build(self) -> "AvatarInfo":
         return self._avatar_info

@@ -23,14 +23,12 @@ class I18nResourceText(object):
 class I18nResourceTextBuilder(object):
     def __init__(self) -> None:
         self._i18n_resource_text = I18nResourceText()
-
     def key(self, key: str) -> "I18nResourceTextBuilder":
         self._i18n_resource_text.key = key
         return self
-
     def value(self, value: str) -> "I18nResourceTextBuilder":
         self._i18n_resource_text.value = value
         return self
-
+    
     def build(self) -> "I18nResourceText":
         return self._i18n_resource_text

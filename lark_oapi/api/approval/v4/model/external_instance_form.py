@@ -23,14 +23,12 @@ class ExternalInstanceForm(object):
 class ExternalInstanceFormBuilder(object):
     def __init__(self) -> None:
         self._external_instance_form = ExternalInstanceForm()
-
     def name(self, name: str) -> "ExternalInstanceFormBuilder":
         self._external_instance_form.name = name
         return self
-
     def value(self, value: str) -> "ExternalInstanceFormBuilder":
         self._external_instance_form.value = value
         return self
-
+    
     def build(self) -> "ExternalInstanceForm":
         return self._external_instance_form

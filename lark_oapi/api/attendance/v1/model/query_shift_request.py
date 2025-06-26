@@ -23,11 +23,12 @@ class QueryShiftRequestBuilder(object):
         query_shift_request.uri = "/open-apis/attendance/v1/shifts/query"
         query_shift_request.token_types = {AccessTokenType.TENANT}
         self._query_shift_request: QueryShiftRequest = query_shift_request
-
+    
     def shift_name(self, shift_name: str) -> "QueryShiftRequestBuilder":
         self._query_shift_request.shift_name = shift_name
         self._query_shift_request.add_query("shift_name", shift_name)
         return self
+    
 
     def build(self) -> QueryShiftRequest:
         return self._query_shift_request

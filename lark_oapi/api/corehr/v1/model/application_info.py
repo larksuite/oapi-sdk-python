@@ -27,22 +27,18 @@ class ApplicationInfo(object):
 class ApplicationInfoBuilder(object):
     def __init__(self) -> None:
         self._application_info = ApplicationInfo()
-
     def apply_initiator_id(self, apply_initiator_id: str) -> "ApplicationInfoBuilder":
         self._application_info.apply_initiator_id = apply_initiator_id
         return self
-
     def apply_initiating_time(self, apply_initiating_time: str) -> "ApplicationInfoBuilder":
         self._application_info.apply_initiating_time = apply_initiating_time
         return self
-
     def apply_finish_time(self, apply_finish_time: str) -> "ApplicationInfoBuilder":
         self._application_info.apply_finish_time = apply_finish_time
         return self
-
     def process_id(self, process_id: str) -> "ApplicationInfoBuilder":
         self._application_info.process_id = process_id
         return self
-
+    
     def build(self) -> "ApplicationInfo":
         return self._application_info

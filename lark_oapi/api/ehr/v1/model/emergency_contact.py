@@ -25,18 +25,15 @@ class EmergencyContact(object):
 class EmergencyContactBuilder(object):
     def __init__(self) -> None:
         self._emergency_contact = EmergencyContact()
-
     def name(self, name: str) -> "EmergencyContactBuilder":
         self._emergency_contact.name = name
         return self
-
     def relationship(self, relationship: int) -> "EmergencyContactBuilder":
         self._emergency_contact.relationship = relationship
         return self
-
     def mobile(self, mobile: str) -> "EmergencyContactBuilder":
         self._emergency_contact.mobile = mobile
         return self
-
+    
     def build(self) -> "EmergencyContact":
         return self._emergency_contact

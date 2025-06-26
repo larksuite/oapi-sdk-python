@@ -44,54 +44,42 @@ class EventCard(object):
 class EventCardBuilder(object):
     def __init__(self) -> None:
         self._event_card = EventCard()
-
     def summary(self, summary: str) -> "EventCardBuilder":
         self._event_card.summary = summary
         return self
-
     def start_time(self, start_time: str) -> "EventCardBuilder":
         self._event_card.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "EventCardBuilder":
         self._event_card.end_time = end_time
         return self
-
     def start_timezone(self, start_timezone: str) -> "EventCardBuilder":
         self._event_card.start_timezone = start_timezone
         return self
-
     def participant_ids(self, participant_ids: str) -> "EventCardBuilder":
         self._event_card.participant_ids = participant_ids
         return self
-
     def recurrence_rule(self, recurrence_rule: str) -> "EventCardBuilder":
         self._event_card.recurrence_rule = recurrence_rule
         return self
-
     def meeting_room_ids(self, meeting_room_ids: str) -> "EventCardBuilder":
         self._event_card.meeting_room_ids = meeting_room_ids
         return self
-
     def duration(self, duration: str) -> "EventCardBuilder":
         self._event_card.duration = duration
         return self
-
     def need_meeting_notes(self, need_meeting_notes: str) -> "EventCardBuilder":
         self._event_card.need_meeting_notes = need_meeting_notes
         return self
-
     def scenario_context_schema_version(self, scenario_context_schema_version: str) -> "EventCardBuilder":
         self._event_card.scenario_context_schema_version = scenario_context_schema_version
         return self
-
     def scenario_context(self, scenario_context: CalendarUnderstandScenarioContext) -> "EventCardBuilder":
         self._event_card.scenario_context = scenario_context
         return self
-
     def event_id(self, event_id: str) -> "EventCardBuilder":
         self._event_card.event_id = event_id
         return self
-
+    
     def build(self) -> "EventCard":
         return self._event_card

@@ -30,26 +30,30 @@ class UserTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryUserTaskRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserTaskResponse:
+    async def aquery(self, request: QueryUserTaskRequest, option: Optional[RequestOption] = None) -> QueryUserTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserTaskResponse)
         response.raw = resp
 
         return response
+        
+    

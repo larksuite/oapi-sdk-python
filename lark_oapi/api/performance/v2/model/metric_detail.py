@@ -37,38 +37,30 @@ class MetricDetail(object):
 class MetricDetailBuilder(object):
     def __init__(self) -> None:
         self._metric_detail = MetricDetail()
-
     def metric_id(self, metric_id: int) -> "MetricDetailBuilder":
         self._metric_detail.metric_id = metric_id
         return self
-
     def name(self, name: str) -> "MetricDetailBuilder":
         self._metric_detail.name = name
         return self
-
     def fields(self, fields: List[MetricFieldInDetails]) -> "MetricDetailBuilder":
         self._metric_detail.fields = fields
         return self
-
     def dimension_id(self, dimension_id: int) -> "MetricDetailBuilder":
         self._metric_detail.dimension_id = dimension_id
         return self
-
     def dimension_name(self, dimension_name: I18n) -> "MetricDetailBuilder":
         self._metric_detail.dimension_name = dimension_name
         return self
-
     def dimension_weight(self, dimension_weight: str) -> "MetricDetailBuilder":
         self._metric_detail.dimension_weight = dimension_weight
         return self
-
     def add_from(self, add_from: str) -> "MetricDetailBuilder":
         self._metric_detail.add_from = add_from
         return self
-
     def is_from_library(self, is_from_library: bool) -> "MetricDetailBuilder":
         self._metric_detail.is_from_library = is_from_library
         return self
-
+    
     def build(self) -> "MetricDetail":
         return self._metric_detail

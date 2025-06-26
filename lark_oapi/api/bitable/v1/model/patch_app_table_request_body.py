@@ -21,10 +21,9 @@ class PatchAppTableRequestBody(object):
 class PatchAppTableRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_app_table_request_body = PatchAppTableRequestBody()
-
     def name(self, name: str) -> "PatchAppTableRequestBodyBuilder":
         self._patch_app_table_request_body.name = name
         return self
-
+    
     def build(self) -> "PatchAppTableRequestBody":
         return self._patch_app_table_request_body

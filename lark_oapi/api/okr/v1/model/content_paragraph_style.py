@@ -22,10 +22,9 @@ class ContentParagraphStyle(object):
 class ContentParagraphStyleBuilder(object):
     def __init__(self) -> None:
         self._content_paragraph_style = ContentParagraphStyle()
-
     def list(self, list: ContentList) -> "ContentParagraphStyleBuilder":
         self._content_paragraph_style.list = list
         return self
-
+    
     def build(self) -> "ContentParagraphStyle":
         return self._content_paragraph_style

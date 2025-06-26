@@ -21,10 +21,9 @@ class Temp(object):
 class TempBuilder(object):
     def __init__(self) -> None:
         self._temp = Temp()
-
     def id(self, id: str) -> "TempBuilder":
         self._temp.id = id
         return self
-
+    
     def build(self) -> "Temp":
         return self._temp

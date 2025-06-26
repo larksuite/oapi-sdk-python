@@ -23,14 +23,12 @@ class ParaphraseResult(object):
 class ParaphraseResultBuilder(object):
     def __init__(self) -> None:
         self._paraphrase_result = ParaphraseResult()
-
     def text(self, text: str) -> "ParaphraseResultBuilder":
         self._paraphrase_result.text = text
         return self
-
     def extra(self, extra: str) -> "ParaphraseResultBuilder":
         self._paraphrase_result.extra = extra
         return self
-
+    
     def build(self) -> "ParaphraseResult":
         return self._paraphrase_result

@@ -21,10 +21,9 @@ class SearchJobPublishRecordRequestBody(object):
 class SearchJobPublishRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_job_publish_record_request_body = SearchJobPublishRecordRequestBody()
-
     def job_channel_id(self, job_channel_id: str) -> "SearchJobPublishRecordRequestBodyBuilder":
         self._search_job_publish_record_request_body.job_channel_id = job_channel_id
         return self
-
+    
     def build(self) -> "SearchJobPublishRecordRequestBody":
         return self._search_job_publish_record_request_body

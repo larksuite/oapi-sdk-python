@@ -30,12 +30,13 @@ class Employee(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEmployeeResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListEmployeeRequest, option: Optional[RequestOption] = None) -> ListEmployeeResponse:
         if option is None:
@@ -44,11 +45,15 @@ class Employee(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListEmployeeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListEmployeeResponse)
         response.raw = resp
 
         return response
+        
+    

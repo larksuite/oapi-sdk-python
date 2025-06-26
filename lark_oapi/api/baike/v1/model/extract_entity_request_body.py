@@ -21,10 +21,9 @@ class ExtractEntityRequestBody(object):
 class ExtractEntityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._extract_entity_request_body = ExtractEntityRequestBody()
-
     def text(self, text: str) -> "ExtractEntityRequestBodyBuilder":
         self._extract_entity_request_body.text = text
         return self
-
+    
     def build(self) -> "ExtractEntityRequestBody":
         return self._extract_entity_request_body

@@ -26,18 +26,15 @@ class AppAbilityBot(object):
 class AppAbilityBotBuilder(object):
     def __init__(self) -> None:
         self._app_ability_bot = AppAbilityBot()
-
     def enable(self, enable: bool) -> "AppAbilityBotBuilder":
         self._app_ability_bot.enable = enable
         return self
-
     def message_card_callback_url(self, message_card_callback_url: str) -> "AppAbilityBotBuilder":
         self._app_ability_bot.message_card_callback_url = message_card_callback_url
         return self
-
     def i18ns(self, i18ns: List[AppAbilityBotI18n]) -> "AppAbilityBotBuilder":
         self._app_ability_bot.i18ns = i18ns
         return self
-
+    
     def build(self) -> "AppAbilityBot":
         return self._app_ability_bot

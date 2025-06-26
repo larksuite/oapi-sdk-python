@@ -27,22 +27,18 @@ class AssessInterviewOption(object):
 class AssessInterviewOptionBuilder(object):
     def __init__(self) -> None:
         self._assess_interview_option = AssessInterviewOption()
-
     def ignore_minutes(self, ignore_minutes: bool) -> "AssessInterviewOptionBuilder":
         self._assess_interview_option.ignore_minutes = ignore_minutes
         return self
-
     def ignore_coding_question(self, ignore_coding_question: bool) -> "AssessInterviewOptionBuilder":
         self._assess_interview_option.ignore_coding_question = ignore_coding_question
         return self
-
     def ignore_interview_question(self, ignore_interview_question: bool) -> "AssessInterviewOptionBuilder":
         self._assess_interview_option.ignore_interview_question = ignore_interview_question
         return self
-
     def ignore_image(self, ignore_image: bool) -> "AssessInterviewOptionBuilder":
         self._assess_interview_option.ignore_image = ignore_image
         return self
-
+    
     def build(self) -> "AssessInterviewOption":
         return self._assess_interview_option

@@ -24,14 +24,12 @@ class MergeForwardMessageResponseBody(object):
 class MergeForwardMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._merge_forward_message_response_body = MergeForwardMessageResponseBody()
-
     def message(self, message: Message) -> "MergeForwardMessageResponseBodyBuilder":
         self._merge_forward_message_response_body.message = message
         return self
-
     def invalid_message_id_list(self, invalid_message_id_list: List[str]) -> "MergeForwardMessageResponseBodyBuilder":
         self._merge_forward_message_response_body.invalid_message_id_list = invalid_message_id_list
         return self
-
+    
     def build(self) -> "MergeForwardMessageResponseBody":
         return self._merge_forward_message_response_body

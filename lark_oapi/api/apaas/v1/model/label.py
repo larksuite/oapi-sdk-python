@@ -23,14 +23,12 @@ class Label(object):
 class LabelBuilder(object):
     def __init__(self) -> None:
         self._label = Label()
-
     def zh_cn(self, zh_cn: str) -> "LabelBuilder":
         self._label.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "LabelBuilder":
         self._label.en_us = en_us
         return self
-
+    
     def build(self) -> "Label":
         return self._label

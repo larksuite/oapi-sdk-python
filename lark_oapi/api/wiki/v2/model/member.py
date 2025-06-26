@@ -27,22 +27,18 @@ class Member(object):
 class MemberBuilder(object):
     def __init__(self) -> None:
         self._member = Member()
-
     def member_type(self, member_type: str) -> "MemberBuilder":
         self._member.member_type = member_type
         return self
-
     def member_id(self, member_id: str) -> "MemberBuilder":
         self._member.member_id = member_id
         return self
-
     def member_role(self, member_role: str) -> "MemberBuilder":
         self._member.member_role = member_role
         return self
-
     def type(self, type: str) -> "MemberBuilder":
         self._member.type = type
         return self
-
+    
     def build(self) -> "Member":
         return self._member

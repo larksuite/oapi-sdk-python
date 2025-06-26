@@ -31,30 +31,24 @@ class SubIndicator(object):
 class SubIndicatorBuilder(object):
     def __init__(self) -> None:
         self._sub_indicator = SubIndicator()
-
     def field_id(self, field_id: str) -> "SubIndicatorBuilder":
         self._sub_indicator.field_id = field_id
         return self
-
     def indicator_id(self, indicator_id: str) -> "SubIndicatorBuilder":
         self._sub_indicator.indicator_id = indicator_id
         return self
-
     def option_id(self, option_id: str) -> "SubIndicatorBuilder":
         self._sub_indicator.option_id = option_id
         return self
-
     def score(self, score: str) -> "SubIndicatorBuilder":
         self._sub_indicator.score = score
         return self
-
     def text(self, text: str) -> "SubIndicatorBuilder":
         self._sub_indicator.text = text
         return self
-
     def richtext(self, richtext: str) -> "SubIndicatorBuilder":
         self._sub_indicator.richtext = richtext
         return self
-
+    
     def build(self) -> "SubIndicator":
         return self._sub_indicator

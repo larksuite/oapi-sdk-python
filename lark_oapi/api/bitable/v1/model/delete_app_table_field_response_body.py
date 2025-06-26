@@ -23,14 +23,12 @@ class DeleteAppTableFieldResponseBody(object):
 class DeleteAppTableFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_app_table_field_response_body = DeleteAppTableFieldResponseBody()
-
     def field_id(self, field_id: str) -> "DeleteAppTableFieldResponseBodyBuilder":
         self._delete_app_table_field_response_body.field_id = field_id
         return self
-
     def deleted(self, deleted: bool) -> "DeleteAppTableFieldResponseBodyBuilder":
         self._delete_app_table_field_response_body.deleted = deleted
         return self
-
+    
     def build(self) -> "DeleteAppTableFieldResponseBody":
         return self._delete_app_table_field_response_body

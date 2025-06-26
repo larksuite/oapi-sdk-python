@@ -22,10 +22,9 @@ class LocationInfoEvent(object):
 class LocationInfoEventBuilder(object):
     def __init__(self) -> None:
         self._location_info_event = LocationInfoEvent()
-
     def coord(self, coord: Coordinate) -> "LocationInfoEventBuilder":
         self._location_info_event.coord = coord
         return self
-
+    
     def build(self) -> "LocationInfoEvent":
         return self._location_info_event

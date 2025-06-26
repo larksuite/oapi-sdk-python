@@ -29,26 +29,21 @@ class DepartmentCount(object):
 class DepartmentCountBuilder(object):
     def __init__(self) -> None:
         self._department_count = DepartmentCount()
-
     def department_id(self, department_id: int) -> "DepartmentCountBuilder":
         self._department_count.department_id = department_id
         return self
-
     def direct_department_count(self, direct_department_count: int) -> "DepartmentCountBuilder":
         self._department_count.direct_department_count = direct_department_count
         return self
-
     def direct_user_count(self, direct_user_count: int) -> "DepartmentCountBuilder":
         self._department_count.direct_user_count = direct_user_count
         return self
-
     def department_count(self, department_count: int) -> "DepartmentCountBuilder":
         self._department_count.department_count = department_count
         return self
-
     def user_count(self, user_count: int) -> "DepartmentCountBuilder":
         self._department_count.user_count = user_count
         return self
-
+    
     def build(self) -> "DepartmentCount":
         return self._department_count

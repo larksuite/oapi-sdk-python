@@ -41,50 +41,39 @@ class SystemInfo(object):
 class SystemInfoBuilder(object):
     def __init__(self) -> None:
         self._system_info = SystemInfo()
-
     def time(self, time: str) -> "SystemInfoBuilder":
         self._system_info.time = time
         return self
-
     def time_zone(self, time_zone: str) -> "SystemInfoBuilder":
         self._system_info.time_zone = time_zone
         return self
-
     def lang(self, lang: str) -> "SystemInfoBuilder":
         self._system_info.lang = lang
         return self
-
     def brand(self, brand: str) -> "SystemInfoBuilder":
         self._system_info.brand = brand
         return self
-
     def weekday(self, weekday: str) -> "SystemInfoBuilder":
         self._system_info.weekday = weekday
         return self
-
     def session_id(self, session_id: str) -> "SystemInfoBuilder":
         self._system_info.session_id = session_id
         return self
-
     def shadow_name(self, shadow_name: str) -> "SystemInfoBuilder":
         self._system_info.shadow_name = shadow_name
         return self
-
     def msg_id(self, msg_id: str) -> "SystemInfoBuilder":
         self._system_info.msg_id = msg_id
         return self
-
     def agent_id(self, agent_id: str) -> "SystemInfoBuilder":
         self._system_info.agent_id = agent_id
         return self
-
     def locale(self, locale: str) -> "SystemInfoBuilder":
         self._system_info.locale = locale
         return self
-
     def app_version(self, app_version: str) -> "SystemInfoBuilder":
         self._system_info.app_version = app_version
         return self
-
+    
     def build(self) -> "SystemInfo":
         return self._system_info

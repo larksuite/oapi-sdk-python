@@ -40,42 +40,33 @@ class JobLevel(object):
 class JobLevelBuilder(object):
     def __init__(self) -> None:
         self._job_level = JobLevel()
-
     def id(self, id: str) -> "JobLevelBuilder":
         self._job_level.id = id
         return self
-
     def level_order(self, level_order: int) -> "JobLevelBuilder":
         self._job_level.level_order = level_order
         return self
-
     def code(self, code: str) -> "JobLevelBuilder":
         self._job_level.code = code
         return self
-
     def name(self, name: List[I18n]) -> "JobLevelBuilder":
         self._job_level.name = name
         return self
-
     def description(self, description: List[I18n]) -> "JobLevelBuilder":
         self._job_level.description = description
         return self
-
     def active(self, active: bool) -> "JobLevelBuilder":
         self._job_level.active = active
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "JobLevelBuilder":
         self._job_level.custom_fields = custom_fields
         return self
-
     def job_grade(self, job_grade: List[str]) -> "JobLevelBuilder":
         self._job_level.job_grade = job_grade
         return self
-
     def pathway_ids(self, pathway_ids: List[str]) -> "JobLevelBuilder":
         self._job_level.pathway_ids = pathway_ids
         return self
-
+    
     def build(self) -> "JobLevel":
         return self._job_level

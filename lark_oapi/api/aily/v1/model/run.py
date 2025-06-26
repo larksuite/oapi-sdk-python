@@ -38,42 +38,33 @@ class Run(object):
 class RunBuilder(object):
     def __init__(self) -> None:
         self._run = Run()
-
     def id(self, id: str) -> "RunBuilder":
         self._run.id = id
         return self
-
     def created_at(self, created_at: int) -> "RunBuilder":
         self._run.created_at = created_at
         return self
-
     def app_id(self, app_id: str) -> "RunBuilder":
         self._run.app_id = app_id
         return self
-
     def session_id(self, session_id: str) -> "RunBuilder":
         self._run.session_id = session_id
         return self
-
     def status(self, status: str) -> "RunBuilder":
         self._run.status = status
         return self
-
     def started_at(self, started_at: int) -> "RunBuilder":
         self._run.started_at = started_at
         return self
-
     def ended_at(self, ended_at: int) -> "RunBuilder":
         self._run.ended_at = ended_at
         return self
-
     def error(self, error: RunError) -> "RunBuilder":
         self._run.error = error
         return self
-
     def metadata(self, metadata: str) -> "RunBuilder":
         self._run.metadata = metadata
         return self
-
+    
     def build(self) -> "Run":
         return self._run

@@ -27,22 +27,18 @@ class Media(object):
 class MediaBuilder(object):
     def __init__(self) -> None:
         self._media = Media()
-
     def file_token(self, file_token: str) -> "MediaBuilder":
         self._media.file_token = file_token
         return self
-
     def file_name(self, file_name: str) -> "MediaBuilder":
         self._media.file_name = file_name
         return self
-
     def size(self, size: int) -> "MediaBuilder":
         self._media.size = size
         return self
-
     def mime_type(self, mime_type: str) -> "MediaBuilder":
         self._media.mime_type = mime_type
         return self
-
+    
     def build(self) -> "Media":
         return self._media

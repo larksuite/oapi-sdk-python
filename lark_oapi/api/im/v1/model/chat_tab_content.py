@@ -27,22 +27,18 @@ class ChatTabContent(object):
 class ChatTabContentBuilder(object):
     def __init__(self) -> None:
         self._chat_tab_content = ChatTabContent()
-
     def url(self, url: str) -> "ChatTabContentBuilder":
         self._chat_tab_content.url = url
         return self
-
     def doc(self, doc: str) -> "ChatTabContentBuilder":
         self._chat_tab_content.doc = doc
         return self
-
     def meeting_minute(self, meeting_minute: str) -> "ChatTabContentBuilder":
         self._chat_tab_content.meeting_minute = meeting_minute
         return self
-
     def task(self, task: str) -> "ChatTabContentBuilder":
         self._chat_tab_content.task = task
         return self
-
+    
     def build(self) -> "ChatTabContent":
         return self._chat_tab_content

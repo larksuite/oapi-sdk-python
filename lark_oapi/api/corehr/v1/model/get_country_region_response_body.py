@@ -22,10 +22,9 @@ class GetCountryRegionResponseBody(object):
 class GetCountryRegionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_country_region_response_body = GetCountryRegionResponseBody()
-
     def country_region(self, country_region: CountryRegion) -> "GetCountryRegionResponseBodyBuilder":
         self._get_country_region_response_body.country_region = country_region
         return self
-
+    
     def build(self) -> "GetCountryRegionResponseBody":
         return self._get_country_region_response_body

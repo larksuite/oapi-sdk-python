@@ -23,14 +23,12 @@ class CreateApprovalResponseBody(object):
 class CreateApprovalResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_approval_response_body = CreateApprovalResponseBody()
-
     def approval_code(self, approval_code: str) -> "CreateApprovalResponseBodyBuilder":
         self._create_approval_response_body.approval_code = approval_code
         return self
-
     def approval_id(self, approval_id: int) -> "CreateApprovalResponseBodyBuilder":
         self._create_approval_response_body.approval_id = approval_id
         return self
-
+    
     def build(self) -> "CreateApprovalResponseBody":
         return self._create_approval_response_body

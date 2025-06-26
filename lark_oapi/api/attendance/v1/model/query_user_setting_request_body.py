@@ -21,10 +21,9 @@ class QueryUserSettingRequestBody(object):
 class QueryUserSettingRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_setting_request_body = QueryUserSettingRequestBody()
-
     def user_ids(self, user_ids: List[str]) -> "QueryUserSettingRequestBodyBuilder":
         self._query_user_setting_request_body.user_ids = user_ids
         return self
-
+    
     def build(self) -> "QueryUserSettingRequestBody":
         return self._query_user_setting_request_body

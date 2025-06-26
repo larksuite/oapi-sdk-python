@@ -19,6 +19,6 @@ class FormFieldVariableNullValue(object):
 class FormFieldVariableNullValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_null_value = FormFieldVariableNullValue()
-
+    
     def build(self) -> "FormFieldVariableNullValue":
         return self._form_field_variable_null_value

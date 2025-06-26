@@ -22,10 +22,9 @@ class BusinessLicense(object):
 class BusinessLicenseBuilder(object):
     def __init__(self) -> None:
         self._business_license = BusinessLicense()
-
     def entities(self, entities: List[BusinessEntity]) -> "BusinessLicenseBuilder":
         self._business_license.entities = entities
         return self
-
+    
     def build(self) -> "BusinessLicense":
         return self._business_license

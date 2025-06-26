@@ -23,14 +23,12 @@ class WebsiteDeliveryCustomizedData(object):
 class WebsiteDeliveryCustomizedDataBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_customized_data = WebsiteDeliveryCustomizedData()
-
     def object_id(self, object_id: str) -> "WebsiteDeliveryCustomizedDataBuilder":
         self._website_delivery_customized_data.object_id = object_id
         return self
-
     def value(self, value: str) -> "WebsiteDeliveryCustomizedDataBuilder":
         self._website_delivery_customized_data.value = value
         return self
-
+    
     def build(self) -> "WebsiteDeliveryCustomizedData":
         return self._website_delivery_customized_data

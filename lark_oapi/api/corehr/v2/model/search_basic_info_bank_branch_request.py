@@ -26,19 +26,18 @@ class SearchBasicInfoBankBranchRequestBuilder(object):
         search_basic_info_bank_branch_request.uri = "/open-apis/corehr/v2/basic_info/bank_branchs/search"
         search_basic_info_bank_branch_request.token_types = {AccessTokenType.TENANT}
         self._search_basic_info_bank_branch_request: SearchBasicInfoBankBranchRequest = search_basic_info_bank_branch_request
-
+    
     def page_size(self, page_size: int) -> "SearchBasicInfoBankBranchRequestBuilder":
         self._search_basic_info_bank_branch_request.page_size = page_size
         self._search_basic_info_bank_branch_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "SearchBasicInfoBankBranchRequestBuilder":
         self._search_basic_info_bank_branch_request.page_token = page_token
         self._search_basic_info_bank_branch_request.add_query("page_token", page_token)
         return self
-
-    def request_body(self,
-                     request_body: SearchBasicInfoBankBranchRequestBody) -> "SearchBasicInfoBankBranchRequestBuilder":
+    
+    def request_body(self, request_body: SearchBasicInfoBankBranchRequestBody) -> "SearchBasicInfoBankBranchRequestBuilder":
         self._search_basic_info_bank_branch_request.request_body = request_body
         self._search_basic_info_bank_branch_request.body = request_body
         return self

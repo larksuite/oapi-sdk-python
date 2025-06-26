@@ -32,31 +32,24 @@ class CompositeTalentInternshipInfo(object):
 class CompositeTalentInternshipInfoBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_internship_info = CompositeTalentInternshipInfo()
-
     def company_name(self, company_name: str) -> "CompositeTalentInternshipInfoBuilder":
         self._composite_talent_internship_info.company_name = company_name
         return self
-
     def description(self, description: str) -> "CompositeTalentInternshipInfoBuilder":
         self._composite_talent_internship_info.description = description
         return self
-
     def end_time(self, end_time: str) -> "CompositeTalentInternshipInfoBuilder":
         self._composite_talent_internship_info.end_time = end_time
         return self
-
     def start_time(self, start_time: str) -> "CompositeTalentInternshipInfoBuilder":
         self._composite_talent_internship_info.start_time = start_time
         return self
-
     def title(self, title: str) -> "CompositeTalentInternshipInfoBuilder":
         self._composite_talent_internship_info.title = title
         return self
-
-    def customized_data_list(self, customized_data_list: List[
-        TalentCustomizedDataChild]) -> "CompositeTalentInternshipInfoBuilder":
+    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentInternshipInfoBuilder":
         self._composite_talent_internship_info.customized_data_list = customized_data_list
         return self
-
+    
     def build(self) -> "CompositeTalentInternshipInfo":
         return self._composite_talent_internship_info

@@ -24,14 +24,12 @@ class Value(object):
 class ValueBuilder(object):
     def __init__(self) -> None:
         self._value = Value()
-
     def range(self, range: str) -> "ValueBuilder":
         self._value.range = range
         return self
-
     def values(self, values: List[list]) -> "ValueBuilder":
         self._value.values = values
         return self
-
+    
     def build(self) -> "Value":
         return self._value

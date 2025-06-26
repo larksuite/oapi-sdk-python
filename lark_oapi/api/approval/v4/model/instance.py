@@ -31,30 +31,24 @@ class Instance(object):
 class InstanceBuilder(object):
     def __init__(self) -> None:
         self._instance = Instance()
-
     def instance_code(self, instance_code: str) -> "InstanceBuilder":
         self._instance.instance_code = instance_code
         return self
-
     def approval_name(self, approval_name: str) -> "InstanceBuilder":
         self._instance.approval_name = approval_name
         return self
-
     def start_time(self, start_time: int) -> "InstanceBuilder":
         self._instance.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "InstanceBuilder":
         self._instance.end_time = end_time
         return self
-
     def user_id(self, user_id: str) -> "InstanceBuilder":
         self._instance.user_id = user_id
         return self
-
     def serial_id(self, serial_id: str) -> "InstanceBuilder":
         self._instance.serial_id = serial_id
         return self
-
+    
     def build(self) -> "Instance":
         return self._instance

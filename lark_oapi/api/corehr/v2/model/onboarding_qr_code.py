@@ -38,42 +38,33 @@ class OnboardingQrCode(object):
 class OnboardingQrCodeBuilder(object):
     def __init__(self) -> None:
         self._onboarding_qr_code = OnboardingQrCode()
-
     def id(self, id: str) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.id = id
         return self
-
     def pngs(self, pngs: List[str]) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.pngs = pngs
         return self
-
     def url(self, url: str) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.url = url
         return self
-
     def active(self, active: bool) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.active = active
         return self
-
     def created_by(self, created_by: str) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.created_by = created_by
         return self
-
     def updated_by(self, updated_by: str) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.updated_by = updated_by
         return self
-
     def created_at(self, created_at: int) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.created_at = created_at
         return self
-
     def updated_at(self, updated_at: int) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.updated_at = updated_at
         return self
-
     def dimension_values(self, dimension_values: List[QrCodeDimensionValue]) -> "OnboardingQrCodeBuilder":
         self._onboarding_qr_code.dimension_values = dimension_values
         return self
-
+    
     def build(self) -> "OnboardingQrCode":
         return self._onboarding_qr_code

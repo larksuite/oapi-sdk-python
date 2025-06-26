@@ -22,10 +22,9 @@ class EditOffboardingResponseBody(object):
 class EditOffboardingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._edit_offboarding_response_body = EditOffboardingResponseBody()
-
     def data(self, data: List[ObjectFieldData]) -> "EditOffboardingResponseBodyBuilder":
         self._edit_offboarding_response_body.data = data
         return self
-
+    
     def build(self) -> "EditOffboardingResponseBody":
         return self._edit_offboarding_response_body

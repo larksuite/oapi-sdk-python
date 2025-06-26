@@ -23,14 +23,12 @@ class CreateTicketMessageRequestBody(object):
 class CreateTicketMessageRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_ticket_message_request_body = CreateTicketMessageRequestBody()
-
     def msg_type(self, msg_type: str) -> "CreateTicketMessageRequestBodyBuilder":
         self._create_ticket_message_request_body.msg_type = msg_type
         return self
-
     def content(self, content: str) -> "CreateTicketMessageRequestBodyBuilder":
         self._create_ticket_message_request_body.content = content
         return self
-
+    
     def build(self) -> "CreateTicketMessageRequestBody":
         return self._create_ticket_message_request_body

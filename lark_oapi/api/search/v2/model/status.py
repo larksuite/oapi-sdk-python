@@ -23,14 +23,12 @@ class Status(object):
 class StatusBuilder(object):
     def __init__(self) -> None:
         self._status = Status()
-
     def from_status(self, from_status: str) -> "StatusBuilder":
         self._status.from_status = from_status
         return self
-
     def to_status(self, to_status: str) -> "StatusBuilder":
         self._status.to_status = to_status
         return self
-
+    
     def build(self) -> "Status":
         return self._status

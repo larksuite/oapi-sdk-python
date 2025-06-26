@@ -28,22 +28,18 @@ class CreateBpmRemedyRecords(object):
 class CreateBpmRemedyRecordsBuilder(object):
     def __init__(self) -> None:
         self._create_bpm_remedy_records = CreateBpmRemedyRecords()
-
     def user_id(self, user_id: str) -> "CreateBpmRemedyRecordsBuilder":
         self._create_bpm_remedy_records.user_id = user_id
         return self
-
     def remedy_records(self, remedy_records: List[RemedyRecord]) -> "CreateBpmRemedyRecordsBuilder":
         self._create_bpm_remedy_records.remedy_records = remedy_records
         return self
-
     def remedy_reason(self, remedy_reason: str) -> "CreateBpmRemedyRecordsBuilder":
         self._create_bpm_remedy_records.remedy_reason = remedy_reason
         return self
-
     def custom_form_data(self, custom_form_data: str) -> "CreateBpmRemedyRecordsBuilder":
         self._create_bpm_remedy_records.custom_form_data = custom_form_data
         return self
-
+    
     def build(self) -> "CreateBpmRemedyRecords":
         return self._create_bpm_remedy_records

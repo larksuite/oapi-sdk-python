@@ -26,18 +26,15 @@ class QueryMetricLibResponseBody(object):
 class QueryMetricLibResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_lib_response_body = QueryMetricLibResponseBody()
-
     def items(self, items: List[MetricInLibrary]) -> "QueryMetricLibResponseBodyBuilder":
         self._query_metric_lib_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "QueryMetricLibResponseBodyBuilder":
         self._query_metric_lib_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "QueryMetricLibResponseBodyBuilder":
         self._query_metric_lib_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "QueryMetricLibResponseBody":
         return self._query_metric_lib_response_body

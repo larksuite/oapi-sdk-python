@@ -21,10 +21,9 @@ class GetSubscribeFileResponseBody(object):
 class GetSubscribeFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_subscribe_file_response_body = GetSubscribeFileResponseBody()
-
     def is_subscribe(self, is_subscribe: bool) -> "GetSubscribeFileResponseBodyBuilder":
         self._get_subscribe_file_response_body.is_subscribe = is_subscribe
         return self
-
+    
     def build(self) -> "GetSubscribeFileResponseBody":
         return self._get_subscribe_file_response_body

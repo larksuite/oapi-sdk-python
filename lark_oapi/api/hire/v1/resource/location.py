@@ -32,12 +32,13 @@ class Location(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListLocationResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListLocationRequest, option: Optional[RequestOption] = None) -> ListLocationResponse:
         if option is None:
@@ -46,15 +47,17 @@ class Location(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListLocationResponse)
         response.raw = resp
 
         return response
-
+        
     def query(self, request: QueryLocationRequest, option: Optional[RequestOption] = None) -> QueryLocationResponse:
         if option is None:
             option = RequestOption()
@@ -68,26 +71,30 @@ class Location(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLocationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryLocationRequest,
-                     option: Optional[RequestOption] = None) -> QueryLocationResponse:
+    async def aquery(self, request: QueryLocationRequest, option: Optional[RequestOption] = None) -> QueryLocationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryLocationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryLocationResponse)
         response.raw = resp
 
         return response
+        
+    

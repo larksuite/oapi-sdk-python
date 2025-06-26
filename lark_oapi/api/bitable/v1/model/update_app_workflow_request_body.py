@@ -21,10 +21,9 @@ class UpdateAppWorkflowRequestBody(object):
 class UpdateAppWorkflowRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_app_workflow_request_body = UpdateAppWorkflowRequestBody()
-
     def status(self, status: str) -> "UpdateAppWorkflowRequestBodyBuilder":
         self._update_app_workflow_request_body.status = status
         return self
-
+    
     def build(self) -> "UpdateAppWorkflowRequestBody":
         return self._update_app_workflow_request_body

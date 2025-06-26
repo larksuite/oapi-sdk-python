@@ -21,10 +21,9 @@ class UploadAllFileResponseBody(object):
 class UploadAllFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_all_file_response_body = UploadAllFileResponseBody()
-
     def file_token(self, file_token: str) -> "UploadAllFileResponseBodyBuilder":
         self._upload_all_file_response_body.file_token = file_token
         return self
-
+    
     def build(self) -> "UploadAllFileResponseBody":
         return self._upload_all_file_response_body

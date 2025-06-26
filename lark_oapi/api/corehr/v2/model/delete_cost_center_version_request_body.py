@@ -21,10 +21,9 @@ class DeleteCostCenterVersionRequestBody(object):
 class DeleteCostCenterVersionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_cost_center_version_request_body = DeleteCostCenterVersionRequestBody()
-
     def operation_reason(self, operation_reason: str) -> "DeleteCostCenterVersionRequestBodyBuilder":
         self._delete_cost_center_version_request_body.operation_reason = operation_reason
         return self
-
+    
     def build(self) -> "DeleteCostCenterVersionRequestBody":
         return self._delete_cost_center_version_request_body

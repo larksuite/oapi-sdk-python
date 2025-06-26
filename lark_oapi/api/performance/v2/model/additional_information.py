@@ -31,30 +31,24 @@ class AdditionalInformation(object):
 class AdditionalInformationBuilder(object):
     def __init__(self) -> None:
         self._additional_information = AdditionalInformation()
-
     def item_id(self, item_id: int) -> "AdditionalInformationBuilder":
         self._additional_information.item_id = item_id
         return self
-
     def external_id(self, external_id: str) -> "AdditionalInformationBuilder":
         self._additional_information.external_id = external_id
         return self
-
     def reviewee_user_id(self, reviewee_user_id: str) -> "AdditionalInformationBuilder":
         self._additional_information.reviewee_user_id = reviewee_user_id
         return self
-
     def item(self, item: str) -> "AdditionalInformationBuilder":
         self._additional_information.item = item
         return self
-
     def time(self, time: str) -> "AdditionalInformationBuilder":
         self._additional_information.time = time
         return self
-
     def detailed_description(self, detailed_description: str) -> "AdditionalInformationBuilder":
         self._additional_information.detailed_description = detailed_description
         return self
-
+    
     def build(self) -> "AdditionalInformation":
         return self._additional_information

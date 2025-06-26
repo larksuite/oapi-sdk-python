@@ -24,14 +24,12 @@ class DmpOriginalData(object):
 class DmpOriginalDataBuilder(object):
     def __init__(self) -> None:
         self._dmp_original_data = DmpOriginalData()
-
     def employee_number(self, employee_number: str) -> "DmpOriginalDataBuilder":
         self._dmp_original_data.employee_number = employee_number
         return self
-
     def time_periods(self, time_periods: List[DmpTimelineField]) -> "DmpOriginalDataBuilder":
         self._dmp_original_data.time_periods = time_periods
         return self
-
+    
     def build(self) -> "DmpOriginalData":
         return self._dmp_original_data

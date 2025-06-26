@@ -24,7 +24,7 @@ class ArchivePaymentActivityRequestBuilder(object):
         archive_payment_activity_request.uri = "/open-apis/payroll/v1/payment_activitys/archive"
         archive_payment_activity_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._archive_payment_activity_request: ArchivePaymentActivityRequest = archive_payment_activity_request
-
+    
     def request_body(self, request_body: ArchivePaymentActivityRequestBody) -> "ArchivePaymentActivityRequestBuilder":
         self._archive_payment_activity_request.request_body = request_body
         self._archive_payment_activity_request.body = request_body

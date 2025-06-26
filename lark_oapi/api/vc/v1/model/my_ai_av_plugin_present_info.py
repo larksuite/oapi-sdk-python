@@ -30,26 +30,21 @@ class MyAiAvPluginPresentInfo(object):
 class MyAiAvPluginPresentInfoBuilder(object):
     def __init__(self) -> None:
         self._my_ai_av_plugin_present_info = MyAiAvPluginPresentInfo()
-
     def type(self, type: str) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.type = type
         return self
-
     def card_template_id(self, card_template_id: str) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.card_template_id = card_template_id
         return self
-
     def body(self, body: str) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.body = body
         return self
-
     def card_variables(self, card_variables: MyAiAvPluginCardVariables) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.card_variables = card_variables
         return self
-
     def callback_info(self, callback_info: str) -> "MyAiAvPluginPresentInfoBuilder":
         self._my_ai_av_plugin_present_info.callback_info = callback_info
         return self
-
+    
     def build(self) -> "MyAiAvPluginPresentInfo":
         return self._my_ai_av_plugin_present_info

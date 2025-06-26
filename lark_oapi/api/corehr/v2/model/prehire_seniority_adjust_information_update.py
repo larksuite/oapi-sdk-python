@@ -32,32 +32,24 @@ class PrehireSeniorityAdjustInformationUpdate(object):
 class PrehireSeniorityAdjustInformationUpdateBuilder(object):
     def __init__(self) -> None:
         self._prehire_seniority_adjust_information_update = PrehireSeniorityAdjustInformationUpdate()
-
     def seniority_adjustment(self, seniority_adjustment: float) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
         self._prehire_seniority_adjust_information_update.seniority_adjustment = seniority_adjustment
         return self
-
-    def seniority_adjustment_type(self,
-                                  seniority_adjustment_type: str) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
+    def seniority_adjustment_type(self, seniority_adjustment_type: str) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
         self._prehire_seniority_adjust_information_update.seniority_adjustment_type = seniority_adjustment_type
         return self
-
-    def reasons_for_seniority_adjustment(self,
-                                         reasons_for_seniority_adjustment: str) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
+    def reasons_for_seniority_adjustment(self, reasons_for_seniority_adjustment: str) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
         self._prehire_seniority_adjust_information_update.reasons_for_seniority_adjustment = reasons_for_seniority_adjustment
         return self
-
     def start_date(self, start_date: str) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
         self._prehire_seniority_adjust_information_update.start_date = start_date
         return self
-
     def end_date(self, end_date: str) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
         self._prehire_seniority_adjust_information_update.end_date = end_date
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "PrehireSeniorityAdjustInformationUpdateBuilder":
         self._prehire_seniority_adjust_information_update.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "PrehireSeniorityAdjustInformationUpdate":
         return self._prehire_seniority_adjust_information_update

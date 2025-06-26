@@ -19,8 +19,7 @@ class DatasourceRecord(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryDatasourceRecordRequest,
-              option: Optional[RequestOption] = None) -> QueryDatasourceRecordResponse:
+    def query(self, request: QueryDatasourceRecordRequest, option: Optional[RequestOption] = None) -> QueryDatasourceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class DatasourceRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryDatasourceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryDatasourceRecordResponse)
+        response: QueryDatasourceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryDatasourceRecordResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryDatasourceRecordRequest,
-                     option: Optional[RequestOption] = None) -> QueryDatasourceRecordResponse:
+    async def aquery(self, request: QueryDatasourceRecordRequest, option: Optional[RequestOption] = None) -> QueryDatasourceRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryDatasourceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QueryDatasourceRecordResponse)
+        response: QueryDatasourceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryDatasourceRecordResponse)
         response.raw = resp
 
         return response
-
-    def save(self, request: SaveDatasourceRecordRequest,
-             option: Optional[RequestOption] = None) -> SaveDatasourceRecordResponse:
+        
+    def save(self, request: SaveDatasourceRecordRequest, option: Optional[RequestOption] = None) -> SaveDatasourceRecordResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,26 +71,30 @@ class DatasourceRecord(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SaveDatasourceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), SaveDatasourceRecordResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asave(self, request: SaveDatasourceRecordRequest,
-                    option: Optional[RequestOption] = None) -> SaveDatasourceRecordResponse:
+    async def asave(self, request: SaveDatasourceRecordRequest, option: Optional[RequestOption] = None) -> SaveDatasourceRecordResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SaveDatasourceRecordResponse = JSON.unmarshal(str(resp.content, UTF_8), SaveDatasourceRecordResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -42,50 +42,39 @@ class ImportTask(object):
 class ImportTaskBuilder(object):
     def __init__(self) -> None:
         self._import_task = ImportTask()
-
     def ticket(self, ticket: str) -> "ImportTaskBuilder":
         self._import_task.ticket = ticket
         return self
-
     def file_extension(self, file_extension: str) -> "ImportTaskBuilder":
         self._import_task.file_extension = file_extension
         return self
-
     def file_token(self, file_token: str) -> "ImportTaskBuilder":
         self._import_task.file_token = file_token
         return self
-
     def type(self, type: str) -> "ImportTaskBuilder":
         self._import_task.type = type
         return self
-
     def file_name(self, file_name: str) -> "ImportTaskBuilder":
         self._import_task.file_name = file_name
         return self
-
     def point(self, point: ImportTaskMountPoint) -> "ImportTaskBuilder":
         self._import_task.point = point
         return self
-
     def job_status(self, job_status: int) -> "ImportTaskBuilder":
         self._import_task.job_status = job_status
         return self
-
     def job_error_msg(self, job_error_msg: str) -> "ImportTaskBuilder":
         self._import_task.job_error_msg = job_error_msg
         return self
-
     def token(self, token: str) -> "ImportTaskBuilder":
         self._import_task.token = token
         return self
-
     def url(self, url: str) -> "ImportTaskBuilder":
         self._import_task.url = url
         return self
-
     def extra(self, extra: List[str]) -> "ImportTaskBuilder":
         self._import_task.extra = extra
         return self
-
+    
     def build(self) -> "ImportTask":
         return self._import_task

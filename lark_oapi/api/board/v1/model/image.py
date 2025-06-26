@@ -21,10 +21,9 @@ class Image(object):
 class ImageBuilder(object):
     def __init__(self) -> None:
         self._image = Image()
-
     def token(self, token: str) -> "ImageBuilder":
         self._image.token = token
         return self
-
+    
     def build(self) -> "Image":
         return self._image

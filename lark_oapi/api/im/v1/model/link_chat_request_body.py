@@ -21,10 +21,9 @@ class LinkChatRequestBody(object):
 class LinkChatRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._link_chat_request_body = LinkChatRequestBody()
-
     def validity_period(self, validity_period: str) -> "LinkChatRequestBodyBuilder":
         self._link_chat_request_body.validity_period = validity_period
         return self
-
+    
     def build(self) -> "LinkChatRequestBody":
         return self._link_chat_request_body

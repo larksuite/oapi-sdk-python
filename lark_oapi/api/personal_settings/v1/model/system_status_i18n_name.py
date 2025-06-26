@@ -25,18 +25,15 @@ class SystemStatusI18nName(object):
 class SystemStatusI18nNameBuilder(object):
     def __init__(self) -> None:
         self._system_status_i18n_name = SystemStatusI18nName()
-
     def zh_cn(self, zh_cn: str) -> "SystemStatusI18nNameBuilder":
         self._system_status_i18n_name.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "SystemStatusI18nNameBuilder":
         self._system_status_i18n_name.en_us = en_us
         return self
-
     def ja_jp(self, ja_jp: str) -> "SystemStatusI18nNameBuilder":
         self._system_status_i18n_name.ja_jp = ja_jp
         return self
-
+    
     def build(self) -> "SystemStatusI18nName":
         return self._system_status_i18n_name

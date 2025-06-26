@@ -27,22 +27,18 @@ class JobProcessesStage(object):
 class JobProcessesStageBuilder(object):
     def __init__(self) -> None:
         self._job_processes_stage = JobProcessesStage()
-
     def id(self, id: str) -> "JobProcessesStageBuilder":
         self._job_processes_stage.id = id
         return self
-
     def zh_name(self, zh_name: str) -> "JobProcessesStageBuilder":
         self._job_processes_stage.zh_name = zh_name
         return self
-
     def en_name(self, en_name: str) -> "JobProcessesStageBuilder":
         self._job_processes_stage.en_name = en_name
         return self
-
     def type(self, type: int) -> "JobProcessesStageBuilder":
         self._job_processes_stage.type = type
         return self
-
+    
     def build(self) -> "JobProcessesStage":
         return self._job_processes_stage

@@ -23,14 +23,12 @@ class RestTimeFlexibleConfig(object):
 class RestTimeFlexibleConfigBuilder(object):
     def __init__(self) -> None:
         self._rest_time_flexible_config = RestTimeFlexibleConfig()
-
     def need_flexible(self, need_flexible: bool) -> "RestTimeFlexibleConfigBuilder":
         self._rest_time_flexible_config.need_flexible = need_flexible
         return self
-
     def late_mins(self, late_mins: int) -> "RestTimeFlexibleConfigBuilder":
         self._rest_time_flexible_config.late_mins = late_mins
         return self
-
+    
     def build(self) -> "RestTimeFlexibleConfig":
         return self._rest_time_flexible_config

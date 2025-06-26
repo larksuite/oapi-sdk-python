@@ -26,17 +26,17 @@ class CreateApprovalRequestBuilder(object):
         create_approval_request.uri = "/open-apis/approval/v4/approvals"
         create_approval_request.token_types = {AccessTokenType.TENANT}
         self._create_approval_request: CreateApprovalRequest = create_approval_request
-
+    
     def department_id_type(self, department_id_type: str) -> "CreateApprovalRequestBuilder":
         self._create_approval_request.department_id_type = department_id_type
         self._create_approval_request.add_query("department_id_type", department_id_type)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "CreateApprovalRequestBuilder":
         self._create_approval_request.user_id_type = user_id_type
         self._create_approval_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: ApprovalCreate) -> "CreateApprovalRequestBuilder":
         self._create_approval_request.request_body = request_body
         self._create_approval_request.body = request_body

@@ -40,46 +40,36 @@ class InstanceSearchNode(object):
 class InstanceSearchNodeBuilder(object):
     def __init__(self) -> None:
         self._instance_search_node = InstanceSearchNode()
-
     def code(self, code: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.code = code
         return self
-
     def external_id(self, external_id: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.external_id = external_id
         return self
-
     def user_id(self, user_id: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.user_id = user_id
         return self
-
     def start_time(self, start_time: int) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.end_time = end_time
         return self
-
     def status(self, status: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.status = status
         return self
-
     def title(self, title: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.title = title
         return self
-
     def extra(self, extra: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.extra = extra
         return self
-
     def serial_id(self, serial_id: str) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.serial_id = serial_id
         return self
-
     def link(self, link: InstanceSearchLink) -> "InstanceSearchNodeBuilder":
         self._instance_search_node.link = link
         return self
-
+    
     def build(self) -> "InstanceSearchNode":
         return self._instance_search_node

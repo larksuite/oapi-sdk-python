@@ -5,64 +5,64 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ReorderUserMailboxRuleRequest = ReorderUserMailboxRuleRequest.builder() \
-        .user_mailbox_id("user@xxx.xx 或 me") \
-        .request_body(ReorderUserMailboxRuleRequestBody.builder()
-                      .rule_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: ReorderUserMailboxRuleRequest = ReorderUserMailboxRuleRequest.builder() \
+		.user_mailbox_id("user@xxx.xx 或 me") \
+		.request_body(ReorderUserMailboxRuleRequestBody.builder()
+					  .rule_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: ReorderUserMailboxRuleResponse = client.mail.v1.user_mailbox_rule.reorder(request)
+	# 发起请求
+	response: ReorderUserMailboxRuleResponse = client.mail.v1.user_mailbox_rule.reorder(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.mail.v1.user_mailbox_rule.reorder failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.mail.v1.user_mailbox_rule.reorder failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ReorderUserMailboxRuleRequest = ReorderUserMailboxRuleRequest.builder() \
-        .user_mailbox_id("user@xxx.xx 或 me") \
-        .request_body(ReorderUserMailboxRuleRequestBody.builder()
-                      .rule_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: ReorderUserMailboxRuleRequest = ReorderUserMailboxRuleRequest.builder() \
+		.user_mailbox_id("user@xxx.xx 或 me") \
+		.request_body(ReorderUserMailboxRuleRequestBody.builder()
+					  .rule_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: ReorderUserMailboxRuleResponse = await client.mail.v1.user_mailbox_rule.areorder(request)
+	# 发起请求
+	response: ReorderUserMailboxRuleResponse = await client.mail.v1.user_mailbox_rule.areorder(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.mail.v1.user_mailbox_rule.areorder failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.mail.v1.user_mailbox_rule.areorder failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

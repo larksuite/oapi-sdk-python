@@ -23,14 +23,12 @@ class QueryMetricDetailRequestBody(object):
 class QueryMetricDetailRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_detail_request_body = QueryMetricDetailRequestBody()
-
     def semester_id(self, semester_id: int) -> "QueryMetricDetailRequestBodyBuilder":
         self._query_metric_detail_request_body.semester_id = semester_id
         return self
-
     def reviewee_user_ids(self, reviewee_user_ids: List[str]) -> "QueryMetricDetailRequestBodyBuilder":
         self._query_metric_detail_request_body.reviewee_user_ids = reviewee_user_ids
         return self
-
+    
     def build(self) -> "QueryMetricDetailRequestBody":
         return self._query_metric_detail_request_body

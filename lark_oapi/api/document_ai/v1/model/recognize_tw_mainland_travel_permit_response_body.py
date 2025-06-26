@@ -22,11 +22,9 @@ class RecognizeTwMainlandTravelPermitResponseBody(object):
 class RecognizeTwMainlandTravelPermitResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_tw_mainland_travel_permit_response_body = RecognizeTwMainlandTravelPermitResponseBody()
-
-    def tw_mainland_travel_permit(self,
-                                  tw_mainland_travel_permit: TwMainlandTravelPermit) -> "RecognizeTwMainlandTravelPermitResponseBodyBuilder":
+    def tw_mainland_travel_permit(self, tw_mainland_travel_permit: TwMainlandTravelPermit) -> "RecognizeTwMainlandTravelPermitResponseBodyBuilder":
         self._recognize_tw_mainland_travel_permit_response_body.tw_mainland_travel_permit = tw_mainland_travel_permit
         return self
-
+    
     def build(self) -> "RecognizeTwMainlandTravelPermitResponseBody":
         return self._recognize_tw_mainland_travel_permit_response_body

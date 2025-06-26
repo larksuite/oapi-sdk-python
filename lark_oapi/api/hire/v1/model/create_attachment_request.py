@@ -22,6 +22,7 @@ class CreateAttachmentRequestBuilder(object):
         create_attachment_request.uri = "/open-apis/hire/v1/attachments"
         create_attachment_request.token_types = {AccessTokenType.TENANT}
         self._create_attachment_request: CreateAttachmentRequest = create_attachment_request
+    
 
     def build(self) -> CreateAttachmentRequest:
         return self._create_attachment_request

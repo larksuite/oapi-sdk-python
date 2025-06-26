@@ -21,10 +21,9 @@ class JobDataId(object):
 class JobDataIdBuilder(object):
     def __init__(self) -> None:
         self._job_data_id = JobDataId()
-
     def wk_id(self, wk_id: str) -> "JobDataIdBuilder":
         self._job_data_id.wk_id = wk_id
         return self
-
+    
     def build(self) -> "JobDataId":
         return self._job_data_id

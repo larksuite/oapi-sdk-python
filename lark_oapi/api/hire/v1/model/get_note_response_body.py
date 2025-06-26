@@ -22,10 +22,9 @@ class GetNoteResponseBody(object):
 class GetNoteResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_note_response_body = GetNoteResponseBody()
-
     def note(self, note: Note) -> "GetNoteResponseBodyBuilder":
         self._get_note_response_body.note = note
         return self
-
+    
     def build(self) -> "GetNoteResponseBody":
         return self._get_note_response_body

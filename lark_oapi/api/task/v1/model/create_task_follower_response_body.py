@@ -22,10 +22,9 @@ class CreateTaskFollowerResponseBody(object):
 class CreateTaskFollowerResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_task_follower_response_body = CreateTaskFollowerResponseBody()
-
     def follower(self, follower: Follower) -> "CreateTaskFollowerResponseBodyBuilder":
         self._create_task_follower_response_body.follower = follower
         return self
-
+    
     def build(self) -> "CreateTaskFollowerResponseBody":
         return self._create_task_follower_response_body

@@ -24,9 +24,8 @@ class ChangeTalentBlockTalentBlocklistRequestBuilder(object):
         change_talent_block_talent_blocklist_request.uri = "/open-apis/hire/v1/talent_blocklist/change_talent_block"
         change_talent_block_talent_blocklist_request.token_types = {AccessTokenType.TENANT}
         self._change_talent_block_talent_blocklist_request: ChangeTalentBlockTalentBlocklistRequest = change_talent_block_talent_blocklist_request
-
-    def request_body(self,
-                     request_body: ChangeTalentBlockTalentBlocklistRequestBody) -> "ChangeTalentBlockTalentBlocklistRequestBuilder":
+    
+    def request_body(self, request_body: ChangeTalentBlockTalentBlocklistRequestBody) -> "ChangeTalentBlockTalentBlocklistRequestBuilder":
         self._change_talent_block_talent_blocklist_request.request_body = request_body
         self._change_talent_block_talent_blocklist_request.body = request_body
         return self

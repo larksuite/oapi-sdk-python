@@ -17,8 +17,7 @@ class CustomWorkplaceAccessData(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchCustomWorkplaceAccessDataRequest,
-               option: Optional[RequestOption] = None) -> SearchCustomWorkplaceAccessDataResponse:
+    def search(self, request: SearchCustomWorkplaceAccessDataRequest, option: Optional[RequestOption] = None) -> SearchCustomWorkplaceAccessDataResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class CustomWorkplaceAccessData(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           SearchCustomWorkplaceAccessDataResponse)
+        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCustomWorkplaceAccessDataResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asearch(self, request: SearchCustomWorkplaceAccessDataRequest,
-                      option: Optional[RequestOption] = None) -> SearchCustomWorkplaceAccessDataResponse:
+    async def asearch(self, request: SearchCustomWorkplaceAccessDataRequest, option: Optional[RequestOption] = None) -> SearchCustomWorkplaceAccessDataResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                           SearchCustomWorkplaceAccessDataResponse)
+        response: SearchCustomWorkplaceAccessDataResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchCustomWorkplaceAccessDataResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -5,66 +5,66 @@ from lark_oapi.api.drive.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListFileVersionRequest = ListFileVersionRequest.builder() \
-        .file_token("shtbcpM2mm3znrLfWnf4browTYp23") \
-        .page_size(10) \
-        .page_token("1665739388") \
-        .obj_type("doc/docx/sheet/bitable") \
-        .user_id_type("open_id") \
-        .build()
+	# 构造请求对象
+	request: ListFileVersionRequest = ListFileVersionRequest.builder() \
+		.file_token("shtbcpM2mm3znrLfWnf4browTYp23") \
+		.page_size(10) \
+		.page_token("1665739388") \
+		.obj_type("doc/docx/sheet/bitable") \
+		.user_id_type("open_id") \
+		.build()
 
-    # 发起请求
-    response: ListFileVersionResponse = client.drive.v1.file_version.list(request)
+	# 发起请求
+	response: ListFileVersionResponse = client.drive.v1.file_version.list(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.drive.v1.file_version.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.drive.v1.file_version.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListFileVersionRequest = ListFileVersionRequest.builder() \
-        .file_token("shtbcpM2mm3znrLfWnf4browTYp23") \
-        .page_size(10) \
-        .page_token("1665739388") \
-        .obj_type("doc/docx/sheet/bitable") \
-        .user_id_type("open_id") \
-        .build()
+	# 构造请求对象
+	request: ListFileVersionRequest = ListFileVersionRequest.builder() \
+		.file_token("shtbcpM2mm3znrLfWnf4browTYp23") \
+		.page_size(10) \
+		.page_token("1665739388") \
+		.obj_type("doc/docx/sheet/bitable") \
+		.user_id_type("open_id") \
+		.build()
 
-    # 发起请求
-    response: ListFileVersionResponse = await client.drive.v1.file_version.alist(request)
+	# 发起请求
+	response: ListFileVersionResponse = await client.drive.v1.file_version.alist(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.drive.v1.file_version.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.drive.v1.file_version.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

@@ -21,10 +21,9 @@ class UpdateUserIdUserRequestBody(object):
 class UpdateUserIdUserRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_user_id_user_request_body = UpdateUserIdUserRequestBody()
-
     def new_user_id(self, new_user_id: str) -> "UpdateUserIdUserRequestBodyBuilder":
         self._update_user_id_user_request_body.new_user_id = new_user_id
         return self
-
+    
     def build(self) -> "UpdateUserIdUserRequestBody":
         return self._update_user_id_user_request_body

@@ -25,18 +25,15 @@ class Level(object):
 class LevelBuilder(object):
     def __init__(self) -> None:
         self._level = Level()
-
     def id(self, id: str) -> "LevelBuilder":
         self._level.id = id
         return self
-
     def name(self, name: str) -> "LevelBuilder":
         self._level.name = name
         return self
-
     def en_name(self, en_name: str) -> "LevelBuilder":
         self._level.en_name = en_name
         return self
-
+    
     def build(self) -> "Level":
         return self._level

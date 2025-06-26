@@ -19,8 +19,7 @@ class ExternalInterviewAssessment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateExternalInterviewAssessmentRequest,
-               option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
+    def create(self, request: CreateExternalInterviewAssessmentRequest, option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class ExternalInterviewAssessment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateExternalInterviewAssessmentResponse)
+        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalInterviewAssessmentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateExternalInterviewAssessmentRequest,
-                      option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
+    async def acreate(self, request: CreateExternalInterviewAssessmentRequest, option: Optional[RequestOption] = None) -> CreateExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                             CreateExternalInterviewAssessmentResponse)
+        response: CreateExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExternalInterviewAssessmentResponse)
         response.raw = resp
 
         return response
-
-    def patch(self, request: PatchExternalInterviewAssessmentRequest,
-              option: Optional[RequestOption] = None) -> PatchExternalInterviewAssessmentResponse:
+        
+    def patch(self, request: PatchExternalInterviewAssessmentRequest, option: Optional[RequestOption] = None) -> PatchExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class ExternalInterviewAssessment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            PatchExternalInterviewAssessmentResponse)
+        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchExternalInterviewAssessmentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchExternalInterviewAssessmentRequest,
-                     option: Optional[RequestOption] = None) -> PatchExternalInterviewAssessmentResponse:
+    async def apatch(self, request: PatchExternalInterviewAssessmentRequest, option: Optional[RequestOption] = None) -> PatchExternalInterviewAssessmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                            PatchExternalInterviewAssessmentResponse)
+        response: PatchExternalInterviewAssessmentResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchExternalInterviewAssessmentResponse)
         response.raw = resp
 
         return response
+        
+    

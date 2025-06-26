@@ -34,34 +34,27 @@ class DepartmentAdjustRecord(object):
 class DepartmentAdjustRecordBuilder(object):
     def __init__(self) -> None:
         self._department_adjust_record = DepartmentAdjustRecord()
-
     def record_id(self, record_id: str) -> "DepartmentAdjustRecordBuilder":
         self._department_adjust_record.record_id = record_id
         return self
-
     def department_id(self, department_id: str) -> "DepartmentAdjustRecordBuilder":
         self._department_adjust_record.department_id = department_id
         return self
-
     def draft_department_id(self, draft_department_id: str) -> "DepartmentAdjustRecordBuilder":
         self._department_adjust_record.draft_department_id = draft_department_id
         return self
-
     def department_change_type(self, department_change_type: str) -> "DepartmentAdjustRecordBuilder":
         self._department_adjust_record.department_change_type = department_change_type
         return self
-
     def is_conflict(self, is_conflict: bool) -> "DepartmentAdjustRecordBuilder":
         self._department_adjust_record.is_conflict = is_conflict
         return self
-
     def change_reasons(self, change_reasons: List[str]) -> "DepartmentAdjustRecordBuilder":
         self._department_adjust_record.change_reasons = change_reasons
         return self
-
     def reorganization_info(self, reorganization_info: ReorganizationInfo) -> "DepartmentAdjustRecordBuilder":
         self._department_adjust_record.reorganization_info = reorganization_info
         return self
-
+    
     def build(self) -> "DepartmentAdjustRecord":
         return self._department_adjust_record

@@ -21,10 +21,9 @@ class GetByDepartmentBpRequestBody(object):
 class GetByDepartmentBpRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._get_by_department_bp_request_body = GetByDepartmentBpRequestBody()
-
     def department_id(self, department_id: str) -> "GetByDepartmentBpRequestBodyBuilder":
         self._get_by_department_bp_request_body.department_id = department_id
         return self
-
+    
     def build(self) -> "GetByDepartmentBpRequestBody":
         return self._get_by_department_bp_request_body

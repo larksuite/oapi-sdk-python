@@ -37,30 +37,24 @@ class PassageParam(object):
 class PassageParamBuilder(object):
     def __init__(self) -> None:
         self._passage_param = PassageParam()
-
     def doc_param(self, doc_param: DocPassageParam) -> "PassageParamBuilder":
         self._passage_param.doc_param = doc_param
         return self
-
     def wiki_param(self, wiki_param: WikiPassageParam) -> "PassageParamBuilder":
         self._passage_param.wiki_param = wiki_param
         return self
-
     def web_param(self, web_param: WebPassageParam) -> "PassageParamBuilder":
         self._passage_param.web_param = web_param
         return self
-
     def helpdesk_param(self, helpdesk_param: HelpdeskPassageParam) -> "PassageParamBuilder":
         self._passage_param.helpdesk_param = helpdesk_param
         return self
-
     def lingo_param(self, lingo_param: LingoPassageParam) -> "PassageParamBuilder":
         self._passage_param.lingo_param = lingo_param
         return self
-
     def message_param(self, message_param: MessagePassageParam) -> "PassageParamBuilder":
         self._passage_param.message_param = message_param
         return self
-
+    
     def build(self) -> "PassageParam":
         return self._passage_param

@@ -52,50 +52,39 @@ class FormVariableValueInfo(object):
 class FormVariableValueInfoBuilder(object):
     def __init__(self) -> None:
         self._form_variable_value_info = FormVariableValueInfo()
-
     def text_value(self, text_value: FormFieldVariableStringValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.text_value = text_value
         return self
-
     def number_value(self, number_value: FormFieldVariableStringValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.number_value = number_value
         return self
-
     def date_value(self, date_value: FormFieldVariableNumberValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.date_value = date_value
         return self
-
     def employment_value(self, employment_value: FormFieldVariableStringValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.employment_value = employment_value
         return self
-
     def date_time_value(self, date_time_value: FormFieldVariableNumberValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.date_time_value = date_time_value
         return self
-
     def enum_value(self, enum_value: FormFieldVariableStringValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.enum_value = enum_value
         return self
-
     def null_value(self, null_value: FormFieldVariableNullValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.null_value = null_value
         return self
-
     def bool_value(self, bool_value: FormFieldVariableBoolValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.bool_value = bool_value
         return self
-
     def department_value(self, department_value: FormFieldVariableStringValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.department_value = department_value
         return self
-
     def i18n_value(self, i18n_value: FormFieldVariableI18nValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.i18n_value = i18n_value
         return self
-
     def object_value(self, object_value: FormFieldVariableStringValue) -> "FormVariableValueInfoBuilder":
         self._form_variable_value_info.object_value = object_value
         return self
-
+    
     def build(self) -> "FormVariableValueInfo":
         return self._form_variable_value_info

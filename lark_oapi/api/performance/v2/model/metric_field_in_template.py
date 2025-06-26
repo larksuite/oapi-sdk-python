@@ -28,22 +28,18 @@ class MetricFieldInTemplate(object):
 class MetricFieldInTemplateBuilder(object):
     def __init__(self) -> None:
         self._metric_field_in_template = MetricFieldInTemplate()
-
     def id(self, id: int) -> "MetricFieldInTemplateBuilder":
         self._metric_field_in_template.id = id
         return self
-
     def input_setting(self, input_setting: str) -> "MetricFieldInTemplateBuilder":
         self._metric_field_in_template.input_setting = input_setting
         return self
-
     def filed_value(self, filed_value: str) -> "MetricFieldInTemplateBuilder":
         self._metric_field_in_template.filed_value = filed_value
         return self
-
     def field_value_person(self, field_value_person: User) -> "MetricFieldInTemplateBuilder":
         self._metric_field_in_template.field_value_person = field_value_person
         return self
-
+    
     def build(self) -> "MetricFieldInTemplate":
         return self._metric_field_in_template

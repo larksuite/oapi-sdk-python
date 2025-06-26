@@ -50,58 +50,45 @@ class ComponentLibRef(object):
 class ComponentLibRefBuilder(object):
     def __init__(self) -> None:
         self._component_lib_ref = ComponentLibRef()
-
     def basic_info(self, basic_info: ComponentLibBasic) -> "ComponentLibRefBuilder":
         self._component_lib_ref.basic_info = basic_info
         return self
-
     def version_number(self, version_number: str) -> "ComponentLibRefBuilder":
         self._component_lib_ref.version_number = version_number
         return self
-
     def can_upgrade(self, can_upgrade: bool) -> "ComponentLibRefBuilder":
         self._component_lib_ref.can_upgrade = can_upgrade
         return self
-
     def version_id(self, version_id: str) -> "ComponentLibRefBuilder":
         self._component_lib_ref.version_id = version_id
         return self
-
     def comps_count(self, comps_count: str) -> "ComponentLibRefBuilder":
         self._component_lib_ref.comps_count = comps_count
         return self
-
     def operating_task_info(self, operating_task_info: TaskInfo) -> "ComponentLibRefBuilder":
         self._component_lib_ref.operating_task_info = operating_task_info
         return self
-
     def operating_type(self, operating_type: str) -> "ComponentLibRefBuilder":
         self._component_lib_ref.operating_type = operating_type
         return self
-
     def latest_version_number(self, latest_version_number: str) -> "ComponentLibRefBuilder":
         self._component_lib_ref.latest_version_number = latest_version_number
         return self
-
     def installed_at(self, installed_at: str) -> "ComponentLibRefBuilder":
         self._component_lib_ref.installed_at = installed_at
         return self
-
     def installed_by(self, installed_by: LookupWithAvatar) -> "ComponentLibRefBuilder":
         self._component_lib_ref.installed_by = installed_by
         return self
-
     def updated_at(self, updated_at: str) -> "ComponentLibRefBuilder":
         self._component_lib_ref.updated_at = updated_at
         return self
-
     def updated_by(self, updated_by: LookupWithAvatar) -> "ComponentLibRefBuilder":
         self._component_lib_ref.updated_by = updated_by
         return self
-
     def developer_names(self, developer_names: List[I18n]) -> "ComponentLibRefBuilder":
         self._component_lib_ref.developer_names = developer_names
         return self
-
+    
     def build(self) -> "ComponentLibRef":
         return self._component_lib_ref

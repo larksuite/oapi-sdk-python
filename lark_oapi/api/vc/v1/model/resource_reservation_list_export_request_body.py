@@ -31,30 +31,24 @@ class ResourceReservationListExportRequestBody(object):
 class ResourceReservationListExportRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._resource_reservation_list_export_request_body = ResourceReservationListExportRequestBody()
-
     def room_level_id(self, room_level_id: str) -> "ResourceReservationListExportRequestBodyBuilder":
         self._resource_reservation_list_export_request_body.room_level_id = room_level_id
         return self
-
     def need_topic(self, need_topic: bool) -> "ResourceReservationListExportRequestBodyBuilder":
         self._resource_reservation_list_export_request_body.need_topic = need_topic
         return self
-
     def start_time(self, start_time: int) -> "ResourceReservationListExportRequestBodyBuilder":
         self._resource_reservation_list_export_request_body.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "ResourceReservationListExportRequestBodyBuilder":
         self._resource_reservation_list_export_request_body.end_time = end_time
         return self
-
     def room_ids(self, room_ids: List[str]) -> "ResourceReservationListExportRequestBodyBuilder":
         self._resource_reservation_list_export_request_body.room_ids = room_ids
         return self
-
     def is_exclude(self, is_exclude: bool) -> "ResourceReservationListExportRequestBodyBuilder":
         self._resource_reservation_list_export_request_body.is_exclude = is_exclude
         return self
-
+    
     def build(self) -> "ResourceReservationListExportRequestBody":
         return self._resource_reservation_list_export_request_body

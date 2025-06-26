@@ -34,34 +34,27 @@ class UserTask(object):
 class UserTaskBuilder(object):
     def __init__(self) -> None:
         self._user_task = UserTask()
-
     def result_id(self, result_id: str) -> "UserTaskBuilder":
         self._user_task.result_id = result_id
         return self
-
     def user_id(self, user_id: str) -> "UserTaskBuilder":
         self._user_task.user_id = user_id
         return self
-
     def employee_name(self, employee_name: str) -> "UserTaskBuilder":
         self._user_task.employee_name = employee_name
         return self
-
     def day(self, day: int) -> "UserTaskBuilder":
         self._user_task.day = day
         return self
-
     def group_id(self, group_id: str) -> "UserTaskBuilder":
         self._user_task.group_id = group_id
         return self
-
     def shift_id(self, shift_id: str) -> "UserTaskBuilder":
         self._user_task.shift_id = shift_id
         return self
-
     def records(self, records: List[TaskResult]) -> "UserTaskBuilder":
         self._user_task.records = records
         return self
-
+    
     def build(self) -> "UserTask":
         return self._user_task

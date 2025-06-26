@@ -25,18 +25,15 @@ class MeetingParticipantResult(object):
 class MeetingParticipantResultBuilder(object):
     def __init__(self) -> None:
         self._meeting_participant_result = MeetingParticipantResult()
-
     def id(self, id: str) -> "MeetingParticipantResultBuilder":
         self._meeting_participant_result.id = id
         return self
-
     def user_type(self, user_type: int) -> "MeetingParticipantResultBuilder":
         self._meeting_participant_result.user_type = user_type
         return self
-
     def result(self, result: int) -> "MeetingParticipantResultBuilder":
         self._meeting_participant_result.result = result
         return self
-
+    
     def build(self) -> "MeetingParticipantResult":
         return self._meeting_participant_result

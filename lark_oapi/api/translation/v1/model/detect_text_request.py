@@ -24,7 +24,7 @@ class DetectTextRequestBuilder(object):
         detect_text_request.uri = "/open-apis/translation/v1/text/detect"
         detect_text_request.token_types = {AccessTokenType.TENANT}
         self._detect_text_request: DetectTextRequest = detect_text_request
-
+    
     def request_body(self, request_body: DetectTextRequestBody) -> "DetectTextRequestBuilder":
         self._detect_text_request.request_body = request_body
         self._detect_text_request.body = request_body

@@ -22,10 +22,9 @@ class BatchCreatePermissionMemberResponseBody(object):
 class BatchCreatePermissionMemberResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_permission_member_response_body = BatchCreatePermissionMemberResponseBody()
-
     def members(self, members: List[BaseMember]) -> "BatchCreatePermissionMemberResponseBodyBuilder":
         self._batch_create_permission_member_response_body.members = members
         return self
-
+    
     def build(self) -> "BatchCreatePermissionMemberResponseBody":
         return self._batch_create_permission_member_response_body

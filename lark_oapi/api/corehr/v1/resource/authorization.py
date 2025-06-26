@@ -25,8 +25,7 @@ class Authorization(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add_role_assign(self, request: AddRoleAssignAuthorizationRequest,
-                        option: Optional[RequestOption] = None) -> AddRoleAssignAuthorizationResponse:
+    def add_role_assign(self, request: AddRoleAssignAuthorizationRequest, option: Optional[RequestOption] = None) -> AddRoleAssignAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,34 +38,33 @@ class Authorization(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: AddRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      AddRoleAssignAuthorizationResponse)
+        response: AddRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), AddRoleAssignAuthorizationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aadd_role_assign(self, request: AddRoleAssignAuthorizationRequest,
-                               option: Optional[RequestOption] = None) -> AddRoleAssignAuthorizationResponse:
+    async def aadd_role_assign(self, request: AddRoleAssignAuthorizationRequest, option: Optional[RequestOption] = None) -> AddRoleAssignAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
+
+        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: AddRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      AddRoleAssignAuthorizationResponse)
+        response: AddRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), AddRoleAssignAuthorizationResponse)
         response.raw = resp
 
         return response
-
-    def get_by_param(self, request: GetByParamAuthorizationRequest,
-                     option: Optional[RequestOption] = None) -> GetByParamAuthorizationResponse:
+        
+    def get_by_param(self, request: GetByParamAuthorizationRequest, option: Optional[RequestOption] = None) -> GetByParamAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
@@ -79,34 +77,33 @@ class Authorization(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetByParamAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   GetByParamAuthorizationResponse)
+        response: GetByParamAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByParamAuthorizationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget_by_param(self, request: GetByParamAuthorizationRequest,
-                            option: Optional[RequestOption] = None) -> GetByParamAuthorizationResponse:
+    async def aget_by_param(self, request: GetByParamAuthorizationRequest, option: Optional[RequestOption] = None) -> GetByParamAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
+
+        
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetByParamAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   GetByParamAuthorizationResponse)
+        response: GetByParamAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByParamAuthorizationResponse)
         response.raw = resp
 
         return response
-
-    def query(self, request: QueryAuthorizationRequest,
-              option: Optional[RequestOption] = None) -> QueryAuthorizationResponse:
+        
+    def query(self, request: QueryAuthorizationRequest, option: Optional[RequestOption] = None) -> QueryAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
@@ -119,32 +116,33 @@ class Authorization(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryAuthorizationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryAuthorizationRequest,
-                     option: Optional[RequestOption] = None) -> QueryAuthorizationResponse:
+    async def aquery(self, request: QueryAuthorizationRequest, option: Optional[RequestOption] = None) -> QueryAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryAuthorizationResponse)
         response.raw = resp
 
         return response
-
-    def remove_role_assign(self, request: RemoveRoleAssignAuthorizationRequest,
-                           option: Optional[RequestOption] = None) -> RemoveRoleAssignAuthorizationResponse:
+        
+    def remove_role_assign(self, request: RemoveRoleAssignAuthorizationRequest, option: Optional[RequestOption] = None) -> RemoveRoleAssignAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,34 +155,33 @@ class Authorization(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: RemoveRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         RemoveRoleAssignAuthorizationResponse)
+        response: RemoveRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRoleAssignAuthorizationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aremove_role_assign(self, request: RemoveRoleAssignAuthorizationRequest,
-                                  option: Optional[RequestOption] = None) -> RemoveRoleAssignAuthorizationResponse:
+    async def aremove_role_assign(self, request: RemoveRoleAssignAuthorizationRequest, option: Optional[RequestOption] = None) -> RemoveRoleAssignAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: RemoveRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         RemoveRoleAssignAuthorizationResponse)
+        response: RemoveRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveRoleAssignAuthorizationResponse)
         response.raw = resp
 
         return response
-
-    def update_role_assign(self, request: UpdateRoleAssignAuthorizationRequest,
-                           option: Optional[RequestOption] = None) -> UpdateRoleAssignAuthorizationResponse:
+        
+    def update_role_assign(self, request: UpdateRoleAssignAuthorizationRequest, option: Optional[RequestOption] = None) -> UpdateRoleAssignAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
@@ -197,28 +194,30 @@ class Authorization(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         UpdateRoleAssignAuthorizationResponse)
+        response: UpdateRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateRoleAssignAuthorizationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate_role_assign(self, request: UpdateRoleAssignAuthorizationRequest,
-                                  option: Optional[RequestOption] = None) -> UpdateRoleAssignAuthorizationResponse:
+    async def aupdate_role_assign(self, request: UpdateRoleAssignAuthorizationRequest, option: Optional[RequestOption] = None) -> UpdateRoleAssignAuthorizationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         UpdateRoleAssignAuthorizationResponse)
+        response: UpdateRoleAssignAuthorizationResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateRoleAssignAuthorizationResponse)
         response.raw = resp
 
         return response
+        
+    

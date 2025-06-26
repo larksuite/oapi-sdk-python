@@ -23,8 +23,7 @@ class UserFlow(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create(self, request: BatchCreateUserFlowRequest,
-                     option: Optional[RequestOption] = None) -> BatchCreateUserFlowResponse:
+    def batch_create(self, request: BatchCreateUserFlowRequest, option: Optional[RequestOption] = None) -> BatchCreateUserFlowResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,32 +36,33 @@ class UserFlow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchCreateUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateUserFlowResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_create(self, request: BatchCreateUserFlowRequest,
-                            option: Optional[RequestOption] = None) -> BatchCreateUserFlowResponse:
+    async def abatch_create(self, request: BatchCreateUserFlowRequest, option: Optional[RequestOption] = None) -> BatchCreateUserFlowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchCreateUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateUserFlowResponse)
         response.raw = resp
 
         return response
-
-    def batch_del(self, request: BatchDelUserFlowRequest,
-                  option: Optional[RequestOption] = None) -> BatchDelUserFlowResponse:
+        
+    def batch_del(self, request: BatchDelUserFlowRequest, option: Optional[RequestOption] = None) -> BatchDelUserFlowResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,30 +75,32 @@ class UserFlow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchDelUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDelUserFlowResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_del(self, request: BatchDelUserFlowRequest,
-                         option: Optional[RequestOption] = None) -> BatchDelUserFlowResponse:
+    async def abatch_del(self, request: BatchDelUserFlowRequest, option: Optional[RequestOption] = None) -> BatchDelUserFlowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchDelUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchDelUserFlowResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetUserFlowRequest, option: Optional[RequestOption] = None) -> GetUserFlowResponse:
         if option is None:
             option = RequestOption()
@@ -112,12 +114,13 @@ class UserFlow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserFlowResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetUserFlowRequest, option: Optional[RequestOption] = None) -> GetUserFlowResponse:
         if option is None:
@@ -126,15 +129,17 @@ class UserFlow(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserFlowResponse)
         response.raw = resp
 
         return response
-
+        
     def query(self, request: QueryUserFlowRequest, option: Optional[RequestOption] = None) -> QueryUserFlowResponse:
         if option is None:
             option = RequestOption()
@@ -148,26 +153,30 @@ class UserFlow(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserFlowResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryUserFlowRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserFlowResponse:
+    async def aquery(self, request: QueryUserFlowRequest, option: Optional[RequestOption] = None) -> QueryUserFlowResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserFlowResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserFlowResponse)
         response.raw = resp
 
         return response
+        
+    

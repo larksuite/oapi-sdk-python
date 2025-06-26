@@ -25,18 +25,15 @@ class RagProbe(object):
 class RagProbeBuilder(object):
     def __init__(self) -> None:
         self._rag_probe = RagProbe()
-
     def hit_authority(self, hit_authority: bool) -> "RagProbeBuilder":
         self._rag_probe.hit_authority = hit_authority
         return self
-
     def hit_confidence_warn(self, hit_confidence_warn: bool) -> "RagProbeBuilder":
         self._rag_probe.hit_confidence_warn = hit_confidence_warn
         return self
-
     def hit_llm_reject(self, hit_llm_reject: bool) -> "RagProbeBuilder":
         self._rag_probe.hit_llm_reject = hit_llm_reject
         return self
-
+    
     def build(self) -> "RagProbe":
         return self._rag_probe

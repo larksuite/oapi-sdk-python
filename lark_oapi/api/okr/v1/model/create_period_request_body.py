@@ -23,14 +23,12 @@ class CreatePeriodRequestBody(object):
 class CreatePeriodRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_period_request_body = CreatePeriodRequestBody()
-
     def period_rule_id(self, period_rule_id: str) -> "CreatePeriodRequestBodyBuilder":
         self._create_period_request_body.period_rule_id = period_rule_id
         return self
-
     def start_month(self, start_month: str) -> "CreatePeriodRequestBodyBuilder":
         self._create_period_request_body.start_month = start_month
         return self
-
+    
     def build(self) -> "CreatePeriodRequestBody":
         return self._create_period_request_body

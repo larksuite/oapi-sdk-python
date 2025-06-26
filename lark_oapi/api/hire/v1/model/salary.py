@@ -29,26 +29,21 @@ class Salary(object):
 class SalaryBuilder(object):
     def __init__(self) -> None:
         self._salary = Salary()
-
     def operate_time(self, operate_time: str) -> "SalaryBuilder":
         self._salary.operate_time = operate_time
         return self
-
     def salary_status(self, salary_status: int) -> "SalaryBuilder":
         self._salary.salary_status = salary_status
         return self
-
     def offer_id(self, offer_id: str) -> "SalaryBuilder":
         self._salary.offer_id = offer_id
         return self
-
     def salay_id(self, salay_id: str) -> "SalaryBuilder":
         self._salary.salay_id = salay_id
         return self
-
     def operator_id(self, operator_id: str) -> "SalaryBuilder":
         self._salary.operator_id = operator_id
         return self
-
+    
     def build(self) -> "Salary":
         return self._salary

@@ -25,14 +25,12 @@ class UserTaskSummaryType(object):
 class UserTaskSummaryTypeBuilder(object):
     def __init__(self) -> None:
         self._user_task_summary_type = UserTaskSummaryType()
-
     def file_key(self, file_key: I18n) -> "UserTaskSummaryTypeBuilder":
         self._user_task_summary_type.file_key = file_key
         return self
-
     def file_value(self, file_value: List[I18n]) -> "UserTaskSummaryTypeBuilder":
         self._user_task_summary_type.file_value = file_value
         return self
-
+    
     def build(self) -> "UserTaskSummaryType":
         return self._user_task_summary_type

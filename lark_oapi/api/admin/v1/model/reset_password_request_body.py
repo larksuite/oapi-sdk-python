@@ -24,14 +24,12 @@ class ResetPasswordRequestBody(object):
 class ResetPasswordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._reset_password_request_body = ResetPasswordRequestBody()
-
     def password(self, password: Password) -> "ResetPasswordRequestBodyBuilder":
         self._reset_password_request_body.password = password
         return self
-
     def user_id(self, user_id: str) -> "ResetPasswordRequestBodyBuilder":
         self._reset_password_request_body.user_id = user_id
         return self
-
+    
     def build(self) -> "ResetPasswordRequestBody":
         return self._reset_password_request_body

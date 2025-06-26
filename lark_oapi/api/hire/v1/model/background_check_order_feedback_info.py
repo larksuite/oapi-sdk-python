@@ -33,34 +33,27 @@ class BackgroundCheckOrderFeedbackInfo(object):
 class BackgroundCheckOrderFeedbackInfoBuilder(object):
     def __init__(self) -> None:
         self._background_check_order_feedback_info = BackgroundCheckOrderFeedbackInfo()
-
     def id(self, id: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.id = id
         return self
-
     def attachment_url(self, attachment_url: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.attachment_url = attachment_url
         return self
-
     def report_preview_url(self, report_preview_url: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.report_preview_url = report_preview_url
         return self
-
     def result(self, result: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.result = result
         return self
-
     def report_type(self, report_type: int) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.report_type = report_type
         return self
-
     def create_time(self, create_time: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.create_time = create_time
         return self
-
     def report_name(self, report_name: str) -> "BackgroundCheckOrderFeedbackInfoBuilder":
         self._background_check_order_feedback_info.report_name = report_name
         return self
-
+    
     def build(self) -> "BackgroundCheckOrderFeedbackInfo":
         return self._background_check_order_feedback_info

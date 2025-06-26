@@ -5,60 +5,60 @@ from lark_oapi.api.minutes.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetMinuteStatisticsRequest = GetMinuteStatisticsRequest.builder() \
-        .minute_token("obcnq3b9jl72l83w4f149w9c") \
-        .user_id_type("user_id") \
-        .build()
+	# 构造请求对象
+	request: GetMinuteStatisticsRequest = GetMinuteStatisticsRequest.builder() \
+		.minute_token("obcnq3b9jl72l83w4f149w9c") \
+		.user_id_type("user_id") \
+		.build()
 
-    # 发起请求
-    response: GetMinuteStatisticsResponse = client.minutes.v1.minute_statistics.get(request)
+	# 发起请求
+	response: GetMinuteStatisticsResponse = client.minutes.v1.minute_statistics.get(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.minutes.v1.minute_statistics.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.minutes.v1.minute_statistics.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetMinuteStatisticsRequest = GetMinuteStatisticsRequest.builder() \
-        .minute_token("obcnq3b9jl72l83w4f149w9c") \
-        .user_id_type("user_id") \
-        .build()
+	# 构造请求对象
+	request: GetMinuteStatisticsRequest = GetMinuteStatisticsRequest.builder() \
+		.minute_token("obcnq3b9jl72l83w4f149w9c") \
+		.user_id_type("user_id") \
+		.build()
 
-    # 发起请求
-    response: GetMinuteStatisticsResponse = await client.minutes.v1.minute_statistics.aget(request)
+	# 发起请求
+	response: GetMinuteStatisticsResponse = await client.minutes.v1.minute_statistics.aget(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.minutes.v1.minute_statistics.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.minutes.v1.minute_statistics.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

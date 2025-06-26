@@ -24,7 +24,7 @@ class CreateExternalOfferRequestBuilder(object):
         create_external_offer_request.uri = "/open-apis/hire/v1/external_offers"
         create_external_offer_request.token_types = {AccessTokenType.TENANT}
         self._create_external_offer_request: CreateExternalOfferRequest = create_external_offer_request
-
+    
     def request_body(self, request_body: ExternalOffer) -> "CreateExternalOfferRequestBuilder":
         self._create_external_offer_request.request_body = request_body
         self._create_external_offer_request.body = request_body

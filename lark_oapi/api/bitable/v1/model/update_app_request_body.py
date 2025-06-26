@@ -23,14 +23,12 @@ class UpdateAppRequestBody(object):
 class UpdateAppRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_app_request_body = UpdateAppRequestBody()
-
     def name(self, name: str) -> "UpdateAppRequestBodyBuilder":
         self._update_app_request_body.name = name
         return self
-
     def is_advanced(self, is_advanced: bool) -> "UpdateAppRequestBodyBuilder":
         self._update_app_request_body.is_advanced = is_advanced
         return self
-
+    
     def build(self) -> "UpdateAppRequestBody":
         return self._update_app_request_body

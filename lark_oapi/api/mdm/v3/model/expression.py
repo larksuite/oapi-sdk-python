@@ -26,18 +26,15 @@ class Expression(object):
 class ExpressionBuilder(object):
     def __init__(self) -> None:
         self._expression = Expression()
-
     def field(self, field: str) -> "ExpressionBuilder":
         self._expression.field = field
         return self
-
     def operator(self, operator: str) -> "ExpressionBuilder":
         self._expression.operator = operator
         return self
-
     def value(self, value: Value) -> "ExpressionBuilder":
         self._expression.value = value
         return self
-
+    
     def build(self) -> "Expression":
         return self._expression

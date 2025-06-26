@@ -27,22 +27,18 @@ class GetFileSubscriptionResponseBody(object):
 class GetFileSubscriptionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_file_subscription_response_body = GetFileSubscriptionResponseBody()
-
     def subscription_id(self, subscription_id: str) -> "GetFileSubscriptionResponseBodyBuilder":
         self._get_file_subscription_response_body.subscription_id = subscription_id
         return self
-
     def subscription_type(self, subscription_type: str) -> "GetFileSubscriptionResponseBodyBuilder":
         self._get_file_subscription_response_body.subscription_type = subscription_type
         return self
-
     def is_subcribe(self, is_subcribe: bool) -> "GetFileSubscriptionResponseBodyBuilder":
         self._get_file_subscription_response_body.is_subcribe = is_subcribe
         return self
-
     def file_type(self, file_type: str) -> "GetFileSubscriptionResponseBodyBuilder":
         self._get_file_subscription_response_body.file_type = file_type
         return self
-
+    
     def build(self) -> "GetFileSubscriptionResponseBody":
         return self._get_file_subscription_response_body

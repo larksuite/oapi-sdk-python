@@ -16,6 +16,7 @@ class InstanceSearch(object):
         "instance_start_time_from": int,
         "instance_start_time_to": int,
         "locale": str,
+        "with_revoked_instance": bool,
     }
 
     def __init__(self, d=None):
@@ -29,6 +30,7 @@ class InstanceSearch(object):
         self.instance_start_time_from: Optional[int] = None
         self.instance_start_time_to: Optional[int] = None
         self.locale: Optional[str] = None
+        self.with_revoked_instance: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -39,46 +41,39 @@ class InstanceSearch(object):
 class InstanceSearchBuilder(object):
     def __init__(self) -> None:
         self._instance_search = InstanceSearch()
-
     def user_id(self, user_id: str) -> "InstanceSearchBuilder":
         self._instance_search.user_id = user_id
         return self
-
     def approval_code(self, approval_code: str) -> "InstanceSearchBuilder":
         self._instance_search.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "InstanceSearchBuilder":
         self._instance_search.instance_code = instance_code
         return self
-
     def instance_external_id(self, instance_external_id: str) -> "InstanceSearchBuilder":
         self._instance_search.instance_external_id = instance_external_id
         return self
-
     def group_external_id(self, group_external_id: str) -> "InstanceSearchBuilder":
         self._instance_search.group_external_id = group_external_id
         return self
-
     def instance_title(self, instance_title: str) -> "InstanceSearchBuilder":
         self._instance_search.instance_title = instance_title
         return self
-
     def instance_status(self, instance_status: str) -> "InstanceSearchBuilder":
         self._instance_search.instance_status = instance_status
         return self
-
     def instance_start_time_from(self, instance_start_time_from: int) -> "InstanceSearchBuilder":
         self._instance_search.instance_start_time_from = instance_start_time_from
         return self
-
     def instance_start_time_to(self, instance_start_time_to: int) -> "InstanceSearchBuilder":
         self._instance_search.instance_start_time_to = instance_start_time_to
         return self
-
     def locale(self, locale: str) -> "InstanceSearchBuilder":
         self._instance_search.locale = locale
         return self
-
+    def with_revoked_instance(self, with_revoked_instance: bool) -> "InstanceSearchBuilder":
+        self._instance_search.with_revoked_instance = with_revoked_instance
+        return self
+    
     def build(self) -> "InstanceSearch":
         return self._instance_search

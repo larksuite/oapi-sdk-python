@@ -24,9 +24,8 @@ class InternalTenantAccessTokenRequestBuilder(object):
         internal_tenant_access_token_request.uri = "/open-apis/auth/v3/tenant_access_token/internal"
         internal_tenant_access_token_request.token_types = {}
         self._internal_tenant_access_token_request: InternalTenantAccessTokenRequest = internal_tenant_access_token_request
-
-    def request_body(self,
-                     request_body: InternalTenantAccessTokenRequestBody) -> "InternalTenantAccessTokenRequestBuilder":
+    
+    def request_body(self, request_body: InternalTenantAccessTokenRequestBody) -> "InternalTenantAccessTokenRequestBuilder":
         self._internal_tenant_access_token_request.request_body = request_body
         self._internal_tenant_access_token_request.body = request_body
         return self

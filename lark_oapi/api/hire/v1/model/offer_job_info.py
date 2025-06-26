@@ -23,14 +23,12 @@ class OfferJobInfo(object):
 class OfferJobInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_job_info = OfferJobInfo()
-
     def job_id(self, job_id: str) -> "OfferJobInfoBuilder":
         self._offer_job_info.job_id = job_id
         return self
-
     def job_name(self, job_name: str) -> "OfferJobInfoBuilder":
         self._offer_job_info.job_name = job_name
         return self
-
+    
     def build(self) -> "OfferJobInfo":
         return self._offer_job_info

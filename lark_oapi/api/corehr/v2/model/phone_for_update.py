@@ -31,30 +31,24 @@ class PhoneForUpdate(object):
 class PhoneForUpdateBuilder(object):
     def __init__(self) -> None:
         self._phone_for_update = PhoneForUpdate()
-
     def international_area_code(self, international_area_code: str) -> "PhoneForUpdateBuilder":
         self._phone_for_update.international_area_code = international_area_code
         return self
-
     def phone_number(self, phone_number: str) -> "PhoneForUpdateBuilder":
         self._phone_for_update.phone_number = phone_number
         return self
-
     def device_type(self, device_type: str) -> "PhoneForUpdateBuilder":
         self._phone_for_update.device_type = device_type
         return self
-
     def phone_usage(self, phone_usage: str) -> "PhoneForUpdateBuilder":
         self._phone_for_update.phone_usage = phone_usage
         return self
-
     def is_primary(self, is_primary: bool) -> "PhoneForUpdateBuilder":
         self._phone_for_update.is_primary = is_primary
         return self
-
     def is_public(self, is_public: bool) -> "PhoneForUpdateBuilder":
         self._phone_for_update.is_public = is_public
         return self
-
+    
     def build(self) -> "PhoneForUpdate":
         return self._phone_for_update

@@ -22,10 +22,9 @@ class RecognizeIdCardResponseBody(object):
 class RecognizeIdCardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_id_card_response_body = RecognizeIdCardResponseBody()
-
     def id_card(self, id_card: IdCard) -> "RecognizeIdCardResponseBodyBuilder":
         self._recognize_id_card_response_body.id_card = id_card
         return self
-
+    
     def build(self) -> "RecognizeIdCardResponseBody":
         return self._recognize_id_card_response_body

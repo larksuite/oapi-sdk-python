@@ -23,14 +23,12 @@ class RangeFilter(object):
 class RangeFilterBuilder(object):
     def __init__(self) -> None:
         self._range_filter = RangeFilter()
-
     def from_(self, from_: str) -> "RangeFilterBuilder":
         self._range_filter.from_ = from_
         return self
-
     def to(self, to: str) -> "RangeFilterBuilder":
         self._range_filter.to = to
         return self
-
+    
     def build(self) -> "RangeFilter":
         return self._range_filter

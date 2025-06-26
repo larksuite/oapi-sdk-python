@@ -23,11 +23,12 @@ class DeleteTaskRequestBuilder(object):
         delete_task_request.uri = "/open-apis/task/v2/tasks/:task_guid"
         delete_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_task_request: DeleteTaskRequest = delete_task_request
-
+    
     def task_guid(self, task_guid: str) -> "DeleteTaskRequestBuilder":
         self._delete_task_request.task_guid = task_guid
         self._delete_task_request.paths["task_guid"] = str(task_guid)
         return self
+    
 
     def build(self) -> DeleteTaskRequest:
         return self._delete_task_request

@@ -25,14 +25,12 @@ class RecommendedJobLevel(object):
 class RecommendedJobLevelBuilder(object):
     def __init__(self) -> None:
         self._recommended_job_level = RecommendedJobLevel()
-
     def lower_limit_job_level_name(self, lower_limit_job_level_name: I18n) -> "RecommendedJobLevelBuilder":
         self._recommended_job_level.lower_limit_job_level_name = lower_limit_job_level_name
         return self
-
     def higher_limit_job_level_name(self, higher_limit_job_level_name: I18n) -> "RecommendedJobLevelBuilder":
         self._recommended_job_level.higher_limit_job_level_name = higher_limit_job_level_name
         return self
-
+    
     def build(self) -> "RecommendedJobLevel":
         return self._recommended_job_level

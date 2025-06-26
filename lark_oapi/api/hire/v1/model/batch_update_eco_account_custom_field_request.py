@@ -24,7 +24,7 @@ class BatchUpdateEcoAccountCustomFieldRequestBuilder(object):
         batch_update_eco_account_custom_field_request.uri = "/open-apis/hire/v1/eco_account_custom_fields/batch_update"
         batch_update_eco_account_custom_field_request.token_types = {AccessTokenType.TENANT}
         self._batch_update_eco_account_custom_field_request: BatchUpdateEcoAccountCustomFieldRequest = batch_update_eco_account_custom_field_request
-
+    
     def request_body(self, request_body: EcoAccountCustomField) -> "BatchUpdateEcoAccountCustomFieldRequestBuilder":
         self._batch_update_eco_account_custom_field_request.request_body = request_body
         self._batch_update_eco_account_custom_field_request.body = request_body

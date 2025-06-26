@@ -40,12 +40,13 @@ class UserTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CcUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CcUserTaskResponse)
         response.raw = resp
 
         return response
+        
 
     async def acc(self, request: CcUserTaskRequest, option: Optional[RequestOption] = None) -> CcUserTaskResponse:
         if option is None:
@@ -54,17 +55,18 @@ class UserTask(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CcUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CcUserTaskResponse)
         response.raw = resp
 
         return response
-
-    def chat_group(self, request: ChatGroupUserTaskRequest,
-                   option: Optional[RequestOption] = None) -> ChatGroupUserTaskResponse:
+        
+    def chat_group(self, request: ChatGroupUserTaskRequest, option: Optional[RequestOption] = None) -> ChatGroupUserTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,32 +79,33 @@ class UserTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ChatGroupUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ChatGroupUserTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def achat_group(self, request: ChatGroupUserTaskRequest,
-                          option: Optional[RequestOption] = None) -> ChatGroupUserTaskResponse:
+    async def achat_group(self, request: ChatGroupUserTaskRequest, option: Optional[RequestOption] = None) -> ChatGroupUserTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ChatGroupUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ChatGroupUserTaskResponse)
         response.raw = resp
 
         return response
-
-    def expediting(self, request: ExpeditingUserTaskRequest,
-                   option: Optional[RequestOption] = None) -> ExpeditingUserTaskResponse:
+        
+    def expediting(self, request: ExpeditingUserTaskRequest, option: Optional[RequestOption] = None) -> ExpeditingUserTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,30 +118,32 @@ class UserTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ExpeditingUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ExpeditingUserTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aexpediting(self, request: ExpeditingUserTaskRequest,
-                          option: Optional[RequestOption] = None) -> ExpeditingUserTaskResponse:
+    async def aexpediting(self, request: ExpeditingUserTaskRequest, option: Optional[RequestOption] = None) -> ExpeditingUserTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ExpeditingUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), ExpeditingUserTaskResponse)
         response.raw = resp
 
         return response
-
+        
     def query(self, request: QueryUserTaskRequest, option: Optional[RequestOption] = None) -> QueryUserTaskResponse:
         if option is None:
             option = RequestOption()
@@ -152,32 +157,33 @@ class UserTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryUserTaskRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserTaskResponse:
+    async def aquery(self, request: QueryUserTaskRequest, option: Optional[RequestOption] = None) -> QueryUserTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserTaskResponse)
         response.raw = resp
 
         return response
-
-    def rollback(self, request: RollbackUserTaskRequest,
-                 option: Optional[RequestOption] = None) -> RollbackUserTaskResponse:
+        
+    def rollback(self, request: RollbackUserTaskRequest, option: Optional[RequestOption] = None) -> RollbackUserTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -190,32 +196,33 @@ class UserTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: RollbackUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RollbackUserTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def arollback(self, request: RollbackUserTaskRequest,
-                        option: Optional[RequestOption] = None) -> RollbackUserTaskResponse:
+    async def arollback(self, request: RollbackUserTaskRequest, option: Optional[RequestOption] = None) -> RollbackUserTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: RollbackUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RollbackUserTaskResponse)
         response.raw = resp
 
         return response
-
-    def rollback_points(self, request: RollbackPointsUserTaskRequest,
-                        option: Optional[RequestOption] = None) -> RollbackPointsUserTaskResponse:
+        
+    def rollback_points(self, request: RollbackPointsUserTaskRequest, option: Optional[RequestOption] = None) -> RollbackPointsUserTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -228,28 +235,30 @@ class UserTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: RollbackPointsUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  RollbackPointsUserTaskResponse)
+        response: RollbackPointsUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RollbackPointsUserTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def arollback_points(self, request: RollbackPointsUserTaskRequest,
-                               option: Optional[RequestOption] = None) -> RollbackPointsUserTaskResponse:
+    async def arollback_points(self, request: RollbackPointsUserTaskRequest, option: Optional[RequestOption] = None) -> RollbackPointsUserTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: RollbackPointsUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  RollbackPointsUserTaskResponse)
+        response: RollbackPointsUserTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), RollbackPointsUserTaskResponse)
         response.raw = resp
 
         return response
+        
+    

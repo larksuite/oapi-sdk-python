@@ -22,10 +22,9 @@ class SearchEnumResponseBody(object):
 class SearchEnumResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_enum_response_body = SearchEnumResponseBody()
-
     def enums(self, enums: List[Enums]) -> "SearchEnumResponseBodyBuilder":
         self._search_enum_response_body.enums = enums
         return self
-
+    
     def build(self) -> "SearchEnumResponseBody":
         return self._search_enum_response_body

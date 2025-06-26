@@ -21,10 +21,9 @@ class UrgentPhoneMessageResponseBody(object):
 class UrgentPhoneMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._urgent_phone_message_response_body = UrgentPhoneMessageResponseBody()
-
     def invalid_user_id_list(self, invalid_user_id_list: List[str]) -> "UrgentPhoneMessageResponseBodyBuilder":
         self._urgent_phone_message_response_body.invalid_user_id_list = invalid_user_id_list
         return self
-
+    
     def build(self) -> "UrgentPhoneMessageResponseBody":
         return self._urgent_phone_message_response_body

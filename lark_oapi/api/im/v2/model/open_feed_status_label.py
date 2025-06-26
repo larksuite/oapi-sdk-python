@@ -23,14 +23,12 @@ class OpenFeedStatusLabel(object):
 class OpenFeedStatusLabelBuilder(object):
     def __init__(self) -> None:
         self._open_feed_status_label = OpenFeedStatusLabel()
-
     def text(self, text: str) -> "OpenFeedStatusLabelBuilder":
         self._open_feed_status_label.text = text
         return self
-
     def type(self, type: str) -> "OpenFeedStatusLabelBuilder":
         self._open_feed_status_label.type = type
         return self
-
+    
     def build(self) -> "OpenFeedStatusLabel":
         return self._open_feed_status_label

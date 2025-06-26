@@ -23,14 +23,12 @@ class AgencySupplierProtectTime(object):
 class AgencySupplierProtectTimeBuilder(object):
     def __init__(self) -> None:
         self._agency_supplier_protect_time = AgencySupplierProtectTime()
-
     def day(self, day: int) -> "AgencySupplierProtectTimeBuilder":
         self._agency_supplier_protect_time.day = day
         return self
-
     def use_default(self, use_default: bool) -> "AgencySupplierProtectTimeBuilder":
         self._agency_supplier_protect_time.use_default = use_default
         return self
-
+    
     def build(self) -> "AgencySupplierProtectTime":
         return self._agency_supplier_protect_time

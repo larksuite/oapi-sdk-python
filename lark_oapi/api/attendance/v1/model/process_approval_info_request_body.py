@@ -25,18 +25,15 @@ class ProcessApprovalInfoRequestBody(object):
 class ProcessApprovalInfoRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._process_approval_info_request_body = ProcessApprovalInfoRequestBody()
-
     def approval_id(self, approval_id: str) -> "ProcessApprovalInfoRequestBodyBuilder":
         self._process_approval_info_request_body.approval_id = approval_id
         return self
-
     def approval_type(self, approval_type: str) -> "ProcessApprovalInfoRequestBodyBuilder":
         self._process_approval_info_request_body.approval_type = approval_type
         return self
-
     def status(self, status: int) -> "ProcessApprovalInfoRequestBodyBuilder":
         self._process_approval_info_request_body.status = status
         return self
-
+    
     def build(self) -> "ProcessApprovalInfoRequestBody":
         return self._process_approval_info_request_body

@@ -22,10 +22,9 @@ class CreateAppDataAssetResponseBody(object):
 class CreateAppDataAssetResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_data_asset_response_body = CreateAppDataAssetResponseBody()
-
     def data_asset(self, data_asset: DataAsset) -> "CreateAppDataAssetResponseBodyBuilder":
         self._create_app_data_asset_response_body.data_asset = data_asset
         return self
-
+    
     def build(self) -> "CreateAppDataAssetResponseBody":
         return self._create_app_data_asset_response_body

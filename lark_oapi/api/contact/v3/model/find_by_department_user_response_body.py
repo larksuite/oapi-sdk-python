@@ -26,18 +26,15 @@ class FindByDepartmentUserResponseBody(object):
 class FindByDepartmentUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._find_by_department_user_response_body = FindByDepartmentUserResponseBody()
-
     def has_more(self, has_more: bool) -> "FindByDepartmentUserResponseBodyBuilder":
         self._find_by_department_user_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "FindByDepartmentUserResponseBodyBuilder":
         self._find_by_department_user_response_body.page_token = page_token
         return self
-
     def items(self, items: List[User]) -> "FindByDepartmentUserResponseBodyBuilder":
         self._find_by_department_user_response_body.items = items
         return self
-
+    
     def build(self) -> "FindByDepartmentUserResponseBody":
         return self._find_by_department_user_response_body

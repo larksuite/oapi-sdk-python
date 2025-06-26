@@ -24,14 +24,12 @@ class DataChangeLogsListApplicationAuditLogResponseBody(object):
 class DataChangeLogsListApplicationAuditLogResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._data_change_logs_list_application_audit_log_response_body = DataChangeLogsListApplicationAuditLogResponseBody()
-
     def items(self, items: List[AuditLogEsField]) -> "DataChangeLogsListApplicationAuditLogResponseBodyBuilder":
         self._data_change_logs_list_application_audit_log_response_body.items = items
         return self
-
     def total(self, total: str) -> "DataChangeLogsListApplicationAuditLogResponseBodyBuilder":
         self._data_change_logs_list_application_audit_log_response_body.total = total
         return self
-
+    
     def build(self) -> "DataChangeLogsListApplicationAuditLogResponseBody":
         return self._data_change_logs_list_application_audit_log_response_body

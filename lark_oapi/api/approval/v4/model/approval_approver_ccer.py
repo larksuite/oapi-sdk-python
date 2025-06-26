@@ -25,18 +25,15 @@ class ApprovalApproverCcer(object):
 class ApprovalApproverCcerBuilder(object):
     def __init__(self) -> None:
         self._approval_approver_ccer = ApprovalApproverCcer()
-
     def type(self, type: str) -> "ApprovalApproverCcerBuilder":
         self._approval_approver_ccer.type = type
         return self
-
     def user_id(self, user_id: str) -> "ApprovalApproverCcerBuilder":
         self._approval_approver_ccer.user_id = user_id
         return self
-
     def level(self, level: str) -> "ApprovalApproverCcerBuilder":
         self._approval_approver_ccer.level = level
         return self
-
+    
     def build(self) -> "ApprovalApproverCcer":
         return self._approval_approver_ccer

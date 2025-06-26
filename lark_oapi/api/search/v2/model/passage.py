@@ -35,38 +35,30 @@ class Passage(object):
 class PassageBuilder(object):
     def __init__(self) -> None:
         self._passage = Passage()
-
     def passage_id(self, passage_id: str) -> "PassageBuilder":
         self._passage.passage_id = passage_id
         return self
-
     def passage_source(self, passage_source: int) -> "PassageBuilder":
         self._passage.passage_source = passage_source
         return self
-
     def content(self, content: str) -> "PassageBuilder":
         self._passage.content = content
         return self
-
     def title(self, title: str) -> "PassageBuilder":
         self._passage.title = title
         return self
-
     def url(self, url: str) -> "PassageBuilder":
         self._passage.url = url
         return self
-
     def score(self, score: float) -> "PassageBuilder":
         self._passage.score = score
         return self
-
     def extra(self, extra: str) -> "PassageBuilder":
         self._passage.extra = extra
         return self
-
     def content_for_llm(self, content_for_llm: str) -> "PassageBuilder":
         self._passage.content_for_llm = content_for_llm
         return self
-
+    
     def build(self) -> "Passage":
         return self._passage

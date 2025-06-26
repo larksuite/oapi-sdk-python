@@ -22,10 +22,9 @@ class PatchSectionResponseBody(object):
 class PatchSectionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_section_response_body = PatchSectionResponseBody()
-
     def section(self, section: Section) -> "PatchSectionResponseBodyBuilder":
         self._patch_section_response_body.section = section
         return self
-
+    
     def build(self) -> "PatchSectionResponseBody":
         return self._patch_section_response_body

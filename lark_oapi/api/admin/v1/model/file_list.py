@@ -22,10 +22,9 @@ class FileList(object):
 class FileListBuilder(object):
     def __init__(self) -> None:
         self._file_list = FileList()
-
     def files(self, files: List[File]) -> "FileListBuilder":
         self._file_list.files = files
         return self
-
+    
     def build(self) -> "FileList":
         return self._file_list

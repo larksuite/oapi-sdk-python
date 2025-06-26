@@ -33,34 +33,27 @@ class TalentInternshipInfo(object):
 class TalentInternshipInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_internship_info = TalentInternshipInfo()
-
     def id(self, id: str) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.id = id
         return self
-
     def company(self, company: str) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.company = company
         return self
-
     def desc(self, desc: str) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.desc = desc
         return self
-
     def end_time(self, end_time: int) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.end_time = end_time
         return self
-
     def start_time(self, start_time: int) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.start_time = start_time
         return self
-
     def title(self, title: str) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.title = title
         return self
-
     def tag_list(self, tag_list: List[int]) -> "TalentInternshipInfoBuilder":
         self._talent_internship_info.tag_list = tag_list
         return self
-
+    
     def build(self) -> "TalentInternshipInfo":
         return self._talent_internship_info

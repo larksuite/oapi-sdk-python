@@ -25,18 +25,15 @@ class TicketEventUpdateInfo(object):
 class TicketEventUpdateInfoBuilder(object):
     def __init__(self) -> None:
         self._ticket_event_update_info = TicketEventUpdateInfo()
-
     def stage(self, stage: int) -> "TicketEventUpdateInfoBuilder":
         self._ticket_event_update_info.stage = stage
         return self
-
     def status(self, status: int) -> "TicketEventUpdateInfoBuilder":
         self._ticket_event_update_info.status = status
         return self
-
     def updated_at(self, updated_at: int) -> "TicketEventUpdateInfoBuilder":
         self._ticket_event_update_info.updated_at = updated_at
         return self
-
+    
     def build(self) -> "TicketEventUpdateInfo":
         return self._ticket_event_update_info

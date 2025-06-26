@@ -23,14 +23,12 @@ class UpdateProcessApproverResponseBody(object):
 class UpdateProcessApproverResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_process_approver_response_body = UpdateProcessApproverResponseBody()
-
     def code(self, code: int) -> "UpdateProcessApproverResponseBodyBuilder":
         self._update_process_approver_response_body.code = code
         return self
-
     def msg(self, msg: str) -> "UpdateProcessApproverResponseBodyBuilder":
         self._update_process_approver_response_body.msg = msg
         return self
-
+    
     def build(self) -> "UpdateProcessApproverResponseBody":
         return self._update_process_approver_response_body

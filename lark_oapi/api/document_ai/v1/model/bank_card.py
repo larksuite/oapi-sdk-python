@@ -22,10 +22,9 @@ class BankCard(object):
 class BankCardBuilder(object):
     def __init__(self) -> None:
         self._bank_card = BankCard()
-
     def entities(self, entities: List[BankCardEntity]) -> "BankCardBuilder":
         self._bank_card.entities = entities
         return self
-
+    
     def build(self) -> "BankCard":
         return self._bank_card

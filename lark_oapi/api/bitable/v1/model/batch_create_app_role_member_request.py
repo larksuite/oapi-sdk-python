@@ -26,19 +26,18 @@ class BatchCreateAppRoleMemberRequestBuilder(object):
         batch_create_app_role_member_request.uri = "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_create"
         batch_create_app_role_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._batch_create_app_role_member_request: BatchCreateAppRoleMemberRequest = batch_create_app_role_member_request
-
+    
     def app_token(self, app_token: str) -> "BatchCreateAppRoleMemberRequestBuilder":
         self._batch_create_app_role_member_request.app_token = app_token
         self._batch_create_app_role_member_request.paths["app_token"] = str(app_token)
         return self
-
+    
     def role_id(self, role_id: str) -> "BatchCreateAppRoleMemberRequestBuilder":
         self._batch_create_app_role_member_request.role_id = role_id
         self._batch_create_app_role_member_request.paths["role_id"] = str(role_id)
         return self
-
-    def request_body(self,
-                     request_body: BatchCreateAppRoleMemberRequestBody) -> "BatchCreateAppRoleMemberRequestBuilder":
+    
+    def request_body(self, request_body: BatchCreateAppRoleMemberRequestBody) -> "BatchCreateAppRoleMemberRequestBuilder":
         self._batch_create_app_role_member_request.request_body = request_body
         self._batch_create_app_role_member_request.body = request_body
         return self

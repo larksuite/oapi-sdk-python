@@ -5,66 +5,66 @@ from lark_oapi.api.application.v6 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: UpdateApplicationOwnerRequest = UpdateApplicationOwnerRequest.builder() \
-        .app_id("cli_a306c5476fb8d00c") \
-        .user_id_type("open_id") \
-        .request_body(UpdateApplicationOwnerRequestBody.builder()
-                      .owner_id("ou_84aad35d084aa403a838cf73ee184670")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: UpdateApplicationOwnerRequest = UpdateApplicationOwnerRequest.builder() \
+		.app_id("cli_a306c5476fb8d00c") \
+		.user_id_type("open_id") \
+		.request_body(UpdateApplicationOwnerRequestBody.builder()
+					  .owner_id("ou_84aad35d084aa403a838cf73ee184670")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: UpdateApplicationOwnerResponse = client.application.v6.application_owner.update(request)
+	# 发起请求
+	response: UpdateApplicationOwnerResponse = client.application.v6.application_owner.update(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.application.v6.application_owner.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.application.v6.application_owner.update failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: UpdateApplicationOwnerRequest = UpdateApplicationOwnerRequest.builder() \
-        .app_id("cli_a306c5476fb8d00c") \
-        .user_id_type("open_id") \
-        .request_body(UpdateApplicationOwnerRequestBody.builder()
-                      .owner_id("ou_84aad35d084aa403a838cf73ee184670")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: UpdateApplicationOwnerRequest = UpdateApplicationOwnerRequest.builder() \
+		.app_id("cli_a306c5476fb8d00c") \
+		.user_id_type("open_id") \
+		.request_body(UpdateApplicationOwnerRequestBody.builder()
+					  .owner_id("ou_84aad35d084aa403a838cf73ee184670")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: UpdateApplicationOwnerResponse = await client.application.v6.application_owner.aupdate(request)
+	# 发起请求
+	response: UpdateApplicationOwnerResponse = await client.application.v6.application_owner.aupdate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.application.v6.application_owner.aupdate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.application.v6.application_owner.aupdate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

@@ -29,26 +29,21 @@ class UserContactInfo(object):
 class UserContactInfoBuilder(object):
     def __init__(self) -> None:
         self._user_contact_info = UserContactInfo()
-
     def name(self, name: str) -> "UserContactInfoBuilder":
         self._user_contact_info.name = name
         return self
-
     def mobile(self, mobile: str) -> "UserContactInfoBuilder":
         self._user_contact_info.mobile = mobile
         return self
-
     def email(self, email: str) -> "UserContactInfoBuilder":
         self._user_contact_info.email = email
         return self
-
     def first_name(self, first_name: str) -> "UserContactInfoBuilder":
         self._user_contact_info.first_name = first_name
         return self
-
     def last_name(self, last_name: str) -> "UserContactInfoBuilder":
         self._user_contact_info.last_name = last_name
         return self
-
+    
     def build(self) -> "UserContactInfo":
         return self._user_contact_info

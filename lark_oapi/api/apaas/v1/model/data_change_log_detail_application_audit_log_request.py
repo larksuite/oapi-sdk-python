@@ -24,16 +24,17 @@ class DataChangeLogDetailApplicationAuditLogRequestBuilder(object):
         data_change_log_detail_application_audit_log_request.uri = "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
         data_change_log_detail_application_audit_log_request.token_types = {AccessTokenType.USER}
         self._data_change_log_detail_application_audit_log_request: DataChangeLogDetailApplicationAuditLogRequest = data_change_log_detail_application_audit_log_request
-
+    
     def log_id(self, log_id: str) -> "DataChangeLogDetailApplicationAuditLogRequestBuilder":
         self._data_change_log_detail_application_audit_log_request.log_id = log_id
         self._data_change_log_detail_application_audit_log_request.add_query("log_id", log_id)
         return self
-
+    
     def namespace(self, namespace: str) -> "DataChangeLogDetailApplicationAuditLogRequestBuilder":
         self._data_change_log_detail_application_audit_log_request.namespace = namespace
         self._data_change_log_detail_application_audit_log_request.paths["namespace"] = str(namespace)
         return self
+    
 
     def build(self) -> DataChangeLogDetailApplicationAuditLogRequest:
         return self._data_change_log_detail_application_audit_log_request

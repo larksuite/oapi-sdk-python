@@ -25,18 +25,15 @@ class SearchTalentOperationLogRequestBody(object):
 class SearchTalentOperationLogRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_talent_operation_log_request_body = SearchTalentOperationLogRequestBody()
-
     def job_id_list(self, job_id_list: List[str]) -> "SearchTalentOperationLogRequestBodyBuilder":
         self._search_talent_operation_log_request_body.job_id_list = job_id_list
         return self
-
     def operator_id_list(self, operator_id_list: List[str]) -> "SearchTalentOperationLogRequestBodyBuilder":
         self._search_talent_operation_log_request_body.operator_id_list = operator_id_list
         return self
-
     def operation_list(self, operation_list: List[int]) -> "SearchTalentOperationLogRequestBodyBuilder":
         self._search_talent_operation_log_request_body.operation_list = operation_list
         return self
-
+    
     def build(self) -> "SearchTalentOperationLogRequestBody":
         return self._search_talent_operation_log_request_body

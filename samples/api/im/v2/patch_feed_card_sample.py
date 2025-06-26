@@ -5,68 +5,68 @@ from lark_oapi.api.im.v2 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: PatchFeedCardRequest = PatchFeedCardRequest.builder() \
-        .feed_card_id("oc_679eaeb583654bff73fefcc6e6371370") \
-        .user_id_type("open_id") \
-        .request_body(PatchFeedCardRequestBody.builder()
-                      .time_sensitive(True)
-                      .user_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: PatchFeedCardRequest = PatchFeedCardRequest.builder() \
+		.feed_card_id("oc_679eaeb583654bff73fefcc6e6371370") \
+		.user_id_type("open_id") \
+		.request_body(PatchFeedCardRequestBody.builder()
+					  .time_sensitive(True)
+					  .user_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: PatchFeedCardResponse = client.im.v2.feed_card.patch(request)
+	# 发起请求
+	response: PatchFeedCardResponse = client.im.v2.feed_card.patch(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.im.v2.feed_card.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.im.v2.feed_card.patch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: PatchFeedCardRequest = PatchFeedCardRequest.builder() \
-        .feed_card_id("oc_679eaeb583654bff73fefcc6e6371370") \
-        .user_id_type("open_id") \
-        .request_body(PatchFeedCardRequestBody.builder()
-                      .time_sensitive(True)
-                      .user_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: PatchFeedCardRequest = PatchFeedCardRequest.builder() \
+		.feed_card_id("oc_679eaeb583654bff73fefcc6e6371370") \
+		.user_id_type("open_id") \
+		.request_body(PatchFeedCardRequestBody.builder()
+					  .time_sensitive(True)
+					  .user_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: PatchFeedCardResponse = await client.im.v2.feed_card.apatch(request)
+	# 发起请求
+	response: PatchFeedCardResponse = await client.im.v2.feed_card.apatch(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.im.v2.feed_card.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.im.v2.feed_card.apatch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

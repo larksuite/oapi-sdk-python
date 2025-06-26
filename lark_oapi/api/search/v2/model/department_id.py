@@ -23,14 +23,12 @@ class DepartmentId(object):
 class DepartmentIdBuilder(object):
     def __init__(self) -> None:
         self._department_id = DepartmentId()
-
     def department_id(self, department_id: str) -> "DepartmentIdBuilder":
         self._department_id.department_id = department_id
         return self
-
     def open_department_id(self, open_department_id: str) -> "DepartmentIdBuilder":
         self._department_id.open_department_id = open_department_id
         return self
-
+    
     def build(self) -> "DepartmentId":
         return self._department_id

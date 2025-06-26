@@ -29,26 +29,21 @@ class KnowledgeQaEnterpriseReference(object):
 class KnowledgeQaEnterpriseReferenceBuilder(object):
     def __init__(self) -> None:
         self._knowledge_qa_enterprise_reference = KnowledgeQaEnterpriseReference()
-
     def id(self, id: str) -> "KnowledgeQaEnterpriseReferenceBuilder":
         self._knowledge_qa_enterprise_reference.id = id
         return self
-
     def source_type(self, source_type: int) -> "KnowledgeQaEnterpriseReferenceBuilder":
         self._knowledge_qa_enterprise_reference.source_type = source_type
         return self
-
     def title(self, title: str) -> "KnowledgeQaEnterpriseReferenceBuilder":
         self._knowledge_qa_enterprise_reference.title = title
         return self
-
     def content(self, content: str) -> "KnowledgeQaEnterpriseReferenceBuilder":
         self._knowledge_qa_enterprise_reference.content = content
         return self
-
     def url(self, url: str) -> "KnowledgeQaEnterpriseReferenceBuilder":
         self._knowledge_qa_enterprise_reference.url = url
         return self
-
+    
     def build(self) -> "KnowledgeQaEnterpriseReference":
         return self._knowledge_qa_enterprise_reference

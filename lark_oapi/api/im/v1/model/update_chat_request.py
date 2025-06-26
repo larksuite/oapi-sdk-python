@@ -26,17 +26,17 @@ class UpdateChatRequestBuilder(object):
         update_chat_request.uri = "/open-apis/im/v1/chats/:chat_id"
         update_chat_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._update_chat_request: UpdateChatRequest = update_chat_request
-
+    
     def user_id_type(self, user_id_type: str) -> "UpdateChatRequestBuilder":
         self._update_chat_request.user_id_type = user_id_type
         self._update_chat_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def chat_id(self, chat_id: str) -> "UpdateChatRequestBuilder":
         self._update_chat_request.chat_id = chat_id
         self._update_chat_request.paths["chat_id"] = str(chat_id)
         return self
-
+    
     def request_body(self, request_body: UpdateChatRequestBody) -> "UpdateChatRequestBuilder":
         self._update_chat_request.request_body = request_body
         self._update_chat_request.body = request_body

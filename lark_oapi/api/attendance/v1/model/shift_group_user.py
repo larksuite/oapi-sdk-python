@@ -23,14 +23,12 @@ class ShiftGroupUser(object):
 class ShiftGroupUserBuilder(object):
     def __init__(self) -> None:
         self._shift_group_user = ShiftGroupUser()
-
     def shift_group_id(self, shift_group_id: str) -> "ShiftGroupUserBuilder":
         self._shift_group_user.shift_group_id = shift_group_id
         return self
-
     def user_id(self, user_id: str) -> "ShiftGroupUserBuilder":
         self._shift_group_user.user_id = user_id
         return self
-
+    
     def build(self) -> "ShiftGroupUser":
         return self._shift_group_user

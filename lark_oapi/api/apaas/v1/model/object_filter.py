@@ -23,14 +23,12 @@ class ObjectFilter(object):
 class ObjectFilterBuilder(object):
     def __init__(self) -> None:
         self._object_filter = ObjectFilter()
-
     def quick_query(self, quick_query: str) -> "ObjectFilterBuilder":
         self._object_filter.quick_query = quick_query
         return self
-
     def type(self, type: str) -> "ObjectFilterBuilder":
         self._object_filter.type = type
         return self
-
+    
     def build(self) -> "ObjectFilter":
         return self._object_filter

@@ -25,18 +25,15 @@ class KnowledgeSourceWikiFilter(object):
 class KnowledgeSourceWikiFilterBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_wiki_filter = KnowledgeSourceWikiFilter()
-
     def wiki_tokens(self, wiki_tokens: List[str]) -> "KnowledgeSourceWikiFilterBuilder":
         self._knowledge_source_wiki_filter.wiki_tokens = wiki_tokens
         return self
-
     def node_tokens(self, node_tokens: List[str]) -> "KnowledgeSourceWikiFilterBuilder":
         self._knowledge_source_wiki_filter.node_tokens = node_tokens
         return self
-
     def space_ids(self, space_ids: List[int]) -> "KnowledgeSourceWikiFilterBuilder":
         self._knowledge_source_wiki_filter.space_ids = space_ids
         return self
-
+    
     def build(self) -> "KnowledgeSourceWikiFilter":
         return self._knowledge_source_wiki_filter

@@ -21,10 +21,9 @@ class Mindnote(object):
 class MindnoteBuilder(object):
     def __init__(self) -> None:
         self._mindnote = Mindnote()
-
     def token(self, token: str) -> "MindnoteBuilder":
         self._mindnote.token = token
         return self
-
+    
     def build(self) -> "Mindnote":
         return self._mindnote

@@ -26,18 +26,15 @@ class ListAdminUserStatResponseBody(object):
 class ListAdminUserStatResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_admin_user_stat_response_body = ListAdminUserStatResponseBody()
-
     def has_more(self, has_more: bool) -> "ListAdminUserStatResponseBodyBuilder":
         self._list_admin_user_stat_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListAdminUserStatResponseBodyBuilder":
         self._list_admin_user_stat_response_body.page_token = page_token
         return self
-
     def items(self, items: List[AdminUserStat]) -> "ListAdminUserStatResponseBodyBuilder":
         self._list_admin_user_stat_response_body.items = items
         return self
-
+    
     def build(self) -> "ListAdminUserStatResponseBody":
         return self._list_admin_user_stat_response_body

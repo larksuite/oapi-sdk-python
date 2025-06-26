@@ -21,10 +21,9 @@ class BackgroundCheckReportObject(object):
 class BackgroundCheckReportObjectBuilder(object):
     def __init__(self) -> None:
         self._background_check_report_object = BackgroundCheckReportObject()
-
     def url(self, url: str) -> "BackgroundCheckReportObjectBuilder":
         self._background_check_report_object.url = url
         return self
-
+    
     def build(self) -> "BackgroundCheckReportObject":
         return self._background_check_report_object

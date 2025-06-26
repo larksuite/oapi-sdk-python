@@ -3,8 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .batch_delete_chat_announcement_block_children_response_body import \
-    BatchDeleteChatAnnouncementBlockChildrenResponseBody
+from .batch_delete_chat_announcement_block_children_response_body import BatchDeleteChatAnnouncementBlockChildrenResponseBody
 
 
 class BatchDeleteChatAnnouncementBlockChildrenResponse(BaseResponse):

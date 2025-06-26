@@ -33,30 +33,24 @@ class ObjectAttribute(object):
 class ObjectAttributeBuilder(object):
     def __init__(self) -> None:
         self._object_attribute = ObjectAttribute()
-
     def title(self, title: I18n) -> "ObjectAttributeBuilder":
         self._object_attribute.title = title
         return self
-
     def description(self, description: I18n) -> "ObjectAttributeBuilder":
         self._object_attribute.description = description
         return self
-
     def data_type(self, data_type: int) -> "ObjectAttributeBuilder":
         self._object_attribute.data_type = data_type
         return self
-
     def tags(self, tags: List[int]) -> "ObjectAttributeBuilder":
         self._object_attribute.tags = tags
         return self
-
     def is_fcf_data(self, is_fcf_data: bool) -> "ObjectAttributeBuilder":
         self._object_attribute.is_fcf_data = is_fcf_data
         return self
-
     def is_di_data(self, is_di_data: bool) -> "ObjectAttributeBuilder":
         self._object_attribute.is_di_data = is_di_data
         return self
-
+    
     def build(self) -> "ObjectAttribute":
         return self._object_attribute

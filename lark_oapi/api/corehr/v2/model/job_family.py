@@ -44,50 +44,39 @@ class JobFamily(object):
 class JobFamilyBuilder(object):
     def __init__(self) -> None:
         self._job_family = JobFamily()
-
     def job_family_id(self, job_family_id: str) -> "JobFamilyBuilder":
         self._job_family.job_family_id = job_family_id
         return self
-
     def name(self, name: List[I18n]) -> "JobFamilyBuilder":
         self._job_family.name = name
         return self
-
     def active(self, active: bool) -> "JobFamilyBuilder":
         self._job_family.active = active
         return self
-
     def selectable(self, selectable: bool) -> "JobFamilyBuilder":
         self._job_family.selectable = selectable
         return self
-
     def parent_id(self, parent_id: str) -> "JobFamilyBuilder":
         self._job_family.parent_id = parent_id
         return self
-
     def pathway_ids(self, pathway_ids: List[str]) -> "JobFamilyBuilder":
         self._job_family.pathway_ids = pathway_ids
         return self
-
     def effective_time(self, effective_time: str) -> "JobFamilyBuilder":
         self._job_family.effective_time = effective_time
         return self
-
     def expiration_time(self, expiration_time: str) -> "JobFamilyBuilder":
         self._job_family.expiration_time = expiration_time
         return self
-
     def code(self, code: str) -> "JobFamilyBuilder":
         self._job_family.code = code
         return self
-
     def description(self, description: List[I18n]) -> "JobFamilyBuilder":
         self._job_family.description = description
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "JobFamilyBuilder":
         self._job_family.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "JobFamily":
         return self._job_family

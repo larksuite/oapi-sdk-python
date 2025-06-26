@@ -19,8 +19,7 @@ class Interview(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get_by_talent(self, request: GetByTalentInterviewRequest,
-                      option: Optional[RequestOption] = None) -> GetByTalentInterviewResponse:
+    def get_by_talent(self, request: GetByTalentInterviewRequest, option: Optional[RequestOption] = None) -> GetByTalentInterviewResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,30 +32,32 @@ class Interview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetByTalentInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByTalentInterviewResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget_by_talent(self, request: GetByTalentInterviewRequest,
-                             option: Optional[RequestOption] = None) -> GetByTalentInterviewResponse:
+    async def aget_by_talent(self, request: GetByTalentInterviewRequest, option: Optional[RequestOption] = None) -> GetByTalentInterviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetByTalentInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByTalentInterviewResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListInterviewRequest, option: Optional[RequestOption] = None) -> ListInterviewResponse:
         if option is None:
             option = RequestOption()
@@ -70,26 +71,30 @@ class Interview(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInterviewResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListInterviewRequest,
-                    option: Optional[RequestOption] = None) -> ListInterviewResponse:
+    async def alist(self, request: ListInterviewRequest, option: Optional[RequestOption] = None) -> ListInterviewResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListInterviewResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInterviewResponse)
         response.raw = resp
 
         return response
+        
+    

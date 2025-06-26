@@ -23,14 +23,12 @@ class AppliTalentAttachResumeInfo(object):
 class AppliTalentAttachResumeInfoBuilder(object):
     def __init__(self) -> None:
         self._appli_talent_attach_resume_info = AppliTalentAttachResumeInfo()
-
     def id(self, id: str) -> "AppliTalentAttachResumeInfoBuilder":
         self._appli_talent_attach_resume_info.id = id
         return self
-
     def name(self, name: str) -> "AppliTalentAttachResumeInfoBuilder":
         self._appli_talent_attach_resume_info.name = name
         return self
-
+    
     def build(self) -> "AppliTalentAttachResumeInfo":
         return self._appli_talent_attach_resume_info

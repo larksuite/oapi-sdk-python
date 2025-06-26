@@ -43,50 +43,39 @@ class JobFamilyVersionData(object):
 class JobFamilyVersionDataBuilder(object):
     def __init__(self) -> None:
         self._job_family_version_data = JobFamilyVersionData()
-
     def job_family_id(self, job_family_id: str) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.job_family_id = job_family_id
         return self
-
     def job_family_version_id(self, job_family_version_id: str) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.job_family_version_id = job_family_version_id
         return self
-
     def job_family_names(self, job_family_names: List[I18n]) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.job_family_names = job_family_names
         return self
-
     def effective_date(self, effective_date: str) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.effective_date = effective_date
         return self
-
     def expiration_date(self, expiration_date: str) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.expiration_date = expiration_date
         return self
-
     def active(self, active: bool) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.active = active
         return self
-
     def descriptions(self, descriptions: List[I18n]) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.descriptions = descriptions
         return self
-
     def selectable(self, selectable: bool) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.selectable = selectable
         return self
-
     def parent_job_family_id(self, parent_job_family_id: str) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.parent_job_family_id = parent_job_family_id
         return self
-
     def pathway_ids(self, pathway_ids: List[str]) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.pathway_ids = pathway_ids
         return self
-
     def code(self, code: str) -> "JobFamilyVersionDataBuilder":
         self._job_family_version_data.code = code
         return self
-
+    
     def build(self) -> "JobFamilyVersionData":
         return self._job_family_version_data

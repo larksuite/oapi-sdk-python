@@ -38,30 +38,32 @@ class Person(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreatePersonResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePersonResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreatePersonRequest,
-                      option: Optional[RequestOption] = None) -> CreatePersonResponse:
+    async def acreate(self, request: CreatePersonRequest, option: Optional[RequestOption] = None) -> CreatePersonResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreatePersonResponse = JSON.unmarshal(str(resp.content, UTF_8), CreatePersonResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeletePersonRequest, option: Optional[RequestOption] = None) -> DeletePersonResponse:
         if option is None:
             option = RequestOption()
@@ -75,30 +77,32 @@ class Person(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeletePersonResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePersonResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeletePersonRequest,
-                      option: Optional[RequestOption] = None) -> DeletePersonResponse:
+    async def adelete(self, request: DeletePersonRequest, option: Optional[RequestOption] = None) -> DeletePersonResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeletePersonResponse = JSON.unmarshal(str(resp.content, UTF_8), DeletePersonResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetPersonRequest, option: Optional[RequestOption] = None) -> GetPersonResponse:
         if option is None:
             option = RequestOption()
@@ -112,12 +116,13 @@ class Person(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPersonResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetPersonRequest, option: Optional[RequestOption] = None) -> GetPersonResponse:
         if option is None:
@@ -126,15 +131,17 @@ class Person(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), GetPersonResponse)
         response.raw = resp
 
         return response
-
+        
     def patch(self, request: PatchPersonRequest, option: Optional[RequestOption] = None) -> PatchPersonResponse:
         if option is None:
             option = RequestOption()
@@ -148,12 +155,13 @@ class Person(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPersonResponse)
         response.raw = resp
 
         return response
+        
 
     async def apatch(self, request: PatchPersonRequest, option: Optional[RequestOption] = None) -> PatchPersonResponse:
         if option is None:
@@ -162,15 +170,17 @@ class Person(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchPersonResponse)
         response.raw = resp
 
         return response
-
+        
     def upload(self, request: UploadPersonRequest, option: Optional[RequestOption] = None) -> UploadPersonResponse:
         if option is None:
             option = RequestOption()
@@ -183,32 +193,36 @@ class Person(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
+            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPersonResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupload(self, request: UploadPersonRequest,
-                      option: Optional[RequestOption] = None) -> UploadPersonResponse:
+    async def aupload(self, request: UploadPersonRequest, option: Optional[RequestOption] = None) -> UploadPersonResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadPersonResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPersonResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -21,10 +21,9 @@ class CreatePreHireResponseBody(object):
 class CreatePreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_pre_hire_response_body = CreatePreHireResponseBody()
-
     def pre_hire_id(self, pre_hire_id: str) -> "CreatePreHireResponseBodyBuilder":
         self._create_pre_hire_response_body.pre_hire_id = pre_hire_id
         return self
-
+    
     def build(self) -> "CreatePreHireResponseBody":
         return self._create_pre_hire_response_body

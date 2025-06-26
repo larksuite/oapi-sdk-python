@@ -23,14 +23,12 @@ class SystemStatusUserCloseResultEntity(object):
 class SystemStatusUserCloseResultEntityBuilder(object):
     def __init__(self) -> None:
         self._system_status_user_close_result_entity = SystemStatusUserCloseResultEntity()
-
     def user_id(self, user_id: str) -> "SystemStatusUserCloseResultEntityBuilder":
         self._system_status_user_close_result_entity.user_id = user_id
         return self
-
     def result(self, result: str) -> "SystemStatusUserCloseResultEntityBuilder":
         self._system_status_user_close_result_entity.result = result
         return self
-
+    
     def build(self) -> "SystemStatusUserCloseResultEntity":
         return self._system_status_user_close_result_entity

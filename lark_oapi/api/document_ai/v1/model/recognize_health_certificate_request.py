@@ -24,9 +24,8 @@ class RecognizeHealthCertificateRequestBuilder(object):
         recognize_health_certificate_request.uri = "/open-apis/document_ai/v1/health_certificate/recognize"
         recognize_health_certificate_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._recognize_health_certificate_request: RecognizeHealthCertificateRequest = recognize_health_certificate_request
-
-    def request_body(self,
-                     request_body: RecognizeHealthCertificateRequestBody) -> "RecognizeHealthCertificateRequestBuilder":
+    
+    def request_body(self, request_body: RecognizeHealthCertificateRequestBody) -> "RecognizeHealthCertificateRequestBuilder":
         self._recognize_health_certificate_request.request_body = request_body
         self._recognize_health_certificate_request.body = request_body
         return self

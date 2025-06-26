@@ -26,18 +26,15 @@ class QueryApplicationEnvironmentVariableRequestBody(object):
 class QueryApplicationEnvironmentVariableRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_application_environment_variable_request_body = QueryApplicationEnvironmentVariableRequestBody()
-
     def filter(self, filter: EnvironmentVariableFilter) -> "QueryApplicationEnvironmentVariableRequestBodyBuilder":
         self._query_application_environment_variable_request_body.filter = filter
         return self
-
     def limit(self, limit: int) -> "QueryApplicationEnvironmentVariableRequestBodyBuilder":
         self._query_application_environment_variable_request_body.limit = limit
         return self
-
     def offset(self, offset: int) -> "QueryApplicationEnvironmentVariableRequestBodyBuilder":
         self._query_application_environment_variable_request_body.offset = offset
         return self
-
+    
     def build(self) -> "QueryApplicationEnvironmentVariableRequestBody":
         return self._query_application_environment_variable_request_body

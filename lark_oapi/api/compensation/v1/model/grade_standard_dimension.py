@@ -25,18 +25,15 @@ class GradeStandardDimension(object):
 class GradeStandardDimensionBuilder(object):
     def __init__(self) -> None:
         self._grade_standard_dimension = GradeStandardDimension()
-
     def api_name(self, api_name: str) -> "GradeStandardDimensionBuilder":
         self._grade_standard_dimension.api_name = api_name
         return self
-
     def contain_sub(self, contain_sub: bool) -> "GradeStandardDimensionBuilder":
         self._grade_standard_dimension.contain_sub = contain_sub
         return self
-
     def values(self, values: List[str]) -> "GradeStandardDimensionBuilder":
         self._grade_standard_dimension.values = values
         return self
-
+    
     def build(self) -> "GradeStandardDimension":
         return self._grade_standard_dimension

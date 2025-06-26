@@ -24,15 +24,12 @@ class AppTableFieldPropertyFilterInfo(object):
 class AppTableFieldPropertyFilterInfoBuilder(object):
     def __init__(self) -> None:
         self._app_table_field_property_filter_info = AppTableFieldPropertyFilterInfo()
-
     def conjunction(self, conjunction: str) -> "AppTableFieldPropertyFilterInfoBuilder":
         self._app_table_field_property_filter_info.conjunction = conjunction
         return self
-
-    def conditions(self, conditions: List[
-        AppTableFieldPropertyFilterInfoCondition]) -> "AppTableFieldPropertyFilterInfoBuilder":
+    def conditions(self, conditions: List[AppTableFieldPropertyFilterInfoCondition]) -> "AppTableFieldPropertyFilterInfoBuilder":
         self._app_table_field_property_filter_info.conditions = conditions
         return self
-
+    
     def build(self) -> "AppTableFieldPropertyFilterInfo":
         return self._app_table_field_property_filter_info

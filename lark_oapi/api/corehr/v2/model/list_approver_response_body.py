@@ -26,18 +26,15 @@ class ListApproverResponseBody(object):
 class ListApproverResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_approver_response_body = ListApproverResponseBody()
-
     def page_token(self, page_token: str) -> "ListApproverResponseBodyBuilder":
         self._list_approver_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListApproverResponseBodyBuilder":
         self._list_approver_response_body.has_more = has_more
         return self
-
     def approver_list(self, approver_list: List[ApproverInfo]) -> "ListApproverResponseBodyBuilder":
         self._list_approver_response_body.approver_list = approver_list
         return self
-
+    
     def build(self) -> "ListApproverResponseBody":
         return self._list_approver_response_body

@@ -5,86 +5,86 @@ from lark_oapi.api.task.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateTaskRequest = CreateTaskRequest.builder() \
-        .user_id_type("user_id") \
-        .request_body(Task.builder()
-                      .summary("每天喝八杯水，保持身心愉悦")
-                      .description("多吃水果，多运动，健康生活，快乐工作。")
-                      .extra("dGVzdA==")
-                      .due(Due.builder().build())
-                      .origin(Origin.builder().build())
-                      .can_edit(False)
-                      .custom("")
-                      .collaborator_ids([])
-                      .follower_ids([])
-                      .repeat_rule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR")
-                      .rich_summary("每天喝八杯水，保持身心愉悦。[谷歌](https://www.google.com/)")
-                      .rich_description("多吃水果，多运动，健康生活，快乐工作。[谷歌](https://www.google.com/)")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateTaskRequest = CreateTaskRequest.builder() \
+		.user_id_type("user_id") \
+		.request_body(Task.builder()
+					  .summary("每天喝八杯水，保持身心愉悦")
+					  .description("多吃水果，多运动，健康生活，快乐工作。")
+					  .extra("dGVzdA==")
+					  .due(Due.builder().build())
+					  .origin(Origin.builder().build())
+					  .can_edit(False)
+					  .custom("")
+					  .collaborator_ids([])
+					  .follower_ids([])
+					  .repeat_rule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR")
+					  .rich_summary("每天喝八杯水，保持身心愉悦。[谷歌](https://www.google.com/)")
+					  .rich_description("多吃水果，多运动，健康生活，快乐工作。[谷歌](https://www.google.com/)")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateTaskResponse = client.task.v1.task.create(request)
+	# 发起请求
+	response: CreateTaskResponse = client.task.v1.task.create(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.task.v1.task.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.task.v1.task.create failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: CreateTaskRequest = CreateTaskRequest.builder() \
-        .user_id_type("user_id") \
-        .request_body(Task.builder()
-                      .summary("每天喝八杯水，保持身心愉悦")
-                      .description("多吃水果，多运动，健康生活，快乐工作。")
-                      .extra("dGVzdA==")
-                      .due(Due.builder().build())
-                      .origin(Origin.builder().build())
-                      .can_edit(False)
-                      .custom("")
-                      .collaborator_ids([])
-                      .follower_ids([])
-                      .repeat_rule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR")
-                      .rich_summary("每天喝八杯水，保持身心愉悦。[谷歌](https://www.google.com/)")
-                      .rich_description("多吃水果，多运动，健康生活，快乐工作。[谷歌](https://www.google.com/)")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: CreateTaskRequest = CreateTaskRequest.builder() \
+		.user_id_type("user_id") \
+		.request_body(Task.builder()
+					  .summary("每天喝八杯水，保持身心愉悦")
+					  .description("多吃水果，多运动，健康生活，快乐工作。")
+					  .extra("dGVzdA==")
+					  .due(Due.builder().build())
+					  .origin(Origin.builder().build())
+					  .can_edit(False)
+					  .custom("")
+					  .collaborator_ids([])
+					  .follower_ids([])
+					  .repeat_rule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR")
+					  .rich_summary("每天喝八杯水，保持身心愉悦。[谷歌](https://www.google.com/)")
+					  .rich_description("多吃水果，多运动，健康生活，快乐工作。[谷歌](https://www.google.com/)")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: CreateTaskResponse = await client.task.v1.task.acreate(request)
+	# 发起请求
+	response: CreateTaskResponse = await client.task.v1.task.acreate(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.task.v1.task.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.task.v1.task.acreate failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

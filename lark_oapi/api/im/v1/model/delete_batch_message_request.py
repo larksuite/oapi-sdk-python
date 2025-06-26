@@ -23,11 +23,12 @@ class DeleteBatchMessageRequestBuilder(object):
         delete_batch_message_request.uri = "/open-apis/im/v1/batch_messages/:batch_message_id"
         delete_batch_message_request.token_types = {AccessTokenType.TENANT}
         self._delete_batch_message_request: DeleteBatchMessageRequest = delete_batch_message_request
-
+    
     def batch_message_id(self, batch_message_id: str) -> "DeleteBatchMessageRequestBuilder":
         self._delete_batch_message_request.batch_message_id = batch_message_id
         self._delete_batch_message_request.paths["batch_message_id"] = str(batch_message_id)
         return self
+    
 
     def build(self) -> DeleteBatchMessageRequest:
         return self._delete_batch_message_request

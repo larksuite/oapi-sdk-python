@@ -14,3 +14,5 @@ from requests_toolbelt import MultipartEncoder
 class ProcessStatus(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
+
+    

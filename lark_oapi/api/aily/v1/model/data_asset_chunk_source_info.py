@@ -23,14 +23,12 @@ class DataAssetChunkSourceInfo(object):
 class DataAssetChunkSourceInfoBuilder(object):
     def __init__(self) -> None:
         self._data_asset_chunk_source_info = DataAssetChunkSourceInfo()
-
     def title(self, title: str) -> "DataAssetChunkSourceInfoBuilder":
         self._data_asset_chunk_source_info.title = title
         return self
-
     def url(self, url: str) -> "DataAssetChunkSourceInfoBuilder":
         self._data_asset_chunk_source_info.url = url
         return self
-
+    
     def build(self) -> "DataAssetChunkSourceInfo":
         return self._data_asset_chunk_source_info

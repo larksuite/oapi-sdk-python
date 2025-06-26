@@ -26,18 +26,15 @@ class BatchQueryExternalInterviewResponseBody(object):
 class BatchQueryExternalInterviewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_external_interview_response_body = BatchQueryExternalInterviewResponseBody()
-
     def items(self, items: List[ExternalInterview]) -> "BatchQueryExternalInterviewResponseBodyBuilder":
         self._batch_query_external_interview_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "BatchQueryExternalInterviewResponseBodyBuilder":
         self._batch_query_external_interview_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "BatchQueryExternalInterviewResponseBodyBuilder":
         self._batch_query_external_interview_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "BatchQueryExternalInterviewResponseBody":
         return self._batch_query_external_interview_response_body

@@ -23,14 +23,12 @@ class WebsiteJobPostCustomizedTimeRange(object):
 class WebsiteJobPostCustomizedTimeRangeBuilder(object):
     def __init__(self) -> None:
         self._website_job_post_customized_time_range = WebsiteJobPostCustomizedTimeRange()
-
     def start_time(self, start_time: str) -> "WebsiteJobPostCustomizedTimeRangeBuilder":
         self._website_job_post_customized_time_range.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "WebsiteJobPostCustomizedTimeRangeBuilder":
         self._website_job_post_customized_time_range.end_time = end_time
         return self
-
+    
     def build(self) -> "WebsiteJobPostCustomizedTimeRange":
         return self._website_job_post_customized_time_range

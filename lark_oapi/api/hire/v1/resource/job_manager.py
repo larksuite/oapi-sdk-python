@@ -19,8 +19,7 @@ class JobManager(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_update(self, request: BatchUpdateJobManagerRequest,
-                     option: Optional[RequestOption] = None) -> BatchUpdateJobManagerResponse:
+    def batch_update(self, request: BatchUpdateJobManagerRequest, option: Optional[RequestOption] = None) -> BatchUpdateJobManagerResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,32 +32,32 @@ class JobManager(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchUpdateJobManagerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 BatchUpdateJobManagerResponse)
+        response: BatchUpdateJobManagerResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateJobManagerResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_update(self, request: BatchUpdateJobManagerRequest,
-                            option: Optional[RequestOption] = None) -> BatchUpdateJobManagerResponse:
+    async def abatch_update(self, request: BatchUpdateJobManagerRequest, option: Optional[RequestOption] = None) -> BatchUpdateJobManagerResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchUpdateJobManagerResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 BatchUpdateJobManagerResponse)
+        response: BatchUpdateJobManagerResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchUpdateJobManagerResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetJobManagerRequest, option: Optional[RequestOption] = None) -> GetJobManagerResponse:
         if option is None:
             option = RequestOption()
@@ -72,26 +71,30 @@ class JobManager(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetJobManagerResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobManagerResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetJobManagerRequest,
-                   option: Optional[RequestOption] = None) -> GetJobManagerResponse:
+    async def aget(self, request: GetJobManagerRequest, option: Optional[RequestOption] = None) -> GetJobManagerResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetJobManagerResponse = JSON.unmarshal(str(resp.content, UTF_8), GetJobManagerResponse)
         response.raw = resp
 
         return response
+        
+    

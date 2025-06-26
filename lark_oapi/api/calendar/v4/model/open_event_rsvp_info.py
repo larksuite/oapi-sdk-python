@@ -24,14 +24,12 @@ class OpenEventRsvpInfo(object):
 class OpenEventRsvpInfoBuilder(object):
     def __init__(self) -> None:
         self._open_event_rsvp_info = OpenEventRsvpInfo()
-
     def from_user_id(self, from_user_id: UserId) -> "OpenEventRsvpInfoBuilder":
         self._open_event_rsvp_info.from_user_id = from_user_id
         return self
-
     def rsvp_status(self, rsvp_status: str) -> "OpenEventRsvpInfoBuilder":
         self._open_event_rsvp_info.rsvp_status = rsvp_status
         return self
-
+    
     def build(self) -> "OpenEventRsvpInfo":
         return self._open_event_rsvp_info

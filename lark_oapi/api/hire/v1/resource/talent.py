@@ -33,8 +33,7 @@ class Talent(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def add_to_folder(self, request: AddToFolderTalentRequest,
-                      option: Optional[RequestOption] = None) -> AddToFolderTalentResponse:
+    def add_to_folder(self, request: AddToFolderTalentRequest, option: Optional[RequestOption] = None) -> AddToFolderTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -47,32 +46,33 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: AddToFolderTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), AddToFolderTalentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aadd_to_folder(self, request: AddToFolderTalentRequest,
-                             option: Optional[RequestOption] = None) -> AddToFolderTalentResponse:
+    async def aadd_to_folder(self, request: AddToFolderTalentRequest, option: Optional[RequestOption] = None) -> AddToFolderTalentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: AddToFolderTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), AddToFolderTalentResponse)
         response.raw = resp
 
         return response
-
-    def batch_get_id(self, request: BatchGetIdTalentRequest,
-                     option: Optional[RequestOption] = None) -> BatchGetIdTalentResponse:
+        
+    def batch_get_id(self, request: BatchGetIdTalentRequest, option: Optional[RequestOption] = None) -> BatchGetIdTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -85,32 +85,33 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchGetIdTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetIdTalentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_get_id(self, request: BatchGetIdTalentRequest,
-                            option: Optional[RequestOption] = None) -> BatchGetIdTalentResponse:
+    async def abatch_get_id(self, request: BatchGetIdTalentRequest, option: Optional[RequestOption] = None) -> BatchGetIdTalentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: BatchGetIdTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetIdTalentResponse)
         response.raw = resp
 
         return response
-
-    def combined_create(self, request: CombinedCreateTalentRequest,
-                        option: Optional[RequestOption] = None) -> CombinedCreateTalentResponse:
+        
+    def combined_create(self, request: CombinedCreateTalentRequest, option: Optional[RequestOption] = None) -> CombinedCreateTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -123,32 +124,33 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CombinedCreateTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedCreateTalentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acombined_create(self, request: CombinedCreateTalentRequest,
-                               option: Optional[RequestOption] = None) -> CombinedCreateTalentResponse:
+    async def acombined_create(self, request: CombinedCreateTalentRequest, option: Optional[RequestOption] = None) -> CombinedCreateTalentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CombinedCreateTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedCreateTalentResponse)
         response.raw = resp
 
         return response
-
-    def combined_update(self, request: CombinedUpdateTalentRequest,
-                        option: Optional[RequestOption] = None) -> CombinedUpdateTalentResponse:
+        
+    def combined_update(self, request: CombinedUpdateTalentRequest, option: Optional[RequestOption] = None) -> CombinedUpdateTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -161,30 +163,32 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CombinedUpdateTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedUpdateTalentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acombined_update(self, request: CombinedUpdateTalentRequest,
-                               option: Optional[RequestOption] = None) -> CombinedUpdateTalentResponse:
+    async def acombined_update(self, request: CombinedUpdateTalentRequest, option: Optional[RequestOption] = None) -> CombinedUpdateTalentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CombinedUpdateTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), CombinedUpdateTalentResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetTalentRequest, option: Optional[RequestOption] = None) -> GetTalentResponse:
         if option is None:
             option = RequestOption()
@@ -198,12 +202,13 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTalentResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetTalentRequest, option: Optional[RequestOption] = None) -> GetTalentResponse:
         if option is None:
@@ -212,15 +217,17 @@ class Talent(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), GetTalentResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListTalentRequest, option: Optional[RequestOption] = None) -> ListTalentResponse:
         if option is None:
             option = RequestOption()
@@ -234,12 +241,13 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListTalentRequest, option: Optional[RequestOption] = None) -> ListTalentResponse:
         if option is None:
@@ -248,17 +256,18 @@ class Talent(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), ListTalentResponse)
         response.raw = resp
 
         return response
-
-    def onboard_status(self, request: OnboardStatusTalentRequest,
-                       option: Optional[RequestOption] = None) -> OnboardStatusTalentResponse:
+        
+    def onboard_status(self, request: OnboardStatusTalentRequest, option: Optional[RequestOption] = None) -> OnboardStatusTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -271,32 +280,33 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: OnboardStatusTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), OnboardStatusTalentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aonboard_status(self, request: OnboardStatusTalentRequest,
-                              option: Optional[RequestOption] = None) -> OnboardStatusTalentResponse:
+    async def aonboard_status(self, request: OnboardStatusTalentRequest, option: Optional[RequestOption] = None) -> OnboardStatusTalentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: OnboardStatusTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), OnboardStatusTalentResponse)
         response.raw = resp
 
         return response
-
-    def remove_to_folder(self, request: RemoveToFolderTalentRequest,
-                         option: Optional[RequestOption] = None) -> RemoveToFolderTalentResponse:
+        
+    def remove_to_folder(self, request: RemoveToFolderTalentRequest, option: Optional[RequestOption] = None) -> RemoveToFolderTalentResponse:
         if option is None:
             option = RequestOption()
 
@@ -309,30 +319,32 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: RemoveToFolderTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveToFolderTalentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aremove_to_folder(self, request: RemoveToFolderTalentRequest,
-                                option: Optional[RequestOption] = None) -> RemoveToFolderTalentResponse:
+    async def aremove_to_folder(self, request: RemoveToFolderTalentRequest, option: Optional[RequestOption] = None) -> RemoveToFolderTalentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: RemoveToFolderTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveToFolderTalentResponse)
         response.raw = resp
 
         return response
-
+        
     def tag(self, request: TagTalentRequest, option: Optional[RequestOption] = None) -> TagTalentResponse:
         if option is None:
             option = RequestOption()
@@ -346,12 +358,13 @@ class Talent(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: TagTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), TagTalentResponse)
         response.raw = resp
 
         return response
+        
 
     async def atag(self, request: TagTalentRequest, option: Optional[RequestOption] = None) -> TagTalentResponse:
         if option is None:
@@ -360,11 +373,15 @@ class Talent(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: TagTalentResponse = JSON.unmarshal(str(resp.content, UTF_8), TagTalentResponse)
         response.raw = resp
 
         return response
+        
+    

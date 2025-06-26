@@ -25,18 +25,15 @@ class LocationNameInfo(object):
 class LocationNameInfoBuilder(object):
     def __init__(self) -> None:
         self._location_name_info = LocationNameInfo()
-
     def zh_name(self, zh_name: str) -> "LocationNameInfoBuilder":
         self._location_name_info.zh_name = zh_name
         return self
-
     def en_name(self, en_name: str) -> "LocationNameInfoBuilder":
         self._location_name_info.en_name = en_name
         return self
-
     def py_name(self, py_name: str) -> "LocationNameInfoBuilder":
         self._location_name_info.py_name = py_name
         return self
-
+    
     def build(self) -> "LocationNameInfo":
         return self._location_name_info

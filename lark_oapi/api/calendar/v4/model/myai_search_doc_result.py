@@ -24,14 +24,12 @@ class MyaiSearchDocResult(object):
 class MyaiSearchDocResultBuilder(object):
     def __init__(self) -> None:
         self._myai_search_doc_result = MyaiSearchDocResult()
-
     def doc_items(self, doc_items: List[MyaiDocDetail]) -> "MyaiSearchDocResultBuilder":
         self._myai_search_doc_result.doc_items = doc_items
         return self
-
     def message(self, message: str) -> "MyaiSearchDocResultBuilder":
         self._myai_search_doc_result.message = message
         return self
-
+    
     def build(self) -> "MyaiSearchDocResult":
         return self._myai_search_doc_result

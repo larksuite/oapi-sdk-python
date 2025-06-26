@@ -43,54 +43,42 @@ class I18nText(object):
 class I18nTextBuilder(object):
     def __init__(self) -> None:
         self._i18n_text = I18nText()
-
     def en_us(self, en_us: str) -> "I18nTextBuilder":
         self._i18n_text.en_us = en_us
         return self
-
     def zh_cn(self, zh_cn: str) -> "I18nTextBuilder":
         self._i18n_text.zh_cn = zh_cn
         return self
-
     def zh_hk(self, zh_hk: str) -> "I18nTextBuilder":
         self._i18n_text.zh_hk = zh_hk
         return self
-
     def zh_tw(self, zh_tw: str) -> "I18nTextBuilder":
         self._i18n_text.zh_tw = zh_tw
         return self
-
     def ja_jp(self, ja_jp: str) -> "I18nTextBuilder":
         self._i18n_text.ja_jp = ja_jp
         return self
-
     def fr_fr(self, fr_fr: str) -> "I18nTextBuilder":
         self._i18n_text.fr_fr = fr_fr
         return self
-
     def it_it(self, it_it: str) -> "I18nTextBuilder":
         self._i18n_text.it_it = it_it
         return self
-
     def de_de(self, de_de: str) -> "I18nTextBuilder":
         self._i18n_text.de_de = de_de
         return self
-
     def ru_ru(self, ru_ru: str) -> "I18nTextBuilder":
         self._i18n_text.ru_ru = ru_ru
         return self
-
     def th_th(self, th_th: str) -> "I18nTextBuilder":
         self._i18n_text.th_th = th_th
         return self
-
     def es_es(self, es_es: str) -> "I18nTextBuilder":
         self._i18n_text.es_es = es_es
         return self
-
     def ko_kr(self, ko_kr: str) -> "I18nTextBuilder":
         self._i18n_text.ko_kr = ko_kr
         return self
-
+    
     def build(self) -> "I18nText":
         return self._i18n_text

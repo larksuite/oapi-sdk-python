@@ -24,7 +24,7 @@ class CreateAgentScheduleRequestBuilder(object):
         create_agent_schedule_request.uri = "/open-apis/helpdesk/v1/agent_schedules"
         create_agent_schedule_request.token_types = {AccessTokenType.USER}
         self._create_agent_schedule_request: CreateAgentScheduleRequest = create_agent_schedule_request
-
+    
     def request_body(self, request_body: CreateAgentScheduleRequestBody) -> "CreateAgentScheduleRequestBuilder":
         self._create_agent_schedule_request.request_body = request_body
         self._create_agent_schedule_request.body = request_body

@@ -30,26 +30,30 @@ class MeetingList(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetMeetingListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingListResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetMeetingListRequest,
-                   option: Optional[RequestOption] = None) -> GetMeetingListResponse:
+    async def aget(self, request: GetMeetingListRequest, option: Optional[RequestOption] = None) -> GetMeetingListResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetMeetingListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMeetingListResponse)
         response.raw = resp
 
         return response
+        
+    

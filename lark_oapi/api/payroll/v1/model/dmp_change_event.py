@@ -27,18 +27,15 @@ class DmpChangeEvent(object):
 class DmpChangeEventBuilder(object):
     def __init__(self) -> None:
         self._dmp_change_event = DmpChangeEvent()
-
     def employee_number(self, employee_number: str) -> "DmpChangeEventBuilder":
         self._dmp_change_event.employee_number = employee_number
         return self
-
     def old_version_data(self, old_version_data: List[DmpTimelineField]) -> "DmpChangeEventBuilder":
         self._dmp_change_event.old_version_data = old_version_data
         return self
-
     def new_version_data(self, new_version_data: List[DmpTimelineField]) -> "DmpChangeEventBuilder":
         self._dmp_change_event.new_version_data = new_version_data
         return self
-
+    
     def build(self) -> "DmpChangeEvent":
         return self._dmp_change_event

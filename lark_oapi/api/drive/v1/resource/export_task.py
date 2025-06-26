@@ -21,8 +21,7 @@ class ExportTask(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateExportTaskRequest,
-               option: Optional[RequestOption] = None) -> CreateExportTaskResponse:
+    def create(self, request: CreateExportTaskRequest, option: Optional[RequestOption] = None) -> CreateExportTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -35,32 +34,33 @@ class ExportTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExportTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateExportTaskRequest,
-                      option: Optional[RequestOption] = None) -> CreateExportTaskResponse:
+    async def acreate(self, request: CreateExportTaskRequest, option: Optional[RequestOption] = None) -> CreateExportTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExportTaskResponse)
         response.raw = resp
 
         return response
-
-    def download(self, request: DownloadExportTaskRequest,
-                 option: Optional[RequestOption] = None) -> DownloadExportTaskResponse:
+        
+    def download(self, request: DownloadExportTaskRequest, option: Optional[RequestOption] = None) -> DownloadExportTaskResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,7 +73,7 @@ class ExportTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadExportTaskResponse = DownloadExportTaskResponse()
@@ -86,18 +86,20 @@ class ExportTask(object):
 
         response.raw = resp
         return response
+        
 
-    async def adownload(self, request: DownloadExportTaskRequest,
-                        option: Optional[RequestOption] = None) -> DownloadExportTaskResponse:
+    async def adownload(self, request: DownloadExportTaskRequest, option: Optional[RequestOption] = None) -> DownloadExportTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadExportTaskResponse = DownloadExportTaskResponse()
@@ -110,7 +112,7 @@ class ExportTask(object):
 
         response.raw = resp
         return response
-
+        
     def get(self, request: GetExportTaskRequest, option: Optional[RequestOption] = None) -> GetExportTaskResponse:
         if option is None:
             option = RequestOption()
@@ -124,26 +126,30 @@ class ExportTask(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportTaskResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetExportTaskRequest,
-                   option: Optional[RequestOption] = None) -> GetExportTaskResponse:
+    async def aget(self, request: GetExportTaskRequest, option: Optional[RequestOption] = None) -> GetExportTaskResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetExportTaskResponse = JSON.unmarshal(str(resp.content, UTF_8), GetExportTaskResponse)
         response.raw = resp
 
         return response
+        
+    

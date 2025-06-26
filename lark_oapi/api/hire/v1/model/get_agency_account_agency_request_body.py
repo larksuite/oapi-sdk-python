@@ -25,18 +25,15 @@ class GetAgencyAccountAgencyRequestBody(object):
 class GetAgencyAccountAgencyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._get_agency_account_agency_request_body = GetAgencyAccountAgencyRequestBody()
-
     def supplier_id(self, supplier_id: str) -> "GetAgencyAccountAgencyRequestBodyBuilder":
         self._get_agency_account_agency_request_body.supplier_id = supplier_id
         return self
-
     def status(self, status: int) -> "GetAgencyAccountAgencyRequestBodyBuilder":
         self._get_agency_account_agency_request_body.status = status
         return self
-
     def role(self, role: int) -> "GetAgencyAccountAgencyRequestBodyBuilder":
         self._get_agency_account_agency_request_body.role = role
         return self
-
+    
     def build(self) -> "GetAgencyAccountAgencyRequestBody":
         return self._get_agency_account_agency_request_body

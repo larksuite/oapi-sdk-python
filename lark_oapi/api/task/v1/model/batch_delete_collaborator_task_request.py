@@ -26,17 +26,17 @@ class BatchDeleteCollaboratorTaskRequestBuilder(object):
         batch_delete_collaborator_task_request.uri = "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
         batch_delete_collaborator_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._batch_delete_collaborator_task_request: BatchDeleteCollaboratorTaskRequest = batch_delete_collaborator_task_request
-
+    
     def user_id_type(self, user_id_type: str) -> "BatchDeleteCollaboratorTaskRequestBuilder":
         self._batch_delete_collaborator_task_request.user_id_type = user_id_type
         self._batch_delete_collaborator_task_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def task_id(self, task_id: str) -> "BatchDeleteCollaboratorTaskRequestBuilder":
         self._batch_delete_collaborator_task_request.task_id = task_id
         self._batch_delete_collaborator_task_request.paths["task_id"] = str(task_id)
         return self
-
+    
     def request_body(self, request_body: Collaborator) -> "BatchDeleteCollaboratorTaskRequestBuilder":
         self._batch_delete_collaborator_task_request.request_body = request_body
         self._batch_delete_collaborator_task_request.body = request_body

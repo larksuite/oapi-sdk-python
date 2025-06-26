@@ -30,12 +30,13 @@ class Node(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchNodeResponse)
         response.raw = resp
 
         return response
+        
 
     async def asearch(self, request: SearchNodeRequest, option: Optional[RequestOption] = None) -> SearchNodeResponse:
         if option is None:
@@ -44,11 +45,15 @@ class Node(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchNodeResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchNodeResponse)
         response.raw = resp
 
         return response
+        
+    

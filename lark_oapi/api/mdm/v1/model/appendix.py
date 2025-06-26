@@ -29,26 +29,21 @@ class Appendix(object):
 class AppendixBuilder(object):
     def __init__(self) -> None:
         self._appendix = Appendix()
-
     def file_id(self, file_id: str) -> "AppendixBuilder":
         self._appendix.file_id = file_id
         return self
-
     def file_name(self, file_name: str) -> "AppendixBuilder":
         self._appendix.file_name = file_name
         return self
-
     def file_type(self, file_type: str) -> "AppendixBuilder":
         self._appendix.file_type = file_type
         return self
-
     def file_size(self, file_size: int) -> "AppendixBuilder":
         self._appendix.file_size = file_size
         return self
-
     def download_url(self, download_url: str) -> "AppendixBuilder":
         self._appendix.download_url = download_url
         return self
-
+    
     def build(self) -> "Appendix":
         return self._appendix

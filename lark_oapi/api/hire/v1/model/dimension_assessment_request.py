@@ -31,30 +31,24 @@ class DimensionAssessmentRequest(object):
 class DimensionAssessmentRequestBuilder(object):
     def __init__(self) -> None:
         self._dimension_assessment_request = DimensionAssessmentRequest()
-
     def dimension_id(self, dimension_id: str) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.dimension_id = dimension_id
         return self
-
     def content(self, content: str) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.content = content
         return self
-
     def option_ids(self, option_ids: List[str]) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.option_ids = option_ids
         return self
-
     def score_value(self, score_value: int) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.score_value = score_value
         return self
-
     def min_job_level_id(self, min_job_level_id: str) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.min_job_level_id = min_job_level_id
         return self
-
     def max_job_level_id(self, max_job_level_id: str) -> "DimensionAssessmentRequestBuilder":
         self._dimension_assessment_request.max_job_level_id = max_job_level_id
         return self
-
+    
     def build(self) -> "DimensionAssessmentRequest":
         return self._dimension_assessment_request

@@ -22,10 +22,9 @@ class GetImportTaskResponseBody(object):
 class GetImportTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_import_task_response_body = GetImportTaskResponseBody()
-
     def result(self, result: ImportTask) -> "GetImportTaskResponseBodyBuilder":
         self._get_import_task_response_body.result = result
         return self
-
+    
     def build(self) -> "GetImportTaskResponseBody":
         return self._get_import_task_response_body

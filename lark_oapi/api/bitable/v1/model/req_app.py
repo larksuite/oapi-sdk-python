@@ -25,18 +25,15 @@ class ReqApp(object):
 class ReqAppBuilder(object):
     def __init__(self) -> None:
         self._req_app = ReqApp()
-
     def name(self, name: str) -> "ReqAppBuilder":
         self._req_app.name = name
         return self
-
     def folder_token(self, folder_token: str) -> "ReqAppBuilder":
         self._req_app.folder_token = folder_token
         return self
-
     def time_zone(self, time_zone: str) -> "ReqAppBuilder":
         self._req_app.time_zone = time_zone
         return self
-
+    
     def build(self) -> "ReqApp":
         return self._req_app

@@ -23,11 +23,12 @@ class TasklistsTaskRequestBuilder(object):
         tasklists_task_request.uri = "/open-apis/task/v2/tasks/:task_guid/tasklists"
         tasklists_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._tasklists_task_request: TasklistsTaskRequest = tasklists_task_request
-
+    
     def task_guid(self, task_guid: str) -> "TasklistsTaskRequestBuilder":
         self._tasklists_task_request.task_guid = task_guid
         self._tasklists_task_request.paths["task_guid"] = str(task_guid)
         return self
+    
 
     def build(self) -> TasklistsTaskRequest:
         return self._tasklists_task_request

@@ -27,22 +27,18 @@ class CardLink(object):
 class CardLinkBuilder(object):
     def __init__(self) -> None:
         self._card_link = CardLink()
-
     def url(self, url: str) -> "CardLinkBuilder":
         self._card_link.url = url
         return self
-
     def pc_url(self, pc_url: str) -> "CardLinkBuilder":
         self._card_link.pc_url = pc_url
         return self
-
     def ios_url(self, ios_url: str) -> "CardLinkBuilder":
         self._card_link.ios_url = ios_url
         return self
-
     def android_url(self, android_url: str) -> "CardLinkBuilder":
         self._card_link.android_url = android_url
         return self
-
+    
     def build(self) -> "CardLink":
         return self._card_link

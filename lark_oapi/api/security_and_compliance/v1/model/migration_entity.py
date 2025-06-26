@@ -33,34 +33,27 @@ class MigrationEntity(object):
 class MigrationEntityBuilder(object):
     def __init__(self) -> None:
         self._migration_entity = MigrationEntity()
-
     def id(self, id: str) -> "MigrationEntityBuilder":
         self._migration_entity.id = id
         return self
-
     def location(self, location: str) -> "MigrationEntityBuilder":
         self._migration_entity.location = location
         return self
-
     def type(self, type: str) -> "MigrationEntityBuilder":
         self._migration_entity.type = type
         return self
-
     def creator_id(self, creator_id: str) -> "MigrationEntityBuilder":
         self._migration_entity.creator_id = creator_id
         return self
-
     def creator_type(self, creator_type: str) -> "MigrationEntityBuilder":
         self._migration_entity.creator_type = creator_type
         return self
-
     def create_time(self, create_time: str) -> "MigrationEntityBuilder":
         self._migration_entity.create_time = create_time
         return self
-
     def mail_address(self, mail_address: str) -> "MigrationEntityBuilder":
         self._migration_entity.mail_address = mail_address
         return self
-
+    
     def build(self) -> "MigrationEntity":
         return self._migration_entity

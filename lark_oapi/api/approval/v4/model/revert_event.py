@@ -29,26 +29,21 @@ class RevertEvent(object):
 class RevertEventBuilder(object):
     def __init__(self) -> None:
         self._revert_event = RevertEvent()
-
     def type(self, type: str) -> "RevertEventBuilder":
         self._revert_event.type = type
         return self
-
     def instance_code(self, instance_code: str) -> "RevertEventBuilder":
         self._revert_event.instance_code = instance_code
         return self
-
     def operate_time(self, operate_time: int) -> "RevertEventBuilder":
         self._revert_event.operate_time = operate_time
         return self
-
     def status(self, status: str) -> "RevertEventBuilder":
         self._revert_event.status = status
         return self
-
     def approval_code(self, approval_code: str) -> "RevertEventBuilder":
         self._revert_event.approval_code = approval_code
         return self
-
+    
     def build(self) -> "RevertEvent":
         return self._revert_event

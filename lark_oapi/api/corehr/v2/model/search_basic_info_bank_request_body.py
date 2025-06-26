@@ -29,26 +29,21 @@ class SearchBasicInfoBankRequestBody(object):
 class SearchBasicInfoBankRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_bank_request_body = SearchBasicInfoBankRequestBody()
-
     def bank_id_list(self, bank_id_list: List[str]) -> "SearchBasicInfoBankRequestBodyBuilder":
         self._search_basic_info_bank_request_body.bank_id_list = bank_id_list
         return self
-
     def bank_name_list(self, bank_name_list: List[str]) -> "SearchBasicInfoBankRequestBodyBuilder":
         self._search_basic_info_bank_request_body.bank_name_list = bank_name_list
         return self
-
     def status_list(self, status_list: List[int]) -> "SearchBasicInfoBankRequestBodyBuilder":
         self._search_basic_info_bank_request_body.status_list = status_list
         return self
-
     def update_start_time(self, update_start_time: str) -> "SearchBasicInfoBankRequestBodyBuilder":
         self._search_basic_info_bank_request_body.update_start_time = update_start_time
         return self
-
     def update_end_time(self, update_end_time: str) -> "SearchBasicInfoBankRequestBodyBuilder":
         self._search_basic_info_bank_request_body.update_end_time = update_end_time
         return self
-
+    
     def build(self) -> "SearchBasicInfoBankRequestBody":
         return self._search_basic_info_bank_request_body

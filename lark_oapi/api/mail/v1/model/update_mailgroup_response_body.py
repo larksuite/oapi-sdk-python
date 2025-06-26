@@ -35,38 +35,30 @@ class UpdateMailgroupResponseBody(object):
 class UpdateMailgroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_mailgroup_response_body = UpdateMailgroupResponseBody()
-
     def mailgroup_id(self, mailgroup_id: str) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.mailgroup_id = mailgroup_id
         return self
-
     def email(self, email: str) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.email = email
         return self
-
     def name(self, name: str) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.name = name
         return self
-
     def description(self, description: str) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.description = description
         return self
-
     def direct_members_count(self, direct_members_count: str) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.direct_members_count = direct_members_count
         return self
-
     def include_external_member(self, include_external_member: bool) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.include_external_member = include_external_member
         return self
-
     def include_all_company_member(self, include_all_company_member: bool) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.include_all_company_member = include_all_company_member
         return self
-
     def who_can_send_mail(self, who_can_send_mail: str) -> "UpdateMailgroupResponseBodyBuilder":
         self._update_mailgroup_response_body.who_can_send_mail = who_can_send_mail
         return self
-
+    
     def build(self) -> "UpdateMailgroupResponseBody":
         return self._update_mailgroup_response_body

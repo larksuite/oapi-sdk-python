@@ -55,11 +55,13 @@ from .reviewee_metric import *
 from .reviewee_stage_status import *
 from .reviewer_info import *
 from .semester import *
+from .semester_stage import *
 from .stage_change import *
 from .sub_indicator import *
 from .tag_item import *
 from .tag_text import *
 from .template import *
+from .template_stage import *
 from .unit import *
 from .user import *
 from .user_evaluation_scale import *

@@ -25,8 +25,7 @@ class SpreadsheetSheet(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def find(self, request: FindSpreadsheetSheetRequest,
-             option: Optional[RequestOption] = None) -> FindSpreadsheetSheetResponse:
+    def find(self, request: FindSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> FindSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,32 +38,33 @@ class SpreadsheetSheet(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: FindSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), FindSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
+        
 
-    async def afind(self, request: FindSpreadsheetSheetRequest,
-                    option: Optional[RequestOption] = None) -> FindSpreadsheetSheetResponse:
+    async def afind(self, request: FindSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> FindSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: FindSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), FindSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
-
-    def get(self, request: GetSpreadsheetSheetRequest,
-            option: Optional[RequestOption] = None) -> GetSpreadsheetSheetResponse:
+        
+    def get(self, request: GetSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,32 +77,33 @@ class SpreadsheetSheet(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetSpreadsheetSheetRequest,
-                   option: Optional[RequestOption] = None) -> GetSpreadsheetSheetResponse:
+    async def aget(self, request: GetSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> GetSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
-
-    def move_dimension(self, request: MoveDimensionSpreadsheetSheetRequest,
-                       option: Optional[RequestOption] = None) -> MoveDimensionSpreadsheetSheetResponse:
+        
+    def move_dimension(self, request: MoveDimensionSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> MoveDimensionSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -115,34 +116,33 @@ class SpreadsheetSheet(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: MoveDimensionSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         MoveDimensionSpreadsheetSheetResponse)
+        response: MoveDimensionSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveDimensionSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
+        
 
-    async def amove_dimension(self, request: MoveDimensionSpreadsheetSheetRequest,
-                              option: Optional[RequestOption] = None) -> MoveDimensionSpreadsheetSheetResponse:
+    async def amove_dimension(self, request: MoveDimensionSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> MoveDimensionSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: MoveDimensionSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         MoveDimensionSpreadsheetSheetResponse)
+        response: MoveDimensionSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), MoveDimensionSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
-
-    def query(self, request: QuerySpreadsheetSheetRequest,
-              option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetResponse:
+        
+    def query(self, request: QuerySpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -155,34 +155,33 @@ class SpreadsheetSheet(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: QuerySpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QuerySpreadsheetSheetResponse)
+        response: QuerySpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySpreadsheetSheetResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QuerySpreadsheetSheetRequest,
-                     option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetResponse:
+    async def aquery(self, request: QuerySpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> QuerySpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: QuerySpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 QuerySpreadsheetSheetResponse)
+        response: QuerySpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), QuerySpreadsheetSheetResponse)
         response.raw = resp
 
         return response
-
-    def replace(self, request: ReplaceSpreadsheetSheetRequest,
-                option: Optional[RequestOption] = None) -> ReplaceSpreadsheetSheetResponse:
+        
+    def replace(self, request: ReplaceSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> ReplaceSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
@@ -195,28 +194,30 @@ class SpreadsheetSheet(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ReplaceSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ReplaceSpreadsheetSheetResponse)
+        response: ReplaceSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), ReplaceSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
+        
 
-    async def areplace(self, request: ReplaceSpreadsheetSheetRequest,
-                       option: Optional[RequestOption] = None) -> ReplaceSpreadsheetSheetResponse:
+    async def areplace(self, request: ReplaceSpreadsheetSheetRequest, option: Optional[RequestOption] = None) -> ReplaceSpreadsheetSheetResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ReplaceSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                   ReplaceSpreadsheetSheetResponse)
+        response: ReplaceSpreadsheetSheetResponse = JSON.unmarshal(str(resp.content, UTF_8), ReplaceSpreadsheetSheetResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -5,84 +5,82 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SendUserMailboxMessageRequest = SendUserMailboxMessageRequest.builder() \
-        .user_mailbox_id("user@xxx.xx 或 me") \
-        .request_body(Message.builder()
-                      .raw(
-        "Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogdG9AeHh4Lnh4CmZyb206IHNlbmRlckB4eHgueHgKc3ViamVjdDogdGhpcyBpcyBhIHN1YmplY3QKCnRoaXMgaXMgdGhlIG1lc3NhZ2UgYm9keS4=")
-                      .subject("邮件标题")
-                      .to([])
-                      .cc([])
-                      .bcc([])
-                      .head_from(MailAddress.builder().build())
-                      .body_html("xxxx")
-                      .body_plain_text("xxxxx")
-                      .attachments([])
-                      .thread_id("tfuh9N4WnzU6jdDw=")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SendUserMailboxMessageRequest = SendUserMailboxMessageRequest.builder() \
+		.user_mailbox_id("user@xxx.xx 或 me") \
+		.request_body(Message.builder()
+					  .raw("Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogdG9AeHh4Lnh4CmZyb206IHNlbmRlckB4eHgueHgKc3ViamVjdDogdGhpcyBpcyBhIHN1YmplY3QKCnRoaXMgaXMgdGhlIG1lc3NhZ2UgYm9keS4=")
+					  .subject("邮件标题")
+					  .to([])
+					  .cc([])
+					  .bcc([])
+					  .head_from(MailAddress.builder().build())
+					  .body_html("xxxx")
+					  .body_plain_text("xxxxx")
+					  .attachments([])
+					  .thread_id("tfuh9N4WnzU6jdDw=")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SendUserMailboxMessageResponse = client.mail.v1.user_mailbox_message.send(request)
+	# 发起请求
+	response: SendUserMailboxMessageResponse = client.mail.v1.user_mailbox_message.send(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.mail.v1.user_mailbox_message.send failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.mail.v1.user_mailbox_message.send failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SendUserMailboxMessageRequest = SendUserMailboxMessageRequest.builder() \
-        .user_mailbox_id("user@xxx.xx 或 me") \
-        .request_body(Message.builder()
-                      .raw(
-        "Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogdG9AeHh4Lnh4CmZyb206IHNlbmRlckB4eHgueHgKc3ViamVjdDogdGhpcyBpcyBhIHN1YmplY3QKCnRoaXMgaXMgdGhlIG1lc3NhZ2UgYm9keS4=")
-                      .subject("邮件标题")
-                      .to([])
-                      .cc([])
-                      .bcc([])
-                      .head_from(MailAddress.builder().build())
-                      .body_html("xxxx")
-                      .body_plain_text("xxxxx")
-                      .attachments([])
-                      .thread_id("tfuh9N4WnzU6jdDw=")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SendUserMailboxMessageRequest = SendUserMailboxMessageRequest.builder() \
+		.user_mailbox_id("user@xxx.xx 或 me") \
+		.request_body(Message.builder()
+					  .raw("Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogdG9AeHh4Lnh4CmZyb206IHNlbmRlckB4eHgueHgKc3ViamVjdDogdGhpcyBpcyBhIHN1YmplY3QKCnRoaXMgaXMgdGhlIG1lc3NhZ2UgYm9keS4=")
+					  .subject("邮件标题")
+					  .to([])
+					  .cc([])
+					  .bcc([])
+					  .head_from(MailAddress.builder().build())
+					  .body_html("xxxx")
+					  .body_plain_text("xxxxx")
+					  .attachments([])
+					  .thread_id("tfuh9N4WnzU6jdDw=")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SendUserMailboxMessageResponse = await client.mail.v1.user_mailbox_message.asend(request)
+	# 发起请求
+	response: SendUserMailboxMessageResponse = await client.mail.v1.user_mailbox_message.asend(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.mail.v1.user_mailbox_message.asend failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.mail.v1.user_mailbox_message.asend failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

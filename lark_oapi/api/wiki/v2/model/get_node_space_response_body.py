@@ -22,10 +22,9 @@ class GetNodeSpaceResponseBody(object):
 class GetNodeSpaceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_node_space_response_body = GetNodeSpaceResponseBody()
-
     def node(self, node: Node) -> "GetNodeSpaceResponseBodyBuilder":
         self._get_node_space_response_body.node = node
         return self
-
+    
     def build(self) -> "GetNodeSpaceResponseBody":
         return self._get_node_space_response_body

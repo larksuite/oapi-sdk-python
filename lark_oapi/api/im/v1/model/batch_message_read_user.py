@@ -23,14 +23,12 @@ class BatchMessageReadUser(object):
 class BatchMessageReadUserBuilder(object):
     def __init__(self) -> None:
         self._batch_message_read_user = BatchMessageReadUser()
-
     def read_count(self, read_count: str) -> "BatchMessageReadUserBuilder":
         self._batch_message_read_user.read_count = read_count
         return self
-
     def total_count(self, total_count: str) -> "BatchMessageReadUserBuilder":
         self._batch_message_read_user.total_count = total_count
         return self
-
+    
     def build(self) -> "BatchMessageReadUser":
         return self._batch_message_read_user

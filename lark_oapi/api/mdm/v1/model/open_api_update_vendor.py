@@ -21,10 +21,9 @@ class OpenApiUpdateVendor(object):
 class OpenApiUpdateVendorBuilder(object):
     def __init__(self) -> None:
         self._open_api_update_vendor = OpenApiUpdateVendor()
-
     def id(self, id: int) -> "OpenApiUpdateVendorBuilder":
         self._open_api_update_vendor.id = id
         return self
-
+    
     def build(self) -> "OpenApiUpdateVendor":
         return self._open_api_update_vendor

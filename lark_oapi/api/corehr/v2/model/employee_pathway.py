@@ -34,30 +34,24 @@ class EmployeePathway(object):
 class EmployeePathwayBuilder(object):
     def __init__(self) -> None:
         self._employee_pathway = EmployeePathway()
-
     def id(self, id: str) -> "EmployeePathwayBuilder":
         self._employee_pathway.id = id
         return self
-
     def code(self, code: str) -> "EmployeePathwayBuilder":
         self._employee_pathway.code = code
         return self
-
     def name(self, name: List[I18n]) -> "EmployeePathwayBuilder":
         self._employee_pathway.name = name
         return self
-
     def description(self, description: List[I18n]) -> "EmployeePathwayBuilder":
         self._employee_pathway.description = description
         return self
-
     def active(self, active: bool) -> "EmployeePathwayBuilder":
         self._employee_pathway.active = active
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "EmployeePathwayBuilder":
         self._employee_pathway.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "EmployeePathway":
         return self._employee_pathway

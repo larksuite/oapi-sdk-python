@@ -25,18 +25,15 @@ class Callback(object):
 class CallbackBuilder(object):
     def __init__(self) -> None:
         self._callback = Callback()
-
     def callback_type(self, callback_type: str) -> "CallbackBuilder":
         self._callback.callback_type = callback_type
         return self
-
     def request_url(self, request_url: str) -> "CallbackBuilder":
         self._callback.request_url = request_url
         return self
-
     def subscribed_callbacks(self, subscribed_callbacks: List[str]) -> "CallbackBuilder":
         self._callback.subscribed_callbacks = subscribed_callbacks
         return self
-
+    
     def build(self) -> "Callback":
         return self._callback

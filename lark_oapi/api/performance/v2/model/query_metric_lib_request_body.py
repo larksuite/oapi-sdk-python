@@ -29,26 +29,21 @@ class QueryMetricLibRequestBody(object):
 class QueryMetricLibRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_metric_lib_request_body = QueryMetricLibRequestBody()
-
     def is_active(self, is_active: bool) -> "QueryMetricLibRequestBodyBuilder":
         self._query_metric_lib_request_body.is_active = is_active
         return self
-
     def tag_ids(self, tag_ids: List[int]) -> "QueryMetricLibRequestBodyBuilder":
         self._query_metric_lib_request_body.tag_ids = tag_ids
         return self
-
     def type_ids(self, type_ids: List[int]) -> "QueryMetricLibRequestBodyBuilder":
         self._query_metric_lib_request_body.type_ids = type_ids
         return self
-
     def range_of_availability(self, range_of_availability: str) -> "QueryMetricLibRequestBodyBuilder":
         self._query_metric_lib_request_body.range_of_availability = range_of_availability
         return self
-
     def scoring_setting_type(self, scoring_setting_type: str) -> "QueryMetricLibRequestBodyBuilder":
         self._query_metric_lib_request_body.scoring_setting_type = scoring_setting_type
         return self
-
+    
     def build(self) -> "QueryMetricLibRequestBody":
         return self._query_metric_lib_request_body

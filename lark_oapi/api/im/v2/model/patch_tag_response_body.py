@@ -25,14 +25,12 @@ class PatchTagResponseBody(object):
 class PatchTagResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_tag_response_body = PatchTagResponseBody()
-
     def tag_info(self, tag_info: TagInfo) -> "PatchTagResponseBodyBuilder":
         self._patch_tag_response_body.tag_info = tag_info
         return self
-
     def patch_tag_fail_reason(self, patch_tag_fail_reason: PatchTagFailReason) -> "PatchTagResponseBodyBuilder":
         self._patch_tag_response_body.patch_tag_fail_reason = patch_tag_fail_reason
         return self
-
+    
     def build(self) -> "PatchTagResponseBody":
         return self._patch_tag_response_body

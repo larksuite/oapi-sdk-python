@@ -26,18 +26,15 @@ class ListTaskCollaboratorResponseBody(object):
 class ListTaskCollaboratorResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_task_collaborator_response_body = ListTaskCollaboratorResponseBody()
-
     def items(self, items: List[Collaborator]) -> "ListTaskCollaboratorResponseBodyBuilder":
         self._list_task_collaborator_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListTaskCollaboratorResponseBodyBuilder":
         self._list_task_collaborator_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListTaskCollaboratorResponseBodyBuilder":
         self._list_task_collaborator_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListTaskCollaboratorResponseBody":
         return self._list_task_collaborator_response_body

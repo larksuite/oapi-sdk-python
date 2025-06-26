@@ -25,14 +25,12 @@ class ModeratorList(object):
 class ModeratorListBuilder(object):
     def __init__(self) -> None:
         self._moderator_list = ModeratorList()
-
     def added_member_list(self, added_member_list: List[ListEventModerator]) -> "ModeratorListBuilder":
         self._moderator_list.added_member_list = added_member_list
         return self
-
     def removed_member_list(self, removed_member_list: List[ListEventModerator]) -> "ModeratorListBuilder":
         self._moderator_list.removed_member_list = removed_member_list
         return self
-
+    
     def build(self) -> "ModeratorList":
         return self._moderator_list

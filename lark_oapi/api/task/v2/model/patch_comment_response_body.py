@@ -22,10 +22,9 @@ class PatchCommentResponseBody(object):
 class PatchCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_comment_response_body = PatchCommentResponseBody()
-
     def comment(self, comment: Comment) -> "PatchCommentResponseBodyBuilder":
         self._patch_comment_response_body.comment = comment
         return self
-
+    
     def build(self) -> "PatchCommentResponseBody":
         return self._patch_comment_response_body

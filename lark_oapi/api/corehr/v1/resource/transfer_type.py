@@ -17,8 +17,7 @@ class TransferType(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryTransferTypeRequest,
-              option: Optional[RequestOption] = None) -> QueryTransferTypeResponse:
+    def query(self, request: QueryTransferTypeRequest, option: Optional[RequestOption] = None) -> QueryTransferTypeResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class TransferType(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryTransferTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTransferTypeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryTransferTypeRequest,
-                     option: Optional[RequestOption] = None) -> QueryTransferTypeResponse:
+    async def aquery(self, request: QueryTransferTypeRequest, option: Optional[RequestOption] = None) -> QueryTransferTypeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryTransferTypeResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryTransferTypeResponse)
         response.raw = resp
 
         return response
+        
+    

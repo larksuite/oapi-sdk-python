@@ -22,10 +22,9 @@ class InterviewRecordTemplate(object):
 class InterviewRecordTemplateBuilder(object):
     def __init__(self) -> None:
         self._interview_record_template = InterviewRecordTemplate()
-
     def assessment_template(self, assessment_template: InterviewAssessmentTemplate) -> "InterviewRecordTemplateBuilder":
         self._interview_record_template.assessment_template = assessment_template
         return self
-
+    
     def build(self) -> "InterviewRecordTemplate":
         return self._interview_record_template

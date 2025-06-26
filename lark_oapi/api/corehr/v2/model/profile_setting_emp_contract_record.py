@@ -31,30 +31,24 @@ class ProfileSettingEmpContractRecord(object):
 class ProfileSettingEmpContractRecordBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_emp_contract_record = ProfileSettingEmpContractRecord()
-
     def contract_number(self, contract_number: str) -> "ProfileSettingEmpContractRecordBuilder":
         self._profile_setting_emp_contract_record.contract_number = contract_number
         return self
-
     def contract_type(self, contract_type: str) -> "ProfileSettingEmpContractRecordBuilder":
         self._profile_setting_emp_contract_record.contract_type = contract_type
         return self
-
     def first_party(self, first_party: str) -> "ProfileSettingEmpContractRecordBuilder":
         self._profile_setting_emp_contract_record.first_party = first_party
         return self
-
     def effective_time(self, effective_time: str) -> "ProfileSettingEmpContractRecordBuilder":
         self._profile_setting_emp_contract_record.effective_time = effective_time
         return self
-
     def duration_type(self, duration_type: str) -> "ProfileSettingEmpContractRecordBuilder":
         self._profile_setting_emp_contract_record.duration_type = duration_type
         return self
-
     def contract_end_date(self, contract_end_date: str) -> "ProfileSettingEmpContractRecordBuilder":
         self._profile_setting_emp_contract_record.contract_end_date = contract_end_date
         return self
-
+    
     def build(self) -> "ProfileSettingEmpContractRecord":
         return self._profile_setting_emp_contract_record

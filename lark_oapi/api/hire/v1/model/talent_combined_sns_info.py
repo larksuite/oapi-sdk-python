@@ -28,22 +28,18 @@ class TalentCombinedSnsInfo(object):
 class TalentCombinedSnsInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_combined_sns_info = TalentCombinedSnsInfo()
-
     def id(self, id: str) -> "TalentCombinedSnsInfoBuilder":
         self._talent_combined_sns_info.id = id
         return self
-
     def sns_type(self, sns_type: int) -> "TalentCombinedSnsInfoBuilder":
         self._talent_combined_sns_info.sns_type = sns_type
         return self
-
     def link(self, link: str) -> "TalentCombinedSnsInfoBuilder":
         self._talent_combined_sns_info.link = link
         return self
-
     def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedSnsInfoBuilder":
         self._talent_combined_sns_info.customized_data = customized_data
         return self
-
+    
     def build(self) -> "TalentCombinedSnsInfo":
         return self._talent_combined_sns_info

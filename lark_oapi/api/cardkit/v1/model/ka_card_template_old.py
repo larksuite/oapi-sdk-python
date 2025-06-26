@@ -44,54 +44,42 @@ class KaCardTemplateOld(object):
 class KaCardTemplateOldBuilder(object):
     def __init__(self) -> None:
         self._ka_card_template_old = KaCardTemplateOld()
-
     def template_id(self, template_id: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.template_id = template_id
         return self
-
     def name(self, name: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.name = name
         return self
-
     def biz_ext(self, biz_ext: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.biz_ext = biz_ext
         return self
-
     def lock_status(self, lock_status: int) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.lock_status = lock_status
         return self
-
     def status(self, status: int) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.status = status
         return self
-
     def mock_data(self, mock_data: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.mock_data = mock_data
         return self
-
     def content(self, content: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.content = content
         return self
-
     def draft_content(self, draft_content: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.draft_content = draft_content
         return self
-
     def create_time(self, create_time: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.create_time = create_time
         return self
-
     def update_time(self, update_time: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.update_time = update_time
         return self
-
     def creator_id(self, creator_id: str) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.creator_id = creator_id
         return self
-
     def variables(self, variables: List[KaCardTemplateVariable]) -> "KaCardTemplateOldBuilder":
         self._ka_card_template_old.variables = variables
         return self
-
+    
     def build(self) -> "KaCardTemplateOld":
         return self._ka_card_template_old

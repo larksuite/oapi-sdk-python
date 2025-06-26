@@ -26,18 +26,15 @@ class QueryOperationLogsDepartmentResponseBody(object):
 class QueryOperationLogsDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_operation_logs_department_response_body = QueryOperationLogsDepartmentResponseBody()
-
     def op_logs(self, op_logs: List[OrganizationOpLog]) -> "QueryOperationLogsDepartmentResponseBodyBuilder":
         self._query_operation_logs_department_response_body.op_logs = op_logs
         return self
-
     def next_page_token(self, next_page_token: str) -> "QueryOperationLogsDepartmentResponseBodyBuilder":
         self._query_operation_logs_department_response_body.next_page_token = next_page_token
         return self
-
     def has_more(self, has_more: bool) -> "QueryOperationLogsDepartmentResponseBodyBuilder":
         self._query_operation_logs_department_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "QueryOperationLogsDepartmentResponseBody":
         return self._query_operation_logs_department_response_body

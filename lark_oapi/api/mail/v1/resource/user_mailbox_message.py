@@ -23,8 +23,7 @@ class UserMailboxMessage(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetUserMailboxMessageRequest,
-            option: Optional[RequestOption] = None) -> GetUserMailboxMessageResponse:
+    def get(self, request: GetUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> GetUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,34 +36,33 @@ class UserMailboxMessage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetUserMailboxMessageResponse)
+        response: GetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMailboxMessageResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetUserMailboxMessageRequest,
-                   option: Optional[RequestOption] = None) -> GetUserMailboxMessageResponse:
+    async def aget(self, request: GetUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> GetUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                 GetUserMailboxMessageResponse)
+        response: GetUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetUserMailboxMessageResponse)
         response.raw = resp
 
         return response
-
-    def get_by_card(self, request: GetByCardUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> GetByCardUserMailboxMessageResponse:
+        
+    def get_by_card(self, request: GetByCardUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> GetByCardUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,34 +75,33 @@ class UserMailboxMessage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       GetByCardUserMailboxMessageResponse)
+        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByCardUserMailboxMessageResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget_by_card(self, request: GetByCardUserMailboxMessageRequest,
-                           option: Optional[RequestOption] = None) -> GetByCardUserMailboxMessageResponse:
+    async def aget_by_card(self, request: GetByCardUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> GetByCardUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       GetByCardUserMailboxMessageResponse)
+        response: GetByCardUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), GetByCardUserMailboxMessageResponse)
         response.raw = resp
 
         return response
-
-    def list(self, request: ListUserMailboxMessageRequest,
-             option: Optional[RequestOption] = None) -> ListUserMailboxMessageResponse:
+        
+    def list(self, request: ListUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> ListUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,34 +114,33 @@ class UserMailboxMessage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListUserMailboxMessageResponse)
+        response: ListUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxMessageResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> ListUserMailboxMessageResponse:
+    async def alist(self, request: ListUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> ListUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ListUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  ListUserMailboxMessageResponse)
+        response: ListUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), ListUserMailboxMessageResponse)
         response.raw = resp
 
         return response
-
-    def send(self, request: SendUserMailboxMessageRequest,
-             option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
+        
+    def send(self, request: SendUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,28 +153,30 @@ class UserMailboxMessage(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SendUserMailboxMessageResponse)
+        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), SendUserMailboxMessageResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asend(self, request: SendUserMailboxMessageRequest,
-                    option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
+    async def asend(self, request: SendUserMailboxMessageRequest, option: Optional[RequestOption] = None) -> SendUserMailboxMessageResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  SendUserMailboxMessageResponse)
+        response: SendUserMailboxMessageResponse = JSON.unmarshal(str(resp.content, UTF_8), SendUserMailboxMessageResponse)
         response.raw = resp
 
         return response
+        
+    

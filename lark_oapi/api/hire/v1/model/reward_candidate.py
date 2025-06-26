@@ -25,18 +25,15 @@ class RewardCandidate(object):
 class RewardCandidateBuilder(object):
     def __init__(self) -> None:
         self._reward_candidate = RewardCandidate()
-
     def application_id(self, application_id: str) -> "RewardCandidateBuilder":
         self._reward_candidate.application_id = application_id
         return self
-
     def talent_id(self, talent_id: str) -> "RewardCandidateBuilder":
         self._reward_candidate.talent_id = talent_id
         return self
-
     def name(self, name: str) -> "RewardCandidateBuilder":
         self._reward_candidate.name = name
         return self
-
+    
     def build(self) -> "RewardCandidate":
         return self._reward_candidate

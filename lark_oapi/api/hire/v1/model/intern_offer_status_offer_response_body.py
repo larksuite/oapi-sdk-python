@@ -29,24 +29,18 @@ class InternOfferStatusOfferResponseBody(object):
 class InternOfferStatusOfferResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._intern_offer_status_offer_response_body = InternOfferStatusOfferResponseBody()
-
     def offer_id(self, offer_id: str) -> "InternOfferStatusOfferResponseBodyBuilder":
         self._intern_offer_status_offer_response_body.offer_id = offer_id
         return self
-
     def operation(self, operation: str) -> "InternOfferStatusOfferResponseBodyBuilder":
         self._intern_offer_status_offer_response_body.operation = operation
         return self
-
-    def onboarding_info(self,
-                        onboarding_info: InternOfferOnboardingInfo) -> "InternOfferStatusOfferResponseBodyBuilder":
+    def onboarding_info(self, onboarding_info: InternOfferOnboardingInfo) -> "InternOfferStatusOfferResponseBodyBuilder":
         self._intern_offer_status_offer_response_body.onboarding_info = onboarding_info
         return self
-
-    def offboarding_info(self,
-                         offboarding_info: InternOfferOffboardingInfo) -> "InternOfferStatusOfferResponseBodyBuilder":
+    def offboarding_info(self, offboarding_info: InternOfferOffboardingInfo) -> "InternOfferStatusOfferResponseBodyBuilder":
         self._intern_offer_status_offer_response_body.offboarding_info = offboarding_info
         return self
-
+    
     def build(self) -> "InternOfferStatusOfferResponseBody":
         return self._intern_offer_status_offer_response_body

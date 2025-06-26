@@ -25,14 +25,12 @@ class OkrListInfo(object):
 class OkrListInfoBuilder(object):
     def __init__(self) -> None:
         self._okr_list_info = OkrListInfo()
-
     def current_okr(self, current_okr: Okr) -> "OkrListInfoBuilder":
         self._okr_list_info.current_okr = current_okr
         return self
-
     def okr_list(self, okr_list: List[Okr]) -> "OkrListInfoBuilder":
         self._okr_list_info.okr_list = okr_list
         return self
-
+    
     def build(self) -> "OkrListInfo":
         return self._okr_list_info

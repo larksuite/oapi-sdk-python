@@ -27,22 +27,18 @@ class OnboardingTask(object):
 class OnboardingTaskBuilder(object):
     def __init__(self) -> None:
         self._onboarding_task = OnboardingTask()
-
     def task_name(self, task_name: str) -> "OnboardingTaskBuilder":
         self._onboarding_task.task_name = task_name
         return self
-
     def task_status(self, task_status: str) -> "OnboardingTaskBuilder":
         self._onboarding_task.task_status = task_status
         return self
-
     def operator_id(self, operator_id: str) -> "OnboardingTaskBuilder":
         self._onboarding_task.operator_id = operator_id
         return self
-
     def task_code(self, task_code: str) -> "OnboardingTaskBuilder":
         self._onboarding_task.task_code = task_code
         return self
-
+    
     def build(self) -> "OnboardingTask":
         return self._onboarding_task

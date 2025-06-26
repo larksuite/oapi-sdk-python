@@ -44,46 +44,36 @@ class ApplicationJob(object):
 class ApplicationJobBuilder(object):
     def __init__(self) -> None:
         self._application_job = ApplicationJob()
-
     def id(self, id: str) -> "ApplicationJobBuilder":
         self._application_job.id = id
         return self
-
     def title(self, title: str) -> "ApplicationJobBuilder":
         self._application_job.title = title
         return self
-
     def city(self, city: City) -> "ApplicationJobBuilder":
         self._application_job.city = city
         return self
-
     def department(self, department: Department) -> "ApplicationJobBuilder":
         self._application_job.department = department
         return self
-
     def recruitment_type(self, recruitment_type: RecruitmentType) -> "ApplicationJobBuilder":
         self._application_job.recruitment_type = recruitment_type
         return self
-
     def description(self, description: str) -> "ApplicationJobBuilder":
         self._application_job.description = description
         return self
-
     def job_process_id(self, job_process_id: str) -> "ApplicationJobBuilder":
         self._application_job.job_process_id = job_process_id
         return self
-
     def code(self, code: str) -> "ApplicationJobBuilder":
         self._application_job.code = code
         return self
-
     def address(self, address: ApplicationJobAddress) -> "ApplicationJobBuilder":
         self._application_job.address = address
         return self
-
     def country(self, country: Country) -> "ApplicationJobBuilder":
         self._application_job.country = country
         return self
-
+    
     def build(self) -> "ApplicationJob":
         return self._application_job

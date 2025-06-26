@@ -25,18 +25,15 @@ class I18nString(object):
 class I18nStringBuilder(object):
     def __init__(self) -> None:
         self._i18n_string = I18nString()
-
     def value(self, value: str) -> "I18nStringBuilder":
         self._i18n_string.value = value
         return self
-
     def multilingual_value(self, multilingual_value: Dict[str, str]) -> "I18nStringBuilder":
         self._i18n_string.multilingual_value = multilingual_value
         return self
-
     def return_language(self, return_language: str) -> "I18nStringBuilder":
         self._i18n_string.return_language = return_language
         return self
-
+    
     def build(self) -> "I18nString":
         return self._i18n_string

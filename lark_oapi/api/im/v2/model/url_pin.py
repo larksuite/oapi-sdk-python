@@ -33,30 +33,24 @@ class UrlPin(object):
 class UrlPinBuilder(object):
     def __init__(self) -> None:
         self._url_pin = UrlPin()
-
     def url(self, url: str) -> "UrlPinBuilder":
         self._url_pin.url = url
         return self
-
     def icon(self, icon: ChatPinIcon) -> "UrlPinBuilder":
         self._url_pin.icon = icon
         return self
-
     def title(self, title: str) -> "UrlPinBuilder":
         self._url_pin.title = title
         return self
-
     def i18n_title(self, i18n_title: I18nNames) -> "UrlPinBuilder":
         self._url_pin.i18n_title = i18n_title
         return self
-
     def title_dynamic_update(self, title_dynamic_update: bool) -> "UrlPinBuilder":
         self._url_pin.title_dynamic_update = title_dynamic_update
         return self
-
     def icon_dynamic_update(self, icon_dynamic_update: bool) -> "UrlPinBuilder":
         self._url_pin.icon_dynamic_update = icon_dynamic_update
         return self
-
+    
     def build(self) -> "UrlPin":
         return self._url_pin

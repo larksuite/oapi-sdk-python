@@ -26,18 +26,15 @@ class MoveResult(object):
 class MoveResultBuilder(object):
     def __init__(self) -> None:
         self._move_result = MoveResult()
-
     def node(self, node: Node) -> "MoveResultBuilder":
         self._move_result.node = node
         return self
-
     def status(self, status: int) -> "MoveResultBuilder":
         self._move_result.status = status
         return self
-
     def status_msg(self, status_msg: str) -> "MoveResultBuilder":
         self._move_result.status_msg = status_msg
         return self
-
+    
     def build(self) -> "MoveResult":
         return self._move_result

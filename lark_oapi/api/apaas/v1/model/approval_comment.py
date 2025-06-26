@@ -29,26 +29,21 @@ class ApprovalComment(object):
 class ApprovalCommentBuilder(object):
     def __init__(self) -> None:
         self._approval_comment = ApprovalComment()
-
     def id(self, id: str) -> "ApprovalCommentBuilder":
         self._approval_comment.id = id
         return self
-
     def commenter(self, commenter: str) -> "ApprovalCommentBuilder":
         self._approval_comment.commenter = commenter
         return self
-
     def content(self, content: str) -> "ApprovalCommentBuilder":
         self._approval_comment.content = content
         return self
-
     def create_at(self, create_at: str) -> "ApprovalCommentBuilder":
         self._approval_comment.create_at = create_at
         return self
-
     def update_at(self, update_at: str) -> "ApprovalCommentBuilder":
         self._approval_comment.update_at = update_at
         return self
-
+    
     def build(self) -> "ApprovalComment":
         return self._approval_comment

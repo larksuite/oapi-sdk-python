@@ -22,6 +22,7 @@ class QueryTalentObjectRequestBuilder(object):
         query_talent_object_request.uri = "/open-apis/hire/v1/talent_objects/query"
         query_talent_object_request.token_types = {AccessTokenType.TENANT}
         self._query_talent_object_request: QueryTalentObjectRequest = query_talent_object_request
+    
 
     def build(self) -> QueryTalentObjectRequest:
         return self._query_talent_object_request

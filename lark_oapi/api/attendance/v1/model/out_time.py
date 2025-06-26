@@ -23,14 +23,12 @@ class OutTime(object):
 class OutTimeBuilder(object):
     def __init__(self) -> None:
         self._out_time = OutTime()
-
     def datetime(self, datetime: str) -> "OutTimeBuilder":
         self._out_time.datetime = datetime
         return self
-
     def day_type(self, day_type: str) -> "OutTimeBuilder":
         self._out_time.day_type = day_type
         return self
-
+    
     def build(self) -> "OutTime":
         return self._out_time

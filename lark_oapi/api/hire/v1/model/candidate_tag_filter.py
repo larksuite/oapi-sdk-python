@@ -23,14 +23,12 @@ class CandidateTagFilter(object):
 class CandidateTagFilterBuilder(object):
     def __init__(self) -> None:
         self._candidate_tag_filter = CandidateTagFilter()
-
     def match_type(self, match_type: int) -> "CandidateTagFilterBuilder":
         self._candidate_tag_filter.match_type = match_type
         return self
-
     def candidate_tag_id(self, candidate_tag_id: List[str]) -> "CandidateTagFilterBuilder":
         self._candidate_tag_filter.candidate_tag_id = candidate_tag_id
         return self
-
+    
     def build(self) -> "CandidateTagFilter":
         return self._candidate_tag_filter

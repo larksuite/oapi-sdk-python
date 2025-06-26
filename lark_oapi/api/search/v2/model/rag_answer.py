@@ -26,18 +26,15 @@ class RagAnswer(object):
 class RagAnswerBuilder(object):
     def __init__(self) -> None:
         self._rag_answer = RagAnswer()
-
     def answer(self, answer: str) -> "RagAnswerBuilder":
         self._rag_answer.answer = answer
         return self
-
     def reasoning_content(self, reasoning_content: str) -> "RagAnswerBuilder":
         self._rag_answer.reasoning_content = reasoning_content
         return self
-
     def passages(self, passages: List[Passage]) -> "RagAnswerBuilder":
         self._rag_answer.passages = passages
         return self
-
+    
     def build(self) -> "RagAnswer":
         return self._rag_answer

@@ -51,70 +51,54 @@ class Node(object):
 class NodeBuilder(object):
     def __init__(self) -> None:
         self._node = Node()
-
     def node_id(self, node_id: str) -> "NodeBuilder":
         self._node.node_id = node_id
         return self
-
     def space_id(self, space_id: str) -> "NodeBuilder":
         self._node.space_id = space_id
         return self
-
     def parent_id(self, parent_id: str) -> "NodeBuilder":
         self._node.parent_id = parent_id
         return self
-
     def obj_type(self, obj_type: int) -> "NodeBuilder":
         self._node.obj_type = obj_type
         return self
-
     def title(self, title: str) -> "NodeBuilder":
         self._node.title = title
         return self
-
     def url(self, url: str) -> "NodeBuilder":
         self._node.url = url
         return self
-
     def icon(self, icon: str) -> "NodeBuilder":
         self._node.icon = icon
         return self
-
     def area_id(self, area_id: str) -> "NodeBuilder":
         self._node.area_id = area_id
         return self
-
     def sort_id(self, sort_id: float) -> "NodeBuilder":
         self._node.sort_id = sort_id
         return self
-
     def domain(self, domain: str) -> "NodeBuilder":
         self._node.domain = domain
         return self
-
     def obj_token(self, obj_token: str) -> "NodeBuilder":
         self._node.obj_token = obj_token
         return self
-
     def create_time(self, create_time: str) -> "NodeBuilder":
         self._node.create_time = create_time
         return self
-
     def update_time(self, update_time: str) -> "NodeBuilder":
         self._node.update_time = update_time
         return self
-
     def delete_time(self, delete_time: str) -> "NodeBuilder":
         self._node.delete_time = delete_time
         return self
-
     def child_num(self, child_num: int) -> "NodeBuilder":
         self._node.child_num = child_num
         return self
-
     def version(self, version: int) -> "NodeBuilder":
         self._node.version = version
         return self
-
+    
     def build(self) -> "Node":
         return self._node

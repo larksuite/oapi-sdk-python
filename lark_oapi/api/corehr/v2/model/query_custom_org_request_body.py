@@ -35,38 +35,30 @@ class QueryCustomOrgRequestBody(object):
 class QueryCustomOrgRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_custom_org_request_body = QueryCustomOrgRequestBody()
-
     def object_api_name(self, object_api_name: str) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.object_api_name = object_api_name
         return self
-
     def org_fields(self, org_fields: List[str]) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.org_fields = org_fields
         return self
-
     def org_role_fields(self, org_role_fields: List[str]) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.org_role_fields = org_role_fields
         return self
-
     def org_ids(self, org_ids: List[str]) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.org_ids = org_ids
         return self
-
     def code(self, code: str) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.code = code
         return self
-
     def parent_id(self, parent_id: str) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.parent_id = parent_id
         return self
-
     def active(self, active: bool) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.active = active
         return self
-
     def need_match_rule(self, need_match_rule: bool) -> "QueryCustomOrgRequestBodyBuilder":
         self._query_custom_org_request_body.need_match_rule = need_match_rule
         return self
-
+    
     def build(self) -> "QueryCustomOrgRequestBody":
         return self._query_custom_org_request_body

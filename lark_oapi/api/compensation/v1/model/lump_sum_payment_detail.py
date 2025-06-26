@@ -45,58 +45,45 @@ class LumpSumPaymentDetail(object):
 class LumpSumPaymentDetailBuilder(object):
     def __init__(self) -> None:
         self._lump_sum_payment_detail = LumpSumPaymentDetail()
-
     def id(self, id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.id = id
         return self
-
     def record_id(self, record_id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.record_id = record_id
         return self
-
     def user_id(self, user_id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.user_id = user_id
         return self
-
     def issuance_amount(self, issuance_amount: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.issuance_amount = issuance_amount
         return self
-
     def issuance_status(self, issuance_status: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.issuance_status = issuance_status
         return self
-
     def issuance_way(self, issuance_way: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.issuance_way = issuance_way
         return self
-
     def issuance_time(self, issuance_time: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.issuance_time = issuance_time
         return self
-
     def currency_id(self, currency_id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.currency_id = currency_id
         return self
-
     def belong_time(self, belong_time: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.belong_time = belong_time
         return self
-
     def create_time(self, create_time: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.create_time = create_time
         return self
-
     def modify_time(self, modify_time: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.modify_time = modify_time
         return self
-
     def issuance_country_region_id(self, issuance_country_region_id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.issuance_country_region_id = issuance_country_region_id
         return self
-
     def issuance_pay_group_id(self, issuance_pay_group_id: str) -> "LumpSumPaymentDetailBuilder":
         self._lump_sum_payment_detail.issuance_pay_group_id = issuance_pay_group_id
         return self
-
+    
     def build(self) -> "LumpSumPaymentDetail":
         return self._lump_sum_payment_detail

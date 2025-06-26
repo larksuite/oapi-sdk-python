@@ -29,26 +29,21 @@ class MyAiAvPluginContextSystemInfo(object):
 class MyAiAvPluginContextSystemInfoBuilder(object):
     def __init__(self) -> None:
         self._my_ai_av_plugin_context_system_info = MyAiAvPluginContextSystemInfo()
-
     def lang(self, lang: str) -> "MyAiAvPluginContextSystemInfoBuilder":
         self._my_ai_av_plugin_context_system_info.lang = lang
         return self
-
     def brand(self, brand: str) -> "MyAiAvPluginContextSystemInfoBuilder":
         self._my_ai_av_plugin_context_system_info.brand = brand
         return self
-
     def locale(self, locale: str) -> "MyAiAvPluginContextSystemInfoBuilder":
         self._my_ai_av_plugin_context_system_info.locale = locale
         return self
-
     def session_id(self, session_id: str) -> "MyAiAvPluginContextSystemInfoBuilder":
         self._my_ai_av_plugin_context_system_info.session_id = session_id
         return self
-
     def app_version(self, app_version: str) -> "MyAiAvPluginContextSystemInfoBuilder":
         self._my_ai_av_plugin_context_system_info.app_version = app_version
         return self
-
+    
     def build(self) -> "MyAiAvPluginContextSystemInfo":
         return self._my_ai_av_plugin_context_system_info

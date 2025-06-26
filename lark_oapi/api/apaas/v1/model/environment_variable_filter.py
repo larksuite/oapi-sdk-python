@@ -21,10 +21,9 @@ class EnvironmentVariableFilter(object):
 class EnvironmentVariableFilterBuilder(object):
     def __init__(self) -> None:
         self._environment_variable_filter = EnvironmentVariableFilter()
-
     def quick_query(self, quick_query: str) -> "EnvironmentVariableFilterBuilder":
         self._environment_variable_filter.quick_query = quick_query
         return self
-
+    
     def build(self) -> "EnvironmentVariableFilter":
         return self._environment_variable_filter

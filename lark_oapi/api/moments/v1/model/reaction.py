@@ -33,34 +33,27 @@ class Reaction(object):
 class ReactionBuilder(object):
     def __init__(self) -> None:
         self._reaction = Reaction()
-
     def type(self, type: str) -> "ReactionBuilder":
         self._reaction.type = type
         return self
-
     def user_id(self, user_id: str) -> "ReactionBuilder":
         self._reaction.user_id = user_id
         return self
-
     def entity_id(self, entity_id: str) -> "ReactionBuilder":
         self._reaction.entity_id = entity_id
         return self
-
     def id(self, id: str) -> "ReactionBuilder":
         self._reaction.id = id
         return self
-
     def create_time(self, create_time: str) -> "ReactionBuilder":
         self._reaction.create_time = create_time
         return self
-
     def entity_type(self, entity_type: int) -> "ReactionBuilder":
         self._reaction.entity_type = entity_type
         return self
-
     def user_type(self, user_type: int) -> "ReactionBuilder":
         self._reaction.user_type = user_type
         return self
-
+    
     def build(self) -> "Reaction":
         return self._reaction

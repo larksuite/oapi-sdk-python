@@ -23,14 +23,12 @@ class JobRequirementCustomizedData(object):
 class JobRequirementCustomizedDataBuilder(object):
     def __init__(self) -> None:
         self._job_requirement_customized_data = JobRequirementCustomizedData()
-
     def object_id(self, object_id: str) -> "JobRequirementCustomizedDataBuilder":
         self._job_requirement_customized_data.object_id = object_id
         return self
-
     def value(self, value: str) -> "JobRequirementCustomizedDataBuilder":
         self._job_requirement_customized_data.value = value
         return self
-
+    
     def build(self) -> "JobRequirementCustomizedData":
         return self._job_requirement_customized_data

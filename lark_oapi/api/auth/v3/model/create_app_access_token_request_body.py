@@ -25,18 +25,15 @@ class CreateAppAccessTokenRequestBody(object):
 class CreateAppAccessTokenRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_access_token_request_body = CreateAppAccessTokenRequestBody()
-
     def app_id(self, app_id: str) -> "CreateAppAccessTokenRequestBodyBuilder":
         self._create_app_access_token_request_body.app_id = app_id
         return self
-
     def app_secret(self, app_secret: str) -> "CreateAppAccessTokenRequestBodyBuilder":
         self._create_app_access_token_request_body.app_secret = app_secret
         return self
-
     def app_ticket(self, app_ticket: str) -> "CreateAppAccessTokenRequestBodyBuilder":
         self._create_app_access_token_request_body.app_ticket = app_ticket
         return self
-
+    
     def build(self) -> "CreateAppAccessTokenRequestBody":
         return self._create_app_access_token_request_body

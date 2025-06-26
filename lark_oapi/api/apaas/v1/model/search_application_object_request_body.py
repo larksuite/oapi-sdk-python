@@ -30,26 +30,21 @@ class SearchApplicationObjectRequestBody(object):
 class SearchApplicationObjectRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_application_object_request_body = SearchApplicationObjectRequestBody()
-
     def q(self, q: str) -> "SearchApplicationObjectRequestBodyBuilder":
         self._search_application_object_request_body.q = q
         return self
-
     def search_objects(self, search_objects: List[SearchObjectParam]) -> "SearchApplicationObjectRequestBodyBuilder":
         self._search_application_object_request_body.search_objects = search_objects
         return self
-
     def page_token(self, page_token: str) -> "SearchApplicationObjectRequestBodyBuilder":
         self._search_application_object_request_body.page_token = page_token
         return self
-
     def page_size(self, page_size: str) -> "SearchApplicationObjectRequestBodyBuilder":
         self._search_application_object_request_body.page_size = page_size
         return self
-
     def metadata(self, metadata: str) -> "SearchApplicationObjectRequestBodyBuilder":
         self._search_application_object_request_body.metadata = metadata
         return self
-
+    
     def build(self) -> "SearchApplicationObjectRequestBody":
         return self._search_application_object_request_body

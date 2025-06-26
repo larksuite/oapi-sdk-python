@@ -23,14 +23,12 @@ class RemoveToFolderTalentRequestBody(object):
 class RemoveToFolderTalentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._remove_to_folder_talent_request_body = RemoveToFolderTalentRequestBody()
-
     def talent_id_list(self, talent_id_list: List[str]) -> "RemoveToFolderTalentRequestBodyBuilder":
         self._remove_to_folder_talent_request_body.talent_id_list = talent_id_list
         return self
-
     def folder_id(self, folder_id: str) -> "RemoveToFolderTalentRequestBodyBuilder":
         self._remove_to_folder_talent_request_body.folder_id = folder_id
         return self
-
+    
     def build(self) -> "RemoveToFolderTalentRequestBody":
         return self._remove_to_folder_talent_request_body

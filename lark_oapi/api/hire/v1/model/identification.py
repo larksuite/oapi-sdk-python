@@ -23,14 +23,12 @@ class Identification(object):
 class IdentificationBuilder(object):
     def __init__(self) -> None:
         self._identification = Identification()
-
     def identification_number(self, identification_number: str) -> "IdentificationBuilder":
         self._identification.identification_number = identification_number
         return self
-
     def identification_type(self, identification_type: int) -> "IdentificationBuilder":
         self._identification.identification_type = identification_type
         return self
-
+    
     def build(self) -> "Identification":
         return self._identification

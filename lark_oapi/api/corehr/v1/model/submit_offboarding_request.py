@@ -25,12 +25,12 @@ class SubmitOffboardingRequestBuilder(object):
         submit_offboarding_request.uri = "/open-apis/corehr/v1/offboardings/submit"
         submit_offboarding_request.token_types = {AccessTokenType.TENANT}
         self._submit_offboarding_request: SubmitOffboardingRequest = submit_offboarding_request
-
+    
     def user_id_type(self, user_id_type: str) -> "SubmitOffboardingRequestBuilder":
         self._submit_offboarding_request.user_id_type = user_id_type
         self._submit_offboarding_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: SubmitOffboardingRequestBody) -> "SubmitOffboardingRequestBuilder":
         self._submit_offboarding_request.request_body = request_body
         self._submit_offboarding_request.body = request_body

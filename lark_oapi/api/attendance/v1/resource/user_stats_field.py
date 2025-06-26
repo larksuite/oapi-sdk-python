@@ -17,8 +17,7 @@ class UserStatsField(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def query(self, request: QueryUserStatsFieldRequest,
-              option: Optional[RequestOption] = None) -> QueryUserStatsFieldResponse:
+    def query(self, request: QueryUserStatsFieldRequest, option: Optional[RequestOption] = None) -> QueryUserStatsFieldResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class UserStatsField(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserStatsFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserStatsFieldResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryUserStatsFieldRequest,
-                     option: Optional[RequestOption] = None) -> QueryUserStatsFieldResponse:
+    async def aquery(self, request: QueryUserStatsFieldRequest, option: Optional[RequestOption] = None) -> QueryUserStatsFieldResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryUserStatsFieldResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryUserStatsFieldResponse)
         response.raw = resp
 
         return response
+        
+    

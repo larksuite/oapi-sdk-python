@@ -26,26 +26,27 @@ class GetMinuteTranscriptRequestBuilder(object):
         get_minute_transcript_request.uri = "/open-apis/minutes/v1/minutes/:minute_token/transcript"
         get_minute_transcript_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_minute_transcript_request: GetMinuteTranscriptRequest = get_minute_transcript_request
-
+    
     def need_speaker(self, need_speaker: bool) -> "GetMinuteTranscriptRequestBuilder":
         self._get_minute_transcript_request.need_speaker = need_speaker
         self._get_minute_transcript_request.add_query("need_speaker", need_speaker)
         return self
-
+    
     def need_timestamp(self, need_timestamp: bool) -> "GetMinuteTranscriptRequestBuilder":
         self._get_minute_transcript_request.need_timestamp = need_timestamp
         self._get_minute_transcript_request.add_query("need_timestamp", need_timestamp)
         return self
-
+    
     def file_format(self, file_format: str) -> "GetMinuteTranscriptRequestBuilder":
         self._get_minute_transcript_request.file_format = file_format
         self._get_minute_transcript_request.add_query("file_format", file_format)
         return self
-
+    
     def minute_token(self, minute_token: str) -> "GetMinuteTranscriptRequestBuilder":
         self._get_minute_transcript_request.minute_token = minute_token
         self._get_minute_transcript_request.paths["minute_token"] = str(minute_token)
         return self
+    
 
     def build(self) -> GetMinuteTranscriptRequest:
         return self._get_minute_transcript_request

@@ -36,39 +36,27 @@ class BatchCheckFormInstanceI18nResult(object):
 class BatchCheckFormInstanceI18nResultBuilder(object):
     def __init__(self) -> None:
         self._batch_check_form_instance_i18n_result = BatchCheckFormInstanceI18nResult()
-
     def success(self, success: bool) -> "BatchCheckFormInstanceI18nResultBuilder":
         self._batch_check_form_instance_i18n_result.success = success
         return self
-
-    def field_validate_error_messages(self,
-                                      field_validate_error_messages: str) -> "BatchCheckFormInstanceI18nResultBuilder":
+    def field_validate_error_messages(self, field_validate_error_messages: str) -> "BatchCheckFormInstanceI18nResultBuilder":
         self._batch_check_form_instance_i18n_result.field_validate_error_messages = field_validate_error_messages
         return self
-
-    def form_validate_error_messages(self, form_validate_error_messages: List[
-        BpmDataengineI18n]) -> "BatchCheckFormInstanceI18nResultBuilder":
+    def form_validate_error_messages(self, form_validate_error_messages: List[BpmDataengineI18n]) -> "BatchCheckFormInstanceI18nResultBuilder":
         self._batch_check_form_instance_i18n_result.form_validate_error_messages = form_validate_error_messages
         return self
-
-    def system_error_message(self,
-                             system_error_message: BpmFormErrorMessage) -> "BatchCheckFormInstanceI18nResultBuilder":
+    def system_error_message(self, system_error_message: BpmFormErrorMessage) -> "BatchCheckFormInstanceI18nResultBuilder":
         self._batch_check_form_instance_i18n_result.system_error_message = system_error_message
         return self
-
-    def advanced_field_check_result_list(self,
-                                         advanced_field_check_result_list: str) -> "BatchCheckFormInstanceI18nResultBuilder":
+    def advanced_field_check_result_list(self, advanced_field_check_result_list: str) -> "BatchCheckFormInstanceI18nResultBuilder":
         self._batch_check_form_instance_i18n_result.advanced_field_check_result_list = advanced_field_check_result_list
         return self
-
-    def err_message_for_export(self, err_message_for_export: List[
-        BpmDataengineI18n]) -> "BatchCheckFormInstanceI18nResultBuilder":
+    def err_message_for_export(self, err_message_for_export: List[BpmDataengineI18n]) -> "BatchCheckFormInstanceI18nResultBuilder":
         self._batch_check_form_instance_i18n_result.err_message_for_export = err_message_for_export
         return self
-
     def no_permisson_apis(self, no_permisson_apis: List[list]) -> "BatchCheckFormInstanceI18nResultBuilder":
         self._batch_check_form_instance_i18n_result.no_permisson_apis = no_permisson_apis
         return self
-
+    
     def build(self) -> "BatchCheckFormInstanceI18nResult":
         return self._batch_check_form_instance_i18n_result

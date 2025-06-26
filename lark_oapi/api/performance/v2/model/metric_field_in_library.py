@@ -28,22 +28,18 @@ class MetricFieldInLibrary(object):
 class MetricFieldInLibraryBuilder(object):
     def __init__(self) -> None:
         self._metric_field_in_library = MetricFieldInLibrary()
-
     def field_id(self, field_id: int) -> "MetricFieldInLibraryBuilder":
         self._metric_field_in_library.field_id = field_id
         return self
-
     def input_setting(self, input_setting: str) -> "MetricFieldInLibraryBuilder":
         self._metric_field_in_library.input_setting = input_setting
         return self
-
     def field_value(self, field_value: str) -> "MetricFieldInLibraryBuilder":
         self._metric_field_in_library.field_value = field_value
         return self
-
     def field_value_person(self, field_value_person: User) -> "MetricFieldInLibraryBuilder":
         self._metric_field_in_library.field_value_person = field_value_person
         return self
-
+    
     def build(self) -> "MetricFieldInLibrary":
         return self._metric_field_in_library

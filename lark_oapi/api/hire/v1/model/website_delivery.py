@@ -30,27 +30,21 @@ class WebsiteDelivery(object):
 class WebsiteDeliveryBuilder(object):
     def __init__(self) -> None:
         self._website_delivery = WebsiteDelivery()
-
     def job_post_id(self, job_post_id: str) -> "WebsiteDeliveryBuilder":
         self._website_delivery.job_post_id = job_post_id
         return self
-
     def resume(self, resume: WebsiteDeliveryResume) -> "WebsiteDeliveryBuilder":
         self._website_delivery.resume = resume
         return self
-
     def user_id(self, user_id: str) -> "WebsiteDeliveryBuilder":
         self._website_delivery.user_id = user_id
         return self
-
-    def application_preferred_city_code_list(self, application_preferred_city_code_list: List[
-        str]) -> "WebsiteDeliveryBuilder":
+    def application_preferred_city_code_list(self, application_preferred_city_code_list: List[str]) -> "WebsiteDeliveryBuilder":
         self._website_delivery.application_preferred_city_code_list = application_preferred_city_code_list
         return self
-
     def channel_id(self, channel_id: str) -> "WebsiteDeliveryBuilder":
         self._website_delivery.channel_id = channel_id
         return self
-
+    
     def build(self) -> "WebsiteDelivery":
         return self._website_delivery

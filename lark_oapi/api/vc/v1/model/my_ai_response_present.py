@@ -33,34 +33,27 @@ class MyAiResponsePresent(object):
 class MyAiResponsePresentBuilder(object):
     def __init__(self) -> None:
         self._my_ai_response_present = MyAiResponsePresent()
-
     def type(self, type: str) -> "MyAiResponsePresentBuilder":
         self._my_ai_response_present.type = type
         return self
-
     def body(self, body: str) -> "MyAiResponsePresentBuilder":
         self._my_ai_response_present.body = body
         return self
-
     def interactable(self, interactable: bool) -> "MyAiResponsePresentBuilder":
         self._my_ai_response_present.interactable = interactable
         return self
-
     def operation_type(self, operation_type: str) -> "MyAiResponsePresentBuilder":
         self._my_ai_response_present.operation_type = operation_type
         return self
-
     def operation_url(self, operation_url: str) -> "MyAiResponsePresentBuilder":
         self._my_ai_response_present.operation_url = operation_url
         return self
-
     def callback_url(self, callback_url: str) -> "MyAiResponsePresentBuilder":
         self._my_ai_response_present.callback_url = callback_url
         return self
-
     def callback_info(self, callback_info: str) -> "MyAiResponsePresentBuilder":
         self._my_ai_response_present.callback_info = callback_info
         return self
-
+    
     def build(self) -> "MyAiResponsePresent":
         return self._my_ai_response_present

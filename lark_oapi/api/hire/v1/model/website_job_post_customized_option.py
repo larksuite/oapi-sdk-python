@@ -24,14 +24,12 @@ class WebsiteJobPostCustomizedOption(object):
 class WebsiteJobPostCustomizedOptionBuilder(object):
     def __init__(self) -> None:
         self._website_job_post_customized_option = WebsiteJobPostCustomizedOption()
-
     def key(self, key: str) -> "WebsiteJobPostCustomizedOptionBuilder":
         self._website_job_post_customized_option.key = key
         return self
-
     def name(self, name: I18n) -> "WebsiteJobPostCustomizedOptionBuilder":
         self._website_job_post_customized_option.name = name
         return self
-
+    
     def build(self) -> "WebsiteJobPostCustomizedOption":
         return self._website_job_post_customized_option

@@ -26,18 +26,15 @@ class GlobalOptionElement(object):
 class GlobalOptionElementBuilder(object):
     def __init__(self) -> None:
         self._global_option_element = GlobalOptionElement()
-
     def api_name(self, api_name: str) -> "GlobalOptionElementBuilder":
         self._global_option_element.api_name = api_name
         return self
-
     def label(self, label: GlobalOptionLabel) -> "GlobalOptionElementBuilder":
         self._global_option_element.label = label
         return self
-
     def active(self, active: bool) -> "GlobalOptionElementBuilder":
         self._global_option_element.active = active
         return self
-
+    
     def build(self) -> "GlobalOptionElement":
         return self._global_option_element

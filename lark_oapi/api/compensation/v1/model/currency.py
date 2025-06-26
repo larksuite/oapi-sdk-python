@@ -23,14 +23,12 @@ class Currency(object):
 class CurrencyBuilder(object):
     def __init__(self) -> None:
         self._currency = Currency()
-
     def code(self, code: str) -> "CurrencyBuilder":
         self._currency.code = code
         return self
-
     def currency_id(self, currency_id: str) -> "CurrencyBuilder":
         self._currency.currency_id = currency_id
         return self
-
+    
     def build(self) -> "Currency":
         return self._currency

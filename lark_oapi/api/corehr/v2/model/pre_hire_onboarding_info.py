@@ -55,70 +55,54 @@ class PreHireOnboardingInfo(object):
 class PreHireOnboardingInfoBuilder(object):
     def __init__(self) -> None:
         self._pre_hire_onboarding_info = PreHireOnboardingInfo()
-
     def offer_id(self, offer_id: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.offer_id = offer_id
         return self
-
     def offer_hr_id(self, offer_hr_id: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.offer_hr_id = offer_hr_id
         return self
-
     def offer_hr_id_v2(self, offer_hr_id_v2: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.offer_hr_id_v2 = offer_hr_id_v2
         return self
-
     def entry_mode(self, entry_mode: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.entry_mode = entry_mode
         return self
-
     def onboarding_date(self, onboarding_date: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_date = onboarding_date
         return self
-
     def ats_application_id(self, ats_application_id: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.ats_application_id = ats_application_id
         return self
-
     def recruitment_type(self, recruitment_type: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.recruitment_type = recruitment_type
         return self
-
     def onboarding_location_id(self, onboarding_location_id: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_location_id = onboarding_location_id
         return self
-
     def company_sponsored_visa(self, company_sponsored_visa: bool) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.company_sponsored_visa = company_sponsored_visa
         return self
-
     def onboarding_status(self, onboarding_status: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_status = onboarding_status
         return self
-
     def onboarding_task_list(self, onboarding_task_list: List[OnboardingTask]) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_task_list = onboarding_task_list
         return self
-
     def onboarding_address(self, onboarding_address: Address) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.onboarding_address = onboarding_address
         return self
-
     def flow_name(self, flow_name: List[I18n]) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.flow_name = flow_name
         return self
-
     def flow_id(self, flow_id: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.flow_id = flow_id
         return self
-
     def check_in_time(self, check_in_time: str) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.check_in_time = check_in_time
         return self
-
     def check_in_method(self, check_in_method: Enum) -> "PreHireOnboardingInfoBuilder":
         self._pre_hire_onboarding_info.check_in_method = check_in_method
         return self
-
+    
     def build(self) -> "PreHireOnboardingInfo":
         return self._pre_hire_onboarding_info

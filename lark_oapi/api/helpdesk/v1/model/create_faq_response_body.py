@@ -22,10 +22,9 @@ class CreateFaqResponseBody(object):
 class CreateFaqResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_faq_response_body = CreateFaqResponseBody()
-
     def faq(self, faq: Faq) -> "CreateFaqResponseBodyBuilder":
         self._create_faq_response_body.faq = faq
         return self
-
+    
     def build(self) -> "CreateFaqResponseBody":
         return self._create_faq_response_body

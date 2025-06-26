@@ -50,66 +50,51 @@ class UserOut(object):
 class UserOutBuilder(object):
     def __init__(self) -> None:
         self._user_out = UserOut()
-
     def approval_id(self, approval_id: str) -> "UserOutBuilder":
         self._user_out.approval_id = approval_id
         return self
-
     def uniq_id(self, uniq_id: str) -> "UserOutBuilder":
         self._user_out.uniq_id = uniq_id
         return self
-
     def unit(self, unit: int) -> "UserOutBuilder":
         self._user_out.unit = unit
         return self
-
     def interval(self, interval: int) -> "UserOutBuilder":
         self._user_out.interval = interval
         return self
-
     def start_time(self, start_time: str) -> "UserOutBuilder":
         self._user_out.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "UserOutBuilder":
         self._user_out.end_time = end_time
         return self
-
     def i18n_names(self, i18n_names: I18nNames) -> "UserOutBuilder":
         self._user_out.i18n_names = i18n_names
         return self
-
     def default_locale(self, default_locale: str) -> "UserOutBuilder":
         self._user_out.default_locale = default_locale
         return self
-
     def reason(self, reason: str) -> "UserOutBuilder":
         self._user_out.reason = reason
         return self
-
     def approve_pass_time(self, approve_pass_time: str) -> "UserOutBuilder":
         self._user_out.approve_pass_time = approve_pass_time
         return self
-
     def approve_apply_time(self, approve_apply_time: str) -> "UserOutBuilder":
         self._user_out.approve_apply_time = approve_apply_time
         return self
-
     def idempotent_id(self, idempotent_id: str) -> "UserOutBuilder":
         self._user_out.idempotent_id = idempotent_id
         return self
-
     def correct_process_id(self, correct_process_id: List[str]) -> "UserOutBuilder":
         self._user_out.correct_process_id = correct_process_id
         return self
-
     def cancel_process_id(self, cancel_process_id: List[str]) -> "UserOutBuilder":
         self._user_out.cancel_process_id = cancel_process_id
         return self
-
     def process_id(self, process_id: List[str]) -> "UserOutBuilder":
         self._user_out.process_id = process_id
         return self
-
+    
     def build(self) -> "UserOut":
         return self._user_out

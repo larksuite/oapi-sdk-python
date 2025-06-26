@@ -49,46 +49,36 @@ class ApplicationDetailInfo(object):
 class ApplicationDetailInfoBuilder(object):
     def __init__(self) -> None:
         self._application_detail_info = ApplicationDetailInfo()
-
     def basic_info(self, basic_info: ApplicationDetailBasicInfo) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.basic_info = basic_info
         return self
-
     def job(self, job: JobBasicInfo) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.job = job
         return self
-
     def talent(self, talent: TalentBasicInfoV2) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.talent = talent
         return self
-
     def evaluations(self, evaluations: List[Evaluation]) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.evaluations = evaluations
         return self
-
     def interview_aggregation(self, interview_aggregation: InterviewAggregation) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.interview_aggregation = interview_aggregation
         return self
-
     def offer(self, offer: OfferInfoV2) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.offer = offer
         return self
-
     def employee(self, employee: EmployeeV2) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.employee = employee
         return self
-
     def agency(self, agency: AgencyInfo) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.agency = agency
         return self
-
     def portal(self, portal: ApplicationDetailPortalInfo) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.portal = portal
         return self
-
     def referral(self, referral: ReferralInfoV2) -> "ApplicationDetailInfoBuilder":
         self._application_detail_info.referral = referral
         return self
-
+    
     def build(self) -> "ApplicationDetailInfo":
         return self._application_detail_info

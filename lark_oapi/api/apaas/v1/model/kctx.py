@@ -51,70 +51,54 @@ class Kctx(object):
 class KctxBuilder(object):
     def __init__(self) -> None:
         self._kctx = Kctx()
-
     def tenant_id(self, tenant_id: str) -> "KctxBuilder":
         self._kctx.tenant_id = tenant_id
         return self
-
     def user_id(self, user_id: str) -> "KctxBuilder":
         self._kctx.user_id = user_id
         return self
-
     def tenant_domain_name(self, tenant_domain_name: str) -> "KctxBuilder":
         self._kctx.tenant_domain_name = tenant_domain_name
         return self
-
     def user_setting(self, user_setting: str) -> "KctxBuilder":
         self._kctx.user_setting = user_setting
         return self
-
     def lang_id(self, lang_id: int) -> "KctxBuilder":
         self._kctx.lang_id = lang_id
         return self
-
     def request_id(self, request_id: str) -> "KctxBuilder":
         self._kctx.request_id = request_id
         return self
-
     def host(self, host: str) -> "KctxBuilder":
         self._kctx.host = host
         return self
-
     def tenant_resource_route_key(self, tenant_resource_route_key: str) -> "KctxBuilder":
         self._kctx.tenant_resource_route_key = tenant_resource_route_key
         return self
-
     def namespace(self, namespace: str) -> "KctxBuilder":
         self._kctx.namespace = namespace
         return self
-
     def tenant_type(self, tenant_type: str) -> "KctxBuilder":
         self._kctx.tenant_type = tenant_type
         return self
-
     def transaction_id(self, transaction_id: str) -> "KctxBuilder":
         self._kctx.transaction_id = transaction_id
         return self
-
     def consistency_retry_type(self, consistency_retry_type: str) -> "KctxBuilder":
         self._kctx.consistency_retry_type = consistency_retry_type
         return self
-
     def psm_link(self, psm_link: str) -> "KctxBuilder":
         self._kctx.psm_link = psm_link
         return self
-
     def breakout_retry_psm(self, breakout_retry_psm: str) -> "KctxBuilder":
         self._kctx.breakout_retry_psm = breakout_retry_psm
         return self
-
     def credential_id(self, credential_id: str) -> "KctxBuilder":
         self._kctx.credential_id = credential_id
         return self
-
     def authentication_type(self, authentication_type: str) -> "KctxBuilder":
         self._kctx.authentication_type = authentication_type
         return self
-
+    
     def build(self) -> "Kctx":
         return self._kctx

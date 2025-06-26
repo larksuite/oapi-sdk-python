@@ -17,8 +17,7 @@ class ApplicationContactsRange(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def patch(self, request: PatchApplicationContactsRangeRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationContactsRangeResponse:
+    def patch(self, request: PatchApplicationContactsRangeRequest, option: Optional[RequestOption] = None) -> PatchApplicationContactsRangeResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class ApplicationContactsRange(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         PatchApplicationContactsRangeResponse)
+        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationContactsRangeResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchApplicationContactsRangeRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationContactsRangeResponse:
+    async def apatch(self, request: PatchApplicationContactsRangeRequest, option: Optional[RequestOption] = None) -> PatchApplicationContactsRangeResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                         PatchApplicationContactsRangeResponse)
+        response: PatchApplicationContactsRangeResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationContactsRangeResponse)
         response.raw = resp
 
         return response
+        
+    

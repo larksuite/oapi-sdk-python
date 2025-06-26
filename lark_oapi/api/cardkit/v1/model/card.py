@@ -23,14 +23,12 @@ class Card(object):
 class CardBuilder(object):
     def __init__(self) -> None:
         self._card = Card()
-
     def type(self, type: str) -> "CardBuilder":
         self._card.type = type
         return self
-
     def data(self, data: str) -> "CardBuilder":
         self._card.data = data
         return self
-
+    
     def build(self) -> "Card":
         return self._card

@@ -23,14 +23,12 @@ class AppScopeI18nInfo(object):
 class AppScopeI18nInfoBuilder(object):
     def __init__(self) -> None:
         self._app_scope_i18n_info = AppScopeI18nInfo()
-
     def i18n_key(self, i18n_key: str) -> "AppScopeI18nInfoBuilder":
         self._app_scope_i18n_info.i18n_key = i18n_key
         return self
-
     def description(self, description: str) -> "AppScopeI18nInfoBuilder":
         self._app_scope_i18n_info.description = description
         return self
-
+    
     def build(self) -> "AppScopeI18nInfo":
         return self._app_scope_i18n_info

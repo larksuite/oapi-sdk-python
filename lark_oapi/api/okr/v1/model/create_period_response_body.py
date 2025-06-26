@@ -25,18 +25,15 @@ class CreatePeriodResponseBody(object):
 class CreatePeriodResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_period_response_body = CreatePeriodResponseBody()
-
     def period_id(self, period_id: str) -> "CreatePeriodResponseBodyBuilder":
         self._create_period_response_body.period_id = period_id
         return self
-
     def start_month(self, start_month: str) -> "CreatePeriodResponseBodyBuilder":
         self._create_period_response_body.start_month = start_month
         return self
-
     def end_month(self, end_month: str) -> "CreatePeriodResponseBodyBuilder":
         self._create_period_response_body.end_month = end_month
         return self
-
+    
     def build(self) -> "CreatePeriodResponseBody":
         return self._create_period_response_body

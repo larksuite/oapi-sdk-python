@@ -27,22 +27,18 @@ class ActiveCompanyRequestBody(object):
 class ActiveCompanyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._active_company_request_body = ActiveCompanyRequestBody()
-
     def company_id(self, company_id: str) -> "ActiveCompanyRequestBodyBuilder":
         self._active_company_request_body.company_id = company_id
         return self
-
     def effective_time(self, effective_time: str) -> "ActiveCompanyRequestBodyBuilder":
         self._active_company_request_body.effective_time = effective_time
         return self
-
     def active(self, active: bool) -> "ActiveCompanyRequestBodyBuilder":
         self._active_company_request_body.active = active
         return self
-
     def operation_reason(self, operation_reason: str) -> "ActiveCompanyRequestBodyBuilder":
         self._active_company_request_body.operation_reason = operation_reason
         return self
-
+    
     def build(self) -> "ActiveCompanyRequestBody":
         return self._active_company_request_body

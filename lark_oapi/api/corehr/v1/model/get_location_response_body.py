@@ -22,10 +22,9 @@ class GetLocationResponseBody(object):
 class GetLocationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_location_response_body = GetLocationResponseBody()
-
     def location(self, location: Location) -> "GetLocationResponseBodyBuilder":
         self._get_location_response_body.location = location
         return self
-
+    
     def build(self) -> "GetLocationResponseBody":
         return self._get_location_response_body

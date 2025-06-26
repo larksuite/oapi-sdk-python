@@ -26,18 +26,15 @@ class WorkCalendarDetail(object):
 class WorkCalendarDetailBuilder(object):
     def __init__(self) -> None:
         self._work_calendar_detail = WorkCalendarDetail()
-
     def calendar_id(self, calendar_id: str) -> "WorkCalendarDetailBuilder":
         self._work_calendar_detail.calendar_id = calendar_id
         return self
-
     def calendar_name(self, calendar_name: WkCalendarI18n) -> "WorkCalendarDetailBuilder":
         self._work_calendar_detail.calendar_name = calendar_name
         return self
-
     def enable(self, enable: bool) -> "WorkCalendarDetailBuilder":
         self._work_calendar_detail.enable = enable
         return self
-
+    
     def build(self) -> "WorkCalendarDetail":
         return self._work_calendar_detail

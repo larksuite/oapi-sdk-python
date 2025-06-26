@@ -23,16 +23,12 @@ class OpenQueryJobChangeListByIdsApprovalGroupsRequestBody(object):
 class OpenQueryJobChangeListByIdsApprovalGroupsRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._open_query_job_change_list_by_ids_approval_groups_request_body = OpenQueryJobChangeListByIdsApprovalGroupsRequestBody()
-
-    def job_change_ids(self,
-                       job_change_ids: List[str]) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBodyBuilder":
+    def job_change_ids(self, job_change_ids: List[str]) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBodyBuilder":
         self._open_query_job_change_list_by_ids_approval_groups_request_body.job_change_ids = job_change_ids
         return self
-
-    def need_department_path(self,
-                             need_department_path: bool) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBodyBuilder":
+    def need_department_path(self, need_department_path: bool) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBodyBuilder":
         self._open_query_job_change_list_by_ids_approval_groups_request_body.need_department_path = need_department_path
         return self
-
+    
     def build(self) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBody":
         return self._open_query_job_change_list_by_ids_approval_groups_request_body

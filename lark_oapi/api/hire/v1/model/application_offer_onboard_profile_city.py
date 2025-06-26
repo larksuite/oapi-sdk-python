@@ -27,22 +27,18 @@ class ApplicationOfferOnboardProfileCity(object):
 class ApplicationOfferOnboardProfileCityBuilder(object):
     def __init__(self) -> None:
         self._application_offer_onboard_profile_city = ApplicationOfferOnboardProfileCity()
-
     def code(self, code: str) -> "ApplicationOfferOnboardProfileCityBuilder":
         self._application_offer_onboard_profile_city.code = code
         return self
-
     def name(self, name: str) -> "ApplicationOfferOnboardProfileCityBuilder":
         self._application_offer_onboard_profile_city.name = name
         return self
-
     def en_name(self, en_name: str) -> "ApplicationOfferOnboardProfileCityBuilder":
         self._application_offer_onboard_profile_city.en_name = en_name
         return self
-
     def location_type(self, location_type: int) -> "ApplicationOfferOnboardProfileCityBuilder":
         self._application_offer_onboard_profile_city.location_type = location_type
         return self
-
+    
     def build(self) -> "ApplicationOfferOnboardProfileCity":
         return self._application_offer_onboard_profile_city

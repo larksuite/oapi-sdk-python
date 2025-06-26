@@ -35,38 +35,30 @@ class PermissionPublic(object):
 class PermissionPublicBuilder(object):
     def __init__(self) -> None:
         self._permission_public = PermissionPublic()
-
     def external_access_entity(self, external_access_entity: str) -> "PermissionPublicBuilder":
         self._permission_public.external_access_entity = external_access_entity
         return self
-
     def security_entity(self, security_entity: str) -> "PermissionPublicBuilder":
         self._permission_public.security_entity = security_entity
         return self
-
     def comment_entity(self, comment_entity: str) -> "PermissionPublicBuilder":
         self._permission_public.comment_entity = comment_entity
         return self
-
     def share_entity(self, share_entity: str) -> "PermissionPublicBuilder":
         self._permission_public.share_entity = share_entity
         return self
-
     def manage_collaborator_entity(self, manage_collaborator_entity: str) -> "PermissionPublicBuilder":
         self._permission_public.manage_collaborator_entity = manage_collaborator_entity
         return self
-
     def link_share_entity(self, link_share_entity: str) -> "PermissionPublicBuilder":
         self._permission_public.link_share_entity = link_share_entity
         return self
-
     def copy_entity(self, copy_entity: str) -> "PermissionPublicBuilder":
         self._permission_public.copy_entity = copy_entity
         return self
-
     def lock_switch(self, lock_switch: bool) -> "PermissionPublicBuilder":
         self._permission_public.lock_switch = lock_switch
         return self
-
+    
     def build(self) -> "PermissionPublic":
         return self._permission_public

@@ -23,14 +23,12 @@ class SimpleRelatedUser(object):
 class SimpleRelatedUserBuilder(object):
     def __init__(self) -> None:
         self._simple_related_user = SimpleRelatedUser()
-
     def user_id(self, user_id: int) -> "SimpleRelatedUserBuilder":
         self._simple_related_user.user_id = user_id
         return self
-
     def score(self, score: float) -> "SimpleRelatedUserBuilder":
         self._simple_related_user.score = score
         return self
-
+    
     def build(self) -> "SimpleRelatedUser":
         return self._simple_related_user

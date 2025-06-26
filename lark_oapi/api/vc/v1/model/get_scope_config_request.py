@@ -25,21 +25,22 @@ class GetScopeConfigRequestBuilder(object):
         get_scope_config_request.uri = "/open-apis/vc/v1/scope_config"
         get_scope_config_request.token_types = {AccessTokenType.TENANT}
         self._get_scope_config_request: GetScopeConfigRequest = get_scope_config_request
-
+    
     def scope_type(self, scope_type: int) -> "GetScopeConfigRequestBuilder":
         self._get_scope_config_request.scope_type = scope_type
         self._get_scope_config_request.add_query("scope_type", scope_type)
         return self
-
+    
     def scope_id(self, scope_id: str) -> "GetScopeConfigRequestBuilder":
         self._get_scope_config_request.scope_id = scope_id
         self._get_scope_config_request.add_query("scope_id", scope_id)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "GetScopeConfigRequestBuilder":
         self._get_scope_config_request.user_id_type = user_id_type
         self._get_scope_config_request.add_query("user_id_type", user_id_type)
         return self
+    
 
     def build(self) -> GetScopeConfigRequest:
         return self._get_scope_config_request

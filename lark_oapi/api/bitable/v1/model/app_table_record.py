@@ -37,38 +37,30 @@ class AppTableRecord(object):
 class AppTableRecordBuilder(object):
     def __init__(self) -> None:
         self._app_table_record = AppTableRecord()
-
     def fields(self, fields: Dict[str, Any]) -> "AppTableRecordBuilder":
         self._app_table_record.fields = fields
         return self
-
     def record_id(self, record_id: str) -> "AppTableRecordBuilder":
         self._app_table_record.record_id = record_id
         return self
-
     def created_by(self, created_by: Person) -> "AppTableRecordBuilder":
         self._app_table_record.created_by = created_by
         return self
-
     def created_time(self, created_time: int) -> "AppTableRecordBuilder":
         self._app_table_record.created_time = created_time
         return self
-
     def last_modified_by(self, last_modified_by: Person) -> "AppTableRecordBuilder":
         self._app_table_record.last_modified_by = last_modified_by
         return self
-
     def last_modified_time(self, last_modified_time: int) -> "AppTableRecordBuilder":
         self._app_table_record.last_modified_time = last_modified_time
         return self
-
     def shared_url(self, shared_url: str) -> "AppTableRecordBuilder":
         self._app_table_record.shared_url = shared_url
         return self
-
     def record_url(self, record_url: str) -> "AppTableRecordBuilder":
         self._app_table_record.record_url = record_url
         return self
-
+    
     def build(self) -> "AppTableRecord":
         return self._app_table_record

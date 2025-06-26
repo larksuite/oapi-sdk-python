@@ -28,18 +28,15 @@ class Connector(object):
 class ConnectorBuilder(object):
     def __init__(self) -> None:
         self._connector = Connector()
-
     def start_object(self, start_object: ConnectorAttachedObject) -> "ConnectorBuilder":
         self._connector.start_object = start_object
         return self
-
     def end_object(self, end_object: ConnectorAttachedObject) -> "ConnectorBuilder":
         self._connector.end_object = end_object
         return self
-
     def captions(self, captions: ConnectorCaption) -> "ConnectorBuilder":
         self._connector.captions = captions
         return self
-
+    
     def build(self) -> "Connector":
         return self._connector

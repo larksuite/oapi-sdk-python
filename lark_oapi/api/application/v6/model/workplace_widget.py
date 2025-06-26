@@ -21,10 +21,9 @@ class WorkplaceWidget(object):
 class WorkplaceWidgetBuilder(object):
     def __init__(self) -> None:
         self._workplace_widget = WorkplaceWidget()
-
     def min_lark_version(self, min_lark_version: str) -> "WorkplaceWidgetBuilder":
         self._workplace_widget.min_lark_version = min_lark_version
         return self
-
+    
     def build(self) -> "WorkplaceWidget":
         return self._workplace_widget

@@ -23,14 +23,12 @@ class BatchDeleteEcoExamPaperRequestBody(object):
 class BatchDeleteEcoExamPaperRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_eco_exam_paper_request_body = BatchDeleteEcoExamPaperRequestBody()
-
     def account_id(self, account_id: str) -> "BatchDeleteEcoExamPaperRequestBodyBuilder":
         self._batch_delete_eco_exam_paper_request_body.account_id = account_id
         return self
-
     def paper_id_list(self, paper_id_list: List[str]) -> "BatchDeleteEcoExamPaperRequestBodyBuilder":
         self._batch_delete_eco_exam_paper_request_body.paper_id_list = paper_id_list
         return self
-
+    
     def build(self) -> "BatchDeleteEcoExamPaperRequestBody":
         return self._batch_delete_eco_exam_paper_request_body

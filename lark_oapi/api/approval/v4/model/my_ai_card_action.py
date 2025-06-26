@@ -24,14 +24,12 @@ class MyAiCardAction(object):
 class MyAiCardActionBuilder(object):
     def __init__(self) -> None:
         self._my_ai_card_action = MyAiCardAction()
-
     def tag(self, tag: str) -> "MyAiCardActionBuilder":
         self._my_ai_card_action.tag = tag
         return self
-
     def value(self, value: MyAiCardValue) -> "MyAiCardActionBuilder":
         self._my_ai_card_action.value = value
         return self
-
+    
     def build(self) -> "MyAiCardAction":
         return self._my_ai_card_action

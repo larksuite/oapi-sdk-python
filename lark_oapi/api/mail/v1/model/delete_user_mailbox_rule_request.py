@@ -24,16 +24,17 @@ class DeleteUserMailboxRuleRequestBuilder(object):
         delete_user_mailbox_rule_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/rules/:rule_id"
         delete_user_mailbox_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_user_mailbox_rule_request: DeleteUserMailboxRuleRequest = delete_user_mailbox_rule_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "DeleteUserMailboxRuleRequestBuilder":
         self._delete_user_mailbox_rule_request.user_mailbox_id = user_mailbox_id
         self._delete_user_mailbox_rule_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def rule_id(self, rule_id: int) -> "DeleteUserMailboxRuleRequestBuilder":
         self._delete_user_mailbox_rule_request.rule_id = rule_id
         self._delete_user_mailbox_rule_request.paths["rule_id"] = str(rule_id)
         return self
+    
 
     def build(self) -> DeleteUserMailboxRuleRequest:
         return self._delete_user_mailbox_rule_request

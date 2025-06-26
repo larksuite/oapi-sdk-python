@@ -24,14 +24,12 @@ class SiteJobType(object):
 class SiteJobTypeBuilder(object):
     def __init__(self) -> None:
         self._site_job_type = SiteJobType()
-
     def id(self, id: str) -> "SiteJobTypeBuilder":
         self._site_job_type.id = id
         return self
-
     def name(self, name: SiteName) -> "SiteJobTypeBuilder":
         self._site_job_type.name = name
         return self
-
+    
     def build(self) -> "SiteJobType":
         return self._site_job_type

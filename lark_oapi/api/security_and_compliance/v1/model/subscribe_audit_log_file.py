@@ -31,30 +31,24 @@ class SubscribeAuditLogFile(object):
 class SubscribeAuditLogFileBuilder(object):
     def __init__(self) -> None:
         self._subscribe_audit_log_file = SubscribeAuditLogFile()
-
     def file_id(self, file_id: str) -> "SubscribeAuditLogFileBuilder":
         self._subscribe_audit_log_file.file_id = file_id
         return self
-
     def file_url(self, file_url: str) -> "SubscribeAuditLogFileBuilder":
         self._subscribe_audit_log_file.file_url = file_url
         return self
-
     def file_url_expire_time(self, file_url_expire_time: int) -> "SubscribeAuditLogFileBuilder":
         self._subscribe_audit_log_file.file_url_expire_time = file_url_expire_time
         return self
-
     def file_size(self, file_size: int) -> "SubscribeAuditLogFileBuilder":
         self._subscribe_audit_log_file.file_size = file_size
         return self
-
     def start_time(self, start_time: int) -> "SubscribeAuditLogFileBuilder":
         self._subscribe_audit_log_file.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "SubscribeAuditLogFileBuilder":
         self._subscribe_audit_log_file.end_time = end_time
         return self
-
+    
     def build(self) -> "SubscribeAuditLogFile":
         return self._subscribe_audit_log_file

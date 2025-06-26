@@ -32,26 +32,21 @@ class CostAllocationPlan(object):
 class CostAllocationPlanBuilder(object):
     def __init__(self) -> None:
         self._cost_allocation_plan = CostAllocationPlan()
-
     def id(self, id: int) -> "CostAllocationPlanBuilder":
         self._cost_allocation_plan.id = id
         return self
-
     def names(self, names: List[I18nContent]) -> "CostAllocationPlanBuilder":
         self._cost_allocation_plan.names = names
         return self
-
     def applicable_country_region(self, applicable_country_region: str) -> "CostAllocationPlanBuilder":
         self._cost_allocation_plan.applicable_country_region = applicable_country_region
         return self
-
     def dimensions(self, dimensions: List[Dimension]) -> "CostAllocationPlanBuilder":
         self._cost_allocation_plan.dimensions = dimensions
         return self
-
     def cost_items(self, cost_items: List[CostItem]) -> "CostAllocationPlanBuilder":
         self._cost_allocation_plan.cost_items = cost_items
         return self
-
+    
     def build(self) -> "CostAllocationPlan":
         return self._cost_allocation_plan

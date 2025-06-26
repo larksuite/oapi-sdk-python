@@ -26,17 +26,17 @@ class DeleteCardElementRequestBuilder(object):
         delete_card_element_request.uri = "/open-apis/cardkit/v1/cards/:card_id/elements/:element_id"
         delete_card_element_request.token_types = {AccessTokenType.TENANT}
         self._delete_card_element_request: DeleteCardElementRequest = delete_card_element_request
-
+    
     def card_id(self, card_id: str) -> "DeleteCardElementRequestBuilder":
         self._delete_card_element_request.card_id = card_id
         self._delete_card_element_request.paths["card_id"] = str(card_id)
         return self
-
+    
     def element_id(self, element_id: str) -> "DeleteCardElementRequestBuilder":
         self._delete_card_element_request.element_id = element_id
         self._delete_card_element_request.paths["element_id"] = str(element_id)
         return self
-
+    
     def request_body(self, request_body: DeleteCardElementRequestBody) -> "DeleteCardElementRequestBuilder":
         self._delete_card_element_request.request_body = request_body
         self._delete_card_element_request.body = request_body

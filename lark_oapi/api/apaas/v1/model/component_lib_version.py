@@ -45,54 +45,42 @@ class ComponentLibVersion(object):
 class ComponentLibVersionBuilder(object):
     def __init__(self) -> None:
         self._component_lib_version = ComponentLibVersion()
-
     def version_number(self, version_number: str) -> "ComponentLibVersionBuilder":
         self._component_lib_version.version_number = version_number
         return self
-
     def directions(self, directions: List[I18n]) -> "ComponentLibVersionBuilder":
         self._component_lib_version.directions = directions
         return self
-
     def status(self, status: int) -> "ComponentLibVersionBuilder":
         self._component_lib_version.status = status
         return self
-
     def is_latest(self, is_latest: bool) -> "ComponentLibVersionBuilder":
         self._component_lib_version.is_latest = is_latest
         return self
-
     def settings(self, settings: str) -> "ComponentLibVersionBuilder":
         self._component_lib_version.settings = settings
         return self
-
     def isv_link(self, isv_link: str) -> "ComponentLibVersionBuilder":
         self._component_lib_version.isv_link = isv_link
         return self
-
     def is_isv_market_version(self, is_isv_market_version: bool) -> "ComponentLibVersionBuilder":
         self._component_lib_version.is_isv_market_version = is_isv_market_version
         return self
-
     def link(self, link: str) -> "ComponentLibVersionBuilder":
         self._component_lib_version.link = link
         return self
-
     def is_market_version(self, is_market_version: bool) -> "ComponentLibVersionBuilder":
         self._component_lib_version.is_market_version = is_market_version
         return self
-
     def created_at(self, created_at: str) -> "ComponentLibVersionBuilder":
         self._component_lib_version.created_at = created_at
         return self
-
     def created_by(self, created_by: LookupWithAvatar) -> "ComponentLibVersionBuilder":
         self._component_lib_version.created_by = created_by
         return self
-
     def applied_at(self, applied_at: str) -> "ComponentLibVersionBuilder":
         self._component_lib_version.applied_at = applied_at
         return self
-
+    
     def build(self) -> "ComponentLibVersion":
         return self._component_lib_version

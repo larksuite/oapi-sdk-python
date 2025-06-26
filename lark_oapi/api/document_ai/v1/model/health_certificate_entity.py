@@ -23,14 +23,12 @@ class HealthCertificateEntity(object):
 class HealthCertificateEntityBuilder(object):
     def __init__(self) -> None:
         self._health_certificate_entity = HealthCertificateEntity()
-
     def type(self, type: str) -> "HealthCertificateEntityBuilder":
         self._health_certificate_entity.type = type
         return self
-
     def value(self, value: str) -> "HealthCertificateEntityBuilder":
         self._health_certificate_entity.value = value
         return self
-
+    
     def build(self) -> "HealthCertificateEntity":
         return self._health_certificate_entity

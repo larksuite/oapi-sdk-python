@@ -29,26 +29,21 @@ class FiveStartScoringResult(object):
 class FiveStartScoringResultBuilder(object):
     def __init__(self) -> None:
         self._five_start_scoring_result = FiveStartScoringResult()
-
     def highest_score_desc(self, highest_score_desc: str) -> "FiveStartScoringResultBuilder":
         self._five_start_scoring_result.highest_score_desc = highest_score_desc
         return self
-
     def highest_score_en_desc(self, highest_score_en_desc: str) -> "FiveStartScoringResultBuilder":
         self._five_start_scoring_result.highest_score_en_desc = highest_score_en_desc
         return self
-
     def lowest_score_desc(self, lowest_score_desc: str) -> "FiveStartScoringResultBuilder":
         self._five_start_scoring_result.lowest_score_desc = lowest_score_desc
         return self
-
     def lowest_score_en_desc(self, lowest_score_en_desc: str) -> "FiveStartScoringResultBuilder":
         self._five_start_scoring_result.lowest_score_en_desc = lowest_score_en_desc
         return self
-
     def score_result(self, score_result: float) -> "FiveStartScoringResultBuilder":
         self._five_start_scoring_result.score_result = score_result
         return self
-
+    
     def build(self) -> "FiveStartScoringResult":
         return self._five_start_scoring_result

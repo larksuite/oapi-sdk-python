@@ -27,22 +27,18 @@ class DisplayAppV2(object):
 class DisplayAppV2Builder(object):
     def __init__(self) -> None:
         self._display_app_v2 = DisplayAppV2()
-
     def app_token(self, app_token: str) -> "DisplayAppV2Builder":
         self._display_app_v2.app_token = app_token
         return self
-
     def name(self, name: str) -> "DisplayAppV2Builder":
         self._display_app_v2.name = name
         return self
-
     def is_advanced(self, is_advanced: bool) -> "DisplayAppV2Builder":
         self._display_app_v2.is_advanced = is_advanced
         return self
-
     def time_zone(self, time_zone: str) -> "DisplayAppV2Builder":
         self._display_app_v2.time_zone = time_zone
         return self
-
+    
     def build(self) -> "DisplayAppV2":
         return self._display_app_v2

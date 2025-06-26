@@ -26,17 +26,17 @@ class CreateSpreadsheetSheetFilterViewRequestBuilder(object):
         create_spreadsheet_sheet_filter_view_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
         create_spreadsheet_sheet_filter_view_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_spreadsheet_sheet_filter_view_request: CreateSpreadsheetSheetFilterViewRequest = create_spreadsheet_sheet_filter_view_request
-
+    
     def spreadsheet_token(self, spreadsheet_token: str) -> "CreateSpreadsheetSheetFilterViewRequestBuilder":
         self._create_spreadsheet_sheet_filter_view_request.spreadsheet_token = spreadsheet_token
         self._create_spreadsheet_sheet_filter_view_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
-
+    
     def sheet_id(self, sheet_id: str) -> "CreateSpreadsheetSheetFilterViewRequestBuilder":
         self._create_spreadsheet_sheet_filter_view_request.sheet_id = sheet_id
         self._create_spreadsheet_sheet_filter_view_request.paths["sheet_id"] = str(sheet_id)
         return self
-
+    
     def request_body(self, request_body: FilterView) -> "CreateSpreadsheetSheetFilterViewRequestBuilder":
         self._create_spreadsheet_sheet_filter_view_request.request_body = request_body
         self._create_spreadsheet_sheet_filter_view_request.body = request_body

@@ -29,26 +29,21 @@ class Value(object):
 class ValueBuilder(object):
     def __init__(self) -> None:
         self._value = Value()
-
     def string_value(self, string_value: str) -> "ValueBuilder":
         self._value.string_value = string_value
         return self
-
     def bool_value(self, bool_value: bool) -> "ValueBuilder":
         self._value.bool_value = bool_value
         return self
-
     def int_value(self, int_value: str) -> "ValueBuilder":
         self._value.int_value = int_value
         return self
-
     def string_list_value(self, string_list_value: List[str]) -> "ValueBuilder":
         self._value.string_list_value = string_list_value
         return self
-
     def int_list_value(self, int_list_value: List[str]) -> "ValueBuilder":
         self._value.int_list_value = int_list_value
         return self
-
+    
     def build(self) -> "Value":
         return self._value

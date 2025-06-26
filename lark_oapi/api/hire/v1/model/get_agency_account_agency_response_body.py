@@ -26,18 +26,15 @@ class GetAgencyAccountAgencyResponseBody(object):
 class GetAgencyAccountAgencyResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_agency_account_agency_response_body = GetAgencyAccountAgencyResponseBody()
-
     def has_more(self, has_more: bool) -> "GetAgencyAccountAgencyResponseBodyBuilder":
         self._get_agency_account_agency_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "GetAgencyAccountAgencyResponseBodyBuilder":
         self._get_agency_account_agency_response_body.page_token = page_token
         return self
-
     def items(self, items: List[AgencyAccount]) -> "GetAgencyAccountAgencyResponseBodyBuilder":
         self._get_agency_account_agency_response_body.items = items
         return self
-
+    
     def build(self) -> "GetAgencyAccountAgencyResponseBody":
         return self._get_agency_account_agency_response_body

@@ -26,19 +26,15 @@ class ListWebsiteChannelResponseBody(object):
 class ListWebsiteChannelResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_website_channel_response_body = ListWebsiteChannelResponseBody()
-
     def has_more(self, has_more: bool) -> "ListWebsiteChannelResponseBodyBuilder":
         self._list_website_channel_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListWebsiteChannelResponseBodyBuilder":
         self._list_website_channel_response_body.page_token = page_token
         return self
-
-    def website_channel_list(self,
-                             website_channel_list: List[WebsiteChannelInfo]) -> "ListWebsiteChannelResponseBodyBuilder":
+    def website_channel_list(self, website_channel_list: List[WebsiteChannelInfo]) -> "ListWebsiteChannelResponseBodyBuilder":
         self._list_website_channel_response_body.website_channel_list = website_channel_list
         return self
-
+    
     def build(self) -> "ListWebsiteChannelResponseBody":
         return self._list_website_channel_response_body

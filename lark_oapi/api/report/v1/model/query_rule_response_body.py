@@ -22,10 +22,9 @@ class QueryRuleResponseBody(object):
 class QueryRuleResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_rule_response_body = QueryRuleResponseBody()
-
     def rules(self, rules: List[Rule]) -> "QueryRuleResponseBodyBuilder":
         self._query_rule_response_body.rules = rules
         return self
-
+    
     def build(self) -> "QueryRuleResponseBody":
         return self._query_rule_response_body

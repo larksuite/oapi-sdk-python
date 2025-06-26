@@ -26,18 +26,15 @@ class PatchTag(object):
 class PatchTagBuilder(object):
     def __init__(self) -> None:
         self._patch_tag = PatchTag()
-
     def id(self, id: str) -> "PatchTagBuilder":
         self._patch_tag.id = id
         return self
-
     def name(self, name: str) -> "PatchTagBuilder":
         self._patch_tag.name = name
         return self
-
     def i18n_names(self, i18n_names: List[TagI18nName]) -> "PatchTagBuilder":
         self._patch_tag.i18n_names = i18n_names
         return self
-
+    
     def build(self) -> "PatchTag":
         return self._patch_tag

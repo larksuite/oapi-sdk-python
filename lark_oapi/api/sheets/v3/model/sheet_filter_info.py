@@ -26,18 +26,15 @@ class SheetFilterInfo(object):
 class SheetFilterInfoBuilder(object):
     def __init__(self) -> None:
         self._sheet_filter_info = SheetFilterInfo()
-
     def range(self, range: str) -> "SheetFilterInfoBuilder":
         self._sheet_filter_info.range = range
         return self
-
     def filtered_out_rows(self, filtered_out_rows: List[int]) -> "SheetFilterInfoBuilder":
         self._sheet_filter_info.filtered_out_rows = filtered_out_rows
         return self
-
     def filter_infos(self, filter_infos: List[FilterInfo]) -> "SheetFilterInfoBuilder":
         self._sheet_filter_info.filter_infos = filter_infos
         return self
-
+    
     def build(self) -> "SheetFilterInfo":
         return self._sheet_filter_info

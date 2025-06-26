@@ -57,74 +57,57 @@ class App(object):
 class AppBuilder(object):
     def __init__(self) -> None:
         self._app = App()
-
     def name(self, name: List[I18n]) -> "AppBuilder":
         self._app.name = name
         return self
-
     def namespace(self, namespace: str) -> "AppBuilder":
         self._app.namespace = namespace
         return self
-
     def created_at(self, created_at: int) -> "AppBuilder":
         self._app.created_at = created_at
         return self
-
     def creator(self, creator: int) -> "AppBuilder":
         self._app.creator = creator
         return self
-
     def owner(self, owner: int) -> "AppBuilder":
         self._app.owner = owner
         return self
-
     def status(self, status: str) -> "AppBuilder":
         self._app.status = status
         return self
-
     def app_roles_info(self, app_roles_info: AppRolesInfo) -> "AppBuilder":
         self._app.app_roles_info = app_roles_info
         return self
-
     def icon(self, icon: str) -> "AppBuilder":
         self._app.icon = icon
         return self
-
     def description(self, description: List[I18n]) -> "AppBuilder":
         self._app.description = description
         return self
-
     def type(self, type: str) -> "AppBuilder":
         self._app.type = type
         return self
-
     def enable_status(self, enable_status: str) -> "AppBuilder":
         self._app.enable_status = enable_status
         return self
-
     def release_status(self, release_status: str) -> "AppBuilder":
         self._app.release_status = release_status
         return self
-
     def service_status(self, service_status: str) -> "AppBuilder":
         self._app.service_status = service_status
         return self
-
     def service_unavailable_reason(self, service_unavailable_reason: str) -> "AppBuilder":
         self._app.service_unavailable_reason = service_unavailable_reason
         return self
-
     def feature_set(self, feature_set: str) -> "AppBuilder":
         self._app.feature_set = feature_set
         return self
-
     def charge_mode(self, charge_mode: str) -> "AppBuilder":
         self._app.charge_mode = charge_mode
         return self
-
     def isv_tenant(self, isv_tenant: ClientIsvTenant) -> "AppBuilder":
         self._app.isv_tenant = isv_tenant
         return self
-
+    
     def build(self) -> "App":
         return self._app

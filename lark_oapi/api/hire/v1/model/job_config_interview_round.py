@@ -24,14 +24,12 @@ class JobConfigInterviewRound(object):
 class JobConfigInterviewRoundBuilder(object):
     def __init__(self) -> None:
         self._job_config_interview_round = JobConfigInterviewRound()
-
     def interviewer_list(self, interviewer_list: List[IdNameObject]) -> "JobConfigInterviewRoundBuilder":
         self._job_config_interview_round.interviewer_list = interviewer_list
         return self
-
     def round(self, round: int) -> "JobConfigInterviewRoundBuilder":
         self._job_config_interview_round.round = round
         return self
-
+    
     def build(self) -> "JobConfigInterviewRound":
         return self._job_config_interview_round

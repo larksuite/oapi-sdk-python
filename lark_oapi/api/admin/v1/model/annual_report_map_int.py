@@ -23,14 +23,12 @@ class AnnualReportMapInt(object):
 class AnnualReportMapIntBuilder(object):
     def __init__(self) -> None:
         self._annual_report_map_int = AnnualReportMapInt()
-
     def year(self, year: str) -> "AnnualReportMapIntBuilder":
         self._annual_report_map_int.year = year
         return self
-
     def count(self, count: int) -> "AnnualReportMapIntBuilder":
         self._annual_report_map_int.count = count
         return self
-
+    
     def build(self) -> "AnnualReportMapInt":
         return self._annual_report_map_int

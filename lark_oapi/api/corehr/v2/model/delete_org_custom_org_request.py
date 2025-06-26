@@ -24,7 +24,7 @@ class DeleteOrgCustomOrgRequestBuilder(object):
         delete_org_custom_org_request.uri = "/open-apis/corehr/v2/custom_orgs/delete_org"
         delete_org_custom_org_request.token_types = {AccessTokenType.TENANT}
         self._delete_org_custom_org_request: DeleteOrgCustomOrgRequest = delete_org_custom_org_request
-
+    
     def request_body(self, request_body: DeleteOrgCustomOrgRequestBody) -> "DeleteOrgCustomOrgRequestBuilder":
         self._delete_org_custom_org_request.request_body = request_body
         self._delete_org_custom_org_request.body = request_body

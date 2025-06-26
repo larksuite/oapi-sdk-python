@@ -5,65 +5,64 @@ from lark_oapi.api.mail.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: RemoveToRecycleBinPublicMailboxRequest = RemoveToRecycleBinPublicMailboxRequest.builder() \
-        .public_mailbox_id("test_public_mailbox@xxx.xx") \
-        .request_body(RemoveToRecycleBinPublicMailboxRequestBody.builder()
-                      .to_mail_address("user@xxx.xx")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: RemoveToRecycleBinPublicMailboxRequest = RemoveToRecycleBinPublicMailboxRequest.builder() \
+		.public_mailbox_id("test_public_mailbox@xxx.xx") \
+		.request_body(RemoveToRecycleBinPublicMailboxRequestBody.builder()
+					  .to_mail_address("user@xxx.xx")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: RemoveToRecycleBinPublicMailboxResponse = client.mail.v1.public_mailbox.remove_to_recycle_bin(request)
+	# 发起请求
+	response: RemoveToRecycleBinPublicMailboxResponse = client.mail.v1.public_mailbox.remove_to_recycle_bin(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.mail.v1.public_mailbox.remove_to_recycle_bin failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.mail.v1.public_mailbox.remove_to_recycle_bin failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: RemoveToRecycleBinPublicMailboxRequest = RemoveToRecycleBinPublicMailboxRequest.builder() \
-        .public_mailbox_id("test_public_mailbox@xxx.xx") \
-        .request_body(RemoveToRecycleBinPublicMailboxRequestBody.builder()
-                      .to_mail_address("user@xxx.xx")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: RemoveToRecycleBinPublicMailboxRequest = RemoveToRecycleBinPublicMailboxRequest.builder() \
+		.public_mailbox_id("test_public_mailbox@xxx.xx") \
+		.request_body(RemoveToRecycleBinPublicMailboxRequestBody.builder()
+					  .to_mail_address("user@xxx.xx")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: RemoveToRecycleBinPublicMailboxResponse = await client.mail.v1.public_mailbox.aremove_to_recycle_bin(
-        request)
+	# 发起请求
+	response: RemoveToRecycleBinPublicMailboxResponse = await client.mail.v1.public_mailbox.aremove_to_recycle_bin(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.mail.v1.public_mailbox.aremove_to_recycle_bin failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.mail.v1.public_mailbox.aremove_to_recycle_bin failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

@@ -25,18 +25,15 @@ class AppVisibilityItem(object):
 class AppVisibilityItemBuilder(object):
     def __init__(self) -> None:
         self._app_visibility_item = AppVisibilityItem()
-
     def user_id(self, user_id: str) -> "AppVisibilityItemBuilder":
         self._app_visibility_item.user_id = user_id
         return self
-
     def department_id(self, department_id: str) -> "AppVisibilityItemBuilder":
         self._app_visibility_item.department_id = department_id
         return self
-
     def group_id(self, group_id: str) -> "AppVisibilityItemBuilder":
         self._app_visibility_item.group_id = group_id
         return self
-
+    
     def build(self) -> "AppVisibilityItem":
         return self._app_visibility_item

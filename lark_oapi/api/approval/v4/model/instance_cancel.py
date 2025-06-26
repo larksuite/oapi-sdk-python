@@ -25,18 +25,15 @@ class InstanceCancel(object):
 class InstanceCancelBuilder(object):
     def __init__(self) -> None:
         self._instance_cancel = InstanceCancel()
-
     def approval_code(self, approval_code: str) -> "InstanceCancelBuilder":
         self._instance_cancel.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "InstanceCancelBuilder":
         self._instance_cancel.instance_code = instance_code
         return self
-
     def user_id(self, user_id: str) -> "InstanceCancelBuilder":
         self._instance_cancel.user_id = user_id
         return self
-
+    
     def build(self) -> "InstanceCancel":
         return self._instance_cancel

@@ -21,10 +21,9 @@ class IdConvertCardResponseBody(object):
 class IdConvertCardResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._id_convert_card_response_body = IdConvertCardResponseBody()
-
     def card_id(self, card_id: str) -> "IdConvertCardResponseBodyBuilder":
         self._id_convert_card_response_body.card_id = card_id
         return self
-
+    
     def build(self) -> "IdConvertCardResponseBody":
         return self._id_convert_card_response_body

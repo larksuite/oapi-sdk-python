@@ -25,21 +25,22 @@ class DeleteAppDataAssetRequestBuilder(object):
         delete_app_data_asset_request.uri = "/open-apis/aily/v1/apps/:app_id/data_assets/:data_asset_id"
         delete_app_data_asset_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._delete_app_data_asset_request: DeleteAppDataAssetRequest = delete_app_data_asset_request
-
+    
     def tenant_type(self, tenant_type: str) -> "DeleteAppDataAssetRequestBuilder":
         self._delete_app_data_asset_request.tenant_type = tenant_type
         self._delete_app_data_asset_request.add_query("tenant_type", tenant_type)
         return self
-
+    
     def app_id(self, app_id: str) -> "DeleteAppDataAssetRequestBuilder":
         self._delete_app_data_asset_request.app_id = app_id
         self._delete_app_data_asset_request.paths["app_id"] = str(app_id)
         return self
-
+    
     def data_asset_id(self, data_asset_id: str) -> "DeleteAppDataAssetRequestBuilder":
         self._delete_app_data_asset_request.data_asset_id = data_asset_id
         self._delete_app_data_asset_request.paths["data_asset_id"] = str(data_asset_id)
         return self
+    
 
     def build(self) -> DeleteAppDataAssetRequest:
         return self._delete_app_data_asset_request

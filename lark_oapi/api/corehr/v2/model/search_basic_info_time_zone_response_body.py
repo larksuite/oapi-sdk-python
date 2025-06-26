@@ -26,18 +26,15 @@ class SearchBasicInfoTimeZoneResponseBody(object):
 class SearchBasicInfoTimeZoneResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_time_zone_response_body = SearchBasicInfoTimeZoneResponseBody()
-
     def items(self, items: List[TimeZone]) -> "SearchBasicInfoTimeZoneResponseBodyBuilder":
         self._search_basic_info_time_zone_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "SearchBasicInfoTimeZoneResponseBodyBuilder":
         self._search_basic_info_time_zone_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "SearchBasicInfoTimeZoneResponseBodyBuilder":
         self._search_basic_info_time_zone_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "SearchBasicInfoTimeZoneResponseBody":
         return self._search_basic_info_time_zone_response_body

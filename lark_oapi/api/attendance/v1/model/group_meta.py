@@ -23,14 +23,12 @@ class GroupMeta(object):
 class GroupMetaBuilder(object):
     def __init__(self) -> None:
         self._group_meta = GroupMeta()
-
     def group_id(self, group_id: str) -> "GroupMetaBuilder":
         self._group_meta.group_id = group_id
         return self
-
     def group_name(self, group_name: str) -> "GroupMetaBuilder":
         self._group_meta.group_name = group_name
         return self
-
+    
     def build(self) -> "GroupMeta":
         return self._group_meta

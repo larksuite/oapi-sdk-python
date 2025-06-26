@@ -34,12 +34,13 @@ class AppSkill(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppSkillResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetAppSkillRequest, option: Optional[RequestOption] = None) -> GetAppSkillResponse:
         if option is None:
@@ -48,15 +49,17 @@ class AppSkill(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), GetAppSkillResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListAppSkillRequest, option: Optional[RequestOption] = None) -> ListAppSkillResponse:
         if option is None:
             option = RequestOption()
@@ -70,12 +73,13 @@ class AppSkill(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppSkillResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListAppSkillRequest, option: Optional[RequestOption] = None) -> ListAppSkillResponse:
         if option is None:
@@ -84,15 +88,17 @@ class AppSkill(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppSkillResponse)
         response.raw = resp
 
         return response
-
+        
     def start(self, request: StartAppSkillRequest, option: Optional[RequestOption] = None) -> StartAppSkillResponse:
         if option is None:
             option = RequestOption()
@@ -106,26 +112,30 @@ class AppSkill(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: StartAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), StartAppSkillResponse)
         response.raw = resp
 
         return response
+        
 
-    async def astart(self, request: StartAppSkillRequest,
-                     option: Optional[RequestOption] = None) -> StartAppSkillResponse:
+    async def astart(self, request: StartAppSkillRequest, option: Optional[RequestOption] = None) -> StartAppSkillResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: StartAppSkillResponse = JSON.unmarshal(str(resp.content, UTF_8), StartAppSkillResponse)
         response.raw = resp
 
         return response
+        
+    

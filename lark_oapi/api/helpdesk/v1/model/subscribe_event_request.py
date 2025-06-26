@@ -24,7 +24,7 @@ class SubscribeEventRequestBuilder(object):
         subscribe_event_request.uri = "/open-apis/helpdesk/v1/events/subscribe"
         subscribe_event_request.token_types = {AccessTokenType.TENANT}
         self._subscribe_event_request: SubscribeEventRequest = subscribe_event_request
-
+    
     def request_body(self, request_body: SubscribeEventRequestBody) -> "SubscribeEventRequestBuilder":
         self._subscribe_event_request.request_body = request_body
         self._subscribe_event_request.body = request_body

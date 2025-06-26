@@ -90,122 +90,93 @@ class Task(object):
 class TaskBuilder(object):
     def __init__(self) -> None:
         self._task = Task()
-
     def guid(self, guid: str) -> "TaskBuilder":
         self._task.guid = guid
         return self
-
     def summary(self, summary: str) -> "TaskBuilder":
         self._task.summary = summary
         return self
-
     def description(self, description: str) -> "TaskBuilder":
         self._task.description = description
         return self
-
     def due(self, due: Due) -> "TaskBuilder":
         self._task.due = due
         return self
-
     def reminders(self, reminders: List[Reminder]) -> "TaskBuilder":
         self._task.reminders = reminders
         return self
-
     def creator(self, creator: Member) -> "TaskBuilder":
         self._task.creator = creator
         return self
-
     def members(self, members: List[Member]) -> "TaskBuilder":
         self._task.members = members
         return self
-
     def completed_at(self, completed_at: int) -> "TaskBuilder":
         self._task.completed_at = completed_at
         return self
-
     def attachments(self, attachments: List[Attachment]) -> "TaskBuilder":
         self._task.attachments = attachments
         return self
-
     def origin(self, origin: Origin) -> "TaskBuilder":
         self._task.origin = origin
         return self
-
     def extra(self, extra: str) -> "TaskBuilder":
         self._task.extra = extra
         return self
-
     def tasklists(self, tasklists: List[TaskInTasklistInfo]) -> "TaskBuilder":
         self._task.tasklists = tasklists
         return self
-
     def repeat_rule(self, repeat_rule: str) -> "TaskBuilder":
         self._task.repeat_rule = repeat_rule
         return self
-
     def parent_task_guid(self, parent_task_guid: str) -> "TaskBuilder":
         self._task.parent_task_guid = parent_task_guid
         return self
-
     def mode(self, mode: int) -> "TaskBuilder":
         self._task.mode = mode
         return self
-
     def source(self, source: int) -> "TaskBuilder":
         self._task.source = source
         return self
-
     def custom_complete(self, custom_complete: CustomComplete) -> "TaskBuilder":
         self._task.custom_complete = custom_complete
         return self
-
     def task_id(self, task_id: str) -> "TaskBuilder":
         self._task.task_id = task_id
         return self
-
     def created_at(self, created_at: int) -> "TaskBuilder":
         self._task.created_at = created_at
         return self
-
     def updated_at(self, updated_at: int) -> "TaskBuilder":
         self._task.updated_at = updated_at
         return self
-
     def status(self, status: str) -> "TaskBuilder":
         self._task.status = status
         return self
-
     def url(self, url: str) -> "TaskBuilder":
         self._task.url = url
         return self
-
     def start(self, start: Start) -> "TaskBuilder":
         self._task.start = start
         return self
-
     def subtask_count(self, subtask_count: int) -> "TaskBuilder":
         self._task.subtask_count = subtask_count
         return self
-
     def is_milestone(self, is_milestone: bool) -> "TaskBuilder":
         self._task.is_milestone = is_milestone
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldValue]) -> "TaskBuilder":
         self._task.custom_fields = custom_fields
         return self
-
     def dependencies(self, dependencies: List[TaskDependency]) -> "TaskBuilder":
         self._task.dependencies = dependencies
         return self
-
     def assignee_related(self, assignee_related: List[TaskAssignee]) -> "TaskBuilder":
         self._task.assignee_related = assignee_related
         return self
-
     def positive_reminders(self, positive_reminders: List[Reminder]) -> "TaskBuilder":
         self._task.positive_reminders = positive_reminders
         return self
-
+    
     def build(self) -> "Task":
         return self._task

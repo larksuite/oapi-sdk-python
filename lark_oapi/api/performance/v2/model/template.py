@@ -28,22 +28,18 @@ class Template(object):
 class TemplateBuilder(object):
     def __init__(self) -> None:
         self._template = Template()
-
     def template_id(self, template_id: str) -> "TemplateBuilder":
         self._template.template_id = template_id
         return self
-
     def name(self, name: I18n) -> "TemplateBuilder":
         self._template.name = name
         return self
-
     def stage_type(self, stage_type: str) -> "TemplateBuilder":
         self._template.stage_type = stage_type
         return self
-
     def review_stage_role(self, review_stage_role: str) -> "TemplateBuilder":
         self._template.review_stage_role = review_stage_role
         return self
-
+    
     def build(self) -> "Template":
         return self._template

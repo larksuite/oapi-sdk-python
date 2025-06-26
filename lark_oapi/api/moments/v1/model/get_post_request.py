@@ -24,16 +24,17 @@ class GetPostRequestBuilder(object):
         get_post_request.uri = "/open-apis/moments/v1/posts/:post_id"
         get_post_request.token_types = {AccessTokenType.TENANT}
         self._get_post_request: GetPostRequest = get_post_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetPostRequestBuilder":
         self._get_post_request.user_id_type = user_id_type
         self._get_post_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def post_id(self, post_id: str) -> "GetPostRequestBuilder":
         self._get_post_request.post_id = post_id
         self._get_post_request.paths["post_id"] = str(post_id)
         return self
+    
 
     def build(self) -> GetPostRequest:
         return self._get_post_request

@@ -23,14 +23,12 @@ class SandboxTenant(object):
 class SandboxTenantBuilder(object):
     def __init__(self) -> None:
         self._sandbox_tenant = SandboxTenant()
-
     def tenant_id(self, tenant_id: str) -> "SandboxTenantBuilder":
         self._sandbox_tenant.tenant_id = tenant_id
         return self
-
     def tenant_name(self, tenant_name: str) -> "SandboxTenantBuilder":
         self._sandbox_tenant.tenant_name = tenant_name
         return self
-
+    
     def build(self) -> "SandboxTenant":
         return self._sandbox_tenant

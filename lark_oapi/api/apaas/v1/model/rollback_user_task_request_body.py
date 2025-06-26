@@ -25,18 +25,15 @@ class RollbackUserTaskRequestBody(object):
 class RollbackUserTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._rollback_user_task_request_body = RollbackUserTaskRequestBody()
-
     def operator_user_id(self, operator_user_id: str) -> "RollbackUserTaskRequestBodyBuilder":
         self._rollback_user_task_request_body.operator_user_id = operator_user_id
         return self
-
     def to_task_id(self, to_task_id: str) -> "RollbackUserTaskRequestBodyBuilder":
         self._rollback_user_task_request_body.to_task_id = to_task_id
         return self
-
     def opinion(self, opinion: str) -> "RollbackUserTaskRequestBodyBuilder":
         self._rollback_user_task_request_body.opinion = opinion
         return self
-
+    
     def build(self) -> "RollbackUserTaskRequestBody":
         return self._rollback_user_task_request_body

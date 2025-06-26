@@ -25,21 +25,22 @@ class ListMetricTagRequestBuilder(object):
         list_metric_tag_request.uri = "/open-apis/performance/v2/metric_tags"
         list_metric_tag_request.token_types = {AccessTokenType.TENANT}
         self._list_metric_tag_request: ListMetricTagRequest = list_metric_tag_request
-
+    
     def page_size(self, page_size: int) -> "ListMetricTagRequestBuilder":
         self._list_metric_tag_request.page_size = page_size
         self._list_metric_tag_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListMetricTagRequestBuilder":
         self._list_metric_tag_request.page_token = page_token
         self._list_metric_tag_request.add_query("page_token", page_token)
         return self
-
+    
     def tag_ids(self, tag_ids: List[str]) -> "ListMetricTagRequestBuilder":
         self._list_metric_tag_request.tag_ids = tag_ids
         self._list_metric_tag_request.add_query("tag_ids", tag_ids)
         return self
+    
 
     def build(self) -> ListMetricTagRequest:
         return self._list_metric_tag_request

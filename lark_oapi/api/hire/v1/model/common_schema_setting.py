@@ -24,14 +24,12 @@ class CommonSchemaSetting(object):
 class CommonSchemaSettingBuilder(object):
     def __init__(self) -> None:
         self._common_schema_setting = CommonSchemaSetting()
-
     def object_type(self, object_type: int) -> "CommonSchemaSettingBuilder":
         self._common_schema_setting.object_type = object_type
         return self
-
     def config(self, config: CommonSchemaConfig) -> "CommonSchemaSettingBuilder":
         self._common_schema_setting.config = config
         return self
-
+    
     def build(self) -> "CommonSchemaSetting":
         return self._common_schema_setting

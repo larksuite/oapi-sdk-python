@@ -21,10 +21,9 @@ class MessageBody(object):
 class MessageBodyBuilder(object):
     def __init__(self) -> None:
         self._message_body = MessageBody()
-
     def content(self, content: str) -> "MessageBodyBuilder":
         self._message_body.content = content
         return self
-
+    
     def build(self) -> "MessageBody":
         return self._message_body

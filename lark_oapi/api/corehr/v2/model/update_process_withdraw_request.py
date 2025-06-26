@@ -26,17 +26,17 @@ class UpdateProcessWithdrawRequestBuilder(object):
         update_process_withdraw_request.uri = "/open-apis/corehr/v2/process_withdraw/:process_id"
         update_process_withdraw_request.token_types = {AccessTokenType.TENANT}
         self._update_process_withdraw_request: UpdateProcessWithdrawRequest = update_process_withdraw_request
-
+    
     def user_id_type(self, user_id_type: str) -> "UpdateProcessWithdrawRequestBuilder":
         self._update_process_withdraw_request.user_id_type = user_id_type
         self._update_process_withdraw_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def process_id(self, process_id: str) -> "UpdateProcessWithdrawRequestBuilder":
         self._update_process_withdraw_request.process_id = process_id
         self._update_process_withdraw_request.paths["process_id"] = str(process_id)
         return self
-
+    
     def request_body(self, request_body: ProcessRevokeAndWithdraw) -> "UpdateProcessWithdrawRequestBuilder":
         self._update_process_withdraw_request.request_body = request_body
         self._update_process_withdraw_request.body = request_body

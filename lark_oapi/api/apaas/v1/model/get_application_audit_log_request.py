@@ -24,16 +24,17 @@ class GetApplicationAuditLogRequestBuilder(object):
         get_application_audit_log_request.uri = "/open-apis/apaas/v1/applications/:namespace/audit_log"
         get_application_audit_log_request.token_types = {AccessTokenType.USER}
         self._get_application_audit_log_request: GetApplicationAuditLogRequest = get_application_audit_log_request
-
+    
     def log_id(self, log_id: str) -> "GetApplicationAuditLogRequestBuilder":
         self._get_application_audit_log_request.log_id = log_id
         self._get_application_audit_log_request.add_query("log_id", log_id)
         return self
-
+    
     def namespace(self, namespace: str) -> "GetApplicationAuditLogRequestBuilder":
         self._get_application_audit_log_request.namespace = namespace
         self._get_application_audit_log_request.paths["namespace"] = str(namespace)
         return self
+    
 
     def build(self) -> GetApplicationAuditLogRequest:
         return self._get_application_audit_log_request

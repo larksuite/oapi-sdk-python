@@ -21,10 +21,9 @@ class BatchQueryCostAllocationRequestBody(object):
 class BatchQueryCostAllocationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_cost_allocation_request_body = BatchQueryCostAllocationRequestBody()
-
     def employment_ids(self, employment_ids: List[str]) -> "BatchQueryCostAllocationRequestBodyBuilder":
         self._batch_query_cost_allocation_request_body.employment_ids = employment_ids
         return self
-
+    
     def build(self) -> "BatchQueryCostAllocationRequestBody":
         return self._batch_query_cost_allocation_request_body

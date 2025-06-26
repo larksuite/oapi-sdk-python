@@ -25,21 +25,22 @@ class ListJobFamilyRequestBuilder(object):
         list_job_family_request.uri = "/open-apis/contact/v3/job_families"
         list_job_family_request.token_types = {AccessTokenType.TENANT}
         self._list_job_family_request: ListJobFamilyRequest = list_job_family_request
-
+    
     def page_size(self, page_size: int) -> "ListJobFamilyRequestBuilder":
         self._list_job_family_request.page_size = page_size
         self._list_job_family_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListJobFamilyRequestBuilder":
         self._list_job_family_request.page_token = page_token
         self._list_job_family_request.add_query("page_token", page_token)
         return self
-
+    
     def name(self, name: str) -> "ListJobFamilyRequestBuilder":
         self._list_job_family_request.name = name
         self._list_job_family_request.add_query("name", name)
         return self
+    
 
     def build(self) -> ListJobFamilyRequest:
         return self._list_job_family_request

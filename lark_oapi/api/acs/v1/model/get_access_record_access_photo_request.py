@@ -23,11 +23,12 @@ class GetAccessRecordAccessPhotoRequestBuilder(object):
         get_access_record_access_photo_request.uri = "/open-apis/acs/v1/access_records/:access_record_id/access_photo"
         get_access_record_access_photo_request.token_types = {AccessTokenType.TENANT}
         self._get_access_record_access_photo_request: GetAccessRecordAccessPhotoRequest = get_access_record_access_photo_request
-
+    
     def access_record_id(self, access_record_id: int) -> "GetAccessRecordAccessPhotoRequestBuilder":
         self._get_access_record_access_photo_request.access_record_id = access_record_id
         self._get_access_record_access_photo_request.paths["access_record_id"] = str(access_record_id)
         return self
+    
 
     def build(self) -> GetAccessRecordAccessPhotoRequest:
         return self._get_access_record_access_photo_request

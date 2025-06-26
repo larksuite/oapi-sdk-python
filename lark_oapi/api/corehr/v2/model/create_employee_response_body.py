@@ -25,18 +25,15 @@ class CreateEmployeeResponseBody(object):
 class CreateEmployeeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_employee_response_body = CreateEmployeeResponseBody()
-
     def employment_id(self, employment_id: str) -> "CreateEmployeeResponseBodyBuilder":
         self._create_employee_response_body.employment_id = employment_id
         return self
-
     def contract_id(self, contract_id: str) -> "CreateEmployeeResponseBodyBuilder":
         self._create_employee_response_body.contract_id = contract_id
         return self
-
     def job_data_id(self, job_data_id: str) -> "CreateEmployeeResponseBodyBuilder":
         self._create_employee_response_body.job_data_id = job_data_id
         return self
-
+    
     def build(self) -> "CreateEmployeeResponseBody":
         return self._create_employee_response_body

@@ -29,22 +29,18 @@ class MyAiInstance(object):
 class MyAiInstanceBuilder(object):
     def __init__(self) -> None:
         self._my_ai_instance = MyAiInstance()
-
     def name(self, name: str) -> "MyAiInstanceBuilder":
         self._my_ai_instance.name = name
         return self
-
     def form(self, form: str) -> "MyAiInstanceBuilder":
         self._my_ai_instance.form = form
         return self
-
     def tasks(self, tasks: List[MyAiTask]) -> "MyAiInstanceBuilder":
         self._my_ai_instance.tasks = tasks
         return self
-
     def comments(self, comments: List[MyAiComment]) -> "MyAiInstanceBuilder":
         self._my_ai_instance.comments = comments
         return self
-
+    
     def build(self) -> "MyAiInstance":
         return self._my_ai_instance

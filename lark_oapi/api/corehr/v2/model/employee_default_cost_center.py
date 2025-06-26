@@ -24,15 +24,12 @@ class EmployeeDefaultCostCenter(object):
 class EmployeeDefaultCostCenterBuilder(object):
     def __init__(self) -> None:
         self._employee_default_cost_center = EmployeeDefaultCostCenter()
-
     def employment_id(self, employment_id: str) -> "EmployeeDefaultCostCenterBuilder":
         self._employee_default_cost_center.employment_id = employment_id
         return self
-
-    def default_cost_centers(self, default_cost_centers: List[
-        EmploymentDefaultCostCenter]) -> "EmployeeDefaultCostCenterBuilder":
+    def default_cost_centers(self, default_cost_centers: List[EmploymentDefaultCostCenter]) -> "EmployeeDefaultCostCenterBuilder":
         self._employee_default_cost_center.default_cost_centers = default_cost_centers
         return self
-
+    
     def build(self) -> "EmployeeDefaultCostCenter":
         return self._employee_default_cost_center

@@ -23,14 +23,12 @@ class CreateEmpCustomOrg(object):
 class CreateEmpCustomOrgBuilder(object):
     def __init__(self) -> None:
         self._create_emp_custom_org = CreateEmpCustomOrg()
-
     def id(self, id: str) -> "CreateEmpCustomOrgBuilder":
         self._create_emp_custom_org.id = id
         return self
-
     def rate(self, rate: float) -> "CreateEmpCustomOrgBuilder":
         self._create_emp_custom_org.rate = rate
         return self
-
+    
     def build(self) -> "CreateEmpCustomOrg":
         return self._create_emp_custom_org

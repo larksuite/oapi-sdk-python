@@ -23,11 +23,12 @@ class GetShiftRequestBuilder(object):
         get_shift_request.uri = "/open-apis/attendance/v1/shifts/:shift_id"
         get_shift_request.token_types = {AccessTokenType.TENANT}
         self._get_shift_request: GetShiftRequest = get_shift_request
-
+    
     def shift_id(self, shift_id: str) -> "GetShiftRequestBuilder":
         self._get_shift_request.shift_id = shift_id
         self._get_shift_request.paths["shift_id"] = str(shift_id)
         return self
+    
 
     def build(self) -> GetShiftRequest:
         return self._get_shift_request

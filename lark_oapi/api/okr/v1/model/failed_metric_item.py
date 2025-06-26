@@ -23,14 +23,12 @@ class FailedMetricItem(object):
 class FailedMetricItemBuilder(object):
     def __init__(self) -> None:
         self._failed_metric_item = FailedMetricItem()
-
     def metric_item_id(self, metric_item_id: str) -> "FailedMetricItemBuilder":
         self._failed_metric_item.metric_item_id = metric_item_id
         return self
-
     def reason(self, reason: str) -> "FailedMetricItemBuilder":
         self._failed_metric_item.reason = reason
         return self
-
+    
     def build(self) -> "FailedMetricItem":
         return self._failed_metric_item

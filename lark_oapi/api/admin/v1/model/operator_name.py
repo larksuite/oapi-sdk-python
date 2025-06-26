@@ -24,14 +24,12 @@ class OperatorName(object):
 class OperatorNameBuilder(object):
     def __init__(self) -> None:
         self._operator_name = OperatorName()
-
     def default_name(self, default_name: str) -> "OperatorNameBuilder":
         self._operator_name.default_name = default_name
         return self
-
     def i18n_value(self, i18n_value: I18n) -> "OperatorNameBuilder":
         self._operator_name.i18n_value = i18n_value
         return self
-
+    
     def build(self) -> "OperatorName":
         return self._operator_name

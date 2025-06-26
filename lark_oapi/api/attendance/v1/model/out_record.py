@@ -27,18 +27,15 @@ class OutRecord(object):
 class OutRecordBuilder(object):
     def __init__(self) -> None:
         self._out_record = OutRecord()
-
     def duration_unit(self, duration_unit: str) -> "OutRecordBuilder":
         self._out_record.duration_unit = duration_unit
         return self
-
     def start_time(self, start_time: OutTime) -> "OutRecordBuilder":
         self._out_record.start_time = start_time
         return self
-
     def end_time(self, end_time: OutTime) -> "OutRecordBuilder":
         self._out_record.end_time = end_time
         return self
-
+    
     def build(self) -> "OutRecord":
         return self._out_record

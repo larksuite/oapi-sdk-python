@@ -37,34 +37,27 @@ class UserApproval(object):
 class UserApprovalBuilder(object):
     def __init__(self) -> None:
         self._user_approval = UserApproval()
-
     def user_id(self, user_id: str) -> "UserApprovalBuilder":
         self._user_approval.user_id = user_id
         return self
-
     def date(self, date: str) -> "UserApprovalBuilder":
         self._user_approval.date = date
         return self
-
     def outs(self, outs: List[UserOut]) -> "UserApprovalBuilder":
         self._user_approval.outs = outs
         return self
-
     def leaves(self, leaves: List[UserLeave]) -> "UserApprovalBuilder":
         self._user_approval.leaves = leaves
         return self
-
     def overtime_works(self, overtime_works: List[UserOvertimeWork]) -> "UserApprovalBuilder":
         self._user_approval.overtime_works = overtime_works
         return self
-
     def trips(self, trips: List[UserTrip]) -> "UserApprovalBuilder":
         self._user_approval.trips = trips
         return self
-
     def time_zone(self, time_zone: str) -> "UserApprovalBuilder":
         self._user_approval.time_zone = time_zone
         return self
-
+    
     def build(self) -> "UserApproval":
         return self._user_approval

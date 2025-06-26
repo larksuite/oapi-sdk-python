@@ -22,10 +22,9 @@ class CreateUserMailboxFolderResponseBody(object):
 class CreateUserMailboxFolderResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_user_mailbox_folder_response_body = CreateUserMailboxFolderResponseBody()
-
     def folder(self, folder: Folder) -> "CreateUserMailboxFolderResponseBodyBuilder":
         self._create_user_mailbox_folder_response_body.folder = folder
         return self
-
+    
     def build(self) -> "CreateUserMailboxFolderResponseBody":
         return self._create_user_mailbox_folder_response_body

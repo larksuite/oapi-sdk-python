@@ -34,34 +34,27 @@ class Bank(object):
 class BankBuilder(object):
     def __init__(self) -> None:
         self._bank = Bank()
-
     def bank_id(self, bank_id: str) -> "BankBuilder":
         self._bank.bank_id = bank_id
         return self
-
     def bank_name(self, bank_name: List[I18n]) -> "BankBuilder":
         self._bank.bank_name = bank_name
         return self
-
     def bank_code(self, bank_code: str) -> "BankBuilder":
         self._bank.bank_code = bank_code
         return self
-
     def country_region_id(self, country_region_id: str) -> "BankBuilder":
         self._bank.country_region_id = country_region_id
         return self
-
     def status(self, status: int) -> "BankBuilder":
         self._bank.status = status
         return self
-
     def create_time(self, create_time: str) -> "BankBuilder":
         self._bank.create_time = create_time
         return self
-
     def update_time(self, update_time: str) -> "BankBuilder":
         self._bank.update_time = update_time
         return self
-
+    
     def build(self) -> "Bank":
         return self._bank

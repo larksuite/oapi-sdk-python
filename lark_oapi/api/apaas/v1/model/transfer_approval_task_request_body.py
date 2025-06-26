@@ -27,22 +27,18 @@ class TransferApprovalTaskRequestBody(object):
 class TransferApprovalTaskRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._transfer_approval_task_request_body = TransferApprovalTaskRequestBody()
-
     def user_id(self, user_id: str) -> "TransferApprovalTaskRequestBodyBuilder":
         self._transfer_approval_task_request_body.user_id = user_id
         return self
-
     def from_user_ids(self, from_user_ids: List[str]) -> "TransferApprovalTaskRequestBodyBuilder":
         self._transfer_approval_task_request_body.from_user_ids = from_user_ids
         return self
-
     def to_user_ids(self, to_user_ids: List[str]) -> "TransferApprovalTaskRequestBodyBuilder":
         self._transfer_approval_task_request_body.to_user_ids = to_user_ids
         return self
-
     def opinion(self, opinion: str) -> "TransferApprovalTaskRequestBodyBuilder":
         self._transfer_approval_task_request_body.opinion = opinion
         return self
-
+    
     def build(self) -> "TransferApprovalTaskRequestBody":
         return self._transfer_approval_task_request_body

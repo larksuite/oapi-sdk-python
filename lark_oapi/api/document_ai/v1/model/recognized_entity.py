@@ -23,14 +23,12 @@ class RecognizedEntity(object):
 class RecognizedEntityBuilder(object):
     def __init__(self) -> None:
         self._recognized_entity = RecognizedEntity()
-
     def type(self, type: str) -> "RecognizedEntityBuilder":
         self._recognized_entity.type = type
         return self
-
     def value(self, value: str) -> "RecognizedEntityBuilder":
         self._recognized_entity.value = value
         return self
-
+    
     def build(self) -> "RecognizedEntity":
         return self._recognized_entity

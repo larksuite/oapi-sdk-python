@@ -25,14 +25,12 @@ class ContentParagraph(object):
 class ContentParagraphBuilder(object):
     def __init__(self) -> None:
         self._content_paragraph = ContentParagraph()
-
     def style(self, style: ContentParagraphStyle) -> "ContentParagraphBuilder":
         self._content_paragraph.style = style
         return self
-
     def elements(self, elements: List[ContentParagraphElement]) -> "ContentParagraphBuilder":
         self._content_paragraph.elements = elements
         return self
-
+    
     def build(self) -> "ContentParagraph":
         return self._content_paragraph

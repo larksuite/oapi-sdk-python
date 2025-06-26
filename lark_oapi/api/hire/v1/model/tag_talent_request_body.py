@@ -23,14 +23,12 @@ class TagTalentRequestBody(object):
 class TagTalentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._tag_talent_request_body = TagTalentRequestBody()
-
     def operation(self, operation: int) -> "TagTalentRequestBodyBuilder":
         self._tag_talent_request_body.operation = operation
         return self
-
     def tag_id_list(self, tag_id_list: List[str]) -> "TagTalentRequestBodyBuilder":
         self._tag_talent_request_body.tag_id_list = tag_id_list
         return self
-
+    
     def build(self) -> "TagTalentRequestBody":
         return self._tag_talent_request_body

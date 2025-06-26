@@ -27,22 +27,18 @@ class GetPublicMailboxResponseBody(object):
 class GetPublicMailboxResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_public_mailbox_response_body = GetPublicMailboxResponseBody()
-
     def public_mailbox_id(self, public_mailbox_id: str) -> "GetPublicMailboxResponseBodyBuilder":
         self._get_public_mailbox_response_body.public_mailbox_id = public_mailbox_id
         return self
-
     def email(self, email: str) -> "GetPublicMailboxResponseBodyBuilder":
         self._get_public_mailbox_response_body.email = email
         return self
-
     def name(self, name: str) -> "GetPublicMailboxResponseBodyBuilder":
         self._get_public_mailbox_response_body.name = name
         return self
-
     def geo(self, geo: str) -> "GetPublicMailboxResponseBodyBuilder":
         self._get_public_mailbox_response_body.geo = geo
         return self
-
+    
     def build(self) -> "GetPublicMailboxResponseBody":
         return self._get_public_mailbox_response_body

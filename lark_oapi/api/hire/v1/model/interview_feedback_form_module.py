@@ -36,34 +36,27 @@ class InterviewFeedbackFormModule(object):
 class InterviewFeedbackFormModuleBuilder(object):
     def __init__(self) -> None:
         self._interview_feedback_form_module = InterviewFeedbackFormModule()
-
     def id(self, id: str) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.id = id
         return self
-
     def name(self, name: I18n) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.name = name
         return self
-
     def description(self, description: I18n) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.description = description
         return self
-
     def type(self, type: int) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.type = type
         return self
-
     def sequence(self, sequence: int) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.sequence = sequence
         return self
-
     def weight(self, weight: float) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.weight = weight
         return self
-
     def dimensions(self, dimensions: List[InterviewFeedbackFormDimension]) -> "InterviewFeedbackFormModuleBuilder":
         self._interview_feedback_form_module.dimensions = dimensions
         return self
-
+    
     def build(self) -> "InterviewFeedbackFormModule":
         return self._interview_feedback_form_module

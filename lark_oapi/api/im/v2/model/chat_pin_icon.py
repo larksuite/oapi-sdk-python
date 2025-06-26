@@ -23,14 +23,12 @@ class ChatPinIcon(object):
 class ChatPinIconBuilder(object):
     def __init__(self) -> None:
         self._chat_pin_icon = ChatPinIcon()
-
     def chat_pin_icon_type(self, chat_pin_icon_type: str) -> "ChatPinIconBuilder":
         self._chat_pin_icon.chat_pin_icon_type = chat_pin_icon_type
         return self
-
     def icon_key(self, icon_key: str) -> "ChatPinIconBuilder":
         self._chat_pin_icon.icon_key = icon_key
         return self
-
+    
     def build(self) -> "ChatPinIcon":
         return self._chat_pin_icon

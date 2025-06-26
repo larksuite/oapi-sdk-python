@@ -26,19 +26,15 @@ class EditEnumOptionCommonDataMetaDataRequestBody(object):
 class EditEnumOptionCommonDataMetaDataRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._edit_enum_option_common_data_meta_data_request_body = EditEnumOptionCommonDataMetaDataRequestBody()
-
     def object_api_name(self, object_api_name: str) -> "EditEnumOptionCommonDataMetaDataRequestBodyBuilder":
         self._edit_enum_option_common_data_meta_data_request_body.object_api_name = object_api_name
         return self
-
     def enum_field_api_name(self, enum_field_api_name: str) -> "EditEnumOptionCommonDataMetaDataRequestBodyBuilder":
         self._edit_enum_option_common_data_meta_data_request_body.enum_field_api_name = enum_field_api_name
         return self
-
-    def enum_field_option(self,
-                          enum_field_option: EnumFieldOption) -> "EditEnumOptionCommonDataMetaDataRequestBodyBuilder":
+    def enum_field_option(self, enum_field_option: EnumFieldOption) -> "EditEnumOptionCommonDataMetaDataRequestBodyBuilder":
         self._edit_enum_option_common_data_meta_data_request_body.enum_field_option = enum_field_option
         return self
-
+    
     def build(self) -> "EditEnumOptionCommonDataMetaDataRequestBody":
         return self._edit_enum_option_common_data_meta_data_request_body

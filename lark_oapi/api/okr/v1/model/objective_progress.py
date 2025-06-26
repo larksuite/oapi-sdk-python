@@ -23,14 +23,12 @@ class ObjectiveProgress(object):
 class ObjectiveProgressBuilder(object):
     def __init__(self) -> None:
         self._objective_progress = ObjectiveProgress()
-
     def zh(self, zh: str) -> "ObjectiveProgressBuilder":
         self._objective_progress.zh = zh
         return self
-
     def en(self, en: str) -> "ObjectiveProgressBuilder":
         self._objective_progress.en = en
         return self
-
+    
     def build(self) -> "ObjectiveProgress":
         return self._objective_progress

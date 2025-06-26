@@ -27,22 +27,18 @@ class OrgRole(object):
 class OrgRoleBuilder(object):
     def __init__(self) -> None:
         self._org_role = OrgRole()
-
     def api_name(self, api_name: str) -> "OrgRoleBuilder":
         self._org_role.api_name = api_name
         return self
-
     def security_group_id(self, security_group_id: str) -> "OrgRoleBuilder":
         self._org_role.security_group_id = security_group_id
         return self
-
     def employment_ids(self, employment_ids: List[str]) -> "OrgRoleBuilder":
         self._org_role.employment_ids = employment_ids
         return self
-
     def inherit_employment_ids(self, inherit_employment_ids: List[str]) -> "OrgRoleBuilder":
         self._org_role.inherit_employment_ids = inherit_employment_ids
         return self
-
+    
     def build(self) -> "OrgRole":
         return self._org_role

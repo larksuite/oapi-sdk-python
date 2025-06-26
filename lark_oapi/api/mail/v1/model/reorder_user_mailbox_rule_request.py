@@ -25,12 +25,12 @@ class ReorderUserMailboxRuleRequestBuilder(object):
         reorder_user_mailbox_rule_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/rules/reorder"
         reorder_user_mailbox_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._reorder_user_mailbox_rule_request: ReorderUserMailboxRuleRequest = reorder_user_mailbox_rule_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "ReorderUserMailboxRuleRequestBuilder":
         self._reorder_user_mailbox_rule_request.user_mailbox_id = user_mailbox_id
         self._reorder_user_mailbox_rule_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def request_body(self, request_body: ReorderUserMailboxRuleRequestBody) -> "ReorderUserMailboxRuleRequestBuilder":
         self._reorder_user_mailbox_rule_request.request_body = request_body
         self._reorder_user_mailbox_rule_request.body = request_body

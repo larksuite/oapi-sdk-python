@@ -25,12 +25,12 @@ class ProtectAgencyRequestBuilder(object):
         protect_agency_request.uri = "/open-apis/hire/v1/agencies/protect"
         protect_agency_request.token_types = {AccessTokenType.TENANT}
         self._protect_agency_request: ProtectAgencyRequest = protect_agency_request
-
+    
     def user_id_type(self, user_id_type: str) -> "ProtectAgencyRequestBuilder":
         self._protect_agency_request.user_id_type = user_id_type
         self._protect_agency_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: ProtectAgencyRequestBody) -> "ProtectAgencyRequestBuilder":
         self._protect_agency_request.request_body = request_body
         self._protect_agency_request.body = request_body

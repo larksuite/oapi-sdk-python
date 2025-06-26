@@ -24,14 +24,12 @@ class BasicDepartmentInfo(object):
 class BasicDepartmentInfoBuilder(object):
     def __init__(self) -> None:
         self._basic_department_info = BasicDepartmentInfo()
-
     def id(self, id: str) -> "BasicDepartmentInfoBuilder":
         self._basic_department_info.id = id
         return self
-
     def name(self, name: I18n) -> "BasicDepartmentInfoBuilder":
         self._basic_department_info.name = name
         return self
-
+    
     def build(self) -> "BasicDepartmentInfo":
         return self._basic_department_info

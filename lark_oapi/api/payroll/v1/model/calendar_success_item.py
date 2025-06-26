@@ -24,14 +24,12 @@ class CalendarSuccessItem(object):
 class CalendarSuccessItemBuilder(object):
     def __init__(self) -> None:
         self._calendar_success_item = CalendarSuccessItem()
-
     def id(self, id: str) -> "CalendarSuccessItemBuilder":
         self._calendar_success_item.id = id
         return self
-
     def periods(self, periods: List[CalendarPeriod]) -> "CalendarSuccessItemBuilder":
         self._calendar_success_item.periods = periods
         return self
-
+    
     def build(self) -> "CalendarSuccessItem":
         return self._calendar_success_item

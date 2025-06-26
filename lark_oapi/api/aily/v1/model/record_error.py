@@ -23,14 +23,12 @@ class RecordError(object):
 class RecordErrorBuilder(object):
     def __init__(self) -> None:
         self._record_error = RecordError()
-
     def code(self, code: str) -> "RecordErrorBuilder":
         self._record_error.code = code
         return self
-
     def message(self, message: str) -> "RecordErrorBuilder":
         self._record_error.message = message
         return self
-
+    
     def build(self) -> "RecordError":
         return self._record_error

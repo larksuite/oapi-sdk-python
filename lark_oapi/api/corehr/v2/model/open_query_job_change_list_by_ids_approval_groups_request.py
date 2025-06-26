@@ -3,8 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .open_query_job_change_list_by_ids_approval_groups_request_body import \
-    OpenQueryJobChangeListByIdsApprovalGroupsRequestBody
+from .open_query_job_change_list_by_ids_approval_groups_request_body import OpenQueryJobChangeListByIdsApprovalGroupsRequestBody
 
 
 class OpenQueryJobChangeListByIdsApprovalGroupsRequest(BaseRequest):
@@ -28,25 +27,23 @@ class OpenQueryJobChangeListByIdsApprovalGroupsRequestBuilder(object):
         open_query_job_change_list_by_ids_approval_groups_request.uri = "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids"
         open_query_job_change_list_by_ids_approval_groups_request.token_types = {AccessTokenType.TENANT}
         self._open_query_job_change_list_by_ids_approval_groups_request: OpenQueryJobChangeListByIdsApprovalGroupsRequest = open_query_job_change_list_by_ids_approval_groups_request
-
+    
     def process_id(self, process_id: str) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBuilder":
         self._open_query_job_change_list_by_ids_approval_groups_request.process_id = process_id
         self._open_query_job_change_list_by_ids_approval_groups_request.add_query("process_id", process_id)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBuilder":
         self._open_query_job_change_list_by_ids_approval_groups_request.user_id_type = user_id_type
         self._open_query_job_change_list_by_ids_approval_groups_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def department_id_type(self, department_id_type: str) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBuilder":
         self._open_query_job_change_list_by_ids_approval_groups_request.department_id_type = department_id_type
-        self._open_query_job_change_list_by_ids_approval_groups_request.add_query("department_id_type",
-                                                                                  department_id_type)
+        self._open_query_job_change_list_by_ids_approval_groups_request.add_query("department_id_type", department_id_type)
         return self
-
-    def request_body(self,
-                     request_body: OpenQueryJobChangeListByIdsApprovalGroupsRequestBody) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBuilder":
+    
+    def request_body(self, request_body: OpenQueryJobChangeListByIdsApprovalGroupsRequestBody) -> "OpenQueryJobChangeListByIdsApprovalGroupsRequestBuilder":
         self._open_query_job_change_list_by_ids_approval_groups_request.request_body = request_body
         self._open_query_job_change_list_by_ids_approval_groups_request.body = request_body
         return self

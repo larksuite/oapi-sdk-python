@@ -19,6 +19,6 @@ class Favorite(object):
 class FavoriteBuilder(object):
     def __init__(self) -> None:
         self._favorite = Favorite()
-
+    
     def build(self) -> "Favorite":
         return self._favorite

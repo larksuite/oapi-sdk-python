@@ -24,14 +24,12 @@ class UpdateTextStyleRequest(object):
 class UpdateTextStyleRequestBuilder(object):
     def __init__(self) -> None:
         self._update_text_style_request = UpdateTextStyleRequest()
-
     def style(self, style: TextStyle) -> "UpdateTextStyleRequestBuilder":
         self._update_text_style_request.style = style
         return self
-
     def fields(self, fields: List[int]) -> "UpdateTextStyleRequestBuilder":
         self._update_text_style_request.fields = fields
         return self
-
+    
     def build(self) -> "UpdateTextStyleRequest":
         return self._update_text_style_request

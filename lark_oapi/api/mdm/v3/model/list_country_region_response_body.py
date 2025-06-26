@@ -26,18 +26,15 @@ class ListCountryRegionResponseBody(object):
 class ListCountryRegionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_country_region_response_body = ListCountryRegionResponseBody()
-
     def data(self, data: List[CountryRegion]) -> "ListCountryRegionResponseBodyBuilder":
         self._list_country_region_response_body.data = data
         return self
-
     def total(self, total: str) -> "ListCountryRegionResponseBodyBuilder":
         self._list_country_region_response_body.total = total
         return self
-
     def next_page_token(self, next_page_token: str) -> "ListCountryRegionResponseBodyBuilder":
         self._list_country_region_response_body.next_page_token = next_page_token
         return self
-
+    
     def build(self) -> "ListCountryRegionResponseBody":
         return self._list_country_region_response_body

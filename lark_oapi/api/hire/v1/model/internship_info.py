@@ -31,30 +31,24 @@ class InternshipInfo(object):
 class InternshipInfoBuilder(object):
     def __init__(self) -> None:
         self._internship_info = InternshipInfo()
-
     def career_type(self, career_type: int) -> "InternshipInfoBuilder":
         self._internship_info.career_type = career_type
         return self
-
     def company(self, company: str) -> "InternshipInfoBuilder":
         self._internship_info.company = company
         return self
-
     def desc(self, desc: str) -> "InternshipInfoBuilder":
         self._internship_info.desc = desc
         return self
-
     def end_time(self, end_time: int) -> "InternshipInfoBuilder":
         self._internship_info.end_time = end_time
         return self
-
     def start_time(self, start_time: int) -> "InternshipInfoBuilder":
         self._internship_info.start_time = start_time
         return self
-
     def title(self, title: str) -> "InternshipInfoBuilder":
         self._internship_info.title = title
         return self
-
+    
     def build(self) -> "InternshipInfo":
         return self._internship_info

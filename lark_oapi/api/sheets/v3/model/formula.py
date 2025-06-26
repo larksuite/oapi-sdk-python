@@ -25,18 +25,15 @@ class Formula(object):
 class FormulaBuilder(object):
     def __init__(self) -> None:
         self._formula = Formula()
-
     def formula(self, formula: str) -> "FormulaBuilder":
         self._formula.formula = formula
         return self
-
     def formula_value(self, formula_value: str) -> "FormulaBuilder":
         self._formula.formula_value = formula_value
         return self
-
     def affected_range(self, affected_range: str) -> "FormulaBuilder":
         self._formula.affected_range = affected_range
         return self
-
+    
     def build(self) -> "Formula":
         return self._formula

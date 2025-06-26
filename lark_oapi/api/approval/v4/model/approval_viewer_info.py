@@ -25,18 +25,15 @@ class ApprovalViewerInfo(object):
 class ApprovalViewerInfoBuilder(object):
     def __init__(self) -> None:
         self._approval_viewer_info = ApprovalViewerInfo()
-
     def type(self, type: str) -> "ApprovalViewerInfoBuilder":
         self._approval_viewer_info.type = type
         return self
-
     def id(self, id: str) -> "ApprovalViewerInfoBuilder":
         self._approval_viewer_info.id = id
         return self
-
     def user_id(self, user_id: str) -> "ApprovalViewerInfoBuilder":
         self._approval_viewer_info.user_id = user_id
         return self
-
+    
     def build(self) -> "ApprovalViewerInfo":
         return self._approval_viewer_info

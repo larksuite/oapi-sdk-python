@@ -17,8 +17,7 @@ class AppTicket(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def resend(self, request: ResendAppTicketRequest,
-               option: Optional[RequestOption] = None) -> ResendAppTicketResponse:
+    def resend(self, request: ResendAppTicketRequest, option: Optional[RequestOption] = None) -> ResendAppTicketResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class AppTicket(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ResendAppTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), ResendAppTicketResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aresend(self, request: ResendAppTicketRequest,
-                      option: Optional[RequestOption] = None) -> ResendAppTicketResponse:
+    async def aresend(self, request: ResendAppTicketRequest, option: Optional[RequestOption] = None) -> ResendAppTicketResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ResendAppTicketResponse = JSON.unmarshal(str(resp.content, UTF_8), ResendAppTicketResponse)
         response.raw = resp
 
         return response
+        
+    

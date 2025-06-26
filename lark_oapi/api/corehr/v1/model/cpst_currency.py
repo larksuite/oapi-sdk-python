@@ -26,18 +26,15 @@ class CpstCurrency(object):
 class CpstCurrencyBuilder(object):
     def __init__(self) -> None:
         self._cpst_currency = CpstCurrency()
-
     def currency_id(self, currency_id: str) -> "CpstCurrencyBuilder":
         self._cpst_currency.currency_id = currency_id
         return self
-
     def code(self, code: str) -> "CpstCurrencyBuilder":
         self._cpst_currency.code = code
         return self
-
     def name(self, name: CpstI18n) -> "CpstCurrencyBuilder":
         self._cpst_currency.name = name
         return self
-
+    
     def build(self) -> "CpstCurrency":
         return self._cpst_currency

@@ -23,8 +23,7 @@ class DefaultCostCenter(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_query(self, request: BatchQueryDefaultCostCenterRequest,
-                    option: Optional[RequestOption] = None) -> BatchQueryDefaultCostCenterResponse:
+    def batch_query(self, request: BatchQueryDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> BatchQueryDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,34 +36,33 @@ class DefaultCostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchQueryDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchQueryDefaultCostCenterResponse)
+        response: BatchQueryDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryDefaultCostCenterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_query(self, request: BatchQueryDefaultCostCenterRequest,
-                           option: Optional[RequestOption] = None) -> BatchQueryDefaultCostCenterResponse:
+    async def abatch_query(self, request: BatchQueryDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> BatchQueryDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchQueryDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchQueryDefaultCostCenterResponse)
+        response: BatchQueryDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchQueryDefaultCostCenterResponse)
         response.raw = resp
 
         return response
-
-    def create_version(self, request: CreateVersionDefaultCostCenterRequest,
-                       option: Optional[RequestOption] = None) -> CreateVersionDefaultCostCenterResponse:
+        
+    def create_version(self, request: CreateVersionDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> CreateVersionDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,34 +75,33 @@ class DefaultCostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          CreateVersionDefaultCostCenterResponse)
+        response: CreateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateVersionDefaultCostCenterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate_version(self, request: CreateVersionDefaultCostCenterRequest,
-                              option: Optional[RequestOption] = None) -> CreateVersionDefaultCostCenterResponse:
+    async def acreate_version(self, request: CreateVersionDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> CreateVersionDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CreateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          CreateVersionDefaultCostCenterResponse)
+        response: CreateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateVersionDefaultCostCenterResponse)
         response.raw = resp
 
         return response
-
-    def remove_version(self, request: RemoveVersionDefaultCostCenterRequest,
-                       option: Optional[RequestOption] = None) -> RemoveVersionDefaultCostCenterResponse:
+        
+    def remove_version(self, request: RemoveVersionDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> RemoveVersionDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -117,34 +114,33 @@ class DefaultCostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: RemoveVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          RemoveVersionDefaultCostCenterResponse)
+        response: RemoveVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveVersionDefaultCostCenterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aremove_version(self, request: RemoveVersionDefaultCostCenterRequest,
-                              option: Optional[RequestOption] = None) -> RemoveVersionDefaultCostCenterResponse:
+    async def aremove_version(self, request: RemoveVersionDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> RemoveVersionDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: RemoveVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          RemoveVersionDefaultCostCenterResponse)
+        response: RemoveVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), RemoveVersionDefaultCostCenterResponse)
         response.raw = resp
 
         return response
-
-    def update_version(self, request: UpdateVersionDefaultCostCenterRequest,
-                       option: Optional[RequestOption] = None) -> UpdateVersionDefaultCostCenterResponse:
+        
+    def update_version(self, request: UpdateVersionDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> UpdateVersionDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
@@ -157,28 +153,30 @@ class DefaultCostCenter(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdateVersionDefaultCostCenterResponse)
+        response: UpdateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateVersionDefaultCostCenterResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate_version(self, request: UpdateVersionDefaultCostCenterRequest,
-                              option: Optional[RequestOption] = None) -> UpdateVersionDefaultCostCenterResponse:
+    async def aupdate_version(self, request: UpdateVersionDefaultCostCenterRequest, option: Optional[RequestOption] = None) -> UpdateVersionDefaultCostCenterResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: UpdateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                          UpdateVersionDefaultCostCenterResponse)
+        response: UpdateVersionDefaultCostCenterResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateVersionDefaultCostCenterResponse)
         response.raw = resp
 
         return response
+        
+    

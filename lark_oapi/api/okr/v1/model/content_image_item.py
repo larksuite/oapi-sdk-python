@@ -27,22 +27,18 @@ class ContentImageItem(object):
 class ContentImageItemBuilder(object):
     def __init__(self) -> None:
         self._content_image_item = ContentImageItem()
-
     def file_token(self, file_token: str) -> "ContentImageItemBuilder":
         self._content_image_item.file_token = file_token
         return self
-
     def src(self, src: str) -> "ContentImageItemBuilder":
         self._content_image_item.src = src
         return self
-
     def width(self, width: float) -> "ContentImageItemBuilder":
         self._content_image_item.width = width
         return self
-
     def height(self, height: float) -> "ContentImageItemBuilder":
         self._content_image_item.height = height
         return self
-
+    
     def build(self) -> "ContentImageItem":
         return self._content_image_item

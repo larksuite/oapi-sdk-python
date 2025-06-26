@@ -24,15 +24,12 @@ class ListPaymentActivityDetailResponseBody(object):
 class ListPaymentActivityDetailResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_payment_activity_detail_response_body = ListPaymentActivityDetailResponseBody()
-
-    def payment_activity_details(self, payment_activity_details: List[
-        PaymentActivityDetail]) -> "ListPaymentActivityDetailResponseBodyBuilder":
+    def payment_activity_details(self, payment_activity_details: List[PaymentActivityDetail]) -> "ListPaymentActivityDetailResponseBodyBuilder":
         self._list_payment_activity_detail_response_body.payment_activity_details = payment_activity_details
         return self
-
     def total(self, total: int) -> "ListPaymentActivityDetailResponseBodyBuilder":
         self._list_payment_activity_detail_response_body.total = total
         return self
-
+    
     def build(self) -> "ListPaymentActivityDetailResponseBody":
         return self._list_payment_activity_detail_response_body

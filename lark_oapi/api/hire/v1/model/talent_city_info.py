@@ -25,18 +25,15 @@ class TalentCityInfo(object):
 class TalentCityInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_city_info = TalentCityInfo()
-
     def city_code(self, city_code: str) -> "TalentCityInfoBuilder":
         self._talent_city_info.city_code = city_code
         return self
-
     def zh_name(self, zh_name: str) -> "TalentCityInfoBuilder":
         self._talent_city_info.zh_name = zh_name
         return self
-
     def en_name(self, en_name: str) -> "TalentCityInfoBuilder":
         self._talent_city_info.en_name = en_name
         return self
-
+    
     def build(self) -> "TalentCityInfo":
         return self._talent_city_info

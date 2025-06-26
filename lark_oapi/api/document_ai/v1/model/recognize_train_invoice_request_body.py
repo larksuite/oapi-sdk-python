@@ -21,10 +21,9 @@ class RecognizeTrainInvoiceRequestBody(object):
 class RecognizeTrainInvoiceRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_train_invoice_request_body = RecognizeTrainInvoiceRequestBody()
-
     def file(self, file: IO[Any]) -> "RecognizeTrainInvoiceRequestBodyBuilder":
         self._recognize_train_invoice_request_body.file = file
         return self
-
+    
     def build(self) -> "RecognizeTrainInvoiceRequestBody":
         return self._recognize_train_invoice_request_body

@@ -38,42 +38,33 @@ class AppRecommendRuleItemInfo(object):
 class AppRecommendRuleItemInfoBuilder(object):
     def __init__(self) -> None:
         self._app_recommend_rule_item_info = AppRecommendRuleItemInfo()
-
     def item_id(self, item_id: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.item_id = item_id
         return self
-
     def item_type(self, item_type: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.item_type = item_type
         return self
-
     def name(self, name: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.name = name
         return self
-
     def description(self, description: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.description = description
         return self
-
     def link_url(self, link_url: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.link_url = link_url
         return self
-
     def client_id(self, client_id: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.client_id = client_id
         return self
-
     def icon_url(self, icon_url: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.icon_url = icon_url
         return self
-
     def default_locale(self, default_locale: str) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.default_locale = default_locale
         return self
-
     def i18n_name(self, i18n_name: AppRecommendRuleItemInfoI18nName) -> "AppRecommendRuleItemInfoBuilder":
         self._app_recommend_rule_item_info.i18n_name = i18n_name
         return self
-
+    
     def build(self) -> "AppRecommendRuleItemInfo":
         return self._app_recommend_rule_item_info

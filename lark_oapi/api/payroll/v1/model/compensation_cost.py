@@ -24,14 +24,12 @@ class CompensationCost(object):
 class CompensationCostBuilder(object):
     def __init__(self) -> None:
         self._compensation_cost = CompensationCost()
-
     def compensation_cost_value(self, compensation_cost_value: str) -> "CompensationCostBuilder":
         self._compensation_cost.compensation_cost_value = compensation_cost_value
         return self
-
     def i18n_names(self, i18n_names: List[I18nContent]) -> "CompensationCostBuilder":
         self._compensation_cost.i18n_names = i18n_names
         return self
-
+    
     def build(self) -> "CompensationCost":
         return self._compensation_cost

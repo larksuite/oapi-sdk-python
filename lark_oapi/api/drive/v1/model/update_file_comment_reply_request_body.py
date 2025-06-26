@@ -22,10 +22,9 @@ class UpdateFileCommentReplyRequestBody(object):
 class UpdateFileCommentReplyRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_file_comment_reply_request_body = UpdateFileCommentReplyRequestBody()
-
     def content(self, content: ReplyContent) -> "UpdateFileCommentReplyRequestBodyBuilder":
         self._update_file_comment_reply_request_body.content = content
         return self
-
+    
     def build(self) -> "UpdateFileCommentReplyRequestBody":
         return self._update_file_comment_reply_request_body

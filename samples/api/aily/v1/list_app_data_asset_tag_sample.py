@@ -5,66 +5,66 @@ from lark_oapi.api.aily.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListAppDataAssetTagRequest = ListAppDataAssetTagRequest.builder() \
-        .app_id("spring_5862e4fea8__c") \
-        .page_size(int) \
-        .page_token("str") \
-        .keyword("电影") \
-        .data_asset_tag_ids([]) \
-        .build()
+	# 构造请求对象
+	request: ListAppDataAssetTagRequest = ListAppDataAssetTagRequest.builder() \
+		.app_id("spring_5862e4fea8__c") \
+		.page_size(int) \
+		.page_token("str") \
+		.keyword("电影") \
+		.data_asset_tag_ids([]) \
+		.build()
 
-    # 发起请求
-    response: ListAppDataAssetTagResponse = client.aily.v1.app_data_asset_tag.list(request)
+	# 发起请求
+	response: ListAppDataAssetTagResponse = client.aily.v1.app_data_asset_tag.list(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.aily.v1.app_data_asset_tag.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.aily.v1.app_data_asset_tag.list failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: ListAppDataAssetTagRequest = ListAppDataAssetTagRequest.builder() \
-        .app_id("spring_5862e4fea8__c") \
-        .page_size(int) \
-        .page_token("str") \
-        .keyword("电影") \
-        .data_asset_tag_ids([]) \
-        .build()
+	# 构造请求对象
+	request: ListAppDataAssetTagRequest = ListAppDataAssetTagRequest.builder() \
+		.app_id("spring_5862e4fea8__c") \
+		.page_size(int) \
+		.page_token("str") \
+		.keyword("电影") \
+		.data_asset_tag_ids([]) \
+		.build()
 
-    # 发起请求
-    response: ListAppDataAssetTagResponse = await client.aily.v1.app_data_asset_tag.alist(request)
+	# 发起请求
+	response: ListAppDataAssetTagResponse = await client.aily.v1.app_data_asset_tag.alist(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.aily.v1.app_data_asset_tag.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.aily.v1.app_data_asset_tag.alist failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

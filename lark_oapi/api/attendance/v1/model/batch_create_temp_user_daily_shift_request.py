@@ -25,14 +25,13 @@ class BatchCreateTempUserDailyShiftRequestBuilder(object):
         batch_create_temp_user_daily_shift_request.uri = "/open-apis/attendance/v1/user_daily_shifts/batch_create_temp"
         batch_create_temp_user_daily_shift_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._batch_create_temp_user_daily_shift_request: BatchCreateTempUserDailyShiftRequest = batch_create_temp_user_daily_shift_request
-
+    
     def employee_type(self, employee_type: str) -> "BatchCreateTempUserDailyShiftRequestBuilder":
         self._batch_create_temp_user_daily_shift_request.employee_type = employee_type
         self._batch_create_temp_user_daily_shift_request.add_query("employee_type", employee_type)
         return self
-
-    def request_body(self,
-                     request_body: BatchCreateTempUserDailyShiftRequestBody) -> "BatchCreateTempUserDailyShiftRequestBuilder":
+    
+    def request_body(self, request_body: BatchCreateTempUserDailyShiftRequestBody) -> "BatchCreateTempUserDailyShiftRequestBuilder":
         self._batch_create_temp_user_daily_shift_request.request_body = request_body
         self._batch_create_temp_user_daily_shift_request.body = request_body
         return self

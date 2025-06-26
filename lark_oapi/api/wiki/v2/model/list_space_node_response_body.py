@@ -26,18 +26,15 @@ class ListSpaceNodeResponseBody(object):
 class ListSpaceNodeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_space_node_response_body = ListSpaceNodeResponseBody()
-
     def items(self, items: List[Node]) -> "ListSpaceNodeResponseBodyBuilder":
         self._list_space_node_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListSpaceNodeResponseBodyBuilder":
         self._list_space_node_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListSpaceNodeResponseBodyBuilder":
         self._list_space_node_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListSpaceNodeResponseBody":
         return self._list_space_node_response_body

@@ -38,42 +38,33 @@ class MyAiSipPresent(object):
 class MyAiSipPresentBuilder(object):
     def __init__(self) -> None:
         self._my_ai_sip_present = MyAiSipPresent()
-
     def type(self, type: str) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.type = type
         return self
-
     def body(self, body: str) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.body = body
         return self
-
     def operation_type(self, operation_type: str) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.operation_type = operation_type
         return self
-
     def interactable(self, interactable: bool) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.interactable = interactable
         return self
-
     def operation_url(self, operation_url: str) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.operation_url = operation_url
         return self
-
     def callback_url(self, callback_url: str) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.callback_url = callback_url
         return self
-
     def callback_info(self, callback_info: str) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.callback_info = callback_info
         return self
-
     def card_template_id(self, card_template_id: str) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.card_template_id = card_template_id
         return self
-
     def card_variables(self, card_variables: MyAiSipCardVariables) -> "MyAiSipPresentBuilder":
         self._my_ai_sip_present.card_variables = card_variables
         return self
-
+    
     def build(self) -> "MyAiSipPresent":
         return self._my_ai_sip_present

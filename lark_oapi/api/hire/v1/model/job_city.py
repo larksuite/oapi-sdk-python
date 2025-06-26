@@ -25,18 +25,15 @@ class JobCity(object):
 class JobCityBuilder(object):
     def __init__(self) -> None:
         self._job_city = JobCity()
-
     def city_code(self, city_code: str) -> "JobCityBuilder":
         self._job_city.city_code = city_code
         return self
-
     def zh_name(self, zh_name: str) -> "JobCityBuilder":
         self._job_city.zh_name = zh_name
         return self
-
     def en_name(self, en_name: str) -> "JobCityBuilder":
         self._job_city.en_name = en_name
         return self
-
+    
     def build(self) -> "JobCity":
         return self._job_city

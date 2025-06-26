@@ -26,18 +26,15 @@ class SignatureTemplateFilterItem(object):
 class SignatureTemplateFilterItemBuilder(object):
     def __init__(self) -> None:
         self._signature_template_filter_item = SignatureTemplateFilterItem()
-
     def left(self, left: str) -> "SignatureTemplateFilterItemBuilder":
         self._signature_template_filter_item.left = left
         return self
-
     def rights(self, rights: List[str]) -> "SignatureTemplateFilterItemBuilder":
         self._signature_template_filter_item.rights = rights
         return self
-
     def op(self, op: Enum) -> "SignatureTemplateFilterItemBuilder":
         self._signature_template_filter_item.op = op
         return self
-
+    
     def build(self) -> "SignatureTemplateFilterItem":
         return self._signature_template_filter_item

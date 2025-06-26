@@ -22,10 +22,9 @@ class SubscribeUserEvent(object):
 class SubscribeUserEventBuilder(object):
     def __init__(self) -> None:
         self._subscribe_user_event = SubscribeUserEvent()
-
     def user_id(self, user_id: UserId) -> "SubscribeUserEventBuilder":
         self._subscribe_user_event.user_id = user_id
         return self
-
+    
     def build(self) -> "SubscribeUserEvent":
         return self._subscribe_user_event

@@ -26,18 +26,15 @@ class Item(object):
 class ItemBuilder(object):
     def __init__(self) -> None:
         self._item = Item()
-
     def code(self, code: str) -> "ItemBuilder":
         self._item.code = code
         return self
-
     def title(self, title: str) -> "ItemBuilder":
         self._item.title = title
         return self
-
     def child_items(self, child_items: List[ChildItem]) -> "ItemBuilder":
         self._item.child_items = child_items
         return self
-
+    
     def build(self) -> "Item":
         return self._item

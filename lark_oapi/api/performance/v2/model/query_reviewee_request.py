@@ -27,22 +27,22 @@ class QueryRevieweeRequestBuilder(object):
         query_reviewee_request.uri = "/open-apis/performance/v2/reviewees/query"
         query_reviewee_request.token_types = {AccessTokenType.TENANT}
         self._query_reviewee_request: QueryRevieweeRequest = query_reviewee_request
-
+    
     def user_id_type(self, user_id_type: str) -> "QueryRevieweeRequestBuilder":
         self._query_reviewee_request.user_id_type = user_id_type
         self._query_reviewee_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def page_token(self, page_token: str) -> "QueryRevieweeRequestBuilder":
         self._query_reviewee_request.page_token = page_token
         self._query_reviewee_request.add_query("page_token", page_token)
         return self
-
+    
     def page_size(self, page_size: int) -> "QueryRevieweeRequestBuilder":
         self._query_reviewee_request.page_size = page_size
         self._query_reviewee_request.add_query("page_size", page_size)
         return self
-
+    
     def request_body(self, request_body: QueryRevieweeRequestBody) -> "QueryRevieweeRequestBuilder":
         self._query_reviewee_request.request_body = request_body
         self._query_reviewee_request.body = request_body

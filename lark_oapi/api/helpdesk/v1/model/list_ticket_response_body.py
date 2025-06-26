@@ -24,14 +24,12 @@ class ListTicketResponseBody(object):
 class ListTicketResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_ticket_response_body = ListTicketResponseBody()
-
     def total(self, total: int) -> "ListTicketResponseBodyBuilder":
         self._list_ticket_response_body.total = total
         return self
-
     def tickets(self, tickets: List[TicketV2]) -> "ListTicketResponseBodyBuilder":
         self._list_ticket_response_body.tickets = tickets
         return self
-
+    
     def build(self) -> "ListTicketResponseBody":
         return self._list_ticket_response_body

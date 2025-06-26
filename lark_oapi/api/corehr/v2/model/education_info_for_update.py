@@ -32,30 +32,24 @@ class EducationInfoForUpdate(object):
 class EducationInfoForUpdateBuilder(object):
     def __init__(self) -> None:
         self._education_info_for_update = EducationInfoForUpdate()
-
     def school_name(self, school_name: str) -> "EducationInfoForUpdateBuilder":
         self._education_info_for_update.school_name = school_name
         return self
-
     def education(self, education: str) -> "EducationInfoForUpdateBuilder":
         self._education_info_for_update.education = education
         return self
-
     def start_time(self, start_time: str) -> "EducationInfoForUpdateBuilder":
         self._education_info_for_update.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "EducationInfoForUpdateBuilder":
         self._education_info_for_update.end_time = end_time
         return self
-
     def field_of_study(self, field_of_study: str) -> "EducationInfoForUpdateBuilder":
         self._education_info_for_update.field_of_study = field_of_study
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EducationInfoForUpdateBuilder":
         self._education_info_for_update.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "EducationInfoForUpdate":
         return self._education_info_for_update

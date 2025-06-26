@@ -22,10 +22,9 @@ class CreateSectionResponseBody(object):
 class CreateSectionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_section_response_body = CreateSectionResponseBody()
-
     def section(self, section: Section) -> "CreateSectionResponseBodyBuilder":
         self._create_section_response_body.section = section
         return self
-
+    
     def build(self) -> "CreateSectionResponseBody":
         return self._create_section_response_body

@@ -22,10 +22,9 @@ class HighlightEntityResponseBody(object):
 class HighlightEntityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._highlight_entity_response_body = HighlightEntityResponseBody()
-
     def phrases(self, phrases: List[Phrase]) -> "HighlightEntityResponseBodyBuilder":
         self._highlight_entity_response_body.phrases = phrases
         return self
-
+    
     def build(self) -> "HighlightEntityResponseBody":
         return self._highlight_entity_response_body

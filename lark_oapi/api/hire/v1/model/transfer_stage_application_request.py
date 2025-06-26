@@ -25,14 +25,13 @@ class TransferStageApplicationRequestBuilder(object):
         transfer_stage_application_request.uri = "/open-apis/hire/v1/applications/:application_id/transfer_stage"
         transfer_stage_application_request.token_types = {AccessTokenType.TENANT}
         self._transfer_stage_application_request: TransferStageApplicationRequest = transfer_stage_application_request
-
+    
     def application_id(self, application_id: str) -> "TransferStageApplicationRequestBuilder":
         self._transfer_stage_application_request.application_id = application_id
         self._transfer_stage_application_request.paths["application_id"] = str(application_id)
         return self
-
-    def request_body(self,
-                     request_body: TransferStageApplicationRequestBody) -> "TransferStageApplicationRequestBuilder":
+    
+    def request_body(self, request_body: TransferStageApplicationRequestBody) -> "TransferStageApplicationRequestBuilder":
         self._transfer_stage_application_request.request_body = request_body
         self._transfer_stage_application_request.body = request_body
         return self

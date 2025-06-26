@@ -24,14 +24,12 @@ class CreateTagResponseBody(object):
 class CreateTagResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_tag_response_body = CreateTagResponseBody()
-
     def id(self, id: str) -> "CreateTagResponseBodyBuilder":
         self._create_tag_response_body.id = id
         return self
-
     def create_tag_fail_reason(self, create_tag_fail_reason: CreateTagFailReason) -> "CreateTagResponseBodyBuilder":
         self._create_tag_response_body.create_tag_fail_reason = create_tag_fail_reason
         return self
-
+    
     def build(self) -> "CreateTagResponseBody":
         return self._create_tag_response_body

@@ -24,7 +24,7 @@ class UploadPartFileRequestBuilder(object):
         upload_part_file_request.uri = "/open-apis/drive/v1/files/upload_part"
         upload_part_file_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._upload_part_file_request: UploadPartFileRequest = upload_part_file_request
-
+    
     def request_body(self, request_body: UploadPartFileRequestBody) -> "UploadPartFileRequestBuilder":
         self._upload_part_file_request.request_body = request_body
         self._upload_part_file_request.body = request_body

@@ -27,22 +27,18 @@ class SkillBaseInfo(object):
 class SkillBaseInfoBuilder(object):
     def __init__(self) -> None:
         self._skill_base_info = SkillBaseInfo()
-
     def name(self, name: str) -> "SkillBaseInfoBuilder":
         self._skill_base_info.name = name
         return self
-
     def skill_id(self, skill_id: str) -> "SkillBaseInfoBuilder":
         self._skill_base_info.skill_id = skill_id
         return self
-
     def type(self, type: str) -> "SkillBaseInfoBuilder":
         self._skill_base_info.type = type
         return self
-
     def builtin_type(self, builtin_type: str) -> "SkillBaseInfoBuilder":
         self._skill_base_info.builtin_type = builtin_type
         return self
-
+    
     def build(self) -> "SkillBaseInfo":
         return self._skill_base_info

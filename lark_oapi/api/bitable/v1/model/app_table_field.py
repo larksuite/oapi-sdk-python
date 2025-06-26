@@ -37,38 +37,30 @@ class AppTableField(object):
 class AppTableFieldBuilder(object):
     def __init__(self) -> None:
         self._app_table_field = AppTableField()
-
     def field_name(self, field_name: str) -> "AppTableFieldBuilder":
         self._app_table_field.field_name = field_name
         return self
-
     def type(self, type: int) -> "AppTableFieldBuilder":
         self._app_table_field.type = type
         return self
-
     def property(self, property: AppTableFieldProperty) -> "AppTableFieldBuilder":
         self._app_table_field.property = property
         return self
-
     def description(self, description: AppTableFieldDescription) -> "AppTableFieldBuilder":
         self._app_table_field.description = description
         return self
-
     def is_primary(self, is_primary: bool) -> "AppTableFieldBuilder":
         self._app_table_field.is_primary = is_primary
         return self
-
     def field_id(self, field_id: str) -> "AppTableFieldBuilder":
         self._app_table_field.field_id = field_id
         return self
-
     def ui_type(self, ui_type: str) -> "AppTableFieldBuilder":
         self._app_table_field.ui_type = ui_type
         return self
-
     def is_hidden(self, is_hidden: bool) -> "AppTableFieldBuilder":
         self._app_table_field.is_hidden = is_hidden
         return self
-
+    
     def build(self) -> "AppTableField":
         return self._app_table_field

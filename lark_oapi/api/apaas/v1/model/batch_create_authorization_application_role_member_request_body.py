@@ -23,15 +23,12 @@ class BatchCreateAuthorizationApplicationRoleMemberRequestBody(object):
 class BatchCreateAuthorizationApplicationRoleMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_create_authorization_application_role_member_request_body = BatchCreateAuthorizationApplicationRoleMemberRequestBody()
-
     def user_ids(self, user_ids: List[str]) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBodyBuilder":
         self._batch_create_authorization_application_role_member_request_body.user_ids = user_ids
         return self
-
-    def department_ids(self,
-                       department_ids: List[str]) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBodyBuilder":
+    def department_ids(self, department_ids: List[str]) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBodyBuilder":
         self._batch_create_authorization_application_role_member_request_body.department_ids = department_ids
         return self
-
+    
     def build(self) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBody":
         return self._batch_create_authorization_application_role_member_request_body

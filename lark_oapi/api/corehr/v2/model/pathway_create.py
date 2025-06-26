@@ -27,18 +27,15 @@ class PathwayCreate(object):
 class PathwayCreateBuilder(object):
     def __init__(self) -> None:
         self._pathway_create = PathwayCreate()
-
     def code(self, code: str) -> "PathwayCreateBuilder":
         self._pathway_create.code = code
         return self
-
     def names(self, names: List[I18n]) -> "PathwayCreateBuilder":
         self._pathway_create.names = names
         return self
-
     def descriptions(self, descriptions: List[I18n]) -> "PathwayCreateBuilder":
         self._pathway_create.descriptions = descriptions
         return self
-
+    
     def build(self) -> "PathwayCreate":
         return self._pathway_create

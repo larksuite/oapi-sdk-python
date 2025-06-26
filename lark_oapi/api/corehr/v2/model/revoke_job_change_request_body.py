@@ -21,10 +21,9 @@ class RevokeJobChangeRequestBody(object):
 class RevokeJobChangeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._revoke_job_change_request_body = RevokeJobChangeRequestBody()
-
     def operator_id(self, operator_id: str) -> "RevokeJobChangeRequestBodyBuilder":
         self._revoke_job_change_request_body.operator_id = operator_id
         return self
-
+    
     def build(self) -> "RevokeJobChangeRequestBody":
         return self._revoke_job_change_request_body

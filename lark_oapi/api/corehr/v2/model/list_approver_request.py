@@ -27,31 +27,32 @@ class ListApproverRequestBuilder(object):
         list_approver_request.uri = "/open-apis/corehr/v2/approvers"
         list_approver_request.token_types = {AccessTokenType.TENANT}
         self._list_approver_request: ListApproverRequest = list_approver_request
-
+    
     def page_size(self, page_size: int) -> "ListApproverRequestBuilder":
         self._list_approver_request.page_size = page_size
         self._list_approver_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListApproverRequestBuilder":
         self._list_approver_request.page_token = page_token
         self._list_approver_request.add_query("page_token", page_token)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "ListApproverRequestBuilder":
         self._list_approver_request.user_id_type = user_id_type
         self._list_approver_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def user_id(self, user_id: str) -> "ListApproverRequestBuilder":
         self._list_approver_request.user_id = user_id
         self._list_approver_request.add_query("user_id", user_id)
         return self
-
+    
     def approver_status(self, approver_status: int) -> "ListApproverRequestBuilder":
         self._list_approver_request.approver_status = approver_status
         self._list_approver_request.add_query("approver_status", approver_status)
         return self
+    
 
     def build(self) -> ListApproverRequest:
         return self._list_approver_request

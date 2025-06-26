@@ -29,26 +29,21 @@ class OfferStatusOfferRequestBody(object):
 class OfferStatusOfferRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._offer_status_offer_request_body = OfferStatusOfferRequestBody()
-
     def offer_status(self, offer_status: int) -> "OfferStatusOfferRequestBodyBuilder":
         self._offer_status_offer_request_body.offer_status = offer_status
         return self
-
     def expiration_date(self, expiration_date: str) -> "OfferStatusOfferRequestBodyBuilder":
         self._offer_status_offer_request_body.expiration_date = expiration_date
         return self
-
     def termination_reason_id_list(self, termination_reason_id_list: List[str]) -> "OfferStatusOfferRequestBodyBuilder":
         self._offer_status_offer_request_body.termination_reason_id_list = termination_reason_id_list
         return self
-
     def termination_reason_note(self, termination_reason_note: str) -> "OfferStatusOfferRequestBodyBuilder":
         self._offer_status_offer_request_body.termination_reason_note = termination_reason_note
         return self
-
     def cancel_offer_termination_type(self, cancel_offer_termination_type: int) -> "OfferStatusOfferRequestBodyBuilder":
         self._offer_status_offer_request_body.cancel_offer_termination_type = cancel_offer_termination_type
         return self
-
+    
     def build(self) -> "OfferStatusOfferRequestBody":
         return self._offer_status_offer_request_body

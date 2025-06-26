@@ -24,7 +24,7 @@ class CreateOidcAccessTokenRequestBuilder(object):
         create_oidc_access_token_request.uri = "/open-apis/authen/v1/oidc/access_token"
         create_oidc_access_token_request.token_types = {AccessTokenType.APP}
         self._create_oidc_access_token_request: CreateOidcAccessTokenRequest = create_oidc_access_token_request
-
+    
     def request_body(self, request_body: CreateOidcAccessTokenRequestBody) -> "CreateOidcAccessTokenRequestBuilder":
         self._create_oidc_access_token_request.request_body = request_body
         self._create_oidc_access_token_request.body = request_body

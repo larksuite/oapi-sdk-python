@@ -26,26 +26,27 @@ class GetApplicationRoleMemberRequestBuilder(object):
         get_application_role_member_request.uri = "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member"
         get_application_role_member_request.token_types = {AccessTokenType.TENANT}
         self._get_application_role_member_request: GetApplicationRoleMemberRequest = get_application_role_member_request
-
+    
     def need_display_name(self, need_display_name: bool) -> "GetApplicationRoleMemberRequestBuilder":
         self._get_application_role_member_request.need_display_name = need_display_name
         self._get_application_role_member_request.add_query("need_display_name", need_display_name)
         return self
-
+    
     def use_api_id(self, use_api_id: bool) -> "GetApplicationRoleMemberRequestBuilder":
         self._get_application_role_member_request.use_api_id = use_api_id
         self._get_application_role_member_request.add_query("use_api_id", use_api_id)
         return self
-
+    
     def namespace(self, namespace: str) -> "GetApplicationRoleMemberRequestBuilder":
         self._get_application_role_member_request.namespace = namespace
         self._get_application_role_member_request.paths["namespace"] = str(namespace)
         return self
-
+    
     def role_api_name(self, role_api_name: str) -> "GetApplicationRoleMemberRequestBuilder":
         self._get_application_role_member_request.role_api_name = role_api_name
         self._get_application_role_member_request.paths["role_api_name"] = str(role_api_name)
         return self
+    
 
     def build(self) -> GetApplicationRoleMemberRequest:
         return self._get_application_role_member_request

@@ -23,14 +23,12 @@ class RestoreFlowInstancePreHireRequestBody(object):
 class RestoreFlowInstancePreHireRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._restore_flow_instance_pre_hire_request_body = RestoreFlowInstancePreHireRequestBody()
-
     def pre_hire_id(self, pre_hire_id: str) -> "RestoreFlowInstancePreHireRequestBodyBuilder":
         self._restore_flow_instance_pre_hire_request_body.pre_hire_id = pre_hire_id
         return self
-
     def confirm_workforce(self, confirm_workforce: bool) -> "RestoreFlowInstancePreHireRequestBodyBuilder":
         self._restore_flow_instance_pre_hire_request_body.confirm_workforce = confirm_workforce
         return self
-
+    
     def build(self) -> "RestoreFlowInstancePreHireRequestBody":
         return self._restore_flow_instance_pre_hire_request_body

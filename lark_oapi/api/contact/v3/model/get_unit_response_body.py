@@ -22,10 +22,9 @@ class GetUnitResponseBody(object):
 class GetUnitResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_unit_response_body = GetUnitResponseBody()
-
     def unit(self, unit: Unit) -> "GetUnitResponseBodyBuilder":
         self._get_unit_response_body.unit = unit
         return self
-
+    
     def build(self) -> "GetUnitResponseBody":
         return self._get_unit_response_body

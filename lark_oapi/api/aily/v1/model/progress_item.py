@@ -37,42 +37,33 @@ class ProgressItem(object):
 class ProgressItemBuilder(object):
     def __init__(self) -> None:
         self._progress_item = ProgressItem()
-
     def progress_item_state(self, progress_item_state: str) -> "ProgressItemBuilder":
         self._progress_item.progress_item_state = progress_item_state
         return self
-
     def content(self, content: str) -> "ProgressItemBuilder":
         self._progress_item.content = content
         return self
-
     def skill_id(self, skill_id: str) -> "ProgressItemBuilder":
         self._progress_item.skill_id = skill_id
         return self
-
     def node_id(self, node_id: str) -> "ProgressItemBuilder":
         self._progress_item.node_id = node_id
         return self
-
     def node_type(self, node_type: str) -> "ProgressItemBuilder":
         self._progress_item.node_type = node_type
         return self
-
     def input(self, input: str) -> "ProgressItemBuilder":
         self._progress_item.input = input
         return self
-
     def output(self, output: str) -> "ProgressItemBuilder":
         self._progress_item.output = output
         return self
-
     def usages(self, usages: List[str]) -> "ProgressItemBuilder":
         self._progress_item.usages = usages
         return self
-
     def skill_strategy(self, skill_strategy: str) -> "ProgressItemBuilder":
         self._progress_item.skill_strategy = skill_strategy
         return self
-
+    
     def build(self) -> "ProgressItem":
         return self._progress_item

@@ -23,14 +23,12 @@ class BankCardEntity(object):
 class BankCardEntityBuilder(object):
     def __init__(self) -> None:
         self._bank_card_entity = BankCardEntity()
-
     def type(self, type: str) -> "BankCardEntityBuilder":
         self._bank_card_entity.type = type
         return self
-
     def value(self, value: str) -> "BankCardEntityBuilder":
         self._bank_card_entity.value = value
         return self
-
+    
     def build(self) -> "BankCardEntity":
         return self._bank_card_entity

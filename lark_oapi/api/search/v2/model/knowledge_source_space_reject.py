@@ -23,14 +23,12 @@ class KnowledgeSourceSpaceReject(object):
 class KnowledgeSourceSpaceRejectBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_space_reject = KnowledgeSourceSpaceReject()
-
     def doc_tokens(self, doc_tokens: List[str]) -> "KnowledgeSourceSpaceRejectBuilder":
         self._knowledge_source_space_reject.doc_tokens = doc_tokens
         return self
-
     def folder_tokens(self, folder_tokens: List[str]) -> "KnowledgeSourceSpaceRejectBuilder":
         self._knowledge_source_space_reject.folder_tokens = folder_tokens
         return self
-
+    
     def build(self) -> "KnowledgeSourceSpaceReject":
         return self._knowledge_source_space_reject

@@ -27,22 +27,22 @@ class PatchPersonRequestBuilder(object):
         patch_person_request.uri = "/open-apis/corehr/v2/persons/:person_id"
         patch_person_request.token_types = {AccessTokenType.TENANT}
         self._patch_person_request: PatchPersonRequest = patch_person_request
-
+    
     def client_token(self, client_token: str) -> "PatchPersonRequestBuilder":
         self._patch_person_request.client_token = client_token
         self._patch_person_request.add_query("client_token", client_token)
         return self
-
+    
     def no_need_query(self, no_need_query: bool) -> "PatchPersonRequestBuilder":
         self._patch_person_request.no_need_query = no_need_query
         self._patch_person_request.add_query("no_need_query", no_need_query)
         return self
-
+    
     def person_id(self, person_id: str) -> "PatchPersonRequestBuilder":
         self._patch_person_request.person_id = person_id
         self._patch_person_request.paths["person_id"] = str(person_id)
         return self
-
+    
     def request_body(self, request_body: PersonInfo) -> "PatchPersonRequestBuilder":
         self._patch_person_request.request_body = request_body
         self._patch_person_request.body = request_body

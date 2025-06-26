@@ -32,30 +32,24 @@ class EventBriefInfoAi(object):
 class EventBriefInfoAiBuilder(object):
     def __init__(self) -> None:
         self._event_brief_info_ai = EventBriefInfoAi()
-
     def event_id(self, event_id: str) -> "EventBriefInfoAiBuilder":
         self._event_brief_info_ai.event_id = event_id
         return self
-
     def summary(self, summary: str) -> "EventBriefInfoAiBuilder":
         self._event_brief_info_ai.summary = summary
         return self
-
     def start_time(self, start_time: str) -> "EventBriefInfoAiBuilder":
         self._event_brief_info_ai.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "EventBriefInfoAiBuilder":
         self._event_brief_info_ai.end_time = end_time
         return self
-
     def app_link(self, app_link: str) -> "EventBriefInfoAiBuilder":
         self._event_brief_info_ai.app_link = app_link
         return self
-
     def organizer(self, organizer: EventOrganizer) -> "EventBriefInfoAiBuilder":
         self._event_brief_info_ai.organizer = organizer
         return self
-
+    
     def build(self) -> "EventBriefInfoAi":
         return self._event_brief_info_ai

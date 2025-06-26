@@ -34,34 +34,27 @@ class InvitedReviewRecordInfo(object):
 class InvitedReviewRecordInfoBuilder(object):
     def __init__(self) -> None:
         self._invited_review_record_info = InvitedReviewRecordInfo()
-
     def reviewer_id(self, reviewer_id: User) -> "InvitedReviewRecordInfoBuilder":
         self._invited_review_record_info.reviewer_id = reviewer_id
         return self
-
     def is_rejected(self, is_rejected: bool) -> "InvitedReviewRecordInfoBuilder":
         self._invited_review_record_info.is_rejected = is_rejected
         return self
-
     def rejected_reason(self, rejected_reason: str) -> "InvitedReviewRecordInfoBuilder":
         self._invited_review_record_info.rejected_reason = rejected_reason
         return self
-
     def distribute_type(self, distribute_type: int) -> "InvitedReviewRecordInfoBuilder":
         self._invited_review_record_info.distribute_type = distribute_type
         return self
-
     def avg_diff(self, avg_diff: str) -> "InvitedReviewRecordInfoBuilder":
         self._invited_review_record_info.avg_diff = avg_diff
         return self
-
     def relationship_with_reviewee(self, relationship_with_reviewee: str) -> "InvitedReviewRecordInfoBuilder":
         self._invited_review_record_info.relationship_with_reviewee = relationship_with_reviewee
         return self
-
     def invitedby(self, invitedby: str) -> "InvitedReviewRecordInfoBuilder":
         self._invited_review_record_info.invitedby = invitedby
         return self
-
+    
     def build(self) -> "InvitedReviewRecordInfo":
         return self._invited_review_record_info

@@ -8,22 +8,23 @@ from .model.p2_performance_stage_task_open_result_v2 import P2PerformanceStageTa
 
 
 class P2PerformanceReviewDataChangedV2Processor(IEventProcessor[P2PerformanceReviewDataChangedV2]):
-    def __init__(self, f: Callable[[P2PerformanceReviewDataChangedV2], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2PerformanceReviewDataChangedV2], None]):
+		self.f = f
 
-    def type(self) -> Type[P2PerformanceReviewDataChangedV2]:
-        return P2PerformanceReviewDataChangedV2
+	def type(self) -> Type[P2PerformanceReviewDataChangedV2]:
+		return P2PerformanceReviewDataChangedV2
 
-    def do(self, data: P2PerformanceReviewDataChangedV2) -> None:
-        self.f(data)
+	def do(self, data: P2PerformanceReviewDataChangedV2) -> None:
+		self.f(data)
 
 
 class P2PerformanceStageTaskOpenResultV2Processor(IEventProcessor[P2PerformanceStageTaskOpenResultV2]):
-    def __init__(self, f: Callable[[P2PerformanceStageTaskOpenResultV2], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2PerformanceStageTaskOpenResultV2], None]):
+		self.f = f
 
-    def type(self) -> Type[P2PerformanceStageTaskOpenResultV2]:
-        return P2PerformanceStageTaskOpenResultV2
+	def type(self) -> Type[P2PerformanceStageTaskOpenResultV2]:
+		return P2PerformanceStageTaskOpenResultV2
 
-    def do(self, data: P2PerformanceStageTaskOpenResultV2) -> None:
-        self.f(data)
+	def do(self, data: P2PerformanceStageTaskOpenResultV2) -> None:
+		self.f(data)
+

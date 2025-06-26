@@ -26,18 +26,15 @@ class Reviewee(object):
 class RevieweeBuilder(object):
     def __init__(self) -> None:
         self._reviewee = Reviewee()
-
     def reviewee_user_id(self, reviewee_user_id: User) -> "RevieweeBuilder":
         self._reviewee.reviewee_user_id = reviewee_user_id
         return self
-
     def activity_ids(self, activity_ids: List[str]) -> "RevieweeBuilder":
         self._reviewee.activity_ids = activity_ids
         return self
-
     def reviewprofile_url(self, reviewprofile_url: str) -> "RevieweeBuilder":
         self._reviewee.reviewprofile_url = reviewprofile_url
         return self
-
+    
     def build(self) -> "Reviewee":
         return self._reviewee

@@ -23,14 +23,12 @@ class AppConfigScopeItem(object):
 class AppConfigScopeItemBuilder(object):
     def __init__(self) -> None:
         self._app_config_scope_item = AppConfigScopeItem()
-
     def scope_name(self, scope_name: str) -> "AppConfigScopeItemBuilder":
         self._app_config_scope_item.scope_name = scope_name
         return self
-
     def token_type(self, token_type: str) -> "AppConfigScopeItemBuilder":
         self._app_config_scope_item.token_type = token_type
         return self
-
+    
     def build(self) -> "AppConfigScopeItem":
         return self._app_config_scope_item

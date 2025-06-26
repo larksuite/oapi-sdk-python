@@ -43,47 +43,36 @@ class ProfileSettingDependent(object):
 class ProfileSettingDependentBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_dependent = ProfileSettingDependent()
-
     def legal_name(self, legal_name: str) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.legal_name = legal_name
         return self
-
     def date_of_birth(self, date_of_birth: str) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.date_of_birth = date_of_birth
         return self
-
     def relationship_with_dependent(self, relationship_with_dependent: str) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.relationship_with_dependent = relationship_with_dependent
         return self
-
     def gender(self, gender: str) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.gender = gender
         return self
-
     def phone(self, phone: ProfileSettingPhone) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.phone = phone
         return self
-
     def job(self, job: str) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.job = job
         return self
-
-    def child_birth_certificates(self, child_birth_certificates: List[
-        ProfileSettingFile]) -> "ProfileSettingDependentBuilder":
+    def child_birth_certificates(self, child_birth_certificates: List[ProfileSettingFile]) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.child_birth_certificates = child_birth_certificates
         return self
-
     def employer(self, employer: str) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.employer = employer
         return self
-
     def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.custom_fields = custom_fields
         return self
-
     def address(self, address: ProfileSettingAddress) -> "ProfileSettingDependentBuilder":
         self._profile_setting_dependent.address = address
         return self
-
+    
     def build(self) -> "ProfileSettingDependent":
         return self._profile_setting_dependent

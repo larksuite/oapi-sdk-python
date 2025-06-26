@@ -23,14 +23,12 @@ class Url(object):
 class UrlBuilder(object):
     def __init__(self) -> None:
         self._url = Url()
-
     def text(self, text: str) -> "UrlBuilder":
         self._url.text = text
         return self
-
     def link(self, link: str) -> "UrlBuilder":
         self._url.link = link
         return self
-
+    
     def build(self) -> "Url":
         return self._url

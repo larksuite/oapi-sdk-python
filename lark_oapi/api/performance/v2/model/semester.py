@@ -36,38 +36,30 @@ class Semester(object):
 class SemesterBuilder(object):
     def __init__(self) -> None:
         self._semester = Semester()
-
     def id(self, id: str) -> "SemesterBuilder":
         self._semester.id = id
         return self
-
     def name(self, name: I18n) -> "SemesterBuilder":
         self._semester.name = name
         return self
-
     def type(self, type: str) -> "SemesterBuilder":
         self._semester.type = type
         return self
-
     def type_group(self, type_group: str) -> "SemesterBuilder":
         self._semester.type_group = type_group
         return self
-
     def year(self, year: int) -> "SemesterBuilder":
         self._semester.year = year
         return self
-
     def start_time(self, start_time: str) -> "SemesterBuilder":
         self._semester.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "SemesterBuilder":
         self._semester.end_time = end_time
         return self
-
     def create_time(self, create_time: str) -> "SemesterBuilder":
         self._semester.create_time = create_time
         return self
-
+    
     def build(self) -> "Semester":
         return self._semester

@@ -25,18 +25,15 @@ class KnowledgeSourceWikiReject(object):
 class KnowledgeSourceWikiRejectBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_wiki_reject = KnowledgeSourceWikiReject()
-
     def wiki_tokens(self, wiki_tokens: List[str]) -> "KnowledgeSourceWikiRejectBuilder":
         self._knowledge_source_wiki_reject.wiki_tokens = wiki_tokens
         return self
-
     def node_tokens(self, node_tokens: List[str]) -> "KnowledgeSourceWikiRejectBuilder":
         self._knowledge_source_wiki_reject.node_tokens = node_tokens
         return self
-
     def space_ids(self, space_ids: List[int]) -> "KnowledgeSourceWikiRejectBuilder":
         self._knowledge_source_wiki_reject.space_ids = space_ids
         return self
-
+    
     def build(self) -> "KnowledgeSourceWikiReject":
         return self._knowledge_source_wiki_reject

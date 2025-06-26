@@ -29,26 +29,21 @@ class FileRiskDetectionRecord(object):
 class FileRiskDetectionRecordBuilder(object):
     def __init__(self) -> None:
         self._file_risk_detection_record = FileRiskDetectionRecord()
-
     def record_id(self, record_id: int) -> "FileRiskDetectionRecordBuilder":
         self._file_risk_detection_record.record_id = record_id
         return self
-
     def file_url(self, file_url: str) -> "FileRiskDetectionRecordBuilder":
         self._file_risk_detection_record.file_url = file_url
         return self
-
     def file_url_expire_time(self, file_url_expire_time: int) -> "FileRiskDetectionRecordBuilder":
         self._file_risk_detection_record.file_url_expire_time = file_url_expire_time
         return self
-
     def file_size(self, file_size: int) -> "FileRiskDetectionRecordBuilder":
         self._file_risk_detection_record.file_size = file_size
         return self
-
     def trigger_reason(self, trigger_reason: int) -> "FileRiskDetectionRecordBuilder":
         self._file_risk_detection_record.trigger_reason = trigger_reason
         return self
-
+    
     def build(self) -> "FileRiskDetectionRecord":
         return self._file_risk_detection_record

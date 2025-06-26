@@ -23,14 +23,12 @@ class SubscribeDepartment(object):
 class SubscribeDepartmentBuilder(object):
     def __init__(self) -> None:
         self._subscribe_department = SubscribeDepartment()
-
     def department_id(self, department_id: int) -> "SubscribeDepartmentBuilder":
         self._subscribe_department.department_id = department_id
         return self
-
     def department_name(self, department_name: str) -> "SubscribeDepartmentBuilder":
         self._subscribe_department.department_name = department_name
         return self
-
+    
     def build(self) -> "SubscribeDepartment":
         return self._subscribe_department

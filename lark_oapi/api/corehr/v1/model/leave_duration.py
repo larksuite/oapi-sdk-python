@@ -25,18 +25,15 @@ class LeaveDuration(object):
 class LeaveDurationBuilder(object):
     def __init__(self) -> None:
         self._leave_duration = LeaveDuration()
-
     def duration(self, duration: str) -> "LeaveDurationBuilder":
         self._leave_duration.duration = duration
         return self
-
     def unit(self, unit: str) -> "LeaveDurationBuilder":
         self._leave_duration.unit = unit
         return self
-
     def duration_per_day(self, duration_per_day: str) -> "LeaveDurationBuilder":
         self._leave_duration.duration_per_day = duration_per_day
         return self
-
+    
     def build(self) -> "LeaveDuration":
         return self._leave_duration

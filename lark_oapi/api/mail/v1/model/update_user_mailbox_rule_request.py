@@ -26,17 +26,17 @@ class UpdateUserMailboxRuleRequestBuilder(object):
         update_user_mailbox_rule_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/rules/:rule_id"
         update_user_mailbox_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._update_user_mailbox_rule_request: UpdateUserMailboxRuleRequest = update_user_mailbox_rule_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "UpdateUserMailboxRuleRequestBuilder":
         self._update_user_mailbox_rule_request.user_mailbox_id = user_mailbox_id
         self._update_user_mailbox_rule_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def rule_id(self, rule_id: int) -> "UpdateUserMailboxRuleRequestBuilder":
         self._update_user_mailbox_rule_request.rule_id = rule_id
         self._update_user_mailbox_rule_request.paths["rule_id"] = str(rule_id)
         return self
-
+    
     def request_body(self, request_body: Rule) -> "UpdateUserMailboxRuleRequestBuilder":
         self._update_user_mailbox_rule_request.request_body = request_body
         self._update_user_mailbox_rule_request.body = request_body

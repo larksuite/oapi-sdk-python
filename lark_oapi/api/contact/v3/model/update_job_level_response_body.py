@@ -22,10 +22,9 @@ class UpdateJobLevelResponseBody(object):
 class UpdateJobLevelResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_job_level_response_body = UpdateJobLevelResponseBody()
-
     def job_level(self, job_level: JobLevel) -> "UpdateJobLevelResponseBodyBuilder":
         self._update_job_level_response_body.job_level = job_level
         return self
-
+    
     def build(self) -> "UpdateJobLevelResponseBody":
         return self._update_job_level_response_body

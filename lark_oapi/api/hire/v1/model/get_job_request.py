@@ -27,31 +27,32 @@ class GetJobRequestBuilder(object):
         get_job_request.uri = "/open-apis/hire/v1/jobs/:job_id"
         get_job_request.token_types = {AccessTokenType.TENANT}
         self._get_job_request: GetJobRequest = get_job_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetJobRequestBuilder":
         self._get_job_request.user_id_type = user_id_type
         self._get_job_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def department_id_type(self, department_id_type: str) -> "GetJobRequestBuilder":
         self._get_job_request.department_id_type = department_id_type
         self._get_job_request.add_query("department_id_type", department_id_type)
         return self
-
+    
     def job_level_id_type(self, job_level_id_type: str) -> "GetJobRequestBuilder":
         self._get_job_request.job_level_id_type = job_level_id_type
         self._get_job_request.add_query("job_level_id_type", job_level_id_type)
         return self
-
+    
     def job_family_id_type(self, job_family_id_type: str) -> "GetJobRequestBuilder":
         self._get_job_request.job_family_id_type = job_family_id_type
         self._get_job_request.add_query("job_family_id_type", job_family_id_type)
         return self
-
+    
     def job_id(self, job_id: str) -> "GetJobRequestBuilder":
         self._get_job_request.job_id = job_id
         self._get_job_request.paths["job_id"] = str(job_id)
         return self
+    
 
     def build(self) -> GetJobRequest:
         return self._get_job_request

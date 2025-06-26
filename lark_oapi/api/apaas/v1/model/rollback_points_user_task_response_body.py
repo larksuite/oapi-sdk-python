@@ -22,10 +22,9 @@ class RollbackPointsUserTaskResponseBody(object):
 class RollbackPointsUserTaskResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._rollback_points_user_task_response_body = RollbackPointsUserTaskResponseBody()
-
     def tasks(self, tasks: List[AllowedRollbaclkTaskItemType]) -> "RollbackPointsUserTaskResponseBodyBuilder":
         self._rollback_points_user_task_response_body.tasks = tasks
         return self
-
+    
     def build(self) -> "RollbackPointsUserTaskResponseBody":
         return self._rollback_points_user_task_response_body

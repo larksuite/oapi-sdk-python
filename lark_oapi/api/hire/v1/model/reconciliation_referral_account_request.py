@@ -24,9 +24,8 @@ class ReconciliationReferralAccountRequestBuilder(object):
         reconciliation_referral_account_request.uri = "/open-apis/hire/v1/referral_account/reconciliation"
         reconciliation_referral_account_request.token_types = {AccessTokenType.TENANT}
         self._reconciliation_referral_account_request: ReconciliationReferralAccountRequest = reconciliation_referral_account_request
-
-    def request_body(self,
-                     request_body: ReconciliationReferralAccountRequestBody) -> "ReconciliationReferralAccountRequestBuilder":
+    
+    def request_body(self, request_body: ReconciliationReferralAccountRequestBody) -> "ReconciliationReferralAccountRequestBuilder":
         self._reconciliation_referral_account_request.request_body = request_body
         self._reconciliation_referral_account_request.body = request_body
         return self

@@ -34,34 +34,27 @@ class ApplicationEventOwner(object):
 class ApplicationEventOwnerBuilder(object):
     def __init__(self) -> None:
         self._application_event_owner = ApplicationEventOwner()
-
     def type(self, type: int) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.type = type
         return self
-
     def name(self, name: str) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.name = name
         return self
-
     def help_desk(self, help_desk: str) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.help_desk = help_desk
         return self
-
     def email(self, email: str) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.email = email
         return self
-
     def phone(self, phone: str) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.phone = phone
         return self
-
     def owner_id(self, owner_id: UserId) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.owner_id = owner_id
         return self
-
     def customer_service_account(self, customer_service_account: str) -> "ApplicationEventOwnerBuilder":
         self._application_event_owner.customer_service_account = customer_service_account
         return self
-
+    
     def build(self) -> "ApplicationEventOwner":
         return self._application_event_owner

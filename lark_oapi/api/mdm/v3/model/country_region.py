@@ -73,102 +73,78 @@ class CountryRegion(object):
 class CountryRegionBuilder(object):
     def __init__(self) -> None:
         self._country_region = CountryRegion()
-
     def id(self, id: str) -> "CountryRegionBuilder":
         self._country_region.id = id
         return self
-
     def update_by(self, update_by: str) -> "CountryRegionBuilder":
         self._country_region.update_by = update_by
         return self
-
     def create_by(self, create_by: str) -> "CountryRegionBuilder":
         self._country_region.create_by = create_by
         return self
-
     def update_time(self, update_time: str) -> "CountryRegionBuilder":
         self._country_region.update_time = update_time
         return self
-
     def create_time(self, create_time: str) -> "CountryRegionBuilder":
         self._country_region.create_time = create_time
         return self
-
     def alpha_3_code(self, alpha_3_code: str) -> "CountryRegionBuilder":
         self._country_region.alpha_3_code = alpha_3_code
         return self
-
     def alpha_2_code(self, alpha_2_code: str) -> "CountryRegionBuilder":
         self._country_region.alpha_2_code = alpha_2_code
         return self
-
     def numeric_code(self, numeric_code: str) -> "CountryRegionBuilder":
         self._country_region.numeric_code = numeric_code
         return self
-
     def name(self, name: I18nString) -> "CountryRegionBuilder":
         self._country_region.name = name
         return self
-
     def local_script(self, local_script: str) -> "CountryRegionBuilder":
         self._country_region.local_script = local_script
         return self
-
     def western_script(self, western_script: str) -> "CountryRegionBuilder":
         self._country_region.western_script = western_script
         return self
-
     def mdm_code(self, mdm_code: str) -> "CountryRegionBuilder":
         self._country_region.mdm_code = mdm_code
         return self
-
     def full_name(self, full_name: I18nString) -> "CountryRegionBuilder":
         self._country_region.full_name = full_name
         return self
-
     def global_code(self, global_code: str) -> "CountryRegionBuilder":
         self._country_region.global_code = global_code
         return self
-
     def time_zone(self, time_zone: List[str]) -> "CountryRegionBuilder":
         self._country_region.time_zone = time_zone
         return self
-
     def overseas(self, overseas: str) -> "CountryRegionBuilder":
         self._country_region.overseas = overseas
         return self
-
     def level(self, level: str) -> "CountryRegionBuilder":
         self._country_region.level = level
         return self
-
     def remark(self, remark: str) -> "CountryRegionBuilder":
         self._country_region.remark = remark
         return self
-
     def update_reason(self, update_reason: str) -> "CountryRegionBuilder":
         self._country_region.update_reason = update_reason
         return self
-
     def status(self, status: str) -> "CountryRegionBuilder":
         self._country_region.status = status
         return self
-
     def continents(self, continents: Enum) -> "CountryRegionBuilder":
         self._country_region.continents = continents
         return self
-
     def md_local_script(self, md_local_script: Language) -> "CountryRegionBuilder":
         self._country_region.md_local_script = md_local_script
         return self
-
     def md_western_script(self, md_western_script: Language) -> "CountryRegionBuilder":
         self._country_region.md_western_script = md_western_script
         return self
-
     def md_time_zone(self, md_time_zone: List[TimeZone]) -> "CountryRegionBuilder":
         self._country_region.md_time_zone = md_time_zone
         return self
-
+    
     def build(self) -> "CountryRegion":
         return self._country_region

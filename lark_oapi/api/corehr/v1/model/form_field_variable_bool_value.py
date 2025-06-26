@@ -21,10 +21,9 @@ class FormFieldVariableBoolValue(object):
 class FormFieldVariableBoolValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_bool_value = FormFieldVariableBoolValue()
-
     def value(self, value: bool) -> "FormFieldVariableBoolValueBuilder":
         self._form_field_variable_bool_value.value = value
         return self
-
+    
     def build(self) -> "FormFieldVariableBoolValue":
         return self._form_field_variable_bool_value

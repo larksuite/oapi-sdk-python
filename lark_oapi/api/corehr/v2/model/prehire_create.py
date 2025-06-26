@@ -35,30 +35,24 @@ class PrehireCreate(object):
 class PrehireCreateBuilder(object):
     def __init__(self) -> None:
         self._prehire_create = PrehireCreate()
-
     def basic_info(self, basic_info: BasicInfo) -> "PrehireCreateBuilder":
         self._prehire_create.basic_info = basic_info
         return self
-
     def offer_info(self, offer_info: OfferInfo) -> "PrehireCreateBuilder":
         self._prehire_create.offer_info = offer_info
         return self
-
     def education_info(self, education_info: List[EducationInfo]) -> "PrehireCreateBuilder":
         self._prehire_create.education_info = education_info
         return self
-
     def work_experience(self, work_experience: List[WorkExperience]) -> "PrehireCreateBuilder":
         self._prehire_create.work_experience = work_experience
         return self
-
     def ats_application_id(self, ats_application_id: str) -> "PrehireCreateBuilder":
         self._prehire_create.ats_application_id = ats_application_id
         return self
-
     def out_biz_id(self, out_biz_id: str) -> "PrehireCreateBuilder":
         self._prehire_create.out_biz_id = out_biz_id
         return self
-
+    
     def build(self) -> "PrehireCreate":
         return self._prehire_create

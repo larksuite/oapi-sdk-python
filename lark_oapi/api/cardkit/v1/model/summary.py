@@ -21,10 +21,9 @@ class Summary(object):
 class SummaryBuilder(object):
     def __init__(self) -> None:
         self._summary = Summary()
-
     def content(self, content: str) -> "SummaryBuilder":
         self._summary.content = content
         return self
-
+    
     def build(self) -> "Summary":
         return self._summary

@@ -22,10 +22,9 @@ class UpdateExternalInterviewResponseBody(object):
 class UpdateExternalInterviewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_external_interview_response_body = UpdateExternalInterviewResponseBody()
-
     def external_interview(self, external_interview: ExternalInterview) -> "UpdateExternalInterviewResponseBodyBuilder":
         self._update_external_interview_response_body.external_interview = external_interview
         return self
-
+    
     def build(self) -> "UpdateExternalInterviewResponseBody":
         return self._update_external_interview_response_body

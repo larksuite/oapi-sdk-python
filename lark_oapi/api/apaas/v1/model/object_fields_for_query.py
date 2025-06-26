@@ -31,26 +31,21 @@ class ObjectFieldsForQuery(object):
 class ObjectFieldsForQueryBuilder(object):
     def __init__(self) -> None:
         self._object_fields_for_query = ObjectFieldsForQuery()
-
     def api_name(self, api_name: str) -> "ObjectFieldsForQueryBuilder":
         self._object_fields_for_query.api_name = api_name
         return self
-
     def label(self, label: Label) -> "ObjectFieldsForQueryBuilder":
         self._object_fields_for_query.label = label
         return self
-
     def type(self, type: ObjectFieldTypeForQuery) -> "ObjectFieldsForQueryBuilder":
         self._object_fields_for_query.type = type
         return self
-
     def created_at(self, created_at: int) -> "ObjectFieldsForQueryBuilder":
         self._object_fields_for_query.created_at = created_at
         return self
-
     def updated_at(self, updated_at: int) -> "ObjectFieldsForQueryBuilder":
         self._object_fields_for_query.updated_at = updated_at
         return self
-
+    
     def build(self) -> "ObjectFieldsForQuery":
         return self._object_fields_for_query

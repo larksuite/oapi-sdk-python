@@ -24,7 +24,7 @@ class IdConvertCardRequestBuilder(object):
         id_convert_card_request.uri = "/open-apis/cardkit/v1/cards/id_convert"
         id_convert_card_request.token_types = {AccessTokenType.TENANT}
         self._id_convert_card_request: IdConvertCardRequest = id_convert_card_request
-
+    
     def request_body(self, request_body: IdConvertCardRequestBody) -> "IdConvertCardRequestBuilder":
         self._id_convert_card_request.request_body = request_body
         self._id_convert_card_request.body = request_body

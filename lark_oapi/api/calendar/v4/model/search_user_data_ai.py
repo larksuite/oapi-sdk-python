@@ -24,14 +24,12 @@ class SearchUserDataAi(object):
 class SearchUserDataAiBuilder(object):
     def __init__(self) -> None:
         self._search_user_data_ai = SearchUserDataAi()
-
     def query_keyword(self, query_keyword: str) -> "SearchUserDataAiBuilder":
         self._search_user_data_ai.query_keyword = query_keyword
         return self
-
     def user_info(self, user_info: UserMeta) -> "SearchUserDataAiBuilder":
         self._search_user_data_ai.user_info = user_info
         return self
-
+    
     def build(self) -> "SearchUserDataAi":
         return self._search_user_data_ai

@@ -21,10 +21,9 @@ class QueryUserRequestBody(object):
 class QueryUserRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_request_body = QueryUserRequestBody()
-
     def email_list(self, email_list: List[str]) -> "QueryUserRequestBodyBuilder":
         self._query_user_request_body.email_list = email_list
         return self
-
+    
     def build(self) -> "QueryUserRequestBody":
         return self._query_user_request_body

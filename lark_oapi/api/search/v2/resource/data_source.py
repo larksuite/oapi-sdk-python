@@ -25,8 +25,7 @@ class DataSource(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateDataSourceRequest,
-               option: Optional[RequestOption] = None) -> CreateDataSourceResponse:
+    def create(self, request: CreateDataSourceRequest, option: Optional[RequestOption] = None) -> CreateDataSourceResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,32 +38,33 @@ class DataSource(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDataSourceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateDataSourceRequest,
-                      option: Optional[RequestOption] = None) -> CreateDataSourceResponse:
+    async def acreate(self, request: CreateDataSourceRequest, option: Optional[RequestOption] = None) -> CreateDataSourceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDataSourceResponse)
         response.raw = resp
 
         return response
-
-    def delete(self, request: DeleteDataSourceRequest,
-               option: Optional[RequestOption] = None) -> DeleteDataSourceResponse:
+        
+    def delete(self, request: DeleteDataSourceRequest, option: Optional[RequestOption] = None) -> DeleteDataSourceResponse:
         if option is None:
             option = RequestOption()
 
@@ -77,30 +77,32 @@ class DataSource(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDataSourceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteDataSourceRequest,
-                      option: Optional[RequestOption] = None) -> DeleteDataSourceResponse:
+    async def adelete(self, request: DeleteDataSourceRequest, option: Optional[RequestOption] = None) -> DeleteDataSourceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteDataSourceResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetDataSourceRequest, option: Optional[RequestOption] = None) -> GetDataSourceResponse:
         if option is None:
             option = RequestOption()
@@ -114,30 +116,32 @@ class DataSource(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDataSourceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetDataSourceRequest,
-                   option: Optional[RequestOption] = None) -> GetDataSourceResponse:
+    async def aget(self, request: GetDataSourceRequest, option: Optional[RequestOption] = None) -> GetDataSourceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDataSourceResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListDataSourceRequest, option: Optional[RequestOption] = None) -> ListDataSourceResponse:
         if option is None:
             option = RequestOption()
@@ -151,30 +155,32 @@ class DataSource(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDataSourceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListDataSourceRequest,
-                    option: Optional[RequestOption] = None) -> ListDataSourceResponse:
+    async def alist(self, request: ListDataSourceRequest, option: Optional[RequestOption] = None) -> ListDataSourceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), ListDataSourceResponse)
         response.raw = resp
 
         return response
-
+        
     def patch(self, request: PatchDataSourceRequest, option: Optional[RequestOption] = None) -> PatchDataSourceResponse:
         if option is None:
             option = RequestOption()
@@ -188,26 +194,30 @@ class DataSource(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDataSourceResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchDataSourceRequest,
-                     option: Optional[RequestOption] = None) -> PatchDataSourceResponse:
+    async def apatch(self, request: PatchDataSourceRequest, option: Optional[RequestOption] = None) -> PatchDataSourceResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchDataSourceResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchDataSourceResponse)
         response.raw = resp
 
         return response
+        
+    

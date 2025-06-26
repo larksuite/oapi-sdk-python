@@ -21,10 +21,9 @@ class CreateAttachmentResponseBody(object):
 class CreateAttachmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_attachment_response_body = CreateAttachmentResponseBody()
-
     def id(self, id: str) -> "CreateAttachmentResponseBodyBuilder":
         self._create_attachment_response_body.id = id
         return self
-
+    
     def build(self) -> "CreateAttachmentResponseBody":
         return self._create_attachment_response_body

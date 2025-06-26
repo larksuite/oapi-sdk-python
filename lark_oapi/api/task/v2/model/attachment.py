@@ -39,42 +39,33 @@ class Attachment(object):
 class AttachmentBuilder(object):
     def __init__(self) -> None:
         self._attachment = Attachment()
-
     def guid(self, guid: str) -> "AttachmentBuilder":
         self._attachment.guid = guid
         return self
-
     def file_token(self, file_token: str) -> "AttachmentBuilder":
         self._attachment.file_token = file_token
         return self
-
     def name(self, name: str) -> "AttachmentBuilder":
         self._attachment.name = name
         return self
-
     def size(self, size: int) -> "AttachmentBuilder":
         self._attachment.size = size
         return self
-
     def resource(self, resource: Resource) -> "AttachmentBuilder":
         self._attachment.resource = resource
         return self
-
     def uploader(self, uploader: Member) -> "AttachmentBuilder":
         self._attachment.uploader = uploader
         return self
-
     def is_cover(self, is_cover: bool) -> "AttachmentBuilder":
         self._attachment.is_cover = is_cover
         return self
-
     def uploaded_at(self, uploaded_at: int) -> "AttachmentBuilder":
         self._attachment.uploaded_at = uploaded_at
         return self
-
     def url(self, url: str) -> "AttachmentBuilder":
         self._attachment.url = url
         return self
-
+    
     def build(self) -> "Attachment":
         return self._attachment

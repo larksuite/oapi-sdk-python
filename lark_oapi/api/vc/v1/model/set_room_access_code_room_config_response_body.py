@@ -21,10 +21,9 @@ class SetRoomAccessCodeRoomConfigResponseBody(object):
 class SetRoomAccessCodeRoomConfigResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._set_room_access_code_room_config_response_body = SetRoomAccessCodeRoomConfigResponseBody()
-
     def access_code(self, access_code: str) -> "SetRoomAccessCodeRoomConfigResponseBodyBuilder":
         self._set_room_access_code_room_config_response_body.access_code = access_code
         return self
-
+    
     def build(self) -> "SetRoomAccessCodeRoomConfigResponseBody":
         return self._set_room_access_code_room_config_response_body

@@ -29,26 +29,21 @@ class CreateExchangeBindingResponseBody(object):
 class CreateExchangeBindingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_exchange_binding_response_body = CreateExchangeBindingResponseBody()
-
     def admin_account(self, admin_account: str) -> "CreateExchangeBindingResponseBodyBuilder":
         self._create_exchange_binding_response_body.admin_account = admin_account
         return self
-
     def exchange_account(self, exchange_account: str) -> "CreateExchangeBindingResponseBodyBuilder":
         self._create_exchange_binding_response_body.exchange_account = exchange_account
         return self
-
     def user_id(self, user_id: str) -> "CreateExchangeBindingResponseBodyBuilder":
         self._create_exchange_binding_response_body.user_id = user_id
         return self
-
     def status(self, status: str) -> "CreateExchangeBindingResponseBodyBuilder":
         self._create_exchange_binding_response_body.status = status
         return self
-
     def exchange_binding_id(self, exchange_binding_id: str) -> "CreateExchangeBindingResponseBodyBuilder":
         self._create_exchange_binding_response_body.exchange_binding_id = exchange_binding_id
         return self
-
+    
     def build(self) -> "CreateExchangeBindingResponseBody":
         return self._create_exchange_binding_response_body

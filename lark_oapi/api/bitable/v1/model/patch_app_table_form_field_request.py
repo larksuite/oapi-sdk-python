@@ -28,27 +28,27 @@ class PatchAppTableFormFieldRequestBuilder(object):
         patch_app_table_form_field_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields/:field_id"
         patch_app_table_form_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._patch_app_table_form_field_request: PatchAppTableFormFieldRequest = patch_app_table_form_field_request
-
+    
     def app_token(self, app_token: str) -> "PatchAppTableFormFieldRequestBuilder":
         self._patch_app_table_form_field_request.app_token = app_token
         self._patch_app_table_form_field_request.paths["app_token"] = str(app_token)
         return self
-
+    
     def table_id(self, table_id: str) -> "PatchAppTableFormFieldRequestBuilder":
         self._patch_app_table_form_field_request.table_id = table_id
         self._patch_app_table_form_field_request.paths["table_id"] = str(table_id)
         return self
-
+    
     def form_id(self, form_id: str) -> "PatchAppTableFormFieldRequestBuilder":
         self._patch_app_table_form_field_request.form_id = form_id
         self._patch_app_table_form_field_request.paths["form_id"] = str(form_id)
         return self
-
+    
     def field_id(self, field_id: str) -> "PatchAppTableFormFieldRequestBuilder":
         self._patch_app_table_form_field_request.field_id = field_id
         self._patch_app_table_form_field_request.paths["field_id"] = str(field_id)
         return self
-
+    
     def request_body(self, request_body: AppTableFormPatchedField) -> "PatchAppTableFormFieldRequestBuilder":
         self._patch_app_table_form_field_request.request_body = request_body
         self._patch_app_table_form_field_request.body = request_body

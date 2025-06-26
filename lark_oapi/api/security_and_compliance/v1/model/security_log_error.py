@@ -28,18 +28,15 @@ class SecurityLogError(object):
 class SecurityLogErrorBuilder(object):
     def __init__(self) -> None:
         self._security_log_error = SecurityLogError()
-
     def request(self, request: GwRequest) -> "SecurityLogErrorBuilder":
         self._security_log_error.request = request
         return self
-
     def response(self, response: GwResponse) -> "SecurityLogErrorBuilder":
         self._security_log_error.response = response
         return self
-
     def common(self, common: GwCommon) -> "SecurityLogErrorBuilder":
         self._security_log_error.common = common
         return self
-
+    
     def build(self) -> "SecurityLogError":
         return self._security_log_error

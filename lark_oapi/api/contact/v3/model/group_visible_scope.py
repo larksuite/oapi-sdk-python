@@ -27,22 +27,18 @@ class GroupVisibleScope(object):
 class GroupVisibleScopeBuilder(object):
     def __init__(self) -> None:
         self._group_visible_scope = GroupVisibleScope()
-
     def visible_scope_type(self, visible_scope_type: str) -> "GroupVisibleScopeBuilder":
         self._group_visible_scope.visible_scope_type = visible_scope_type
         return self
-
     def visible_users(self, visible_users: List[str]) -> "GroupVisibleScopeBuilder":
         self._group_visible_scope.visible_users = visible_users
         return self
-
     def visible_departments(self, visible_departments: List[str]) -> "GroupVisibleScopeBuilder":
         self._group_visible_scope.visible_departments = visible_departments
         return self
-
     def scene_types(self, scene_types: List[int]) -> "GroupVisibleScopeBuilder":
         self._group_visible_scope.scene_types = scene_types
         return self
-
+    
     def build(self) -> "GroupVisibleScope":
         return self._group_visible_scope

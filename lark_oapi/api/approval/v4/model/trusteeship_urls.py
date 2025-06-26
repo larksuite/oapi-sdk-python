@@ -29,26 +29,21 @@ class TrusteeshipUrls(object):
 class TrusteeshipUrlsBuilder(object):
     def __init__(self) -> None:
         self._trusteeship_urls = TrusteeshipUrls()
-
     def form_detail_url(self, form_detail_url: str) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.form_detail_url = form_detail_url
         return self
-
     def action_definition_url(self, action_definition_url: str) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.action_definition_url = action_definition_url
         return self
-
     def approval_node_url(self, approval_node_url: str) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.approval_node_url = approval_node_url
         return self
-
     def action_callback_url(self, action_callback_url: str) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.action_callback_url = action_callback_url
         return self
-
     def pull_business_data_url(self, pull_business_data_url: str) -> "TrusteeshipUrlsBuilder":
         self._trusteeship_urls.pull_business_data_url = pull_business_data_url
         return self
-
+    
     def build(self) -> "TrusteeshipUrls":
         return self._trusteeship_urls

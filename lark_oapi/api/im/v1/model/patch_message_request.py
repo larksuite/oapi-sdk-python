@@ -25,12 +25,12 @@ class PatchMessageRequestBuilder(object):
         patch_message_request.uri = "/open-apis/im/v1/messages/:message_id"
         patch_message_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._patch_message_request: PatchMessageRequest = patch_message_request
-
+    
     def message_id(self, message_id: str) -> "PatchMessageRequestBuilder":
         self._patch_message_request.message_id = message_id
         self._patch_message_request.paths["message_id"] = str(message_id)
         return self
-
+    
     def request_body(self, request_body: PatchMessageRequestBody) -> "PatchMessageRequestBuilder":
         self._patch_message_request.request_body = request_body
         self._patch_message_request.body = request_body

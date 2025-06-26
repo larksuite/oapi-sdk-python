@@ -40,30 +40,32 @@ class Section(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSectionResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateSectionRequest,
-                      option: Optional[RequestOption] = None) -> CreateSectionResponse:
+    async def acreate(self, request: CreateSectionRequest, option: Optional[RequestOption] = None) -> CreateSectionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateSectionResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeleteSectionRequest, option: Optional[RequestOption] = None) -> DeleteSectionResponse:
         if option is None:
             option = RequestOption()
@@ -77,30 +79,32 @@ class Section(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSectionResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteSectionRequest,
-                      option: Optional[RequestOption] = None) -> DeleteSectionResponse:
+    async def adelete(self, request: DeleteSectionRequest, option: Optional[RequestOption] = None) -> DeleteSectionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteSectionResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetSectionRequest, option: Optional[RequestOption] = None) -> GetSectionResponse:
         if option is None:
             option = RequestOption()
@@ -114,12 +118,13 @@ class Section(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSectionResponse)
         response.raw = resp
 
         return response
+        
 
     async def aget(self, request: GetSectionRequest, option: Optional[RequestOption] = None) -> GetSectionResponse:
         if option is None:
@@ -128,15 +133,17 @@ class Section(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), GetSectionResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListSectionRequest, option: Optional[RequestOption] = None) -> ListSectionResponse:
         if option is None:
             option = RequestOption()
@@ -150,12 +157,13 @@ class Section(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSectionResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListSectionRequest, option: Optional[RequestOption] = None) -> ListSectionResponse:
         if option is None:
@@ -164,15 +172,17 @@ class Section(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), ListSectionResponse)
         response.raw = resp
 
         return response
-
+        
     def patch(self, request: PatchSectionRequest, option: Optional[RequestOption] = None) -> PatchSectionResponse:
         if option is None:
             option = RequestOption()
@@ -186,30 +196,32 @@ class Section(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSectionResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchSectionRequest,
-                     option: Optional[RequestOption] = None) -> PatchSectionResponse:
+    async def apatch(self, request: PatchSectionRequest, option: Optional[RequestOption] = None) -> PatchSectionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchSectionResponse)
         response.raw = resp
 
         return response
-
+        
     def tasks(self, request: TasksSectionRequest, option: Optional[RequestOption] = None) -> TasksSectionResponse:
         if option is None:
             option = RequestOption()
@@ -223,26 +235,30 @@ class Section(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: TasksSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), TasksSectionResponse)
         response.raw = resp
 
         return response
+        
 
-    async def atasks(self, request: TasksSectionRequest,
-                     option: Optional[RequestOption] = None) -> TasksSectionResponse:
+    async def atasks(self, request: TasksSectionRequest, option: Optional[RequestOption] = None) -> TasksSectionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: TasksSectionResponse = JSON.unmarshal(str(resp.content, UTF_8), TasksSectionResponse)
         response.raw = resp
 
         return response
+        
+    

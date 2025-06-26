@@ -23,14 +23,12 @@ class ClientBadgeNum(object):
 class ClientBadgeNumBuilder(object):
     def __init__(self) -> None:
         self._client_badge_num = ClientBadgeNum()
-
     def web_app(self, web_app: int) -> "ClientBadgeNumBuilder":
         self._client_badge_num.web_app = web_app
         return self
-
     def gadget(self, gadget: int) -> "ClientBadgeNumBuilder":
         self._client_badge_num.gadget = gadget
         return self
-
+    
     def build(self) -> "ClientBadgeNum":
         return self._client_badge_num

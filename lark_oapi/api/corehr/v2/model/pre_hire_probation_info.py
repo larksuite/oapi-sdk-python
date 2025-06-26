@@ -25,18 +25,15 @@ class PreHireProbationInfo(object):
 class PreHireProbationInfoBuilder(object):
     def __init__(self) -> None:
         self._pre_hire_probation_info = PreHireProbationInfo()
-
     def probation_start_date(self, probation_start_date: str) -> "PreHireProbationInfoBuilder":
         self._pre_hire_probation_info.probation_start_date = probation_start_date
         return self
-
     def probation_end_date(self, probation_end_date: str) -> "PreHireProbationInfoBuilder":
         self._pre_hire_probation_info.probation_end_date = probation_end_date
         return self
-
     def probation_period(self, probation_period: int) -> "PreHireProbationInfoBuilder":
         self._pre_hire_probation_info.probation_period = probation_period
         return self
-
+    
     def build(self) -> "PreHireProbationInfo":
         return self._pre_hire_probation_info

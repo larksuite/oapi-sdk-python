@@ -32,30 +32,32 @@ class Visitor(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateVisitorResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateVisitorResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateVisitorRequest,
-                      option: Optional[RequestOption] = None) -> CreateVisitorResponse:
+    async def acreate(self, request: CreateVisitorRequest, option: Optional[RequestOption] = None) -> CreateVisitorResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateVisitorResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateVisitorResponse)
         response.raw = resp
 
         return response
-
+        
     def delete(self, request: DeleteVisitorRequest, option: Optional[RequestOption] = None) -> DeleteVisitorResponse:
         if option is None:
             option = RequestOption()
@@ -69,26 +71,30 @@ class Visitor(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteVisitorResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteVisitorResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteVisitorRequest,
-                      option: Optional[RequestOption] = None) -> DeleteVisitorResponse:
+    async def adelete(self, request: DeleteVisitorRequest, option: Optional[RequestOption] = None) -> DeleteVisitorResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteVisitorResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteVisitorResponse)
         response.raw = resp
 
         return response
+        
+    

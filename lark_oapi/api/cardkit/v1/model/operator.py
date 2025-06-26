@@ -27,22 +27,18 @@ class Operator(object):
 class OperatorBuilder(object):
     def __init__(self) -> None:
         self._operator = Operator()
-
     def tenant_key(self, tenant_key: str) -> "OperatorBuilder":
         self._operator.tenant_key = tenant_key
         return self
-
     def user_id(self, user_id: str) -> "OperatorBuilder":
         self._operator.user_id = user_id
         return self
-
     def open_id(self, open_id: str) -> "OperatorBuilder":
         self._operator.open_id = open_id
         return self
-
     def union_id(self, union_id: str) -> "OperatorBuilder":
         self._operator.union_id = union_id
         return self
-
+    
     def build(self) -> "Operator":
         return self._operator

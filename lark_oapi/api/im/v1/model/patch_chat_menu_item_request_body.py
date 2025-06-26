@@ -24,14 +24,12 @@ class PatchChatMenuItemRequestBody(object):
 class PatchChatMenuItemRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_chat_menu_item_request_body = PatchChatMenuItemRequestBody()
-
     def update_fields(self, update_fields: List[str]) -> "PatchChatMenuItemRequestBodyBuilder":
         self._patch_chat_menu_item_request_body.update_fields = update_fields
         return self
-
     def chat_menu_item(self, chat_menu_item: ChatMenuItem) -> "PatchChatMenuItemRequestBodyBuilder":
         self._patch_chat_menu_item_request_body.chat_menu_item = chat_menu_item
         return self
-
+    
     def build(self) -> "PatchChatMenuItemRequestBody":
         return self._patch_chat_menu_item_request_body

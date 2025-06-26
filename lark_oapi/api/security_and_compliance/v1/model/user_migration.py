@@ -29,26 +29,21 @@ class UserMigration(object):
 class UserMigrationBuilder(object):
     def __init__(self) -> None:
         self._user_migration = UserMigration()
-
     def user_id(self, user_id: int) -> "UserMigrationBuilder":
         self._user_migration.user_id = user_id
         return self
-
     def dest_geo(self, dest_geo: str) -> "UserMigrationBuilder":
         self._user_migration.dest_geo = dest_geo
         return self
-
     def task_id(self, task_id: str) -> "UserMigrationBuilder":
         self._user_migration.task_id = task_id
         return self
-
     def status(self, status: str) -> "UserMigrationBuilder":
         self._user_migration.status = status
         return self
-
     def progress(self, progress: int) -> "UserMigrationBuilder":
         self._user_migration.progress = progress
         return self
-
+    
     def build(self) -> "UserMigration":
         return self._user_migration

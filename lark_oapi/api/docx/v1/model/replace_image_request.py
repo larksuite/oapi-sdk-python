@@ -30,26 +30,21 @@ class ReplaceImageRequest(object):
 class ReplaceImageRequestBuilder(object):
     def __init__(self) -> None:
         self._replace_image_request = ReplaceImageRequest()
-
     def token(self, token: str) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.token = token
         return self
-
     def width(self, width: int) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.width = width
         return self
-
     def height(self, height: int) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.height = height
         return self
-
     def align(self, align: int) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.align = align
         return self
-
     def caption(self, caption: Caption) -> "ReplaceImageRequestBuilder":
         self._replace_image_request.caption = caption
         return self
-
+    
     def build(self) -> "ReplaceImageRequest":
         return self._replace_image_request

@@ -22,10 +22,9 @@ class GetMinuteResponseBody(object):
 class GetMinuteResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_minute_response_body = GetMinuteResponseBody()
-
     def minute(self, minute: Minute) -> "GetMinuteResponseBodyBuilder":
         self._get_minute_response_body.minute = minute
         return self
-
+    
     def build(self) -> "GetMinuteResponseBody":
         return self._get_minute_response_body

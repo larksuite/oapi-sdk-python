@@ -21,10 +21,9 @@ class RecognizeVatInvoiceRequestBody(object):
 class RecognizeVatInvoiceRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_vat_invoice_request_body = RecognizeVatInvoiceRequestBody()
-
     def file(self, file: IO[Any]) -> "RecognizeVatInvoiceRequestBodyBuilder":
         self._recognize_vat_invoice_request_body.file = file
         return self
-
+    
     def build(self) -> "RecognizeVatInvoiceRequestBody":
         return self._recognize_vat_invoice_request_body

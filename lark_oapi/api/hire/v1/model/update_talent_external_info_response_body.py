@@ -22,10 +22,9 @@ class UpdateTalentExternalInfoResponseBody(object):
 class UpdateTalentExternalInfoResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_talent_external_info_response_body = UpdateTalentExternalInfoResponseBody()
-
     def external_info(self, external_info: TalentExternalInfo) -> "UpdateTalentExternalInfoResponseBodyBuilder":
         self._update_talent_external_info_response_body.external_info = external_info
         return self
-
+    
     def build(self) -> "UpdateTalentExternalInfoResponseBody":
         return self._update_talent_external_info_response_body

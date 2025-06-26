@@ -28,22 +28,18 @@ class UserOkr(object):
 class UserOkrBuilder(object):
     def __init__(self) -> None:
         self._user_okr = UserOkr()
-
     def id(self, id: int) -> "UserOkrBuilder":
         self._user_okr.id = id
         return self
-
     def name(self, name: str) -> "UserOkrBuilder":
         self._user_okr.name = name
         return self
-
     def permission(self, permission: int) -> "UserOkrBuilder":
         self._user_okr.permission = permission
         return self
-
     def objective_list(self, objective_list: List[UserOkrObjective]) -> "UserOkrBuilder":
         self._user_okr.objective_list = objective_list
         return self
-
+    
     def build(self) -> "UserOkr":
         return self._user_okr

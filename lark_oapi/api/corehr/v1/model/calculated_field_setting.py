@@ -21,10 +21,9 @@ class CalculatedFieldSetting(object):
 class CalculatedFieldSettingBuilder(object):
     def __init__(self) -> None:
         self._calculated_field_setting = CalculatedFieldSetting()
-
     def type(self, type: int) -> "CalculatedFieldSettingBuilder":
         self._calculated_field_setting.type = type
         return self
-
+    
     def build(self) -> "CalculatedFieldSetting":
         return self._calculated_field_setting

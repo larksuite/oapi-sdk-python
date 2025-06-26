@@ -24,15 +24,12 @@ class UpdateVersionDefaultCostCenterRequestBody(object):
 class UpdateVersionDefaultCostCenterRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_version_default_cost_center_request_body = UpdateVersionDefaultCostCenterRequestBody()
-
     def employment_id(self, employment_id: str) -> "UpdateVersionDefaultCostCenterRequestBodyBuilder":
         self._update_version_default_cost_center_request_body.employment_id = employment_id
         return self
-
-    def default_cost_center(self,
-                            default_cost_center: EmploymentDefaultCostCenter) -> "UpdateVersionDefaultCostCenterRequestBodyBuilder":
+    def default_cost_center(self, default_cost_center: EmploymentDefaultCostCenter) -> "UpdateVersionDefaultCostCenterRequestBodyBuilder":
         self._update_version_default_cost_center_request_body.default_cost_center = default_cost_center
         return self
-
+    
     def build(self) -> "UpdateVersionDefaultCostCenterRequestBody":
         return self._update_version_default_cost_center_request_body

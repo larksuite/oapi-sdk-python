@@ -26,18 +26,15 @@ class MetricFieldInDetails(object):
 class MetricFieldInDetailsBuilder(object):
     def __init__(self) -> None:
         self._metric_field_in_details = MetricFieldInDetails()
-
     def field_id(self, field_id: int) -> "MetricFieldInDetailsBuilder":
         self._metric_field_in_details.field_id = field_id
         return self
-
     def field_value(self, field_value: str) -> "MetricFieldInDetailsBuilder":
         self._metric_field_in_details.field_value = field_value
         return self
-
     def field_value_person(self, field_value_person: User) -> "MetricFieldInDetailsBuilder":
         self._metric_field_in_details.field_value_person = field_value_person
         return self
-
+    
     def build(self) -> "MetricFieldInDetails":
         return self._metric_field_in_details

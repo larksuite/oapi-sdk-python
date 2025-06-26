@@ -32,30 +32,24 @@ class DepartmentChange(object):
 class DepartmentChangeBuilder(object):
     def __init__(self) -> None:
         self._department_change = DepartmentChange()
-
     def department_change_id(self, department_change_id: str) -> "DepartmentChangeBuilder":
         self._department_change.department_change_id = department_change_id
         return self
-
     def department_id(self, department_id: str) -> "DepartmentChangeBuilder":
         self._department_change.department_id = department_id
         return self
-
     def draft_department_id(self, draft_department_id: str) -> "DepartmentChangeBuilder":
         self._department_change.draft_department_id = draft_department_id
         return self
-
     def department_change_type(self, department_change_type: str) -> "DepartmentChangeBuilder":
         self._department_change.department_change_type = department_change_type
         return self
-
     def department_change_status(self, department_change_status: int) -> "DepartmentChangeBuilder":
         self._department_change.department_change_status = department_change_status
         return self
-
     def reorganization_info(self, reorganization_info: ReorganizationInfo) -> "DepartmentChangeBuilder":
         self._department_change.reorganization_info = reorganization_info
         return self
-
+    
     def build(self) -> "DepartmentChange":
         return self._department_change

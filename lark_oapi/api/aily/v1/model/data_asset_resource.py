@@ -25,18 +25,15 @@ class DataAssetResource(object):
 class DataAssetResourceBuilder(object):
     def __init__(self) -> None:
         self._data_asset_resource = DataAssetResource()
-
     def resource_id(self, resource_id: str) -> "DataAssetResourceBuilder":
         self._data_asset_resource.resource_id = resource_id
         return self
-
     def resouce_type(self, resouce_type: str) -> "DataAssetResourceBuilder":
         self._data_asset_resource.resouce_type = resouce_type
         return self
-
     def resource_type(self, resource_type: str) -> "DataAssetResourceBuilder":
         self._data_asset_resource.resource_type = resource_type
         return self
-
+    
     def build(self) -> "DataAssetResource":
         return self._data_asset_resource

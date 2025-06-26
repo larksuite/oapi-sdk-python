@@ -37,38 +37,30 @@ class OkrObjective(object):
 class OkrObjectiveBuilder(object):
     def __init__(self) -> None:
         self._okr_objective = OkrObjective()
-
     def objective_id(self, objective_id: int) -> "OkrObjectiveBuilder":
         self._okr_objective.objective_id = objective_id
         return self
-
     def confidential(self, confidential: bool) -> "OkrObjectiveBuilder":
         self._okr_objective.confidential = confidential
         return self
-
     def position(self, position: int) -> "OkrObjectiveBuilder":
         self._okr_objective.position = position
         return self
-
     def score(self, score: int) -> "OkrObjectiveBuilder":
         self._okr_objective.score = score
         return self
-
     def visible(self, visible: bool) -> "OkrObjectiveBuilder":
         self._okr_objective.visible = visible
         return self
-
     def weight(self, weight: float) -> "OkrObjectiveBuilder":
         self._okr_objective.weight = weight
         return self
-
     def progress_rate(self, progress_rate: OkrProgressRate) -> "OkrObjectiveBuilder":
         self._okr_objective.progress_rate = progress_rate
         return self
-
     def content(self, content: Text) -> "OkrObjectiveBuilder":
         self._okr_objective.content = content
         return self
-
+    
     def build(self) -> "OkrObjective":
         return self._okr_objective

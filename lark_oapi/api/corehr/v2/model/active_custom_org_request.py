@@ -24,7 +24,7 @@ class ActiveCustomOrgRequestBuilder(object):
         active_custom_org_request.uri = "/open-apis/corehr/v2/custom_orgs/active"
         active_custom_org_request.token_types = {AccessTokenType.TENANT}
         self._active_custom_org_request: ActiveCustomOrgRequest = active_custom_org_request
-
+    
     def request_body(self, request_body: ActiveCustomOrgRequestBody) -> "ActiveCustomOrgRequestBuilder":
         self._active_custom_org_request.request_body = request_body
         self._active_custom_org_request.body = request_body

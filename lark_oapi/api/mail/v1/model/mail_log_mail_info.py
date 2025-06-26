@@ -54,62 +54,48 @@ class MailLogMailInfo(object):
 class MailLogMailInfoBuilder(object):
     def __init__(self) -> None:
         self._mail_log_mail_info = MailLogMailInfo()
-
     def message_id(self, message_id: str) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.message_id = message_id
         return self
-
     def owner(self, owner: UserMailEntity) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.owner = owner
         return self
-
     def event_types(self, event_types: List[str]) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.event_types = event_types
         return self
-
     def smtp_message_id(self, smtp_message_id: str) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.smtp_message_id = smtp_message_id
         return self
-
     def date(self, date: int) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.date = date
         return self
-
     def subject(self, subject: str) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.subject = subject
         return self
-
     def header_from(self, header_from: MailAddress) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.header_from = header_from
         return self
-
     def to_recipients(self, to_recipients: List[MailAddress]) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.to_recipients = to_recipients
         return self
-
     def cc_recipients(self, cc_recipients: List[MailAddress]) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.cc_recipients = cc_recipients
         return self
-
     def bcc_recipients(self, bcc_recipients: List[MailAddress]) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.bcc_recipients = bcc_recipients
         return self
-
     def attachment_num(self, attachment_num: int) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.attachment_num = attachment_num
         return self
-
     def image_num(self, image_num: int) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.image_num = image_num
         return self
-
     def attachments(self, attachments: List[FileMetaInfo]) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.attachments = attachments
         return self
-
     def images(self, images: List[FileMetaInfo]) -> "MailLogMailInfoBuilder":
         self._mail_log_mail_info.images = images
         return self
-
+    
     def build(self) -> "MailLogMailInfo":
         return self._mail_log_mail_info

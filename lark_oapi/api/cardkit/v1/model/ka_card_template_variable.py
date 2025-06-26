@@ -27,22 +27,18 @@ class KaCardTemplateVariable(object):
 class KaCardTemplateVariableBuilder(object):
     def __init__(self) -> None:
         self._ka_card_template_variable = KaCardTemplateVariable()
-
     def variable_type(self, variable_type: str) -> "KaCardTemplateVariableBuilder":
         self._ka_card_template_variable.variable_type = variable_type
         return self
-
     def name(self, name: str) -> "KaCardTemplateVariableBuilder":
         self._ka_card_template_variable.name = name
         return self
-
     def description(self, description: str) -> "KaCardTemplateVariableBuilder":
         self._ka_card_template_variable.description = description
         return self
-
     def config(self, config: str) -> "KaCardTemplateVariableBuilder":
         self._ka_card_template_variable.config = config
         return self
-
+    
     def build(self) -> "KaCardTemplateVariable":
         return self._ka_card_template_variable

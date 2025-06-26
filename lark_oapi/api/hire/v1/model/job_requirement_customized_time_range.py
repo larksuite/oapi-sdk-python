@@ -23,14 +23,12 @@ class JobRequirementCustomizedTimeRange(object):
 class JobRequirementCustomizedTimeRangeBuilder(object):
     def __init__(self) -> None:
         self._job_requirement_customized_time_range = JobRequirementCustomizedTimeRange()
-
     def start_time(self, start_time: str) -> "JobRequirementCustomizedTimeRangeBuilder":
         self._job_requirement_customized_time_range.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "JobRequirementCustomizedTimeRangeBuilder":
         self._job_requirement_customized_time_range.end_time = end_time
         return self
-
+    
     def build(self) -> "JobRequirementCustomizedTimeRange":
         return self._job_requirement_customized_time_range

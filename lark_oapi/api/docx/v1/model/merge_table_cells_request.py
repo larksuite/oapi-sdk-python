@@ -27,22 +27,18 @@ class MergeTableCellsRequest(object):
 class MergeTableCellsRequestBuilder(object):
     def __init__(self) -> None:
         self._merge_table_cells_request = MergeTableCellsRequest()
-
     def row_start_index(self, row_start_index: int) -> "MergeTableCellsRequestBuilder":
         self._merge_table_cells_request.row_start_index = row_start_index
         return self
-
     def row_end_index(self, row_end_index: int) -> "MergeTableCellsRequestBuilder":
         self._merge_table_cells_request.row_end_index = row_end_index
         return self
-
     def column_start_index(self, column_start_index: int) -> "MergeTableCellsRequestBuilder":
         self._merge_table_cells_request.column_start_index = column_start_index
         return self
-
     def column_end_index(self, column_end_index: int) -> "MergeTableCellsRequestBuilder":
         self._merge_table_cells_request.column_end_index = column_end_index
         return self
-
+    
     def build(self) -> "MergeTableCellsRequest":
         return self._merge_table_cells_request

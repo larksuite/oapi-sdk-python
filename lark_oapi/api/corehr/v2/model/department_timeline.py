@@ -45,50 +45,39 @@ class DepartmentTimeline(object):
 class DepartmentTimelineBuilder(object):
     def __init__(self) -> None:
         self._department_timeline = DepartmentTimeline()
-
     def id(self, id: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.id = id
         return self
-
     def version_id(self, version_id: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.version_id = version_id
         return self
-
     def names(self, names: List[I18n]) -> "DepartmentTimelineBuilder":
         self._department_timeline.names = names
         return self
-
     def sub_type(self, sub_type: Enum) -> "DepartmentTimelineBuilder":
         self._department_timeline.sub_type = sub_type
         return self
-
     def parent_department_id(self, parent_department_id: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.parent_department_id = parent_department_id
         return self
-
     def manager(self, manager: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.manager = manager
         return self
-
     def code(self, code: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.code = code
         return self
-
     def effective_date(self, effective_date: str) -> "DepartmentTimelineBuilder":
         self._department_timeline.effective_date = effective_date
         return self
-
     def active(self, active: bool) -> "DepartmentTimelineBuilder":
         self._department_timeline.active = active
         return self
-
     def descriptions(self, descriptions: List[I18n]) -> "DepartmentTimelineBuilder":
         self._department_timeline.descriptions = descriptions
         return self
-
     def custom_fields(self, custom_fields: List[CustomFieldData]) -> "DepartmentTimelineBuilder":
         self._department_timeline.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "DepartmentTimeline":
         return self._department_timeline

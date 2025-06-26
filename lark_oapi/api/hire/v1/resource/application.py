@@ -35,8 +35,7 @@ class Application(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def cancel_onboard(self, request: CancelOnboardApplicationRequest,
-                       option: Optional[RequestOption] = None) -> CancelOnboardApplicationResponse:
+    def cancel_onboard(self, request: CancelOnboardApplicationRequest, option: Optional[RequestOption] = None) -> CancelOnboardApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -49,34 +48,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: CancelOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CancelOnboardApplicationResponse)
+        response: CancelOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelOnboardApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acancel_onboard(self, request: CancelOnboardApplicationRequest,
-                              option: Optional[RequestOption] = None) -> CancelOnboardApplicationResponse:
+    async def acancel_onboard(self, request: CancelOnboardApplicationRequest, option: Optional[RequestOption] = None) -> CancelOnboardApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: CancelOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    CancelOnboardApplicationResponse)
+        response: CancelOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), CancelOnboardApplicationResponse)
         response.raw = resp
 
         return response
-
-    def create(self, request: CreateApplicationRequest,
-               option: Optional[RequestOption] = None) -> CreateApplicationResponse:
+        
+    def create(self, request: CreateApplicationRequest, option: Optional[RequestOption] = None) -> CreateApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -89,30 +87,32 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateApplicationRequest,
-                      option: Optional[RequestOption] = None) -> CreateApplicationResponse:
+    async def acreate(self, request: CreateApplicationRequest, option: Optional[RequestOption] = None) -> CreateApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateApplicationResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetApplicationRequest, option: Optional[RequestOption] = None) -> GetApplicationResponse:
         if option is None:
             option = RequestOption()
@@ -126,32 +126,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetApplicationRequest,
-                   option: Optional[RequestOption] = None) -> GetApplicationResponse:
+    async def aget(self, request: GetApplicationRequest, option: Optional[RequestOption] = None) -> GetApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
         response.raw = resp
 
         return response
-
-    def get_detail(self, request: GetDetailApplicationRequest,
-                   option: Optional[RequestOption] = None) -> GetDetailApplicationResponse:
+        
+    def get_detail(self, request: GetDetailApplicationRequest, option: Optional[RequestOption] = None) -> GetDetailApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -164,30 +165,32 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetDetailApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDetailApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget_detail(self, request: GetDetailApplicationRequest,
-                          option: Optional[RequestOption] = None) -> GetDetailApplicationResponse:
+    async def aget_detail(self, request: GetDetailApplicationRequest, option: Optional[RequestOption] = None) -> GetDetailApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetDetailApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetDetailApplicationResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
         if option is None:
             option = RequestOption()
@@ -201,32 +204,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListApplicationRequest,
-                    option: Optional[RequestOption] = None) -> ListApplicationResponse:
+    async def alist(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
         response.raw = resp
 
         return response
-
-    def offer(self, request: OfferApplicationRequest,
-              option: Optional[RequestOption] = None) -> OfferApplicationResponse:
+        
+    def offer(self, request: OfferApplicationRequest, option: Optional[RequestOption] = None) -> OfferApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -239,32 +243,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: OfferApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), OfferApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aoffer(self, request: OfferApplicationRequest,
-                     option: Optional[RequestOption] = None) -> OfferApplicationResponse:
+    async def aoffer(self, request: OfferApplicationRequest, option: Optional[RequestOption] = None) -> OfferApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: OfferApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), OfferApplicationResponse)
         response.raw = resp
 
         return response
-
-    def recover(self, request: RecoverApplicationRequest,
-                option: Optional[RequestOption] = None) -> RecoverApplicationResponse:
+        
+    def recover(self, request: RecoverApplicationRequest, option: Optional[RequestOption] = None) -> RecoverApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -277,32 +282,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: RecoverApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), RecoverApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def arecover(self, request: RecoverApplicationRequest,
-                       option: Optional[RequestOption] = None) -> RecoverApplicationResponse:
+    async def arecover(self, request: RecoverApplicationRequest, option: Optional[RequestOption] = None) -> RecoverApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: RecoverApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), RecoverApplicationResponse)
         response.raw = resp
 
         return response
-
-    def terminate(self, request: TerminateApplicationRequest,
-                  option: Optional[RequestOption] = None) -> TerminateApplicationResponse:
+        
+    def terminate(self, request: TerminateApplicationRequest, option: Optional[RequestOption] = None) -> TerminateApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -315,32 +321,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: TerminateApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), TerminateApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aterminate(self, request: TerminateApplicationRequest,
-                         option: Optional[RequestOption] = None) -> TerminateApplicationResponse:
+    async def aterminate(self, request: TerminateApplicationRequest, option: Optional[RequestOption] = None) -> TerminateApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: TerminateApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), TerminateApplicationResponse)
         response.raw = resp
 
         return response
-
-    def transfer_onboard(self, request: TransferOnboardApplicationRequest,
-                         option: Optional[RequestOption] = None) -> TransferOnboardApplicationResponse:
+        
+    def transfer_onboard(self, request: TransferOnboardApplicationRequest, option: Optional[RequestOption] = None) -> TransferOnboardApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -353,34 +360,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: TransferOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      TransferOnboardApplicationResponse)
+        response: TransferOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferOnboardApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def atransfer_onboard(self, request: TransferOnboardApplicationRequest,
-                                option: Optional[RequestOption] = None) -> TransferOnboardApplicationResponse:
+    async def atransfer_onboard(self, request: TransferOnboardApplicationRequest, option: Optional[RequestOption] = None) -> TransferOnboardApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: TransferOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      TransferOnboardApplicationResponse)
+        response: TransferOnboardApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferOnboardApplicationResponse)
         response.raw = resp
 
         return response
-
-    def transfer_stage(self, request: TransferStageApplicationRequest,
-                       option: Optional[RequestOption] = None) -> TransferStageApplicationResponse:
+        
+    def transfer_stage(self, request: TransferStageApplicationRequest, option: Optional[RequestOption] = None) -> TransferStageApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -393,28 +399,30 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: TransferStageApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    TransferStageApplicationResponse)
+        response: TransferStageApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferStageApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def atransfer_stage(self, request: TransferStageApplicationRequest,
-                              option: Optional[RequestOption] = None) -> TransferStageApplicationResponse:
+    async def atransfer_stage(self, request: TransferStageApplicationRequest, option: Optional[RequestOption] = None) -> TransferStageApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: TransferStageApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    TransferStageApplicationResponse)
+        response: TransferStageApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), TransferStageApplicationResponse)
         response.raw = resp
 
         return response
+        
+    

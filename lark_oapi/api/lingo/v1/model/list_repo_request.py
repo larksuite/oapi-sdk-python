@@ -22,6 +22,7 @@ class ListRepoRequestBuilder(object):
         list_repo_request.uri = "/open-apis/lingo/v1/repos"
         list_repo_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_repo_request: ListRepoRequest = list_repo_request
+    
 
     def build(self) -> ListRepoRequest:
         return self._list_repo_request

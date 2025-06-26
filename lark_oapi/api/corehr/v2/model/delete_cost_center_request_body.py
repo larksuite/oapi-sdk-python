@@ -21,10 +21,9 @@ class DeleteCostCenterRequestBody(object):
 class DeleteCostCenterRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_cost_center_request_body = DeleteCostCenterRequestBody()
-
     def operation_reason(self, operation_reason: str) -> "DeleteCostCenterRequestBodyBuilder":
         self._delete_cost_center_request_body.operation_reason = operation_reason
         return self
-
+    
     def build(self) -> "DeleteCostCenterRequestBody":
         return self._delete_cost_center_request_body

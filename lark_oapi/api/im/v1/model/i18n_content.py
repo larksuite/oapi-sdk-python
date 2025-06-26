@@ -23,14 +23,12 @@ class I18nContent(object):
 class I18nContentBuilder(object):
     def __init__(self) -> None:
         self._i18n_content = I18nContent()
-
     def content(self, content: str) -> "I18nContentBuilder":
         self._i18n_content.content = content
         return self
-
     def language(self, language: str) -> "I18nContentBuilder":
         self._i18n_content.language = language
         return self
-
+    
     def build(self) -> "I18nContent":
         return self._i18n_content

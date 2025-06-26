@@ -19,8 +19,7 @@ class AdditionalInformation(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def import_(self, request: ImportAdditionalInformationRequest,
-                option: Optional[RequestOption] = None) -> ImportAdditionalInformationResponse:
+    def import_(self, request: ImportAdditionalInformationRequest, option: Optional[RequestOption] = None) -> ImportAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class AdditionalInformation(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ImportAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       ImportAdditionalInformationResponse)
+        response: ImportAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8), ImportAdditionalInformationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aimport_(self, request: ImportAdditionalInformationRequest,
-                       option: Optional[RequestOption] = None) -> ImportAdditionalInformationResponse:
+    async def aimport_(self, request: ImportAdditionalInformationRequest, option: Optional[RequestOption] = None) -> ImportAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ImportAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       ImportAdditionalInformationResponse)
+        response: ImportAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8), ImportAdditionalInformationResponse)
         response.raw = resp
 
         return response
-
-    def query(self, request: QueryAdditionalInformationRequest,
-              option: Optional[RequestOption] = None) -> QueryAdditionalInformationResponse:
+        
+    def query(self, request: QueryAdditionalInformationRequest, option: Optional[RequestOption] = None) -> QueryAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class AdditionalInformation(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryAdditionalInformationResponse)
+        response: QueryAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryAdditionalInformationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aquery(self, request: QueryAdditionalInformationRequest,
-                     option: Optional[RequestOption] = None) -> QueryAdditionalInformationResponse:
+    async def aquery(self, request: QueryAdditionalInformationRequest, option: Optional[RequestOption] = None) -> QueryAdditionalInformationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: QueryAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      QueryAdditionalInformationResponse)
+        response: QueryAdditionalInformationResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryAdditionalInformationResponse)
         response.raw = resp
 
         return response
+        
+    

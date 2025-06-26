@@ -26,26 +26,27 @@ class GetContentRequestBuilder(object):
         get_content_request.uri = "/open-apis/docs/v1/content"
         get_content_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_content_request: GetContentRequest = get_content_request
-
+    
     def doc_token(self, doc_token: str) -> "GetContentRequestBuilder":
         self._get_content_request.doc_token = doc_token
         self._get_content_request.add_query("doc_token", doc_token)
         return self
-
+    
     def doc_type(self, doc_type: str) -> "GetContentRequestBuilder":
         self._get_content_request.doc_type = doc_type
         self._get_content_request.add_query("doc_type", doc_type)
         return self
-
+    
     def content_type(self, content_type: str) -> "GetContentRequestBuilder":
         self._get_content_request.content_type = content_type
         self._get_content_request.add_query("content_type", content_type)
         return self
-
+    
     def lang(self, lang: str) -> "GetContentRequestBuilder":
         self._get_content_request.lang = lang
         self._get_content_request.add_query("lang", lang)
         return self
+    
 
     def build(self) -> GetContentRequest:
         return self._get_content_request

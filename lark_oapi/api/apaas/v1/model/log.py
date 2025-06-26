@@ -32,30 +32,24 @@ class Log(object):
 class LogBuilder(object):
     def __init__(self) -> None:
         self._log = Log()
-
     def content(self, content: str) -> "LogBuilder":
         self._log.content = content
         return self
-
     def level(self, level: str) -> "LogBuilder":
         self._log.level = level
         return self
-
     def timestamp(self, timestamp: int) -> "LogBuilder":
         self._log.timestamp = timestamp
         return self
-
     def event(self, event: Event) -> "LogBuilder":
         self._log.event = event
         return self
-
     def trace_id(self, trace_id: str) -> "LogBuilder":
         self._log.trace_id = trace_id
         return self
-
     def attributes(self, attributes: str) -> "LogBuilder":
         self._log.attributes = attributes
         return self
-
+    
     def build(self) -> "Log":
         return self._log

@@ -33,30 +33,24 @@ class EnumField(object):
 class EnumFieldBuilder(object):
     def __init__(self) -> None:
         self._enum_field = EnumField()
-
     def api_name(self, api_name: str) -> "EnumFieldBuilder":
         self._enum_field.api_name = api_name
         return self
-
     def name(self, name: List[I18n]) -> "EnumFieldBuilder":
         self._enum_field.name = name
         return self
-
     def description(self, description: List[I18n]) -> "EnumFieldBuilder":
         self._enum_field.description = description
         return self
-
     def enum_api_name(self, enum_api_name: str) -> "EnumFieldBuilder":
         self._enum_field.enum_api_name = enum_api_name
         return self
-
     def order(self, order: int) -> "EnumFieldBuilder":
         self._enum_field.order = order
         return self
-
     def status(self, status: int) -> "EnumFieldBuilder":
         self._enum_field.status = status
         return self
-
+    
     def build(self) -> "EnumField":
         return self._enum_field

@@ -27,22 +27,18 @@ class LookupWithAvatar(object):
 class LookupWithAvatarBuilder(object):
     def __init__(self) -> None:
         self._lookup_with_avatar = LookupWithAvatar()
-
     def id(self, id: str) -> "LookupWithAvatarBuilder":
         self._lookup_with_avatar.id = id
         return self
-
     def name(self, name: str) -> "LookupWithAvatarBuilder":
         self._lookup_with_avatar.name = name
         return self
-
     def tenant_id(self, tenant_id: str) -> "LookupWithAvatarBuilder":
         self._lookup_with_avatar.tenant_id = tenant_id
         return self
-
     def email(self, email: str) -> "LookupWithAvatarBuilder":
         self._lookup_with_avatar.email = email
         return self
-
+    
     def build(self) -> "LookupWithAvatar":
         return self._lookup_with_avatar

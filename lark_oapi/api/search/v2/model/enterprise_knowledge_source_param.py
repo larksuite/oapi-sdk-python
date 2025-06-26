@@ -34,27 +34,21 @@ class EnterpriseKnowledgeSourceParam(object):
 class EnterpriseKnowledgeSourceParamBuilder(object):
     def __init__(self) -> None:
         self._enterprise_knowledge_source_param = EnterpriseKnowledgeSourceParam()
-
     def space(self, space: EnterpriseKnowledgeSourceSpaceParam) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.space = space
         return self
-
     def wiki(self, wiki: EnterpriseKnowledgeSourceWikiParam) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.wiki = wiki
         return self
-
     def message(self, message: EnterpriseKnowledgeSourceMessageParam) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.message = message
         return self
-
-    def helpdesk_faq(self,
-                     helpdesk_faq: EnterpriseKnowledgeSourceHelpdeskParam) -> "EnterpriseKnowledgeSourceParamBuilder":
+    def helpdesk_faq(self, helpdesk_faq: EnterpriseKnowledgeSourceHelpdeskParam) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.helpdesk_faq = helpdesk_faq
         return self
-
     def lingo(self, lingo: EnterpriseKnowledgeSourceLingoParam) -> "EnterpriseKnowledgeSourceParamBuilder":
         self._enterprise_knowledge_source_param.lingo = lingo
         return self
-
+    
     def build(self) -> "EnterpriseKnowledgeSourceParam":
         return self._enterprise_knowledge_source_param

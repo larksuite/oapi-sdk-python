@@ -32,30 +32,24 @@ class ReviewStage(object):
 class ReviewStageBuilder(object):
     def __init__(self) -> None:
         self._review_stage = ReviewStage()
-
     def stage_id(self, stage_id: str) -> "ReviewStageBuilder":
         self._review_stage.stage_id = stage_id
         return self
-
     def stage_type(self, stage_type: str) -> "ReviewStageBuilder":
         self._review_stage.stage_type = stage_type
         return self
-
     def review_stage_roles(self, review_stage_roles: List[str]) -> "ReviewStageBuilder":
         self._review_stage.review_stage_roles = review_stage_roles
         return self
-
     def template_id(self, template_id: str) -> "ReviewStageBuilder":
         self._review_stage.template_id = template_id
         return self
-
     def records(self, records: List[ReviewRecord]) -> "ReviewStageBuilder":
         self._review_stage.records = records
         return self
-
     def review_stage_role(self, review_stage_role: str) -> "ReviewStageBuilder":
         self._review_stage.review_stage_role = review_stage_role
         return self
-
+    
     def build(self) -> "ReviewStage":
         return self._review_stage

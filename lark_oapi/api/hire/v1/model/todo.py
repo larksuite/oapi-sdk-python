@@ -31,22 +31,18 @@ class Todo(object):
 class TodoBuilder(object):
     def __init__(self) -> None:
         self._todo = Todo()
-
     def evaluation(self, evaluation: TodoCommon) -> "TodoBuilder":
         self._todo.evaluation = evaluation
         return self
-
     def offer(self, offer: TodoCommon) -> "TodoBuilder":
         self._todo.offer = offer
         return self
-
     def exam(self, exam: TodoCommon) -> "TodoBuilder":
         self._todo.exam = exam
         return self
-
     def interview(self, interview: TodoCommon) -> "TodoBuilder":
         self._todo.interview = interview
         return self
-
+    
     def build(self) -> "Todo":
         return self._todo

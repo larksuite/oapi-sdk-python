@@ -30,22 +30,18 @@ class PermissionDetail(object):
 class PermissionDetailBuilder(object):
     def __init__(self) -> None:
         self._permission_detail = PermissionDetail()
-
     def role(self, role: SecurityGroup) -> "PermissionDetailBuilder":
         self._permission_detail.role = role
         return self
-
     def assigned_organization_list(self, assigned_organization_list: List[list]) -> "PermissionDetailBuilder":
         self._permission_detail.assigned_organization_list = assigned_organization_list
         return self
-
     def grantor_rule_list(self, grantor_rule_list: List[PermissionSecurityGroup]) -> "PermissionDetailBuilder":
         self._permission_detail.grantor_rule_list = grantor_rule_list
         return self
-
     def update_time(self, update_time: str) -> "PermissionDetailBuilder":
         self._permission_detail.update_time = update_time
         return self
-
+    
     def build(self) -> "PermissionDetail":
         return self._permission_detail

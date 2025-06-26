@@ -35,34 +35,27 @@ class JobLevel(object):
 class JobLevelBuilder(object):
     def __init__(self) -> None:
         self._job_level = JobLevel()
-
     def name(self, name: str) -> "JobLevelBuilder":
         self._job_level.name = name
         return self
-
     def description(self, description: str) -> "JobLevelBuilder":
         self._job_level.description = description
         return self
-
     def order(self, order: int) -> "JobLevelBuilder":
         self._job_level.order = order
         return self
-
     def status(self, status: bool) -> "JobLevelBuilder":
         self._job_level.status = status
         return self
-
     def job_level_id(self, job_level_id: str) -> "JobLevelBuilder":
         self._job_level.job_level_id = job_level_id
         return self
-
     def i18n_name(self, i18n_name: List[I18nContent]) -> "JobLevelBuilder":
         self._job_level.i18n_name = i18n_name
         return self
-
     def i18n_description(self, i18n_description: List[I18nContent]) -> "JobLevelBuilder":
         self._job_level.i18n_description = i18n_description
         return self
-
+    
     def build(self) -> "JobLevel":
         return self._job_level

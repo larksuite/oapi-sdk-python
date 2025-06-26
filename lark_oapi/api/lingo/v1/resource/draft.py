@@ -32,12 +32,13 @@ class Draft(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDraftResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreateDraftRequest, option: Optional[RequestOption] = None) -> CreateDraftResponse:
         if option is None:
@@ -46,15 +47,17 @@ class Draft(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateDraftResponse)
         response.raw = resp
 
         return response
-
+        
     def update(self, request: UpdateDraftRequest, option: Optional[RequestOption] = None) -> UpdateDraftResponse:
         if option is None:
             option = RequestOption()
@@ -68,12 +71,13 @@ class Draft(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDraftResponse)
         response.raw = resp
 
         return response
+        
 
     async def aupdate(self, request: UpdateDraftRequest, option: Optional[RequestOption] = None) -> UpdateDraftResponse:
         if option is None:
@@ -82,11 +86,15 @@ class Draft(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateDraftResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateDraftResponse)
         response.raw = resp
 
         return response
+        
+    

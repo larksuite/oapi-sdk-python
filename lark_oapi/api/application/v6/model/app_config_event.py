@@ -27,22 +27,18 @@ class AppConfigEvent(object):
 class AppConfigEventBuilder(object):
     def __init__(self) -> None:
         self._app_config_event = AppConfigEvent()
-
     def subscription_type(self, subscription_type: str) -> "AppConfigEventBuilder":
         self._app_config_event.subscription_type = subscription_type
         return self
-
     def request_url(self, request_url: str) -> "AppConfigEventBuilder":
         self._app_config_event.request_url = request_url
         return self
-
     def add_events(self, add_events: List[str]) -> "AppConfigEventBuilder":
         self._app_config_event.add_events = add_events
         return self
-
     def remove_events(self, remove_events: List[str]) -> "AppConfigEventBuilder":
         self._app_config_event.remove_events = remove_events
         return self
-
+    
     def build(self) -> "AppConfigEvent":
         return self._app_config_event

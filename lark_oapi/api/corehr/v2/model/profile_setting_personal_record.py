@@ -24,14 +24,12 @@ class ProfileSettingPersonalRecord(object):
 class ProfileSettingPersonalRecordBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_personal_record = ProfileSettingPersonalRecord()
-
     def profile_type(self, profile_type: str) -> "ProfileSettingPersonalRecordBuilder":
         self._profile_setting_personal_record.profile_type = profile_type
         return self
-
     def files(self, files: List[ProfileSettingFile]) -> "ProfileSettingPersonalRecordBuilder":
         self._profile_setting_personal_record.files = files
         return self
-
+    
     def build(self) -> "ProfileSettingPersonalRecord":
         return self._profile_setting_personal_record

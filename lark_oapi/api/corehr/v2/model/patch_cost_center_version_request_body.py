@@ -33,30 +33,24 @@ class PatchCostCenterVersionRequestBody(object):
 class PatchCostCenterVersionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_cost_center_version_request_body = PatchCostCenterVersionRequestBody()
-
     def name(self, name: List[I18n]) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.name = name
         return self
-
     def parent_cost_center_id(self, parent_cost_center_id: str) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.parent_cost_center_id = parent_cost_center_id
         return self
-
     def managers(self, managers: List[str]) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.managers = managers
         return self
-
     def description(self, description: List[I18n]) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.description = description
         return self
-
     def effective_time(self, effective_time: str) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.effective_time = effective_time
         return self
-
     def operation_reason(self, operation_reason: str) -> "PatchCostCenterVersionRequestBodyBuilder":
         self._patch_cost_center_version_request_body.operation_reason = operation_reason
         return self
-
+    
     def build(self) -> "PatchCostCenterVersionRequestBody":
         return self._patch_cost_center_version_request_body

@@ -42,46 +42,36 @@ class RoleMember(object):
 class RoleMemberBuilder(object):
     def __init__(self) -> None:
         self._role_member = RoleMember()
-
     def role_api_id(self, role_api_id: str) -> "RoleMemberBuilder":
         self._role_member.role_api_id = role_api_id
         return self
-
     def role_api_name(self, role_api_name: str) -> "RoleMemberBuilder":
         self._role_member.role_api_name = role_api_name
         return self
-
     def users(self, users: List[str]) -> "RoleMemberBuilder":
         self._role_member.users = users
         return self
-
     def departments(self, departments: List[str]) -> "RoleMemberBuilder":
         self._role_member.departments = departments
         return self
-
     def user_filter(self, user_filter: Criterion) -> "RoleMemberBuilder":
         self._role_member.user_filter = user_filter
         return self
-
     def user_display_infos(self, user_display_infos: List[PermissionNameInfo]) -> "RoleMemberBuilder":
         self._role_member.user_display_infos = user_display_infos
         return self
-
     def department_display_infos(self, department_display_infos: List[PermissionNameInfo]) -> "RoleMemberBuilder":
         self._role_member.department_display_infos = department_display_infos
         return self
-
     def type(self, type: str) -> "RoleMemberBuilder":
         self._role_member.type = type
         return self
-
     def updated_by(self, updated_by: str) -> "RoleMemberBuilder":
         self._role_member.updated_by = updated_by
         return self
-
     def updated_at(self, updated_at: int) -> "RoleMemberBuilder":
         self._role_member.updated_at = updated_at
         return self
-
+    
     def build(self) -> "RoleMember":
         return self._role_member

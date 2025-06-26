@@ -61,80 +61,60 @@ class ApplicationDetailBasicInfo(object):
 class ApplicationDetailBasicInfoBuilder(object):
     def __init__(self) -> None:
         self._application_detail_basic_info = ApplicationDetailBasicInfo()
-
     def id(self, id: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.id = id
         return self
-
     def job_id(self, job_id: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.job_id = job_id
         return self
-
     def talent_id(self, talent_id: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.talent_id = talent_id
         return self
-
     def stage(self, stage: ApplicationStageInfo) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.stage = stage
         return self
-
     def active_status(self, active_status: int) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.active_status = active_status
         return self
-
     def delivery_type(self, delivery_type: int) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.delivery_type = delivery_type
         return self
-
     def resume_source_info(self, resume_source_info: ApplicationResumeSource) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.resume_source_info = resume_source_info
         return self
-
-    def website_resume_source(self,
-                              website_resume_source: ApplicationWebsiteResumeSource) -> "ApplicationDetailBasicInfoBuilder":
+    def website_resume_source(self, website_resume_source: ApplicationWebsiteResumeSource) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.website_resume_source = website_resume_source
         return self
-
     def talent_attachment_resume_id(self, talent_attachment_resume_id: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.talent_attachment_resume_id = talent_attachment_resume_id
         return self
-
     def stage_time_list(self, stage_time_list: List[ApplicationStageTime]) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.stage_time_list = stage_time_list
         return self
-
     def onboard_status(self, onboard_status: int) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.onboard_status = onboard_status
         return self
-
-    def application_preferred_city_list(self, application_preferred_city_list: List[
-        CodeNameObject]) -> "ApplicationDetailBasicInfoBuilder":
+    def application_preferred_city_list(self, application_preferred_city_list: List[CodeNameObject]) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.application_preferred_city_list = application_preferred_city_list
         return self
-
     def termination_reason(self, termination_reason: TerminationReasonInfo) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.termination_reason = termination_reason
         return self
-
     def creator_id(self, creator_id: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.creator_id = creator_id
         return self
-
     def owner_id(self, owner_id: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.owner_id = owner_id
         return self
-
     def terminator_id(self, terminator_id: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.terminator_id = terminator_id
         return self
-
     def create_time(self, create_time: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.create_time = create_time
         return self
-
     def modify_time(self, modify_time: str) -> "ApplicationDetailBasicInfoBuilder":
         self._application_detail_basic_info.modify_time = modify_time
         return self
-
+    
     def build(self) -> "ApplicationDetailBasicInfo":
         return self._application_detail_basic_info

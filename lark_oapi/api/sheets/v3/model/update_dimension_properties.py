@@ -25,14 +25,12 @@ class UpdateDimensionProperties(object):
 class UpdateDimensionPropertiesBuilder(object):
     def __init__(self) -> None:
         self._update_dimension_properties = UpdateDimensionProperties()
-
     def dimension_range(self, dimension_range: Dimension) -> "UpdateDimensionPropertiesBuilder":
         self._update_dimension_properties.dimension_range = dimension_range
         return self
-
     def properties(self, properties: DimensionProperties) -> "UpdateDimensionPropertiesBuilder":
         self._update_dimension_properties.properties = properties
         return self
-
+    
     def build(self) -> "UpdateDimensionProperties":
         return self._update_dimension_properties

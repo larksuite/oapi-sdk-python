@@ -32,26 +32,21 @@ class InterviewQuestion(object):
 class InterviewQuestionBuilder(object):
     def __init__(self) -> None:
         self._interview_question = InterviewQuestion()
-
     def id(self, id: str) -> "InterviewQuestionBuilder":
         self._interview_question.id = id
         return self
-
     def title(self, title: I18n) -> "InterviewQuestionBuilder":
         self._interview_question.title = title
         return self
-
     def description(self, description: I18n) -> "InterviewQuestionBuilder":
         self._interview_question.description = description
         return self
-
     def content(self, content: str) -> "InterviewQuestionBuilder":
         self._interview_question.content = content
         return self
-
     def ability_list(self, ability_list: List[Ability]) -> "InterviewQuestionBuilder":
         self._interview_question.ability_list = ability_list
         return self
-
+    
     def build(self) -> "InterviewQuestion":
         return self._interview_question

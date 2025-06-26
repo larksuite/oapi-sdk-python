@@ -24,14 +24,12 @@ class RuleCondition(object):
 class RuleConditionBuilder(object):
     def __init__(self) -> None:
         self._rule_condition = RuleCondition()
-
     def match_type(self, match_type: int) -> "RuleConditionBuilder":
         self._rule_condition.match_type = match_type
         return self
-
     def items(self, items: List[RuleConditionItem]) -> "RuleConditionBuilder":
         self._rule_condition.items = items
         return self
-
+    
     def build(self) -> "RuleCondition":
         return self._rule_condition

@@ -24,14 +24,12 @@ class CooperationUserRole(object):
 class CooperationUserRoleBuilder(object):
     def __init__(self) -> None:
         self._cooperation_user_role = CooperationUserRole()
-
     def role_id(self, role_id: str) -> "CooperationUserRoleBuilder":
         self._cooperation_user_role.role_id = role_id
         return self
-
     def name(self, name: I18n) -> "CooperationUserRoleBuilder":
         self._cooperation_user_role.name = name
         return self
-
+    
     def build(self) -> "CooperationUserRole":
         return self._cooperation_user_role

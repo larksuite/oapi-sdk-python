@@ -32,32 +32,33 @@ class Interviewer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListInterviewerResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInterviewerResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListInterviewerRequest,
-                    option: Optional[RequestOption] = None) -> ListInterviewerResponse:
+    async def alist(self, request: ListInterviewerRequest, option: Optional[RequestOption] = None) -> ListInterviewerResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListInterviewerResponse = JSON.unmarshal(str(resp.content, UTF_8), ListInterviewerResponse)
         response.raw = resp
 
         return response
-
-    def patch(self, request: PatchInterviewerRequest,
-              option: Optional[RequestOption] = None) -> PatchInterviewerResponse:
+        
+    def patch(self, request: PatchInterviewerRequest, option: Optional[RequestOption] = None) -> PatchInterviewerResponse:
         if option is None:
             option = RequestOption()
 
@@ -70,26 +71,30 @@ class Interviewer(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchInterviewerResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchInterviewerResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchInterviewerRequest,
-                     option: Optional[RequestOption] = None) -> PatchInterviewerResponse:
+    async def apatch(self, request: PatchInterviewerRequest, option: Optional[RequestOption] = None) -> PatchInterviewerResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchInterviewerResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchInterviewerResponse)
         response.raw = resp
 
         return response
+        
+    

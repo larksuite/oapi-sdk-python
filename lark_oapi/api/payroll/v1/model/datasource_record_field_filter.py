@@ -25,18 +25,15 @@ class DatasourceRecordFieldFilter(object):
 class DatasourceRecordFieldFilterBuilder(object):
     def __init__(self) -> None:
         self._datasource_record_field_filter = DatasourceRecordFieldFilter()
-
     def field_code(self, field_code: str) -> "DatasourceRecordFieldFilterBuilder":
         self._datasource_record_field_filter.field_code = field_code
         return self
-
     def field_values(self, field_values: List[str]) -> "DatasourceRecordFieldFilterBuilder":
         self._datasource_record_field_filter.field_values = field_values
         return self
-
     def operator(self, operator: int) -> "DatasourceRecordFieldFilterBuilder":
         self._datasource_record_field_filter.operator = operator
         return self
-
+    
     def build(self) -> "DatasourceRecordFieldFilter":
         return self._datasource_record_field_filter

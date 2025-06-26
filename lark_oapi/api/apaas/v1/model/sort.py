@@ -23,14 +23,12 @@ class Sort(object):
 class SortBuilder(object):
     def __init__(self) -> None:
         self._sort = Sort()
-
     def field(self, field: str) -> "SortBuilder":
         self._sort.field = field
         return self
-
     def direction(self, direction: str) -> "SortBuilder":
         self._sort.direction = direction
         return self
-
+    
     def build(self) -> "Sort":
         return self._sort

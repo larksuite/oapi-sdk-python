@@ -25,18 +25,15 @@ class ProgressItem(object):
 class ProgressItemBuilder(object):
     def __init__(self) -> None:
         self._progress_item = ProgressItem()
-
     def content(self, content: str) -> "ProgressItemBuilder":
         self._progress_item.content = content
         return self
-
     def timestamp(self, timestamp: int) -> "ProgressItemBuilder":
         self._progress_item.timestamp = timestamp
         return self
-
     def mention_list(self, mention_list: List[str]) -> "ProgressItemBuilder":
         self._progress_item.mention_list = mention_list
         return self
-
+    
     def build(self) -> "ProgressItem":
         return self._progress_item

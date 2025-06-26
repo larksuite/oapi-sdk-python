@@ -27,22 +27,18 @@ class MeetingRecording(object):
 class MeetingRecordingBuilder(object):
     def __init__(self) -> None:
         self._meeting_recording = MeetingRecording()
-
     def id(self, id: int) -> "MeetingRecordingBuilder":
         self._meeting_recording.id = id
         return self
-
     def meeting_id(self, meeting_id: int) -> "MeetingRecordingBuilder":
         self._meeting_recording.meeting_id = meeting_id
         return self
-
     def url(self, url: str) -> "MeetingRecordingBuilder":
         self._meeting_recording.url = url
         return self
-
     def duration(self, duration: int) -> "MeetingRecordingBuilder":
         self._meeting_recording.duration = duration
         return self
-
+    
     def build(self) -> "MeetingRecording":
         return self._meeting_recording

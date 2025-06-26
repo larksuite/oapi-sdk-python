@@ -38,43 +38,33 @@ class TalentCombinedEducationInfo(object):
 class TalentCombinedEducationInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_combined_education_info = TalentCombinedEducationInfo()
-
     def id(self, id: str) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.id = id
         return self
-
     def degree(self, degree: int) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.degree = degree
         return self
-
     def school(self, school: str) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.school = school
         return self
-
     def field_of_study(self, field_of_study: str) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.field_of_study = field_of_study
         return self
-
     def start_time(self, start_time: str) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.end_time = end_time
         return self
-
     def education_type(self, education_type: int) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.education_type = education_type
         return self
-
     def academic_ranking(self, academic_ranking: int) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.academic_ranking = academic_ranking
         return self
-
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedEducationInfoBuilder":
+    def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedEducationInfoBuilder":
         self._talent_combined_education_info.customized_data = customized_data
         return self
-
+    
     def build(self) -> "TalentCombinedEducationInfo":
         return self._talent_combined_education_info

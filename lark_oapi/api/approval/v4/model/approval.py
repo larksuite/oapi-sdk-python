@@ -25,18 +25,15 @@ class Approval(object):
 class ApprovalBuilder(object):
     def __init__(self) -> None:
         self._approval = Approval()
-
     def approval_code(self, approval_code: str) -> "ApprovalBuilder":
         self._approval.approval_code = approval_code
         return self
-
     def approval_name(self, approval_name: str) -> "ApprovalBuilder":
         self._approval.approval_name = approval_name
         return self
-
     def status(self, status: str) -> "ApprovalBuilder":
         self._approval.status = status
         return self
-
+    
     def build(self) -> "Approval":
         return self._approval

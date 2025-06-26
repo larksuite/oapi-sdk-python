@@ -25,12 +25,12 @@ class PatchFaqRequestBuilder(object):
         patch_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id"
         patch_faq_request.token_types = {AccessTokenType.USER}
         self._patch_faq_request: PatchFaqRequest = patch_faq_request
-
+    
     def id(self, id: str) -> "PatchFaqRequestBuilder":
         self._patch_faq_request.id = id
         self._patch_faq_request.paths["id"] = str(id)
         return self
-
+    
     def request_body(self, request_body: PatchFaqRequestBody) -> "PatchFaqRequestBuilder":
         self._patch_faq_request.request_body = request_body
         self._patch_faq_request.body = request_body

@@ -24,16 +24,17 @@ class GetSpreadsheetRequestBuilder(object):
         get_spreadsheet_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
         get_spreadsheet_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_spreadsheet_request: GetSpreadsheetRequest = get_spreadsheet_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetSpreadsheetRequestBuilder":
         self._get_spreadsheet_request.user_id_type = user_id_type
         self._get_spreadsheet_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def spreadsheet_token(self, spreadsheet_token: str) -> "GetSpreadsheetRequestBuilder":
         self._get_spreadsheet_request.spreadsheet_token = spreadsheet_token
         self._get_spreadsheet_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
+    
 
     def build(self) -> GetSpreadsheetRequest:
         return self._get_spreadsheet_request

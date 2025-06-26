@@ -29,26 +29,21 @@ class ExecuteApplicationFlowRequestBody(object):
 class ExecuteApplicationFlowRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._execute_application_flow_request_body = ExecuteApplicationFlowRequestBody()
-
     def is_async(self, is_async: bool) -> "ExecuteApplicationFlowRequestBodyBuilder":
         self._execute_application_flow_request_body.is_async = is_async
         return self
-
     def idempotent_key(self, idempotent_key: str) -> "ExecuteApplicationFlowRequestBodyBuilder":
         self._execute_application_flow_request_body.idempotent_key = idempotent_key
         return self
-
     def loop_masks(self, loop_masks: List[str]) -> "ExecuteApplicationFlowRequestBodyBuilder":
         self._execute_application_flow_request_body.loop_masks = loop_masks
         return self
-
     def params(self, params: str) -> "ExecuteApplicationFlowRequestBodyBuilder":
         self._execute_application_flow_request_body.params = params
         return self
-
     def operator(self, operator: str) -> "ExecuteApplicationFlowRequestBodyBuilder":
         self._execute_application_flow_request_body.operator = operator
         return self
-
+    
     def build(self) -> "ExecuteApplicationFlowRequestBody":
         return self._execute_application_flow_request_body

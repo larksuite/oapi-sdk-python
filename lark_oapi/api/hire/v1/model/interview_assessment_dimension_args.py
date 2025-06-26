@@ -22,11 +22,9 @@ class InterviewAssessmentDimensionArgs(object):
 class InterviewAssessmentDimensionArgsBuilder(object):
     def __init__(self) -> None:
         self._interview_assessment_dimension_args = InterviewAssessmentDimensionArgs()
-
-    def score_list(self, score_list: List[
-        InterviewAssessmentDimensionArgsScore]) -> "InterviewAssessmentDimensionArgsBuilder":
+    def score_list(self, score_list: List[InterviewAssessmentDimensionArgsScore]) -> "InterviewAssessmentDimensionArgsBuilder":
         self._interview_assessment_dimension_args.score_list = score_list
         return self
-
+    
     def build(self) -> "InterviewAssessmentDimensionArgs":
         return self._interview_assessment_dimension_args

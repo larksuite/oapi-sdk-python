@@ -22,10 +22,9 @@ class PrimaryCalendarResponseBody(object):
 class PrimaryCalendarResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._primary_calendar_response_body = PrimaryCalendarResponseBody()
-
     def calendars(self, calendars: List[UserCalendar]) -> "PrimaryCalendarResponseBodyBuilder":
         self._primary_calendar_response_body.calendars = calendars
         return self
-
+    
     def build(self) -> "PrimaryCalendarResponseBody":
         return self._primary_calendar_response_body

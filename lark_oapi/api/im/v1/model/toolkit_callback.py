@@ -23,14 +23,12 @@ class ToolkitCallback(object):
 class ToolkitCallbackBuilder(object):
     def __init__(self) -> None:
         self._toolkit_callback = ToolkitCallback()
-
     def webhook(self, webhook: str) -> "ToolkitCallbackBuilder":
         self._toolkit_callback.webhook = webhook
         return self
-
     def action_key(self, action_key: str) -> "ToolkitCallbackBuilder":
         self._toolkit_callback.action_key = action_key
         return self
-
+    
     def build(self) -> "ToolkitCallback":
         return self._toolkit_callback

@@ -21,10 +21,9 @@ class DeleteTabsChatTabRequestBody(object):
 class DeleteTabsChatTabRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_tabs_chat_tab_request_body = DeleteTabsChatTabRequestBody()
-
     def tab_ids(self, tab_ids: List[str]) -> "DeleteTabsChatTabRequestBodyBuilder":
         self._delete_tabs_chat_tab_request_body.tab_ids = tab_ids
         return self
-
+    
     def build(self) -> "DeleteTabsChatTabRequestBody":
         return self._delete_tabs_chat_tab_request_body

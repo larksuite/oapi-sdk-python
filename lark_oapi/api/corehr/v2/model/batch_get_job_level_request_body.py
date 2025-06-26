@@ -7,10 +7,12 @@ from lark_oapi.core.construct import init
 class BatchGetJobLevelRequestBody(object):
     _types = {
         "job_level_ids": List[str],
+        "job_level_codes": List[str],
     }
 
     def __init__(self, d=None):
         self.job_level_ids: Optional[List[str]] = None
+        self.job_level_codes: Optional[List[str]] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -21,10 +23,12 @@ class BatchGetJobLevelRequestBody(object):
 class BatchGetJobLevelRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_job_level_request_body = BatchGetJobLevelRequestBody()
-
     def job_level_ids(self, job_level_ids: List[str]) -> "BatchGetJobLevelRequestBodyBuilder":
         self._batch_get_job_level_request_body.job_level_ids = job_level_ids
         return self
-
+    def job_level_codes(self, job_level_codes: List[str]) -> "BatchGetJobLevelRequestBodyBuilder":
+        self._batch_get_job_level_request_body.job_level_codes = job_level_codes
+        return self
+    
     def build(self) -> "BatchGetJobLevelRequestBody":
         return self._batch_get_job_level_request_body

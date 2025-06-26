@@ -28,22 +28,18 @@ class Agency(object):
 class AgencyBuilder(object):
     def __init__(self) -> None:
         self._agency = Agency()
-
     def id(self, id: str) -> "AgencyBuilder":
         self._agency.id = id
         return self
-
     def name(self, name: str) -> "AgencyBuilder":
         self._agency.name = name
         return self
-
     def contactor_id(self, contactor_id: str) -> "AgencyBuilder":
         self._agency.contactor_id = contactor_id
         return self
-
     def contactor_name(self, contactor_name: I18n) -> "AgencyBuilder":
         self._agency.contactor_name = contactor_name
         return self
-
+    
     def build(self) -> "Agency":
         return self._agency

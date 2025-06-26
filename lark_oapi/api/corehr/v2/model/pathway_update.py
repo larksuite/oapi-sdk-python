@@ -27,18 +27,15 @@ class PathwayUpdate(object):
 class PathwayUpdateBuilder(object):
     def __init__(self) -> None:
         self._pathway_update = PathwayUpdate()
-
     def code(self, code: str) -> "PathwayUpdateBuilder":
         self._pathway_update.code = code
         return self
-
     def names(self, names: List[I18n]) -> "PathwayUpdateBuilder":
         self._pathway_update.names = names
         return self
-
     def descriptions(self, descriptions: List[I18n]) -> "PathwayUpdateBuilder":
         self._pathway_update.descriptions = descriptions
         return self
-
+    
     def build(self) -> "PathwayUpdate":
         return self._pathway_update

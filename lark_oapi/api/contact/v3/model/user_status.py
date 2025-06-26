@@ -29,26 +29,21 @@ class UserStatus(object):
 class UserStatusBuilder(object):
     def __init__(self) -> None:
         self._user_status = UserStatus()
-
     def is_frozen(self, is_frozen: bool) -> "UserStatusBuilder":
         self._user_status.is_frozen = is_frozen
         return self
-
     def is_resigned(self, is_resigned: bool) -> "UserStatusBuilder":
         self._user_status.is_resigned = is_resigned
         return self
-
     def is_activated(self, is_activated: bool) -> "UserStatusBuilder":
         self._user_status.is_activated = is_activated
         return self
-
     def is_exited(self, is_exited: bool) -> "UserStatusBuilder":
         self._user_status.is_exited = is_exited
         return self
-
     def is_unjoin(self, is_unjoin: bool) -> "UserStatusBuilder":
         self._user_status.is_unjoin = is_unjoin
         return self
-
+    
     def build(self) -> "UserStatus":
         return self._user_status

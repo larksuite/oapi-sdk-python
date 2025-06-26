@@ -27,22 +27,18 @@ class TalentFolder(object):
 class TalentFolderBuilder(object):
     def __init__(self) -> None:
         self._talent_folder = TalentFolder()
-
     def name(self, name: str) -> "TalentFolderBuilder":
         self._talent_folder.name = name
         return self
-
     def folder_id(self, folder_id: str) -> "TalentFolderBuilder":
         self._talent_folder.folder_id = folder_id
         return self
-
     def owner_id(self, owner_id: str) -> "TalentFolderBuilder":
         self._talent_folder.owner_id = owner_id
         return self
-
     def add_time(self, add_time: str) -> "TalentFolderBuilder":
         self._talent_folder.add_time = add_time
         return self
-
+    
     def build(self) -> "TalentFolder":
         return self._talent_folder

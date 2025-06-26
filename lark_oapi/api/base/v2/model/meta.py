@@ -67,98 +67,75 @@ class Meta(object):
 class MetaBuilder(object):
     def __init__(self) -> None:
         self._meta = Meta()
-
     def id(self, id: str) -> "MetaBuilder":
         self._meta.id = id
         return self
-
     def token(self, token: str) -> "MetaBuilder":
         self._meta.token = token
         return self
-
     def title(self, title: str) -> "MetaBuilder":
         self._meta.title = title
         return self
-
     def owner_uid(self, owner_uid: str) -> "MetaBuilder":
         self._meta.owner_uid = owner_uid
         return self
-
     def edit_uid(self, edit_uid: str) -> "MetaBuilder":
         self._meta.edit_uid = edit_uid
         return self
-
     def create_time(self, create_time: str) -> "MetaBuilder":
         self._meta.create_time = create_time
         return self
-
     def edit_time(self, edit_time: str) -> "MetaBuilder":
         self._meta.edit_time = edit_time
         return self
-
     def delete_flag(self, delete_flag: str) -> "MetaBuilder":
         self._meta.delete_flag = delete_flag
         return self
-
     def obj_type(self, obj_type: str) -> "MetaBuilder":
         self._meta.obj_type = obj_type
         return self
-
     def source(self, source: str) -> "MetaBuilder":
         self._meta.source = source
         return self
-
     def parent_id(self, parent_id: str) -> "MetaBuilder":
         self._meta.parent_id = parent_id
         return self
-
     def sub_type(self, sub_type: str) -> "MetaBuilder":
         self._meta.sub_type = sub_type
         return self
-
     def root_doc_id(self, root_doc_id: str) -> "MetaBuilder":
         self._meta.root_doc_id = root_doc_id
         return self
-
     def root_block_id(self, root_block_id: str) -> "MetaBuilder":
         self._meta.root_block_id = root_block_id
         return self
-
     def doc_version(self, doc_version: int) -> "MetaBuilder":
         self._meta.doc_version = doc_version
         return self
-
     def tenant_id(self, tenant_id: str) -> "MetaBuilder":
         self._meta.tenant_id = tenant_id
         return self
-
     def mix_state(self, mix_state: int) -> "MetaBuilder":
         self._meta.mix_state = mix_state
         return self
-
     def sec_label_id(self, sec_label_id: str) -> "MetaBuilder":
         self._meta.sec_label_id = sec_label_id
         return self
-
     def sec_label_type(self, sec_label_type: int) -> "MetaBuilder":
         self._meta.sec_label_type = sec_label_type
         return self
-
     def title_secure_key_deleted(self, title_secure_key_deleted: bool) -> "MetaBuilder":
         self._meta.title_secure_key_deleted = title_secure_key_deleted
         return self
-
     def template_info(self, template_info: TemplateInfo) -> "MetaBuilder":
         self._meta.template_info = template_info
         return self
-
     def icon_info(self, icon_info: str) -> "MetaBuilder":
         self._meta.icon_info = icon_info
         return self
-
     def ext(self, ext: ExtInfo) -> "MetaBuilder":
         self._meta.ext = ext
         return self
-
+    
     def build(self) -> "Meta":
         return self._meta

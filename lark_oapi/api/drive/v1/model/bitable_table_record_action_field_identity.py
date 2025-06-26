@@ -22,11 +22,9 @@ class BitableTableRecordActionFieldIdentity(object):
 class BitableTableRecordActionFieldIdentityBuilder(object):
     def __init__(self) -> None:
         self._bitable_table_record_action_field_identity = BitableTableRecordActionFieldIdentity()
-
-    def users(self,
-              users: List[BitableTableRecordActionFieldIdentityUser]) -> "BitableTableRecordActionFieldIdentityBuilder":
+    def users(self, users: List[BitableTableRecordActionFieldIdentityUser]) -> "BitableTableRecordActionFieldIdentityBuilder":
         self._bitable_table_record_action_field_identity.users = users
         return self
-
+    
     def build(self) -> "BitableTableRecordActionFieldIdentity":
         return self._bitable_table_record_action_field_identity

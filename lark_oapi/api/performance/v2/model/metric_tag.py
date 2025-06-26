@@ -30,26 +30,21 @@ class MetricTag(object):
 class MetricTagBuilder(object):
     def __init__(self) -> None:
         self._metric_tag = MetricTag()
-
     def tag_id(self, tag_id: int) -> "MetricTagBuilder":
         self._metric_tag.tag_id = tag_id
         return self
-
     def tag_name(self, tag_name: I18n) -> "MetricTagBuilder":
         self._metric_tag.tag_name = tag_name
         return self
-
     def index(self, index: int) -> "MetricTagBuilder":
         self._metric_tag.index = index
         return self
-
     def create_time(self, create_time: str) -> "MetricTagBuilder":
         self._metric_tag.create_time = create_time
         return self
-
     def update_time(self, update_time: str) -> "MetricTagBuilder":
         self._metric_tag.update_time = update_time
         return self
-
+    
     def build(self) -> "MetricTag":
         return self._metric_tag

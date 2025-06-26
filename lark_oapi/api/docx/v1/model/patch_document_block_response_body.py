@@ -26,18 +26,15 @@ class PatchDocumentBlockResponseBody(object):
 class PatchDocumentBlockResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_document_block_response_body = PatchDocumentBlockResponseBody()
-
     def block(self, block: Block) -> "PatchDocumentBlockResponseBodyBuilder":
         self._patch_document_block_response_body.block = block
         return self
-
     def document_revision_id(self, document_revision_id: int) -> "PatchDocumentBlockResponseBodyBuilder":
         self._patch_document_block_response_body.document_revision_id = document_revision_id
         return self
-
     def client_token(self, client_token: str) -> "PatchDocumentBlockResponseBodyBuilder":
         self._patch_document_block_response_body.client_token = client_token
         return self
-
+    
     def build(self) -> "PatchDocumentBlockResponseBody":
         return self._patch_document_block_response_body

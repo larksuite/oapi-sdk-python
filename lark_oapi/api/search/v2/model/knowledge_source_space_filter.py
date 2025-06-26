@@ -23,14 +23,12 @@ class KnowledgeSourceSpaceFilter(object):
 class KnowledgeSourceSpaceFilterBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_space_filter = KnowledgeSourceSpaceFilter()
-
     def doc_tokens(self, doc_tokens: List[str]) -> "KnowledgeSourceSpaceFilterBuilder":
         self._knowledge_source_space_filter.doc_tokens = doc_tokens
         return self
-
     def folder_tokens(self, folder_tokens: List[str]) -> "KnowledgeSourceSpaceFilterBuilder":
         self._knowledge_source_space_filter.folder_tokens = folder_tokens
         return self
-
+    
     def build(self) -> "KnowledgeSourceSpaceFilter":
         return self._knowledge_source_space_filter

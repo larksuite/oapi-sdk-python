@@ -27,23 +27,18 @@ class QueryRecentChangeCostCenterResponseBody(object):
 class QueryRecentChangeCostCenterResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_recent_change_cost_center_response_body = QueryRecentChangeCostCenterResponseBody()
-
     def cost_center_ids(self, cost_center_ids: List[str]) -> "QueryRecentChangeCostCenterResponseBodyBuilder":
         self._query_recent_change_cost_center_response_body.cost_center_ids = cost_center_ids
         return self
-
     def page_token(self, page_token: str) -> "QueryRecentChangeCostCenterResponseBodyBuilder":
         self._query_recent_change_cost_center_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "QueryRecentChangeCostCenterResponseBodyBuilder":
         self._query_recent_change_cost_center_response_body.has_more = has_more
         return self
-
-    def deleted_cost_center_ids(self,
-                                deleted_cost_center_ids: List[str]) -> "QueryRecentChangeCostCenterResponseBodyBuilder":
+    def deleted_cost_center_ids(self, deleted_cost_center_ids: List[str]) -> "QueryRecentChangeCostCenterResponseBodyBuilder":
         self._query_recent_change_cost_center_response_body.deleted_cost_center_ids = deleted_cost_center_ids
         return self
-
+    
     def build(self) -> "QueryRecentChangeCostCenterResponseBody":
         return self._query_recent_change_cost_center_response_body

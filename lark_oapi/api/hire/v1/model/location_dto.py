@@ -31,22 +31,18 @@ class LocationDto(object):
 class LocationDtoBuilder(object):
     def __init__(self) -> None:
         self._location_dto = LocationDto()
-
     def country(self, country: LocationCountry) -> "LocationDtoBuilder":
         self._location_dto.country = country
         return self
-
     def state(self, state: LocationState) -> "LocationDtoBuilder":
         self._location_dto.state = state
         return self
-
     def city(self, city: LocationCity) -> "LocationDtoBuilder":
         self._location_dto.city = city
         return self
-
     def district(self, district: LocationDistrict) -> "LocationDtoBuilder":
         self._location_dto.district = district
         return self
-
+    
     def build(self) -> "LocationDto":
         return self._location_dto

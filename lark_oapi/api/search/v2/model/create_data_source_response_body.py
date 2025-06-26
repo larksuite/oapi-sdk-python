@@ -22,10 +22,9 @@ class CreateDataSourceResponseBody(object):
 class CreateDataSourceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_data_source_response_body = CreateDataSourceResponseBody()
-
     def data_source(self, data_source: DataSource) -> "CreateDataSourceResponseBodyBuilder":
         self._create_data_source_response_body.data_source = data_source
         return self
-
+    
     def build(self) -> "CreateDataSourceResponseBody":
         return self._create_data_source_response_body

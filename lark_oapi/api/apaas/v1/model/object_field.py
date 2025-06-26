@@ -27,22 +27,18 @@ class ObjectField(object):
 class ObjectFieldBuilder(object):
     def __init__(self) -> None:
         self._object_field = ObjectField()
-
     def id(self, id: int) -> "ObjectFieldBuilder":
         self._object_field.id = id
         return self
-
     def api_name(self, api_name: str) -> "ObjectFieldBuilder":
         self._object_field.api_name = api_name
         return self
-
     def type(self, type: str) -> "ObjectFieldBuilder":
         self._object_field.type = type
         return self
-
     def label(self, label: Dict[str, str]) -> "ObjectFieldBuilder":
         self._object_field.label = label
         return self
-
+    
     def build(self) -> "ObjectField":
         return self._object_field

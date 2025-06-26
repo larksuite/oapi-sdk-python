@@ -27,22 +27,18 @@ class ActiveLocationRequestBody(object):
 class ActiveLocationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._active_location_request_body = ActiveLocationRequestBody()
-
     def location_id(self, location_id: str) -> "ActiveLocationRequestBodyBuilder":
         self._active_location_request_body.location_id = location_id
         return self
-
     def effective_time(self, effective_time: str) -> "ActiveLocationRequestBodyBuilder":
         self._active_location_request_body.effective_time = effective_time
         return self
-
     def active(self, active: bool) -> "ActiveLocationRequestBodyBuilder":
         self._active_location_request_body.active = active
         return self
-
     def operation_reason(self, operation_reason: str) -> "ActiveLocationRequestBodyBuilder":
         self._active_location_request_body.operation_reason = operation_reason
         return self
-
+    
     def build(self) -> "ActiveLocationRequestBody":
         return self._active_location_request_body

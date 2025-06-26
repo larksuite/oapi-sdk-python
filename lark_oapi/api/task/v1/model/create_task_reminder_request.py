@@ -25,12 +25,12 @@ class CreateTaskReminderRequestBuilder(object):
         create_task_reminder_request.uri = "/open-apis/task/v1/tasks/:task_id/reminders"
         create_task_reminder_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_task_reminder_request: CreateTaskReminderRequest = create_task_reminder_request
-
+    
     def task_id(self, task_id: str) -> "CreateTaskReminderRequestBuilder":
         self._create_task_reminder_request.task_id = task_id
         self._create_task_reminder_request.paths["task_id"] = str(task_id)
         return self
-
+    
     def request_body(self, request_body: Reminder) -> "CreateTaskReminderRequestBuilder":
         self._create_task_reminder_request.request_body = request_body
         self._create_task_reminder_request.body = request_body

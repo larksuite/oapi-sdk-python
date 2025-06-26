@@ -35,34 +35,27 @@ class PaymentActivity(object):
 class PaymentActivityBuilder(object):
     def __init__(self) -> None:
         self._payment_activity = PaymentActivity()
-
     def activity_id(self, activity_id: int) -> "PaymentActivityBuilder":
         self._payment_activity.activity_id = activity_id
         return self
-
     def activity_names(self, activity_names: List[I18nContent]) -> "PaymentActivityBuilder":
         self._payment_activity.activity_names = activity_names
         return self
-
     def pay_date(self, pay_date: str) -> "PaymentActivityBuilder":
         self._payment_activity.pay_date = pay_date
         return self
-
     def total_number_of_payroll(self, total_number_of_payroll: int) -> "PaymentActivityBuilder":
         self._payment_activity.total_number_of_payroll = total_number_of_payroll
         return self
-
     def number_of_calculation_activities(self, number_of_calculation_activities: int) -> "PaymentActivityBuilder":
         self._payment_activity.number_of_calculation_activities = number_of_calculation_activities
         return self
-
     def calculation_activities(self, calculation_activities: List[CalculationActivity]) -> "PaymentActivityBuilder":
         self._payment_activity.calculation_activities = calculation_activities
         return self
-
     def activity_status(self, activity_status: int) -> "PaymentActivityBuilder":
         self._payment_activity.activity_status = activity_status
         return self
-
+    
     def build(self) -> "PaymentActivity":
         return self._payment_activity

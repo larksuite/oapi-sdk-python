@@ -25,18 +25,15 @@ class FeedCardSettingFailedItem(object):
 class FeedCardSettingFailedItemBuilder(object):
     def __init__(self) -> None:
         self._feed_card_setting_failed_item = FeedCardSettingFailedItem()
-
     def feed_card_id(self, feed_card_id: str) -> "FeedCardSettingFailedItemBuilder":
         self._feed_card_setting_failed_item.feed_card_id = feed_card_id
         return self
-
     def error_code(self, error_code: int) -> "FeedCardSettingFailedItemBuilder":
         self._feed_card_setting_failed_item.error_code = error_code
         return self
-
     def error_message(self, error_message: str) -> "FeedCardSettingFailedItemBuilder":
         self._feed_card_setting_failed_item.error_message = error_message
         return self
-
+    
     def build(self) -> "FeedCardSettingFailedItem":
         return self._feed_card_setting_failed_item

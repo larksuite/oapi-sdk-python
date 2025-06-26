@@ -22,10 +22,9 @@ class RichValue(object):
 class RichValueBuilder(object):
     def __init__(self) -> None:
         self._rich_value = RichValue()
-
     def values(self, values: List[list]) -> "RichValueBuilder":
         self._rich_value.values = values
         return self
-
+    
     def build(self) -> "RichValue":
         return self._rich_value

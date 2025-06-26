@@ -33,34 +33,27 @@ class OrganizationDomainEventData(object):
 class OrganizationDomainEventDataBuilder(object):
     def __init__(self) -> None:
         self._organization_domain_event_data = OrganizationDomainEventData()
-
     def id(self, id: str) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.id = id
         return self
-
     def entity(self, entity: str) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.entity = entity
         return self
-
     def agg_entity(self, agg_entity: str) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.agg_entity = agg_entity
         return self
-
     def agg_entity_id(self, agg_entity_id: str) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.agg_entity_id = agg_entity_id
         return self
-
     def agg_entity_field(self, agg_entity_field: str) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.agg_entity_field = agg_entity_field
         return self
-
     def opt_type(self, opt_type: int) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.opt_type = opt_type
         return self
-
     def field_changes(self, field_changes: List[str]) -> "OrganizationDomainEventDataBuilder":
         self._organization_domain_event_data.field_changes = field_changes
         return self
-
+    
     def build(self) -> "OrganizationDomainEventData":
         return self._organization_domain_event_data

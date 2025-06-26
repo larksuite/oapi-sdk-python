@@ -23,14 +23,12 @@ class RegionPlace(object):
 class RegionPlaceBuilder(object):
     def __init__(self) -> None:
         self._region_place = RegionPlace()
-
     def region_level(self, region_level: str) -> "RegionPlaceBuilder":
         self._region_place.region_level = region_level
         return self
-
     def region_id(self, region_id: str) -> "RegionPlaceBuilder":
         self._region_place.region_id = region_id
         return self
-
+    
     def build(self) -> "RegionPlace":
         return self._region_place

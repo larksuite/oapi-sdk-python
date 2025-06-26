@@ -25,21 +25,22 @@ class ListAppSkillRequestBuilder(object):
         list_app_skill_request.uri = "/open-apis/aily/v1/apps/:app_id/skills"
         list_app_skill_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._list_app_skill_request: ListAppSkillRequest = list_app_skill_request
-
+    
     def page_size(self, page_size: int) -> "ListAppSkillRequestBuilder":
         self._list_app_skill_request.page_size = page_size
         self._list_app_skill_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListAppSkillRequestBuilder":
         self._list_app_skill_request.page_token = page_token
         self._list_app_skill_request.add_query("page_token", page_token)
         return self
-
+    
     def app_id(self, app_id: str) -> "ListAppSkillRequestBuilder":
         self._list_app_skill_request.app_id = app_id
         self._list_app_skill_request.paths["app_id"] = str(app_id)
         return self
+    
 
     def build(self) -> ListAppSkillRequest:
         return self._list_app_skill_request

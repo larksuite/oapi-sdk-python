@@ -60,86 +60,66 @@ class DeviceApplyRecord(object):
 class DeviceApplyRecordBuilder(object):
     def __init__(self) -> None:
         self._device_apply_record = DeviceApplyRecord()
-
     def apply_id(self, apply_id: int) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.apply_id = apply_id
         return self
-
     def device_terminal_type(self, device_terminal_type: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.device_terminal_type = device_terminal_type
         return self
-
     def model(self, model: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.model = model
         return self
-
     def serial_number(self, serial_number: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.serial_number = serial_number
         return self
-
     def uuid(self, uuid: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.uuid = uuid
         return self
-
     def mac_address(self, mac_address: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.mac_address = mac_address
         return self
-
     def imei(self, imei: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.imei = imei
         return self
-
     def android_id(self, android_id: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.android_id = android_id
         return self
-
     def google_aid(self, google_aid: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.google_aid = google_aid
         return self
-
     def idfa(self, idfa: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.idfa = idfa
         return self
-
     def idfv(self, idfv: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.idfv = idfv
         return self
-
     def apply_status(self, apply_status: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.apply_status = apply_status
         return self
-
     def operator(self, operator: UserId) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.operator = operator
         return self
-
     def apply_time(self, apply_time: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.apply_time = apply_time
         return self
-
     def disk_serial_number(self, disk_serial_number: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.disk_serial_number = disk_serial_number
         return self
-
     def device_ownership(self, device_ownership: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.device_ownership = device_ownership
         return self
-
     def device_system(self, device_system: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.device_system = device_system
         return self
-
     def device_name(self, device_name: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.device_name = device_name
         return self
-
     def device_record_id(self, device_record_id: int) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.device_record_id = device_record_id
         return self
-
     def aaid(self, aaid: str) -> "DeviceApplyRecordBuilder":
         self._device_apply_record.aaid = aaid
         return self
-
+    
     def build(self) -> "DeviceApplyRecord":
         return self._device_apply_record

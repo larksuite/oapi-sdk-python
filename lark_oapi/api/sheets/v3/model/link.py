@@ -26,18 +26,15 @@ class Link(object):
 class LinkBuilder(object):
     def __init__(self) -> None:
         self._link = Link()
-
     def text(self, text: str) -> "LinkBuilder":
         self._link.text = text
         return self
-
     def link(self, link: str) -> "LinkBuilder":
         self._link.link = link
         return self
-
     def segment_styles(self, segment_styles: List[SegmentStyle]) -> "LinkBuilder":
         self._link.segment_styles = segment_styles
         return self
-
+    
     def build(self) -> "Link":
         return self._link

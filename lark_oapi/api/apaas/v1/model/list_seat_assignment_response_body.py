@@ -26,18 +26,15 @@ class ListSeatAssignmentResponseBody(object):
 class ListSeatAssignmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_seat_assignment_response_body = ListSeatAssignmentResponseBody()
-
     def items(self, items: List[SeatAssignment]) -> "ListSeatAssignmentResponseBodyBuilder":
         self._list_seat_assignment_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListSeatAssignmentResponseBodyBuilder":
         self._list_seat_assignment_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListSeatAssignmentResponseBodyBuilder":
         self._list_seat_assignment_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListSeatAssignmentResponseBody":
         return self._list_seat_assignment_response_body

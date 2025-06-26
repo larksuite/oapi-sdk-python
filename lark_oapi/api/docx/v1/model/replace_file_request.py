@@ -21,10 +21,9 @@ class ReplaceFileRequest(object):
 class ReplaceFileRequestBuilder(object):
     def __init__(self) -> None:
         self._replace_file_request = ReplaceFileRequest()
-
     def token(self, token: str) -> "ReplaceFileRequestBuilder":
         self._replace_file_request.token = token
         return self
-
+    
     def build(self) -> "ReplaceFileRequest":
         return self._replace_file_request

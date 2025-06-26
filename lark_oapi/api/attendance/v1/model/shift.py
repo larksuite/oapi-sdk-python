@@ -69,86 +69,66 @@ class Shift(object):
 class ShiftBuilder(object):
     def __init__(self) -> None:
         self._shift = Shift()
-
     def shift_id(self, shift_id: str) -> "ShiftBuilder":
         self._shift.shift_id = shift_id
         return self
-
     def shift_name(self, shift_name: str) -> "ShiftBuilder":
         self._shift.shift_name = shift_name
         return self
-
     def punch_times(self, punch_times: int) -> "ShiftBuilder":
         self._shift.punch_times = punch_times
         return self
-
     def sub_shift_leader_ids(self, sub_shift_leader_ids: List[str]) -> "ShiftBuilder":
         self._shift.sub_shift_leader_ids = sub_shift_leader_ids
         return self
-
     def is_flexible(self, is_flexible: bool) -> "ShiftBuilder":
         self._shift.is_flexible = is_flexible
         return self
-
     def flexible_minutes(self, flexible_minutes: int) -> "ShiftBuilder":
         self._shift.flexible_minutes = flexible_minutes
         return self
-
     def flexible_rule(self, flexible_rule: List[FlexibleRule]) -> "ShiftBuilder":
         self._shift.flexible_rule = flexible_rule
         return self
-
     def no_need_off(self, no_need_off: bool) -> "ShiftBuilder":
         self._shift.no_need_off = no_need_off
         return self
-
     def punch_time_rule(self, punch_time_rule: List[PunchTimeRule]) -> "ShiftBuilder":
         self._shift.punch_time_rule = punch_time_rule
         return self
-
     def late_off_late_on_rule(self, late_off_late_on_rule: List[LateOffLateOnRule]) -> "ShiftBuilder":
         self._shift.late_off_late_on_rule = late_off_late_on_rule
         return self
-
     def rest_time_rule(self, rest_time_rule: List[RestRule]) -> "ShiftBuilder":
         self._shift.rest_time_rule = rest_time_rule
         return self
-
     def overtime_rule(self, overtime_rule: List[OvertimeRule]) -> "ShiftBuilder":
         self._shift.overtime_rule = overtime_rule
         return self
-
     def day_type(self, day_type: int) -> "ShiftBuilder":
         self._shift.day_type = day_type
         return self
-
     def overtime_rest_time_rule(self, overtime_rest_time_rule: List[RestRule]) -> "ShiftBuilder":
         self._shift.overtime_rest_time_rule = overtime_rest_time_rule
         return self
-
     def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "ShiftBuilder":
         self._shift.late_minutes_as_serious_late = late_minutes_as_serious_late
         return self
-
     def shift_middle_time_rule(self, shift_middle_time_rule: ShiftMiddleTimeRule) -> "ShiftBuilder":
         self._shift.shift_middle_time_rule = shift_middle_time_rule
         return self
-
     def shift_attendance_time_config(self, shift_attendance_time_config: ShiftAttendanceTimeConfig) -> "ShiftBuilder":
         self._shift.shift_attendance_time_config = shift_attendance_time_config
         return self
-
     def late_off_late_on_setting(self, late_off_late_on_setting: LateOffLateOnSetting) -> "ShiftBuilder":
         self._shift.late_off_late_on_setting = late_off_late_on_setting
         return self
-
     def id(self, id: str) -> "ShiftBuilder":
         self._shift.id = id
         return self
-
     def rest_time_flexible_configs(self, rest_time_flexible_configs: List[RestTimeFlexibleConfig]) -> "ShiftBuilder":
         self._shift.rest_time_flexible_configs = rest_time_flexible_configs
         return self
-
+    
     def build(self) -> "Shift":
         return self._shift

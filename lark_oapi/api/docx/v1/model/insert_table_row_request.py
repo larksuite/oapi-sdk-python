@@ -21,10 +21,9 @@ class InsertTableRowRequest(object):
 class InsertTableRowRequestBuilder(object):
     def __init__(self) -> None:
         self._insert_table_row_request = InsertTableRowRequest()
-
     def row_index(self, row_index: int) -> "InsertTableRowRequestBuilder":
         self._insert_table_row_request.row_index = row_index
         return self
-
+    
     def build(self) -> "InsertTableRowRequest":
         return self._insert_table_row_request

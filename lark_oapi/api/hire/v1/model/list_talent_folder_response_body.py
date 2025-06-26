@@ -26,18 +26,15 @@ class ListTalentFolderResponseBody(object):
 class ListTalentFolderResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_talent_folder_response_body = ListTalentFolderResponseBody()
-
     def has_more(self, has_more: bool) -> "ListTalentFolderResponseBodyBuilder":
         self._list_talent_folder_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListTalentFolderResponseBodyBuilder":
         self._list_talent_folder_response_body.page_token = page_token
         return self
-
     def items(self, items: List[TalentFolderForList]) -> "ListTalentFolderResponseBodyBuilder":
         self._list_talent_folder_response_body.items = items
         return self
-
+    
     def build(self) -> "ListTalentFolderResponseBody":
         return self._list_talent_folder_response_body

@@ -23,14 +23,12 @@ class TableMeta(object):
 class TableMetaBuilder(object):
     def __init__(self) -> None:
         self._table_meta = TableMeta()
-
     def row_num(self, row_num: int) -> "TableMetaBuilder":
         self._table_meta.row_num = row_num
         return self
-
     def col_num(self, col_num: int) -> "TableMetaBuilder":
         self._table_meta.col_num = col_num
         return self
-
+    
     def build(self) -> "TableMeta":
         return self._table_meta

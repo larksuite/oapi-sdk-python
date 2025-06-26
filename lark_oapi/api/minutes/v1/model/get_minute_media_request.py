@@ -23,11 +23,12 @@ class GetMinuteMediaRequestBuilder(object):
         get_minute_media_request.uri = "/open-apis/minutes/v1/minutes/:minute_token/media"
         get_minute_media_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_minute_media_request: GetMinuteMediaRequest = get_minute_media_request
-
+    
     def minute_token(self, minute_token: str) -> "GetMinuteMediaRequestBuilder":
         self._get_minute_media_request.minute_token = minute_token
         self._get_minute_media_request.paths["minute_token"] = str(minute_token)
         return self
+    
 
     def build(self) -> GetMinuteMediaRequest:
         return self._get_minute_media_request

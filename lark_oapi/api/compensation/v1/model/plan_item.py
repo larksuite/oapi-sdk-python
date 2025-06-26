@@ -30,26 +30,21 @@ class PlanItem(object):
 class PlanItemBuilder(object):
     def __init__(self) -> None:
         self._plan_item = PlanItem()
-
     def adjustment_type(self, adjustment_type: str) -> "PlanItemBuilder":
         self._plan_item.adjustment_type = adjustment_type
         return self
-
     def item_id(self, item_id: str) -> "PlanItemBuilder":
         self._plan_item.item_id = item_id
         return self
-
     def plan_item_logic(self, plan_item_logic: AdjustmentLogic) -> "PlanItemBuilder":
         self._plan_item.plan_item_logic = plan_item_logic
         return self
-
     def probation_discount_type(self, probation_discount_type: str) -> "PlanItemBuilder":
         self._plan_item.probation_discount_type = probation_discount_type
         return self
-
     def probation_discount_percentum(self, probation_discount_percentum: str) -> "PlanItemBuilder":
         self._plan_item.probation_discount_percentum = probation_discount_percentum
         return self
-
+    
     def build(self) -> "PlanItem":
         return self._plan_item

@@ -21,10 +21,9 @@ class DocChunkBboxItem(object):
 class DocChunkBboxItemBuilder(object):
     def __init__(self) -> None:
         self._doc_chunk_bbox_item = DocChunkBboxItem()
-
     def bbox_positions(self, bbox_positions: List[str]) -> "DocChunkBboxItemBuilder":
         self._doc_chunk_bbox_item.bbox_positions = bbox_positions
         return self
-
+    
     def build(self) -> "DocChunkBboxItem":
         return self._doc_chunk_bbox_item

@@ -21,10 +21,9 @@ class MindMap(object):
 class MindMapBuilder(object):
     def __init__(self) -> None:
         self._mind_map = MindMap()
-
     def parent_id(self, parent_id: str) -> "MindMapBuilder":
         self._mind_map.parent_id = parent_id
         return self
-
+    
     def build(self) -> "MindMap":
         return self._mind_map

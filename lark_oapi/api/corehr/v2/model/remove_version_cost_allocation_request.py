@@ -26,19 +26,18 @@ class RemoveVersionCostAllocationRequestBuilder(object):
         remove_version_cost_allocation_request.uri = "/open-apis/corehr/v2/cost_allocations/remove_version"
         remove_version_cost_allocation_request.token_types = {AccessTokenType.TENANT}
         self._remove_version_cost_allocation_request: RemoveVersionCostAllocationRequest = remove_version_cost_allocation_request
-
+    
     def user_id_type(self, user_id_type: str) -> "RemoveVersionCostAllocationRequestBuilder":
         self._remove_version_cost_allocation_request.user_id_type = user_id_type
         self._remove_version_cost_allocation_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def client_token(self, client_token: str) -> "RemoveVersionCostAllocationRequestBuilder":
         self._remove_version_cost_allocation_request.client_token = client_token
         self._remove_version_cost_allocation_request.add_query("client_token", client_token)
         return self
-
-    def request_body(self,
-                     request_body: RemoveVersionCostAllocationRequestBody) -> "RemoveVersionCostAllocationRequestBuilder":
+    
+    def request_body(self, request_body: RemoveVersionCostAllocationRequestBody) -> "RemoveVersionCostAllocationRequestBuilder":
         self._remove_version_cost_allocation_request.request_body = request_body
         self._remove_version_cost_allocation_request.body = request_body
         return self

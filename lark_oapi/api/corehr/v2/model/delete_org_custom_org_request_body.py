@@ -23,14 +23,12 @@ class DeleteOrgCustomOrgRequestBody(object):
 class DeleteOrgCustomOrgRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_org_custom_org_request_body = DeleteOrgCustomOrgRequestBody()
-
     def org_id(self, org_id: str) -> "DeleteOrgCustomOrgRequestBodyBuilder":
         self._delete_org_custom_org_request_body.org_id = org_id
         return self
-
     def object_api_name(self, object_api_name: str) -> "DeleteOrgCustomOrgRequestBodyBuilder":
         self._delete_org_custom_org_request_body.object_api_name = object_api_name
         return self
-
+    
     def build(self) -> "DeleteOrgCustomOrgRequestBody":
         return self._delete_org_custom_org_request_body

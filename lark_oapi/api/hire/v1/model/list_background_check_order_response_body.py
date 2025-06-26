@@ -26,18 +26,15 @@ class ListBackgroundCheckOrderResponseBody(object):
 class ListBackgroundCheckOrderResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_background_check_order_response_body = ListBackgroundCheckOrderResponseBody()
-
     def has_more(self, has_more: bool) -> "ListBackgroundCheckOrderResponseBodyBuilder":
         self._list_background_check_order_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListBackgroundCheckOrderResponseBodyBuilder":
         self._list_background_check_order_response_body.page_token = page_token
         return self
-
     def items(self, items: List[BackgroundCheckOrder]) -> "ListBackgroundCheckOrderResponseBodyBuilder":
         self._list_background_check_order_response_body.items = items
         return self
-
+    
     def build(self) -> "ListBackgroundCheckOrderResponseBody":
         return self._list_background_check_order_response_body

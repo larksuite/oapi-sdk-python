@@ -27,22 +27,18 @@ class SeatActivity(object):
 class SeatActivityBuilder(object):
     def __init__(self) -> None:
         self._seat_activity = SeatActivity()
-
     def user_id(self, user_id: int) -> "SeatActivityBuilder":
         self._seat_activity.user_id = user_id
         return self
-
     def namespace(self, namespace: str) -> "SeatActivityBuilder":
         self._seat_activity.namespace = namespace
         return self
-
     def status(self, status: str) -> "SeatActivityBuilder":
         self._seat_activity.status = status
         return self
-
     def active_time(self, active_time: int) -> "SeatActivityBuilder":
         self._seat_activity.active_time = active_time
         return self
-
+    
     def build(self) -> "SeatActivity":
         return self._seat_activity

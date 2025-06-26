@@ -5,64 +5,64 @@ from lark_oapi.api.docs.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetContentRequest = GetContentRequest.builder() \
-        .doc_token("B4EPdAYx8oi8HRxgPQQbM15UcBf") \
-        .doc_type("docx") \
-        .content_type("markdown") \
-        .lang("zh") \
-        .build()
+	# 构造请求对象
+	request: GetContentRequest = GetContentRequest.builder() \
+		.doc_token("B4EPdAYx8oi8HRxgPQQbM15UcBf") \
+		.doc_type("docx") \
+		.content_type("markdown") \
+		.lang("zh") \
+		.build()
 
-    # 发起请求
-    response: GetContentResponse = client.docs.v1.content.get(request)
+	# 发起请求
+	response: GetContentResponse = client.docs.v1.content.get(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.docs.v1.content.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.docs.v1.content.get failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: GetContentRequest = GetContentRequest.builder() \
-        .doc_token("B4EPdAYx8oi8HRxgPQQbM15UcBf") \
-        .doc_type("docx") \
-        .content_type("markdown") \
-        .lang("zh") \
-        .build()
+	# 构造请求对象
+	request: GetContentRequest = GetContentRequest.builder() \
+		.doc_token("B4EPdAYx8oi8HRxgPQQbM15UcBf") \
+		.doc_type("docx") \
+		.content_type("markdown") \
+		.lang("zh") \
+		.build()
 
-    # 发起请求
-    response: GetContentResponse = await client.docs.v1.content.aget(request)
+	# 发起请求
+	response: GetContentResponse = await client.docs.v1.content.aget(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.docs.v1.content.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.docs.v1.content.aget failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

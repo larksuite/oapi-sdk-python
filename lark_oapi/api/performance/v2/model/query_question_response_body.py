@@ -26,18 +26,15 @@ class QueryQuestionResponseBody(object):
 class QueryQuestionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_question_response_body = QueryQuestionResponseBody()
-
     def tag_based_questions(self, tag_based_questions: List[Question]) -> "QueryQuestionResponseBodyBuilder":
         self._query_question_response_body.tag_based_questions = tag_based_questions
         return self
-
     def has_more(self, has_more: bool) -> "QueryQuestionResponseBodyBuilder":
         self._query_question_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "QueryQuestionResponseBodyBuilder":
         self._query_question_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "QueryQuestionResponseBody":
         return self._query_question_response_body

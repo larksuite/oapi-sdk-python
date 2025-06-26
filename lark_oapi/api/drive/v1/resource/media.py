@@ -27,8 +27,7 @@ class Media(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_get_tmp_download_url(self, request: BatchGetTmpDownloadUrlMediaRequest,
-                                   option: Optional[RequestOption] = None) -> BatchGetTmpDownloadUrlMediaResponse:
+    def batch_get_tmp_download_url(self, request: BatchGetTmpDownloadUrlMediaRequest, option: Optional[RequestOption] = None) -> BatchGetTmpDownloadUrlMediaResponse:
         if option is None:
             option = RequestOption()
 
@@ -41,32 +40,32 @@ class Media(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchGetTmpDownloadUrlMediaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchGetTmpDownloadUrlMediaResponse)
+        response: BatchGetTmpDownloadUrlMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetTmpDownloadUrlMediaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_get_tmp_download_url(self, request: BatchGetTmpDownloadUrlMediaRequest, option: Optional[
-        RequestOption] = None) -> BatchGetTmpDownloadUrlMediaResponse:
+    async def abatch_get_tmp_download_url(self, request: BatchGetTmpDownloadUrlMediaRequest, option: Optional[RequestOption] = None) -> BatchGetTmpDownloadUrlMediaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchGetTmpDownloadUrlMediaResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                       BatchGetTmpDownloadUrlMediaResponse)
+        response: BatchGetTmpDownloadUrlMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchGetTmpDownloadUrlMediaResponse)
         response.raw = resp
 
         return response
-
+        
     def download(self, request: DownloadMediaRequest, option: Optional[RequestOption] = None) -> DownloadMediaResponse:
         if option is None:
             option = RequestOption()
@@ -80,7 +79,7 @@ class Media(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadMediaResponse = DownloadMediaResponse()
@@ -93,18 +92,20 @@ class Media(object):
 
         response.raw = resp
         return response
+        
 
-    async def adownload(self, request: DownloadMediaRequest,
-                        option: Optional[RequestOption] = None) -> DownloadMediaResponse:
+    async def adownload(self, request: DownloadMediaRequest, option: Optional[RequestOption] = None) -> DownloadMediaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadMediaResponse = DownloadMediaResponse()
@@ -117,9 +118,8 @@ class Media(object):
 
         response.raw = resp
         return response
-
-    def upload_all(self, request: UploadAllMediaRequest,
-                   option: Optional[RequestOption] = None) -> UploadAllMediaResponse:
+        
+    def upload_all(self, request: UploadAllMediaRequest, option: Optional[RequestOption] = None) -> UploadAllMediaResponse:
         if option is None:
             option = RequestOption()
 
@@ -131,38 +131,39 @@ class Media(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
+            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadAllMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAllMediaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupload_all(self, request: UploadAllMediaRequest,
-                          option: Optional[RequestOption] = None) -> UploadAllMediaResponse:
+    async def aupload_all(self, request: UploadAllMediaRequest, option: Optional[RequestOption] = None) -> UploadAllMediaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadAllMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadAllMediaResponse)
         response.raw = resp
 
         return response
-
-    def upload_finish(self, request: UploadFinishMediaRequest,
-                      option: Optional[RequestOption] = None) -> UploadFinishMediaResponse:
+        
+    def upload_finish(self, request: UploadFinishMediaRequest, option: Optional[RequestOption] = None) -> UploadFinishMediaResponse:
         if option is None:
             option = RequestOption()
 
@@ -175,32 +176,33 @@ class Media(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadFinishMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFinishMediaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupload_finish(self, request: UploadFinishMediaRequest,
-                             option: Optional[RequestOption] = None) -> UploadFinishMediaResponse:
+    async def aupload_finish(self, request: UploadFinishMediaRequest, option: Optional[RequestOption] = None) -> UploadFinishMediaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadFinishMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadFinishMediaResponse)
         response.raw = resp
 
         return response
-
-    def upload_part(self, request: UploadPartMediaRequest,
-                    option: Optional[RequestOption] = None) -> UploadPartMediaResponse:
+        
+    def upload_part(self, request: UploadPartMediaRequest, option: Optional[RequestOption] = None) -> UploadPartMediaResponse:
         if option is None:
             option = RequestOption()
 
@@ -212,38 +214,39 @@ class Media(object):
             form_data = MultipartEncoder(Files.parse_form_data(request.body))
             request.body = form_data
             option.headers[CONTENT_TYPE] = form_data.content_type
+            
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadPartMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPartMediaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupload_part(self, request: UploadPartMediaRequest,
-                           option: Optional[RequestOption] = None) -> UploadPartMediaResponse:
+    async def aupload_part(self, request: UploadPartMediaRequest, option: Optional[RequestOption] = None) -> UploadPartMediaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
         # 解析文件
         request.files = Files.extract_files(request.body)
 
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadPartMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPartMediaResponse)
         response.raw = resp
 
         return response
-
-    def upload_prepare(self, request: UploadPrepareMediaRequest,
-                       option: Optional[RequestOption] = None) -> UploadPrepareMediaResponse:
+        
+    def upload_prepare(self, request: UploadPrepareMediaRequest, option: Optional[RequestOption] = None) -> UploadPrepareMediaResponse:
         if option is None:
             option = RequestOption()
 
@@ -256,26 +259,30 @@ class Media(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadPrepareMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPrepareMediaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupload_prepare(self, request: UploadPrepareMediaRequest,
-                              option: Optional[RequestOption] = None) -> UploadPrepareMediaResponse:
+    async def aupload_prepare(self, request: UploadPrepareMediaRequest, option: Optional[RequestOption] = None) -> UploadPrepareMediaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UploadPrepareMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), UploadPrepareMediaResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -32,30 +32,24 @@ class ReferralRecommendInfo(object):
 class ReferralRecommendInfoBuilder(object):
     def __init__(self) -> None:
         self._referral_recommend_info = ReferralRecommendInfo()
-
     def relationship(self, relationship: int) -> "ReferralRecommendInfoBuilder":
         self._referral_recommend_info.relationship = relationship
         return self
-
     def familiarity(self, familiarity: int) -> "ReferralRecommendInfoBuilder":
         self._referral_recommend_info.familiarity = familiarity
         return self
-
     def comment(self, comment: str) -> "ReferralRecommendInfoBuilder":
         self._referral_recommend_info.comment = comment
         return self
-
     def specific_relationship(self, specific_relationship: SpecificRelationship) -> "ReferralRecommendInfoBuilder":
         self._referral_recommend_info.specific_relationship = specific_relationship
         return self
-
     def work_ability_familiarity(self, work_ability_familiarity: int) -> "ReferralRecommendInfoBuilder":
         self._referral_recommend_info.work_ability_familiarity = work_ability_familiarity
         return self
-
     def match_degree(self, match_degree: int) -> "ReferralRecommendInfoBuilder":
         self._referral_recommend_info.match_degree = match_degree
         return self
-
+    
     def build(self) -> "ReferralRecommendInfo":
         return self._referral_recommend_info

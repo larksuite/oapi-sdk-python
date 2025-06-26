@@ -21,10 +21,9 @@ class Record(object):
 class RecordBuilder(object):
     def __init__(self) -> None:
         self._record = Record()
-
     def id(self, id: str) -> "RecordBuilder":
         self._record.id = id
         return self
-
+    
     def build(self) -> "Record":
         return self._record

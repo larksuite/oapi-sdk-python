@@ -24,16 +24,17 @@ class GetExportTaskRequestBuilder(object):
         get_export_task_request.uri = "/open-apis/drive/v1/export_tasks/:ticket"
         get_export_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_export_task_request: GetExportTaskRequest = get_export_task_request
-
+    
     def token(self, token: str) -> "GetExportTaskRequestBuilder":
         self._get_export_task_request.token = token
         self._get_export_task_request.add_query("token", token)
         return self
-
+    
     def ticket(self, ticket: str) -> "GetExportTaskRequestBuilder":
         self._get_export_task_request.ticket = ticket
         self._get_export_task_request.paths["ticket"] = str(ticket)
         return self
+    
 
     def build(self) -> GetExportTaskRequest:
         return self._get_export_task_request

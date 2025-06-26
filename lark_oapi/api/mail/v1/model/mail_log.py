@@ -37,34 +37,27 @@ class MailLog(object):
 class MailLogBuilder(object):
     def __init__(self) -> None:
         self._mail_log = MailLog()
-
     def timestamp(self, timestamp: int) -> "MailLogBuilder":
         self._mail_log.timestamp = timestamp
         return self
-
     def id(self, id: str) -> "MailLogBuilder":
         self._mail_log.id = id
         return self
-
     def initiator(self, initiator: UserMailEntity) -> "MailLogBuilder":
         self._mail_log.initiator = initiator
         return self
-
     def operator(self, operator: UserMailEntity) -> "MailLogBuilder":
         self._mail_log.operator = operator
         return self
-
     def mail_info(self, mail_info: MailLogMailInfo) -> "MailLogBuilder":
         self._mail_log.mail_info = mail_info
         return self
-
     def rule_infos(self, rule_infos: List[MailFlowRuleInfo]) -> "MailLogBuilder":
         self._mail_log.rule_infos = rule_infos
         return self
-
     def tags(self, tags: List[str]) -> "MailLogBuilder":
         self._mail_log.tags = tags
         return self
-
+    
     def build(self) -> "MailLog":
         return self._mail_log

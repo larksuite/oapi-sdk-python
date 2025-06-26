@@ -35,34 +35,27 @@ class Vchat(object):
 class VchatBuilder(object):
     def __init__(self) -> None:
         self._vchat = Vchat()
-
     def vc_type(self, vc_type: str) -> "VchatBuilder":
         self._vchat.vc_type = vc_type
         return self
-
     def icon_type(self, icon_type: str) -> "VchatBuilder":
         self._vchat.icon_type = icon_type
         return self
-
     def description(self, description: str) -> "VchatBuilder":
         self._vchat.description = description
         return self
-
     def meeting_url(self, meeting_url: str) -> "VchatBuilder":
         self._vchat.meeting_url = meeting_url
         return self
-
     def live_link(self, live_link: str) -> "VchatBuilder":
         self._vchat.live_link = live_link
         return self
-
     def vc_info(self, vc_info: VcInfo) -> "VchatBuilder":
         self._vchat.vc_info = vc_info
         return self
-
     def meeting_settings(self, meeting_settings: MeetingSettings) -> "VchatBuilder":
         self._vchat.meeting_settings = meeting_settings
         return self
-
+    
     def build(self) -> "Vchat":
         return self._vchat

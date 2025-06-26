@@ -23,14 +23,12 @@ class Interviewer(object):
 class InterviewerBuilder(object):
     def __init__(self) -> None:
         self._interviewer = Interviewer()
-
     def user_id(self, user_id: str) -> "InterviewerBuilder":
         self._interviewer.user_id = user_id
         return self
-
     def verify_status(self, verify_status: int) -> "InterviewerBuilder":
         self._interviewer.verify_status = verify_status
         return self
-
+    
     def build(self) -> "Interviewer":
         return self._interviewer

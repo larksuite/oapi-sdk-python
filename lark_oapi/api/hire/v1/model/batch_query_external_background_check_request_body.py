@@ -21,11 +21,9 @@ class BatchQueryExternalBackgroundCheckRequestBody(object):
 class BatchQueryExternalBackgroundCheckRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_external_background_check_request_body = BatchQueryExternalBackgroundCheckRequestBody()
-
-    def external_background_check_id_list(self, external_background_check_id_list: List[
-        str]) -> "BatchQueryExternalBackgroundCheckRequestBodyBuilder":
+    def external_background_check_id_list(self, external_background_check_id_list: List[str]) -> "BatchQueryExternalBackgroundCheckRequestBodyBuilder":
         self._batch_query_external_background_check_request_body.external_background_check_id_list = external_background_check_id_list
         return self
-
+    
     def build(self) -> "BatchQueryExternalBackgroundCheckRequestBody":
         return self._batch_query_external_background_check_request_body

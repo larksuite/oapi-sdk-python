@@ -29,26 +29,21 @@ class BatchGetEmployeeRequestBody(object):
 class BatchGetEmployeeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_employee_request_body = BatchGetEmployeeRequestBody()
-
     def fields(self, fields: List[str]) -> "BatchGetEmployeeRequestBodyBuilder":
         self._batch_get_employee_request_body.fields = fields
         return self
-
     def employment_ids(self, employment_ids: List[str]) -> "BatchGetEmployeeRequestBodyBuilder":
         self._batch_get_employee_request_body.employment_ids = employment_ids
         return self
-
     def person_ids(self, person_ids: List[str]) -> "BatchGetEmployeeRequestBodyBuilder":
         self._batch_get_employee_request_body.person_ids = person_ids
         return self
-
     def work_emails(self, work_emails: List[str]) -> "BatchGetEmployeeRequestBodyBuilder":
         self._batch_get_employee_request_body.work_emails = work_emails
         return self
-
     def user_names(self, user_names: List[str]) -> "BatchGetEmployeeRequestBodyBuilder":
         self._batch_get_employee_request_body.user_names = user_names
         return self
-
+    
     def build(self) -> "BatchGetEmployeeRequestBody":
         return self._batch_get_employee_request_body

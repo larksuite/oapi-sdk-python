@@ -23,14 +23,12 @@ class HelpdeskPassageParam(object):
 class HelpdeskPassageParamBuilder(object):
     def __init__(self) -> None:
         self._helpdesk_passage_param = HelpdeskPassageParam()
-
     def searchable(self, searchable: bool) -> "HelpdeskPassageParamBuilder":
         self._helpdesk_passage_param.searchable = searchable
         return self
-
     def helpdesk_ids(self, helpdesk_ids: List[str]) -> "HelpdeskPassageParamBuilder":
         self._helpdesk_passage_param.helpdesk_ids = helpdesk_ids
         return self
-
+    
     def build(self) -> "HelpdeskPassageParam":
         return self._helpdesk_passage_param

@@ -51,62 +51,48 @@ class LocationVersionData(object):
 class LocationVersionDataBuilder(object):
     def __init__(self) -> None:
         self._location_version_data = LocationVersionData()
-
     def location_id(self, location_id: str) -> "LocationVersionDataBuilder":
         self._location_version_data.location_id = location_id
         return self
-
     def location_version_id(self, location_version_id: str) -> "LocationVersionDataBuilder":
         self._location_version_data.location_version_id = location_version_id
         return self
-
     def location_names(self, location_names: List[I18n]) -> "LocationVersionDataBuilder":
         self._location_version_data.location_names = location_names
         return self
-
     def parent_location_id(self, parent_location_id: str) -> "LocationVersionDataBuilder":
         self._location_version_data.parent_location_id = parent_location_id
         return self
-
     def effective_date(self, effective_date: str) -> "LocationVersionDataBuilder":
         self._location_version_data.effective_date = effective_date
         return self
-
     def expiration_date(self, expiration_date: str) -> "LocationVersionDataBuilder":
         self._location_version_data.expiration_date = expiration_date
         return self
-
     def active(self, active: bool) -> "LocationVersionDataBuilder":
         self._location_version_data.active = active
         return self
-
     def descriptions(self, descriptions: List[I18n]) -> "LocationVersionDataBuilder":
         self._location_version_data.descriptions = descriptions
         return self
-
     def code(self, code: str) -> "LocationVersionDataBuilder":
         self._location_version_data.code = code
         return self
-
     def location_usages(self, location_usages: List[Enum]) -> "LocationVersionDataBuilder":
         self._location_version_data.location_usages = location_usages
         return self
-
     def locale(self, locale: Enum) -> "LocationVersionDataBuilder":
         self._location_version_data.locale = locale
         return self
-
     def time_zone_id(self, time_zone_id: str) -> "LocationVersionDataBuilder":
         self._location_version_data.time_zone_id = time_zone_id
         return self
-
     def display_language_id(self, display_language_id: str) -> "LocationVersionDataBuilder":
         self._location_version_data.display_language_id = display_language_id
         return self
-
     def working_hours_type_id(self, working_hours_type_id: str) -> "LocationVersionDataBuilder":
         self._location_version_data.working_hours_type_id = working_hours_type_id
         return self
-
+    
     def build(self) -> "LocationVersionData":
         return self._location_version_data

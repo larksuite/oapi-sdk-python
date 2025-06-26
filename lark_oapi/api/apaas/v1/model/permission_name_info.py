@@ -23,14 +23,12 @@ class PermissionNameInfo(object):
 class PermissionNameInfoBuilder(object):
     def __init__(self) -> None:
         self._permission_name_info = PermissionNameInfo()
-
     def id(self, id: int) -> "PermissionNameInfoBuilder":
         self._permission_name_info.id = id
         return self
-
     def name(self, name: str) -> "PermissionNameInfoBuilder":
         self._permission_name_info.name = name
         return self
-
+    
     def build(self) -> "PermissionNameInfo":
         return self._permission_name_info

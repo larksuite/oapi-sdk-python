@@ -17,8 +17,7 @@ class Whiteboard(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download_as_image(self, request: DownloadAsImageWhiteboardRequest,
-                          option: Optional[RequestOption] = None) -> DownloadAsImageWhiteboardResponse:
+    def download_as_image(self, request: DownloadAsImageWhiteboardRequest, option: Optional[RequestOption] = None) -> DownloadAsImageWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,7 +30,7 @@ class Whiteboard(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadAsImageWhiteboardResponse = DownloadAsImageWhiteboardResponse()
@@ -44,18 +43,20 @@ class Whiteboard(object):
 
         response.raw = resp
         return response
+        
 
-    async def adownload_as_image(self, request: DownloadAsImageWhiteboardRequest,
-                                 option: Optional[RequestOption] = None) -> DownloadAsImageWhiteboardResponse:
+    async def adownload_as_image(self, request: DownloadAsImageWhiteboardRequest, option: Optional[RequestOption] = None) -> DownloadAsImageWhiteboardResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 处理二进制流
         content_type = resp.headers.get(CONTENT_TYPE)
         response: DownloadAsImageWhiteboardResponse = DownloadAsImageWhiteboardResponse()
@@ -68,3 +69,5 @@ class Whiteboard(object):
 
         response.raw = resp
         return response
+        
+    

@@ -66,74 +66,57 @@ class CompanyTimeline(object):
 class CompanyTimelineBuilder(object):
     def __init__(self) -> None:
         self._company_timeline = CompanyTimeline()
-
     def company_version_data(self, company_version_data: List[CompanyVersionData]) -> "CompanyTimelineBuilder":
         self._company_timeline.company_version_data = company_version_data
         return self
-
     def type(self, type: Enum) -> "CompanyTimelineBuilder":
         self._company_timeline.type = type
         return self
-
     def industry_list(self, industry_list: List[Enum]) -> "CompanyTimelineBuilder":
         self._company_timeline.industry_list = industry_list
         return self
-
     def legal_representative(self, legal_representative: List[I18n]) -> "CompanyTimelineBuilder":
         self._company_timeline.legal_representative = legal_representative
         return self
-
     def post_code(self, post_code: str) -> "CompanyTimelineBuilder":
         self._company_timeline.post_code = post_code
         return self
-
     def tax_payer_id(self, tax_payer_id: str) -> "CompanyTimelineBuilder":
         self._company_timeline.tax_payer_id = tax_payer_id
         return self
-
     def confidential(self, confidential: bool) -> "CompanyTimelineBuilder":
         self._company_timeline.confidential = confidential
         return self
-
     def sub_type_list(self, sub_type_list: List[Enum]) -> "CompanyTimelineBuilder":
         self._company_timeline.sub_type_list = sub_type_list
         return self
-
     def branch_company(self, branch_company: bool) -> "CompanyTimelineBuilder":
         self._company_timeline.branch_company = branch_company
         return self
-
     def primary_manager(self, primary_manager: List[I18n]) -> "CompanyTimelineBuilder":
         self._company_timeline.primary_manager = primary_manager
         return self
-
     def currency(self, currency: Currency) -> "CompanyTimelineBuilder":
         self._company_timeline.currency = currency
         return self
-
     def phone(self, phone: PhoneNumberAndAreaCode) -> "CompanyTimelineBuilder":
         self._company_timeline.phone = phone
         return self
-
     def fax(self, fax: PhoneNumberAndAreaCode) -> "CompanyTimelineBuilder":
         self._company_timeline.fax = fax
         return self
-
     def registered_office_address(self, registered_office_address: List[I18n]) -> "CompanyTimelineBuilder":
         self._company_timeline.registered_office_address = registered_office_address
         return self
-
     def office_address(self, office_address: List[I18n]) -> "CompanyTimelineBuilder":
         self._company_timeline.office_address = office_address
         return self
-
     def registered_office_address_info(self, registered_office_address_info: Address) -> "CompanyTimelineBuilder":
         self._company_timeline.registered_office_address_info = registered_office_address_info
         return self
-
     def office_address_info(self, office_address_info: Address) -> "CompanyTimelineBuilder":
         self._company_timeline.office_address_info = office_address_info
         return self
-
+    
     def build(self) -> "CompanyTimeline":
         return self._company_timeline

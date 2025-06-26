@@ -17,8 +17,7 @@ class AppDataAssetTag(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListAppDataAssetTagRequest,
-             option: Optional[RequestOption] = None) -> ListAppDataAssetTagResponse:
+    def list(self, request: ListAppDataAssetTagRequest, option: Optional[RequestOption] = None) -> ListAppDataAssetTagResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class AppDataAssetTag(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAppDataAssetTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppDataAssetTagResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListAppDataAssetTagRequest,
-                    option: Optional[RequestOption] = None) -> ListAppDataAssetTagResponse:
+    async def alist(self, request: ListAppDataAssetTagRequest, option: Optional[RequestOption] = None) -> ListAppDataAssetTagResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListAppDataAssetTagResponse = JSON.unmarshal(str(resp.content, UTF_8), ListAppDataAssetTagResponse)
         response.raw = resp
 
         return response
+        
+    

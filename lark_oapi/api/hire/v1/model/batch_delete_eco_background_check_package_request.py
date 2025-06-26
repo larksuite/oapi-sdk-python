@@ -24,9 +24,8 @@ class BatchDeleteEcoBackgroundCheckPackageRequestBuilder(object):
         batch_delete_eco_background_check_package_request.uri = "/open-apis/hire/v1/eco_background_check_packages/batch_delete"
         batch_delete_eco_background_check_package_request.token_types = {AccessTokenType.TENANT}
         self._batch_delete_eco_background_check_package_request: BatchDeleteEcoBackgroundCheckPackageRequest = batch_delete_eco_background_check_package_request
-
-    def request_body(self,
-                     request_body: BatchDeleteEcoBackgroundCheckPackageRequestBody) -> "BatchDeleteEcoBackgroundCheckPackageRequestBuilder":
+    
+    def request_body(self, request_body: BatchDeleteEcoBackgroundCheckPackageRequestBody) -> "BatchDeleteEcoBackgroundCheckPackageRequestBuilder":
         self._batch_delete_eco_background_check_package_request.request_body = request_body
         self._batch_delete_eco_background_check_package_request.body = request_body
         return self

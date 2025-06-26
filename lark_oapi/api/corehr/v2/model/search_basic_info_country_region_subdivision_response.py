@@ -3,8 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.construct import init
 from lark_oapi.core.model import BaseResponse
-from .search_basic_info_country_region_subdivision_response_body import \
-    SearchBasicInfoCountryRegionSubdivisionResponseBody
+from .search_basic_info_country_region_subdivision_response_body import SearchBasicInfoCountryRegionSubdivisionResponseBody
 
 
 class SearchBasicInfoCountryRegionSubdivisionResponse(BaseResponse):

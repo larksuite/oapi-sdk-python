@@ -35,38 +35,30 @@ class RemedyGroup(object):
 class RemedyGroupBuilder(object):
     def __init__(self) -> None:
         self._remedy_group = RemedyGroup()
-
     def type(self, type: str) -> "RemedyGroupBuilder":
         self._remedy_group.type = type
         return self
-
     def instance_code(self, instance_code: str) -> "RemedyGroupBuilder":
         self._remedy_group.instance_code = instance_code
         return self
-
     def employee_id(self, employee_id: str) -> "RemedyGroupBuilder":
         self._remedy_group.employee_id = employee_id
         return self
-
     def start_time(self, start_time: int) -> "RemedyGroupBuilder":
         self._remedy_group.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "RemedyGroupBuilder":
         self._remedy_group.end_time = end_time
         return self
-
     def remedy_time(self, remedy_time: int) -> "RemedyGroupBuilder":
         self._remedy_group.remedy_time = remedy_time
         return self
-
     def remedy_reason(self, remedy_reason: str) -> "RemedyGroupBuilder":
         self._remedy_group.remedy_reason = remedy_reason
         return self
-
     def status(self, status: str) -> "RemedyGroupBuilder":
         self._remedy_group.status = status
         return self
-
+    
     def build(self) -> "RemedyGroup":
         return self._remedy_group

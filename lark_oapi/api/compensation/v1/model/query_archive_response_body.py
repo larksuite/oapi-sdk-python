@@ -26,18 +26,15 @@ class QueryArchiveResponseBody(object):
 class QueryArchiveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_archive_response_body = QueryArchiveResponseBody()
-
     def items(self, items: List[ArchiveDetail]) -> "QueryArchiveResponseBodyBuilder":
         self._query_archive_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "QueryArchiveResponseBodyBuilder":
         self._query_archive_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "QueryArchiveResponseBodyBuilder":
         self._query_archive_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "QueryArchiveResponseBody":
         return self._query_archive_response_body

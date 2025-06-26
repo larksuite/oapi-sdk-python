@@ -25,12 +25,12 @@ class SearchApplicationObjectRequestBuilder(object):
         search_application_object_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/search"
         search_application_object_request.token_types = {AccessTokenType.TENANT}
         self._search_application_object_request: SearchApplicationObjectRequest = search_application_object_request
-
+    
     def namespace(self, namespace: str) -> "SearchApplicationObjectRequestBuilder":
         self._search_application_object_request.namespace = namespace
         self._search_application_object_request.paths["namespace"] = str(namespace)
         return self
-
+    
     def request_body(self, request_body: SearchApplicationObjectRequestBody) -> "SearchApplicationObjectRequestBuilder":
         self._search_application_object_request.request_body = request_body
         self._search_application_object_request.body = request_body

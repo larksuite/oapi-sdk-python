@@ -28,23 +28,18 @@ class CreateAppDataAssetRequestBody(object):
 class CreateAppDataAssetRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_data_asset_request_body = CreateAppDataAssetRequestBody()
-
     def connect_type(self, connect_type: str) -> "CreateAppDataAssetRequestBodyBuilder":
         self._create_app_data_asset_request_body.connect_type = connect_type
         return self
-
     def source_type(self, source_type: str) -> "CreateAppDataAssetRequestBodyBuilder":
         self._create_app_data_asset_request_body.source_type = source_type
         return self
-
-    def import_knowledge_setting(self,
-                                 import_knowledge_setting: DataAssetImportKnowledgeSetting) -> "CreateAppDataAssetRequestBodyBuilder":
+    def import_knowledge_setting(self, import_knowledge_setting: DataAssetImportKnowledgeSetting) -> "CreateAppDataAssetRequestBodyBuilder":
         self._create_app_data_asset_request_body.import_knowledge_setting = import_knowledge_setting
         return self
-
     def description(self, description: Dict[str, str]) -> "CreateAppDataAssetRequestBodyBuilder":
         self._create_app_data_asset_request_body.description = description
         return self
-
+    
     def build(self) -> "CreateAppDataAssetRequestBody":
         return self._create_app_data_asset_request_body

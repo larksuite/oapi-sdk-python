@@ -23,11 +23,12 @@ class DownloadExportTaskRequestBuilder(object):
         download_export_task_request.uri = "/open-apis/drive/v1/export_tasks/file/:file_token/download"
         download_export_task_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._download_export_task_request: DownloadExportTaskRequest = download_export_task_request
-
+    
     def file_token(self, file_token: str) -> "DownloadExportTaskRequestBuilder":
         self._download_export_task_request.file_token = file_token
         self._download_export_task_request.paths["file_token"] = str(file_token)
         return self
+    
 
     def build(self) -> DownloadExportTaskRequest:
         return self._download_export_task_request

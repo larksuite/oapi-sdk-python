@@ -24,14 +24,12 @@ class Action(object):
 class ActionBuilder(object):
     def __init__(self) -> None:
         self._action = Action()
-
     def action(self, action: str) -> "ActionBuilder":
         self._action.action = action
         return self
-
     def params(self, params: Params) -> "ActionBuilder":
         self._action.params = params
         return self
-
+    
     def build(self) -> "Action":
         return self._action

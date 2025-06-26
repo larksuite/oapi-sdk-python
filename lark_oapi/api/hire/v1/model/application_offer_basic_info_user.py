@@ -38,42 +38,33 @@ class ApplicationOfferBasicInfoUser(object):
 class ApplicationOfferBasicInfoUserBuilder(object):
     def __init__(self) -> None:
         self._application_offer_basic_info_user = ApplicationOfferBasicInfoUser()
-
     def id(self, id: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.id = id
         return self
-
     def name(self, name: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.name = name
         return self
-
     def en_name(self, en_name: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.en_name = en_name
         return self
-
     def avatar(self, avatar: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.avatar = avatar
         return self
-
     def department(self, department: Department) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.department = department
         return self
-
     def timezone(self, timezone: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.timezone = timezone
         return self
-
     def phone(self, phone: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.phone = phone
         return self
-
     def email(self, email: str) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.email = email
         return self
-
     def in_app_scope(self, in_app_scope: bool) -> "ApplicationOfferBasicInfoUserBuilder":
         self._application_offer_basic_info_user.in_app_scope = in_app_scope
         return self
-
+    
     def build(self) -> "ApplicationOfferBasicInfoUser":
         return self._application_offer_basic_info_user

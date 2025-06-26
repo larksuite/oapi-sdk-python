@@ -22,10 +22,9 @@ class ReplyContent(object):
 class ReplyContentBuilder(object):
     def __init__(self) -> None:
         self._reply_content = ReplyContent()
-
     def elements(self, elements: List[ReplyElement]) -> "ReplyContentBuilder":
         self._reply_content.elements = elements
         return self
-
+    
     def build(self) -> "ReplyContent":
         return self._reply_content

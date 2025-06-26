@@ -29,22 +29,18 @@ class CompositeTalentCustomizedData(object):
 class CompositeTalentCustomizedDataBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_customized_data = CompositeTalentCustomizedData()
-
     def module_id(self, module_id: str) -> "CompositeTalentCustomizedDataBuilder":
         self._composite_talent_customized_data.module_id = module_id
         return self
-
     def name(self, name: I18n) -> "CompositeTalentCustomizedDataBuilder":
         self._composite_talent_customized_data.name = name
         return self
-
     def object_type(self, object_type: int) -> "CompositeTalentCustomizedDataBuilder":
         self._composite_talent_customized_data.object_type = object_type
         return self
-
     def children(self, children: List[TalentCustomizedDataChild]) -> "CompositeTalentCustomizedDataBuilder":
         self._composite_talent_customized_data.children = children
         return self
-
+    
     def build(self) -> "CompositeTalentCustomizedData":
         return self._composite_talent_customized_data

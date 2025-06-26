@@ -5,78 +5,76 @@ from lark_oapi.api.application.v6 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: DepartmentOverviewApplicationAppUsageRequest = DepartmentOverviewApplicationAppUsageRequest.builder() \
-        .app_id("cli_9f115af860f7901b") \
-        .department_id_type("open_department_id") \
-        .request_body(DepartmentOverviewApplicationAppUsageRequestBody.builder()
-                      .date("2021-07-08")
-                      .cycle_type(1)
-                      .department_id("od-4e6ac4d14bcd5071a37a39de902c7141")
-                      .recursion(0)
-                      .page_size(10)
-                      .page_token("new-1a8f509162ca3c95405838d05ccded09")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: DepartmentOverviewApplicationAppUsageRequest = DepartmentOverviewApplicationAppUsageRequest.builder() \
+		.app_id("cli_9f115af860f7901b") \
+		.department_id_type("open_department_id") \
+		.request_body(DepartmentOverviewApplicationAppUsageRequestBody.builder()
+					  .date("2021-07-08")
+					  .cycle_type(1)
+					  .department_id("od-4e6ac4d14bcd5071a37a39de902c7141")
+					  .recursion(0)
+					  .page_size(10)
+					  .page_token("new-1a8f509162ca3c95405838d05ccded09")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: DepartmentOverviewApplicationAppUsageResponse = client.application.v6.application_app_usage.department_overview(
-        request)
+	# 发起请求
+	response: DepartmentOverviewApplicationAppUsageResponse = client.application.v6.application_app_usage.department_overview(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.application.v6.application_app_usage.department_overview failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.application.v6.application_app_usage.department_overview failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: DepartmentOverviewApplicationAppUsageRequest = DepartmentOverviewApplicationAppUsageRequest.builder() \
-        .app_id("cli_9f115af860f7901b") \
-        .department_id_type("open_department_id") \
-        .request_body(DepartmentOverviewApplicationAppUsageRequestBody.builder()
-                      .date("2021-07-08")
-                      .cycle_type(1)
-                      .department_id("od-4e6ac4d14bcd5071a37a39de902c7141")
-                      .recursion(0)
-                      .page_size(10)
-                      .page_token("new-1a8f509162ca3c95405838d05ccded09")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: DepartmentOverviewApplicationAppUsageRequest = DepartmentOverviewApplicationAppUsageRequest.builder() \
+		.app_id("cli_9f115af860f7901b") \
+		.department_id_type("open_department_id") \
+		.request_body(DepartmentOverviewApplicationAppUsageRequestBody.builder()
+					  .date("2021-07-08")
+					  .cycle_type(1)
+					  .department_id("od-4e6ac4d14bcd5071a37a39de902c7141")
+					  .recursion(0)
+					  .page_size(10)
+					  .page_token("new-1a8f509162ca3c95405838d05ccded09")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: DepartmentOverviewApplicationAppUsageResponse = await client.application.v6.application_app_usage.adepartment_overview(
-        request)
+	# 发起请求
+	response: DepartmentOverviewApplicationAppUsageResponse = await client.application.v6.application_app_usage.adepartment_overview(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.application.v6.application_app_usage.adepartment_overview failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.application.v6.application_app_usage.adepartment_overview failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

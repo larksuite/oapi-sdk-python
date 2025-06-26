@@ -25,18 +25,15 @@ class Referer(object):
 class RefererBuilder(object):
     def __init__(self) -> None:
         self._referer = Referer()
-
     def id(self, id: str) -> "RefererBuilder":
         self._referer.id = id
         return self
-
     def title(self, title: str) -> "RefererBuilder":
         self._referer.title = title
         return self
-
     def url(self, url: str) -> "RefererBuilder":
         self._referer.url = url
         return self
-
+    
     def build(self) -> "Referer":
         return self._referer

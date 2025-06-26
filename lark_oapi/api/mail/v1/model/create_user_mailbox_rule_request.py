@@ -25,12 +25,12 @@ class CreateUserMailboxRuleRequestBuilder(object):
         create_user_mailbox_rule_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/rules"
         create_user_mailbox_rule_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_user_mailbox_rule_request: CreateUserMailboxRuleRequest = create_user_mailbox_rule_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "CreateUserMailboxRuleRequestBuilder":
         self._create_user_mailbox_rule_request.user_mailbox_id = user_mailbox_id
         self._create_user_mailbox_rule_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def request_body(self, request_body: Rule) -> "CreateUserMailboxRuleRequestBuilder":
         self._create_user_mailbox_rule_request.request_body = request_body
         self._create_user_mailbox_rule_request.body = request_body

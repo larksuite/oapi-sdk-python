@@ -24,14 +24,12 @@ class Site(object):
 class SiteBuilder(object):
     def __init__(self) -> None:
         self._site = Site()
-
     def id(self, id: str) -> "SiteBuilder":
         self._site.id = id
         return self
-
     def name(self, name: SiteName) -> "SiteBuilder":
         self._site.name = name
         return self
-
+    
     def build(self) -> "Site":
         return self._site

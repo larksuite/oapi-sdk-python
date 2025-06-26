@@ -21,10 +21,9 @@ class ConvertCommonDataIdRequestBody(object):
 class ConvertCommonDataIdRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._convert_common_data_id_request_body = ConvertCommonDataIdRequestBody()
-
     def ids(self, ids: List[str]) -> "ConvertCommonDataIdRequestBodyBuilder":
         self._convert_common_data_id_request_body.ids = ids
         return self
-
+    
     def build(self) -> "ConvertCommonDataIdRequestBody":
         return self._convert_common_data_id_request_body

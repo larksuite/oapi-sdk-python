@@ -33,34 +33,27 @@ class OfferSalaryInfo(object):
 class OfferSalaryInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_salary_info = OfferSalaryInfo()
-
     def currency(self, currency: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.currency = currency
         return self
-
     def basic_salary(self, basic_salary: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.basic_salary = basic_salary
         return self
-
     def probation_salary_percentage(self, probation_salary_percentage: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.probation_salary_percentage = probation_salary_percentage
         return self
-
     def award_salary_multiple(self, award_salary_multiple: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.award_salary_multiple = award_salary_multiple
         return self
-
     def option_shares(self, option_shares: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.option_shares = option_shares
         return self
-
     def quarterly_bonus(self, quarterly_bonus: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.quarterly_bonus = quarterly_bonus
         return self
-
     def half_year_bonus(self, half_year_bonus: str) -> "OfferSalaryInfoBuilder":
         self._offer_salary_info.half_year_bonus = half_year_bonus
         return self
-
+    
     def build(self) -> "OfferSalaryInfo":
         return self._offer_salary_info

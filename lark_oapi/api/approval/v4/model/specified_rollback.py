@@ -29,26 +29,21 @@ class SpecifiedRollback(object):
 class SpecifiedRollbackBuilder(object):
     def __init__(self) -> None:
         self._specified_rollback = SpecifiedRollback()
-
     def user_id(self, user_id: str) -> "SpecifiedRollbackBuilder":
         self._specified_rollback.user_id = user_id
         return self
-
     def task_id(self, task_id: int) -> "SpecifiedRollbackBuilder":
         self._specified_rollback.task_id = task_id
         return self
-
     def reason(self, reason: str) -> "SpecifiedRollbackBuilder":
         self._specified_rollback.reason = reason
         return self
-
     def extra(self, extra: str) -> "SpecifiedRollbackBuilder":
         self._specified_rollback.extra = extra
         return self
-
     def task_def_key_list(self, task_def_key_list: List[str]) -> "SpecifiedRollbackBuilder":
         self._specified_rollback.task_def_key_list = task_def_key_list
         return self
-
+    
     def build(self) -> "SpecifiedRollback":
         return self._specified_rollback

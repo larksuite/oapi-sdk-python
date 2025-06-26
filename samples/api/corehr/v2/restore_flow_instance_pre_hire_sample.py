@@ -5,64 +5,64 @@ from lark_oapi.api.corehr.v2 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: RestoreFlowInstancePreHireRequest = RestoreFlowInstancePreHireRequest.builder() \
-        .request_body(RestoreFlowInstancePreHireRequestBody.builder()
-                      .pre_hire_id("7345005664477775407")
-                      .confirm_workforce(False)
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: RestoreFlowInstancePreHireRequest = RestoreFlowInstancePreHireRequest.builder() \
+		.request_body(RestoreFlowInstancePreHireRequestBody.builder()
+					  .pre_hire_id("7345005664477775407")
+					  .confirm_workforce(False)
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: RestoreFlowInstancePreHireResponse = client.corehr.v2.pre_hire.restore_flow_instance(request)
+	# 发起请求
+	response: RestoreFlowInstancePreHireResponse = client.corehr.v2.pre_hire.restore_flow_instance(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v2.pre_hire.restore_flow_instance failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v2.pre_hire.restore_flow_instance failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: RestoreFlowInstancePreHireRequest = RestoreFlowInstancePreHireRequest.builder() \
-        .request_body(RestoreFlowInstancePreHireRequestBody.builder()
-                      .pre_hire_id("7345005664477775407")
-                      .confirm_workforce(False)
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: RestoreFlowInstancePreHireRequest = RestoreFlowInstancePreHireRequest.builder() \
+		.request_body(RestoreFlowInstancePreHireRequestBody.builder()
+					  .pre_hire_id("7345005664477775407")
+					  .confirm_workforce(False)
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: RestoreFlowInstancePreHireResponse = await client.corehr.v2.pre_hire.arestore_flow_instance(request)
+	# 发起请求
+	response: RestoreFlowInstancePreHireResponse = await client.corehr.v2.pre_hire.arestore_flow_instance(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.corehr.v2.pre_hire.arestore_flow_instance failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.corehr.v2.pre_hire.arestore_flow_instance failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

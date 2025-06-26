@@ -30,12 +30,13 @@ class Review(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryReviewResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryReviewResponse)
         response.raw = resp
 
         return response
+        
 
     async def aquery(self, request: QueryReviewRequest, option: Optional[RequestOption] = None) -> QueryReviewResponse:
         if option is None:
@@ -44,11 +45,15 @@ class Review(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: QueryReviewResponse = JSON.unmarshal(str(resp.content, UTF_8), QueryReviewResponse)
         response.raw = resp
 
         return response
+        
+    

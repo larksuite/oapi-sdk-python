@@ -22,10 +22,9 @@ class UpdateExternalOfferResponseBody(object):
 class UpdateExternalOfferResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_external_offer_response_body = UpdateExternalOfferResponseBody()
-
     def external_offer(self, external_offer: ExternalOffer) -> "UpdateExternalOfferResponseBodyBuilder":
         self._update_external_offer_response_body.external_offer = external_offer
         return self
-
+    
     def build(self) -> "UpdateExternalOfferResponseBody":
         return self._update_external_offer_response_body

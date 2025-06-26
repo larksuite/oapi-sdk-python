@@ -10,16 +10,14 @@ from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
 from ..model.download_url_user_mailbox_message_attachment_request import DownloadUrlUserMailboxMessageAttachmentRequest
-from ..model.download_url_user_mailbox_message_attachment_response import \
-    DownloadUrlUserMailboxMessageAttachmentResponse
+from ..model.download_url_user_mailbox_message_attachment_response import DownloadUrlUserMailboxMessageAttachmentResponse
 
 
 class UserMailboxMessageAttachment(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def download_url(self, request: DownloadUrlUserMailboxMessageAttachmentRequest,
-                     option: Optional[RequestOption] = None) -> DownloadUrlUserMailboxMessageAttachmentResponse:
+    def download_url(self, request: DownloadUrlUserMailboxMessageAttachmentRequest, option: Optional[RequestOption] = None) -> DownloadUrlUserMailboxMessageAttachmentResponse:
         if option is None:
             option = RequestOption()
 
@@ -32,28 +30,30 @@ class UserMailboxMessageAttachment(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: DownloadUrlUserMailboxMessageAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                   DownloadUrlUserMailboxMessageAttachmentResponse)
+        response: DownloadUrlUserMailboxMessageAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DownloadUrlUserMailboxMessageAttachmentResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adownload_url(self, request: DownloadUrlUserMailboxMessageAttachmentRequest,
-                            option: Optional[RequestOption] = None) -> DownloadUrlUserMailboxMessageAttachmentResponse:
+    async def adownload_url(self, request: DownloadUrlUserMailboxMessageAttachmentRequest, option: Optional[RequestOption] = None) -> DownloadUrlUserMailboxMessageAttachmentResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: DownloadUrlUserMailboxMessageAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                   DownloadUrlUserMailboxMessageAttachmentResponse)
+        response: DownloadUrlUserMailboxMessageAttachmentResponse = JSON.unmarshal(str(resp.content, UTF_8), DownloadUrlUserMailboxMessageAttachmentResponse)
         response.raw = resp
 
         return response
+        
+    

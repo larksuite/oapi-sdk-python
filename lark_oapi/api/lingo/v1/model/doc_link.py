@@ -23,14 +23,12 @@ class DocLink(object):
 class DocLinkBuilder(object):
     def __init__(self) -> None:
         self._doc_link = DocLink()
-
     def title(self, title: str) -> "DocLinkBuilder":
         self._doc_link.title = title
         return self
-
     def url(self, url: str) -> "DocLinkBuilder":
         self._doc_link.url = url
         return self
-
+    
     def build(self) -> "DocLink":
         return self._doc_link

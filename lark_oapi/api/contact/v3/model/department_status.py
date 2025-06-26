@@ -21,10 +21,9 @@ class DepartmentStatus(object):
 class DepartmentStatusBuilder(object):
     def __init__(self) -> None:
         self._department_status = DepartmentStatus()
-
     def is_deleted(self, is_deleted: bool) -> "DepartmentStatusBuilder":
         self._department_status.is_deleted = is_deleted
         return self
-
+    
     def build(self) -> "DepartmentStatus":
         return self._department_status

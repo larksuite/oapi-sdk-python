@@ -18,6 +18,7 @@ class TaskSearch(object):
         "locale": str,
         "task_status_list": List[str],
         "order": int,
+        "with_revoked_instance": bool,
     }
 
     def __init__(self, d=None):
@@ -33,6 +34,7 @@ class TaskSearch(object):
         self.locale: Optional[str] = None
         self.task_status_list: Optional[List[str]] = None
         self.order: Optional[int] = None
+        self.with_revoked_instance: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -43,54 +45,45 @@ class TaskSearch(object):
 class TaskSearchBuilder(object):
     def __init__(self) -> None:
         self._task_search = TaskSearch()
-
     def user_id(self, user_id: str) -> "TaskSearchBuilder":
         self._task_search.user_id = user_id
         return self
-
     def approval_code(self, approval_code: str) -> "TaskSearchBuilder":
         self._task_search.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "TaskSearchBuilder":
         self._task_search.instance_code = instance_code
         return self
-
     def instance_external_id(self, instance_external_id: str) -> "TaskSearchBuilder":
         self._task_search.instance_external_id = instance_external_id
         return self
-
     def group_external_id(self, group_external_id: str) -> "TaskSearchBuilder":
         self._task_search.group_external_id = group_external_id
         return self
-
     def task_title(self, task_title: str) -> "TaskSearchBuilder":
         self._task_search.task_title = task_title
         return self
-
     def task_status(self, task_status: str) -> "TaskSearchBuilder":
         self._task_search.task_status = task_status
         return self
-
     def task_start_time_from(self, task_start_time_from: int) -> "TaskSearchBuilder":
         self._task_search.task_start_time_from = task_start_time_from
         return self
-
     def task_start_time_to(self, task_start_time_to: int) -> "TaskSearchBuilder":
         self._task_search.task_start_time_to = task_start_time_to
         return self
-
     def locale(self, locale: str) -> "TaskSearchBuilder":
         self._task_search.locale = locale
         return self
-
     def task_status_list(self, task_status_list: List[str]) -> "TaskSearchBuilder":
         self._task_search.task_status_list = task_status_list
         return self
-
     def order(self, order: int) -> "TaskSearchBuilder":
         self._task_search.order = order
         return self
-
+    def with_revoked_instance(self, with_revoked_instance: bool) -> "TaskSearchBuilder":
+        self._task_search.with_revoked_instance = with_revoked_instance
+        return self
+    
     def build(self) -> "TaskSearch":
         return self._task_search

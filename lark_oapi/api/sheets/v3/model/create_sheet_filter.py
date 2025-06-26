@@ -26,18 +26,15 @@ class CreateSheetFilter(object):
 class CreateSheetFilterBuilder(object):
     def __init__(self) -> None:
         self._create_sheet_filter = CreateSheetFilter()
-
     def range(self, range: str) -> "CreateSheetFilterBuilder":
         self._create_sheet_filter.range = range
         return self
-
     def col(self, col: str) -> "CreateSheetFilterBuilder":
         self._create_sheet_filter.col = col
         return self
-
     def condition(self, condition: Condition) -> "CreateSheetFilterBuilder":
         self._create_sheet_filter.condition = condition
         return self
-
+    
     def build(self) -> "CreateSheetFilter":
         return self._create_sheet_filter

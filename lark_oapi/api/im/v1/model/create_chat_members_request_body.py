@@ -21,10 +21,9 @@ class CreateChatMembersRequestBody(object):
 class CreateChatMembersRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_chat_members_request_body = CreateChatMembersRequestBody()
-
     def id_list(self, id_list: List[str]) -> "CreateChatMembersRequestBodyBuilder":
         self._create_chat_members_request_body.id_list = id_list
         return self
-
+    
     def build(self) -> "CreateChatMembersRequestBody":
         return self._create_chat_members_request_body

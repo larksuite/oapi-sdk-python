@@ -21,10 +21,9 @@ class GetFileSubscriptionRequestBody(object):
 class GetFileSubscriptionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._get_file_subscription_request_body = GetFileSubscriptionRequestBody()
-
     def file_type(self, file_type: str) -> "GetFileSubscriptionRequestBodyBuilder":
         self._get_file_subscription_request_body.file_type = file_type
         return self
-
+    
     def build(self) -> "GetFileSubscriptionRequestBody":
         return self._get_file_subscription_request_body

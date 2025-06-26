@@ -22,11 +22,9 @@ class RecognizeHkmMainlandTravelPermitResponseBody(object):
 class RecognizeHkmMainlandTravelPermitResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_hkm_mainland_travel_permit_response_body = RecognizeHkmMainlandTravelPermitResponseBody()
-
-    def hkm_mainland_travel_permit(self,
-                                   hkm_mainland_travel_permit: HkmMainlandTravelPermit) -> "RecognizeHkmMainlandTravelPermitResponseBodyBuilder":
+    def hkm_mainland_travel_permit(self, hkm_mainland_travel_permit: HkmMainlandTravelPermit) -> "RecognizeHkmMainlandTravelPermitResponseBodyBuilder":
         self._recognize_hkm_mainland_travel_permit_response_body.hkm_mainland_travel_permit = hkm_mainland_travel_permit
         return self
-
+    
     def build(self) -> "RecognizeHkmMainlandTravelPermitResponseBody":
         return self._recognize_hkm_mainland_travel_permit_response_body

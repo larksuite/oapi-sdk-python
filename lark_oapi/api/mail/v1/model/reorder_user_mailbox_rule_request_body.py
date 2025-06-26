@@ -21,10 +21,9 @@ class ReorderUserMailboxRuleRequestBody(object):
 class ReorderUserMailboxRuleRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._reorder_user_mailbox_rule_request_body = ReorderUserMailboxRuleRequestBody()
-
     def rule_ids(self, rule_ids: List[int]) -> "ReorderUserMailboxRuleRequestBodyBuilder":
         self._reorder_user_mailbox_rule_request_body.rule_ids = rule_ids
         return self
-
+    
     def build(self) -> "ReorderUserMailboxRuleRequestBody":
         return self._reorder_user_mailbox_rule_request_body

@@ -23,14 +23,12 @@ class Notification(object):
 class NotificationBuilder(object):
     def __init__(self) -> None:
         self._notification = Notification()
-
     def idempotent_key(self, idempotent_key: str) -> "NotificationBuilder":
         self._notification.idempotent_key = idempotent_key
         return self
-
     def content(self, content: str) -> "NotificationBuilder":
         self._notification.content = content
         return self
-
+    
     def build(self) -> "Notification":
         return self._notification

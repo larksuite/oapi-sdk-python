@@ -21,10 +21,9 @@ class CreateVisitorResponseBody(object):
 class CreateVisitorResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_visitor_response_body = CreateVisitorResponseBody()
-
     def visitor_id(self, visitor_id: int) -> "CreateVisitorResponseBodyBuilder":
         self._create_visitor_response_body.visitor_id = visitor_id
         return self
-
+    
     def build(self) -> "CreateVisitorResponseBody":
         return self._create_visitor_response_body

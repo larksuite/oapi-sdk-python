@@ -23,14 +23,12 @@ class WkCalendarI18n(object):
 class WkCalendarI18nBuilder(object):
     def __init__(self) -> None:
         self._wk_calendar_i18n = WkCalendarI18n()
-
     def zh_cn(self, zh_cn: str) -> "WkCalendarI18nBuilder":
         self._wk_calendar_i18n.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "WkCalendarI18nBuilder":
         self._wk_calendar_i18n.en_us = en_us
         return self
-
+    
     def build(self) -> "WkCalendarI18n":
         return self._wk_calendar_i18n

@@ -22,10 +22,9 @@ class GetByParamAuthorizationResponseBody(object):
 class GetByParamAuthorizationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_by_param_authorization_response_body = GetByParamAuthorizationResponseBody()
-
     def role_authorization(self, role_authorization: RoleAuthorization) -> "GetByParamAuthorizationResponseBodyBuilder":
         self._get_by_param_authorization_response_body.role_authorization = role_authorization
         return self
-
+    
     def build(self) -> "GetByParamAuthorizationResponseBody":
         return self._get_by_param_authorization_response_body

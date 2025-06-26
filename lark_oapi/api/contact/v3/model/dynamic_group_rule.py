@@ -28,22 +28,18 @@ class DynamicGroupRule(object):
 class DynamicGroupRuleBuilder(object):
     def __init__(self) -> None:
         self._dynamic_group_rule = DynamicGroupRule()
-
     def department_level(self, department_level: str) -> "DynamicGroupRuleBuilder":
         self._dynamic_group_rule.department_level = department_level
         return self
-
     def expressions(self, expressions: List[DynamicGroupExpression]) -> "DynamicGroupRuleBuilder":
         self._dynamic_group_rule.expressions = expressions
         return self
-
     def joiner_rule(self, joiner_rule: str) -> "DynamicGroupRuleBuilder":
         self._dynamic_group_rule.joiner_rule = joiner_rule
         return self
-
     def group_status(self, group_status: str) -> "DynamicGroupRuleBuilder":
         self._dynamic_group_rule.group_status = group_status
         return self
-
+    
     def build(self) -> "DynamicGroupRule":
         return self._dynamic_group_rule

@@ -19,6 +19,6 @@ class NodeChild(object):
 class NodeChildBuilder(object):
     def __init__(self) -> None:
         self._node_child = NodeChild()
-
+    
     def build(self) -> "NodeChild":
         return self._node_child

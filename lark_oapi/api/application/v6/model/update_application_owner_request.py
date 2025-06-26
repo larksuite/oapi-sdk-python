@@ -26,17 +26,17 @@ class UpdateApplicationOwnerRequestBuilder(object):
         update_application_owner_request.uri = "/open-apis/application/v6/applications/:app_id/owner"
         update_application_owner_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._update_application_owner_request: UpdateApplicationOwnerRequest = update_application_owner_request
-
+    
     def user_id_type(self, user_id_type: str) -> "UpdateApplicationOwnerRequestBuilder":
         self._update_application_owner_request.user_id_type = user_id_type
         self._update_application_owner_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def app_id(self, app_id: str) -> "UpdateApplicationOwnerRequestBuilder":
         self._update_application_owner_request.app_id = app_id
         self._update_application_owner_request.paths["app_id"] = str(app_id)
         return self
-
+    
     def request_body(self, request_body: UpdateApplicationOwnerRequestBody) -> "UpdateApplicationOwnerRequestBuilder":
         self._update_application_owner_request.request_body = request_body
         self._update_application_owner_request.body = request_body

@@ -23,14 +23,12 @@ class CallbackActionContext(object):
 class CallbackActionContextBuilder(object):
     def __init__(self) -> None:
         self._callback_action_context = CallbackActionContext()
-
     def open_message_id(self, open_message_id: str) -> "CallbackActionContextBuilder":
         self._callback_action_context.open_message_id = open_message_id
         return self
-
     def open_chat_id(self, open_chat_id: str) -> "CallbackActionContextBuilder":
         self._callback_action_context.open_chat_id = open_chat_id
         return self
-
+    
     def build(self) -> "CallbackActionContext":
         return self._callback_action_context

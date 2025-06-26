@@ -23,14 +23,12 @@ class Verification(object):
 class VerificationBuilder(object):
     def __init__(self) -> None:
         self._verification = Verification()
-
     def name(self, name: str) -> "VerificationBuilder":
         self._verification.name = name
         return self
-
     def has_verification(self, has_verification: bool) -> "VerificationBuilder":
         self._verification.has_verification = has_verification
         return self
-
+    
     def build(self) -> "Verification":
         return self._verification

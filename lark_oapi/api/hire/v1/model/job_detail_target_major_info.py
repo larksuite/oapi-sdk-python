@@ -24,14 +24,12 @@ class JobDetailTargetMajorInfo(object):
 class JobDetailTargetMajorInfoBuilder(object):
     def __init__(self) -> None:
         self._job_detail_target_major_info = JobDetailTargetMajorInfo()
-
     def id(self, id: str) -> "JobDetailTargetMajorInfoBuilder":
         self._job_detail_target_major_info.id = id
         return self
-
     def name(self, name: I18n) -> "JobDetailTargetMajorInfoBuilder":
         self._job_detail_target_major_info.name = name
         return self
-
+    
     def build(self) -> "JobDetailTargetMajorInfo":
         return self._job_detail_target_major_info

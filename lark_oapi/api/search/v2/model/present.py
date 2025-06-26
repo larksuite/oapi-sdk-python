@@ -38,42 +38,33 @@ class Present(object):
 class PresentBuilder(object):
     def __init__(self) -> None:
         self._present = Present()
-
     def type(self, type: str) -> "PresentBuilder":
         self._present.type = type
         return self
-
     def body(self, body: str) -> "PresentBuilder":
         self._present.body = body
         return self
-
     def operation_type(self, operation_type: str) -> "PresentBuilder":
         self._present.operation_type = operation_type
         return self
-
     def interactable(self, interactable: bool) -> "PresentBuilder":
         self._present.interactable = interactable
         return self
-
     def operation_url(self, operation_url: str) -> "PresentBuilder":
         self._present.operation_url = operation_url
         return self
-
     def callback_url(self, callback_url: str) -> "PresentBuilder":
         self._present.callback_url = callback_url
         return self
-
     def callback_info(self, callback_info: str) -> "PresentBuilder":
         self._present.callback_info = callback_info
         return self
-
     def card_template_id(self, card_template_id: str) -> "PresentBuilder":
         self._present.card_template_id = card_template_id
         return self
-
     def card_variables(self, card_variables: TemplateCardVariables) -> "PresentBuilder":
         self._present.card_variables = card_variables
         return self
-
+    
     def build(self) -> "Present":
         return self._present

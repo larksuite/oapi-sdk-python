@@ -27,24 +27,23 @@ class PatchApplicationVisibilityRequestBuilder(object):
         patch_application_visibility_request.uri = "/open-apis/application/v6/applications/:app_id/visibility"
         patch_application_visibility_request.token_types = {AccessTokenType.TENANT}
         self._patch_application_visibility_request: PatchApplicationVisibilityRequest = patch_application_visibility_request
-
+    
     def department_id_type(self, department_id_type: str) -> "PatchApplicationVisibilityRequestBuilder":
         self._patch_application_visibility_request.department_id_type = department_id_type
         self._patch_application_visibility_request.add_query("department_id_type", department_id_type)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "PatchApplicationVisibilityRequestBuilder":
         self._patch_application_visibility_request.user_id_type = user_id_type
         self._patch_application_visibility_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def app_id(self, app_id: str) -> "PatchApplicationVisibilityRequestBuilder":
         self._patch_application_visibility_request.app_id = app_id
         self._patch_application_visibility_request.paths["app_id"] = str(app_id)
         return self
-
-    def request_body(self,
-                     request_body: PatchApplicationVisibilityRequestBody) -> "PatchApplicationVisibilityRequestBuilder":
+    
+    def request_body(self, request_body: PatchApplicationVisibilityRequestBody) -> "PatchApplicationVisibilityRequestBuilder":
         self._patch_application_visibility_request.request_body = request_body
         self._patch_application_visibility_request.body = request_body
         return self

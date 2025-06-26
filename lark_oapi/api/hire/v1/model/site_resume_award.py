@@ -25,18 +25,15 @@ class SiteResumeAward(object):
 class SiteResumeAwardBuilder(object):
     def __init__(self) -> None:
         self._site_resume_award = SiteResumeAward()
-
     def title(self, title: str) -> "SiteResumeAwardBuilder":
         self._site_resume_award.title = title
         return self
-
     def award_time(self, award_time: str) -> "SiteResumeAwardBuilder":
         self._site_resume_award.award_time = award_time
         return self
-
     def description(self, description: str) -> "SiteResumeAwardBuilder":
         self._site_resume_award.description = description
         return self
-
+    
     def build(self) -> "SiteResumeAward":
         return self._site_resume_award

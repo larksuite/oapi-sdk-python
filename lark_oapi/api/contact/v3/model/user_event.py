@@ -84,126 +84,96 @@ class UserEvent(object):
 class UserEventBuilder(object):
     def __init__(self) -> None:
         self._user_event = UserEvent()
-
     def open_id(self, open_id: str) -> "UserEventBuilder":
         self._user_event.open_id = open_id
         return self
-
     def union_id(self, union_id: str) -> "UserEventBuilder":
         self._user_event.union_id = union_id
         return self
-
     def user_id(self, user_id: str) -> "UserEventBuilder":
         self._user_event.user_id = user_id
         return self
-
     def name(self, name: str) -> "UserEventBuilder":
         self._user_event.name = name
         return self
-
     def en_name(self, en_name: str) -> "UserEventBuilder":
         self._user_event.en_name = en_name
         return self
-
     def nickname(self, nickname: str) -> "UserEventBuilder":
         self._user_event.nickname = nickname
         return self
-
     def email(self, email: str) -> "UserEventBuilder":
         self._user_event.email = email
         return self
-
     def enterprise_email(self, enterprise_email: str) -> "UserEventBuilder":
         self._user_event.enterprise_email = enterprise_email
         return self
-
     def job_title(self, job_title: str) -> "UserEventBuilder":
         self._user_event.job_title = job_title
         return self
-
     def mobile(self, mobile: str) -> "UserEventBuilder":
         self._user_event.mobile = mobile
         return self
-
     def mobile_visible(self, mobile_visible: bool) -> "UserEventBuilder":
         self._user_event.mobile_visible = mobile_visible
         return self
-
     def gender(self, gender: int) -> "UserEventBuilder":
         self._user_event.gender = gender
         return self
-
     def avatar(self, avatar: AvatarInfo) -> "UserEventBuilder":
         self._user_event.avatar = avatar
         return self
-
     def status(self, status: UserStatus) -> "UserEventBuilder":
         self._user_event.status = status
         return self
-
     def department_ids(self, department_ids: List[str]) -> "UserEventBuilder":
         self._user_event.department_ids = department_ids
         return self
-
     def leader_user_id(self, leader_user_id: str) -> "UserEventBuilder":
         self._user_event.leader_user_id = leader_user_id
         return self
-
     def city(self, city: str) -> "UserEventBuilder":
         self._user_event.city = city
         return self
-
     def country(self, country: str) -> "UserEventBuilder":
         self._user_event.country = country
         return self
-
     def work_station(self, work_station: str) -> "UserEventBuilder":
         self._user_event.work_station = work_station
         return self
-
     def join_time(self, join_time: int) -> "UserEventBuilder":
         self._user_event.join_time = join_time
         return self
-
     def is_tenant_manager(self, is_tenant_manager: bool) -> "UserEventBuilder":
         self._user_event.is_tenant_manager = is_tenant_manager
         return self
-
     def employee_no(self, employee_no: str) -> "UserEventBuilder":
         self._user_event.employee_no = employee_no
         return self
-
     def employee_type(self, employee_type: int) -> "UserEventBuilder":
         self._user_event.employee_type = employee_type
         return self
-
     def positions(self, positions: List[UserPosition]) -> "UserEventBuilder":
         self._user_event.positions = positions
         return self
-
     def orders(self, orders: List[UserOrder]) -> "UserEventBuilder":
         self._user_event.orders = orders
         return self
-
     def time_zone(self, time_zone: str) -> "UserEventBuilder":
         self._user_event.time_zone = time_zone
         return self
-
     def custom_attrs(self, custom_attrs: List[UserCustomAttr]) -> "UserEventBuilder":
         self._user_event.custom_attrs = custom_attrs
         return self
-
     def job_level_id(self, job_level_id: str) -> "UserEventBuilder":
         self._user_event.job_level_id = job_level_id
         return self
-
     def job_family_id(self, job_family_id: str) -> "UserEventBuilder":
         self._user_event.job_family_id = job_family_id
         return self
-
     def dotted_line_leader_user_ids(self, dotted_line_leader_user_ids: List[int]) -> "UserEventBuilder":
         self._user_event.dotted_line_leader_user_ids = dotted_line_leader_user_ids
         return self
-
+    
     def build(self) -> "UserEvent":
         return self._user_event

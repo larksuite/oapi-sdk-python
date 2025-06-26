@@ -37,42 +37,33 @@ class Store(object):
 class StoreBuilder(object):
     def __init__(self) -> None:
         self._store = Store()
-
     def id(self, id: str) -> "StoreBuilder":
         self._store.id = id
         return self
-
     def name(self, name: str) -> "StoreBuilder":
         self._store.name = name
         return self
-
     def name_en(self, name_en: str) -> "StoreBuilder":
         self._store.name_en = name_en
         return self
-
     def department_id(self, department_id: str) -> "StoreBuilder":
         self._store.department_id = department_id
         return self
-
     def active_status(self, active_status: int) -> "StoreBuilder":
         self._store.active_status = active_status
         return self
-
     def address_id(self, address_id: str) -> "StoreBuilder":
         self._store.address_id = address_id
         return self
-
     def manager_id(self, manager_id: str) -> "StoreBuilder":
         self._store.manager_id = manager_id
         return self
-
     def remark(self, remark: str) -> "StoreBuilder":
         self._store.remark = remark
         return self
-
     def remark_en(self, remark_en: str) -> "StoreBuilder":
         self._store.remark_en = remark_en
         return self
-
+    
     def build(self) -> "Store":
         return self._store

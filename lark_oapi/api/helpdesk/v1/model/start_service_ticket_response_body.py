@@ -23,14 +23,12 @@ class StartServiceTicketResponseBody(object):
 class StartServiceTicketResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._start_service_ticket_response_body = StartServiceTicketResponseBody()
-
     def chat_id(self, chat_id: str) -> "StartServiceTicketResponseBodyBuilder":
         self._start_service_ticket_response_body.chat_id = chat_id
         return self
-
     def ticket_id(self, ticket_id: str) -> "StartServiceTicketResponseBodyBuilder":
         self._start_service_ticket_response_body.ticket_id = ticket_id
         return self
-
+    
     def build(self) -> "StartServiceTicketResponseBody":
         return self._start_service_ticket_response_body

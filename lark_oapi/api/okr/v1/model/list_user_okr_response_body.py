@@ -24,14 +24,12 @@ class ListUserOkrResponseBody(object):
 class ListUserOkrResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_user_okr_response_body = ListUserOkrResponseBody()
-
     def total(self, total: int) -> "ListUserOkrResponseBodyBuilder":
         self._list_user_okr_response_body.total = total
         return self
-
     def okr_list(self, okr_list: List[OkrBatch]) -> "ListUserOkrResponseBodyBuilder":
         self._list_user_okr_response_body.okr_list = okr_list
         return self
-
+    
     def build(self) -> "ListUserOkrResponseBody":
         return self._list_user_okr_response_body

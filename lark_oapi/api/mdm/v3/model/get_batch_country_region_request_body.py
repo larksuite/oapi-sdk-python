@@ -22,10 +22,9 @@ class GetBatchCountryRegionRequestBody(object):
 class GetBatchCountryRegionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._get_batch_country_region_request_body = GetBatchCountryRegionRequestBody()
-
     def common(self, common: Common) -> "GetBatchCountryRegionRequestBodyBuilder":
         self._get_batch_country_region_request_body.common = common
         return self
-
+    
     def build(self) -> "GetBatchCountryRegionRequestBody":
         return self._get_batch_country_region_request_body

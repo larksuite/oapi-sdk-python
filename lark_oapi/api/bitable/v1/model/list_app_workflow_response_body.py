@@ -22,10 +22,9 @@ class ListAppWorkflowResponseBody(object):
 class ListAppWorkflowResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_app_workflow_response_body = ListAppWorkflowResponseBody()
-
     def workflows(self, workflows: List[AppWorkflow]) -> "ListAppWorkflowResponseBodyBuilder":
         self._list_app_workflow_response_body.workflows = workflows
         return self
-
+    
     def build(self) -> "ListAppWorkflowResponseBody":
         return self._list_app_workflow_response_body

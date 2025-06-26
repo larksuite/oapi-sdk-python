@@ -27,22 +27,18 @@ class WorkTime(object):
 class WorkTimeBuilder(object):
     def __init__(self) -> None:
         self._work_time = WorkTime()
-
     def work_start_time(self, work_start_time: str) -> "WorkTimeBuilder":
         self._work_time.work_start_time = work_start_time
         return self
-
     def work_end_time(self, work_end_time: str) -> "WorkTimeBuilder":
         self._work_time.work_end_time = work_end_time
         return self
-
     def settlement_type(self, settlement_type: str) -> "WorkTimeBuilder":
         self._work_time.settlement_type = settlement_type
         return self
-
     def check_fail_reason(self, check_fail_reason: str) -> "WorkTimeBuilder":
         self._work_time.check_fail_reason = check_fail_reason
         return self
-
+    
     def build(self) -> "WorkTime":
         return self._work_time

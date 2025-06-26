@@ -26,18 +26,15 @@ class SearchTestResponseBody(object):
 class SearchTestResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_test_response_body = SearchTestResponseBody()
-
     def items(self, items: List[Test]) -> "SearchTestResponseBodyBuilder":
         self._search_test_response_body.items = items
         return self
-
     def has_more(self, has_more: bool) -> "SearchTestResponseBodyBuilder":
         self._search_test_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "SearchTestResponseBodyBuilder":
         self._search_test_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "SearchTestResponseBody":
         return self._search_test_response_body

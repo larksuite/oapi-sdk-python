@@ -24,14 +24,12 @@ class DocChunkPosition(object):
 class DocChunkPositionBuilder(object):
     def __init__(self) -> None:
         self._doc_chunk_position = DocChunkPosition()
-
     def page_numbers(self, page_numbers: List[int]) -> "DocChunkPositionBuilder":
         self._doc_chunk_position.page_numbers = page_numbers
         return self
-
     def bboxes(self, bboxes: List[DocChunkBboxItem]) -> "DocChunkPositionBuilder":
         self._doc_chunk_position.bboxes = bboxes
         return self
-
+    
     def build(self) -> "DocChunkPosition":
         return self._doc_chunk_position

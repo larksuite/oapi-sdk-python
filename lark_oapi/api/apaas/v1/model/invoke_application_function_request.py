@@ -26,19 +26,18 @@ class InvokeApplicationFunctionRequestBuilder(object):
         invoke_application_function_request.uri = "/open-apis/apaas/v1/applications/:namespace/functions/:function_api_name/invoke"
         invoke_application_function_request.token_types = {AccessTokenType.TENANT}
         self._invoke_application_function_request: InvokeApplicationFunctionRequest = invoke_application_function_request
-
+    
     def namespace(self, namespace: str) -> "InvokeApplicationFunctionRequestBuilder":
         self._invoke_application_function_request.namespace = namespace
         self._invoke_application_function_request.paths["namespace"] = str(namespace)
         return self
-
+    
     def function_api_name(self, function_api_name: str) -> "InvokeApplicationFunctionRequestBuilder":
         self._invoke_application_function_request.function_api_name = function_api_name
         self._invoke_application_function_request.paths["function_api_name"] = str(function_api_name)
         return self
-
-    def request_body(self,
-                     request_body: InvokeApplicationFunctionRequestBody) -> "InvokeApplicationFunctionRequestBuilder":
+    
+    def request_body(self, request_body: InvokeApplicationFunctionRequestBody) -> "InvokeApplicationFunctionRequestBuilder":
         self._invoke_application_function_request.request_body = request_body
         self._invoke_application_function_request.body = request_body
         return self

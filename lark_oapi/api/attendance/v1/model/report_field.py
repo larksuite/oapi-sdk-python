@@ -32,30 +32,24 @@ class ReportField(object):
 class ReportFieldBuilder(object):
     def __init__(self) -> None:
         self._report_field = ReportField()
-
     def code(self, code: str) -> "ReportFieldBuilder":
         self._report_field.code = code
         return self
-
     def title(self, title: str) -> "ReportFieldBuilder":
         self._report_field.title = title
         return self
-
     def is_calculable(self, is_calculable: bool) -> "ReportFieldBuilder":
         self._report_field.is_calculable = is_calculable
         return self
-
     def field_id(self, field_id: str) -> "ReportFieldBuilder":
         self._report_field.field_id = field_id
         return self
-
     def sub_fields(self, sub_fields: str) -> "ReportFieldBuilder":
         self._report_field.sub_fields = sub_fields
         return self
-
     def i18n_name(self, i18n_name: List[I18nResource]) -> "ReportFieldBuilder":
         self._report_field.i18n_name = i18n_name
         return self
-
+    
     def build(self) -> "ReportField":
         return self._report_field

@@ -24,7 +24,7 @@ class CreateBadgeImageRequestBuilder(object):
         create_badge_image_request.uri = "/open-apis/admin/v1/badge_images"
         create_badge_image_request.token_types = {AccessTokenType.TENANT}
         self._create_badge_image_request: CreateBadgeImageRequest = create_badge_image_request
-
+    
     def request_body(self, request_body: CreateBadgeImageRequestBody) -> "CreateBadgeImageRequestBuilder":
         self._create_badge_image_request.request_body = request_body
         self._create_badge_image_request.body = request_body

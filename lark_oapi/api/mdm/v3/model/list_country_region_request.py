@@ -30,37 +30,37 @@ class ListCountryRegionRequestBuilder(object):
         list_country_region_request.uri = "/open-apis/mdm/v3/country_regions"
         list_country_region_request.token_types = {AccessTokenType.TENANT}
         self._list_country_region_request: ListCountryRegionRequest = list_country_region_request
-
+    
     def languages(self, languages: List[str]) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.languages = languages
         self._list_country_region_request.add_query("languages", languages)
         return self
-
+    
     def fields(self, fields: List[str]) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.fields = fields
         self._list_country_region_request.add_query("fields", fields)
         return self
-
+    
     def limit(self, limit: int) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.limit = limit
         self._list_country_region_request.add_query("limit", limit)
         return self
-
+    
     def offset(self, offset: int) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.offset = offset
         self._list_country_region_request.add_query("offset", offset)
         return self
-
+    
     def return_count(self, return_count: bool) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.return_count = return_count
         self._list_country_region_request.add_query("return_count", return_count)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.page_token = page_token
         self._list_country_region_request.add_query("page_token", page_token)
         return self
-
+    
     def request_body(self, request_body: ListCountryRegionRequestBody) -> "ListCountryRegionRequestBuilder":
         self._list_country_region_request.request_body = request_body
         self._list_country_region_request.body = request_body

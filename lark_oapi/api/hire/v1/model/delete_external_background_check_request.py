@@ -23,13 +23,12 @@ class DeleteExternalBackgroundCheckRequestBuilder(object):
         delete_external_background_check_request.uri = "/open-apis/hire/v1/external_background_checks/:external_background_check_id"
         delete_external_background_check_request.token_types = {AccessTokenType.TENANT}
         self._delete_external_background_check_request: DeleteExternalBackgroundCheckRequest = delete_external_background_check_request
-
-    def external_background_check_id(self,
-                                     external_background_check_id: str) -> "DeleteExternalBackgroundCheckRequestBuilder":
+    
+    def external_background_check_id(self, external_background_check_id: str) -> "DeleteExternalBackgroundCheckRequestBuilder":
         self._delete_external_background_check_request.external_background_check_id = external_background_check_id
-        self._delete_external_background_check_request.paths["external_background_check_id"] = str(
-            external_background_check_id)
+        self._delete_external_background_check_request.paths["external_background_check_id"] = str(external_background_check_id)
         return self
+    
 
     def build(self) -> DeleteExternalBackgroundCheckRequest:
         return self._delete_external_background_check_request

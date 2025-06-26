@@ -24,14 +24,12 @@ class SearchEntityResponseBody(object):
 class SearchEntityResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_entity_response_body = SearchEntityResponseBody()
-
     def entities(self, entities: List[Entity]) -> "SearchEntityResponseBodyBuilder":
         self._search_entity_response_body.entities = entities
         return self
-
     def page_token(self, page_token: str) -> "SearchEntityResponseBodyBuilder":
         self._search_entity_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "SearchEntityResponseBody":
         return self._search_entity_response_body

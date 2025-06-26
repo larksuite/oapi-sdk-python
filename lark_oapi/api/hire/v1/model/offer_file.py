@@ -29,26 +29,21 @@ class OfferFile(object):
 class OfferFileBuilder(object):
     def __init__(self) -> None:
         self._offer_file = OfferFile()
-
     def id(self, id: str) -> "OfferFileBuilder":
         self._offer_file.id = id
         return self
-
     def file_template_id(self, file_template_id: str) -> "OfferFileBuilder":
         self._offer_file.file_template_id = file_template_id
         return self
-
     def file_template_name(self, file_template_name: str) -> "OfferFileBuilder":
         self._offer_file.file_template_name = file_template_name
         return self
-
     def file_template_type_id(self, file_template_type_id: str) -> "OfferFileBuilder":
         self._offer_file.file_template_type_id = file_template_type_id
         return self
-
     def file_template_type_name(self, file_template_type_name: str) -> "OfferFileBuilder":
         self._offer_file.file_template_type_name = file_template_type_name
         return self
-
+    
     def build(self) -> "OfferFile":
         return self._offer_file

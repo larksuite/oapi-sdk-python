@@ -19,6 +19,6 @@ class IdpCredential(object):
 class IdpCredentialBuilder(object):
     def __init__(self) -> None:
         self._idp_credential = IdpCredential()
-
+    
     def build(self) -> "IdpCredential":
         return self._idp_credential

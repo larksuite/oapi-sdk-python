@@ -26,18 +26,15 @@ class SearchBasicInfoBankResponseBody(object):
 class SearchBasicInfoBankResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_bank_response_body = SearchBasicInfoBankResponseBody()
-
     def items(self, items: List[Bank]) -> "SearchBasicInfoBankResponseBodyBuilder":
         self._search_basic_info_bank_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "SearchBasicInfoBankResponseBodyBuilder":
         self._search_basic_info_bank_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "SearchBasicInfoBankResponseBodyBuilder":
         self._search_basic_info_bank_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "SearchBasicInfoBankResponseBody":
         return self._search_basic_info_bank_response_body

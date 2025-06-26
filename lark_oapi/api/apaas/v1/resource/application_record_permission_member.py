@@ -9,23 +9,17 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_create_authorization_application_record_permission_member_request import \
-    BatchCreateAuthorizationApplicationRecordPermissionMemberRequest
-from ..model.batch_create_authorization_application_record_permission_member_response import \
-    BatchCreateAuthorizationApplicationRecordPermissionMemberResponse
-from ..model.batch_remove_authorization_application_record_permission_member_request import \
-    BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest
-from ..model.batch_remove_authorization_application_record_permission_member_response import \
-    BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse
+from ..model.batch_create_authorization_application_record_permission_member_request import BatchCreateAuthorizationApplicationRecordPermissionMemberRequest
+from ..model.batch_create_authorization_application_record_permission_member_response import BatchCreateAuthorizationApplicationRecordPermissionMemberResponse
+from ..model.batch_remove_authorization_application_record_permission_member_request import BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest
+from ..model.batch_remove_authorization_application_record_permission_member_response import BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse
 
 
 class ApplicationRecordPermissionMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create_authorization(self, request: BatchCreateAuthorizationApplicationRecordPermissionMemberRequest,
-                                   option: Optional[
-                                       RequestOption] = None) -> BatchCreateAuthorizationApplicationRecordPermissionMemberResponse:
+    def batch_create_authorization(self, request: BatchCreateAuthorizationApplicationRecordPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateAuthorizationApplicationRecordPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -38,37 +32,33 @@ class ApplicationRecordPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchCreateAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(
-            str(resp.content, UTF_8), BatchCreateAuthorizationApplicationRecordPermissionMemberResponse)
+        response: BatchCreateAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAuthorizationApplicationRecordPermissionMemberResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_create_authorization(self,
-                                          request: BatchCreateAuthorizationApplicationRecordPermissionMemberRequest,
-                                          option: Optional[
-                                              RequestOption] = None) -> BatchCreateAuthorizationApplicationRecordPermissionMemberResponse:
+    async def abatch_create_authorization(self, request: BatchCreateAuthorizationApplicationRecordPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateAuthorizationApplicationRecordPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchCreateAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(
-            str(resp.content, UTF_8), BatchCreateAuthorizationApplicationRecordPermissionMemberResponse)
+        response: BatchCreateAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAuthorizationApplicationRecordPermissionMemberResponse)
         response.raw = resp
 
         return response
-
-    def batch_remove_authorization(self, request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest,
-                                   option: Optional[
-                                       RequestOption] = None) -> BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse:
+        
+    def batch_remove_authorization(self, request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -81,30 +71,30 @@ class ApplicationRecordPermissionMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(
-            str(resp.content, UTF_8), BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse)
+        response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_remove_authorization(self,
-                                          request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest,
-                                          option: Optional[
-                                              RequestOption] = None) -> BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse:
+    async def abatch_remove_authorization(self, request: BatchRemoveAuthorizationApplicationRecordPermissionMemberRequest, option: Optional[RequestOption] = None) -> BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(
-            str(resp.content, UTF_8), BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse)
+        response: BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchRemoveAuthorizationApplicationRecordPermissionMemberResponse)
         response.raw = resp
 
         return response
+        
+    

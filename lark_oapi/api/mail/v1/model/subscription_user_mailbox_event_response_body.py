@@ -21,10 +21,9 @@ class SubscriptionUserMailboxEventResponseBody(object):
 class SubscriptionUserMailboxEventResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._subscription_user_mailbox_event_response_body = SubscriptionUserMailboxEventResponseBody()
-
     def event_types(self, event_types: List[int]) -> "SubscriptionUserMailboxEventResponseBodyBuilder":
         self._subscription_user_mailbox_event_response_body.event_types = event_types
         return self
-
+    
     def build(self) -> "SubscriptionUserMailboxEventResponseBody":
         return self._subscription_user_mailbox_event_response_body

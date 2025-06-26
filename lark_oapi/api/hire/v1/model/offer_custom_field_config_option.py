@@ -22,10 +22,9 @@ class OfferCustomFieldConfigOption(object):
 class OfferCustomFieldConfigOptionBuilder(object):
     def __init__(self) -> None:
         self._offer_custom_field_config_option = OfferCustomFieldConfigOption()
-
     def name(self, name: I18n) -> "OfferCustomFieldConfigOptionBuilder":
         self._offer_custom_field_config_option.name = name
         return self
-
+    
     def build(self) -> "OfferCustomFieldConfigOption":
         return self._offer_custom_field_config_option

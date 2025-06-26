@@ -31,26 +31,21 @@ class SignatureTemplateContentItem(object):
 class SignatureTemplateContentItemBuilder(object):
     def __init__(self) -> None:
         self._signature_template_content_item = SignatureTemplateContentItem()
-
     def content_type(self, content_type: Enum) -> "SignatureTemplateContentItemBuilder":
         self._signature_template_content_item.content_type = content_type
         return self
-
     def filter_apiname(self, filter_apiname: str) -> "SignatureTemplateContentItemBuilder":
         self._signature_template_content_item.filter_apiname = filter_apiname
         return self
-
     def content(self, content: str) -> "SignatureTemplateContentItemBuilder":
         self._signature_template_content_item.content = content
         return self
-
     def label(self, label: List[I18n]) -> "SignatureTemplateContentItemBuilder":
         self._signature_template_content_item.label = label
         return self
-
     def content_desc(self, content_desc: str) -> "SignatureTemplateContentItemBuilder":
         self._signature_template_content_item.content_desc = content_desc
         return self
-
+    
     def build(self) -> "SignatureTemplateContentItem":
         return self._signature_template_content_item

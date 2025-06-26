@@ -28,22 +28,18 @@ class SignatureHumanInfo(object):
 class SignatureHumanInfoBuilder(object):
     def __init__(self) -> None:
         self._signature_human_info = SignatureHumanInfo()
-
     def employee_id(self, employee_id: str) -> "SignatureHumanInfoBuilder":
         self._signature_human_info.employee_id = employee_id
         return self
-
     def pre_hire_id(self, pre_hire_id: str) -> "SignatureHumanInfoBuilder":
         self._signature_human_info.pre_hire_id = pre_hire_id
         return self
-
     def user_id_type(self, user_id_type: str) -> "SignatureHumanInfoBuilder":
         self._signature_human_info.user_id_type = user_id_type
         return self
-
     def human_type(self, human_type: Enum) -> "SignatureHumanInfoBuilder":
         self._signature_human_info.human_type = human_type
         return self
-
+    
     def build(self) -> "SignatureHumanInfo":
         return self._signature_human_info

@@ -21,10 +21,9 @@ class MyAiVcMeetingContentCommonResult(object):
 class MyAiVcMeetingContentCommonResultBuilder(object):
     def __init__(self) -> None:
         self._my_ai_vc_meeting_content_common_result = MyAiVcMeetingContentCommonResult()
-
     def meeting_content_reply(self, meeting_content_reply: str) -> "MyAiVcMeetingContentCommonResultBuilder":
         self._my_ai_vc_meeting_content_common_result.meeting_content_reply = meeting_content_reply
         return self
-
+    
     def build(self) -> "MyAiVcMeetingContentCommonResult":
         return self._my_ai_vc_meeting_content_common_result

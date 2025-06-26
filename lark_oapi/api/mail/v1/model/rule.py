@@ -33,30 +33,24 @@ class Rule(object):
 class RuleBuilder(object):
     def __init__(self) -> None:
         self._rule = Rule()
-
     def id(self, id: int) -> "RuleBuilder":
         self._rule.id = id
         return self
-
     def condition(self, condition: RuleCondition) -> "RuleBuilder":
         self._rule.condition = condition
         return self
-
     def action(self, action: RuleAction) -> "RuleBuilder":
         self._rule.action = action
         return self
-
     def ignore_the_rest_of_rules(self, ignore_the_rest_of_rules: bool) -> "RuleBuilder":
         self._rule.ignore_the_rest_of_rules = ignore_the_rest_of_rules
         return self
-
     def name(self, name: str) -> "RuleBuilder":
         self._rule.name = name
         return self
-
     def is_enable(self, is_enable: bool) -> "RuleBuilder":
         self._rule.is_enable = is_enable
         return self
-
+    
     def build(self) -> "Rule":
         return self._rule

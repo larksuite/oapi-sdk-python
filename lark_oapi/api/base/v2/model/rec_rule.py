@@ -28,22 +28,18 @@ class RecRule(object):
 class RecRuleBuilder(object):
     def __init__(self) -> None:
         self._rec_rule = RecRule()
-
     def conditions(self, conditions: List[RecRuleCondition]) -> "RecRuleBuilder":
         self._rec_rule.conditions = conditions
         return self
-
     def conjunction(self, conjunction: str) -> "RecRuleBuilder":
         self._rec_rule.conjunction = conjunction
         return self
-
     def perm(self, perm: int) -> "RecRuleBuilder":
         self._rec_rule.perm = perm
         return self
-
     def other_perm(self, other_perm: int) -> "RecRuleBuilder":
         self._rec_rule.other_perm = other_perm
         return self
-
+    
     def build(self) -> "RecRule":
         return self._rec_rule

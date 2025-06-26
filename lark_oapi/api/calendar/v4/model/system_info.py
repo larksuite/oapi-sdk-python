@@ -25,18 +25,15 @@ class SystemInfo(object):
 class SystemInfoBuilder(object):
     def __init__(self) -> None:
         self._system_info = SystemInfo()
-
     def session_id(self, session_id: str) -> "SystemInfoBuilder":
         self._system_info.session_id = session_id
         return self
-
     def lang(self, lang: str) -> "SystemInfoBuilder":
         self._system_info.lang = lang
         return self
-
     def locale(self, locale: str) -> "SystemInfoBuilder":
         self._system_info.locale = locale
         return self
-
+    
     def build(self) -> "SystemInfo":
         return self._system_info

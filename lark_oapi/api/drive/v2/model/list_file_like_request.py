@@ -27,31 +27,32 @@ class ListFileLikeRequestBuilder(object):
         list_file_like_request.uri = "/open-apis/drive/v2/files/:file_token/likes"
         list_file_like_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_file_like_request: ListFileLikeRequest = list_file_like_request
-
+    
     def file_type(self, file_type: str) -> "ListFileLikeRequestBuilder":
         self._list_file_like_request.file_type = file_type
         self._list_file_like_request.add_query("file_type", file_type)
         return self
-
+    
     def page_size(self, page_size: int) -> "ListFileLikeRequestBuilder":
         self._list_file_like_request.page_size = page_size
         self._list_file_like_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListFileLikeRequestBuilder":
         self._list_file_like_request.page_token = page_token
         self._list_file_like_request.add_query("page_token", page_token)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "ListFileLikeRequestBuilder":
         self._list_file_like_request.user_id_type = user_id_type
         self._list_file_like_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def file_token(self, file_token: str) -> "ListFileLikeRequestBuilder":
         self._list_file_like_request.file_token = file_token
         self._list_file_like_request.paths["file_token"] = str(file_token)
         return self
+    
 
     def build(self) -> ListFileLikeRequest:
         return self._list_file_like_request

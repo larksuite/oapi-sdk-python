@@ -22,10 +22,9 @@ class GetMessageResponseBody(object):
 class GetMessageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_message_response_body = GetMessageResponseBody()
-
     def items(self, items: List[Message]) -> "GetMessageResponseBodyBuilder":
         self._get_message_response_body.items = items
         return self
-
+    
     def build(self) -> "GetMessageResponseBody":
         return self._get_message_response_body

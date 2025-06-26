@@ -9,3 +9,4 @@ class MdmService(object):
     def __init__(self, config: Config) -> None:
         self.v1: V1 = V1(config)
         self.v3: V3 = V3(config)
+

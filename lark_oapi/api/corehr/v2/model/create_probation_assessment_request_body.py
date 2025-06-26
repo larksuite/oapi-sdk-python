@@ -24,14 +24,12 @@ class CreateProbationAssessmentRequestBody(object):
 class CreateProbationAssessmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_probation_assessment_request_body = CreateProbationAssessmentRequestBody()
-
     def employment_id(self, employment_id: str) -> "CreateProbationAssessmentRequestBodyBuilder":
         self._create_probation_assessment_request_body.employment_id = employment_id
         return self
-
     def assessments(self, assessments: List[AssessmentForCreate]) -> "CreateProbationAssessmentRequestBodyBuilder":
         self._create_probation_assessment_request_body.assessments = assessments
         return self
-
+    
     def build(self) -> "CreateProbationAssessmentRequestBody":
         return self._create_probation_assessment_request_body

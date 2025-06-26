@@ -41,42 +41,33 @@ class DepartmentForPatch(object):
 class DepartmentForPatchBuilder(object):
     def __init__(self) -> None:
         self._department_for_patch = DepartmentForPatch()
-
     def id(self, id: str) -> "DepartmentForPatchBuilder":
         self._department_for_patch.id = id
         return self
-
     def sub_type(self, sub_type: Enum) -> "DepartmentForPatchBuilder":
         self._department_for_patch.sub_type = sub_type
         return self
-
     def manager(self, manager: str) -> "DepartmentForPatchBuilder":
         self._department_for_patch.manager = manager
         return self
-
     def is_confidential(self, is_confidential: bool) -> "DepartmentForPatchBuilder":
         self._department_for_patch.is_confidential = is_confidential
         return self
-
     def hiberarchy_common(self, hiberarchy_common: HiberarchyCommon) -> "DepartmentForPatchBuilder":
         self._department_for_patch.hiberarchy_common = hiberarchy_common
         return self
-
     def effective_time(self, effective_time: str) -> "DepartmentForPatchBuilder":
         self._department_for_patch.effective_time = effective_time
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "DepartmentForPatchBuilder":
         self._department_for_patch.custom_fields = custom_fields
         return self
-
     def cost_center_id(self, cost_center_id: str) -> "DepartmentForPatchBuilder":
         self._department_for_patch.cost_center_id = cost_center_id
         return self
-
     def staffing_model(self, staffing_model: Enum) -> "DepartmentForPatchBuilder":
         self._department_for_patch.staffing_model = staffing_model
         return self
-
+    
     def build(self) -> "DepartmentForPatch":
         return self._department_for_patch

@@ -28,22 +28,18 @@ class SiteApplication(object):
 class SiteApplicationBuilder(object):
     def __init__(self) -> None:
         self._site_application = SiteApplication()
-
     def external_id(self, external_id: str) -> "SiteApplicationBuilder":
         self._site_application.external_id = external_id
         return self
-
     def job_post_id(self, job_post_id: str) -> "SiteApplicationBuilder":
         self._site_application.job_post_id = job_post_id
         return self
-
     def resume(self, resume: SiteApplicationResume) -> "SiteApplicationBuilder":
         self._site_application.resume = resume
         return self
-
     def status(self, status: str) -> "SiteApplicationBuilder":
         self._site_application.status = status
         return self
-
+    
     def build(self) -> "SiteApplication":
         return self._site_application

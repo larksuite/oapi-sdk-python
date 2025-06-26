@@ -25,21 +25,22 @@ class AuthPermissionMemberRequestBuilder(object):
         auth_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/auth"
         auth_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._auth_permission_member_request: AuthPermissionMemberRequest = auth_permission_member_request
-
+    
     def type(self, type: str) -> "AuthPermissionMemberRequestBuilder":
         self._auth_permission_member_request.type = type
         self._auth_permission_member_request.add_query("type", type)
         return self
-
+    
     def action(self, action: str) -> "AuthPermissionMemberRequestBuilder":
         self._auth_permission_member_request.action = action
         self._auth_permission_member_request.add_query("action", action)
         return self
-
+    
     def token(self, token: str) -> "AuthPermissionMemberRequestBuilder":
         self._auth_permission_member_request.token = token
         self._auth_permission_member_request.paths["token"] = str(token)
         return self
+    
 
     def build(self) -> AuthPermissionMemberRequest:
         return self._auth_permission_member_request

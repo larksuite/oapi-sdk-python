@@ -22,10 +22,9 @@ class GetAgentSkillResponseBody(object):
 class GetAgentSkillResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_agent_skill_response_body = GetAgentSkillResponseBody()
-
     def agent_skill(self, agent_skill: AgentSkill) -> "GetAgentSkillResponseBodyBuilder":
         self._get_agent_skill_response_body.agent_skill = agent_skill
         return self
-
+    
     def build(self) -> "GetAgentSkillResponseBody":
         return self._get_agent_skill_response_body

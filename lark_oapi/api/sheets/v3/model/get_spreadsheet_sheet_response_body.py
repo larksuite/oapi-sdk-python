@@ -22,10 +22,9 @@ class GetSpreadsheetSheetResponseBody(object):
 class GetSpreadsheetSheetResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_spreadsheet_sheet_response_body = GetSpreadsheetSheetResponseBody()
-
     def sheet(self, sheet: Sheet) -> "GetSpreadsheetSheetResponseBodyBuilder":
         self._get_spreadsheet_sheet_response_body.sheet = sheet
         return self
-
+    
     def build(self) -> "GetSpreadsheetSheetResponseBody":
         return self._get_spreadsheet_sheet_response_body

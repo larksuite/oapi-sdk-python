@@ -31,30 +31,24 @@ class CreateOidcRefreshAccessTokenResponseBody(object):
 class CreateOidcRefreshAccessTokenResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_oidc_refresh_access_token_response_body = CreateOidcRefreshAccessTokenResponseBody()
-
     def access_token(self, access_token: str) -> "CreateOidcRefreshAccessTokenResponseBodyBuilder":
         self._create_oidc_refresh_access_token_response_body.access_token = access_token
         return self
-
     def refresh_token(self, refresh_token: str) -> "CreateOidcRefreshAccessTokenResponseBodyBuilder":
         self._create_oidc_refresh_access_token_response_body.refresh_token = refresh_token
         return self
-
     def token_type(self, token_type: str) -> "CreateOidcRefreshAccessTokenResponseBodyBuilder":
         self._create_oidc_refresh_access_token_response_body.token_type = token_type
         return self
-
     def expires_in(self, expires_in: int) -> "CreateOidcRefreshAccessTokenResponseBodyBuilder":
         self._create_oidc_refresh_access_token_response_body.expires_in = expires_in
         return self
-
     def refresh_expires_in(self, refresh_expires_in: int) -> "CreateOidcRefreshAccessTokenResponseBodyBuilder":
         self._create_oidc_refresh_access_token_response_body.refresh_expires_in = refresh_expires_in
         return self
-
     def scope(self, scope: str) -> "CreateOidcRefreshAccessTokenResponseBodyBuilder":
         self._create_oidc_refresh_access_token_response_body.scope = scope
         return self
-
+    
     def build(self) -> "CreateOidcRefreshAccessTokenResponseBody":
         return self._create_oidc_refresh_access_token_response_body

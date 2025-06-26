@@ -24,16 +24,17 @@ class GetApplicationCollaboratorsRequestBuilder(object):
         get_application_collaborators_request.uri = "/open-apis/application/v6/applications/:app_id/collaborators"
         get_application_collaborators_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_application_collaborators_request: GetApplicationCollaboratorsRequest = get_application_collaborators_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetApplicationCollaboratorsRequestBuilder":
         self._get_application_collaborators_request.user_id_type = user_id_type
         self._get_application_collaborators_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def app_id(self, app_id: str) -> "GetApplicationCollaboratorsRequestBuilder":
         self._get_application_collaborators_request.app_id = app_id
         self._get_application_collaborators_request.paths["app_id"] = str(app_id)
         return self
+    
 
     def build(self) -> GetApplicationCollaboratorsRequest:
         return self._get_application_collaborators_request

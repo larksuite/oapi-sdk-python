@@ -26,17 +26,17 @@ class PatchInterviewerRequestBuilder(object):
         patch_interviewer_request.uri = "/open-apis/hire/v1/interviewers/:interviewer_id"
         patch_interviewer_request.token_types = {AccessTokenType.TENANT}
         self._patch_interviewer_request: PatchInterviewerRequest = patch_interviewer_request
-
+    
     def user_id_type(self, user_id_type: str) -> "PatchInterviewerRequestBuilder":
         self._patch_interviewer_request.user_id_type = user_id_type
         self._patch_interviewer_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def interviewer_id(self, interviewer_id: str) -> "PatchInterviewerRequestBuilder":
         self._patch_interviewer_request.interviewer_id = interviewer_id
         self._patch_interviewer_request.paths["interviewer_id"] = str(interviewer_id)
         return self
-
+    
     def request_body(self, request_body: PatchInterviewerRequestBody) -> "PatchInterviewerRequestBuilder":
         self._patch_interviewer_request.request_body = request_body
         self._patch_interviewer_request.body = request_body

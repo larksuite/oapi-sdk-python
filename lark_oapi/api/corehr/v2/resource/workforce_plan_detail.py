@@ -19,8 +19,7 @@ class WorkforcePlanDetail(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch(self, request: BatchWorkforcePlanDetailRequest,
-              option: Optional[RequestOption] = None) -> BatchWorkforcePlanDetailResponse:
+    def batch(self, request: BatchWorkforcePlanDetailRequest, option: Optional[RequestOption] = None) -> BatchWorkforcePlanDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -33,34 +32,33 @@ class WorkforcePlanDetail(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchWorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchWorkforcePlanDetailResponse)
+        response: BatchWorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchWorkforcePlanDetailResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch(self, request: BatchWorkforcePlanDetailRequest,
-                     option: Optional[RequestOption] = None) -> BatchWorkforcePlanDetailResponse:
+    async def abatch(self, request: BatchWorkforcePlanDetailRequest, option: Optional[RequestOption] = None) -> BatchWorkforcePlanDetailResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchWorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    BatchWorkforcePlanDetailResponse)
+        response: BatchWorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchWorkforcePlanDetailResponse)
         response.raw = resp
 
         return response
-
-    def batch_v2(self, request: BatchV2WorkforcePlanDetailRequest,
-                 option: Optional[RequestOption] = None) -> BatchV2WorkforcePlanDetailResponse:
+        
+    def batch_v2(self, request: BatchV2WorkforcePlanDetailRequest, option: Optional[RequestOption] = None) -> BatchV2WorkforcePlanDetailResponse:
         if option is None:
             option = RequestOption()
 
@@ -73,28 +71,30 @@ class WorkforcePlanDetail(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchV2WorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      BatchV2WorkforcePlanDetailResponse)
+        response: BatchV2WorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchV2WorkforcePlanDetailResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_v2(self, request: BatchV2WorkforcePlanDetailRequest,
-                        option: Optional[RequestOption] = None) -> BatchV2WorkforcePlanDetailResponse:
+    async def abatch_v2(self, request: BatchV2WorkforcePlanDetailRequest, option: Optional[RequestOption] = None) -> BatchV2WorkforcePlanDetailResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchV2WorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                      BatchV2WorkforcePlanDetailResponse)
+        response: BatchV2WorkforcePlanDetailResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchV2WorkforcePlanDetailResponse)
         response.raw = resp
 
         return response
+        
+    

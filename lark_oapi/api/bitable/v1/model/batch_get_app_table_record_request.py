@@ -26,17 +26,17 @@ class BatchGetAppTableRecordRequestBuilder(object):
         batch_get_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_get"
         batch_get_app_table_record_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._batch_get_app_table_record_request: BatchGetAppTableRecordRequest = batch_get_app_table_record_request
-
+    
     def app_token(self, app_token: str) -> "BatchGetAppTableRecordRequestBuilder":
         self._batch_get_app_table_record_request.app_token = app_token
         self._batch_get_app_table_record_request.paths["app_token"] = str(app_token)
         return self
-
+    
     def table_id(self, table_id: str) -> "BatchGetAppTableRecordRequestBuilder":
         self._batch_get_app_table_record_request.table_id = table_id
         self._batch_get_app_table_record_request.paths["table_id"] = str(table_id)
         return self
-
+    
     def request_body(self, request_body: BatchGetAppTableRecordRequestBody) -> "BatchGetAppTableRecordRequestBuilder":
         self._batch_get_app_table_record_request.request_body = request_body
         self._batch_get_app_table_record_request.body = request_body

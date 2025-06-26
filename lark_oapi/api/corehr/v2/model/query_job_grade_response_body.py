@@ -26,18 +26,15 @@ class QueryJobGradeResponseBody(object):
 class QueryJobGradeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_job_grade_response_body = QueryJobGradeResponseBody()
-
     def items(self, items: List[JobGrade]) -> "QueryJobGradeResponseBodyBuilder":
         self._query_job_grade_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "QueryJobGradeResponseBodyBuilder":
         self._query_job_grade_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "QueryJobGradeResponseBodyBuilder":
         self._query_job_grade_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "QueryJobGradeResponseBody":
         return self._query_job_grade_response_body

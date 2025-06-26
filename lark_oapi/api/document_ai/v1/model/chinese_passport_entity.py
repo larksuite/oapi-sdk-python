@@ -23,14 +23,12 @@ class ChinesePassportEntity(object):
 class ChinesePassportEntityBuilder(object):
     def __init__(self) -> None:
         self._chinese_passport_entity = ChinesePassportEntity()
-
     def type(self, type: str) -> "ChinesePassportEntityBuilder":
         self._chinese_passport_entity.type = type
         return self
-
     def value(self, value: str) -> "ChinesePassportEntityBuilder":
         self._chinese_passport_entity.value = value
         return self
-
+    
     def build(self) -> "ChinesePassportEntity":
         return self._chinese_passport_entity

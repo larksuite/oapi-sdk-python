@@ -26,18 +26,15 @@ class WebsiteDeliverySns(object):
 class WebsiteDeliverySnsBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_sns = WebsiteDeliverySns()
-
     def sns_type(self, sns_type: int) -> "WebsiteDeliverySnsBuilder":
         self._website_delivery_sns.sns_type = sns_type
         return self
-
     def customized_data(self, customized_data: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliverySnsBuilder":
         self._website_delivery_sns.customized_data = customized_data
         return self
-
     def link(self, link: str) -> "WebsiteDeliverySnsBuilder":
         self._website_delivery_sns.link = link
         return self
-
+    
     def build(self) -> "WebsiteDeliverySns":
         return self._website_delivery_sns

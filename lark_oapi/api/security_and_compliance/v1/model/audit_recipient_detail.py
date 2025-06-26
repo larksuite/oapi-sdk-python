@@ -21,10 +21,9 @@ class AuditRecipientDetail(object):
 class AuditRecipientDetailBuilder(object):
     def __init__(self) -> None:
         self._audit_recipient_detail = AuditRecipientDetail()
-
     def permission_action_type(self, permission_action_type: str) -> "AuditRecipientDetailBuilder":
         self._audit_recipient_detail.permission_action_type = permission_action_type
         return self
-
+    
     def build(self) -> "AuditRecipientDetail":
         return self._audit_recipient_detail

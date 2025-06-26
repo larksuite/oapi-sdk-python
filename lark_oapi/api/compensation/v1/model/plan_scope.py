@@ -24,14 +24,12 @@ class PlanScope(object):
 class PlanScopeBuilder(object):
     def __init__(self) -> None:
         self._plan_scope = PlanScope()
-
     def is_all(self, is_all: bool) -> "PlanScopeBuilder":
         self._plan_scope.is_all = is_all
         return self
-
     def plan_conditions(self, plan_conditions: List[PlanCondition]) -> "PlanScopeBuilder":
         self._plan_scope.plan_conditions = plan_conditions
         return self
-
+    
     def build(self) -> "PlanScope":
         return self._plan_scope

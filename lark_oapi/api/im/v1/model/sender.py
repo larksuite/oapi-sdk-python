@@ -27,22 +27,18 @@ class Sender(object):
 class SenderBuilder(object):
     def __init__(self) -> None:
         self._sender = Sender()
-
     def id(self, id: str) -> "SenderBuilder":
         self._sender.id = id
         return self
-
     def id_type(self, id_type: str) -> "SenderBuilder":
         self._sender.id_type = id_type
         return self
-
     def sender_type(self, sender_type: str) -> "SenderBuilder":
         self._sender.sender_type = sender_type
         return self
-
     def tenant_key(self, tenant_key: str) -> "SenderBuilder":
         self._sender.tenant_key = tenant_key
         return self
-
+    
     def build(self) -> "Sender":
         return self._sender

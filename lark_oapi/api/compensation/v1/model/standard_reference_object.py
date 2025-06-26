@@ -23,14 +23,12 @@ class StandardReferenceObject(object):
 class StandardReferenceObjectBuilder(object):
     def __init__(self) -> None:
         self._standard_reference_object = StandardReferenceObject()
-
     def id(self, id: str) -> "StandardReferenceObjectBuilder":
         self._standard_reference_object.id = id
         return self
-
     def api_name(self, api_name: str) -> "StandardReferenceObjectBuilder":
         self._standard_reference_object.api_name = api_name
         return self
-
+    
     def build(self) -> "StandardReferenceObject":
         return self._standard_reference_object

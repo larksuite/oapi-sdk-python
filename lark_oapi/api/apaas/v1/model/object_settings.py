@@ -26,18 +26,15 @@ class ObjectSettings(object):
 class ObjectSettingsBuilder(object):
     def __init__(self) -> None:
         self._object_settings = ObjectSettings()
-
     def display_name(self, display_name: str) -> "ObjectSettingsBuilder":
         self._object_settings.display_name = display_name
         return self
-
     def allow_search_fields(self, allow_search_fields: List[str]) -> "ObjectSettingsBuilder":
         self._object_settings.allow_search_fields = allow_search_fields
         return self
-
     def search_layout(self, search_layout: ObjectSearchLayout) -> "ObjectSettingsBuilder":
         self._object_settings.search_layout = search_layout
         return self
-
+    
     def build(self) -> "ObjectSettings":
         return self._object_settings

@@ -17,8 +17,7 @@ class DiversityInclusion(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def search(self, request: SearchDiversityInclusionRequest,
-               option: Optional[RequestOption] = None) -> SearchDiversityInclusionResponse:
+    def search(self, request: SearchDiversityInclusionRequest, option: Optional[RequestOption] = None) -> SearchDiversityInclusionResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class DiversityInclusion(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: SearchDiversityInclusionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    SearchDiversityInclusionResponse)
+        response: SearchDiversityInclusionResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDiversityInclusionResponse)
         response.raw = resp
 
         return response
+        
 
-    async def asearch(self, request: SearchDiversityInclusionRequest,
-                      option: Optional[RequestOption] = None) -> SearchDiversityInclusionResponse:
+    async def asearch(self, request: SearchDiversityInclusionRequest, option: Optional[RequestOption] = None) -> SearchDiversityInclusionResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: SearchDiversityInclusionResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    SearchDiversityInclusionResponse)
+        response: SearchDiversityInclusionResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchDiversityInclusionResponse)
         response.raw = resp
 
         return response
+        
+    

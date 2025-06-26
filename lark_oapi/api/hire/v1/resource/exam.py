@@ -30,12 +30,13 @@ class Exam(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateExamResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExamResponse)
         response.raw = resp
 
         return response
+        
 
     async def acreate(self, request: CreateExamRequest, option: Optional[RequestOption] = None) -> CreateExamResponse:
         if option is None:
@@ -44,11 +45,15 @@ class Exam(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateExamResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateExamResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -24,14 +24,12 @@ class DatasetSource(object):
 class DatasetSourceBuilder(object):
     def __init__(self) -> None:
         self._dataset_source = DatasetSource()
-
     def type(self, type: str) -> "DatasetSourceBuilder":
         self._dataset_source.type = type
         return self
-
     def settings(self, settings: DatasetSourceSetting) -> "DatasetSourceBuilder":
         self._dataset_source.settings = settings
         return self
-
+    
     def build(self) -> "DatasetSource":
         return self._dataset_source

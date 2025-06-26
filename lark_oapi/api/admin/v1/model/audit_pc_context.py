@@ -35,38 +35,30 @@ class AuditPcContext(object):
 class AuditPcContextBuilder(object):
     def __init__(self) -> None:
         self._audit_pc_context = AuditPcContext()
-
     def udid(self, udid: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.udid = udid
         return self
-
     def did(self, did: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.did = did
         return self
-
     def app_ver(self, app_ver: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.app_ver = app_ver
         return self
-
     def ver(self, ver: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.ver = ver
         return self
-
     def os(self, os: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.os = os
         return self
-
     def wifip(self, wifip: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.wifip = wifip
         return self
-
     def region(self, region: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.region = region
         return self
-
     def i_p(self, i_p: str) -> "AuditPcContextBuilder":
         self._audit_pc_context.i_p = i_p
         return self
-
+    
     def build(self) -> "AuditPcContext":
         return self._audit_pc_context

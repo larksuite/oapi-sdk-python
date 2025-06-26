@@ -22,10 +22,9 @@ class QueryUserStatsFieldResponseBody(object):
 class QueryUserStatsFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_user_stats_field_response_body = QueryUserStatsFieldResponseBody()
-
     def user_stats_field(self, user_stats_field: UserStatsField) -> "QueryUserStatsFieldResponseBodyBuilder":
         self._query_user_stats_field_response_body.user_stats_field = user_stats_field
         return self
-
+    
     def build(self) -> "QueryUserStatsFieldResponseBody":
         return self._query_user_stats_field_response_body

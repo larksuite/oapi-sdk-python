@@ -24,7 +24,7 @@ class CreateBadgeRequestBuilder(object):
         create_badge_request.uri = "/open-apis/admin/v1/badges"
         create_badge_request.token_types = {AccessTokenType.TENANT}
         self._create_badge_request: CreateBadgeRequest = create_badge_request
-
+    
     def request_body(self, request_body: Badge) -> "CreateBadgeRequestBuilder":
         self._create_badge_request.request_body = request_body
         self._create_badge_request.body = request_body

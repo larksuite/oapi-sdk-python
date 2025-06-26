@@ -21,10 +21,9 @@ class QueryApplicationObjectRecordRequestBody(object):
 class QueryApplicationObjectRecordRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_application_object_record_request_body = QueryApplicationObjectRecordRequestBody()
-
     def select(self, select: List[str]) -> "QueryApplicationObjectRecordRequestBodyBuilder":
         self._query_application_object_record_request_body.select = select
         return self
-
+    
     def build(self) -> "QueryApplicationObjectRecordRequestBody":
         return self._query_application_object_record_request_body

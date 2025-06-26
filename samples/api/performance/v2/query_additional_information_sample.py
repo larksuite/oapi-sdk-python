@@ -5,74 +5,74 @@ from lark_oapi.api.performance.v2 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: QueryAdditionalInformationRequest = QueryAdditionalInformationRequest.builder() \
-        .user_id_type("open_id") \
-        .page_token("str") \
-        .page_size(20) \
-        .request_body(QueryAdditionalInformationRequestBody.builder()
-                      .semester_id("7348736302176534547")
-                      .item_ids([])
-                      .external_ids([])
-                      .reviewee_user_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: QueryAdditionalInformationRequest = QueryAdditionalInformationRequest.builder() \
+		.user_id_type("open_id") \
+		.page_token("str") \
+		.page_size(20) \
+		.request_body(QueryAdditionalInformationRequestBody.builder()
+					  .semester_id("7348736302176534547")
+					  .item_ids([])
+					  .external_ids([])
+					  .reviewee_user_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: QueryAdditionalInformationResponse = client.performance.v2.additional_information.query(request)
+	# 发起请求
+	response: QueryAdditionalInformationResponse = client.performance.v2.additional_information.query(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.performance.v2.additional_information.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.performance.v2.additional_information.query failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: QueryAdditionalInformationRequest = QueryAdditionalInformationRequest.builder() \
-        .user_id_type("open_id") \
-        .page_token("str") \
-        .page_size(20) \
-        .request_body(QueryAdditionalInformationRequestBody.builder()
-                      .semester_id("7348736302176534547")
-                      .item_ids([])
-                      .external_ids([])
-                      .reviewee_user_ids([])
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: QueryAdditionalInformationRequest = QueryAdditionalInformationRequest.builder() \
+		.user_id_type("open_id") \
+		.page_token("str") \
+		.page_size(20) \
+		.request_body(QueryAdditionalInformationRequestBody.builder()
+					  .semester_id("7348736302176534547")
+					  .item_ids([])
+					  .external_ids([])
+					  .reviewee_user_ids([])
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: QueryAdditionalInformationResponse = await client.performance.v2.additional_information.aquery(request)
+	# 发起请求
+	response: QueryAdditionalInformationResponse = await client.performance.v2.additional_information.aquery(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.performance.v2.additional_information.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.performance.v2.additional_information.aquery failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

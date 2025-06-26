@@ -21,10 +21,9 @@ class PreviewAttachmentResponseBody(object):
 class PreviewAttachmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._preview_attachment_response_body = PreviewAttachmentResponseBody()
-
     def url(self, url: str) -> "PreviewAttachmentResponseBodyBuilder":
         self._preview_attachment_response_body.url = url
         return self
-
+    
     def build(self) -> "PreviewAttachmentResponseBody":
         return self._preview_attachment_response_body

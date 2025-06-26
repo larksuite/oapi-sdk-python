@@ -21,10 +21,9 @@ class BatchQueryDefaultCostCenterRequestBody(object):
 class BatchQueryDefaultCostCenterRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_query_default_cost_center_request_body = BatchQueryDefaultCostCenterRequestBody()
-
     def employment_ids(self, employment_ids: List[str]) -> "BatchQueryDefaultCostCenterRequestBodyBuilder":
         self._batch_query_default_cost_center_request_body.employment_ids = employment_ids
         return self
-
+    
     def build(self) -> "BatchQueryDefaultCostCenterRequestBody":
         return self._batch_query_default_cost_center_request_body

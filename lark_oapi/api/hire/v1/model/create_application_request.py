@@ -25,12 +25,12 @@ class CreateApplicationRequestBuilder(object):
         create_application_request.uri = "/open-apis/hire/v1/applications"
         create_application_request.token_types = {AccessTokenType.TENANT}
         self._create_application_request: CreateApplicationRequest = create_application_request
-
+    
     def user_id_type(self, user_id_type: str) -> "CreateApplicationRequestBuilder":
         self._create_application_request.user_id_type = user_id_type
         self._create_application_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: CreateApplicationRequestBody) -> "CreateApplicationRequestBuilder":
         self._create_application_request.request_body = request_body
         self._create_application_request.body = request_body

@@ -188,238 +188,180 @@ class Block(object):
 class BlockBuilder(object):
     def __init__(self) -> None:
         self._block = Block()
-
     def block_id(self, block_id: str) -> "BlockBuilder":
         self._block.block_id = block_id
         return self
-
     def parent_id(self, parent_id: str) -> "BlockBuilder":
         self._block.parent_id = parent_id
         return self
-
     def children(self, children: List[str]) -> "BlockBuilder":
         self._block.children = children
         return self
-
     def block_type(self, block_type: int) -> "BlockBuilder":
         self._block.block_type = block_type
         return self
-
     def page(self, page: Text) -> "BlockBuilder":
         self._block.page = page
         return self
-
     def text(self, text: Text) -> "BlockBuilder":
         self._block.text = text
         return self
-
     def heading1(self, heading1: Text) -> "BlockBuilder":
         self._block.heading1 = heading1
         return self
-
     def heading2(self, heading2: Text) -> "BlockBuilder":
         self._block.heading2 = heading2
         return self
-
     def heading3(self, heading3: Text) -> "BlockBuilder":
         self._block.heading3 = heading3
         return self
-
     def heading4(self, heading4: Text) -> "BlockBuilder":
         self._block.heading4 = heading4
         return self
-
     def heading5(self, heading5: Text) -> "BlockBuilder":
         self._block.heading5 = heading5
         return self
-
     def heading6(self, heading6: Text) -> "BlockBuilder":
         self._block.heading6 = heading6
         return self
-
     def heading7(self, heading7: Text) -> "BlockBuilder":
         self._block.heading7 = heading7
         return self
-
     def heading8(self, heading8: Text) -> "BlockBuilder":
         self._block.heading8 = heading8
         return self
-
     def heading9(self, heading9: Text) -> "BlockBuilder":
         self._block.heading9 = heading9
         return self
-
     def bullet(self, bullet: Text) -> "BlockBuilder":
         self._block.bullet = bullet
         return self
-
     def ordered(self, ordered: Text) -> "BlockBuilder":
         self._block.ordered = ordered
         return self
-
     def code(self, code: Text) -> "BlockBuilder":
         self._block.code = code
         return self
-
     def quote(self, quote: Text) -> "BlockBuilder":
         self._block.quote = quote
         return self
-
     def equation(self, equation: Text) -> "BlockBuilder":
         self._block.equation = equation
         return self
-
     def todo(self, todo: Text) -> "BlockBuilder":
         self._block.todo = todo
         return self
-
     def bitable(self, bitable: Bitable) -> "BlockBuilder":
         self._block.bitable = bitable
         return self
-
     def callout(self, callout: Callout) -> "BlockBuilder":
         self._block.callout = callout
         return self
-
     def chat_card(self, chat_card: ChatCard) -> "BlockBuilder":
         self._block.chat_card = chat_card
         return self
-
     def diagram(self, diagram: Diagram) -> "BlockBuilder":
         self._block.diagram = diagram
         return self
-
     def divider(self, divider: Divider) -> "BlockBuilder":
         self._block.divider = divider
         return self
-
     def file(self, file: File) -> "BlockBuilder":
         self._block.file = file
         return self
-
     def grid(self, grid: Grid) -> "BlockBuilder":
         self._block.grid = grid
         return self
-
     def grid_column(self, grid_column: GridColumn) -> "BlockBuilder":
         self._block.grid_column = grid_column
         return self
-
     def iframe(self, iframe: Iframe) -> "BlockBuilder":
         self._block.iframe = iframe
         return self
-
     def image(self, image: Image) -> "BlockBuilder":
         self._block.image = image
         return self
-
     def isv(self, isv: Isv) -> "BlockBuilder":
         self._block.isv = isv
         return self
-
     def add_ons(self, add_ons: AddOns) -> "BlockBuilder":
         self._block.add_ons = add_ons
         return self
-
     def mindnote(self, mindnote: Mindnote) -> "BlockBuilder":
         self._block.mindnote = mindnote
         return self
-
     def sheet(self, sheet: Sheet) -> "BlockBuilder":
         self._block.sheet = sheet
         return self
-
     def table(self, table: Table) -> "BlockBuilder":
         self._block.table = table
         return self
-
     def table_cell(self, table_cell: TableCell) -> "BlockBuilder":
         self._block.table_cell = table_cell
         return self
-
     def view(self, view: View) -> "BlockBuilder":
         self._block.view = view
         return self
-
     def undefined(self, undefined: Undefined) -> "BlockBuilder":
         self._block.undefined = undefined
         return self
-
     def quote_container(self, quote_container: QuoteContainer) -> "BlockBuilder":
         self._block.quote_container = quote_container
         return self
-
     def task(self, task: Task) -> "BlockBuilder":
         self._block.task = task
         return self
-
     def okr(self, okr: Okr) -> "BlockBuilder":
         self._block.okr = okr
         return self
-
     def okr_objective(self, okr_objective: OkrObjective) -> "BlockBuilder":
         self._block.okr_objective = okr_objective
         return self
-
     def okr_key_result(self, okr_key_result: OkrKeyResult) -> "BlockBuilder":
         self._block.okr_key_result = okr_key_result
         return self
-
     def okr_progress(self, okr_progress: OkrProgress) -> "BlockBuilder":
         self._block.okr_progress = okr_progress
         return self
-
     def comment_ids(self, comment_ids: List[str]) -> "BlockBuilder":
         self._block.comment_ids = comment_ids
         return self
-
     def jira_issue(self, jira_issue: JiraIssue) -> "BlockBuilder":
         self._block.jira_issue = jira_issue
         return self
-
     def wiki_catalog(self, wiki_catalog: WikiCatalog) -> "BlockBuilder":
         self._block.wiki_catalog = wiki_catalog
         return self
-
     def board(self, board: Board) -> "BlockBuilder":
         self._block.board = board
         return self
-
     def agenda(self, agenda: Agenda) -> "BlockBuilder":
         self._block.agenda = agenda
         return self
-
     def agenda_item(self, agenda_item: AgendaItem) -> "BlockBuilder":
         self._block.agenda_item = agenda_item
         return self
-
     def agenda_item_title(self, agenda_item_title: AgendaItemTitle) -> "BlockBuilder":
         self._block.agenda_item_title = agenda_item_title
         return self
-
     def agenda_item_content(self, agenda_item_content: AgendaItemContent) -> "BlockBuilder":
         self._block.agenda_item_content = agenda_item_content
         return self
-
     def link_preview(self, link_preview: LinkPreview) -> "BlockBuilder":
         self._block.link_preview = link_preview
         return self
-
     def source_synced(self, source_synced: SourceSynced) -> "BlockBuilder":
         self._block.source_synced = source_synced
         return self
-
     def reference_synced(self, reference_synced: ReferenceSynced) -> "BlockBuilder":
         self._block.reference_synced = reference_synced
         return self
-
     def sub_page_list(self, sub_page_list: SubPageList) -> "BlockBuilder":
         self._block.sub_page_list = sub_page_list
         return self
-
     def ai_template(self, ai_template: AiTemplate) -> "BlockBuilder":
         self._block.ai_template = ai_template
         return self
-
+    
     def build(self) -> "Block":
         return self._block

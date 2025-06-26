@@ -24,7 +24,7 @@ class ListDataOpenapiLogRequestBuilder(object):
         list_data_openapi_log_request.uri = "/open-apis/security_and_compliance/v1/openapi_logs/list_data"
         list_data_openapi_log_request.token_types = {AccessTokenType.TENANT}
         self._list_data_openapi_log_request: ListDataOpenapiLogRequest = list_data_openapi_log_request
-
+    
     def request_body(self, request_body: ListOpenapiLogRequest) -> "ListDataOpenapiLogRequestBuilder":
         self._list_data_openapi_log_request.request_body = request_body
         self._list_data_openapi_log_request.body = request_body

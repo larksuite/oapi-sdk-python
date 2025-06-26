@@ -25,18 +25,15 @@ class Setting(object):
 class SettingBuilder(object):
     def __init__(self) -> None:
         self._setting = Setting()
-
     def create_setting(self, create_setting: str) -> "SettingBuilder":
         self._setting.create_setting = create_setting
         return self
-
     def security_setting(self, security_setting: str) -> "SettingBuilder":
         self._setting.security_setting = security_setting
         return self
-
     def comment_setting(self, comment_setting: str) -> "SettingBuilder":
         self._setting.comment_setting = comment_setting
         return self
-
+    
     def build(self) -> "Setting":
         return self._setting

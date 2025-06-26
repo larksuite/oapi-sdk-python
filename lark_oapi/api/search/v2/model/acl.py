@@ -25,18 +25,15 @@ class Acl(object):
 class AclBuilder(object):
     def __init__(self) -> None:
         self._acl = Acl()
-
     def access(self, access: str) -> "AclBuilder":
         self._acl.access = access
         return self
-
     def value(self, value: str) -> "AclBuilder":
         self._acl.value = value
         return self
-
     def type(self, type: str) -> "AclBuilder":
         self._acl.type = type
         return self
-
+    
     def build(self) -> "Acl":
         return self._acl

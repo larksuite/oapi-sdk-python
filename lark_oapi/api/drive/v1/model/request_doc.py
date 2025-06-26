@@ -23,14 +23,12 @@ class RequestDoc(object):
 class RequestDocBuilder(object):
     def __init__(self) -> None:
         self._request_doc = RequestDoc()
-
     def doc_token(self, doc_token: str) -> "RequestDocBuilder":
         self._request_doc.doc_token = doc_token
         return self
-
     def doc_type(self, doc_type: str) -> "RequestDocBuilder":
         self._request_doc.doc_type = doc_type
         return self
-
+    
     def build(self) -> "RequestDoc":
         return self._request_doc

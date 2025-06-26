@@ -25,18 +25,15 @@ class MemberBelongGroupResponseBody(object):
 class MemberBelongGroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._member_belong_group_response_body = MemberBelongGroupResponseBody()
-
     def group_list(self, group_list: List[str]) -> "MemberBelongGroupResponseBodyBuilder":
         self._member_belong_group_response_body.group_list = group_list
         return self
-
     def page_token(self, page_token: str) -> "MemberBelongGroupResponseBodyBuilder":
         self._member_belong_group_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "MemberBelongGroupResponseBodyBuilder":
         self._member_belong_group_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "MemberBelongGroupResponseBody":
         return self._member_belong_group_response_body

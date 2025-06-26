@@ -29,22 +29,18 @@ class Indicator(object):
 class IndicatorBuilder(object):
     def __init__(self) -> None:
         self._indicator = Indicator()
-
     def id(self, id: str) -> "IndicatorBuilder":
         self._indicator.id = id
         return self
-
     def name(self, name: I18n) -> "IndicatorBuilder":
         self._indicator.name = name
         return self
-
     def type(self, type: str) -> "IndicatorBuilder":
         self._indicator.type = type
         return self
-
     def options(self, options: List[IndicatorOption]) -> "IndicatorBuilder":
         self._indicator.options = options
         return self
-
+    
     def build(self) -> "Indicator":
         return self._indicator

@@ -48,51 +48,39 @@ class AppliOfferOnboardProfile(object):
 class AppliOfferOnboardProfileBuilder(object):
     def __init__(self) -> None:
         self._appli_offer_onboard_profile = AppliOfferOnboardProfile()
-
     def offer_id(self, offer_id: str) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.offer_id = offer_id
         return self
-
     def department(self, department: Department) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.department = department
         return self
-
     def recruitment_type(self, recruitment_type: RecruitmentType) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.recruitment_type = recruitment_type
         return self
-
     def sequence(self, sequence: Sequence) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.sequence = sequence
         return self
-
     def level(self, level: Level) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.level = level
         return self
-
     def onboard_address(self, onboard_address: AppliOfferOnboardProfileAdd) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.onboard_address = onboard_address
         return self
-
     def work_address(self, work_address: AppliOfferOnboardProfileAdd) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.work_address = work_address
         return self
-
     def leader(self, leader: AppliOfferBasicInfoUser) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.leader = leader
         return self
-
-    def is_work_address_same_to_onboard(self,
-                                        is_work_address_same_to_onboard: bool) -> "AppliOfferOnboardProfileBuilder":
+    def is_work_address_same_to_onboard(self, is_work_address_same_to_onboard: bool) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.is_work_address_same_to_onboard = is_work_address_same_to_onboard
         return self
-
     def probation_month(self, probation_month: int) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.probation_month = probation_month
         return self
-
     def contract_year(self, contract_year: int) -> "AppliOfferOnboardProfileBuilder":
         self._appli_offer_onboard_profile.contract_year = contract_year
         return self
-
+    
     def build(self) -> "AppliOfferOnboardProfile":
         return self._appli_offer_onboard_profile

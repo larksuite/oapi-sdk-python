@@ -27,24 +27,23 @@ class BatchCreatePermissionMemberRequestBuilder(object):
         batch_create_permission_member_request.uri = "/open-apis/drive/v1/permissions/:token/members/batch_create"
         batch_create_permission_member_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._batch_create_permission_member_request: BatchCreatePermissionMemberRequest = batch_create_permission_member_request
-
+    
     def type(self, type: str) -> "BatchCreatePermissionMemberRequestBuilder":
         self._batch_create_permission_member_request.type = type
         self._batch_create_permission_member_request.add_query("type", type)
         return self
-
+    
     def need_notification(self, need_notification: bool) -> "BatchCreatePermissionMemberRequestBuilder":
         self._batch_create_permission_member_request.need_notification = need_notification
         self._batch_create_permission_member_request.add_query("need_notification", need_notification)
         return self
-
+    
     def token(self, token: str) -> "BatchCreatePermissionMemberRequestBuilder":
         self._batch_create_permission_member_request.token = token
         self._batch_create_permission_member_request.paths["token"] = str(token)
         return self
-
-    def request_body(self,
-                     request_body: BatchCreatePermissionMemberRequestBody) -> "BatchCreatePermissionMemberRequestBuilder":
+    
+    def request_body(self, request_body: BatchCreatePermissionMemberRequestBody) -> "BatchCreatePermissionMemberRequestBuilder":
         self._batch_create_permission_member_request.request_body = request_body
         self._batch_create_permission_member_request.body = request_body
         return self

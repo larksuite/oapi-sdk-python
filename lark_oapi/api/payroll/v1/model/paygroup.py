@@ -31,26 +31,21 @@ class Paygroup(object):
 class PaygroupBuilder(object):
     def __init__(self) -> None:
         self._paygroup = Paygroup()
-
     def pay_group_id(self, pay_group_id: str) -> "PaygroupBuilder":
         self._paygroup.pay_group_id = pay_group_id
         return self
-
     def name(self, name: I18n) -> "PaygroupBuilder":
         self._paygroup.name = name
         return self
-
     def code(self, code: str) -> "PaygroupBuilder":
         self._paygroup.code = code
         return self
-
     def status(self, status: int) -> "PaygroupBuilder":
         self._paygroup.status = status
         return self
-
     def country_region(self, country_region: CountryRegion) -> "PaygroupBuilder":
         self._paygroup.country_region = country_region
         return self
-
+    
     def build(self) -> "Paygroup":
         return self._paygroup

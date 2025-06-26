@@ -23,11 +23,12 @@ class UnsubscriptionCalendarAclRequestBuilder(object):
         unsubscription_calendar_acl_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/acls/unsubscription"
         unsubscription_calendar_acl_request.token_types = {AccessTokenType.USER}
         self._unsubscription_calendar_acl_request: UnsubscriptionCalendarAclRequest = unsubscription_calendar_acl_request
-
+    
     def calendar_id(self, calendar_id: str) -> "UnsubscriptionCalendarAclRequestBuilder":
         self._unsubscription_calendar_acl_request.calendar_id = calendar_id
         self._unsubscription_calendar_acl_request.paths["calendar_id"] = str(calendar_id)
         return self
+    
 
     def build(self) -> UnsubscriptionCalendarAclRequest:
         return self._unsubscription_calendar_acl_request

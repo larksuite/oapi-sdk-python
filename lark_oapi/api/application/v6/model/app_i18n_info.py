@@ -27,22 +27,18 @@ class AppI18nInfo(object):
 class AppI18nInfoBuilder(object):
     def __init__(self) -> None:
         self._app_i18n_info = AppI18nInfo()
-
     def i18n_key(self, i18n_key: str) -> "AppI18nInfoBuilder":
         self._app_i18n_info.i18n_key = i18n_key
         return self
-
     def name(self, name: str) -> "AppI18nInfoBuilder":
         self._app_i18n_info.name = name
         return self
-
     def description(self, description: str) -> "AppI18nInfoBuilder":
         self._app_i18n_info.description = description
         return self
-
     def help_use(self, help_use: str) -> "AppI18nInfoBuilder":
         self._app_i18n_info.help_use = help_use
         return self
-
+    
     def build(self) -> "AppI18nInfo":
         return self._app_i18n_info

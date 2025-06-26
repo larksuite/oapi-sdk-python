@@ -25,21 +25,22 @@ class ListWebsiteChannelRequestBuilder(object):
         list_website_channel_request.uri = "/open-apis/hire/v1/websites/:website_id/channels"
         list_website_channel_request.token_types = {AccessTokenType.TENANT}
         self._list_website_channel_request: ListWebsiteChannelRequest = list_website_channel_request
-
+    
     def page_size(self, page_size: str) -> "ListWebsiteChannelRequestBuilder":
         self._list_website_channel_request.page_size = page_size
         self._list_website_channel_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListWebsiteChannelRequestBuilder":
         self._list_website_channel_request.page_token = page_token
         self._list_website_channel_request.add_query("page_token", page_token)
         return self
-
+    
     def website_id(self, website_id: str) -> "ListWebsiteChannelRequestBuilder":
         self._list_website_channel_request.website_id = website_id
         self._list_website_channel_request.paths["website_id"] = str(website_id)
         return self
+    
 
     def build(self) -> ListWebsiteChannelRequest:
         return self._list_website_channel_request

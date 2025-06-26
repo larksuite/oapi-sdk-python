@@ -79,122 +79,93 @@ class JobRequirement(object):
 class JobRequirementBuilder(object):
     def __init__(self) -> None:
         self._job_requirement = JobRequirement()
-
     def short_code(self, short_code: str) -> "JobRequirementBuilder":
         self._job_requirement.short_code = short_code
         return self
-
     def name(self, name: str) -> "JobRequirementBuilder":
         self._job_requirement.name = name
         return self
-
     def display_progress(self, display_progress: int) -> "JobRequirementBuilder":
         self._job_requirement.display_progress = display_progress
         return self
-
     def head_count(self, head_count: int) -> "JobRequirementBuilder":
         self._job_requirement.head_count = head_count
         return self
-
     def recruitment_type_id(self, recruitment_type_id: str) -> "JobRequirementBuilder":
         self._job_requirement.recruitment_type_id = recruitment_type_id
         return self
-
     def employee_type_id(self, employee_type_id: str) -> "JobRequirementBuilder":
         self._job_requirement.employee_type_id = employee_type_id
         return self
-
     def max_level_id(self, max_level_id: str) -> "JobRequirementBuilder":
         self._job_requirement.max_level_id = max_level_id
         return self
-
     def min_level_id(self, min_level_id: str) -> "JobRequirementBuilder":
         self._job_requirement.min_level_id = min_level_id
         return self
-
     def sequence_id(self, sequence_id: str) -> "JobRequirementBuilder":
         self._job_requirement.sequence_id = sequence_id
         return self
-
     def category(self, category: int) -> "JobRequirementBuilder":
         self._job_requirement.category = category
         return self
-
     def department_id(self, department_id: str) -> "JobRequirementBuilder":
         self._job_requirement.department_id = department_id
         return self
-
     def recruiter_id_list(self, recruiter_id_list: List[str]) -> "JobRequirementBuilder":
         self._job_requirement.recruiter_id_list = recruiter_id_list
         return self
-
     def jr_hiring_manager_id_list(self, jr_hiring_manager_id_list: List[str]) -> "JobRequirementBuilder":
         self._job_requirement.jr_hiring_manager_id_list = jr_hiring_manager_id_list
         return self
-
     def direct_leader_id_list(self, direct_leader_id_list: List[str]) -> "JobRequirementBuilder":
         self._job_requirement.direct_leader_id_list = direct_leader_id_list
         return self
-
     def start_time(self, start_time: str) -> "JobRequirementBuilder":
         self._job_requirement.start_time = start_time
         return self
-
     def deadline(self, deadline: str) -> "JobRequirementBuilder":
         self._job_requirement.deadline = deadline
         return self
-
     def priority(self, priority: int) -> "JobRequirementBuilder":
         self._job_requirement.priority = priority
         return self
-
     def required_degree(self, required_degree: int) -> "JobRequirementBuilder":
         self._job_requirement.required_degree = required_degree
         return self
-
     def max_salary(self, max_salary: str) -> "JobRequirementBuilder":
         self._job_requirement.max_salary = max_salary
         return self
-
     def min_salary(self, min_salary: str) -> "JobRequirementBuilder":
         self._job_requirement.min_salary = min_salary
         return self
-
     def address_id(self, address_id: str) -> "JobRequirementBuilder":
         self._job_requirement.address_id = address_id
         return self
-
     def description(self, description: str) -> "JobRequirementBuilder":
         self._job_requirement.description = description
         return self
-
     def customized_data_list(self, customized_data_list: List[JobRequirementCustomizedData]) -> "JobRequirementBuilder":
         self._job_requirement.customized_data_list = customized_data_list
         return self
-
     def process_type(self, process_type: int) -> "JobRequirementBuilder":
         self._job_requirement.process_type = process_type
         return self
-
     def job_type_id(self, job_type_id: str) -> "JobRequirementBuilder":
         self._job_requirement.job_type_id = job_type_id
         return self
-
     def job_id_list(self, job_id_list: List[str]) -> "JobRequirementBuilder":
         self._job_requirement.job_id_list = job_id_list
         return self
-
     def employment_job_id(self, employment_job_id: str) -> "JobRequirementBuilder":
         self._job_requirement.employment_job_id = employment_job_id
         return self
-
     def position_id(self, position_id: str) -> "JobRequirementBuilder":
         self._job_requirement.position_id = position_id
         return self
-
     def update_option(self, update_option: JobRequirementUpdateOption) -> "JobRequirementBuilder":
         self._job_requirement.update_option = update_option
         return self
-
+    
     def build(self) -> "JobRequirement":
         return self._job_requirement

@@ -23,11 +23,12 @@ class DeletePinRequestBuilder(object):
         delete_pin_request.uri = "/open-apis/im/v1/pins/:message_id"
         delete_pin_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_pin_request: DeletePinRequest = delete_pin_request
-
+    
     def message_id(self, message_id: str) -> "DeletePinRequestBuilder":
         self._delete_pin_request.message_id = message_id
         self._delete_pin_request.paths["message_id"] = str(message_id)
         return self
+    
 
     def build(self) -> DeletePinRequest:
         return self._delete_pin_request

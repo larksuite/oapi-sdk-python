@@ -25,18 +25,15 @@ class ApplicationTalentLanguageInfo(object):
 class ApplicationTalentLanguageInfoBuilder(object):
     def __init__(self) -> None:
         self._application_talent_language_info = ApplicationTalentLanguageInfo()
-
     def id(self, id: str) -> "ApplicationTalentLanguageInfoBuilder":
         self._application_talent_language_info.id = id
         return self
-
     def language(self, language: int) -> "ApplicationTalentLanguageInfoBuilder":
         self._application_talent_language_info.language = language
         return self
-
     def proficiency(self, proficiency: int) -> "ApplicationTalentLanguageInfoBuilder":
         self._application_talent_language_info.proficiency = proficiency
         return self
-
+    
     def build(self) -> "ApplicationTalentLanguageInfo":
         return self._application_talent_language_info

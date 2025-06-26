@@ -25,18 +25,15 @@ class MetricUnit(object):
 class MetricUnitBuilder(object):
     def __init__(self) -> None:
         self._metric_unit = MetricUnit()
-
     def zh_cn(self, zh_cn: str) -> "MetricUnitBuilder":
         self._metric_unit.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "MetricUnitBuilder":
         self._metric_unit.en_us = en_us
         return self
-
     def ja_jp(self, ja_jp: str) -> "MetricUnitBuilder":
         self._metric_unit.ja_jp = ja_jp
         return self
-
+    
     def build(self) -> "MetricUnit":
         return self._metric_unit

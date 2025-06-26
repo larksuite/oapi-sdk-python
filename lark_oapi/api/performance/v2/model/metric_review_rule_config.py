@@ -23,14 +23,12 @@ class MetricReviewRuleConfig(object):
 class MetricReviewRuleConfigBuilder(object):
     def __init__(self) -> None:
         self._metric_review_rule_config = MetricReviewRuleConfig()
-
     def max(self, max: str) -> "MetricReviewRuleConfigBuilder":
         self._metric_review_rule_config.max = max
         return self
-
     def min(self, min: str) -> "MetricReviewRuleConfigBuilder":
         self._metric_review_rule_config.min = min
         return self
-
+    
     def build(self) -> "MetricReviewRuleConfig":
         return self._metric_review_rule_config

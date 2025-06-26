@@ -38,42 +38,33 @@ class ExternalOffer(object):
 class ExternalOfferBuilder(object):
     def __init__(self) -> None:
         self._external_offer = ExternalOffer()
-
     def id(self, id: str) -> "ExternalOfferBuilder":
         self._external_offer.id = id
         return self
-
     def external_id(self, external_id: str) -> "ExternalOfferBuilder":
         self._external_offer.external_id = external_id
         return self
-
     def external_application_id(self, external_application_id: str) -> "ExternalOfferBuilder":
         self._external_offer.external_application_id = external_application_id
         return self
-
     def biz_create_time(self, biz_create_time: str) -> "ExternalOfferBuilder":
         self._external_offer.biz_create_time = biz_create_time
         return self
-
     def owner(self, owner: str) -> "ExternalOfferBuilder":
         self._external_offer.owner = owner
         return self
-
     def creator(self, creator: str) -> "ExternalOfferBuilder":
         self._external_offer.creator = creator
         return self
-
     def offer_status(self, offer_status: str) -> "ExternalOfferBuilder":
         self._external_offer.offer_status = offer_status
         return self
-
     def attachment_id_list(self, attachment_id_list: List[str]) -> "ExternalOfferBuilder":
         self._external_offer.attachment_id_list = attachment_id_list
         return self
-
     def attachment_list(self, attachment_list: List[ExternalCommonAttachment]) -> "ExternalOfferBuilder":
         self._external_offer.attachment_list = attachment_list
         return self
-
+    
     def build(self) -> "ExternalOffer":
         return self._external_offer

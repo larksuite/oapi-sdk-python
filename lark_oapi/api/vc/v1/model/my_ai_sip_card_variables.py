@@ -23,14 +23,12 @@ class MyAiSipCardVariables(object):
 class MyAiSipCardVariablesBuilder(object):
     def __init__(self) -> None:
         self._my_ai_sip_card_variables = MyAiSipCardVariables()
-
     def text(self, text: str) -> "MyAiSipCardVariablesBuilder":
         self._my_ai_sip_card_variables.text = text
         return self
-
     def image_key(self, image_key: str) -> "MyAiSipCardVariablesBuilder":
         self._my_ai_sip_card_variables.image_key = image_key
         return self
-
+    
     def build(self) -> "MyAiSipCardVariables":
         return self._my_ai_sip_card_variables

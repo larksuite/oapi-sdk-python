@@ -23,14 +23,12 @@ class TicketTag(object):
 class TicketTagBuilder(object):
     def __init__(self) -> None:
         self._ticket_tag = TicketTag()
-
     def id(self, id: str) -> "TicketTagBuilder":
         self._ticket_tag.id = id
         return self
-
     def name(self, name: str) -> "TicketTagBuilder":
         self._ticket_tag.name = name
         return self
-
+    
     def build(self) -> "TicketTag":
         return self._ticket_tag

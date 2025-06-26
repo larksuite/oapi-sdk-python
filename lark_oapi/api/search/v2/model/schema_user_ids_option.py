@@ -21,10 +21,9 @@ class SchemaUserIdsOption(object):
 class SchemaUserIdsOptionBuilder(object):
     def __init__(self) -> None:
         self._schema_user_ids_option = SchemaUserIdsOption()
-
     def id_type(self, id_type: str) -> "SchemaUserIdsOptionBuilder":
         self._schema_user_ids_option.id_type = id_type
         return self
-
+    
     def build(self) -> "SchemaUserIdsOption":
         return self._schema_user_ids_option

@@ -21,10 +21,9 @@ class SortChatMenuTreeRequestBody(object):
 class SortChatMenuTreeRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._sort_chat_menu_tree_request_body = SortChatMenuTreeRequestBody()
-
     def chat_menu_top_level_ids(self, chat_menu_top_level_ids: List[int]) -> "SortChatMenuTreeRequestBodyBuilder":
         self._sort_chat_menu_tree_request_body.chat_menu_top_level_ids = chat_menu_top_level_ids
         return self
-
+    
     def build(self) -> "SortChatMenuTreeRequestBody":
         return self._sort_chat_menu_tree_request_body

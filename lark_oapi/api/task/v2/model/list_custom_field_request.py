@@ -28,36 +28,37 @@ class ListCustomFieldRequestBuilder(object):
         list_custom_field_request.uri = "/open-apis/task/v2/custom_fields"
         list_custom_field_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._list_custom_field_request: ListCustomFieldRequest = list_custom_field_request
-
+    
     def page_size(self, page_size: int) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.page_size = page_size
         self._list_custom_field_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.page_token = page_token
         self._list_custom_field_request.add_query("page_token", page_token)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.user_id_type = user_id_type
         self._list_custom_field_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def resource_type(self, resource_type: str) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.resource_type = resource_type
         self._list_custom_field_request.add_query("resource_type", resource_type)
         return self
-
+    
     def resource_id(self, resource_id: str) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.resource_id = resource_id
         self._list_custom_field_request.add_query("resource_id", resource_id)
         return self
-
+    
     def update_msec(self, update_msec: str) -> "ListCustomFieldRequestBuilder":
         self._list_custom_field_request.update_msec = update_msec
         self._list_custom_field_request.add_query("update_msec", update_msec)
         return self
+    
 
     def build(self) -> ListCustomFieldRequest:
         return self._list_custom_field_request

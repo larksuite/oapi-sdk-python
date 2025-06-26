@@ -26,18 +26,15 @@ class ListPaygroupResponseBody(object):
 class ListPaygroupResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_paygroup_response_body = ListPaygroupResponseBody()
-
     def items(self, items: List[Paygroup]) -> "ListPaygroupResponseBodyBuilder":
         self._list_paygroup_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListPaygroupResponseBodyBuilder":
         self._list_paygroup_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListPaygroupResponseBodyBuilder":
         self._list_paygroup_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListPaygroupResponseBody":
         return self._list_paygroup_response_body

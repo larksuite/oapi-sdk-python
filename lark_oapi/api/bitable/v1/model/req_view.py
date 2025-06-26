@@ -23,14 +23,12 @@ class ReqView(object):
 class ReqViewBuilder(object):
     def __init__(self) -> None:
         self._req_view = ReqView()
-
     def view_name(self, view_name: str) -> "ReqViewBuilder":
         self._req_view.view_name = view_name
         return self
-
     def view_type(self, view_type: str) -> "ReqViewBuilder":
         self._req_view.view_type = view_type
         return self
-
+    
     def build(self) -> "ReqView":
         return self._req_view

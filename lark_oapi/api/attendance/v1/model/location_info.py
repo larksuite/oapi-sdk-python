@@ -24,14 +24,12 @@ class LocationInfo(object):
 class LocationInfoBuilder(object):
     def __init__(self) -> None:
         self._location_info = LocationInfo()
-
     def status(self, status: int) -> "LocationInfoBuilder":
         self._location_info.status = status
         return self
-
     def geofences(self, geofences: List[Area]) -> "LocationInfoBuilder":
         self._location_info.geofences = geofences
         return self
-
+    
     def build(self) -> "LocationInfo":
         return self._location_info

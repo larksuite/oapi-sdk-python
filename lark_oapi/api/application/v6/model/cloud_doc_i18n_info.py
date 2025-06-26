@@ -27,22 +27,18 @@ class CloudDocI18nInfo(object):
 class CloudDocI18nInfoBuilder(object):
     def __init__(self) -> None:
         self._cloud_doc_i18n_info = CloudDocI18nInfo()
-
     def i18n_key(self, i18n_key: str) -> "CloudDocI18nInfoBuilder":
         self._cloud_doc_i18n_info.i18n_key = i18n_key
         return self
-
     def name(self, name: str) -> "CloudDocI18nInfoBuilder":
         self._cloud_doc_i18n_info.name = name
         return self
-
     def read_description(self, read_description: str) -> "CloudDocI18nInfoBuilder":
         self._cloud_doc_i18n_info.read_description = read_description
         return self
-
     def write_description(self, write_description: str) -> "CloudDocI18nInfoBuilder":
         self._cloud_doc_i18n_info.write_description = write_description
         return self
-
+    
     def build(self) -> "CloudDocI18nInfo":
         return self._cloud_doc_i18n_info

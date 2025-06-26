@@ -25,18 +25,15 @@ class LlmUsage(object):
 class LlmUsageBuilder(object):
     def __init__(self) -> None:
         self._llm_usage = LlmUsage()
-
     def prompt_tokens(self, prompt_tokens: int) -> "LlmUsageBuilder":
         self._llm_usage.prompt_tokens = prompt_tokens
         return self
-
     def completion_tokens(self, completion_tokens: int) -> "LlmUsageBuilder":
         self._llm_usage.completion_tokens = completion_tokens
         return self
-
     def total_tokens(self, total_tokens: int) -> "LlmUsageBuilder":
         self._llm_usage.total_tokens = total_tokens
         return self
-
+    
     def build(self) -> "LlmUsage":
         return self._llm_usage

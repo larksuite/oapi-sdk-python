@@ -24,7 +24,7 @@ class CreateCalendarRequestBuilder(object):
         create_calendar_request.uri = "/open-apis/calendar/v4/calendars"
         create_calendar_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._create_calendar_request: CreateCalendarRequest = create_calendar_request
-
+    
     def request_body(self, request_body: Calendar) -> "CreateCalendarRequestBuilder":
         self._create_calendar_request.request_body = request_body
         self._create_calendar_request.body = request_body

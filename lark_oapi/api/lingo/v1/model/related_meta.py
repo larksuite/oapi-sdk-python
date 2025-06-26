@@ -43,38 +43,30 @@ class RelatedMeta(object):
 class RelatedMetaBuilder(object):
     def __init__(self) -> None:
         self._related_meta = RelatedMeta()
-
     def users(self, users: List[Referer]) -> "RelatedMetaBuilder":
         self._related_meta.users = users
         return self
-
     def chats(self, chats: List[Referer]) -> "RelatedMetaBuilder":
         self._related_meta.chats = chats
         return self
-
     def docs(self, docs: List[Referer]) -> "RelatedMetaBuilder":
         self._related_meta.docs = docs
         return self
-
     def oncalls(self, oncalls: List[Referer]) -> "RelatedMetaBuilder":
         self._related_meta.oncalls = oncalls
         return self
-
     def links(self, links: List[Referer]) -> "RelatedMetaBuilder":
         self._related_meta.links = links
         return self
-
     def abbreviations(self, abbreviations: List[Abbreviation]) -> "RelatedMetaBuilder":
         self._related_meta.abbreviations = abbreviations
         return self
-
     def classifications(self, classifications: List[Classification]) -> "RelatedMetaBuilder":
         self._related_meta.classifications = classifications
         return self
-
     def images(self, images: List[BaikeImage]) -> "RelatedMetaBuilder":
         self._related_meta.images = images
         return self
-
+    
     def build(self) -> "RelatedMeta":
         return self._related_meta

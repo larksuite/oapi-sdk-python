@@ -34,34 +34,27 @@ class ConnectorInstance(object):
 class ConnectorInstanceBuilder(object):
     def __init__(self) -> None:
         self._connector_instance = ConnectorInstance()
-
     def api_id(self, api_id: str) -> "ConnectorInstanceBuilder":
         self._connector_instance.api_id = api_id
         return self
-
     def api_name(self, api_name: str) -> "ConnectorInstanceBuilder":
         self._connector_instance.api_name = api_name
         return self
-
     def label(self, label: Dict[str, str]) -> "ConnectorInstanceBuilder":
         self._connector_instance.label = label
         return self
-
     def desc(self, desc: Dict[str, str]) -> "ConnectorInstanceBuilder":
         self._connector_instance.desc = desc
         return self
-
     def out_biz_type(self, out_biz_type: str) -> "ConnectorInstanceBuilder":
         self._connector_instance.out_biz_type = out_biz_type
         return self
-
     def out_biz_id(self, out_biz_id: str) -> "ConnectorInstanceBuilder":
         self._connector_instance.out_biz_id = out_biz_id
         return self
-
     def definition(self, definition: ConnectorInstanceDefinition) -> "ConnectorInstanceBuilder":
         self._connector_instance.definition = definition
         return self
-
+    
     def build(self) -> "ConnectorInstance":
         return self._connector_instance

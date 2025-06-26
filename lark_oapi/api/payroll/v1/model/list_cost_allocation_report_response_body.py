@@ -31,28 +31,21 @@ class ListCostAllocationReportResponseBody(object):
 class ListCostAllocationReportResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_cost_allocation_report_response_body = ListCostAllocationReportResponseBody()
-
     def pay_period(self, pay_period: str) -> "ListCostAllocationReportResponseBodyBuilder":
         self._list_cost_allocation_report_response_body.pay_period = pay_period
         return self
-
     def page_token(self, page_token: str) -> "ListCostAllocationReportResponseBodyBuilder":
         self._list_cost_allocation_report_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListCostAllocationReportResponseBodyBuilder":
         self._list_cost_allocation_report_response_body.has_more = has_more
         return self
-
-    def cost_allocation_report_names(self, cost_allocation_report_names: List[
-        I18nContent]) -> "ListCostAllocationReportResponseBodyBuilder":
+    def cost_allocation_report_names(self, cost_allocation_report_names: List[I18nContent]) -> "ListCostAllocationReportResponseBodyBuilder":
         self._list_cost_allocation_report_response_body.cost_allocation_report_names = cost_allocation_report_names
         return self
-
-    def cost_allocation_report_datas(self, cost_allocation_report_datas: List[
-        CostAllocationReportData]) -> "ListCostAllocationReportResponseBodyBuilder":
+    def cost_allocation_report_datas(self, cost_allocation_report_datas: List[CostAllocationReportData]) -> "ListCostAllocationReportResponseBodyBuilder":
         self._list_cost_allocation_report_response_body.cost_allocation_report_datas = cost_allocation_report_datas
         return self
-
+    
     def build(self) -> "ListCostAllocationReportResponseBody":
         return self._list_cost_allocation_report_response_body

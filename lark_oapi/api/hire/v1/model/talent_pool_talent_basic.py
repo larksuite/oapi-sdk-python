@@ -63,86 +63,66 @@ class TalentPoolTalentBasic(object):
 class TalentPoolTalentBasicBuilder(object):
     def __init__(self) -> None:
         self._talent_pool_talent_basic = TalentPoolTalentBasic()
-
     def id(self, id: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.id = id
         return self
-
     def name(self, name: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.name = name
         return self
-
     def mobile(self, mobile: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.mobile = mobile
         return self
-
     def mobile_code(self, mobile_code: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.mobile_code = mobile_code
         return self
-
     def mobile_country_code(self, mobile_country_code: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.mobile_country_code = mobile_country_code
         return self
-
     def email(self, email: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.email = email
         return self
-
     def experience_years(self, experience_years: int) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.experience_years = experience_years
         return self
-
     def age(self, age: int) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.age = age
         return self
-
     def nationality(self, nationality: TalentDetailTalentNationality) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.nationality = nationality
         return self
-
     def gender(self, gender: int) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.gender = gender
         return self
-
     def current_city(self, current_city: CommonCityInfo) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.current_city = current_city
         return self
-
     def hometown_city(self, hometown_city: CommonCityInfo) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.hometown_city = hometown_city
         return self
-
     def preferred_city_list(self, preferred_city_list: List[CommonCityInfo]) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.preferred_city_list = preferred_city_list
         return self
-
     def identification_type(self, identification_type: int) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.identification_type = identification_type
         return self
-
     def identification_number(self, identification_number: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.identification_number = identification_number
         return self
-
     def birthday(self, birthday: int) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.birthday = birthday
         return self
-
     def creator_id(self, creator_id: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.creator_id = creator_id
         return self
-
     def marital_status(self, marital_status: int) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.marital_status = marital_status
         return self
-
     def update_time(self, update_time: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.update_time = update_time
         return self
-
     def create_time(self, create_time: str) -> "TalentPoolTalentBasicBuilder":
         self._talent_pool_talent_basic.create_time = create_time
         return self
-
+    
     def build(self) -> "TalentPoolTalentBasic":
         return self._talent_pool_talent_basic

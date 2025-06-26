@@ -22,10 +22,9 @@ class CreateCostCenterVersionResponseBody(object):
 class CreateCostCenterVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_cost_center_version_response_body = CreateCostCenterVersionResponseBody()
-
     def version(self, version: CostCenterVersion) -> "CreateCostCenterVersionResponseBodyBuilder":
         self._create_cost_center_version_response_body.version = version
         return self
-
+    
     def build(self) -> "CreateCostCenterVersionResponseBody":
         return self._create_cost_center_version_response_body

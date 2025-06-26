@@ -43,54 +43,42 @@ class NameForUpdate(object):
 class NameForUpdateBuilder(object):
     def __init__(self) -> None:
         self._name_for_update = NameForUpdate()
-
     def full_name(self, full_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.full_name = full_name
         return self
-
     def first_name(self, first_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.first_name = first_name
         return self
-
     def middle_name(self, middle_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.middle_name = middle_name
         return self
-
     def name_primary(self, name_primary: str) -> "NameForUpdateBuilder":
         self._name_for_update.name_primary = name_primary
         return self
-
     def local_first_name(self, local_first_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.local_first_name = local_first_name
         return self
-
     def local_middle_name(self, local_middle_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.local_middle_name = local_middle_name
         return self
-
     def local_primary(self, local_primary: str) -> "NameForUpdateBuilder":
         self._name_for_update.local_primary = local_primary
         return self
-
     def custom_local_name(self, custom_local_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.custom_local_name = custom_local_name
         return self
-
     def custom_western_name(self, custom_western_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.custom_western_name = custom_western_name
         return self
-
     def country_region(self, country_region: str) -> "NameForUpdateBuilder":
         self._name_for_update.country_region = country_region
         return self
-
     def name_type(self, name_type: str) -> "NameForUpdateBuilder":
         self._name_for_update.name_type = name_type
         return self
-
     def additional_name(self, additional_name: str) -> "NameForUpdateBuilder":
         self._name_for_update.additional_name = additional_name
         return self
-
+    
     def build(self) -> "NameForUpdate":
         return self._name_for_update

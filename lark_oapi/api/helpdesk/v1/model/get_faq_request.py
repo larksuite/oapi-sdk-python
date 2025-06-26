@@ -23,11 +23,12 @@ class GetFaqRequestBuilder(object):
         get_faq_request.uri = "/open-apis/helpdesk/v1/faqs/:id"
         get_faq_request.token_types = {AccessTokenType.TENANT}
         self._get_faq_request: GetFaqRequest = get_faq_request
-
+    
     def id(self, id: str) -> "GetFaqRequestBuilder":
         self._get_faq_request.id = id
         self._get_faq_request.paths["id"] = str(id)
         return self
+    
 
     def build(self) -> GetFaqRequest:
         return self._get_faq_request

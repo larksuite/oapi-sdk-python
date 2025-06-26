@@ -30,26 +30,30 @@ class MinuteMedia(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetMinuteMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteMediaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetMinuteMediaRequest,
-                   option: Optional[RequestOption] = None) -> GetMinuteMediaResponse:
+    async def aget(self, request: GetMinuteMediaRequest, option: Optional[RequestOption] = None) -> GetMinuteMediaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetMinuteMediaResponse = JSON.unmarshal(str(resp.content, UTF_8), GetMinuteMediaResponse)
         response.raw = resp
 
         return response
+        
+    

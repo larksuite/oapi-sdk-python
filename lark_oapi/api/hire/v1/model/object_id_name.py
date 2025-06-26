@@ -23,14 +23,12 @@ class ObjectIdName(object):
 class ObjectIdNameBuilder(object):
     def __init__(self) -> None:
         self._object_id_name = ObjectIdName()
-
     def id(self, id: str) -> "ObjectIdNameBuilder":
         self._object_id_name.id = id
         return self
-
     def name(self, name: str) -> "ObjectIdNameBuilder":
         self._object_id_name.name = name
         return self
-
+    
     def build(self) -> "ObjectIdName":
         return self._object_id_name

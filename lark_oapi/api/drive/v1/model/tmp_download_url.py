@@ -23,14 +23,12 @@ class TmpDownloadUrl(object):
 class TmpDownloadUrlBuilder(object):
     def __init__(self) -> None:
         self._tmp_download_url = TmpDownloadUrl()
-
     def file_token(self, file_token: str) -> "TmpDownloadUrlBuilder":
         self._tmp_download_url.file_token = file_token
         return self
-
     def tmp_download_url(self, tmp_download_url: str) -> "TmpDownloadUrlBuilder":
         self._tmp_download_url.tmp_download_url = tmp_download_url
         return self
-
+    
     def build(self) -> "TmpDownloadUrl":
         return self._tmp_download_url

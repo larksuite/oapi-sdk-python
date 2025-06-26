@@ -33,31 +33,24 @@ class InterviewRoundType(object):
 class InterviewRoundTypeBuilder(object):
     def __init__(self) -> None:
         self._interview_round_type = InterviewRoundType()
-
     def id(self, id: str) -> "InterviewRoundTypeBuilder":
         self._interview_round_type.id = id
         return self
-
     def biz_id(self, biz_id: str) -> "InterviewRoundTypeBuilder":
         self._interview_round_type.biz_id = biz_id
         return self
-
     def name(self, name: I18n) -> "InterviewRoundTypeBuilder":
         self._interview_round_type.name = name
         return self
-
     def process_type(self, process_type: int) -> "InterviewRoundTypeBuilder":
         self._interview_round_type.process_type = process_type
         return self
-
     def active_status(self, active_status: int) -> "InterviewRoundTypeBuilder":
         self._interview_round_type.active_status = active_status
         return self
-
-    def interview_assessment_template_info(self,
-                                           interview_assessment_template_info: InterviewRoundTypeAssessmentTemplate) -> "InterviewRoundTypeBuilder":
+    def interview_assessment_template_info(self, interview_assessment_template_info: InterviewRoundTypeAssessmentTemplate) -> "InterviewRoundTypeBuilder":
         self._interview_round_type.interview_assessment_template_info = interview_assessment_template_info
         return self
-
+    
     def build(self) -> "InterviewRoundType":
         return self._interview_round_type

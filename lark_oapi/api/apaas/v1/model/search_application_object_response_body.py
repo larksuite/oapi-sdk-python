@@ -28,22 +28,18 @@ class SearchApplicationObjectResponseBody(object):
 class SearchApplicationObjectResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._search_application_object_response_body = SearchApplicationObjectResponseBody()
-
     def records(self, records: str) -> "SearchApplicationObjectResponseBodyBuilder":
         self._search_application_object_response_body.records = records
         return self
-
     def has_more(self, has_more: bool) -> "SearchApplicationObjectResponseBodyBuilder":
         self._search_application_object_response_body.has_more = has_more
         return self
-
     def next_page_token(self, next_page_token: str) -> "SearchApplicationObjectResponseBodyBuilder":
         self._search_application_object_response_body.next_page_token = next_page_token
         return self
-
     def objects(self, objects: List[ObjectMeta]) -> "SearchApplicationObjectResponseBodyBuilder":
         self._search_application_object_response_body.objects = objects
         return self
-
+    
     def build(self) -> "SearchApplicationObjectResponseBody":
         return self._search_application_object_response_body

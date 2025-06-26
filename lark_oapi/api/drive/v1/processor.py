@@ -17,121 +17,122 @@ from .model.p2_drive_file_trashed_v1 import P2DriveFileTrashedV1
 
 
 class P2DriveFileBitableFieldChangedV1Processor(IEventProcessor[P2DriveFileBitableFieldChangedV1]):
-    def __init__(self, f: Callable[[P2DriveFileBitableFieldChangedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileBitableFieldChangedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileBitableFieldChangedV1]:
-        return P2DriveFileBitableFieldChangedV1
+	def type(self) -> Type[P2DriveFileBitableFieldChangedV1]:
+		return P2DriveFileBitableFieldChangedV1
 
-    def do(self, data: P2DriveFileBitableFieldChangedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileBitableFieldChangedV1) -> None:
+		self.f(data)
 
 
 class P2DriveFileBitableRecordChangedV1Processor(IEventProcessor[P2DriveFileBitableRecordChangedV1]):
-    def __init__(self, f: Callable[[P2DriveFileBitableRecordChangedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileBitableRecordChangedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileBitableRecordChangedV1]:
-        return P2DriveFileBitableRecordChangedV1
+	def type(self) -> Type[P2DriveFileBitableRecordChangedV1]:
+		return P2DriveFileBitableRecordChangedV1
 
-    def do(self, data: P2DriveFileBitableRecordChangedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileBitableRecordChangedV1) -> None:
+		self.f(data)
 
 
 class P2DriveFileCreatedInFolderV1Processor(IEventProcessor[P2DriveFileCreatedInFolderV1]):
-    def __init__(self, f: Callable[[P2DriveFileCreatedInFolderV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileCreatedInFolderV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileCreatedInFolderV1]:
-        return P2DriveFileCreatedInFolderV1
+	def type(self) -> Type[P2DriveFileCreatedInFolderV1]:
+		return P2DriveFileCreatedInFolderV1
 
-    def do(self, data: P2DriveFileCreatedInFolderV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileCreatedInFolderV1) -> None:
+		self.f(data)
 
 
 class P2DriveFileDeletedV1Processor(IEventProcessor[P2DriveFileDeletedV1]):
-    def __init__(self, f: Callable[[P2DriveFileDeletedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileDeletedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileDeletedV1]:
-        return P2DriveFileDeletedV1
+	def type(self) -> Type[P2DriveFileDeletedV1]:
+		return P2DriveFileDeletedV1
 
-    def do(self, data: P2DriveFileDeletedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileDeletedV1) -> None:
+		self.f(data)
 
 
 class P2DriveFileEditV1Processor(IEventProcessor[P2DriveFileEditV1]):
-    def __init__(self, f: Callable[[P2DriveFileEditV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileEditV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileEditV1]:
-        return P2DriveFileEditV1
+	def type(self) -> Type[P2DriveFileEditV1]:
+		return P2DriveFileEditV1
 
-    def do(self, data: P2DriveFileEditV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileEditV1) -> None:
+		self.f(data)
 
 
 class P2DriveFilePermissionMemberAddedV1Processor(IEventProcessor[P2DriveFilePermissionMemberAddedV1]):
-    def __init__(self, f: Callable[[P2DriveFilePermissionMemberAddedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFilePermissionMemberAddedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFilePermissionMemberAddedV1]:
-        return P2DriveFilePermissionMemberAddedV1
+	def type(self) -> Type[P2DriveFilePermissionMemberAddedV1]:
+		return P2DriveFilePermissionMemberAddedV1
 
-    def do(self, data: P2DriveFilePermissionMemberAddedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFilePermissionMemberAddedV1) -> None:
+		self.f(data)
 
 
 class P2DriveFilePermissionMemberAppliedV1Processor(IEventProcessor[P2DriveFilePermissionMemberAppliedV1]):
-    def __init__(self, f: Callable[[P2DriveFilePermissionMemberAppliedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFilePermissionMemberAppliedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFilePermissionMemberAppliedV1]:
-        return P2DriveFilePermissionMemberAppliedV1
+	def type(self) -> Type[P2DriveFilePermissionMemberAppliedV1]:
+		return P2DriveFilePermissionMemberAppliedV1
 
-    def do(self, data: P2DriveFilePermissionMemberAppliedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFilePermissionMemberAppliedV1) -> None:
+		self.f(data)
 
 
 class P2DriveFilePermissionMemberRemovedV1Processor(IEventProcessor[P2DriveFilePermissionMemberRemovedV1]):
-    def __init__(self, f: Callable[[P2DriveFilePermissionMemberRemovedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFilePermissionMemberRemovedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFilePermissionMemberRemovedV1]:
-        return P2DriveFilePermissionMemberRemovedV1
+	def type(self) -> Type[P2DriveFilePermissionMemberRemovedV1]:
+		return P2DriveFilePermissionMemberRemovedV1
 
-    def do(self, data: P2DriveFilePermissionMemberRemovedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFilePermissionMemberRemovedV1) -> None:
+		self.f(data)
 
 
 class P2DriveFileReadV1Processor(IEventProcessor[P2DriveFileReadV1]):
-    def __init__(self, f: Callable[[P2DriveFileReadV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileReadV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileReadV1]:
-        return P2DriveFileReadV1
+	def type(self) -> Type[P2DriveFileReadV1]:
+		return P2DriveFileReadV1
 
-    def do(self, data: P2DriveFileReadV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileReadV1) -> None:
+		self.f(data)
 
 
 class P2DriveFileTitleUpdatedV1Processor(IEventProcessor[P2DriveFileTitleUpdatedV1]):
-    def __init__(self, f: Callable[[P2DriveFileTitleUpdatedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileTitleUpdatedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileTitleUpdatedV1]:
-        return P2DriveFileTitleUpdatedV1
+	def type(self) -> Type[P2DriveFileTitleUpdatedV1]:
+		return P2DriveFileTitleUpdatedV1
 
-    def do(self, data: P2DriveFileTitleUpdatedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileTitleUpdatedV1) -> None:
+		self.f(data)
 
 
 class P2DriveFileTrashedV1Processor(IEventProcessor[P2DriveFileTrashedV1]):
-    def __init__(self, f: Callable[[P2DriveFileTrashedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2DriveFileTrashedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2DriveFileTrashedV1]:
-        return P2DriveFileTrashedV1
+	def type(self) -> Type[P2DriveFileTrashedV1]:
+		return P2DriveFileTrashedV1
 
-    def do(self, data: P2DriveFileTrashedV1) -> None:
-        self.f(data)
+	def do(self, data: P2DriveFileTrashedV1) -> None:
+		self.f(data)
+

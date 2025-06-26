@@ -22,10 +22,9 @@ class UpdateUserResponseBody(object):
 class UpdateUserResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_user_response_body = UpdateUserResponseBody()
-
     def user(self, user: User) -> "UpdateUserResponseBodyBuilder":
         self._update_user_response_body.user = user
         return self
-
+    
     def build(self) -> "UpdateUserResponseBody":
         return self._update_user_response_body

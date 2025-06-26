@@ -24,14 +24,12 @@ class WebsiteDeliveryCustomizedDataParent(object):
 class WebsiteDeliveryCustomizedDataParentBuilder(object):
     def __init__(self) -> None:
         self._website_delivery_customized_data_parent = WebsiteDeliveryCustomizedDataParent()
-
     def object_id(self, object_id: str) -> "WebsiteDeliveryCustomizedDataParentBuilder":
         self._website_delivery_customized_data_parent.object_id = object_id
         return self
-
     def children(self, children: List[WebsiteDeliveryCustomizedData]) -> "WebsiteDeliveryCustomizedDataParentBuilder":
         self._website_delivery_customized_data_parent.children = children
         return self
-
+    
     def build(self) -> "WebsiteDeliveryCustomizedDataParent":
         return self._website_delivery_customized_data_parent

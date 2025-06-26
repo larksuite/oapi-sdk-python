@@ -26,17 +26,17 @@ class UpdateAppRoleRequestBuilder(object):
         update_app_role_request.uri = "/open-apis/base/v2/apps/:app_token/roles/:role_id"
         update_app_role_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._update_app_role_request: UpdateAppRoleRequest = update_app_role_request
-
+    
     def app_token(self, app_token: str) -> "UpdateAppRoleRequestBuilder":
         self._update_app_role_request.app_token = app_token
         self._update_app_role_request.paths["app_token"] = str(app_token)
         return self
-
+    
     def role_id(self, role_id: str) -> "UpdateAppRoleRequestBuilder":
         self._update_app_role_request.role_id = role_id
         self._update_app_role_request.paths["role_id"] = str(role_id)
         return self
-
+    
     def request_body(self, request_body: Role) -> "UpdateAppRoleRequestBuilder":
         self._update_app_role_request.request_body = request_body
         self._update_app_role_request.body = request_body

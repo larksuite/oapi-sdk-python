@@ -19,6 +19,6 @@ class DocDivider(object):
 class DocDividerBuilder(object):
     def __init__(self) -> None:
         self._doc_divider = DocDivider()
-
+    
     def build(self) -> "DocDivider":
         return self._doc_divider

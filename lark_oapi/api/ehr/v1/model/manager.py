@@ -25,18 +25,15 @@ class Manager(object):
 class ManagerBuilder(object):
     def __init__(self) -> None:
         self._manager = Manager()
-
     def user_id(self, user_id: str) -> "ManagerBuilder":
         self._manager.user_id = user_id
         return self
-
     def name(self, name: str) -> "ManagerBuilder":
         self._manager.name = name
         return self
-
     def en_name(self, en_name: str) -> "ManagerBuilder":
         self._manager.en_name = en_name
         return self
-
+    
     def build(self) -> "Manager":
         return self._manager

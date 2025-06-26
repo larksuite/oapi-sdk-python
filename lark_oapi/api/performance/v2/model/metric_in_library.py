@@ -43,46 +43,36 @@ class MetricInLibrary(object):
 class MetricInLibraryBuilder(object):
     def __init__(self) -> None:
         self._metric_in_library = MetricInLibrary()
-
     def metric_id(self, metric_id: int) -> "MetricInLibraryBuilder":
         self._metric_in_library.metric_id = metric_id
         return self
-
     def name(self, name: str) -> "MetricInLibraryBuilder":
         self._metric_in_library.name = name
         return self
-
     def type_id(self, type_id: int) -> "MetricInLibraryBuilder":
         self._metric_in_library.type_id = type_id
         return self
-
     def tags(self, tags: List[MetricTag]) -> "MetricInLibraryBuilder":
         self._metric_in_library.tags = tags
         return self
-
     def fields(self, fields: List[MetricFieldInLibrary]) -> "MetricInLibraryBuilder":
         self._metric_in_library.fields = fields
         return self
-
     def scoring_setting_type(self, scoring_setting_type: str) -> "MetricInLibraryBuilder":
         self._metric_in_library.scoring_setting_type = scoring_setting_type
         return self
-
     def scoring_formula(self, scoring_formula: Formula) -> "MetricInLibraryBuilder":
         self._metric_in_library.scoring_formula = scoring_formula
         return self
-
     def data_source_inputters(self, data_source_inputters: List[User]) -> "MetricInLibraryBuilder":
         self._metric_in_library.data_source_inputters = data_source_inputters
         return self
-
     def range_of_availability(self, range_of_availability: str) -> "MetricInLibraryBuilder":
         self._metric_in_library.range_of_availability = range_of_availability
         return self
-
     def is_active(self, is_active: bool) -> "MetricInLibraryBuilder":
         self._metric_in_library.is_active = is_active
         return self
-
+    
     def build(self) -> "MetricInLibrary":
         return self._metric_in_library

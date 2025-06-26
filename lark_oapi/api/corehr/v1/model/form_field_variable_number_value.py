@@ -21,10 +21,9 @@ class FormFieldVariableNumberValue(object):
 class FormFieldVariableNumberValueBuilder(object):
     def __init__(self) -> None:
         self._form_field_variable_number_value = FormFieldVariableNumberValue()
-
     def value(self, value: str) -> "FormFieldVariableNumberValueBuilder":
         self._form_field_variable_number_value.value = value
         return self
-
+    
     def build(self) -> "FormFieldVariableNumberValue":
         return self._form_field_variable_number_value

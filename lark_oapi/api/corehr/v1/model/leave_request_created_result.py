@@ -25,15 +25,12 @@ class LeaveRequestCreatedResult(object):
 class LeaveRequestCreatedResultBuilder(object):
     def __init__(self) -> None:
         self._leave_request_created_result = LeaveRequestCreatedResult()
-
-    def error_messages(self,
-                       error_messages: List[LeaveRequestCreatedErrorMessage]) -> "LeaveRequestCreatedResultBuilder":
+    def error_messages(self, error_messages: List[LeaveRequestCreatedErrorMessage]) -> "LeaveRequestCreatedResultBuilder":
         self._leave_request_created_result.error_messages = error_messages
         return self
-
     def leave_request_results(self, leave_request_results: List[LeaveRequest]) -> "LeaveRequestCreatedResultBuilder":
         self._leave_request_created_result.leave_request_results = leave_request_results
         return self
-
+    
     def build(self) -> "LeaveRequestCreatedResult":
         return self._leave_request_created_result

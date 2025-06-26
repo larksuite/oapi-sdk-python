@@ -25,18 +25,15 @@ class RecruitmentType(object):
 class RecruitmentTypeBuilder(object):
     def __init__(self) -> None:
         self._recruitment_type = RecruitmentType()
-
     def id(self, id: str) -> "RecruitmentTypeBuilder":
         self._recruitment_type.id = id
         return self
-
     def name(self, name: str) -> "RecruitmentTypeBuilder":
         self._recruitment_type.name = name
         return self
-
     def en_name(self, en_name: str) -> "RecruitmentTypeBuilder":
         self._recruitment_type.en_name = en_name
         return self
-
+    
     def build(self) -> "RecruitmentType":
         return self._recruitment_type

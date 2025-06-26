@@ -23,14 +23,12 @@ class ReferEntity(object):
 class ReferEntityBuilder(object):
     def __init__(self) -> None:
         self._refer_entity = ReferEntity()
-
     def refer_token(self, refer_token: str) -> "ReferEntityBuilder":
         self._refer_entity.refer_token = refer_token
         return self
-
     def refer_type(self, refer_type: str) -> "ReferEntityBuilder":
         self._refer_entity.refer_type = refer_type
         return self
-
+    
     def build(self) -> "ReferEntity":
         return self._refer_entity

@@ -26,19 +26,15 @@ class CompositeTalentLanguageInfo(object):
 class CompositeTalentLanguageInfoBuilder(object):
     def __init__(self) -> None:
         self._composite_talent_language_info = CompositeTalentLanguageInfo()
-
     def language(self, language: int) -> "CompositeTalentLanguageInfoBuilder":
         self._composite_talent_language_info.language = language
         return self
-
     def proficiency(self, proficiency: int) -> "CompositeTalentLanguageInfoBuilder":
         self._composite_talent_language_info.proficiency = proficiency
         return self
-
-    def customized_data_list(self, customized_data_list: List[
-        TalentCustomizedDataChild]) -> "CompositeTalentLanguageInfoBuilder":
+    def customized_data_list(self, customized_data_list: List[TalentCustomizedDataChild]) -> "CompositeTalentLanguageInfoBuilder":
         self._composite_talent_language_info.customized_data_list = customized_data_list
         return self
-
+    
     def build(self) -> "CompositeTalentLanguageInfo":
         return self._composite_talent_language_info

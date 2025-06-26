@@ -22,11 +22,9 @@ class PatchEmployeesInternationalAssignmentResponseBody(object):
 class PatchEmployeesInternationalAssignmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_employees_international_assignment_response_body = PatchEmployeesInternationalAssignmentResponseBody()
-
-    def international_assignment(self,
-                                 international_assignment: EmployeesInternationalAssignmentResp) -> "PatchEmployeesInternationalAssignmentResponseBodyBuilder":
+    def international_assignment(self, international_assignment: EmployeesInternationalAssignmentResp) -> "PatchEmployeesInternationalAssignmentResponseBodyBuilder":
         self._patch_employees_international_assignment_response_body.international_assignment = international_assignment
         return self
-
+    
     def build(self) -> "PatchEmployeesInternationalAssignmentResponseBody":
         return self._patch_employees_international_assignment_response_body

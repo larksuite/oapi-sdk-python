@@ -30,12 +30,13 @@ class Enum(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEnumResponse)
         response.raw = resp
 
         return response
+        
 
     async def asearch(self, request: SearchEnumRequest, option: Optional[RequestOption] = None) -> SearchEnumResponse:
         if option is None:
@@ -44,11 +45,15 @@ class Enum(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: SearchEnumResponse = JSON.unmarshal(str(resp.content, UTF_8), SearchEnumResponse)
         response.raw = resp
 
         return response
+        
+    

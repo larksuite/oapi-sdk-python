@@ -31,30 +31,24 @@ class CellFontStyle(object):
 class CellFontStyleBuilder(object):
     def __init__(self) -> None:
         self._cell_font_style = CellFontStyle()
-
     def bold(self, bold: bool) -> "CellFontStyleBuilder":
         self._cell_font_style.bold = bold
         return self
-
     def italic(self, italic: bool) -> "CellFontStyleBuilder":
         self._cell_font_style.italic = italic
         return self
-
     def strikethrough(self, strikethrough: bool) -> "CellFontStyleBuilder":
         self._cell_font_style.strikethrough = strikethrough
         return self
-
     def underline(self, underline: bool) -> "CellFontStyleBuilder":
         self._cell_font_style.underline = underline
         return self
-
     def foreground_color(self, foreground_color: str) -> "CellFontStyleBuilder":
         self._cell_font_style.foreground_color = foreground_color
         return self
-
     def background_color(self, background_color: str) -> "CellFontStyleBuilder":
         self._cell_font_style.background_color = background_color
         return self
-
+    
     def build(self) -> "CellFontStyle":
         return self._cell_font_style

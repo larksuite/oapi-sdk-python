@@ -17,8 +17,7 @@ class ParticipantQualityList(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def get(self, request: GetParticipantQualityListRequest,
-            option: Optional[RequestOption] = None) -> GetParticipantQualityListResponse:
+    def get(self, request: GetParticipantQualityListRequest, option: Optional[RequestOption] = None) -> GetParticipantQualityListResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,28 +30,30 @@ class ParticipantQualityList(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetParticipantQualityListResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GetParticipantQualityListResponse)
+        response: GetParticipantQualityListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetParticipantQualityListResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetParticipantQualityListRequest,
-                   option: Optional[RequestOption] = None) -> GetParticipantQualityListResponse:
+    async def aget(self, request: GetParticipantQualityListRequest, option: Optional[RequestOption] = None) -> GetParticipantQualityListResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetParticipantQualityListResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     GetParticipantQualityListResponse)
+        response: GetParticipantQualityListResponse = JSON.unmarshal(str(resp.content, UTF_8), GetParticipantQualityListResponse)
         response.raw = resp
 
         return response
+        
+    

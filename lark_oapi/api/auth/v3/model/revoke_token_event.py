@@ -29,26 +29,21 @@ class RevokeTokenEvent(object):
 class RevokeTokenEventBuilder(object):
     def __init__(self) -> None:
         self._revoke_token_event = RevokeTokenEvent()
-
     def revoke_token_type(self, revoke_token_type: str) -> "RevokeTokenEventBuilder":
         self._revoke_token_event.revoke_token_type = revoke_token_type
         return self
-
     def revoke_reason(self, revoke_reason: str) -> "RevokeTokenEventBuilder":
         self._revoke_token_event.revoke_reason = revoke_reason
         return self
-
     def open_id(self, open_id: str) -> "RevokeTokenEventBuilder":
         self._revoke_token_event.open_id = open_id
         return self
-
     def union_id(self, union_id: str) -> "RevokeTokenEventBuilder":
         self._revoke_token_event.union_id = union_id
         return self
-
     def user_id(self, user_id: str) -> "RevokeTokenEventBuilder":
         self._revoke_token_event.user_id = user_id
         return self
-
+    
     def build(self) -> "RevokeTokenEvent":
         return self._revoke_token_event

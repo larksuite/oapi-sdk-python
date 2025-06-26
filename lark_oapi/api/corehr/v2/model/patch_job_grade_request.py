@@ -26,17 +26,17 @@ class PatchJobGradeRequestBuilder(object):
         patch_job_grade_request.uri = "/open-apis/corehr/v2/job_grades/:job_grade_id"
         patch_job_grade_request.token_types = {AccessTokenType.TENANT}
         self._patch_job_grade_request: PatchJobGradeRequest = patch_job_grade_request
-
+    
     def client_token(self, client_token: str) -> "PatchJobGradeRequestBuilder":
         self._patch_job_grade_request.client_token = client_token
         self._patch_job_grade_request.add_query("client_token", client_token)
         return self
-
+    
     def job_grade_id(self, job_grade_id: str) -> "PatchJobGradeRequestBuilder":
         self._patch_job_grade_request.job_grade_id = job_grade_id
         self._patch_job_grade_request.paths["job_grade_id"] = str(job_grade_id)
         return self
-
+    
     def request_body(self, request_body: JobGradeUpdate) -> "PatchJobGradeRequestBuilder":
         self._patch_job_grade_request.request_body = request_body
         self._patch_job_grade_request.body = request_body

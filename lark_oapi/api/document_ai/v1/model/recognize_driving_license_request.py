@@ -24,7 +24,7 @@ class RecognizeDrivingLicenseRequestBuilder(object):
         recognize_driving_license_request.uri = "/open-apis/document_ai/v1/driving_license/recognize"
         recognize_driving_license_request.token_types = {AccessTokenType.TENANT}
         self._recognize_driving_license_request: RecognizeDrivingLicenseRequest = recognize_driving_license_request
-
+    
     def request_body(self, request_body: RecognizeDrivingLicenseRequestBody) -> "RecognizeDrivingLicenseRequestBuilder":
         self._recognize_driving_license_request.request_body = request_body
         self._recognize_driving_license_request.body = request_body

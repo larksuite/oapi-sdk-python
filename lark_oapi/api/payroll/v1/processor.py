@@ -8,22 +8,23 @@ from .model.p2_payroll_payment_activity_status_changed_v1 import P2PayrollPaymen
 
 
 class P2PayrollPaymentActivityApprovedV1Processor(IEventProcessor[P2PayrollPaymentActivityApprovedV1]):
-    def __init__(self, f: Callable[[P2PayrollPaymentActivityApprovedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2PayrollPaymentActivityApprovedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2PayrollPaymentActivityApprovedV1]:
-        return P2PayrollPaymentActivityApprovedV1
+	def type(self) -> Type[P2PayrollPaymentActivityApprovedV1]:
+		return P2PayrollPaymentActivityApprovedV1
 
-    def do(self, data: P2PayrollPaymentActivityApprovedV1) -> None:
-        self.f(data)
+	def do(self, data: P2PayrollPaymentActivityApprovedV1) -> None:
+		self.f(data)
 
 
 class P2PayrollPaymentActivityStatusChangedV1Processor(IEventProcessor[P2PayrollPaymentActivityStatusChangedV1]):
-    def __init__(self, f: Callable[[P2PayrollPaymentActivityStatusChangedV1], None]):
-        self.f = f
+	def __init__(self, f: Callable[[P2PayrollPaymentActivityStatusChangedV1], None]):
+		self.f = f
 
-    def type(self) -> Type[P2PayrollPaymentActivityStatusChangedV1]:
-        return P2PayrollPaymentActivityStatusChangedV1
+	def type(self) -> Type[P2PayrollPaymentActivityStatusChangedV1]:
+		return P2PayrollPaymentActivityStatusChangedV1
 
-    def do(self, data: P2PayrollPaymentActivityStatusChangedV1) -> None:
-        self.f(data)
+	def do(self, data: P2PayrollPaymentActivityStatusChangedV1) -> None:
+		self.f(data)
+

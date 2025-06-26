@@ -29,26 +29,21 @@ class SchemaSearchOptions(object):
 class SchemaSearchOptionsBuilder(object):
     def __init__(self) -> None:
         self._schema_search_options = SchemaSearchOptions()
-
     def enable_semantic_match(self, enable_semantic_match: bool) -> "SchemaSearchOptionsBuilder":
         self._schema_search_options.enable_semantic_match = enable_semantic_match
         return self
-
     def enable_exact_match(self, enable_exact_match: bool) -> "SchemaSearchOptionsBuilder":
         self._schema_search_options.enable_exact_match = enable_exact_match
         return self
-
     def enable_prefix_match(self, enable_prefix_match: bool) -> "SchemaSearchOptionsBuilder":
         self._schema_search_options.enable_prefix_match = enable_prefix_match
         return self
-
     def enable_number_suffix_match(self, enable_number_suffix_match: bool) -> "SchemaSearchOptionsBuilder":
         self._schema_search_options.enable_number_suffix_match = enable_number_suffix_match
         return self
-
     def enable_camel_match(self, enable_camel_match: bool) -> "SchemaSearchOptionsBuilder":
         self._schema_search_options.enable_camel_match = enable_camel_match
         return self
-
+    
     def build(self) -> "SchemaSearchOptions":
         return self._schema_search_options

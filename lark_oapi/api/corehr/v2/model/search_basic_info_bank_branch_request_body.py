@@ -33,34 +33,27 @@ class SearchBasicInfoBankBranchRequestBody(object):
 class SearchBasicInfoBankBranchRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_bank_branch_request_body = SearchBasicInfoBankBranchRequestBody()
-
     def bank_id_list(self, bank_id_list: List[str]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.bank_id_list = bank_id_list
         return self
-
     def bank_branch_id_list(self, bank_branch_id_list: List[str]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.bank_branch_id_list = bank_branch_id_list
         return self
-
     def bank_branch_name_list(self, bank_branch_name_list: List[str]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.bank_branch_name_list = bank_branch_name_list
         return self
-
     def code_list(self, code_list: List[str]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.code_list = code_list
         return self
-
     def status_list(self, status_list: List[int]) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.status_list = status_list
         return self
-
     def update_start_time(self, update_start_time: str) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.update_start_time = update_start_time
         return self
-
     def update_end_time(self, update_end_time: str) -> "SearchBasicInfoBankBranchRequestBodyBuilder":
         self._search_basic_info_bank_branch_request_body.update_end_time = update_end_time
         return self
-
+    
     def build(self) -> "SearchBasicInfoBankBranchRequestBody":
         return self._search_basic_info_bank_branch_request_body

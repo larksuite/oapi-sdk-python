@@ -23,14 +23,12 @@ class BatchDeleteDocumentBlockChildrenResponseBody(object):
 class BatchDeleteDocumentBlockChildrenResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_delete_document_block_children_response_body = BatchDeleteDocumentBlockChildrenResponseBody()
-
     def document_revision_id(self, document_revision_id: int) -> "BatchDeleteDocumentBlockChildrenResponseBodyBuilder":
         self._batch_delete_document_block_children_response_body.document_revision_id = document_revision_id
         return self
-
     def client_token(self, client_token: str) -> "BatchDeleteDocumentBlockChildrenResponseBodyBuilder":
         self._batch_delete_document_block_children_response_body.client_token = client_token
         return self
-
+    
     def build(self) -> "BatchDeleteDocumentBlockChildrenResponseBody":
         return self._batch_delete_document_block_children_response_body

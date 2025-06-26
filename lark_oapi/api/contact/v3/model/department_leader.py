@@ -23,14 +23,12 @@ class DepartmentLeader(object):
 class DepartmentLeaderBuilder(object):
     def __init__(self) -> None:
         self._department_leader = DepartmentLeader()
-
     def leader_type(self, leader_type: int) -> "DepartmentLeaderBuilder":
         self._department_leader.leader_type = leader_type
         return self
-
     def leader_i_d(self, leader_i_d: str) -> "DepartmentLeaderBuilder":
         self._department_leader.leader_i_d = leader_i_d
         return self
-
+    
     def build(self) -> "DepartmentLeader":
         return self._department_leader

@@ -22,10 +22,9 @@ class CreateEmployeeTypeEnumResponseBody(object):
 class CreateEmployeeTypeEnumResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_employee_type_enum_response_body = CreateEmployeeTypeEnumResponseBody()
-
     def employee_type_enum(self, employee_type_enum: EmployeeTypeEnum) -> "CreateEmployeeTypeEnumResponseBodyBuilder":
         self._create_employee_type_enum_response_body.employee_type_enum = employee_type_enum
         return self
-
+    
     def build(self) -> "CreateEmployeeTypeEnumResponseBody":
         return self._create_employee_type_enum_response_body

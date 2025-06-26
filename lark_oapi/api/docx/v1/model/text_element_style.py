@@ -38,42 +38,33 @@ class TextElementStyle(object):
 class TextElementStyleBuilder(object):
     def __init__(self) -> None:
         self._text_element_style = TextElementStyle()
-
     def bold(self, bold: bool) -> "TextElementStyleBuilder":
         self._text_element_style.bold = bold
         return self
-
     def italic(self, italic: bool) -> "TextElementStyleBuilder":
         self._text_element_style.italic = italic
         return self
-
     def strikethrough(self, strikethrough: bool) -> "TextElementStyleBuilder":
         self._text_element_style.strikethrough = strikethrough
         return self
-
     def underline(self, underline: bool) -> "TextElementStyleBuilder":
         self._text_element_style.underline = underline
         return self
-
     def inline_code(self, inline_code: bool) -> "TextElementStyleBuilder":
         self._text_element_style.inline_code = inline_code
         return self
-
     def background_color(self, background_color: int) -> "TextElementStyleBuilder":
         self._text_element_style.background_color = background_color
         return self
-
     def text_color(self, text_color: int) -> "TextElementStyleBuilder":
         self._text_element_style.text_color = text_color
         return self
-
     def link(self, link: Link) -> "TextElementStyleBuilder":
         self._text_element_style.link = link
         return self
-
     def comment_ids(self, comment_ids: List[str]) -> "TextElementStyleBuilder":
         self._text_element_style.comment_ids = comment_ids
         return self
-
+    
     def build(self) -> "TextElementStyle":
         return self._text_element_style

@@ -25,18 +25,15 @@ class Formula(object):
 class FormulaBuilder(object):
     def __init__(self) -> None:
         self._formula = Formula()
-
     def formula_id(self, formula_id: int) -> "FormulaBuilder":
         self._formula.formula_id = formula_id
         return self
-
     def formula_name(self, formula_name: str) -> "FormulaBuilder":
         self._formula.formula_name = formula_name
         return self
-
     def formula_details(self, formula_details: str) -> "FormulaBuilder":
         self._formula.formula_details = formula_details
         return self
-
+    
     def build(self) -> "Formula":
         return self._formula

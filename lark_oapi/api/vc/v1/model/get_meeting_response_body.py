@@ -22,10 +22,9 @@ class GetMeetingResponseBody(object):
 class GetMeetingResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_meeting_response_body = GetMeetingResponseBody()
-
     def meeting(self, meeting: Meeting) -> "GetMeetingResponseBodyBuilder":
         self._get_meeting_response_body.meeting = meeting
         return self
-
+    
     def build(self) -> "GetMeetingResponseBody":
         return self._get_meeting_response_body

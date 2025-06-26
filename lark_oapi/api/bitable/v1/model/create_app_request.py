@@ -24,7 +24,11 @@ class CreateAppRequestBuilder(object):
         create_app_request.uri = "/open-apis/bitable/v1/apps"
         create_app_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._create_app_request: CreateAppRequest = create_app_request
-
+    
+    
+    
+    
+    
     def request_body(self, request_body: ReqApp) -> "CreateAppRequestBuilder":
         self._create_app_request.request_body = request_body
         self._create_app_request.body = request_body

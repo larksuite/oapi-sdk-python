@@ -24,7 +24,7 @@ class CreateSystemStatusRequestBuilder(object):
         create_system_status_request.uri = "/open-apis/personal_settings/v1/system_statuses"
         create_system_status_request.token_types = {AccessTokenType.TENANT}
         self._create_system_status_request: CreateSystemStatusRequest = create_system_status_request
-
+    
     def request_body(self, request_body: SystemStatus) -> "CreateSystemStatusRequestBuilder":
         self._create_system_status_request.request_body = request_body
         self._create_system_status_request.body = request_body

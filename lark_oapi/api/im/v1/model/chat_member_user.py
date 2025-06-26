@@ -26,18 +26,15 @@ class ChatMemberUser(object):
 class ChatMemberUserBuilder(object):
     def __init__(self) -> None:
         self._chat_member_user = ChatMemberUser()
-
     def name(self, name: str) -> "ChatMemberUserBuilder":
         self._chat_member_user.name = name
         return self
-
     def tenant_key(self, tenant_key: str) -> "ChatMemberUserBuilder":
         self._chat_member_user.tenant_key = tenant_key
         return self
-
     def user_id(self, user_id: UserId) -> "ChatMemberUserBuilder":
         self._chat_member_user.user_id = user_id
         return self
-
+    
     def build(self) -> "ChatMemberUser":
         return self._chat_member_user

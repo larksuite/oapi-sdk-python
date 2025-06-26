@@ -27,18 +27,15 @@ class OrgroleInfo(object):
 class OrgroleInfoBuilder(object):
     def __init__(self) -> None:
         self._orgrole_info = OrgroleInfo()
-
     def role_id(self, role_id: str) -> "OrgroleInfoBuilder":
         self._orgrole_info.role_id = role_id
         return self
-
     def origin_orgroles(self, origin_orgroles: List[OrgdraftOrgroleAssignment]) -> "OrgroleInfoBuilder":
         self._orgrole_info.origin_orgroles = origin_orgroles
         return self
-
     def target_orgroles(self, target_orgroles: List[OrgdraftOrgroleAssignment]) -> "OrgroleInfoBuilder":
         self._orgrole_info.target_orgroles = target_orgroles
         return self
-
+    
     def build(self) -> "OrgroleInfo":
         return self._orgrole_info

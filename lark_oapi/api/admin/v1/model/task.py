@@ -36,38 +36,30 @@ class Task(object):
 class TaskBuilder(object):
     def __init__(self) -> None:
         self._task = Task()
-
     def original_user_id(self, original_user_id: str) -> "TaskBuilder":
         self._task.original_user_id = original_user_id
         return self
-
     def target_owner_id(self, target_owner_id: str) -> "TaskBuilder":
         self._task.target_owner_id = target_owner_id
         return self
-
     def file_list(self, file_list: List[File]) -> "TaskBuilder":
         self._task.file_list = file_list
         return self
-
     def task_id(self, task_id: str) -> "TaskBuilder":
         self._task.task_id = task_id
         return self
-
     def status(self, status: int) -> "TaskBuilder":
         self._task.status = status
         return self
-
     def original_user_email(self, original_user_email: str) -> "TaskBuilder":
         self._task.original_user_email = original_user_email
         return self
-
     def target_owner_email(self, target_owner_email: str) -> "TaskBuilder":
         self._task.target_owner_email = target_owner_email
         return self
-
     def type(self, type: int) -> "TaskBuilder":
         self._task.type = type
         return self
-
+    
     def build(self) -> "Task":
         return self._task

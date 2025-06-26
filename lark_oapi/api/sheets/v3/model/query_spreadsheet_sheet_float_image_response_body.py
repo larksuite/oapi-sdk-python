@@ -22,10 +22,9 @@ class QuerySpreadsheetSheetFloatImageResponseBody(object):
 class QuerySpreadsheetSheetFloatImageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_spreadsheet_sheet_float_image_response_body = QuerySpreadsheetSheetFloatImageResponseBody()
-
     def items(self, items: List[FloatImage]) -> "QuerySpreadsheetSheetFloatImageResponseBodyBuilder":
         self._query_spreadsheet_sheet_float_image_response_body.items = items
         return self
-
+    
     def build(self) -> "QuerySpreadsheetSheetFloatImageResponseBody":
         return self._query_spreadsheet_sheet_float_image_response_body

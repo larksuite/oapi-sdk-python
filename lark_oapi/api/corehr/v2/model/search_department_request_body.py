@@ -37,42 +37,33 @@ class SearchDepartmentRequestBody(object):
 class SearchDepartmentRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_department_request_body = SearchDepartmentRequestBody()
-
     def active(self, active: bool) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.active = active
         return self
-
     def get_all_children(self, get_all_children: bool) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.get_all_children = get_all_children
         return self
-
     def manager_list(self, manager_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.manager_list = manager_list
         return self
-
     def department_id_list(self, department_id_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.department_id_list = department_id_list
         return self
-
     def name_list(self, name_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.name_list = name_list
         return self
-
     def parent_department_id(self, parent_department_id: str) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.parent_department_id = parent_department_id
         return self
-
     def code_list(self, code_list: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.code_list = code_list
         return self
-
     def get_all_version(self, get_all_version: bool) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.get_all_version = get_all_version
         return self
-
     def fields(self, fields: List[str]) -> "SearchDepartmentRequestBodyBuilder":
         self._search_department_request_body.fields = fields
         return self
-
+    
     def build(self) -> "SearchDepartmentRequestBody":
         return self._search_department_request_body

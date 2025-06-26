@@ -26,19 +26,18 @@ class BatchDeleteAppTableRecordRequestBuilder(object):
         batch_delete_app_table_record_request.uri = "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
         batch_delete_app_table_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._batch_delete_app_table_record_request: BatchDeleteAppTableRecordRequest = batch_delete_app_table_record_request
-
+    
     def app_token(self, app_token: str) -> "BatchDeleteAppTableRecordRequestBuilder":
         self._batch_delete_app_table_record_request.app_token = app_token
         self._batch_delete_app_table_record_request.paths["app_token"] = str(app_token)
         return self
-
+    
     def table_id(self, table_id: str) -> "BatchDeleteAppTableRecordRequestBuilder":
         self._batch_delete_app_table_record_request.table_id = table_id
         self._batch_delete_app_table_record_request.paths["table_id"] = str(table_id)
         return self
-
-    def request_body(self,
-                     request_body: BatchDeleteAppTableRecordRequestBody) -> "BatchDeleteAppTableRecordRequestBuilder":
+    
+    def request_body(self, request_body: BatchDeleteAppTableRecordRequestBody) -> "BatchDeleteAppTableRecordRequestBuilder":
         self._batch_delete_app_table_record_request.request_body = request_body
         self._batch_delete_app_table_record_request.body = request_body
         return self

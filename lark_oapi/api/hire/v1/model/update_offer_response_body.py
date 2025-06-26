@@ -32,26 +32,21 @@ class UpdateOfferResponseBody(object):
 class UpdateOfferResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_offer_response_body = UpdateOfferResponseBody()
-
     def offer_id(self, offer_id: str) -> "UpdateOfferResponseBodyBuilder":
         self._update_offer_response_body.offer_id = offer_id
         return self
-
     def schema_id(self, schema_id: str) -> "UpdateOfferResponseBodyBuilder":
         self._update_offer_response_body.schema_id = schema_id
         return self
-
     def basic_info(self, basic_info: OfferBasicInfo) -> "UpdateOfferResponseBodyBuilder":
         self._update_offer_response_body.basic_info = basic_info
         return self
-
     def salary_info(self, salary_info: OfferSalaryInfo) -> "UpdateOfferResponseBodyBuilder":
         self._update_offer_response_body.salary_info = salary_info
         return self
-
     def customized_info_list(self, customized_info_list: List[OfferCustomizedInfo]) -> "UpdateOfferResponseBodyBuilder":
         self._update_offer_response_body.customized_info_list = customized_info_list
         return self
-
+    
     def build(self) -> "UpdateOfferResponseBody":
         return self._update_offer_response_body

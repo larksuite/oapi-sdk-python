@@ -22,10 +22,9 @@ class GetAgentSchedulesResponseBody(object):
 class GetAgentSchedulesResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_agent_schedules_response_body = GetAgentSchedulesResponseBody()
-
     def agent_schedule(self, agent_schedule: AgentSchedule) -> "GetAgentSchedulesResponseBodyBuilder":
         self._get_agent_schedules_response_body.agent_schedule = agent_schedule
         return self
-
+    
     def build(self) -> "GetAgentSchedulesResponseBody":
         return self._get_agent_schedules_response_body

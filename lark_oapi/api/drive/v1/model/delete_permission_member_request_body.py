@@ -23,14 +23,12 @@ class DeletePermissionMemberRequestBody(object):
 class DeletePermissionMemberRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_permission_member_request_body = DeletePermissionMemberRequestBody()
-
     def type(self, type: str) -> "DeletePermissionMemberRequestBodyBuilder":
         self._delete_permission_member_request_body.type = type
         return self
-
     def perm_type(self, perm_type: str) -> "DeletePermissionMemberRequestBodyBuilder":
         self._delete_permission_member_request_body.perm_type = perm_type
         return self
-
+    
     def build(self) -> "DeletePermissionMemberRequestBody":
         return self._delete_permission_member_request_body

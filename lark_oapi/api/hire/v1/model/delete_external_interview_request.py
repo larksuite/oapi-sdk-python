@@ -23,11 +23,12 @@ class DeleteExternalInterviewRequestBuilder(object):
         delete_external_interview_request.uri = "/open-apis/hire/v1/external_interviews/:external_interview_id"
         delete_external_interview_request.token_types = {AccessTokenType.TENANT}
         self._delete_external_interview_request: DeleteExternalInterviewRequest = delete_external_interview_request
-
+    
     def external_interview_id(self, external_interview_id: str) -> "DeleteExternalInterviewRequestBuilder":
         self._delete_external_interview_request.external_interview_id = external_interview_id
         self._delete_external_interview_request.paths["external_interview_id"] = str(external_interview_id)
         return self
+    
 
     def build(self) -> DeleteExternalInterviewRequest:
         return self._delete_external_interview_request

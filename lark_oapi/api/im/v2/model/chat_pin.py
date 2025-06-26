@@ -39,42 +39,33 @@ class ChatPin(object):
 class ChatPinBuilder(object):
     def __init__(self) -> None:
         self._chat_pin = ChatPin()
-
     def chat_pin_id(self, chat_pin_id: int) -> "ChatPinBuilder":
         self._chat_pin.chat_pin_id = chat_pin_id
         return self
-
     def chat_id(self, chat_id: str) -> "ChatPinBuilder":
         self._chat_pin.chat_id = chat_id
         return self
-
     def chat_pin_type(self, chat_pin_type: str) -> "ChatPinBuilder":
         self._chat_pin.chat_pin_type = chat_pin_type
         return self
-
     def create_time(self, create_time: int) -> "ChatPinBuilder":
         self._chat_pin.create_time = create_time
         return self
-
     def chatter_id(self, chatter_id: str) -> "ChatPinBuilder":
         self._chat_pin.chatter_id = chatter_id
         return self
-
     def is_fixed(self, is_fixed: bool) -> "ChatPinBuilder":
         self._chat_pin.is_fixed = is_fixed
         return self
-
     def operate_fix_chatter_id(self, operate_fix_chatter_id: str) -> "ChatPinBuilder":
         self._chat_pin.operate_fix_chatter_id = operate_fix_chatter_id
         return self
-
     def message_pin_data(self, message_pin_data: MessagePin) -> "ChatPinBuilder":
         self._chat_pin.message_pin_data = message_pin_data
         return self
-
     def url_pin_data(self, url_pin_data: UrlPin) -> "ChatPinBuilder":
         self._chat_pin.url_pin_data = url_pin_data
         return self
-
+    
     def build(self) -> "ChatPin":
         return self._chat_pin

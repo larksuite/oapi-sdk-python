@@ -35,38 +35,30 @@ class AddSignInstanceRequestBody(object):
 class AddSignInstanceRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._add_sign_instance_request_body = AddSignInstanceRequestBody()
-
     def user_id(self, user_id: str) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.user_id = user_id
         return self
-
     def approval_code(self, approval_code: str) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.instance_code = instance_code
         return self
-
     def task_id(self, task_id: str) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.task_id = task_id
         return self
-
     def comment(self, comment: str) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.comment = comment
         return self
-
     def add_sign_user_ids(self, add_sign_user_ids: List[str]) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.add_sign_user_ids = add_sign_user_ids
         return self
-
     def add_sign_type(self, add_sign_type: int) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.add_sign_type = add_sign_type
         return self
-
     def approval_method(self, approval_method: int) -> "AddSignInstanceRequestBodyBuilder":
         self._add_sign_instance_request_body.approval_method = approval_method
         return self
-
+    
     def build(self) -> "AddSignInstanceRequestBody":
         return self._add_sign_instance_request_body

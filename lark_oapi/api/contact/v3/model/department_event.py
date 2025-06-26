@@ -44,50 +44,39 @@ class DepartmentEvent(object):
 class DepartmentEventBuilder(object):
     def __init__(self) -> None:
         self._department_event = DepartmentEvent()
-
     def name(self, name: str) -> "DepartmentEventBuilder":
         self._department_event.name = name
         return self
-
     def parent_department_id(self, parent_department_id: str) -> "DepartmentEventBuilder":
         self._department_event.parent_department_id = parent_department_id
         return self
-
     def department_id(self, department_id: str) -> "DepartmentEventBuilder":
         self._department_event.department_id = department_id
         return self
-
     def open_department_id(self, open_department_id: str) -> "DepartmentEventBuilder":
         self._department_event.open_department_id = open_department_id
         return self
-
     def leader_user_id(self, leader_user_id: str) -> "DepartmentEventBuilder":
         self._department_event.leader_user_id = leader_user_id
         return self
-
     def chat_id(self, chat_id: str) -> "DepartmentEventBuilder":
         self._department_event.chat_id = chat_id
         return self
-
     def order(self, order: int) -> "DepartmentEventBuilder":
         self._department_event.order = order
         return self
-
     def unit_ids(self, unit_ids: List[str]) -> "DepartmentEventBuilder":
         self._department_event.unit_ids = unit_ids
         return self
-
     def status(self, status: DepartmentStatus) -> "DepartmentEventBuilder":
         self._department_event.status = status
         return self
-
     def leaders(self, leaders: List[DepartmentLeader]) -> "DepartmentEventBuilder":
         self._department_event.leaders = leaders
         return self
-
     def department_hrbps(self, department_hrbps: List[UserId]) -> "DepartmentEventBuilder":
         self._department_event.department_hrbps = department_hrbps
         return self
-
+    
     def build(self) -> "DepartmentEvent":
         return self._department_event

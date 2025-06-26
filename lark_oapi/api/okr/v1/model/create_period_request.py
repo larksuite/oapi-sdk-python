@@ -24,7 +24,7 @@ class CreatePeriodRequestBuilder(object):
         create_period_request.uri = "/open-apis/okr/v1/periods"
         create_period_request.token_types = {AccessTokenType.TENANT}
         self._create_period_request: CreatePeriodRequest = create_period_request
-
+    
     def request_body(self, request_body: CreatePeriodRequestBody) -> "CreatePeriodRequestBuilder":
         self._create_period_request.request_body = request_body
         self._create_period_request.body = request_body

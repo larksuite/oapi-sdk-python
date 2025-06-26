@@ -28,22 +28,18 @@ class JobDataCustomOrg(object):
 class JobDataCustomOrgBuilder(object):
     def __init__(self) -> None:
         self._job_data_custom_org = JobDataCustomOrg()
-
     def effective_time(self, effective_time: str) -> "JobDataCustomOrgBuilder":
         self._job_data_custom_org.effective_time = effective_time
         return self
-
     def start_reason(self, start_reason: str) -> "JobDataCustomOrgBuilder":
         self._job_data_custom_org.start_reason = start_reason
         return self
-
     def custom_org_with_rates(self, custom_org_with_rates: List[CreateEmpCustomOrg]) -> "JobDataCustomOrgBuilder":
         self._job_data_custom_org.custom_org_with_rates = custom_org_with_rates
         return self
-
     def object_api_name(self, object_api_name: str) -> "JobDataCustomOrgBuilder":
         self._job_data_custom_org.object_api_name = object_api_name
         return self
-
+    
     def build(self) -> "JobDataCustomOrg":
         return self._job_data_custom_org

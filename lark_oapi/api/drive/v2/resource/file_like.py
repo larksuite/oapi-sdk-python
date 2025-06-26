@@ -30,12 +30,13 @@ class FileLike(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListFileLikeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileLikeResponse)
         response.raw = resp
 
         return response
+        
 
     async def alist(self, request: ListFileLikeRequest, option: Optional[RequestOption] = None) -> ListFileLikeResponse:
         if option is None:
@@ -44,11 +45,15 @@ class FileLike(object):
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListFileLikeResponse = JSON.unmarshal(str(resp.content, UTF_8), ListFileLikeResponse)
         response.raw = resp
 
         return response
+        
+    

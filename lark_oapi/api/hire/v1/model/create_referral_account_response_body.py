@@ -22,10 +22,9 @@ class CreateReferralAccountResponseBody(object):
 class CreateReferralAccountResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_referral_account_response_body = CreateReferralAccountResponseBody()
-
     def account(self, account: Account) -> "CreateReferralAccountResponseBodyBuilder":
         self._create_referral_account_response_body.account = account
         return self
-
+    
     def build(self) -> "CreateReferralAccountResponseBody":
         return self._create_referral_account_response_body

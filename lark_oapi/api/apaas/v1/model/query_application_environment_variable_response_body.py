@@ -24,14 +24,12 @@ class QueryApplicationEnvironmentVariableResponseBody(object):
 class QueryApplicationEnvironmentVariableResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_application_environment_variable_response_body = QueryApplicationEnvironmentVariableResponseBody()
-
     def items(self, items: List[EnvironmentVariable]) -> "QueryApplicationEnvironmentVariableResponseBodyBuilder":
         self._query_application_environment_variable_response_body.items = items
         return self
-
     def total(self, total: int) -> "QueryApplicationEnvironmentVariableResponseBodyBuilder":
         self._query_application_environment_variable_response_body.total = total
         return self
-
+    
     def build(self) -> "QueryApplicationEnvironmentVariableResponseBody":
         return self._query_application_environment_variable_response_body

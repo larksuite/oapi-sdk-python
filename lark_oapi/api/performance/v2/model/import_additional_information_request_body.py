@@ -26,19 +26,15 @@ class ImportAdditionalInformationRequestBody(object):
 class ImportAdditionalInformationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._import_additional_information_request_body = ImportAdditionalInformationRequestBody()
-
     def semester_id(self, semester_id: str) -> "ImportAdditionalInformationRequestBodyBuilder":
         self._import_additional_information_request_body.semester_id = semester_id
         return self
-
-    def additional_informations(self, additional_informations: List[
-        AdditionalInformation]) -> "ImportAdditionalInformationRequestBodyBuilder":
+    def additional_informations(self, additional_informations: List[AdditionalInformation]) -> "ImportAdditionalInformationRequestBodyBuilder":
         self._import_additional_information_request_body.additional_informations = additional_informations
         return self
-
     def import_record_name(self, import_record_name: str) -> "ImportAdditionalInformationRequestBodyBuilder":
         self._import_additional_information_request_body.import_record_name = import_record_name
         return self
-
+    
     def build(self) -> "ImportAdditionalInformationRequestBody":
         return self._import_additional_information_request_body

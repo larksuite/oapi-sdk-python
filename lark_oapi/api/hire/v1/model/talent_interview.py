@@ -24,14 +24,12 @@ class TalentInterview(object):
 class TalentInterviewBuilder(object):
     def __init__(self) -> None:
         self._talent_interview = TalentInterview()
-
     def application_id(self, application_id: str) -> "TalentInterviewBuilder":
         self._talent_interview.application_id = application_id
         return self
-
     def interview_list(self, interview_list: List[InterviewExtend]) -> "TalentInterviewBuilder":
         self._talent_interview.interview_list = interview_list
         return self
-
+    
     def build(self) -> "TalentInterview":
         return self._talent_interview

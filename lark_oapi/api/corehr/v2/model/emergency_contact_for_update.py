@@ -37,34 +37,27 @@ class EmergencyContactForUpdate(object):
 class EmergencyContactForUpdateBuilder(object):
     def __init__(self) -> None:
         self._emergency_contact_for_update = EmergencyContactForUpdate()
-
     def legal_name(self, legal_name: str) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.legal_name = legal_name
         return self
-
     def relationship(self, relationship: str) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.relationship = relationship
         return self
-
     def phones(self, phones: List[PhoneForUpdate]) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.phones = phones
         return self
-
     def address(self, address: AddressForUpdate) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.address = address
         return self
-
     def email(self, email: EmailForUpdate) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.email = email
         return self
-
     def is_primary(self, is_primary: bool) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.is_primary = is_primary
         return self
-
     def custom_fields(self, custom_fields: List[ObjectFieldData]) -> "EmergencyContactForUpdateBuilder":
         self._emergency_contact_for_update.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "EmergencyContactForUpdate":
         return self._emergency_contact_for_update

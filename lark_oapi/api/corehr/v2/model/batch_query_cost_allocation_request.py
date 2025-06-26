@@ -25,14 +25,13 @@ class BatchQueryCostAllocationRequestBuilder(object):
         batch_query_cost_allocation_request.uri = "/open-apis/corehr/v2/cost_allocations/batch_query"
         batch_query_cost_allocation_request.token_types = {AccessTokenType.TENANT}
         self._batch_query_cost_allocation_request: BatchQueryCostAllocationRequest = batch_query_cost_allocation_request
-
+    
     def user_id_type(self, user_id_type: str) -> "BatchQueryCostAllocationRequestBuilder":
         self._batch_query_cost_allocation_request.user_id_type = user_id_type
         self._batch_query_cost_allocation_request.add_query("user_id_type", user_id_type)
         return self
-
-    def request_body(self,
-                     request_body: BatchQueryCostAllocationRequestBody) -> "BatchQueryCostAllocationRequestBuilder":
+    
+    def request_body(self, request_body: BatchQueryCostAllocationRequestBody) -> "BatchQueryCostAllocationRequestBuilder":
         self._batch_query_cost_allocation_request.request_body = request_body
         self._batch_query_cost_allocation_request.body = request_body
         return self

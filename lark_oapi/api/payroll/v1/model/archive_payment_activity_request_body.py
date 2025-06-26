@@ -21,10 +21,9 @@ class ArchivePaymentActivityRequestBody(object):
 class ArchivePaymentActivityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._archive_payment_activity_request_body = ArchivePaymentActivityRequestBody()
-
     def activity_id(self, activity_id: int) -> "ArchivePaymentActivityRequestBodyBuilder":
         self._archive_payment_activity_request_body.activity_id = activity_id
         return self
-
+    
     def build(self) -> "ArchivePaymentActivityRequestBody":
         return self._archive_payment_activity_request_body

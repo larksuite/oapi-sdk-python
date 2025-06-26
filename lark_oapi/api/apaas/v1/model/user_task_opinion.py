@@ -21,10 +21,9 @@ class UserTaskOpinion(object):
 class UserTaskOpinionBuilder(object):
     def __init__(self) -> None:
         self._user_task_opinion = UserTaskOpinion()
-
     def content(self, content: str) -> "UserTaskOpinionBuilder":
         self._user_task_opinion.content = content
         return self
-
+    
     def build(self) -> "UserTaskOpinion":
         return self._user_task_opinion

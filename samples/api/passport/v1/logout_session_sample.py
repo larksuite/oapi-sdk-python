@@ -5,74 +5,74 @@ from lark_oapi.api.passport.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: LogoutSessionRequest = LogoutSessionRequest.builder() \
-        .user_id_type("open_id") \
-        .request_body(LogoutSessionRequestBody.builder()
-                      .idp_credential_id("1")
-                      .logout_type(1)
-                      .terminal_type([])
-                      .user_id("1")
-                      .logout_reason(int)
-                      .sid("AAAAAAAAAANll6nQoIAAFA==")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: LogoutSessionRequest = LogoutSessionRequest.builder() \
+		.user_id_type("open_id") \
+		.request_body(LogoutSessionRequestBody.builder()
+					  .idp_credential_id("1")
+					  .logout_type(1)
+					  .terminal_type([])
+					  .user_id("1")
+					  .logout_reason(int)
+					  .sid("AAAAAAAAAANll6nQoIAAFA==")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: LogoutSessionResponse = client.passport.v1.session.logout(request)
+	# 发起请求
+	response: LogoutSessionResponse = client.passport.v1.session.logout(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.passport.v1.session.logout failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.passport.v1.session.logout failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: LogoutSessionRequest = LogoutSessionRequest.builder() \
-        .user_id_type("open_id") \
-        .request_body(LogoutSessionRequestBody.builder()
-                      .idp_credential_id("1")
-                      .logout_type(1)
-                      .terminal_type([])
-                      .user_id("1")
-                      .logout_reason(int)
-                      .sid("AAAAAAAAAANll6nQoIAAFA==")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: LogoutSessionRequest = LogoutSessionRequest.builder() \
+		.user_id_type("open_id") \
+		.request_body(LogoutSessionRequestBody.builder()
+					  .idp_credential_id("1")
+					  .logout_type(1)
+					  .terminal_type([])
+					  .user_id("1")
+					  .logout_reason(int)
+					  .sid("AAAAAAAAAANll6nQoIAAFA==")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: LogoutSessionResponse = await client.passport.v1.session.alogout(request)
+	# 发起请求
+	response: LogoutSessionResponse = await client.passport.v1.session.alogout(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.passport.v1.session.alogout failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.passport.v1.session.alogout failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

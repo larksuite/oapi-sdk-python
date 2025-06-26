@@ -32,30 +32,24 @@ class CollaborationTenant(object):
 class CollaborationTenantBuilder(object):
     def __init__(self) -> None:
         self._collaboration_tenant = CollaborationTenant()
-
     def tenant_key(self, tenant_key: str) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.tenant_key = tenant_key
         return self
-
     def name(self, name: str) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.name = name
         return self
-
     def nickname(self, nickname: str) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.nickname = nickname
         return self
-
     def connect_time(self, connect_time: int) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.connect_time = connect_time
         return self
-
     def avatar(self, avatar: AvatarInfo) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.avatar = avatar
         return self
-
     def brand(self, brand: str) -> "CollaborationTenantBuilder":
         self._collaboration_tenant.brand = brand
         return self
-
+    
     def build(self) -> "CollaborationTenant":
         return self._collaboration_tenant

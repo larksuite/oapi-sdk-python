@@ -23,14 +23,12 @@ class BatchGetEmployeesBpRequestBody(object):
 class BatchGetEmployeesBpRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_get_employees_bp_request_body = BatchGetEmployeesBpRequestBody()
-
     def employment_ids(self, employment_ids: List[str]) -> "BatchGetEmployeesBpRequestBodyBuilder":
         self._batch_get_employees_bp_request_body.employment_ids = employment_ids
         return self
-
     def get_all(self, get_all: bool) -> "BatchGetEmployeesBpRequestBodyBuilder":
         self._batch_get_employees_bp_request_body.get_all = get_all
         return self
-
+    
     def build(self) -> "BatchGetEmployeesBpRequestBody":
         return self._batch_get_employees_bp_request_body

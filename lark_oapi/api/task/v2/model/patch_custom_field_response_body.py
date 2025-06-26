@@ -22,10 +22,9 @@ class PatchCustomFieldResponseBody(object):
 class PatchCustomFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_custom_field_response_body = PatchCustomFieldResponseBody()
-
     def custom_field(self, custom_field: CustomField) -> "PatchCustomFieldResponseBodyBuilder":
         self._patch_custom_field_response_body.custom_field = custom_field
         return self
-
+    
     def build(self) -> "PatchCustomFieldResponseBody":
         return self._patch_custom_field_response_body

@@ -19,6 +19,6 @@ class File(object):
 class FileBuilder(object):
     def __init__(self) -> None:
         self._file = File()
-
+    
     def build(self) -> "File":
         return self._file

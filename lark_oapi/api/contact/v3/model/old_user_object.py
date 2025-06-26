@@ -23,14 +23,12 @@ class OldUserObject(object):
 class OldUserObjectBuilder(object):
     def __init__(self) -> None:
         self._old_user_object = OldUserObject()
-
     def department_ids(self, department_ids: List[str]) -> "OldUserObjectBuilder":
         self._old_user_object.department_ids = department_ids
         return self
-
     def open_id(self, open_id: str) -> "OldUserObjectBuilder":
         self._old_user_object.open_id = open_id
         return self
-
+    
     def build(self) -> "OldUserObject":
         return self._old_user_object

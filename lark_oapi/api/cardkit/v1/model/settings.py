@@ -25,14 +25,12 @@ class Settings(object):
 class SettingsBuilder(object):
     def __init__(self) -> None:
         self._settings = Settings()
-
     def card_link(self, card_link: CardLink) -> "SettingsBuilder":
         self._settings.card_link = card_link
         return self
-
     def config(self, config: Config) -> "SettingsBuilder":
         self._settings.config = config
         return self
-
+    
     def build(self) -> "Settings":
         return self._settings

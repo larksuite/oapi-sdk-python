@@ -23,14 +23,12 @@ class SystemStatusUserOpenParam(object):
 class SystemStatusUserOpenParamBuilder(object):
     def __init__(self) -> None:
         self._system_status_user_open_param = SystemStatusUserOpenParam()
-
     def user_id(self, user_id: str) -> "SystemStatusUserOpenParamBuilder":
         self._system_status_user_open_param.user_id = user_id
         return self
-
     def end_time(self, end_time: str) -> "SystemStatusUserOpenParamBuilder":
         self._system_status_user_open_param.end_time = end_time
         return self
-
+    
     def build(self) -> "SystemStatusUserOpenParam":
         return self._system_status_user_open_param

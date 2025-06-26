@@ -23,8 +23,7 @@ class RuleExternal(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def create(self, request: CreateRuleExternalRequest,
-               option: Optional[RequestOption] = None) -> CreateRuleExternalResponse:
+    def create(self, request: CreateRuleExternalRequest, option: Optional[RequestOption] = None) -> CreateRuleExternalResponse:
         if option is None:
             option = RequestOption()
 
@@ -37,32 +36,33 @@ class RuleExternal(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRuleExternalResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acreate(self, request: CreateRuleExternalRequest,
-                      option: Optional[RequestOption] = None) -> CreateRuleExternalResponse:
+    async def acreate(self, request: CreateRuleExternalRequest, option: Optional[RequestOption] = None) -> CreateRuleExternalResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: CreateRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), CreateRuleExternalResponse)
         response.raw = resp
 
         return response
-
-    def delete(self, request: DeleteRuleExternalRequest,
-               option: Optional[RequestOption] = None) -> DeleteRuleExternalResponse:
+        
+    def delete(self, request: DeleteRuleExternalRequest, option: Optional[RequestOption] = None) -> DeleteRuleExternalResponse:
         if option is None:
             option = RequestOption()
 
@@ -75,32 +75,33 @@ class RuleExternal(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteRuleExternalResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteRuleExternalRequest,
-                      option: Optional[RequestOption] = None) -> DeleteRuleExternalResponse:
+    async def adelete(self, request: DeleteRuleExternalRequest, option: Optional[RequestOption] = None) -> DeleteRuleExternalResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteRuleExternalResponse)
         response.raw = resp
 
         return response
-
-    def device_bind(self, request: DeviceBindRuleExternalRequest,
-                    option: Optional[RequestOption] = None) -> DeviceBindRuleExternalResponse:
+        
+    def device_bind(self, request: DeviceBindRuleExternalRequest, option: Optional[RequestOption] = None) -> DeviceBindRuleExternalResponse:
         if option is None:
             option = RequestOption()
 
@@ -113,32 +114,32 @@ class RuleExternal(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeviceBindRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeviceBindRuleExternalResponse)
+        response: DeviceBindRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), DeviceBindRuleExternalResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adevice_bind(self, request: DeviceBindRuleExternalRequest,
-                           option: Optional[RequestOption] = None) -> DeviceBindRuleExternalResponse:
+    async def adevice_bind(self, request: DeviceBindRuleExternalRequest, option: Optional[RequestOption] = None) -> DeviceBindRuleExternalResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: DeviceBindRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                  DeviceBindRuleExternalResponse)
+        response: DeviceBindRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), DeviceBindRuleExternalResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetRuleExternalRequest, option: Optional[RequestOption] = None) -> GetRuleExternalResponse:
         if option is None:
             option = RequestOption()
@@ -152,26 +153,30 @@ class RuleExternal(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRuleExternalResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetRuleExternalRequest,
-                   option: Optional[RequestOption] = None) -> GetRuleExternalResponse:
+    async def aget(self, request: GetRuleExternalRequest, option: Optional[RequestOption] = None) -> GetRuleExternalResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetRuleExternalResponse = JSON.unmarshal(str(resp.content, UTF_8), GetRuleExternalResponse)
         response.raw = resp
 
         return response
+        
+    

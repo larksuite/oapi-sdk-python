@@ -21,10 +21,9 @@ class ClearStyleRanges(object):
 class ClearStyleRangesBuilder(object):
     def __init__(self) -> None:
         self._clear_style_ranges = ClearStyleRanges()
-
     def ranges(self, ranges: List[str]) -> "ClearStyleRangesBuilder":
         self._clear_style_ranges.ranges = ranges
         return self
-
+    
     def build(self) -> "ClearStyleRanges":
         return self._clear_style_ranges

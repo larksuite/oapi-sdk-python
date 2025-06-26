@@ -23,11 +23,12 @@ class SubscribeApprovalRequestBuilder(object):
         subscribe_approval_request.uri = "/open-apis/approval/v4/approvals/:approval_code/subscribe"
         subscribe_approval_request.token_types = {AccessTokenType.TENANT}
         self._subscribe_approval_request: SubscribeApprovalRequest = subscribe_approval_request
-
+    
     def approval_code(self, approval_code: str) -> "SubscribeApprovalRequestBuilder":
         self._subscribe_approval_request.approval_code = approval_code
         self._subscribe_approval_request.paths["approval_code"] = str(approval_code)
         return self
+    
 
     def build(self) -> SubscribeApprovalRequest:
         return self._subscribe_approval_request

@@ -25,12 +25,12 @@ class EnableReferralAccountRequestBuilder(object):
         enable_referral_account_request.uri = "/open-apis/hire/v1/referral_account/enable"
         enable_referral_account_request.token_types = {AccessTokenType.TENANT}
         self._enable_referral_account_request: EnableReferralAccountRequest = enable_referral_account_request
-
+    
     def user_id_type(self, user_id_type: str) -> "EnableReferralAccountRequestBuilder":
         self._enable_referral_account_request.user_id_type = user_id_type
         self._enable_referral_account_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: EnableReferralAccountRequestBody) -> "EnableReferralAccountRequestBuilder":
         self._enable_referral_account_request.request_body = request_body
         self._enable_referral_account_request.body = request_body

@@ -35,34 +35,27 @@ class Okr(object):
 class OkrBuilder(object):
     def __init__(self) -> None:
         self._okr = Okr()
-
     def okr_id(self, okr_id: int) -> "OkrBuilder":
         self._okr.okr_id = okr_id
         return self
-
     def objectives(self, objectives: List[ObjectiveIdWithKrId]) -> "OkrBuilder":
         self._okr.objectives = objectives
         return self
-
     def period_display_status(self, period_display_status: str) -> "OkrBuilder":
         self._okr.period_display_status = period_display_status
         return self
-
     def period_name_zh(self, period_name_zh: str) -> "OkrBuilder":
         self._okr.period_name_zh = period_name_zh
         return self
-
     def period_name_en(self, period_name_en: str) -> "OkrBuilder":
         self._okr.period_name_en = period_name_en
         return self
-
     def user_id(self, user_id: str) -> "OkrBuilder":
         self._okr.user_id = user_id
         return self
-
     def visible_setting(self, visible_setting: OkrVisibleSetting) -> "OkrBuilder":
         self._okr.visible_setting = visible_setting
         return self
-
+    
     def build(self) -> "Okr":
         return self._okr

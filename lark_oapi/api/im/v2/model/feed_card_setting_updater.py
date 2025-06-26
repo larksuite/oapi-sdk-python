@@ -25,18 +25,15 @@ class FeedCardSettingUpdater(object):
 class FeedCardSettingUpdaterBuilder(object):
     def __init__(self) -> None:
         self._feed_card_setting_updater = FeedCardSettingUpdater()
-
     def feed_card_id(self, feed_card_id: str) -> "FeedCardSettingUpdaterBuilder":
         self._feed_card_setting_updater.feed_card_id = feed_card_id
         return self
-
     def read_timestamp(self, read_timestamp: str) -> "FeedCardSettingUpdaterBuilder":
         self._feed_card_setting_updater.read_timestamp = read_timestamp
         return self
-
     def mute_with_system_message(self, mute_with_system_message: bool) -> "FeedCardSettingUpdaterBuilder":
         self._feed_card_setting_updater.mute_with_system_message = mute_with_system_message
         return self
-
+    
     def build(self) -> "FeedCardSettingUpdater":
         return self._feed_card_setting_updater

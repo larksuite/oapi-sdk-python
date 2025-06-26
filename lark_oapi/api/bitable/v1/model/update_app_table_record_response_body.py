@@ -22,10 +22,9 @@ class UpdateAppTableRecordResponseBody(object):
 class UpdateAppTableRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_app_table_record_response_body = UpdateAppTableRecordResponseBody()
-
     def record(self, record: AppTableRecord) -> "UpdateAppTableRecordResponseBodyBuilder":
         self._update_app_table_record_response_body.record = record
         return self
-
+    
     def build(self) -> "UpdateAppTableRecordResponseBody":
         return self._update_app_table_record_response_body

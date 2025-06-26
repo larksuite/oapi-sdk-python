@@ -24,14 +24,12 @@ class PatchTagRequestBody(object):
 class PatchTagRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_tag_request_body = PatchTagRequestBody()
-
     def patch_tag(self, patch_tag: PatchTag) -> "PatchTagRequestBodyBuilder":
         self._patch_tag_request_body.patch_tag = patch_tag
         return self
-
     def bot_id(self, bot_id: str) -> "PatchTagRequestBodyBuilder":
         self._patch_tag_request_body.bot_id = bot_id
         return self
-
+    
     def build(self) -> "PatchTagRequestBody":
         return self._patch_tag_request_body

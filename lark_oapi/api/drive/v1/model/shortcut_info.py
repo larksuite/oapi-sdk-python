@@ -23,14 +23,12 @@ class ShortcutInfo(object):
 class ShortcutInfoBuilder(object):
     def __init__(self) -> None:
         self._shortcut_info = ShortcutInfo()
-
     def target_type(self, target_type: str) -> "ShortcutInfoBuilder":
         self._shortcut_info.target_type = target_type
         return self
-
     def target_token(self, target_token: str) -> "ShortcutInfoBuilder":
         self._shortcut_info.target_token = target_token
         return self
-
+    
     def build(self) -> "ShortcutInfo":
         return self._shortcut_info

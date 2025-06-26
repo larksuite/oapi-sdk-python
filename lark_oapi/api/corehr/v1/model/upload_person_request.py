@@ -24,7 +24,7 @@ class UploadPersonRequestBuilder(object):
         upload_person_request.uri = "/open-apis/corehr/v1/persons/upload"
         upload_person_request.token_types = {AccessTokenType.TENANT}
         self._upload_person_request: UploadPersonRequest = upload_person_request
-
+    
     def request_body(self, request_body: UploadPersonRequestBody) -> "UploadPersonRequestBuilder":
         self._upload_person_request.request_body = request_body
         self._upload_person_request.body = request_body

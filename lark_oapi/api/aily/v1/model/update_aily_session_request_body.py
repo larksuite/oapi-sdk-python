@@ -23,14 +23,12 @@ class UpdateAilySessionRequestBody(object):
 class UpdateAilySessionRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_aily_session_request_body = UpdateAilySessionRequestBody()
-
     def channel_context(self, channel_context: str) -> "UpdateAilySessionRequestBodyBuilder":
         self._update_aily_session_request_body.channel_context = channel_context
         return self
-
     def metadata(self, metadata: str) -> "UpdateAilySessionRequestBodyBuilder":
         self._update_aily_session_request_body.metadata = metadata
         return self
-
+    
     def build(self) -> "UpdateAilySessionRequestBody":
         return self._update_aily_session_request_body

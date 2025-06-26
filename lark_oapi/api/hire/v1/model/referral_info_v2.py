@@ -25,14 +25,12 @@ class ReferralInfoV2(object):
 class ReferralInfoV2Builder(object):
     def __init__(self) -> None:
         self._referral_info_v2 = ReferralInfoV2()
-
     def basic_info(self, basic_info: ReferralBasicInfo) -> "ReferralInfoV2Builder":
         self._referral_info_v2.basic_info = basic_info
         return self
-
     def recommend_info(self, recommend_info: ReferralRecommendInfo) -> "ReferralInfoV2Builder":
         self._referral_info_v2.recommend_info = recommend_info
         return self
-
+    
     def build(self) -> "ReferralInfoV2":
         return self._referral_info_v2

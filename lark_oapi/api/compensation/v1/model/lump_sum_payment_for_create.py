@@ -42,50 +42,39 @@ class LumpSumPaymentForCreate(object):
 class LumpSumPaymentForCreateBuilder(object):
     def __init__(self) -> None:
         self._lump_sum_payment_for_create = LumpSumPaymentForCreate()
-
     def unique_id(self, unique_id: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.unique_id = unique_id
         return self
-
     def user_id(self, user_id: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.user_id = user_id
         return self
-
     def total_amount(self, total_amount: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.total_amount = total_amount
         return self
-
     def binding_period(self, binding_period: int) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.binding_period = binding_period
         return self
-
     def currency_id(self, currency_id: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.currency_id = currency_id
         return self
-
     def issuance_frequency(self, issuance_frequency: int) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.issuance_frequency = issuance_frequency
         return self
-
     def item_id(self, item_id: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.item_id = item_id
         return self
-
     def reference_period_start_date(self, reference_period_start_date: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.reference_period_start_date = reference_period_start_date
         return self
-
     def reference_period_end_date(self, reference_period_end_date: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.reference_period_end_date = reference_period_end_date
         return self
-
     def details(self, details: List[LumpSumPaymentDetailForCreate]) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.details = details
         return self
-
     def remark(self, remark: str) -> "LumpSumPaymentForCreateBuilder":
         self._lump_sum_payment_for_create.remark = remark
         return self
-
+    
     def build(self) -> "LumpSumPaymentForCreate":
         return self._lump_sum_payment_for_create

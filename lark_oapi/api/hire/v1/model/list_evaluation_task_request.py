@@ -27,31 +27,32 @@ class ListEvaluationTaskRequestBuilder(object):
         list_evaluation_task_request.uri = "/open-apis/hire/v1/evaluation_tasks"
         list_evaluation_task_request.token_types = {AccessTokenType.TENANT}
         self._list_evaluation_task_request: ListEvaluationTaskRequest = list_evaluation_task_request
-
+    
     def page_size(self, page_size: int) -> "ListEvaluationTaskRequestBuilder":
         self._list_evaluation_task_request.page_size = page_size
         self._list_evaluation_task_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListEvaluationTaskRequestBuilder":
         self._list_evaluation_task_request.page_token = page_token
         self._list_evaluation_task_request.add_query("page_token", page_token)
         return self
-
+    
     def user_id(self, user_id: str) -> "ListEvaluationTaskRequestBuilder":
         self._list_evaluation_task_request.user_id = user_id
         self._list_evaluation_task_request.add_query("user_id", user_id)
         return self
-
+    
     def activity_status(self, activity_status: int) -> "ListEvaluationTaskRequestBuilder":
         self._list_evaluation_task_request.activity_status = activity_status
         self._list_evaluation_task_request.add_query("activity_status", activity_status)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "ListEvaluationTaskRequestBuilder":
         self._list_evaluation_task_request.user_id_type = user_id_type
         self._list_evaluation_task_request.add_query("user_id_type", user_id_type)
         return self
+    
 
     def build(self) -> ListEvaluationTaskRequest:
         return self._list_evaluation_task_request

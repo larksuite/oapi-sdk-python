@@ -24,14 +24,12 @@ class DepartmentPathName(object):
 class DepartmentPathNameBuilder(object):
     def __init__(self) -> None:
         self._department_path_name = DepartmentPathName()
-
     def name(self, name: str) -> "DepartmentPathNameBuilder":
         self._department_path_name.name = name
         return self
-
     def i18n_name(self, i18n_name: DepartmentI18nName) -> "DepartmentPathNameBuilder":
         self._department_path_name.i18n_name = i18n_name
         return self
-
+    
     def build(self) -> "DepartmentPathName":
         return self._department_path_name

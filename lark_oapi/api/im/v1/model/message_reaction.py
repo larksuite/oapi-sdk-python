@@ -29,22 +29,18 @@ class MessageReaction(object):
 class MessageReactionBuilder(object):
     def __init__(self) -> None:
         self._message_reaction = MessageReaction()
-
     def reaction_id(self, reaction_id: str) -> "MessageReactionBuilder":
         self._message_reaction.reaction_id = reaction_id
         return self
-
     def operator(self, operator: Operator) -> "MessageReactionBuilder":
         self._message_reaction.operator = operator
         return self
-
     def action_time(self, action_time: int) -> "MessageReactionBuilder":
         self._message_reaction.action_time = action_time
         return self
-
     def reaction_type(self, reaction_type: Emoji) -> "MessageReactionBuilder":
         self._message_reaction.reaction_type = reaction_type
         return self
-
+    
     def build(self) -> "MessageReaction":
         return self._message_reaction

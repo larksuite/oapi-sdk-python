@@ -26,18 +26,15 @@ class ListResumeSourceResponseBody(object):
 class ListResumeSourceResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_resume_source_response_body = ListResumeSourceResponseBody()
-
     def items(self, items: List[ResumeSource]) -> "ListResumeSourceResponseBodyBuilder":
         self._list_resume_source_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListResumeSourceResponseBodyBuilder":
         self._list_resume_source_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListResumeSourceResponseBodyBuilder":
         self._list_resume_source_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListResumeSourceResponseBody":
         return self._list_resume_source_response_body

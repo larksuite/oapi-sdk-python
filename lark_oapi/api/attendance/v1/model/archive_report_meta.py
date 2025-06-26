@@ -29,22 +29,18 @@ class ArchiveReportMeta(object):
 class ArchiveReportMetaBuilder(object):
     def __init__(self) -> None:
         self._archive_report_meta = ArchiveReportMeta()
-
     def report_id(self, report_id: str) -> "ArchiveReportMetaBuilder":
         self._archive_report_meta.report_id = report_id
         return self
-
     def report_name(self, report_name: I18nMap) -> "ArchiveReportMetaBuilder":
         self._archive_report_meta.report_name = report_name
         return self
-
     def archive_rule_id(self, archive_rule_id: str) -> "ArchiveReportMetaBuilder":
         self._archive_report_meta.archive_rule_id = archive_rule_id
         return self
-
     def archive_rule_name(self, archive_rule_name: I18nMap) -> "ArchiveReportMetaBuilder":
         self._archive_report_meta.archive_rule_name = archive_rule_name
         return self
-
+    
     def build(self) -> "ArchiveReportMeta":
         return self._archive_report_meta

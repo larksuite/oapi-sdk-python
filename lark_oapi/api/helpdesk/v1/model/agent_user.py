@@ -31,30 +31,24 @@ class AgentUser(object):
 class AgentUserBuilder(object):
     def __init__(self) -> None:
         self._agent_user = AgentUser()
-
     def id(self, id: str) -> "AgentUserBuilder":
         self._agent_user.id = id
         return self
-
     def avatar_url(self, avatar_url: str) -> "AgentUserBuilder":
         self._agent_user.avatar_url = avatar_url
         return self
-
     def name(self, name: str) -> "AgentUserBuilder":
         self._agent_user.name = name
         return self
-
     def email(self, email: str) -> "AgentUserBuilder":
         self._agent_user.email = email
         return self
-
     def department(self, department: str) -> "AgentUserBuilder":
         self._agent_user.department = department
         return self
-
     def company_name(self, company_name: str) -> "AgentUserBuilder":
         self._agent_user.company_name = company_name
         return self
-
+    
     def build(self) -> "AgentUser":
         return self._agent_user

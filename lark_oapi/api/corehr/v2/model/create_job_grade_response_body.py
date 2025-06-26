@@ -21,10 +21,9 @@ class CreateJobGradeResponseBody(object):
 class CreateJobGradeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_job_grade_response_body = CreateJobGradeResponseBody()
-
     def grade_id(self, grade_id: str) -> "CreateJobGradeResponseBodyBuilder":
         self._create_job_grade_response_body.grade_id = grade_id
         return self
-
+    
     def build(self) -> "CreateJobGradeResponseBody":
         return self._create_job_grade_response_body

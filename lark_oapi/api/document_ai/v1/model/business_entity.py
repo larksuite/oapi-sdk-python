@@ -23,14 +23,12 @@ class BusinessEntity(object):
 class BusinessEntityBuilder(object):
     def __init__(self) -> None:
         self._business_entity = BusinessEntity()
-
     def type(self, type: str) -> "BusinessEntityBuilder":
         self._business_entity.type = type
         return self
-
     def value(self, value: str) -> "BusinessEntityBuilder":
         self._business_entity.value = value
         return self
-
+    
     def build(self) -> "BusinessEntity":
         return self._business_entity

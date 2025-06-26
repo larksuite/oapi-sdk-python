@@ -9,14 +9,10 @@ from lark_oapi.core.http import Transport
 from lark_oapi.core.model import Config, RequestOption, RawResponse
 from lark_oapi.core.utils import Files
 from requests_toolbelt import MultipartEncoder
-from ..model.batch_create_authorization_application_role_member_request import \
-    BatchCreateAuthorizationApplicationRoleMemberRequest
-from ..model.batch_create_authorization_application_role_member_response import \
-    BatchCreateAuthorizationApplicationRoleMemberResponse
-from ..model.batch_remove_authorization_application_role_member_request import \
-    BatchRemoveAuthorizationApplicationRoleMemberRequest
-from ..model.batch_remove_authorization_application_role_member_response import \
-    BatchRemoveAuthorizationApplicationRoleMemberResponse
+from ..model.batch_create_authorization_application_role_member_request import BatchCreateAuthorizationApplicationRoleMemberRequest
+from ..model.batch_create_authorization_application_role_member_response import BatchCreateAuthorizationApplicationRoleMemberResponse
+from ..model.batch_remove_authorization_application_role_member_request import BatchRemoveAuthorizationApplicationRoleMemberRequest
+from ..model.batch_remove_authorization_application_role_member_response import BatchRemoveAuthorizationApplicationRoleMemberResponse
 from ..model.get_application_role_member_request import GetApplicationRoleMemberRequest
 from ..model.get_application_role_member_response import GetApplicationRoleMemberResponse
 
@@ -25,9 +21,7 @@ class ApplicationRoleMember(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def batch_create_authorization(self, request: BatchCreateAuthorizationApplicationRoleMemberRequest,
-                                   option: Optional[
-                                       RequestOption] = None) -> BatchCreateAuthorizationApplicationRoleMemberResponse:
+    def batch_create_authorization(self, request: BatchCreateAuthorizationApplicationRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateAuthorizationApplicationRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -40,36 +34,33 @@ class ApplicationRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchCreateAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                         BatchCreateAuthorizationApplicationRoleMemberResponse)
+        response: BatchCreateAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAuthorizationApplicationRoleMemberResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_create_authorization(self, request: BatchCreateAuthorizationApplicationRoleMemberRequest,
-                                          option: Optional[
-                                              RequestOption] = None) -> BatchCreateAuthorizationApplicationRoleMemberResponse:
+    async def abatch_create_authorization(self, request: BatchCreateAuthorizationApplicationRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchCreateAuthorizationApplicationRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchCreateAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                         BatchCreateAuthorizationApplicationRoleMemberResponse)
+        response: BatchCreateAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchCreateAuthorizationApplicationRoleMemberResponse)
         response.raw = resp
 
         return response
-
-    def batch_remove_authorization(self, request: BatchRemoveAuthorizationApplicationRoleMemberRequest,
-                                   option: Optional[
-                                       RequestOption] = None) -> BatchRemoveAuthorizationApplicationRoleMemberResponse:
+        
+    def batch_remove_authorization(self, request: BatchRemoveAuthorizationApplicationRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchRemoveAuthorizationApplicationRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -82,35 +73,33 @@ class ApplicationRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchRemoveAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                         BatchRemoveAuthorizationApplicationRoleMemberResponse)
+        response: BatchRemoveAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchRemoveAuthorizationApplicationRoleMemberResponse)
         response.raw = resp
 
         return response
+        
 
-    async def abatch_remove_authorization(self, request: BatchRemoveAuthorizationApplicationRoleMemberRequest,
-                                          option: Optional[
-                                              RequestOption] = None) -> BatchRemoveAuthorizationApplicationRoleMemberResponse:
+    async def abatch_remove_authorization(self, request: BatchRemoveAuthorizationApplicationRoleMemberRequest, option: Optional[RequestOption] = None) -> BatchRemoveAuthorizationApplicationRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: BatchRemoveAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                         BatchRemoveAuthorizationApplicationRoleMemberResponse)
+        response: BatchRemoveAuthorizationApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), BatchRemoveAuthorizationApplicationRoleMemberResponse)
         response.raw = resp
 
         return response
-
-    def get(self, request: GetApplicationRoleMemberRequest,
-            option: Optional[RequestOption] = None) -> GetApplicationRoleMemberResponse:
+        
+    def get(self, request: GetApplicationRoleMemberRequest, option: Optional[RequestOption] = None) -> GetApplicationRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
@@ -123,28 +112,30 @@ class ApplicationRoleMember(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetApplicationRoleMemberResponse)
+        response: GetApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationRoleMemberResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetApplicationRoleMemberRequest,
-                   option: Optional[RequestOption] = None) -> GetApplicationRoleMemberResponse:
+    async def aget(self, request: GetApplicationRoleMemberRequest, option: Optional[RequestOption] = None) -> GetApplicationRoleMemberResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: GetApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                    GetApplicationRoleMemberResponse)
+        response: GetApplicationRoleMemberResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationRoleMemberResponse)
         response.raw = resp
 
         return response
+        
+    

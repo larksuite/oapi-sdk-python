@@ -21,10 +21,9 @@ class DetectTextRequestBody(object):
 class DetectTextRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._detect_text_request_body = DetectTextRequestBody()
-
     def text(self, text: str) -> "DetectTextRequestBodyBuilder":
         self._detect_text_request_body.text = text
         return self
-
+    
     def build(self) -> "DetectTextRequestBody":
         return self._detect_text_request_body

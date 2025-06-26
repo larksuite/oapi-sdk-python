@@ -21,10 +21,9 @@ class CreateAppRequestBody(object):
 class CreateAppRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_app_request_body = CreateAppRequestBody()
-
     def query(self, query: str) -> "CreateAppRequestBodyBuilder":
         self._create_app_request_body.query = query
         return self
-
+    
     def build(self) -> "CreateAppRequestBody":
         return self._create_app_request_body

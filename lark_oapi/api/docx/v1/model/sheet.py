@@ -25,18 +25,15 @@ class Sheet(object):
 class SheetBuilder(object):
     def __init__(self) -> None:
         self._sheet = Sheet()
-
     def token(self, token: str) -> "SheetBuilder":
         self._sheet.token = token
         return self
-
     def row_size(self, row_size: int) -> "SheetBuilder":
         self._sheet.row_size = row_size
         return self
-
     def column_size(self, column_size: int) -> "SheetBuilder":
         self._sheet.column_size = column_size
         return self
-
+    
     def build(self) -> "Sheet":
         return self._sheet

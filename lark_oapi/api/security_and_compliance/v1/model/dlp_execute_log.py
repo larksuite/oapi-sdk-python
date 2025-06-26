@@ -36,6 +36,7 @@ class DlpExecuteLog(object):
         "hit_policies": List[DlpHitPolicy],
         "file_token": str,
         "trigger_event_type": str,
+        "chat_type": int,
     }
 
     def __init__(self, d=None):
@@ -67,6 +68,7 @@ class DlpExecuteLog(object):
         self.hit_policies: Optional[List[DlpHitPolicy]] = None
         self.file_token: Optional[str] = None
         self.trigger_event_type: Optional[str] = None
+        self.chat_type: Optional[int] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -77,118 +79,93 @@ class DlpExecuteLog(object):
 class DlpExecuteLogBuilder(object):
     def __init__(self) -> None:
         self._dlp_execute_log = DlpExecuteLog()
-
     def applicable_service(self, applicable_service: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.applicable_service = applicable_service
         return self
-
     def user_name(self, user_name: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.user_name = user_name
         return self
-
     def user_id(self, user_id: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.user_id = user_id
         return self
-
     def trigger(self, trigger: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.trigger = trigger
         return self
-
     def time(self, time: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.time = time
         return self
-
     def system_action(self, system_action: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.system_action = system_action
         return self
-
     def sender_name(self, sender_name: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.sender_name = sender_name
         return self
-
     def sender_id(self, sender_id: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.sender_id = sender_id
         return self
-
     def recipient_name(self, recipient_name: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.recipient_name = recipient_name
         return self
-
     def recipient_id(self, recipient_id: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.recipient_id = recipient_id
         return self
-
     def chat_name(self, chat_name: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.chat_name = chat_name
         return self
-
     def chat_id(self, chat_id: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.chat_id = chat_id
         return self
-
     def message_id(self, message_id: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.message_id = message_id
         return self
-
     def message_content(self, message_content: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.message_content = message_content
         return self
-
     def alias_ingroup(self, alias_ingroup: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.alias_ingroup = alias_ingroup
         return self
-
     def group_description(self, group_description: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.group_description = group_description
         return self
-
     def group_tab_content(self, group_tab_content: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.group_tab_content = group_tab_content
         return self
-
     def file_name(self, file_name: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.file_name = file_name
         return self
-
     def file_key(self, file_key: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.file_key = file_key
         return self
-
     def document_owner_name(self, document_owner_name: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.document_owner_name = document_owner_name
         return self
-
     def document_owner_id(self, document_owner_id: int) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.document_owner_id = document_owner_id
         return self
-
     def document_name(self, document_name: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.document_name = document_name
         return self
-
     def document_type(self, document_type: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.document_type = document_type
         return self
-
     def document_link(self, document_link: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.document_link = document_link
         return self
-
     def evidence_detail(self, evidence_detail: DlpEvidenceDetail) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.evidence_detail = evidence_detail
         return self
-
     def hit_policies(self, hit_policies: List[DlpHitPolicy]) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.hit_policies = hit_policies
         return self
-
     def file_token(self, file_token: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.file_token = file_token
         return self
-
     def trigger_event_type(self, trigger_event_type: str) -> "DlpExecuteLogBuilder":
         self._dlp_execute_log.trigger_event_type = trigger_event_type
         return self
-
+    def chat_type(self, chat_type: int) -> "DlpExecuteLogBuilder":
+        self._dlp_execute_log.chat_type = chat_type
+        return self
+    
     def build(self) -> "DlpExecuteLog":
         return self._dlp_execute_log

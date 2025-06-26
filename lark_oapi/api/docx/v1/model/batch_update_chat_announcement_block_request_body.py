@@ -22,10 +22,9 @@ class BatchUpdateChatAnnouncementBlockRequestBody(object):
 class BatchUpdateChatAnnouncementBlockRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_update_chat_announcement_block_request_body = BatchUpdateChatAnnouncementBlockRequestBody()
-
     def requests(self, requests: List[UpdateBlockRequest]) -> "BatchUpdateChatAnnouncementBlockRequestBodyBuilder":
         self._batch_update_chat_announcement_block_request_body.requests = requests
         return self
-
+    
     def build(self) -> "BatchUpdateChatAnnouncementBlockRequestBody":
         return self._batch_update_chat_announcement_block_request_body

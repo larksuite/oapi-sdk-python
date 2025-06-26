@@ -24,16 +24,17 @@ class QueryAgencyRequestBuilder(object):
         query_agency_request.uri = "/open-apis/hire/v1/agencies/query"
         query_agency_request.token_types = {AccessTokenType.TENANT}
         self._query_agency_request: QueryAgencyRequest = query_agency_request
-
+    
     def name(self, name: str) -> "QueryAgencyRequestBuilder":
         self._query_agency_request.name = name
         self._query_agency_request.add_query("name", name)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "QueryAgencyRequestBuilder":
         self._query_agency_request.user_id_type = user_id_type
         self._query_agency_request.add_query("user_id_type", user_id_type)
         return self
+    
 
     def build(self) -> QueryAgencyRequest:
         return self._query_agency_request

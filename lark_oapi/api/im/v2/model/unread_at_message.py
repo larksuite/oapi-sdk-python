@@ -35,38 +35,30 @@ class UnreadAtMessage(object):
 class UnreadAtMessageBuilder(object):
     def __init__(self) -> None:
         self._unread_at_message = UnreadAtMessage()
-
     def message_id(self, message_id: str) -> "UnreadAtMessageBuilder":
         self._unread_at_message.message_id = message_id
         return self
-
     def from_id(self, from_id: str) -> "UnreadAtMessageBuilder":
         self._unread_at_message.from_id = from_id
         return self
-
     def chat_id(self, chat_id: str) -> "UnreadAtMessageBuilder":
         self._unread_at_message.chat_id = chat_id
         return self
-
     def create_time(self, create_time: str) -> "UnreadAtMessageBuilder":
         self._unread_at_message.create_time = create_time
         return self
-
     def create_time_ms(self, create_time_ms: str) -> "UnreadAtMessageBuilder":
         self._unread_at_message.create_time_ms = create_time_ms
         return self
-
     def update_time_ms(self, update_time_ms: str) -> "UnreadAtMessageBuilder":
         self._unread_at_message.update_time_ms = update_time_ms
         return self
-
     def type(self, type: int) -> "UnreadAtMessageBuilder":
         self._unread_at_message.type = type
         return self
-
     def is_at_all(self, is_at_all: bool) -> "UnreadAtMessageBuilder":
         self._unread_at_message.is_at_all = is_at_all
         return self
-
+    
     def build(self) -> "UnreadAtMessage":
         return self._unread_at_message

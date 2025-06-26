@@ -25,18 +25,15 @@ class AilyKnowledgeFolder(object):
 class AilyKnowledgeFolderBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_folder = AilyKnowledgeFolder()
-
     def title(self, title: str) -> "AilyKnowledgeFolderBuilder":
         self._aily_knowledge_folder.title = title
         return self
-
     def token(self, token: str) -> "AilyKnowledgeFolderBuilder":
         self._aily_knowledge_folder.token = token
         return self
-
     def url(self, url: str) -> "AilyKnowledgeFolderBuilder":
         self._aily_knowledge_folder.url = url
         return self
-
+    
     def build(self) -> "AilyKnowledgeFolder":
         return self._aily_knowledge_folder

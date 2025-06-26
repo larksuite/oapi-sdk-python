@@ -25,12 +25,12 @@ class PatchTagRequestBuilder(object):
         patch_tag_request.uri = "/open-apis/im/v2/tags/:tag_id"
         patch_tag_request.token_types = {AccessTokenType.TENANT}
         self._patch_tag_request: PatchTagRequest = patch_tag_request
-
+    
     def tag_id(self, tag_id: str) -> "PatchTagRequestBuilder":
         self._patch_tag_request.tag_id = tag_id
         self._patch_tag_request.paths["tag_id"] = str(tag_id)
         return self
-
+    
     def request_body(self, request_body: PatchTagRequestBody) -> "PatchTagRequestBuilder":
         self._patch_tag_request.request_body = request_body
         self._patch_tag_request.body = request_body

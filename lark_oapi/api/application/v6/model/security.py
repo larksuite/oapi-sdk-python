@@ -23,14 +23,12 @@ class Security(object):
 class SecurityBuilder(object):
     def __init__(self) -> None:
         self._security = Security()
-
     def allowed_ips(self, allowed_ips: List[str]) -> "SecurityBuilder":
         self._security.allowed_ips = allowed_ips
         return self
-
     def h5_trusted_domains(self, h5_trusted_domains: List[str]) -> "SecurityBuilder":
         self._security.h5_trusted_domains = h5_trusted_domains
         return self
-
+    
     def build(self) -> "Security":
         return self._security

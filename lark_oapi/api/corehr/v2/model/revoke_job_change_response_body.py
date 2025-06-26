@@ -23,14 +23,12 @@ class RevokeJobChangeResponseBody(object):
 class RevokeJobChangeResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._revoke_job_change_response_body = RevokeJobChangeResponseBody()
-
     def result(self, result: bool) -> "RevokeJobChangeResponseBodyBuilder":
         self._revoke_job_change_response_body.result = result
         return self
-
     def message(self, message: str) -> "RevokeJobChangeResponseBodyBuilder":
         self._revoke_job_change_response_body.message = message
         return self
-
+    
     def build(self) -> "RevokeJobChangeResponseBody":
         return self._revoke_job_change_response_body

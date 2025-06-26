@@ -23,14 +23,12 @@ class QueryActivityRequestBody(object):
 class QueryActivityRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._query_activity_request_body = QueryActivityRequestBody()
-
     def semester_ids(self, semester_ids: List[int]) -> "QueryActivityRequestBodyBuilder":
         self._query_activity_request_body.semester_ids = semester_ids
         return self
-
     def activity_ids(self, activity_ids: List[int]) -> "QueryActivityRequestBodyBuilder":
         self._query_activity_request_body.activity_ids = activity_ids
         return self
-
+    
     def build(self) -> "QueryActivityRequestBody":
         return self._query_activity_request_body

@@ -30,26 +30,30 @@ class OfferSchema(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetOfferSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferSchemaResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetOfferSchemaRequest,
-                   option: Optional[RequestOption] = None) -> GetOfferSchemaResponse:
+    async def aget(self, request: GetOfferSchemaRequest, option: Optional[RequestOption] = None) -> GetOfferSchemaResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetOfferSchemaResponse = JSON.unmarshal(str(resp.content, UTF_8), GetOfferSchemaResponse)
         response.raw = resp
 
         return response
+        
+    

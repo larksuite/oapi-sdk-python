@@ -32,30 +32,24 @@ class AcctItem(object):
 class AcctItemBuilder(object):
     def __init__(self) -> None:
         self._acct_item = AcctItem()
-
     def id(self, id: str) -> "AcctItemBuilder":
         self._acct_item.id = id
         return self
-
     def i18n_names(self, i18n_names: List[I18nContent]) -> "AcctItemBuilder":
         self._acct_item.i18n_names = i18n_names
         return self
-
     def category_id(self, category_id: str) -> "AcctItemBuilder":
         self._acct_item.category_id = category_id
         return self
-
     def data_type(self, data_type: int) -> "AcctItemBuilder":
         self._acct_item.data_type = data_type
         return self
-
     def decimal_places(self, decimal_places: int) -> "AcctItemBuilder":
         self._acct_item.decimal_places = decimal_places
         return self
-
     def active_status(self, active_status: int) -> "AcctItemBuilder":
         self._acct_item.active_status = active_status
         return self
-
+    
     def build(self) -> "AcctItem":
         return self._acct_item

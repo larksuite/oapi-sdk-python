@@ -23,14 +23,12 @@ class PlusMenu(object):
 class PlusMenuBuilder(object):
     def __init__(self) -> None:
         self._plus_menu = PlusMenu()
-
     def pc_app_link(self, pc_app_link: str) -> "PlusMenuBuilder":
         self._plus_menu.pc_app_link = pc_app_link
         return self
-
     def mobile_app_link(self, mobile_app_link: str) -> "PlusMenuBuilder":
         self._plus_menu.mobile_app_link = mobile_app_link
         return self
-
+    
     def build(self) -> "PlusMenu":
         return self._plus_menu

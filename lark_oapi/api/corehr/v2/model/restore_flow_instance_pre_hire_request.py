@@ -24,9 +24,8 @@ class RestoreFlowInstancePreHireRequestBuilder(object):
         restore_flow_instance_pre_hire_request.uri = "/open-apis/corehr/v2/pre_hires/restore_flow_instance"
         restore_flow_instance_pre_hire_request.token_types = {AccessTokenType.TENANT}
         self._restore_flow_instance_pre_hire_request: RestoreFlowInstancePreHireRequest = restore_flow_instance_pre_hire_request
-
-    def request_body(self,
-                     request_body: RestoreFlowInstancePreHireRequestBody) -> "RestoreFlowInstancePreHireRequestBuilder":
+    
+    def request_body(self, request_body: RestoreFlowInstancePreHireRequestBody) -> "RestoreFlowInstancePreHireRequestBuilder":
         self._restore_flow_instance_pre_hire_request.request_body = request_body
         self._restore_flow_instance_pre_hire_request.body = request_body
         return self

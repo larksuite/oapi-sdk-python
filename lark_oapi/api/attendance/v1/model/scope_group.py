@@ -32,30 +32,24 @@ class ScopeGroup(object):
 class ScopeGroupBuilder(object):
     def __init__(self) -> None:
         self._scope_group = ScopeGroup()
-
     def scope_value_type(self, scope_value_type: int) -> "ScopeGroupBuilder":
         self._scope_group.scope_value_type = scope_value_type
         return self
-
     def operation_type(self, operation_type: int) -> "ScopeGroupBuilder":
         self._scope_group.operation_type = operation_type
         return self
-
     def right(self, right: List[ScopeValue]) -> "ScopeGroupBuilder":
         self._scope_group.right = right
         return self
-
     def member_ids(self, member_ids: List[str]) -> "ScopeGroupBuilder":
         self._scope_group.member_ids = member_ids
         return self
-
     def custom_field__i_d(self, custom_field__i_d: str) -> "ScopeGroupBuilder":
         self._scope_group.custom_field__i_d = custom_field__i_d
         return self
-
     def custom_field_obj_type(self, custom_field_obj_type: str) -> "ScopeGroupBuilder":
         self._scope_group.custom_field_obj_type = custom_field_obj_type
         return self
-
+    
     def build(self) -> "ScopeGroup":
         return self._scope_group

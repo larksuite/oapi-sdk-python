@@ -25,14 +25,12 @@ class FileRecognizeSpeechRequestBody(object):
 class FileRecognizeSpeechRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._file_recognize_speech_request_body = FileRecognizeSpeechRequestBody()
-
     def speech(self, speech: Speech) -> "FileRecognizeSpeechRequestBodyBuilder":
         self._file_recognize_speech_request_body.speech = speech
         return self
-
     def config(self, config: FileConfig) -> "FileRecognizeSpeechRequestBodyBuilder":
         self._file_recognize_speech_request_body.config = config
         return self
-
+    
     def build(self) -> "FileRecognizeSpeechRequestBody":
         return self._file_recognize_speech_request_body

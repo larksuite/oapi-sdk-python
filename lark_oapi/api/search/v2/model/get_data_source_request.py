@@ -23,11 +23,12 @@ class GetDataSourceRequestBuilder(object):
         get_data_source_request.uri = "/open-apis/search/v2/data_sources/:data_source_id"
         get_data_source_request.token_types = {AccessTokenType.TENANT}
         self._get_data_source_request: GetDataSourceRequest = get_data_source_request
-
+    
     def data_source_id(self, data_source_id: str) -> "GetDataSourceRequestBuilder":
         self._get_data_source_request.data_source_id = data_source_id
         self._get_data_source_request.paths["data_source_id"] = str(data_source_id)
         return self
+    
 
     def build(self) -> GetDataSourceRequest:
         return self._get_data_source_request

@@ -23,14 +23,12 @@ class DepartmentParent(object):
 class DepartmentParentBuilder(object):
     def __init__(self) -> None:
         self._department_parent = DepartmentParent()
-
     def department_id(self, department_id: str) -> "DepartmentParentBuilder":
         self._department_parent.department_id = department_id
         return self
-
     def parent_ids(self, parent_ids: List[str]) -> "DepartmentParentBuilder":
         self._department_parent.parent_ids = parent_ids
         return self
-
+    
     def build(self) -> "DepartmentParent":
         return self._department_parent

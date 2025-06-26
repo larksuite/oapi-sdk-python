@@ -27,22 +27,18 @@ class Tenant(object):
 class TenantBuilder(object):
     def __init__(self) -> None:
         self._tenant = Tenant()
-
     def tenant_id(self, tenant_id: str) -> "TenantBuilder":
         self._tenant.tenant_id = tenant_id
         return self
-
     def tenant_name(self, tenant_name: str) -> "TenantBuilder":
         self._tenant.tenant_name = tenant_name
         return self
-
     def domain(self, domain: str) -> "TenantBuilder":
         self._tenant.domain = domain
         return self
-
     def type(self, type: str) -> "TenantBuilder":
         self._tenant.type = type
         return self
-
+    
     def build(self) -> "Tenant":
         return self._tenant

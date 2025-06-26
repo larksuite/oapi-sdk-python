@@ -21,10 +21,9 @@ class WithdrawOnboardingPreHireResponseBody(object):
 class WithdrawOnboardingPreHireResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._withdraw_onboarding_pre_hire_response_body = WithdrawOnboardingPreHireResponseBody()
-
     def success(self, success: bool) -> "WithdrawOnboardingPreHireResponseBodyBuilder":
         self._withdraw_onboarding_pre_hire_response_body.success = success
         return self
-
+    
     def build(self) -> "WithdrawOnboardingPreHireResponseBody":
         return self._withdraw_onboarding_pre_hire_response_body

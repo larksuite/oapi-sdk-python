@@ -22,10 +22,9 @@ class GetDepartmentResponseBody(object):
 class GetDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_department_response_body = GetDepartmentResponseBody()
-
     def department(self, department: Department) -> "GetDepartmentResponseBodyBuilder":
         self._get_department_response_body.department = department
         return self
-
+    
     def build(self) -> "GetDepartmentResponseBody":
         return self._get_department_response_body

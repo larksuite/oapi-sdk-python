@@ -30,22 +30,18 @@ class AgentSchedule(object):
 class AgentScheduleBuilder(object):
     def __init__(self) -> None:
         self._agent_schedule = AgentSchedule()
-
     def status(self, status: int) -> "AgentScheduleBuilder":
         self._agent_schedule.status = status
         return self
-
     def agent(self, agent: AgentUser) -> "AgentScheduleBuilder":
         self._agent_schedule.agent = agent
         return self
-
     def schedule(self, schedule: List[WeekdaySchedule]) -> "AgentScheduleBuilder":
         self._agent_schedule.schedule = schedule
         return self
-
     def agent_skills(self, agent_skills: List[AgentSkillLessInfo]) -> "AgentScheduleBuilder":
         self._agent_schedule.agent_skills = agent_skills
         return self
-
+    
     def build(self) -> "AgentSchedule":
         return self._agent_schedule

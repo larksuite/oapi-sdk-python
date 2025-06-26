@@ -24,14 +24,12 @@ class EmployeeCostAllocation(object):
 class EmployeeCostAllocationBuilder(object):
     def __init__(self) -> None:
         self._employee_cost_allocation = EmployeeCostAllocation()
-
     def employment_id(self, employment_id: str) -> "EmployeeCostAllocationBuilder":
         self._employee_cost_allocation.employment_id = employment_id
         return self
-
     def cost_allocations(self, cost_allocations: List[EmploymentCostAllocation]) -> "EmployeeCostAllocationBuilder":
         self._employee_cost_allocation.cost_allocations = cost_allocations
         return self
-
+    
     def build(self) -> "EmployeeCostAllocation":
         return self._employee_cost_allocation

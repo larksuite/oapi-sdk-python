@@ -40,37 +40,27 @@ class CombinedJobResult(object):
 class CombinedJobResultBuilder(object):
     def __init__(self) -> None:
         self._combined_job_result = CombinedJobResult()
-
     def default_job_post(self, default_job_post: CombinedJobResultDefaultJobPost) -> "CombinedJobResultBuilder":
         self._combined_job_result.default_job_post = default_job_post
         return self
-
     def job(self, job: Job) -> "CombinedJobResultBuilder":
         self._combined_job_result.job = job
         return self
-
     def job_manager(self, job_manager: JobManager) -> "CombinedJobResultBuilder":
         self._combined_job_result.job_manager = job_manager
         return self
-
-    def interview_registration_schema_info(self,
-                                           interview_registration_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
+    def interview_registration_schema_info(self, interview_registration_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
         self._combined_job_result.interview_registration_schema_info = interview_registration_schema_info
         return self
-
-    def onboard_registration_schema_info(self,
-                                         onboard_registration_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
+    def onboard_registration_schema_info(self, onboard_registration_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
         self._combined_job_result.onboard_registration_schema_info = onboard_registration_schema_info
         return self
-
     def target_major_list(self, target_major_list: List[TargetMajorInfo]) -> "CombinedJobResultBuilder":
         self._combined_job_result.target_major_list = target_major_list
         return self
-
-    def portal_website_apply_form_schema_info(self,
-                                              portal_website_apply_form_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
+    def portal_website_apply_form_schema_info(self, portal_website_apply_form_schema_info: RegistrationSchemaInfo) -> "CombinedJobResultBuilder":
         self._combined_job_result.portal_website_apply_form_schema_info = portal_website_apply_form_schema_info
         return self
-
+    
     def build(self) -> "CombinedJobResult":
         return self._combined_job_result

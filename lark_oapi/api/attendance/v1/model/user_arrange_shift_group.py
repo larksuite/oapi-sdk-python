@@ -24,14 +24,12 @@ class UserArrangeShiftGroup(object):
 class UserArrangeShiftGroupBuilder(object):
     def __init__(self) -> None:
         self._user_arrange_shift_group = UserArrangeShiftGroup()
-
     def user_id(self, user_id: str) -> "UserArrangeShiftGroupBuilder":
         self._user_arrange_shift_group.user_id = user_id
         return self
-
     def shift_group(self, shift_group: ArrangeShiftGroup) -> "UserArrangeShiftGroupBuilder":
         self._user_arrange_shift_group.shift_group = shift_group
         return self
-
+    
     def build(self) -> "UserArrangeShiftGroup":
         return self._user_arrange_shift_group

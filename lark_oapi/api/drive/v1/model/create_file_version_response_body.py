@@ -39,46 +39,36 @@ class CreateFileVersionResponseBody(object):
 class CreateFileVersionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_file_version_response_body = CreateFileVersionResponseBody()
-
     def name(self, name: str) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.name = name
         return self
-
     def version(self, version: str) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.version = version
         return self
-
     def parent_token(self, parent_token: str) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.parent_token = parent_token
         return self
-
     def owner_id(self, owner_id: str) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.owner_id = owner_id
         return self
-
     def creator_id(self, creator_id: str) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.creator_id = creator_id
         return self
-
     def create_time(self, create_time: int) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.create_time = create_time
         return self
-
     def update_time(self, update_time: int) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.update_time = update_time
         return self
-
     def status(self, status: int) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.status = status
         return self
-
     def obj_type(self, obj_type: str) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.obj_type = obj_type
         return self
-
     def parent_type(self, parent_type: str) -> "CreateFileVersionResponseBodyBuilder":
         self._create_file_version_response_body.parent_type = parent_type
         return self
-
+    
     def build(self) -> "CreateFileVersionResponseBody":
         return self._create_file_version_response_body

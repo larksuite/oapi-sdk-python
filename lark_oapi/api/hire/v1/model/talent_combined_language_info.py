@@ -28,23 +28,18 @@ class TalentCombinedLanguageInfo(object):
 class TalentCombinedLanguageInfoBuilder(object):
     def __init__(self) -> None:
         self._talent_combined_language_info = TalentCombinedLanguageInfo()
-
     def id(self, id: str) -> "TalentCombinedLanguageInfoBuilder":
         self._talent_combined_language_info.id = id
         return self
-
     def language(self, language: int) -> "TalentCombinedLanguageInfoBuilder":
         self._talent_combined_language_info.language = language
         return self
-
     def proficiency(self, proficiency: int) -> "TalentCombinedLanguageInfoBuilder":
         self._talent_combined_language_info.proficiency = proficiency
         return self
-
-    def customized_data(self,
-                        customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedLanguageInfoBuilder":
+    def customized_data(self, customized_data: List[TalentCustomizedDataObjectValue]) -> "TalentCombinedLanguageInfoBuilder":
         self._talent_combined_language_info.customized_data = customized_data
         return self
-
+    
     def build(self) -> "TalentCombinedLanguageInfo":
         return self._talent_combined_language_info

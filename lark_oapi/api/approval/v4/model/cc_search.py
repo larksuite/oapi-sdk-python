@@ -16,6 +16,7 @@ class CcSearch(object):
         "cc_create_time_from": int,
         "cc_create_time_to": int,
         "locale": str,
+        "with_revoked_instance": bool,
     }
 
     def __init__(self, d=None):
@@ -29,6 +30,7 @@ class CcSearch(object):
         self.cc_create_time_from: Optional[int] = None
         self.cc_create_time_to: Optional[int] = None
         self.locale: Optional[str] = None
+        self.with_revoked_instance: Optional[bool] = None
         init(self, d, self._types)
 
     @staticmethod
@@ -39,46 +41,39 @@ class CcSearch(object):
 class CcSearchBuilder(object):
     def __init__(self) -> None:
         self._cc_search = CcSearch()
-
     def user_id(self, user_id: str) -> "CcSearchBuilder":
         self._cc_search.user_id = user_id
         return self
-
     def approval_code(self, approval_code: str) -> "CcSearchBuilder":
         self._cc_search.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "CcSearchBuilder":
         self._cc_search.instance_code = instance_code
         return self
-
     def instance_external_id(self, instance_external_id: str) -> "CcSearchBuilder":
         self._cc_search.instance_external_id = instance_external_id
         return self
-
     def group_external_id(self, group_external_id: str) -> "CcSearchBuilder":
         self._cc_search.group_external_id = group_external_id
         return self
-
     def cc_title(self, cc_title: str) -> "CcSearchBuilder":
         self._cc_search.cc_title = cc_title
         return self
-
     def read_status(self, read_status: str) -> "CcSearchBuilder":
         self._cc_search.read_status = read_status
         return self
-
     def cc_create_time_from(self, cc_create_time_from: int) -> "CcSearchBuilder":
         self._cc_search.cc_create_time_from = cc_create_time_from
         return self
-
     def cc_create_time_to(self, cc_create_time_to: int) -> "CcSearchBuilder":
         self._cc_search.cc_create_time_to = cc_create_time_to
         return self
-
     def locale(self, locale: str) -> "CcSearchBuilder":
         self._cc_search.locale = locale
         return self
-
+    def with_revoked_instance(self, with_revoked_instance: bool) -> "CcSearchBuilder":
+        self._cc_search.with_revoked_instance = with_revoked_instance
+        return self
+    
     def build(self) -> "CcSearch":
         return self._cc_search

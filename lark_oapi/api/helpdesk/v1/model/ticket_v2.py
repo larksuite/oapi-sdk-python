@@ -82,114 +82,87 @@ class TicketV2(object):
 class TicketV2Builder(object):
     def __init__(self) -> None:
         self._ticket_v2 = TicketV2()
-
     def ticket_id(self, ticket_id: str) -> "TicketV2Builder":
         self._ticket_v2.ticket_id = ticket_id
         return self
-
     def helpdesk_id(self, helpdesk_id: str) -> "TicketV2Builder":
         self._ticket_v2.helpdesk_id = helpdesk_id
         return self
-
     def guest(self, guest: TicketUser) -> "TicketV2Builder":
         self._ticket_v2.guest = guest
         return self
-
     def comments(self, comments: Comments) -> "TicketV2Builder":
         self._ticket_v2.comments = comments
         return self
-
     def ticket_type(self, ticket_type: int) -> "TicketV2Builder":
         self._ticket_v2.ticket_type = ticket_type
         return self
-
     def status(self, status: int) -> "TicketV2Builder":
         self._ticket_v2.status = status
         return self
-
     def score(self, score: int) -> "TicketV2Builder":
         self._ticket_v2.score = score
         return self
-
     def created_at(self, created_at: int) -> "TicketV2Builder":
         self._ticket_v2.created_at = created_at
         return self
-
     def updated_at(self, updated_at: int) -> "TicketV2Builder":
         self._ticket_v2.updated_at = updated_at
         return self
-
     def closed_at(self, closed_at: int) -> "TicketV2Builder":
         self._ticket_v2.closed_at = closed_at
         return self
-
     def dissatisfaction_reason(self, dissatisfaction_reason: I18n) -> "TicketV2Builder":
         self._ticket_v2.dissatisfaction_reason = dissatisfaction_reason
         return self
-
     def agents(self, agents: List[TicketUser]) -> "TicketV2Builder":
         self._ticket_v2.agents = agents
         return self
-
     def channel(self, channel: int) -> "TicketV2Builder":
         self._ticket_v2.channel = channel
         return self
-
     def solve(self, solve: int) -> "TicketV2Builder":
         self._ticket_v2.solve = solve
         return self
-
     def closed_by(self, closed_by: TicketUser) -> "TicketV2Builder":
         self._ticket_v2.closed_by = closed_by
         return self
-
     def collaborators(self, collaborators: List[TicketUser]) -> "TicketV2Builder":
         self._ticket_v2.collaborators = collaborators
         return self
-
     def customized_fields(self, customized_fields: List[CustomizedFieldDisplayItem]) -> "TicketV2Builder":
         self._ticket_v2.customized_fields = customized_fields
         return self
-
     def agent_service_duration(self, agent_service_duration: float) -> "TicketV2Builder":
         self._ticket_v2.agent_service_duration = agent_service_duration
         return self
-
     def agent_first_response_duration(self, agent_first_response_duration: int) -> "TicketV2Builder":
         self._ticket_v2.agent_first_response_duration = agent_first_response_duration
         return self
-
     def bot_service_duration(self, bot_service_duration: int) -> "TicketV2Builder":
         self._ticket_v2.bot_service_duration = bot_service_duration
         return self
-
     def agent_resolution_time(self, agent_resolution_time: int) -> "TicketV2Builder":
         self._ticket_v2.agent_resolution_time = agent_resolution_time
         return self
-
     def actual_processing_time(self, actual_processing_time: int) -> "TicketV2Builder":
         self._ticket_v2.actual_processing_time = actual_processing_time
         return self
-
     def agent_entry_time(self, agent_entry_time: int) -> "TicketV2Builder":
         self._ticket_v2.agent_entry_time = agent_entry_time
         return self
-
     def agent_first_response_time(self, agent_first_response_time: int) -> "TicketV2Builder":
         self._ticket_v2.agent_first_response_time = agent_first_response_time
         return self
-
     def agent_last_response_time(self, agent_last_response_time: int) -> "TicketV2Builder":
         self._ticket_v2.agent_last_response_time = agent_last_response_time
         return self
-
     def agent_owner(self, agent_owner: TicketUser) -> "TicketV2Builder":
         self._ticket_v2.agent_owner = agent_owner
         return self
-
     def tags(self, tags: List[TicketTag]) -> "TicketV2Builder":
         self._ticket_v2.tags = tags
         return self
-
+    
     def build(self) -> "TicketV2":
         return self._ticket_v2

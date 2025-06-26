@@ -24,14 +24,12 @@ class SignatureCustomFieldV2(object):
 class SignatureCustomFieldV2Builder(object):
     def __init__(self) -> None:
         self._signature_custom_field_v2 = SignatureCustomFieldV2()
-
     def key(self, key: str) -> "SignatureCustomFieldV2Builder":
         self._signature_custom_field_v2.key = key
         return self
-
     def value(self, value: SignatureCustomFieldValue) -> "SignatureCustomFieldV2Builder":
         self._signature_custom_field_v2.value = value
         return self
-
+    
     def build(self) -> "SignatureCustomFieldV2":
         return self._signature_custom_field_v2

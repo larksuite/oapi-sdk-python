@@ -32,6 +32,7 @@ from .iframe_component import *
 from .image import *
 from .inline_block import *
 from .inline_file import *
+from .inline_link_preview import *
 from .insert_grid_column_request import *
 from .insert_table_column_request import *
 from .insert_table_row_request import *
@@ -50,7 +51,9 @@ from .okr_objective import *
 from .okr_progress import *
 from .okr_progress_rate import *
 from .okr_visible_setting import *
+from .project import *
 from .quote_container import *
+from .reference_base import *
 from .reference_synced import *
 from .reminder import *
 from .replace_file_request import *
@@ -75,6 +78,7 @@ from .update_block_request import *
 from .update_cover_request import *
 from .update_document_request import *
 from .update_grid_column_width_ratio_request import *
+from .update_reference_base_request import *
 from .update_table_property_request import *
 from .update_task_request import *
 from .update_text_elements_request import *
@@ -92,6 +96,8 @@ from .batch_delete_chat_announcement_block_children_request import *
 from .create_chat_announcement_block_children_request_body import *
 from .create_chat_announcement_block_children_request import *
 from .get_chat_announcement_block_children_request import *
+from .convert_document_request_body import *
+from .convert_document_request import *
 from .create_document_request_body import *
 from .create_document_request import *
 from .get_document_request import *
@@ -122,6 +128,8 @@ from .create_chat_announcement_block_children_response_body import *
 from .create_chat_announcement_block_children_response import *
 from .get_chat_announcement_block_children_response_body import *
 from .get_chat_announcement_block_children_response import *
+from .convert_document_response_body import *
+from .convert_document_response import *
 from .create_document_response_body import *
 from .create_document_response import *
 from .get_document_response_body import *

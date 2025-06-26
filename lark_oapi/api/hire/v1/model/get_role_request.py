@@ -23,11 +23,12 @@ class GetRoleRequestBuilder(object):
         get_role_request.uri = "/open-apis/hire/v1/roles/:role_id"
         get_role_request.token_types = {AccessTokenType.TENANT}
         self._get_role_request: GetRoleRequest = get_role_request
-
+    
     def role_id(self, role_id: str) -> "GetRoleRequestBuilder":
         self._get_role_request.role_id = role_id
         self._get_role_request.paths["role_id"] = str(role_id)
         return self
+    
 
     def build(self) -> GetRoleRequest:
         return self._get_role_request

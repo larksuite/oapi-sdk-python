@@ -45,50 +45,39 @@ class Dataset(object):
 class DatasetBuilder(object):
     def __init__(self) -> None:
         self._dataset = Dataset()
-
     def namespace(self, namespace: str) -> "DatasetBuilder":
         self._dataset.namespace = namespace
         return self
-
     def api_id(self, api_id: str) -> "DatasetBuilder":
         self._dataset.api_id = api_id
         return self
-
     def api_name(self, api_name: str) -> "DatasetBuilder":
         self._dataset.api_name = api_name
         return self
-
     def label(self, label: Dict[str, str]) -> "DatasetBuilder":
         self._dataset.label = label
         return self
-
     def source(self, source: DatasetSource) -> "DatasetBuilder":
         self._dataset.source = source
         return self
-
     def fields(self, fields: List[DatasetField]) -> "DatasetBuilder":
         self._dataset.fields = fields
         return self
-
     def data_refresh_time(self, data_refresh_time: int) -> "DatasetBuilder":
         self._dataset.data_refresh_time = data_refresh_time
         return self
-
     def create_time(self, create_time: int) -> "DatasetBuilder":
         self._dataset.create_time = create_time
         return self
-
     def created_by(self, created_by: DatasetLookupUser) -> "DatasetBuilder":
         self._dataset.created_by = created_by
         return self
-
     def update_time(self, update_time: int) -> "DatasetBuilder":
         self._dataset.update_time = update_time
         return self
-
     def updated_by(self, updated_by: DatasetLookupUser) -> "DatasetBuilder":
         self._dataset.updated_by = updated_by
         return self
-
+    
     def build(self) -> "Dataset":
         return self._dataset

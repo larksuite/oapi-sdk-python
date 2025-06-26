@@ -22,10 +22,9 @@ class ConfigJobResponseBody(object):
 class ConfigJobResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._config_job_response_body = ConfigJobResponseBody()
-
     def job_config(self, job_config: JobConfigResult) -> "ConfigJobResponseBodyBuilder":
         self._config_job_response_body.job_config = job_config
         return self
-
+    
     def build(self) -> "ConfigJobResponseBody":
         return self._config_job_response_body

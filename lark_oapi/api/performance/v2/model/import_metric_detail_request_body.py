@@ -26,18 +26,15 @@ class ImportMetricDetailRequestBody(object):
 class ImportMetricDetailRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._import_metric_detail_request_body = ImportMetricDetailRequestBody()
-
     def semester_id(self, semester_id: int) -> "ImportMetricDetailRequestBodyBuilder":
         self._import_metric_detail_request_body.semester_id = semester_id
         return self
-
     def import_record_name(self, import_record_name: str) -> "ImportMetricDetailRequestBodyBuilder":
         self._import_metric_detail_request_body.import_record_name = import_record_name
         return self
-
     def imported_metrics(self, imported_metrics: List[ImportedMetric]) -> "ImportMetricDetailRequestBodyBuilder":
         self._import_metric_detail_request_body.imported_metrics = imported_metrics
         return self
-
+    
     def build(self) -> "ImportMetricDetailRequestBody":
         return self._import_metric_detail_request_body

@@ -31,26 +31,21 @@ class ReviewDataPermission(object):
 class ReviewDataPermissionBuilder(object):
     def __init__(self) -> None:
         self._review_data_permission = ReviewDataPermission()
-
     def user_id(self, user_id: User) -> "ReviewDataPermissionBuilder":
         self._review_data_permission.user_id = user_id
         return self
-
     def semester_id(self, semester_id: str) -> "ReviewDataPermissionBuilder":
         self._review_data_permission.semester_id = semester_id
         return self
-
     def activity_id(self, activity_id: str) -> "ReviewDataPermissionBuilder":
         self._review_data_permission.activity_id = activity_id
         return self
-
     def review_template_id(self, review_template_id: str) -> "ReviewDataPermissionBuilder":
         self._review_data_permission.review_template_id = review_template_id
         return self
-
     def stages(self, stages: List[ReviewDataPermissionStage]) -> "ReviewDataPermissionBuilder":
         self._review_data_permission.stages = stages
         return self
-
+    
     def build(self) -> "ReviewDataPermission":
         return self._review_data_permission

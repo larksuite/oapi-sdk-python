@@ -26,19 +26,18 @@ class SearchBasicInfoNationalityRequestBuilder(object):
         search_basic_info_nationality_request.uri = "/open-apis/corehr/v2/basic_info/nationalities/search"
         search_basic_info_nationality_request.token_types = {AccessTokenType.TENANT}
         self._search_basic_info_nationality_request: SearchBasicInfoNationalityRequest = search_basic_info_nationality_request
-
+    
     def page_size(self, page_size: int) -> "SearchBasicInfoNationalityRequestBuilder":
         self._search_basic_info_nationality_request.page_size = page_size
         self._search_basic_info_nationality_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "SearchBasicInfoNationalityRequestBuilder":
         self._search_basic_info_nationality_request.page_token = page_token
         self._search_basic_info_nationality_request.add_query("page_token", page_token)
         return self
-
-    def request_body(self,
-                     request_body: SearchBasicInfoNationalityRequestBody) -> "SearchBasicInfoNationalityRequestBuilder":
+    
+    def request_body(self, request_body: SearchBasicInfoNationalityRequestBody) -> "SearchBasicInfoNationalityRequestBuilder":
         self._search_basic_info_nationality_request.request_body = request_body
         self._search_basic_info_nationality_request.body = request_body
         return self

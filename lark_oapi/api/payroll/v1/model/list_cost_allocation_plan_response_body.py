@@ -26,18 +26,15 @@ class ListCostAllocationPlanResponseBody(object):
 class ListCostAllocationPlanResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_cost_allocation_plan_response_body = ListCostAllocationPlanResponseBody()
-
     def items(self, items: List[CostAllocationPlan]) -> "ListCostAllocationPlanResponseBodyBuilder":
         self._list_cost_allocation_plan_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListCostAllocationPlanResponseBodyBuilder":
         self._list_cost_allocation_plan_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListCostAllocationPlanResponseBodyBuilder":
         self._list_cost_allocation_plan_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListCostAllocationPlanResponseBody":
         return self._list_cost_allocation_plan_response_body

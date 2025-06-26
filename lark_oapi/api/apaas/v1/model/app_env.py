@@ -25,18 +25,15 @@ class AppEnv(object):
 class AppEnvBuilder(object):
     def __init__(self) -> None:
         self._app_env = AppEnv()
-
     def dev_id(self, dev_id: str) -> "AppEnvBuilder":
         self._app_env.dev_id = dev_id
         return self
-
     def test_id(self, test_id: str) -> "AppEnvBuilder":
         self._app_env.test_id = test_id
         return self
-
     def prod_id(self, prod_id: str) -> "AppEnvBuilder":
         self._app_env.prod_id = prod_id
         return self
-
+    
     def build(self) -> "AppEnv":
         return self._app_env

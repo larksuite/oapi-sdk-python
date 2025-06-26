@@ -23,14 +23,12 @@ class OnboardingTaskChange(object):
 class OnboardingTaskChangeBuilder(object):
     def __init__(self) -> None:
         self._onboarding_task_change = OnboardingTaskChange()
-
     def after_status(self, after_status: str) -> "OnboardingTaskChangeBuilder":
         self._onboarding_task_change.after_status = after_status
         return self
-
     def task_code(self, task_code: str) -> "OnboardingTaskChangeBuilder":
         self._onboarding_task_change.task_code = task_code
         return self
-
+    
     def build(self) -> "OnboardingTaskChange":
         return self._onboarding_task_change

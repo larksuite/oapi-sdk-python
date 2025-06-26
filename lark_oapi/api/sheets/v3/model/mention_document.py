@@ -30,26 +30,21 @@ class MentionDocument(object):
 class MentionDocumentBuilder(object):
     def __init__(self) -> None:
         self._mention_document = MentionDocument()
-
     def title(self, title: str) -> "MentionDocumentBuilder":
         self._mention_document.title = title
         return self
-
     def object_type(self, object_type: str) -> "MentionDocumentBuilder":
         self._mention_document.object_type = object_type
         return self
-
     def token(self, token: str) -> "MentionDocumentBuilder":
         self._mention_document.token = token
         return self
-
     def segment_style(self, segment_style: SegmentStyle) -> "MentionDocumentBuilder":
         self._mention_document.segment_style = segment_style
         return self
-
     def link(self, link: str) -> "MentionDocumentBuilder":
         self._mention_document.link = link
         return self
-
+    
     def build(self) -> "MentionDocument":
         return self._mention_document

@@ -24,9 +24,8 @@ class RecognizeTwMainlandTravelPermitRequestBuilder(object):
         recognize_tw_mainland_travel_permit_request.uri = "/open-apis/document_ai/v1/tw_mainland_travel_permit/recognize"
         recognize_tw_mainland_travel_permit_request.token_types = {AccessTokenType.TENANT}
         self._recognize_tw_mainland_travel_permit_request: RecognizeTwMainlandTravelPermitRequest = recognize_tw_mainland_travel_permit_request
-
-    def request_body(self,
-                     request_body: RecognizeTwMainlandTravelPermitRequestBody) -> "RecognizeTwMainlandTravelPermitRequestBuilder":
+    
+    def request_body(self, request_body: RecognizeTwMainlandTravelPermitRequestBody) -> "RecognizeTwMainlandTravelPermitRequestBuilder":
         self._recognize_tw_mainland_travel_permit_request.request_body = request_body
         self._recognize_tw_mainland_travel_permit_request.body = request_body
         return self

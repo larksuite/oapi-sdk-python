@@ -46,50 +46,39 @@ class Message(object):
 class MessageBuilder(object):
     def __init__(self) -> None:
         self._message = Message()
-
     def id(self, id: int) -> "MessageBuilder":
         self._message.id = id
         return self
-
     def title(self, title: str) -> "MessageBuilder":
         self._message.title = title
         return self
-
     def content(self, content: str) -> "MessageBuilder":
         self._message.content = content
         return self
-
     def message_status(self, message_status: str) -> "MessageBuilder":
         self._message.message_status = message_status
         return self
-
     def builtin_actions(self, builtin_actions: List[BuiltinAction]) -> "MessageBuilder":
         self._message.builtin_actions = builtin_actions
         return self
-
     def skill_base_infos(self, skill_base_infos: List[SkillBaseInfo]) -> "MessageBuilder":
         self._message.skill_base_infos = skill_base_infos
         return self
-
     def message_progress(self, message_progress: MessageProgress) -> "MessageBuilder":
         self._message.message_progress = message_progress
         return self
-
     def sender(self, sender: Sender) -> "MessageBuilder":
         self._message.sender = sender
         return self
-
     def error(self, error: MessageError) -> "MessageBuilder":
         self._message.error = error
         return self
-
     def trigger_type(self, trigger_type: str) -> "MessageBuilder":
         self._message.trigger_type = trigger_type
         return self
-
     def visibility(self, visibility: str) -> "MessageBuilder":
         self._message.visibility = visibility
         return self
-
+    
     def build(self) -> "Message":
         return self._message

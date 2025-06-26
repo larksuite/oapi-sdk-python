@@ -22,10 +22,9 @@ class Minutes(object):
 class MinutesBuilder(object):
     def __init__(self) -> None:
         self._minutes = Minutes()
-
     def sentences(self, sentences: List[Sentence]) -> "MinutesBuilder":
         self._minutes.sentences = sentences
         return self
-
+    
     def build(self) -> "Minutes":
         return self._minutes

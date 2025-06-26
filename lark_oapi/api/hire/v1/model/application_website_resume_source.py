@@ -27,18 +27,15 @@ class ApplicationWebsiteResumeSource(object):
 class ApplicationWebsiteResumeSourceBuilder(object):
     def __init__(self) -> None:
         self._application_website_resume_source = ApplicationWebsiteResumeSource()
-
     def website_id(self, website_id: str) -> "ApplicationWebsiteResumeSourceBuilder":
         self._application_website_resume_source.website_id = website_id
         return self
-
     def website_name(self, website_name: I18n) -> "ApplicationWebsiteResumeSourceBuilder":
         self._application_website_resume_source.website_name = website_name
         return self
-
     def channel(self, channel: ApplicationWebsiteChannel) -> "ApplicationWebsiteResumeSourceBuilder":
         self._application_website_resume_source.channel = channel
         return self
-
+    
     def build(self) -> "ApplicationWebsiteResumeSource":
         return self._application_website_resume_source

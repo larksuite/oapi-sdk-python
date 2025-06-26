@@ -26,18 +26,15 @@ class ReviewDataPermissionStage(object):
 class ReviewDataPermissionStageBuilder(object):
     def __init__(self) -> None:
         self._review_data_permission_stage = ReviewDataPermissionStage()
-
     def stage_id(self, stage_id: str) -> "ReviewDataPermissionStageBuilder":
         self._review_data_permission_stage.stage_id = stage_id
         return self
-
     def stage_type(self, stage_type: str) -> "ReviewDataPermissionStageBuilder":
         self._review_data_permission_stage.stage_type = stage_type
         return self
-
     def units(self, units: List[ReviewDataPermissionUnit]) -> "ReviewDataPermissionStageBuilder":
         self._review_data_permission_stage.units = units
         return self
-
+    
     def build(self) -> "ReviewDataPermissionStage":
         return self._review_data_permission_stage

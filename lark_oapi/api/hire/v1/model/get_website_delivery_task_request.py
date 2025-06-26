@@ -24,16 +24,17 @@ class GetWebsiteDeliveryTaskRequestBuilder(object):
         get_website_delivery_task_request.uri = "/open-apis/hire/v1/websites/:website_id/delivery_tasks/:delivery_task_id"
         get_website_delivery_task_request.token_types = {AccessTokenType.TENANT}
         self._get_website_delivery_task_request: GetWebsiteDeliveryTaskRequest = get_website_delivery_task_request
-
+    
     def website_id(self, website_id: str) -> "GetWebsiteDeliveryTaskRequestBuilder":
         self._get_website_delivery_task_request.website_id = website_id
         self._get_website_delivery_task_request.paths["website_id"] = str(website_id)
         return self
-
+    
     def delivery_task_id(self, delivery_task_id: str) -> "GetWebsiteDeliveryTaskRequestBuilder":
         self._get_website_delivery_task_request.delivery_task_id = delivery_task_id
         self._get_website_delivery_task_request.paths["delivery_task_id"] = str(delivery_task_id)
         return self
+    
 
     def build(self) -> GetWebsiteDeliveryTaskRequest:
         return self._get_website_delivery_task_request

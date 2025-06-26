@@ -24,16 +24,17 @@ class GetSpreadsheetSheetFilterRequestBuilder(object):
         get_spreadsheet_sheet_filter_request.uri = "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
         get_spreadsheet_sheet_filter_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._get_spreadsheet_sheet_filter_request: GetSpreadsheetSheetFilterRequest = get_spreadsheet_sheet_filter_request
-
+    
     def spreadsheet_token(self, spreadsheet_token: str) -> "GetSpreadsheetSheetFilterRequestBuilder":
         self._get_spreadsheet_sheet_filter_request.spreadsheet_token = spreadsheet_token
         self._get_spreadsheet_sheet_filter_request.paths["spreadsheet_token"] = str(spreadsheet_token)
         return self
-
+    
     def sheet_id(self, sheet_id: str) -> "GetSpreadsheetSheetFilterRequestBuilder":
         self._get_spreadsheet_sheet_filter_request.sheet_id = sheet_id
         self._get_spreadsheet_sheet_filter_request.paths["sheet_id"] = str(sheet_id)
         return self
+    
 
     def build(self) -> GetSpreadsheetSheetFilterRequest:
         return self._get_spreadsheet_sheet_filter_request

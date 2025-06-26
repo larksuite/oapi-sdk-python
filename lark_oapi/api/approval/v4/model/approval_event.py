@@ -35,38 +35,30 @@ class ApprovalEvent(object):
 class ApprovalEventBuilder(object):
     def __init__(self) -> None:
         self._approval_event = ApprovalEvent()
-
     def approval_id(self, approval_id: str) -> "ApprovalEventBuilder":
         self._approval_event.approval_id = approval_id
         return self
-
     def approval_code(self, approval_code: str) -> "ApprovalEventBuilder":
         self._approval_event.approval_code = approval_code
         return self
-
     def version_id(self, version_id: str) -> "ApprovalEventBuilder":
         self._approval_event.version_id = version_id
         return self
-
     def widget_group_type(self, widget_group_type: int) -> "ApprovalEventBuilder":
         self._approval_event.widget_group_type = widget_group_type
         return self
-
     def form_definition_id(self, form_definition_id: str) -> "ApprovalEventBuilder":
         self._approval_event.form_definition_id = form_definition_id
         return self
-
     def process_obj(self, process_obj: str) -> "ApprovalEventBuilder":
         self._approval_event.process_obj = process_obj
         return self
-
     def timestamp(self, timestamp: str) -> "ApprovalEventBuilder":
         self._approval_event.timestamp = timestamp
         return self
-
     def extra(self, extra: str) -> "ApprovalEventBuilder":
         self._approval_event.extra = extra
         return self
-
+    
     def build(self) -> "ApprovalEvent":
         return self._approval_event

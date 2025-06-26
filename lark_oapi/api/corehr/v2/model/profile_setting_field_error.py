@@ -23,14 +23,12 @@ class ProfileSettingFieldError(object):
 class ProfileSettingFieldErrorBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_field_error = ProfileSettingFieldError()
-
     def field_name(self, field_name: str) -> "ProfileSettingFieldErrorBuilder":
         self._profile_setting_field_error.field_name = field_name
         return self
-
     def error_msg(self, error_msg: str) -> "ProfileSettingFieldErrorBuilder":
         self._profile_setting_field_error.error_msg = error_msg
         return self
-
+    
     def build(self) -> "ProfileSettingFieldError":
         return self._profile_setting_field_error

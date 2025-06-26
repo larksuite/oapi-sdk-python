@@ -22,10 +22,9 @@ class GetApplicationCollaboratorsResponseBody(object):
 class GetApplicationCollaboratorsResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_application_collaborators_response_body = GetApplicationCollaboratorsResponseBody()
-
     def collaborators(self, collaborators: List[AppCollaborator]) -> "GetApplicationCollaboratorsResponseBodyBuilder":
         self._get_application_collaborators_response_body.collaborators = collaborators
         return self
-
+    
     def build(self) -> "GetApplicationCollaboratorsResponseBody":
         return self._get_application_collaborators_response_body

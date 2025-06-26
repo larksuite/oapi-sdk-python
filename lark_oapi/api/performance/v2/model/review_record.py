@@ -32,27 +32,21 @@ class ReviewRecord(object):
 class ReviewRecordBuilder(object):
     def __init__(self) -> None:
         self._review_record = ReviewRecord()
-
     def progress(self, progress: int) -> "ReviewRecordBuilder":
         self._review_record.progress = progress
         return self
-
     def units(self, units: List[ReviewUnit]) -> "ReviewRecordBuilder":
         self._review_record.units = units
         return self
-
     def invited_review_record_info(self, invited_review_record_info: InvitedReviewRecordInfo) -> "ReviewRecordBuilder":
         self._review_record.invited_review_record_info = invited_review_record_info
         return self
-
-    def direct_project_leader_record_info(self,
-                                          direct_project_leader_record_info: DirectProjectLeaderRecordInfo) -> "ReviewRecordBuilder":
+    def direct_project_leader_record_info(self, direct_project_leader_record_info: DirectProjectLeaderRecordInfo) -> "ReviewRecordBuilder":
         self._review_record.direct_project_leader_record_info = direct_project_leader_record_info
         return self
-
     def record_id(self, record_id: str) -> "ReviewRecordBuilder":
         self._review_record.record_id = record_id
         return self
-
+    
     def build(self) -> "ReviewRecord":
         return self._review_record

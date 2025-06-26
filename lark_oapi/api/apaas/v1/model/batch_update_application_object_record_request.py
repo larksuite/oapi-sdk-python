@@ -26,19 +26,18 @@ class BatchUpdateApplicationObjectRecordRequestBuilder(object):
         batch_update_application_object_record_request.uri = "/open-apis/apaas/v1/applications/:namespace/objects/:object_api_name/records/batch_update"
         batch_update_application_object_record_request.token_types = {AccessTokenType.TENANT}
         self._batch_update_application_object_record_request: BatchUpdateApplicationObjectRecordRequest = batch_update_application_object_record_request
-
+    
     def namespace(self, namespace: str) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
         self._batch_update_application_object_record_request.namespace = namespace
         self._batch_update_application_object_record_request.paths["namespace"] = str(namespace)
         return self
-
+    
     def object_api_name(self, object_api_name: str) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
         self._batch_update_application_object_record_request.object_api_name = object_api_name
         self._batch_update_application_object_record_request.paths["object_api_name"] = str(object_api_name)
         return self
-
-    def request_body(self,
-                     request_body: BatchUpdateApplicationObjectRecordRequestBody) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
+    
+    def request_body(self, request_body: BatchUpdateApplicationObjectRecordRequestBody) -> "BatchUpdateApplicationObjectRecordRequestBuilder":
         self._batch_update_application_object_record_request.request_body = request_body
         self._batch_update_application_object_record_request.body = request_body
         return self

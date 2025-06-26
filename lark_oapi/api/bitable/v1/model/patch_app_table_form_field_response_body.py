@@ -22,10 +22,9 @@ class PatchAppTableFormFieldResponseBody(object):
 class PatchAppTableFormFieldResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._patch_app_table_form_field_response_body = PatchAppTableFormFieldResponseBody()
-
     def field(self, field: AppTableFormPatchedField) -> "PatchAppTableFormFieldResponseBodyBuilder":
         self._patch_app_table_form_field_response_body.field = field
         return self
-
+    
     def build(self) -> "PatchAppTableFormFieldResponseBody":
         return self._patch_app_table_form_field_response_body

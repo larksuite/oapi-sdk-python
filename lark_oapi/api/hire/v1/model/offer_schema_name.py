@@ -23,14 +23,12 @@ class OfferSchemaName(object):
 class OfferSchemaNameBuilder(object):
     def __init__(self) -> None:
         self._offer_schema_name = OfferSchemaName()
-
     def zh_cn(self, zh_cn: str) -> "OfferSchemaNameBuilder":
         self._offer_schema_name.zh_cn = zh_cn
         return self
-
     def en_us(self, en_us: str) -> "OfferSchemaNameBuilder":
         self._offer_schema_name.en_us = en_us
         return self
-
+    
     def build(self) -> "OfferSchemaName":
         return self._offer_schema_name

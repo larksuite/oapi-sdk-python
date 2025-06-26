@@ -26,18 +26,15 @@ class ListChangeReasonResponseBody(object):
 class ListChangeReasonResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_change_reason_response_body = ListChangeReasonResponseBody()
-
     def items(self, items: List[ChangeReason]) -> "ListChangeReasonResponseBodyBuilder":
         self._list_change_reason_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListChangeReasonResponseBodyBuilder":
         self._list_change_reason_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListChangeReasonResponseBodyBuilder":
         self._list_change_reason_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListChangeReasonResponseBody":
         return self._list_change_reason_response_body

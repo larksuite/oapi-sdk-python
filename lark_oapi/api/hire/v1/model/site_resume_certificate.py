@@ -23,14 +23,12 @@ class SiteResumeCertificate(object):
 class SiteResumeCertificateBuilder(object):
     def __init__(self) -> None:
         self._site_resume_certificate = SiteResumeCertificate()
-
     def name(self, name: str) -> "SiteResumeCertificateBuilder":
         self._site_resume_certificate.name = name
         return self
-
     def description(self, description: str) -> "SiteResumeCertificateBuilder":
         self._site_resume_certificate.description = description
         return self
-
+    
     def build(self) -> "SiteResumeCertificate":
         return self._site_resume_certificate

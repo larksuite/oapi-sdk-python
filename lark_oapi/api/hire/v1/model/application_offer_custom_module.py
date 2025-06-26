@@ -24,14 +24,12 @@ class ApplicationOfferCustomModule(object):
 class ApplicationOfferCustomModuleBuilder(object):
     def __init__(self) -> None:
         self._application_offer_custom_module = ApplicationOfferCustomModule()
-
     def i_d(self, i_d: str) -> "ApplicationOfferCustomModuleBuilder":
         self._application_offer_custom_module.i_d = i_d
         return self
-
     def object_list(self, object_list: List[ApplicationOfferCustomValue]) -> "ApplicationOfferCustomModuleBuilder":
         self._application_offer_custom_module.object_list = object_list
         return self
-
+    
     def build(self) -> "ApplicationOfferCustomModule":
         return self._application_offer_custom_module

@@ -23,14 +23,12 @@ class ResourceAccept(object):
 class ResourceAcceptBuilder(object):
     def __init__(self) -> None:
         self._resource_accept = ResourceAccept()
-
     def processing_type(self, processing_type: int) -> "ResourceAcceptBuilder":
         self._resource_accept.processing_type = processing_type
         return self
-
     def acceptor_user_id(self, acceptor_user_id: int) -> "ResourceAcceptBuilder":
         self._resource_accept.acceptor_user_id = acceptor_user_id
         return self
-
+    
     def build(self) -> "ResourceAccept":
         return self._resource_accept

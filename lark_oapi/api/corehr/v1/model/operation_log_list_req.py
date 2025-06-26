@@ -29,26 +29,21 @@ class OperationLogListReq(object):
 class OperationLogListReqBuilder(object):
     def __init__(self) -> None:
         self._operation_log_list_req = OperationLogListReq()
-
     def start_time(self, start_time: str) -> "OperationLogListReqBuilder":
         self._operation_log_list_req.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "OperationLogListReqBuilder":
         self._operation_log_list_req.end_time = end_time
         return self
-
     def operator_ids(self, operator_ids: List[str]) -> "OperationLogListReqBuilder":
         self._operation_log_list_req.operator_ids = operator_ids
         return self
-
     def employment_id(self, employment_id: str) -> "OperationLogListReqBuilder":
         self._operation_log_list_req.employment_id = employment_id
         return self
-
     def filter_fields(self, filter_fields: List[str]) -> "OperationLogListReqBuilder":
         self._operation_log_list_req.filter_fields = filter_fields
         return self
-
+    
     def build(self) -> "OperationLogListReq":
         return self._operation_log_list_req

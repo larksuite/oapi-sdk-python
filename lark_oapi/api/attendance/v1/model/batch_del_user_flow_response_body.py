@@ -23,14 +23,12 @@ class BatchDelUserFlowResponseBody(object):
 class BatchDelUserFlowResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_del_user_flow_response_body = BatchDelUserFlowResponseBody()
-
     def success_record_ids(self, success_record_ids: List[str]) -> "BatchDelUserFlowResponseBodyBuilder":
         self._batch_del_user_flow_response_body.success_record_ids = success_record_ids
         return self
-
     def fail_record_ids(self, fail_record_ids: List[str]) -> "BatchDelUserFlowResponseBodyBuilder":
         self._batch_del_user_flow_response_body.fail_record_ids = fail_record_ids
         return self
-
+    
     def build(self) -> "BatchDelUserFlowResponseBody":
         return self._batch_del_user_flow_response_body

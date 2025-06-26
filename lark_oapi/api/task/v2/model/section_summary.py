@@ -25,18 +25,15 @@ class SectionSummary(object):
 class SectionSummaryBuilder(object):
     def __init__(self) -> None:
         self._section_summary = SectionSummary()
-
     def guid(self, guid: str) -> "SectionSummaryBuilder":
         self._section_summary.guid = guid
         return self
-
     def name(self, name: str) -> "SectionSummaryBuilder":
         self._section_summary.name = name
         return self
-
     def is_default(self, is_default: bool) -> "SectionSummaryBuilder":
         self._section_summary.is_default = is_default
         return self
-
+    
     def build(self) -> "SectionSummary":
         return self._section_summary

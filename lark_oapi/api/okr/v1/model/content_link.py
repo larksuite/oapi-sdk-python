@@ -21,10 +21,9 @@ class ContentLink(object):
 class ContentLinkBuilder(object):
     def __init__(self) -> None:
         self._content_link = ContentLink()
-
     def url(self, url: str) -> "ContentLinkBuilder":
         self._content_link.url = url
         return self
-
+    
     def build(self) -> "ContentLink":
         return self._content_link

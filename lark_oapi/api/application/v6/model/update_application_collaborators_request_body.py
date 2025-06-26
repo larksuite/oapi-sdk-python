@@ -24,14 +24,12 @@ class UpdateApplicationCollaboratorsRequestBody(object):
 class UpdateApplicationCollaboratorsRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._update_application_collaborators_request_body = UpdateApplicationCollaboratorsRequestBody()
-
     def adds(self, adds: List[AppCollaborator]) -> "UpdateApplicationCollaboratorsRequestBodyBuilder":
         self._update_application_collaborators_request_body.adds = adds
         return self
-
     def removes(self, removes: List[str]) -> "UpdateApplicationCollaboratorsRequestBodyBuilder":
         self._update_application_collaborators_request_body.removes = removes
         return self
-
+    
     def build(self) -> "UpdateApplicationCollaboratorsRequestBody":
         return self._update_application_collaborators_request_body

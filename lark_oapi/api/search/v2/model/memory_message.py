@@ -23,14 +23,12 @@ class MemoryMessage(object):
 class MemoryMessageBuilder(object):
     def __init__(self) -> None:
         self._memory_message = MemoryMessage()
-
     def role(self, role: str) -> "MemoryMessageBuilder":
         self._memory_message.role = role
         return self
-
     def content(self, content: str) -> "MemoryMessageBuilder":
         self._memory_message.content = content
         return self
-
+    
     def build(self) -> "MemoryMessage":
         return self._memory_message

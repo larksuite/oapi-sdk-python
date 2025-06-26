@@ -23,14 +23,12 @@ class ExternalApprovalItem(object):
 class ExternalApprovalItemBuilder(object):
     def __init__(self) -> None:
         self._external_approval_item = ExternalApprovalItem()
-
     def approval_code(self, approval_code: str) -> "ExternalApprovalItemBuilder":
         self._external_approval_item.approval_code = approval_code
         return self
-
     def approval_external_id(self, approval_external_id: str) -> "ExternalApprovalItemBuilder":
         self._external_approval_item.approval_external_id = approval_external_id
         return self
-
+    
     def build(self) -> "ExternalApprovalItem":
         return self._external_approval_item

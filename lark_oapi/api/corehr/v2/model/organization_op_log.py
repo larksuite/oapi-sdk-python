@@ -36,38 +36,30 @@ class OrganizationOpLog(object):
 class OrganizationOpLogBuilder(object):
     def __init__(self) -> None:
         self._organization_op_log = OrganizationOpLog()
-
     def object_id(self, object_id: str) -> "OrganizationOpLogBuilder":
         self._organization_op_log.object_id = object_id
         return self
-
     def changes(self, changes: List[OperationLogEntityField]) -> "OrganizationOpLogBuilder":
         self._organization_op_log.changes = changes
         return self
-
     def operator(self, operator: str) -> "OrganizationOpLogBuilder":
         self._organization_op_log.operator = operator
         return self
-
     def operation_type(self, operation_type: int) -> "OrganizationOpLogBuilder":
         self._organization_op_log.operation_type = operation_type
         return self
-
     def operation_time(self, operation_time: str) -> "OrganizationOpLogBuilder":
         self._organization_op_log.operation_time = operation_time
         return self
-
     def effective_time(self, effective_time: str) -> "OrganizationOpLogBuilder":
         self._organization_op_log.effective_time = effective_time
         return self
-
     def operation_reason(self, operation_reason: str) -> "OrganizationOpLogBuilder":
         self._organization_op_log.operation_reason = operation_reason
         return self
-
     def change_reasons(self, change_reasons: List[str]) -> "OrganizationOpLogBuilder":
         self._organization_op_log.change_reasons = change_reasons
         return self
-
+    
     def build(self) -> "OrganizationOpLog":
         return self._organization_op_log

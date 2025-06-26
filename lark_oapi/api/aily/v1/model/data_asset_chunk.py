@@ -36,38 +36,30 @@ class DataAssetChunk(object):
 class DataAssetChunkBuilder(object):
     def __init__(self) -> None:
         self._data_asset_chunk = DataAssetChunk()
-
     def content(self, content: str) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.content = content
         return self
-
     def data_asset_id(self, data_asset_id: str) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_id = data_asset_id
         return self
-
     def score(self, score: float) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.score = score
         return self
-
     def data_asset_label(self, data_asset_label: Dict[str, str]) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_label = data_asset_label
         return self
-
     def data_asset_source_url(self, data_asset_source_url: str) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_source_url = data_asset_source_url
         return self
-
     def data_asset_data_source_type(self, data_asset_data_source_type: str) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_data_source_type = data_asset_data_source_type
         return self
-
     def data_asset_connect_type(self, data_asset_connect_type: str) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.data_asset_connect_type = data_asset_connect_type
         return self
-
     def source_info(self, source_info: DataAssetChunkSourceInfo) -> "DataAssetChunkBuilder":
         self._data_asset_chunk.source_info = source_info
         return self
-
+    
     def build(self) -> "DataAssetChunk":
         return self._data_asset_chunk

@@ -25,18 +25,15 @@ class DmpField(object):
 class DmpFieldBuilder(object):
     def __init__(self) -> None:
         self._dmp_field = DmpField()
-
     def key(self, key: str) -> "DmpFieldBuilder":
         self._dmp_field.key = key
         return self
-
     def value(self, value: str) -> "DmpFieldBuilder":
         self._dmp_field.value = value
         return self
-
     def type(self, type: int) -> "DmpFieldBuilder":
         self._dmp_field.type = type
         return self
-
+    
     def build(self) -> "DmpField":
         return self._dmp_field

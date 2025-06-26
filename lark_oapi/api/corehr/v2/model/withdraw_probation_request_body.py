@@ -21,10 +21,9 @@ class WithdrawProbationRequestBody(object):
 class WithdrawProbationRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._withdraw_probation_request_body = WithdrawProbationRequestBody()
-
     def employment_id(self, employment_id: str) -> "WithdrawProbationRequestBodyBuilder":
         self._withdraw_probation_request_body.employment_id = employment_id
         return self
-
+    
     def build(self) -> "WithdrawProbationRequestBody":
         return self._withdraw_probation_request_body

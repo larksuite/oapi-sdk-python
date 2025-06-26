@@ -29,26 +29,21 @@ class SiteResumeProject(object):
 class SiteResumeProjectBuilder(object):
     def __init__(self) -> None:
         self._site_resume_project = SiteResumeProject()
-
     def name(self, name: str) -> "SiteResumeProjectBuilder":
         self._site_resume_project.name = name
         return self
-
     def role(self, role: str) -> "SiteResumeProjectBuilder":
         self._site_resume_project.role = role
         return self
-
     def description(self, description: str) -> "SiteResumeProjectBuilder":
         self._site_resume_project.description = description
         return self
-
     def start_time(self, start_time: str) -> "SiteResumeProjectBuilder":
         self._site_resume_project.start_time = start_time
         return self
-
     def end_time(self, end_time: str) -> "SiteResumeProjectBuilder":
         self._site_resume_project.end_time = end_time
         return self
-
+    
     def build(self) -> "SiteResumeProject":
         return self._site_resume_project

@@ -21,10 +21,9 @@ class Diagram(object):
 class DiagramBuilder(object):
     def __init__(self) -> None:
         self._diagram = Diagram()
-
     def diagram_type(self, diagram_type: int) -> "DiagramBuilder":
         self._diagram.diagram_type = diagram_type
         return self
-
+    
     def build(self) -> "Diagram":
         return self._diagram

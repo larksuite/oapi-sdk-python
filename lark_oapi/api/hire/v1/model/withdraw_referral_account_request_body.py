@@ -23,14 +23,12 @@ class WithdrawReferralAccountRequestBody(object):
 class WithdrawReferralAccountRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._withdraw_referral_account_request_body = WithdrawReferralAccountRequestBody()
-
     def withdraw_bonus_type(self, withdraw_bonus_type: List[int]) -> "WithdrawReferralAccountRequestBodyBuilder":
         self._withdraw_referral_account_request_body.withdraw_bonus_type = withdraw_bonus_type
         return self
-
     def external_order_id(self, external_order_id: str) -> "WithdrawReferralAccountRequestBodyBuilder":
         self._withdraw_referral_account_request_body.external_order_id = external_order_id
         return self
-
+    
     def build(self) -> "WithdrawReferralAccountRequestBody":
         return self._withdraw_referral_account_request_body

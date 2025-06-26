@@ -22,10 +22,9 @@ class GetTopUserReportResponseBody(object):
 class GetTopUserReportResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_top_user_report_response_body = GetTopUserReportResponseBody()
-
     def top_user_report(self, top_user_report: List[ReportTopUser]) -> "GetTopUserReportResponseBodyBuilder":
         self._get_top_user_report_response_body.top_user_report = top_user_report
         return self
-
+    
     def build(self) -> "GetTopUserReportResponseBody":
         return self._get_top_user_report_response_body

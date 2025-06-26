@@ -23,14 +23,12 @@ class BackgroundCheckProcessInfo(object):
 class BackgroundCheckProcessInfoBuilder(object):
     def __init__(self) -> None:
         self._background_check_process_info = BackgroundCheckProcessInfo()
-
     def process(self, process: str) -> "BackgroundCheckProcessInfoBuilder":
         self._background_check_process_info.process = process
         return self
-
     def update_time(self, update_time: str) -> "BackgroundCheckProcessInfoBuilder":
         self._background_check_process_info.update_time = update_time
         return self
-
+    
     def build(self) -> "BackgroundCheckProcessInfo":
         return self._background_check_process_info

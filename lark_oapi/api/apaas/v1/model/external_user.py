@@ -21,10 +21,9 @@ class ExternalUser(object):
 class ExternalUserBuilder(object):
     def __init__(self) -> None:
         self._external_user = ExternalUser()
-
     def user_id(self, user_id: str) -> "ExternalUserBuilder":
         self._external_user.user_id = user_id
         return self
-
+    
     def build(self) -> "ExternalUser":
         return self._external_user

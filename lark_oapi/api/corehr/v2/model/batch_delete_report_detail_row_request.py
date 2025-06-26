@@ -24,7 +24,7 @@ class BatchDeleteReportDetailRowRequestBuilder(object):
         batch_delete_report_detail_row_request.uri = "/open-apis/corehr/v2/report_detail_row/batchDelete"
         batch_delete_report_detail_row_request.token_types = {AccessTokenType.TENANT}
         self._batch_delete_report_detail_row_request: BatchDeleteReportDetailRowRequest = batch_delete_report_detail_row_request
-
+    
     def request_body(self, request_body: ReportDetailReq) -> "BatchDeleteReportDetailRowRequestBuilder":
         self._batch_delete_report_detail_row_request.request_body = request_body
         self._batch_delete_report_detail_row_request.body = request_body

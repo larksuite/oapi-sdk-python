@@ -24,9 +24,8 @@ class UpdateBizEntityTagRelationRequestBuilder(object):
         update_biz_entity_tag_relation_request.uri = "/open-apis/im/v2/biz_entity_tag_relation"
         update_biz_entity_tag_relation_request.token_types = {AccessTokenType.TENANT}
         self._update_biz_entity_tag_relation_request: UpdateBizEntityTagRelationRequest = update_biz_entity_tag_relation_request
-
-    def request_body(self,
-                     request_body: UpdateBizEntityTagRelationRequestBody) -> "UpdateBizEntityTagRelationRequestBuilder":
+    
+    def request_body(self, request_body: UpdateBizEntityTagRelationRequestBody) -> "UpdateBizEntityTagRelationRequestBuilder":
         self._update_biz_entity_tag_relation_request.request_body = request_body
         self._update_biz_entity_tag_relation_request.body = request_body
         return self

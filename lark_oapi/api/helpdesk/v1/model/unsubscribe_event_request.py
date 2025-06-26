@@ -24,7 +24,7 @@ class UnsubscribeEventRequestBuilder(object):
         unsubscribe_event_request.uri = "/open-apis/helpdesk/v1/events/unsubscribe"
         unsubscribe_event_request.token_types = {AccessTokenType.TENANT}
         self._unsubscribe_event_request: UnsubscribeEventRequest = unsubscribe_event_request
-
+    
     def request_body(self, request_body: UnsubscribeEventRequestBody) -> "UnsubscribeEventRequestBuilder":
         self._unsubscribe_event_request.request_body = request_body
         self._unsubscribe_event_request.body = request_body

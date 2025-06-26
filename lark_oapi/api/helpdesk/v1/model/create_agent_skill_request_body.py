@@ -26,18 +26,15 @@ class CreateAgentSkillRequestBody(object):
 class CreateAgentSkillRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_agent_skill_request_body = CreateAgentSkillRequestBody()
-
     def name(self, name: str) -> "CreateAgentSkillRequestBodyBuilder":
         self._create_agent_skill_request_body.name = name
         return self
-
     def rules(self, rules: List[AgentSkillRule]) -> "CreateAgentSkillRequestBodyBuilder":
         self._create_agent_skill_request_body.rules = rules
         return self
-
     def agent_ids(self, agent_ids: List[str]) -> "CreateAgentSkillRequestBodyBuilder":
         self._create_agent_skill_request_body.agent_ids = agent_ids
         return self
-
+    
     def build(self) -> "CreateAgentSkillRequestBody":
         return self._create_agent_skill_request_body

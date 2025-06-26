@@ -30,26 +30,21 @@ class WorkflowInstanceLog(object):
 class WorkflowInstanceLogBuilder(object):
     def __init__(self) -> None:
         self._workflow_instance_log = WorkflowInstanceLog()
-
     def total(self, total: str) -> "WorkflowInstanceLogBuilder":
         self._workflow_instance_log.total = total
         return self
-
     def logs(self, logs: List[RuntimeLog]) -> "WorkflowInstanceLogBuilder":
         self._workflow_instance_log.logs = logs
         return self
-
     def next_keyword_offset(self, next_keyword_offset: str) -> "WorkflowInstanceLogBuilder":
         self._workflow_instance_log.next_keyword_offset = next_keyword_offset
         return self
-
     def total_keyword(self, total_keyword: str) -> "WorkflowInstanceLogBuilder":
         self._workflow_instance_log.total_keyword = total_keyword
         return self
-
     def has_read_auth(self, has_read_auth: bool) -> "WorkflowInstanceLogBuilder":
         self._workflow_instance_log.has_read_auth = has_read_auth
         return self
-
+    
     def build(self) -> "WorkflowInstanceLog":
         return self._workflow_instance_log

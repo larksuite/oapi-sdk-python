@@ -26,18 +26,15 @@ class ListFileCommentResponseBody(object):
 class ListFileCommentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_file_comment_response_body = ListFileCommentResponseBody()
-
     def has_more(self, has_more: bool) -> "ListFileCommentResponseBodyBuilder":
         self._list_file_comment_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ListFileCommentResponseBodyBuilder":
         self._list_file_comment_response_body.page_token = page_token
         return self
-
     def items(self, items: List[FileComment]) -> "ListFileCommentResponseBodyBuilder":
         self._list_file_comment_response_body.items = items
         return self
-
+    
     def build(self) -> "ListFileCommentResponseBody":
         return self._list_file_comment_response_body

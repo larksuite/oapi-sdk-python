@@ -26,18 +26,15 @@ class InterviewDimensionScore(object):
 class InterviewDimensionScoreBuilder(object):
     def __init__(self) -> None:
         self._interview_dimension_score = InterviewDimensionScore()
-
     def id(self, id: str) -> "InterviewDimensionScoreBuilder":
         self._interview_dimension_score.id = id
         return self
-
     def name(self, name: I18n) -> "InterviewDimensionScoreBuilder":
         self._interview_dimension_score.name = name
         return self
-
     def score_val(self, score_val: int) -> "InterviewDimensionScoreBuilder":
         self._interview_dimension_score.score_val = score_val
         return self
-
+    
     def build(self) -> "InterviewDimensionScore":
         return self._interview_dimension_score

@@ -23,14 +23,12 @@ class UploadImageResponseBody(object):
 class UploadImageResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._upload_image_response_body = UploadImageResponseBody()
-
     def file_token(self, file_token: str) -> "UploadImageResponseBodyBuilder":
         self._upload_image_response_body.file_token = file_token
         return self
-
     def url(self, url: str) -> "UploadImageResponseBodyBuilder":
         self._upload_image_response_body.url = url
         return self
-
+    
     def build(self) -> "UploadImageResponseBody":
         return self._upload_image_response_body

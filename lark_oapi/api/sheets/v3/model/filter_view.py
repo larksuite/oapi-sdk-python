@@ -25,18 +25,15 @@ class FilterView(object):
 class FilterViewBuilder(object):
     def __init__(self) -> None:
         self._filter_view = FilterView()
-
     def filter_view_id(self, filter_view_id: str) -> "FilterViewBuilder":
         self._filter_view.filter_view_id = filter_view_id
         return self
-
     def filter_view_name(self, filter_view_name: str) -> "FilterViewBuilder":
         self._filter_view.filter_view_name = filter_view_name
         return self
-
     def range(self, range: str) -> "FilterViewBuilder":
         self._filter_view.range = range
         return self
-
+    
     def build(self) -> "FilterView":
         return self._filter_view

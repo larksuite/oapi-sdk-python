@@ -25,8 +25,7 @@ class Application(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def contacts_range_configuration(self, request: ContactsRangeConfigurationApplicationRequest, option: Optional[
-        RequestOption] = None) -> ContactsRangeConfigurationApplicationResponse:
+    def contacts_range_configuration(self, request: ContactsRangeConfigurationApplicationRequest, option: Optional[RequestOption] = None) -> ContactsRangeConfigurationApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -39,33 +38,32 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                 ContactsRangeConfigurationApplicationResponse)
+        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ContactsRangeConfigurationApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def acontacts_range_configuration(self, request: ContactsRangeConfigurationApplicationRequest,
-                                            option: Optional[
-                                                RequestOption] = None) -> ContactsRangeConfigurationApplicationResponse:
+    async def acontacts_range_configuration(self, request: ContactsRangeConfigurationApplicationRequest, option: Optional[RequestOption] = None) -> ContactsRangeConfigurationApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                                 ContactsRangeConfigurationApplicationResponse)
+        response: ContactsRangeConfigurationApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ContactsRangeConfigurationApplicationResponse)
         response.raw = resp
 
         return response
-
+        
     def get(self, request: GetApplicationRequest, option: Optional[RequestOption] = None) -> GetApplicationResponse:
         if option is None:
             option = RequestOption()
@@ -79,30 +77,32 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aget(self, request: GetApplicationRequest,
-                   option: Optional[RequestOption] = None) -> GetApplicationResponse:
+    async def aget(self, request: GetApplicationRequest, option: Optional[RequestOption] = None) -> GetApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: GetApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), GetApplicationResponse)
         response.raw = resp
 
         return response
-
+        
     def list(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
         if option is None:
             option = RequestOption()
@@ -116,32 +116,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListApplicationRequest,
-                    option: Optional[RequestOption] = None) -> ListApplicationResponse:
+    async def alist(self, request: ListApplicationRequest, option: Optional[RequestOption] = None) -> ListApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), ListApplicationResponse)
         response.raw = resp
 
         return response
-
-    def patch(self, request: PatchApplicationRequest,
-              option: Optional[RequestOption] = None) -> PatchApplicationResponse:
+        
+    def patch(self, request: PatchApplicationRequest, option: Optional[RequestOption] = None) -> PatchApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -154,32 +155,33 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def apatch(self, request: PatchApplicationRequest,
-                     option: Optional[RequestOption] = None) -> PatchApplicationResponse:
+    async def apatch(self, request: PatchApplicationRequest, option: Optional[RequestOption] = None) -> PatchApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: PatchApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), PatchApplicationResponse)
         response.raw = resp
 
         return response
-
-    def underauditlist(self, request: UnderauditlistApplicationRequest,
-                       option: Optional[RequestOption] = None) -> UnderauditlistApplicationResponse:
+        
+    def underauditlist(self, request: UnderauditlistApplicationRequest, option: Optional[RequestOption] = None) -> UnderauditlistApplicationResponse:
         if option is None:
             option = RequestOption()
 
@@ -192,28 +194,30 @@ class Application(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
-        response: UnderauditlistApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UnderauditlistApplicationResponse)
+        response: UnderauditlistApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), UnderauditlistApplicationResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aunderauditlist(self, request: UnderauditlistApplicationRequest,
-                              option: Optional[RequestOption] = None) -> UnderauditlistApplicationResponse:
+    async def aunderauditlist(self, request: UnderauditlistApplicationRequest, option: Optional[RequestOption] = None) -> UnderauditlistApplicationResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
-        response: UnderauditlistApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8),
-                                                                     UnderauditlistApplicationResponse)
+        response: UnderauditlistApplicationResponse = JSON.unmarshal(str(resp.content, UTF_8), UnderauditlistApplicationResponse)
         response.raw = resp
 
         return response
+        
+    

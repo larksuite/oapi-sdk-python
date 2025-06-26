@@ -21,10 +21,9 @@ class DeleteGridColumnRequest(object):
 class DeleteGridColumnRequestBuilder(object):
     def __init__(self) -> None:
         self._delete_grid_column_request = DeleteGridColumnRequest()
-
     def column_index(self, column_index: int) -> "DeleteGridColumnRequestBuilder":
         self._delete_grid_column_request.column_index = column_index
         return self
-
+    
     def build(self) -> "DeleteGridColumnRequest":
         return self._delete_grid_column_request

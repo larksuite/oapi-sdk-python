@@ -24,14 +24,12 @@ class PunchMember(object):
 class PunchMemberBuilder(object):
     def __init__(self) -> None:
         self._punch_member = PunchMember()
-
     def rule_scope_type(self, rule_scope_type: int) -> "PunchMemberBuilder":
         self._punch_member.rule_scope_type = rule_scope_type
         return self
-
     def scope_group_list(self, scope_group_list: ScopeGroup) -> "PunchMemberBuilder":
         self._punch_member.scope_group_list = scope_group_list
         return self
-
+    
     def build(self) -> "PunchMember":
         return self._punch_member

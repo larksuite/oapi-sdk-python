@@ -27,22 +27,18 @@ class UpdateTablePropertyRequest(object):
 class UpdateTablePropertyRequestBuilder(object):
     def __init__(self) -> None:
         self._update_table_property_request = UpdateTablePropertyRequest()
-
     def column_width(self, column_width: int) -> "UpdateTablePropertyRequestBuilder":
         self._update_table_property_request.column_width = column_width
         return self
-
     def column_index(self, column_index: int) -> "UpdateTablePropertyRequestBuilder":
         self._update_table_property_request.column_index = column_index
         return self
-
     def header_row(self, header_row: bool) -> "UpdateTablePropertyRequestBuilder":
         self._update_table_property_request.header_row = header_row
         return self
-
     def header_column(self, header_column: bool) -> "UpdateTablePropertyRequestBuilder":
         self._update_table_property_request.header_column = header_column
         return self
-
+    
     def build(self) -> "UpdateTablePropertyRequest":
         return self._update_table_property_request

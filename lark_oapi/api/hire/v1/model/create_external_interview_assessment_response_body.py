@@ -22,11 +22,9 @@ class CreateExternalInterviewAssessmentResponseBody(object):
 class CreateExternalInterviewAssessmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_external_interview_assessment_response_body = CreateExternalInterviewAssessmentResponseBody()
-
-    def external_interview_assessment(self,
-                                      external_interview_assessment: ExternalInterviewAssessment) -> "CreateExternalInterviewAssessmentResponseBodyBuilder":
+    def external_interview_assessment(self, external_interview_assessment: ExternalInterviewAssessment) -> "CreateExternalInterviewAssessmentResponseBodyBuilder":
         self._create_external_interview_assessment_response_body.external_interview_assessment = external_interview_assessment
         return self
-
+    
     def build(self) -> "CreateExternalInterviewAssessmentResponseBody":
         return self._create_external_interview_assessment_response_body

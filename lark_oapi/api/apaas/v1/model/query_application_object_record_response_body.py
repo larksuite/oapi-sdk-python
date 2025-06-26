@@ -21,10 +21,9 @@ class QueryApplicationObjectRecordResponseBody(object):
 class QueryApplicationObjectRecordResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._query_application_object_record_response_body = QueryApplicationObjectRecordResponseBody()
-
     def item(self, item: str) -> "QueryApplicationObjectRecordResponseBodyBuilder":
         self._query_application_object_record_response_body.item = item
         return self
-
+    
     def build(self) -> "QueryApplicationObjectRecordResponseBody":
         return self._query_application_object_record_response_body

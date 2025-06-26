@@ -25,18 +25,15 @@ class UserEvaluationScale(object):
 class UserEvaluationScaleBuilder(object):
     def __init__(self) -> None:
         self._user_evaluation_scale = UserEvaluationScale()
-
     def indicator_id(self, indicator_id: str) -> "UserEvaluationScaleBuilder":
         self._user_evaluation_scale.indicator_id = indicator_id
         return self
-
     def distribute_type(self, distribute_type: int) -> "UserEvaluationScaleBuilder":
         self._user_evaluation_scale.distribute_type = distribute_type
         return self
-
     def avg_diff(self, avg_diff: str) -> "UserEvaluationScaleBuilder":
         self._user_evaluation_scale.avg_diff = avg_diff
         return self
-
+    
     def build(self) -> "UserEvaluationScale":
         return self._user_evaluation_scale

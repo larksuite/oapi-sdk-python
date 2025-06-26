@@ -26,18 +26,15 @@ class ParentDepartmentResponseBody(object):
 class ParentDepartmentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._parent_department_response_body = ParentDepartmentResponseBody()
-
     def has_more(self, has_more: bool) -> "ParentDepartmentResponseBodyBuilder":
         self._parent_department_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "ParentDepartmentResponseBodyBuilder":
         self._parent_department_response_body.page_token = page_token
         return self
-
     def items(self, items: List[Department]) -> "ParentDepartmentResponseBodyBuilder":
         self._parent_department_response_body.items = items
         return self
-
+    
     def build(self) -> "ParentDepartmentResponseBody":
         return self._parent_department_response_body

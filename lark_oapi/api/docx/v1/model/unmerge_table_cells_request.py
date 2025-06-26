@@ -23,14 +23,12 @@ class UnmergeTableCellsRequest(object):
 class UnmergeTableCellsRequestBuilder(object):
     def __init__(self) -> None:
         self._unmerge_table_cells_request = UnmergeTableCellsRequest()
-
     def row_index(self, row_index: int) -> "UnmergeTableCellsRequestBuilder":
         self._unmerge_table_cells_request.row_index = row_index
         return self
-
     def column_index(self, column_index: int) -> "UnmergeTableCellsRequestBuilder":
         self._unmerge_table_cells_request.column_index = column_index
         return self
-
+    
     def build(self) -> "UnmergeTableCellsRequest":
         return self._unmerge_table_cells_request

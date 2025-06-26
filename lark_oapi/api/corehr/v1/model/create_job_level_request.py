@@ -25,12 +25,12 @@ class CreateJobLevelRequestBuilder(object):
         create_job_level_request.uri = "/open-apis/corehr/v1/job_levels"
         create_job_level_request.token_types = {AccessTokenType.TENANT}
         self._create_job_level_request: CreateJobLevelRequest = create_job_level_request
-
+    
     def client_token(self, client_token: str) -> "CreateJobLevelRequestBuilder":
         self._create_job_level_request.client_token = client_token
         self._create_job_level_request.add_query("client_token", client_token)
         return self
-
+    
     def request_body(self, request_body: JobLevel) -> "CreateJobLevelRequestBuilder":
         self._create_job_level_request.request_body = request_body
         self._create_job_level_request.body = request_body

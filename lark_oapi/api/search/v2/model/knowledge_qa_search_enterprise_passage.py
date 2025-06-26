@@ -31,30 +31,24 @@ class KnowledgeQaSearchEnterprisePassage(object):
 class KnowledgeQaSearchEnterprisePassageBuilder(object):
     def __init__(self) -> None:
         self._knowledge_qa_search_enterprise_passage = KnowledgeQaSearchEnterprisePassage()
-
     def id(self, id: str) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.id = id
         return self
-
     def source_type(self, source_type: int) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.source_type = source_type
         return self
-
     def title(self, title: str) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.title = title
         return self
-
     def content(self, content: str) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.content = content
         return self
-
     def url(self, url: str) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.url = url
         return self
-
     def score(self, score: float) -> "KnowledgeQaSearchEnterprisePassageBuilder":
         self._knowledge_qa_search_enterprise_passage.score = score
         return self
-
+    
     def build(self) -> "KnowledgeQaSearchEnterprisePassage":
         return self._knowledge_qa_search_enterprise_passage

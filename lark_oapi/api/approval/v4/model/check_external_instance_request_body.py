@@ -22,10 +22,9 @@ class CheckExternalInstanceRequestBody(object):
 class CheckExternalInstanceRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._check_external_instance_request_body = CheckExternalInstanceRequestBody()
-
     def instances(self, instances: List[ExteranlInstanceCheck]) -> "CheckExternalInstanceRequestBodyBuilder":
         self._check_external_instance_request_body.instances = instances
         return self
-
+    
     def build(self) -> "CheckExternalInstanceRequestBody":
         return self._check_external_instance_request_body

@@ -33,34 +33,27 @@ class ExportJob(object):
 class ExportJobBuilder(object):
     def __init__(self) -> None:
         self._export_job = ExportJob()
-
     def file_extension(self, file_extension: str) -> "ExportJobBuilder":
         self._export_job.file_extension = file_extension
         return self
-
     def token(self, token: str) -> "ExportJobBuilder":
         self._export_job.token = token
         return self
-
     def type(self, type: str) -> "ExportJobBuilder":
         self._export_job.type = type
         return self
-
     def file_name(self, file_name: str) -> "ExportJobBuilder":
         self._export_job.file_name = file_name
         return self
-
     def file_token(self, file_token: str) -> "ExportJobBuilder":
         self._export_job.file_token = file_token
         return self
-
     def job_error_msg(self, job_error_msg: str) -> "ExportJobBuilder":
         self._export_job.job_error_msg = job_error_msg
         return self
-
     def job_status(self, job_status: int) -> "ExportJobBuilder":
         self._export_job.job_status = job_status
         return self
-
+    
     def build(self) -> "ExportJob":
         return self._export_job

@@ -27,18 +27,15 @@ class PermissionSecurityGroup(object):
 class PermissionSecurityGroupBuilder(object):
     def __init__(self) -> None:
         self._permission_security_group = PermissionSecurityGroup()
-
     def rule_dimension(self, rule_dimension: RuleDimension) -> "PermissionSecurityGroupBuilder":
         self._permission_security_group.rule_dimension = rule_dimension
         return self
-
     def rule_type(self, rule_type: int) -> "PermissionSecurityGroupBuilder":
         self._permission_security_group.rule_type = rule_type
         return self
-
     def expression(self, expression: FilterExpression) -> "PermissionSecurityGroupBuilder":
         self._permission_security_group.expression = expression
         return self
-
+    
     def build(self) -> "PermissionSecurityGroup":
         return self._permission_security_group

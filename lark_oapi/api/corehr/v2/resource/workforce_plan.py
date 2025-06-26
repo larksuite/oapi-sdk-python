@@ -17,8 +17,7 @@ class WorkforcePlan(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def list(self, request: ListWorkforcePlanRequest,
-             option: Optional[RequestOption] = None) -> ListWorkforcePlanResponse:
+    def list(self, request: ListWorkforcePlanRequest, option: Optional[RequestOption] = None) -> ListWorkforcePlanResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class WorkforcePlan(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: ListWorkforcePlanResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkforcePlanResponse)
         response.raw = resp
 
         return response
+        
 
-    async def alist(self, request: ListWorkforcePlanRequest,
-                    option: Optional[RequestOption] = None) -> ListWorkforcePlanResponse:
+    async def alist(self, request: ListWorkforcePlanRequest, option: Optional[RequestOption] = None) -> ListWorkforcePlanResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: ListWorkforcePlanResponse = JSON.unmarshal(str(resp.content, UTF_8), ListWorkforcePlanResponse)
         response.raw = resp
 
         return response
+        
+    

@@ -33,30 +33,24 @@ class AppTableCreateHeader(object):
 class AppTableCreateHeaderBuilder(object):
     def __init__(self) -> None:
         self._app_table_create_header = AppTableCreateHeader()
-
     def field_name(self, field_name: str) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.field_name = field_name
         return self
-
     def type(self, type: int) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.type = type
         return self
-
     def ui_type(self, ui_type: str) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.ui_type = ui_type
         return self
-
     def field_id(self, field_id: str) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.field_id = field_id
         return self
-
     def property(self, property: AppTableFieldProperty) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.property = property
         return self
-
     def description(self, description: AppTableFieldDescription) -> "AppTableCreateHeaderBuilder":
         self._app_table_create_header.description = description
         return self
-
+    
     def build(self) -> "AppTableCreateHeader":
         return self._app_table_create_header

@@ -33,30 +33,24 @@ class FileCommentReply(object):
 class FileCommentReplyBuilder(object):
     def __init__(self) -> None:
         self._file_comment_reply = FileCommentReply()
-
     def content(self, content: ReplyContent) -> "FileCommentReplyBuilder":
         self._file_comment_reply.content = content
         return self
-
     def reply_id(self, reply_id: str) -> "FileCommentReplyBuilder":
         self._file_comment_reply.reply_id = reply_id
         return self
-
     def user_id(self, user_id: str) -> "FileCommentReplyBuilder":
         self._file_comment_reply.user_id = user_id
         return self
-
     def create_time(self, create_time: int) -> "FileCommentReplyBuilder":
         self._file_comment_reply.create_time = create_time
         return self
-
     def update_time(self, update_time: int) -> "FileCommentReplyBuilder":
         self._file_comment_reply.update_time = update_time
         return self
-
     def extra(self, extra: ReplyExtra) -> "FileCommentReplyBuilder":
         self._file_comment_reply.extra = extra
         return self
-
+    
     def build(self) -> "FileCommentReply":
         return self._file_comment_reply

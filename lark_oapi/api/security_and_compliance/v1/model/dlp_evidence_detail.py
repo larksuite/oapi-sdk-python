@@ -36,38 +36,30 @@ class DlpEvidenceDetail(object):
 class DlpEvidenceDetailBuilder(object):
     def __init__(self) -> None:
         self._dlp_evidence_detail = DlpEvidenceDetail()
-
     def keyword_hits(self, keyword_hits: List[str]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.keyword_hits = keyword_hits
         return self
-
     def regular_hits(self, regular_hits: List[str]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.regular_hits = regular_hits
         return self
-
     def sensitive_hits(self, sensitive_hits: List[str]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.sensitive_hits = sensitive_hits
         return self
-
     def file_size_hits(self, file_size_hits: List[str]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.file_size_hits = file_size_hits
         return self
-
     def file_type_hits(self, file_type_hits: List[str]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.file_type_hits = file_type_hits
         return self
-
     def file_name_ext_hits(self, file_name_ext_hits: List[str]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.file_name_ext_hits = file_name_ext_hits
         return self
-
     def trigger_snippets(self, trigger_snippets: List[DlpPolicyHitProof]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.trigger_snippets = trigger_snippets
         return self
-
     def secure_label_hits(self, secure_label_hits: List[str]) -> "DlpEvidenceDetailBuilder":
         self._dlp_evidence_detail.secure_label_hits = secure_label_hits
         return self
-
+    
     def build(self) -> "DlpEvidenceDetail":
         return self._dlp_evidence_detail

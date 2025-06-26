@@ -31,26 +31,21 @@ class CollectionTemplateSnapshot(object):
 class CollectionTemplateSnapshotBuilder(object):
     def __init__(self) -> None:
         self._collection_template_snapshot = CollectionTemplateSnapshot()
-
     def template_id(self, template_id: str) -> "CollectionTemplateSnapshotBuilder":
         self._collection_template_snapshot.template_id = template_id
         return self
-
     def template_name(self, template_name: I18n) -> "CollectionTemplateSnapshotBuilder":
         self._collection_template_snapshot.template_name = template_name
         return self
-
     def template_version_id(self, template_version_id: str) -> "CollectionTemplateSnapshotBuilder":
         self._collection_template_snapshot.template_version_id = template_version_id
         return self
-
     def items(self, items: List[CollectionItem]) -> "CollectionTemplateSnapshotBuilder":
         self._collection_template_snapshot.items = items
         return self
-
     def activity_id(self, activity_id: str) -> "CollectionTemplateSnapshotBuilder":
         self._collection_template_snapshot.activity_id = activity_id
         return self
-
+    
     def build(self) -> "CollectionTemplateSnapshot":
         return self._collection_template_snapshot

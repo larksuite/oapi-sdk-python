@@ -22,10 +22,9 @@ class CreateCategoryResponseBody(object):
 class CreateCategoryResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_category_response_body = CreateCategoryResponseBody()
-
     def category(self, category: Category) -> "CreateCategoryResponseBodyBuilder":
         self._create_category_response_body.category = category
         return self
-
+    
     def build(self) -> "CreateCategoryResponseBody":
         return self._create_category_response_body

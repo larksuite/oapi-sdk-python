@@ -24,14 +24,12 @@ class AppUsageTrendItems(object):
 class AppUsageTrendItemsBuilder(object):
     def __init__(self) -> None:
         self._app_usage_trend_items = AppUsageTrendItems()
-
     def id(self, id: str) -> "AppUsageTrendItemsBuilder":
         self._app_usage_trend_items.id = id
         return self
-
     def trend(self, trend: List[UsageTrendItem]) -> "AppUsageTrendItemsBuilder":
         self._app_usage_trend_items.trend = trend
         return self
-
+    
     def build(self) -> "AppUsageTrendItems":
         return self._app_usage_trend_items

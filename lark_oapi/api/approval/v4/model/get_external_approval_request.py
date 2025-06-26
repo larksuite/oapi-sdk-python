@@ -24,16 +24,17 @@ class GetExternalApprovalRequestBuilder(object):
         get_external_approval_request.uri = "/open-apis/approval/v4/external_approvals/:approval_code"
         get_external_approval_request.token_types = {AccessTokenType.TENANT}
         self._get_external_approval_request: GetExternalApprovalRequest = get_external_approval_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetExternalApprovalRequestBuilder":
         self._get_external_approval_request.user_id_type = user_id_type
         self._get_external_approval_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def approval_code(self, approval_code: str) -> "GetExternalApprovalRequestBuilder":
         self._get_external_approval_request.approval_code = approval_code
         self._get_external_approval_request.paths["approval_code"] = str(approval_code)
         return self
+    
 
     def build(self) -> GetExternalApprovalRequest:
         return self._get_external_approval_request

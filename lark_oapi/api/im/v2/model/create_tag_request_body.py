@@ -24,14 +24,12 @@ class CreateTagRequestBody(object):
 class CreateTagRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_tag_request_body = CreateTagRequestBody()
-
     def create_tag(self, create_tag: CreateTag) -> "CreateTagRequestBodyBuilder":
         self._create_tag_request_body.create_tag = create_tag
         return self
-
     def bot_id(self, bot_id: str) -> "CreateTagRequestBodyBuilder":
         self._create_tag_request_body.bot_id = bot_id
         return self
-
+    
     def build(self) -> "CreateTagRequestBody":
         return self._create_tag_request_body

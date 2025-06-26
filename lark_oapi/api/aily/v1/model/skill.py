@@ -31,30 +31,24 @@ class Skill(object):
 class SkillBuilder(object):
     def __init__(self) -> None:
         self._skill = Skill()
-
     def id(self, id: str) -> "SkillBuilder":
         self._skill.id = id
         return self
-
     def label(self, label: str) -> "SkillBuilder":
         self._skill.label = label
         return self
-
     def description(self, description: str) -> "SkillBuilder":
         self._skill.description = description
         return self
-
     def samples(self, samples: List[str]) -> "SkillBuilder":
         self._skill.samples = samples
         return self
-
     def input_schema(self, input_schema: str) -> "SkillBuilder":
         self._skill.input_schema = input_schema
         return self
-
     def output_schema(self, output_schema: str) -> "SkillBuilder":
         self._skill.output_schema = output_schema
         return self
-
+    
     def build(self) -> "Skill":
         return self._skill

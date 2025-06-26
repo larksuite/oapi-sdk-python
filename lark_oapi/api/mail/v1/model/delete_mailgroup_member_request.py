@@ -24,16 +24,17 @@ class DeleteMailgroupMemberRequestBuilder(object):
         delete_mailgroup_member_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id"
         delete_mailgroup_member_request.token_types = {AccessTokenType.TENANT}
         self._delete_mailgroup_member_request: DeleteMailgroupMemberRequest = delete_mailgroup_member_request
-
+    
     def mailgroup_id(self, mailgroup_id: str) -> "DeleteMailgroupMemberRequestBuilder":
         self._delete_mailgroup_member_request.mailgroup_id = mailgroup_id
         self._delete_mailgroup_member_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
-
+    
     def member_id(self, member_id: str) -> "DeleteMailgroupMemberRequestBuilder":
         self._delete_mailgroup_member_request.member_id = member_id
         self._delete_mailgroup_member_request.paths["member_id"] = str(member_id)
         return self
+    
 
     def build(self) -> DeleteMailgroupMemberRequest:
         return self._delete_mailgroup_member_request

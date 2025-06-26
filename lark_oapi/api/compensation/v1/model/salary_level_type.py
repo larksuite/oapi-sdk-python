@@ -29,22 +29,18 @@ class SalaryLevelType(object):
 class SalaryLevelTypeBuilder(object):
     def __init__(self) -> None:
         self._salary_level_type = SalaryLevelType()
-
     def id(self, id: str) -> "SalaryLevelTypeBuilder":
         self._salary_level_type.id = id
         return self
-
     def name(self, name: I18n) -> "SalaryLevelTypeBuilder":
         self._salary_level_type.name = name
         return self
-
     def status(self, status: bool) -> "SalaryLevelTypeBuilder":
         self._salary_level_type.status = status
         return self
-
     def salary_levels(self, salary_levels: List[SalaryLevel]) -> "SalaryLevelTypeBuilder":
         self._salary_level_type.salary_levels = salary_levels
         return self
-
+    
     def build(self) -> "SalaryLevelType":
         return self._salary_level_type

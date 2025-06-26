@@ -23,14 +23,12 @@ class ObjectiveName(object):
 class ObjectiveNameBuilder(object):
     def __init__(self) -> None:
         self._objective_name = ObjectiveName()
-
     def zh(self, zh: str) -> "ObjectiveNameBuilder":
         self._objective_name.zh = zh
         return self
-
     def en(self, en: str) -> "ObjectiveNameBuilder":
         self._objective_name.en = en
         return self
-
+    
     def build(self) -> "ObjectiveName":
         return self._objective_name

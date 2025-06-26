@@ -29,22 +29,18 @@ class FilterCondition(object):
 class FilterConditionBuilder(object):
     def __init__(self) -> None:
         self._filter_condition = FilterCondition()
-
     def left(self, left: FilterRuleValue) -> "FilterConditionBuilder":
         self._filter_condition.left = left
         return self
-
     def right(self, right: FilterRuleValue) -> "FilterConditionBuilder":
         self._filter_condition.right = right
         return self
-
     def operator(self, operator: int) -> "FilterConditionBuilder":
         self._filter_condition.operator = operator
         return self
-
     def right_value_type(self, right_value_type: int) -> "FilterConditionBuilder":
         self._filter_condition.right_value_type = right_value_type
         return self
-
+    
     def build(self) -> "FilterCondition":
         return self._filter_condition

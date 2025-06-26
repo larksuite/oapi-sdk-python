@@ -40,46 +40,36 @@ class TaskSearchNode(object):
 class TaskSearchNodeBuilder(object):
     def __init__(self) -> None:
         self._task_search_node = TaskSearchNode()
-
     def user_id(self, user_id: str) -> "TaskSearchNodeBuilder":
         self._task_search_node.user_id = user_id
         return self
-
     def start_time(self, start_time: int) -> "TaskSearchNodeBuilder":
         self._task_search_node.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "TaskSearchNodeBuilder":
         self._task_search_node.end_time = end_time
         return self
-
     def status(self, status: str) -> "TaskSearchNodeBuilder":
         self._task_search_node.status = status
         return self
-
     def title(self, title: str) -> "TaskSearchNodeBuilder":
         self._task_search_node.title = title
         return self
-
     def extra(self, extra: str) -> "TaskSearchNodeBuilder":
         self._task_search_node.extra = extra
         return self
-
     def link(self, link: InstanceSearchLink) -> "TaskSearchNodeBuilder":
         self._task_search_node.link = link
         return self
-
     def task_id(self, task_id: str) -> "TaskSearchNodeBuilder":
         self._task_search_node.task_id = task_id
         return self
-
     def update_time(self, update_time: int) -> "TaskSearchNodeBuilder":
         self._task_search_node.update_time = update_time
         return self
-
     def task_external_id(self, task_external_id: str) -> "TaskSearchNodeBuilder":
         self._task_search_node.task_external_id = task_external_id
         return self
-
+    
     def build(self) -> "TaskSearchNode":
         return self._task_search_node

@@ -30,26 +30,21 @@ class ObjectiveData(object):
 class ObjectiveDataBuilder(object):
     def __init__(self) -> None:
         self._objective_data = ObjectiveData()
-
     def objective_id(self, objective_id: str) -> "ObjectiveDataBuilder":
         self._objective_data.objective_id = objective_id
         return self
-
     def score(self, score: str) -> "ObjectiveDataBuilder":
         self._objective_data.score = score
         return self
-
     def text(self, text: str) -> "ObjectiveDataBuilder":
         self._objective_data.text = text
         return self
-
     def keyresult_data(self, keyresult_data: List[KeyresultData]) -> "ObjectiveDataBuilder":
         self._objective_data.keyresult_data = keyresult_data
         return self
-
     def richtext(self, richtext: str) -> "ObjectiveDataBuilder":
         self._objective_data.richtext = richtext
         return self
-
+    
     def build(self) -> "ObjectiveData":
         return self._objective_data

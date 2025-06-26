@@ -29,26 +29,21 @@ class InstanceCc(object):
 class InstanceCcBuilder(object):
     def __init__(self) -> None:
         self._instance_cc = InstanceCc()
-
     def approval_code(self, approval_code: str) -> "InstanceCcBuilder":
         self._instance_cc.approval_code = approval_code
         return self
-
     def instance_code(self, instance_code: str) -> "InstanceCcBuilder":
         self._instance_cc.instance_code = instance_code
         return self
-
     def user_id(self, user_id: str) -> "InstanceCcBuilder":
         self._instance_cc.user_id = user_id
         return self
-
     def cc_user_ids(self, cc_user_ids: List[str]) -> "InstanceCcBuilder":
         self._instance_cc.cc_user_ids = cc_user_ids
         return self
-
     def comment(self, comment: str) -> "InstanceCcBuilder":
         self._instance_cc.comment = comment
         return self
-
+    
     def build(self) -> "InstanceCc":
         return self._instance_cc

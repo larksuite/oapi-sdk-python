@@ -23,14 +23,12 @@ class BasicJobData(object):
 class BasicJobDataBuilder(object):
     def __init__(self) -> None:
         self._basic_job_data = BasicJobData()
-
     def job_data_id(self, job_data_id: str) -> "BasicJobDataBuilder":
         self._basic_job_data.job_data_id = job_data_id
         return self
-
     def employment_id(self, employment_id: str) -> "BasicJobDataBuilder":
         self._basic_job_data.employment_id = employment_id
         return self
-
+    
     def build(self) -> "BasicJobData":
         return self._basic_job_data

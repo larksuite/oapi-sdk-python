@@ -23,14 +23,12 @@ class DeleteCardElementRequestBody(object):
 class DeleteCardElementRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_card_element_request_body = DeleteCardElementRequestBody()
-
     def uuid(self, uuid: str) -> "DeleteCardElementRequestBodyBuilder":
         self._delete_card_element_request_body.uuid = uuid
         return self
-
     def sequence(self, sequence: int) -> "DeleteCardElementRequestBodyBuilder":
         self._delete_card_element_request_body.sequence = sequence
         return self
-
+    
     def build(self) -> "DeleteCardElementRequestBody":
         return self._delete_card_element_request_body

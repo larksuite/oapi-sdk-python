@@ -29,22 +29,18 @@ class BitableTableFieldAction(object):
 class BitableTableFieldActionBuilder(object):
     def __init__(self) -> None:
         self._bitable_table_field_action = BitableTableFieldAction()
-
     def action(self, action: str) -> "BitableTableFieldActionBuilder":
         self._bitable_table_field_action.action = action
         return self
-
     def field_id(self, field_id: str) -> "BitableTableFieldActionBuilder":
         self._bitable_table_field_action.field_id = field_id
         return self
-
     def before_value(self, before_value: BitableTableFieldActionValue) -> "BitableTableFieldActionBuilder":
         self._bitable_table_field_action.before_value = before_value
         return self
-
     def after_value(self, after_value: BitableTableFieldActionValue) -> "BitableTableFieldActionBuilder":
         self._bitable_table_field_action.after_value = after_value
         return self
-
+    
     def build(self) -> "BitableTableFieldAction":
         return self._bitable_table_field_action

@@ -23,14 +23,12 @@ class KnowledgeSourceRequestExtra(object):
 class KnowledgeSourceRequestExtraBuilder(object):
     def __init__(self) -> None:
         self._knowledge_source_request_extra = KnowledgeSourceRequestExtra()
-
     def locale(self, locale: str) -> "KnowledgeSourceRequestExtraBuilder":
         self._knowledge_source_request_extra.locale = locale
         return self
-
     def timezone(self, timezone: str) -> "KnowledgeSourceRequestExtraBuilder":
         self._knowledge_source_request_extra.timezone = timezone
         return self
-
+    
     def build(self) -> "KnowledgeSourceRequestExtra":
         return self._knowledge_source_request_extra

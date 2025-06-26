@@ -76,106 +76,81 @@ class Application(object):
 class ApplicationBuilder(object):
     def __init__(self) -> None:
         self._application = Application()
-
     def app_id(self, app_id: str) -> "ApplicationBuilder":
         self._application.app_id = app_id
         return self
-
     def creator_id(self, creator_id: int) -> "ApplicationBuilder":
         self._application.creator_id = creator_id
         return self
-
     def status(self, status: int) -> "ApplicationBuilder":
         self._application.status = status
         return self
-
     def scene_type(self, scene_type: int) -> "ApplicationBuilder":
         self._application.scene_type = scene_type
         return self
-
     def payment_type(self, payment_type: int) -> "ApplicationBuilder":
         self._application.payment_type = payment_type
         return self
-
     def create_source(self, create_source: str) -> "ApplicationBuilder":
         self._application.create_source = create_source
         return self
-
     def redirect_urls(self, redirect_urls: List[str]) -> "ApplicationBuilder":
         self._application.redirect_urls = redirect_urls
         return self
-
     def online_version_id(self, online_version_id: int) -> "ApplicationBuilder":
         self._application.online_version_id = online_version_id
         return self
-
     def unaudit_version_id(self, unaudit_version_id: int) -> "ApplicationBuilder":
         self._application.unaudit_version_id = unaudit_version_id
         return self
-
     def app_name(self, app_name: str) -> "ApplicationBuilder":
         self._application.app_name = app_name
         return self
-
     def avatar_url(self, avatar_url: str) -> "ApplicationBuilder":
         self._application.avatar_url = avatar_url
         return self
-
     def description(self, description: str) -> "ApplicationBuilder":
         self._application.description = description
         return self
-
     def scopes(self, scopes: List[AppScope]) -> "ApplicationBuilder":
         self._application.scopes = scopes
         return self
-
     def back_home_url(self, back_home_url: str) -> "ApplicationBuilder":
         self._application.back_home_url = back_home_url
         return self
-
     def i18n(self, i18n: List[AppI18nInfo]) -> "ApplicationBuilder":
         self._application.i18n = i18n
         return self
-
     def primary_language(self, primary_language: str) -> "ApplicationBuilder":
         self._application.primary_language = primary_language
         return self
-
     def common_categories(self, common_categories: List[str]) -> "ApplicationBuilder":
         self._application.common_categories = common_categories
         return self
-
     def owner(self, owner: ApplicationOwner) -> "ApplicationBuilder":
         self._application.owner = owner
         return self
-
     def mobile_default_ability(self, mobile_default_ability: str) -> "ApplicationBuilder":
         self._application.mobile_default_ability = mobile_default_ability
         return self
-
     def pc_default_ability(self, pc_default_ability: str) -> "ApplicationBuilder":
         self._application.pc_default_ability = pc_default_ability
         return self
-
     def secret(self, secret: str) -> "ApplicationBuilder":
         self._application.secret = secret
         return self
-
     def event(self, event: SubscribedEvent) -> "ApplicationBuilder":
         self._application.event = event
         return self
-
     def callback(self, callback: Callback) -> "ApplicationBuilder":
         self._application.callback = callback
         return self
-
     def encryption(self, encryption: EventAndCallbackEncryptStrategy) -> "ApplicationBuilder":
         self._application.encryption = encryption
         return self
-
     def security(self, security: AppConfigSecurityItem) -> "ApplicationBuilder":
         self._application.security = security
         return self
-
+    
     def build(self) -> "Application":
         return self._application

@@ -24,16 +24,17 @@ class DeleteUserMailboxFolderRequestBuilder(object):
         delete_user_mailbox_folder_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/folders/:folder_id"
         delete_user_mailbox_folder_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._delete_user_mailbox_folder_request: DeleteUserMailboxFolderRequest = delete_user_mailbox_folder_request
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "DeleteUserMailboxFolderRequestBuilder":
         self._delete_user_mailbox_folder_request.user_mailbox_id = user_mailbox_id
         self._delete_user_mailbox_folder_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def folder_id(self, folder_id: int) -> "DeleteUserMailboxFolderRequestBuilder":
         self._delete_user_mailbox_folder_request.folder_id = folder_id
         self._delete_user_mailbox_folder_request.paths["folder_id"] = str(folder_id)
         return self
+    
 
     def build(self) -> DeleteUserMailboxFolderRequest:
         return self._delete_user_mailbox_folder_request

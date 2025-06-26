@@ -91,112 +91,84 @@ class CompositeTalent(object):
 class CompositeTalentBuilder(object):
     def __init__(self) -> None:
         self._composite_talent = CompositeTalent()
-
     def talent_id(self, talent_id: str) -> "CompositeTalentBuilder":
         self._composite_talent.talent_id = talent_id
         return self
-
     def basic_info(self, basic_info: CompositeTalentBasicInfo) -> "CompositeTalentBuilder":
         self._composite_talent.basic_info = basic_info
         return self
-
     def education_list(self, education_list: List[CompositeTalentEducationInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.education_list = education_list
         return self
-
     def career_list(self, career_list: List[CompositeTalentCareerInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.career_list = career_list
         return self
-
     def project_list(self, project_list: List[CompositeTalentProjectInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.project_list = project_list
         return self
-
     def works_list(self, works_list: List[CompositeTalentWorksInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.works_list = works_list
         return self
-
     def award_list(self, award_list: List[CompositeTalentAwardInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.award_list = award_list
         return self
-
     def language_list(self, language_list: List[CompositeTalentLanguageInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.language_list = language_list
         return self
-
     def sns_list(self, sns_list: List[CompositeTalentSnsInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.sns_list = sns_list
         return self
-
     def resume_source_list(self, resume_source_list: List[TalentResumeSource]) -> "CompositeTalentBuilder":
         self._composite_talent.resume_source_list = resume_source_list
         return self
-
     def internship_list(self, internship_list: List[CompositeTalentInternshipInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.internship_list = internship_list
         return self
-
-    def customized_data_list(self,
-                             customized_data_list: List[CompositeTalentCustomizedData]) -> "CompositeTalentBuilder":
+    def customized_data_list(self, customized_data_list: List[CompositeTalentCustomizedData]) -> "CompositeTalentBuilder":
         self._composite_talent.customized_data_list = customized_data_list
         return self
-
     def resume_attachment_id_list(self, resume_attachment_id_list: List[str]) -> "CompositeTalentBuilder":
         self._composite_talent.resume_attachment_id_list = resume_attachment_id_list
         return self
-
     def resume_attachment_list(self, resume_attachment_list: List[TalentResumeAttachment]) -> "CompositeTalentBuilder":
         self._composite_talent.resume_attachment_list = resume_attachment_list
         return self
-
-    def interview_registration_list(self, interview_registration_list: List[
-        TalentInterviewRegistrationSimple]) -> "CompositeTalentBuilder":
+    def interview_registration_list(self, interview_registration_list: List[TalentInterviewRegistrationSimple]) -> "CompositeTalentBuilder":
         self._composite_talent.interview_registration_list = interview_registration_list
         return self
-
     def registration_list(self, registration_list: List[RegistrationBasicInfo]) -> "CompositeTalentBuilder":
         self._composite_talent.registration_list = registration_list
         return self
-
     def is_onboarded(self, is_onboarded: bool) -> "CompositeTalentBuilder":
         self._composite_talent.is_onboarded = is_onboarded
         return self
-
     def is_in_agency_period(self, is_in_agency_period: bool) -> "CompositeTalentBuilder":
         self._composite_talent.is_in_agency_period = is_in_agency_period
         return self
-
     def top_degree(self, top_degree: int) -> "CompositeTalentBuilder":
         self._composite_talent.top_degree = top_degree
         return self
-
     def talent_pool_id_list(self, talent_pool_id_list: List[str]) -> "CompositeTalentBuilder":
         self._composite_talent.talent_pool_id_list = talent_pool_id_list
         return self
-
     def talent_folder_ref_list_v2(self, talent_folder_ref_list_v2: List[TalentFolder]) -> "CompositeTalentBuilder":
         self._composite_talent.talent_folder_ref_list_v2 = talent_folder_ref_list_v2
         return self
-
     def tag_list(self, tag_list: List[TalentTag]) -> "CompositeTalentBuilder":
         self._composite_talent.tag_list = tag_list
         return self
-
     def similar_info_v2(self, similar_info_v2: TalentSimilar) -> "CompositeTalentBuilder":
         self._composite_talent.similar_info_v2 = similar_info_v2
         return self
-
     def block_info(self, block_info: TalentBlock) -> "CompositeTalentBuilder":
         self._composite_talent.block_info = block_info
         return self
-
     def talent_pool_ref_list_v2(self, talent_pool_ref_list_v2: List[TalentPool]) -> "CompositeTalentBuilder":
         self._composite_talent.talent_pool_ref_list_v2 = talent_pool_ref_list_v2
         return self
-
     def note_list_v2(self, note_list_v2: List[TalentNote]) -> "CompositeTalentBuilder":
         self._composite_talent.note_list_v2 = note_list_v2
         return self
-
+    
     def build(self) -> "CompositeTalent":
         return self._composite_talent

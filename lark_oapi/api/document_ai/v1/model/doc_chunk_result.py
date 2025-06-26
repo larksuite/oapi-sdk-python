@@ -49,58 +49,45 @@ class DocChunkResult(object):
 class DocChunkResultBuilder(object):
     def __init__(self) -> None:
         self._doc_chunk_result = DocChunkResult()
-
     def id(self, id: int) -> "DocChunkResultBuilder":
         self._doc_chunk_result.id = id
         return self
-
     def type(self, type: str) -> "DocChunkResultBuilder":
         self._doc_chunk_result.type = type
         return self
-
     def positions(self, positions: DocChunkPosition) -> "DocChunkResultBuilder":
         self._doc_chunk_result.positions = positions
         return self
-
     def text(self, text: str) -> "DocChunkResultBuilder":
         self._doc_chunk_result.text = text
         return self
-
     def level(self, level: int) -> "DocChunkResultBuilder":
         self._doc_chunk_result.level = level
         return self
-
     def parent(self, parent: int) -> "DocChunkResultBuilder":
         self._doc_chunk_result.parent = parent
         return self
-
     def children(self, children: List[int]) -> "DocChunkResultBuilder":
         self._doc_chunk_result.children = children
         return self
-
     def label(self, label: str) -> "DocChunkResultBuilder":
         self._doc_chunk_result.label = label
         return self
-
     def block_id(self, block_id: str) -> "DocChunkResultBuilder":
         self._doc_chunk_result.block_id = block_id
         return self
-
     def table_detail(self, table_detail: DocChunkTableDetail) -> "DocChunkResultBuilder":
         self._doc_chunk_result.table_detail = table_detail
         return self
-
     def llm_detail(self, llm_detail: LlmDetail) -> "DocChunkResultBuilder":
         self._doc_chunk_result.llm_detail = llm_detail
         return self
-
     def image_detail(self, image_detail: ImageDetail) -> "DocChunkResultBuilder":
         self._doc_chunk_result.image_detail = image_detail
         return self
-
     def slide_index(self, slide_index: str) -> "DocChunkResultBuilder":
         self._doc_chunk_result.slide_index = slide_index
         return self
-
+    
     def build(self) -> "DocChunkResult":
         return self._doc_chunk_result

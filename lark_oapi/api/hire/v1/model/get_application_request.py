@@ -25,21 +25,22 @@ class GetApplicationRequestBuilder(object):
         get_application_request.uri = "/open-apis/hire/v1/applications/:application_id"
         get_application_request.token_types = {AccessTokenType.TENANT}
         self._get_application_request: GetApplicationRequest = get_application_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetApplicationRequestBuilder":
         self._get_application_request.user_id_type = user_id_type
         self._get_application_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def options(self, options: List[str]) -> "GetApplicationRequestBuilder":
         self._get_application_request.options = options
         self._get_application_request.add_query("options", options)
         return self
-
+    
     def application_id(self, application_id: str) -> "GetApplicationRequestBuilder":
         self._get_application_request.application_id = application_id
         self._get_application_request.paths["application_id"] = str(application_id)
         return self
+    
 
     def build(self) -> GetApplicationRequest:
         return self._get_application_request

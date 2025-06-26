@@ -22,10 +22,9 @@ class FeedGroupRules(object):
 class FeedGroupRulesBuilder(object):
     def __init__(self) -> None:
         self._feed_group_rules = FeedGroupRules()
-
     def rules(self, rules: List[FeedGroupRule]) -> "FeedGroupRulesBuilder":
         self._feed_group_rules.rules = rules
         return self
-
+    
     def build(self) -> "FeedGroupRules":
         return self._feed_group_rules

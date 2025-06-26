@@ -23,14 +23,12 @@ class UserViewDetail(object):
 class UserViewDetailBuilder(object):
     def __init__(self) -> None:
         self._user_view_detail = UserViewDetail()
-
     def user_id(self, user_id: str) -> "UserViewDetailBuilder":
         self._user_view_detail.user_id = user_id
         return self
-
     def view_time(self, view_time: str) -> "UserViewDetailBuilder":
         self._user_view_detail.view_time = view_time
         return self
-
+    
     def build(self) -> "UserViewDetail":
         return self._user_view_detail

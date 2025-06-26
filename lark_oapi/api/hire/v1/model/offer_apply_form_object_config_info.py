@@ -28,19 +28,15 @@ class OfferApplyFormObjectConfigInfo(object):
 class OfferApplyFormObjectConfigInfoBuilder(object):
     def __init__(self) -> None:
         self._offer_apply_form_object_config_info = OfferApplyFormObjectConfigInfo()
-
     def options(self, options: List[OfferApplyFormConfigOptionInfo]) -> "OfferApplyFormObjectConfigInfoBuilder":
         self._offer_apply_form_object_config_info.options = options
         return self
-
     def formula(self, formula: OfferApplyFormConfigFormulaInfo) -> "OfferApplyFormObjectConfigInfoBuilder":
         self._offer_apply_form_object_config_info.formula = formula
         return self
-
-    def object_display_config(self,
-                              object_display_config: OfferApplyFormObjectDisplayConfigInfo) -> "OfferApplyFormObjectConfigInfoBuilder":
+    def object_display_config(self, object_display_config: OfferApplyFormObjectDisplayConfigInfo) -> "OfferApplyFormObjectConfigInfoBuilder":
         self._offer_apply_form_object_config_info.object_display_config = object_display_config
         return self
-
+    
     def build(self) -> "OfferApplyFormObjectConfigInfo":
         return self._offer_apply_form_object_config_info

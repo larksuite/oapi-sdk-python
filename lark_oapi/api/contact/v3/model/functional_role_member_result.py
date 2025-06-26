@@ -23,14 +23,12 @@ class FunctionalRoleMemberResult(object):
 class FunctionalRoleMemberResultBuilder(object):
     def __init__(self) -> None:
         self._functional_role_member_result = FunctionalRoleMemberResult()
-
     def user_id(self, user_id: str) -> "FunctionalRoleMemberResultBuilder":
         self._functional_role_member_result.user_id = user_id
         return self
-
     def reason(self, reason: int) -> "FunctionalRoleMemberResultBuilder":
         self._functional_role_member_result.reason = reason
         return self
-
+    
     def build(self) -> "FunctionalRoleMemberResult":
         return self._functional_role_member_result

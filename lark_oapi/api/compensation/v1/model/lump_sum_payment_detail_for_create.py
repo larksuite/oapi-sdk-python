@@ -33,34 +33,27 @@ class LumpSumPaymentDetailForCreate(object):
 class LumpSumPaymentDetailForCreateBuilder(object):
     def __init__(self) -> None:
         self._lump_sum_payment_detail_for_create = LumpSumPaymentDetailForCreate()
-
     def issuance_amount(self, issuance_amount: str) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_amount = issuance_amount
         return self
-
     def issuance_status(self, issuance_status: str) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_status = issuance_status
         return self
-
     def issuance_way(self, issuance_way: str) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_way = issuance_way
         return self
-
     def issuance_time(self, issuance_time: str) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_time = issuance_time
         return self
-
     def belong_time(self, belong_time: str) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.belong_time = belong_time
         return self
-
     def issuance_country_region_id(self, issuance_country_region_id: str) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_country_region_id = issuance_country_region_id
         return self
-
     def issuance_pay_group_id(self, issuance_pay_group_id: str) -> "LumpSumPaymentDetailForCreateBuilder":
         self._lump_sum_payment_detail_for_create.issuance_pay_group_id = issuance_pay_group_id
         return self
-
+    
     def build(self) -> "LumpSumPaymentDetailForCreate":
         return self._lump_sum_payment_detail_for_create

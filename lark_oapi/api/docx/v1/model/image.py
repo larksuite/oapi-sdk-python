@@ -30,26 +30,21 @@ class Image(object):
 class ImageBuilder(object):
     def __init__(self) -> None:
         self._image = Image()
-
     def width(self, width: int) -> "ImageBuilder":
         self._image.width = width
         return self
-
     def height(self, height: int) -> "ImageBuilder":
         self._image.height = height
         return self
-
     def token(self, token: str) -> "ImageBuilder":
         self._image.token = token
         return self
-
     def align(self, align: int) -> "ImageBuilder":
         self._image.align = align
         return self
-
     def caption(self, caption: Caption) -> "ImageBuilder":
         self._image.caption = caption
         return self
-
+    
     def build(self) -> "Image":
         return self._image

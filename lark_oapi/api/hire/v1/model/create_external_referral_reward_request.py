@@ -25,12 +25,12 @@ class CreateExternalReferralRewardRequestBuilder(object):
         create_external_referral_reward_request.uri = "/open-apis/hire/v1/external_referral_rewards"
         create_external_referral_reward_request.token_types = {AccessTokenType.TENANT}
         self._create_external_referral_reward_request: CreateExternalReferralRewardRequest = create_external_referral_reward_request
-
+    
     def user_id_type(self, user_id_type: str) -> "CreateExternalReferralRewardRequestBuilder":
         self._create_external_referral_reward_request.user_id_type = user_id_type
         self._create_external_referral_reward_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def request_body(self, request_body: ExternalReward) -> "CreateExternalReferralRewardRequestBuilder":
         self._create_external_referral_reward_request.request_body = request_body
         self._create_external_referral_reward_request.body = request_body

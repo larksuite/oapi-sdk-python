@@ -24,14 +24,12 @@ class Text(object):
 class TextBuilder(object):
     def __init__(self) -> None:
         self._text = Text()
-
     def text(self, text: str) -> "TextBuilder":
         self._text.text = text
         return self
-
     def segment_style(self, segment_style: SegmentStyle) -> "TextBuilder":
         self._text.segment_style = segment_style
         return self
-
+    
     def build(self) -> "Text":
         return self._text

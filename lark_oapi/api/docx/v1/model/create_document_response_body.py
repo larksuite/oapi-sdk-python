@@ -22,10 +22,9 @@ class CreateDocumentResponseBody(object):
 class CreateDocumentResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_document_response_body = CreateDocumentResponseBody()
-
     def document(self, document: Document) -> "CreateDocumentResponseBodyBuilder":
         self._create_document_response_body.document = document
         return self
-
+    
     def build(self) -> "CreateDocumentResponseBody":
         return self._create_document_response_body

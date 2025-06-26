@@ -24,16 +24,17 @@ class ListOutboundIpRequestBuilder(object):
         list_outbound_ip_request.uri = "/open-apis/event/v1/outbound_ip"
         list_outbound_ip_request.token_types = {AccessTokenType.TENANT}
         self._list_outbound_ip_request: ListOutboundIpRequest = list_outbound_ip_request
-
+    
     def page_size(self, page_size: int) -> "ListOutboundIpRequestBuilder":
         self._list_outbound_ip_request.page_size = page_size
         self._list_outbound_ip_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListOutboundIpRequestBuilder":
         self._list_outbound_ip_request.page_token = page_token
         self._list_outbound_ip_request.add_query("page_token", page_token)
         return self
+    
 
     def build(self) -> ListOutboundIpRequest:
         return self._list_outbound_ip_request

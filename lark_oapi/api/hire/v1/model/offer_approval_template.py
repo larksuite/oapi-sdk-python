@@ -31,26 +31,21 @@ class OfferApprovalTemplate(object):
 class OfferApprovalTemplateBuilder(object):
     def __init__(self) -> None:
         self._offer_approval_template = OfferApprovalTemplate()
-
     def id(self, id: str) -> "OfferApprovalTemplateBuilder":
         self._offer_approval_template.id = id
         return self
-
     def name(self, name: I18n) -> "OfferApprovalTemplateBuilder":
         self._offer_approval_template.name = name
         return self
-
     def create_time(self, create_time: str) -> "OfferApprovalTemplateBuilder":
         self._offer_approval_template.create_time = create_time
         return self
-
     def remark(self, remark: str) -> "OfferApprovalTemplateBuilder":
         self._offer_approval_template.remark = remark
         return self
-
     def department_list(self, department_list: List[Department]) -> "OfferApprovalTemplateBuilder":
         self._offer_approval_template.department_list = department_list
         return self
-
+    
     def build(self) -> "OfferApprovalTemplate":
         return self._offer_approval_template

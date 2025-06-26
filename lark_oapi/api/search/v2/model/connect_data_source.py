@@ -35,38 +35,30 @@ class ConnectDataSource(object):
 class ConnectDataSourceBuilder(object):
     def __init__(self) -> None:
         self._connect_data_source = ConnectDataSource()
-
     def service_url(self, service_url: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.service_url = service_url
         return self
-
     def project_name(self, project_name: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.project_name = project_name
         return self
-
     def display_name(self, display_name: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.display_name = display_name
         return self
-
     def description(self, description: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.description = description
         return self
-
     def icon_url(self, icon_url: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.icon_url = icon_url
         return self
-
     def project_description(self, project_description: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.project_description = project_description
         return self
-
     def contact_email(self, contact_email: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.contact_email = contact_email
         return self
-
     def tenant_name(self, tenant_name: str) -> "ConnectDataSourceBuilder":
         self._connect_data_source.tenant_name = tenant_name
         return self
-
+    
     def build(self) -> "ConnectDataSource":
         return self._connect_data_source

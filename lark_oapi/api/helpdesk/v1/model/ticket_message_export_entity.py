@@ -30,26 +30,21 @@ class TicketMessageExportEntity(object):
 class TicketMessageExportEntityBuilder(object):
     def __init__(self) -> None:
         self._ticket_message_export_entity = TicketMessageExportEntity()
-
     def id(self, id: str) -> "TicketMessageExportEntityBuilder":
         self._ticket_message_export_entity.id = id
         return self
-
     def message_type(self, message_type: str) -> "TicketMessageExportEntityBuilder":
         self._ticket_message_export_entity.message_type = message_type
         return self
-
     def created_at_ms(self, created_at_ms: str) -> "TicketMessageExportEntityBuilder":
         self._ticket_message_export_entity.created_at_ms = created_at_ms
         return self
-
     def user_id(self, user_id: int) -> "TicketMessageExportEntityBuilder":
         self._ticket_message_export_entity.user_id = user_id
         return self
-
     def content(self, content: ExportTicketMessageContent) -> "TicketMessageExportEntityBuilder":
         self._ticket_message_export_entity.content = content
         return self
-
+    
     def build(self) -> "TicketMessageExportEntity":
         return self._ticket_message_export_entity

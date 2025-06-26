@@ -40,6 +40,7 @@ from .salary_level_type import *
 from .social_archive import *
 from .social_archive_adjust_record import *
 from .social_archive_detail import *
+from .social_archive_event_detail import *
 from .social_archive_item import *
 from .social_insurance import *
 from .social_plan import *

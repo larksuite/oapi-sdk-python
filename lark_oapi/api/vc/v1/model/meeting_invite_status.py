@@ -25,18 +25,15 @@ class MeetingInviteStatus(object):
 class MeetingInviteStatusBuilder(object):
     def __init__(self) -> None:
         self._meeting_invite_status = MeetingInviteStatus()
-
     def id(self, id: str) -> "MeetingInviteStatusBuilder":
         self._meeting_invite_status.id = id
         return self
-
     def user_type(self, user_type: int) -> "MeetingInviteStatusBuilder":
         self._meeting_invite_status.user_type = user_type
         return self
-
     def status(self, status: int) -> "MeetingInviteStatusBuilder":
         self._meeting_invite_status.status = status
         return self
-
+    
     def build(self) -> "MeetingInviteStatus":
         return self._meeting_invite_status

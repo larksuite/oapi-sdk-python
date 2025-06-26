@@ -23,24 +23,24 @@ class DownloadUrlUserMailboxMessageAttachmentRequestBuilder(object):
         download_url_user_mailbox_message_attachment_request = DownloadUrlUserMailboxMessageAttachmentRequest()
         download_url_user_mailbox_message_attachment_request.http_method = HttpMethod.GET
         download_url_user_mailbox_message_attachment_request.uri = "/open-apis/mail/v1/user_mailboxes/:user_mailbox_id/messages/:message_id/attachments/download_url"
-        download_url_user_mailbox_message_attachment_request.token_types = {AccessTokenType.TENANT,
-                                                                            AccessTokenType.USER}
+        download_url_user_mailbox_message_attachment_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._download_url_user_mailbox_message_attachment_request: DownloadUrlUserMailboxMessageAttachmentRequest = download_url_user_mailbox_message_attachment_request
-
+    
     def attachment_ids(self, attachment_ids: List[str]) -> "DownloadUrlUserMailboxMessageAttachmentRequestBuilder":
         self._download_url_user_mailbox_message_attachment_request.attachment_ids = attachment_ids
         self._download_url_user_mailbox_message_attachment_request.add_query("attachment_ids", attachment_ids)
         return self
-
+    
     def user_mailbox_id(self, user_mailbox_id: str) -> "DownloadUrlUserMailboxMessageAttachmentRequestBuilder":
         self._download_url_user_mailbox_message_attachment_request.user_mailbox_id = user_mailbox_id
         self._download_url_user_mailbox_message_attachment_request.paths["user_mailbox_id"] = str(user_mailbox_id)
         return self
-
+    
     def message_id(self, message_id: str) -> "DownloadUrlUserMailboxMessageAttachmentRequestBuilder":
         self._download_url_user_mailbox_message_attachment_request.message_id = message_id
         self._download_url_user_mailbox_message_attachment_request.paths["message_id"] = str(message_id)
         return self
+    
 
     def build(self) -> DownloadUrlUserMailboxMessageAttachmentRequest:
         return self._download_url_user_mailbox_message_attachment_request

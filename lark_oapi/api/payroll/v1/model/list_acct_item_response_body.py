@@ -26,18 +26,15 @@ class ListAcctItemResponseBody(object):
 class ListAcctItemResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_acct_item_response_body = ListAcctItemResponseBody()
-
     def items(self, items: List[AcctItem]) -> "ListAcctItemResponseBodyBuilder":
         self._list_acct_item_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListAcctItemResponseBodyBuilder":
         self._list_acct_item_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListAcctItemResponseBodyBuilder":
         self._list_acct_item_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListAcctItemResponseBody":
         return self._list_acct_item_response_body

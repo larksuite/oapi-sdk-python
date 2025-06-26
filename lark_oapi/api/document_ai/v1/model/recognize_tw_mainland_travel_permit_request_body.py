@@ -21,10 +21,9 @@ class RecognizeTwMainlandTravelPermitRequestBody(object):
 class RecognizeTwMainlandTravelPermitRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._recognize_tw_mainland_travel_permit_request_body = RecognizeTwMainlandTravelPermitRequestBody()
-
     def file(self, file: IO[Any]) -> "RecognizeTwMainlandTravelPermitRequestBodyBuilder":
         self._recognize_tw_mainland_travel_permit_request_body.file = file
         return self
-
+    
     def build(self) -> "RecognizeTwMainlandTravelPermitRequestBody":
         return self._recognize_tw_mainland_travel_permit_request_body

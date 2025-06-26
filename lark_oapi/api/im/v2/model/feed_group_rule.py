@@ -24,14 +24,12 @@ class FeedGroupRule(object):
 class FeedGroupRuleBuilder(object):
     def __init__(self) -> None:
         self._feed_group_rule = FeedGroupRule()
-
     def condition(self, condition: FeedGroupRuleCond) -> "FeedGroupRuleBuilder":
         self._feed_group_rule.condition = condition
         return self
-
     def action(self, action: str) -> "FeedGroupRuleBuilder":
         self._feed_group_rule.action = action
         return self
-
+    
     def build(self) -> "FeedGroupRule":
         return self._feed_group_rule

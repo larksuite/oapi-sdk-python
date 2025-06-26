@@ -21,10 +21,9 @@ class CreateApplicationResponseBody(object):
 class CreateApplicationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._create_application_response_body = CreateApplicationResponseBody()
-
     def id(self, id: str) -> "CreateApplicationResponseBodyBuilder":
         self._create_application_response_body.id = id
         return self
-
+    
     def build(self) -> "CreateApplicationResponseBody":
         return self._create_application_response_body

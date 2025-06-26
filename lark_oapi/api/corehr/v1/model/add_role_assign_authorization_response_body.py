@@ -21,10 +21,9 @@ class AddRoleAssignAuthorizationResponseBody(object):
 class AddRoleAssignAuthorizationResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._add_role_assign_authorization_response_body = AddRoleAssignAuthorizationResponseBody()
-
     def assign_id(self, assign_id: str) -> "AddRoleAssignAuthorizationResponseBodyBuilder":
         self._add_role_assign_authorization_response_body.assign_id = assign_id
         return self
-
+    
     def build(self) -> "AddRoleAssignAuthorizationResponseBody":
         return self._add_role_assign_authorization_response_body

@@ -26,18 +26,15 @@ class ListSectionResponseBody(object):
 class ListSectionResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._list_section_response_body = ListSectionResponseBody()
-
     def items(self, items: List[SectionSummary]) -> "ListSectionResponseBodyBuilder":
         self._list_section_response_body.items = items
         return self
-
     def page_token(self, page_token: str) -> "ListSectionResponseBodyBuilder":
         self._list_section_response_body.page_token = page_token
         return self
-
     def has_more(self, has_more: bool) -> "ListSectionResponseBodyBuilder":
         self._list_section_response_body.has_more = has_more
         return self
-
+    
     def build(self) -> "ListSectionResponseBody":
         return self._list_section_response_body

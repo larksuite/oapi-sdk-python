@@ -55,78 +55,60 @@ class AddressForUpdate(object):
 class AddressForUpdateBuilder(object):
     def __init__(self) -> None:
         self._address_for_update = AddressForUpdate()
-
     def address_id(self, address_id: str) -> "AddressForUpdateBuilder":
         self._address_for_update.address_id = address_id
         return self
-
     def country_region_id(self, country_region_id: str) -> "AddressForUpdateBuilder":
         self._address_for_update.country_region_id = country_region_id
         return self
-
     def region_id(self, region_id: str) -> "AddressForUpdateBuilder":
         self._address_for_update.region_id = region_id
         return self
-
     def local_address_line1(self, local_address_line1: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line1 = local_address_line1
         return self
-
     def local_address_line2(self, local_address_line2: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line2 = local_address_line2
         return self
-
     def local_address_line3(self, local_address_line3: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line3 = local_address_line3
         return self
-
     def local_address_line4(self, local_address_line4: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line4 = local_address_line4
         return self
-
     def local_address_line5(self, local_address_line5: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line5 = local_address_line5
         return self
-
     def local_address_line6(self, local_address_line6: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line6 = local_address_line6
         return self
-
     def local_address_line7(self, local_address_line7: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line7 = local_address_line7
         return self
-
     def local_address_line8(self, local_address_line8: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line8 = local_address_line8
         return self
-
     def local_address_line9(self, local_address_line9: str) -> "AddressForUpdateBuilder":
         self._address_for_update.local_address_line9 = local_address_line9
         return self
-
     def postal_code(self, postal_code: str) -> "AddressForUpdateBuilder":
         self._address_for_update.postal_code = postal_code
         return self
-
     def address_types(self, address_types: List[str]) -> "AddressForUpdateBuilder":
         self._address_for_update.address_types = address_types
         return self
-
     def is_primary(self, is_primary: bool) -> "AddressForUpdateBuilder":
         self._address_for_update.is_primary = is_primary
         return self
-
     def is_public(self, is_public: bool) -> "AddressForUpdateBuilder":
         self._address_for_update.is_public = is_public
         return self
-
     def city_id_v2(self, city_id_v2: str) -> "AddressForUpdateBuilder":
         self._address_for_update.city_id_v2 = city_id_v2
         return self
-
     def district_id_v2(self, district_id_v2: str) -> "AddressForUpdateBuilder":
         self._address_for_update.district_id_v2 = district_id_v2
         return self
-
+    
     def build(self) -> "AddressForUpdate":
         return self._address_for_update

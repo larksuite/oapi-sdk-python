@@ -24,14 +24,12 @@ class MyAiCallbackAction(object):
 class MyAiCallbackActionBuilder(object):
     def __init__(self) -> None:
         self._my_ai_callback_action = MyAiCallbackAction()
-
     def value(self, value: MyAiCallbackActionValue) -> "MyAiCallbackActionBuilder":
         self._my_ai_callback_action.value = value
         return self
-
     def tag(self, tag: str) -> "MyAiCallbackActionBuilder":
         self._my_ai_callback_action.tag = tag
         return self
-
+    
     def build(self) -> "MyAiCallbackAction":
         return self._my_ai_callback_action

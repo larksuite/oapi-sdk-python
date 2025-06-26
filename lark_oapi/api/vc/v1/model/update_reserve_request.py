@@ -26,17 +26,17 @@ class UpdateReserveRequestBuilder(object):
         update_reserve_request.uri = "/open-apis/vc/v1/reserves/:reserve_id"
         update_reserve_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._update_reserve_request: UpdateReserveRequest = update_reserve_request
-
+    
     def user_id_type(self, user_id_type: str) -> "UpdateReserveRequestBuilder":
         self._update_reserve_request.user_id_type = user_id_type
         self._update_reserve_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def reserve_id(self, reserve_id: int) -> "UpdateReserveRequestBuilder":
         self._update_reserve_request.reserve_id = reserve_id
         self._update_reserve_request.paths["reserve_id"] = str(reserve_id)
         return self
-
+    
     def request_body(self, request_body: UpdateReserveRequestBody) -> "UpdateReserveRequestBuilder":
         self._update_reserve_request.request_body = request_body
         self._update_reserve_request.body = request_body

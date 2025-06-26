@@ -26,26 +26,27 @@ class GetMailgroupMemberRequestBuilder(object):
         get_mailgroup_member_request.uri = "/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id"
         get_mailgroup_member_request.token_types = {AccessTokenType.TENANT}
         self._get_mailgroup_member_request: GetMailgroupMemberRequest = get_mailgroup_member_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetMailgroupMemberRequestBuilder":
         self._get_mailgroup_member_request.user_id_type = user_id_type
         self._get_mailgroup_member_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def department_id_type(self, department_id_type: str) -> "GetMailgroupMemberRequestBuilder":
         self._get_mailgroup_member_request.department_id_type = department_id_type
         self._get_mailgroup_member_request.add_query("department_id_type", department_id_type)
         return self
-
+    
     def mailgroup_id(self, mailgroup_id: str) -> "GetMailgroupMemberRequestBuilder":
         self._get_mailgroup_member_request.mailgroup_id = mailgroup_id
         self._get_mailgroup_member_request.paths["mailgroup_id"] = str(mailgroup_id)
         return self
-
+    
     def member_id(self, member_id: str) -> "GetMailgroupMemberRequestBuilder":
         self._get_mailgroup_member_request.member_id = member_id
         self._get_mailgroup_member_request.paths["member_id"] = str(member_id)
         return self
+    
 
     def build(self) -> GetMailgroupMemberRequest:
         return self._get_mailgroup_member_request

@@ -69,88 +69,66 @@ class GetShiftResponseBody(object):
 class GetShiftResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_shift_response_body = GetShiftResponseBody()
-
     def shift_id(self, shift_id: str) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.shift_id = shift_id
         return self
-
     def shift_name(self, shift_name: str) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.shift_name = shift_name
         return self
-
     def punch_times(self, punch_times: int) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.punch_times = punch_times
         return self
-
     def sub_shift_leader_ids(self, sub_shift_leader_ids: List[str]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.sub_shift_leader_ids = sub_shift_leader_ids
         return self
-
     def is_flexible(self, is_flexible: bool) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.is_flexible = is_flexible
         return self
-
     def flexible_minutes(self, flexible_minutes: int) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.flexible_minutes = flexible_minutes
         return self
-
     def flexible_rule(self, flexible_rule: List[FlexibleRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.flexible_rule = flexible_rule
         return self
-
     def no_need_off(self, no_need_off: bool) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.no_need_off = no_need_off
         return self
-
     def punch_time_rule(self, punch_time_rule: List[PunchTimeRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.punch_time_rule = punch_time_rule
         return self
-
     def late_off_late_on_rule(self, late_off_late_on_rule: List[LateOffLateOnRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.late_off_late_on_rule = late_off_late_on_rule
         return self
-
     def rest_time_rule(self, rest_time_rule: List[RestRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.rest_time_rule = rest_time_rule
         return self
-
     def overtime_rule(self, overtime_rule: List[OvertimeRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.overtime_rule = overtime_rule
         return self
-
     def day_type(self, day_type: int) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.day_type = day_type
         return self
-
     def overtime_rest_time_rule(self, overtime_rest_time_rule: List[RestRule]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.overtime_rest_time_rule = overtime_rest_time_rule
         return self
-
     def late_minutes_as_serious_late(self, late_minutes_as_serious_late: int) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.late_minutes_as_serious_late = late_minutes_as_serious_late
         return self
-
     def shift_middle_time_rule(self, shift_middle_time_rule: ShiftMiddleTimeRule) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.shift_middle_time_rule = shift_middle_time_rule
         return self
-
-    def shift_attendance_time_config(self,
-                                     shift_attendance_time_config: ShiftAttendanceTimeConfig) -> "GetShiftResponseBodyBuilder":
+    def shift_attendance_time_config(self, shift_attendance_time_config: ShiftAttendanceTimeConfig) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.shift_attendance_time_config = shift_attendance_time_config
         return self
-
     def late_off_late_on_setting(self, late_off_late_on_setting: LateOffLateOnSetting) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.late_off_late_on_setting = late_off_late_on_setting
         return self
-
     def id(self, id: str) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.id = id
         return self
-
-    def rest_time_flexible_configs(self, rest_time_flexible_configs: List[
-        RestTimeFlexibleConfig]) -> "GetShiftResponseBodyBuilder":
+    def rest_time_flexible_configs(self, rest_time_flexible_configs: List[RestTimeFlexibleConfig]) -> "GetShiftResponseBodyBuilder":
         self._get_shift_response_body.rest_time_flexible_configs = rest_time_flexible_configs
         return self
-
+    
     def build(self) -> "GetShiftResponseBody":
         return self._get_shift_response_body

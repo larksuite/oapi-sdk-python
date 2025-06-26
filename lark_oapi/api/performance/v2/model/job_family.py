@@ -24,14 +24,12 @@ class JobFamily(object):
 class JobFamilyBuilder(object):
     def __init__(self) -> None:
         self._job_family = JobFamily()
-
     def id(self, id: str) -> "JobFamilyBuilder":
         self._job_family.id = id
         return self
-
     def name(self, name: I18n) -> "JobFamilyBuilder":
         self._job_family.name = name
         return self
-
+    
     def build(self) -> "JobFamily":
         return self._job_family

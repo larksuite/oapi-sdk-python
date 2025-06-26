@@ -31,23 +31,18 @@ class ProfileSettingEmpInfoForUpdate(object):
 class ProfileSettingEmpInfoForUpdateBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_emp_info_for_update = ProfileSettingEmpInfoForUpdate()
-
     def basic_info(self, basic_info: ProfileSettingEmpBasicInfoForUpdate) -> "ProfileSettingEmpInfoForUpdateBuilder":
         self._profile_setting_emp_info_for_update.basic_info = basic_info
         return self
-
     def probation_info(self, probation_info: ProfileSettingProbationInfo) -> "ProfileSettingEmpInfoForUpdateBuilder":
         self._profile_setting_emp_info_for_update.probation_info = probation_info
         return self
-
     def custom_groups(self, custom_groups: List[ProfileSettingCustomGroup]) -> "ProfileSettingEmpInfoForUpdateBuilder":
         self._profile_setting_emp_info_for_update.custom_groups = custom_groups
         return self
-
-    def seniority_adjust_informations(self, seniority_adjust_informations: List[
-        SeniorityAdjustInformationEdit]) -> "ProfileSettingEmpInfoForUpdateBuilder":
+    def seniority_adjust_informations(self, seniority_adjust_informations: List[SeniorityAdjustInformationEdit]) -> "ProfileSettingEmpInfoForUpdateBuilder":
         self._profile_setting_emp_info_for_update.seniority_adjust_informations = seniority_adjust_informations
         return self
-
+    
     def build(self) -> "ProfileSettingEmpInfoForUpdate":
         return self._profile_setting_emp_info_for_update

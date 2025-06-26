@@ -5,90 +5,90 @@ from lark_oapi.api.hire.v1 import *
 
 
 def main():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SearchWebsiteJobPostRequest = SearchWebsiteJobPostRequest.builder() \
-        .website_id("111") \
-        .page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
-        .page_size(10) \
-        .user_id_type("open_id") \
-        .department_id_type("open_department_id") \
-        .job_level_id_type("people_admin_job_level_id") \
-        .request_body(SearchWebsiteJobPostRequestBody.builder()
-                      .job_type_id_list([])
-                      .city_code_list([])
-                      .job_function_id_list([])
-                      .subject_id_list([])
-                      .keyword("HR")
-                      .update_start_time("1618500278663")
-                      .update_end_time("1618500278663")
-                      .create_start_time("1618500278663")
-                      .create_end_time("1618500278663")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SearchWebsiteJobPostRequest = SearchWebsiteJobPostRequest.builder() \
+		.website_id("111") \
+		.page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
+		.page_size(10) \
+		.user_id_type("open_id") \
+		.department_id_type("open_department_id") \
+		.job_level_id_type("people_admin_job_level_id") \
+		.request_body(SearchWebsiteJobPostRequestBody.builder()
+					  .job_type_id_list([])
+					  .city_code_list([])
+					  .job_function_id_list([])
+					  .subject_id_list([])
+					  .keyword("HR")
+					  .update_start_time("1618500278663")
+					  .update_end_time("1618500278663")
+					  .create_start_time("1618500278663")
+					  .create_end_time("1618500278663")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SearchWebsiteJobPostResponse = client.hire.v1.website_job_post.search(request)
+	# 发起请求
+	response: SearchWebsiteJobPostResponse = client.hire.v1.website_job_post.search(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.hire.v1.website_job_post.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.hire.v1.website_job_post.search failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 # 异步方式
 async def amain():
-    # 创建client
-    client = lark.Client.builder() \
-        .app_id(lark.APP_ID) \
-        .app_secret(lark.APP_SECRET) \
-        .log_level(lark.LogLevel.DEBUG) \
-        .build()
+	# 创建client
+	client = lark.Client.builder() \
+		.app_id(lark.APP_ID) \
+		.app_secret(lark.APP_SECRET) \
+		.log_level(lark.LogLevel.DEBUG) \
+		.build()
 
-    # 构造请求对象
-    request: SearchWebsiteJobPostRequest = SearchWebsiteJobPostRequest.builder() \
-        .website_id("111") \
-        .page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
-        .page_size(10) \
-        .user_id_type("open_id") \
-        .department_id_type("open_department_id") \
-        .job_level_id_type("people_admin_job_level_id") \
-        .request_body(SearchWebsiteJobPostRequestBody.builder()
-                      .job_type_id_list([])
-                      .city_code_list([])
-                      .job_function_id_list([])
-                      .subject_id_list([])
-                      .keyword("HR")
-                      .update_start_time("1618500278663")
-                      .update_end_time("1618500278663")
-                      .create_start_time("1618500278663")
-                      .create_end_time("1618500278663")
-                      .build()) \
-        .build()
+	# 构造请求对象
+	request: SearchWebsiteJobPostRequest = SearchWebsiteJobPostRequest.builder() \
+		.website_id("111") \
+		.page_token("eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==") \
+		.page_size(10) \
+		.user_id_type("open_id") \
+		.department_id_type("open_department_id") \
+		.job_level_id_type("people_admin_job_level_id") \
+		.request_body(SearchWebsiteJobPostRequestBody.builder()
+					  .job_type_id_list([])
+					  .city_code_list([])
+					  .job_function_id_list([])
+					  .subject_id_list([])
+					  .keyword("HR")
+					  .update_start_time("1618500278663")
+					  .update_end_time("1618500278663")
+					  .create_start_time("1618500278663")
+					  .create_end_time("1618500278663")
+					  .build()) \
+		.build()
 
-    # 发起请求
-    response: SearchWebsiteJobPostResponse = await client.hire.v1.website_job_post.asearch(request)
+	# 发起请求
+	response: SearchWebsiteJobPostResponse = await client.hire.v1.website_job_post.asearch(request)
 
-    # 处理失败返回
-    if not response.success():
-        lark.logger.error(
-            f"client.hire.v1.website_job_post.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
-        return
+	# 处理失败返回
+	if not response.success():
+		lark.logger.error(
+			f"client.hire.v1.website_job_post.asearch failed, code: {response.code}, msg: {response.msg}, log_id: {response.get_log_id()}")
+		return
 
-    # 处理业务结果
-    lark.logger.info(lark.JSON.marshal(response.data, indent=4))
+	# 处理业务结果
+	lark.logger.info(lark.JSON.marshal(response.data, indent=4))
 
 
 if __name__ == "__main__":
-    # asyncio.run(amain()) 异步方式
-    main()
+	# asyncio.run(amain()) 异步方式
+	main()

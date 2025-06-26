@@ -34,34 +34,27 @@ class ProfileSettingNational(object):
 class ProfileSettingNationalBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_national = ProfileSettingNational()
-
     def country_region(self, country_region: str) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.country_region = country_region
         return self
-
     def national_id_type(self, national_id_type: str) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.national_id_type = national_id_type
         return self
-
     def national_id_number(self, national_id_number: str) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.national_id_number = national_id_number
         return self
-
     def issued_date(self, issued_date: str) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.issued_date = issued_date
         return self
-
     def issued_by(self, issued_by: str) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.issued_by = issued_by
         return self
-
     def expiration_date(self, expiration_date: str) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.expiration_date = expiration_date
         return self
-
     def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingNationalBuilder":
         self._profile_setting_national.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "ProfileSettingNational":
         return self._profile_setting_national

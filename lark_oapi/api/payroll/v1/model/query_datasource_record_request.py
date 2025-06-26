@@ -26,17 +26,17 @@ class QueryDatasourceRecordRequestBuilder(object):
         query_datasource_record_request.uri = "/open-apis/payroll/v1/datasource_records/query"
         query_datasource_record_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._query_datasource_record_request: QueryDatasourceRecordRequest = query_datasource_record_request
-
+    
     def page_size(self, page_size: int) -> "QueryDatasourceRecordRequestBuilder":
         self._query_datasource_record_request.page_size = page_size
         self._query_datasource_record_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "QueryDatasourceRecordRequestBuilder":
         self._query_datasource_record_request.page_token = page_token
         self._query_datasource_record_request.add_query("page_token", page_token)
         return self
-
+    
     def request_body(self, request_body: QueryDatasourceRecordRequestBody) -> "QueryDatasourceRecordRequestBuilder":
         self._query_datasource_record_request.request_body = request_body
         self._query_datasource_record_request.body = request_body

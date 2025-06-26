@@ -26,18 +26,15 @@ class LeaveTypesLeaveResponseBody(object):
 class LeaveTypesLeaveResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._leave_types_leave_response_body = LeaveTypesLeaveResponseBody()
-
     def leave_type_list(self, leave_type_list: List[LeaveType]) -> "LeaveTypesLeaveResponseBodyBuilder":
         self._leave_types_leave_response_body.leave_type_list = leave_type_list
         return self
-
     def has_more(self, has_more: bool) -> "LeaveTypesLeaveResponseBodyBuilder":
         self._leave_types_leave_response_body.has_more = has_more
         return self
-
     def page_token(self, page_token: str) -> "LeaveTypesLeaveResponseBodyBuilder":
         self._leave_types_leave_response_body.page_token = page_token
         return self
-
+    
     def build(self) -> "LeaveTypesLeaveResponseBody":
         return self._leave_types_leave_response_body

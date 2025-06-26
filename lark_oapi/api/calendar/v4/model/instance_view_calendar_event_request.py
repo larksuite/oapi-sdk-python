@@ -26,26 +26,27 @@ class InstanceViewCalendarEventRequestBuilder(object):
         instance_view_calendar_event_request.uri = "/open-apis/calendar/v4/calendars/:calendar_id/events/instance_view"
         instance_view_calendar_event_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._instance_view_calendar_event_request: InstanceViewCalendarEventRequest = instance_view_calendar_event_request
-
+    
     def start_time(self, start_time: str) -> "InstanceViewCalendarEventRequestBuilder":
         self._instance_view_calendar_event_request.start_time = start_time
         self._instance_view_calendar_event_request.add_query("start_time", start_time)
         return self
-
+    
     def end_time(self, end_time: str) -> "InstanceViewCalendarEventRequestBuilder":
         self._instance_view_calendar_event_request.end_time = end_time
         self._instance_view_calendar_event_request.add_query("end_time", end_time)
         return self
-
+    
     def user_id_type(self, user_id_type: str) -> "InstanceViewCalendarEventRequestBuilder":
         self._instance_view_calendar_event_request.user_id_type = user_id_type
         self._instance_view_calendar_event_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def calendar_id(self, calendar_id: str) -> "InstanceViewCalendarEventRequestBuilder":
         self._instance_view_calendar_event_request.calendar_id = calendar_id
         self._instance_view_calendar_event_request.paths["calendar_id"] = str(calendar_id)
         return self
+    
 
     def build(self) -> InstanceViewCalendarEventRequest:
         return self._instance_view_calendar_event_request

@@ -31,30 +31,24 @@ class WebsiteUser(object):
 class WebsiteUserBuilder(object):
     def __init__(self) -> None:
         self._website_user = WebsiteUser()
-
     def user_id(self, user_id: str) -> "WebsiteUserBuilder":
         self._website_user.user_id = user_id
         return self
-
     def name(self, name: str) -> "WebsiteUserBuilder":
         self._website_user.name = name
         return self
-
     def email(self, email: str) -> "WebsiteUserBuilder":
         self._website_user.email = email
         return self
-
     def external_id(self, external_id: str) -> "WebsiteUserBuilder":
         self._website_user.external_id = external_id
         return self
-
     def mobile(self, mobile: str) -> "WebsiteUserBuilder":
         self._website_user.mobile = mobile
         return self
-
     def mobile_country_code(self, mobile_country_code: str) -> "WebsiteUserBuilder":
         self._website_user.mobile_country_code = mobile_country_code
         return self
-
+    
     def build(self) -> "WebsiteUser":
         return self._website_user

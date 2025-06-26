@@ -24,14 +24,12 @@ class DatasourceRecord(object):
 class DatasourceRecordBuilder(object):
     def __init__(self) -> None:
         self._datasource_record = DatasourceRecord()
-
     def active_status(self, active_status: int) -> "DatasourceRecordBuilder":
         self._datasource_record.active_status = active_status
         return self
-
     def field_values(self, field_values: List[DatasourceRecordField]) -> "DatasourceRecordBuilder":
         self._datasource_record.field_values = field_values
         return self
-
+    
     def build(self) -> "DatasourceRecord":
         return self._datasource_record

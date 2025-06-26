@@ -25,18 +25,15 @@ class RevieweeStageStatus(object):
 class RevieweeStageStatusBuilder(object):
     def __init__(self) -> None:
         self._reviewee_stage_status = RevieweeStageStatus()
-
     def stage_id(self, stage_id: str) -> "RevieweeStageStatusBuilder":
         self._reviewee_stage_status.stage_id = stage_id
         return self
-
     def stage_type(self, stage_type: str) -> "RevieweeStageStatusBuilder":
         self._reviewee_stage_status.stage_type = stage_type
         return self
-
     def stage_status(self, stage_status: int) -> "RevieweeStageStatusBuilder":
         self._reviewee_stage_status.stage_status = stage_status
         return self
-
+    
     def build(self) -> "RevieweeStageStatus":
         return self._reviewee_stage_status

@@ -22,10 +22,9 @@ class UpdateUserStatsViewResponseBody(object):
 class UpdateUserStatsViewResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._update_user_stats_view_response_body = UpdateUserStatsViewResponseBody()
-
     def view(self, view: UserStatsView) -> "UpdateUserStatsViewResponseBodyBuilder":
         self._update_user_stats_view_response_body.view = view
         return self
-
+    
     def build(self) -> "UpdateUserStatsViewResponseBody":
         return self._update_user_stats_view_response_body

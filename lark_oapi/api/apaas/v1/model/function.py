@@ -21,10 +21,9 @@ class Function(object):
 class FunctionBuilder(object):
     def __init__(self) -> None:
         self._function = Function()
-
     def api_name(self, api_name: str) -> "FunctionBuilder":
         self._function.api_name = api_name
         return self
-
+    
     def build(self) -> "Function":
         return self._function

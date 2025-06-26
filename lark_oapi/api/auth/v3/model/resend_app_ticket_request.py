@@ -24,7 +24,7 @@ class ResendAppTicketRequestBuilder(object):
         resend_app_ticket_request.uri = "/open-apis/auth/v3/app_ticket/resend"
         resend_app_ticket_request.token_types = {}
         self._resend_app_ticket_request: ResendAppTicketRequest = resend_app_ticket_request
-
+    
     def request_body(self, request_body: ResendAppTicketRequestBody) -> "ResendAppTicketRequestBuilder":
         self._resend_app_ticket_request.request_body = request_body
         self._resend_app_ticket_request.body = request_body

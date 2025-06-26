@@ -17,8 +17,7 @@ class UserMailbox(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def delete(self, request: DeleteUserMailboxRequest,
-               option: Optional[RequestOption] = None) -> DeleteUserMailboxResponse:
+    def delete(self, request: DeleteUserMailboxRequest, option: Optional[RequestOption] = None) -> DeleteUserMailboxResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class UserMailbox(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteUserMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUserMailboxResponse)
         response.raw = resp
 
         return response
+        
 
-    async def adelete(self, request: DeleteUserMailboxRequest,
-                      option: Optional[RequestOption] = None) -> DeleteUserMailboxResponse:
+    async def adelete(self, request: DeleteUserMailboxRequest, option: Optional[RequestOption] = None) -> DeleteUserMailboxResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: DeleteUserMailboxResponse = JSON.unmarshal(str(resp.content, UTF_8), DeleteUserMailboxResponse)
         response.raw = resp
 
         return response
+        
+    

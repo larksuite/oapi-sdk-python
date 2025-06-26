@@ -48,54 +48,42 @@ class PlanDetail(object):
 class PlanDetailBuilder(object):
     def __init__(self) -> None:
         self._plan_detail = PlanDetail()
-
     def id(self, id: str) -> "PlanDetailBuilder":
         self._plan_detail.id = id
         return self
-
     def tid(self, tid: str) -> "PlanDetailBuilder":
         self._plan_detail.tid = tid
         return self
-
     def name(self, name: str) -> "PlanDetailBuilder":
         self._plan_detail.name = name
         return self
-
     def description(self, description: str) -> "PlanDetailBuilder":
         self._plan_detail.description = description
         return self
-
     def effective_date(self, effective_date: str) -> "PlanDetailBuilder":
         self._plan_detail.effective_date = effective_date
         return self
-
     def plan_scope(self, plan_scope: PlanScope) -> "PlanDetailBuilder":
         self._plan_detail.plan_scope = plan_scope
         return self
-
     def currency_id(self, currency_id: str) -> "PlanDetailBuilder":
         self._plan_detail.currency_id = currency_id
         return self
-
     def probation_salary_status(self, probation_salary_status: bool) -> "PlanDetailBuilder":
         self._plan_detail.probation_salary_status = probation_salary_status
         return self
-
     def plan_items(self, plan_items: List[PlanItem]) -> "PlanDetailBuilder":
         self._plan_detail.plan_items = plan_items
         return self
-
     def plan_indicators(self, plan_indicators: List[PlanIndicator]) -> "PlanDetailBuilder":
         self._plan_detail.plan_indicators = plan_indicators
         return self
-
     def i18n_names(self, i18n_names: List[I18nContent]) -> "PlanDetailBuilder":
         self._plan_detail.i18n_names = i18n_names
         return self
-
     def i18n_descriptions(self, i18n_descriptions: List[I18nContent]) -> "PlanDetailBuilder":
         self._plan_detail.i18n_descriptions = i18n_descriptions
         return self
-
+    
     def build(self) -> "PlanDetail":
         return self._plan_detail

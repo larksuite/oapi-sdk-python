@@ -23,14 +23,12 @@ class Flow(object):
 class FlowBuilder(object):
     def __init__(self) -> None:
         self._flow = Flow()
-
     def api_id(self, api_id: str) -> "FlowBuilder":
         self._flow.api_id = api_id
         return self
-
     def api_name(self, api_name: str) -> "FlowBuilder":
         self._flow.api_name = api_name
         return self
-
+    
     def build(self) -> "Flow":
         return self._flow

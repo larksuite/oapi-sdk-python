@@ -24,7 +24,7 @@ class ExtractEntityRequestBuilder(object):
         extract_entity_request.uri = "/open-apis/baike/v1/entities/extract"
         extract_entity_request.token_types = {AccessTokenType.TENANT, AccessTokenType.USER}
         self._extract_entity_request: ExtractEntityRequest = extract_entity_request
-
+    
     def request_body(self, request_body: ExtractEntityRequestBody) -> "ExtractEntityRequestBuilder":
         self._extract_entity_request.request_body = request_body
         self._extract_entity_request.body = request_body

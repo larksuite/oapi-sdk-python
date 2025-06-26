@@ -41,46 +41,36 @@ class Activity(object):
 class ActivityBuilder(object):
     def __init__(self) -> None:
         self._activity = Activity()
-
     def id(self, id: str) -> "ActivityBuilder":
         self._activity.id = id
         return self
-
     def name(self, name: I18n) -> "ActivityBuilder":
         self._activity.name = name
         return self
-
     def description(self, description: I18n) -> "ActivityBuilder":
         self._activity.description = description
         return self
-
     def semester_id(self, semester_id: str) -> "ActivityBuilder":
         self._activity.semester_id = semester_id
         return self
-
     def mode(self, mode: str) -> "ActivityBuilder":
         self._activity.mode = mode
         return self
-
     def progress(self, progress: str) -> "ActivityBuilder":
         self._activity.progress = progress
         return self
-
     def create_time(self, create_time: str) -> "ActivityBuilder":
         self._activity.create_time = create_time
         return self
-
     def modify_time(self, modify_time: str) -> "ActivityBuilder":
         self._activity.modify_time = modify_time
         return self
-
     def create_user_id(self, create_user_id: str) -> "ActivityBuilder":
         self._activity.create_user_id = create_user_id
         return self
-
     def modify_user_id(self, modify_user_id: str) -> "ActivityBuilder":
         self._activity.modify_user_id = modify_user_id
         return self
-
+    
     def build(self) -> "Activity":
         return self._activity

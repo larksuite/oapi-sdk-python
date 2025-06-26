@@ -23,14 +23,12 @@ class BatchChangeTalentPoolTalentPoolRequestBody(object):
 class BatchChangeTalentPoolTalentPoolRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._batch_change_talent_pool_talent_pool_request_body = BatchChangeTalentPoolTalentPoolRequestBody()
-
     def talent_id_list(self, talent_id_list: List[str]) -> "BatchChangeTalentPoolTalentPoolRequestBodyBuilder":
         self._batch_change_talent_pool_talent_pool_request_body.talent_id_list = talent_id_list
         return self
-
     def option_type(self, option_type: int) -> "BatchChangeTalentPoolTalentPoolRequestBodyBuilder":
         self._batch_change_talent_pool_talent_pool_request_body.option_type = option_type
         return self
-
+    
     def build(self) -> "BatchChangeTalentPoolTalentPoolRequestBody":
         return self._batch_change_talent_pool_talent_pool_request_body

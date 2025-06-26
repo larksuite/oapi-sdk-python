@@ -29,32 +29,32 @@ class CreateEmployeeRequestBuilder(object):
         create_employee_request.uri = "/open-apis/corehr/v2/employees"
         create_employee_request.token_types = {AccessTokenType.TENANT}
         self._create_employee_request: CreateEmployeeRequest = create_employee_request
-
+    
     def client_token(self, client_token: str) -> "CreateEmployeeRequestBuilder":
         self._create_employee_request.client_token = client_token
         self._create_employee_request.add_query("client_token", client_token)
         return self
-
+    
     def rehire(self, rehire: bool) -> "CreateEmployeeRequestBuilder":
         self._create_employee_request.rehire = rehire
         self._create_employee_request.add_query("rehire", rehire)
         return self
-
+    
     def rehire_employment_id(self, rehire_employment_id: str) -> "CreateEmployeeRequestBuilder":
         self._create_employee_request.rehire_employment_id = rehire_employment_id
         self._create_employee_request.add_query("rehire_employment_id", rehire_employment_id)
         return self
-
+    
     def force_submit(self, force_submit: bool) -> "CreateEmployeeRequestBuilder":
         self._create_employee_request.force_submit = force_submit
         self._create_employee_request.add_query("force_submit", force_submit)
         return self
-
+    
     def ignore_working_hours_type_rule(self, ignore_working_hours_type_rule: bool) -> "CreateEmployeeRequestBuilder":
         self._create_employee_request.ignore_working_hours_type_rule = ignore_working_hours_type_rule
         self._create_employee_request.add_query("ignore_working_hours_type_rule", ignore_working_hours_type_rule)
         return self
-
+    
     def request_body(self, request_body: CreateEmployeeRequestBody) -> "CreateEmployeeRequestBuilder":
         self._create_employee_request.request_body = request_body
         self._create_employee_request.body = request_body

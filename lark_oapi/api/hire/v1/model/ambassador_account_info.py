@@ -33,34 +33,27 @@ class AmbassadorAccountInfo(object):
 class AmbassadorAccountInfoBuilder(object):
     def __init__(self) -> None:
         self._ambassador_account_info = AmbassadorAccountInfo()
-
     def id(self, id: str) -> "AmbassadorAccountInfoBuilder":
         self._ambassador_account_info.id = id
         return self
-
     def name(self, name: str) -> "AmbassadorAccountInfoBuilder":
         self._ambassador_account_info.name = name
         return self
-
     def mobile_code(self, mobile_code: str) -> "AmbassadorAccountInfoBuilder":
         self._ambassador_account_info.mobile_code = mobile_code
         return self
-
     def mobile_number(self, mobile_number: str) -> "AmbassadorAccountInfoBuilder":
         self._ambassador_account_info.mobile_number = mobile_number
         return self
-
     def email_address(self, email_address: str) -> "AmbassadorAccountInfoBuilder":
         self._ambassador_account_info.email_address = email_address
         return self
-
     def remark(self, remark: str) -> "AmbassadorAccountInfoBuilder":
         self._ambassador_account_info.remark = remark
         return self
-
     def related_school(self, related_school: str) -> "AmbassadorAccountInfoBuilder":
         self._ambassador_account_info.related_school = related_school
         return self
-
+    
     def build(self) -> "AmbassadorAccountInfo":
         return self._ambassador_account_info

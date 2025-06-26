@@ -25,18 +25,15 @@ class FunctionalRoleMember(object):
 class FunctionalRoleMemberBuilder(object):
     def __init__(self) -> None:
         self._functional_role_member = FunctionalRoleMember()
-
     def user_id(self, user_id: str) -> "FunctionalRoleMemberBuilder":
         self._functional_role_member.user_id = user_id
         return self
-
     def scope_type(self, scope_type: str) -> "FunctionalRoleMemberBuilder":
         self._functional_role_member.scope_type = scope_type
         return self
-
     def department_ids(self, department_ids: List[str]) -> "FunctionalRoleMemberBuilder":
         self._functional_role_member.department_ids = department_ids
         return self
-
+    
     def build(self) -> "FunctionalRoleMember":
         return self._functional_role_member

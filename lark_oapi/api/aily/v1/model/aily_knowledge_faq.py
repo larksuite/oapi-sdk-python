@@ -23,14 +23,12 @@ class AilyKnowledgeFaq(object):
 class AilyKnowledgeFaqBuilder(object):
     def __init__(self) -> None:
         self._aily_knowledge_faq = AilyKnowledgeFaq()
-
     def question(self, question: str) -> "AilyKnowledgeFaqBuilder":
         self._aily_knowledge_faq.question = question
         return self
-
     def answer(self, answer: str) -> "AilyKnowledgeFaqBuilder":
         self._aily_knowledge_faq.answer = answer
         return self
-
+    
     def build(self) -> "AilyKnowledgeFaq":
         return self._aily_knowledge_faq

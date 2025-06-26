@@ -22,10 +22,9 @@ class GetAppTableFormResponseBody(object):
 class GetAppTableFormResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._get_app_table_form_response_body = GetAppTableFormResponseBody()
-
     def form(self, form: AppTableForm) -> "GetAppTableFormResponseBodyBuilder":
         self._get_app_table_form_response_body.form = form
         return self
-
+    
     def build(self) -> "GetAppTableFormResponseBody":
         return self._get_app_table_form_response_body

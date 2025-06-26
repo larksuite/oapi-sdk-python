@@ -21,10 +21,9 @@ class SubPageList(object):
 class SubPageListBuilder(object):
     def __init__(self) -> None:
         self._sub_page_list = SubPageList()
-
     def wiki_token(self, wiki_token: str) -> "SubPageListBuilder":
         self._sub_page_list.wiki_token = wiki_token
         return self
-
+    
     def build(self) -> "SubPageList":
         return self._sub_page_list

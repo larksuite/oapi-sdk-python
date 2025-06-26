@@ -24,9 +24,8 @@ class EnableDisableAssessmentProbationRequestBuilder(object):
         enable_disable_assessment_probation_request.uri = "/open-apis/corehr/v2/probation/enable_disable_assessment"
         enable_disable_assessment_probation_request.token_types = {AccessTokenType.TENANT}
         self._enable_disable_assessment_probation_request: EnableDisableAssessmentProbationRequest = enable_disable_assessment_probation_request
-
-    def request_body(self,
-                     request_body: EnableDisableAssessmentProbationRequestBody) -> "EnableDisableAssessmentProbationRequestBuilder":
+    
+    def request_body(self, request_body: EnableDisableAssessmentProbationRequestBody) -> "EnableDisableAssessmentProbationRequestBuilder":
         self._enable_disable_assessment_probation_request.request_body = request_body
         self._enable_disable_assessment_probation_request.body = request_body
         return self

@@ -29,26 +29,21 @@ class CallbackActionValue(object):
 class CallbackActionValueBuilder(object):
     def __init__(self) -> None:
         self._callback_action_value = CallbackActionValue()
-
     def strategy_info(self, strategy_info: str) -> "CallbackActionValueBuilder":
         self._callback_action_value.strategy_info = strategy_info
         return self
-
     def agent_id(self, agent_id: str) -> "CallbackActionValueBuilder":
         self._callback_action_value.agent_id = agent_id
         return self
-
     def agent_type(self, agent_type: int) -> "CallbackActionValueBuilder":
         self._callback_action_value.agent_type = agent_type
         return self
-
     def response_type(self, response_type: int) -> "CallbackActionValueBuilder":
         self._callback_action_value.response_type = response_type
         return self
-
     def session_id(self, session_id: str) -> "CallbackActionValueBuilder":
         self._callback_action_value.session_id = session_id
         return self
-
+    
     def build(self) -> "CallbackActionValue":
         return self._callback_action_value

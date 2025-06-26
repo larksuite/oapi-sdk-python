@@ -26,18 +26,15 @@ class AllowedRollbaclkTaskItemType(object):
 class AllowedRollbaclkTaskItemTypeBuilder(object):
     def __init__(self) -> None:
         self._allowed_rollbaclk_task_item_type = AllowedRollbaclkTaskItemType()
-
     def id(self, id: str) -> "AllowedRollbaclkTaskItemTypeBuilder":
         self._allowed_rollbaclk_task_item_type.id = id
         return self
-
     def activity_label(self, activity_label: List[I18n]) -> "AllowedRollbaclkTaskItemTypeBuilder":
         self._allowed_rollbaclk_task_item_type.activity_label = activity_label
         return self
-
     def is_start(self, is_start: bool) -> "AllowedRollbaclkTaskItemTypeBuilder":
         self._allowed_rollbaclk_task_item_type.is_start = is_start
         return self
-
+    
     def build(self) -> "AllowedRollbaclkTaskItemType":
         return self._allowed_rollbaclk_task_item_type

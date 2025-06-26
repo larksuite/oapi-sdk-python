@@ -29,26 +29,21 @@ class EventLog(object):
 class EventLogBuilder(object):
     def __init__(self) -> None:
         self._event_log = EventLog()
-
     def mail_from(self, mail_from: str) -> "EventLogBuilder":
         self._event_log.mail_from = mail_from
         return self
-
     def rcpt_to(self, rcpt_to: str) -> "EventLogBuilder":
         self._event_log.rcpt_to = rcpt_to
         return self
-
     def smtp_message_id(self, smtp_message_id: str) -> "EventLogBuilder":
         self._event_log.smtp_message_id = smtp_message_id
         return self
-
     def event_type(self, event_type: int) -> "EventLogBuilder":
         self._event_log.event_type = event_type
         return self
-
     def timestamp(self, timestamp: int) -> "EventLogBuilder":
         self._event_log.timestamp = timestamp
         return self
-
+    
     def build(self) -> "EventLog":
         return self._event_log

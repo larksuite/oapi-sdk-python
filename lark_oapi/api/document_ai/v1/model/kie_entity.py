@@ -23,14 +23,12 @@ class KieEntity(object):
 class KieEntityBuilder(object):
     def __init__(self) -> None:
         self._kie_entity = KieEntity()
-
     def key(self, key: str) -> "KieEntityBuilder":
         self._kie_entity.key = key
         return self
-
     def value(self, value: str) -> "KieEntityBuilder":
         self._kie_entity.value = value
         return self
-
+    
     def build(self) -> "KieEntity":
         return self._kie_entity

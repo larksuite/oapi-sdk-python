@@ -25,18 +25,15 @@ class SearchBasicInfoDistrictRequestBody(object):
 class SearchBasicInfoDistrictRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._search_basic_info_district_request_body = SearchBasicInfoDistrictRequestBody()
-
     def city_id_list(self, city_id_list: List[str]) -> "SearchBasicInfoDistrictRequestBodyBuilder":
         self._search_basic_info_district_request_body.city_id_list = city_id_list
         return self
-
     def district_id_list(self, district_id_list: List[str]) -> "SearchBasicInfoDistrictRequestBodyBuilder":
         self._search_basic_info_district_request_body.district_id_list = district_id_list
         return self
-
     def status_list(self, status_list: List[int]) -> "SearchBasicInfoDistrictRequestBodyBuilder":
         self._search_basic_info_district_request_body.status_list = status_list
         return self
-
+    
     def build(self) -> "SearchBasicInfoDistrictRequestBody":
         return self._search_basic_info_district_request_body

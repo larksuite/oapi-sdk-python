@@ -26,17 +26,17 @@ class AddManagersChatManagersRequestBuilder(object):
         add_managers_chat_managers_request.uri = "/open-apis/im/v1/chats/:chat_id/managers/add_managers"
         add_managers_chat_managers_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._add_managers_chat_managers_request: AddManagersChatManagersRequest = add_managers_chat_managers_request
-
+    
     def member_id_type(self, member_id_type: str) -> "AddManagersChatManagersRequestBuilder":
         self._add_managers_chat_managers_request.member_id_type = member_id_type
         self._add_managers_chat_managers_request.add_query("member_id_type", member_id_type)
         return self
-
+    
     def chat_id(self, chat_id: str) -> "AddManagersChatManagersRequestBuilder":
         self._add_managers_chat_managers_request.chat_id = chat_id
         self._add_managers_chat_managers_request.paths["chat_id"] = str(chat_id)
         return self
-
+    
     def request_body(self, request_body: AddManagersChatManagersRequestBody) -> "AddManagersChatManagersRequestBuilder":
         self._add_managers_chat_managers_request.request_body = request_body
         self._add_managers_chat_managers_request.body = request_body

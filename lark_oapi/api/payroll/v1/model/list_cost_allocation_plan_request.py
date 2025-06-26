@@ -25,21 +25,22 @@ class ListCostAllocationPlanRequestBuilder(object):
         list_cost_allocation_plan_request.uri = "/open-apis/payroll/v1/cost_allocation_plans"
         list_cost_allocation_plan_request.token_types = {AccessTokenType.TENANT}
         self._list_cost_allocation_plan_request: ListCostAllocationPlanRequest = list_cost_allocation_plan_request
-
+    
     def page_size(self, page_size: int) -> "ListCostAllocationPlanRequestBuilder":
         self._list_cost_allocation_plan_request.page_size = page_size
         self._list_cost_allocation_plan_request.add_query("page_size", page_size)
         return self
-
+    
     def page_token(self, page_token: str) -> "ListCostAllocationPlanRequestBuilder":
         self._list_cost_allocation_plan_request.page_token = page_token
         self._list_cost_allocation_plan_request.add_query("page_token", page_token)
         return self
-
+    
     def pay_period(self, pay_period: str) -> "ListCostAllocationPlanRequestBuilder":
         self._list_cost_allocation_plan_request.pay_period = pay_period
         self._list_cost_allocation_plan_request.add_query("pay_period", pay_period)
         return self
+    
 
     def build(self) -> ListCostAllocationPlanRequest:
         return self._list_cost_allocation_plan_request

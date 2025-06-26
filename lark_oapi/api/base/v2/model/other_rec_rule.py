@@ -26,18 +26,15 @@ class OtherRecRule(object):
 class OtherRecRuleBuilder(object):
     def __init__(self) -> None:
         self._other_rec_rule = OtherRecRule()
-
     def conditions(self, conditions: List[RecRuleCondition]) -> "OtherRecRuleBuilder":
         self._other_rec_rule.conditions = conditions
         return self
-
     def conjunction(self, conjunction: str) -> "OtherRecRuleBuilder":
         self._other_rec_rule.conjunction = conjunction
         return self
-
     def perm(self, perm: int) -> "OtherRecRuleBuilder":
         self._other_rec_rule.perm = perm
         return self
-
+    
     def build(self) -> "OtherRecRule":
         return self._other_rec_rule

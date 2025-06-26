@@ -23,14 +23,12 @@ class MeetingMinute(object):
 class MeetingMinuteBuilder(object):
     def __init__(self) -> None:
         self._meeting_minute = MeetingMinute()
-
     def doc_token(self, doc_token: str) -> "MeetingMinuteBuilder":
         self._meeting_minute.doc_token = doc_token
         return self
-
     def doc_url(self, doc_url: str) -> "MeetingMinuteBuilder":
         self._meeting_minute.doc_url = doc_url
         return self
-
+    
     def build(self) -> "MeetingMinute":
         return self._meeting_minute

@@ -3,8 +3,7 @@
 from typing import Any, Optional, Union, Dict, List, Set, IO, Callable, Type
 from lark_oapi.core.model import BaseRequest
 from lark_oapi.core.enum import HttpMethod, AccessTokenType
-from .batch_create_authorization_application_role_member_request_body import \
-    BatchCreateAuthorizationApplicationRoleMemberRequestBody
+from .batch_create_authorization_application_role_member_request_body import BatchCreateAuthorizationApplicationRoleMemberRequestBody
 
 
 class BatchCreateAuthorizationApplicationRoleMemberRequest(BaseRequest):
@@ -27,19 +26,18 @@ class BatchCreateAuthorizationApplicationRoleMemberRequestBuilder(object):
         batch_create_authorization_application_role_member_request.uri = "/open-apis/apaas/v1/applications/:namespace/roles/:role_api_name/member/batch_create_authorization"
         batch_create_authorization_application_role_member_request.token_types = {AccessTokenType.TENANT}
         self._batch_create_authorization_application_role_member_request: BatchCreateAuthorizationApplicationRoleMemberRequest = batch_create_authorization_application_role_member_request
-
+    
     def namespace(self, namespace: str) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBuilder":
         self._batch_create_authorization_application_role_member_request.namespace = namespace
         self._batch_create_authorization_application_role_member_request.paths["namespace"] = str(namespace)
         return self
-
+    
     def role_api_name(self, role_api_name: str) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBuilder":
         self._batch_create_authorization_application_role_member_request.role_api_name = role_api_name
         self._batch_create_authorization_application_role_member_request.paths["role_api_name"] = str(role_api_name)
         return self
-
-    def request_body(self,
-                     request_body: BatchCreateAuthorizationApplicationRoleMemberRequestBody) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBuilder":
+    
+    def request_body(self, request_body: BatchCreateAuthorizationApplicationRoleMemberRequestBody) -> "BatchCreateAuthorizationApplicationRoleMemberRequestBuilder":
         self._batch_create_authorization_application_role_member_request.request_body = request_body
         self._batch_create_authorization_application_role_member_request.body = request_body
         return self

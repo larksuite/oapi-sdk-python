@@ -28,22 +28,18 @@ class DocsBlock(object):
 class DocsBlockBuilder(object):
     def __init__(self) -> None:
         self._docs_block = DocsBlock()
-
     def block_type_id(self, block_type_id: str) -> "DocsBlockBuilder":
         self._docs_block.block_type_id = block_type_id
         return self
-
     def i18n(self, i18n: List[BlockI18nInfo]) -> "DocsBlockBuilder":
         self._docs_block.i18n = i18n
         return self
-
     def mobile_icon_url(self, mobile_icon_url: str) -> "DocsBlockBuilder":
         self._docs_block.mobile_icon_url = mobile_icon_url
         return self
-
     def pc_icon_url(self, pc_icon_url: str) -> "DocsBlockBuilder":
         self._docs_block.pc_icon_url = pc_icon_url
         return self
-
+    
     def build(self) -> "DocsBlock":
         return self._docs_block

@@ -24,7 +24,7 @@ class CreateAccessTokenRequestBuilder(object):
         create_access_token_request.uri = "/open-apis/authen/v1/access_token"
         create_access_token_request.token_types = {AccessTokenType.APP}
         self._create_access_token_request: CreateAccessTokenRequest = create_access_token_request
-
+    
     def request_body(self, request_body: CreateAccessTokenRequestBody) -> "CreateAccessTokenRequestBuilder":
         self._create_access_token_request.request_body = request_body
         self._create_access_token_request.body = request_body

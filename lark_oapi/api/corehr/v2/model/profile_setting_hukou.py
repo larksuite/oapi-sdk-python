@@ -26,18 +26,15 @@ class ProfileSettingHukou(object):
 class ProfileSettingHukouBuilder(object):
     def __init__(self) -> None:
         self._profile_setting_hukou = ProfileSettingHukou()
-
     def hukou_type(self, hukou_type: str) -> "ProfileSettingHukouBuilder":
         self._profile_setting_hukou.hukou_type = hukou_type
         return self
-
     def hukou_location(self, hukou_location: str) -> "ProfileSettingHukouBuilder":
         self._profile_setting_hukou.hukou_location = hukou_location
         return self
-
     def custom_fields(self, custom_fields: List[ProfileSettingCustomField]) -> "ProfileSettingHukouBuilder":
         self._profile_setting_hukou.custom_fields = custom_fields
         return self
-
+    
     def build(self) -> "ProfileSettingHukou":
         return self._profile_setting_hukou

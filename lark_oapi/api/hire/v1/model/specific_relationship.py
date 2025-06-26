@@ -23,14 +23,12 @@ class SpecificRelationship(object):
 class SpecificRelationshipBuilder(object):
     def __init__(self) -> None:
         self._specific_relationship = SpecificRelationship()
-
     def relation_with_candidate(self, relation_with_candidate: int) -> "SpecificRelationshipBuilder":
         self._specific_relationship.relation_with_candidate = relation_with_candidate
         return self
-
     def extra(self, extra: str) -> "SpecificRelationshipBuilder":
         self._specific_relationship.extra = extra
         return self
-
+    
     def build(self) -> "SpecificRelationship":
         return self._specific_relationship

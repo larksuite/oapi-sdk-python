@@ -25,18 +25,15 @@ class TagText(object):
 class TagTextBuilder(object):
     def __init__(self) -> None:
         self._tag_text = TagText()
-
     def tag_text_id(self, tag_text_id: str) -> "TagTextBuilder":
         self._tag_text.tag_text_id = tag_text_id
         return self
-
     def tag_text(self, tag_text: str) -> "TagTextBuilder":
         self._tag_text.tag_text = tag_text
         return self
-
     def tag_richtext(self, tag_richtext: str) -> "TagTextBuilder":
         self._tag_text.tag_richtext = tag_richtext
         return self
-
+    
     def build(self) -> "TagText":
         return self._tag_text

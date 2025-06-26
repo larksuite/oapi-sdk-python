@@ -29,26 +29,21 @@ class InputOption(object):
 class InputOptionBuilder(object):
     def __init__(self) -> None:
         self._input_option = InputOption()
-
     def name(self, name: str) -> "InputOptionBuilder":
         self._input_option.name = name
         return self
-
     def color_index(self, color_index: int) -> "InputOptionBuilder":
         self._input_option.color_index = color_index
         return self
-
     def insert_before(self, insert_before: str) -> "InputOptionBuilder":
         self._input_option.insert_before = insert_before
         return self
-
     def insert_after(self, insert_after: str) -> "InputOptionBuilder":
         self._input_option.insert_after = insert_after
         return self
-
     def is_hidden(self, is_hidden: bool) -> "InputOptionBuilder":
         self._input_option.is_hidden = is_hidden
         return self
-
+    
     def build(self) -> "InputOption":
         return self._input_option

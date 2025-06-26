@@ -26,18 +26,15 @@ class JobDetailRecruitmentType(object):
 class JobDetailRecruitmentTypeBuilder(object):
     def __init__(self) -> None:
         self._job_detail_recruitment_type = JobDetailRecruitmentType()
-
     def id(self, id: str) -> "JobDetailRecruitmentTypeBuilder":
         self._job_detail_recruitment_type.id = id
         return self
-
     def name(self, name: I18n) -> "JobDetailRecruitmentTypeBuilder":
         self._job_detail_recruitment_type.name = name
         return self
-
     def active_status(self, active_status: int) -> "JobDetailRecruitmentTypeBuilder":
         self._job_detail_recruitment_type.active_status = active_status
         return self
-
+    
     def build(self) -> "JobDetailRecruitmentType":
         return self._job_detail_recruitment_type

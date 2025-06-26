@@ -33,34 +33,27 @@ class TimeConfig(object):
 class TimeConfigBuilder(object):
     def __init__(self) -> None:
         self._time_config = TimeConfig()
-
     def if_cover_child_scope(self, if_cover_child_scope: bool) -> "TimeConfigBuilder":
         self._time_config.if_cover_child_scope = if_cover_child_scope
         return self
-
     def time_switch(self, time_switch: int) -> "TimeConfigBuilder":
         self._time_config.time_switch = time_switch
         return self
-
     def days_in_advance(self, days_in_advance: int) -> "TimeConfigBuilder":
         self._time_config.days_in_advance = days_in_advance
         return self
-
     def opening_hour(self, opening_hour: int) -> "TimeConfigBuilder":
         self._time_config.opening_hour = opening_hour
         return self
-
     def start_time(self, start_time: int) -> "TimeConfigBuilder":
         self._time_config.start_time = start_time
         return self
-
     def end_time(self, end_time: int) -> "TimeConfigBuilder":
         self._time_config.end_time = end_time
         return self
-
     def max_duration(self, max_duration: int) -> "TimeConfigBuilder":
         self._time_config.max_duration = max_duration
         return self
-
+    
     def build(self) -> "TimeConfig":
         return self._time_config

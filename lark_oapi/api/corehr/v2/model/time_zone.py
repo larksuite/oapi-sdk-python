@@ -30,26 +30,21 @@ class TimeZone(object):
 class TimeZoneBuilder(object):
     def __init__(self) -> None:
         self._time_zone = TimeZone()
-
     def time_zone_id(self, time_zone_id: str) -> "TimeZoneBuilder":
         self._time_zone.time_zone_id = time_zone_id
         return self
-
     def name(self, name: List[I18n]) -> "TimeZoneBuilder":
         self._time_zone.name = name
         return self
-
     def time_zone_code(self, time_zone_code: str) -> "TimeZoneBuilder":
         self._time_zone.time_zone_code = time_zone_code
         return self
-
     def utc_offset(self, utc_offset: str) -> "TimeZoneBuilder":
         self._time_zone.utc_offset = utc_offset
         return self
-
     def status(self, status: int) -> "TimeZoneBuilder":
         self._time_zone.status = status
         return self
-
+    
     def build(self) -> "TimeZone":
         return self._time_zone

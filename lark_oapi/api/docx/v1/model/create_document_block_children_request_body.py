@@ -24,14 +24,12 @@ class CreateDocumentBlockChildrenRequestBody(object):
 class CreateDocumentBlockChildrenRequestBodyBuilder(object):
     def __init__(self) -> None:
         self._create_document_block_children_request_body = CreateDocumentBlockChildrenRequestBody()
-
     def children(self, children: List[Block]) -> "CreateDocumentBlockChildrenRequestBodyBuilder":
         self._create_document_block_children_request_body.children = children
         return self
-
     def index(self, index: int) -> "CreateDocumentBlockChildrenRequestBodyBuilder":
         self._create_document_block_children_request_body.index = index
         return self
-
+    
     def build(self) -> "CreateDocumentBlockChildrenRequestBody":
         return self._create_document_block_children_request_body

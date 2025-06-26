@@ -21,10 +21,9 @@ class DeleteFileResponseBody(object):
 class DeleteFileResponseBodyBuilder(object):
     def __init__(self) -> None:
         self._delete_file_response_body = DeleteFileResponseBody()
-
     def task_id(self, task_id: str) -> "DeleteFileResponseBodyBuilder":
         self._delete_file_response_body.task_id = task_id
         return self
-
+    
     def build(self) -> "DeleteFileResponseBody":
         return self._delete_file_response_body

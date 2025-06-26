@@ -23,14 +23,12 @@ class ApplicationAppUsage(object):
 class ApplicationAppUsageBuilder(object):
     def __init__(self) -> None:
         self._application_app_usage = ApplicationAppUsage()
-
     def metric_name(self, metric_name: str) -> "ApplicationAppUsageBuilder":
         self._application_app_usage.metric_name = metric_name
         return self
-
     def metric_value(self, metric_value: int) -> "ApplicationAppUsageBuilder":
         self._application_app_usage.metric_value = metric_value
         return self
-
+    
     def build(self) -> "ApplicationAppUsage":
         return self._application_app_usage

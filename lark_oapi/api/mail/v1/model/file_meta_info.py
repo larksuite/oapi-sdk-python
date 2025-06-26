@@ -25,18 +25,15 @@ class FileMetaInfo(object):
 class FileMetaInfoBuilder(object):
     def __init__(self) -> None:
         self._file_meta_info = FileMetaInfo()
-
     def id(self, id: str) -> "FileMetaInfoBuilder":
         self._file_meta_info.id = id
         return self
-
     def filename_hash(self, filename_hash: str) -> "FileMetaInfoBuilder":
         self._file_meta_info.filename_hash = filename_hash
         return self
-
     def size(self, size: int) -> "FileMetaInfoBuilder":
         self._file_meta_info.size = size
         return self
-
+    
     def build(self) -> "FileMetaInfo":
         return self._file_meta_info

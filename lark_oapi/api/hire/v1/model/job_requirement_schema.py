@@ -27,18 +27,15 @@ class JobRequirementSchema(object):
 class JobRequirementSchemaBuilder(object):
     def __init__(self) -> None:
         self._job_requirement_schema = JobRequirementSchema()
-
     def id(self, id: str) -> "JobRequirementSchemaBuilder":
         self._job_requirement_schema.id = id
         return self
-
     def name(self, name: I18n) -> "JobRequirementSchemaBuilder":
         self._job_requirement_schema.name = name
         return self
-
     def object_list(self, object_list: List[CommonSchema]) -> "JobRequirementSchemaBuilder":
         self._job_requirement_schema.object_list = object_list
         return self
-
+    
     def build(self) -> "JobRequirementSchema":
         return self._job_requirement_schema

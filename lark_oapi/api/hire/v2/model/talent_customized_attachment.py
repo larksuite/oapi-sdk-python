@@ -27,22 +27,18 @@ class TalentCustomizedAttachment(object):
 class TalentCustomizedAttachmentBuilder(object):
     def __init__(self) -> None:
         self._talent_customized_attachment = TalentCustomizedAttachment()
-
     def file_id(self, file_id: str) -> "TalentCustomizedAttachmentBuilder":
         self._talent_customized_attachment.file_id = file_id
         return self
-
     def file_name(self, file_name: str) -> "TalentCustomizedAttachmentBuilder":
         self._talent_customized_attachment.file_name = file_name
         return self
-
     def content_type(self, content_type: str) -> "TalentCustomizedAttachmentBuilder":
         self._talent_customized_attachment.content_type = content_type
         return self
-
     def file_size(self, file_size: int) -> "TalentCustomizedAttachmentBuilder":
         self._talent_customized_attachment.file_size = file_size
         return self
-
+    
     def build(self) -> "TalentCustomizedAttachment":
         return self._talent_customized_attachment

@@ -25,14 +25,12 @@ class AppConfigSecurity(object):
 class AppConfigSecurityBuilder(object):
     def __init__(self) -> None:
         self._app_config_security = AppConfigSecurity()
-
     def add(self, add: AppConfigSecurityItem) -> "AppConfigSecurityBuilder":
         self._app_config_security.add = add
         return self
-
     def remove(self, remove: AppConfigSecurityItem) -> "AppConfigSecurityBuilder":
         self._app_config_security.remove = remove
         return self
-
+    
     def build(self) -> "AppConfigSecurity":
         return self._app_config_security

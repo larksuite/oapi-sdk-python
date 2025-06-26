@@ -17,8 +17,7 @@ class ChatButton(object):
     def __init__(self, config: Config) -> None:
         self.config: Config = config
 
-    def update(self, request: UpdateChatButtonRequest,
-               option: Optional[RequestOption] = None) -> UpdateChatButtonResponse:
+    def update(self, request: UpdateChatButtonRequest, option: Optional[RequestOption] = None) -> UpdateChatButtonResponse:
         if option is None:
             option = RequestOption()
 
@@ -31,26 +30,30 @@ class ChatButton(object):
 
         # 发起请求
         resp: RawResponse = Transport.execute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateChatButtonResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatButtonResponse)
         response.raw = resp
 
         return response
+        
 
-    async def aupdate(self, request: UpdateChatButtonRequest,
-                      option: Optional[RequestOption] = None) -> UpdateChatButtonResponse:
+    async def aupdate(self, request: UpdateChatButtonRequest, option: Optional[RequestOption] = None) -> UpdateChatButtonResponse:
         if option is None:
             option = RequestOption()
 
         # 鉴权、获取 token
         verify(self.config, request, option)
 
+        
+
         # 发起请求
         resp: RawResponse = await Transport.aexecute(self.config, request, option)
-
+        
         # 反序列化
         response: UpdateChatButtonResponse = JSON.unmarshal(str(resp.content, UTF_8), UpdateChatButtonResponse)
         response.raw = resp
 
         return response
+        
+    

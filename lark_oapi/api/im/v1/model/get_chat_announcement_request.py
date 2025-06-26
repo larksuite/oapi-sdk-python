@@ -24,16 +24,17 @@ class GetChatAnnouncementRequestBuilder(object):
         get_chat_announcement_request.uri = "/open-apis/im/v1/chats/:chat_id/announcement"
         get_chat_announcement_request.token_types = {AccessTokenType.USER, AccessTokenType.TENANT}
         self._get_chat_announcement_request: GetChatAnnouncementRequest = get_chat_announcement_request
-
+    
     def user_id_type(self, user_id_type: str) -> "GetChatAnnouncementRequestBuilder":
         self._get_chat_announcement_request.user_id_type = user_id_type
         self._get_chat_announcement_request.add_query("user_id_type", user_id_type)
         return self
-
+    
     def chat_id(self, chat_id: str) -> "GetChatAnnouncementRequestBuilder":
         self._get_chat_announcement_request.chat_id = chat_id
         self._get_chat_announcement_request.paths["chat_id"] = str(chat_id)
         return self
+    
 
     def build(self) -> GetChatAnnouncementRequest:
         return self._get_chat_announcement_request

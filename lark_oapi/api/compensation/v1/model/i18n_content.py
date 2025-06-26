@@ -23,14 +23,12 @@ class I18nContent(object):
 class I18nContentBuilder(object):
     def __init__(self) -> None:
         self._i18n_content = I18nContent()
-
     def locale(self, locale: str) -> "I18nContentBuilder":
         self._i18n_content.locale = locale
         return self
-
     def value(self, value: str) -> "I18nContentBuilder":
         self._i18n_content.value = value
         return self
-
+    
     def build(self) -> "I18nContent":
         return self._i18n_content
